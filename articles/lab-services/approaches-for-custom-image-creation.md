@@ -17,7 +17,7 @@ This article describes the following recommended approaches for creating a custo
 
 Using a lab's template VM to create and save a custom image is the simplest way to create an image because it's supported by using the Azure Lab Services portal. As a result, both IT departments and educators can create custom images by using a lab's template VM.
 
-For example, you can start with one of the Azure Marketplace images and then install the software applications and tooling that are needed for a class. After you've finished setting up the image, you can save it in the [connected shared image gallery](how-to-attach-detach-shared-image-gallery.md) so that you and other educators can use the image to create new labs.
+For example, you can start with one of the Azure Marketplace images and then install the software applications and tooling that are needed for a class. After you've finished setting up the image, you can save it in the [connected compute gallery](how-to-attach-detach-shared-image-gallery.md) so that you and other educators can use the image to create new labs.
 
 There are a few key points to be aware of with this approach:
 
@@ -27,15 +27,16 @@ There are a few key points to be aware of with this approach:
 
 - For more advanced scenarios with setting up your image, you might find it helpful to instead create an image outside of labs by using either an Azure VM or a VHD from your physical lab environment. Read the next sections for more information.
 
-### Use a lab's template VM to save a custom image 
+### Use a lab's template VM to save a custom image
 
-You can use a lab's template VM to create either Windows or Linux custom images. For more information, see [Save the image to a shared image gallery](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery).
+You can use a lab's template VM to create either Windows or Linux custom images. For more information, see [Save an image a compute gallery](how-to-use-shared-image-gallery.md#save-an-image-to-a-compute-gallery)
 
 ## Bring a custom image from an Azure VM
 
-Another approach is to use an Azure VM to set up a custom image. After you've finished setting up the image, you can save it to a shared image gallery so that you and your colleagues can use the image to create new labs.
+Another approach is to use an Azure VM to set up a custom image. After you've finished setting up the image, you can save it to a compute gallery so that you and your colleagues can use the image to create new labs.
 
 Using an Azure VM gives you more flexibility:
+
 - You can create either [generalized or specialized](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) images. Otherwise, if you use a lab's template VM to [export an image](how-to-use-shared-image-gallery.md) the image is always specialized.
 - You have access to more advanced features of an Azure VM that might be helpful for setting up an image. For example, you can use [extensions](../virtual-machines/extensions/overview.md) to do post-deployment configuration and automation. Also, you can access the VM's [boot diagnostics](../virtual-machines/boot-diagnostics.md) and [serial console](/troubleshoot/azure/virtual-machines/serial-console-overview).
 
@@ -47,7 +48,7 @@ Here are the high-level steps to bring a custom image from an Azure VM:
 
 1. Create an [Azure VM](https://azure.microsoft.com/services/virtual-machines/) by using a Windows or Linux Marketplace image.
 1. Connect to the Azure VM and install more software. You can also make other customizations that are needed for your lab.
-1. When you've finished setting up the image, [save the VM's image to a shared image gallery](../virtual-machines/image-version.md). As part of this step, you'll also need to create the image's definition and version.
+1. When you've finished setting up the image, [save the VM's image to a compute gallery](../virtual-machines/image-version.md). As part of this step, you'll also need to create the image's definition and version.
 1. After the custom image is saved in the gallery, you can use your image to create new labs. 
 
 
@@ -58,7 +59,7 @@ The steps vary depending on if you're creating a custom Windows or Linux image. 
 
 ## Bring a custom image from a VHD in your physical lab environment
 
-The third approach to consider is to bring a custom image from a VHD in your physical lab environment to a shared image gallery. After the image is in a shared image gallery, you and other educators can use the image to create new labs.
+The third approach to consider is to bring a custom image from a VHD in your physical lab environment to a compute gallery. After the image is in a compute gallery, you and other educators can use the image to create new labs.
 
 Here are a few reasons why you might want to use this approach:
 
@@ -75,7 +76,7 @@ Here are the high-level steps to bring a custom image from a VHD:
 1. Use [Windows Hyper-V](/virtualization/hyper-v-on-windows/about/) on your on-premises machine to create a Windows or Linux VHD.
 1. Connect to the Hyper-V VM and install more software. You can also make other customizations that are needed for your lab.
 1. When you've finished setting up the image, upload the VHD to create a [managed disk](../virtual-machines/managed-disks-overview.md) in Azure.
-1. From the managed disk, create the [image's definition](../virtual-machines/shared-image-galleries.md#image-definitions) and version in a shared image gallery.
+1. From the managed disk, create the [image's definition](../virtual-machines/shared-image-galleries.md#image-definitions) and version in a compute gallery.
 1. After the custom image is saved in the gallery, you can use the image to create new labs. 
 
 The steps vary depending on if you're creating a custom Windows or Linux image. Read the following articles for the detailed steps:
@@ -85,6 +86,6 @@ The steps vary depending on if you're creating a custom Windows or Linux image. 
 
 ## Next steps
 
-* [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
-* [Attach or detach a shared image gallery](how-to-attach-detach-shared-image-gallery.md)
-* [Use a shared image gallery](how-to-use-shared-image-gallery.md)
+* [Azure Compute gallery overview](../virtual-machines/shared-image-galleries.md)
+* [Attach or detach an Azure Compute Gallery](how-to-attach-detach-shared-image-gallery.md)
+* [Use an Azure Compute Gallery](how-to-use-shared-image-gallery.md)

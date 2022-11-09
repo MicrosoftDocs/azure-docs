@@ -26,7 +26,7 @@ The intent of the table columns is explained by the following items:
 | Framework | App artifact location | Custom build command |
 |--|--|--|
 | [Alpine.js](https://github.com/alpinejs/alpine/) | `/` | n/a <sup>2</sup> |
-| [Angular](https://angular.io/) | `dist/<APP_NAME>` | `npm run build -- --configuration production` |
+| [Angular](https://angular.io/) | `dist/<APP_NAME>` <br><br>If you do not include an `<APP_NAME>`, remove the trailing slash. | `npm run build -- --configuration production` |
 | [Angular Universal](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | `npm run prerender` |
 | [Astro](https://astro.build) | `dist` | n/a |
 | [Aurelia](https://aurelia.io/) | `dist` | n/a |
@@ -45,10 +45,12 @@ The intent of the table columns is explained by the following items:
 | [Marko](https://markojs.com/) | `public` | n/a |
 | [Meteor](https://www.meteor.com/) | `bundle` | n/a |
 | [Mithril](https://mithril.js.org/) | `dist` | n/a |
+| [Next.js](https://nextjs.org/) (Static HTML Export) | `out` | n/a |
+| [Next.js](https://nextjs.org/) (Server-Side Rendering/Incremental Server Rendering) | n/a | n/a |
 | [Polymer](https://www.polymer-project.org/) | `build/default` | n/a |
 | [Preact](https://preactjs.com/) | `build` | n/a |
 | [React](https://reactjs.org/) | `build` | n/a |
-| [RedwoodJS](https://redwoodjs.com/) | `web/dist` | `yarn rw build` |
+| [RedwoodJS](https://redwoodjs.com/) | `web/dist` | `yarn rw build web` |
 | [Stencil](https://stenciljs.com/) | `www` | n/a |
 | [Svelte](https://svelte.dev/) | `public` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a |

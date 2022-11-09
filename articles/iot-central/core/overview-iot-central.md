@@ -3,7 +3,7 @@ title: What is Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. It helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/22/2021
+ms.date: 06/09/2022
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -20,7 +20,7 @@ This article provides an overview of the features of Azure IoT Central.
 
 ## Create an IoT Central application
 
-[Quickly deploy a new IoT Central application](quick-deploy-iot-central.md) and then customize it to your specific requirements. Application templates in Azure IoT Central are a tool to help you kickstart your IoT solution development. You can use application templates for everything from getting a feel for what is possible, to fully customizing your application to resell to your customers.
+You can quickly deploy a new IoT Central application and then customize it to your specific requirements. Application templates in Azure IoT Central are a tool to help you kickstart your IoT solution development. You can use application templates for everything from getting a feel for what is possible, to fully customizing your application to resell to your customers.
 
 Start with a generic _application template_ or with one of the industry-focused application templates:
 
@@ -29,11 +29,15 @@ Start with a generic _application template_ or with one of the industry-focused 
 - [Government](../government/tutorial-connected-waste-management.md)
 - [Healthcare](../healthcare/tutorial-continuous-patient-monitoring.md)
 
-See the [Create a new application](quick-deploy-iot-central.md) quickstart for a walk-through of how to create your first application.
+See the [Use your smartphone as a device to send telemetry to an IoT Central application](quick-deploy-iot-central.md) quickstart to learn how to create your first application and connect a device.
 
 ## Connect devices
 
-After you create your application, the next step is to create and connect devices. Every device connected to IoT Central uses a _device template_. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
+After you create your application, the next step is to create and connect devices. The following video walks you through the process of connecting a device to an IoT Central application:
+
+> [!VIDEO https://aka.ms/docs/player?id=66834fbb-7006-4f2b-b73f-540239fd2784]
+
+Every device connected to IoT Central uses a _device template_. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
 
 - Telemetry it sends. Examples include temperature and humidity. Telemetry is streaming data.
 - Business properties that an operator can modify. Examples include a customer address and a last serviced date.
@@ -95,7 +99,7 @@ Build [custom rules](tutorial-create-telemetry-rules.md) based on device state a
 
 ## Integrate with other services
 
-As an application platform, IoT Central lets you transform your IoT data into the business insights that drive actionable outcomes. [Rules](./tutorial-create-telemetry-rules.md), [data export](./howto-export-data.md), and the [public REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) are examples of how you can integrate IoT Central with line-of-business applications:
+As an application platform, IoT Central lets you transform your IoT data into the business insights that drive actionable outcomes. [Rules](./tutorial-create-telemetry-rules.md), [data export](./howto-export-to-blob-storage.md), and the [public REST API](/training/modules/manage-iot-central-apps-with-rest-api/) are examples of how you can integrate IoT Central with line-of-business applications:
 
 ![How IoT Central can transform your IoT data](media/overview-iot-central/transform.png)
 
@@ -111,14 +115,11 @@ Build IoT solutions such as:
 
 ## Administer your application
 
-IoT Central applications are fully hosted by Microsoft, which reduces the administration overhead of managing your applications. Administrators manage access to your application with [user roles and permissions](howto-administer.md).
+IoT Central applications are fully hosted by Microsoft, which reduces the administration overhead of managing your applications. Administrators manage access to your application with [user roles and permissions](howto-administer.md) and track activity by using [audit logs](howto-use-audit-logs.md).
 
 ## Pricing
 
-You can create IoT Central application using a 7-day free trial, or use a standard pricing plan.
-
-- Applications you create using the *free* plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.
-- Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 0**, **Standard 1**, or **Standard 2** pricing plan with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing).
+Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 0**, **Standard 1**, or **Standard 2** pricing plan with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing).
 
 ## User roles
 

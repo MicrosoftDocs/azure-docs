@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 07/09/2021
+ms.date: 05/18/2022
 ms.author: alkohli
 ---
 
@@ -21,7 +21,7 @@ This article provides a brief overview of virtual machines (VMs) running on your
 
 Azure Stack Edge solution provides purpose-built hardware-as-a-service devices from Microsoft that can be used to deploy edge computing workloads and get quick actionable insights at the edge where the data is generated. 
 
-Depending on your environment and the type of applications you are running, you can deploy one of the following edge computing workloads on these devices: 
+Depending on your environment and the type of applications you're running, you can deploy one of the following edge computing workloads on these devices: 
 
 - **Containerized** - Use IoT Edge or Kubernetes to run your containerized applications.
 - **Non-containerized** - Deploy both Windows and Linux virtual machines on your devices to run non-containerized applications. 
@@ -40,9 +40,9 @@ Before you begin, review the following considerations about your VM:
 
 ### VM size
 
-You need to be aware of VM sizes if you are planning to deploy VMs. There are multiple sizes available for the VMs that you can use to run apps and workloads on your device. The size that you choose then determines factors such as processing power, memory, and storage capacity. For  more information, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
+You need to be aware of VM sizes if you're planning to deploy VMs. There are multiple sizes available for the VMs that you can use to run apps and workloads on your device. The size that you choose then determines factors such as processing power, memory, and storage capacity. For  more information, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
 
-To figure out the size and the number of VMs that you can deploy on your device, factor in the usable compute on your device and other workloads that you are running. If running Kubernetes, consider the compute requirements for the Kubernetes master and worker VMs as well.
+To figure out the size and the number of VMs that you can deploy on your device, factor in the usable compute on your device and other workloads that you're running. If running Kubernetes, consider the compute requirements for the Kubernetes master and worker VMs as well.
 
 |Kubernetes VM type|CPU and memory requirement|
 |---------|---------|
@@ -51,7 +51,7 @@ To figure out the size and the number of VMs that you can deploy on your device,
 
 For the usable compute and memory on your device, see the [Compute and memory specifications](azure-stack-edge-gpu-technical-specifications-compliance.md#compute-and-memory-specifications) for your device model. 
 
-For a GPU virtual machine, you must use a [VM size from the NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+For a GPU virtual machine, you must use a [VM size from the NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized).
 
 
 ### VM limits
@@ -60,7 +60,7 @@ You can run a maximum of 24 VMs on your device. This is another factor to consid
 
 ### Operating system disks and images
 
-On your device, you can only use Generation 1 VMs with a fixed virtual hard disk (VHD) format. VHDs are used to store the machine operating system (OS) and data. VHDs are also used for the images you use to install an OS. 
+On your device, you can use Generation 1 or Generation 2 VMs with a fixed virtual hard disk (VHD) format. VHDs are used to store the machine operating system (OS) and data. VHDs are also used for the images you use to install an OS. 
 
 The images that you use to create VM images can be generalized or specialized. When creating images for your VMs, you must prepare the images. See the various ways to prepare and use VM images on your device:
 
@@ -71,11 +71,13 @@ The images that you use to create VM images can be generalized or specialized. W
 
 ### Extensions
 
-Custom script extensions are available for the VMs on your device that help configure workloads by running your script when the VM is provisioned.
+The following extensions are available for the VMs on your device.
 
-For more information, see [Deploy Custom Script Extension on VMs running on your device](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)
-
-You can also use GPU extensions for your VM if you want to install GPU drivers when the GPU VMs are provisioned. For more information, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) and [Install GPU extensions](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
+|Extension|Description|Learn more|
+|---------|---------|---------|
+|Custom script extensions|Use custom script extensions to configure workloads.|[Deploy Custom Script Extension on VMs running on your device](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)|
+|GPU extensions |Use GPU extensions to install GPU drivers.|[Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) and [Install GPU extensions](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md)|
+|Reset VM password extensions|Reset a VM password using PowerShell.|[Install the VM password reset extension](azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension.md)|
 
 ## Create a VM
 
@@ -121,7 +123,7 @@ You can manage the VMs on your device via the Azure portal, via the PowerShell i
 To get more information about your VM via the Azure portal, follow these steps:
 
 1. Go to Azure Stack Edge resource for your device and then go to **Virtual machines > Overview**. 
-1. In the **Overview** page, go to **Virtual machines** and select the virtual machine that you are interested in. You can then view the details of the VM. 
+1. In the **Overview** page, go to **Virtual machines** and select the virtual machine that you're interested in. You can then view the details of the VM. 
 
 ### Connect to your VM
 
@@ -132,7 +134,7 @@ Depending on the OS that your VM runs, you can connect to the VM as follows:
 
 ### Start, stop, delete VMs
 
-You can [turn on the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#turn-on-the-vm), [suspend or shut down the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm). Finally, you can [delete the VMs](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#delete-the-vm) after you are done using them.
+You can [turn on the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#turn-on-the-vm), [suspend or shut down the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm). Finally, you can [delete the VMs](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#delete-the-vm) after you're done using them.
 
 ### Manage network interfaces, virtual switches
 

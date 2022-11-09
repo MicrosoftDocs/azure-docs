@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, event-tier1-build-2022
 ---
 
 # Supported Kubernetes versions in Azure Kubernetes Service (AKS)
@@ -34,24 +34,14 @@ Each number in the version indicates general compatibility with the previous ver
 
 Aim to run the latest patch release of the minor version you're running. For example, your production cluster is on **`1.17.7`**. **`1.17.8`** is the latest available patch version available for the *1.17* series. You should upgrade to **`1.17.8`** as soon as possible to ensure your cluster is fully patched and supported.
 
-## Kubernetes version alias (Preview)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Alias minor version
 
 > [!NOTE]
-> Kubernetes version alias requires Azure CLI version 2.31.0 or above with the aks-preview extension installed. Please use `az upgrade` to install the latest version of the CLI.
+> Alias minor version requires Azure CLI version 2.37 or above. Use `az upgrade` to install the latest version of the CLI.
 
-You will need the *aks-preview* Azure CLI extension version 0.5.49 or greater. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+Azure Kubernetes Service allows for you to create a cluster without specifying the exact patch version. When creating a cluster without designating a patch, the cluster will run the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will be running **`1.21.7`**, which is the latest GA patch version of *1.21*.
 
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-Azure Kubernetes Service allows for you to create a cluster without specifiying the exact patch version. When creating a cluster without specifying a patch, the cluster will run the minor version's latest patch. For example, if you create a cluster with **`1.21`**, your cluster will be running **`1.21.7`**, which is the latest patch version of *1.21*.
+When upgrading by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` will not trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` will trigger an upgrade to the latest GA `1.15` patch.
 
 To see what patch you are on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole Kubernetes version.
 
@@ -197,12 +187,12 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA |
 | 1.21  | Apr-08-21 | May 2021   | Jul 2021  | 1.24 GA |
 | 1.22  | Aug-04-21 | Sept 2021   | Dec 2021  | 1.25 GA |
 | 1.23  | Dec 2021 | Jan 2022   | Apr 2022  | 1.26 GA |
 | 1.24 | Apr-22-22 | May 2022 | Jul 2022 | 1.27 GA
-| 1.25 | Aug 2022 | Sept 2022 | Nov 2022 | 1.28 GA
+| 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | 1.28 GA
+| 1.26 | Dec 2022 | Jan 2023 | Mar 2023 | 1.29 GA
 
 ## FAQ
 
@@ -274,7 +264,6 @@ Patches have a two month minimum lifecycle. To keep up to date when new patches 
 For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
 <!-- LINKS - External -->
-[aks-engine]: https://github.com/Azure/aks-engine
 [azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->

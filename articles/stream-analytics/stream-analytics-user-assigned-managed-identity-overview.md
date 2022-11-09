@@ -1,14 +1,15 @@
 ---
-title: User-assigned managed identities for Azure Stream Analytics (preview)
+title: User-assigned managed identities for Azure Stream Analytics 
 description: This article describes configuring user-assigned managed identities for Azure Stream Analytics.
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 09/29/2022
 ---
 
-# User-assigned managed identities for Azure Stream Analytics (preview)
+# User-assigned managed identities for Azure Stream Analytics
 
 Azure Stream Analytics currently allows you to use user-assigned managed identities to authenticate to your job's inputs and outputs.
 
@@ -20,10 +21,10 @@ In this article, you learn how to create a user-assigned managed identity for yo
 
 ## Create a user-assigned managed identity
 
-To create a user-assigned managed identity, your account needs the [Managed Identity Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) assignment.
+To create a user-assigned managed identity, your account needs the [Managed Identity Contributor role](../role-based-access-control/built-in-roles.md#managed-identity-contributor) assignment.
 
 > [!NOTE] 
-> Only alphanumeric characters (0-9, a-z, and A-Z) and the hyphen (-) are supported when you create user-assigned managed identities. For the assignment to a virtual machine or virtual machine scale set to work correctly, the name is limited to 24 characters. For more information, see [**FAQs and known issues**](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues)
+> Only alphanumeric characters (0-9, a-z, and A-Z) and the hyphen (-) are supported when you create user-assigned managed identities. For the assignment to a virtual machine or virtual machine scale set to work correctly, the name is limited to 24 characters. For more information, see [**FAQs and known issues**](../active-directory/managed-identities-azure-resources/known-issues.md)
 
    ![Create managed identity](./media/common/create-managed-identity.png)
    
@@ -37,7 +38,7 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
 4. Select **Review + create** to review changes
 5. Select **Create**
 
-For more information on how to manager user-assigned managed identities please visit the [Managed user-assigned managed identities page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
+For more information on how to manager user-assigned managed identities please visit the [Managed user-assigned managed identities page](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp).
 
 
 ## Switching to user-assigned managed identity
@@ -61,9 +62,17 @@ After creating your user-assigned identity and configuring your input and output
 2.	Under **connection status** click on **try regranting access** to switch from system-assigned to user-assigned. 
 3.	Wait for a few minutes for the input/output to be granted access to the job.
 
-You can select each input and output on the endpoint management to manually configure an adapter to the job.
+> [!NOTE] 
+> You can select each input and output on the endpoint management to manually configure an adapter to the job.
 
 
+## Other scenarios and limitations
+With support for both system-assigned identity and user-assigned identity, here are some scenarios and limitations to be aware of when configuring your Azure stream analytics job:
+
+1. You can switch from using system-assigned identity to user-assigned identity and vice-versa. When you switch from a user-assigned identity to another identity, the user identity is not deleted since you created it. You will have to manually delete it from your storage access control list.
+2. You can switch from an existing user-assigned identity to a newly created user-assigned identity. The previous identity is not removed from storage access control list.
+3. You cannot add multiple identities to your stream analytics job.
+4. Currently we do not support deleting an identity from a stream analytics job. You can replace it with another user-assigned or system-assigned identity.
 
 ## Next steps
 

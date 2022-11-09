@@ -1,12 +1,11 @@
 ---
-title: Integrate security solutions in Microsoft Defender for Cloud | Microsoft Docs
+title: Integrate security solutions in Microsoft Defender for Cloud
 description: Learn about how Microsoft Defender for Cloud integrates with partners to enhance the overall security of your Azure resources.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.custom: ignite-2022
+ms.date: 07/14/2022
 ---
 # Integrate security solutions in Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This document helps you to manage security solutions already connected to Microsoft Defender for Cloud and add new ones.
 
@@ -22,12 +21,13 @@ Currently, integrated security solutions include vulnerability assessment by [Qu
 > [!NOTE]
 > Defender for Cloud does not install the Log Analytics agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
 
-To learn more about the integration of vulnerability scanning tools from Qualys, including a built-in scanner available to customers who've enabled Microsoft Defender for servers, see [Defender for Cloud's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md).
+Learn more about the integration of [vulnerability scanning tools from Qualys](deploy-vulnerability-assessment-vm.md), including a built-in scanner available to customers that enable Microsoft Defender for Servers.
 
 Defender for Cloud also offers vulnerability analysis for your:
 
-- SQL databases - see [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
-* Azure Container Registry images - see [Use Microsoft Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md)
+- SQL databases - [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
+- Azure Container Registry images - [Use Microsoft Defender for container registries to scan your images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
+- Amazon AWS Elastic Container Registry images - [Use Microsoft Defender for container registries to scan your images for vulnerabilities](defender-for-containers-vulnerability-assessment-elastic.md)
 
 ## How security solutions are integrated
 Azure security solutions that are deployed from Defender for Cloud are automatically connected. You can also connect other security data sources, including computers running on-premises or in other clouds.
@@ -89,4 +89,4 @@ The **Add data sources** section includes other available data sources that can 
 
 ## Next steps
 
-In this article, you learned how to integrate partner solutions in Defender for Cloud. To learn how to setup an integration with Microsoft Sentinel, or any other SIEM, see [Continuously export Defender for Cloud data](continuous-export.md).
+In this article, you learned how to integrate partner solutions in Defender for Cloud. To learn how to set up an integration with Microsoft Sentinel, or any other SIEM, see [Continuously export Defender for Cloud data](continuous-export.md).

@@ -6,7 +6,7 @@ ms.author: weetok
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: overview
-ms.date: 06/08/2021
+ms.date: 08/11/2022
 ---
 
 # What is Azure Data Factory?
@@ -33,7 +33,7 @@ Additionally, you can publish your transformed data to data stores such as Azure
 
 Data Factory contains a series of interconnected systems that provide a complete end-to-end platform for data engineers.
 
-:::image type="content" source="media/data-flow/overview.png" alt-text="Shows a top-level architecture diagram of Azure Data Factory.":::
+:::image type="content" source="media/data-flow/overview.svg" alt-text="Shows a top-level architecture diagram of Azure Data Factory.":::
 
 This visual guide provides a detailed overview of the complete Data Factory architecture:
 
@@ -125,7 +125,7 @@ Here are important next step documents to explore:
 - [Integration runtime](concepts-integration-runtime.md)
 - [Mapping Data Flows](concepts-data-flow-overview.md)
 - [Data Factory UI in the Azure portal](quickstart-create-data-factory-portal.md)
-- [Copy Data tool in the Azure portal](quickstart-create-data-factory-copy-data-tool.md)
+- [Copy Data tool in the Azure portal](quickstart-hello-world-copy-data-tool.md)
 - [PowerShell](quickstart-create-data-factory-powershell.md)
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)

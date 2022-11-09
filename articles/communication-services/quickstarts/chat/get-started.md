@@ -2,20 +2,24 @@
 title: Quickstart - Add chat to your app
 titleSuffix: An Azure Communication Services quickstart
 description: This quickstart shows you how to add Communication Services chat to your app.
-author: fanche
+author: tophpalmer
 manager: phans
 services: azure-communication-services
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: chat
-zone_pivot_groups: acs-js-csharp-java-python-swift-android
+zone_pivot_groups: acs-azcli-js-csharp-java-python-swift-android
 ms.custom: mode-other
 ---
 # Quickstart: Add Chat to your App
 
 Get started with Azure Communication Services by using the Communication Services Chat SDK to add real-time chat to your application. In this quickstart, we'll use the Chat SDK to create chat threads that allow users to have conversations with one another. To learn more about Chat concepts, visit the [chat conceptual documentation](../../concepts/chat/concepts.md).
+
+::: zone pivot="platform-azcli"
+[!INCLUDE [Chat with Azure CLI](./includes/chat-azcli.md)]
+::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [Chat with JavaScript SDK](./includes/chat-js.md)]

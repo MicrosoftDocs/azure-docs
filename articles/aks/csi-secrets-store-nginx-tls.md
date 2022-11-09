@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 05/26/2022
 ms.custom: template-how-to
 ---
 
@@ -15,8 +15,8 @@ This article walks you through the process of securing an NGINX Ingress Controll
 
 Importing the ingress TLS certificate to the cluster can be accomplished using one of two methods:
 
-- **Application** - The application deployment manifest declares and mounts the provider volume. Only when the application is deployed is the certificate made available in the cluster, and when the application is removed the secret is removed as well. This scenario fits development teams who are responsible for the application’s security infrastructure and their integration with the cluster.
-- **Ingress Controller** - The ingress deployment is modified to declare and mount the provider volume. The secret is imported when ingress pods are created. The application’s pods have no access to the TLS certificate. This scenario fits scenarios where one team (i.e. IT) manages and provisions infrastructure and networking components (including HTTPS TLS certificates) and other teams manage application lifecycle. In this case, ingress is specific to a single namespace/workload and is deployed in the same namespace as the application.
+- **Application** - The application deployment manifest declares and mounts the provider volume. Only when the application is deployed, is the certificate made available in the cluster, and when the application is removed the secret is removed as well. This scenario fits development teams who are responsible for the application’s security infrastructure and their integration with the cluster.
+- **Ingress Controller** - The ingress deployment is modified to declare and mount the provider volume. The secret is imported when ingress pods are created. The application’s pods have no access to the TLS certificate. This scenario fits scenarios where one team (for example, IT) manages and creates infrastructure and networking components (including HTTPS TLS certificates) and other teams manage application lifecycle. In this case, ingress is specific to a single namespace/workload and is deployed in the same namespace as the application.
 
 ## Prerequisites
 
@@ -28,18 +28,18 @@ Importing the ingress TLS certificate to the cluster can be accomplished using o
 ## Generate a TLS certificate
 
 ```bash
-export CERT_NAME=ingresscert
+export CERT_NAME=aks-ingress-cert
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-    -out ingress-tls.crt \
-    -keyout ingress-tls.key \
-    -subj "/CN=demo.test.com/O=ingress-tls"
+    -out aks-ingress-tls.crt \
+    -keyout aks-ingress-tls.key \
+    -subj "/CN=demo.azure.com/O=aks-ingress-tls"
 ```
 
 ### Import the certificate to AKV
 
 ```bash
 export AKV_NAME="[YOUR AKV NAME]"
-openssl pkcs12 -export -in ingress-tls.crt -inkey ingress-tls.key  -out $CERT_NAME.pfx
+openssl pkcs12 -export -in aks-ingress-tls.crt -inkey aks-ingress-tls.key  -out $CERT_NAME.pfx
 # skip Password prompt
 ```
 
@@ -52,11 +52,11 @@ az keyvault certificate import --vault-name $AKV_NAME -n $CERT_NAME -f $CERT_NAM
 First, create a new namespace:
 
 ```bash
-export NAMESPACE=ingress-test
+export NAMESPACE=ingress-basic
 ```
 
 ```azurecli-interactive
-kubectl create ns $NAMESPACE
+kubectl create namespace $NAMESPACE
 ```
 
 Select a [method to provide an access identity][csi-ss-identity-access] and configure your SecretProviderClass YAML accordingly. Additionally:
@@ -64,7 +64,7 @@ Select a [method to provide an access identity][csi-ss-identity-access] and conf
 - Be sure to use `objectType=secret`, which is the only way to obtain the private key and the certificate from AKV.
 - Set `kubernetes.io/tls` as the `type` in your `secretObjects` section.
 
-See the following for an example of what your SecretProviderClass might look like:
+See the following example of what your SecretProviderClass might look like:
 
 ```yml
 apiVersion: secrets-store.csi.x-k8s.io/v1
@@ -83,6 +83,8 @@ spec:
       key: tls.crt
   parameters:
     usePodIdentity: "false"
+    useVMManagedIdentity: "true"
+    userAssignedIdentityID: <client id>
     keyvaultName: $AKV_NAME                 # the name of the AKV instance
     objects: |
       array:
@@ -119,8 +121,9 @@ The application’s deployment will reference the Secrets Store CSI Driver's Azu
 helm install ingress-nginx/ingress-nginx --generate-name \
     --namespace $NAMESPACE \
     --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux
 ```
 
 #### Bind certificate to ingress controller
@@ -128,14 +131,15 @@ helm install ingress-nginx/ingress-nginx --generate-name \
 The ingress controller’s deployment will reference the Secrets Store CSI Driver's Azure Key Vault provider.
 
 > [!NOTE]
-> If not using Azure Active Directory (AAD) pod identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME`
+> If not using Azure Active Directory (Azure AD) pod-managed identity as your method of access, remove the line with `--set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME`
 
 ```bash
 helm install ingress-nginx/ingress-nginx --generate-name \
     --namespace $NAMESPACE \
     --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
     --set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME \
     -f - <<EOF
 controller:
@@ -168,59 +172,109 @@ Again, depending on your scenario, the instructions will change slightly. Follow
 
 ### Deploy the application using an application reference
 
-Create a file named `deployment.yaml` with the following content:
+Create a file named `aks-helloworld-one.yaml` with the following content:
 
 ```yml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: busybox-one
-  labels:
-    app: busybox-one
+  name: aks-helloworld-one  
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: busybox-one
+      app: aks-helloworld-one
   template:
     metadata:
       labels:
-        app: busybox-one
+        app: aks-helloworld-one
     spec:
       containers:
-      - name: busybox
-        image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
-        command:
-          - "/bin/sleep"
-          - "10000"
+      - name: aks-helloworld-one
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "Welcome to Azure Kubernetes Service (AKS)"
         volumeMounts:
         - name: secrets-store-inline
           mountPath: "/mnt/secrets-store"
           readOnly: true
       volumes:
-        - name: secrets-store-inline
-          csi:
-            driver: secrets-store.csi.k8s.io
-            readOnly: true
-            volumeAttributes:
-              secretProviderClass: "azure-tls"
+      - name: secrets-store-inline
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "azure-tls"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: busybox-one
+  name: aks-helloworld-one  
 spec:
   type: ClusterIP
   ports:
   - port: 80
   selector:
-    app: busybox-one
+    app: aks-helloworld-one
 ```
 
-And apply it to your cluster:
+Create a file named `aks-helloworld-two.yaml` with the following content:
+
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-helloworld-two  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-helloworld-two
+  template:
+    metadata:
+      labels:
+        app: aks-helloworld-two
+    spec:
+      containers:
+      - name: aks-helloworld-two
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "AKS Ingress Demo"
+        volumeMounts:
+        - name: secrets-store-inline
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
+      volumes:
+      - name: secrets-store-inline
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "azure-tls"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-helloworld-two
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: aks-helloworld-two
+```
+
+And apply them to your cluster:
 
 ```bash
-kubectl apply -f deployment.yaml -n $NAMESPACE
+kubectl apply -f aks-helloworld-one.yaml -n $NAMESPACE
+kubectl apply -f aks-helloworld-two.yaml -n $NAMESPACE
 ```
 
 Verify the Kubernetes secret has been created:
@@ -234,53 +288,92 @@ ingress-tls-csi                                  kubernetes.io/tls              
 
 ### Deploy the application using an ingress controller reference
 
-Create a file named `deployment.yaml` with the following content:
+Create a file named `aks-helloworld-one.yaml` with the following content:
 
 ```yml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: busybox-one
-  labels:
-    app: busybox-one
+  name: aks-helloworld-one  
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: busybox-one
+      app: aks-helloworld-one
   template:
     metadata:
       labels:
-        app: busybox-one
+        app: aks-helloworld-one
     spec:
       containers:
-      - name: busybox
-        image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
-        command:
-          - "/bin/sleep"
-          - "10000"
+      - name: aks-helloworld-one
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "Welcome to Azure Kubernetes Service (AKS)"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: busybox-one
+  name: aks-helloworld-one
 spec:
   type: ClusterIP
   ports:
   - port: 80
   selector:
-    app: busybox-one
+    app: aks-helloworld-one
 ```
 
-And apply it to your cluster:
+Create a file named `aks-helloworld-two.yaml` with the following content:
+
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-helloworld-two  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-helloworld-two
+  template:
+    metadata:
+      labels:
+        app: aks-helloworld-two
+    spec:
+      containers:
+      - name: aks-helloworld-two
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "AKS Ingress Demo"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-helloworld-two  
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: aks-helloworld-two
+```
+
+And apply them to your cluster:
 
 ```bash
-kubectl apply -f deployment.yaml -n $NAMESPACE
+kubectl apply -f aks-helloworld-one.yaml -n $NAMESPACE
+kubectl apply -f aks-helloworld-two.yaml -n $NAMESPACE
 ```
 
 ## Deploy an ingress resource referencing the secret
 
-Finally, we can deploy a Kubernetes ingress resource referencing our secret. Create a file name `ingress.yaml` with the following content:
+Finally, we can deploy a Kubernetes ingress resource referencing our secret. Create a file name `hello-world-ingress.yaml` with the following content:
 
 ```yml
 apiVersion: networking.k8s.io/v1
@@ -288,35 +381,44 @@ kind: Ingress
 metadata:
   name: ingress-tls
   annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
-    - demo.test.com
+    - demo.azure.com
     secretName: ingress-tls-csi
   rules:
-  - host: demo.test.com
+  - host: demo.azure.com
     http:
       paths:
-      - backend:
+      - path: /hello-world-one(/|$)(.*)
+        pathType: Prefix
+        backend:
           service:
-            name: busybox-one
+            name: aks-helloworld-one
             port:
               number: 80
-        path: /(.*)
-      - backend:
+      - path: /hello-world-two(/|$)(.*)
+        pathType: Prefix      
+        backend:
           service:
-            name: busybox-two
+            name: aks-helloworld-two
             port:
               number: 80
-        path: /two(/|$)(.*)
+      - path: /(.*)
+        pathType: Prefix      
+        backend:
+          service:
+            name: aks-helloworld-one
+            port:
+              number: 80
 ```
 
 Make note of the `tls` section referencing the secret we've created earlier, and apply the file to your cluster:
 
 ```bash
-kubectl apply -f ingress.yaml -n $NAMESPACE
+kubectl apply -f hello-world-ingress.yaml -n $NAMESPACE
 ```
 
 ## Obtain the external IP address of the ingress controller
@@ -324,10 +426,10 @@ kubectl apply -f ingress.yaml -n $NAMESPACE
 Use `kubectl get service` to obtain the external IP address for the ingress controller.
 
 ```bash
- kubectl get service -l app=nginx-ingress --namespace $NAMESPACE
+kubectl get service --namespace $NAMESPACE --selector app.kubernetes.io/name=ingress-nginx
 
 NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
-nginx-ingress-1588032400-controller        LoadBalancer   10.0.255.157   52.xx.xx.xx      80:31293/TCP,443:31265/TCP   19m
+nginx-ingress-1588032400-controller        LoadBalancer   10.0.255.157   EXTERNAL_IP      80:31293/TCP,443:31265/TCP   19m
 nginx-ingress-1588032400-default-backend   ClusterIP      10.0.223.214   <none>           80/TCP                       19m 
 ```
 
@@ -336,14 +438,46 @@ nginx-ingress-1588032400-default-backend   ClusterIP      10.0.223.214   <none> 
 Use `curl` to verify your ingress has been properly configured with TLS. Be sure to use the external IP you've obtained from the previous step:
 
 ```bash
-curl -v -k --resolve demo.test.com:443:52.xx.xx.xx https://demo.test.com
+curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
+```
 
-# You should see output similar to the following
-*  subject: CN=demo.test.com; O=ingress-tls
-*  start date: Oct 15 04:23:46 2021 GMT
-*  expire date: Oct 15 04:23:46 2022 GMT
-*  issuer: CN=demo.test.com; O=ingress-tls
+No additional path was provided with the address, so the ingress controller defaults to the */* route. The first demo application is returned, as shown in the following condensed example output:
+
+```console
+[...]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/default.css">
+    <title>Welcome to Azure Kubernetes Service (AKS)</title>
+[...]
+```
+
+The *-v* parameter in our `curl` command outputs verbose information, including the TLS certificate received. Half-way through your curl output, you can verify that your own TLS certificate was used. The *-k* parameter continues loading the page even though we're using a self-signed certificate. The following example shows that the *issuer: CN=demo.azure.com; O=aks-ingress-tls* certificate was used:
+
+```
+[...]
+* Server certificate:
+*  subject: CN=demo.azure.com; O=aks-ingress-tls
+*  start date: Oct 22 22:13:54 2021 GMT
+*  expire date: Oct 22 22:13:54 2022 GMT
+*  issuer: CN=demo.azure.com; O=aks-ingress-tls
 *  SSL certificate verify result: self signed certificate (18), continuing anyway.
+[...]
+```
+
+Now add */hello-world-two* path to the address, such as `https://demo.azure.com/hello-world-two`. The second demo application with the custom title is returned, as shown in the following condensed example output:
+
+```
+curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com/hello-world-two
+
+[...]
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/default.css">
+    <title>AKS Ingress Demo</title>
+[...]
 ```
 
 <!-- LINKS INTERNAL -->

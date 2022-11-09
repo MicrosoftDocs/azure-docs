@@ -8,7 +8,7 @@ ms.date: 1/28/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-# Telephony (PSTN) Pricing
+# Telephony (PSTN) pricing
 
 > [!IMPORTANT]
 > Number Retention and Portability: Phone numbers that are assigned to you during any preview program may need to be returned to Microsoft if you do not meet regulatory requirements before General Availability. During private preview and public preview, telephone numbers are not eligible for porting. [Details on offers in Public Preview / GA](../concepts/numbers/sub-eligibility-number-capability.md)
@@ -19,15 +19,15 @@ In most cases, customers with Azure subscriptions locations that match the count
 
 All prices shown below are in USD.
 
-## United States Telephony Offers
+## United States telephony offers
 
-### Phone Number Leasing Charges
+### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 1.00/mo        |
 |Toll-Free     |USD 2.00/mo        |
 
-### Usage Charges
+### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0130/min       |USD 0.0085/min        |
@@ -35,15 +35,15 @@ All prices shown below are in USD.
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-## United Kingdom Telephony Offers
+## United Kingdom telephony offers
 
-### Phone Number Leasing Charges
+### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 1.00/mo        |
 |Toll-Free     |USD 2.00/mo        |
 
-### Usage Charges
+### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0150/min       |USD 0.0090/min        |
@@ -51,19 +51,83 @@ All prices shown below are in USD.
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-## Denmark Telephony Offers
+## Denmark telephony offers
 
-### Phone Number Leasing Charges
+### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 0.82/mo        |
 |Toll-Free     |USD 25.00/mo        |
 
-### Usage Charges
+### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0190/min       |USD 0.0100/min        |
 |Toll-free |Starting at USD 0.0190/min   |Starting at USD 0.0343/min |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Canada telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1.00/mo        |
+|Toll-Free     |USD 2.00/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.0130/min   |USD 0.0085/min |
+|Toll-free      |Starting at USD 0.0130/min   |USD 0.0220/min |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Ireland telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1.50/mo        |
+|Toll-Free     |USD 19.88/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic    |Starting at USD 0.0160/min   |USD 0.0100/min        |
+|Toll-free     |Starting at USD 0.0160/min   |Starting at USD 0.0448/min |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Italy telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 2.92/mo        |
+|Toll-Free     |USD 23.39/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.0160/min       |USD 0.0100/min        |
+|Toll-free |Starting at USD 0.0160/min   |USD 0.3415/min |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Sweden telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1.00/mo        |
+|Toll-Free     |USD 21.05/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.0160/min       |USD 0.0080/min        |
+|Toll-free |Starting at USD 0.0160/min   |USD 0.1138/min |
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -72,6 +136,13 @@ All prices shown below are in USD.
 Note: Pricing for all countries is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees.
 
 ***
+## Direct routing pricing
+For Azure Communication Services direct routing there is a flat rate regardless of the geography:
+
+|Number type   |To make calls |To receive calls|
+|--------------|-----------|------------|
+|Direct routing|USD 0.0040/min|USD 0.0040/min        |
+
 ## Next steps
 
 In this quickstart, you learned how Telephony (PSTN) Offers are priced for Azure Communication Services.

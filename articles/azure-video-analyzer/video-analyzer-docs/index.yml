@@ -130,7 +130,7 @@ landingContent:
           - text: Release notes
             url: release-notes.md
           - text: Pricing
-            url: https://azure.microsoft.com/pricing/details/video-analyzer/
+            url: /azure/azure-video-analyzer/video-analyzer-docs/
           - text: Edge module FAQ
             url: edge/faq.yml
           - text: Service FAQ

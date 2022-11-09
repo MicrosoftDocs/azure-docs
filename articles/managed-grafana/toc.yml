@@ -1,0 +1,69 @@
+items:
+- name: Azure Managed Grafana
+  href: index.yml
+- name: Overview
+  items:
+    - name: About Azure Managed Grafana
+      href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an instance - Portal
+    href: quickstart-managed-grafana-portal.md
+  - name: Create an instance - Azure CLI
+    href: quickstart-managed-grafana-cli.md
+- name: Tutorial
+  expanded: true
+  items:
+  - name: Call Grafana APIs programmatically
+    href: how-to-api-calls.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Service reliability
+    href: high-availability.md
+  - name: Encryption
+    href: encryption.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Set up authentication and permissions
+    href: how-to-authentication-permissions.md
+  - name: Configure data sources
+    href: how-to-data-source-plugins-managed-identity.md
+  - name: Modify access permissions to Azure Monitor
+    href: how-to-permissions.md
+  - name: Share a Managed Grafana instance
+    href: how-to-share-grafana-workspace.md
+  - name: Monitor a Managed Grafana instance
+    href: how-to-monitor-managed-grafana-workspace.md
+  - name: Create and manage API keys
+    href: how-to-create-api-keys.md
+  - name: Enable zone redundancy
+    href: how-to-enable-zone-redundancy.md
+  - name: Use deterministic outbound IPs
+    href: how-to-deterministic-ip.md
+  - name: Transition to grafana.azure.com domain
+    href: how-to-transition-domain.md
+  - name: Troubleshoot common issues
+    href: troubleshoot-managed-grafana.md
+  - name: Known limitations
+    href: known-limitations.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/grafana
+  - name: Bicep and ARM templates
+    href: /azure/templates/microsoft.dashboard/2021-09-01-preview/grafana
+  - name: Control plane APIs
+    href: /rest/api/managed-grafana
+  - name: Data plane APIs
+    href: https://aka.ms/managed-grafana/docs/http-api
+  - name: Grafana UI
+    href: grafana-app-ui.md
+- name: Resources
+  items:
+  - name: Q&A
+    href: https://aka.ms/managed-grafana/q-n-a
+  - name: Feature request
+    href: https://aka.ms/managed-grafana/feature-request

@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Microsoft Sentinel workspace architecture best practices
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 When planning your Microsoft Sentinel workspace deployment, you must also design your Log Analytics workspace architecture. Decisions about the workspace architecture are typically driven by business and technical requirements. This article reviews key decision factors to help you determine the right workspace architecture for your organizations, including:
 
 - Whether you'll use a single tenant or multiple tenants
@@ -23,30 +21,25 @@ For more information, see [Design your Microsoft Sentinel workspace architecture
 
 See our video: [Architecting SecOps for Success: Best Practices for Deploying Microsoft Sentinel](https://youtu.be/DyL9MEMhqmI)
 
-
 ## Tenancy considerations
 
 While fewer workspaces are simpler to manage, you may have specific needs for multiple tenants and workspaces. For example, many organizations have a cloud environment that contains multiple [Azure Active Directory (Azure AD) tenants](../active-directory/develop/quickstart-create-new-tenant.md), resulting from mergers and acquisitions or due to identity separation requirements.
 
 When determining how many tenants and workspaces to use, consider that most Microsoft Sentinel features operate by using a single workspace or Microsoft Sentinel instance, and Microsoft Sentinel ingests all logs housed within the workspace.
 
-> [!IMPORTANT]
-> Costs are one of the main considerations when determining Microsoft Sentinel architecture. For more information, see [Microsoft Sentinel costs and billing](billing.md).
->
+Costs are one of the main considerations when determining Microsoft Sentinel architecture. For more information, see [Microsoft Sentinel costs and billing](billing.md).
+
 ### Working with multiple tenants
 
-If you have multiple tenants, such as if you're a managed security service provider (MSSP), we recommend that you create at least one workspace for each Azure AD tenant to support built-in, [service to service data connectors](connect-data-sources.md#service-to-service-integration) that work only within their own Azure AD tenant.
+If you have multiple tenants, such as if you're a managed security service provider (MSSP), we recommend that you create at least one workspace for each Azure AD tenant to support built-in, [service to service data connectors](connect-data-sources.md#service-to-service-integration-for-data-connectors) that work only within their own Azure AD tenant.
 
-All connectors based on diagnostics settings, cannot be connected to a workspace that is not located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](./data-connectors-reference.md#azure-firewall), [Azure Storage](./data-connectors-reference.md#azure-storage-account), [Azure Activity](./data-connectors-reference.md#azure-activity) or [Azure Active Directory](connect-azure-active-directory.md).
+All connectors based on diagnostics settings cannot be connected to a workspace that is not located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](./data-connectors-reference.md#azure-firewall), [Azure Storage](./data-connectors-reference.md#azure-storage-account), [Azure Activity](./data-connectors-reference.md#azure-activity) or [Azure Active Directory](connect-azure-active-directory.md).
 
 Use [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) to help manage multiple Microsoft Sentinel instances in different tenants.
 
 > [!NOTE]
 > [Partner data connectors](data-connectors-reference.md) are often based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
->
-
-
-
+> >
 ## Compliance considerations
 
 After your data is collected, stored, and processed, compliance can become an important design requirement, with a significant impact on your Microsoft Sentinel architecture. Having the ability to validate and prove who has access to what data under all conditions is a critical data sovereignty requirement in many countries and regions, and assessing risks and getting insights in Microsoft Sentinel workflows is a priority for many customers.
@@ -63,10 +56,9 @@ To start validating your compliance, assess your data sources, and how and where
 
 > [!NOTE]
 > The [Log Analytics agent](connect-windows-security-events.md) supports TLS 1.2 to ensure data security in transit between the agent and the Log Analytics service, as well as the FIPS 140 standard. 
->
+> >
 > If you are sending data to a geography or region that is different from your Microsoft Sentinel workspace, regardless of whether or not the sending resource resides in Azure, consider using a workspace in the same geography or region.
->
-
+> >
 ## Region considerations
 
 Use separate Microsoft Sentinel instances for each region. While Microsoft Sentinel can be used in multiple regions, you may have requirements to separate data by team, region, or site, or regulations and controls that make multi-region models impossible or more complex than needed. Using separate instances and workspaces for each region helps to avoid bandwidth / egress costs for moving data across regions.
@@ -79,12 +71,12 @@ Consider the following when working with multiple regions:
 
 - Bandwidth costs vary depending on the source and destination region and collection method. For more information, see:
 
-    - [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/)
-    - [Data transfers charges using Log Analytics ](../azure-monitor/logs/manage-cost-storage.md).
+  - [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/)
+  - [Data transfers charges using Log Analytics ](../azure-monitor/usage-estimated-costs.md#data-transfer-charges).
 
 - Use templates for your analytics rules, custom queries, workbooks, and other resources to make your deployments more efficient. Deploy the templates instead of manually deploying each resource in each region.
 
-- Connectors that are based on diagnostics settings do not incur in-bandwidth costs. For more information, see [Manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/manage-cost-storage.md#data-transfer-charges-using-log-analytics).
+- Connectors that are based on diagnostics settings do not incur in-bandwidth costs. For more information, see [Data transfers charges using Log Analytics](../azure-monitor/usage-estimated-costs.md#data-transfer-charges).
 
 For example, if you decide to collect logs from Virtual Machines in East US and send them to a Microsoft Sentinel workspace in West US, you'll be charged ingress costs for the data transfer. Since the Log Analytics agent compresses the data in transit, the size charged for the bandwidth may be lower than the size of the logs in Microsoft Sentinel.
 
@@ -98,7 +90,7 @@ For more information, see [Data residency in Azure](https://azure.microsoft.com/
 
 You may have situations planned where different teams will need access to the same data. For example, your SOC team must have access to all Microsoft Sentinel data, while operations and applications teams will need access to only specific parts. Independent security teams may also need to access Microsoft Sentinel features, but with varying sets of data.
 
-Combine [resource-context RBAC](resource-context-rbac.md) and [table-level RBAC](../azure-monitor/logs/manage-access.md#table-level-azure-rbac) to provide your teams with a wide range of access options that should support most use cases.
+Combine [resource-context RBAC](resource-context-rbac.md) and [table-level RBAC](../azure-monitor/logs/manage-access.md#set-table-level-read-access) to provide your teams with a wide range of access options that should support most use cases.
 
 For more information, see [Permissions in Microsoft Sentinel](roles.md).
 
@@ -106,15 +98,13 @@ For more information, see [Permissions in Microsoft Sentinel](roles.md).
 
 The following image shows a simplified version of a workspace architecture where security and operations teams need access to different sets of data, and resource-context RBAC is used to provide the required permissions.
 
-
 [ ![Diagram of a sample architecture for resource-context RBAC.](media/resource-context-rbac/resource-context-rbac-sample.png) ](media/resource-context-rbac/resource-context-rbac-sample.png#lightbox)
 
 In this image, the Microsoft Sentinel workspace is placed in a separate subscription to better isolate permissions.
 
 > [!NOTE]
 > Another option would be to place Microsoft Sentinel under a separate management group that's dedicated to security, which would ensure that only minimal permission assignments are inherited. Within the security team, several groups are assigned permissions according to their functions. Because these teams have access to the entire workspace, they'll have access to the full Microsoft Sentinel experience, restricted only by the Microsoft Sentinel roles they're assigned. For more information, see [Permissions in Microsoft Sentinel](roles.md).
->
-
+> >
 In addition to the security subscription, a separate subscription is used for the applications teams to host their workloads. The applications teams are granted access to their respective resource groups, where they can manage their resources. This separate subscription and resource-context RBAC allows these teams to view logs generated by any resources they have access to, even when the logs are stored in a workspace where they *don't* have direct access. The applications teams can access their logs via the **Logs** area of the Azure portal, to show logs for a specific resource, or via Azure Monitor, to show all of the logs they can access at the same time.
 
 Azure resources have built-in support for resource-context RBAC, but may require additional fine-tuning when working with non-Azure resources. For more information, see [Explicitly configure resource-context RBAC](resource-context-rbac.md#explicitly-configure-resource-context-rbac).
@@ -127,12 +117,11 @@ For example, consider if the organization whose architecture is described in the
 
 ### Access considerations with multiple workspaces
 
-If you have different entities, subsidiaries, or geographies within your organization, each with their own security teams that need access to Microsoft Sentinel, use separate workspaces for each entity or subsidiary. Implement the separate workspaces within a single Azure AD tenant, or across multiple tenants using Azure Lighthouse. 
+If you have different entities, subsidiaries, or geographies within your organization, each with their own security teams that need access to Microsoft Sentinel, use separate workspaces for each entity or subsidiary. Implement the separate workspaces within a single Azure AD tenant, or across multiple tenants using Azure Lighthouse.
 
 Your central SOC team may also use an additional, optional Microsoft Sentinel workspace to manage centralized artifacts such as analytics rules or workbooks.
 
 For more information, see [Simplify working with multiple workspaces](#simplify-working-with-multiple-workspaces).
-
 
 ## Technical best practices for creating your workspace
 
@@ -143,6 +132,8 @@ Use the following best practice guidance when creating the Log Analytics workspa
 - **Use the same workspace for both Microsoft Sentinel and Microsoft Defender for Cloud**, so that all logs collected by Microsoft Defender for Cloud can also be ingested and used by Microsoft Sentinel. The default workspace created by Microsoft Defender for Cloud will not appear as an available workspace for Microsoft Sentinel.
 
 - **Use a dedicated workspace cluster if your projected data ingestion is around or more than 1 TB per day**. A [dedicated cluster](../azure-monitor/logs/logs-dedicated-clusters.md) enables you to secure resources for your Microsoft Sentinel data, which enables better query performance for large data sets. Dedicated clusters also provide the option for more encryption and control of your organization's keys.
+
+Don't apply a resource lock to a Log Analytics workspace you'll use for Microsoft Sentinel. A resource lock on a workspace can cause many Microsoft Sentinel operations to fail.
 
 ## Simplify working with multiple workspaces
 
@@ -160,17 +151,14 @@ union Update, workspace("contosoretail-it").Update, workspace("WORKSPACE ID").Up
 ```
 
 For more information, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).
+
 ## Next steps
-
-
 > [!div class="nextstepaction"]
->[Design your Microsoft Sentinel workspace architecture](design-your-workspace-architecture.md)
-
+> >[Design your Microsoft Sentinel workspace architecture](design-your-workspace-architecture.md)
 > [!div class="nextstepaction"]
->[Microsoft Sentinel sample workspace designs](sample-workspace-designs.md)
-
+> >[Microsoft Sentinel sample workspace designs](sample-workspace-designs.md)
 > [!div class="nextstepaction"]
->[On-board Microsoft Sentinel](quickstart-onboard.md)
-
+> >[On-board Microsoft Sentinel](quickstart-onboard.md)
 > [!div class="nextstepaction"]
->[Get visibility into alerts](get-visibility.md)
+> >[Get visibility into alerts](get-visibility.md)
+

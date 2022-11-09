@@ -343,9 +343,9 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 
 [current-conditions]: /rest/api/maps/weather/get-current-conditions
 
-[dh-records]: /rest/api/maps/weather/get-dh-records
-[dh-actuals]: /rest/api/maps/weather/get-dh-actuals
-[dh-normals]: /rest/api/maps/weather/get-dh-normals
+[dh-records]: /rest/api/maps/weather/get-daily-historical-records
+[dh-actuals]: /rest/api/maps/weather/get-daily-historical-actuals
+[dh-normals]: /rest/api/maps/weather/get-daily-historical-normals
 
 [tropical-storm-active]: /rest/api/maps/weather/get-tropical-storm-active
 [tropical-storm-forecasts]: /rest/api/maps/weather/get-tropical-storm-forecast

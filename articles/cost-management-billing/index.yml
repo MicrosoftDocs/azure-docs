@@ -4,7 +4,7 @@ title: Cost Management + Billing documentation
 summary: Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
 metadata:
   title: Cost Management + Billing
-  titleSuffix: Azure Cost Management + Billing documentation
+  titleSuffix: Microsoft Cost Management
   description: Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
   ms.service: cost-management-billing
   ms.subservice: common
@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 10/13/2021
+  ms.date: 10/13/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -31,7 +31,7 @@ landingContent:
     - linkListType: get-started
       links:
       - text: Learn at your own pace
-        url: /learn/paths/control-spending-manage-bills/?WT.mc_id=ignite2020_collections
+        url: /training/paths/control-spending-manage-bills/?WT.mc_id=ignite2020_collections
       - text: Cost Management videos
         url: https://www.youtube.com/c/AzureCostManagement
       - text: Start analyzing costs
@@ -90,6 +90,8 @@ landingContent:
       links:
       - text: Cost Management best practices
         url: costs/cost-mgt-best-practices.md
+      - text: Save with Azure savings plans
+        url: savings-plan/index.yml
       - text: Save money with Azure Reservations
         url: reservations/save-compute-costs-reservations.md
     - linkListType: tutorial
@@ -105,9 +107,9 @@ landingContent:
       - text: Start optimizing your costs today
         url: https://azure.microsoft.com/overview/cost-optimization/
       - text: Predict costs and optimize spending for Azure
-        url: /learn/modules/predict-costs-and-optimize-spending/
+        url: /training/modules/predict-costs-and-optimize-spending/
       - text: Microsoft Azure Well-Architected Framework - Cost optimization
-        url: /learn/modules/azure-well-architected-cost-optimization/
+        url: /training/modules/azure-well-architected-cost-optimization/
 
   # Card (optional)
   - title: Configure Cost Management + Billing

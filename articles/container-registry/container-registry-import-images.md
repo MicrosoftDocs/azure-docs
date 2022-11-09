@@ -2,7 +2,9 @@
 title: Import container images
 description: Import container images to an Azure container registry by using Azure APIs, without needing to run Docker commands.
 ms.topic: article
-ms.date: 09/13/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -80,12 +82,21 @@ az acr import \
   --image hello-world:latest
 ```
 
-You can verify that multiple manifests are associated with this image by running the `az acr repository show-manifests` command:
+You can verify that multiple manifests are associated with this image by running the [az acr manifest list-metadata](/cli/azure/acr/manifest#az-acr-manifest-list-metadata) command:
 
 ```azurecli
-az acr repository show-manifests \
-  --name myregistry \
-  --repository hello-world
+az acr manifest list-metadata \
+  --name hello-world \
+  --registry myregistry
+```
+
+To import an artifact by digest without adding a tag:
+
+```azurecli
+az acr import \
+   --name myregistry \
+   --source docker.io/library/hello-world@sha256:abc123 \
+   --repository hello-world
 ```
 
 If you have a [Docker Hub account](https://www.docker.com/pricing), we recommend that you use the credentials when importing an image from Docker Hub. Pass the Docker Hub user name and the password or a [personal access token](https://docs.docker.com/docker-hub/access-tokens/) as parameters to `az acr import`. The following example imports a public image from the `tensorflow` repository in Docker Hub, using Docker Hub credentials:
@@ -214,7 +225,7 @@ In the following example, *mysourceregistry* is in a different subscription from
 ```azurecli
 az acr import \
   --name myregistry \
-  --source samples/aci-helloworld:latest \
+  --source aci-helloworld:latest \
   --image aci-hello-world:latest \
   --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
@@ -232,6 +243,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 ### Import from a registry using service principal credentials
 
 To import from a registry that you can't access using integrated Active Directory permissions, you can use service principal credentials (if available) to the source registry. Supply the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry. Using a service principal is useful for build systems and other unattended systems that need to import images to your registry.
+
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -257,6 +269,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 To import from an Azure container registry in a different Azure Active Directory tenant, specify the source registry by login server name, and provide credentials that enable pull access to the registry.
 
 ### Cross-tenant import with username and password
+
 For example, use a [repository-scoped token](container-registry-repository-scoped-permissions.md) and password, or the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry.
 
 ### [Azure CLI](#tab/azure-cli)
@@ -319,6 +332,10 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 ```
 
 ---
+
+> [!NOTE]
+> Cross-tenant doesn't work across the clouds.
+
 
 ## Import from a non-Azure private container registry
 

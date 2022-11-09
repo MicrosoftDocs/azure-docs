@@ -13,7 +13,7 @@ For more information, see our [release notes for device builders](release-notes.
 
 ## Upgrade a standalone micro agent
 
-1. Ensure that you have upgraded the apt. Run:
+1. Ensure that you've upgraded the apt. Run:
 
     ```bash
     sudo apt-get update
@@ -27,7 +27,7 @@ For more information, see our [release notes for device builders](release-notes.
 
 ## Upgrade a micro agent for Edge
 
-1. Ensure that you have upgraded the apt. Run:
+1. Ensure that you've upgraded the apt. Run:
 
     ```bash
     sudo apt-get update

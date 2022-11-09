@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 09/12/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb, sandeo
 
 ms.collection: M365-identity-device-management
@@ -43,7 +43,7 @@ Azure AD Conditional Access supports the following device platforms:
 - iOS
 - Windows
 - macOS
-- Linux (Preview)
+- Linux
 
 If you block legacy authentication using the **Other clients** condition, you can also set the device platform condition.
 
@@ -107,15 +107,18 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Windows 10 + | Microsoft Edge, [Chrome](#chrome-support), [Firefox 91+](https://support.mozilla.org/kb/windows-sso) |
 | Windows Server 2022 | Microsoft Edge, [Chrome](#chrome-support) |
 | Windows Server 2019 | Microsoft Edge, [Chrome](#chrome-support) |
-| iOS | Microsoft Edge, Safari |
+| iOS | Microsoft Edge, Safari (see the notes) |
 | Android | Microsoft Edge, Chrome |
 | macOS | Microsoft Edge, Chrome, Safari |
 
 These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode or if cookies are disabled. 
 
 > [!NOTE]
-> Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario. 
+> Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario.
+>  
 > Safari is supported for device-based Conditional Access, but it can not satisfy the **Require approved client app** or **Require app protection policy** conditions. A managed browser like Microsoft Edge will satisfy approved client app and app protection policy requirements.
+> On iOS with 3rd party MDM solution only Microsoft Edge browser supports device policy.
+> 
 > [Firefox 91+](https://support.mozilla.org/kb/windows-sso) is supported for device-based Conditional Access, but "Allow Windows single sign-on for Microsoft, work, and school accounts" needs to be enabled. 
 
 #### Why do I see a certificate prompt in the browser
@@ -124,7 +127,7 @@ On Windows 7, iOS, Android, and macOS Azure AD identifies the device using a cli
 
 #### Chrome support
 
-For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install the [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) or [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) extensions. These extensions are required when a Conditional Access policy requires device-specific details.
+For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install the [Windows Accounts](https://chrome.google.com/webstore/detail/windows-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) or [Office](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) extensions. These extensions are required when a Conditional Access policy requires device-specific details.
 
 To automatically deploy this extension to Chrome browsers, create the following registry key:
 
@@ -183,17 +186,17 @@ For more information, see the following articles:
 
 By selecting **Other clients**, you can specify a condition that affects apps that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that don't use modern authentication.
 
-## Device state (preview)
+## Device state (deprecated)
 
-> [!CAUTION]
-> **This preview feature has being deprecated.** Customers should use **Filter for devices** condition in Conditional Access to satisfy scenarios, previously achieved using device state (preview) condition.
+**This preview feature has been deprecated.** Customers should use the **Filter for devices** condition in the Conditional Access policy, to satisfy scenarios previously achieved using device state (preview) condition.
+
 
 The device state condition was used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
 
 For example, *All users* accessing the *Microsoft Azure Management* cloud app including **All device state** excluding **Device Hybrid Azure AD joined** and **Device marked as compliant** and for *Access controls*, **Block**. 
    - This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
 
-The above scenario, can be configured using *All users* accessing the *Microsoft Azure Management* cloud app with **Filter for devices** condition in include mode using the following rule **device.trustType -ne "ServerAD" -or device.isCompliant -ne True** and for *Access controls*, **Block**.
+The above scenario, can be configured using *All users* accessing the *Microsoft Azure Management* cloud app with **Filter for devices** condition in **exclude** mode using the following rule **device.trustType -eq "ServerAD" -or device.isCompliant -eq True** and for *Access controls*, **Block**.
 - This example would create a policy that blocks access to Microsoft Azure Management cloud app from unmanaged or non-compliant devices.
 
 > [!IMPORTANT]

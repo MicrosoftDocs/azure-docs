@@ -1,8 +1,12 @@
 ---
 title: Troubleshoot common issues
 description: Learn how to troubleshoot common issues when your deploy, run, or manage Azure Container Instances
-ms.topic: article
-ms.date: 06/25/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -92,6 +96,10 @@ This error indicates that due to heavy load in the region in which you are attem
 * Deploy at a later time
 
 ## Issues during container group runtime
+### Container had an isolated restart without explicit user input
+
+There are two broad categories for why a container group may restart without explicit user input. First, containers may experience restarts caused by an application process crash. The ACI service recommends leveraging observability solutions such as [Application Insights SDK](../azure-monitor/app/app-insights-overview.md), [container group metrics](container-instances-monitor.md), and [container group logs](container-instances-get-logs.md) to determine why the application experienced issues. Second, customers may experience restarts initiated by the ACI infrastructure due to maintenance events. To increase the availability of your application, run multiple container groups behind an ingress component such as an [Application Gateway](../application-gateway/overview.md) or [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+
 ### Container continually exits and restarts (no long-running process)
 
 Container groups default to a [restart policy](container-instances-restart-policy.md) of **Always**, so containers in the container group always restart after they run to completion. You may need to change this to **OnFailure** or **Never** if you intend to run task-based containers. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
@@ -193,7 +201,7 @@ On initial creation, Windows containers may have no inbound or outbound connecti
 
 ### Cannot connect to underlying Docker API or run privileged containers
 
-Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](/rest/api/container-instances/) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
+Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the container runtime, orchestration technology, and running privileged container operations. To see what operations are supported by ACI, check the [REST reference documentation](/rest/api/container-instances/). If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
 
 ### Container group IP address may not be accessible due to mismatched ports
 

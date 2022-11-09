@@ -10,7 +10,7 @@ ms.date: 02/22/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
@@ -168,7 +168,7 @@ A best practice when you troubleshoot problems with password writeback is to ins
 | Code | Name or message | Description |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "A restriction prevents the password from being changed to the current one specified." | This event occurs when the password writeback service attempts to set a password on your local directory that doesn't meet the password age, history, complexity, or filtering requirements of the domain. <br> <br> If you have a minimum password age and have recently changed the password within that window of time, you're not able to change the password again until it reaches the specified age in your domain. For testing purposes, the minimum age should be set to 0. <br> <br> If you have password history requirements enabled, then you must select a password that hasn't been used in the last *N* times, where *N* is the password history setting. If you do select a password that has been used in the last *N* times, then you see a failure in this case. For testing purposes, the password history should be set to 0. <br> <br> If you have password complexity requirements, all of them are enforced when the user attempts to change or reset a password. <br> <br> If you have password filters enabled and a user selects a password that doesn't meet the filtering criteria, then the reset or change operation fails. |
-| 6329 | MMS(3040): admaexport.cpp(2837): The server doesn't contain the LDAP password policy control. | This problem occurs if LDAP_SERVER_POLICY_HINTS_OID control (1.2.840.113556.1.4.2066) isn't enabled on the DCs. To use the password writeback feature, you must enable the control. To do so, the DCs must be on Windows Server 2008R2 or later. |
+| 6329 | MMS(3040): admaexport.cpp(2837): The server doesn't contain the LDAP password policy control. | This problem occurs if LDAP_SERVER_POLICY_HINTS_OID control (1.2.840.113556.1.4.2066) isn't enabled on the DCs. To use the password writeback feature, you must enable the control. To do so, the DCs must be on Windows Server 2016 or later. |
 | HR 8023042 | Synchronization Engine returned an error hr=80230402, message=An attempt to get an object failed because there are duplicated entries with the same anchor. | This error occurs when the same user ID is enabled in multiple domains. An example is if you're syncing account and resource forests and have the same user ID present and enabled in each forest. <br> <br> This error can also occur if you use a non-unique anchor attribute, like an alias or UPN, and two users share that same anchor attribute. <br> <br> To resolve this problem, ensure that you don't have any duplicated users within your domains and that you use a unique anchor attribute for each user. |
 
 ### If the source of the event is PasswordResetService

@@ -1,12 +1,12 @@
 ---
-title: Configure pricing and availability for a virtual machine offer on Azure Marketplace
-description: Configure pricing and availability for a virtual machine offer in the Microsoft commercial marketplace.
+title: Configure pricing and availability for a virtual machine offer in Partner Center
+description: Configure pricing and availability for a virtual machine offer in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 02/18/2022
+ms.date: 08/22/2022
 ---
 
 # Configure pricing and availability for a virtual machine offer
@@ -17,7 +17,7 @@ On this pane, you configure:
 - The price per hour.
 - Whether to make the plan visible to everyone or only to specific customers (a private audience).
 
-### Markets
+## Markets
 
 Every plan must be available in at least one market. Most markets are selected by default. To edit the list, select **Edit markets** and select or clear check boxes for each market location where this plan should (or shouldn't) be available for purchase. Users in selected markets can still deploy the offer to all Azure regions selected in the ["Plan setup"](azure-vm-plan-setup.md) section.
 
@@ -29,36 +29,46 @@ When you remove a market, customers from that market who are using active deploy
 
 Select **Save** to continue.
 
-### Pricing
+## Pricing
 
-For the **License model**, select **Usage-based monthly billed plan** to configure pricing for this plan, or **Bring your own license** to let customers use this plan with their existing license. 
+For the **License model**, select **Usage-based monthly billed plan** to configure pricing for this plan, or **Bring your own license** to let customers use this plan with their existing license.
 
-For a usage-based monthly billed plan, Microsoft will charge the customer for their hourly usage and they're billed monthly. This is our _Pay-as-you-go_ plan, where customers are only billed for the hours that they've used. When you select this plan, choose one of the following pricing options:
+For a usage-based monthly billed plan, Microsoft will charge the customer for their hourly usage and they're billed monthly. This is our *Pay-as-you-go* plan, where customers are only billed for the hours that they've used. When you select this plan, choose one of the following pricing options:
 
 - **Free** – Your VM offer is free.
-- **Flat rate (recommended)** – Your VM offer is the same hourly price regardless of the hardware it runs on.
+- **Flat rate** – Your VM offer is the same hourly price regardless of the hardware it runs on.
 - **Per core** – Your VM offer pricing is based on per CPU core count. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware.
 - **Per core size** – Your VM offer is priced based on the number of CPU cores on the hardware it's deployed on.
 - **Per market and core size** – Assign prices based on the number of CPU cores on the hardware it's deployed on, and also for all markets. Currency conversion is done by you, the publisher. This option is easier if you use the import pricing feature.
 
-For **Per core size** and **Per market and core size**, enter a **Price per core**, and then select **Generate prices**. The tables of price/hour calculations are populated for you. You can then adjust the price per core, if you choose. If using the _Per market and core size_ pricing option, you can additionally customize the price/hour calculation tables for each market that’s selected for this plan.
+For **Per core size** and **Per market and core size**, enter a **Price per core**, and then select **Generate prices**. The tables of price/hour calculations are populated for you. You can then adjust the price per core, if you choose. If using the *Per market and core size* pricing option, you can additionally customize the price/hour calculation tables for each market that’s selected for this plan.
 
 > [!NOTE]
-> To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market. Before you export pricing data, first select **Save draft** near the bottom of the page to save pricing changes.
+> To ensure the prices are right before you publish them, export the pricing spreadsheet and review them in each market. Before you export pricing data, first select **Save draft** to save pricing changes.
 
-Some things to consider when selecting a pricing option:
-- For the first four options, Microsoft does the currency conversion.
-- Microsoft suggests using a flat rate pricing for software solutions.
-- Prices are fixed, so once the plan is published the prices can't be adjusted. However, if you would like to reduce prices for your VM offers you can open a [support ticket](support.md).
+When selecting a pricing option, Microsoft does the currency conversion for the Flat rate, Per core, and Per core size pricing options.
 
-> [!IMPORTANT]
-> Occasionally, Microsoft expands the list of supported core sizes available. When this occurs, we will notify you and request that you take action on your offer within a specified timeframe. If you do not review your offer within the timeframe specified, we’ll publish the new core sizes at the price that we have calculated for you. For details about updating core sizes, see [Update core size for an Azure virtual machine offer](azure-vm-plan-manage.md).
+### Configure reservation pricing (optional)
 
-### Free Trial
+When you select either the _Flat rate_, _Per core_, and _Per core size_ price option, the **Reservation pricing** section appears. You can choose to offer savings for a 1-year commitment, 3-year commitment, or both. For more information about reservation pricing, including how prices are calculated, see [Plan a virtual machine offer](marketplace-virtual-machines.md#reservation-pricing-optional).
+
+These steps assume you have already selected either the _Flat rate_, _Per core_, or _Per core size_ price option and entered a per hour price.
+
+1. Under **Reservation pricing**, select **Yes, offer reservation pricing**.
+1. To offer a 1-year discount, select the **1-year saving %** check box and then enter the percentage discount you want to offer.
+1. To offer a 3-year discount, select the **3-year saving %** check box and then enter the percentage discount you want to offer.
+1. To see the discounted prices, select **Price per core size**. A table with the 1-year and 3-year prices for each core size is shown. These prices are calculated based on the number of hours in the term with the percentage discount subtracted.
+
+    > [!TIP]
+    > For Per core size plans, you can optionally change the price for a particular core size in the **Price/hour** column of the table.
+
+1. Make sure to select **Save draft** before you leave the page. The changes are applied once you publish the offer.
+
+## Free trial
 
 You can offer a one-month, three-month, or six-month **Free Trial** to your customers.
 
-### Plan visibility
+## Plan visibility
 
 You can design each plan to be visible to everyone or only to a preselected private audience.
 
@@ -71,16 +81,16 @@ You can design each plan to be visible to everyone or only to a preselected priv
 
 Private offers aren't supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 
-### Hide plan
+## Hide plan
 
-If your virtual machine is meant to be used only indirectly when it's referenced through another solution template or managed application, select this check box to publish the virtual machine but hide it from customers who might be searching or browsing for it directly.
+A hidden plan is not visible on Azure Marketplace and can only be deployed through another Solution Template, Managed Application, Azure CLI or Azure PowerShell. Hiding a plan is useful when trying to limit exposure to customers that would normally be searching or browsing for it directly via Azure Marketplace. By selecting this checkbox all virtual machine images associated to your plan will be hidden from Azure Marketplace storefront.
 
-Any Azure customer can deploy the offer using either PowerShell or CLI.  If you wish to make this offer available to a limited set of customers, then set the plan to **Private**.
+> [!NOTE]
+> A hidden plan is different from a private plan. When a plan is publicly available but hidden, it is still available for any Azure customer to deploy via Solution Template, Managed Application, Azure CLI or Azure PowerShell. However, a plan can be both hidden and private in which case only the customers configured in the private audience can deploy via these methods. If you wish to make the plan available to a limited set of customers, then set the plan to **Private**.
 
-Hidden plans don't generate preview links. However, you can test them by [following these steps](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-).
+> [!IMPORTANT]
+> Hidden plans don't generate preview links. However, you can test them by [following these steps](./azure-vm-faq.yml).
 
-Select **Save draft** before continuing to the next tab in the left-nav Plan menu, **Technical configuration**.
-
-## Next step
+## Next steps
 
 - [Technical configuration](azure-vm-plan-technical-configuration.md)

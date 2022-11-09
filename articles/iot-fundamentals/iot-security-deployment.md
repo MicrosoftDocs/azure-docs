@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 08/24/2022
 ms.author: dobett
 ---
 # Secure your Internet of Things (IoT) deployment

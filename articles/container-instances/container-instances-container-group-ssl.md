@@ -1,8 +1,12 @@
 ---
 title: Enable TLS with sidecar container
 description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances by running Nginx in a sidecar container
-ms.topic: article
-ms.date: 07/02/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.topic: how-to
+ms.date: 06/17/2022
 ---
 # Enable a TLS endpoint in a sidecar container
 

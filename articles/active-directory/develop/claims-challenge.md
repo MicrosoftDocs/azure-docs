@@ -1,6 +1,5 @@
 ---
 title: Claims challenges, claims requests, and client capabilities
-titleSuffix: Microsoft identity platform
 description: Explanation of claims challenges, claims requests, and client capabilities in the Microsoft identity platform.
 services: active-directory
 author: knicholasa
@@ -95,6 +94,8 @@ The following example claims parameter shows how a client application communicat
 Claims: {"access_token":{"xms_cc":{"values":["cp1"]}}}
 ```
 
+#### [.NET](#tab/dotnet)
+
 Those using MSAL library will use the following code:
 
 ```c#
@@ -102,7 +103,7 @@ _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
  .WithDefaultRedirectUri()
  .WithAuthority(authority)
  .WithClientCapabilities(new [] {"cp1"})
- .Build();*
+ .Build();
 ```
 
 Those using Microsoft.Identity.Web can add the following code to the configuration file:
@@ -111,11 +112,28 @@ Those using Microsoft.Identity.Web can add the following code to the configurati
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    // the remaining settings
-    // ... 
-    "ClientCapabilities": [ "cp1" ]
+    "ClientId": 'Enter_the_Application_Id_Here' 
+    "ClientCapabilities": [ "cp1" ],
+    // remaining settings...
 },
 ```
+#### [JavaScript](#tab/JavaScript)
+
+Those using MSAL.js or MSAL Node can add `clientCapabilities` property to the configuration object. Note: this option is available to both public and confidential cient applications.
+
+```javascript
+const msalConfig = {
+    auth: {
+        clientId: 'Enter_the_Application_Id_Here', 
+        clientCapabilities: ["CP1"]
+        // remaining settings...
+    }
+}
+
+const msalInstance = new msal.PublicClientApplication(msalConfig);
+```
+
+---
 
 An example of how the request to Azure AD will look like:
 
@@ -153,7 +171,7 @@ The **xms_cc** claim with a value of "cp1" in the access token is the authoritat
 
 The values are not case-sensitive and unordered. If more than one value is specified in the **xms_cc** claim request, those values will be a multi-valued collection as the value of the **xms_cc** claim.
 
-A request of :
+A request of:
 
 ```json
 { "access_token": { "xms_cc":{"values":["cp1","foo", "bar"] } }}
@@ -186,7 +204,7 @@ This is how the app's manifest looks like after the **xms_cc** [optional claim](
 
 The API can then customize their responses based on whether the client is capable of handling claims challenge or not.
 
-An example in C#
+### [.NET](#tab/dotnet)
 
 ```c#
 Claim ccClaim = context.User.FindAll(clientCapabilitiesClaim).FirstOrDefault(x => x.Type == "xms_cc");
@@ -200,6 +218,30 @@ else
     throw new UnauthorizedAccessException("The caller does not meet the authentication bar to carry our this operation. The service cannot allow this operation");
 }
 ```
+
+### [JavaScript](#tab/JavaScript)
+
+The following snippet illustrates a custom Express.js middleware:
+
+```javascript
+const checkIsClientCapableOfClaimsChallenge = (req, res, next) => {
+    // req.authInfo contains the decoded access token payload
+    if (req.authInfo['xms_cc'] && req.authInfo['xms_cc'].includes('CP1')) {
+          // Return formatted claims challenge as this client understands this
+    } else {
+          return res.status(403).json({ error: 'Client is not capable' });
+    }
+}
+
+```
+
+---
+
+## Code samples
+
+- [Enable your Angular single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your React single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
 ## Next steps
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/02/2022
+ms.date: 09/20/2022
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -22,7 +22,7 @@ ms.custom: mode-other
 
 > [!NOTE]
 >
-> * Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service key or a single-service key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+> * Typically, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service key or a single-service key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
 >
 > * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
@@ -118,7 +118,7 @@ A batch Document Translation request is submitted to your Translator service end
 
 ### HTTP headers
 
-The following headers are included with each Document Translator API request:
+The following headers are included with each Document Translation API request:
 
 |HTTP header|Description|
 |---|--|
@@ -129,8 +129,8 @@ The following headers are included with each Document Translator API request:
 
 * The POST request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`
 * The POST request body is a JSON object named `inputs`.
-* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs
-* The `prefix` and `suffix` fields (optional) are used to filter documents in the container including folders.
+* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs.
+* The `prefix` and `suffix` are case-sensitive strings to filter documents in the source path for translation. The `prefix` field is often used to delineate subfolders for translation. The `suffix` field is most often used for file extensions.
 * A value for the  `glossaries`  field (optional) is applied when the document is being translated.
 * The `targetUrl` for each target language must be unique.
 
@@ -195,11 +195,8 @@ The following headers are included with each Document Translator API request:
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://myblob.blob.core.windows.net/source",
-                "filter": {
-                    "prefix": "myfolder/"
-                }
-            },
+                "sourceUrl": "https://myblob.blob.core.windows.net/source"
+             },
             "targets": [
                 {
                     "targetUrl": "https://myblob.blob.core.windows.net/target",
@@ -313,7 +310,7 @@ gradle run
 
 > [!IMPORTANT]
 >
-> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  See [Azure Cognitive Services security](../../cognitive-services-security.md?tabs=command-line%2ccsharp) for ways to securely store and access your credentials.
+> For the code samples below, you'll hard-code your Shared Access Signature (SAS) URL where indicated. Remember to remove the SAS URL from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Managed Identity](managed-identity.md). See the Azure Storage [security](../../../storage/common/authorize-data-access.md) article for more information.
 >
 > You may need to update the following fields, depending upon the operation:
 >>>
@@ -358,7 +355,7 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
 
         private static readonly string key = "<YOUR-KEY>";
 
-        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
+        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"language\": \"en\"}, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
 
         static async Task Main(string[] args)
         {
@@ -407,9 +404,7 @@ let data = JSON.stringify({"inputs": [
       "source": {
           "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
           "storageSource": "AzureBlob",
-          "language": "en",
-          "filter":{
-              "prefix": "Demo_1/"
+          "language": "en"
           }
       },
       "targets": [
@@ -458,10 +453,7 @@ payload= {
             "source": {
                 "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
                 "storageSource": "AzureBlob",
-                "language": "en",
-                "filter":{
-                    "prefix": "Demo_1/"
-                }
+                "language": "en"
             },
             "targets": [
                 {
@@ -502,7 +494,7 @@ public class DocumentTranslation {
 
     public void post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,  "{\n \"inputs\": [\n {\n \"source\": {\n \"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\n \"filter\": {\n  \"prefix\": \"Demo_1\"\n  },\n  \"language\": \"en\",\n \"storageSource\": \"AzureBlob\"\n  },\n \"targets\": [\n {\n \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\n \"category\": \"general\",\n\"language\": \"fr\",\n\"storageSource\": \"AzureBlob\"\n }\n ],\n \"storageType\": \"Folder\"\n }\n  ]\n}");
+        RequestBody body = RequestBody.create(mediaType,  "{\n \"inputs\": [\n {\n \"source\": {\n \"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\n  },\n  \"language\": \"en\",\n \"storageSource\": \"AzureBlob\"\n  },\n \"targets\": [\n {\n \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\n \"category\": \"general\",\n\"language\": \"fr\",\n\"storageSource\": \"AzureBlob\"\n }\n ],\n \"storageType\": \"Folder\"\n }\n  ]\n}");
         Request request = new Request.Builder()
                 .url(path).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
@@ -542,7 +534,7 @@ key := "<YOUR-KEY>"
 uri := endpoint + "/batches"
 method := "POST"
 
-var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS","storageSource":"AzureBlob","language":"en","filter":{"prefix":"Demo_1/"}},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
+var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS","storageSource":"AzureBlob","language":"en"},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
 
 req, err := http.NewRequest(method, endpoint, bytes.NewBuffer(jsonStr))
 req.Header.Add("Ocp-Apim-Subscription-Key", key)

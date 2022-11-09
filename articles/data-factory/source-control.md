@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/01/2022
+ms.date: 10/26/2022
 ---
 
 # Source control in Azure Data Factory
@@ -20,6 +20,8 @@ By default, the Azure Data Factory user interface experience (UX) authors direct
 - The Azure Resource Manager template required to deploy Data Factory itself is not included.
 
 To provide a better authoring experience, Azure Data Factory allows you to configure a Git repository with either Azure Repos or GitHub. Git is a version control system that allows for easier change tracking and collaboration. This article will outline how to configure and work in a git repository along with highlighting best practices and a troubleshooting guide.
+
+You can also reference [Continuous integration and delivery (CI/CD) in Azure Data Factory](continuous-integration-delivery.md) to learn more about the larger CI/CD pattern, of which source control is a critical aspect.
 
 > [!NOTE]
 > We have added GitHub public support on Azure Gov, Azure China. Refer to the [announcement blog](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918).
@@ -130,12 +132,16 @@ For more info about connecting Azure Repos to your organization's Active Directo
 
 Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
 
-The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)) and GitHub Enterprise. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub. ADF’s GitHub enterprise server integration only works with [officially supported versions of GitHub enterprise server.](https://docs.github.com/en/enterprise-server@3.1/admin/all-releases)  
+The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)), GitHub Enterprise Cloud and GitHub Enterprise Server. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub. ADF’s GitHub enterprise server integration only works with [officially supported versions of GitHub enterprise server.](https://docs.github.com/en/enterprise-server@3.1/admin/all-releases)  
 
 > [!NOTE]
 > If you are using Microsoft Edge, GitHub Enterprise version less than 2.1.4 does not work with it. GitHub officially supports >=3.0 and these all should be fine for ADF. As GitHub changes its minimum version, ADF supported versions will also change. 
 
 ### GitHub settings
+
+:::image type="content" source="media/author-visually/github-configure-repository-pane.png" alt-text=" Screenshot showing GitHub Configure a repository pane.":::
+
+:::image type="content" source="media/author-visually/use-github-enterprise-server-pane.png" alt-text="Screenshot showing GitHub Configure a repository using enterprise server pane.":::
 
 :::image type="content" source="media/author-visually/github-integration-image2.png" alt-text="GitHub repository settings":::
 
@@ -144,22 +150,24 @@ The configuration pane shows the following GitHub repository settings:
 | **Setting** | **Description**  | **Value**  |
 |:--- |:--- |:--- |
 | **Repository Type** | The type of the Azure Repos code repository. | GitHub |
-| **Use GitHub Enterprise** | Checkbox to select GitHub Enterprise | unselected (default) |
-| **GitHub Enterprise URL** | The GitHub Enterprise root URL (must be HTTPS for local GitHub Enterprise server). For example: `https://github.mydomain.com`. Required only if **Use GitHub Enterprise** is selected | `<your GitHub enterprise url>` |                                                           
-| **GitHub account** | Your GitHub account name. This name can be found from https:\//github.com/{account name}/{repository name}. Navigating to this page prompts you to enter GitHub OAuth credentials to your GitHub account. | `<your GitHub account name>` |
-| **Repository Name**  | Your GitHub code repository name. GitHub accounts contain Git repositories to manage your source code. You can create a new repository or use an existing repository that's already in your account. | `<your repository name>` |
-| **Collaboration branch** | Your GitHub collaboration branch that is used for publishing. By default, it's main. Change this setting in case you want to publish resources from another branch. | `<your collaboration branch>` |
+| **Use GitHub Enterprise Server** | Checkbox to select GitHub Enterprise Server.| unselected (default) |
+| **GitHub Enterprise Server URL** | The GitHub Enterprise root URL (must be HTTPS for local GitHub Enterprise server). For example: `https://github.mydomain.com`. Required only if **Use GitHub Enterprise Server** is selected | `<your GitHub Enterprise Server URL>` |                                                         
+| **GitHub repository owner** | GitHub organization or account that owns the repository. This name can be found from https:\//github.com/{owner}/{repository name}. Navigating to this page prompts you to enter GitHub OAuth credentials to your GitHub organization or account. If you select **Use GitHub Enterprise Server**, a dialog box will pop out to let you enter your access token. | `<your GitHub repository owner name>` |
+| **Repository Name**  | Your GitHub code repository name. GitHub accounts contain Git repositories to manage your source code. You can create a new repository or use an existing repository that's already in your account. Specify your GitHub code repository name when you select **Select repository**. | `<your repository name>` |
+|**Git repository link**| Your GitHub code repository link. Specify your GitHub code repository link when you select **Use repository link**. |`<your repository link>`|
+| **Collaboration branch** | Your GitHub collaboration branch that is used for publishing. By default, it's main. Change this setting in case you want to publish resources from another branch. You can also create a new collaboration branch here. | `<your collaboration branch>` |
+| **Publish branch**  |The branch in your repository where publishing related ARM templates are stored and updated.| `<your publish branch name>`|
 | **Root folder** | Your root folder in your GitHub collaboration branch. |`<your root folder name>` |
-| **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX authoring canvas into a GitHub repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
-| **Branch to import resource into** | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported. You can import resources into one of the following branches: a. Collaboration b. Create new c. Use Existing |  |
+| **Import existing resources to repository** | Specifies whether to import existing data factory resources from the UX authoring canvas into a GitHub repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
+| **Import resource into this branch** | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported.  |  |
 
 ### GitHub organizations
 
 Connecting to a GitHub organization requires the organization to grant permission to Azure Data Factory. A user with ADMIN permissions on the organization must perform the below steps to allow data factory to connect.
 
-#### Connecting to GitHub for the first time in Azure Data Factory
+#### Connecting to public GitHub or GitHub Enterprise Cloud for the first time in Azure Data Factory
 
-If you're connecting to GitHub from Azure Data Factory for the first time, follow these steps to connect to a GitHub organization.
+If you're connecting to public GitHub or GitHub Enterprise Cloud from Azure Data Factory for the first time, follow these steps to connect to a GitHub organization.
 
 1. In the Git configuration pane, enter the organization name in the *GitHub Account* field. A prompt to login into GitHub will appear. 
 1. Login using your user credentials.
@@ -167,9 +175,9 @@ If you're connecting to GitHub from Azure Data Factory for the first time, follo
 
 Once you follow these steps, your factory will be able to connect to both public and private repositories within your organization. If you are unable to connect, try clearing the browser cache and retrying.
 
-#### Already connected to GitHub using a personal account
+#### Already connected to public GitHub or GitHub Enterprise Cloud using a personal account
 
-If you have already connected to GitHub and only granted permission to access a personal account, follow the below steps to grant permissions to an organization. 
+If you have already connected to public GitHub or GitHub Enterprise Cloud and only granted permission to access a personal account, follow the below steps to grant permissions to an organization. 
 
 1. Go to GitHub and open **Settings**.
 
@@ -184,6 +192,17 @@ If you have already connected to GitHub and only granted permission to access a 
     :::image type="content" source="media/author-visually/github-organization-grant.png" alt-text="Grant access":::
 
 Once you follow these steps, your factory will be able to connect to both public and private repositories within your organization. 
+
+#### Connecting to GitHub Enterprise Server
+
+If you connect to GitHub Enterprise Server, you need to use personal access token for authentication. Learn how to create a personal access token in [Creating a personal access token](https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+> [!Note]
+> GitHub Enterprise Server is in your self-hosted private environment, so you need have full control on the firewall, network policies and VPN when you use this authentication. For more information, see [About GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.6/admin/overview/about-github-enterprise-server#about-github-enterprise-server).
+
+:::image type="content" source="media/author-visually/use-github-enterprise-server-pane.png" alt-text="Screenshot shows GitHub Configure a repository using enterprise server pane.":::
+
+:::image type="content" source="media/author-visually/github-enterprise-server-access-token.png" alt-text="Screenshot showing using enterprise server access token authentication.":::
 
 ### Known GitHub limitations
 
@@ -287,7 +306,10 @@ It imports the code from live mode into collaboration branch. It considers the c
 
 1. Remove your current Git repository
 1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **Collaboration branch (same branch)**
-1. Create a pull request to merge the changes to the collaboration branch 
+1. Create a pull request to merge the changes to the collaboration branch.
+
+> [!NOTE]
+> It is only necessary to create and merge a pull request if you are working in a repository that does not allow direct commits.  In most organizations, submissions into the repository will require review before merging so the best practice is usually to use this approach.  But in some cases no review is required, in which case it isn't necessary to create and merge a pull request, but changes can be directly committed to the collaboration branch.
 
 Choose either method appropriately as needed. 
 

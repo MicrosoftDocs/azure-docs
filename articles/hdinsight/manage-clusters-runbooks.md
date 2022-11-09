@@ -22,7 +22,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* An existing [Azure Automation account](../automation/quickstarts/create-account-portal.md).
+* An existing [Azure Automation account](../automation/quickstarts/create-azure-automation-account-portal.md).
 * An existing [Azure Storage account](../storage/common/storage-account-create.md), which will be used as cluster storage.
 
 ## Install HDInsight modules

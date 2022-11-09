@@ -11,30 +11,14 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the Speech SDK for Node.js. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see [Set up the development environment](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs).
-
-Use the following `require` statement to import the SDK:
-
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-```
-
-For more information on `require`, see the [require documentation](https://nodejs.org/en/knowledge/getting-started/what-is-require/).
-
 ## Create a speech configuration
 
 To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
 
-Create a `SpeechConfig` instance by using your key and location/region. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion).
+Create a `SpeechConfig` instance by using your key and location/region. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
 ```javascript
-const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 ```
 
 You can initialize `SpeechConfig` in a few other ways:
@@ -60,7 +44,7 @@ To recognize speech from an audio file, create an `AudioConfig` instance by usin
 ```javascript
 const fs = require('fs');
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 
 function fromFile() {
     let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
@@ -85,7 +69,7 @@ For many use cases, your audio data will likely come from blob storage. Or it wi
 ```javascript
 const fs = require('fs');
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 
 function fromStream() {
     let pushStream = sdk.AudioInputStream.createPushStream();
@@ -125,13 +109,13 @@ switch (result.reason) {
         console.log("NOMATCH: Speech could not be recognized.");
         break;
     case sdk.ResultReason.Canceled:
-        const cancellation = CancellationDetails.fromResult(result);
+        const cancellation = sdk.CancellationDetails.fromResult(result);
         console.log(`CANCELED: Reason=${cancellation.reason}`);
 
         if (cancellation.reason == sdk.CancellationReason.Error) {
             console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
             console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
-            console.log("CANCELED: Did you update the key and location/region info?");
+            console.log("CANCELED: Did you set the speech resource key and region values?");
         }
         break;
     }
@@ -176,7 +160,7 @@ recognizer.canceled = (s, e) => {
     if (e.reason == sdk.CancellationReason.Error) {
         console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
         console.log(`"CANCELED: ErrorDetails=${e.errorDetails}`);
-        console.log("CANCELED: Did you update the key and location/region info?");
+        console.log("CANCELED: Did you set the speech resource key and region values?");
     }
 
     recognizer.stopContinuousRecognitionAsync();
@@ -197,16 +181,6 @@ recognizer.startContinuousRecognitionAsync();
 // recognizer.stopContinuousRecognitionAsync();
 ```
 
-### Dictation mode
-
-When you're using continuous recognition, you can enable dictation processing by using the corresponding function. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
-
-To enable dictation mode, use the [`enableDictation`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#enabledictation--) method on [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig):
-
-```javascript
-speechConfig.enableDictation();
-```
-
 ## Change the source language
 
 A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to Italian. In your code, find your [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) instance and add this line directly below it:
@@ -215,5 +189,14 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig.speechRecognitionLanguage = "it-IT";
 ```
 
-The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
+## Use a custom endpoint
+
+With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
+
+```javascript
+var speechConfig = SpeechSDK.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+speechConfig.endpointId = "YourEndpointId";
+var speechRecognizer = new SpeechSDK.SpeechRecognizer(speechConfig);
+```

@@ -107,7 +107,7 @@ For instance, to implement routes for a calendar application, you can rewrite al
 The _calendar.html_ file can then use client-side routing to serve a different view for URL variations like `/calendar/january/1`, `/calendar/2020`, and `/calendar/overview`.
 
 > [!NOTE]
-> A route pattern of `/calendar/*` matches all requests under the _/calendar/_ path. However, it will not match requests for the paths _/calendar_ or _/calendar.html_. Use `/calendar*` to match all requests that begin with _/calendar_.
+> A route pattern of `/calendar/*` matches all requests under the _/calendar/_ path. However, it won't match requests for the paths _/calendar_ or _/calendar.html_. Use `/calendar*` to match all requests that begin with _/calendar_.
 
 You can filter wildcard matches by file extension. For instance, if you wanted to add a rule that only matches HTML files in a given path you could create the following rule:
 
@@ -142,7 +142,7 @@ Common uses cases for wildcard routes include:
 Routes are secured by adding one or more role names into a rule's `allowedRoles` array. See the [example configuration file](#example-configuration-file) for usage examples.
 
 > [!IMPORTANT]
-> Routing rules can only secure HTTP requests to routes that are served from Static Web Apps. Many front-end frameworks use client-side routing that modifies routes in the browser without issuing requests to Static Web Apps. Routing rules don't secure client-side routes. Clients should call [HTTP APIs](apis.md) to retrieve sensitive data. Ensure APIs validate a [user's identity](user-information.md) before returning data.
+> Routing rules can only secure HTTP requests to routes that are served from Static Web Apps. Many front-end frameworks use client-side routing that modifies routes in the browser without issuing requests to Static Web Apps. Routing rules don't secure client-side routes. Clients should call [HTTP APIs](apis-overview.md) to retrieve sensitive data. Ensure APIs validate a [user's identity](user-information.md) before returning data.
 
 By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. Optionally, users are associated to custom roles via [invitations](./authentication-authorization.md).
 
@@ -318,28 +318,7 @@ The `platform` section controls platform specific settings, such as the API lang
 
 ### Selecting the API language runtime version
 
-To configure the API language runtime version, set the `apiRuntime` property in the `platform` section to one of the following supported values.
-
-| Language runtime version | Operating system | Azure Functions version | `apiRuntime` value |
-|--|--|--|--|
-| .NET Core 3.1 | Windows | 3.x | `dotnet:3.1` |
-| .NET 6.0 in-process | Windows | 4.x | `dotnet:6.0` |
-| .NET 6.0 isolated | Windows | 4.x | `dotnet-isolated:6.0` |
-| Node.js 12.x | Linux | 3.x | `node:12` |
-| Node.js 14.x | Linux | 4.x | `node:14` |
-| Node.js 16.x (preview) | Linux | 4.x | `node:16` |
-| Python 3.8 | Linux | 3.x | `python:3.8` |
-| Python 3.9 | Linux | 4.x | `python:3.9` |
-
-The following example configuration demonstrates how to use the `apiRuntime` property to select Node.js 16 as the API language runtime version.
-
-```json
-{
-  "platform": {
-    "apiRuntime": "node:16"
-  }
-}
-```
+[!INCLUDE [Languages and runtimes](../../includes/static-web-apps-languages-runtimes.md)]
 
 ## Networking
 
@@ -440,10 +419,84 @@ For example, the following configuration shows how you can add a unique identifi
 - Keys are case insensitive
 - Values are case-sensitive
 
+## Trailing slash
+
+A trailing slash is the `/` at the end of a URL. Conventionally, trailing slash URL refers to a directory on the web server, while a non-trailing slash indicates a file. 
+
+Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content which can negatively impact search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO. 
+
+The following normalization and redirect rules apply for each of the available configurations:
+
+### Always 
+
+When setting `trailingSlash` to `always`, all requests that don't include a trailing slash are redirected to a trailing slash URL. For example, `/contact` is redirected to `/contact/`.
+
+```json
+"trailingSlash": "always"
+```
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/contact_ | The _/contact.html_ file | `301` | _/contact/_ |
+| _/contact/_ | The _/contact.html_ file | `200` | _/contact/_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact/_ |
+
+### Never
+
+When setting `trailingSlash` to `never`, all requests ending in a trailing slash are redirected to a non-trailing slash URL. For example, `/contact/` is redirected to `/contact`.
+
+```json
+"trailingSlash": "never"
+```
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `200` | _/about_ |
+| _/about/_ | The _/about/index.html_ file | `301` | _/about_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about_ |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
+
+### Auto
+
+When setting `trailingSlash` to `auto`, all requests to folders are redirected to a URL with a trailing slash. All requests to files are redirected to a non-trailing slash URL.
+
+```json
+"trailingSlash": "auto"
+```
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
+
+For optimal website performance, configure a trailing slash strategy using one of the `always`, `never` or `auto` modes.
+
+By default, when the `trailingSlash` configuration is omitted, Static Web Apps applies the following rules: 
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `200` | _/about_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `200` | _/about/index.html_ |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `200` | _/contact.html_ |
+
+
 ## Example configuration file
 
 ```json
 {
+  "trailingSlash": "auto",
   "routes": [
     {
       "route": "/profile*",

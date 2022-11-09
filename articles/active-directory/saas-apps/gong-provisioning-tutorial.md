@@ -109,9 +109,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. In the **Admin Credentials** section, click on Authorize, make sure that you enter your Taskize Connect account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Taskize Connect. If the connection fails, ensure your Taskize Connect account has Admin permissions and try again.
+1. In the **Admin Credentials** section, click on Authorize, make sure that you enter your Gong account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Gong. If the connection fails, ensure your Gong account has Admin permissions and try again.
 
    ![Token](media/gong-provisioning-tutorial/gong-authorize.png)
+   
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
@@ -128,7 +129,7 @@ This section guides you through the steps to configure the Azure AD provisioning
     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|| 
     |active|Boolean||
     |title|String|| 
-    |emails[type eq "work"].value|String||  
+    |emails[type eq "work"].value|String||&check; 
     |name.givenName|String||&check;
     |name.familyName|String||&check;
     |phoneNumbers[type eq "work"].value|String||
@@ -171,7 +172,8 @@ Once you've configured provisioning, use the following resources to monitor your
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Change Log
-03/23/2022 - Added support for **Group Provisioning**.
+* 03/23/2022 - Added support for **Group Provisioning**.
+* 04/21/2022 - **emails[type eq "work"].value** has been marked as required attribute.
 
 ## More resources
 

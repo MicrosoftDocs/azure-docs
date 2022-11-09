@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 02/28/2022
 ms.author: govindk
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
+ms.custom: subject-rbac-steps, ignite-2022
 ---
 
 # Manage permissions to restore an Azure Cosmos DB account
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
 Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. The owner of the account can trigger a restore and assign a role to other principals to perform the restore operation. These permissions can be applied at the subscription scope as shown in the following image:
 
@@ -22,17 +23,23 @@ Scope is a set of resources that have access, to learn more on scopes, see the [
 
 To perform a restore, a user or a principal need the permission to restore (that is *restore/action* permission), and permission to provision a new account (that is *write* permission).  To grant these permissions, the owner can assign the `CosmosRestoreOperator` and `Cosmos DB Operator` built in roles to a principal.
 
-1. Sign into the [Azure portal](https://portal.azure.com/)
+1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your subscription.
 
-1. Navigate to your subscription and go to **Access control (IAM)** tab and select **Add** > **Add role assignment**
+1. Select **Access control (IAM)**.
 
-1. In the **Add role assignment** pane, for **Role** field, select **CosmosRestoreOperator** role. Choose **User, group, or a service principal** for the **Assign access to** field and search for a user's name or email ID as shown in the following image:
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-   :::image type="content" source="./media/continuous-backup-restore-permissions/assign-restore-operator-roles.png" alt-text="Assign CosmosRestoreOperator and Cosmos DB Operator roles." border="true":::
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. Select **Save** to grant the *restore/action* permission.
+    | Setting | Value |
+    | --- | --- |
+    | Role | CosmosRestoreOperator |
+    | Assign access to | User, group, or service principal |
+    | Members | &lt;User of your choice&gt; |
 
-1. Repeat Step 3 with **Cosmos DB Operator** role to grant the write permission. When assigning this role from the Azure portal, it grants the restore permission to the whole subscription.
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot that shows Add role assignment page in Azure portal.":::
+
+1. Repeat step 4 with the **Cosmos DB Operator** role to grant the write permission. When assigning this role from the Azure portal, it grants the restore permission to the whole subscription.
 
 ## Permission scopes
 
@@ -93,7 +100,7 @@ The RestorableAction below represents a custom role. You have to explicitly crea
   "assignableScopes": [
     "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744"
   ],
-  "description": "Can do a restore request for any Cosmos DB database account with continuous backup",
+  "description": "Can do a restore request for any Azure Cosmos DB database account with continuous backup",
   "permissions": [
     {
       "actions": [

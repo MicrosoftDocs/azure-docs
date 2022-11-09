@@ -1,15 +1,17 @@
 ---
 title: Azure Percept Vision AI module
 description: An overview of the azureeyemodule, which is the module responsible for running the AI vision workload on the Azure Percept DK.
-author: nkhuyent
+author: yvonne-dq
 ms.author: tsampige
 ms.service: azure-percept
 ms.topic: overview 
-ms.date: 08/09/2021
+ms.date: 10/04/2022
 ms.custom: template-overview 
 ---
 
 # Azure Percept Vision AI module
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Azureeyemodule is the name of the edge module responsible for running the AI vision workload on the Azure Percept DK. It's part of the Azure IoT suite of edge modules and is deployed to the Azure Percept DK during the [setup experience](./quickstart-percept-dk-set-up.md). This article provides an overview of the module and its architecture.
 
@@ -31,7 +33,7 @@ The Azure Percept Workload enables several features that end users can take adva
 - A retraining loop for grabbing images from the device periodically, retraining the model in the cloud, and then pushing the newly trained model back down to the device. Using the device's ability to update and swap models on the fly.
 
 ## AI workload details
-The Workload application is open-sourced in the Azure Percept Advanced Development [github repository](https://github.com/microsoft/azure-percept-advanced-development/tree/main/azureeyemodule/app) and is made up of many small C++ modules, with some of the more important being:
+The Workload application is open-sourced in the Azure Percept Advanced Development [GitHub repository](https://github.com/microsoft/azure-percept-advanced-development/tree/main/azureeyemodule/app) and is made up of many small C++ modules, with some of the more important being:
 - [main.cpp](https://github.com/microsoft/azure-percept-advanced-development/blob/main/azureeyemodule/app/main.cpp): Sets up everything and then runs the main loop.
 - [iot](https://github.com/microsoft/azure-percept-advanced-development/tree/main/azureeyemodule/app/iot): This folder contains modules that handle incoming and outgoing messages from the Azure IoT Edge Hub, and the twin update method.
 - [model](https://github.com/microsoft/azure-percept-advanced-development/tree/main/azureeyemodule/app/model): This folder contains modules for a class hierarchy of computer vision models.

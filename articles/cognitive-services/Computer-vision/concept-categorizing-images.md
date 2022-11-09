@@ -1,7 +1,7 @@
 ---
 title: Image categorization - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Learn concepts related to the image categorization feature of the Computer Vision API.
+description: Learn concepts related to the image categorization feature of the Image Analysis API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,16 +9,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 07/05/2022
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Categorize images by subject matter
+# Image categorization
 
-In addition to tags and a description, Computer Vision returns the taxonomy-based categories detected in an image. Unlike tags, categories are organized in a parent/child hereditary hierarchy, and there are fewer of them (86, as opposed to thousands of tags). All category names are in English. Categorization can be done by itself or alongside the newer tags model.
+In addition to tags and a description, Image Analysis can return the taxonomy-based categories detected in an image. Unlike tags, categories are organized in a parent/child hierarchy, and there are fewer of them (86, as opposed to thousands of tags). All category names are in English. Categorization can be done by itself or alongside the newer tags model.
 
-## The 86-category concept
+## The 86-category hierarchy
 
 Computer vision can categorize an image broadly or specifically, using the list of 86 categories in the following diagram. For the full taxonomy in text format, see [Category Taxonomy](category-taxonomy.md).
 

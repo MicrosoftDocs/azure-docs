@@ -1,11 +1,11 @@
 ---
 title: Azure PowerShell samples
 description: Provides Azure PowerShell sample scripts to use when working with Azure Managed Applications.
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: sample
 ms.date: 10/27/2017
-ms.author: tomfitz
+ms.author: davidsmatlak
 ---
 # Azure PowerShell samples
 

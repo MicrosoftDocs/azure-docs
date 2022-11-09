@@ -150,41 +150,41 @@ Invitations are specific to individual authorization-providers, so consider the 
 | GitHub                 | username         |
 | Twitter                | username         |
 
-1. Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
-1. Under _Settings_, click on **Role Management**.
-1. Click on the **Invite** button.
-1. Select an _Authorization provider_ from the list of options.
-1. Add either the username or email address of the recipient in the _Invitee details_ box.
+1. Go to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+1. Under _Settings_, select **Role Management**.
+2. Select **Invite**.
+3. Select an _Authorization provider_ from the list of options.
+4. Add either the username or email address of the recipient in the _Invitee details_ box.
    - For GitHub and Twitter, you enter the username. For all others, enter the recipient's email address.
-1. Select the domain of your static site from the _Domain_ drop-down.
+5. Select the domain of your static site from the _Domain_ drop-down.
    - The domain you select is the domain that appears in the invitation. If you have a custom domain associated with your site, you probably want to choose the custom domain.
-1. Add a comma-separated list of role names in the _Role_ box.
-1. Enter the maximum number of hours you want the invitation to remain valid.
+6. Add a comma-separated list of role names in the _Role_ box.
+7. Enter the maximum number of hours you want the invitation to remain valid.
    - The maximum possible limit is 168 hours, which is 7 days.
-1. Click the **Generate** button.
-1. Copy the link from the _Invite link_ box.
-1. Email the invitation link to the person you're granting access to your app.
+8. Select **Generate**.
+9. Copy the link from the _Invite link_ box.
+10. Email the invitation link to the person you're granting access to your app.
 
-When the user clicks the link in the invitation, they're prompted to log in with their corresponding account. Once successfully logged-in, the user is associated with the selected roles.
+When the user selects the link in the invitation, they're prompted to log in with their corresponding account. Once successfully logged-in, the user is associated with the selected roles.
 
 > [!CAUTION]
 > Make sure your route rules don't conflict with your selected authentication providers. Blocking a provider with a route rule would prevent users from accepting invitations.
 
 ### Update role assignments
 
-1. Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
-1. Under _Settings_, click on **Role Management**.
-1. Click on the user in the list.
-1. Edit the list of roles in the _Role_ box.
-1. Click the **Update** button.
+1. Go to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+1. Under _Settings_, select **Role Management**.
+2. Select the user in the list.
+3. Edit the list of roles in the _Role_ box.
+4. Select **Update**.
 
 ### Remove user
 
-1. Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
-1. Under _Settings_, click on **Role Management**.
+1. Go to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+1. Under _Settings_, select **Role Management**.
 1. Locate the user in the list.
 1. Check the checkbox on the user's row.
-1. Click the **Delete** button.
+2. Select **Delete**.
 
 As you remove a user, keep in mind the following items:
 
@@ -229,7 +229,7 @@ To configure Static Web Apps to use an API function as the role assignment funct
 
 ### Create a function for assigning roles
 
-After defining the `rolesSource` property in your app's configuration, add an [API function](apis.md) in your static web app at the path you specified. You can use a managed function app or a bring your own function app.
+After defining the `rolesSource` property in your app's configuration, add an [API function](apis-functions.md) in your static web app at the path you specified. You can use a managed function app or a bring your own function app.
 
 Each time a user successfully authenticates with an identity provider, the specified function is called via the POST method. The function is passed a JSON object in the request body that contains the user's information from the provider. For some identity providers, the user information also includes an `accessToken` that the function can use to make API calls using the user's identity.
 

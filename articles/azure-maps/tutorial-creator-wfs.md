@@ -31,7 +31,11 @@ First you'll query all collections, and then you'll query for the `unit` collect
 This tutorial uses the [Postman](https://www.postman.com/) application, but you can use a different API development environment.
 
 >[!IMPORTANT]
-> This tutorial uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+>
+> * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+> * In the URL examples in this article you will need to replace:
+>    * `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+>    * `{datasetId}` with the `datasetId` obtained in the [Check the dataset creation status](tutorial-creator-indoor-maps.md#check-the-dataset-creation-status) section of the *Use Creator to create indoor maps* tutorial
 
 ## Query for feature collections
 
@@ -41,7 +45,7 @@ To query all collections in your dataset:
 
 2. Select the **GET** HTTP method.
 
-3. Enter the following URL to [WFS API](/rest/api/maps/v2/wfs). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in the [Check the dataset creation status](tutorial-creator-indoor-maps.md#check-the-dataset-creation-status) section of the *Use Creator to create indoor maps* tutorial:
+3. Enter the following URL to [WFS API](/rest/api/maps/v2/wfs). The request should look like the following URL:
 
     ```http
     https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0
@@ -49,7 +53,7 @@ To query all collections in your dataset:
 
 4. Select **Send**.
 
-5. The response body is returned in GeoJSON format and contains all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](/rest/api/maps/v2/wfs/collection-description). To learn more about any collection, you can select any of the URLs inside the `links` element.
+5. The response body is returned in GeoJSON format and contains all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](/rest/api/maps/v2/wfs/get-collection-definition). To learn more about any collection, you can select any of the URLs inside the `links` element.
 
     ```json
     {
@@ -87,7 +91,7 @@ To query the unit collection in your dataset:
 
 2. Select the **GET** HTTP method.
 
-3. Enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](tutorial-creator-indoor-maps.md#check-the-dataset-creation-status)):
+3. Enter the following URL:
 
     ```http
     https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0

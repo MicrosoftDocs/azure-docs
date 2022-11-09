@@ -2,31 +2,23 @@
 title: Use Azure Cosmos DB's API for MongoDB to build a Node.js app
 description: A tutorial that creates an online database using the Azure Cosmos DB's API for MongoDB.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: sample
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: devx-track-js
+ms.custom: devx-track-js, ignite-2022
 ---
 # Build an app using Node.js and Azure Cosmos DB's API for MongoDB 
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
-
-> [!div class="op_single_selector"]
-> * [.NET](../sql-api-get-started.md)
-> * [.NET Core](../sql-api-get-started.md)
-> * [Java](../create-sql-api-java.md)
-> * [Node.js for MongoDB](nodejs-console-app.md)
-> * [Node.js](../sql-api-nodejs-get-started.md)
->
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 This example shows you how to build a console app using Node.js and Azure Cosmos DB's API for MongoDB.
 
 To use this example, you must:
 
-* [Create](create-mongodb-dotnet.md#create-account) a Cosmos account configured to use Azure Cosmos DB's API for MongoDB.
-* Retrieve your [connection string](connect-mongodb-account.md) information.
+* [Create](create-mongodb-dotnet.md#create-an-azure-cosmos-db-account) an Azure Cosmos DB account configured to use Azure Cosmos DB's API for MongoDB.
+* Retrieve your [connection string](connect-account.md) information.
 
 ## Create the app
 
@@ -149,14 +141,14 @@ To use this example, you must:
     });
     ```
     
-2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](connect-mongodb-account.md)):
+2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](connect-account.md)):
 
     > [!IMPORTANT]
-    > The **MongoDB Node.js 3.0 driver** requires encoding special characters in the Cosmos DB password. Make sure to encode '=' characters as %3D
+    > The **MongoDB Node.js 3.0 driver** requires encoding special characters in the Azure Cosmos DB password. Make sure to encode '=' characters as %3D
     >
     > Example: The password *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* encodes to *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
     >
-    > The **MongoDB Node.js 2.2 driver** does not require encoding special characters in the Cosmos DB password.
+    > The **MongoDB Node.js 2.2 driver** does not require encoding special characters in the Azure Cosmos DB password.
     >
     >
    

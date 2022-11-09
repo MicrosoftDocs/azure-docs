@@ -2,13 +2,14 @@
 title: Set up image labeling project
 titleSuffix: Azure Machine Learning
 description: Create a project to label images with the data labeling tool. Enable ML assisted labeling, or human in the loop labeling, to aid with the task.
-author: sdgilley
-ms.author: sgilley
+author: kvijaykannan 
+ms.author: vkann 
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom: data4ml, ignite-fall-2021
+ms.custom: data4ml, ignite-fall-2021, ignite-2022
 ---
 
 # Create an image labeling project and export labels
@@ -112,8 +113,12 @@ For bounding boxes, important questions include:
 
 * How is the bounding box defined for this task? Should it be entirely on the interior of the object, or should it be on the exterior? Should it be cropped as closely as possible, or is some clearance acceptable?
 * What level of care and consistency do you expect the labelers to apply in defining bounding boxes?
+* What is the visual definition of each label class? Is it possible to provide a list of normal, edge, and counter cases for each class? 
+* What should the labelers do if the object is tiny? Should it be labeled as an object or should it be ignored as background?
 * How to label the object that is partially shown in the image? 
 * How to label the object that partially covered by other object?
+* How to label the object if there is no clear boundary of the object?
+* How to label the object which is not object class of interest but visually similar to an interested object type?
 
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
@@ -212,13 +217,13 @@ Use the **Export** button on the **Project details** page of your labeling proje
 
 * Image labels can be exported as:
     * [COCO format](http://cocodataset.org/#format-data).The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/coco*. 
-    * An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
+    * An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
 
 Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 
 ![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md)
+Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python](how-to-auto-train-image-models.md)
 
 ## Troubleshooting
 

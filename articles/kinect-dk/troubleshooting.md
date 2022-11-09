@@ -3,7 +3,7 @@ title: Azure Kinect known issues and troubleshooting
 description: Learn about some of the known issues and troubleshooting tips when using the Sensor SDK with Azure Kinect DK.
 author: qm13
 ms.author: quentinm
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 03/15/2022
 ms.topic: conceptual
 keywords: troubleshooting, update, bug, kinect, feedback, recovery, logging, tips
@@ -187,7 +187,7 @@ The Body Tracking SDK C# documentation is located [here](https://microsoft.githu
 
 ## Changes to contents of Body Tracking packages
 
-Both the MSI and NuGet packages no longer include the Microsoft Visual C++ Redistributable Package files. Download the latest package [here](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist).
+Both the MSI and NuGet packages no longer include the Microsoft Visual C++ Redistributable Package files. Download the latest package [here](/cpp/windows/latest-supported-vc-redist).
 
 The NuGet package is back however it no longer includes Microsoft DirectML, or NVIDIA CUDA and TensorRT files.
 

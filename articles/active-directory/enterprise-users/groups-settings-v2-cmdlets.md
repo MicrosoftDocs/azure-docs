@@ -3,14 +3,14 @@ title: PowerShell V2 examples for managing groups - Azure AD  | Microsoft Docs
 description: This page provides PowerShell examples to help you manage your groups in Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
 services: active-directory
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 12/02/2020
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 >
 >
 
-This article contains examples of how to use PowerShell to manage your groups in Azure Active Directory (Azure AD).  It also tells you how to get set up with the Azure AD PowerShell module. First, you must [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
+This article contains examples of how to use PowerShell to manage your groups in Azure Active Directory (Azure AD), part of Microsoft Entra.  It also tells you how to get set up with the Azure AD PowerShell module. First, you must [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## Install the Azure AD PowerShell module
 

@@ -1,13 +1,14 @@
 ---
-title: Troubleshooting Azure autoscale
-description: Tracking down problems with Azure autoscaling used in Service Fabric, Virtual Machines, Web Apps, and cloud services.
+title: Troubleshooting Azure Monitor autoscale
+description: Tracking down problems with Azure Monitor autoscaling used in Service Fabric, Virtual Machines, Web Apps, and cloud services.
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
+ms.reviewer: riroloff
 ---
 
 
-# Troubleshooting Azure autoscale
+# Troubleshooting Azure Monitor autoscale
  
 Azure Monitor autoscale helps you to have the right amount of resources running to handle the load on your application. It enables you to add resources to handle increases in load and also save money by removing resources that are sitting idle. You can scale based on a schedule,  fixed date-time, or resource metric you choose. For more information, see [Autoscale Overview](autoscale-overview.md).
 

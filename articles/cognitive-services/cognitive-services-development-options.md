@@ -21,7 +21,7 @@ Cognitive Services are organized into four categories: Decision, Language, Speec
 * Automation and integration tools like Logic Apps and Power Automate.
 * Deployment options such as Azure Functions and the App Service. 
 * Cognitive Services Docker containers for secure access.
-* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. 
+* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for big data scenarios. 
 
 Before we jump in, it's important to know that the Cognitive Services are primarily used for two distinct tasks. Based on the task you want to perform, you have different development and deployment options to choose from. 
 
@@ -50,16 +50,16 @@ Cognitive Services client libraries and REST APIs provide you direct access to y
 
 If you want to learn more about available client libraries and REST APIs, use our [Cognitive Services overview](index.yml) to pick a service and get started with one of our quickstarts for vision, decision, language, and speech.
 
-### Cognitive Services for Big Data
+### Cognitive Services for big data
 
-With Cognitive Services for Big Data you can embed continuously improving, intelligent models directly into Apache Spark&trade; and SQL computations. These tools liberate developers from low-level networking details, so that they can focus on creating smart, distributed applications. Cognitive Services for Big Data support the following platforms and connectors: Azure Databricks, Azure Synapse, Azure Kubernetes Service, and Data Connectors.
+With Cognitive Services for big data you can embed continuously improving, intelligent models directly into Apache Spark&trade; and SQL computations. These tools liberate developers from low-level networking details, so that they can focus on creating smart, distributed applications. Cognitive Services for big data support the following platforms and connectors: Azure Databricks, Azure Synapse, Azure Kubernetes Service, and Data Connectors.
 
 * **Target user(s)**: Data scientists and data engineers
-* **Benefits**: The Azure Cognitive Services for Big Data let users channel terabytes of data through Cognitive Services using Apache Spark&trade;. It's easy to create large-scale intelligent applications with any datastore.
+* **Benefits**: The Azure Cognitive Services for big data let users channel terabytes of data through Cognitive Services using Apache Spark&trade;. It's easy to create large-scale intelligent applications with any datastore.
 * **UI**: N/A - Code only
 * **Subscription(s)**: Azure account + Cognitive Services resources
 
-If you want to learn more about Big Data for Cognitive Services, a good place to start is with the [overview](./big-data/cognitive-services-for-big-data.md). If you're ready to start building, try our [Python](./big-data/samples-python.md) or [Scala](./big-data/samples-scala.md) samples.
+If you want to learn more about big data for Cognitive Services, a good place to start is with the [overview](./big-data/cognitive-services-for-big-data.md). If you're ready to start building, try our [Python](./big-data/samples-python.md) or [Scala](./big-data/samples-scala.md) samples.
 
 ### Azure Functions and Azure Service Web Jobs
 
@@ -99,7 +99,7 @@ Power Automate is a service in the [Power Platform](/power-platform/) that helps
 
 ### Continuous integration and deployment
 
-You can use Azure DevOps and GitHub actions to manage your deployments. In the [section below](#continuous-integration-and-delivery-with-devops-and-github-actions), we have two examples of CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service. 
+You can use Azure DevOps and GitHub Actions to manage your deployments. In the [section below](#continuous-integration-and-delivery-with-devops-and-github-actions), we have two examples of CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service. 
 
 * **Target user(s)**: Developers, data scientists, and data engineers
 * **Benefits**: Allows you to continuously adjust, update, and deploy applications and models programmatically. There is significant benefit when regularly using your data to improve and update models for Speech, Vision, Language, and Decision. 
@@ -129,7 +129,7 @@ The tools that you will use to train and configure models are different from tho
 
 ### Continuous integration and delivery with DevOps and GitHub Actions
 
-Language Understanding and the Speech service offer continuous integration and continuous deployment solutions that are powered by Azure DevOps and GitHub actions. These tools are used for automated training, testing, and release management of custom models. 
+Language Understanding and the Speech service offer continuous integration and continuous deployment solutions that are powered by Azure DevOps and GitHub Actions. These tools are used for automated training, testing, and release management of custom models. 
 
 * [CI/CD for Custom Speech](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
 * [CI/CD for LUIS](./luis/luis-concept-devops-automation.md)

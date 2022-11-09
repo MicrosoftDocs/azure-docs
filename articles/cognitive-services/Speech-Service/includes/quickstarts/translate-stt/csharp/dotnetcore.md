@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=dotnetcore&pivots=programming-language-csharp)
 
 ## Add sample code
@@ -83,7 +83,7 @@ Before you get started, make sure to:
                        {
                            Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                            Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                           Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                           Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                        }
                    }
                }

@@ -16,6 +16,8 @@ You may want to create a copy of your knowledge base for several reasons:
 * Integrate with your CI/CD pipeline 
 * When you wish to move your data to different regions
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Prerequisites
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.

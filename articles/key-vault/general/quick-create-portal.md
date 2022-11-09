@@ -18,8 +18,6 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 In this quickstart, you create a key vault with the [Azure portal](https://portal.azure.com). 
 
 ## Sign in to Azure

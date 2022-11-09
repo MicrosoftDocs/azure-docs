@@ -2,9 +2,10 @@
 title: Log Analytics integration with Power BI and Excel
 description: How to send results from Log Analytics to Power BI
 ms.topic: conceptual
-author: roygalMS
-ms.author: roygal
-ms.date: 11/03/2020
+author: guywild
+ms.author: guywild
+ms.reviewer: roygal
+ms.date: 06/22/2022
 
 ---
 # Log Analytics integration with Power BI
@@ -53,7 +54,7 @@ A dataflow is a type of "cloud ETL" designed to help you collect and prep your d
 
 ## Incremental refresh 
 
-Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature, but you need Power BI Premium to use it.  
+Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature. To use incremental refresh on dataflows, you need Power BI Premium.  
 
 
 Incremental refresh runs small queries and updates smaller amounts of data per run instead of ingesting all of the data again and again when you run the query. You have the option to save large amounts of data, but add a new increment of data every time the query is run. This behavior is ideal for longer running reports.
@@ -66,7 +67,7 @@ To learn more and how to configure incremental refresh, see [Power BI Datasets a
 
 After your data is sent to Power BI, you can continue to use Power BI to create reports and dashboards.
 
-For more information, see [this guide on how to create your first Power BI model and report](/learn/modules/build-your-first-power-bi-report/).  
+For more information, see [this guide on how to create your first Power BI model and report](/training/modules/build-your-first-power-bi-report/).  
 
 ## Excel integration
 

@@ -2,7 +2,9 @@
 title: Permissions to repositories in Azure Container Registry
 description: Create a token with permissions scoped to specific repositories in a Premium registry to pull or push images, or perform other actions
 ms.topic: article
-ms.date: 02/04/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -50,7 +52,7 @@ To configure repository-scoped permissions, you create a *token* with an associa
     * Configure multiple tokens with identical permissions to a set of repositories
     * Update token permissions when you add or remove repository actions in the scope map, or apply a different scope map 
 
-  Azure Container Registry also provides several system-defined scope maps you can apply when creating tokens. The permissions of system-defined scope maps apply to all repositories in your registry.
+  Azure Container Registry also provides several system-defined scope maps you can apply when creating tokens. The permissions of system-defined scope maps apply to all repositories in your registry.The individual *actions* corresponds to the limit of [Repositories per scope map.](container-registry-skus.md)
 
 The following image shows the relationship between tokens and scope maps. 
 
@@ -187,7 +189,7 @@ The authentication method depends on the configured action or actions associated
   |`content/delete`    | `az acr repository delete` in Azure CLI<br/><br/>Example: `az acr repository delete --name myregistry --repository myrepo --username MyToken --password xxxxxxxxxx`|
   |`content/read`     |  `docker login`<br/><br/>`az acr login` in Azure CLI<br/><br/>Example: `az acr login --name myregistry --username MyToken --password xxxxxxxxxx`  |
   |`content/write`     |  `docker login`<br/><br/>`az acr login` in Azure CLI     |
-  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests` in Azure CLI   |
+  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr manifest list-metadata` in Azure CLI   |
   |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update` in Azure CLI |
 
 ## Examples: Use token
@@ -317,7 +319,7 @@ az acr scope-map update \
 
 To update the scope map using the portal, see the [previous section](#update-token-permissions).
 
-To read metadata in the `samples/hello-world` repository, run the [az acr repository show-manifests][az-acr-repository-show-manifests] or [az acr repository show-tags][az-acr-repository-show-tags] command. 
+To read metadata in the `samples/hello-world` repository, run the [az acr manifest list-metadata][az-acr-manifest-list-metadata] or [az acr repository show-tags][az-acr-repository-show-tags] command. 
 
 To read metadata, pass the token's name and password to either command. The following example uses the environment variables created earlier in the article:
 
@@ -432,9 +434,9 @@ In the portal, select the token in the **Tokens (Preview)** screen, and select *
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-manifest-list-metadata]: /cli/azure/acr/manifest#az-acr-manifest-list-metadata
 [az-acr-repository]: /cli/azure/acr/repository/
 [az-acr-repository-show-tags]: /cli/azure/acr/repository/#az_acr_repository_show_tags
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository/#az_acr_repository_show_manifests
 [az-acr-repository-delete]: /cli/azure/acr/repository/#az_acr_repository_delete
 [az-acr-scope-map]: /cli/azure/acr/scope-map/
 [az-acr-scope-map-create]: /cli/azure/acr/scope-map/#az_acr_scope_map_create

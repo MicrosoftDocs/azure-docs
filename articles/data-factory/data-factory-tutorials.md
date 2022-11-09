@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 03/16/2021
+ms.date: 08/03/2022
 ---
 
 # Azure Data Factory tutorials
@@ -83,7 +83,7 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 ## Data lineage
 
-[Azure Purview](turorial-push-lineage-to-purview.md)
+[Microsoft Purview](turorial-push-lineage-to-purview.md)
 
 ## Next steps
 Learn more about Data Factory [pipelines](concepts-pipelines-activities.md) and [data flows](concepts-data-flow-overview.md).

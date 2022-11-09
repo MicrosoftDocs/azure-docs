@@ -1,21 +1,21 @@
 ---
-title: Link an Azure account to a partner ID
+title: Link a partner ID to your account that’s used to manage customers
 description: Track engagements with Azure customers by linking a partner ID to the user account that you use to manage the customer's resources.
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 11/04/2021
+ms.date: 06/28/2022
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Link a partner ID to your Azure accounts
+# Link a partner ID to your account that’s used to manage customers
 
 Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link (PAL), partners can associate their partner network ID with the credentials used for service delivery.
 
-PAL enables Microsoft to identify and recognize partners who drive Azure customer success. Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource ). If a group has Azure RBAC access, then PAL is recognized for all the users in the group.
+PAL enables Microsoft to identify and recognize partners who drive Azure customer success. Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource). If a group has Azure RBAC access, then PAL is recognized for all the users in the group.
 
 ## Get access from your customer
 
@@ -31,7 +31,7 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 ## Link to a partner ID
 
-When you have access to the customer's resources, use the Azure portal, PowerShell, or the Azure CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. Link the partner ID in each customer tenant.
+When you have access to the customer's resources, use the Azure portal, PowerShell, or the Azure CLI to link your Partner ID to your user ID or service principal. Link the Partner ID in each customer tenant.
 
 ### Use the Azure portal to link to a new partner ID
 
@@ -39,7 +39,7 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 2. Sign in to the Azure portal.
 
-3. Enter the Microsoft partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated MPN ID** shown on your partner profile.
+3. Enter the Microsoft partner ID. The partner ID is the [Microsoft Cloud Partner Program](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated Partner ID** shown on your partner profile.
 
    ![Screenshot that shows Link to a partner ID](./media/link-partner-id/link-partner-id01.png)
 
@@ -57,7 +57,7 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
-3. Link to the new partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated MPN ID** shown on your partner profile.
+3. Link to the new partner ID. The partner ID is the [Microsoft Cloud Partner Program](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated Partner ID** shown on your partner profile.
 
 
     ```azurepowershell-interactive
@@ -91,7 +91,7 @@ C:\> Remove-AzManagementPartner -PartnerId 12345
     C:\ az login --tenant <tenant>
     ```
 
-3. Link to the new partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization.
+3. Link to the new partner ID. The partner ID is the [Microsoft Cloud Partner Program](https://partner.microsoft.com/) ID for your organization.
 
      ```azurecli-interactive
      C:\ az managementpartner create --partner-id 12345
@@ -136,9 +136,9 @@ However, if you are managing customer resources through Azure Lighthouse, you sh
 
 The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partners can't change the link to the partner ID.
 
-**Which MPN ID should I use if my company has multiple?**
+**Which Partner ID should I use if my company has multiple?**
 
-Be sure to use the **Associated MPN ID** shown in your partner profile.
+Be sure to use the **Associated Partner ID** shown in your partner profile.
 
 **Where can I find influenced revenue reporting for linked partner ID?**
 
@@ -158,11 +158,11 @@ Yes, You can link your partner ID for Azure Stack.
 
 **How do I link my partner ID if my company uses [Azure Lighthouse](../../lighthouse/overview.md) to access customer resources?**
 
-In order for Azure Lighthouse activities to be recognized, you'll need to associate your MPN ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant rather than in each customer tenant. For simplicity, we recommend creating a service principal account in your tenant, associating it with your MPN ID, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for partner earned credit](/partner-center/azure-roles-perms-pec). For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
+In order for Azure Lighthouse activities to be recognized, you'll need to associate your Partner ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant rather than in each customer tenant. For simplicity, we recommend creating a service principal account in your tenant, associating it with your Partner ID, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for partner earned credit](/partner-center/azure-roles-perms-pec). For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
 
 **How do I explain Partner Admin Link (PAL) to my Customer?**
 
-Partner Admin Link (PAL) enables Microsoft to identify and recognize those partners who are helping customers achieve business objectives and realize value in the cloud. Customers must first provide a partner access to their Azure resource. Once access is granted, the partner’s Microsoft Partner Network ID (MPN ID) is associated. This association helps Microsoft understand the ecosystem of IT service providers and to refine the tools and programs needed to best support our common customers.
+Partner Admin Link (PAL) enables Microsoft to identify and recognize those partners who are helping customers achieve business objectives and realize value in the cloud. Customers must first provide a partner access to their Azure resource. Once access is granted, the partner’s Microsoft Cloud Partner Program ID is associated. This association helps Microsoft understand the ecosystem of IT service providers and to refine the tools and programs needed to best support our common customers.
 
 **What data does PAL collect?**
 
@@ -170,4 +170,4 @@ The PAL association to existing credentials provides no new customer data to Mic
 
 **Does this impact the security of a customer’s Azure Environment?**
 
-PAL association only adds partner’s MPN ID to the credential already provisioned and it does not alter any permissions (Azure role) or provide additional Azure service data to partner or Microsoft.
+PAL association only adds partner’s ID to the credential already provisioned and it does not alter any permissions (Azure role) or provide additional Azure service data to partner or Microsoft.

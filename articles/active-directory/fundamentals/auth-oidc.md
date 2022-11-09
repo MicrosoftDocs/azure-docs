@@ -2,15 +2,15 @@
 title: OpenID Connect authentication with Azure Active Directory
 description: Architectural guidance on achieving OpenID Connect authentication with Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 10/10/2020
-ms.author: baselden
+ms.date: 08/19/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -52,5 +52,4 @@ There is a need for user consent and for web sign in.
 
 * [Web sign-in with OpenID Connect in Azure Active Directory B2C](../../active-directory-b2c/openid-connect.md) 
 
-* [Secure your application by using OpenID Connect and Azure AD](/learn/modules/secure-app-with-oidc-and-azure-ad/) 
-
+* [Secure your application by using OpenID Connect and Azure AD](/training/modules/secure-app-with-oidc-and-azure-ad/) 

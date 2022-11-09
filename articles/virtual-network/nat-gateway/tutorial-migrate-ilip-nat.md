@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
-ms.date: 2/07/2022
+ms.date: 5/25/2022
 ms.custom: template-tutorial 
 ---
 
@@ -83,7 +83,7 @@ In this section, you’ll create a NAT gateway with the IP address you previousl
 
 2. In **NAT gateways**, select **+ Create**.
 
-3. In **Create network address translation (NAT) gateway**, enter or select the following information.
+3. In **Create network address translation (NAT) gateway**, enter or select the following information in the **Basics** tab.
 
     | Setting | Value |
     | ------- | ----- |

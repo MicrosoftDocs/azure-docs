@@ -1,17 +1,17 @@
 This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into a SQL database.  
  
-For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md).
+For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md). The following video provides an overview of on-premises provisioning.
 
->[!IMPORTANT]
->The default verbosity of the logs is set to `Verbose`. If you are using the SQL connector without Windows Integrated Auth, please set the verbosity to `Error` as described [here](../articles/active-directory/app-provisioning/on-premises-ecma-troubleshoot.md#turn-on-verbose-logging).
+
+> [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
 ## Prerequisites for provisioning to a SQL Database
 
 ### On-premises prerequisites
 
  - The application relies upon a SQL database, in which records for users can be created, updated, and deleted.
- - An ODBC driver for that SQL database.
- - A Windows Server 2016 or later computer with an internet-accessible TCP/IP address, connectivity to the target system, and with outbound connectivity to login.microsoftonline.com. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. The server should have at least 3 GB of RAM and .NET Framework 4.7.1.
+ - A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target database system, and with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
+ - The computer should have .NET Framework 4.7.2 and an ODBC driver for the SQL database.
 
 Configuration of the connection to the application's database is done via a wizard. Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. Use the following information to guide you in your configuration.
 
@@ -30,11 +30,13 @@ Note: The table-based method of the generic SQL connector requires that column n
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
  
     [!INCLUDE [active-directory-p1-license.md](active-directory-p1-license.md)]
- - The Hybrid identity administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
+ - The Hybrid Identity Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Application Administrator roles for configuring provisioning in the Azure portal.
 
 ## Prepare the sample database
 
-In this article, you will configure the Azure AD SQL connector to interact with your application's relational database. Typically, applications manage access with a table in their SQL database, with one row in the table per user. For demonstration purposes, if you do not already have a database with a suitable table, then you should create one which Azure AD can be permitted to use.  If you're using SQL Server, then run the SQL script found in [Appendix A](#appendix-a). This script creates a sample database with the name CONTOSO, containing a single table `Employees`. This is the database table that you'll be provisioning users into.
+In this article, you will configure the Azure AD SQL connector to interact with your application's relational database. Typically, applications manage access with a table in their SQL database, with one row in the table per user. If you already have an application with a database, then continue at the next section.
+
+If you do not already have a database with a suitable table, then for demonstration purposes, you should create one which Azure AD can be permitted to use.  If you're using SQL Server, then run the SQL script found in [Appendix A](#appendix-a). This script creates a sample database with the name CONTOSO, containing a single table `Employees`. This is the database table that you'll be provisioning users into.
 
  |Table Column|Source|
  |-----|-----|
@@ -47,6 +49,8 @@ In this article, you will configure the Azure AD SQL connector to interact with 
  |textID|Azure AD mail nickname|
 
 ## Determine how the Azure AD SQL Connector will interact with your database
+
+You will need to have a user account in the SQL instance with the rights to make updates to data in the database's tables. If your SQL database is managed by someone else, contact them to obtain the account name and password for Azure AD to use to authenticate to the database. If the SQL instance is installed on a different computer, you will also need to ensure that the SQL database allows incoming connections from the ODBC driver on the agent computer.
 
 If you have an already existing database for your application, then you will need to determine how Azure AD should interact with that database: direct interaction with tables and views, via stored procedures already present in the database, or via SQL statements you provide for query and updates.  This is because a more complex application might have in its database additional auxiliary tables, require paging for tables with thousands of users, or could require Azure AD to call a stored procedure that performs additional data processing, such as encryption, hashing or validity checks.
 
@@ -64,13 +68,19 @@ In the configuration of each run profile of the connector, you will specify whet
 - If you select the Stored Procedure method, then your database will need to have four stored procedures: read a page of users, add a user, update a user and delete a user, you will configure the Azure AD connector with the names and parameters of those stored procedures to call.  This approach requires more configuration in your SQL database and would typically only be needed if your application requires additional processing for each change to a user, of for paging through large result sets.
 - If you select the SQL Query method, then you will type in the specific SQL statements you want the connector to issue during a run profile.  You'll configure the connector with the parameters that the connector should populate in your SQL statements, such as to page through result sets during an import, or to set the attributes of a new user being created during an export.
 
-This article illustrates how to use the table method to interact with the sample database table `Employees`, in the **Export** and **Full Import** run profiles. To learn more about configuring the Stored Procedure or SQL Query methods, see the [Generic SQL configuration guide](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) which provides more details and specific requirements.
+This article illustrates how to use the table method to interact with the sample database table `Employees`, in the **Export** and **Full Import** run profiles. To learn more about configuring the Stored Procedure or SQL Query methods, see the [Generic SQL configuration guide](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) that provides more details and specific requirements.
 
 ## Choose the unique identifiers in your application's database schema
 
-Most applications will have a unique identifier for each user of the application.  If you are provisioning into an existing database table, you should identify a column of that table which has a value for each user, where that value is unique and doesn't change.  This will be the **Anchor**, which Azure AD uses to identify existing rows to be able to update or delete them. For additional information on anchors see [About anchor attributes and distinguished names](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names).
+Most applications will have a unique identifier for each user of the application.  If you are provisioning into an existing database table, you should identify a column of that table which has a value for each user, where that value is unique and doesn't change.  This will be the **Anchor**, which Azure AD uses to identify existing rows to be able to update or delete them. For more information on anchors, see [About anchor attributes and distinguished names](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names).
 
-If your application's database already exists, and has users in it that you will want to have Azure AD keep up to date, then you will need to have a identifier for each user that is the same between the application's database and the Azure AD schema.  For example, if you assign a user to the application in Azure AD, and that user is already in that database, then changes to that user in Azure AD should update an existing row for that user.  Since Azure AD likely does not store an application's internal identifier for that user, you will want to select another column for **querying** the database. The value of this column could be a user principal name, or an email address, employee ID, or other identifier that is present in Azure AD on each user that is in scope of the application.
+If your application's database already exists, has users in it, and you want to have Azure AD keep those users up to date, then you will need to have an identifier for each user that is the same between the application's database and the Azure AD schema.  For example, if you assign a user to the application in Azure AD, and that user is already in that database, then changes to that user in Azure AD should update an existing row for that user, rather than add a new row.  Since Azure AD likely does not store an application's internal identifier for that user, you will want to select another column for **querying** the database. The value of this column could be a user principal name, or an email address, employee ID, or other identifier that is present in Azure AD on each user that is in scope of the application.  If the user identifier that the application uses is not an attribute stored in the Azure AD representation of the user, then you do not need to extend the Azure AD user schema with an extension attribute, and populate that attribute from your database.  You can extend the Azure AD schema and set extension values using [PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample).
+
+## Map attributes in Azure AD to the database schema
+
+When Azure AD has established a link between a user in Azure AD and a record in the database, either for a user already in the database or a new user, then Azure AD can provision attribute changes from the Azure AD user into the database. In addition to the unique identifiers, inspect your database to identify if there are any other required properties.  If there are, then ensure that the users who will be provisioned into the database have attributes that can be mapped onto the required properties.
+
+You can also configure [deprovisioning](../articles/active-directory/app-provisioning/how-provisioning-works.md#de-provisioning) behavior.  If a user that is assigned to the application is deleted in Azure AD, then Azure AD will send a delete operation to the database.  You may also wish to have Azure AD update the database when a user goes out of scope of being able to use the application.  If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, then you can configure Azure AD to send an attribute change.  If you are provisioning into an existing database table, then you'll want to have a column of that table to map to **isSoftDeleted**.  When the user goes out of scope, Azure AD will set the value for that user to **True**.
 
 ## Install the ODBC driver
 
@@ -89,9 +99,9 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
      ![Screenshot that shows naming the connector.](./media/active-directory-app-provisioning-sql/dsn-4.png)</br>
  5. Select **Finish**. 
      ![Screenshot that shows Finish.](./media/active-directory-app-provisioning-sql/dsn-5.png)</br>
- 6. Now configure the connection. Enter **APP1** for the name of the server and select **Next**.  Note that the following steps will differ depending upon which ODBC driver you're using.  These assume you're using the driver to connect to SQL Server.
+ 6. Now configure the connection. If the SQL Server is located on a different server computer, then enter the name of the server. Then, select **Next**.  Note that the following steps will differ depending upon which ODBC driver you're using.  These assume you're using the driver to connect to SQL Server.
      ![Screenshot that shows entering a server name.](./media/active-directory-app-provisioning-sql/dsn-6.png)</br>
- 7. Keep Windows authentication and select **Next**.
+ 7. If the user you are running this step as has permissions to connect to the database, then keep Windows authentication selected. If the SQL Server administrator requires a SQL local account, then provide those credentials instead. Then select **Next**.
      ![Screenshot that shows Windows authentication.](./media/active-directory-app-provisioning-sql/dsn-7.png)</br>
  8. Enter the name of the database, which in this sample is **CONTOSO**.
      ![Screenshot that shows entering a database name.](./media/active-directory-app-provisioning-sql/dsn-8.png)
@@ -112,7 +122,7 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
      >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
  1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
  1. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
- 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. Hybrid identity administrator or global administrator is required.
+ 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The Hybrid Identity Administrator or Global Administrator role is required.
  1. Select **Confirm** to confirm the installation was successful.
  1. Sign in to the Azure portal.
  1. Go to **Enterprise applications** > **Add a new application**.
@@ -122,11 +132,12 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
  1. On the **Provisioning** page, change the mode to **Automatic**.
      ![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)</br>
  1. On the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
+ 1. Keep this browser window open, as you complete the next step of configuration using the configuration wizard.
 
   
  ## Configure the Azure AD ECMA Connector Host certificate
- 1. Launch the Microsoft ECMA2Host Configuration Wizard from the start menu.
- 2. After the ECMA Connector Host Configuration starts, leave the default port **8585** and select **Generate** to generate a certificate. The autogenerated certificate will be self-signed as part of the trusted root. The SAN matches the host name.
+ 1. On the Windows Server where the provisioning agent is installed, launch the Microsoft ECMA2Host Configuration Wizard from the start menu.
+ 2. After the ECMA Connector Host Configuration starts, if this is the first time you have run the wizard, it will ask you to create a certificate. Leave the default port **8585** and select **Generate** to generate a certificate. The autogenerated certificate will be self-signed as part of the trusted root. The SAN matches the host name.
      ![Screenshot that shows configuring your settings.](.\media\active-directory-app-provisioning-sql\configure-1.png)
  3. Select **Save**.
 
@@ -134,7 +145,7 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
 
 In this section, you'll create the connector configuration for your database.
 
- 1. Select the ECMA Connector Host shortcut on the desktop.
+ 1. If you have not already done so, launch the Microsoft ECMA2Host Configuration Wizard from the start menu.
  2. Select **New Connector**.
      ![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-3.png)</br>
  3. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
@@ -152,7 +163,7 @@ In this section, you'll create the connector configuration for your database.
      |Property|Description|
      |-----|-----|
      |DSN File|The Data Source Name file you created in the previous step, which is used to connect to the SQL instance.|
-     |User Name|The username of an account with rights to make updates to the table in the SQL instance. If the target database is SQL Server, the user name must be in the form of hostname\sqladminaccount for standalone servers or domain\sqladminaccount for domain member servers.|
+     |User Name|The username of an account with rights to make updates to the table in the SQL instance. If the target database is SQL Server and you are using Windows authentication, the user name must be in the form of hostname\sqladminaccount for standalone servers or domain\sqladminaccount for domain member servers.|
      |Password|The password of the username just provided.|
      |DN is Anchor|Unless your environment is known to require these settings, don't select the **DN is Anchor** and **Export Type:Object Replace** checkboxes.|
 
@@ -174,7 +185,11 @@ After having provided credentials, the ECMA Connector Host will be ready to retr
      |-----|-----|
      |User:Attribute Detection|Table|
      |User:Table/View/SP|Employees|
- 7. Once you clicked **Next**, an additional page will automatically appear, for you to select the columns of the `Employees` table that are to be used as the `Anchor` and `DN` of users.  for On the **Schema 3** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+
+    >[!NOTE]
+    >If an error occurs, check your database configuration to ensure that the user you specified on the **Connectivity** page has read access to the database's schema.
+
+ 7. Once you clicked **Next**, an additional page will automatically appear, for you to select the columns of the `Employees` table that are to be used as the `Anchor` and `DN` of users.  On the **Schema 3** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
      ![Screenshot that shows the Schema 3 page.](.\media\active-directory-app-provisioning-sql\conn-5.png)
 
      |Property|Description|
@@ -222,21 +237,20 @@ Next, you'll configure the **Export** and **Full import** run profiles.  The **E
 ### Configure how attributes are surfaced in Azure AD
 
  14. On the **Object Types** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.   
-      - **Anchor**: This attribute should be unique in the target system. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle. This anchor value should be the same as the anchor value you configured earlier on the **Schema 3** page.
-      - **Query Attribute**: Used by the ECMA connector host to query the in-memory cache. The values of this attribute should be unique for each user.  You'll refer to this attribute again subsequently in the Azure Portal, when configuring attribute mappings, as an attribute to use for matching.
-      - **DN**: The **Autogenerated** option should be selected in most cases. If it isn't selected, ensure that the DN attribute is mapped to an attribute in Azure AD that stores the DN in this format: CN = anchorValue, Object = objectType.  For additional information on anchors and the DN see [About anchor attributes and distinguished names](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names).
-     ![Screenshot that shows the Object Types page.](.\media\active-directory-app-provisioning-sql\conn-12.png)</br>
+      - **Anchor**: This values of this attribute should be unique for each object in the target database. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle. This anchor value should be the same as the anchor value you configured earlier on the **Schema 3** page.
+      - **Query Attribute**:  This attribute should be the same as the Anchor.
+      - **DN**: The **Autogenerated** option should be selected in most cases. If it isn't selected, ensure that the DN attribute is mapped to an attribute in Azure AD that stores the DN in this format: CN = anchorValue, Object = objectType.  For more information on anchors and the DN, see [About anchor attributes and distinguished names](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names).
      
      |Property|Description|
      |-----|-----|
      |Target object|User|
      |Anchor|ContosoLogin|
-     |Query Attribute|AzureID|
-     |DN|AzureID|
+     |Query Attribute|ContosoLogin|
+     |DN|ContosoLogin|
      |Autogenerated|Checked|      
- 15. The ECMA connector host discovers the attributes supported by the target system. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.On the **Select Attributes** page, add all the attributes in the dropdown list and select **Next**. 
+ 15. The ECMA connector host discovers the attributes supported by the target database. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning. On the **Select Attributes** page, add all the attributes in the dropdown list one at a time.
      ![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-sql\conn-13.png)</br>
-      The **Attribute** dropdown list shows any attribute that was discovered in the target system and *wasn't* chosen on the previous **Select Attributes** page. 
+      The **Attribute** dropdown list shows any attribute that was discovered in the target database and *wasn't* chosen on the previous **Select Attributes** page. Once all the relevant attributes have been added, select **Next**.
  
  16. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. Please note that attributes selected on the previous page won't be available to select on the Deprovisioning page. Select **Finish**.
      ![Screenshot that shows the Deprovisioning page.](.\media\active-directory-app-provisioning-sql\conn-14.png)</br>
@@ -250,47 +264,35 @@ Next, you'll configure the **Export** and **Full import** run profiles.  The **E
 
 
 
-## Test the application connection
- 1. Sign in to the Azure portal.
- 2. Go to **Enterprise applications** and the **On-premises ECMA app** application.
- 3. Go to **Edit Provisioning**.
- 4. Under the **Admin credentials** section, enter the following URL. Replace the `{connectorName}` portion with the name of the connector on the ECMA connector host. You can also replace `localhost` with the host name.
+## Configure the application connection in the Azure portal
+ 1. Return to the web browser window where you were configuring the application provisioning.
+    >[!NOTE]
+    >If the window had timed out, then you will need to re-select the agent.
+     1. Sign in to the Azure portal.
+     1. Go to **Enterprise applications** and the **On-premises ECMA app** application.
+     1. Click on **Provisioning**.
+     1. If **Get started** appears, then change the mode to **Automatic**,  on the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**. Otherwise go to **Edit Provisioning**.
 
- |Property|Value|
- |-----|-----|
- |Tenant URL|https://localhost:8585/ecma2host_{connectorName}/scim|
+ 1. Under the **Admin credentials** section, enter the following URL. Replace the `{connectorName}` portion with the name of the connector on the ECMA connector host, with the same case as was configured in the wizard. You can also replace `localhost` with the host name.
+
+    |Property|Value|
+    |-----|-----|
+    |Tenant URL|https://localhost:8585/ecma2host_{connectorName}/scim|
 
  5. Enter the **Secret Token** value that you defined when you created the connector.
      >[!NOTE]
      >If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes. Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
  7. Select **Test Connection**, and wait one minute.
      ![Screenshot that shows assigning an agent.](.\media\active-directory-app-provisioning-sql\configure-5.png)
- 7. After the connection test is successful, select **Save**.</br>
+ 7. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.</br>
      ![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)
-## Assign users to an application
-Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you can move on to configuring who's in scope for provisioning. 
-
->[!IMPORTANT]
->If you were signed in using a Hybrid identity administrator role, you need to sign-out and sign-in with an account that has the app administrator or global admininistrator role, for this section.  The Hybrid identity administrator role does not have permissions to assign users to applications.
-
- 1. In the Azure portal, select **Enterprise applications**.
- 2. Select the **On-premises provisioning** application.
- 3. On the left, under **Manage**, select **Users and groups**.
- 4. Select **Add user/group**.
-     ![Screenshot that shows adding a user.](.\media\active-directory-app-provisioning-sql\app-2.png)
-5. Under **Users**, select **None Selected**.
-     ![Screenshot that shows None Selected.](.\media\active-directory-app-provisioning-sql\app-3.png)
- 6. Select users from the right and select the **Select** button.</br>
-     ![Screenshot that shows Select users.](.\media\active-directory-app-provisioning-sql\app-4.png)
- 7. Now select **Assign**.
-     ![Screenshot that shows Assign users.](.\media\active-directory-app-provisioning-sql\app-5.png)
 
 ## Configure attribute mappings
 Now you need to map attributes between the representation of the user in Azure AD and the representation of a user in the on-premises application's SQL database.
 
 #### Configure attribute mapping
- 1. In the Azure AD portal, under **Enterprise applications**, select the **Provisioning** page.
- 2. Select **Get started**.
+ 1. In the Azure AD portal, under **Enterprise applications**, select the **On-premises ECMA app** application, and then the **Provisioning** page.
+ 2. Select **Edit provisioning**, and wait 10 seconds.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.
      ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)</br>
 4. Select **Add New Mapping**.
@@ -307,23 +309,55 @@ Now you need to map attributes between the representation of the user in Azure A
      |Direct|surName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:LastName|
      |Direct|mailNickname|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:textID|
  
- 6. Select **Save**.
+ 6. Once all of the mappings have been added, select **Save**.
+
+## Assign users to an application
+Now that you have the Azure AD ECMA Connector Host talking with Azure AD, and the attribute mapping configured, you can move on to configuring who's in scope for provisioning.
+
+>[!IMPORTANT]
+>If you were signed in using a Hybrid Identity Administrator role, you need to sign-out and sign-in with an account that has the Application Administrator, Cloud Application Administrator or Global Administrator role, for this section.  The Hybrid Identity Administrator role does not have permissions to assign users to applications.
+
+
+If there are existing users in the SQL database, then you should create application role assignments for those existing users. To learn more about how to create application role assignments in bulk, see [governing an application's existing users in Azure AD](../articles/active-directory/governance/identity-governance-applications-existing-users.md).
+
+Otherwise, if there are no current users of the application, then select a test user from Azure AD who will be provisioned to the application.
+
+ 1. In the Azure portal, select **Enterprise applications**.
+ 2. Select the **On-premises ECMA app** application.
+ 3. On the left, under **Manage**, select **Users and groups**.
+ 4. Select **Add user/group**.
+     ![Screenshot that shows adding a user.](.\media\active-directory-app-provisioning-sql\app-2.png)
+5. Under **Users**, select **None Selected**.
+     ![Screenshot that shows None Selected.](.\media\active-directory-app-provisioning-sql\app-3.png)
+ 6. Select users from the right and select the **Select** button.</br>
+     ![Screenshot that shows Select users.](.\media\active-directory-app-provisioning-sql\app-4.png)
+ 7. Now select **Assign**.
+     ![Screenshot that shows Assign users.](.\media\active-directory-app-provisioning-sql\app-5.png)
      
 ## Test provisioning
-Now that your attributes are mapped, you can test on-demand provisioning with one of your users.
+Now that your attributes are mapped and users are assigned, you can test on-demand provisioning with one of your users.
  
  1. In the Azure portal, select **Enterprise applications**.
- 2. Select the **On-premises provisioning** application.
+ 2. Select the **On-premises ECMA app** application.
  3. On the left, select **Provisioning**.
  4. Select **Provision on demand**.
  5. Search for one of your test users, and select **Provision**.
      ![Screenshot that shows testing provisioning.](.\media\active-directory-app-provisioning-sql\configure-13.png)
+ 6. After several seconds, then the message **Successfully created user in target system** will appear, with a list of the user attributes.
 
 ## Start provisioning users
- 1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
+1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
  
     ![Screenshot that shows Start provisioning.](.\media\active-directory-app-provisioning-sql\configure-14.png)
-2. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
+2. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, if you are done testing, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
+
+## Troubleshooting provisioning errors
+
+If an error is shown, then select **View provisioning logs**.  Look in the log for a row in which the Status is **Failure**, and click on that row.
+
+If the error message is **Failed to create User**, then check the attributes that are shown against the requirements of the database schema.
+
+For more information, change to the **Troubleshooting & Recommendations** tab.  If the ODBC driver returned a message, it could be displayed here.  For example, the message `ERROR [23000] [Microsoft][ODBC SQL Server Driver][SQL Server]Cannot insert the value NULL into column 'FirstName', table 'CONTOSO.dbo.Employees'; column does not allow nulls.` is an error from the ODBC driver. In this case, the `column does not allow nulls` might indicate that the `FirstName` column in the database is mandatory but the user being provisioned did not have a `givenName` attribute, so the user could not be provisioned.
 
 ## Check that users were successfully provisioned
 After waiting, check the SQL database to ensure users are being provisioned.

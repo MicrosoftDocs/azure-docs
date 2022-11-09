@@ -2,14 +2,14 @@
 title: What is Azure Active Directory?
 description: Learn about Azure Active Directory, including terminology, available licenses, and a list of associated features.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: overview
-ms.date: 01/27/2022
-ms.author: ajburnle
+ms.date: 08/17/2022
+ms.author: barclayn
 ms.custom: "it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4"
 
 # Customer intent: As a new administrator, I want to understand what Azure Active Directory is, which license is right for me, and what features are available.
@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # What is Azure Active Directory?
 
-Azure Active Directory (Azure AD) is a cloud-based identity and access management service. This service helps your employees access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. Azure AD also helps them access internal resources. These are resources like apps on your corporate network and intranet, along with any cloud apps developed by your own organization. For more information about creating a tenant for your organization, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
+Azure Active Directory (Azure AD) is a cloud-based identity and access management service. This service helps your employees access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. Azure Active Directory also helps them access internal resources like apps on your corporate intranet network, along with any cloud apps developed for your own organization. For more information about creating a tenant for your organization, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-To learn the difference between Azure AD and Active Directory Domain Services, see [Compare Active Directory to Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). You can also use the various [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models) posters to better understand the core identity services in Azure, Azure AD, and Microsoft 365.
+To learn the differences between Active Directory and Azure Active Directory, see [Compare Active Directory to Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). You can also refer [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models) posters to better understand the core identity services in Azure like Azure AD and Microsoft-365.
 
 ## Who uses Azure AD?
 
@@ -41,7 +41,7 @@ To enhance your Azure AD implementation, you can also add paid capabilities by u
 >[!Note]
 >For the pricing options of these licenses, see [Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 >
->Azure Active Directory Premium P1 and Premium P2 are not currently supported in China. For more information about Azure AD pricing, contact the [Azure Active Directory Forum](https://azure.microsoft.com/support/community/?product=active-directory).
+>For more information about Azure AD pricing, contact the [Azure Active Directory Forum](https://azure.microsoft.com/support/community/?product=active-directory).
 
 - **Azure Active Directory Free.** Provides user and group management, on-premises directory synchronization, basic reports, self-service password change for cloud users, and single sign-on across Azure, Microsoft 365, and many popular SaaS apps.
 

@@ -38,7 +38,7 @@ Hotpatch is available on the following images:
 
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
-Hotpatch gives you the ability to apply security updates on your VM without rebooting.  Additionally, Automanage for Windows Server automates the onboarding, configuration, and orchestration of Hotpatching.  To learn more, see [Hotpatch](automanage-hotpatch.md).  
+Hotpatch gives you the ability to apply security updates on your VM without rebooting.  Additionally, Automanage for Windows Server automates the onboarding, configuration, and orchestration of hot patching.  To learn more, see [Hotpatch](automanage-hotpatch.md).  
 
 ### SMB over QUIC
 
@@ -68,12 +68,15 @@ Azure Extended Network enables you to stretch an on-premises subnet into Azure t
 
 It's important to consider up front, which Automanage for Windows Server capabilities you would like to use, then choose a corresponding VM image that supports all of those capabilities.  Some of the _Windows Server Azure Edition_ images support only a subset of capabilities, see the table below for more details.
 
+> [!NOTE]
+> If you would like to preview the upcoming version of **Windows Server Azure Edition**, see [Windows Server VNext Datacenter: Azure Edition](windows-server-azure-edition-vnext.md).
+
 ### Deciding which image to use 
 
-|Image|Capabilities|
-|--|--|
-|Windows Server 2022  Datacenter: Azure Edition (Desktop experience) | SMB over QUIC, Extended network for Azure | 
-| Windows Server 2022 Datacenter: Azure Edition (Core) | Hotpatch, SMB over QUIC, Extended network for Azure | 
+| Image                                                               | Capabilities                                        |
+| ------------------------------------------------------------------- | --------------------------------------------------- |
+| Windows Server 2022  Datacenter: Azure Edition (Desktop experience) | SMB over QUIC, Extended network for Azure           |
+| Windows Server 2022 Datacenter: Azure Edition (Core)                | Hotpatch, SMB over QUIC, Extended network for Azure |
 
 ### Creating a VM
 
@@ -87,4 +90,4 @@ To start using Automanage for Windows Server capabilities on a new VM, use your 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure Automanage](automanage-virtual-machines.md)
+> [Learn more about Azure Automanage](overview-about.md)

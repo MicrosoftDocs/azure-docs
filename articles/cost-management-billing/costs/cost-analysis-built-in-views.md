@@ -1,10 +1,10 @@
 ---
 title: Use built-in views in Cost analysis
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description:  This article helps you understand when to use which view, how each one provides unique insights about your costs and recommended next steps to investigate further.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/17/2022
+ms.date: 09/09/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -141,3 +141,4 @@ Use the **Invoice details** view to:
 ## Next steps
 
 - Now that you're familiar with using built-in views, read about [Saving and sharing customized views](save-share-views.md).
+- Learn about how to [Customize views in cost analysis](customize-cost-analysis-views.md)

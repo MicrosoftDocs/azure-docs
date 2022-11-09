@@ -2,12 +2,12 @@
 title: Use patient-everything in Azure API for FHIR
 description: This article explains how to use the Patient-everything operation in the Azure API for FHIR.
 services: healthcare-apis
-author: caitlinv39
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/15/2022
-ms.author: cavoeg
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # Patient-everything in FHIR
@@ -124,3 +124,5 @@ Now that you know how to use the Patient-everything operation, you can learn abo
 
 >[!div class="nextstepaction"]
 >[Overview of search in Azure API for FHIR](overview-of-search.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

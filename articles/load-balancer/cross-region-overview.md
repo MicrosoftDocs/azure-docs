@@ -4,13 +4,13 @@ titleSuffix: Azure Load Balancer
 description: Overview of cross region load balancer tier for Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2020
-ms.author: allensu
+ms.date: 10/31/2022
+ms.author: mbender
 ms.custom: references_regions
 
 ---
@@ -44,7 +44,7 @@ Configure regional redundancy by adding a global frontend public IP address to y
 
 If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
 
-The health probe of the cross-region load balancer gathers information about availability every 20 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer will detect the failure. The regional load balancer is then taken out of rotation. 
+The health probe of the cross-region load balancer gathers information about availability of each regional load balancer every 20 seconds. If one regional load balancer drops its availability to 0, cross-region load balancer will detect the failure. The regional load balancer is then taken out of rotation. 
 
 :::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram of global region traffic view." border="true":::
 
@@ -97,6 +97,8 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 * North Europe
 * East Asia
 * US Gov Virginia
+* UK West
+* UK South
 
 > [!NOTE]
 > You can only deploy your cross-region load balancer or Public IP in Global tier in one of the regions above.
@@ -139,11 +141,10 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * Cross-region IPv6 frontend IP configurations aren't supported. 
 
-* UDP traffic is not supported on Cross-region Load Balancer. 
+* UDP traffic isn't supported on Cross-region Load Balancer. 
 
 * A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
 
-* Integration with Azure Kubernetes Service (AKS) is currently unavailable. Loss of connectivity will occur when deploying a cross-region load balancer with the Standard load balancer with AKS cluster deployed in the backend.
 
 ## Pricing and SLA
 Cross-region load balancer, shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) of standard load balancer.

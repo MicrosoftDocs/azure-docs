@@ -4,7 +4,7 @@ description: Learn how to use Apache Hive and Apache Hadoop on HDInsight to tran
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.date: 12/16/2019
+ms.date: 04/05/2022
 ---
 
 # Analyze Twitter data using Apache Hive and Apache Hadoop on HDInsight

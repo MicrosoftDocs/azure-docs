@@ -42,7 +42,7 @@ If instead your function or app uses Azure managed identities and Azure roles fo
 
 + Your function or app must be [configured for Azure Active Directory](../app-service/configure-authentication-provider-aad.md).
 
-+ Your [custom skill definition](cognitive-search-custom-skill-web-api.md) must include an "authResourceId" property. This property takes an application (client) ID, in a [supported format](../active-directory/develop/security-best-practices-for-app-registration.md#appid-uri-configuration): `api://<appId>`.
++ Your [custom skill definition](cognitive-search-custom-skill-web-api.md) must include an "authResourceId" property. This property takes an application (client) ID, in a [supported format](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri): `api://<appId>`.
 
 By default, the connection to the endpoint will time out if a response is not returned within a 30-second window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that time frame. You can increase the interval to a maximum value of 230 seconds by setting the timeout parameter:
 
@@ -134,7 +134,7 @@ When you create a Web API enricher, you can describe HTTP headers and parameters
     "skills": [
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "name": "myCustomSkill"
+        "name": "myCustomSkill",
         "description": "This skill calls an Azure function, which in turn calls TA sentiment",
         "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/DateExtractor?language=en",
         "context": "/document",

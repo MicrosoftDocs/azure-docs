@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/24/2022
 ---
 
 # Execute Wait activity in Azure Data Factory and Synapse Analytics
@@ -16,7 +16,7 @@ When you use a Wait activity in a pipeline, the pipeline waits for the specified
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-## Create a Fail activity with UI
+## Create a Wait activity with UI
 
 To use a Wait activity in a pipeline, complete the following steps:
 

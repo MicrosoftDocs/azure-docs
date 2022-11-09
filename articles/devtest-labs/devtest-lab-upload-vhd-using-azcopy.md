@@ -2,6 +2,8 @@
 title: Upload VHD file to Azure DevTest Labs using AzCopy
 description: This article provides a walkthrough to use the AzCopy command-line utility to upload a VHD file to a lab's storage account in Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 

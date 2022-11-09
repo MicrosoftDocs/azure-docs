@@ -1,38 +1,37 @@
 ---
-title: Access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight
-description: This article covers how to work with Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight
+title: Access Azure Cosmos DB for Apache Cassandra on YARN with HDInsight
+description: This article covers how to work with Azure Cosmos DB for Apache Cassandra from Spark on YARN with HDInsight.
 author: TheovanKraay
 ms.author: thvankra
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.devlang: scala
+ms.custom: kr2b-contr-experiment, ignite-2022
 ---
 
-# Access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# Access Azure Cosmos DB for Apache Cassandra from Spark on YARN with HDInsight
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
-This article covers how to access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight-Spark from spark-shell. HDInsight is Microsoft's Hortonworks Hadoop PaaS on Azure that leverages object storage for HDFS, and comes in several flavors including [Spark](../../hdinsight/spark/apache-spark-overview.md).  While the content in this document references HDInsight-Spark, it is applicable to all Hadoop distributions.  
+This article covers how to access Azure Cosmos DB for Apache Cassandra from Spark on YARN with HDInsight-Spark from `spark-shell`. HDInsight is Microsoft's Hortonworks Hadoop PaaS on Azure. It uses object storage for HDFS and comes in several flavors, including [Spark](../../hdinsight/spark/apache-spark-overview.md). While this article refers to HDInsight-Spark, it applies to all Hadoop distributions.  
 
 ## Prerequisites
 
-* [Provision Azure Cosmos DB Cassandra API](manage-data-dotnet.md#create-a-database-account)
+Before you begin, [review the basics of connecting to Azure Cosmos DB for Apache Cassandra](connect-spark-configuration.md).
 
-* [Review the basics of connecting to Azure Cosmos DB Cassandra API](connect-spark-configuration.md)
+You need the following prerequisites:
 
-* [Provision a HDInsight-Spark cluster](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
+* Provision Azure Cosmos DB for Apache Cassandra. See [Create a database account](manage-data-dotnet.md#create-a-database-account).
 
-* [Review the code samples for working with Cassandra API](connect-spark-configuration.md#next-steps)
+* Provision an HDInsight-Spark cluster. See [Create Apache Spark cluster in Azure HDInsight using ARM template](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
-* [Use cqlsh for validation if you so prefer](connect-spark-configuration.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
+* API for Cassandra configuration in Spark2. The Spark connector for Cassandra requires that the Cassandra connection details to be initialized as part of the Spark context. When you launch a Jupyter notebook, the spark session and context are already initialized. Don't stop and reinitialize the Spark context unless it's complete with every configuration set as part of the HDInsight default Jupyter notebook start-up. One workaround is to add the Cassandra instance details to Ambari, Spark2 service configuration, directly. This approach is a one-time activity per cluster that requires a Spark2 service restart.
 
-* **Cassandra API configuration in Spark2** - The Spark connector for Cassandra requires that the Cassandra connection details to be initialized as part of the Spark context. When you launch a Jupyter notebook, the spark session and context are already initialized and it is not advisable to stop and reinitialize the Spark context unless it's complete with every configuration set as part of the HDInsight default Jupyter notebook start-up. One workaround is to add the Cassandra instance details to Ambari, Spark2 service configuration directly. This is a one-time activity per cluster that requires a Spark2 service restart.
- 
-  1. Go to Ambari, Spark2 service and select configs
+  1. Go to Ambari, Spark2 service and select configs.
 
-  2. Then go to custom spark2-defaults and add a new property with the following, and restart Spark2 service:
+  2. Go to custom spark2-defaults and add a new property with the following, and restart Spark2 service:
 
   ```scala
   spark.cassandra.connection.host=YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com<br>
@@ -42,11 +41,13 @@ This article covers how to access Azure Cosmos DB Cassandra API from Spark on YA
   spark.cassandra.auth.password=YOUR_COSMOSDB_KEY<br>
   ```
 
-## Access Azure Cosmos DB Cassandra API from Spark shell
+You can use `cqlsh` for validation. For more information, see [Connecting to Azure Cosmos DB for Apache Cassandra from Spark](connect-spark-configuration.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark).
 
-Spark shell is used for testing/exploration purposes.
+## Access Azure Cosmos DB for Apache Cassandra from Spark shell
 
-* Launch spark-shell with the required maven dependencies compatible with your cluster's Spark version.
+Spark shell is used for testing and exploration.
+
+* Launch `spark-shell` with the required maven dependencies compatible with your cluster's Spark version.
 
   ```scala
   spark-shell --packages "com.datastax.spark:spark-cassandra-connector_2.11:2.3.0,com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0"
@@ -109,28 +110,28 @@ Spark shell is used for testing/exploration purposes.
   spark.read.format("org.apache.spark.sql.cassandra").options(Map( "table" -> "books", "keyspace" -> "books_ks")).load.show
   ```
 
-## Access Azure Cosmos DB Cassandra API from Jupyter notebooks
+## Access Azure Cosmos DB for Apache Cassandra from Jupyter notebooks
 
-HDInsight-Spark comes with Zeppelin and Jupyter notebook services. They are both web-based notebook environments that support Scala and Python. Notebooks are great for interactive exploratory analytics and collaboration, but not meant for operational/productionized processes.
+HDInsight-Spark comes with Zeppelin and Jupyter notebook services. They're both web-based notebook environments that support Scala and Python. Notebooks are great for interactive exploratory analytics and collaboration, but not meant for operational or production processes.
 
-The following Jupyter notebooks can be uploaded into your HDInsight Spark cluster and provide ready samples for working with Azure Cosmos DB Cassandra API. Be sure to review the first notebook `1.0-ReadMe.ipynb` to review Spark service configuration for connecting to Azure Cosmos DB Cassandra API.
+The following Jupyter notebooks can be uploaded into your HDInsight Spark cluster and provide ready samples for working with Azure Cosmos DB for Apache Cassandra. Be sure to review the first notebook `1.0-ReadMe.ipynb` to review Spark service configuration for connecting to Azure Cosmos DB for Apache Cassandra.
 
-Download these notebooks under [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/main/scala/) to your machine.
+Download the notebooks under [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/main/scala/) to your machine.
   
-### How to upload:
-When you launch Jupyter, navigate to Scala. Create a directory first and then upload the notebooks to the directory. The upload button is on the top, right hand-side.  
+### How to upload
 
-### How to run:
-Run through the notebooks, and each notebook cell sequentially.  Click the run button at the top of each notebook to execute all cells, or shift+enter for each cell.
+When you launch Jupyter, navigate to Scala. Create a directory and then upload the notebooks to the directory. The **Upload** button is on the top, right-hand side.  
 
-## Access with Azure Cosmos DB Cassandra API from your Spark Scala program
+### How to run
 
-For automated processes in production, Spark programs are submitted to the cluster via [spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html).
+Go through the notebooks, and each notebook cell sequentially.  Select the **Run** button at the top of each notebook to run all cells, or **Shift**+**Enter** for each cell.
+
+## Access with Azure Cosmos DB for Apache Cassandra from your Spark Scala program
+
+For automated processes in production, Spark programs are submitted to the cluster by using [spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html).
 
 ## Next steps
 
-* [How to build a Spark Scala program in an IDE and submit it to the HDInsight Spark cluster through Livy for execution](../../hdinsight/spark/apache-spark-create-standalone-application.md)
-
-* [How to connect to Azure Cosmos DB Cassandra API from a Spark Scala program](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
-
-* [Complete list of code samples for working with Cassandra API](connect-spark-configuration.md)
+* [Create a Scala Maven application for Apache Spark in HDInsight using IntelliJ](../../hdinsight/spark/apache-spark-create-standalone-application.md)
+* [SampleCosmosDBApp.scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
+* [Connect to Azure Cosmos DB for Apache Cassandra from Spark](connect-spark-configuration.md)

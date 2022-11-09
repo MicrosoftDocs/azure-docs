@@ -5,12 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/14/2022
+ms.date: 08/20/2022
 
 # As a developer, I want to automate deployment for workflows hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
 
 # Set up DevOps deployment for Standard logic app workflows in single-tenant Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 This article shows how to deploy a Standard logic app project to single-tenant Azure Logic Apps from Visual Studio Code to your infrastructure by using DevOps tools and processes. Based on whether you prefer GitHub or Azure DevOps for deployment, choose the path and tools that work best for your scenario. You can use the included samples that contain example logic app projects plus examples for Azure deployment using either GitHub or Azure DevOps. For more information about DevOps for single-tenant, review [DevOps deployment overview for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md).
 
@@ -224,7 +226,7 @@ For Azure DevOps deployments, you can deploy your logic app by using the [Azure 
   displayName: 'Deploy logic app workflows'
   inputs:
      azureSubscription: 'MyServiceConnection'
-     appType: 'workflowapp'
+     appType: 'functionAppLinux' ## Default: functionApp 
      appName: 'MyLogicAppName'
      package: 'MyBuildArtifact.zip'
      deploymentMethod: 'zipDeploy'

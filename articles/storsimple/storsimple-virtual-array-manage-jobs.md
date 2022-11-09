@@ -12,10 +12,13 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 08/19/2022
 ms.author: alkohli
 ---
 # Use the StorSimple Device Manager service to view jobs for the StorSimple Virtual Array
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
+
 ## Overview
 The **Jobs** blade provides a single central portal for viewing and managing jobs that are started on virtual arrays that are connected to your StorSimple Device Manager service. You can view running, completed, and failed jobs for multiple virtual devices. Results are presented in a tabular format.
 

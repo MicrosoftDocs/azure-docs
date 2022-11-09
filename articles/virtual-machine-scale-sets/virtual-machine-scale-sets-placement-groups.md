@@ -1,5 +1,5 @@
 ---
-title: Working with large Azure Virtual Machine Scale Sets
+title: Virtual machine scale sets and placement groups
 description: What you need to know about large Azure virtual machine scale sets in order to use them in your application.
 author: mimckitt
 ms.author: mimckitt
@@ -11,9 +11,10 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 
 ---
-# Working with large virtual machine scale sets
+# Virtual machine scale sets and placement groups
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+> [!NOTE]
+> This document covers virtual machine scale sets running in Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 You can now create Azure [virtual machine scale sets](./index.yml) with a capacity of up to 1,000 VMs. In this document, a _large virtual machine scale set_ is defined as a scale set capable of scaling to greater than 100 VMs. This capability is set by a scale set property (_singlePlacementGroup=False_). 
 

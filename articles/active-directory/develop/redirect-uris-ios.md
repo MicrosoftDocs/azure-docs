@@ -1,9 +1,8 @@
 ---
-title: Use redirect URIs with MSAL (iOS/macOS) | Azure
-titleSuffix: Microsoft identity platform
+title: Use redirect URIs with MSAL (iOS/macOS)
 description: Learn about the differences between the Microsoft Authentication Library for ObjectiveC (MSAL for iOS and macOS) and Azure AD Authentication Library for ObjectiveC (ADAL.ObjC) and how to migrate between them.
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: marsma
+ms.author: henrymbugua
 ms.reviewer: jak
 ms.custom: aaddev, has-adal-ref
 #Customer intent: As an application developer, I want to learn about how to use redirect URIs.

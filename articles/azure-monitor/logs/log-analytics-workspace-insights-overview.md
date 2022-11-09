@@ -3,9 +3,10 @@ title: Log Analytics Workspace Insights
 description: An overview of Log Analytics Workspace Insights - ingestion, usage, health, agents and more
 services: azure-monitor 
 ms.topic: conceptual
-author: noakup
-ms.author: noakuper
-ms.date: 05/06/2021
+author: guywild
+ms.author: guywild
+ms.reviewer: noakuper
+ms.date: 06/27/2022
 
 ---
 

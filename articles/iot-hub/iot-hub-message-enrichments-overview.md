@@ -6,7 +6,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/16/2022
+ms.date: 04/21/2022
 ms.author: kgremban
 #Customer intent: As a developer, I want to be able to add information to messages sent from a device to my IoT hub, based on the destination endpoint.   
 ---
@@ -28,7 +28,7 @@ The **key** is a string. A key can only contain alphanumeric characters or these
 
 The **value** can be any of the following examples:
 
-* Any static string. Dynamic values such as conditions, logic, operations, and functions are not allowed. For example, if you develop a SaaS application that is used by several customers, you can assign an identifier to each customer and make that identifier available in the application. When the application runs, IoT Hub will stamp the device telemetry messages with the customer's identifier, making it possible to process the messages differently for each customer.
+* Any static string. Dynamic values such as conditions, logic, operations, and functions aren't allowed. For example, if you develop a SaaS application that is used by several customers, you can assign an identifier to each customer and make that identifier available in the application. When the application runs, IoT Hub will stamp the device telemetry messages with the customer's identifier, making it possible to process the messages differently for each customer.
 
 * The name of the IoT hub sending the message. This value is *$iothubname*.
 
@@ -49,15 +49,15 @@ The messages can come from any data source supported by [IoT Hub message routing
 
 You can add enrichments to messages that are going to the built-in endpoint of an IoT hub, or to messages that are being routed to custom endpoints such as Azure Blob storage, a Service Bus queue, or a Service Bus topic.
 
-You can also add enrichments to messages that are being published to Event Grid by first creating an event grid subscription with the device telemetry message type. Based on this subscription, we will create a default route in Azure IoT Hub for the telemetry. This single route can handle all of your Event Grid subscriptions. You can then configure enrichments for the endpoint by using the **Enrich messages** tab of the IoT Hub **Message routing** section. For information about reacting to events by using Event Grid, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
+You can also add enrichments to messages that are being published to Event Grid by first creating an Event Grid subscription with the device telemetry message type. Based on this subscription, we will create a default route in Azure IoT Hub for the telemetry. This single route can handle all of your Event Grid subscriptions. You can then configure enrichments for the endpoint by using the **Enrich messages** tab of the IoT Hub **Message routing** section. For information about reacting to events by using Event Grid, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
 
 Enrichments are applied per endpoint. If you specify five enrichments to be stamped for a specific endpoint, all messages going to that endpoint are stamped with the same five enrichments.
 
 Enrichments can be configured using the following methods:
 
 | **Method** | **Command** |
-| ----- | -----| 
-| Portal | [Azure portal](https://portal.azure.com) See the [message enrichments tutorial](tutorial-message-enrichments.md) | 
+| ----- | -----|
+| Portal | [Azure portal](https://portal.azure.com) See the [message enrichments tutorial](tutorial-message-enrichments.md) |
 | Azure CLI   | [az iot hub message-enrichment](/cli/azure/iot/hub/message-enrichment) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
@@ -69,15 +69,13 @@ To try out message enrichments, see the [message enrichments tutorial](tutorial-
 
 * You can add up to 10 enrichments per IoT hub for those hubs in the standard or basic tier. For IoT hubs in the free tier, you can add up to 2 enrichments.
 
-* In some cases, if you're applying an enrichment with a value set to a tag or property in the device twin, the value will be stamped with the specified device twin path. For example, if an enrichment value is set to $twin.tags.field, the messages will be stamped with the string "$twin.tags.field", rather than the value of that field from the twin. This behavior happens in the following cases:
+* In some cases, if you're enriching a message with a value set to a tag or property in the device twin, the value will be stamped with the specified device twin path. For example, if an enrichment value is set to $twin.tags.field, the messages will be stamped with the string "$twin.tags.field", rather than the value of that field from the twin. This behavior happens in the following cases:
 
-   * Your IoT hub is in the basic tier. Basic tier IoT hubs do not support device twins.
+  * Your IoT hub is in the basic tier. Basic tier IoT hubs don't support device twins.
 
-   * Your IoT hub is in the standard tier, but the device sending the message has no device twin.
+  * Your IoT hub is in the standard tier, but the device twin path used for the value of the enrichment doesn't exist. For example, if the enrichment value is set to $twin.tags.location, and the device twin does not have a location property under tags, the message is stamped with the string "$twin.tags.location".
 
-   * Your IoT hub is in the standard tier, but the device twin path used for the value of the enrichment does not exist. For example, if the enrichment value is set to $twin.tags.location, and the device twin does not have a location property under tags, the message is stamped with the string "$twin.tags.location".
-
-   * Your IoT hub is in the standard tier, but the device twin path used for the value of the enrichment resolves to an object, rather than a simple property. For example, if the enrichment value is set to $twin.tags.location, and the location property under tags is an object that contains child properties like `{"building": 43, "room": 503}`, the message is stamped with the string "$twin.tags.location".
+  * Your IoT hub is in the standard tier, but the device twin path used for the value of the enrichment resolves to an object, rather than a simple property. For example, if the enrichment value is set to $twin.tags.location, and the location property under tags is an object that contains child properties like `{"building": 43, "room": 503}`, the message is stamped with the string "$twin.tags.location".
 
 * Updates to a device twin can take up to five minutes to be reflected in the corresponding enrichment value.
 
@@ -85,11 +83,11 @@ To try out message enrichments, see the [message enrichments tutorial](tutorial-
 
 * Message enrichments don't apply to digital twin change events.
 
-* Modules do not inherit twin tags from their corresponding devices. Enrichments for messages originating from device modules (for example from IoT Edge modules) must use the twin tags that are set on the module twin.
+* Modules don't inherit twin tags from their corresponding devices. Enrichments for messages originating from device modules (for example from IoT Edge modules) must use the twin tags that are set on the module twin.
 
 ## Pricing
 
-Message enrichments are available for no additional charge. Currently, you are charged when you send a message to an IoT hub. You are only charged once for that message, even if the message goes to multiple endpoints.
+Message enrichments are available for no extra charge. Currently, you're charged when you send a message to an IoT hub. You're only charged once for that message, even if the message goes to multiple endpoints.
 
 ## Next steps
 

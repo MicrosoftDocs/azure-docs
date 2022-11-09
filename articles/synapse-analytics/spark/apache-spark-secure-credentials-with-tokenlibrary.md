@@ -6,10 +6,10 @@ author: mlee3gsd
 ms.service:  synapse-analytics 
 ms.topic: overview
 ms.subservice: spark
-ms.date: 11/19/2020 
+ms.date: 09/26/2022
 ms.author: martinle
 ms.reviewer: nirav
-zone_pivot_groups: programming-languages-spark-all-minus-sql
+zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
 
@@ -17,9 +17,9 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql
 
 Accessing data from external sources is a common pattern. Unless the external data source allows anonymous access, chances are you need to secure your connection with a credential, secret, or connection string.  
 
-Synapse uses Azure Active Directory (AAD) passthrough by default for authentication between resources.  If you need to connect to a resource using other credentials, use the TokenLibrary directly.  The TokenLibrary simplifies the process of retrieving SAS tokens, AAD tokens, connection strings, and secrets stored in a linked service or from an Azure Key Vault.
+Synapse uses Azure Active Directory (Azure AD) passthrough by default for authentication between resources.  If you need to connect to a resource using other credentials, use the TokenLibrary directly.  The TokenLibrary simplifies the process of retrieving SAS tokens, Azure AD tokens, connection strings, and secrets stored in a linked service or from an Azure Key Vault.
 
-AAD passthrough uses permissions assigned to you as a user in AAD, rather than permissions assigned to Synapse or a separate service principal.  For example, if you want to use AAD passthrough to access a blob in a storage account, then you should go to that storage account and assign blob contributor role to yourself.
+Azure AD passthrough uses permissions assigned to you as a user in Azure AD, rather than permissions assigned to Synapse or a separate service principal.  For example, if you want to use Azure AD passthrough to access a blob in a storage account, then you should go to that storage account and assign blob contributor role to yourself.
 
 When retrieving secrets from Azure Key Vault, we recommend creating a linked service to your Azure Key Vault.  Ensure that the Synapse workspace managed service identity (MSI) has Secret Get privileges on your Azure Key Vault.  Synapse will authenticate to Azure Key Vault using the Synapse workspace managed service identity. If you connect directly to Azure Key Vault without a linked service, you will authenticate using your user Azure Active Directory credential.
 
@@ -84,13 +84,16 @@ Synapse provides an integrated linked services experience when connecting to Azu
 
 When the linked service authentication method is set to **Account Key**, the linked service will authenticate using the provided storage account key, request a SAS key, and automatically apply it to the storage request using the **LinkedServiceBasedSASProvider**.
 
+Synapse allows users to set the linked service for a particular storage account. This makes it possible to read/write data from **multiple storage accounts** in a single spark application/query. Once we set **spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName** for each storage account that will be used, Synapse figures out which linked service to use for a particular read/write operation. However if our spark job only deals with a single storage account, we can simply omit the storage account name and use **spark.storage.synapse.linkedServiceName**
+
 ::: zone pivot = "programming-language-scala"
 
 ```scala
 val sc = spark.sparkContext
-spark.conf.set("spark.storage.synapse.linkedServiceName", "<LINKED SERVICE NAME>")
-spark.conf.set("fs.azure.account.auth.type", "SAS")
-spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
+val source_full_storage_account_name = "teststorage.dfs.core.windows.net"
+spark.conf.set(f"spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName", "<LINKED SERVICE NAME>")
+spark.conf.set(f"fs.azure.account.auth.type.{source_full_storage_account_name}", "SAS")
+spark.conf.set(f"fs.azure.sas.token.provider.type.{source_full_storage_account_name}", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
 
 val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
 
@@ -104,9 +107,10 @@ display(df.limit(10))
 ```python
 %%pyspark
 # Python code
-spark.conf.set("spark.storage.synapse.linkedServiceName", "<lINKED SERVICE NAME>")
-spark.conf.set("fs.azure.account.auth.type", "SAS")
-spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
+source_full_storage_account_name = "teststorage.dfs.core.windows.net"
+spark.conf.set(f"spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName", "<lINKED SERVICE NAME>")
+spark.conf.set(f"fs.azure.account.auth.type.{source_full_storage_account_name}", "SAS")
+spark.conf.set(f"fs.azure.sas.token.provider.type.{source_full_storage_account_name}", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
 
 df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTORY PATH>')
 
@@ -122,8 +126,9 @@ When the linked service authentication method is set to **Managed Identity** or 
 
 ```scala
 val sc = spark.sparkContext
-spark.conf.set("spark.storage.synapse.linkedServiceName", "<LINKED SERVICE NAME>")
-spark.conf.set("fs.azure.account.oauth.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider") 
+val source_full_storage_account_name = "teststorage.dfs.core.windows.net"
+spark.conf.set(f"spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName", "<LINKED SERVICE NAME>")
+spark.conf.set(f"fs.azure.account.oauth.provider.type.{source_full_storage_account_name}", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider") 
 val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
 
 display(df.limit(10))
@@ -136,8 +141,9 @@ display(df.limit(10))
 ```python
 %%pyspark
 # Python code
-spark.conf.set("spark.storage.synapse.linkedServiceName", "<lINKED SERVICE NAME>")
-spark.conf.set("fs.azure.account.oauth.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider")
+source_full_storage_account_name = "teststorage.dfs.core.windows.net"
+spark.conf.set(f"spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName", "<LINKED SERVICE NAME>")
+spark.conf.set(f"fs.azure.account.oauth.provider.type.{source_full_storage_account_name}", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider")
 
 df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTORY PATH>')
 
@@ -310,20 +316,20 @@ print(accountKey)
 
 ::: zone-end
 
-#### getSecret()
+#### GetSecret()
 
-To retrieve a secret stored from Azure Key Vault, we recommend that you create a linked service to Azure Key Vault within the Synapse workspace. The Synapse workspace managed service identity will need to be granted **GET** Secrets permission to the Azure Key Vault.  The linked service will use the managed service identity to connect to Azure Key Vault service to retrieve the secret.  Otherwise, connecting directly to Azure Key Vault will use the user's Azure Active Directory (AAD) credential.  In this case, the user will need to be granted the Get Secret permissions in Azure Key Vault.
+To retrieve a secret stored from Azure Key Vault, we recommend that you create a linked service to Azure Key Vault within the Synapse workspace. The Synapse workspace managed service identity will need to be granted **GET** Secrets permission to the Azure Key Vault.  The linked service will use the managed service identity to connect to Azure Key Vault service to retrieve the secret.  Otherwise, connecting directly to Azure Key Vault will use the user's Azure Active Directory (Azure AD) credential.  In this case, the user will need to be granted the Get Secret permissions in Azure Key Vault.
 
-`TokenLibrary.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>" [, <LINKED SERVICE NAME>])`
+`TokenLibrary.GetSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>" [, <LINKED SERVICE NAME>])`
 
-To retrieve a secret from Azure Key Vault, use the **TokenLibrary.getSecret()** function.
+To retrieve a secret from Azure Key Vault, use the **TokenLibrary.GetSecret()** function.
 
 ::: zone pivot = "programming-language-scala"
 
 ```scala
 import com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
 
-val connectionString: String = TokenLibrary.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>")
+val connectionString: String = TokenLibrary.GetSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>")
 println(connectionString)
 ```
 
@@ -338,7 +344,7 @@ from pyspark.sql import SparkSession
 sc = SparkSession.builder.getOrCreate()
 token_library = sc._jvm.com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
 
-connection_string = token_library.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>")
+connection_string = token_library.GetSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>")
 print(connection_string)
 ```
 

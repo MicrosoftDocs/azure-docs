@@ -1,17 +1,15 @@
 ---
 title: Plan a single sign-on deployment
 description: Plan the deployment of single sign-on in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: AllisonAm
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/18/2021
-ms.author: davidmu
-ms.reviewer: ergreenl
+ms.author: alamaral
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 # Customer intent: As an IT admin, I need to learn what it takes to plan a single-sign on deployment for my application in Azure Active Directory.
@@ -92,7 +90,7 @@ The following SSO protocols are available to use:
 
 - **OpenID Connect and OAuth** - Choose OpenID Connect and OAuth 2.0 if the application you're connecting to supports it. For more information, see [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](../develop/active-directory-v2-protocols.md). For steps to implement OpenID Connect SSO, see [Set up OIDC-based single sign-on for an application in Azure Active Directory](add-application-portal-setup-oidc-sso.md).
 
-- **SAML** - Choose SAML whenever possible for existing applications that do not use OpenID Connect or OAuth. For more information, see [Single Sign-On SAML protocol](../develop/single-sign-on-saml-protocol.md). For a quick introduction to implementing SAML SSO, see [Quickstart: Set up SAML-based single sign-on for an application in Azure Active Directory](add-application-portal-setup-sso.md). 
+- **SAML** - Choose SAML whenever possible for existing applications that do not use OpenID Connect or OAuth. For more information, see [Single Sign-On SAML protocol](../develop/single-sign-on-saml-protocol.md).
 
 - **Password-based** - Choose password-based when the application has an HTML sign-in page. Password-based SSO is also known as password vaulting. Password-based SSO enables you to manage user access and passwords to web applications that don't support identity federation. It's also useful where several users need to share a single account, such as to your organization's social media app accounts. 
 
@@ -109,4 +107,5 @@ The following SSO protocols are available to use:
 - **Header-based** - Choose header-based single sign-on when the application uses headers for authentication. For more information, see [Header-based SSO](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 
 ## Next steps
-- [Manage access to apps](what-is-access-management.md)
+
+- [Enable single sign-on for applications by using Azure Active Directory](add-application-portal-setup-sso.md).

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 11/08/2022
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -31,7 +31,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of volumes per subscription   |    500     |   Yes   |
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |
-|  Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |   1000   |    No    |
+|  Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
 |  Minimum size of a single capacity pool   |  4 TiB     |    No  |
 |  Maximum size of a single capacity pool    |  500 TiB   |   No   |
 |  Minimum size of a single volume    |    100 GiB    |    No    |
@@ -39,17 +39,19 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
 |  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](#directory-limit).  |    No    |   
-|  Maximum number of files ([`maxfiles`](#maxfiles)) per volume     |    100 million    |    Yes    |    
+|  Maximum number of files ([`maxfiles`](#maxfiles)) per volume     |    106,255,630    |    Yes    |    
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Minimum assigned throughput for a manual QoS volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
-|  Number of cross-region replication data protection volumes (destination volumes)     |    10    |    Yes    |     
+|  Number of cross-region replication data protection volumes (destination volumes)     |    10    |    Yes    |
 |  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 1 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum daily, weekly, and monthly backup retention counts *combined* is 1019.  |  N  |
 |  Maximum size of protected volume  |  100 TiB  |  N  |
 |  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
 |  Maximum number of manual backups per volume per day |  5  |  Y  |
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
+
+For limits and constraints related to Azure NetApp Files network features, see [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
 
 ## Determine if a directory is approaching the limit size <a name="directory-limit"></a>  
 
@@ -75,21 +77,24 @@ Size: 4096            Blocks: 8          IO Block: 65536  directory
 
 ## `Maxfiles` limits <a name="maxfiles"></a> 
 
-Azure NetApp Files volumes have a limit called *`maxfiles`*. The `maxfiles` limit is the number of files a volume can contain. Linux file systems refer to the limit as *inodes*. The `maxfiles` limit for an Azure NetApp Files volume is indexed based on the size (quota) of the volume. The `maxfiles` limit for a volume increases or decreases at the rate of 20 million files per TiB of provisioned volume size. 
+Azure NetApp Files volumes have a limit called *`maxfiles`*. The `maxfiles` limit is the number of files a volume can contain. Linux file systems refer to the limit as *inodes*. The `maxfiles` limit for an Azure NetApp Files volume is indexed based on the size (quota) of the volume. The `maxfiles` limit for a volume increases or decreases at the rate of 21,251,126 files per TiB of provisioned volume size. 
 
-The service dynamically adjusts the `maxfiles` limit for a volume based on its provisioned size. For example, a volume configured initially with a size of 1 TiB would have a `maxfiles` limit of 20 million. Subsequent changes to the size of the volume would result in an automatic readjustment of the `maxfiles` limit based on the following rules: 
+The service dynamically adjusts the `maxfiles` limit for a volume based on its provisioned size. For example, a volume configured initially with a size of 1 TiB would have a `maxfiles` limit of 21,251,126. Subsequent changes to the size of the volume would result in an automatic readjustment of the `maxfiles` limit based on the following rules: 
 
 |    Volume size (quota)     |  Automatic readjustment of the `maxfiles` limit    |
 |----------------------------|-------------------|
-|    <= 1 TiB                |    20 million     |
-|    > 1 TiB but <= 2 TiB    |    40 million     |
-|    > 2 TiB but <= 3 TiB    |    60 million     |
-|    > 3 TiB but <= 4 TiB    |    80 million     |
-|    > 4 TiB                 |    100 million    |
+|    <= 1 TiB                |     21,251,126    |
+|    > 1 TiB but <= 2 TiB    |    42,502,252     |
+|    > 2 TiB but <= 3 TiB    |    63,753,378     |
+|    > 3 TiB but <= 4 TiB    |    85,004,504     |
+|    > 4 TiB                 |     106,255,630   |
 
-If you have allocated at least 4 TiB of quota for a volume, you can initiate a [support request](#request-limit-increase) to increase the `maxfiles` (inodes) limit beyond 100 million. For every 100 million files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB.  For example, if you increase the `maxfiles` limit from 100 million files to 200 million files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
+>[!IMPORTANT]
+> If your volume has a quota of at least 4 TiB and you want to increase the quota, you must initiate [a support request](#request-limit-increase).
 
-You can increase the `maxfiles` limit to 500 million if your volume quota is at least 20 TiB. 
+If you have allocated at least 4 TiB of quota for a volume, you can initiate a support request to increase the maxfiles (inodes) limit beyond 106,255,630. For every 106,255,630 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB. For example, if you increase the maxfiles limit from 106,255,630 files to 212,511,260 files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
+
+You can increase the `maxfiles` limit to 531,278,150 if your volume quota is at least 20 TiB. 
 
 ## Request limit increase
 
@@ -130,3 +135,4 @@ You can create an Azure support request to increase the adjustable limits from t
 - [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
 - [Regional capacity quota for Azure NetApp Files](regional-capacity-quota.md)
 - [Request region access for Azure NetApp Files](request-region-access.md)
+- [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)

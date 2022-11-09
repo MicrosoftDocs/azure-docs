@@ -2,7 +2,7 @@
 title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
-ms.date: 02/14/2022
+ms.date: 10/19/2022
 ms.custom: references_regions
 author: v-amallick
 ms.service: backup
@@ -18,7 +18,7 @@ This article describes the features of a Backup vault. A Backup vault is a stora
 
 ## Storage settings in the Backup vault
 
-A Backup vault is an entity that stores the backups and recovery points created over time. The Backup vault also contains the backup policies that are associated with the protected virtual machines.
+A Backup vault is an entity that stores the backups and recovery points created over time. The Backup vault also contains the backup policies that are associated with the protected resources.
 
 - Azure Backup automatically handles storage for the vault. Choose the storage redundancy that matches your business needs when creating the Backup vault.
 
@@ -41,7 +41,7 @@ To create a Backup vault, follow these steps.
 
 ### Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com>.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create Backup vault
 
@@ -120,7 +120,7 @@ In the **Backup Instances** tile, you get a summarized view of all backup instan
 
 ![Backup jobs](./media/backup-vault-overview/backup-jobs.png)
 
-## Move a Backup vault across Azure subscriptions/resource groups (Public Preview)
+## Move a Backup vault across Azure subscriptions/resource groups
 
 This section explains how to move a Backup vault (configured for Azure Backup) across Azure subscriptions and resource groups using the Azure portal.
 
@@ -129,7 +129,7 @@ This section explains how to move a Backup vault (configured for Azure Backup) a
 
 ### Supported regions
 
-The vault move across subscriptions and resource groups is supported in all public regions.
+The vault move across subscriptions and resource groups is supported in all public and national regions.
 
 ### Use Azure portal to move Backup vault to a different resource group
 
@@ -157,7 +157,7 @@ The vault move across subscriptions and resource groups is supported in all publ
 
    :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-inline.png" alt-text="Screenshot showing the Backup vault validation status." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-resource-group-expanded.png"::: 
 
-1. Select the checkbox _I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs_’ to confirm, and then select **Move**.
+1. Select the checkbox **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** to confirm, and then select **Move**.
  
    >[!Note]
    >The resource path changes after moving vault across resource groups or subscriptions. Ensure that you update the tools and scripts with the new resource path after the move operation completes.
@@ -195,7 +195,7 @@ Wait till the move operation is complete to perform any other operations on the 
 
    :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-inline.png" alt-text="Screenshot showing the validation status of Backup vault to be moved to another Azure subscription." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-expanded.png"::: 
 
-1. Select the checkbox _I understand that tools and scripts associated with moved resources will not work until I update them to use new resource   IDs_ to confirm, and then select **Move**.
+1. Select the checkbox **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource   IDs** to confirm, and then select **Move**.
  
    >[!Note]
    >The resource path changes after moving vault across resource groups or subscriptions. Ensure that you update the tools and scripts with the new resource path after the move operation completes.
@@ -241,7 +241,13 @@ Troubleshoot the following common issues you might encounter during Backup vault
 
 **Cause**: Resource move for Backup vault is currently not supported in the selected Azure region.
 
-**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions).
+**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions
+
+#### UserErrorCrossTenantMSIMoveNotSupported 
+
+**Cause**: This error occurs if the subscription with which resource is associated has moved to a different Tenant, but the Managed Identity is still associated with the old Tenant.
+
+**Recommendation**: Remove the Managed Identity from the existing Tenant; move the resource and add it again to the new one.
 
 ## Next steps
 

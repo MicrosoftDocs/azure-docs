@@ -1,13 +1,12 @@
 ---
 title: Plan a consulting service offer for the commercial marketplace 
 description: Plan a consulting service offer for Microsoft AppSource or Azure Marketplace in Partner Center.
-author: Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: emuench
+author: TeoLupu
+ms.author: telupu
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/16/2022
+ms.date: 06/29/2022
 ---
 
 # Plan a consulting service offer
@@ -73,7 +72,7 @@ To learn more about the differences between AppSource and Azure Marketplace, see
 To demonstrate to customers your expertise in a field, you must meet a set of eligibility requirements before publishing a consulting service offer. The requirements depend on the product at the core of your offer. The complete list of eligibility requirements for each primary product is in the [certification policies for consulting services](/legal/marketplace/certification-policies#800-consulting-services).
 
 > [!NOTE]
-> For some primary products, you must have a Gold or Silver Microsoft competency in your solution area. For more information, see [Microsoft Partner Network Competencies](https://partner.microsoft.com/membership/competencies).
+> For some primary products, you must have a Gold or Silver Microsoft competency in your solution area. For more information, see [Microsoft Cloud Partner Program Competencies](https://partner.microsoft.com/membership/competencies).
 
 ## Service type and duration
 
@@ -89,9 +88,9 @@ Your service should have a predetermined duration of up to 12 months. The servic
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports different kinds of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
 
-You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Offer listing details
 
@@ -125,7 +124,6 @@ To help create your offer more easily, prepare some of these items ahead of time
 |Getting Started with Azure IoT in Manufacturing |Manufacturing IoT: 2-Day Assessment |
 |Workshop on Smart Toasters |Smart Toasters: 1-Week Workshop |
 |SQL Server Migration PoC by Contoso |SQL Migration: 3-Wk Proof of Concept |
-| | |
 
 **Search results summary**: Describe the purpose or goal of your offer in 200 characters or less. This summary is used in the commercial marketplace listing search results. It shouldn’t be identical to the title. Consider including your top SEO keywords.
 
@@ -140,7 +138,6 @@ When writing the description, follow these criteria, according to your service t
 |Implementation |Include a detailed agenda for implementations longer than a day, and describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
 |Proof of concept |Describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
 |Workshop |Include a detailed daily, weekly, or monthly agenda depending on the duration of your offer. Articulate the learning goals or other deliverables of your workshop. |
-| | |
 
 Here are some tips for writing your description:
 
@@ -182,7 +179,6 @@ Follow these guidelines for your logos:
 ## Pricing and availability
 
 Your consulting service offer can be made available in one or more countries or regions. In Partner Center, you can decide the price for each market you select. For the complete list of supported markets and currencies, see [Geographic availability and currency support for the commercial marketplace](./marketplace-geo-availability-currencies.md).
-
 
 ## Next steps
 

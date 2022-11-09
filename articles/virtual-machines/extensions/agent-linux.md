@@ -6,6 +6,7 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: MsGabsta
+ms.custom: GGAL-freshness822
 ms.collection: linux
 ms.date: 10/17/2016
 
@@ -321,7 +322,10 @@ Default: y
 ```
 Enable or disable auto-update for goal state processing; default is enabled.
 
+## Linux Guest Agent Automatic Logs Collection
+As of version 2.7+, The azure linux guest agent has a feature to automatically collect some logs and upload them. This feature currently requires systemd, and utilizes a new systemd slice called azure-walinuxagent-logcollector.slice to manage resources while performing the collection. The log collector's goal is facilitate offline analysis, and therefore produces a ZIP file of some diagnostics logs before uploading them to the VM's Host. The ZIP file can then be retreived by Engineering Teams and Support professionals to investigate issues at the behest of the VM owner. More technical information on the files collected by the guest agent can be found in the azurelinuxagent/common/logcollector_manifests.py file in the [agent's GitHub repository](https://github.com/Azure/WALinuxAgent).
 
+This can be disabled by editing ```/etc/waagent.conf``` updating ```Logs.Collect``` to ```n```
 
 ## Ubuntu Cloud Images
 Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to perform many configuration tasks that would otherwise be managed by the Azure Linux Agent. The following differences apply:

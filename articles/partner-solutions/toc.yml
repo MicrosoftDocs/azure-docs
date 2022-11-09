@@ -1,6 +1,11 @@
-- name: Azure partner solutions documentation
-  href: overview.md
-- name: Partner solutions
+items:
+- name: Azure Native ISV Services documentation
+  items:
+  - name: Overview of Azure Native ISV Services
+    href: overview.md
+  - name: Partner services
+    href: partners.md
+- name: Partner services documentation
   expanded: true
   items:
   - name: Apache Kafka on Confluent Cloud
@@ -11,3 +16,7 @@
     href: ./elastic/index.yml
   - name: Logz.io
     href: ./logzio/index.yml
+  - name: Dynatrace for Azure
+    href: ./dynatrace/index.yml
+  - name: NGINX for Azure (preview)
+    href: ./nginx/index.yml

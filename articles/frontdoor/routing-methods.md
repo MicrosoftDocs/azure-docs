@@ -41,15 +41,13 @@ All Front Door configurations have backend health monitoring and automated insta
 
 ## <a name = "latency"></a>Lowest latencies based traffic-routing
 
-Deploying origins in two or more locations across the globe can improve the responsiveness of your applications by routing traffic to the destination that is 'closest' to your end users. Latency is the default traffic-routing method for your Front Door configuration. This routing method forwards requests from your end users to the closest origin behind Azure Front Door. This routing mechanism combined with the anycast architecture of Azure Front Door ensures that each of your end users get the best performance based on their location.
+Deploying origins in two or more locations across the globe can improve the responsiveness of your applications by routing traffic to the destination that is 'closest' to your end users. Latency is the default traffic-routing method for your Front Door configuration. This routing method forwards requests from your end users to the closest origin behind Azure Front Door. This routing mechanism combined with the anycast architecture of Azure Front Door ensures that each of your end users gets the best performance based on their location.
 
 The 'closest' origin isn't necessarily closest as measured by geographic distance. Instead, Azure Front Door determines the closest origin by measuring network latency. Read more about [Azure Front Door routing architecture](front-door-routing-architecture.md). 
 
 The following table shows the overall decision flow:
 
-| Available origins | Priority | Latency signal (based on health probe) | Weights |
-|-------------| ----------- | ----------- | ----------- |
-| First, select all origins that are enabled and returned healthy (200 OK) for the health probe. If there are six origins A, B, C, D, E, and F, and among them C is unhealthy and E is disabled. The list of available origins is A, B, D, and F.  | Next, the top priority origins among the available ones are selected. If origin A, B, and D have priority 1 and origin F has a priority of 2. Then, the selected origins will be A, B, and D.| Select the origins with latency range (least latency & latency sensitivity in ms specified). If origin A is 15 ms, B is 30 ms and D is 60 ms away from the Azure Front Door environment where the request landed, and latency sensitivity is 30 ms, then the lowest latency pool consist of origin A and B, because D is beyond 30 ms away from the closest origin that is A. | Lastly, Azure Front Door will round robin the traffic among the final selected group of origins in the ratio of weights specified. For example, if origin A has a weight of 5 and origin B has a weight of 8, then the traffic will be distributed in the ratio of 5:8 among origins A and B. |
+:::image type="content" source="./media/routing-methods/routing.png" alt-text="Diagram explaining how origins are selected based on priority, latency and weight settings in Azure Front Door." lightbox="./media/routing-methods/routing-expanded.png":::
 
 >[!NOTE]
 > By default, the latency sensitivity property is set to 0 ms. With this setting the request is always forwarded to the fastest available origins and weights on the origin don't take effect unless two origins have the same network latency.
@@ -83,7 +81,7 @@ The weighted method enables some useful scenarios:
 
 By default, without session affinity, Azure Front Door forwards requests originating from the same client to different origins. Certain stateful applications or in certain scenarios when ensuing requests from the same user prefers the same origin to process the initial request. The cookie-based session affinity feature is useful when you want to keep a user session on the same origin. When you use managed cookies with SHA256 of the origin URL as the identifier in the cookie, Azure Front Door can direct ensuing traffic from a user session to the same origin for processing.
 
-Session affinity can be enabled the origin group level in Azure Front Door Standard and Premium tier and front end host level in Azure Front Door (classic) for each of your configured domains (or subdomains). Once enabled, Azure Front Door adds a cookie to the user's session. Cookie-based session affinity allows Front Door to identify different users even if behind the same IP address, which in turn allows a more even distribution of traffic between your different origins.
+Session affinity can be enabled the origin group level in Azure Front Door Standard and Premium tier and front end host level in Azure Front Door (classic) for each of your configured domains (or subdomains). Once enabled, Azure Front Door adds a cookie to the user's session. The cookies are called ASLBSA and ASLBSACORS. Cookie-based session affinity allows Front Door to identify different users even if behind the same IP address, which in turn allows a more even distribution of traffic between your different origins.
 
 The lifetime of the cookie is the same as the user's session, as Front Door currently only supports session cookie. 
 
@@ -92,10 +90,10 @@ The lifetime of the cookie is the same as the user's session, as Front Door curr
 >
 > Public proxies may interfere with session affinity. This is because establishing a session requires Front Door to add a session affinity cookie to the response, which cannot be done if the response is cacheable as it would disrupt the cookies of other clients requesting the same resource. To protect against this, session affinity will **not** be established if the origin sends a cacheable response when this is attempted. If the session has already been established, it does not matter if the response from the origin is cacheable.
 >
-> Session affinity will be established in the following circumstances, **unless** the response has an HTTP 304 status code:
-> - The response has specific values set for the `Cache-Control` header that prevents caching, such as *private* or *no-store*.
-> - The response contains an `Authorization` header that has not expired.
-> - The response has an HTTP 302 status code.
+> Session affinity will be established in the following circumstances beyond the standard non-cacheable scenarios:
+> - The response must include the `Cache-Control` header of *no-store*.
+> - If the response contains an `Authorization` header, it must not be expired.
+> - The response is an HTTP 302 status code.
 
 ## Next steps
 

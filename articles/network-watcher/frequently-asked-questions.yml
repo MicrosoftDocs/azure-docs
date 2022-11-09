@@ -10,6 +10,7 @@ metadata:
   ms.service: network-watcher
   ms.topic: faq
   ms.tgt_pltfrm: na
+  ms.custom: ignite-2022
   ms.workload:  infrastructure-services
   ms.date: 01/07/2021
   ms.author: damendo
@@ -32,7 +33,7 @@ sections:
           Network Watcher provides three major sets of capabilities
           * Monitoring
             * [Topology view](./view-network-topology.md) shows you the resources in your virtual network and the relationships between them.
-            * [Connection Monitor](./connection-monitor.md) allows you to monitor connectivity and latency between a VM and another network resource.
+            * [Connection Monitor](./connection-monitor-overview.md) allows you to monitor connectivity and latency between a VM and another network resource.
             * [Network performance monitor](../azure-monitor/insights/network-performance-monitor.md) allows you to monitor connectivity and latencies across hybrid network architectures, Expressroute circuits, and service/application endpoints.  
           * Diagnostics
             * [IP Flow Verify](./network-watcher-ip-flow-verify-overview.md) allows you to detect traffic filtering issues at a VM level.
@@ -96,7 +97,7 @@ sections:
       - question: |
           Why is only one instance of Network Watcher allowed per region? 
         answer: |
-          Network Watcher just needs to be enabled once for a subscription for it's features to work, this is a not a service limit.
+          Network Watcher just needs to be enabled once for a subscription for its features to work, this is not a service limit.
 
       - question: |
           How can I manage the Network Watcher Resource? 
@@ -108,7 +109,7 @@ sections:
       - question: |
           Is the Network Watcher service zone resilient? 
         answer: |
-          Yes. The the Network Watcher service is zone-resilient by default. 
+          Yes. The Network Watcher service is zone-resilient by default. 
 
       - question: |
           How do I configure the Network Watcher service to be zone-resilient? 

@@ -1,6 +1,5 @@
 ---
-title: Remove accounts from the token cache on sign-out | Azure
-titleSuffix: Microsoft identity platform
+title: Remove accounts from the token cache on sign-out
 description: Learn how to remove an account from the token cache on sign-out
 services: active-directory
 author: jmprieur

@@ -17,7 +17,7 @@ This article shows you how you can use `journalctl` to view the *kubelet* logs o
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 ## Create an SSH connection
 
@@ -73,7 +73,8 @@ If you need additional troubleshooting information from the Kubernetes master, s
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
 [aks-master-logs]: monitor-aks-reference.md#resource-logs
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [aks-master-logs]: monitor-aks-reference.md#resource-logs
 [azure-container-logs]: ../azure-monitor/containers/container-insights-overview.md

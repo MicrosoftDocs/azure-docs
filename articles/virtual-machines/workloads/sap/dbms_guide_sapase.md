@@ -1,18 +1,13 @@
 ---
 title: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
 description: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/02/2021
+ms.date: 10/27/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -31,7 +26,7 @@ Additional information about release support with SAP applications or installati
 Remark: Throughout documentation within and outside the SAP world, the name of the product is referenced as Sybase ASE or SAP ASE or in some cases both. In order to stay consistent, we use the name **SAP ASE** in this documentation.
 
 ## Operating system support
-The SAP Product Availability Matrix contains the supported Operating System and SAP Kernel combinations for each SAP application.  Linux distributions SUSE 12.x, SUSE 15.x, Red Hat 7.x are fully supported.  Oracle Linux as operating system for SAP ASE is not supported.  It is recommended to use the most recent Linux releases available. Windows customers should use Windows Server 2016 or Windows Server 2019 releases.  Older releases of Windows such as Windows 2012 are technically supported but the latest Windows version is always recommended.
+The SAP Product Availability Matrix contains the supported Operating System and SAP Kernel combinations for each SAP application.  Linux distributions SLES 12.x, SLES 15.x, RHEL 7.x and RHEL 8.x are fully supported. Oracle Linux as operating system for SAP ASE is not supported.  It is recommended to use the most recent Linux releases available. Windows customers should use Windows Server 2016 or Windows Server 2019 releases.  Older releases of Windows such as Windows 2012 are technically supported but the latest Windows version is always recommended.
 
 
 ## Specifics to SAP ASE on Windows
@@ -45,7 +40,7 @@ Lock Pages in Memory is a setting that will prevent the SAP ASE database buffer 
 
 
 ## Linux operating system specific settings
-On Linux VMs, run `saptune` with profile SAP-ASE 
+On SLES VMs, run `saptune` with profile SAP-ASE. Tune RHEL VMs as described in [69988](https://access.redhat.com/solutions/69988).  
 Linux Huge Pages should be enabled by default and can be verified with command  
 
 `cat /proc/meminfo` 
@@ -80,13 +75,13 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
-| VM Type | E4s_v3 (4 vCPU/32 GB RAM) | E4s_v3 (4 vCPU/32 GB RAM) | --- |
+| VM Type | E4s_v3/v4/v5 (4 vCPU/32 GB RAM) | E4s_v3/v4/v5 (4 vCPU/32 GB RAM) | --- |
 | Accelerated Networking | Enable | Enable | ---|
 | SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
 | # of data devices | 4 | 4 | ---|
 | # of log devices | 1 | 1 | --- |
 | # of temp devices | 1 | 1 | More for SAP BW workload |
-| Operating system | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 or RHEL 7.6 | --- |
+| Operating system | Windows Server 2019 | SLES 12 SP5, 15 SP1 or later or RHEL 7.9, 8.1/8.2/8.4 | --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
@@ -101,13 +96,13 @@ An example of a configuration for a medium SAP ASE DB Server with a database siz
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
-| VM Type | E16s_v3 (16 vCPU/128 GB RAM) | E16s_v3 (16 vCPU/128 GB RAM) | --- |
+| VM Type | E16s_v3/v4/v5 (16 vCPU/128 GB RAM) | E16s_v3/v4/v5 (16 vCPU/128 GB RAM) | --- |
 | Accelerated Networking | Enable | Enable | ---|
 | SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
 | # of data devices | 8 | 8 | ---|
 | # of log devices | 1 | 1 | --- |
 | # of temp devices | 1 | 1 | More for SAP BW workload |
-| Operating system | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 or RHEL 7.6 | --- |
+| Operating system | Windows Server 2019 | SLES 12 SP5, 15 SP1 or later or RHEL 7.9, 8.1/8.2/8.4| --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
@@ -121,13 +116,13 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
-| VM Type | E64s_v3 (64 vCPU/432 GB RAM) | E64s_v3 (64 vCPU/432 GB RAM) | --- |
+| VM Type | E64s_v3/v4/v5 (64 vCPU/432 GB RAM) | E64s_v3/v4/v5 (64 vCPU/432 GB RAM) | --- |
 | Accelerated Networking | Enable | Enable | ---|
 | SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
 | # of data devices | 16 | 16 | ---|
 | # of log devices | 1 | 1 | --- |
 | # of temp devices | 1 | 1 | More for SAP BW workload |
-| Operating system | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 or RHEL 7.6 | --- |
+| Operating system | Windows Server 2019 | SLES 12 SP5, 15 SP1 or later or RHEL 7.9, 8.1/8.2/8.4 | --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
@@ -148,7 +143,7 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | # of data devices | 32 | 32 | ---|
 | # of log devices | 1 | 1 | --- |
 | # of temp devices | 1 | 1 | More for SAP BW workload |
-| Operating system | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 or RHEL 7.6 | --- |
+| Operating system | Windows Server 2019 | SLES 12 SP5, 15 SP1 or later or RHEL 7.9, 8.1/8.2/8.4 | --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
@@ -215,13 +210,13 @@ SAP Software provisioning Manager (SWPM) is giving an option to encrypt the data
  
 - Deploy SAP ASE 16.0.03.07 or higher
 - Update to latest version and patches of FaultManager and SAPHostAgent
-- Deploy on latest certified OS available such as Windows 2019, Suse 15.1 or Redhat 7.6 or higher
+- Deploy on latest certified OS available such as Windows 2019, SLES 15 or RHEL 8 
 - Use SAP Certified VMs – high memory Azure VM SKUs such as Es_v3 or for x-large systems M-Series VM SKUs are recommended
 - Match the disk IOPS and total VM aggregate throughput quota of the VM with the disk design.  Deploy sufficient number of disks
 - Aggregate disks using Windows Storage Spaces or Linux LVM2 with correct stripe size and file system
 - Create sufficient number of devices for data, log, temp, and backup purposes
 - Consider using UltraDisk for x-large systems 
-- Run `saptune` SAP-ASE on Linux OS 
+- Run `saptune` SAP-ASE on SLES. Tune RHEL VMs per [69988](https://access.redhat.com/solutions/69988).
 - Secure the database with DB Encryption – manually store keys in Azure Key Vault 
 - Complete the [SAP on Azure Checklist](./sap-deployment-checklist.md) 
 - Configure log backup and full backup 

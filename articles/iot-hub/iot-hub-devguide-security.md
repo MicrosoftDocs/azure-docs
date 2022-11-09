@@ -1,9 +1,9 @@
 ---
 title: Access control and security for IoT Hub | Microsoft Docs
 description: Overview on how to control access to IoT Hub, includes links to depth articles on AAD integration and SAS options.
-author: wesmc7777
+author: kgremban
 
-ms.author: wesmc
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

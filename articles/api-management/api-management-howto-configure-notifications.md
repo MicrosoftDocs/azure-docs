@@ -83,7 +83,7 @@ To view and configure a notification template in the portal:
 
 ## Configure email settings
 
-You can modify general e-mail settings for notifications that are sent from your API Management instance. You can change the administrator email address, the name of the organization sending notification, and the originating email address.
+You can modify general email settings for notifications that are sent from your API Management instance. You can change the administrator email address, the name of the organization sending notifications, and the originating email address.
 
 To modify email settings:
 
@@ -93,8 +93,10 @@ To modify email settings:
     * **Administrator email** - the email address to receive all system notifications and other configured notifications
     * **Organization name** - the name of your organization for use in the developer portal and notifications 
     * **Originating email address** - The value of the `From` header for notifications from the API Management instance. API Management sends notifications on behalf of this originating address.
-
-        :::image type="content" source="media/api-management-howto-configure-notifications/configure-email-settings.png" alt-text="Screenshot of API Management email settings in the portal":::
+    > [!NOTE]
+    > When you change the Originating email address, some recipients may not receive the auto-generated emails from API Management or emails may get sent to the Junk/Spam folder. This happens because the email no longer passes SPF Authentication after you change the Originating email address domain. To ensure successful SPF Authentication and delivery of email, create the following TXT record in the DNS database of the domain specified in the email address. For instance, if the email address is `noreply@contoso.com`, you will need to contact the administrator of contoso.com to add the following TXT record: **"v=spf1 include:spf.protection.outlook.com include:_spf-ssg-a.microsoft.com -all"** 
+    
+      :::image type="content" source="media/api-management-howto-configure-notifications/configure-email-settings.png" alt-text="Screenshot of API Management email settings in the portal":::
 1. Select **Save**.
 
 ## Next steps

@@ -48,7 +48,7 @@ For more information, see [Assign a user or group to an enterprise app](../manag
 
 ## Configuring user provisioning to GitHub
 
-This section guides you through connecting your Azure AD to GitHub's SCIM provisioning API to automate provisioning of GitHub organization membership. This integration, which leverages an [OAuth app](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/authorizing-oauth-apps#oauth-apps-and-organizations), automatically adds, manages, and removes members' access to a GitHub Enterprise Cloud organization based on user and group assignment in Azure AD. When users are [provisioned to a GitHub organization via SCIM](https://docs.github.com/en/free-pro-team@latest/rest/reference/scim#provision-and-invite-a-scim-user), an email invitation is sent to the user's email address.
+This section guides you through connecting your Azure AD to GitHub's SCIM provisioning API to automate provisioning of GitHub organization membership. This integration, which leverages an [OAuth app](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/authorizing-oauth-apps#oauth-apps-and-organizations), automatically adds, manages, and removes members' access to a GitHub Enterprise Cloud organization based on user and group assignment in Azure AD. When users are [provisioned to a GitHub organization via SCIM](https://docs.github.com/en/rest/enterprise-admin/scim), an email invitation is sent to the user's email address.
 
 ### Configure automatic user account provisioning to GitHub in Azure AD
 

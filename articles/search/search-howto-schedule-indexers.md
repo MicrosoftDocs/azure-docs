@@ -7,6 +7,7 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 01/21/2022
 ---
@@ -27,7 +28,7 @@ Indexers can be configured to run on a schedule when you set the "schedule" prop
 
 + A valid indexer configured with a data source and index.
 
-+ Change detection in the data source. Azure Storage and SharePoint have built-in change detection. Other data sources, such as [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) and [Cosmos DB](search-howto-index-cosmosdb.md) must be enabled manually.
++ Change detection in the data source. Azure Storage and SharePoint have built-in change detection. Other data sources, such as [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) and [Azure Cosmos DB](search-howto-index-cosmosdb.md) must be enabled manually.
 
 ## Schedule definition
 
@@ -121,7 +122,7 @@ Let’s consider an example to make this more concrete. Suppose we configure an 
 
 ## Next steps
 
-For indexers that run on a schedule, you can monitor operations by retrieving status from the search service, or obtain detailed information by enabling diagnostic logging.
+For indexers that run on a schedule, you can monitor operations by retrieving status from the search service, or obtain detailed information by enabling resource logging.
 
 + [Monitor search indexer status](search-howto-monitor-indexers.md)
 + [Collect and analyze log data](monitor-azure-cognitive-search.md)

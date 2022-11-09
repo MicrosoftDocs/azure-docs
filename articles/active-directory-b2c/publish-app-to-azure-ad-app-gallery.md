@@ -9,16 +9,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 09/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Publish your Azure AD B2C app to the Azure AD app gallery
+# Publish your Azure Active Directory B2C app to the Azure Active Directory app gallery
 
 The Azure Active Directory (Azure AD) app gallery is a catalog of thousands of apps. The app gallery makes it easy to deploy and configure single sign-on (SSO) and automate user setup. You can find popular cloud apps in the gallery, such as Workday, ServiceNow, and Zoom.
 
-This article describes how to publish your Azure Active Directory B2C (Azure AD B2C) app in the Azure AD app gallery. When your app is published, it's listed among the options that customers can choose from when they're adding apps to their Azure AD tenant.
+This article describes how to publish your Azure Active Directory B2C (Azure AD B2C) app in the Azure AD app gallery. When you publish your app, it's listed among the options that customers can choose from when they're adding apps to their Azure AD tenant.
 
 Here are some benefits of adding your Azure AD B2C app to the app gallery:  
 
@@ -30,22 +30,25 @@ Here are some benefits of adding your Azure AD B2C app to the app gallery:
 - Customers can assign the app to various users and groups within their organization.
 - The tenant administrator can grant tenant-wide admin consent to your app.
 
-## Sign-in flow overview
+## Sign in flow overview
 
 The sign-in flow involves the following steps:
 
-1. Users go to the [My Apps portal](https://myapps.microsoft.com/) and select your app, which opens the app sign-in URL.
+1. Users go to the [My Apps portal](https://myapps.microsoft.com/) and select your app. The app opens the app sign-in URL.
 1. The app sign-in URL starts an authorization request and redirects users to the Azure AD B2C authorization endpoint.
 1. Users choose to sign in with their Azure AD "Corporate" account. Azure AD B2C takes them to the Azure AD authorization endpoint, where they sign in with their work account.
-1. If the Azure AD SSO session is active, Azure AD issues an access token without prompting users to sign in again. If the Azure AD session expires or becomes invalid, users are prompted to sign in again.
+1. If the Azure AD SSO session is active, Azure AD issues an access token without prompting users to sign in again. Otherwise, users are prompted to sign in again.
 
 ![Diagram of the sign-in OpenID connect flow.](./media/publish-app-to-azure-ad-app-gallery/app-gallery-sign-in-flow.png)
 
 Depending on the users' SSO session and Azure AD identity settings, they might be prompted to:
 
 - Provide their email address or phone number.
+
 - Enter their password or sign in with the [Microsoft authenticator app](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
+
 - Complete multifactor authentication.
+
 - Accept the consent page. Your customer's tenant administrator can [grant tenant-wide admin consent to an app](../active-directory/manage-apps/grant-admin-consent.md). When consent is granted, the consent page won't be presented to users.
 
 Upon successful sign-in, Azure AD returns a token to Azure AD B2C. Azure AD B2C validates and reads the token claims, and then returns a token to your application.
@@ -56,13 +59,13 @@ Upon successful sign-in, Azure AD returns a token to Azure AD B2C. Azure AD B2C 
 
 ## Step 1: Register your application in Azure AD B2C
 
-To enable sign-in to your app with Azure AD B2C, register your app in the Azure AD B2C directory. Registering your app establishes a trust relationship between the app and Azure AD B2C. 
+To enable sign in to your app with Azure AD B2C, register your app in the Azure AD B2C directory. Registering your app establishes a trust relationship between the app and Azure AD B2C. 
 
-If you haven't already done so, [register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). Later, you'll register this app with the Azure app gallery.
+If you haven't already done so, [register a web application](tutorial-register-applications.md). Later, you'll register this app with the Azure app gallery.
 
 ## Step 2: Set up sign-in for multitenant Azure AD
 
-To allow employees and consumers from any Azure AD tenant to sign in by using Azure AD B2C, follow the guidance for [setting up sign-in for multitenant Azure AD](identity-provider-azure-ad-multi-tenant.md?pivots=b2c-custom-policy).
+To allow employees and consumers from any Azure AD tenant to sign in by using Azure AD B2C, follow the guidance for [setting up sign in for multitenant Azure AD](identity-provider-azure-ad-multi-tenant.md?pivots=b2c-custom-policy).
 
 ## Step 3: Prepare your app
 
@@ -72,7 +75,7 @@ In production environments, the app registration redirect URI is ordinarily a pu
 
 ## Step 4: Publish your Azure AD B2C app
 
-Finally, add the multitenant app to the Azure AD app gallery. Follow the instructions in [Publish your app to the Azure AD app gallery](../active-directory/manage-apps/v2-howto-app-gallery-listing.md). To add your app to the app gallery, do the following:
+Finally, add the multitenant app to the Azure AD app gallery. Follow the instructions in [Publish your app to the Azure AD app gallery](../active-directory/manage-apps/v2-howto-app-gallery-listing.md). To add your app to the app gallery, use the following steps:
 
 1. [Create and publish documentation](../active-directory/manage-apps/v2-howto-app-gallery-listing.md#create-and-publish-documentation).
 1. [Submit your app](../active-directory/manage-apps/v2-howto-app-gallery-listing.md#submit-your-application) with the following information:
@@ -83,10 +86,9 @@ Finally, add the multitenant app to the Azure AD app gallery. Follow the instruc
     |What feature would you like to enable when listing your application in the gallery? | Select **Federated SSO (SAML, WS-Fed & OpenID Connect)**. | 
     | Select your application federation protocol| Select **OpenID Connect & OAuth 2.0**. |
     | Application (Client) ID | Provide the ID of [your Azure AD B2C application](#step-1-register-your-application-in-azure-ad-b2c). |
-    | Application sign-in URL|Provide the app sign-in URL as it's configured in [Step 3. Prepare your app](#step-3-prepare-your-app).|
+    | Application sign in URL|Provide the app sign-in URL as it's configured in [Step 3. Prepare your app](#step-3-prepare-your-app).|
     | Multitenant| Select **Yes**. |
-    | | |
 
 ## Next steps
 
-- Learn how to [Publish your app to the Azure AD app gallery](../active-directory/manage-apps/v2-howto-app-gallery-listing.md).
+- Learn how to [Publish your Azure AD app to the Azure AD app gallery](../active-directory/manage-apps/v2-howto-app-gallery-listing.md).

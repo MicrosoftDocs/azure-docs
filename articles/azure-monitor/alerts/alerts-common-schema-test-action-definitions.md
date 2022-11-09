@@ -1,9 +1,10 @@
 ---
 title: Alert schema definitions in Azure Monitor for Test Action Group
 description: Understanding the common alert schema definitions for Azure Monitor for Test Action group
-author: issahn
+author: jacegummersall
 ms.topic: conceptual
 ms.date: 01/14/2022
+ms.revewer: jagummersall
 ---
 
 # Common alert schema definitions for Test Action Group (Preview)
@@ -11,7 +12,7 @@ ms.date: 01/14/2022
 This article describes the [common alert schema definitions](./alerts-common-schema.md) for Azure Monitor, including those for webhooks, Azure Logic Apps, Azure Functions, and Azure Automation runbooks. 
 
 Any alert instance describes the resource that was affected and the cause of the alert. These instances are described in the common schema in the following sections:
-* **Essentials**: A set of standardized fields, common across all alert types, which describe what resource the alert is on, along with additional common alert metadata (for example, severity or description). Definitions of severity can be found in the [alerts overview](alerts-overview.md#overview). 
+* **Essentials**: A set of standardized fields, common across all alert types, which describe what resource the alert is on, along with additional common alert metadata (for example, severity or description). 
 * **Alert context**: A set of fields that describes the cause of the alert, with fields that vary based on the alert type. For example, a metric alert includes fields like the metric name and metric value in the alert context, whereas an activity log alert has information about the event that generated the alert. 
 
 **Sample alert payload**

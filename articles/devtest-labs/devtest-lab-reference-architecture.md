@@ -2,6 +2,8 @@
 title: Enterprise reference architecture
 description: See a reference architecture and considerations for Azure DevTest Labs in an enterprise.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/14/2022
 ms.reviewer: christianreddington,anthdela,juselph
 ---
@@ -44,7 +46,7 @@ On-premises, a [remote desktop gateway](/windows-server/remote/remote-desktop-se
 
 ### Networking components
 
-In this architecture, [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) provides identity and access management across all networks. Lab VMs usually have a local administrative account for access. If there's an Azure AD, on-premises, or [Azure AD Domain Services](../active-directory-domain-services/overview.md) domain available, you can join lab VMs to the domain. Users can then use their domain-based identities to connect to the VMs.
+In this architecture, [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) provides identity and access management across all networks. Lab VMs usually have a local administrative account for access. If there's an Azure AD, on-premises, or [Azure AD Domain Services](../active-directory-domain-services/overview.md) domain available, you can join lab VMs to the domain. Users can then use their domain-based identities to connect to the VMs.
 
 [Azure networking topology](../networking/fundamentals/networking-overview.md) controls how lab resources access and communicate with on-premises networks and the internet. This architecture shows a common way that enterprises network DevTest Labs. The labs connect with [peered virtual networks](../virtual-network/virtual-network-peering-overview.md) in a [hub-spoke configuration](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), through the ExpressRoute or site-to-site VPN connection, to the on-premises network.
 

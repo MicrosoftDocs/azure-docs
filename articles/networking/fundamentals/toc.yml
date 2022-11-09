@@ -99,7 +99,7 @@
   - name: Network monitoring
     items:
     - name: Monitor your network with Azure Monitor
-      href: ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Monitor and repair network health
       href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json 
 - name: How-to guides
@@ -113,7 +113,7 @@
     - name: Optimize routing costs 
       href: ../../virtual-network/ip-services/routing-preference-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Create a NAT gateway for outbound connection
-      href: ../../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
+      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Create an Azure DNS zone and record
       href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Route traffic using route tables
@@ -153,4 +153,8 @@
     - name: Monitor communications between Azure resources
       href: ../../network-watcher/connection-monitor-create-using-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Azure Monitor Network Insights
-      href:  ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+      href:  ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+  - name: Troubleshooting
+    items: 
+    - name: Troubleshoot Microsoft.Network Failed provisioning state
+      href: ../troubleshoot-failed-state.md?toc=/azure/networking/fundamentals/toc.json

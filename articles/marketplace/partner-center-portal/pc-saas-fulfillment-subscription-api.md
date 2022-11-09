@@ -4,7 +4,7 @@ description: Learn how to use the Subscription APIs, which are part of the  the 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 03/07/2022
+ms.date: 08/10/2022
 author: arifgani
 ms.author: argani
 ---
@@ -40,7 +40,6 @@ Calling the Resolve API will return subscription details and status for SaaS sub
 |  `x-ms-correlationid` |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
 |  `authorization`     |  A unique access token that identifies the publisher making this API call. The format is `"Bearer <accessaccess_token>"` when the token value is retrieved by the publisher as explained in [Get a token based on the Azure AD app](./pc-saas-registration.md#get-the-token-with-an-http-post). |
 |  `x-ms-marketplace-token`  | The purchase identification *token* parameter to resolve.  The token is passed in the landing page URL call when the customer is redirected to the SaaS partner's website (for example: `https://contoso.com/signup?token=<token><authorization_token>`). <br> <br>  Note that the *token* value being encoded is part of the landing page URL, so it needs to be decoded before it's used as a parameter in this API call.  <br> <br> Here's an example of an encoded string in the URL: `contoso.com/signup?token=ab%2Bcd%2Fef`, where *token* is `ab%2Bcd%2Fef`.  The same token decoded will be: `Ab+cd/ef` |
-| | |
 
 *Response codes:*
 
@@ -55,7 +54,7 @@ Response body example:
   "subscriptionName": "Contoso Cloud Solution", // SaaS subscription name
   "offerId": "offer1", // purchased offer ID
   "planId": "silver", // purchased offer's plan ID
-  "quantity": "20", // number of purchased seats, might be empty if the plan is not per seat
+  "quantity": 20, // number of purchased seats, might be empty if the plan is not per seat
   "subscription": { // full SaaS subscription details, see Get Subscription APIs response body for full description
     "id": "<guid>",
     "publisherId": "contoso",
@@ -66,13 +65,13 @@ Response body example:
       "emailId": "test@test.com",
       "objectId": "<guid>",
       "tenantId": "<guid>",
-      "pid": "<ID of the user>"
+      "puid": "<ID of the user>"
     },
     "purchaser": {
       "emailId": "test@test.com",
       "objectId": "<guid>",
       "tenantId": "<guid>",
-      "pid": "<ID of the user>"
+      "puid": "<ID of the user>"
     },
     "planId": "silver",
     "term": {
@@ -83,7 +82,7 @@ Response body example:
       "autoRenew": true/false,
     "isTest": true/false,
     "isFreeTrial": false,
-    "allowedCustomerOperations": ["Delete", "Update", "Read"],
+    "allowedCustomerOperations": <CSP purchases>["Read"] <All Others> ["Delete", "Update", "Read"],
       "sandboxType": "None",
       "lastModified": "0001-01-01T00:00:00",
       "quantity": 5,
@@ -115,8 +114,7 @@ After the SaaS account is configured for an end user, the publisher must call th
 |  Parameter         | Value             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Use 2018-08-31.   |
-| `subscriptionId` | The unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the [Resolve API](#resolve-a-purchased-subscription).
- |
+| `subscriptionId` | The unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the [Resolve API](#resolve-a-purchased-subscription). |
 
 *Request headers:*
 
@@ -240,20 +238,20 @@ Returns the list of all existing subscriptions for all offers made by this publi
         "emailId": " test@contoso.com",
         "objectId": "<guid>",
         "tenantId": "<guid>",
-        "pid": "<ID of the user>"
+        "puid": "<ID of the user>"
       },
       "purchaser": {
         "emailId": "purchase@csp.com ",
         "objectId": "<guid>",
         "tenantId": "<guid>",
-        "pid": "<ID of the user>"
+        "puid": "<ID of the user>"
       },
       "term": {
         "startDate": "2019-05-31",
         "endDate": "2020-04-30",
         "termUnit": "P1Y"
       },
-      "autoRenew": false
+      "autoRenew": false,
       "allowedCustomerOperations": ["Read"],
       "sessionMode": "None",
       "isFreeTrial": false,
@@ -390,7 +388,7 @@ Response body example:
     {
       "planId": "Platinum001",
       "displayName": "Private platinum plan for Contoso", // display name of the plan as it appears in the marketplace
-      "isPrivate": true //true or false
+      "isPrivate": true, //true or false
       "description": "plan description",
           "minQuantity": 5,
           "maxQuantity": 100,
@@ -402,7 +400,7 @@ Response body example:
     {
       "planId": "gold",
       "displayName": "Gold plan for Contoso",
-      "isPrivate": false //true or false,
+      "isPrivate": false, //true or false
       "description": "gold plan details.",
           "minQuantity": 1,
           "maxQuantity": 5,
@@ -415,10 +413,11 @@ Response body example:
 }
 ```
 
-If `subscriptionId` is not found, empty response body is returned.
+Code: 404 Not Found.
+`subscriptionId` is not found.
 
 Code: 403
-Forbidden. The authorization token is invalid, expired, or was not provided.  The request may be attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
+Forbidden. The authorization token is invalid, expired, or was not provided.  The request may be attempting to access a SaaS subscription for an offer that's unsubscribed or published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
@@ -590,7 +589,7 @@ The customer will be billed if a subscription is canceled after the preceding gr
 |  Parameter         | Value             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
-|  `x-ms-requestid`    | A unique string value for tracking the request from the client, preferably a GUID.  If this value isn't provided, one will be generated and provided in the response headers.  |
+|  `x-ms-requestid`    | A unique string value for tracking the request from the client, preferably a GUID.  If this value isn't provided, one will be generated and provided in the response headers. |
 |  `x-ms-correlationid`  | A unique string value for operation on the client.  This parameter correlates all events from client operation with events on the server side.  If this value isn't provided, one will be generated and provided in the response headers.  |
 |  `authorization`     |  A unique access token that identifies the publisher making this API call.  The format is `"Bearer <access_token>"` when the token value is retrieved by the publisher as explained in [Get a token based on the Azure AD app](./pc-saas-registration.md#get-the-token-with-an-http-post). |
 

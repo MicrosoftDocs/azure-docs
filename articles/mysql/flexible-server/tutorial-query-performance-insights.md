@@ -1,10 +1,11 @@
 ---
 title: 'Tutorial: Query Performance Insight for Azure Database for MySQL Flexible Server'
 description: 'This article shows you the tools to help visualize Query Performance Insight for Azure Database for MySQL Flexible Server.'
-author: SudheeshGH
-ms.author: sunaray
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: tutorial
+author: code-sidd
+ms.author: sisawant
 ms.date: 10/01/2021
 ---
 
@@ -165,7 +166,7 @@ In the workbook, you can view the following visualizations:
 
 >[!Note]
 > * To view resource utilization, you can use the Overview template.
-> * You can also edit these templates and customize them according to your requirements. For more information, see [Azure Monitor workbooks overview](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
+> * You can also edit these templates and customize them according to your requirements. For more information, see [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 > * For a quick view, you can also pin the workbooks or Log Analytics query to your Dashboard. For more information, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md). 
 
 In Query Performance Insight, two metrics that can help you find potential bottlenecks are *duration* and *execution count*. Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. 

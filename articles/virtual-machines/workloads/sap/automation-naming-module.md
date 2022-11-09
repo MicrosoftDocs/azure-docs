@@ -1,21 +1,176 @@
 ---
-title: Configure custom naming module for the automation framework
-description: Explanation of how to implement custom naming conventions for the SAP deployment automation framework on Azure.
+title: Configure custom naming for the automation framework
+description: Explanation of how to implement custom naming conventions for the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 10/19/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Configure custom naming module
+# Overview
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a standard naming convention for Azure [resource naming](automation-naming.md). 
+The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) uses a standard naming convention for Azure [resource naming](automation-naming.md).
 
-The Terraform module `sap_namegenerator` defines the names of all resources that the automation framework deploys. The module is located at `/deploy/terraform/terraform-units/modules/sap_namegenerator/` in the repository. 
+The Terraform module `sap_namegenerator` defines the names of all resources that the automation framework deploys. The module is located at `/deploy/terraform/terraform-units/modules/sap_namegenerator/` in the repository. The framework also supports providing your own names for some of the resources using the [parameter files](automation-configure-system.md).
 
-The framework also supports providing you own names for some of the resources using the [parameter files](automation-configure-system.md). If these capabilities are not enough you can also use custom naming logic by modifying the naming module used by the automation.
+The naming of the resources uses the following format:
+
+resource prefix + resource_group_prefix + separator + resource name + resource suffix.
+
+
+If these capabilities are not enough, you can also use custom naming logic by either providing a custom json file containing the resource names or by modifying the naming module used by the automation.
+
+## Provide name overrides using a json file
+
+You can specify a custom naming json file in your tfvars parameter file using the 'name_override_file' parameter.
+
+The json file has sections for the different resource types.
+
+The deployment types are:
+
+- DEPLOYER (Control Plane)
+- SDU (SAP System Infrastructure)
+- WORKLOAD_ZONE (Workload zone)
+
+### Availability set names
+
+The names for the availability sets are defined in the "availabilityset_names" structure. The example below lists the availability set names for a deployment.
+
+```json
+  "availabilityset_names" : {
+        "app": "app-avset",
+        "db" : "db-avset",
+        "scs": "scs-avset",
+        "web": "web-avset"
+    }
+```
+### Key Vault names
+
+The names for the key vaults are defined in the "keyvault_names" structure. The example below lists the key vault names for a deployment in the "DEV" environment in West Europe.
+
+```json
+"keyvault_names": {
+        "DEPLOYER": {
+            "private_access": "DEVWEEUprvtABC",
+            "user_access": "DEVWEEUuserABC"
+        },
+        "SDU": {
+            "private_access": "DEVWEEUSAP01X00pABC",
+            "user_access": "DEVWEEUSAP01X00uABC"
+        },
+        "WORKLOAD_ZONE": {
+            "private_access": "DEVWEEUSAP01prvtABC",
+            "user_access": "DEVWEEUSAP01userABC"
+        }
+    }
+```
+
+> [!NOTE]
+> This key vault names need to be unique across Azure, SAP on Azure Deployment Automation Framework appends 3 random characters (ABC in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
+
+The "private_access" names are currently not used.
+
+### Storage Account names
+
+The names for the storage accounts are defined in the "storageaccount_names" structure. The example below lists the storage account names for a deployment in the "DEV" environment in West Europe.
+
+```json
+"storageaccount_names": {
+        "DEPLOYER": "devweeudiagabc",
+        "LIBRARY": {
+            "library_storageaccount_name": "devweeusaplibabc",
+            "terraformstate_storageaccount_name": "devweeutfstateabc"
+        },
+        "SDU": "devweeusap01diagabc",
+        "WORKLOAD_ZONE": {
+            "landscape_shared_transport_storage_account_name": "devweeusap01sharedabc",
+            "landscape_storageaccount_name": "devweeusap01diagabc",
+            "witness_storageaccount_name": "devweeusap01witnessabc"
+        }
+    }
+```
+
+> [!NOTE]
+> This key vault names need to be unique across Azure, SAP on Azure Deployment Automation Framework appends 3 random characters (abc in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
+
+### Virtual Machine names
+
+The names for the virtual machines are defined in the "virtualmachine_names" structure. Both the computer and the virtual machine names can be provided.
+
+The example below lists the virtual machine names for a deployment in the "DEV" environment in West Europe. The deployment has a database server, two application servers, a Central Services server and a web dispatcher.
+
+```json
+    "virtualmachine_names": {
+        "ANCHOR_COMPUTERNAME": [],
+        "ANCHOR_SECONDARY_DNSNAME": [],
+        "ANCHOR_VMNAME": [],
+        "ANYDB_COMPUTERNAME": [
+            "x00db00l0abc"
+        ],
+        "ANYDB_SECONDARY_DNSNAME": [
+            "x00dhdb00l0abc",
+            "x00dhdb00l1abc"
+        ],
+        "ANYDB_VMNAME": [
+            "x00db00l0abc"
+        ],
+        "APP_COMPUTERNAME": [
+            "x00app00labc",
+            "x00app01labc"
+        ],
+        "APP_SECONDARY_DNSNAME": [
+            "x00app00labc",
+            "x00app01labc"
+        ],
+        "APP_VMNAME": [
+            "x00app00labc",
+            "x00app01labc"
+        ],
+        "DEPLOYER": [
+            "devweeudeploy00"
+        ],
+        "HANA_COMPUTERNAME": [
+            "x00dhdb00l0af"
+        ],
+        "HANA_SECONDARY_DNSNAME": [
+            "x00dhdb00l0abc"
+        ],
+        "HANA_VMNAME": [
+            "x00dhdb00l0abc"
+        ],
+        "ISCSI_COMPUTERNAME": [
+            "devsap01weeuiscsi00"
+        ],
+        "OBSERVER_COMPUTERNAME": [
+            "x00observer00labc"
+        ],
+        "OBSERVER_VMNAME": [
+            "x00observer00labc"
+        ],
+        "SCS_COMPUTERNAME": [
+            "x00scs00labc"
+        ],
+        "SCS_SECONDARY_DNSNAME": [
+            "x00scs00labc"
+        ],
+        "SCS_VMNAME": [
+            "x00scs00labc"
+        ],
+        "WEB_COMPUTERNAME": [
+            "x00web00labc"
+        ],
+        "WEB_SECONDARY_DNSNAME": [
+            "x00web00labc"
+        ],
+        "WEB_VMNAME": [
+            "x00web00labc"
+        ]
+    }
+```
+
+## Configure custom naming module
 
 There are multiple files within the module for naming resources:
 
@@ -30,7 +185,7 @@ The different resource names are identified by prefixes in the Terraform code.
 - SAP landscape deployments use resource names with the prefix `vnet_`
 - SAP system deployments use resource names with the prefix `sdu_`
 
-The calculated names are returned in a data dictionary which is used by all the terraform modules. 
+The calculated names are returned in a data dictionary, which is used by all the terraform modules.
 
 ## Using custom names
 
@@ -81,7 +236,7 @@ module "sap_namegenerator" {
   db_server_count  = var.database_server_count
   app_server_count = try(local.application.application_server_count, 0)
   web_server_count = try(local.application.webdispatcher_count, 0)
-  scs_server_count = local.application.scs_high_availability ? 2 * local.application.scs_server_count : local.application.scs_server_count  
+  scs_server_count = local.application.scs_high_availability ? 2 * local.application.scs_server_count : local.application.scs_server_count
   app_zones        = local.app_zones
   scs_zones        = local.scs_zones
   web_zones        = local.web_zones

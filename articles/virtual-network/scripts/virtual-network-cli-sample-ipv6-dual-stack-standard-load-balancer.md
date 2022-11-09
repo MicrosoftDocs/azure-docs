@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn how to configure IPv6 endpoints in a virtual network script sample using Standard Load Balancer.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/03/2022
-ms.author: kumud 
+ms.author: allensu 
 ms.custom: devx-track-azurecli
 ---
 

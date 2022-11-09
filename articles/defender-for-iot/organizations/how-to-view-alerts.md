@@ -1,7 +1,7 @@
 ---
-title: View alerts details on the sensor Alerts page 
+title: View alerts details on the sensor Alerts page - Microsoft Defender for IoT
 description: View alerts detected by your Defender for IoT sensor.
-ms.date: 02/06/2022
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that need your attention.
 
-This article describes how to view alerts triggered by your sensors.
+This article describes how to view alerts triggered by your Microsoft Defender for IoT OT network sensors.
 
 Once an alert is selected, you can view comprehensive details about the alert activity, for example,
 
@@ -51,7 +51,7 @@ The following information is available from the Alerts page:
 | **Severity** | The alert severity: Critical, Major, Minor, Warning|
 | **Name** | The alert title |
 | **Engine** | The Defender for IoT detection engine that detected the activity and triggered the alert. If the event was detected by the Device Builder platform, the value will be Micro-agent.  |
-| **Detection time** | The first time the alert activity was detected.   |
+| **Last detection** | The last time the alert activity was detected.   |
 | **Status** | Indicates if the alert is new or closed. | 
 | **Source Device** | The source device IP address | 
 | **Destination Device** | The destination device IP address | 
@@ -141,7 +141,6 @@ You can generate the following alert reports:
 
 - Export information on one, all or selected alerts to a CSV file
 - Export PDF reports
-- Download a full or filtered PCAP file for a specific alert.
 
 **To export to CSV file:**
 
@@ -153,13 +152,16 @@ You can generate the following alert reports:
 1. Select one or several alerts from the Alerts page.
 1. Select **Export to PDF**.
 
+### Download PCAP files
+
+Download a full or filtered PCAP file for a specific alert directly from the sensor. PCAP files provide more detailed information about the network traffic that occurred at the time of the alert event.
+
 **To download a PCAP file:**
 
 1. Select an alert
 1. Select **View full details**.
 1. Select **Download Full PCAP** or **Download Filtered PCAP**.
 
-PCAP files provide more detailed information about the network traffic that occurred at the time of the alert event. 
 
 ## View alerts in the Defender for IoT portal
 
@@ -168,7 +170,7 @@ If your deployment was set up to work with cloud-connected sensors, Alert detect
 Viewing alerts in the portal provides significant advantages. For example, it lets you:
 
 - Display an aggregated  view of alert activity in all enterprise sensors
-- learn about related MITRE ATT&CK techniques, tactics and stages
+- Understand related MITRE ATT&CK techniques, tactics and stages
 - View alerts based on the site
 - Change the severity of an alert
 
@@ -180,7 +182,7 @@ You can manage an alert incident by:
 
 - Changing the status of an alert.
 
-- Instructing sensors to learn, acknowledge or mute activity detected.
+- Instructing sensors to learn, close, or mute activity detected.
 
 - Create alert groups for display at SOC solutions.
 

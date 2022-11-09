@@ -4,15 +4,14 @@ description: Tutorial showing how to use a Linux VM system-assigned managed iden
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
-editor: daveba
+manager: amycolannino
 ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2022
+ms.date: 06/24/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -100,15 +99,17 @@ Now that you have your SSH client continue to the steps below:
     > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     > In the following response, the access_token element has been shortened for brevity.
     
-    ```bash
-    {"access_token":"eyJ0eXAiOiJ...",
-    "refresh_token":"",
-    "expires_in":"3599",
-    "expires_on":"1504130527",
-    "not_before":"1504126627",
-    "resource":"https://management.azure.com",
-    "token_type":"Bearer"} 
-     ```
+    ```json
+    {
+      "access_token":"eyJ0eXAiOiJ...",
+      "refresh_token":"",
+      "expires_in":"3599",
+      "expires_on":"1504130527",
+      "not_before":"1504126627",
+      "resource":"https://management.azure.com",
+      "token_type":"Bearer"
+    }
+    ```
 
 ## Get a SAS credential from Azure Resource Manager to make storage calls
 
@@ -225,7 +226,7 @@ Response:
 
 ## Next steps
 
-In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS see:
+In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential.  To learn more about Azure Storage SAS, see:
 
 > [!div class="nextstepaction"]
 >[Using shared access signatures (SAS)](../../storage/common/storage-sas-overview.md)

@@ -1,11 +1,11 @@
 ---
 title: Certificate rotation for Azure Database for MariaDB
 description: Learn about the upcoming changes of root certificate changes that will affect Azure Database for MariaDB
+ms.service: mariadb
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/18/2021
+ms.date: 06/24/2022
 ---
 
 # Understanding the changes in the Root CA change for Azure Database for MariaDB
@@ -22,7 +22,7 @@ Azure database for MariaDB users can only use the predefined certificate to conn
 
 As per the industry's compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for MariaDB used one of these non-compliant certificates, we needed to rotate the certificate to the compliant version to minimize the potential threat to your MySQL servers.
 
-The new certificate is rolled out and in effect starting February 15, 2021 (02/15/2021). 
+The new certificate is rolled out and in effect starting February 15, 2021 (02/15/2021).
 
 ## What change was performed on February 15, 2021 (02/15/2021)?
 
@@ -78,9 +78,9 @@ There is no change required on client side. if you followed our previous recomme
 
 ## Why was BaltimoreCyberTrustRoot certificate not replaced to DigiCertGlobalRootG2 during this change on February 15, 2021?
 
-We evaluated the customer readiness for this change and realized many customers were looking for additional lead time to manage this change. In the interest of providing more lead time to customers for readiness, we have decided to defer the certificate change to DigiCertGlobalRootG2 for at least a year providing sufficient lead time to the customers and end users. 
+We evaluated the customer readiness for this change and realized many customers were looking for additional lead time to manage this change. In the interest of providing more lead time to customers for readiness, we have decided to defer the certificate change to DigiCertGlobalRootG2 for at least a year providing sufficient lead time to the customers and end users.
 
-Our recommendations to users is, use the aforementioned steps to create a combined certificate and connect to your server but do not remove BaltimoreCyberTrustRoot certificate until we send a communication to remove it. 
+Our recommendations to users is, use the aforementioned steps to create a combined certificate and connect to your server but do not remove BaltimoreCyberTrustRoot certificate until we send a communication to remove it.
 
 ## What if we removed the BaltimoreCyberTrustRoot certificate?
 
@@ -154,7 +154,7 @@ Since this update is a client-side change, if the client used to read data from 
 
 If you're using [Data-in replication](concepts-data-in-replication.md) to connect to Azure Database for MySQL, there are two things to consider:
 
-- If the data-replication is from a virtual machine (on-prem or Azure virtual machine) to Azure Database for MySQL, you need to check if SSL is being used to create the replica. Run **SHOW SLAVE STATUS** and check the following setting. 
+- If the data-replication is from a virtual machine (on-prem or Azure virtual machine) to Azure Database for MySQL, you need to check if SSL is being used to create the replica. Run **SHOW SLAVE STATUS** and check the following setting.
 
   ```azurecli-interactive
   Master_SSL_Allowed            : Yes

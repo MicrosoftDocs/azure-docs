@@ -249,8 +249,6 @@
     items:
     - name: Troubleshoot VM and environment creation failures
       href: troubleshoot-vm-environment-creation-failures.md
-    - name: Troubleshoot artifact failures
-      href: devtest-lab-troubleshoot-artifact-failure.md
     - name: Troubleshoot issues when applying artifacts
       href: devtest-lab-troubleshoot-apply-artifacts.md
   - name: Monitor
@@ -261,6 +259,8 @@
       href: create-alerts.md
   - name: Move to new region
     href: how-to-move-labs.md
+  - name: Move schedules to another region
+    href: how-to-move-schedule-to-new-region.md
 - name: Reference
   items:
   - name: CLI

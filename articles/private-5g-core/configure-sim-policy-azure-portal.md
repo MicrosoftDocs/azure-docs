@@ -12,18 +12,18 @@ ms.custom: template-how-to
 
 # Configure a SIM policy for Azure Private 5G Core Preview - Azure portal
 
-*SIM policies* allow you to define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. You'll need to assign a SIM policy to a SIM before the user equipment (UE) using that SIM can access the private mobile network. In this how-to-guide, you'll learn how to configure a SIM policy.
+*SIM policies* allow you to define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. The SIM policy also defines the default Quality of Service settings for any services that use the policy. You'll need to assign a SIM policy to a SIM before the user equipment (UE) using that SIM can access the private mobile network. In this how-to-guide, you'll learn how to configure a SIM policy.
 
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
 - Collect all the configuration values in [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md) for your chosen SIM policy.
-- Decide whether you want to assign this SIM policy to any SIMs as part of configuring it. If you do, you must have provisioned these SIMs following the instructions in [Provision SIMs - Azure portal](provision-sims-azure-portal.md) and ensured they aren't currently active.
+- Decide whether you want to assign this SIM policy to any SIMs as part of configuring it. If you do, you must have already provisioned the SIMs (as described in [Provision SIMs - Azure portal](provision-sims-azure-portal.md)).
 
 ## Configure the SIM policy
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to configure a SIM policy.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
@@ -42,7 +42,8 @@ ms.custom: template-how-to
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-basics-tab.png" alt-text="Screenshot of the Azure portal. It shows the basics tab for a SIM policy. The Add a network scope button is highlighted.":::
 
-1. Under **Add a network scope** on the right, fill out each of the fields using the information you collected from [Collect information for the network scope](collect-required-information-for-sim-policy.md#collect-information-for-the-network-scope).
+1. Under **Add a network scope** on the right, fill out each of the fields using the information you collected from [Collect information for the network scope](collect-required-information-for-sim-policy.md#collect-information-for-the-network-scope).  
+SIM policies also define the default QoS settings for any services that use the policy. You can override the default SIM policy QoS settings on a per-service basis - see [Configure basic settings for the service](configure-service-azure-portal.md#configure-basic-settings-for-the-service).
 1. Select **Add**.
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/add-a-network-scope.png" alt-text="Screenshot of the Azure portal. It shows the Add a network scope screen. The Add button is highlighted.":::
@@ -51,7 +52,7 @@ ms.custom: template-how-to
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/network-scope-configuration.png" alt-text="Screenshot of the Azure portal. It shows the Create a SIM policy screen. The Network scope section is highlighted.":::
 
-1. If you want to assign this SIM policy to one or more existing provisioned SIMs, select **Next : Assign to SIMs**, and then select your chosen SIMs from the list that appears.
+1. If you want to assign this SIM policy to one or more existing provisioned SIMs, select **Next : Assign to SIMs**, and then select your chosen SIMs from the list that appears. You can choose to search this list based on any field, including SIM name, SIM group, and device type.
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/assign-to-sims-tab.png" alt-text="Screenshot of the Azure portal. It shows the Assign to SIMs tab for a SIM policy.":::
 
@@ -81,4 +82,4 @@ ms.custom: template-how-to
 
 ## Next steps
 
-- If you assigned this SIM policy to some SIMs, [activate the SIMs so they can access your private mobile network](activate-sims.md).
+- [Learn more about policy control](policy-control.md)

@@ -30,7 +30,7 @@ Additional resources:
 - [API reference documentation](/javascript/api/@azure/storage-queue/)
 - [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
 - [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue)
-- [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+- [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/queues/toc.json#queue-samples)
 
 ## Prerequisites
 

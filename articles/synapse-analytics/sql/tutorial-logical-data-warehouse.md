@@ -5,6 +5,7 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
+ms.custom: ignite-2022
 ms.date: 08/20/2021
 ms.author: jovanpop
 ms.reviewer: sngun 
@@ -25,7 +26,7 @@ CREATE DATABASE Ldw
       COLLATE Latin1_General_100_BIN2_UTF8;
 ```
 
-This collation will provide the optimal performance while reading Parquet and Cosmos DB. If you don't want to specify the database collation,
+This collation will provide the optimal performance while reading Parquet and Azure Cosmos DB. If you don't want to specify the database collation,
 make sure that you specify this collation in the column definition.
 
 ## Configure data sources and formats
@@ -49,7 +50,8 @@ A caller may access data source without credential if an owner of data source al
 You can explicitly define a custom credential that will be used while accessing data on external data source.
 - [Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) of the Synapse workspace
 - [Shared Access Signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) of the Azure storage
-- Read-only Cosmos Db account key that enables you to read Cosmos DB analytical storage.
+- Custom [Service Principal Name or Azure Application identity](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types).
+- Read-only Azure Cosmos DB account key that enables you to read Azure Cosmos DB analytical storage.
 
 As a prerequisite, you will need to create a master key in the database:
 ```sql
@@ -68,7 +70,7 @@ CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
 );
 ```
 
-In order to access Cosmos DB analytical storage, you need to define a credential containing a read-only Cosmos DB account key.
+In order to access Azure Cosmos DB analytical storage, you need to define a credential containing a read-only Azure Cosmos DB account key.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
@@ -76,7 +78,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 ```
 
-Any user with the Synapse Administrator role can use these credentials to access Azure Data Lake storage or Cosmos DB analytical storage. 
+Any user with the Synapse Administrator role can use these credentials to access Azure Data Lake storage or Azure Cosmos DB analytical storage.
 If you have low privileged users that do not have Synapse Administrator role, you would need to give them an explicit permission to reference these database scoped credentials:
 
 ```sql
@@ -164,7 +166,7 @@ Similar to the tables shown in the previous example, you should place the views 
 create schema ecdc_cosmosdb;
 ```
 
-Now you are able to create a view in the schema that is referencing a Cosmos DB container:
+Now you are able to create a view in the schema that is referencing an Azure Cosmos DB container:
 
 ```sql
 CREATE OR ALTER VIEW ecdc_cosmosdb.Ecdc

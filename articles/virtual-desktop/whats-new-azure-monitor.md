@@ -3,7 +3,7 @@ title: What's new in Azure Monitor for Azure Virtual Desktop?
 description: New features and product updates in Azure Monitor for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/09/2021
+ms.date: 08/16/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -28,11 +28,111 @@ For example, a release with a version number of 1.2.31 is on the first major rel
 
 When one of the numbers is increased, all numbers after it must change, too. One release has one version number. However, not all version numbers track releases. Patch numbers can be somewhat arbitrary, for example.
 
+## Version 1.2.2
+
+This update was released in July 2022 and has the following changes:
+
+- Updated checkpoint queries for LaunchExecutable.
+
+## Version 1.2.1
+
+This update was released in June 2022 and has the following changes:
+
+- Updated templates for Configuration Workbook to be available via the gallery rather than external GitHub.
+
+## Version 1.2.0
+
+This update was released in May 2022 and has the following changes:
+
+- Updated language for connection performance to "time to be productive" for clarity.
+
+- Improved and expanded **Connection Details** flyout panel with additional information on connection history for selected users.
+
+- Added a fix for duplication of some data.
+
+## Version 1.1.10
+
+This update was released in February 2022 and has the following changes:
+
+- We added support for [category groups](../azure-monitor/essentials/diagnostic-settings.md#resource-logs) for resource logs.
+
+## Version 1.1.8
+
+This update was released in November 2021 and has the following changes:
+
+- We added a dynamic check for host pool and workspaces Log Analytics tables to show instances where diagnostics may not be configured.
+- Updated the source table for session history and calculations for users per core.
+
+## Version 1.1.7
+
+This update was released in November 2021 and has the following changes:
+
+- We increased the session host limit to 1000 for the configuration workbook to allow for larger deployments.
+
+## Version 1.1.6
+
+This update was released in October 2021 and has the following changes:
+
+- We updated contents to reflect change from *Windows Virtual Desktop* to *Azure Virtual Desktop*.
+
+## Version 1.1.4
+
+This update was released in October 2021 and has the following changes:
+
+- We updated data usage reporting in the configuration workbook to include the agent health table.
+
+## Version 1.1.3
+
+This update was released in September 2021 and has the following changes:
+
+- We updated filtering behavior to make use of resource IDs.
+
+## Version 1.1.2
+
+This update was released in August 2021 and has the following changes:
+
+- We updated some formatting in the workbooks.
+
+## Version 1.1.1
+
+This update was released in July 2021 and has the following changes:
+
+- We added the Workbooks gallery for quick access to Azure Virtual Desktop related Azure workbooks.
+
+## Version 1.1.0
+
+This update was released July 2021 and has the following changes:
+
+- We added a **Data Generated** tab to the configuration workbook for detailed data on storage space usage for Azure Virtual Desktop Insights to allow more insight into Log Analytics usage.
+
+## Version 1.0.4
+
+This update was released in June 2021 and has the following changes:
+
+- We made some changes to formatting and layout for better use of whitespace.
+- We changed the sort order for **User Input Delay** details in **Host Performance** to descending.
+
+## Version 1.0.3
+
+This update was released in May 2021 and has the following changes:
+
+- We updated formatting to prevent truncation of text.
+
+## Version 1.0.2
+
+This update was released in May 2021 and has the following changes:
+
+- We resolved an issue with user per core calculation in the **Utilization** tab.
+
+## Version 1.0.1
+
+This update was released in April 2021 and has the following changes:
+
+- We made a formatting update for columns containing sparklines.
+
 ## Version 1.0.0
 
-Release date: March 21st, 2021.
-
-In this version, we made the following changes:
+This update was released in March 2021 and has the following changes:
 
 - We introduced a new visual indicator for high-impact errors and warnings from the Azure Virtual Desktop agent event log on the host diagnostics page.
 

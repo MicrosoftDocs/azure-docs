@@ -3,12 +3,12 @@ title: Blob versioning
 titleSuffix: Azure Storage
 description: Blob storage versioning automatically maintains previous versions of an object and identifies them with timestamps. You can restore a previous version of a blob to recover your data if it is erroneously modified or deleted.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2021
-ms.author: tamram
+ms.date: 06/22/2022
+ms.author: normesta
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
 ---
@@ -26,6 +26,9 @@ Blob versioning is part of a comprehensive data protection strategy for blob dat
 - Blob soft delete, to restore a blob, snapshot, or version that has been deleted. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md).
 
 To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
+
+> [!CAUTION]
+> After you enable blob versioning for a storage account, every write operation to a blob in that account results in the creation of a new version. For this reason, enabling blob versioning may result in additional costs. To minimize costs, use a lifecycle management policy to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md).
 
 ## How blob versioning works
 
@@ -125,7 +128,7 @@ The following diagram shows how modifying a blob after versioning is disabled cr
 
 ## Blob versioning and soft delete
 
-Microsoft recommends enabling both versioning and blob soft delete for your storage accounts for optimal data protection. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md).
+Blob versioning and blob soft delete are part of the recommended data protection configuration for storage accounts. For more information about Microsoft's recommendations for data protection, see [Recommended data protection configuration](#recommended-data-protection-configuration) in this article, as well as [Data protection overview](data-protection-overview.md).
 
 ### Overwriting a blob
 
@@ -286,17 +289,11 @@ When blob soft delete is enabled, all soft-deleted entities are billed at full c
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and Secure File Transfer protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## See also
 
 - [Enable and manage blob versioning](versioning-enable.md)
 - [Creating a snapshot of a blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
-- [Soft delete for Azure Storage Blobs](./soft-delete-blob-overview.md)
+- [Soft delete for blobs](./soft-delete-blob-overview.md)
+- [Soft delete for containers](soft-delete-container-overview.md)

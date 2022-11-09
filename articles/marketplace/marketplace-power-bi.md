@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 03/15/2022
+ms.date: 06/29/2022
 ---
 
 # Plan a Power BI App offer
@@ -19,7 +19,6 @@ Before you begin, review these links, which provide templates, tips, and samples
 - [Create a Power BI app](/power-bi/service-template-apps-create)
 - [Tips for authoring a Power BI app](/power-bi/service-template-apps-tips)
 - [Samples](/power-bi/service-template-apps-samples)
-
 
 ## Publishing benefits
 
@@ -80,13 +79,14 @@ This is the only licensing option available for Power BI app offers:
 | Licensing option | Transaction process |
 | --- | --- |
 | Get it now (free) | List your offer to customers for free. |
-|
 
 \* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
 ## Customer leads
 
-When you're publishing an offer to the commercial marketplace with Partner Center, you'll want to connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive; otherwise, connecting to a CRM is optional. Partner Center supports Azure table, Dynamics 365 Customer Engagement, HTTPS endpoint, Marketo, and Salesforce.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Legal contracts
 

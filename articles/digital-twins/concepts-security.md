@@ -85,7 +85,7 @@ The following list describes the levels at which you can scope access to Azure D
 
 ### Troubleshoot permissions
 
-If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [Troubleshoot failed service request: Error 403 (Forbidden)](troubleshoot-error-403.md).
+If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [Troubleshoot Azure Digital Twins failed service request: Error 403 (Forbidden)](troubleshoot-error-403-digital-twins.md).
 
 ## Managed identity for accessing other resources
 
@@ -101,7 +101,7 @@ For instructions on how to enable a system-managed identity for Azure Digital Tw
 
 [Azure Private Link](../private-link/private-link-overview.md) is a service that enables you to access Azure resources (like [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure Storage](../storage/common/storage-introduction.md), and [Azure Cosmos DB](../cosmos-db/introduction.md)) and Azure-hosted customer and partner services over a private endpoint in your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). 
 
-Similarly, you can use private endpoints for your Azure Digital Twin instance to allow clients located in your virtual network to securely access the instance over Private Link. 
+Similarly, you can use private endpoints for your Azure Digital Twins instance to allow clients located in your virtual network to securely access the instance over Private Link. Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure. Additionally, it helps avoid data exfiltration from your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
 The private endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Azure Digital Twins instance traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure to the public internet. Here's a visual representation of this system:
 
@@ -115,10 +115,10 @@ For instructions on how to set up Private Link for Azure Digital Twins, see [Ena
 
 When working with Private Link for Azure Digital Twins, here are some factors you may want to consider:
 * Pricing: For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link). 
-* Regional availability: For Azure Digital Twins, this feature is available in all the Azure regions where Azure Digital Twins is available. 
+* Regional availability: Private Link for Azure Digital Twins is available in all the Azure regions where Azure Digital Twins is available. 
+* Azure Digital Twins Explorer: The [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) can't access Azure Digital Twins instances that have public access disabled. You can, however, use Azure functions to deploy the Azure Digital Twins Explorer codebase privately in the cloud. For instructions on how to do this, see [Azure Digital Twins Explorer: Running in the cloud](https://github.com/Azure-Samples/digital-twins-explorer#running-in-the-cloud).
 * Maximum number of private endpoints per Azure Digital Twins instance: 10
-
-For information on the limits of Private Link, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
+* Other limits: For more information on the limits of Private Link, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
 
 ## Service tags
 

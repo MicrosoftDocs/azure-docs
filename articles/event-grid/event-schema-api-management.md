@@ -4,10 +4,10 @@ description: This article describes how to use Azure API Management as an Event 
 ms.topic: conceptual
 author: dlepow
 ms.author: danlep
-ms.date: 07/12/2021
+ms.date: 06/15/2022
 ---
 
-# Azure API Management as an Event Grid source (Preview)
+# Azure API Management as an Event Grid source
 
 This article provides the properties and schema for [Azure API Management](../api-management/index.yml) events. For an introduction to event schemas, see [Azure Event Grid event schema](./event-schema.md). It also gives you links to articles to use API Management as an event source.
 

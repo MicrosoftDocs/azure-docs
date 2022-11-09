@@ -11,12 +11,15 @@ This tutorial will help you learn how to explore the information available in ea
 
 Timely analysis and mitigation of recommendations by Defender for IoT is the best way to improve security posture and reduce attack surface across your IoT solution.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Investigate new recommendations
 > - Investigate security recommendation details
 > - Investigate recommendations in Log Analytics workspace
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
 
 ## Prerequisites
 

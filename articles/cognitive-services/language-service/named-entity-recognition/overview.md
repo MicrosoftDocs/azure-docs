@@ -3,13 +3,13 @@ title: What is the Named Entity Recognition (NER) feature in Azure Cognitive Ser
 titleSuffix: Azure Cognitive Services
 description: An overview of the Named Entity Recognition feature in Azure Cognitive Services, which helps you extract categories of entities in text.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
-ms.author: aahi
+ms.date: 06/15/2022
+ms.author: jboback
 ms.custom: language-service-ner, ignite-fall-2021
 ---
 
@@ -23,11 +23,19 @@ Named Entity Recognition (NER) is one of the features offered by [Azure Cognitiv
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
+[!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
+
 ## Responsible AI 
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for NER](/legal/cognitive-services/language-service/transparency-note-named-entity-recognition?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
+
+## Scenarios
+
+*	Enhance search capabilities and search indexing - Customers can build knowledge graphs based on entities detected in documents to enhance document search as tags.
+*	Automate business processes - For example, when reviewing insurance claims, recognized entities like name and location could be highlighted to facilitate the review. Or a support ticket could be generated with a customer's name and company automatically from an email.
+*	Customer analysis – Determine the most popular information conveyed by customers in reviews, emails, and calls to determine the most relevant topics that get brought up and determine trends over time. 
 
 ## Next steps
 

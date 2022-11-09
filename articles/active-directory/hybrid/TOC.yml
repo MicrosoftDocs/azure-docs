@@ -197,8 +197,14 @@
     items:
     - name: Enable device writeback
       href: how-to-connect-device-writeback.md
+    - name: Plan for group writeback
+      href: how-to-connect-group-writeback-v2.md
     - name: Enable group writeback
-      href: how-to-connect-group-writeback.md
+      href: how-to-connect-group-writeback-enable.md
+    - name: Modify group writeback
+      href: how-to-connect-modify-group-writeback.md
+    - name: Disable group writeback
+      href: how-to-connect-group-writeback-disable.md
     - name: Device options
       href: how-to-connect-device-options.md
     - name: Additional features in Azure AD Connect
@@ -398,3 +404,5 @@
     href: reference-connect-msexchuserholdpolicies.md
   - name: Azure AD Connect version history archive
     href:  reference-connect-version-history-archive.md
+  - name: How to use BypassDirSyncOverrides
+    href: how-to-bypassdirsyncoverrides.md

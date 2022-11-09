@@ -1,15 +1,15 @@
 ---
 title: Executing the export by invoking $export command on Azure API for FHIR
 description: This article describes how to export FHIR data using $export for Azure API for FHIR
-author: caitlinv39
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
-ms.author: cavoeg
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
-# How to export FHIR data in Azure API for FHIR
+# Export FHIR data in Azure API for FHIR
 
 The Bulk Export feature allows data to be exported from the FHIR Server per the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
 
@@ -29,8 +29,7 @@ The Azure API For FHIR supports $export at the following levels:
 * [Patient](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients): `GET https://<<FHIR service base URL>>/Patient/$export>>`
 * [Group of patients*](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) - Azure API for FHIR exports all related resources but doesn't export the characteristics of the group: `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
 
-When data is exported, a separate file is created for each resource type. To ensure that the exported files don't become too large. We create a new file after the size of a single-exported file becomes larger than 64 MB. The result is that you may get multiple files for each resource type, which will be enumerated (that is, Patient-1.ndjson, Patient-2.ndjson). 
-
+With export, data is exported in multiple files each containing resources of only one type. No individual file will exceed 100,000 resource records. The result is that you may get multiple files for a resource type, which will be enumerated (for example, `Patient-1.ndjson`, `Patient-2.ndjson`).
 
 > [!Note] 
 > `Patient/$export` and `Group/[ID]/$export` may export duplicate resources if the resource is in a compartment of more than one resource, or is in multiple groups.
@@ -128,7 +127,7 @@ Azure API for FHIR is provisioned.
 | West US 2            | 40.64.135.77      |
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document How to convert data to FHIR (Preview). For more information, see [Host and use templates](../../healthcare-apis/fhir/convert-data.md#host-and-use-templates)
+> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure the ACR firewall](../../healthcare-apis/fhir/convert-data.md#step-6-optional-configure-the-azure-container-registry-firewall-for-secure-access).
 
 ### Allowing specific IP addresses for the Azure storage account in the same region
 
@@ -144,3 +143,5 @@ In this article, you've learned how to export FHIR resources using $export comma
  
 >[!div class="nextstepaction"]
 >[Export de-identified data](de-identified-export.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

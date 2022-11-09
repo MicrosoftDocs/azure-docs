@@ -4,8 +4,8 @@ description: In this tutorial, learn how to improve response with synonyms and a
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
@@ -26,9 +26,9 @@ Let’s us add the following words and their alterations to improve the results:
 
 |Word | Alterations|
 |--------------|--------------------------------|
-| fix problems | `troubleshoot`, `trouble-shoot`|
-| whiteboard   | `white-board`, `white board`   |
-| bluetooth    | `blue-tooth`, `blue tooth`     |
+| fix problems | `troubleshoot`, `diagnostic`|
+| whiteboard   | `white board`, `white canvas`   |
+| bluetooth    | `blue tooth`, `BT`     |
 
 ```json
 {
@@ -37,21 +37,21 @@ Let’s us add the following words and their alterations to improve the results:
             "alterations": [
                 "fix problems",
                 "troubleshoot",
-                "trouble-shoot",
+                "diagnostic",
                 ]
         },
         {
             "alterations": [
                 "whiteboard",
-                "white-board",
-                "white board"
+                "white board",
+                "white canvas"
             ]
         },
         {
             "alterations": [
                 "bluetooth",
-                "blue-tooth",
-                "blue tooth"
+                "blue tooth",
+                "BT"
             ]
         }
     ]
@@ -73,9 +73,41 @@ For the question and answer pair “Fix problems with Surface Pen”, we compare
 
 As you can see, when `troubleshoot` was not added as a synonym, we got a low confidence response to the query “How to troubleshoot your surface pen”. However, after we add `troubleshoot` as a synonym to “fix problems”, we received the correct response to the query with a higher confidence score. Once, these synonyms were added, the relevance of results improved thereby improving user experience.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Synonyms are case insensitive. Synonyms also might not work as expected if you add stop words as synonyms. The list of stop words can be found here: [List of stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
 > For instance, if you add the abbreviation **IT** for Information technology, the system might not be able to recognize Information Technology because **IT** is a stop word and is filtered when a query is processed.
+
+## Notes
+* Synonyms can be added in any order. The ordering is not considered in any computational logic.
+* Synonyms can only be added to a project that has at least one question and answer pair.
+* Synonyms can be added only when there is at least one question and answer pair present in a knowledge base.
+* In case of overlapping synonym words between 2 sets of alterations, it may have unexpected results and it is not recommended to use overlapping sets.
+* Special characters are not allowed for synonyms. For hyphenated words like "COVID-19", they are treated the same as "COVID 19", and "space" can be used as a term separator. Following is the list of special characters **not allowed**:
+
+|Special character | Symbol|
+|--------------|--------------------------------|
+|Comma | ,|
+|Question mark | ?|
+|Colon| :|
+|Semicolon| ;|
+|Double quotation mark| \"|
+|Single quotation mark| \'|
+|Open parenthesis|(|
+|Close parenthesis|)|
+|Open brace|{|
+|Close brace|}|
+|Open bracket|[|
+|Close bracket|]|
+|Hyphen/dash|-|
+|Plus sign|+|
+|Period|.|
+|Forward slash|/|
+|Exclamation mark|!|
+|Asterisk|\*|
+|Underscore|\_|
+|Ampersand|@|
+|Hash|#|
+
 
 ## Next steps
 

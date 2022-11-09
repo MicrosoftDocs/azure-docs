@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 08/05/2022
 ms.author: jianleishen
 ---
 
@@ -89,7 +89,7 @@ Supported **XML read settings** under `formatSettings`:
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read XML format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), and [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties). You can point to XML files either using XML dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
+In mapping data flows, you can read XML format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties) and [SFTP](connector-sftp.md#mapping-data-flow-properties). You can point to XML files either using XML dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
 
 ### Source properties
 

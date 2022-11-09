@@ -14,7 +14,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](../iot-hub/iot-hub-automatic-device-management.md) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
+Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [device management](../iot-hub/iot-hub-automatic-device-management.md) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
@@ -44,8 +44,8 @@ IoT Edge provides two different types of automatic deployments that you can use 
 The steps for creating a deployment and a layered deployment are very similar. Any differences are called out in the following steps.
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT Hub.
-1. On the menu in the left pane, select **IoT Edge** under **Automatic Device Management**.
-1. On the upper bar, select **Create Deployment** or **Create Layered Deployment**.
+1. On the menu in the left pane, select **Configurations + Deployments** under **Device Management**.
+1. On the upper bar, select **Add** > **Add Deployment** or **Add Layered Deployment**.
 
 There are five steps to create a deployment. The following sections walk through each one.
 
@@ -98,9 +98,24 @@ The **Priority** and **Time to live** parameters are optional parameters that yo
 
 For more information about how to create routes, see [Declare routes](module-composition.md#declare-routes).
 
+Select **Next: Target Devices**.
+
+### Step 4: Target devices
+
+Use the tags property from your devices to target the specific devices that should receive this deployment.
+
+Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority (larger values indicate higher priority) wins. If two deployments have the same priority number, the one that was created most recently wins.
+
+If multiple deployments target the same device, then only the one with the higher priority is applied. If multiple layered deployments target the same device then they are all applied. However, if any properties are duplicated, like if there are two routes with the same name, then the one from the higher priority layered deployment overwrites the rest.
+
+Any layered deployment targeting a device must have a higher priority than the base deployment in order to be applied.
+
+1. Enter a positive integer for the deployment **Priority**.
+1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`.
+
 Select **Next: Metrics**.
 
-### Step 4: Metrics
+### Step 5: Metrics
 
 Metrics provide summary counts of the various states that a device may report back as a result of applying configuration content.
 
@@ -115,21 +130,6 @@ Metrics provide summary counts of the various states that a device may report ba
      WHERE properties.reported.lastDesiredStatus.code = 200
    ```
 
-Select **Next: Target Devices**.
-
-### Step 5: Target devices
-
-Use the tags property from your devices to target the specific devices that should receive this deployment.
-
-Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority (larger values indicate higher priority) wins. If two deployments have the same priority number, the one that was created most recently wins.
-
-If multiple deployments target the same device, then only the one with the higher priority is applied. If multiple layered deployments target the same device then they are all applied. However, if any properties are duplicated, like if there are two routes with the same name, then the one from the higher priority layered deployment overwrites the rest.
-
-Any layered deployment targeting a device must have a higher priority than the base deployment in order to be applied.
-
-1. Enter a positive integer for the deployment **Priority**.
-1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`.
-
 Select **Next: Review + Create** to move on to the final step.
 
 ### Step 6: Review and create
@@ -137,6 +137,9 @@ Select **Next: Review + Create** to move on to the final step.
 Review your deployment information, then select **Create**.
 
 To monitor your deployment, see [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md).
+
+> [!NOTE]
+> When a new IoT Edge deployment is created, sometimes it can take up to 5 minutes for the IoT Hub to process the new configuration and propagate the new desired properties to the targeted devices.
 
 ## Modify a deployment
 
@@ -150,9 +153,9 @@ When you modify a deployment, the changes immediately replicate to all targeted 
 
 ### Modify target conditions, custom metrics, and labels
 
-1. In your IoT hub, select **IoT Edge** from the left pane menu.
-1. Select the **IoT Edge deployments** tab and then select the deployment you want to configure.
-1. Select the **Target Condition** tab. Change the **Target Condition** to target the intended devices. You can also adjust the **Priority**.  Select **Save**.
+1. In your IoT hub, select **Configurations + Deployments** from the left pane menu.
+1. Select the deployment you want to configure.
+1. Select the **Target Devices** tab. Change the **Target Condition** to target the intended devices. You can also adjust the **Priority**.
 
     If you update the target condition, the following updates occur:
 
@@ -171,14 +174,10 @@ When you modify a deployment, the changes immediately replicate to all targeted 
 When you delete a deployment, any deployed devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
-1. Select **IoT Edge**.
-1. Select the **IoT Edge Deployments** tab.
-
-   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
-
+1. Select **Configurations + Deployments**.
 1. Use the checkbox to select the deployment that you want to delete.
 1. Select **Delete**.
-1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices. A deployment with a lower priority will apply. If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue.
+1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices. A deployment with a lower priority will apply. If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue.
 
 ## Next steps
 

@@ -3,12 +3,12 @@ title: Use scoping filters in Azure Active Directory Application Provisioning
 description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements in Azure Active Directory Application Provisioning.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 06/15/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -25,7 +25,7 @@ Scoping filters can be used differently depending on the type of provisioning co
 * **Outbound provisioning from Azure AD to SaaS applications**. When Azure AD is the source system, [user and group assignments](../manage-apps/assign-user-or-group-access-portal.md) are the most common method for determining which users are in scope for provisioning. These assignments also are used for enabling single sign-on and provide a single method to manage access and provisioning. Scoping filters can be used optionally, in addition to assignments or instead of them, to filter users based on attribute values.
 
     >[!TIP]
-    > You can disable provisioning based on assignments for an enterprise application by changing settings in the [Scope](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu under the provisioning settings to **Sync all users and groups**. 
+    > The more users and groups in scope for provisioning, the longer the synchronization process can take. Setting the scope to sync assigned users and groups,  limiting the number of groups assigned to the app, and limiting the size of the groups will reduce the time it takes to synchronize everyone that is in scope.  
 
 * **Inbound provisioning from HCM applications to Azure AD and Active Directory**. When an [HCM application such as Workday](../saas-apps/workday-tutorial.md) is the source system, scoping filters are the primary method for determining which users should be provisioned from the HCM application to Active Directory or Azure AD.
 
@@ -84,7 +84,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
    g. **REGEX MATCH**. Clause returns "true" if the evaluated attribute matches a regular expression pattern. For example: ([1-9][0-9]) matches any number between 10 and 99 (case sensitive).
 
-   h. **NOT REGEX MATCH**. Clause returns "true" if the evaluated attribute doesn't match a regular expression pattern.
+   h. **NOT REGEX MATCH**. Clause returns "true" if the evaluated attribute doesn't match a regular expression pattern. It will return "false" if the attribute is null / empty.
    
    i. **Greater_Than.** Clause returns "true" if the evaluated attribute is greater than the value. The value specified on the scoping filter must be an integer and the attribute on the user must be an integer [0,1,2,...]. 
    
@@ -96,7 +96,8 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 >[!IMPORTANT] 
 > - The IsMemberOf filter is not supported currently.
 > - The members attribute on a group is not supported currently.
-> - EQUALS and NOT EQUALS are not supported for multi-valued attributes
+> - Filtering is not supported for multi-valued attributes.
+> - Scoping filters will return "false" if the value is null / empty.
 
 9. Optionally, repeat steps 7-8 to add more scoping clauses.
 

@@ -1,21 +1,30 @@
 ---
-title: Form Recognizer invoice model
+title: Invoice data extraction – Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using prebuilt invoice model
+description: Automate invoice data extraction with Form Recognizer’s invoice model to extract accounts payable data including invoice line items.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 10/14/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer invoice model
+# Automated invoice processing
 
- The invoice model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key fields and line items from sales invoices.  Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+
+## What is automated invoice processing?
+
+Automated invoice processing is the process of extracting key accounts payable fields from including invoice line items from invoices and integrating it with your accounts payable (AP) workflows for reviews and payments. Historically, the accounts payable process has been very manual and time consuming. Accurate extraction of key data from invoices is typically the first and one of the most critical steps in the invoice automation process.
+
+## Form Recognizer Invoice model
+
+The machine learning based invoice model combines powerful Optical Character Recognition (OCR) capabilities with invoice understanding models to analyze and extract key fields and line items from sales invoices. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
 
 **Sample invoice processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
 
@@ -23,29 +32,30 @@ recommendations: false
 
 ## Development options
 
-The following tools are supported by Form Recognizer v2.1:
-
-| Feature | Resources |
-|----------|-------------------------|
-|**Invoice model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-invoices)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=invoice#run-the-container-with-the-docker-compose-up-command)</li></ul>|
-
 The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Invoice model** | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|**prebuilt-invoice**|
+|**Invoice model** | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-invoice**|
 
-### Try Form Recognizer
+The following tools are supported by Form Recognizer v2.1:
 
-See how data, including customer information, vendor details, and line items, is extracted from invoices using  the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
+| Feature | Resources |
+|----------|-------------------------|
+|**Invoice model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-invoices)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=invoice#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+
+
+### Try invoice data extraction
+
+See how data, including customer information, vendor details, and line items, is extracted from invoices using  the Form Recognizer Studio. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio (preview)
+#### Form Recognizer Studio 
 
 1. On the Form Recognizer Studio home page, select **Invoices**
 
@@ -58,34 +68,9 @@ See how data, including customer information, vendor details, and line items, is
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
 
-#### Sample Labeling tool (API v2.1)
-> [!NOTE]
-> Unless you must use API v2.1, it is strongly suggested that you use the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com) for testing purposes instead of the sample labeling tool.
-
-You'll need an invoice document. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf).
-
-1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
-
-1. Select **Invoice** from the **Form Type** dropdown menu:
-
-    :::image type="content" source="media/try-invoice.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
-
-    > [!div class="nextstepaction"]
-    > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
-
 ## Input requirements
 
-* For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
-* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 50 MB.
-* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
-* PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
-* The total size of the training data is 500 pages or less.
-* If your PDFs are password-locked, you must remove the lock before submission.
-* For unsupervised learning (without labeled data):
-  * Data must contain keys and values.
-  * Keys must appear above or to the left of the values; they can't appear below or to the right.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
@@ -96,6 +81,11 @@ You'll need an invoice document. You can use our [sample invoice document](https
 |--------|:----------------------|:---------|
 |Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
 |Invoice| <ul><li>Spanish—es</li></ul>| Spanish (United States)—es|
+|Invoice | <ul><li>German—de</li></ul>| German (Germany)-de|
+|Invoice | <ul><li>French—fr</li></ul>| French (France)—fr|
+|Invoice | <ul><li>Italian—it</li></ul>| Italian (Italy)—it|
+|Invoice | <ul><li>Portuguese—pt</li></ul>| Portuguese (Portugal)—pt|
+|Invoice | <ul><li>Dutch—nl</li></ul>| Dutch (Netherlands)—nl|
 
 ## Field extraction
 
@@ -121,7 +111,6 @@ You'll need an invoice document. You can use our [sample invoice document](https
 | PaymentTerm | String | The terms of payment for the invoice | |
 | SubTotal | Number | Subtotal field identified on this invoice | Integer |
 | TotalTax | Number | Total tax field identified on this invoice | Integer |
-| TotalVAT | Number | Total VAT field identified on this invoice | Integer |
 | InvoiceTotal | Number (USD) | Total new charges associated with this invoice | Integer |
 | AmountDue |  Number (USD) | Total Amount Due to the vendor | Integer |
 | ServiceAddress | String | Explicit service address or property address for the customer | |
@@ -147,28 +136,33 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Unit | String| The unit of the line item, e.g,  kg, lb etc. | Hours | |
 | Date | Date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | Number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
-| VAT | Number | Stands for Value added tax. This is a flat tax levied on an item. Common in european countries | &euro;20.00 | |
 
-The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output. 
+The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
-## Form Recognizer preview v3.0
+### Key-value pairs 
 
- The Form Recognizer preview introduces several new features, capabilities, and AI quality improvements to underlying technologies.
+The prebuilt invoice **2022-06-30** and later releases support returns key-value pairs at no extra cost. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key will be either customer or user (based on context).
 
-* Explore our [**REST API (preview)**](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+## Form Recognizer v3.0
+
+ The Form Recognizer v3.0 introduces several new features, capabilities, and AI quality improvements to underlying technologies.
+
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ## Next steps
 
 * Complete a Form Recognizer quickstart:
 
   > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md)
+  > [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)
 
 * Explore our REST API:
     > [!div class="nextstepaction"]
-    > [Form Recognizer API v3.0 (Preview)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
-    
+    > [Form Recognizer API v3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+
     > [!div class="nextstepaction"]
     > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)

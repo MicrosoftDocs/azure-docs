@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT for device builders
 description: Learn about the latest updates for Defender for IoT device builders.
 ms.topic: conceptual
-ms.date: 02/20/2022
+ms.date: 04/26/2022
 ---
 
 # What's new
@@ -13,9 +13,23 @@ This article lists new features and feature enhancements in Microsoft Defender f
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support
+For more information, see [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md).
 
-Listed below are the support, breaking change policies for Defender for IoT, and the versions of Defender for IoT that are currently available.
+## July 2022
+
+**Version 4.2.4**
+
+- **Proxy connection updates**: Now you can connect your micro-agent to an IoT Hub via a proxy. For more information, see [Connect via a proxy](tutorial-standalone-agent-binary-installation.md#connect-via-a-proxy).
+
+- **Support for TPM-backed certificates**: Now you can use OpenSSL certificates backed by TPM. For more information, see [Authenticate using a certificate](tutorial-standalone-agent-binary-installation.md#authenticate-using-a-certificate).
+
+- **AMQP support**: Now you can add AMQP support after installing your micro-agent. For more information, see [Add AMQP protocol support](tutorial-standalone-agent-binary-installation.md#add-amqp-protocol-support).
+
+- **Baseline collector updates**: The baseline collector now sends *pass* and *skip* checks to the cloud in addition to *failed* results. For more information, see [Baseline (trigger-based collector)](concept-event-aggregation.md#baseline-trigger-based-collector).
+
+- **Login collector via UTMP**: The login collector now supports UTMP to catch SSH interactive events, telnet events, and terminal logins, including failed login events. For more information, see [Login collector (event-based collector)](concept-event-aggregation.md#login-collector-event-based-collector).
+
+- **SBoM collector known issue**: The SBoM collector currently only collects the first 500 packages ingested. For more information, see [SBoM (trigger-based collector)](concept-event-aggregation.md#sbom-trigger-based-collector).
 
 ## February 2022
 
@@ -33,16 +47,15 @@ Listed below are the support, breaking change policies for Defender for IoT, and
 
 - **CIS benchmarks**: The micro agent now supports recommendations based on CIS Distribution Independent Linux Benchmarks, version 2.0.0, and the ability to disable specific CIS Benchmark checks or groups using twin configurations. For more information, see [Micro agent configurations (Preview)](concept-micro-agent-configuration.md).
 
-- **Micro agent supported devices list expands**: The micro agent now supports Debian 11 AMD64 and ARM32v7 devices, as well as Ubuntu Server 18.04 ARM32 Linux devices & Ubuntu Server 20.04 ARM32 & ARM64 Linux devices.
+- **Micro agent supported devices list expands**: The micro agent now supports Debian 11 AMD64 and ARM32v7 devices, and Ubuntu Server 18.04 ARM32 Linux devices & Ubuntu Server 20.04 ARM32 & ARM64 Linux devices.
 
     For more information, see [Agent portfolio overview and OS support (Preview)](concept-agent-portfolio-overview-os-support.md).
 
 - **DNS hit count**: network collector now includes DNS hit count field that can be visible through Log Analytics, which can help indicate if a DNS request was part of an automatic query.
 
-    For more information, see [Network Connection events (event-based collector)](concept-event-aggregation.md#network-connection-events-event-based-collector).
+    For more information, see [Network Activity events (event-based collector)](concept-event-aggregation.md#network-activity-events-event-based-collector).
 
-- **Login Collector**: Now supporting login collector using: SYSLOG collecting SSH login events and PAM collecting SSH, telnet and local login events using the pluggable authentication modules stack. For more information, see [Micro agent event collection (Preview)](concept-event-aggregation.md).
-
+- **Login Collector**: Now supporting login collector using: SYSLOG collecting SSH login events and PAM collecting SSH, telnet and local login events using the pluggable authentication modules stack. For more information, see [Login collector (event-based collector)](concept-event-aggregation.md#login-collector-event-based-collector).
 
 ## November 2021
 
@@ -50,7 +63,7 @@ Listed below are the support, breaking change policies for Defender for IoT, and
 
 - DNS network activity on managed devices is now supported. Microsoft threat intelligence security graph can now detect suspicious activity based on DNS traffic.
 
-- [Leaf device proxying](../../iot-edge/how-to-connect-downstream-iot-edge-device.md#integrate-microsoft-defender-for-iot-with-iot-edge-gateway): There is now an enhanced integration with IoT Edge. This integration enhances the connectivity between the agent, and the cloud using leaf device proxying.
+- [Leaf device proxying](../../iot-edge/how-to-connect-downstream-iot-edge-device.md#integrate-microsoft-defender-for-iot-with-iot-edge-gateway): There's now an enhanced integration with IoT Edge. This integration enhances the connectivity between the agent, and the cloud using leaf device proxying.
 
 ## October 2021
 
@@ -66,9 +79,9 @@ Listed below are the support, breaking change policies for Defender for IoT, and
 
 - **[Login collector](concept-event-aggregation.md#login-collector-event-based-collector)** - The login collectors gather user logins, logouts, and failed login attempts. Such as SSH & telnet.
 
-- **[System information collector](concept-event-aggregation.md#system-information-trigger-based-collector)** - The system information collector gatherers information related to the device’s operating system and hardware details.
+- **[System information collector](concept-event-aggregation.md#system-information-trigger-based-collector)** - The system information collector gathers information related to the device’s operating system and hardware details.
 
-- **[Event aggregation](concept-event-aggregation.md#how-does-event-aggregation-work)** - The Defender for IoT agent aggregates events such as process, login, network events that reduce the number of messages sent and costs, all while maintaining your device's security.  
+- **[Event aggregation](concept-event-aggregation.md#event-aggregation-for-process-and-network-collectors)** - The Defender for IoT agent aggregates events such as process, login, network events that reduce the number of messages sent and costs, all while maintaining your device's security.  
 
 - **[Twin configuration](concept-micro-agent-configuration.md)** - The micro agent's behavior is configured by a set of module twin properties. (e.g event sending frequency and Aggregation mode). You can configure the micro agent to best suit your needs.
 
@@ -94,4 +107,5 @@ This feature set is available with the current public preview cloud release.
 
 ## Next steps
 
-[Onboard to Defender for IoT](quickstart-onboard-iot-hub.md)
+- [Onboard to Defender for IoT](quickstart-onboard-iot-hub.md)
+- [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md)

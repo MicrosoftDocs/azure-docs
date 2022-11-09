@@ -1,9 +1,12 @@
 ---
 title: Use managed identity with an application
 description: How to use managed identities in Azure Service Fabric application code to access Azure Services.
-
-ms.topic: article
-ms.date: 10/09/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # How to leverage a Service Fabric application's managed identity to access Azure services
@@ -18,7 +21,6 @@ See a companion sample application that demonstrates using system-assigned and u
 > [!IMPORTANT]
 > Prior to using the managed identity of a Service Fabric application, the client application must be granted access to the protected resource. Please refer to the list of [Azure services which support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)
  to check for support, and then to the respective service's documentation for specific steps to grant an identity access to resources of interest. 
- 
 
 ## Leverage a managed identity using Azure.Identity
 
@@ -75,8 +77,8 @@ In clusters enabled for managed identity, the Service Fabric runtime exposes a l
 
 Specifically, the environment of a managed-identity-enabled Service Fabric service will be seeded with the following variables:
 - 'IDENTITY_ENDPOINT': the localhost endpoint corresponding to service's managed identity
-- 'IDENTITY_HEADER': an unique authentication code representing the service on the current node
-- 'IDENTITY_SERVER_THUMBPRINT' : Thumbprint of service fabric managed identity server
+- 'IDENTITY_HEADER': a unique authentication code representing the service on the current node
+- 'IDENTITY_SERVER_THUMBPRINT': Thumbprint of service fabric managed identity server
 
 > [!IMPORTANT]
 > The application code should consider the value of the 'IDENTITY_HEADER' environment variable as sensitive data - it should not be logged or otherwise disseminated. The authentication code has no value outside of the local node, or after the process hosting the service has terminated, but it does represent the identity of the Service Fabric service, and so should be treated with the same precautions as the access token itself.

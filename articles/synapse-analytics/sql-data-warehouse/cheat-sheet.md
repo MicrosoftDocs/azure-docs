@@ -8,10 +8,10 @@ ms.topic: overview
 ms.subservice: sql-dw 
 ms.date: 11/04/2019
 ms.author: martinle
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ---
 
-# Cheat sheet for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytic
+# Cheat sheet for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
 This cheat sheet provides helpful tips and best practices for building dedicated SQL pool (formerly SQL DW) solutions.
 

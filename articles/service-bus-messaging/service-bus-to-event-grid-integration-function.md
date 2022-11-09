@@ -33,7 +33,7 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **
 > To learn more about creating and deploying an Azure Functions app, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md)
 
 1. Open **ReceiveMessagesOnEvent.cs** file from the **FunctionApp1** project of the **SBEventGridIntegration.sln** solution. 
-1. Replace `<SERCICE BUS NAMESPACE - CONNECTION STRING>` with the connection string to your Service Bus namespace. It should be the same as the one you used in the **Program.cs** file of the **MessageSender** project in the same solution. 
+1. Replace `<SERVICE BUS NAMESPACE - CONNECTION STRING>` with the connection string to your Service Bus namespace. It should be the same as the one you used in the **Program.cs** file of the **MessageSender** project in the same solution. 
 1. Right-click **FunctionApp1**, and select **Publish**. 
 1. On the **Publish** page, select **Start**. These steps may be different from what you see, but the process of publishing should be similar. 
 1. In the **Publish** wizard, on the **Target** page, select **Azure** for **Target**. 
@@ -72,12 +72,12 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **
     
     Keep this page open in a tab your web browser. You'll refresh this page to see invocations for this function later.
 
-## Connect the function and namespace via Event Grid
+## Connect the function and the Service Bus namespace via Event Grid
 In this section, you tie together the function and the Service Bus namespace by using the Azure portal. 
 
 To create an Azure Event Grid subscription, follow these steps:
 
-1. In the Azure portal, go to your namespace and then, in the left pane, select **Events**. Your namespace window opens, with two Event Grid subscriptions displayed in the right pane. 
+1. In the Azure portal, go to your Service Bus namespace and then, in the left pane, select **Events**. Your namespace window opens, with two Event Grid subscriptions displayed in the right pane. 
     
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/service-bus-events-page.png" alt-text="Service Bus - events page":::
 2. Select **+ Event Subscription** on the toolbar. 

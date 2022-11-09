@@ -4,7 +4,7 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 09/22/2022
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -32,8 +32,6 @@ You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a co
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
-This is a table example:
-
 **Syntax**
 
 `azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'`
@@ -41,13 +39,13 @@ This is a table example:
 **Example**
 
 ```azcopy
-https://mystorageaccount.blob.core.windows.net/mycontainer
+azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'
 ```
 
 **Example (hierarchical namespace)**
 
 ```azcopy
-https://mystorageaccount.dfs.core.windows.net/mycontainer
+azcopy make 'https://mystorageaccount.dfs.core.windows.net/mycontainer'
 ```
 
 For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).
@@ -226,7 +224,7 @@ For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) refere
 
 You can upload a file and add [blob index tags(preview)](../blobs/storage-manage-find-blobs.md) to the target blob.
 
-If you're using Azure AD authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
+If you're using Azure AD authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
 
 To add tags, use the `--blob-tags` option along with a URL encoded key-value pair. 
 For example, to add the key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter.
@@ -286,4 +284,5 @@ See these articles to configure settings, optimize performance, and troubleshoot
 
 - [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
-- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)

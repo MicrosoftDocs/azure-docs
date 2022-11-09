@@ -1,6 +1,5 @@
 ---
-title: Azure AD authentication & national clouds | Azure
-titleSuffix: Microsoft identity platform
+title: Azure AD authentication & national clouds
 description: Learn about app registration and authentication endpoints for national clouds.
 services: active-directory
 author: negoe

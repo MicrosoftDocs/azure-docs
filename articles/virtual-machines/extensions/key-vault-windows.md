@@ -88,8 +88,8 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
         },
         "authenticationSettings": {
-                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
-                "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity">,
+          "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619".>
         }
        }
       }
@@ -102,7 +102,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> The 'authenticationSettings' property is **required** only for VMs with **user assigned identities**.
+> The 'authenticationSettings' property is **required** for VMs with any **user assigned identities**. Even if you want to use a system-assigned identity, this is still required; otherwise the VM extension will not know which identity to use. Without this section, a VM with user-assigned identities will result in the Key Vault extension failing and being unable to download certificates.
 > It specifies identity to use for authentication to Key Vault.
 
 > [!IMPORTANT]
@@ -294,9 +294,9 @@ The Key Vault VM extension logs only exist locally on the VM and are most inform
 |Location|Description|
 |--|--|
 | C:\WindowsAzure\Logs\WaAppAgent.log | Shows when an update to the extension occurred. |
-| C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\ | Shows the status of certificate download. The download location will always be the Windows computer's MY store (certlm.msc). |
-| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\RuntimeSettings\ |	The Key Vault VM Extension service logs show the status of the akvvm_service service. |
-| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\Status\	| The configuration and binaries for Key Vault VM Extension service. |
+| C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\\\<most recent version\>\ | Shows the status of certificate download. The download location will always be the Windows computer's MY store (certlm.msc). |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\\\<most recent version\>\RuntimeSettings\ |	The Key Vault VM Extension service logs show the status of the akvvm_service service. |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\\\<most recent version\>\Status\	| The configuration and binaries for Key Vault VM Extension service. |
 |||  
 
 

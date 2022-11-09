@@ -210,7 +210,7 @@ While Azure is responsible for securing the infrastructure and platform that you
 ### Web application firewall
 [Web application firewall (WAF)](../../web-application-firewall/ag/ag-overview.md) is a feature of [Application Gateway](../../application-gateway/overview.md) that provides centralized protection of your web applications from common exploits and vulnerabilities.
 
-Web application firewall is based on rules from the [OWASP core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9. Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
+Web application firewall is based on rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9. Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
 
 Some of the common web vulnerabilities which web application firewall protects against includes:
 
@@ -237,15 +237,13 @@ Azure also provides several easy-to-use features to help secure both inbound and
 
 - [Secure traffic to your app by enabling Transport Layer Security (TLS/SSL) - HTTPS](../../app-service/configure-ssl-bindings.md)
 
-  - [Force all incoming traffic over HTTPS connection](http://microsoftazurewebsitescheatsheet.info/)
+  - Force all incoming traffic over HTTPS connection
 
-  - [Enable Strict Transport Security (HSTS)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
+  - Enable Strict Transport Security (HSTS)
 
-- [Restrict access to your app by client's IP address](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
+- Restrict access to your app by client's IP address
 
-- [Restrict access to your app by client's behavior - request frequency and concurrency](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
-
-- [Scan your web app code for vulnerabilities using Tinfoil Security Scanning](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
+- Restrict access to your app by client's behavior - request frequency and concurrency
 
 - [Configure TLS mutual authentication to require client certificates to connect to your web app](../../app-service/app-service-web-configure-tls-mutual-auth.md)
 
@@ -330,7 +328,7 @@ With Azure Monitor, you can manage any instance in any cloud, including on-premi
 
 ### Azure Monitor logs
 
-[Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
+[Azure Monitor logs](/azure/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
 ![Azure Monitor logs](./media/technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
@@ -440,4 +438,4 @@ Resource Manager provides several benefits:
 
 ## Next step
 
-The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a collection of security recommendations you can use to help secure the services you use in Azure.
+The [Microsoft cloud security benchmark](/security/benchmark/azure) includes a collection of security recommendations you can use to help secure the services you use in Azure.

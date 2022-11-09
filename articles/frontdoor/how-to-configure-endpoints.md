@@ -91,6 +91,12 @@ To create an Azure Front Door profile, see [create a Azure Front Door](create-fr
 
     :::image type="content" source="./media/how-to-configure-endpoints/associated-security-policy.png" alt-text="Screenshot of security policy associated with an endpoint." lightbox="./media/how-to-configure-endpoints/associated-security-policy-expanded.png":::
 
+## Configure origin timeout
+
+Origin timeout is the amount of time Azure Front Door will wait until it considers the connection to origin has timed out. You can set this value on the overview page of the Azure Front Door profile. This value will be applied to all endpoints in the profile.
+
+:::image type="content" source="./media/how-to-configure-endpoints/origin-timeout.png" alt-text="Screenshot of the origin timeout settings on the overview page of the Azure Front Door profile.":::
+
 ## Clean up resources
 
 In order to remove an endpoint, you first have to remove any security policies associated with the endpoint. Then select **Delete endpoint** to remove the endpoint from the Azure Front Door profile.

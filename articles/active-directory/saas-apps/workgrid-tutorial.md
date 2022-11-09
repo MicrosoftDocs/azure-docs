@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Workgrid | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Workgrid'
 description: Learn how to configure single sign-on between Azure Active Directory and Workgrid.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2021
+ms.date: 05/13/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Workgrid
@@ -46,6 +46,8 @@ To configure the integration of Workgrid into Azure AD, you need to add Workgrid
 1. In the **Add from the gallery** section, type **Workgrid** in the search box.
 1. Select **Workgrid** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Workgrid
 
 Configure and test Azure AD SSO with Workgrid using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Workgrid.
@@ -67,30 +69,30 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot of Edit Basic SAML Configuration.](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<COMPANYCODE>.workgrid.com/console`
+   a. In the **Sign on URL** text box, type a URL using the following pattern:
+   `https://<COMPANYCODE>.workgrid.com/console`
 
-    b. In the **Identifier (Entity ID)** text box, type a value using the following pattern:
-    `urn:amazon:cognito:sp:us-east-1_<poolid>`
+   b. In the **Identifier (Entity ID)** text box, type a value using the following pattern:
+   `urn:amazon:cognito:sp:us-east-1_<poolid>`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Workgrid Client support team](mailto:support@workgrid.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > [!NOTE]
+   > These values are not real. Update these values with the actual Sign on URL and Identifier. Your Sign On URL is the same URL you use to sign in to the Workgrid console.  You can find the Entity ID in the Security Section of your Workgrid console.
 
 5. Workgrid application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+   ![Screenshot of user attributes.](common/edit-attribute.png)
 
 6. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+   ![Screenshot of The Certificate download link.](common/metadataxml.png)
 
 7. On the **Set-up Workgrid** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Screenshot of Copy configuration U R Ls.](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -99,10 +101,10 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+    1. In the **Name** field, enter `B.Simon`.
+    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+    1. Click **Create**.
 
 ### Assign the Azure AD test user
 
@@ -118,7 +120,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Workgrid SSO
 
-To configure single sign-on on **Workgrid** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Workgrid support team](mailto:support@workgrid.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Workgrid** side, you need to add the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to your Workgrid console in the **Security section**.
+
+   ![Screenshot of the Workgrid U I with the Security section called out.](media/workgrid-tutorial/security-section.png)
+
+   > [!NOTE]
+   > You will need to use the full schema URI for the Email, Name and Family Name claims when mapping the attributes in Workgrid:
+ >
+ >  ![Screenshot of the Workgrid U I with the Security section attribute fields.](media/workgrid-tutorial/attribute-mappings.png)
+
 
 ### Create Workgrid test user
 
@@ -128,9 +138,9 @@ Workgrid also supports automatic user provisioning, you can find more details [h
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on **Test this application** in Azure portal. This will redirect to Workgrid Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Workgrid Sign-on URL where you can initiate the login flow.
 
 * Go to Workgrid Sign-on URL directly and initiate the login flow from there.
 

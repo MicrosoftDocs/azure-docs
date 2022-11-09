@@ -1,0 +1,145 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions about changing the prices of offers in the commercial marketplace (Partner Center)
+  description: Frequently asked questions about changing the prices of offers and switching between public and private offers in the commercial marketplace using Partner Center.
+  ms.service: marketplace 
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: faq
+  author: keferna
+  ms.author: keferna
+  ms.reviewer: keferna
+  ms.date: 04/01/2022
+title: Frequently Asked Questions about changing offer prices in the commercial marketplace (Partner Center)
+summary: Use the following questions and answers to better understand the price change feature in the commercial marketplace.
+
+sections:
+  - name: Dates
+    questions:
+      - question: |
+          Can I specify an effective date for the price change?
+        answer: |
+          No. Price changes are scheduled based on the type of price change:
+          - Price decreases are scheduled for the first of the next month.
+          - Price increases are scheduled for the first of a future month, at least 90 days after the price change is published.
+
+      - question: |
+          Can a price increase be scheduled for less than 90 days in the future?
+        answer: |
+          No. The 90-day policy, standard for all price increases, protects customers from last-minute price increases, as well as gives them time to react to a price increase.
+
+  - name: Private and hidden plans
+    questions:
+      - question: |
+          Can I change the price of a private plan?
+        answer: |
+          Yes, private plans are supported and are scheduled the same way public plans are.
+
+      - question: |
+          Can I change the price of a hidden plan?
+        answer: |
+          No. To make a price change to a hidden plan, move customers to a new plan with the new price.
+
+  - name: General
+    questions:
+      - question: |
+          What can be changed?
+        answer: |
+          Only the price point, increased or decreased. The following changes are still not allowed:
+          - Disabling custom meter dimensions
+          - Disabling free trial
+          - Adding more than 30 custom meter dimensions
+          - Changing the visibility of a plan from public to private
+          - Changing unit of measure for a custom meter dimension
+
+      - question: |
+          How do current exchange rates apply when a price change is made?
+        answer: |
+          If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
+
+          To specify the price in a specific currency, export the prices from the pricing and availability page, update the respective market and currency, save, and import the file.
+
+      - question: |
+          Can I change a free or $0 offer to a paid offer?
+        answer: |
+          No. To make an offer billable, publish a new paid plan and move customers to the new plan.
+
+      - question: |
+          Is changing a price of an offer supported via APIs?
+        answer: |
+          Not currently. The price change must be made in Partner Center.
+
+      - question: |
+          Can I customize the email notification sent to customers?
+        answer: |
+          No. Consider adding a learn-more link for a document or site that provides the additional context you want to provide to customers. Place this link in the Offer listing page in Partner Center.
+
+      - question: |
+          Who at my customer’s company will receive the email?
+        answer: |
+          The email notification will be sent to the invoice section (project) owner, billing group owners, and billing account owners of the subscription.
+
+      - question: |
+          Do customers have to take any action once the price change is scheduled?
+        answer: |
+          No. Customers will automatically be charged the new price when their contract renews.
+
+      - question: |
+          Do customers have any options to avoid being billed the new price?
+        answer: |
+          For consumption-based offers such as virtual machines, the customer can delete the resource before the new price goes into effect. For contract-based offers such as SaaS, the customer can choose to not renew their contract.
+
+      - question: |
+          If I change the price of a contract-based offer, how will the change affect customers who have already purchased it?
+        answer: |
+          Existing customers maintain their contract price for the length of the term. On renewal, their contract will use the price in effect at that time.
+
+      - question: |
+          If I change the price of a per-user contract-based offer, which price will be billed if a customer adds a user during the middle of the contract?
+        answer: |
+          Existing customers maintain their contract price for the length of the term. If a customer adds or removes a user while in the contract, the new user number will use the price from the contract. On renewal, the contract will use the price in effect at that time.
+
+      - question: |
+          How can I see when my customer’s contracts expire?
+        answer: |
+          The [Orders dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/order) displays the current orders for all your Software as a Service (SaaS) and Azure app offers. See [Orders dashboard in commercial marketplace analytics](orders-dashboard.md).
+
+      - question: |
+          How can I see which customers are using my offer?
+        answer: |
+          View the [Customers dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/customer).
+
+      - question: |
+          How will retail price changes affect private offers where I am offering a discount?
+        answer: |
+          The retail price of the public plan used in the private offer is not locked. If the price changes after the private offer is created, the discount is applied to the _latest_ retail price.
+
+      - question: |
+          How do I cancel or modify a scheduled price change?
+        answer: |
+          If the price change has not yet taken effect, submit a [support request](https://go.microsoft.com/fwlink/?linkid=2056405) to cancel the change, then schedule a new price change with needed modifications.
+
+      - question: |
+          If there is already a price change scheduled, can I make additional price changes?
+        answer: |
+          No. You need to wait for the price change to take effect, then schedule another one.
+
+      - question: |
+          Do price changes go through full certification?
+        answer: |
+          Yes. To avoid delays in scheduling it, don’t make other changes to the offer along with the price change.
+
+      - question: |
+          Will a price change to an offer opted in to the Cloud Solution Provider (CSP) channel also be applied to CSPs reselling my offer?
+        answer: |
+          Yes. Expect the same experience for CSPs as customers, including email notification and automatic billing of the new price.
+
+      - question: |
+          Can I change the price of an offer that is still in preview and hasn’t gone live yet?
+        answer: |
+          Yes. This is not considered a price change.
+
+additionalContent: |
+
+  ## Next steps
+  
+  - Read about how to [change prices in existing marketplace offers](price-changes.md)

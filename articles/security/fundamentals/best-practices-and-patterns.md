@@ -13,18 +13,18 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/03/2019
+ms.date: 6/02/2022
 ms.author: terrylan
 
 ---
 # Azure security best practices and patterns
 
-The articles below contain security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure. These best practices come from our experience with Azure security and the experiences of customers like you.
+The articles below contain security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure. These best practices come from our experience with Azure security and the experiences of customers like you.
 
 The best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
 * [Azure boundary security best practices](./network-best-practices.md#adopt-a-zero-trust-approach)
-* [Azure database security best practices](../../azure-sql/database/security-best-practice.md)
+* [Azure database security best practices](/azure/azure-sql/database/security-best-practice)
 * [Azure data security and encryption best practices](data-encryption-best-practices.md)
 * [Azure identity management and access control security best practices](identity-management-best-practices.md)
 * [Azure network security best practices](network-best-practices.md)
@@ -39,6 +39,6 @@ The best practices are intended to be a resource for IT pros. This might include
 * [Securing PaaS web and mobile applications using Azure Storage](paas-applications-using-storage.md)
 * [Security best practices for IaaS workloads in Azure](iaas.md)
 
-The white paper [Security best practices for Azure solutions](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) is a collection of the security best practices found in the articles listed above.
+## Next steps
 
-[Download the white paper](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf)
+Microsoft has found that using security benchmarks can help you quickly secure cloud deployments. Benchmark recommendations from your cloud service provider give you a starting point for selecting specific security configuration settings in your environment and allow you to quickly reduce risk to your organization. See the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) for a collection of high-impact security recommendations you can use to help secure the services you use in Azure.

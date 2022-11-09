@@ -38,7 +38,7 @@ Sample code for intent recognition:
 
 * [Quickstart: Use prebuilt Home automation app](../luis/luis-get-started-create-app.md)
 * [Recognize intents from speech using the Speech SDK for C#](./how-to-recognize-intents-from-speech-csharp.md)
-* [Intent recognition and other Speech services using Unity in C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/speechrecognizer)
+* [Intent recognition and other Speech services using Unity in C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/unity/speechrecognizer)
 * [Recognize intents using Speech SDK for Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)
 * [Intent recognition and other Speech services using the Speech SDK for C++ on Windows](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console)
 * [Intent recognition and other Speech services using the Speech SDK for Java on Windows or Linux](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/jre/console)
@@ -50,6 +50,5 @@ Sample code for intent recognition:
 
 ## Next steps
 
-* Complete the intent recognition [quickstart](get-started-intent-recognition.md)
-* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
+* [Intent recognition quickstart](get-started-intent-recognition.md)
 * [Get the Speech SDK](speech-sdk.md)

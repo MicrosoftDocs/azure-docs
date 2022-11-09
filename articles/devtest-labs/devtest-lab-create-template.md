@@ -2,6 +2,8 @@
 title: Create an Azure DevTest Labs virtual machine custom image from a VHD file
 description: Learn how to use a VHD file to create an Azure DevTest Labs virtual machine custom image in the Azure portal.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 01/04/2022
 ---
 

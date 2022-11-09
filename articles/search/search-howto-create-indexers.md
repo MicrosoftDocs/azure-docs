@@ -8,8 +8,9 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 05/11/2022
 ---
 
 # Creating indexers in Azure Cognitive Search
@@ -58,7 +59,7 @@ Indexers have the following requirements:
 
 Parameters are optional and modify run time behaviors, such as how many errors to accept before failing the entire job. The parameters above are available for all indexers and are documented in the [REST API reference](/rest/api/searchservice/create-indexer#request-body). 
 
-Source-specific indexers for blobs, SQL, and Cosmos DB provide extra "configuration" parameters for source-specific behaviors. For example, if the source is Blob Storage, you can set a parameter that filters on file extensions: `"parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }`.
+Source-specific indexers for blobs, SQL, and Azure Cosmos DB provide extra "configuration" parameters for source-specific behaviors. For example, if the source is Blob Storage, you can set a parameter that filters on file extensions: `"parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }`.
 
 [Field mappings](search-indexer-field-mappings.md) are used to explicitly map source-to-destination fields if those fields differ by name or type. 
 
@@ -68,7 +69,7 @@ You can also [specify a schedule](search-howto-schedule-indexers.md) or set an [
 
 ### Indexer definition for AI enrichment
 
-Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters apply, but the following properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`**. A few other required and similarly named properties are added for context.
+Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters apply, but the following properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`**. A [skillset](cognitive-search-defining-skillset.md) also has **`cognitiveServices`**, and **`knowledgeStore`**. A few other required and similarly named properties are added for context.
 
 ```json
 {
@@ -155,7 +156,7 @@ When you're ready to create an indexer on a remote search service, you'll need a
 
 1. On the search service Overview page, choose from two options: 
 
-   + [**Import data wizard**](search-import-data-portal.md). The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
+   + [**Import data wizard**](search-import-data-portal.md). The wizard is unique in that it creates all of the required elements. Other approaches require a predefined data source and index.
 
    + **New Indexer**, a visual editor for specifying an indexer definition. 
 
@@ -165,7 +166,7 @@ When you're ready to create an indexer on a remote search service, you'll need a
 
 ### [**REST**](#tab/indexer-rest)
 
-Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as an indexer client. Using either tool, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) requests. 
+The Postman desktop app can function as an indexer client. Using the app, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) requests. 
 
 ```http
 POST /indexers?api-version=[api-version]
@@ -182,10 +183,7 @@ POST /indexers?api-version=[api-version]
 }
 ```
 
-There are numerous tutorials and examples that demonstrate REST clients for creating objects.  Start with either of these articles to learn about each client:
-
-+ [Create a search index using REST and Postman](search-get-started-rest.md)
-+ [Get started with Visual Studio Code and Azure Cognitive Search](search-get-started-vs-code.md)
+There are numerous tutorials and examples that demonstrate REST clients for creating objects. [Create a search index using REST and Postman](search-get-started-rest.md) can get you started.
 
 Refer to the [Indexer operations (REST)](/rest/api/searchservice/Indexer-operations) for help with formulating indexer requests.
 
@@ -228,9 +226,9 @@ If your data source supports change detection, an indexer can detect underlying 
 
 Change detection logic is built into the data platforms. How an indexer supports change detection varies by data source:
 
-+ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically.. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer can use this information to determine which documents to update in the index.
++ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer can use this information to determine which documents to update in the index.
 
-+ Azure SQL and Cosmos DB provide optional change detection features in their platforms. You can specify the change detection policy in your data source definition.
++ Azure SQL and Azure Cosmos DB provide optional change detection features in their platforms. You can specify the change detection policy in your data source definition.
 
 For large indexing loads, an indexer also keeps track of the last document it processed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
 

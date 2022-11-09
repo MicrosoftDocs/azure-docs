@@ -1,15 +1,15 @@
 ---
-title: Frequently asked questions about Azure Route Server
+title: Azure Route Server frequently asked questions (FAQ)
 description: Find answers to frequently asked questions about Azure Route Server.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: article
-ms.date: 03/25/2022
-ms.author: duau
+ms.date: 07/31/2022
+ms.author: halkazwini
 ---
 
-# Azure Route Server FAQ
+# Azure Route Server frequently asked questions (FAQ)
 
 ## What is Azure Route Server?
 
@@ -79,11 +79,15 @@ No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
 
 ### Can I associate a User Defined Route (UDR) to the RouteServerSubnet?
 
-No, Azure Route Server doesn't support configuring a UDR on the RouteServerSubnet. It should be noted that Azure Route Server does not route any data traffic between NVAs and VMs.
+No, Azure Route Server doesn't support configuring a UDR on the RouteServerSubnet. It should be noted that Azure Route Server doesn't route any data traffic between NVAs and VMs.
 
 ### Can I associate a Network Security group (NSG) to the RouteServerSubnet?
 
 No, Azure Route Server doesn't support NSG association to the RouteServerSubnet.
+
+### When the same route is learned over ExpressRoute, VPN or SDWAN, which network is preferred?
+
+ExpressRoute is preferred over VPN or SDWAN.
 
 ### Can I peer two route servers in two peered virtual networks and enable the NVAs connected to the route servers to talk to each other? 
 
@@ -101,20 +105,17 @@ You can still use Route Server to direct traffic between subnets in different vi
 
 Azure Route Server supports ***NO_ADVERTISE*** BGP Community. If an NVA advertises routes with this community string to the route server, the route server won't advertise it to other peers including the ExpressRoute gateway. This feature can help reduce the number of routes to be sent from Azure Route Server to ExpressRoute.
 
+### Can Azure Route Server provide transit between ExpressRoute and a Point-to-Site (P2S) VPN gateway connection if the Branch-to-Branch setting is enabled?
+
+No, Azure Route Server provides transit only between ExpressRoute and a Site-to-Site (S2S) VPN gateway connections if the Branch-to-Branch setting is enabled.
+
 ## <a name = "limitations"></a>Route Server Limits
 
 Azure Route Server has the following limits (per deployment).
 
-| Resource | Limit |
-|----------|-------|
-| Number of BGP peers supported | 8 |
-| Number of routes each BGP peer can advertise to Azure Route Server | 1000 |
-| Number of routes that Azure Route Server can advertise to ExpressRoute or VPN gateway | 200 |
-| Number of VMs in the virtual network (including peered virtual networks) that Azure Route Server can support | 2000 |
+[!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
-The number of VMs that Azure Route Server can support is not a hard limit. This depends on how the Route Server infrastructure is deployed within an Azure Region.
-
-If your NVA advertises more routes than the limit, the BGP session will get dropped. In the event BGP session is dropped between the gateway and Azure Route Server, you'll lose connectivity from your on-premises network to Azure. For more information, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
+For information on troubleshooting routing problems in a virtual machine, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
 
 
 ## Next steps

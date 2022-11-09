@@ -29,6 +29,8 @@ items:
       href: quickstarts/upgrade-unity-quickstart-to-2020.md
     - name: Starting a new Unity HoloLens app
       href: quickstarts/new-unity-hololens-app.md
+    - name: Unity remoting support
+      href: quickstarts/unity-remoting.md
   - name: Create HoloLens DirectX app
     href: quickstarts/get-started-hololens-directx.md
 - name: How-to
@@ -42,7 +44,7 @@ items:
 - name: References
   items:
   - name: Conversion SDK for .NET
-    href: /dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre
+    href: /dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme
   - name: Runtime SDK for Unity
     href: /dotnet/api/Microsoft.Azure.ObjectAnchors/
   - name: Runtime SDK for HoloLens C++/WinRT

@@ -3,6 +3,7 @@ title: Monitor applications on Azure Kubernetes Service (AKS) with Application I
 description: Azure Monitor seamlessly integrates with your application running on Kubernetes, and allows you to spot the problems with your apps in no time.
 ms.topic: conceptual
 ms.date: 05/13/2020
+ms.reviewer: abinetabate
 ---
 
 # Zero instrumentation application monitoring for Kubernetes - Azure Monitor Application Insights
@@ -13,6 +14,8 @@ ms.date: 05/13/2020
 
 ## Application monitoring without instrumenting the code
 Currently, only Java lets you enable application monitoring without instrumenting the code. To monitor applications in other languages use the SDKs. 
+
+For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 ## Java
 Once enabled, the Java agent will automatically collect a multitude of requests, dependencies, logs, and metrics from the most widely used libraries and frameworks.
@@ -27,6 +30,10 @@ For the applications in other languages we currently recommend using the SDKs:
 * [Node.js](./nodejs.md) 
 * [JavaScript](./javascript.md)
 * [Python](./opencensus-python.md)
+
+## Troubleshooting
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Next steps
 

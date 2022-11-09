@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CyberArk SAML Authentication | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with CyberArk SAML Authentication'
 description: Learn how to configure single sign-on between Azure Active Directory and CyberArk SAML Authentication.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 05/11/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with CyberArk SAML Authentication
+# Tutorial: Azure AD SSO integration with CyberArk SAML Authentication
 
 In this tutorial, you'll learn how to integrate CyberArk SAML Authentication with Azure Active Directory (Azure AD). When you integrate CyberArk SAML Authentication with Azure AD, you can:
 
@@ -27,12 +27,17 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * CyberArk SAML Authentication single sign-on (SSO) enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * CyberArk SAML Authentication supports **SP and IDP** initiated SSO.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add CyberArk SAML Authentication from the gallery
 
@@ -44,6 +49,8 @@ To configure the integration of CyberArk SAML Authentication into Azure AD, you 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **CyberArk SAML Authentication** in the search box.
 1. Select **CyberArk SAML Authentication** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for CyberArk SAML Authentication
 
@@ -66,9 +73,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following step:
 
     In the **Reply URL** text box, type a URL using the following pattern:
     `https://<PVWA DNS or IP>/passwordvault/api/auth/saml/logon`
@@ -79,15 +86,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<PVWA DNS or IP>/PasswordVault/v10/logon/saml`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [CyberArk SAML Authentication Client support team](mailto:bizdevtech@cyberark.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact your CyberArk Administration team to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
 1. On the **Set up CyberArk SAML Authentication** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Attributes")
 
 ### Create an Azure AD test user
 
@@ -115,11 +122,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure CyberArk SAML Authentication SSO
 
-To configure single sign-on on **CyberArk SAML Authentication** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [CyberArk SAML Authentication support team](mailto:bizdevtech@cyberark.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **CyberArk SAML Authentication** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to your CyberArk Administration team. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create CyberArk SAML Authentication test user
 
-In this section, you create a user called B.Simon in CyberArk SAML Authentication. Work with [CyberArk SAML Authentication support team](mailto:bizdevtech@cyberark.com) to add the users in the CyberArk SAML Authentication platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in CyberArk SAML Authentication. Work with your CyberArk Administration team to add the users in the CyberArk SAML Authentication platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 

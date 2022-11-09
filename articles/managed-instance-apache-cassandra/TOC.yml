@@ -30,8 +30,8 @@
 - name: Concepts
   items:
     - name: Security overview
-      href: security.md       
-    - name: Compare to Azure Cosmos DB Cassandra API
+      href: security.md
+    - name: Compare to Azure Cosmos DB for Apache Cassandra
       href: compare-cosmosdb-managed-instance.md
     - name: Frequently asked questions
       displayName: cost, region, monitor, backup
@@ -42,6 +42,8 @@
       href: add-service-principal.md 
     - name: Configure Customer-Managed Keys
       href: customer-managed-keys.md  
+    - name: Enable LDAP authentication
+      href: ldap.md        
     - name: Monitor Managed Instance
       href: monitor-clusters.md   
     - name: Manage with Azure CLI

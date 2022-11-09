@@ -1,0 +1,70 @@
+---
+title:  Azure Video Indexer accounts  
+description: This article gives an overview of Azure Video Indexer accounts and provides links to other articles for more details.
+ms.topic: conceptual
+ms.date: 06/22/2022
+ms.author: juliako
+---
+
+# Azure Video Indexer account types
+
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
+This article gives an overview of Azure Video Indexer accounts types and provides links to other articles for more details.
+
+## A trial account
+
+The first time you visit the [Azure Video Indexer](https://www.videoindexer.ai/) website, a trial account is automatically created. The trial Azure Video Indexer account has limitation on number of indexing minutes, support, and SLA.
+
+With a trial, account Azure Video Indexer provides:
+
+* up to 600 minutes of free indexing to the [Azure Video Indexer](https://www.videoindexer.ai/) website users and 
+* up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal).
+
+When using the trial account, you don't have to set up an Azure subscription.
+
+The trial account option is not available on the Azure Government cloud. For other Azure Government limitations, see [Limitations of Azure Video Indexer on Azure Government](connect-to-azure.md#limitations-of-azure-video-indexer-on-azure-government).
+
+## A paid (unlimited) account
+
+You can later create a paid account where you're not limited by the quota. Two types of paid accounts are available to you: Azure Resource Manager (recommended) and classic. The main difference between the two is account management platform. 
+
+* ARM-based accounts management is built on Azure, which enables using [Azure RBAC](../role-based-access-control/overview.md) (recommended).
+* Classic accounts are built on the API Management.
+
+With the paid option, you pay for indexed minutes, for more information, see [Azure Video Indexer pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
+
+When creating a new paid account, you need to connect the Azure Video Indexer account to your Azure subscription and an Azure Media Services account. 
+
+## Create accounts
+
+> [!NOTE]
+> It is recommended to use Azure Video Indexer ARM-based accounts. 
+    
+* [Create an ARM-based (paid) account in Azure portal](create-account-portal.md). To create an account with an API, see [Accounts](/rest/api/videoindexer/accounts?branch=videoindex)
+
+    > [!TIP]
+    > Make sure you are signed in with the correct domain to the [Azure Video Indexer website](https://www.videoindexer.ai/). For details, see [Switch tenants](switch-tenants-portal.md).  
+* [Upgrade a trial account to an ARM-based (paid) account and import your content for free](import-content-from-trial.md).  
+* If you have a classic (paid) account, [connect an existing classic Azure Video Indexer account to an ARM-based account](connect-classic-account-to-arm.md).
+
+   Unless your code or infrastructure prevents you from moving from existing classic accounts, you should start using ARM-based accounts.
+
+## To get access to your account
+
+|   | ARM-based |Classic| Trial|
+|---|---|---|---|
+|Get access token | [ARM REST API](https://aka.ms/avam-arm-api) |[Get access token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)|Same as classic|
+|Share account| [Azure RBAC(role based access control)](../role-based-access-control/overview.md)| [Invite users](invite-users.md) |Same as classic|
+
+## Limited access features
+
+[!INCLUDE [limited access](./includes/limited-access-account-types.md)]
+
+For more information, see [Azure Video Indexer limited access features](limited-access-features.md).
+
+## Next steps
+
+Make sure to review [Pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
+
+

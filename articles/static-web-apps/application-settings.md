@@ -70,7 +70,7 @@ You can configure application settings via the Azure portal or with the Azure CL
 
 The Azure portal provides an interface for creating, updating and deleting application settings.
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 
 1. Open your static web app.
 
@@ -94,7 +94,7 @@ You can use the `az staticwebapp appsettings` command to update your settings in
 
 - In a terminal or command line, execute the following command to add or update a setting named `message` with a value of `Hello world`. Make sure to replace the placeholder `<YOUR_APP_ID>` with your value.
 
-   ```bash
+   ```azurecli
    az staticwebapp appsettings set --name <YOUR_APP_ID> --setting-names "message=Hello world"
    ```
 
@@ -107,7 +107,7 @@ Application settings are available to view through the Azure CLI.
 
 - In a terminal or command line, execute the following command. Make sure to replace the placeholder `<YOUR_APP_ID>` with your value.
 
-   ```bash
+   ```azurecli
    az staticwebapp appsettings list --name <YOUR_APP_ID>
    ```
 
@@ -117,7 +117,7 @@ Application settings can be deleted through the Azure CLI.
 
 - In a terminal or command line, execute the following command to delete a setting named `message`. Make sure to replace the placeholder `<YOUR_APP_ID>` with your value.
 
-   ```bash
+   ```azurecli
    az staticwebapp appsettings delete --name <YOUR_APP_ID> --setting-names "message"
    ```
 

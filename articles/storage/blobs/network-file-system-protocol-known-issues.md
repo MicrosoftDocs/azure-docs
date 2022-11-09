@@ -25,8 +25,6 @@ This article describes limitations and known issues of Network File System (NFS)
 
 - GRS, GZRS, and RA-GRS redundancy options aren't supported when you create an NFS 3.0 storage account.
 
-- NFS 3.0 and SSH File Transfer Protocol (SFTP) can't be enabled on the same storage account.
-
 ## NFS 3.0 features
 
 The following NFS 3.0 features aren't yet supported.

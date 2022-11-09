@@ -3,7 +3,7 @@ title: Onboarding requirements for SAP HANA on Azure (Large Instances) | Microso
 description: Learn about onboarding requirements for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: mamccrea
+author: lauradolan
 manager: bburns
 editor: ''
 ms.service: virtual-machines-sap
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/14/2021
-ms.author: mamccrea
+ms.author: ladolan
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -32,13 +32,14 @@ This article lists the requirements for running SAP HANA on Azure Large Instance
 
 ## Operating system
 
-- Licenses for SUSE Linux Enterprise Server 12 for SAP Applications.
+- Licenses for SUSE Linux Enterprise Server 12 and SUSE Linux Enterprise Server 15 for SAP Applications.
 
    > [!NOTE] 
    > The operating system delivered by Microsoft isn't registered with SUSE. It isn't connected to a Subscription Management Tool instance.
 
 - SUSE Linux Subscription Management Tool deployed in Azure on a VM. This tool provides the capability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by SUSE. (There's no internet access within the HANA Large Instance data center.) 
-- Licenses for Red Hat Enterprise Linux 6.7 or 7.x for SAP HANA.
+
+- Licenses for Red Hat Enterprise Linux 7.9 and 8.2 for SAP HANA.
 
    > [!NOTE]
    > The operating system delivered by Microsoft isn't registered with Red Hat. It isn't connected to a Red Hat Subscription Manager instance.
@@ -54,7 +55,7 @@ For the compatibility matrix of the operating system and HLI firmware/driver ver
 
 
 > [!IMPORTANT] 
-> For Type II units only the SLES 12 SP2 OS version is supported at this point. 
+> For Type II units SLES 12 SP5, SLES 15 SP2 and SLES 15 SP3 OS versions are supported at this point. 
 
 
 ## Database

@@ -2,15 +2,15 @@
 title: Deployment plans - Azure Active Directory | Microsoft Docs
 description: Guidance about how to deploy many Azure Active Directory capabilities.
 services: active-directory
-author: BarbaraSelden
+author: gargisinha
 manager: martinco
 
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.author: baselden
+ms.date: 09/13/2022
+ms.author: gasinh
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -25,7 +25,7 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 
 | Capability | Description|
 | -| -|
-| [Azure AD multifactor authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure AD MFA helps safeguard access to your data and applications while meeting the demand for a simple sign in process. Watch this video on [How to configure and enforce multi-factor authentication in your tenant](https://www.youtube.com/watch?v=qNndxl7gqVM)|
+| [Azure AD multifactor authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure AD MFA helps safeguard access to your data and applications while meeting the demand for a simple sign-in process. Watch this video on [How to configure and enforce multi-factor authentication in your tenant](https://www.youtube.com/watch?v=qNndxl7gqVM)|
 | [Conditional Access](../conditional-access/plan-conditional-access.md)| With Conditional Access, you can implement automated access control decisions for who can access your cloud apps, based on conditions. |
 | [Self-service password reset](../authentication/howto-sspr-deployment.md)| Self-service password reset helps your users reset their passwords without administrator intervention, when and where they need to. |
 | [Passwordless](../authentication/howto-authentication-passwordless-deployment.md) | Implement passwordless authentication using the Microsoft Authenticator app or FIDO2 Security keys in your organization |
@@ -53,6 +53,7 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 | -| -|
 | [User provisioning](../app-provisioning/plan-auto-user-provisioning.md)| Azure AD helps you automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications, such as Dropbox, Salesforce, ServiceNow, and more. |
 | [Cloud HR user provisioning](../app-provisioning/plan-cloud-hr-provision.md)| Cloud HR user provisioning to Active Directory creates a foundation for ongoing identity governance and enhances the quality of business processes that rely on authoritative identity data. Using this feature with your cloud HR product, such as Workday or Successfactors, you can seamlessly manage the identity lifecycle of employees and contingent workers by configuring rules that map Joiner-Mover-Leaver processes (such as New Hire, Terminate, Transfer) to IT provisioning actions (such as Create, Enable, Disable) |
+| [Azure AD B2B collaboration](../fundamentals/secure-external-access-resources.md)| Azure AD enables you to collaborate with any external user, allowing them to securely gain access to SaaS and Line-of-Business (LoB) applications. |
 
 ## Deploy governance and reporting
 
@@ -61,6 +62,7 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| Azure AD Privileged Identity Management (PIM) helps you manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. PIM provides solutions like just-in-time access, request approval workflows, and fully integrated access reviews so you can identify, uncover, and prevent malicious activities of privileged roles in real time. |
 | [Reporting and Monitoring](../reports-monitoring/plan-monitoring-and-reporting.md)| The design of your Azure AD reporting and monitoring solution depends on your legal, security, and operational requirements as well as your existing environment and processes. This article presents the various design options and guides you to the right deployment strategy. |
 | [Access Reviews](../governance/deploy-access-reviews.md) | Access Reviews are an important part of your governance strategy, enabling you to know and manage who has access, and to what they have access. This article helps you plan and deploy access reviews to achieve your desired security and collaboration postures. |
+| [Identity governance for applications](../governance/identity-governance-applications-prepare.md) | As part of your organization's controls to meet your compliance and risk management objectives for managing access for critical applications, you can use Azure AD features to set up and enforce appropriate access.|
 
 ## Include the right stakeholders
 

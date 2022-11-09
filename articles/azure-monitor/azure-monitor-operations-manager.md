@@ -1,11 +1,11 @@
 ---
 title: Azure Monitor for existing Operations Manager customers
 description: Guidance for existing users of Operations Manager to transition monitoring of certain workloads to Azure Monitor as part of a transition to the cloud.
-
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/11/2021
+ms.date: 04/05/2022
+ms.reviewer: bwren
 
 ---
 
@@ -91,11 +91,6 @@ When you move machines to the cloud, the monitoring requirements for their softw
 
 Azure Monitor also doesn't measure the health of different applications and services running on a virtual machine. Metric alerts can automatically resolve when a value drops below a threshold, but Azure Monitor doesn't currently have the ability to define health criteria for applications and services running on the machine, nor does it provide health rollup to group the health of related components.
 
-> [!NOTE]
-> A new [guest health feature for VM insights](vm/vminsights-health-overview.md) is now in public preview and does alert based on the health state of a set of performance metrics. This is initially limited though to a specific set of performance counters related to the guest operating system and not applications or other workloads running in the virtual machine.
-> 
-> [![VM insights guest health](media/azure-monitor-operations-manager/vm-insights-guest-health.png)](media/azure-monitor-operations-manager/vm-insights-guest-health.png#lightbox)
-
 Monitoring the software on your machines in a hybrid environment will typically use a combination of VM insights and Operations Manager, depending on the requirements of each machine and on your maturity developing operational processes around Azure Monitor. The Microsoft Management Agent (referred to as the Log Analytics agent in Azure Monitor) is used by both platforms so that a single machine can be simultaneously monitored by both.
 
 > [!NOTE]
@@ -125,7 +120,7 @@ If your monitoring of a business application is limited to functionality provide
 - Collect detailed application usage and performance data such as response time, failure rates, and request rates.
 - Collect browser data such as page views and load performance.
 - Detect exceptions and drill into stack trace and related requests.
-- Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing.md) and [smart detection](app/proactive-diagnostics.md).
+- Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing.md) and [smart detection](alerts/proactive-diagnostics.md).
 - Use [metrics explorer](essentials/metrics-getting-started.md) to interactively analyze performance data.
 - Use [log queries](logs/log-query-overview.md) to interactively analyze collected telemetry together with data collected for Azure services and VM insights.
 

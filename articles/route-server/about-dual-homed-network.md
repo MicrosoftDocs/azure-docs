@@ -2,11 +2,11 @@
 title: 'About dual-homed network with Azure Route Server '
 description: Learn about how Azure Route Server works in a dual-homed network.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
 ms.date: 09/01/2021
-ms.author: duau
+ms.author: halkazwini
 ---
 
 # About dual-homed network with Azure Route Server

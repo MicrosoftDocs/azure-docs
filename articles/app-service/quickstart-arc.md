@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a web app on Azure Arc'
 description: Get started with App Service on Azure Arc deploying your first web app.
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 06/30/2022
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -38,7 +38,7 @@ The following example creates a Node.js app. Replace `<app-name>` with a name th
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
-    --runtime 'NODE|12-lts'
+    --runtime 'NODE|14-lts'
 ```
 
 ## 4. Deploy some code
@@ -87,7 +87,7 @@ az webapp create \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
-    --deployment-container-image-name mcr.microsoft.com/appsvc/node:12-lts
+    --deployment-container-image-name mcr.microsoft.com/appsvc/node:14-lts
 ```
 
 <!-- `TODO: currently gets an error but the app is successfully created: "Error occurred in request., RetryError: HTTPSConnectionPool(host='management.azure.com', port=443): Max retries exceeded with url: /subscriptions/62f3ac8c-ca8d-407b-abd8-04c5496b2221/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/cephalin-arctest4/config/appsettings?api-version=2020-12-01 (Caused by ResponseError('too many 500 error responses',))"` -->

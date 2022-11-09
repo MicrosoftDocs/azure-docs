@@ -1,9 +1,10 @@
 ---
 title: Use event hub from Apache Kafka app - Azure Event Hubs | Microsoft Docs
 description: This article provides information on Apache Kafka support by Azure Event Hubs. 
-ms.topic: article
-ms.date: 08/30/2021
+ms.topic: overview
+ms.date: 10/14/2022
 ---
+
 # Use Azure Event Hubs from Apache Kafka applications
 Event Hubs provides an endpoint compatible with the Apache Kafka® producer and consumer APIs that can be used by most existing Apache Kafka client applications as an alternative to running your own Apache Kafka cluster. Event Hubs supports Apache Kafka's producer and consumer APIs clients at version 1.0 and above.
 
@@ -16,12 +17,12 @@ You can often use the Event Hubs Kafka endpoint from your applications without c
 
 Conceptually, Kafka and Event Hubs are very similar: they're both partitioned logs built for streaming data, whereby the client controls which part of the retained log it wants to read. The following table maps concepts between Kafka and Event Hubs.
 
-### Kafka and Event Hub conceptual mapping
+### Kafka and Event Hubs conceptual mapping
 
 | Kafka Concept | Event Hubs Concept|
 | --- | --- |
 | Cluster | Namespace |
-| Topic | Event Hub |
+| Topic | An event hub |
 | Partition | Partition|
 | Consumer Group | Consumer Group |
 | Offset | Offset|
@@ -63,6 +64,10 @@ sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginMo
 sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler
 ```
 
+> [!NOTE]
+> The above configuration properties are for the Java programming language. For **samples** that show how to use OAuth with Event Hubs for Kafka using different programming languages, see [samples on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
+
+
 ### Shared Access Signature (SAS)
 Event Hubs also provides the **Shared Access Signatures (SAS)** for delegated access to Event Hubs for Kafka resources. Authorizing access using OAuth 2.0 token-based mechanism provides superior security and ease of use over SAS. The built-in roles can also eliminate the need for ACL-based authorization, which has to be maintained and managed by the user. You can use this feature with your Kafka clients by specifying **SASL_SSL** for the protocol and **PLAIN** for the mechanism. 
 
@@ -85,17 +90,21 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 #### Samples 
 For a **tutorial** with step-by-step instructions to create an event hub and access it using SAS or OAuth, see [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
-For more **samples** that show how to use OAuth with Event Hubs for Kafka, see [samples on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
-
 ## Other Event Hubs features 
 
 The Event Hubs for Apache Kafka feature is one of three protocols concurrently available on Azure Event Hubs, complementing HTTP and AMQP. You can write with any of these protocols and read with any another, so that your current Apache Kafka producers can continue publishing via Apache Kafka, but your reader can benefit from the native integration with Event Hubs' AMQP interface, such as Azure Stream Analytics or Azure Functions. Conversely, you can readily integrate Azure Event Hubs into AMQP routing networks as a target endpoint, and yet read data through Apache Kafka integrations.  
 
 Additionally, Event Hubs features such as [Capture](event-hubs-capture-overview.md), which enables extremely cost efficient long-term archival via Azure Blob Storage and Azure Data Lake Storage, and [Geo Disaster-Recovery](event-hubs-geo-dr.md) also work with the Event Hubs for Kafka feature.
 
+## Idempotency
+
+Event Hubs for Apache Kafka supports both idempotent producers and idempotent consumers. 
+
+One of the core tenets of Azure Event Hubs is the concept of **at-least once** delivery. This approach ensures that events will always be delivered. It also means that events can be received more than once, even repeatedly, by consumers such as a function. For this reason, it's important that the consumer supports the [idempotent consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html) pattern. 
+
 ## Apache Kafka feature differences 
 
-The goal of Event Hubs for Apache Kafka is to provide access to Azure Event Hub's capabilities to applications that are locked into the Apache Kafka API and would otherwise have to be backed by an Apache Kafka cluster. 
+The goal of Event Hubs for Apache Kafka is to provide access to Azure Event Hubs capabilities to applications that are locked into the Apache Kafka API and would otherwise have to be backed by an Apache Kafka cluster. 
 
 As explained [above](#is-apache-kafka-the-right-solution-for-your-workload), the Azure Messaging fleet provides rich and robust coverage for a multitude of messaging scenarios, and although the following features aren't currently supported through Event Hubs' support for the Apache Kafka API, we point out where and how the desired capability is available.
 
@@ -109,7 +118,7 @@ The client-side [compression](https://cwiki.apache.org/confluence/display/KAFKA/
 
 This feature is fundamentally at odds with Azure Event Hubs' multi-protocol model, which allows for messages, even those sent in batches, to be individually retrievable from the broker and through any protocol. 
 
-The payload of any Event Hub event is a byte stream and the content can be compressed with an algorithm of your choosing. The Apache Avro encoding format supports compression natively.
+The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing. The Apache Avro encoding format supports compression natively.
 
 ### Log Compaction
 
@@ -138,3 +147,7 @@ If you must use the Kafka Streams framework on Azure, [Apache Kafka on HDInsight
 
 ## Next steps
 This article provided an introduction to Event Hubs for Kafka. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).
+
+For a **tutorial** with step-by-step instructions to create an event hub and access it using SAS or OAuth, see [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md).
+
+Also, see the [OAuth samples on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).

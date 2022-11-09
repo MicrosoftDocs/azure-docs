@@ -2,7 +2,7 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you may see when using Azure Service Bus.
 ms.topic: article
-ms.date: 03/03/2021 
+ms.date: 08/29/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -30,7 +30,7 @@ The following steps may help you with troubleshooting connectivity/certificate/t
         </Detail>
     </Error>
     ```
-- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here is the sample command that check whether the 5671 port is blocked. 
+- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here is the sample command that check whether the 5671 port is blocked. C 
 
     ```powershell
     tnc <yournamespacename>.servicebus.windows.net -port 5671
@@ -85,15 +85,19 @@ To learn how to assign permissions to roles, see [Authenticate a managed identit
 ## Service Bus Exception: Put token failed
 
 ### Symptoms
-When you try to send more than 1000 messages using the same Service Bus connection, you'll receive the following error message: 
+You'll receive the following error message: 
 
 `Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
 
 ### Cause
-There's a limit on number of tokens that are used to send and receive messages using a single connection to a Service Bus namespace. It's 1000. 
+Number of authentication tokens for concurrent links in a single connection to a Service Bus namespace has exceeded the limit: 1000. 
 
 ### Resolution
-Open a new connection to the Service Bus namespace to send more messages.
+Do one of the following steps:
+
+- Reduce the number of concurrent links in a single connection or use a new connection
+- Use SDKs for Azure Service Bus, which ensures that you don't get into this situation (recommended)
+
 
 ## Adding virtual network rule using PowerShell fails
 

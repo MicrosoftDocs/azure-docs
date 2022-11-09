@@ -1,17 +1,17 @@
 ---
-title: SAP ABAP function module deployment guide - Azure Purview
+title: SAP ABAP function module deployment guide - Microsoft Purview
 description: This article outlines the steps to deploy the ABAP function module in your SAP server.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 03/05/2022
+ms.date: 08/03/2022
 ---
 
 # SAP ABAP function module deployment guide
 
-When you scan [SAP ECC](register-scan-sapecc-source.md), [SAP S/4HANA](register-scan-saps4hana-source.md), and [SAP BW](register-scan-sap-bw.md) sources in Azure Purview, you need to create the dependent ABAP function module in your SAP server. Azure Purview invokes this function module to extract the metadata from your SAP system during scan.
+When you scan [SAP ECC](register-scan-sapecc-source.md), [SAP S/4HANA](register-scan-saps4hana-source.md), and [SAP BW](register-scan-sap-bw.md) sources in Microsoft Purview, you need to create the dependent ABAP function module in your SAP server. Microsoft Purview invokes this function module to extract the metadata from your SAP system during scan.
 
 This article describes the steps required to deploy this module.
 
@@ -20,9 +20,9 @@ This article describes the steps required to deploy this module.
 
 ## Prerequisites
 
-Download the SAP ABAP function module source code from Azure Purview Studio. After you register a source for [SAP ECC](register-scan-sapecc-source.md), [SAP S/4HANA](register-scan-saps4hana-source.md), or [SAP BW](register-scan-sap-bw.md), you can find a download link on top as shown in the following image. You can also see the link when you create a new scan or edit a scan.
+Download the SAP ABAP function module source code from the Microsoft Purview governance portal. After you register a source for [SAP ECC](register-scan-sapecc-source.md), [SAP S/4HANA](register-scan-saps4hana-source.md), or [SAP BW](register-scan-sap-bw.md), you can find a download link on top as shown in the following image. You can also see the link when you create a new scan or edit a scan.
 
-:::image type="content" source="media/abap-functions-deployment-guide/download-abap-code.png" alt-text="Screenshot that shows the download link for the ABAP function module source code from Azure Purview Studio." border="true":::
+:::image type="content" source="media/abap-functions-deployment-guide/download-abap-code.png" alt-text="Screenshot that shows the download link for the ABAP function module source code from the Microsoft Purview governance portal." border="true":::
 
 ## Deploy the module
 
@@ -60,7 +60,7 @@ This step is optional, and an existing package can be used.
 
 1. Select and hold (or right-click) the function group name in the repository browser. Select **Create** and then select **Function Module**.
 
-1. In the **Function module** box, enter **Z_MITI_DOWNLOAD**. Enter a description in the **Short Text** box.
+1. In the **Function module** box, enter **Z_MITI_DOWNLOAD** in case of SAP ECC or S/4HANA and **Z_MITI_BW_DOWNLOAD** in case of SAP BW. Enter a description in the **Short Text** box.
 
 After the module is created, specify the following information:
 
@@ -72,7 +72,7 @@ After the module is created, specify the following information:
 
 1. Go to the **Source code** tab. There are two ways to deploy code for the function:
 
-   1. On the main menu, upload the text file you downloaded from Azure Purview Studio as described in [Prerequisites](#prerequisites). To do so, select **Utilities** > **More Utilities** > **Upload/Download** > **Upload**.
+   1. On the main menu, upload the text file you downloaded from the Microsoft Purview governance portal as described in [Prerequisites](#prerequisites). To do so, select **Utilities** > **More Utilities** > **Upload/Download** > **Upload**.
 
    1. Alternatively, open the file and copy and paste the contents in the **Source code** area.
 
@@ -109,7 +109,7 @@ After the module is created, specify the following information:
 
 After you finish the previous steps, test the function:
 
-1. Open the **Z\_MITI\_DOWNLOAD** function module.
+1. Open the **Z_MITI_DOWNLOAD** or **Z_MITI_BW_DOWNLOAD** function module you created.
 
 1. On the main menu, select **Function Module** > **Test** > **Test Function Module**. You can also select **F8**.
 

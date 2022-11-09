@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/07/2021
+ms.date: 09/23/2022
 ms.author: banders
 ---
 
@@ -28,12 +28,14 @@ To set up the billing account, you must transition the billing of Azure subscrip
 
 Before you start the setup, we recommend you do the following actions:
 
+- Before you transition to the Microsoft Customer Agreement, **delete users using the EA portal that don't need access to the new billing account**.
+  - Deleting the users will simplify the transition and improve the security of your new billing account.
 - **Understand your new billing account**
   - Your new account simplifies billing for your organization. [Get a quick overview of your new billing account](../understand/mca-overview.md)
 - **Verify your access to complete the setup**
   - Only users with certain administrative permissions can complete the setup. Check if you have the [access required to complete the setup](#access-required-to-complete-the-setup).
 - **Understand changes to your billing hierarchy**
-  - You new billing account is organized differently than your Enterprise Agreement enrollment. [Understand changes to your billing hierarchy in the new account](#understand-changes-to-your-billing-hierarchy).
+  - Your new billing account is organized differently than your Enterprise Agreement enrollment. [Understand changes to your billing hierarchy in the new account](#understand-changes-to-your-billing-hierarchy).
 - **Understand changes to your billing administrators' access**
   - Administrators from your Enterprise Agreement enrollment get access to the billing scopes in the new account.[Understand changes to their access](#changes-to-billing-administrator-access).
 - **View Enterprise Agreement features that are replaced by the new account**
@@ -43,10 +45,9 @@ Before you start the setup, we recommend you do the following actions:
 
 ## Access required to complete the setup
 
-To complete the setup, you need the following access:
+To complete the setup, you need both of these roles:
 
-- Owner of the billing profile that was created when the Microsoft Customer Agreement was signed. To learn more about billing profiles, see [understand billing profiles](../understand/mca-overview.md#billing-profiles).  
-&mdash; And &mdash;
+- Owner of the billing account that was created when the Microsoft Customer Agreement was signed. To learn more about billing accounts, see [Your billing account](../understand/mca-overview.md#your-billing-account).
 - Enterprise administrator on the enrollment that is renewed.
 
 ### Start migration and get permission needed to complete setup
@@ -60,57 +61,57 @@ You can use the following options to start the migration experience for your EA 
 
   `https://portal.azure.com/#blade/Microsoft_Azure_SubscriptionManagement/TransitionEnrollment`
 
-If you have both the enterprise administrator and billing account owner roles or billing profile role, you see the following page in the Azure portal. You can continue setting up your EA enrollments and Microsoft Customer Agreement billing account for transition.
+If you have both the enterprise administrator and billing account owner roles, you see the following page in the Azure portal. You can continue setting up your EA enrollments and Microsoft Customer Agreement billing account for transition.
 
-:::image type="content" source="./media/mca-setup-account/setup-billing-account-page.png" alt-text="Screenshot showing the Set up your billing account page" lightbox="./media/mca-setup-account/setup-billing-account-page.png" :::
+:::image type="content" source="./media/microsoft-customer-agreement-setup-account/setup-billing-account-page.png" alt-text="Screenshot showing the Set up your billing account page" lightbox="./media/microsoft-customer-agreement-setup-account/setup-billing-account-page.png" :::
 
-If you don't have the enterprise administrator role for the enterprise agreement or the billing profile owner role for the Microsoft Customer Agreement, then use the following information to get the access that you need to complete setup.
+If you don't have the enterprise administrator role for the enterprise agreement or the billing account owner role for the Microsoft Customer Agreement, then use the following information to get the access that you need to complete setup.
 
 #### If you're not an enterprise administrator on the enrollment
 
-You see the following page in the Azure portal if you have a billing account or billing profile owner role but you're not an enterprise administrator.
+You see the following page in the Azure portal if you have a billing account owner role but you're not an enterprise administrator.
 
-:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" alt-text="Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition." lightbox="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" :::
+:::image type="content" source="./media/microsoft-customer-agreement-setup-account/setup-billing-account-page-not-ea-administrator.png" alt-text="Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition." lightbox="./media/microsoft-customer-agreement-setup-account/setup-billing-account-page-not-ea-administrator.png" :::
 
 You have two options:
 
 - Ask the enterprise administrator of the enrollment to give you the enterprise administrator role. For more information, see [Create another enterprise administrator](ea-portal-administration.md#create-another-enterprise-administrator).
--  You can give an enterprise administrator the billing account owner or billing profile owner role. For more information, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+-  You can give an enterprise administrator the billing account owner role. For more information, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
 If you're given the enterprise administrator role, copy the link on the Set up your billing account page. Open it in your web browser to continue setting up your Microsoft Customer Agreement. Otherwise, send it to the enterprise administrator.
 
-#### If you're not an owner of the billing profile
+#### If you're not an owner of the billing account
 
 If you're an enterprise administrator but you don't have a billing account, you'll see the following error in the Azure portal that prevents the transition.
 
-If you believe that you have billing profile owner access to the correct Microsoft Customer Agreement and you see the following message, make sure that you are in the correct tenant for your organization. You might need to change directories.
+If you believe that you have billing account owner access to the correct Microsoft Customer Agreement and you see the following message, make sure that you are in the correct tenant for your organization. You might need to change directories.
 
-:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" alt-text="Screenshot showing the Set up your billing account page - Microsoft Customer Agreement billing account." lightbox="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" :::
+:::image type="content" source="./media/microsoft-customer-agreement-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" alt-text="Screenshot showing the Set up your billing account page - Microsoft Customer Agreement billing account." lightbox="./media/microsoft-customer-agreement-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" :::
 
 You have two options:
 
-- Ask an existing billing account owner to give you the billing account owner or billing profile owner role. For more information, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
+- Ask an existing billing account owner to give you the billing account owner role. For more information, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 - Give the enterprise administrator role to an existing billing account owner. For more information, see [Create another enterprise administrator](ea-portal-administration.md#create-another-enterprise-administrator).
 
-If you're given the billing account owner or billing profile owner role, copy the link on the Set up your billing account page. Open it in your web browser to continue setting up your Microsoft Customer Agreement. Otherwise, send the link to the billing account owner.
+If you're given the billing account owner role, copy the link on the Set up your billing account page. Open it in your web browser to continue setting up your Microsoft Customer Agreement. Otherwise, send the link to the billing account owner.
 
 #### Prepare enrollment for transition
 
-After you have owner access to both your EA enrollment and billing profile, you prepare them for transition.
+After you have owner access to both your EA enrollment and billing account, you prepare them for transition.
 
 Open the migration that you were presented previously, or open the link that you were sent in email. The link is `https://portal.azure.com/#blade/Microsoft_Azure_SubscriptionManagement/TransitionEnrollment`.
 
 The following image shows and example of the Prepare your enterprise agreement enrollments for transition window.
 
-:::image type="content" source="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition.png" alt-text="Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition ready for selections." lightbox="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition.png" :::
+:::image type="content" source="./media/microsoft-customer-agreement-setup-account/setup-billing-account-prepare-enrollment-transition.png" alt-text="Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition ready for selections." lightbox="./media/microsoft-customer-agreement-setup-account/setup-billing-account-prepare-enrollment-transition.png" :::
 
-Next, select the source enrollment to transition. Then select the billing account and billing profile. If validation passes without any problems similar to the following screen, select **Continue** to proceed.
+Next, select the source enrollment to transition. Then select the billing account. If validation passes without any problems similar to the following screen, select **Continue** to proceed.
 
-:::image type="content" source="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition-continue.png" alt-text="Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition with validated choices." lightbox="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition-continue.png" :::
+:::image type="content" source="./media/microsoft-customer-agreement-setup-account/setup-billing-account-prepare-enrollment-transition-continue.png" alt-text="Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition with validated choices." lightbox="./media/microsoft-customer-agreement-setup-account/setup-billing-account-prepare-enrollment-transition-continue.png" :::
 
 **Error conditions**
 
-If you have the Enterprise Administrator (read-only) role, you'll see the following error that prevents the transition. You must have the Enterprise Administrator role before before you can transition your enrollment.
+If you have the Enterprise Administrator (read-only) role, you'll see the following error that prevents the transition. You must have the Enterprise Administrator role before you can transition your enrollment.
 
 `Select another enrollment. You do not hve Enterprise Administrator write permission to the enrollment.`
 
@@ -122,10 +123,6 @@ If your enrollment still has credits, you'll see the following error that preven
 
 `Select another enrollment. This enrollment still has credits and can't be transitioned to a billing account.`
 
-If you don't have owner permission to the billing profile, you'll see the following error that prevents the transition. You must the have billing profile owner role before before you can transition your enrollment.
-
-`Select another Billing Profile. You do not have owner permission to this profile.`
-
 If your new billing profile doesn't have the new plan enabled, you'll see the following error. You must enable the plan before you can transition your enrollment.
 
 `Select another Billing Profile. The current selection does not have Azure Plan and Azure dev test plan enabled on it.`
@@ -134,7 +131,7 @@ If your new billing profile doesn't have the new plan enabled, you'll see the fo
 
 Your new billing account simplifies billing for your organization while providing you enhanced billing and cost management capabilities. The following diagram explains how billing is organized in the new billing account.
 
-![Image of ea-mca-post-transition-hierarchy](./media/mca-setup-account/mca-post-transition-hierarchy.png)
+![Image of the Enterprise Agreement to Microsoft Customer Agreement post-transition hierarchy.](./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-post-transition-hierarchy.png)
 
 1. You use the billing account to manage billing for your Microsoft customer agreement. Enterprise administrators become owners of the billing account. To learn more about billing account, see [understand billing account](../understand/mca-overview.md#your-billing-account).
 2. You use the billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [understand billing profiles](../understand/mca-overview.md#billing-profiles).
@@ -157,7 +154,7 @@ An Azure Active Directory (AD) tenant is selected for the new billing account wh
 
 Your new account only supports users from the tenant that was selected while signing the Microsoft Customer Agreement. If users with administrative permission on your Enterprise Agreement are part of the tenant, they'll get access to the new billing account during the setup. If they're not part of the tenant, they can't access the new billing account unless you invite them.
 
-When you invite the users, they're added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [control guest access in Azure Active Directory](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on. <!-- Todo - How can they find their global administrator -->
+When you invite the users, they're added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [control guest access in Azure Active Directory](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on. 
 
 ## View replaced features
 
@@ -205,7 +202,7 @@ Support benefits don't transfer as part of the transition. Purchase a new suppor
 
 ### Past charges and balance
 
-Charges and credits balance prior to transition can be viewed in your Enterprise Agreement enrollment through the Azure portal. <!--Todo - Add a link for this-->
+Charges and credits balance prior to transition can be viewed in your Enterprise Agreement enrollment through the Azure portal. 
 
 ### When should the setup be completed?
 
@@ -235,7 +232,7 @@ To complete the setup, you need access to both the new billing account and the E
 
 3. Select **Start transition** in the last step of the setup. Once you select start transition:
 
-    ![Screenshot that shows the setup wizard](./media/mca-setup-account/ea-mca-set-up-wizard.png)
+    ![Screenshot that shows the setup wizard](./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-wizard.png)
 
     - A billing hierarchy corresponding to your Enterprise Agreement hierarchy is created in the new billing account. For more information, see [understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
     - Administrators from your Enterprise Agreement enrollment are given access to the new billing account so that they continue to manage billing for your organization.
@@ -244,7 +241,7 @@ To complete the setup, you need access to both the new billing account and the E
 
 4. You can monitor the status of the transition on the **Transition status** page.
 
-   ![Screenshot that shows the transition status](./media/mca-setup-account/ea-mca-set-up-status.png)
+   ![Screenshot that shows the transition status](./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-status.png)
 
 ## Validate billing account setup
 
@@ -256,13 +253,13 @@ To complete the setup, you need access to both the new billing account and the E
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/mca-setup-account/search-cmb.png)
+   ![Screenshot that shows Azure portal search](./media/microsoft-customer-agreement-setup-account/search-cmb.png)
 
 3. Select the billing account. The billing account will be of type **Microsoft Customer Agreement**.
 
 4. Select **Azure subscriptions** from the left side.
 
-   ![Screenshot that shows list of subscriptions](./media/mca-setup-account/mca-subscriptions-post-transition.png)
+   ![Screenshot that shows list of subscriptions](./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-subscriptions-post-transition.png)
 
 Azure subscriptions that are transitioned from your Enterprise Agreement enrollment to the new billing account are displayed on the Azure subscriptions page. If you believe any subscription is missing, transition the billing of the subscription manually in the Azure portal. For more information, see [get billing ownership of Azure subscriptions from other users](mca-request-billing-ownership.md)
 
@@ -276,13 +273,13 @@ Azure reservations in your Enterprise Agreement enrollment will be moved to your
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/mca-setup-account/search-cmb.png)
+   ![Screenshot that shows Azure portal search](./media/microsoft-customer-agreement-setup-account/search-cmb.png)
 
 3. Select the billing account for your **Microsoft Customer Agreement**.
 
 4. Select **Access control (IAM)** from the left side.
 
-   ![Screenshot that shows access of enterprise administrators listed as billing account owners post transition.](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
+   ![Screenshot that shows access of enterprise administrators listed as billing account owners post transition.](./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-ea-admins-ba-access-post-transition.png)
 
 Enterprise administrators are listed as billing account owners while the enterprise administrators with read-only permissions are listed as billing account readers. If you believe the access for any enterprise administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -292,13 +289,13 @@ Enterprise administrators are listed as billing account owners while the enterpr
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/mca-setup-account/search-cmb.png)
+   ![Screenshot that shows Azure portal search](./media/microsoft-customer-agreement-setup-account/search-cmb.png)
 
 3. Select the billing profile created for your enrollment. Depending on your access, you may need to select a billing account. From the billing account, select Billing profiles and then the billing profile.
 
 4. Select **Access control (IAM)** from the left side.
 
-   ![Screenshot that shows access of enterprise administrators listed as billing profile owners post transition.](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
+   ![Screenshot that shows access of enterprise administrators listed as billing profile owners post transition.](./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-ea-admins-bp-access-post-transition.png)
 
 Enterprise administrators are listed as billing profile owners while the enterprise administrators with read-only permissions are listed as billing profile readers. If you believe the access for any enterprise administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -308,15 +305,15 @@ Enterprise administrators are listed as billing profile owners while the enterpr
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/mca-setup-account/search-cmb.png).
+   ![Screenshot that shows Azure portal search](./media/microsoft-customer-agreement-setup-account/search-cmb.png)
 
 3. Select an invoice section. Invoice sections have the same name as their respective departments in Enterprise Agreement enrollments. Depending on your access, you may need to select a billing account. From the billing account, select **Billing profiles** and then select **Invoice sections**. From the invoice sections list, select an invoice section.
 
-   ![Screenshot that shows list of invoice section post transition](./media/mca-setup-account/mca-invoice-sections-post-transition.png)
+   ![Screenshot that shows list of invoice section post transition](./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-invoice-sections-post-transition.png)
 
 4. Select **Access control (IAM)** from the left side.
 
-    ![Screenshot that shows access of department and account admins access post transition](./media/mca-setup-account/mca-department-account-admins-access-post-transition.png)
+    ![Screenshot that shows access of department and account admins access post transition](./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-department-account-admins-access-post-transition.png)
 
 Enterprise administrators and department administrators are listed as invoice section owners or invoice section readers while account owners in the department are listed as Azure subscription creators. Repeat the step for all invoice sections to check access for all departments in your Enterprise Agreement enrollment. Account owners that weren't part of any department will get permission on an invoice section named **Default invoice section**. If you believe the access for any administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 

@@ -38,6 +38,9 @@ A new set of alert rules is created when migrating an Application Insights resou
 <sup>(2)</sup> Name of new alert rule after migration  
 <sup>(3)</sup> These smart detection capabilities aren't converted to alerts, because of low usage and reassessment of detection effectiveness. These detectors will no longer be supported for this resource once its migration is completed. 
 
+ > [!NOTE]
+ > The **Failure Anomalies** smart detector is already created as an alert rule and therefore does not require migration, it is not covered in this document.
+ 
 The migration doesn't change the algorithmic design and behavior of smart detection. The same detection performance is expected before and after the change.
 
 You need to apply the migration to each Application Insights resource separately. For resources that aren't explicitly migrated, smart detection will continue to work as before.
@@ -335,7 +338,7 @@ You can create and manage action groups for the new smart detection alert rules 
 After completing the migration, you can use Azure Resource Manager templates to configure settings for smart detection alert rule settings.
 
 > [!NOTE]
-> After completion of migration, smart detection settings must be configured using smart detection alert rule templates, and can no longer be configured using the [Application Insights Resource Manager template](../app/proactive-arm-config.md#smart-detection-rule-configuration).
+> After completion of migration, smart detection settings must be configured using smart detection alert rule templates, and can no longer be configured using the [Application Insights Resource Manager template](./proactive-arm-config.md#smart-detection-rule-configuration).
 
 This Azure Resource Manager template example demonstrates configuring an **Response Latency Degradation** alert rule in an **Enabled** state with a severity of 2.
 * Smart detection is a global service, therefore rule location is created in the **global** location.
@@ -381,4 +384,4 @@ This Azure Resource Manager template example demonstrates configuring an **Respo
 ## Next Steps
 
 - [Learn more about alerts in Azure](./alerts-overview.md)
-- [Learn more about smart detection in Application Insights](../app/proactive-diagnostics.md)
+- [Learn more about smart detection in Application Insights](./proactive-diagnostics.md)

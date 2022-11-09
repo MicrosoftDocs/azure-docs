@@ -9,7 +9,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 08/09/2022
 ---
 
 # Create a trigger that runs a pipeline in response to a storage event
@@ -42,14 +42,14 @@ This section shows you how to create a storage event trigger within the Azure Da
 1. Select trigger type **Storage Event**
 
     # [Azure Data Factory](#tab/data-factory)
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1.png" alt-text="Screenshot of Author page to create a new storage event trigger in Data Factory UI.":::
+    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1.png" lightbox="media/how-to-create-event-trigger/event-based-trigger-image-1.png" alt-text="Screenshot of Author page to create a new storage event trigger in Data Factory UI." :::
     # [Azure Synapse](#tab/synapse-analytics)
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" alt-text="Screenshot of Author page to create a new storage event trigger in the Azure Synapse UI.":::
+    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" lightbox="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" alt-text="Screenshot of Author page to create a new storage event trigger in the Azure Synapse UI.":::
 
 5. Select your storage account from the Azure subscription dropdown or manually using its Storage account resource ID. Choose which container you wish the events to occur on. Container selection is required, but be mindful that selecting all containers can lead to a large number of events.
 
    > [!NOTE]
-   > The Storage Event Trigger currently supports only Azure Data Lake Storage Gen2 and General-purpose version 2 storage accounts. Due to an Azure Event Grid limitation, Azure Data Factory only supports a maximum of 500 storage event triggers per storage account. If you hit the limit, please contact support for recommendations and increasing the limit upon evaluation by Event Grid team. 
+   > The Storage Event Trigger currently supports only Azure Data Lake Storage Gen2 and General-purpose version 2 storage accounts. If you are working with SFTP Storage Events you need to specify the SFTP Data API under the filtering section too. Due to an Azure Event Grid limitation, Azure Data Factory only supports a maximum of 500 storage event triggers per storage account. If you hit the limit, please contact support for recommendations and increasing the limit upon evaluation by Event Grid team. 
 
    > [!NOTE]
    > To create a new or modify an existing Storage Event Trigger, the Azure account used to log into the service and publish the storage event trigger must have appropriate role based access control (Azure RBAC) permission on the storage account. No additional permission is required: Service Principal for the Azure Data Factory and Azure Synapse does _not_ need special permission to either the Storage account or Event Grid. For more information about access control, see [Role based access control](#role-based-access-control) section.

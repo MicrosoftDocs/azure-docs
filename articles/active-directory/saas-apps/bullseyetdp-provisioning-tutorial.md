@@ -102,7 +102,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |userName|String|&check;|&check;
    |externalId|String|&check;|&check;
    |userType|String||&check;
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference||
    |active|Boolean||
    |title|String||&check;
    |emails[type eq "work"].value|String||&check;  

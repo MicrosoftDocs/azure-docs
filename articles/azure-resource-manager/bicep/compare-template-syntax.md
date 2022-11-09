@@ -4,7 +4,7 @@ description: Compares Azure Resource Manager templates developed with JSON and B
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 04/26/2022
 ---
 # Comparing JSON and Bicep for templates
 
@@ -80,7 +80,7 @@ workloadSetting: description
 ```
 
 ```json
-"workloadSetting": "[variables('demoVar'))]"
+"workloadSetting": "[variables('description'))]"
 ```
 
 ## Strings
@@ -210,7 +210,7 @@ To iterate over items in an array or count:
 
 For Bicep, you can set an explicit dependency but this approach isn't recommended. Instead, rely on implicit dependencies. An implicit dependency is created when one resource declaration references the identifier of another resource.
 
-The following shows a network interface with an implicit dependency on a network security group. It references the network security group with `nsg.id`.
+The following shows a network interface with an implicit dependency on a network security group. It references the network security group with `netSecurityGroup.id`.
 
 ```bicep
 resource netSecurityGroup 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
@@ -223,7 +223,7 @@ resource nic1 'Microsoft.Network/networkInterfaces@2020-06-01' = {
   properties: {
     ...
     networkSecurityGroup: {
-      id: nsg.id
+      id: netSecurityGroup.id
     }
   }
 }
