@@ -190,8 +190,8 @@ print(append_result['transactionId'])
 The print function will return the transaction ID of your write to the ledger, which can be used to retrieve the message you wrote to the ledger.
 
 ```python
-latest_entry = ledger_client.get_ledger_entry(transaction_id=append_result['transactionId'])['entry']
-print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
+entry = ledger_client.get_ledger_entry(transaction_id=append_result['transactionId'])['entry']
+print(f"Entry (transaction id = {entry['transactionId']}) in collection {entry['collectionId']}: {entry['contents']}")
 ```
 
 If you would simply like the latest transaction that was committed to the ledger, you can use the `get_current_ledger_entry` function.
@@ -301,7 +301,7 @@ print(f"Current entry (transaction id = {latest_entry['transactionId']}) in coll
 
 ## Pollers
 
-If you would like to wait for your write transaction to be committed to your ledger you can use the `begin_create_ledger_entry` function. This will return a poller to wait until the your entry is durably committed.
+If you would like to wait for your write transaction to be committed to your ledger you can use the `begin_create_ledger_entry` function. This will return a poller to wait until the entry is durably committed.
 
 ```python
 sample_entry = {"contents": "Hello world!"}
