@@ -36,9 +36,8 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
    - For Linux: check the `hwd.` service.
 
 - Run the log collector tool and review the collected logs.
-   - For Windows: the logs are located at `C:\HybridWorkerExtensionLogs`. The tool is at `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\PullLogs.ps1`. The extension log is `HybridWorkerExtensionHandler.log`. The worker log is `SME.log`.
-   - For Linux: the logs are located at `/home/nxautomation/run`. The tool is at `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux/logcollector.py`. The worker log is `worker.log`. The extension registration log is `register_log`. The extension startup log is `startup_log`. The extension log is `extension_out`.
-
+   - For Windows: the logs are located at `C:\HybridWorkerExtensionLogs`. The tool is at `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\PullLogs.ps1`. 
+   - For Linux: the logs are located at `/home/nxautomation/run`. The tool is at `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux/logcollector.py`.
 
 ### Scenario: Hybrid Worker deployment fails with Private Link error
 

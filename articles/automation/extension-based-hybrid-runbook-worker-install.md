@@ -3,7 +3,7 @@ title: Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in 
 description: This article provides information about deploying the extension-based User Hybrid Runbook Worker to run runbooks on Windows or Linux machines in your on-premises datacenter or other cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/13/2022
+ms.date: 11/09/2022
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ---
@@ -102,13 +102,13 @@ $protectedsettings = @{
 **Azure VMs**
 
 ```powershell
-Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true/$false
 ```
 
 **Azure Arc-enabled VMs**
 
 ```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade $true/$false
 ```
 
 # [Linux](#tab/linux)
@@ -211,17 +211,20 @@ You can also add machines to an existing hybrid worker group.
 
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-inline.png" alt-text="Screenshot of platform field showing agent or extension based." lightbox="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-expanded.png":::
 
-## Install Extension-based (V2) on existing Agent-based (V1) Hybrid Worker
+## Migrate an existing Agent-based to Extension-based Hybrid Workers
 
-A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. To install Extension based (V2) on a hybrid worker that already has an Agent based (V1):
+To take advantage of the benefits of extension-based Hybrid Workers, you must migrate all existing agent-based User Hybrid Workers to extension-based Workers. A hybrid worker machine can co-exist on both platforms: **Agent-based (V1)** and **Extension based (V2)**. The extension-based installation does not affect the installation or management of an agent-based Worker.
 
-1. Under **Process Automation**, select **Hybrid Workers groups**, and then your existing hybrid worker group to go to the **Hybrid Worker Group** page.
+Follow the steps to install Hybrid Worker Extension on an existing agent-based hybrid worker:
+1. Under **Process Automation**, select **Hybrid Worker groups**, and then your existing hybrid worker group to go to the **Hybrid Worker Group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers**.
 1. Select **+ Add** to go to the **Add machines as hybrid worker** page.
-1. Select the checkbox next to existing Agent based (V1) Hybrid worker.
+1. Select the checkbox next to the existing Agent-based (V1) Hybrid worker.
 1. Select **Add** to add the machine to the group.
 
-The **Platform** column shows the same worker as both **Agent based (V1)** and **Extension based (V2)**. Delete the Agent based (V1) Hybrid Worker after you are sure on the working of Extension based (V2) worker.
+   The Platform column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. Once you are confident with the extension-based Hybrid Worker experience and use, you can remove the agent-based Worker. 
+   
+   For at-scale migration of multiple Agent based Hybrid Workers, you can also use other [channels](#manage-hybrid-worker-extension-using-bicep--arm-templates-rest-api-azure-cli-and-powershell) such as Bicep, ARM templates, PowerShell cmdlets, REST API and Azure CLI.
 
 
 ## Delete a Hybrid Runbook Worker
@@ -277,12 +280,12 @@ Major version upgrades must be managed manually. Run the below cmdlets with the 
 **Azure VMs**
 
 ```powershell
-Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true/$false
 ```
 **Azure Arc-enabled VMs**
 
 ```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade $true/$false
 ```
 
 
@@ -953,6 +956,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 - To create, delete, and manage extension-based Hybrid Runbook Worker groups, see [az automation hrwg | Microsoft Docs](/cli/azure/automation/hrwg?view=azure-cli-latest)
 - To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](/cli/azure/automation/hrwg/hrw?view=azure-cli-latest)
 
+After creating new Hybrid Runbook Worker, you must install the extension on the Hybrid Worker using [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set).
 
 
 #### [PowerShell](#tab/ps)
@@ -970,6 +974,18 @@ You can use the following PowerShell cmdlets to manage Hybrid Runbook Worker and
 |[`New-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/new-azautomationhybridrunbookworker?view=azps-9.1.0) | Creates new Hybrid Runbook Worker|
 |[`Remove-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/remove-azautomationhybridrunbookworker?view=azps-9.1.0)| Removes Hybrid Runbook Worker|
 
+After creating new Hybrid Runbook Worker, you must install the extension on the Hybrid Worker.
+
+**Azure VMs**
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true/$false
+```
+**Azure Arc-enabled VMs**
+
+```powershell
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade $true/$false
+```
 ---
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
