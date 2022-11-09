@@ -289,7 +289,7 @@ If you want to migrate your data into a zone-redundant storage account located i
 
 ### Access tier
 
-Make sure your target redundancy option supports the access tiers currently used in the storage account. For example, ZRS, GZRS and RA-GZRS storage accounts do not support the archive tier. See [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details. To convert an LRS, GRS or RA-GRS account to one that supports zone-redundancy move the archived blobs to a storage account that supports blobs in the archive tier, then convert the source account to ZRS, GZRS and RA-GZRS.
+Make sure your target redundancy option supports the access tiers currently used in the storage account. For example, ZRS, GZRS and RA-GZRS storage accounts do not support the archive tier. See [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details. To convert an LRS, GRS or RA-GRS account to one that supports zone-redundancy, move the archived blobs to a storage account that supports blobs in the archive tier, then convert the source account to ZRS, GZRS and RA-GZRS.
 
 To switch an LRS storage account that contains blobs in the archive tier to GRS or RA-GRS, you must first rehydrate all archived blobs to the Hot or Cool tier or perform a [manual migration](#manual-migration).
 
