@@ -18,7 +18,7 @@ There are two types of job diagrams:
 
 * **Physical diagram**: it visualizes the key metrics of Stream Analytics job with the physical computation concept: streaming node dimension. A streaming node represents a set of compute resources that's used to process job's input data. To learn more details about the streaming node dimension, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
 
-   Inside each streaming node, there are Stream Analytics processors available for processing the stream data. A diagram is also available to visualize the processor topology in each streaming node. It's called **processor diagram** in physical job diagram.
+   Inside each streaming node, there are Stream Analytics processors available for processing the stream data. Each processor represents one or more steps in your query. You can visualize the processor topology in each streaming node by using the **processor diagram** in physical job diagram.
 
 * **Logical diagram**: it visualizes the key metrics of Stream Analytics job with the logical concept: query step based on job's queries. To learn more, see [Debugging with the logical job diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
 
@@ -84,7 +84,7 @@ The processor diagram in physical job diagram visualizes the processor topology 
     
         | Processor type | Description | 
         | --- | --- | 
-        | **Input** or **Output** | This processor is used for receiving (Input) or outputting (Output) stream data. |
+        | **Input** or **Output** | This processor is used for reading input or writing output data streams. |
         | **ReferenceData** | This processor is used for fetching the reference data. |
         | **Computing** | This processor is used for aggregating the stream data according to the query logic. |
         | **MarshallerUpstream** and **MarshallerDownstream** | When there's stream data interaction among streaming nodes, there will be two marshaller processors: 1). **MarshallerUpstream** for sending the data in the upstream streaming node and 2). **MarshallerDownstream** for receiving the data in the downstream streaming node. |
@@ -100,7 +100,7 @@ The processor diagram in physical job diagram visualizes the processor topology 
         To learn more details of the input and output types, see [Azure Stream Analytics inputs overview](./stream-analytics-define-inputs.md), and [Azure Stream Analytics outputs overview](./stream-analytics-define-outputs.md)
 
     * **Partition IDs**: it shows which partition IDs' data are being processed by this processor. It's only available in input processor and output processor.
-    * **Serializer type**: it shows the type of the serialization. Stream Analytics supports several serialization types. It's only available in input processor and output processor. Currently there are four types supported: CSV, JSON, Parquet, and Avro.
+    * **Serializer type**: it shows the type of the serialization. Stream Analytics supports several [serialization types][./stream-analytics-define-inputs.md]. It's only available in input processor and output processor.
 
 
 ## Logical job diagram
