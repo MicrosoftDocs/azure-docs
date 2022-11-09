@@ -22,7 +22,7 @@ You can access your logging information 10 minutes (at most) after the key vault
 * Use standard Azure access control methods in your storage account to secure your logs by restricting who can access them.
 * Delete logs that you no longer want to keep in your storage account.
 
-For overview information about Key Vault, see [What is Azure Key Vault?](overview.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For information about using [Azure Monitor for Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
+For overview information about Key Vault, see [What is Azure Key Vault?](overview.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For information about using [Azure Monitor for Key Vault](../key-vault-insights-overview.md).
 
 ## Interpret your Key Vault logs
 
@@ -185,7 +185,7 @@ The following table lists the **operationName** values and corresponding REST AP
 
 You can use the Key Vault solution in Azure Monitor logs to review Key Vault `AuditEvent` logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. 
 
-For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
+For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../key-vault-insights-overview.md).
 
 For understanding how to analyze logs, see [Sample kusto log queries](./monitor-key-vault.md#analyzing-logs)
 

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 05/26/2022
+ms.date: 09/22/2022
 ms.author: radeltch
 
 ---
@@ -115,6 +115,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12  
    > For more information, see [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711).
 
+   > [!IMPORTANT]
+   > We recommend the following versions of Azure Fence agent (or later) for customers wishing to use Managed Identities for Azure resources instead of service principal names for the fence agent.  
+   > RHEL 8.4: fence-agents-4.2.1-54.el8  
+   > RHEL 8.2: fence-agents-4.2.1-41.el8_2.4  
+   > RHEL 8.1: fence-agents-4.2.1-30.el8_1.4  
+   > RHEL 7.9: fence-agents-4.2.1-41.el7_9.4.
+
    Check the version of the Azure fence agent. If necessary, update it to a version equal to or later than the stated above.
 
    <pre><code># Check the version of the Azure Fence Agent
@@ -175,7 +182,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo pcs cluster start --all
    </code></pre>
 
-   If building a cluster on **RHEL 8.X**, use the following commands:  
+   If building a cluster on **RHEL 8.x**, use the following commands:  
    <pre><code>sudo pcs host auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> totem token=30000
    sudo pcs cluster start --all
@@ -220,9 +227,15 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo pcs property set concurrent-fencing=true
    </code></pre>
 
-## Create STONITH device
+## Create fencing device
 
-The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
+The fencing device uses either a managed identity for Azure resource or service principal to authorize against Microsoft Azure. 
+
+### Using Managed Identity
+To create a managed identity (MSI), [create a system-assigned](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Fence device, based on managed identity is supported on RHEL 7.9 and RHEL 8.x. 
+
+### Using Service Principal
+Follow these steps to create a service principal, if not using managed identity.
 
 1. Go to the [Azure portal](https://portal.azure.com).
 1. Open the Azure Active Directory blade  
@@ -234,12 +247,12 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
    The sign-on URL is not used and can be any valid URL
 1. Select Certificates and Secrets, then click New client secret
 1. Enter a description for a new key, select "Never expires" and click Add
-1. Make a node the Value. It is used as the **password** for the Service Principal
-1. Select Overview. Make a note the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
+1. Make a node the Value. It is used as the **password** for the service principal
+1. Select Overview. Make a note the Application ID. It is used as the username (**login ID** in the steps below) of the service principal
 
 ### **[1]** Create a custom role for the fence agent
 
-The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
+Neither managed identity nor service principal has permissions to access your Azure resources by default. You need to give the managed identity or service principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
 
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
@@ -262,14 +275,23 @@ Use the following content for the input file. You need to adapt the content to y
 }
 ```
 
-### **[A]** Assign the custom role to the Service Principal
+### **[A]** Assign the custom role
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
+#### Using Managed Identity
+
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](../../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify each VM's managed identity role assignment contains all cluster VMs.
+
+> [!IMPORTANT]
+> Be aware assignment and removal of authorization with managed identities [can be delayed](../../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
+
+#### Using Service Principal
+
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the service principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
 Make sure to assign the role for both cluster nodes.    
-      
-### **[1]** Create the STONITH devices
 
-After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
+### **[1]** Create the fencing devices
+
+After you edited the permissions for the virtual machines, you can configure the fencing devices in the cluster.
 
 <pre><code>
 sudo pcs property set stonith-timeout=900
@@ -277,19 +299,46 @@ sudo pcs property set stonith-timeout=900
 
 > [!NOTE]
 > Option 'pcmk_host_map' is ONLY required in the command, if the RHEL host names and the Azure VM names are NOT identical. Specify the mapping in the format **hostname:vm-name**.
-> Refer to the bold section in the command. For more information, see [What format should I use to specify node mappings to stonith devices in pcmk_host_map](https://access.redhat.com/solutions/2619961)
+> Refer to the bold section in the command. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map](https://access.redhat.com/solutions/2619961)
+
+
+#### [Managed Identity](#tab/msi)
 
 For RHEL **7.X**, use the following command to configure the fence device:    
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \ 
+subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
 
 For RHEL **8.X**, use the following command to configure the fence device:  
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \
+subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
+
+#### [Service Principal](#tab/spn)
+
+For RHEL **7.x**, use the following command to configure the fence device:    
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" \
+resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" \
+<b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+op monitor interval=3600
+</code></pre>
+
+For RHEL **8.x**, use the following command to configure the fence device:  
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" \
+resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" \
+<b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+op monitor interval=3600
+</code></pre>
+
+---
+
+If you are using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
 > [!TIP]
 > Only configure the `pcmk_delay_max` attribute in two node Pacemaker clusters. For more information on preventing fence races in a two node Pacemaker cluster, see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829). 
@@ -298,7 +347,7 @@ op monitor interval=3600
 > [!IMPORTANT]
 > The monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
 
-### **[1]** Enable the use of a STONITH device
+### **[1]** Enable the use of a fencing device
 
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>
@@ -307,30 +356,30 @@ op monitor interval=3600
 >Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 
-## Optional STONITH configuration  
+## Optional fencing configuration  
 
 > [!TIP]
 > This section is only applicable, if it is desired to configure special fencing device `fence_kdump`.  
 
-If there is a need to collect diagnostic information within the VM , it may be useful to configure additional STONITH device, based on fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete, before other fencing methods are invoked. Note that `fence_kdump` is not a replacement for traditional fence mechanisms, like Azure Fence Agent when using Azure VMs.   
+If there is a need to collect diagnostic information within the VM, it may be useful to configure additional fencing device, based on fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete, before other fencing methods are invoked. Note that `fence_kdump` is not a replacement for traditional fence mechanisms, like Azure Fence Agent when using Azure VMs.   
 
 > [!IMPORTANT]
-> Be aware that when `fence_kdump` is configured as a first level stonith, it will introduce delays in the fencing operations and respectively delays in the application resources failover.  
+> Be aware that when `fence_kdump` is configured as a first level fencing device, it will introduce delays in the fencing operations and respectively delays in the application resources failover.  
 > 
 > If a crash dump is successfully detected, the fencing will be delayed until the crash recovery service completes. If the failed node is unreachable or if it doesn't respond, the fencing will be delayed by time determined by the configured number of iterations and the `fence_kdump` timeout. For more details, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971).  
 > The proposed fence_kdump timeout may need to be adapted to the specific environment.
 >     
-> We recommend to configure `fence_kdump` stonith only when necessary to collect diagnostics within the VM and always in combination with traditional fence method as Azure Fence Agent.   
+> We recommend to configure `fence_kdump` fencing only when necessary to collect diagnostics within the VM and always in combination with traditional fence method as Azure Fence Agent.   
 
-The following Red Hat KBs contain important information about configuring `fence_kdump` stonith:
+The following Red Hat KBs contain important information about configuring `fence_kdump` fencing:
 
 * [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971)
-* [How to configure/manage STONITH levels in RHEL cluster with Pacemaker](https://access.redhat.com/solutions/891323)
+* [How to configure/manage fencing levels in RHEL cluster with Pacemaker](https://access.redhat.com/solutions/891323)
 * [fence_kdump fails with "timeout after X seconds" in a RHEL 6 0r 7 HA cluster with kexec-tools older than 2.0.14](https://access.redhat.com/solutions/2388711)
 * For information how to change change the default timeout see [How do I configure kdump for use with the RHEL 6,7,8 HA Add-On](https://access.redhat.com/articles/67570)
 * For information on how to reduce failover delay, when using `fence_kdump` see [Can I reduce the expected delay of failover when adding fence_kdump configuration](https://access.redhat.com/solutions/5512331)
    
-Execute the following optional steps to add `fence_kdump` as a first level STONITH configuration, in addition to the Azure Fence Agent configuration. 
+Execute the following optional steps to add `fence_kdump` as a first level fencing configuration, in addition to the Azure Fence Agent configuration. 
 
 
 1. **[A]** Verify that kdump is active and configured.  
@@ -343,19 +392,19 @@ Execute the following optional steps to add `fence_kdump` as a first level STONI
     ```
     yum install fence-agents-kdump
     ```
-3. **[1]** Create `fence_kdump` stonith device in the cluster.   
+3. **[1]** Create `fence_kdump` fencing device in the cluster.   
     <pre><code>
     pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" <b>pcmk_host_list="prod-cl1-0 prod-cl1-1</b>" timeout=30
     </code></pre>
 
-4. **[1]** Configure stonith levels, so that `fence_kdump` fencing mechanism is engaged first.  
+4. **[1]** Configure fencing levels, so that `fence_kdump` fencing mechanism is engaged first.  
     <pre><code>
     pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" <b>pcmk_host_list="prod-cl1-0 prod-cl1-1</b>"
     pcs stonith level add 1 <b>prod-cl1-0</b> rsc_st_kdump
     pcs stonith level add 1 <b>prod-cl1-1</b> rsc_st_kdump
     pcs stonith level add 2 <b>prod-cl1-0</b> rsc_st_azure
     pcs stonith level add 2 <b>prod-cl1-1</b> rsc_st_azure
-    # Check the stonith level configuration 
+    # Check the fencing level configuration 
     pcs stonith level
     # Example output
     # Target: <b>prod-cl1-0</b>

@@ -31,7 +31,7 @@ The asset management possibilities for this tool are substantial and continue to
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Free*<br>* Some features of the inventory page, such as the [software inventory](#access-a-software-inventory) require paid solutions to be in-place|
+|Pricing:|Free<br> Some features of the inventory page, such as the [software inventory](#access-a-software-inventory) require paid solutions to be in-place|
 |Required roles and permissions:|All users|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 

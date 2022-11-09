@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: contperf-fy21q4, mode-ui
-ms.date: 05/02/2022
+ms.date: 08/23/2022
 
 #Customer intent: As a developer, I want to create my first automated integration workflow that runs in Azure Logic Apps using the Azure portal.
 ---

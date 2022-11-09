@@ -175,56 +175,56 @@ using System;
 
 public class ClientFixture : IAsyncLifetime
 {
-public HttpClient httpClient;
+    public HttpClient httpClient;
 
-public async Task InitializeAsync()
-{
-    var builder = new ConfigurationBuilder().AddJsonFile("<path-to-json-file>");
+    public async Task InitializeAsync()
+    {
+        var builder = new ConfigurationBuilder().AddJsonFile("<path-to-json-file>");
 
-    IConfigurationRoot Configuration = builder.Build();
+        IConfigurationRoot Configuration = builder.Build();
 
-            var PublicClientApplicationOptions = new PublicClientApplicationOptions();
-            Configuration.Bind("Authentication", PublicClientApplicationOptions);
-            var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(PublicClientApplicationOptions)
-                .Build();
+        var PublicClientApplicationOptions = new PublicClientApplicationOptions();
+        Configuration.Bind("Authentication", PublicClientApplicationOptions);
+        var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(PublicClientApplicationOptions)
+            .Build();
 
-            SecretClientOptions options = new SecretClientOptions()
-            {
-                Retry =
+        SecretClientOptions options = new SecretClientOptions()
+        {
+            Retry =
                 {
                     Delay= TimeSpan.FromSeconds(2),
                     MaxDelay = TimeSpan.FromSeconds(16),
                     MaxRetries = 5,
                     Mode = RetryMode.Exponential
                  }
-            };
+        };
 
-            string keyVaultUri = Configuration.GetValue<string>("KeyVault:KeyVaultUri");
-            var client = new SecretClient(new Uri(keyVaultUri), new DefaultAzureCredential(), options);
+        string keyVaultUri = Configuration.GetValue<string>("KeyVault:KeyVaultUri");
+        var client = new SecretClient(new Uri(keyVaultUri), new DefaultAzureCredential(), options);
 
-            KeyVaultSecret userNameSecret = client.GetSecret("TestUserName");
-            KeyVaultSecret passwordSecret = client.GetSecret("TestPassword");
+        KeyVaultSecret userNameSecret = client.GetSecret("TestUserName");
+        KeyVaultSecret passwordSecret = client.GetSecret("TestPassword");
 
-            string password = passwordSecret.Value;
-            string username = userNameSecret.Value;
-            string[] scopes = Configuration.GetSection( "WebAPI:Scopes").Get<string[]>();
-            SecureString securePassword = new NetworkCredential("", password).SecurePassword;
+        string password = passwordSecret.Value;
+        string username = userNameSecret.Value;
+        string[] scopes = Configuration.GetSection("WebAPI:Scopes").Get<string[]>();
+        SecureString securePassword = new NetworkCredential("", password).SecurePassword;
 
-            AuthenticationResult result = null;
-            httpClient = new HttpClient();
+        AuthenticationResult result = null;
+        httpClient = new HttpClient();
 
-    try
-    {
-        result = await app.AcquireTokenByUsernamePassword(scopes, username, securePassword)
-            .ExecuteAsync();
+        try
+        {
+            result = await app.AcquireTokenByUsernamePassword(scopes, username, securePassword)
+                .ExecuteAsync();
+        }
+        catch (MsalException) { }
+
+        string accessToken = result.AccessToken;
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
     }
-    catch (MsalException) { }
 
-    string accessToken = result.AccessToken;
-    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
-}
-
-public Task DisposeAsync() => Task.CompletedTask;
+    public Task DisposeAsync() => Task.CompletedTask;
 }
 ```
 
@@ -235,21 +235,20 @@ The following example is a test that calls Microsoft Graph.  Replace this test w
 ```csharp
 public class ApiTests : IClassFixture<ClientFixture>
 {
-ClientFixture clientFixture;
+    ClientFixture clientFixture;
 
-public ApiTests(ClientFixture clientFixture)
-{
-    this.clientFixture = clientFixture;
-}
+    public ApiTests(ClientFixture clientFixture)
+    {
+        this.clientFixture = clientFixture;
+    }
 
-
-[Fact]
-public async Task GetRequestTest()
-{
-    var testClient = clientFixture.httpClient;
-    HttpResponseMessage response = await testClient.GetAsync("https://graph.microsoft.com/v1.0/me");
-    var responseCode = response.StatusCode.ToString();
-    Assert.Equal("OK", responseCode);
-}
+    [Fact]
+    public async Task GetRequestTest()
+    {
+        var testClient = clientFixture.httpClient;
+        HttpResponseMessage response = await testClient.GetAsync("https://graph.microsoft.com/v1.0/me");
+        var responseCode = response.StatusCode.ToString();
+        Assert.Equal("OK", responseCode);
+    }
 }
 ```

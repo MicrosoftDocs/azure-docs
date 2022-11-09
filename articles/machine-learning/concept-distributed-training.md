@@ -4,8 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Learn what type of distributed training Azure Machine Learning supports and the open source framework integrations available for distributed training.
 services: machine-learning
 ms.service: machine-learning
-author: blackmist
-ms.author: larryfr
+author: rtanase
+ms.author: ratanase
+ms.reviewer: sgilley
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
@@ -46,6 +47,5 @@ In model parallelism, worker nodes only need to synchronize the shared parameter
 
 ## Next steps
 
-* Learn how to [use compute targets for model training](how-to-set-up-training-targets.md) with the Python SDK.
 * For a technical example, see the [reference architecture  scenario](/azure/architecture/reference-architectures/ai/training-deep-learning).
 * Find tips for MPI, TensorFlow, and PyTorch in the [Distributed GPU training guide](how-to-train-distributed-gpu.md) 

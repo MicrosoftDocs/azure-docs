@@ -1,12 +1,13 @@
 ---
-title: 'Tutorial: Create using portal - Web Application Firewall'
+title: 'Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal'
 description: In this tutorial, you learn how to create an application gateway with a Web Application Firewall by using the Azure portal.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 05/23/2022
+ms.date: 10/28/2022
 ms.author: victorh
+ms.custom: template-tutorial, engagement-fy23
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
 ---
 
@@ -22,7 +23,7 @@ In this tutorial, you learn how to:
 > * Create a storage account and configure diagnostics
 > * Test the application gateway
 
-![Web application firewall example](../media/application-gateway-web-application-firewall-portal/scenario-waf.png)
+:::image type="content" source="../media/application-gateway-web-application-firewall-portal/scenario-waf.png" alt-text="Diagram of the Web application firewall example.":::
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -68,19 +69,19 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
-     ![Create new application gateway: virtual network](../media/application-gateway-web-application-firewall-portal/application-gateway-create-vnet.png)
+    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-vnet.png" alt-text="Screenshot of Create new application gateway: Create virtual network.":::
     
 3. On the **Basics** tab, accept the default values for the other settings and then select **Next: Frontends**.
 
 ### Frontends tab
 
-1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
+1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be **Public** or **Both** as per your use case. In this example, you'll choose a Public Frontend IP.
    > [!NOTE]
-   > For the Application Gateway v2 SKU, you can only choose **Public** frontend IP configuration. Private frontend IP configuration is currently not enabled for this v2 SKU.
+   > For the Application Gateway v2 SKU, **Public** and **Both** Frontend IP address types are supported today.  **Private** frontend IP configuration only is not currently supported.
 
 2. Choose **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
-     ![Create new application gateway: frontends](../media/application-gateway-web-application-firewall-portal/application-gateway-create-frontends.png)
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-frontends.png" alt-text="Screenshot of Create new application gateway: Frontends.":::
 
 3. Select **Next: Backends**.
 
@@ -97,7 +98,7 @@ The backend pool is used to route requests to the backend servers that serve the
 
 3. In the **Add a backend pool** window, select **Add** to save the backend pool configuration and return to the **Backends** tab.
 
-     ![Create new application gateway: backends](../media/application-gateway-web-application-firewall-portal/application-gateway-create-backends.png)
+    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backends.png" alt-text="Screenshot of Create new application gateway: Backends.":::
 
 4. On the **Backends** tab, select **Next: Configuration**.
 
@@ -117,17 +118,17 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
   
       Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
-     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-listener.png" alt-text="Screenshot showing Create new application gateway: listener." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-listener.png":::
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-listener.png" alt-text="Screenshot showing Create new application gateway: listener." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-listener-expanded.png":::
 
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
 5. For the **Backend settings**, select **Add new** to create a new Backend setting. This setting determines the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *myBackendSetting* for the **Backend settings name**. Accept the default values for the other settings in the window, then select **Add** to return to the **Add a routing rule** window. 
 
-     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backend-setting.png" alt-text="Screenshot showing Create new application gateway, Backend setting." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backend-setting.png":::
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backend-setting.png" alt-text="Screenshot showing Create new application gateway, Backend setting." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backend-setting-expanded.png":::
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
-     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends.png" alt-text="Screenshot showing Create new application gateway: routing rule." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends.png":::
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends.png" alt-text="Screenshot showing Create new application gateway: routing rule." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends-expanded.png":::
 
 7. Select **Next: Tags** and then **Next: Review + create**.
 
@@ -155,7 +156,7 @@ To do this, you'll:
 
     - **Resource group**: Select **myResourceGroupAG** for the resource group name.
     - **Virtual machine name**: Enter *myVM* for the name of the virtual machine.
-    - **Username**: Enter a name for the administrator user name.
+    - **Username**: Enter a name for the administrator username.
     - **Password**: Enter a password for the administrator password.
     - **Public inbound ports**: Select **None**.
 4. Accept the other defaults and then select **Next: Disks**.  
@@ -163,7 +164,7 @@ To do this, you'll:
 6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**.
 1. For **Public IP**, select **None**.
 1. Accept the other defaults and then select **Next: Management**.
-1. On the **Management** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
+1. Select **Next: Monitoring**, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
 1. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 1. Wait for the virtual machine creation to complete before continuing.
 
@@ -173,7 +174,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 1. Open [Azure PowerShell](../../cloud-shell/quickstart-powershell.md). To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
 
-    ![Install custom extension](../media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
+    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-extension.png" alt-text="Screenshot of accessing PowerShell from Portal Cloud shell.":::
 
 2. Set the location parameter for your environment, and then run the following command to install IIS on the virtual machine: 
 
@@ -217,13 +218,14 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 Although IIS isn't required to create the application gateway, you installed it to verify whether Azure successfully created the application gateway. Use IIS to test the application gateway:
 
-1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png) 
+1. Find the public IP address for the application gateway on its **Overview** page.
+    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png" alt-text="Screenshot of Application Gateway public IP address on the Overview page."::: 
 
    Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
 1. Copy the public IP address, and then paste it into the address bar of your browser.
 1. Check the response. A valid response verifies that the application gateway was successfully created and it can successfully connect with the backend.
 
-   ![Test application gateway](../media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
+   :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png" alt-text="Screenshot of testing the application gateway.":::
 
 ## Clean up resources
 

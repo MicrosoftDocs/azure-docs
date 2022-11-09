@@ -2,7 +2,9 @@
 title: About registries, repositories, images, and artifacts
 description: Introduction to key concepts of Azure container registries, repositories, container images, and other artifacts.
 ms.topic: article
-ms.date: 01/29/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # About registries, repositories, and artifacts
@@ -86,16 +88,16 @@ A basic manifest for a Linux `hello-world` image looks similar to the following:
   }
   ```
 
-You can list the manifests for a repository with the Azure CLI command [az acr repository show-manifests][az-acr-repository-show-manifests]:
+You can list the manifests for a repository with the Azure CLI command [az acr manifest list-metadata][az-acr-manifest-list-metadata]:
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>
+az acr manifest list-metadata --name <repositoryName> --registry <acrName>
 ```
 
 For example, list the manifests for the "acr-helloworld" repository:
 
 ```azurecli
-az acr repository show-manifests --name myregistry --repository acr-helloworld
+az acr manifest list-metadata --name acr-helloworld --registry myregistry
 ```
 
 ```output
@@ -179,4 +181,4 @@ Learn more about [registry storage](container-registry-storage.md) and [supporte
 Learn how to [push and pull images](container-registry-get-started-docker-cli.md) from Azure Container Registry.
 
 <!-- LINKS - Internal -->
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
+[az-acr-manifest-list-metadata]: /cli/azure/acr/manifest#az-acr-manifest-list-metadata

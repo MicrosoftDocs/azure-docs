@@ -41,7 +41,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Multi-homing**     |  Collection only       |   Collection only      |
 |**Application and service logs**     |    -      |    Collection only     |
 |**Sysmon**     |    Collection only      |      Collection only   |
-|**DNS logs**     |   -       | Collection only        |
+|**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors-reference.md#windows-dns-server-preview) (Public preview)        |
 
 
 ### Linux logs
@@ -57,11 +57,11 @@ The following tables show gap analyses for the log types that currently rely on 
 
 ## Recommended migration plan
 
-Each organization will have different metrics of success and internal migration processes. This section provides suggested guidance to considered when migrating from the Log Analytics MMA/OMS agent to the AMA, specifically for Microsoft Sentinel.
+Each organization will have different metrics of success and internal migration processes. This section provides suggested guidance to consider when migrating from the Log Analytics MMA/OMS agent to the AMA, specifically for Microsoft Sentinel.
 
 **Include the following steps in your migration process**:
 
-1. Make sure that you've considered your environmental requirements and understand the gaps between the different agents. For more information, see [When should I migrate](../azure-monitor/agents/azure-monitor-agent-migration.md#when-should-i-migrate-to-the-azure-monitor-agent) in the Azure Monitor documentation.
+1. Make sure that you've considered your environmental requirements and understand the gaps between the different agents. For more information, see [Migration plan considerations](../azure-monitor/agents/azure-monitor-agent-migration.md#migration-plan-considerations) in the Azure Monitor documentation.
 
 1. Run a proof of concept to test how the AMA sends data to Microsoft Sentinel, ideally in a development or sandbox environment.
 

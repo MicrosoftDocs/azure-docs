@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2021
+ms.date: 10/27/2022
 ms.author: jeedes
 ---
 
@@ -53,7 +53,11 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 4. **Q: Can I enable single sign-on for only a subset of my Google Cloud / G Suite Connector by Microsoft users?**
 
-    A: No, turning on single sign-on immediately requires all your Google Cloud / G Suite Connector by Microsoft users to authenticate with their Azure AD credentials. Because Google Cloud / G Suite Connector by Microsoft doesn't support having multiple identity providers, the identity provider for your Google Cloud / G Suite Connector by Microsoft environment can either be Azure AD or Google -- but not both at the same time.
+    A: Yes, the SSO profiles can be selected per User, Organizational Unit or Group in the Google Workspace.
+
+    ![Screenshot for SSO profile assignment.](./media/google-apps-tutorial/profile-assignment.png)
+
+    Select the SSO profile as "none" for the Google Workspace group. This prevents members of this (Google Workspace group) from being redirected to Azure AD for logon.
 
 5. **Q: If a user is signed in through Windows, are they automatically authenticate to Google Cloud / G Suite Connector by Microsoft without getting prompted for a password?**
 
@@ -87,6 +91,10 @@ To configure the integration of Google Cloud / G Suite Connector by Microsoft in
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Google Cloud / G Suite Connector by Microsoft** in the search box.
 1. Select **Google Cloud / G Suite Connector by Microsoft** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide).
 
 ## Configure and test Azure AD single sign-on for Google Cloud / G Suite Connector by Microsoft
 
@@ -158,7 +166,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Your Google Cloud / G Suite Connector by Microsoft application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Google Cloud / G Suite Connector by Microsoft expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
-	![image](common/default-attributes.png) 
+	![image](common/default-attributes.png)
+
+    > [!NOTE]
+    > Ensure that the the SAML Response doesn't include any non-standard ASCII characters in the DisplayName and Surname attributes.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

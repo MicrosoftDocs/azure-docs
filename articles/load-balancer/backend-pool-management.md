@@ -217,6 +217,7 @@ az vm create \
   * Limit of 100 IP addresses in the backend pool for IP based LBs
   * The backend resources must be in the same virtual network as the load balancer for IP based LBs
   * A load balancer with IP based Backend Pool can’t function as a Private Link service
+  * [Private endpoint resources](../private-link/private-endpoint-overview.md) can't be placed in a IP based backend pool
   * ACI containers aren't currently supported by IP based LBs
   * Load balancers or services such as Application Gateway can’t be placed in the backend pool of the load balancer
   * Inbound NAT Rules can’t be specified by IP address

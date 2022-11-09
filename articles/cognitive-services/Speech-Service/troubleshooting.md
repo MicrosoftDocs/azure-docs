@@ -20,28 +20,28 @@ This article provides information to help you solve issues you might encounter w
 
 You might have the wrong endpoint for your region or service. Check the URI to make sure it's correct.
 
-Also, there might be a problem with your subscription key or authorization token. For more information, see the next section.
+Also, there might be a problem with your Speech resource key or authorization token. For more information, see the next section.
 
 ## Error: HTTP 403 Forbidden or HTTP 401 Unauthorized
 
 This error often is caused by authentication issues. Connection requests without a valid `Ocp-Apim-Subscription-Key` or `Authorization` header are rejected with a status of 403 or 401.
 
-* If you're using a subscription key for authentication, you might see the error because:
+* If you're using a resource key for authentication, you might see the error because:
 
-    - The subscription key is missing or invalid
-    - You have exceeded your subscription's usage quota
+    - The key is missing or invalid
+    - You have exceeded your resource's usage quota
 
 * If you're using an authorization token for authentication, you might see the error because:
 
     - The authorization token is invalid
     - The authorization token is expired
 
-### Validate your subscription key
+### Validate your resource key
 
-You can verify that you have a valid subscription key by running one of the following commands.
+You can verify that you have a valid resource key by running one of the following commands.
 
 > [!NOTE]
-> Replace `YOUR_SUBSCRIPTION_KEY` and `YOUR_REGION` with your own subscription key and associated region.
+> Replace `YOUR_RESOURCE_KEY` and `YOUR_REGION` with your own resource key and associated region.
 
 * PowerShell
 
@@ -49,7 +49,7 @@ You can verify that you have a valid subscription key by running one of the foll
     $FetchTokenHeader = @{
       'Content-type'='application/x-www-form-urlencoded'
       'Content-Length'= '0'
-      'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
+      'Ocp-Apim-Subscription-Key' = 'YOUR_RESOURCE_KEY'
     }
     $OAuthToken = Invoke-RestMethod -Method POST -Uri https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken -Headers $FetchTokenHeader
     $OAuthToken
@@ -58,10 +58,10 @@ You can verify that you have a valid subscription key by running one of the foll
 * cURL
 
     ```
-    curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
+    curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_RESOURCE_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
-If you entered a valid subscription key, the command returns an authorization token, otherwise an error is returned.
+If you entered a valid resource key, the command returns an authorization token, otherwise an error is returned.
 
 ### Validate an authorization token
 
@@ -117,6 +117,16 @@ This issue usually is caused by audio data. You might see this error because:
 * There's a long stretch of silence at the beginning of the audio. In that case, the service stops the recognition after a few seconds and returns `InitialSilenceTimeout`.
 
 * The audio uses an unsupported codec format, which causes the audio data to be treated as silence.
+
+## Connection closed or timeout
+
+There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. These connections might have handshake failures. For developers, the affected connections are likely to send multiple frames followed by a partial frame with a size of less than 5 bytes within a single input buffer. If the connection fails, your app will receive the error such as, "USP error", "Connection closed", "ServiceTimeout", or "SEC_E_ILLEGAL_MESSAGE".
+
+There is an out of band update available for Windows 11 that fixes these issues. The update may be manually installed by following the instructions here:
+- [Windows 11 21H2](https://support.microsoft.com/topic/october-17-2022-kb5020387-os-build-22000-1100-out-of-band-5e723873-2769-4e3d-8882-5cb044455a92)
+- [Windows 11 22H2](https://support.microsoft.com/topic/october-25-2022-kb5018496-os-build-22621-755-preview-64040bea-1e02-4b6d-bad1-b036200c2cb3)
+
+The issue started October 12th, 2022 and should be resolved via Windows update in November, 2022.
 
 ## Next steps
 

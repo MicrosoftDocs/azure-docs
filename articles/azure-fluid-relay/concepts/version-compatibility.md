@@ -11,9 +11,6 @@ ms.service: azure-fluid
 
 # Version compatibility with Fluid Framework releases
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 To connect your application to Azure Fluid Relay service,
 you'll use the **@fluidframework/azure-client** library. You'll also use the **fluid-framework** library to use the core
 data structures and provided by the Fluid Framework.
@@ -29,26 +26,30 @@ You can use the [install-peerdeps](https://www.npmjs.com/package/install-peerdep
 npx install-peerdeps @fluidframework/azure-client
 ```
 
-> [!TIP]
-> If building with any pre-release version of of **@fluidframework/azure-client** and **fluid-framework** we strongly recommend that you update to the latest 1.0 version. Earlier versions will not be
-> supported with the General Availability of Azure Fluid Relay. With this upgrade, you’ll make use of our new multi-region routing capability where
+> [!CAUTION]
+> Now that Azure Fluid Relay is generally available, we no longer support any pre-release version of **@fluidframework/azure-client** and **fluid-framework**.
+> You must upgrade to the latest 1.0 version per the table below. With this upgrade, you’ll make use of our new multi-region routing capability where
 > Azure Fluid Relay will host your session closer to your end users to improve customer experience. In the latest package, you will need to update your
-> serviceConfig object to the new Azure Fluid Relay service endpoint instead of the storage and orderer endpoints:
-> If your Azure Fluid Relay resource is in West US 2, please use **`https://us.fluidrelay.azure.com`**. If it is West Europe, 
-> use **`https://eu.fluidrelay.azure.com`**. If it is in Southeast Asia, use **`https://global.fluidrelay.azure.com`**.
-> These values can also be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. The orderer and storage endpoints will be deprecated soon.
+> serviceConfig object to the new Azure Fluid Relay service endpoint instead of the storage and orderer endpoints. You can find the service endpoint in 
+> the "Access Key" section of the Fluid Relay resource in the Azure portal. The orderer and storage endpoints used in earlier versions are deprecated now.
 
 
 ## Compatibility table
 
 | npm package                         | Minimum version | API                                                              |
 | ----------------------------------  | :-------------- | :--------------------------------------------------------------- |
-| @fluidframework/azure-client        | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
-| fluid-framework                     | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
-| @fluidframework/azure-service-utils | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
-| @fluidframework/test-client-utils   | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
+| @fluidframework/azure-client        | [1.0.2][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
+| fluid-framework                     | [1.2.4][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
+| @fluidframework/azure-service-utils | [1.0.2][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
+| @fluidframework/test-client-utils   | [1.2.4][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
 
-[1.0.1]: https://fluidframework.com/docs/updates/v1.0.0/
+[1.0.2]: https://fluidframework.com/docs/updates/v1.0.0/
+[1.2.4]: https://fluidframework.com/docs/updates/v1.0.0/
+
+> [!NOTE]
+> Fluid packages follow npm semver versioning standards. Patch updates are only applied to the latest minor version. To stay current ensure you are on
+> the latest published minor/patch version. To learn more about semver, see [Semantic Versioning](https://docs.npmjs.com/about-semantic-versioning).
+
 
 ## Next steps
 

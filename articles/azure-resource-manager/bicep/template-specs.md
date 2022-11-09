@@ -2,12 +2,13 @@
 title: Create & deploy template specs in Bicep
 description: Describes how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 02/01/2022
+ms.custom: ignite-2022
+ms.date: 08/23/2022
 ---
 
 # Azure Resource Manager template specs in Bicep
 
-A template spec is a resource type for storing an Azure Resource Manager template (ARM template) for later deployment. This resource type enables you to share ARM templates with other users in your organization. Just like any other Azure resource, you can use Azure role-based access control (Azure RBAC) to share the template spec. You can use Azure CLI or Azure PowerShell to create template specs by providing Bicep files. The Bicep files are transpiled into ARM JSON templates before they are stored. Currently, you can't import a Bicep file from the Azure portal to create a template spec resource.
+A template spec is a resource type for storing an Azure Resource Manager template (ARM template) for later deployment. This resource type enables you to share ARM templates with other users in your organization. Just like any other Azure resource, you can use Azure role-based access control (Azure RBAC) to share the template spec. You can use Azure CLI or Azure PowerShell to create template specs by providing Bicep files. The Bicep files are transpiled into ARM JSON templates before they're stored. Currently, you can't import a Bicep file from the Azure portal to create a template spec resource.
 
 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) is the resource type for template specs. It consists of a main template and any number of linked templates. Azure securely stores template specs in resource groups. Both the main template and the linked templates must be in JSON. Template Specs support [versioning](#versioning).
 
@@ -16,7 +17,7 @@ To deploy the template spec, you use standard Azure tools like PowerShell, Azure
 > [!NOTE]
 > To use template specs in Bicep with Azure PowerShell, you must install [version 6.3.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.27.0 or later](/cli/azure/install-azure-cli).
 
-When designing your deployment, always consider the lifecycle of the resources and group the resources that share similar lifecycle into a single template spec. For instance, your deployments include multiple instances of Cosmos DB with each instance containing its own databases and containers. Given the databases and the containers don't change much, you want to create one template spec to include a Cosmo DB instance and its underlying databases and containers. You can then use conditional statements in your Bicep along with copy loops to create multiple instances of these resources.
+When designing your deployment, always consider the lifecycle of the resources and group the resources that share similar lifecycle into a single template spec. For instance, your deployments include multiple instances of Azure Cosmos DB with each instance containing its own databases and containers. Given the databases and the containers don't change much, you want to create one template spec to include a Cosmo DB instance and its underlying databases and containers. You can then use conditional statements in your Bicep along with copy loops to create multiple instances of these resources.
 
 > [!TIP]
 > The choice between module registry and template specs is mostly a matter of preference. There are a few things to consider when you choose between the two:
@@ -25,9 +26,15 @@ When designing your deployment, always consider the lifecycle of the resources a
 > - Content in the Bicep module registry can only be deployed from another Bicep file. Template specs can be deployed directly from the API, Azure PowerShell, Azure CLI, and the Azure portal. You can even use [`UiFormDefinition`](../templates/template-specs-create-portal-forms.md) to customize the portal deployment experience.
 > - Bicep has some limited capabilities for embedding other project artifacts (including non-Bicep and non-ARM-template files. For example, PowerShell scripts, CLI scripts and other binaries) by using the [`loadTextContent`](./bicep-functions-files.md#loadtextcontent) and [`loadFileAsBase64`](./bicep-functions-files.md#loadfileasbase64) functions. Template specs can't package these artifacts.
 
-### Microsoft Learn
+### Training resources
 
-To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/learn/modules/arm-template-specs) on **Microsoft Learn**.
+To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/training/modules/arm-template-specs).
+
+## Required permissions
+
+To create a template spec, you need **write** access to `Microsoft.Resources/templateSpecs` and `Microsoft.Resources/templateSpecs/versions`.
+
+To deploy a template spec, you need **read** access to `Microsoft.Resources/templateSpecs` and `Microsoft.Resources/templateSpecs/versions`. You also need **write** access to any resources deployed by the template spec, and access to `Microsoft.Resources/deployments/*`.
 
 ## Why use template specs?
 
@@ -150,7 +157,7 @@ The JSON template embedded in the Bicep file needs to make these changes:
 * To access the parameters and variables defined in the Bicep file, you can directly use the parameter names and the variable names. To access the parameters and variables defined in `mainTemplate`, you still need to use the ARM JSON template syntax.  For example, **'name': '[parameters(&#92;'storageAccountType&#92;')]'**.
 * Use the Bicep syntax to call Bicep functions.  For example, **'location': resourceGroup().location**.
 
-The size of a template spec is limited to approximated 2 MB. If a template spec size exceeds the limit, you will get the **TemplateSpecTooLarge** error code. The error message says:
+The size of a template spec is limited to approximated 2 MB. If a template spec size exceeds the limit, you'll get the **TemplateSpecTooLarge** error code. The error message says:
 
 ```error
 The size of the template spec content exceeds the maximum limit. For large template specs with many artifacts, the recommended course of action is to split it into multiple template specs and reference them modularly via TemplateLinks.
@@ -325,7 +332,7 @@ When you create a template spec, you provide a version name for it. As you itera
 
 ## Use tags
 
-[Tags](../management/tag-resources.md) help you logically organize your resources. You can add tags to template specs by using Azure PowerShell and Azure CLI:
+[Tags](../management/tag-resources.md) help you logically organize your resources. You can add tags to template specs by using Azure PowerShell and Azure CLI. The following example shows how to specify tags when creating the template spec:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -353,6 +360,8 @@ az ts create \
 
 ---
 
+The next example shows how to apply tags when updating an existing template spec:
+
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -379,17 +388,15 @@ az ts update \
 
 ---
 
-When creating or modifying a template spec with the version parameter specified, but without the tag/tags parameter:
+Both the template and its versions can have tags. The tags are applied or inherited depending on the parameters you specify.
 
-* If the template spec exists and has tags, but the version doesn't exist, the new version inherits the same tags as the existing template spec.
-
-When creating or modifying a template spec with both the tag/tags parameter and the version parameter specified:
-
-* If both the template spec and the version don't exist, the tags are added to both the new template spec and the new version.
-* If the template spec exists, but the version doesn't exist, the tags are only added to the new version.
-* If both the template spec and the version exist, the tags only apply to the version.
-
-When modifying a template with the tag/tags parameter specified but without the version parameter specified, the tags is only added to the template spec.
+| Template spec | Version | Version parameter | Tag parameter | Tag values |
+| ------------- | ------- | ----------------- | ------------- | --------------- |
+| Exists      | N/A | Not specified     | Specified     | applied to the template spec   |
+| Exists      | New | Specified       | Not specified   | inherited from the template spec to the version |
+| New         | New | Specified       | Specified       | applied to both template spec and version |
+| Exists      | New | Specified       | Specified       | applied to the version |
+| Exists      | Exists | Specified    | Specified       | applied to the version |
 
 ## Link to template specs
 
@@ -397,4 +404,4 @@ After creating a template spec, you can link to that template spec in a Bicep mo
 
 ## Next steps
 
-To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/learn/modules/arm-template-specs) on **Microsoft Learn**.
+To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/training/modules/arm-template-specs).

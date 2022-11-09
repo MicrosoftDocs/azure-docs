@@ -13,7 +13,7 @@ services: iot-edge
 
 # Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Linux on Windows device by using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 
@@ -140,7 +140,7 @@ Simulated TPM samples:
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
    ```
    
-   If you have enrolled the device using a custom **Registration Id**, you must specify that Registration Id as well when provisioning:
+   If you have enrolled the device using a custom **Registration Id**, you must specify that registration ID as well when provisioning:
    
    ```powershell
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE" -registrationId "REGISTRATION_ID_HERE"
@@ -174,7 +174,7 @@ Simulated TPM samples:
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
    ```
    
-   If you have enrolled the device using a custom **Registration Id**, you must specify that Registration Id as well when provisioning:
+   If you have enrolled the device using a custom **Registration Id**, you must specify that registration ID as well when provisioning:
    
    ```powershell
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE" -registrationId "REGISTRATION_ID_HERE"
@@ -226,6 +226,15 @@ Use the following commands on your device to verify that the IoT Edge installed 
        sudo iotedge check
        ```
 
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 # [Windows Admin Center](#tab/windowsadmincenter)
 
 1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
@@ -273,6 +282,15 @@ Use the following commands on your device to verify that the IoT Edge installed 
        ```bash
        sudo iotedge check
        ```
+
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->

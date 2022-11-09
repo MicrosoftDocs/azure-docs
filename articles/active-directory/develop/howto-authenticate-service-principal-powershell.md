@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
-ms.date: 02/22/2021
+ms.date: 10/11/2021
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ---
@@ -60,7 +60,7 @@ $sp = New-AzADServicePrincipal -DisplayName exampleapp `
   -EndDate $cert.NotAfter `
   -StartDate $cert.NotBefore
 Sleep 20
-New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.AppId
 ```
 
 The example sleeps for 20 seconds to allow some time for the new service principal to propagate throughout Azure AD. If your script doesn't wait long enough, you'll see an error stating: "Principal {ID} does not exist in the directory {DIR-ID}." To resolve this error, wait a moment then run the **New-AzRoleAssignment** command again.
@@ -90,7 +90,7 @@ Whenever you sign in as a service principal, provide the tenant ID of the direct
 
 ```powershell
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
-$ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).ApplicationId
+$ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).AppId
 
 $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -eq "CN=exampleappScriptCert" }).Thumbprint
 Connect-AzAccount -ServicePrincipal `
@@ -137,7 +137,7 @@ Param (
  {
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
-    New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
+    New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $ServicePrincipal.AppId | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
@@ -185,7 +185,7 @@ The application ID and tenant ID aren't sensitive, so you can embed them directl
 If you need to retrieve the application ID, use:
 
 ```powershell
-(Get-AzADApplication -DisplayNameStartWith {display-name}).ApplicationId
+(Get-AzADApplication -DisplayNameStartWith {display-name}).AppId
 ```
 
 ## Change credentials

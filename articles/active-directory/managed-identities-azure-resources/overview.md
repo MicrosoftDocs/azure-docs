@@ -4,7 +4,7 @@ description: An overview of the managed identities for Azure resources.
 services: active-directory
 documentationcenter:
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor:
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.devlang:
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/24/2022
+ms.date: 10/30/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 
@@ -27,7 +27,7 @@ While developers can securely store the secrets in [Azure Key Vault](../../key-v
 
 The following video shows how you can use managed identities:</br>
 
-> [!VIDEO https://docs.microsoft.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
 
 Here are some of the benefits of using managed identities:
 
@@ -42,9 +42,16 @@ Here are some of the benefits of using managed identities:
 
 There are two types of managed identities:
 
-- **System-assigned**. Some Azure services allow you to enable a managed identity directly on a service instance. When you enable a system-assigned managed identity, an identity is created in Azure AD. The identity is tied to the lifecycle of that service instance. When the resource is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource can use this identity to request tokens from Azure AD.
-- **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](how-to-manage-ua-identity-portal.md) and assign it to one or more instances of an Azure service. For user-assigned managed identities, the identity is managed separately from the resources that use it. </br></br>
+- **System-assigned**. Some Azure resources, such as virtual machines allow you to enable a managed identity directly on the resource. When you enable a system-assigned managed identity: 
+    - A service principal of a special type is created in Azure AD for the identity. The service principal is tied to the lifecycle of that Azure resource. When the Azure resource is deleted, Azure automatically deletes the service principal for you. 
+    - By design, only that Azure resource can use this identity to request tokens from Azure AD.
+    - You authorize the managed identity to have access to one or more services.
 
+- **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](how-to-manage-ua-identity-portal.md) and assign it to one or more Azure Resources. When you enable a user-assigned managed identity:      
+    - A service principal of a special type is created in Azure AD for the identity. The service principal is managed separately from the resources that use it. 
+    - User-assigned identities can be used by multiple resources.
+    - You authorize the managed identity to have access to one or more services.
+     
 
 The following table shows the differences between the two types of managed identities:
 
@@ -55,17 +62,12 @@ The following table shows the differences between the two types of managed ident
 | Sharing across Azure resources | Can’t be shared. <br/> It can only be associated with a single Azure resource. | Can be shared. <br/> The same user-assigned managed identity can be associated with more than one Azure resource. |
 | Common use cases | Workloads that are contained within a single Azure resource. <br/> Workloads for which you need independent identities. <br/> For example, an application that runs on a single virtual machine. | Workloads that run on multiple resources and can share a single identity. <br/> Workloads that need pre-authorization to a secure resource, as part of a provisioning flow. <br/> Workloads where resources are recycled frequently, but permissions should stay consistent. <br/> For example, a workload where multiple virtual machines need to access the same resource. |
 
-> [!IMPORTANT]
-> Regardless of the type of identity chosen, a managed identity is a service principal of a special type that can only be used with Azure resources. When the managed identity is deleted, the corresponding service principal is automatically removed.
-
-<br/>
-
 ## How can I use managed identities for Azure resources?
 
 You can use managed identities by following the steps below: 
 
 1. Create a managed identity in Azure. You can choose between system-assigned managed identity or user-assigned managed identity. 
-2. When working with a user-assigned managed identity, assign the managed identity to the "source" Azure Resource, such as an Azure Logic App or an Azure Web App.
+    1. When using a user-assigned managed identity, you assign the managed identity to the "source" Azure Resource, such as a Virtual Machine, Azure Logic App or an Azure Web App.
 3. Authorize the managed identity to have access to the "target" service.
 4. Use the managed identity to access a resource. In this step, you can use the Azure SDK with the Azure.Identity library. Some "source" resources offer connectors that know how to use Managed identities for the connections. In that case, you use the identity as a feature of that "source" resource.
 
@@ -101,3 +103,4 @@ Operations on managed identities can be performed by using an Azure Resource Man
 * [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
 * [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing)
+* Use [workload identity federation for managed identities](../develop/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets

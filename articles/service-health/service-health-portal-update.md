@@ -1,17 +1,19 @@
 ---
 title: Azure Service Health portal update
-description: We're' updating the Azure Service Health portal experience to let users engage with service events and manage actions to maintain the business continuity of impacted applications.
+description: We're updating the Azure Service Health portal experience to let users engage with service events and manage actions to maintain the business continuity of impacted applications.
 ms.topic: overview
 ms.date: 06/10/2022
 ---
 
 # Azure Service Health portal update
 
-We're' updating the Azure Service Health portal experience. The new experience lets users engage with service events and manage actions to maintain the business continuity of impacted applications.
+We're updating the Azure Service Health portal experience. The new experience lets users engage with service events and manage actions to maintain the business continuity of impacted applications.
+
+We are rolling out the new experience in phases. Some users will see the updated experience below. Others will still see the [classic Service Health portal experience](service-health-overview.md). 
 
 ## Highlights of the new experience
 
--   **Tenant level view** - Users who are Tenant Admins can now see Service Issues that happen at a Tenant level. Service Issues blade and Health History blades are updated to show incidents both at Tenant and Subscription levels. Users can filter on the scope (Tenant or Subscription) within the blades. The scope column indicates when an event is at the Tenant or Subscriber level. Classic view does not support tenant-level events. Tenant-level events are only available in the new user interface.
+-   **Tenant level view** - Users who are Tenant Admins can now see Service Issues that happen at a Tenant level. Service Issues blade and Health History blades are updated to show incidents both at Tenant and Subscription levels. Users can filter on the scope (Tenant or Subscription) within the blades. The scope column indicates when an event is at the Tenant or Subscription level. Classic view does not support tenant-level events. Tenant-level events are only available in the new user interface.
 -   **Enhanced Map** - The Service Issues blade shows an enhanced version of the map with all the user services across the world. This version helps you find services that might be impacted by an outage easily.
 -   **Issues Details** - The issues details look and feel has been updated, for better readability.
 -   **Removal of personalized dashboard** - Users can no longer pin a personalized map to the dashboard. This feature has been deprecated in the new experience.

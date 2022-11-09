@@ -4,8 +4,9 @@ description: Overview of the Azure Monitor data platform and collection of obser
 author: bwren
 ms.topic: conceptual
 ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 04/05/2022
+ms.date: 07/28/2022
 ms.reviewer: bwren
 ---
 
@@ -15,7 +16,7 @@ Today's complex computing environments run distributed applications that rely on
 
 [Azure Monitor](overview.md) collects and aggregates data from various sources into a common data platform where it can be used for analysis, visualization, and alerting. It provides a consistent experience on top of data from multiple sources. You can gain deep insights across all your monitored resources and even with data from other services that store their data in Azure Monitor.
 
-![Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data.](media/overview/azure-monitor-overview-optm.svg)
+![Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data.](media/overview/azure-monitor-overview-2022_10_15-add-prometheus-opt.svg)
 
 ## Observability data in Azure Monitor
 Metrics, logs, and distributed traces are commonly referred to as the three pillars of observability. A monitoring tool must collect and analyze these three different kinds of data to provide sufficient observability of a monitored system. Observability can be achieved by correlating data from multiple pillars and aggregating data across the entire set of resources being monitored. Because Azure Monitor stores data from multiple sources together, the data can be correlated and analyzed by using a common set of tools. It also correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services.
@@ -56,6 +57,17 @@ Traces are series of related events that follow a user request through a distrib
 Distributed tracing in Azure Monitor is enabled with the [Application Insights SDK](app/distributed-tracing.md). Trace data is stored with other application log data collected by Application Insights. This way it's available to the same analysis tools as other log data including log queries, dashboards, and alerts.
 
 Read more about distributed tracing at [What is distributed tracing?](app/distributed-tracing.md).
+
+### Changes
+
+[Changes](./change/change-analysis-visualizations.md) are a series of events that occur in your Azure application, from the infrastructure layer through application deployment. Changes are traced on a subscription-level using [the Change Analysis tool](./change/change-analysis.md). The Change Analysis tool increases observability by building on the power of [Azure Resource Graph](../governance/resource-graph/overview.md) to provide detailed insights into your application changes. 
+
+Once [Change Analysis is enabled](./change/change-analysis-enable.md), the `Microsoft.ChangeAnalysis` resource provider is registered with an Azure Resource Manager subscription to make the resource properties and configuration change data available. Change Analysis provides data for various management and troubleshooting scenarios to help users understand what changes might have caused the issues:
+- Troubleshoot your application via the [Diagnose & solve problems tool](./change/change-analysis-enable.md).
+- Perform general management and monitoring via the [Change Analysis standalone UI](./change/change-analysis-visualizations.md#the-change-analysis-standalone-ui) and [the activity log](./change/change-analysis-visualizations.md#activity-log-change-history).
+- [Learn more about how to view data results for other scenarios](./change/change-analysis-visualizations.md).
+
+Read more about Change Analysis, including data sources in [Use Change Analysis in Azure Monitor](./change/change-analysis.md).
 
 ## Compare Azure Monitor metrics and logs
 

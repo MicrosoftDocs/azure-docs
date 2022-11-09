@@ -12,9 +12,6 @@ fluid.url: https://fluidframework.com/docs/data-structures/overview/
 
 # Distributed data structures
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 The Fluid Framework provides developers with distributed data structures (DDSes) that automatically ensure that each connected client has access to the same state. The APIs provided by DDSes are designed to be familiar to programmers who've used common data structures before.
 
 > [!NOTE]
@@ -73,7 +70,7 @@ These DDSes are used for storing sequential data. They are optimistic. Sequence 
 
 ### Common issues and best practices for sequence DDSes
 
-- Store only immutable data as an item in a sequence. The only way to change the value of an item is to first remove it from the sequence and then insert a new value at the position where the old value was. But because other clients can insert and remove, there's no reliable way of getting the new value into the the desired position.
+- Store only immutable data as an item in a sequence. The only way to change the value of an item is to first remove it from the sequence and then insert a new value at the position where the old value was. But because other clients can insert and remove, there's no reliable way of getting the new value into the desired position.
 
 ## Strings
 

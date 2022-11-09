@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/15/2022
+ms.date: 08/22/2022
 ---
 
 # Configure pricing and availability for a virtual machine offer
@@ -83,13 +83,13 @@ Private offers aren't supported with Azure subscriptions established through a r
 
 ## Hide plan
 
-If your virtual machine is meant to be used only indirectly when it's referenced through another solution template or managed application, select this check box to publish the virtual machine but hide it from customers who might be searching or browsing for it directly.
+A hidden plan is not visible on Azure Marketplace and can only be deployed through another Solution Template, Managed Application, Azure CLI or Azure PowerShell. Hiding a plan is useful when trying to limit exposure to customers that would normally be searching or browsing for it directly via Azure Marketplace. By selecting this checkbox all virtual machine images associated to your plan will be hidden from Azure Marketplace storefront.
 
-Any Azure customer can deploy the offer using either PowerShell or CLI. If you wish to make this offer available to a limited set of customers, then set the plan to **Private**.
+> [!NOTE]
+> A hidden plan is different from a private plan. When a plan is publicly available but hidden, it is still available for any Azure customer to deploy via Solution Template, Managed Application, Azure CLI or Azure PowerShell. However, a plan can be both hidden and private in which case only the customers configured in the private audience can deploy via these methods. If you wish to make the plan available to a limited set of customers, then set the plan to **Private**.
 
-Hidden plans don't generate preview links. However, you can test them by [following these steps](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-).
-
-Select **Save draft** before continuing to the next tab in the left-nav Plan menu, **Technical configuration**.
+> [!IMPORTANT]
+> Hidden plans don't generate preview links. However, you can test them by [following these steps](./azure-vm-faq.yml).
 
 ## Next steps
 

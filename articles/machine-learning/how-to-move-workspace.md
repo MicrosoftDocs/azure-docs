@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 08/04/2022
 ---
 
 # Move Azure Machine Learning workspaces between subscriptions (preview)
@@ -25,8 +25,9 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 
 | Workspace contents | Moved with workspace |
 | ----- |:-----:|
-| Datasets | Yes |
-| Experiment runs | Yes |
+| Datastores | Yes |
+| Datasets | No |
+| Experiment jobs | Yes |
 | Environments | Yes |
 | Models and other assets stored in the workspace | Yes |
 | Compute resources | No |
@@ -55,7 +56,7 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 
     | Resource provider | Why it's needed |
     | ----- | ----- |
-    | __Microsoft.DocumentDB/databaseAccounts__ | Azure CosmosDB instance that logs metadata for the workspace. |
+    | __Microsoft.DocumentDB/databaseAccounts__ | Azure Cosmos DB instance that logs metadata for the workspace. |
     | __Microsoft.Search/searchServices__ | Azure Search provides indexing capabilities for the workspace. |
 
     For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).
@@ -69,9 +70,10 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 
 * Workspace move is not meant for replicating workspaces, or moving individual assets such as models or datasets from one workspace to another.
 * Workspace move doesn't support migration across Azure regions or Azure Active Directory tenants.
-* The workspace mustn't be in use during the move operation. Verify that all experiment runs, data profiling runs, and labeling projects have completed. Also verify that inference endpoints aren't being invoked.
+* The workspace mustn't be in use during the move operation. Verify that all experiment jobs, data profiling jobs, and labeling projects have completed. Also verify that inference endpoints aren't being invoked.
 * The workspace will become unavailable during the move.
 * Before to the move, you must delete or detach computes and inference endpoints from the workspace.
+* Datastores may still show the old subscription information after the move.
 
 ## Prepare and validate the move
 
@@ -81,7 +83,7 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
     az account set -s origin-sub-id
     ```
 
-2. Verify that the origin workspace isn't being used. Check that any experiment runs, data profiling runs, or labeling projects have completed. Also verify that inferencing endpoints aren't being invoked. 
+2. Verify that the origin workspace isn't being used. Check that any experiment jobs, data profiling jobs, or labeling projects have completed. Also verify that inferencing endpoints aren't being invoked. 
 
 3. Delete or detach any computes from the workspace, and delete any inferencing endpoints. Moving computes and endpoints isn't supported. Also note that the workspace will become unavailable during the move.
 

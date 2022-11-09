@@ -47,7 +47,9 @@ The installation and configuration procedures are performed in four main stages:
 
 1. Install an on-premises management console secondary appliance. For more information, see [About the Defender for IoT Installation](how-to-install-software.md).
 
-1. Pair the primary and secondary on-premises management console appliances as described [here](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console). The primary on-premises management console must manage at least two sensors in order to carry out the setup.
+1. Pair the primary and secondary on-premises management console appliances. The primary on-premises management console must manage at least two sensors in order to carry out the setup. 
+
+    For more information, see [Create the primary and secondary pair](#create-the-primary-and-secondary-pair).
 
 ## High availability requirements
 
@@ -184,7 +186,7 @@ Perform the update in the following order. Make sure each step is complete befor
 
     1. Find the domain associated with the primary appliance and copy it to your clipboard.
 
-    1. Remove the primary <!--original text said secondary, I think it's a mistake--> domain from the list of trusted hosts. Run:
+    1. Remove the primary domain from the list of trusted hosts. Run:
     
         ```bash
         sudo cyberx-management-trusted-hosts-remove -d [Primary domain]

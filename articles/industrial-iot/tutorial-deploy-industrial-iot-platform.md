@@ -4,6 +4,7 @@ description: In this tutorial, you learn how to deploy the IIoT Platform.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
+ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 3/22/2021
 ---
@@ -32,7 +33,7 @@ The Azure Industrial IoT Platform is a Microsoft suite of modules (OPC Publisher
 The deployment script allows to select which set of components to deploy.
 - Minimum dependencies:
     - [IoT Hub](https://azure.microsoft.com/services/iot-hub/) to communicate with the edge and ingress raw OPC UA telemetry data
-    - [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) to persist state that is not persisted in IoT Hub
+    - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) to persist state that is not persisted in IoT Hub
     - [Service Bus](https://azure.microsoft.com/services/service-bus/) as integration event bus
     - [Event Hubs](https://azure.microsoft.com/services/event-hubs/) contains processed and contextualized OPC UA telemetry data
     - [Key Vault](https://azure.microsoft.com/services/key-vault/) to manage secrets and certificates

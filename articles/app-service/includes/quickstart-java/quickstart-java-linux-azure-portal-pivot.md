@@ -69,7 +69,7 @@ To complete this quickstart you need:
 
 # [JBoss EAP](#tab/jbosseap)
 
-1. In your browser, navigate to the repository containing [the sample code](https://github.com/agoncal/agoncall-application-petstore-ee7).
+1. In your browser, navigate to the repository containing [the sample code](https://github.com/agoncal/agoncal-application-petstore-ee7).
 
 1. In the upper right corner, select **Fork**.
 
@@ -228,9 +228,9 @@ You will see the placeholder page with the message "Hey, Java developers!". The 
 
     ```java
     @RequestMapping("/")
-	String sayHello() {
-		return "Hello Azure!";
-	}
+    String sayHello() {
+        return "Hello Azure!";
+    }
     ```
 
 1. From the **Source Control** pane, select the **Stage Changes** button to stage the change.
@@ -267,9 +267,9 @@ You will see the placeholder page with the message "Hey, Java developers!". The 
 
     ```java
     @RequestMapping("/")
-	String sayHello() {
-		return "Hello Azure!";
-	}
+    String sayHello() {
+        return "Hello Azure!";
+    }
     ```
 
 1. From the **Source Control** pane, select the **Stage Changes** button to stage the change.

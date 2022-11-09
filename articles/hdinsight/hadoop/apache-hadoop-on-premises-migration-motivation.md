@@ -1,9 +1,8 @@
 ---
 title: 'Benefits: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn the motivation and benefits for migrating on-premises Hadoop clusters to Azure HDInsight.
-ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/28/2022
 ---
@@ -162,7 +161,7 @@ This section provides template questionnaires to help gather important informati
 | Preferred Region|US East||
 |VNet preferred?|Yes||
 |HA / DR Needed?|Yes||
-|Integration with other cloud services?|ADF, CosmosDB||
+|Integration with other cloud services?|ADF, Azure Cosmos DB||
 |**Topic**:   **Data Movement**  |||
 |Initial load preference|DistCp, Data box, ADF, WANDisco||
 |Data transfer delta|DistCp, AzCopy||

@@ -6,6 +6,7 @@ ms.date: 06/01/2022
 author: alexwolfmsft
 ms.author: alexwolf
 ms.devlang: csharp
+ms.service: app-service
 ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli, devdivchpfy22"
 ---
 
@@ -104,7 +105,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 First, create an Azure SQL Server to host the database. A new Azure SQL Server is created by using the [az sql server create ](/cli/azure/sql/server#az-sql-server-create) command.
 
-Replace the *server-name* placeholder with a unique SQL Database name. The SQL Database name is used as part of the globally unique SQL Database endpoint. Also, replace *db-username* and *db-username* with a username and password of your choice.
+Replace the *server-name* placeholder with a unique SQL Database name. The SQL Database name is used as part of the globally unique SQL Database endpoint. Also, replace *db-username* and *db-password* with a username and password of your choice.
 
 ```azurecli-interactive
 az sql server create \
@@ -259,7 +260,7 @@ Azure App Service provides a web-based diagnostics console named Kudu. Kudu lets
 
 To use Kudu, go to one of the following URLs. You'll need to sign into the Kudu site with your Azure credentials.
 
-* For apps deployed in Free, Shared, Basic, Standard, and Premium App Service plans - `https:/<app-name>.scm.azurewebsites.net`
+* For apps deployed in Free, Shared, Basic, Standard, and Premium App Service plans - `https://<app-name>.scm.azurewebsites.net`
 * For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
 From the main page in Kudu, you can find information about the application-hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
 

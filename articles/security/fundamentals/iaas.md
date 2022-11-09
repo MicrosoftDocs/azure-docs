@@ -8,8 +8,7 @@ manager: rkarlin
 editor: TomSh
 
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: azure-migrate
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -28,7 +27,7 @@ In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (V
 The first step in protecting your VMs is to ensure that only authorized users can set up new VMs and access VMs.
 
 > [!NOTE]
-> To improve the security of Linux VMs on Azure, you can integrate with Azure AD authentication. When you use [Azure AD authentication for Linux VMs](../../virtual-machines/linux/login-using-aad.md), you centrally control and enforce policies that allow or deny access to the VMs.
+> To improve the security of Linux VMs on Azure, you can integrate with Azure AD authentication. When you use [Azure AD authentication for Linux VMs](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux), you centrally control and enforce policies that allow or deny access to the VMs.
 >
 >
 
@@ -142,7 +141,7 @@ Organizations that don't monitor VM performance can’t determine whether certai
 ## Encrypt your virtual hard disk files
 We recommend that you encrypt your virtual hard disks (VHDs) to help protect your boot volume and data volumes at rest in storage, along with your encryption keys and secrets.
 
-[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) helps you encrypt your Windows and Linux IaaS virtual machine disks. Azure Disk Encryption uses the industry-standard [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in Azure Storage.
+[Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md) helps you encrypt your Linux and Windows IaaS virtual machine disks. Azure Disk Encryption uses the industry-standard [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux and the [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) feature of Windows to provide volume encryption for the OS and the data disks. The solution is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in Azure Storage.
 
 Following are best practices for using Azure Disk Encryption:
 

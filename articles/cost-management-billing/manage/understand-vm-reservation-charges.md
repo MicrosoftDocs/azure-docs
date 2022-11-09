@@ -5,8 +5,9 @@ author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/03/2022
 ms.author: banders
 ---
 
@@ -32,11 +33,13 @@ The following table illustrates the costs for your virtual machine after you pur
 
 A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 
-When you shut down a resource or scale the number of VMs, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
+When you deallocate, delete, or scale the number of VMs, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
+
+Stopped VMs are billed and continue to use reservation hours. Deallocate or delete VM resources or scale-in other VMs to use your available reservation hours with other workloads.
 
 ## Reservation discount for non-Windows VMs
 
- The Azure reservation discount is applied to running VM instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running VMs to apply the reservation discount. For VMs that may not run the full hour, the reservation will be filled from other VMs not using a reservation, including concurrently running VMs. At the end of the hour, the reservation application for VMs in the hour is locked. In the event a VM does not run for an hour or concurrent VMs within the hour do not fill the hour of the reservation, the reservation is underutilized for that hour. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
+ The Azure reservation discount is applied to running VM instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running VMs to apply the reservation discount. For VMs that may not run the full hour, the reservation will be filled from other VMs not using a reservation, including concurrently running VMs. At the end of the hour, the reservation application for VMs in the hour is locked. In the event a VM doesn't run for an hour or concurrent VMs within the hour don't fill the hour of the reservation, the reservation is underutilized for that hour. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
 
 ![Screenshot of one applied reservation and two matching VM instances](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
 
@@ -61,7 +64,7 @@ Here's an example. Assume you bought a reservation for five Standard_D1 VMs, the
 
 The reservation discount application ignores the meter used for VMs and only evaluates ServiceType. Look at the `ServiceType` value in `AdditionalInfo` to determine the instance flexibility group/series information for your VMs. The values are in your usage CSV file.
 
-You can't directly change the instance flexibility group/series of the reservation after purchase. However, you can *exchange* a VM reservation from one instance flexibility group/series to another.
+You can't directly change the instance flexibility group/series of the reservation after purchase. However, you can *exchange* a VM reservation from one instance flexibility group/series to another. For more information about reservation exchanges, see [Exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 
 ## Services that get VM reservation discounts
 

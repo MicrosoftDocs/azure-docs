@@ -94,7 +94,7 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFe
 
 ```json
 "HomeRealmDiscoveryPolicy": {
-"AccelerateToFederatedDomain": true
+    "AccelerateToFederatedDomain": true
 }
 ```
 ::: zone-end
@@ -112,8 +112,10 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFe
 
 ```json
 "HomeRealmDiscoveryPolicy": {
-"AccelerateToFederatedDomain": true
-"PreferredDomain": ["federated.example.edu"]
+    "AccelerateToFederatedDomain": true,
+    "PreferredDomain": [
+      "federated.example.edu"
+    ]
 }
 ```
 ::: zone-end
@@ -126,7 +128,7 @@ The following policy enables username/password authentication for federated user
 ```json
 
 "EnableDirectAuthPolicy": {
-"AllowCloudPasswordValidation": true
+    "AllowCloudPasswordValidation": true
 }
 
 ```
@@ -222,9 +224,9 @@ Set the HRD policy using Microsoft Graph. See [homeRealmDiscoveryPolicy](/graph/
 
 From the Microsoft Graph explorer window:
 
-1. Grant the Policy.ReadWrite.ApplicationConfiguration permission under the **Modify permissions** tab.
+1. Grant consent to the *Policy.ReadWrite.ApplicationConfiguration* permission.
 1. Use the URL https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies
-1. POST the new policy to this URL, or PATCH to /policies/homerealmdiscoveryPolicies/{policyID} if overwriting an existing one.
+1. POST the new policy to this URL, or PATCH to https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies/{policyID} if overwriting an existing one.
 1. POST or PATCH contents:
 
     ```json
@@ -242,12 +244,12 @@ From the Microsoft Graph explorer window:
 1. To see your new policy and get its ObjectID, run the following query:  
 
     ```http
-    GET policies/homeRealmDiscoveryPolicies
+    GET https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies
     ```	
 1. To  delete the HRD policy you created, run the query:
 
     ```http
-    DELETE /policies/homeRealmDiscoveryPolicies/{policy objectID}
+    DELETE https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies/{policy objectID}
     ```	
 ::: zone-end
 

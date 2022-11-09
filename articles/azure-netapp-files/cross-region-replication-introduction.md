@@ -12,13 +12,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 09/28/2022
 ms.author: anfdocs
 ms.custom: references_regions
 ---
 # Cross-region replication of Azure NetApp Files volumes
 
-The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
+The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
@@ -37,6 +37,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | Germany | Germany West Central | Germany North |
 | India | Central India |South India |
 | Japan | Japan East | Japan West |
+| Korea | Korea Central | Korea South |
 | North America | East US | West US |
 | North America | East US 2 | Central US |
 | North America | North Central US | South Central US|
@@ -65,6 +66,9 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | North America | South Central US | Central US |
 | North America | West US 2 | East US |
 | US Government | US Gov Arizona | US Gov Virginia |
+
+>[!NOTE]
+>There may be a discrepancy in the size and number of snapshots between source and destination. This discrepancy is expected. Snapshot policies and replication schedules will influence the number of snapshots. Snapshot policies and replication schedules, combined with the amount of data changed between snapshots, will influence the size of snapshots. To learn more about snapshots, refer to [How Azure NetApp Files snapshots work](snapshots-introduction.md).
 
 ## Service-level objectives
 

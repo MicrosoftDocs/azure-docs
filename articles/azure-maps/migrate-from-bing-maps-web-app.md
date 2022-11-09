@@ -28,9 +28,9 @@ Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure
 
 If migrating an existing web application, check to see if it is using an open-source map control library such as Cesium, Leaflet, and OpenLayers. If it is and you would prefer to continue to use that library, you can connect it to the Azure Maps tile services ([road tiles](/rest/api/maps/render/getmaptile) \| [satellite tiles](/rest/api/maps/render/getmapimagerytile)). The links below provide details on how to use Azure Maps in some commonly used open-source map control libraries.
 
-* [Cesium](https://www.cesium.com/) - A 3D map control for the web. [Code samples](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Plugin repo]()
-* [Leaflet](https://leafletjs.com/) – Lightweight 2D map control for the web. [Code samples](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| [Plugin repo]()
-* [OpenLayers](https://openlayers.org/) - A 2D map control for the web that supports projections. [Code samples](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| [Plugin repo]()
+* [Cesium](https://www.cesium.com/) - A 3D map control for the web. [Code samples](https://samples.azuremaps.com/?search=Cesium) \| [Plugin repo]()
+* [Leaflet](https://leafletjs.com/) – Lightweight 2D map control for the web. [Code samples](https://samples.azuremaps.com/?search=leaflet) \| [Plugin repo]()
+* [OpenLayers](https://openlayers.org/) - A 2D map control for the web that supports projections. [Code samples](https://samples.azuremaps.com/?search=openlayers) \| [Plugin repo]()
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
@@ -58,7 +58,7 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 | Heat maps                | ✓                                                                                      |
 | Tile Layers              | ✓                                                                                      |
 | KML Layer                | ✓                                                                                      |
-| Contour layer            | [Samples](https://azuremapscodesamples.azurewebsites.net/?search=contour)              |
+| Contour layer            | [Samples](https://samples.azuremaps.com/?search=contour)              |
 | Data binning layer       | Included in the open-source Azure Maps [Gridded Data Source module](https://github.com/Azure-Samples/azure-maps-gridded-data-source)       |
 | Animated tile layer      | Included in the open-source Azure Maps [Animation module](https://github.com/Azure-Samples/azure-maps-animations) |
 | Drawing tools            | ✓                                                                                      |
@@ -80,8 +80,8 @@ Azure Maps also has many additional [open-source modules for the web SDK](open-s
 
 The following are some of the key differences between the Bing Maps and Azure Maps Web SDKs to be aware of:
 
-* In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an NPM package is also available for embedding the Web SDK into apps if preferred. For more information, see this [documentation](./how-to-use-map-control.md) for more information. This package also includes TypeScript definitions.
-* Bing Maps provides two hosted branches of their SDK; Release and Experimental. The Experimental branch may receive multiple updates a day when new development is taking place. Azure Maps only hosts a release branch, however experimental features are created as custom modules in the open-source Azure Maps code samples project. Bing Maps used to have a frozen branch as well that was updated less frequently, thus reducing the risk of breaking changes due to a release. In Azure Maps there you can use the NPM module and point to any previous minor version release.
+* In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an npm package is also available for embedding the Web SDK into apps if preferred. For more information, see this [documentation](./how-to-use-map-control.md) for more information. This package also includes TypeScript definitions.
+* Bing Maps provides two hosted branches of their SDK; Release and Experimental. The Experimental branch may receive multiple updates a day when new development is taking place. Azure Maps only hosts a release branch, however experimental features are created as custom modules in the open-source Azure Maps code samples project. Bing Maps used to have a frozen branch as well that was updated less frequently, thus reducing the risk of breaking changes due to a release. In Azure Maps there you can use the npm module and point to any previous minor version release.
 
 > [!TIP]
 > Azure Maps publishes both minified and unminified versions of the SDK. Simple remove `.min` from the file names. The unminified version is useful when debugging issues but be sure to use the minified version in production to take advantage of the smaller file size.
@@ -796,9 +796,9 @@ map.events.add('click', marker, function () {
 **Additional resources**
 
 * [Add a popup](./map-add-popup.md)
-* [Popup with Media Content](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popup%20with%20Media%20Content)
-* [Popups on Shapes](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popups%20on%20Shapes)
-* [Reusing Popup with Multiple Pins](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Reusing%20Popup%20with%20Multiple%20Pins)
+* [Popup with Media Content](https://samples.azuremaps.com/?sample=popup-with-media-content)
+* [Popups on Shapes](https://samples.azuremaps.com/?sample=popups-on-shapes)
+* [Reusing Popup with Multiple Pins](https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins)
 * [Popup class](/javascript/api/azure-maps-control/atlas.popup)
 * [Popup options](/javascript/api/azure-maps-control/atlas.popupoptions)
 
@@ -1242,8 +1242,8 @@ If you click on one of the traffic icons in Azure Maps, additional information i
 **Additional resources**
 
 * [Show traffic on the map](./map-show-traffic.md)
-* [Traffic overlay options](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Traffic%20Overlay%20Options)
-* [Traffic control](https://azuremapscodesamples.azurewebsites.net/?sample=Traffic%20controls)
+* [Traffic overlay options](https://samples.azuremaps.com/?sample=traffic-overlay-options)
+* [Traffic control](https://samples.azuremaps.com/?sample=traffic-controls)
 
 ### Add a ground overlay
 
@@ -1629,7 +1629,7 @@ In Azure Maps the drawing tools module needs to be loaded by loading the JavaScr
 **Additional resources**
 
 * [Documentation](./set-drawing-options.md)
-* [Code samples](https://azuremapscodesamples.azurewebsites.net/#Drawing-Tools-Module)
+* [Code samples](https://samples.azuremaps.com/#drawing-tools-module)
 
 ## Additional resources
 
@@ -1640,10 +1640,10 @@ Review code samples related migrating other Bing Maps features:
 **Data visualizations**
 
 > [!div class="nextstepaction"]
-> [Contour layer](https://azuremapscodesamples.azurewebsites.net/?search=contour)
+> [Contour layer](https://samples.azuremaps.com/?search=contour)
 
 > [!div class="nextstepaction"]
-> [Data Binning](https://azuremapscodesamples.azurewebsites.net/?search=data%20binning)
+> [Data Binning](https://samples.azuremaps.com/?search=Data%20Binning)
 
 **Services**
 
@@ -1660,7 +1660,7 @@ Review code samples related migrating other Bing Maps features:
 > [Show directions from A to B](./map-route.md)
 
 > [!div class="nextstepaction"]
-> [Search Autosuggest with JQuery UI](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Search%20Autosuggest%20and%20JQuery%20UI)
+> [Search Autosuggest with JQuery UI](https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui)
 
 Learn more about the Azure Maps Web SDK.
 

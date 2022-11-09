@@ -67,7 +67,7 @@ To learn more and how to configure incremental refresh, see [Power BI Datasets a
 
 After your data is sent to Power BI, you can continue to use Power BI to create reports and dashboards.
 
-For more information, see [this guide on how to create your first Power BI model and report](/learn/modules/build-your-first-power-bi-report/).  
+For more information, see [this guide on how to create your first Power BI model and report](/training/modules/build-your-first-power-bi-report/).  
 
 ## Excel integration
 

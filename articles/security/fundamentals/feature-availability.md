@@ -4,6 +4,7 @@ description: This article describes security feature availability in Azure and A
 author: TerryLanfear
 ms.author: terrylan
 ms.service: security
+ms.custom: ignite-2022
 ms.topic: reference
 ms.date: 12/30/2021
 ---
@@ -144,10 +145,10 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Recommendation exemption rules](../../defender-for-cloud/exempt-resource.md)                                                                                                      | Public Preview | Not Available                  |
 | <li> [Alert suppression rules](../../defender-for-cloud/alerts-suppression-rules.md)                                                                                                    | GA             | GA                             |
 | <li> [Email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md)                                                            | GA             | GA                             |
-| <li> [Auto provisioning for agents and extensions](../../defender-for-cloud/enable-data-collection.md)                                                                  | GA             | GA                             |
+| <li> [Auto provisioning for agents and extensions](../../defender-for-cloud/monitoring-components.md)                                                                  | GA             | GA                             |
 | <li> [Asset inventory](../../defender-for-cloud/asset-inventory.md)                                                                                                                     | GA             | GA                             |
 | <li> [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](../../defender-for-cloud/custom-dashboards-azure-workbooks.md)                               | GA             | GA                             |
-| <li> [Integration with Microsoft Defender for Cloud Apps](../../defender-for-cloud/other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps-)                                       | GA             | Not Available                  |
+| <li> [Integration with Microsoft Defender for Cloud Apps](../../defender-for-cloud/other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps)                                       | GA             | Not Available                  |
 | **Microsoft Defender plans and extensions**                                                                                                                                          |                |                                |
 | <li> [Microsoft Defender for servers](../../defender-for-cloud/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             |
 | <li> [Microsoft Defender for App Service](../../defender-for-cloud/defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  |
@@ -163,7 +164,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Microsoft Defender for Key Vault](../../defender-for-cloud/defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  |
 | <li> [Microsoft Defender for Resource Manager](../../defender-for-cloud/defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             |
 | <li> [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
-| <li> [Threat protection for Cosmos DB](../../defender-for-cloud/other-threat-protections.md#threat-protection-for-azure-cosmos-db)                                              | GA | Not Available                  |
+| <li> [Microsoft Defender for Azure Cosmos DB](../../defender-for-cloud/defender-for-databases-enable-cosmos-protections.md)                                              | GA | Not Available                  |
 | <li> [Kubernetes workload protection](../../defender-for-cloud/kubernetes-workload-protections.md)                                                                                      | GA             | GA                             |
 | <li> [Bi-directional alert synchronization with Microsoft Sentinel](../../sentinel/connect-azure-security-center.md)                                                                           | Public Preview | Public Preview                 |
 | **Microsoft Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                               |                |                                |
@@ -215,7 +216,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 | - [Incident advanced search](../../sentinel/investigate-cases.md#search-for-incidents) |GA |GA |
-| - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md#incident-integration) |Public Preview |Public Preview|
+| - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md) |Public Preview |Public Preview|
 | - [Microsoft Teams integrations](../../sentinel/collaborate-in-microsoft-teams.md) |Public Preview |Not Available |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
 |- [Search large datasets](../../sentinel/investigate-large-datasets.md) | Public Preview | Not Available |
@@ -238,6 +239,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Threat Intelligence - TAXII data connector](../../sentinel/understand-threat-intelligence.md)  | GA | GA |
 | - [Threat Intelligence Platform data connector](../../sentinel/understand-threat-intelligence.md)  | Public Preview | Not Available |
 | - [Threat Intelligence Research Blade](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | GA |
+| - [Add indicators in bulk to threat intelligence by file](../../sentinel/indicators-bulk-file-import.md) | Public Preview | Not Available |
 | - [URL Detonation](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | Public Preview | Not Available |
 | - [Threat Intelligence workbook](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | GA |
 | - [GeoLocation and WhoIs data enrichment](../../sentinel/work-with-threat-indicators.md) | Public Preview | Not Available |
@@ -252,7 +254,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | **Domain solution content** | | |
 | - [Apache Log4j Vulnerability Detection](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
 | - [Cybersecurity Maturity Model Certification (CMMC)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview  |
-| - [IoT/OT Threat Monitoring with Defender for IoT](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
+| - [Microsoft Defender for IoT](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
 | - [Maturity Model for Event Log Management M2131](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
 | - [Microsoft Insider Risk Management (IRM)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview  |
 | - [Microsoft Sentinel Deception](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview  |
@@ -266,9 +268,9 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
 | - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | GA | GA |
 | - [Microsoft Insider Risk Management](../../sentinel/sentinel-solutions-catalog.md#domain-solutions) | Public Preview | Not Available |
-| - [Azure Firewall ](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
+| - [Azure Firewall](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
 | - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection-preview) | Public Preview | Not Available |
-| - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | Public Preview | Not Available |
+| - [Azure Key Vault](../../sentinel/data-connectors-reference.md#azure-key-vault) | Public Preview | Not Available |
 | - [Azure Kubernetes Services (AKS)](../../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks) | Public Preview | Not Available |
 | - [Azure SQL Databases](../../sentinel/data-connectors-reference.md#azure-sql-databases) | GA | GA |
 | - [Azure WAF](../../sentinel/data-connectors-reference.md#azure-web-application-firewall-waf) | GA | GA |
@@ -277,118 +279,117 @@ The following tables display the current Microsoft Sentinel feature availability
 | **Windows connectors** |  |  |
 | - [Windows Firewall](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
 | - [Windows Security Events](/azure/sentinel/connect-windows-security-events) | GA | GA |
-| **External connectors** |  |  |
-| - [Agari Phishing Defense and Brand Protection](../../sentinel/data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) | Public Preview | Public Preview |
-| - [AI Analyst Darktrace](../../sentinel/connect-data-sources.md) | Public Preview | Public Preview |
-| - [AI Vectra Detect](../../sentinel/data-connectors-reference.md#ai-vectra-detect-preview) | Public Preview | Public Preview |
-| - [Akamai Security Events](../../sentinel/data-connectors-reference.md#akamai-security-events-preview) | Public Preview | Public Preview |
-| - [Alcide kAudit](../../sentinel/data-connectors-reference.md#alcide-kaudit) | Public Preview | Not Available |
-| - [Alsid for Active Directory](../../sentinel/data-connectors-reference.md#alsid-for-active-directory) | Public Preview | Not Available |
-| - [Apache HTTP Server](../../sentinel/data-connectors-reference.md#apache-http-server) | Public Preview | Not Available |
-| - [Arista Networks](../../sentinel/sentinel-solutions-catalog.md) | Public Preview | Not Available |
-| - [Armorblox](../../sentinel/sentinel-solutions-catalog.md#armorblox) | Public Preview | Not Available |
-| - [Aruba ClearPass](../../sentinel/data-connectors-reference.md#aruba-clearpass-preview) | Public Preview | Public Preview |
-| - [AWS](../../sentinel/connect-data-sources.md) | GA | GA |
-| - [Barracuda CloudGen Firewall](../../sentinel/data-connectors-reference.md#barracuda-cloudgen-firewall) | GA | GA |
-| - [Barracuda Web App Firewall](../../sentinel/data-connectors-reference.md#barracuda-waf) | GA | GA |
-| - [BETTER Mobile Threat Defense MTD](../../sentinel/data-connectors-reference.md#better-mobile-threat-defense-mtd-preview) | Public Preview | Not Available |
-| - [Beyond Security beSECURE](../../sentinel/data-connectors-reference.md#beyond-security-besecure) | Public Preview | Not Available |
-| - [Blackberry CylancePROTECT](../../sentinel/connect-data-sources.md) | Public Preview | Public Preview |
-| - [Box](../../sentinel/sentinel-solutions-catalog.md#box) | Public Preview | Not Available |
-| - [Broadcom Symantec DLP](../../sentinel/data-connectors-reference.md#broadcom-symantec-data-loss-prevention-dlp-preview) | Public Preview | Public Preview |
-| - [Check Point](../../sentinel/data-connectors-reference.md#check-point) | GA | GA |
-| - [Cisco ACI](../../sentinel/sentinel-solutions-catalog.md#cisco) | Public Preview | Not Available |
-| - [Cisco ASA](../../sentinel/data-connectors-reference.md#cisco-asa) | GA | GA |
-| - [Cisco Duo Security](../../sentinel/sentinel-solutions-catalog.md#cisco) | Public Preview | Not Available |
-| - [Cisco ISE](../../sentinel/sentinel-solutions-catalog.md#cisco) | Public Preview | Not Available |
-| - [Cisco Meraki](../../sentinel/data-connectors-reference.md#cisco-meraki-preview) | Public Preview | Public Preview |
-| - [Cisco Secure Email Gateway / ESA](../../sentinel/sentinel-solutions-catalog.md#cisco) | Public Preview | Not Available |
-| - [Cisco Umbrella](../../sentinel/data-connectors-reference.md#cisco-umbrella-preview) | Public Preview | Public Preview |
-| - [Cisco UCS](../../sentinel/data-connectors-reference.md#cisco-unified-computing-system-ucs-preview) | Public Preview | Public Preview |
-| - [Cisco Firepower EStreamer](../../sentinel/connect-data-sources.md) | Public Preview | Public Preview |
-| - [Cisco Web Security Appliance (WSA)](../../sentinel/sentinel-solutions-catalog.md#cisco) | Public Preview | Not Available |
-| - [Citrix Analytics WAF](../../sentinel/data-connectors-reference.md#citrix-web-app-firewall-waf-preview) | GA | GA |
-| - [Cloudflare](../../sentinel/sentinel-solutions-catalog.md#cloudflare) | Public Preview | Not Available |
+| **[External connectors](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel)** |  |  |
+| - Agari Phishing Defense and Brand Protection | Public Preview | Public Preview |
+| - AI Analyst Darktrace | Public Preview | Public Preview |
+| - AI Vectra Detect | Public Preview | Public Preview |
+| - Akamai Security Events | Public Preview | Public Preview |
+| - Alcide kAudit | Public Preview | Not Available |
+| - Alsid for Active Directory | Public Preview | Not Available |
+| - Apache HTTP Server | Public Preview | Not Available |
+| - Arista Networks | Public Preview | Not Available |
+| - Armorblox | Public Preview | Not Available |
+| - Aruba ClearPass | Public Preview | Public Preview |
+| - AWS | GA | GA |
+| - Barracuda CloudGen Firewall | GA | GA |
+| - Barracuda Web App Firewall | GA | GA |
+| - BETTER Mobile Threat Defense MTD | Public Preview | Not Available |
+| - Beyond Security beSECURE | Public Preview | Not Available |
+| - Blackberry CylancePROTECT | Public Preview | Public Preview |
+| - Box | Public Preview | Not Available |
+| - Broadcom Symantec DLP | Public Preview | Public Preview |
+| - Check Point | GA | GA |
+| - Cisco ACI | Public Preview | Not Available |
+| - Cisco ASA | GA | GA |
+| - Cisco Duo Security | Public Preview | Not Available |
+| - Cisco ISE | Public Preview | Not Available |
+| - Cisco Meraki | Public Preview | Public Preview |
+| - Cisco Secure Email Gateway / ESA | Public Preview | Not Available |
+| - Cisco Umbrella | Public Preview | Public Preview |
+| - Cisco UCS | Public Preview | Public Preview |
+| - Cisco Firepower EStreamer | Public Preview | Public Preview |
+| - Cisco Web Security Appliance (WSA) | Public Preview | Not Available |
+| - Citrix Analytics WAF | GA | GA |
+| - Cloudflare | Public Preview | Not Available |
 | - [Common Event Format (CEF)](../../sentinel/connect-common-event-format.md) | GA | GA |
-| - [Contrast Security](../../sentinel/sentinel-solutions-catalog.md#contrast-security) | Public Preview | Not Available |
-| - [CrowdStrike](../../sentinel/sentinel-solutions-catalog.md#crowdstrike) | Public Preview | Not Available |
-| - [CyberArk Enterprise Password Vault (EPV) Events](../../sentinel/data-connectors-reference.md#cyberark-enterprise-password-vault-epv-events-preview) | Public Preview | Public Preview |
-| - [Digital Guardian](../../sentinel/sentinel-solutions-catalog.md#digital-guardian) | Public Preview | Not Available |
-| - [ESET Enterprise Inspector](../../sentinel/connect-data-sources.md)                       | Public Preview | Not Available      |
-| - [Eset Security Management Center](../../sentinel/connect-data-sources.md)                  | Public Preview | Not Available      |
-| - [ExtraHop Reveal(x)](../../sentinel/data-connectors-reference.md#extrahop-revealx)                               | GA             | GA             |
-| - [F5 BIG-IP ](../../sentinel/data-connectors-reference.md#f5-big-ip)                                       | GA             | GA             |
-| - [F5 Networks](../../sentinel/data-connectors-reference.md#f5-networks-asm)                                     | GA             | GA             |
-| - [FireEye NX (Network Security)](../../sentinel/sentinel-solutions-catalog.md#fireeye-nx-network-security) | Public Preview | Not Available |
-| - [Flare Systems Firework](../../sentinel/sentinel-solutions-catalog.md) | Public Preview | Not Available |
-| - [Forcepoint NGFW](../../sentinel/data-connectors-reference.md#forcepoint-cloud-access-security-broker-casb-preview)                                  | Public Preview | Public Preview |
-| - [Forcepoint CASB](../../sentinel/data-connectors-reference.md#forcepoint-cloud-access-security-broker-casb-preview)                                  | Public Preview | Public Preview |
-| - [Forcepoint DLP ](../../sentinel/data-connectors-reference.md#forcepoint-data-loss-prevention-dlp-preview)                                   | Public Preview | Not Available      |
-| - [Forescout](../../sentinel/sentinel-solutions-catalog.md#forescout) | Public Preview | Not Available |
-| - [ForgeRock Common Audit for CEF](../../sentinel/connect-data-sources.md)                  | Public Preview | Public Preview |
-| - [Fortinet](../../sentinel/data-connectors-reference.md#fortinet)                                         | GA             | GA             |
-| - [Google Cloud Platform DNS](../../sentinel/sentinel-solutions-catalog.md#google) | Public Preview | Not Available |
-| - [Google Cloud Platform](../../sentinel/sentinel-solutions-catalog.md#google) | Public Preview | Not Available |
-| - [Google Workspace (G Suite) ](../../sentinel/data-connectors-reference.md#google-workspace-g-suite-preview)                      | Public Preview | Not Available      |
-| - [Illusive Attack Management System](../../sentinel/data-connectors-reference.md#illusive-attack-management-system-ams-preview)                | Public Preview | Public Preview |
-| - [Imperva WAF Gateway](../../sentinel/data-connectors-reference.md#imperva-waf-gateway-preview)                             | Public Preview | Public Preview |
-| - [InfoBlox Cloud](../../sentinel/sentinel-solutions-catalog.md#infoblox) | Public Preview | Not Available |
-| - [Infoblox NIOS](../../sentinel/data-connectors-reference.md#infoblox-network-identity-operating-system-nios-preview)                                    | Public Preview | Public Preview |
-| - [Juniper IDP](../../sentinel/sentinel-solutions-catalog.md#juniper) | Public Preview | Not Available |
-| - [Juniper SRX](../../sentinel/data-connectors-reference.md#juniper-srx-preview)                                      | Public Preview | Public Preview |
-| - [Kaspersky AntiVirus](../../sentinel/sentinel-solutions-catalog.md#kaspersky) | Public Preview | Not Available |
-| - [Lookout Mobile Threat Defense](../../sentinel/data-connectors-reference.md#lookout-mobile-threat-defense-preview) | Public Preview | Not Available |
-| - [McAfee ePolicy](../../sentinel/sentinel-solutions-catalog.md#mcafee) | Public Preview | Not Available |
-| - [McAfee Network Security Platform](../../sentinel/sentinel-solutions-catalog.md#mcafee) | Public Preview | Not Available |
-| - [Morphisec UTPP](../../sentinel/connect-data-sources.md)                                   | Public Preview | Public Preview |
-| - [Netskope](../../sentinel/connect-data-sources.md)                                         | Public Preview | Public Preview |
-| - [NXLog Windows DNS](../../sentinel/data-connectors-reference.md#nxlog-dns-logs-preview)                                             | Public Preview | Not Available      |
-| - [NXLog LinuxAudit](../../sentinel/data-connectors-reference.md#nxlog-linuxaudit-preview)                                 | Public Preview | Not Available      |
-| - [Okta Single Sign On](../../sentinel/data-connectors-reference.md#okta-single-sign-on-preview)                              | Public Preview | Public Preview |
-| - [Onapsis Platform](../../sentinel/connect-data-sources.md)                                 | Public Preview | Public Preview |
-| - [One Identity Safeguard](../../sentinel/data-connectors-reference.md#one-identity-safeguard-preview)                          | GA             | GA             |
-| - [Oracle Cloud Infrastructure](../../sentinel/sentinel-solutions-catalog.md#oracle)| Public Preview | Not Available |
-| - [Oracle Database Audit](../../sentinel/sentinel-solutions-catalog.md#oracle)| Public Preview | Not Available |
-| - [Orca Security Alerts](../../sentinel/data-connectors-reference.md#orca-security-preview)                            | Public Preview | Not Available      |
-| - [Palo Alto Networks](../../sentinel/data-connectors-reference.md#palo-alto-networks)                               | GA             | GA             |
-| - [Perimeter 81 Activity Logs](../../sentinel/data-connectors-reference.md#perimeter-81-activity-logs-preview)                      | GA             | Not Available      |
-| - [Ping Identity](../../sentinel/sentinel-solutions-catalog.md#ping-identity) | Public Preview | Not Available |
-| - [Proofpoint On Demand Email Security](../../sentinel/data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview)             | Public Preview | Not Available      |
-| - [Proofpoint TAP](../../sentinel/data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)                                   | Public Preview | Public Preview |
-| - [Pulse Connect Secure](../../sentinel/data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)                             | Public Preview | Public Preview |
-| - [Qualys Vulnerability Management](../../sentinel/data-connectors-reference.md#qualys-vulnerability-management-vm-preview)                  | Public Preview | Public Preview |
-| - [Rapid7](../../sentinel/sentinel-solutions-catalog.md#rapid7) | Public Preview | Not Available |
-| - [RSA SecurID](../../sentinel/sentinel-solutions-catalog.md#rsa) | Public Preview | Not Available |
-| - [Salesforce Service Cloud](../../sentinel/data-connectors-reference.md#salesforce-service-cloud-preview)                         | Public Preview | Not Available      |
-| - [SAP (Continuous Threat Monitoring for SAP)](../../sentinel/sap/deployment-overview.md) | Public Preview | Not Available |
-| - [Semperis](../../sentinel/sentinel-solutions-catalog.md#semperis) | Public Preview | Not Available |
-| - [Senserva Pro](../../sentinel/sentinel-solutions-catalog.md#senserva-pro) | Public Preview | Not Available |
-| - [Slack Audit](../../sentinel/sentinel-solutions-catalog.md#slack) | Public Preview | Not Available |
-| - [SonicWall Firewall ](../../sentinel/data-connectors-reference.md#sophos-cloud-optix-preview)                              | Public Preview | Public Preview |
-| - [Sonrai Security](../../sentinel/sentinel-solutions-catalog.md#sonrai-security) | Public Preview | Not Available |
-| - [Sophos Cloud Optix](../../sentinel/data-connectors-reference.md#sophos-cloud-optix-preview)                               | Public Preview | Not Available      |
-| - [Sophos XG Firewall](../../sentinel/data-connectors-reference.md#sophos-xg-firewall-preview)                               | Public Preview | Public Preview |
-| - [Squadra Technologies secRMM](../../sentinel/data-connectors-reference.md#squadra-technologies-secrmm)               | GA             | GA             |
-| - [Squid Proxy](../../sentinel/data-connectors-reference.md#squid-proxy-preview)                                      | Public Preview | Not Available      |
-| - [Symantec Integrated Cyber Defense Exchange](../../sentinel/data-connectors-reference.md#symantec-integrated-cyber-defense-exchange-icdx)       | GA             | GA             |
-| - [Symantec ProxySG](../../sentinel/data-connectors-reference.md#symantec-proxysg-preview)                                | Public Preview | Public Preview |
-| - [Symantec VIP](../../sentinel/data-connectors-reference.md#symantec-vip-preview)                                     | Public Preview | Public Preview |
+| - Contrast Security | Public Preview | Not Available |
+| - CrowdStrike | Public Preview | Not Available |
+| - CyberArk Enterprise Password Vault (EPV) Events | Public Preview | Public Preview |
+| - Digital Guardian | Public Preview | Not Available |
+| - ESET Enterprise Inspector                     | Public Preview | Not Available      |
+| - Eset Security Management Center| Public Preview | Not Available      |
+| - ExtraHop Reveal(x)                              | GA             | GA             |
+| - F5 BIG-IP                                      | GA             | GA             |
+| - F5 Networks               | GA             | GA             |
+| - FireEye NX (Network Security) | Public Preview | Not Available |
+| - Flare Systems Firework| Public Preview | Not Available |
+| - Forcepoint NGFW                                  | Public Preview | Public Preview |
+| - Forcepoint CASB                               | Public Preview | Public Preview |
+| - Forcepoint DLP                       | Public Preview | Not Available      |
+| - Forescout| Public Preview | Not Available |
+| - ForgeRock Common Audit for CEF| Public Preview | Public Preview |
+| - Fortinet                                        | GA             | GA             |
+| - Google Cloud Platform DNS | Public Preview | Not Available |
+| - Google Cloud Platform | Public Preview | Not Available |
+| - Google Workspace (G Suite)                      | Public Preview | Not Available      |
+| - Illusive Attack Management System| Public Preview | Public Preview |
+| - Imperva WAF Gateway                             | Public Preview | Public Preview |
+| - InfoBlox Cloud| Public Preview | Not Available |
+| - Infoblox NIOS                                   | Public Preview | Public Preview |
+| - Juniper IDP | Public Preview | Not Available |
+| - Juniper SRX                                    | Public Preview | Public Preview |
+| - Kaspersky AntiVirus | Public Preview | Not Available |
+| - Lookout Mobile Threat Defense| Public Preview | Not Available |
+| - McAfee ePolicy | Public Preview | Not Available |
+| - McAfee Network Security Platform | Public Preview | Not Available |
+| - Morphisec UTPP                                  | Public Preview | Public Preview |
+| - Netskope                                       | Public Preview | Public Preview |
+| - NXLog Windows DNS                                             | Public Preview | Not Available      |
+| - NXLog LinuxAudit                                | Public Preview | Not Available      |
+| - Okta Single Sign On                             | Public Preview | Public Preview |
+| - Onapsis Platform                | Public Preview | Public Preview |
+| - One Identity Safeguard                          | GA             | GA             |
+| - Oracle Cloud Infrastructure| Public Preview | Not Available |
+| - Oracle Database Audit| Public Preview | Not Available |
+| - Orca Security Alerts                            | Public Preview | Not Available      |
+| - Palo Alto Networks                               | GA             | GA             |
+| - Perimeter 81 Activity Logs                     | GA             | Not Available      |
+| - Ping Identity | Public Preview | Not Available |
+| - Proofpoint On Demand Email Security| Public Preview | Not Available      |
+| - Proofpoint TAP                           | Public Preview | Public Preview |
+| - Pulse Connect Secure                            | Public Preview | Public Preview |
+| - Qualys Vulnerability Management                | Public Preview | Public Preview |
+| - Rapid7 | Public Preview | Not Available |
+| - RSA SecurID | Public Preview | Not Available |
+| - Salesforce Service Cloud                         | Public Preview | Not Available      |
+| - [SAP (Microsoft Sentinel Solution for SAP)](../../sentinel/sap/deployment-overview.md) | GA | GA |
+| - Semperis | Public Preview | Not Available |
+| - Senserva Pro | Public Preview | Not Available |
+| - Slack Audit | Public Preview | Not Available |
+| - SonicWall Firewall                              | Public Preview | Public Preview |
+| - Sonrai Security | Public Preview | Not Available |
+| - Sophos Cloud Optix                               | Public Preview | Not Available      |
+| - Sophos XG Firewall                               | Public Preview | Public Preview |
+| - Squadra Technologies secRMM               | GA             | GA             |
+| - Squid Proxy                                      | Public Preview | Not Available      |
+| - Symantec Integrated Cyber Defense Exchange      | GA             | GA             |
+| - Symantec ProxySG                               | Public Preview | Public Preview |
+| - Symantec VIP                                    | Public Preview | Public Preview |
 | - [Syslog](../../sentinel/connect-syslog.md)                                           | GA             | GA             |
-| - [Tenable](../../sentinel/sentinel-solutions-catalog.md#tenable) | Public Preview | Not Available |
-| - [Thycotic Secret Server](../../sentinel/data-connectors-reference.md#thycotic-secret-server-preview)                          | Public Preview | Public Preview |
-| - [Trend Micro Deep Security](../../sentinel/data-connectors-reference.md#trend-micro-deep-security)                       | GA             | GA             |
-| - [Trend Micro TippingPoint](../../sentinel/data-connectors-reference.md#trend-micro-tippingpoint-preview)                         | Public Preview | Public Preview |
-| - [Trend Micro XDR](../../sentinel/connect-data-sources.md)                                  | Public Preview | Not Available      |
-| - [Ubiquiti](../../sentinel/sentinel-solutions-catalog.md#ubiquiti) | Public Preview | Not Available |
-| - [vArmour](../../sentinel/sentinel-solutions-catalog.md#varmour) | Public Preview | Not Available |
-| - [Vectra](../../sentinel/sentinel-solutions-catalog.md#vectra) | Public Preview | Not Available |
-| - [VMware Carbon Black Endpoint Standard](../../sentinel/data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)           | Public Preview | Public Preview |
-| - [VMware ESXi](../../sentinel/data-connectors-reference.md#vmware-esxi-preview)                                      | Public Preview | Public Preview |
-| - [WireX Network Forensics Platform](../../sentinel/data-connectors-reference.md#wirex-network-forensics-platform-preview)                | Public Preview | Public Preview |
-| - [Zeek Network (Corelight)](../../sentinel/sentinel-solutions-catalog.md#zeek-network) | Public Preview | Not Available |
-| - [Zimperium Mobile Threat Defense](../../sentinel/data-connectors-reference.md#zimperium-mobile-thread-defense-preview)                  | Public Preview | Not Available      |
-| - [Zscaler](../../sentinel/data-connectors-reference.md#zscaler)                                         | GA             | GA             |
-| | | |
+| - Tenable | Public Preview | Not Available |
+| - Thycotic Secret Server                          | Public Preview | Public Preview |
+| - Trend Micro Deep Security                      | GA             | GA             |
+| - Trend Micro TippingPoint                         | Public Preview | Public Preview |
+| - Trend Micro XDR                             | Public Preview | Not Available      |
+| - Ubiquiti | Public Preview | Not Available |
+| - vArmour | Public Preview | Not Available |
+| - Vectra | Public Preview | Not Available |
+| - VMware Carbon Black Endpoint Standard          | Public Preview | Public Preview |
+| - VMware ESXi                                     | Public Preview | Public Preview |
+| - WireX Network Forensics Platform              | Public Preview | Public Preview |
+| - Zeek Network (Corelight) | Public Preview | Not Available |
+| - Zimperium Mobile Threat Defense                | Public Preview | Not Available      |
+| - Zscaler                    | GA             | GA             |
 
 <sup><a name="footnote1"></a>1</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
@@ -450,7 +451,7 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Teams](../../sentinel/sentinel-solutions-catalog.md#microsoft)** | | |
+| **[Teams](https://azuremarketplace.microsoft.com/marketplace/apps/sentinel4teams.sentinelforteams?tab=Overview)** | | |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |

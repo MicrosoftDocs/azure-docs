@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.custom: references_regions
-author: vamahtan
-ms.author: vamahtan
+author: trkeya
+ms.author: trkeya
 ms.date: 12/03/2021
 ---
 

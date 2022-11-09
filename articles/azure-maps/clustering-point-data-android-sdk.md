@@ -16,7 +16,7 @@ When visualizing many data points on the map, data points may overlap over each 
 
 </br>
 
->[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
 
 ## Prerequisites
 
@@ -866,7 +866,7 @@ source = new DataSource(
 );
 
 //Import the geojson data and add it to the data source.
-source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/SamplePoiDataSet.json");
+source.importDataFromUrl("https://samples.azuremaps.com/data/geojson/SamplePoiDataSet.json");
 
 //Add data source to the map.
 map.sources.add(source);
@@ -999,7 +999,7 @@ val source = DataSource(
 )
 
 //Import the geojson data and add it to the data source.
-source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/SamplePoiDataSet.json")
+source.importDataFromUrl("https://samples.azuremaps.com/data/geojson/SamplePoiDataSet.json")
 
 //Add data source to the map.
 map.sources.add(source)

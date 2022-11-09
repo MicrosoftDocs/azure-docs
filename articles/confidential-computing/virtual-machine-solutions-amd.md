@@ -12,10 +12,6 @@ ms.date: 11/15/2021
 
 # Azure Confidential VM options on AMD
 
-> [!IMPORTANT]
-> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Azure Confidential Computing offers multiple options for confidential VMs that run on AMD processors backed by [AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) technology.
 
 ## Sizes
@@ -86,7 +82,7 @@ It's not possible to resize a non-confidential VM to a confidential VM.
 
 ### Disk encryption
 
-OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [full-disk encryption](confidential-vm-overview.md#full-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
+OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [confidential OS disk encryption](confidential-vm-overview.md#confidential-os-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
 
 - Ubuntu 20.04 Gen 2
 - Windows Server 2019 Gen 2

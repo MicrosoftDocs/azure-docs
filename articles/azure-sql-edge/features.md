@@ -1,14 +1,17 @@
 ---
-title: Supported features of Azure SQL Edge 
+title: Supported features of Azure SQL Edge
 description: Learn about details of features supported by Azure SQL Edge.
-keywords: introduction to SQL Edge, what is SQL Edge, SQL Edge overview
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 09/03/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/03/2020
+keywords:
+  - introduction to SQL Edge
+  - what is SQL Edge
+  - SQL Edge overview
+services: sql-edge
 ---
 
 # Supported features of Azure SQL Edge 

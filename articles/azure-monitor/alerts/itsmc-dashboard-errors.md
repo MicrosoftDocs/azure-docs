@@ -84,7 +84,7 @@ The following sections describe common errors that appear in the connector statu
 **Cause**: Such an error appears in either of these situations:
 
 * A newly created ITSM Connector instance has yet to finish the initial sync.
-* The connector was not defined correctly.
+* The connector wasn't defined correctly.
 
 **Resolution**: 
 
@@ -93,17 +93,22 @@ The following sections describe common errors that appear in the connector statu
 
 
 ## IP restrictions
-**Error**: "Failed to add ITSM Connection named "XXX" due to Bad Request. Error: Bad request. Invalid parameters provided for connection. Http Exception: Status Code Forbidden."
+**Error**: 
+* "Failed to add ITSM Connection named "XXX" due to Bad Request. Error: Bad request. Invalid parameters provided for connection. Http Exception: Status Code Forbidden."
+* "Failed to update ITSM Connection credentials"
 
-**Cause**: The IP address of ITSM application is not allow ITSM connections from partners ITSM tools.
+**Cause**: The IP address of the ITSM application doesn't allow ITSM connections from partner ITSM tools.
 
-**Resolution**: In order to list the ITSM IP addresses in order to allow ITSM connections from partners ITSM tools, we recommend the to list the whole public IP range of Azure region where their LogAnalytics workspace belongs. [details here](https://www.microsoft.com/download/details.aspx?id=56519) For regions EUS/WEU/EUS2/WUS2/US South Central the customer can list ActionGroup network tag only.
-
+**Resolution**: To allow ITSM connections make sure ActionGroup network tag is allowed on your network.
 
 ## Authentication
 **Error**: "User Not Authenticated"
 
-**Cause**: There can be one of 2 options either the token need to be refreshed or there is missing integration user rights.
+**Cause**: This error can occur in two cases:
+  - The token needs to be refreshed.
+  - User integration rights are missing.
 
-**Resolution**:If the integration worked for you in the past, it might be that the refresh token has expired. Then sync ITSMC to generate a new refresh token, as explained in [How to manually fix sync problems](./itsmc-resync-servicenow.md). If it never worked, it might be missing integration user rights, Please check it [here ](./itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role)
+**Resolution**:
+- If the integration worked for you previously, the refresh token may have expired. [Sync with the ITSM Connector to generate a new refresh token](./itsmc-resync-servicenow.md). 
+- If the integration never worked, it may be missing integration user rights. See the instructions to [install the user app and create the user role](./itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
 

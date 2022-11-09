@@ -2,12 +2,12 @@
 title: Troubleshoot attribute retrieval issues with HR provisioning
 description: Learn how to troubleshoot attribute retrieval issues with HR provisioning
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 10/27/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: chmutali
 ---

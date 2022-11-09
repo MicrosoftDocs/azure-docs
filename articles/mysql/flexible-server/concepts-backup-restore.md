@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: VandhanaMehta
 ms.author: vamehta
 ms.custom: event-tier1-build-2022
-ms.date: 05/24/2022 
+ms.date: 07/26/2022 
 ---
 
 # Backup and restore in Azure Database for MySQL Flexible Server
@@ -18,7 +18,15 @@ Azure Database for MySQL Flexible Server, automatically creates server backups a
 
 ## Backup overview
 
+Flexible Server supports two types of backups to provide an enhanced flexibility towards maintaining backups of the business-critical data.
+
+### Automated Backup
+
 Flexible Server takes snapshot backups of the data files and stores them in a local redundant storage. The server also performs transaction logs backup and also stores them in local redundant storage. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
+
+### On-Demand Backup
+
+Flexible server also allows you to trigger on-demand backups of the production workload, in addition to the automated backups taken by the Azure Database for MySQL Flexible service and store it in alignment with server’s backup retention policy. You can use these backups as a fastest restore point to perform a point-in-time restore to reduce restore times by up to 90%. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days. You can trigger a total of 50 on-demand backups from the portal. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
 
 These backup files cannot be exported. The backups can only be used for restore operations in Flexible server. You can also use [mysqldump](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) from a MySQL client to copy a database.
 
@@ -70,7 +78,7 @@ The primary means of controlling the backup storage cost is by setting the appro
 
 ## View Available Full Backups
 
-The Backup and Restore blade in the Azure portal lists the automated full backups taken daily once. One can use this blade to view the completion timestamps for all available full backups within the server’s retention period and to perform restore operations using these full backups. The list of available backups includes all full-automated backups within the retention period, a timestamp showing the successful completion, a timestamp indicating how long a backup will be retained, and a restore action.
+The Backup and Restore blade in the Azure portal provides a complete list of the full backups available to you at any given point in time.  This includes automated backups as well as the On-Demand backups. One can use this blade to view the completion timestamps for all available full backups within the server’s retention period and to perform restore operations using these full backups. The list of available backups includes all full backups within the retention period, a timestamp showing the successful completion, a timestamp indicating how long a backup will be retained, and a restore action.
 
 ## Restore
 
@@ -153,7 +161,7 @@ After a restore from either **latest restore point** or **custom restore point**
 ### Backup related questions
 
 - **How do I backup my server?**
-By default, Azure Database for MySQL enables automated backups of your entire server (encompassing all databases created) with a default 7-day retention period. The only way to manually take a backup is by using community tools such as mysqldump as documented [here](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) or mydumper as documented [here](../concepts-migrate-mydumper-myloader.md#create-a-backup-using-mydumper). If you wish to backup Azure Database for MySQL to a Blob storage, refer to our tech community blog [Backup Azure Database for MySQL to a Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/backup-azure-database-for-mysql-to-a-blob-storage/ba-p/803830).
+By default, Azure Database for MySQL enables automated backups of your entire server (encompassing all databases created) with a default 7-day retention period. You can also trigger a manual backup using On-Demand backup feature. The other way to manually take a backup is by using community tools such as mysqldump as documented [here](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) or mydumper as documented [here](../concepts-migrate-mydumper-myloader.md#create-a-backup-using-mydumper). If you wish to backup Azure Database for MySQL to a Blob storage, refer to our tech community blog [Backup Azure Database for MySQL to a Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/backup-azure-database-for-mysql-to-a-blob-storage/ba-p/803830).
 
 - **Can I configure automatic backups to be retained for long term?**
 No, currently we only support a maximum of 35 days of automated backup retention. You can take manual backups and use that for long-term retention requirement.
@@ -206,7 +214,9 @@ The estimated time for the recovery of the server depends on several factors:
    - The network bandwidth if the restore is to a different region
    - The number of concurrent restore requests being processed in the target region
    - The presence of primary key in the tables in the database. For faster recovery, consider adding primary key for all the tables in your database.
-
+   
+ - **Will modifying session level database variables impact restoration?**
+   Modifying session level variables and running DML statements in MySQL client session can impact the PITR (point in time restore) operation, as these modifications do not get recorded in binary log which is used for backup and restore operation. For example, [foreign_key_checks](http://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_foreign_key_checks) is one such session level variable which if disabled for running a DML statement which violates the foreign key constraint will result in PITR (point in time restore) failure. The only workaround in such a scenario would be to select a PITR time which is earlier than the time at which [foreign_key_checks](http://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_foreign_key_checks) were disabled. Our recommendation is to NOT modify any session variables for a successful PITR operation.
 
 ## Next steps
 

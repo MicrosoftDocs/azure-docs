@@ -4,7 +4,7 @@ description: Azure CLI sample - Export or copy a managed disk to a storage accou
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.topic: sample
 ms.workload: infrastructure

@@ -45,11 +45,11 @@ The following table lists the currently available versions of the default *Micro
 <sup>1</sup> Version 3.x of the extension bundle currently doesn't include the [Table Storage bindings](./functions-bindings-storage-table.md). If your app requires Table Storage, you'll need to continue using the 2.x version for now.
 
 > [!NOTE]
-> While you can a specify custom version range in host.json, we recommend you use a version value from this table.
+> Even though host.json supports custom ranges for `version`, you should use a version value from this table.
 
 ## Explicitly install extensions
 
-For compiled C# class library projects ([in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md)), you install the NuGet packages for the extensions that you need as you normally would. For examples see either the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings).  
+For compiled C# class library projects ([in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md)), you install the NuGet packages for the extensions that you need as you normally would. For examples see either the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings).  
 
 For non-.NET languages and C# script, when you can't use extension bundles you need to manually install required binding extensions in your local project. The easiest way is to use Azure Functions Core Tools. To learn more, see [Install extensions](functions-run-local.md#install-extensions).  
 

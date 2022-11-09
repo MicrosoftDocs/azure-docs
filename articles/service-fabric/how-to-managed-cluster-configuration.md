@@ -26,6 +26,8 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 * Configure [placement properties](how-to-managed-cluster-modify-node-type.md#configure-placement-properties-for-a-node-type) for a node type
 * Selecting the cluster [managed disk type](how-to-managed-cluster-managed-disk.md) SKU
 * Configuring cluster [upgrade options](how-to-managed-cluster-upgrades.md) for the runtime updates
+* Configure [Dedicated Hosts](how-to-managed-cluster-dedicated-hosts.md) with managed cluster
+* Use [Ephemeral OS disks](how-to-managed-cluster-ephemeral-os-disks.md) for node types in managed cluster
 
 ## Next steps
 

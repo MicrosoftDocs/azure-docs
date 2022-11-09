@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure AWS Single Sign-On for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to AWS Single Sign-On.
+title: 'Tutorial: Configure AWS IAM Identity Center(successor to AWS single sign-On) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to AWS IAM Identity Center.
 services: active-directory
 documentationcenter: ''
 author: twimmers
@@ -17,18 +17,18 @@ ms.date: 02/23/2021
 ms.author: thwimmer
 ---
 
-# Tutorial: Configure AWS Single Sign-On for automatic user provisioning
+# Tutorial: Configure AWS IAM Identity Center for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both AWS Single Sign-On and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [AWS Single Sign-On](https://console.aws.amazon.com/singlesignon) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both AWS IAM Identity Center(successor to AWS single sign-On) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [AWS IAM Identity Center](https://console.aws.amazon.com/singlesignon) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities Supported
 > [!div class="checklist"]
-> * Create users in AWS Single Sign-On
-> * Remove users in AWS Single Sign-On when they no longer require access
-> * Keep user attributes synchronized between Azure AD and AWS Single Sign-On
-> * Provision groups and group memberships in AWS Single Sign-On
-> * [Single Sign-On]() to AWS Single Sign-On
+> * Create users in AWS IAM Identity Center
+> * Remove users in AWS IAM Identity Center when they no longer require access
+> * Keep user attributes synchronized between Azure AD and AWS IAM Identity Center
+> * Provision groups and group memberships in AWS IAM Identity Center
+> * [IAM Identity Center](aws-single-sign-on-tutorial.md) to AWS IAM Identity Center
 
 ## Prerequisites
 
@@ -36,27 +36,29 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* A SAML connection from your Azure AD account to AWS SSO, as described in Tutorial
+* A SAML connection from your Azure AD account to AWS IAM Identity Center, as described in Tutorial
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and AWS Single Sign-On](../app-provisioning/customize-application-attributes.md). 
+3. Determine what data to [map between Azure AD and AWS IAM Identity Center](../app-provisioning/customize-application-attributes.md). 
 
-## Step 2. Configure AWS Single Sign-On to support provisioning with Azure AD
+## Step 2. Configure AWS IAM Identity Center to support provisioning with Azure AD
 
-1. Open the [AWS SSO Console](https://console.aws.amazon.com/singlesignon).
+1. Open the [AWS IAM Identity Center](https://console.aws.amazon.com/singlesignon).
 
 2. Choose **Settings** in the left navigation pane
 
-3. Navigate to **Settings** -> **Identity source** -> **Provisioning** -> choose **Enable automatic provisioning**.
+3. In **Settings**, click on Enable in the Automatic provisioning section.
 
-4. In the Inbound automatic provisioning dialog box, copy and save the **SCIM endpoint** and **Access Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your AWS Single Sign-On application in the Azure portal.
+	![Screenshot of enabling automatic provisioning.](media/aws-single-sign-on-provisioning-tutorial/automatic-provisioning.png)
 
+4. In the Inbound automatic provisioning dialog box, copy and save the **SCIM endpoint** and **Access Token** (visible after clicking on Show Token). These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your AWS IAM Identity Center application in the Azure portal.
+	![Screenshot of extracting provisioning configurations.](media/aws-single-sign-on-provisioning-tutorial/inbound-provisioning.png)
 
-## Step 3. Add AWS Single Sign-On from the Azure AD application gallery
+## Step 3. Add AWS IAM Identity Center from the Azure AD application gallery
 
-Add AWS Single Sign-On from the Azure AD application gallery to start managing provisioning to AWS Single Sign-On. If you have previously setup AWS Single Sign-On for SSO, you can use the same application. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add AWS IAM Identity Center from the Azure AD application gallery to start managing provisioning to AWS IAM Identity Center. If you have previously setup AWS IAM Identity Center for SSO, you can use the same application. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -67,19 +69,19 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 * If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
-## Step 5. Configure automatic user provisioning to AWS Single Sign-On 
+## Step 5. Configure automatic user provisioning to AWS IAM Identity Center 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
-### To configure automatic user provisioning for AWS Single Sign-On in Azure AD:
+### To configure automatic user provisioning for AWS IAM Identity Center in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **AWS Single Sign-On**.
+2. In the applications list, select **AWS IAM Identity Center**.
 
-	![The AWS Single Sign-On link in the Applications list](common/all-applications.png)
+	![Screenshot of the AWS IAM Identity Center link in the Applications list.](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
@@ -89,7 +91,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input your AWS Single Sign-On **Tenant URL** and **Secret Token** retrieved earlier in Step 2. Click **Test Connection** to ensure Azure AD can connect to AWS Single Sign-On.
+5. Under the **Admin Credentials** section, input your AWS IAM Identity Center **Tenant URL** and **Secret Token** retrieved earlier in Step 2. Click **Test Connection** to ensure Azure AD can connect to AWS IAM Identity Center.
 
  	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -99,9 +101,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to AWS Single Sign-On**.
+8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to AWS IAM Identity Center**.
 
-9. Review the user attributes that are synchronized from Azure AD to AWS Single Sign-On in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in AWS Single Sign-On for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the AWS Single Sign-On API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to AWS IAM Identity Center in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in AWS IAM Identity Center for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the AWS IAM Identity Center API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for Filtering|
    |---|---|---|
@@ -131,9 +133,9 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to AWS Single Sign-On**.
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to AWS IAM Identity Center**.
 
-11. Review the group attributes that are synchronized from Azure AD to AWS Single Sign-On in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in AWS Single Sign-On for update operations. Select the **Save** button to commit any changes.
+11. Review the group attributes that are synchronized from Azure AD to AWS IAM Identity Center in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in AWS IAM Identity Center for update operations. Select the **Save** button to commit any changes.
 
       |Attribute|Type|Supported for Filtering|
       |---|---|---|
@@ -143,11 +145,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for AWS Single Sign-On, change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Azure AD provisioning service for AWS IAM Identity Center, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to AWS Single Sign-On by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and/or groups that you would like to provision to AWS IAM Identity Center by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
@@ -196,14 +198,14 @@ There are two ways to resolve this
 2. Remove the duplicate attributes. For example, having two different attributes being mapped from Azure AD both mapped to "phoneNumber___" on the AWS side  would result in the error if both attributes have values in Azure AD. Only having one attribute mapped to a "phoneNumber____ " attribute would resolve the error.
 
 ### Invalid characters
-Currently AWS SSO is not allowing some other characters that Azure AD supports like tab (\t), new line (\n), return carriage (\r), and characters such as " <|>|;|:% ".
+Currently AWS IAM Identity Center is not allowing some other characters that Azure AD supports like tab (\t), new line (\n), return carriage (\r), and characters such as " <|>|;|:% ".
 
-You can also check the AWS SSO troubleshooting tips [here](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html#azure-ad-troubleshooting) for more troubleshooting tips
+You can also check the AWS IAM Identity Center  troubleshooting tips [here](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html#azure-ad-troubleshooting) for more troubleshooting tips
 
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and Single Sign-On with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and IAM Identity Center with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

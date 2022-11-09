@@ -2,7 +2,7 @@
 title: ARM template test toolkit
 description: Describes how to run the Azure Resource Manager template (ARM template) test toolkit on your template. The toolkit lets you see if you have implemented recommended practices.
 ms.topic: conceptual
-ms.date: 01/28/2022
+ms.date: 07/25/2022
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -23,9 +23,9 @@ The toolkit contains four sets of tests:
 > [!NOTE]
 > The test toolkit is only available for ARM templates. To validate Bicep files, use the [Bicep linter](../bicep/linter.md).
 
-### Microsoft Learn
+### Training resources
 
-To learn more about the ARM template test toolkit, and for hands-on guidance, see [Validate Azure resources by using the ARM Template Test Toolkit](/learn/modules/arm-template-test) on **Microsoft Learn**.
+To learn more about the ARM template test toolkit, and for hands-on guidance, see [Validate Azure resources by using the ARM Template Test Toolkit](/training/modules/arm-template-test).
 
 ## Install on Windows
 
@@ -238,13 +238,80 @@ For example, you can run a regular expression of the string parameter to see if 
 
 To learn more about implementing the test, look at the other tests in that folder.
 
+## Validate templates for Azure Marketplace
+
+To publish an offering to Azure Marketplace, use the test toolkit to validate the templates. When your templates pass the validation tests, Azure Marketplace will approve your offering more quickly. If they fail the tests, the offering will fail certification.
+
+> [!IMPORTANT]
+> The Marketplace tests were added in July 2022. Update your module if you have an earlier version.
+
+### Run the tests in your environment
+
+After installing the toolkit and importing the module, run the following cmdlet to test your package:
+
+```powershell
+Test-AzMarketplaceTemplate "Path to the unzipped package folder"
+```
+
+### Interpret the results
+
+ The tests return results in two sections. The first section includes the tests that are **mandatory**. The results of these tests are displayed in the summary section.
+
+> [!IMPORTANT]
+> You must fix any results in red before the Marketplace offer is accepted. We recommend fixing any results that return in yellow.
+
+The text results are:
+
+```powershell
+Validating nestedtemplates\AzDashboard.json
+    [+] adminUsername Should Not Be A Literal (210 ms)
+    [+] artifacts parameter (3 ms)
+    [+] CommandToExecute Must Use ProtectedSettings For Secrets (201 ms)
+    [+] Deployment Resources Must Not Be Debug (160 ms)
+    [+] DeploymentTemplate Must Not Contain Hardcoded Url (13 ms)
+    [+] Location Should Not Be Hardcoded (31 ms)
+    [+] Min and Max Value Are Numbers (4 ms)
+    [+] Outputs Must Not Contain Secrets (9 ms)
+    [+] Password params must be secure (3 ms)
+    [+] Resources Should Have Location (2 ms)
+    [+] Resources Should Not Be Ambiguous (2 ms)
+    [+] Secure Params In Nested Deployments (205 ms)
+    [+] Secure String Parameters Cannot Have Default (3 ms)
+    [+] URIs Should Be Properly Constructed (190 ms)
+    [+] Variables Must Be Referenced (9 ms)
+    [+] Virtual Machines Should Not Be Preview (173 ms)
+    [+] VM Size Should Be A Parameter (165 ms)
+Pass : 99
+Fail : 3
+Total: 102
+Validating StartStopV2mkpl_1.0.09302021\anothertemplate.json
+    [?] Parameters Must Be Referenced (86 ms)
+        Unreferenced parameter: resourceGroupName
+        Unreferenced parameter: location
+        Unreferenced parameter: azureFunctionAppName
+        Unreferenced parameter: applicationInsightsName
+        Unreferenced parameter: applicationInsightsRegion
+```
+
+The section below the summary section includes test failures that can be interpreted as warnings. Fixing the failures is optional but highly recommended. The failures often point to common issues that cause failures when a customer installs your offer.
+
+To fix your tests, follow the test case applicable to you:
+
+* [ARM template test case](template-test-cases.md)
+* [All files test case](all-files-test-cases.md)
+* [CreateUiDefinition test case](createuidefinition-test-cases.md)
+
+### Submit the offer
+
+After making any necessary fixes, rerun the test toolkit. Before submitting your offer to Azure Marketplace, make sure you have zero failures.
+
 ## Integrate with Azure Pipelines
 
 You can add the test toolkit to your Azure Pipeline. With a pipeline, you can run the test every time the template is updated, or run it as part of your deployment process.
 
 The easiest way to add the test toolkit to your pipeline is with third-party extensions. The following two extensions are available:
 
-- [Run ARM TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtension)
+- [Run ARM template TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtensionXPlatform)
 - [ARM Template Tester](https://marketplace.visualstudio.com/items?itemName=maikvandergaag.maikvandergaag-arm-ttk)
 
 Or, you can implement your own tasks. The following example shows how to download the test toolkit.
@@ -313,4 +380,4 @@ The next example shows how to run the tests.
 - To test parameter files, see [Test cases for parameter files](parameters.md).
 - For createUiDefinition tests, see [Test cases for createUiDefinition.json](createUiDefinition-test-cases.md).
 - To learn about tests for all files, see [Test cases for all files](all-files-test-cases.md).
-- For a Microsoft Learn module that covers using the test toolkit, see [Validate Azure resources by using the ARM Template Test Toolkit](/learn/modules/arm-template-test/).
+- For a Learn module that covers using the test toolkit, see [Validate Azure resources by using the ARM Template Test Toolkit](/training/modules/arm-template-test/).
