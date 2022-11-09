@@ -28,7 +28,7 @@ Logging models has the following advantages:
 > * Models can be used as pipelines inputs directly.
 > * Models can be deployed without indicating a scoring script nor an environment.
 > * Swagger is enabled in deployed endpoints automatically and the __Test__ feature can be used in Azure ML studio.
-> * You can use the Responsable AI dashbord.
+> * You can use the Responsible AI dashboard.
 
 There are different ways to start using the model's concept in Azure Machine Learning with MLflow, as explained in the following sections:
 
