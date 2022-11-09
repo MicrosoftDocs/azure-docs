@@ -1,6 +1,6 @@
 ---
-title: Set up disaster recovery for Edge Zone (preview) via VM Flow
-description: Learn how to set up disaster recovery for Virtual machines on Edge Zone (preview) via VM Flow.
+title: Set up disaster recovery for Edge Zone (preview) using VM Flow
+description: Learn how to set up disaster recovery for Virtual machines on Edge Zone (preview) using VM Flow.
 author: v-pgaddala
 ms.service: site-recovery
 ms.topic: tutorial
@@ -8,9 +8,9 @@ ms.date: 11/09/2022
 ms.author: v-pgaddala
 ---
 
-# Tutorial: Set up disaster recovery for Edge Zone (preview) via VM Flow
+# Tutorial: Set up disaster recovery for Edge Zone (preview) using VM Flow
 
-This tutorial shows you how to set up disaster recovery for Edge Zone (preview) via VM Flow. In this article, you learn how to:
+This tutorial shows you how to set up disaster recovery for Edge Zone (preview) using VM Flow. In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Enable replication for the Azure VMs
