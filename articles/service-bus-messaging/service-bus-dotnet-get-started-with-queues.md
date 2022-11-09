@@ -30,9 +30,6 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 ## [Connection String](#tab/connection-string)
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal-passwordless.md)]
 
-> [!IMPORTANT]
-> Note down the connection string to the namespace, the topic name, and the subscription name. You'll use them later in this tutorial.
-
 ## [Passwordless](#tab/passwordless)
 [!INCLUDE [service-bus-create-namespace-portal-passwordless](./includes/service-bus-create-namespace-portal-passwordless.md)]
 
@@ -41,6 +38,10 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 [!INCLUDE [service-bus-passwordless-template-tabbed](./includes/service-bus-passwordless-template-tabbed.md)]
 
 [!INCLUDE [service-bus-create-queue-portal](./includes/service-bus-create-queue-portal.md)]
+
+
+> [!IMPORTANT]
+> Note down the connection string to the namespace, the queue name. You'll use them later in this tutorial.
 
 ## Send messages to the queue
 
@@ -81,7 +82,7 @@ This section shows you how to create a .NET console application to send messages
     ### [Connection string](#tab/connection-string)
 
     > [!IMPORTANT]
-    > Per the `TODO` comment, update the placeholder values in the code snippets with the values from the Service Bus you created.
+    > Update placeholder values (`<NAMESPACE-CONNECTION-STRING>` and `<QUEUE-NAME>`) in the code snippet with actual values you noted down earlier.
 
     * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string.
     * Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.

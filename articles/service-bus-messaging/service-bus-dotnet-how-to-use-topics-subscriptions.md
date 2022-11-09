@@ -40,9 +40,6 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 ## [Connection String](#tab/connection-string)
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal-passwordless.md)]
 
-> [!IMPORTANT]
-> Note down the connection string to the namespace, the topic name, and the subscription name. You'll use them later in this tutorial.
-
 ## [Passwordless](#tab/passwordless)
 [!INCLUDE [service-bus-create-namespace-portal-passwordless](./includes/service-bus-create-namespace-portal-passwordless.md)]
 
@@ -52,6 +49,8 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 [!INCLUDE [service-bus-create-topic-subscription-portal](./includes/service-bus-create-topic-subscription-portal.md)]
 
+> [!IMPORTANT]
+> Note down the connection string to the namespace, the topic name, and the subscription name. You'll use them later in this tutorial.
 
 ## Send messages to the topic
 This section shows you how to create a .NET console application to send messages to a Service Bus topic. 
@@ -89,6 +88,9 @@ This section shows you how to create a .NET console application to send messages
 1. Replace the contents of Program.cs with the following code. The important steps are outlined below, with additional information in the code comments.
 
     ## [Connection String](#tab/connection-string)
+
+    > [!IMPORTANT]
+    > Update placeholder values (`<NAMESPACE-CONNECTION-STRING>` and `<TOPIC-NAME>`) in the code snippet with actual values you noted down earlier.
 
     1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
     1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the `ServiceBusClient` object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus topic.     
@@ -346,6 +348,9 @@ In this section, you'll add code to retrieve messages from the subscription.
 
     ## [Connection String](#tab/connection-string)
 
+    > [!IMPORTANT]
+    > Update placeholder values (`<NAMESPACE-CONNECTION-STRING>`, `<TOPIC-NAME>`, `<SUBSCRIPTION-NAME>`) in the code snippet with actual values you noted down earlier.
+
     * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
     * Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus topic. 
     * Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the `ServiceBusProcessor` object. 
@@ -360,8 +365,8 @@ In this section, you'll add code to retrieve messages from the subscription.
     // regularly.
     //
     // Create the clients that we'll use for sending and processing messages.
-    // TODO: Replace the <CONNECTION-STRING-VALUE> placeholder
-    client = new ServiceBusClient("<CONNECTION-STRING-VALUE>">);
+    // TODO: Replace the <NAMESPACE-CONNECTION-STRING> placeholder
+    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>">);
 
     // create a processor that we can use to process the messages
     // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
@@ -487,8 +492,8 @@ In this section, you'll add code to retrieve messages from the subscription.
     // regularly.
     //
     // Create the clients that we'll use for sending and processing messages.
-    // TODO: Replace the <CONNECTION-STRING-VALUE> placeholder
-    client = new ServiceBusClient("<CONNECTION-STRING-VALUE>">);
+    // TODO: Replace the <NAMESPACE-CONNECTION-STRING> placeholder
+    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>">);
 
     // create a processor that we can use to process the messages
     // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
