@@ -17,7 +17,7 @@ The connector uses the Azure Monitor Agent (AMA), which uses Data Collection Rul
 The AMA is installed on a Linux machine that acts as a log forwarder, and the AMA collects the logs in the CEF format. 
 
 - [Set up the connector](#set-up-the-common-event-format-cef-via-ama-connector)
-- [Learn more about the connector](#how-collection-works-with-the-common-event-format-cef-via-ama-connector).
+- [Learn more about the connector](#how-collection-works-with-the-common-event-format-cef-via-ama-connector)
 
 > [!IMPORTANT]
 > The CEF via AMA connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -108,7 +108,7 @@ You can set up the connector in two ways:
     - Select your subscription
     - Select the resource group where your collector is defined
 
-[SCREENSHOT TBD]
+    :::image type="content" source="media/connect-cef-ama/dcr-basics-tab.png" alt-text="Screenshot showing the DCR details in the Basics tab." lightbox="media/connect-cef-ama/dcr-basics-tab.png":::
 
 ##### Define resources (VMs)
 
@@ -117,7 +117,7 @@ Select the machines on which you want to install the AMA. These machines are VMs
 1. Select the **Resources** tab and select **Add Resource(s)**. 
 1. Select the VMs on which you want to install the connector to collect logs.
 
-   [SCREENSHOT TBD]
+   :::image type="content" source="media/connect-cef-ama/dcr-select-resources.png" alt-text="Screenshot showing how to select resources when setting up the DCR." lightbox="media/dcr-select-resources":::
 
 1. Review your changes and select **Collect**. 
 
@@ -136,7 +136,7 @@ Select the machines on which you want to install the AMA. These machines are VMs
 1. Select the **Collect** tab and select **Linux syslog** as the data source type.
 1. Configure the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with lower severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_WARNING**, **LOG_NOTICE**, **LOG_INFO**, and **LOG_DEBUG** levels.
 
-   [SCREENSHOT TBD]
+   :::image type="content" source="media/connect-cef-ama/dcr-log-levels.png" alt-text="Screenshot showing how to select log levels when setting up the DCR." lightbox="media/dcr-log-levels.png":::
 
 1. Review your changes and select **Next: Review and create**. 
 1. In the **Review and create** tab, select **Create**.
