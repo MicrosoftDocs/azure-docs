@@ -54,7 +54,4 @@ Running multiple caches simultaneously as you convert your data to the new cache
 Learn more about:
 
 > [!div class="nextstepaction"]
-> [Regions and Availability Zones in Azure](az-overview.md)
-
-> [!div class="nextstepaction"]
-> [Azure Services that support Availability Zones](az-region.md)
+> [Azure services and regions that support availability zones](availability-zones-service-support.md)

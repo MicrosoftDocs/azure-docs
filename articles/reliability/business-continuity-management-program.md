@@ -1,13 +1,12 @@
 ---
 title: Business continuity management program in Azure
 description: Learn about one of the most mature business continuity management programs in the industry.
-author: arcorob
+author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 10/21/2021
-ms.author: rarco
-ms.reviewer: cynthn
+ms.author: anaharris
 ms.custom: fasttrack-edit, mvc
 ---
 
@@ -91,6 +90,6 @@ For more information on certifications, see the [Microsoft Trust Center](https:/
 
 ## Next steps
 
-- [Regions that support availability zones in Azure](az-overview.md)
+- [Azure services and regions that support availability zones](availability-zones-service-support.md)
 - [Azure Resiliency whitepaper](https://azure.microsoft.com/resources/resilience-in-azure-whitepaper/)
 - [Quickstart templates](https://aka.ms/azqs)

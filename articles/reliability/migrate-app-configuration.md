@@ -19,7 +19,7 @@ Azure App Configuration supports Azure availability zones to protect your applic
 
 [!INCLUDE [Azure App Configuration availability zones table](../../includes/azure-app-configuration-availability-zones.md)]
 
-For more information about availability zones, go to [Regions and Availability Zones in Azure.](../availability-zones/az-overview.md)
+For more information about availability zones, go to [Regions and Availability Zones in Azure.](../reliability/availability-zones-overview.md)
 
 ## App Configuration store migration
 
@@ -64,3 +64,10 @@ The following steps walk you through the process of creating a new target store 
 
 > [!div class="nextstepaction"]
 > [Resiliency and disaster recovery](../azure-app-configuration/concept-geo-replication.md)
+
+> [!div class="nextstepaction"]
+> [Building for reliability](/azure/architecture/framework/resiliency/app-design) in Azure.
+
+> [!div class="nextstepaction"]
+> [Azure services and regions that support availability zones](availability-zones-service-support.md)
+

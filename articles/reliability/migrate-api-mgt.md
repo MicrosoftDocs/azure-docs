@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Migrate Azure API Management to availability zone support
 
-This guide describes how to enable availability zone support for your API Management instance. The API Management service supports [Zone redundancy](../availability-zones/az-overview.md#availability-zones), which provides resiliency and high availability to a service instance in a specific Azure region. With zone redundancy, the gateway and the control plane of your API Management instance (Management API, developer portal, Git configuration) are replicated across datacenters in physically separated zones, making it resilient to a zone failure.
+This guide describes how to enable availability zone support for your API Management instance. The API Management service supports [Zone redundancy](../reliability/availability-zones-overview.md), which provides resiliency and high availability to a service instance in a specific Azure region. With zone redundancy, the gateway and the control plane of your API Management instance (Management API, developer portal, Git configuration) are replicated across datacenters in physically separated zones, making it resilient to a zone failure.
 
 In this article, we'll take you through the different options for availability zone migration.
 
@@ -151,13 +151,11 @@ If your API Management instance is deployed in a virtual network in the primary 
 Learn more about:
 
 > [!div class="nextstepaction"]
-> [deploying an Azure API Management service instance to multiple Azure regions](../api-management/api-management-howto-deploy-multi-region.md).
+> [Deploying an Azure API Management service instance to multiple Azure regions](../api-management/api-management-howto-deploy-multi-region.md).
 
 > [!div class="nextstepaction"]
-> [building for reliability](/azure/architecture/framework/resiliency/app-design) in Azure.
+> [Building for reliability](/azure/architecture/framework/resiliency/app-design) in Azure.
 
 > [!div class="nextstepaction"]
-> [Regions and Availability Zones in Azure](az-overview.md)
+> [Azure services and regions that support availability zones](availability-zones-service-support.md)
 
-> [!div class="nextstepaction"]
-> [Azure Services that support Availability Zones](az-region.md)
