@@ -7,7 +7,7 @@ ms.author: bozhlin
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/31/2022
+ms.date: 11/09/2022
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
@@ -80,7 +80,8 @@ The following steps will create an instance type with the labeled behavior:
 - Pods will be assigned resource limits of `1` CPU, `2Gi` memory and `1` NVIDIA GPU.
 
 Custom instance types creation need to meet the following definition rules, otherwise the instance type creation will fail:
-| Properties | Necessity | Validation Rule |
+
+| Parameter | If required | Description |
 | --- | --- | --- |
 | name | required | String values, must be unique in cluster, otherwise will override the exist one.|
 | CPU request | required | String values, which can neither be 0 nor empty. <br>CPU can be specified in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`.|
@@ -291,7 +292,7 @@ blue_deployment = KubernetesOnlineDeployment(
 
 The valid resource definition of model deployment need to meet the following rules, otherwise the model deployment will fail due to the invalid resource definition:
 
-| Properties | Necessity | Validation Rule |
+| Parameter | If required | Description |
 | --- | --- | --- |
 | CPU request | required | String values, which can neither be 0 nor empty. <br>CPU can be specified in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`.|
 | Memory request | required | String values, which can neither be 0 nor empty. <br>Memory can be specified as a full number + suffix, for example `1024Mi` for 1024 MiB.|
