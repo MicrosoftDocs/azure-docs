@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/28/2022
+ms.date: 11/09/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell, engagement-fy23
@@ -32,13 +32,13 @@ In this article, you will learn how to change the replication setting(s) for an 
 You can change how your storage account is replicated from any type to any other. There are four basic ways to change the settings:
 
 - [Use the Azure portal, Azure PowerShell, or the Azure CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)
-- [Initiate a conversion from within the Azure portal (preview)](#customer-initiated-conversion-preview)
+- [Initiate a conversion from within the Azure portal](#customer-initiated-conversion)
 - [Request a conversion by creating a support request with Microsoft](#support-requested-conversion)
 - [Perform a manual migration](#manual-migration)
 
 To add or remove geo-replication or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-To add or remove zone-redundancy requires using either [customer-initiated conversion (preview)](#customer-initiated-conversion-preview), [support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration). 
+To add or remove zone-redundancy requires using either [customer-initiated conversion](#customer-initiated-conversion), [support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration). 
 
 During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the conversion process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
 
@@ -62,10 +62,10 @@ The following table provides an overview of how to switch from each type of repl
 
 | Switching | …to LRS | …to GRS/RA-GRS <sup>6</sup> | …to ZRS | …to GZRS/RA-GZRS <sup>6</sup> |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| **…from LRS** | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GZRS/RA-GZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
-| **…from GRS/RA-GRS** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | **N/A** | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to ZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
-| **…from ZRS** | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GRS/RA-GRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>2</sup> |
-| **…from GZRS/RA-GZRS** | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to LRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | [Customer-initiated conversion](#customer-initiated-conversion-preview)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| **N/A** |
+| **…from LRS** | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup> | [Customer-initiated conversion](#customer-initiated-conversion)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GZRS/RA-GZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
+| **…from GRS/RA-GRS** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | **N/A** | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to ZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> | [Customer-initiated conversion](#customer-initiated-conversion)<sup>3,5</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5</sup> |
+| **…from ZRS** | [Customer-initiated conversion](#customer-initiated-conversion)<sup>3</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GRS/RA-GRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion)<sup>3</sup> | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>2</sup> |
+| **…from GZRS/RA-GZRS** | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to LRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion)<sup>3</sup> | [Customer-initiated conversion](#customer-initiated-conversion)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| **N/A** |
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
 <sup>2</sup> Switching to geo-redundancy is not supported if the storage account contains blobs in the archive tier.<br />
@@ -126,24 +126,10 @@ During a conversion, you can access data in your storage account with no loss of
 
 There are two ways to initiate a conversion:
 
-- [Customer-initiated](#customer-initiated-conversion-preview)
+- [Customer-initiated](#customer-initiated-conversion)
 - [Support-requested](#support-requested-conversion)
 
-#### Customer-initiated conversion (preview)
-
-> [!IMPORTANT]
-> Customer-initiated conversion is currently in preview and available in all public ZRS regions except for the following:
->
-> - (Europe) West Europe
-> - (Europe) UK South
-> - (North America) Canada Central
-> - (North America) East US
-> - (North America) East US 2
->
-> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify **CustomerInitiatedMigration** as the feature name.
->
-> This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+#### Customer-initiated conversion
 
 Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can start the conversion directly from within the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
 
@@ -221,7 +207,7 @@ Limitations apply to some replication change scenarios depending on:
 
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
-The [customer-initiated conversion (preview)](#customer-initiated-conversion-preview) to ZRS is available in all public ZRS regions except for the following:
+The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is available in all public ZRS regions except for the following:
 
 - (Europe) West Europe
 - (Europe) UK South
@@ -251,7 +237,7 @@ The following table provides an overview of redundancy options available for sto
 | Standard general purpose v1 | &#x2705;     |              |    <sup>3</sup>         |                           | &#x2705;                  |
 | ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub> | &#x2705; |  |  |  |
 
-<sup>1</sup> Conversion for premium file shares is only available by [opening a support request](#support-requested-conversion); [Customer-initiated conversion (preview)](#customer-initiated-conversion-preview) is not currently supported.<br />
+<sup>1</sup> Conversion for premium file shares is only available by [opening a support request](#support-requested-conversion); [Customer-initiated conversion](#customer-initiated-conversion) is not currently supported.<br />
 <sup>2</sup> Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you'll need to upgrade it to v2 before performing a conversion. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts have been deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
