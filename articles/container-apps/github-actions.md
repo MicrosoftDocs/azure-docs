@@ -75,9 +75,21 @@ steps:
 
 ### Authenticate with Azure Container Registry
 
-To deploy and run your app, the action needs to authenticate with your Azure Container Registry to push the container image and the container app needs to authenticate with your Azure Container Registry to pull the container image.
+The Azure Container Apps action needs to authenticate with your Azure Container Registry to push the container image. The container app also needs to authenticate with your Azure Container Registry to pull the container image.
 
-To push the image, the action automatically authenticates with the container registry specified in `acrName` using the credentials provided to the `azure/login` action.
+To push images, the action automatically authenticates with the container registry specified in `acrName` using the credentials provided to the `azure/login` action.
 
-To pull the image, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the container app the action is deploying to must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the action's `acrUsername` and `acrPassword` inputs.
+To pull images, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the container app the action is deploying to must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the action's `acrUsername` and `acrPassword` inputs.
+
+## Configuration
+
+To configure a GitHub Actions workflow to deploy to Azure Container Apps, you take the following steps.
+
+> [!div class="checklist"]
+> * Create a container app with managed identity enabled
+> * Assign the `AcrPull` role for the Azure Container Registry to the container app's managed identity
+> * Configure secrets in your GitHub repository
+> * Create a GitHub Actions workflow
+
+### Prerequisites
 
