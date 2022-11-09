@@ -74,9 +74,9 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 ## Bind your app to the Azure Cosmos DB
 
-#### [Azure CLI](#tab/Service-Connector)
+#### [Service Connector](#tab/Service-Connector)
 
-* Use **Azure CLI** to configure your Spring app to connect to a Cosmos Database with a system-assigned managed identity by using the az spring connection create command, as shown in the following example.
+1. Use **Azure CLI** to configure your Spring app to connect to a Cosmos SQL Database with a system-assigned managed identity by using the az spring connection create command, as shown in the following example.
 
    ```azurecli
    az spring connection create cosmos-sql \
@@ -99,23 +99,25 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
     > [!TIP]
     > Run the command `az spring connection` to get a list of supported target services and authentication methods for Azure Spring Apps. If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
 
-* Or you can use **Azure Portal** to configure this connection.
+1. Or you can use **Azure Portal** to configure this connection. This works the same as an azure cli and provide an interactive experience.
 
-   1.  Go to your Azure Spring Apps service page in the Azure portal. Choose the Azure Spring Apps and open the Apps page. Choose the App you want to configure connection and Open the Service Connector page.
+   * Go to your Azure Spring Apps service page in the Azure Portal. Choose the Azure Spring Apps and open the Apps page. Choose the App you want to configure connection and open the **Service Connector** page.
    
-   1. Click Create button, a create connection panel should show up.
+   * Click create button, a create connection panel should show up.
    
-   1. In the Basics tab, choose CosmosDB for service type. For this specific example, We will choose a subscription, Core(SQL) for API type, a CosmosDB account, a databse and a client type. Then Click Next.
+   * In the **Basics** tab, choose CosmosDB for service type. In this example, we will choose a subscription, core(SQL) for API type, a CosmosDB account, a databse and Java for client type. Click Next button. Refer to the quickstart on [creating a cosmos database](../cosmos-db/create-cosmosdb-resources-portal.md) for help if your database is not created yet.
 
-   1. In the Authentication tab, we will use Connection string. It automatically retrieves the access key from your CosmosDB account and configure it into your Spring App Settings. Then Click Next.
+   * In the **Authentication** tab, choose Connection string. It automatically retrieves the access key from your CosmosDB account and configure it into your spring app Settings. Click Next button.
 
-   1. In the Networking tab, we will use "Configure firewall rules to enable access to target service". Then Click Next
+   * In the **Networking** tab, we will use "Configure firewall rules to enable access to target service". Click Next button.
 
-   1. Wait for the validation to pass and then we can check again the connection parameters before acutal creation of the connection.
+   * In the **Review + Create** tab, wait for the validation to pass and then click Create button.
 
-   1. Hit the Create button and wait for the creation operation to finish.
 
 #### [Service Binding](#tab/Service-Binding)
+
+ > [!NOTE]
+ > It's recommeded to use Service Connector to connect to your target backing services. We are planning to deprecate Service Binding in favor of Service Connector. See Service Connector tab for help.
 
 Azure Cosmos DB has five different API types that support binding. The following procedure shows how to use them:
 
