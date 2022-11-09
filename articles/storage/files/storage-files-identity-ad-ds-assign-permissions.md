@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/19/2022
+ms.date: 11/03/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli 
 ms.devlang: azurecli
@@ -13,12 +13,10 @@ ms.devlang: azurecli
 
 # Part two: assign share-level permissions to an identity
 
-Before you begin this article, make sure you've completed the previous article, [Enable AD DS authentication for your account](storage-files-identity-ad-ds-enable.md).
-
-Once you've enabled Active Directory Domain Services (AD DS) authentication on your storage account, you must configure share-level permissions in order to get access to your file shares. There are two ways you can assign share-level permissions. You can assign them to specific Azure AD users/groups, and you can assign them to all authenticated identities as a default share-level permission.
+Once you've enabled an Active Directory (AD) source for your storage account, you must configure share-level permissions in order to get access to your file share. There are two ways you can assign share-level permissions. You can assign them to [specific Azure AD users/groups](#share-level-permissions-for-specific-azure-ad-users-or-groups), and you can assign them to all authenticated identities as a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 
 > [!IMPORTANT]
-> Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Full administrative control isn't supported with AD DS or Azure AD authentication.
+> Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Full administrative control isn't supported with Active Directory Domain Services (AD DS) or Azure AD authentication.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -31,16 +29,16 @@ Once you've enabled Active Directory Domain Services (AD DS) authentication on y
 
 Most users should assign share-level permissions to specific Azure AD users or groups, and then use Windows ACLs for granular access control at the directory and file level. This is the most stringent and secure configuration.
 
-There are three scenarios where we instead recommend using default share-level permissions assigned to all authenticated identities:
+There are three scenarios where we instead recommend using a [default share-level permission](#share-level-permissions-for-all-authenticated-identities) assigned to all authenticated identities:
 
 - If you are unable to sync your on-premises AD DS to Azure AD, you can use a default share-level permission. Assigning a default share-level permission allows you to work around the sync requirement because you don't need to specify the permission to identities in Azure AD. Then you can use Windows ACLs for granular permission enforcement on your files and directories.
-    - Identities that are tied to an AD but aren't synching to Azure AD can also leverage the default share-level permission. This could include standalone Managed Service Accounts (sMSA), group Managed Service Accounts (gMSA), and computer accounts. 
+    - Identities that are tied to an AD but aren't synching to Azure AD can also leverage the default share-level permission. This could include standalone Managed Service Accounts (sMSA), group Managed Service Accounts (gMSA), and computer accounts.
 - The on-premises AD DS you're using is synched to a different Azure AD than the Azure AD the file share is deployed in.
-    - This is typical when you're managing multi-tenant environments. Using the default share-level permission allows you to bypass the requirement for an Azure AD hybrid identity. You can still use Windows ACLs on your files and directories for granular permission enforcement.
-- You prefer to enforce authentication only using Windows ACLs at the file and directory level. 
+    - This is typical when you're managing multi-tenant environments. Using a default share-level permission allows you to bypass the requirement for an Azure AD hybrid identity. You can still use Windows ACLs on your files and directories for granular permission enforcement.
+- You prefer to enforce authentication only using Windows ACLs at the file and directory level.
 
 > [!NOTE]
-> Because computer accounts don't have an identity in Azure AD, you can't configure Azure role-based access control (RBAC) for them. However, computer accounts can access a file share by using default share-level permissions.
+> Because computer accounts don't have an identity in Azure AD, you can't configure Azure role-based access control (RBAC) for them. However, computer accounts can access a file share by using a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 
 ## Share-level permissions
 
@@ -123,12 +121,15 @@ When you set a default share-level permission, all authenticated users and group
 
 # [Portal](#tab/azure-portal)
 
-To configure default share-level permissions on your storage account using the [Azure portal](https://portal.azure.com), follow these steps. 
+To configure default share-level permissions on your storage account using the [Azure portal](https://portal.azure.com), follow these steps.
 
 1. In the Azure portal, go to the storage account that contains your file share(s) and select **Data storage > File shares**.
-1. You must enable an AD source on your storage account before assigning a default share-level permission. If you've already done so, you can skip this step. To enable an AD source, select **Set up** under the desired AD source. 
-1. After you've configured an AD source, **Step 2: Set share-level permissions** will be available for configuration. Select **Enable permissions for all authenticated users and groups**.
-1. Select the appropriate role to be enabled as the default [share permission](#share-level-permissions) from the dropdown list. You can also change an existing default permission to a different role.
+1. You must enable an AD source on your storage account before assigning default share-level permissions. If you've already done this, select **Active Directory** and proceed to the next step. Otherwise, select **Active Directory: Not configured**, select **Set up** under the desired AD source, and enable the AD source.
+1. After you've enabled an AD source, **Step 2: Set share-level permissions** will be available for configuration. Select **Enable permissions for all authenticated users and groups**.
+
+   :::image type="content" source="media/storage-files-identity-ad-ds-assign-permissions/set-default-share-level-permission.png" alt-text="Screenshot showing how to set a default share-level permission using the Azure portal." lightbox="media/storage-files-identity-ad-ds-assign-permissions/set-default-share-level-permission.png" border="true":::
+
+1. Select the appropriate role to be enabled as the default [share permission](#share-level-permissions) from the dropdown list.
 1. Select **Save**.
 
 # [Azure PowerShell](#tab/azure-powershell)

@@ -232,7 +232,7 @@ The validation commands also report an error if the same telemetry name is defin
 
 If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled.
 
-:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view":::
+:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view" lightbox="media/troubleshoot-connection/raw-data-view.png":::
 
 When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
 

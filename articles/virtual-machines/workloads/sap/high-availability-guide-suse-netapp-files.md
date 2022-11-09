@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/08/2022
+ms.date: 11/03/2022
 ms.author: radeltch
 
 ---
@@ -73,7 +73,7 @@ Read the following SAP Notes and papers first:
 * SAP Note [2243692][2243692] has information about SAP licensing on Linux in Azure.
 * SAP Note [1984787][1984787] has general information about SUSE Linux Enterprise Server 12.
 * SAP Note [1999351][1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
-* SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
+* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
@@ -498,7 +498,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params ip=<b>10.1.1.20</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>QAS</b>_ASCS azure-lb port=620<b>00</b>
+   sudo crm configure primitive nc_<b>QAS</b>_ASCS azure-lb port=620<b>00</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>QAS</b>_ASCS fs_<b>QAS</b>_ASCS nc_<b>QAS</b>_ASCS vip_<b>QAS</b>_ASCS \
       meta resource-stickiness=3000
@@ -557,7 +558,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params ip=<b>10.1.1.21</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>QAS</b>_ERS azure-lb port=621<b>01</b>
+   sudo crm configure primitive nc_<b>QAS</b>_ERS azure-lb port=621<b>01</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>QAS</b>_ERS fs_<b>QAS</b>_ERS nc_<b>QAS</b>_ERS vip_<b>QAS</b>_ERS
    </code></pre>
