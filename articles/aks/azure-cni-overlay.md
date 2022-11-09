@@ -9,12 +9,12 @@ ms.date: 11/08/2022
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
 
-The traditional [Azure Container Networking Interface (CNI)](./configure-azure-cni.md) assigns a VNet IP address to every Pod either from a pre-reserved set of IPs on every node or from a separate subnet reserved for pods. This approach requires IP address planning and could lead to address exhaustion and difficulties in scaling your clusters as your application demands grow.
+The traditional [Azure Container Networking Interface (CNI)](./configure-azure-cni.md) assigns a VNet IP address to every Pod, either from a pre-reserved set of IPs on every node, or from a separate subnet reserved for pods. This approach requires planning IP addresses and could lead to address exhaustion, which introduces difficulties scaling your clusters as your application demands grow.
 
-With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Network subnet, whereas pods are assigned IP addresses from a private CIDR logically different from the VNet hosting the nodes. Pod and node traffic within the cluster use an overlay network, and Network Address Translation (via the node's IP address) is used to reach resources outside the cluster. This solution saves a significant amount of VNet IP addresses and enables you to seamlessly scale your cluster to very large sizes. An added advantage is that the private CIDR can be reused in different AKS clusters, truly extending the IP space available for containerized applications in AKS.
+With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Network (VNet) subnet, whereas pods are assigned IP addresses from a private CIDR logically different from the VNet hosting the nodes. Pod and node traffic within the cluster use an overlay network, and Network Address Translation (using the node's IP address) is used to reach resources outside the cluster. This solution saves a significant amount of VNet IP addresses and enables you to seamlessly scale your cluster to very large sizes. An added advantage is that the private CIDR can be reused in different AKS clusters, truly extending the IP space available for containerized applications in AKS.
 
 > [!NOTE]
-> Azure CNI Overlay is currently available in the following regions:
+> Azure CNI Overlay is currently available only in the following regions:
 > - North Central US
 > - West Central US
 
@@ -22,7 +22,7 @@ With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Net
 
 In overlay networking, only the Kubernetes cluster nodes are assigned IPs from a subnet. Pods receive IPs from a private CIDR that is provided at the time of cluster creation. Each node is assigned a `/24` address space carved out from the same CIDR. Additional nodes that are created when you scale out a cluster automatically receive `/24` address spaces from the same CIDR. Azure CNI assigns IPs to pods from this `/24` space.
 
-A separate routing domain is created in the Azure Networking stack for the pod's private CIDR space, which creates an overlay network for direct communication between pods. There is no need to provision custom routes on the cluster subnet or use an encapsulation method to tunnel traffic between pods. This provides connectivity performance between pods on par with VMs in a VNet. 
+A separate routing domain is created in the Azure Networking stack for the pod's private CIDR space, which creates an overlay network for direct communication between pods. There is no need to provision custom routes on the cluster subnet or use an encapsulation method to tunnel traffic between pods. This provides connectivity performance between pods on par with VMs in a VNet.
 
 :::image type="content" source="media/azure-cni-overlay/azure-cni-overlay.png" alt-text="A diagram showing two nodes with three pods each running in an overlay network. Pod traffic to endpoints outside the cluster is routed via NAT.":::
 
@@ -46,11 +46,11 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 
 ## IP address planning
 
-* **Cluster Nodes**: Cluster nodes go into a subnet in your VNet, so ensure that you have a subnet big enough to account for future scale. A simple `/24` subnet can host up to 251 nodes (the first three IP addresses in a subnet are reserved for management operations).
+* **Cluster Nodes**: Cluster nodes go into a subnet in your VNet, so verify you have a subnet large enough to account for future scale. A simple `/24` subnet can host up to 251 nodes (the first three IP addresses in a subnet are reserved for management operations).
 
 * **Pods**: The overlay solution assigns a `/24` address space for pods on every node from the private CIDR that you specify during cluster creation. The `/24` size is fixed and can't be increased or decreased. You can run up to 250 pods on a node. When planning the pod address space, ensure that the private CIDR is large enough to provide `/24` address spaces for new nodes to support future cluster expansion.
 
-The following are additional factors to consider when planning pod address space:
+The following are additional factors to consider when planning pods IP address space:
 
    * Pod CIDR space must not overlap with the cluster subnet range.
    * Pod CIDR space must not overlap with IP ranges used in on-premises networks and peered networks.
@@ -58,7 +58,7 @@ The following are additional factors to consider when planning pod address space
 
 * **Kubernetes service address range**: The size of the service address CIDR depends on the number of cluster services you plan to create. It must be smaller than `/12`. This range should also not overlap with the pod CIDR range, cluster subnet range, and IP range used in peered VNets and on-premises networks.
 
-* **Kubernetes DNS service IP address**: This is an IP address within the Kubernetes service address range that will be used by cluster service discovery. Don't use the first IP address in your address range. The first address in your subnet range is used for the kubernetes.default.svc.cluster.local address.
+* **Kubernetes DNS service IP address**: This is an IP address within the Kubernetes service address range that's used by cluster service discovery. Don't use the first IP address in your address range, as this address is used for the `kubernetes.default.svc.cluster.local` address.
 
 ## Maximum pods per node
 
@@ -66,11 +66,11 @@ You can configure the maximum number of pods per node at the time of cluster cre
 
 ## Choosing a network model to use
 
-Azure CNI offers two IP addressing options for pods- the traditional configuration that assigns VNet IPs to pods, and overlay networking. The choice of which option to use for your AKS cluster is a balance between flexibility and advanced configuration needs. The following considerations help outline when each network model may be the most appropriate.
+Azure CNI offers two IP addressing options for pods - the traditional configuration that assigns VNet IPs to pods, and overlay networking. The choice of which option to use for your AKS cluster is a balance between flexibility and advanced configuration needs. The following considerations help outline when each network model may be the most appropriate.
 
 Use overlay networking when:
 
-* You would like to scale to a large number of Pods but have limited IP address space in your VNet.
+* You would like to scale to a large number of pods, but have limited IP address space in your VNet.
 * Most of the pod communication is within the cluster.
 * You don't need advanced AKS features, such as virtual nodes.
 
@@ -86,10 +86,10 @@ Use the traditional VNet option when:
 The overlay solution has the following limitations today
 
 * Only available for Linux and not for Windows.
-* You can't deploy multiple overlay clusters in the same subnet.
+* You can't deploy multiple overlay clusters on the same subnet.
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
-* v5 VM SKUs are not currently supported.
+* v5 VM SKUs are currently not supported.
 
 ## Install the aks-preview Azure CLI extension
 
@@ -156,3 +156,5 @@ The following steps create a new virtual network with a subnet for the cluster n
     ```
 
 ## Next steps
+
+To learn how to utilize AKS with your own Container Network Interface (CNI) plugin, see [Bring your own Container Network Interface (CNI) plugin](use-byo-cni.md).
