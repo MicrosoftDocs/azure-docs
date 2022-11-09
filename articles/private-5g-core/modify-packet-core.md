@@ -62,6 +62,7 @@ To modify the packet core and/or access network configuration:
    - Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the configuration values under **Access network**.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Configuration tab.":::
+    <!-- TODO: Update screenshot with 'Data networks' tab name -->
 
 3. Choose the next step:
    - If you've finished modifying the packet core instance, go to [Submit and verify changes](#submit-and-verify-changes).
@@ -76,12 +77,12 @@ To configure a new or existing data network and attach it to your packet core in
 2. Select the **Data networks** tab.
 3. Select **Attach data network**.
 
-    :::image type="content" source="media/modify-packet-core/modify-packet-core-data-networks-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Data network tab.":::
+    :::image type="content" source="media/modify-packet-core/modify-packet-core-data-networks-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Data networks tab. The option to attach a data network is highlighted.":::
 
 4. In the **Data network** field, choose an existing data network from the dropdown or select **Create new** to create a new one. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the remaining fields.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
-       <!-- TODO: Update screenshot after release of Simpler ASE Install feature -->
+       <!-- TODO: Update screenshot with new fields from Simpler ASE Install feature -->
 
 5. Select **Attach**.
 6. Repeat the steps above for each additional data network you want to configure.
@@ -97,13 +98,15 @@ To make changes to a data network attached to your packet core instance:
 2. Select the **Data networks** tab.
 3. Select the data network you want to modify.
 
-    :::image type="content" source="media/modify-packet-core/modify-packet-core-data-network-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Data network tab.":::
+    :::image type="content" source="media/modify-packet-core/modify-packet-core-data-network-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Data networks tab. A data network is highlighted.":::
+    <!-- TODO: Update screenshot with new UI for multi DNs -->
 
 4. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields in the **Modify a data network** window.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-modify-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
+    <!-- TODO: Update screenshot with new fields from Simpler ASE Install feature -->
 
-5. Select **Modify**. You should see your changes under the **Data network** tab.
+5. Select **Modify**. You should see your changes under the **Data networks** tab.
 6. Go to [Submit and verify changes](#submit-and-verify-changes).
 
 ## Submit and verify changes
