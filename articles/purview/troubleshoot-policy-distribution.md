@@ -13,7 +13,7 @@ ms.date: 11/08/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-In this tutorial, learn how to programmatically fetch access policies that were created in Microsoft Purview. This can be used to troubleshoot the communication of policies between Microsoft Purview, where policies are created and updated and the data sources on which these policies are enforced.
+In this tutorial, learn how to programmatically fetch access policies that were created in Microsoft Purview. With this you can troubleshoot the communication of policies between Microsoft Purview, where policies are created and updated and the data sources on which these policies are enforced.
 This guide will use Arc-enabled SQL Server as an example of data source.
 
 To get the necessary context about Microsoft Purview policies, see concept guides listed in [next-steps](#next-steps).
@@ -185,7 +185,7 @@ PolicySet associates Policy to a resource scope. Purview policy decision compute
 |version|1|number|1||
 |updatedAt| |string|1|String representation of time in yyyy-MM-ddTHH:mm:ss.fffffffZ Ex: "2022-01-11T09:55:52.6472858Z"|
 |preconditionRules| |array[Object:Rule]|0..1||
-|policyRefs| |array[string]|1|List of policy Ids|
+|policyRefs| |array[string]|1|List of policy IDs|
 
 ### Policy
 
@@ -193,7 +193,7 @@ Policy specifies decision that should be emitted if the policy is applicable for
 
 |member|value|type|cardinality|description|
 |------|-----|----|-----------|-----------|
-|Id| |string|1||
+|ID| |string|1||
 |name| |string|1||
 |kind| |string|1||
 |version|1|number|1||
@@ -208,7 +208,7 @@ AttributeRule produces derived attributes and add them to request context attrib
 
 |member|value|type|cardinality|description|
 |------|-----|----|-----------|-----------|
-|Id| |string|1||
+|ID| |string|1||
 |name| |string|1||
 |kind|AttributeRule|string|1||
 |version|1|number|1||
@@ -222,8 +222,8 @@ AttributeRule produces derived attributes and add them to request context attrib
 #### AttributePredicate
 AttributePredicate checks whether predicate specified on an attribute is satisfied. AttributePredicate  can specify the following properties:
 - attributeName: specifies attribute name on which attribute predicate needs to be evaluated.
-- matcherId: Identifier of matcher function that is used to compare the attribute value looked up in request context by the attribute name to the attribute value literal specified in the predicate.  At present we support 2 matcherId(s): ExactMatcher, GlobMatcher. If matcherId isn't specified, it defaults to GlobMatcher.
-- fromRule: optional property specifying the identifier of an AttributeRule that needs to be evaluated to populate the request context with attribute values that would be compared in this predicate.
+- matcherId: ID of matcher function that is used to compare the attribute value looked up in request context by the attribute name to the attribute value literal specified in the predicate.  At present we support 2 matcherId(s): ExactMatcher, GlobMatcher. If matcherId isn't specified, it defaults to GlobMatcher.
+- fromRule: optional property specifying the ID of an AttributeRule that needs to be evaluated to populate the request context with attribute values that would be compared in this predicate.
 - attributeValueIncludes: scalar literal value that should match the request context attribute values.
 - attributeValueIncludedIn: array of literal values that should match the request context attribute values.
 - attributeValueExcluded: scalar literal value that should not  match the request context attribute values.
