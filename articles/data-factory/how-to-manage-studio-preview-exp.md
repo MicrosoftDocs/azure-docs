@@ -54,7 +54,7 @@ There are two ways to enable preview experiences.
    * [Data preview](#data-preview)
 	
    [**Pipeline experimental view**](#pipeline-experimental-view)
-   * 
+   * [Dynamic content flyout](#dynamic-content-flyout)
 
    [**Monitoring experimental view**](#monitoring-experimental-view)
    * [Error message relocation to Status column](#error-message-relocation-to-status-column)
@@ -137,7 +137,6 @@ In supported activities, you will see an icon next to the setting. Clicking this
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-33.png" alt-text="Screenshot of the new dynamic content flyout with dynamic content options to choose.":::
 
-
 ### Monitoring experimental view
 
 UI (user interfaces) changes have been made to the monitoring page. These changes were made to simplify and streamline your monitoring experience.
@@ -160,11 +159,31 @@ This view is available in the output of your pipeline debug run and in the detai
 
 ##### How to enable the hierarchy view in pipeline debug output
 
+In the **Output** tab in your pipeline, there is a new dropdown to select your monitoring view. 
 
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-35.png" alt-text="Screenshot of the drop-down menu to select the monitoring view.":::
 
+Select **Hierarchy** to see the new hierarchy view. If you have iteration or conditional activities, the nested activities will be grouped under parent activity. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-36.png" alt-text="Screenshot of the hierarchy monitoring view.":::
+
+Click the button next to the iteration or conditional activity to collapse the nested activities for a more consolidated view. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-37.png" alt-text="Screenshot of the hierarchy monitoring view.":::
 
 ##### How to enable the hierarchy view in pipeline monitoring
 
+In the detailed view of your pipeline run, there is a new dropdown to select your monitoring view next to the Status filter. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-39.png" alt-text="Screenshot of the drop-down menu to select the monitoring view in pipeline monitoring view.":::
+
+Select **Hierarchy** to see the new hierarchy view. If you have iteration or conditional activities, the nested activities will be grouped under parent activity. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-40.png" alt-text="Screenshot of the drop-down menu to select the monitoring view in pipeline monitoring view.":::
+
+Click the button next to the iteration or conditional activity to collapse the nested activities for a more consolidated view. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-40.png" alt-text="Screenshot of the hierarchy monitoring view.":::
 
 #### Simplified default monitoring view
 
@@ -185,7 +204,6 @@ The default monitoring view has been simplified with fewer default columns. You 
 | Error | If the pipeline failed, the run error |
 | Run ID | ID of the pipeline run |
 
-
 You can edit your default view by clicking **Edit Columns**. 
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-21.png" alt-text="Screenshot of the Edit Columns button in the center of the top row.":::
@@ -193,7 +211,6 @@ You can edit your default view by clicking **Edit Columns**.
 Add columns by clicking **Add column** or remove columns by clicking the trashcan icon. 
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-22.png" alt-text="Screenshot of the Add column button and trashcan icon to edit column view.":::
-
 
 ## Provide feedback
 
