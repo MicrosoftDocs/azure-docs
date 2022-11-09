@@ -58,9 +58,10 @@ GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 ### Example for Arc-enabled SQL Server
 
 ##### Example parameters:
+- Microsoft Purview account = relecloud-pv
 - resourceProvider = Microsoft.AzureArcData
 - resourceType = sqlServerInstances
-- apiVersion = 2021-01-01-preview
+- resourceName = vm-finance
 
 ##### Example request:
 ```
@@ -68,6 +69,8 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-
 ```
 
 ##### Example response:
+
+`200 OK`
 
 ```json
 {
@@ -121,9 +124,10 @@ Provide the syncToken you got from the prior pull in any successive delta pulls.
 ### Example for Arc-enabled SQL Server
 
 ##### Example parameters:
+- Microsoft Purview account = relecloud-pv
 - resourceProvider = Microsoft.AzureArcData
 - resourceType = sqlServerInstances
-- apiVersion = 2021-01-01-preview
+- resourceName = vm-finance
 - syncToken = 808:0
 
 ##### Example request:
@@ -132,6 +136,8 @@ https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae
 ```
 
 ##### Example response:
+
+`200 OK`
 
 ```json
 {
