@@ -47,8 +47,8 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 #### [Service Connector](#tab/Service-Connector)
 
-1. Use **Azure CLI** to configure your Spring app to connect to a Redis database with an access key using the az spring connection create command, as shown in the following example. 
-    
+1. Use the **Azure CLI** to configure your Spring app to connect to a Redis database with an access key using the `az spring connection create` command, as shown in the following example.
+
    ```azurecli
    az spring connection create redis \
        --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
@@ -62,35 +62,34 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
    ```
 
     > [!NOTE]
-    > If you are using [Service Connector](../service-connector/overview.md) for the first time, start by running the command `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider.
+    > If you're using [Service Connector](../service-connector/overview.md) for the first time, start by running the command `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider.
 
     > [!NOTE]
-    > If you are using Redis Enterprise, use `az spring connection create redis-enterprise` command instead.
+    > If you're using Redis Enterprise, use the `az spring connection create redis-enterprise` command instead.
 
     > [!TIP]
-    > Run the command `az spring connection` to get a list of supported target services and authentication methods for Azure Spring Apps. If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
+    > Run the command `az spring connection list-support-types --output table` to get a list of supported target services and authentication methods for Azure Spring Apps. If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
 
-1. Or you can use **Azure Portal** to configure this connection. This works the same as an azure cli and provide an interactive experience.
+1. Or you can use the Azure portal to configure this connection. The Azure portal provides the same capabilities as the Azure CLI and provides an interactive experience.
 
-   * Go to your Azure Spring Apps service page in the Azure Portal. Choose the Azure Spring Apps and open the Apps page. Choose the App you want to configure connection and open the **Service Connector** page.
-   
-   * Click Create button, a create connection panel should show up.
-   
-   * In the **Basics** tab, choose Redis for service type. In this example, we will choose a subscription, a Redis cache server. Fill in the redis databse name ("0" in this example) and choose Java for client type. Click Next button.
+   * Select your Azure Spring Apps instance in the Azure portal and select **Apps** from the left menu. Choose the app you want to connect and select **Service Connector** on the left.
 
-   * In the **Authentication** tab, choose Connection string. It will automatically retrieve the access key from your redis database account. Click Next button.
+   * Select the **Create** button.
 
-   * In the **Networking** tab, we will use "Configure firewall rules to enable access to target service". Click Next button.
+   * In the **Basics** tab, for Service type, select Cache for Redis. Choose a subscription and a Redis cache server. Fill in the Redis database name ("0" in this example) and under Client type, select Java. Select **Next: Authentication**.
 
-   * In the **Review + Create** tab, wait for the validation to pass and then click Create button. The creation can take a few minutes to finish.
+   * In the **Authentication** tab, choose Connection string. Service Connector will automatically retrieve the access key from your Redis database account. Networking
 
-   * Once the creation is done, you can see the connection in the Service Connector page and click unfold to view the configured connection variables. 
+   * In the **Networking** tab, select "Configure firewall rules to enable access to target service". **Click Review + Create.**
 
+   * In the **Review + Create** tab, wait for the validation to pass and then select **Create**. The creation can take a few minutes to complete.
+
+   * Once the connection between your Spring app your Redis database has been generated, you can see it in the Service Connector page and select the unfold button to view the configured connection variables.
 
 #### [Service Binding](#tab/Service-Binding)
 
  > [!NOTE]
- > It's recommeded to use Service Connector to connect to your target backing services. We are planning to deprecate Service Binding in favor of Service Connector. See Service Connector tab for help.
+ > We recommend using Service Connector instead of Service Binding to connect your app to your database. Service Binding is going to be deprecated in favor of Service Connector. See Service Connector tab for instructions.
 
 1. Go to your Azure Spring Apps service page in the Azure portal. Go to **Application Dashboard** and select the application to bind to Azure Cache for Redis. This application is the same one you updated or deployed in the previous step.
 
