@@ -37,7 +37,7 @@ CRS is enabled by default in Detection mode in your WAF policies. You can disabl
 
 Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You can configure exclusions to apply when specific WAF rules are evaluated, or to apply globally to the evaluation of all WAF rules. Exclusion rules apply to your whole web application. [For more information, see Web Application Firewall (WAF) with Application Gateway exclusion lists](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-waf-configuration?tabs=portal).
 
-By default, CRS blocks requests that trigger the rules. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Core Rule Set.
+By default, CRS version 3.2 and above will leverage anomaly scoring when a request matches a rule, CRS 3.1 and below will block matching requests by default. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Core Rule Set.
 
 Custom rules are always applied before rules in the Core Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Core Rule Set are processed. 
 
