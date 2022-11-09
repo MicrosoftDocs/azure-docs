@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 11/08/2022
+ms.date: 11/09/2022
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
@@ -30,7 +30,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * Source table row size can't exceed 7,500 bytes. For tables where variable-length columns are stored off-row, a 24-byte pointer is stored in the main record.
 * Tables enabled for Azure Synapse Link for SQL can have a maximum of 1,020 columns (not 1,024).
 * While a database can have multiple links enabled, a given table can't belong to multiple links.
-* When a database owner doesn't have a mapped log in, Azure Synapse Link for SQL will run into an error when enabling a link connection.  User can set database owner to a valid user with the `ALTER AUTHORIZATION` command to fix this issue.
+* When a database owner doesn't have a mapped login, Azure Synapse Link for SQL will run into an error when enabling a link connection.  User can set database owner to a valid user with the `ALTER AUTHORIZATION` command to fix this issue.
 * If the source table contains computed columns or columns with data types that aren't supported by Azure Synapse Analytics dedicated SQL pools, these columns won't be replicated to Azure Synapse Analytics.  Unsupported columns include:
   * image
   * text
@@ -61,7 +61,15 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * The security configuration from the source database will **NOT** be reflected in the target dedicated SQL pool.
 * Enabling Azure Synapse Link for SQL will create a new schema called `changefeed`. Don't use this schema, as it is reserved for system use.
 * Azure Synapse Link for SQL will **NOT** work and can't be enabled if your database contains a schema or user named `changefeed`.
-* Source tables with collations that are unsupported by Synapse SQL dedicated pool, such as UTF8 and certain Japanese collations, can't be replicated. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
+* Source tables with collations that are unsupported by dedicated SQL pools, such as UTF8 and certain Japanese collations, can't be replicated. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
+    * Additionally, some Thai language collations are currently supported by Azure Synapse Link for SQL. These unsupported collations include:
+        *    Thai100CaseInsensitiveAccentInsensitiveKanaSensitive
+        *    Thai100CaseInsensitiveAccentSensitiveSupplementaryCharacters
+        *    Thai100CaseSensitiveAccentInsensitiveKanaSensitive
+        *    Thai100CaseSensitiveAccentInsensitiveKanaSensitiveWidthSensitiveSupplementaryCharacters
+        *    Thai100CaseSensitiveAccentSensitiveKanaSensitive
+        *    Thai100CaseSensitiveAccentSensitiveSupplementaryCharacters
+        *    ThaiCaseSensitiveAccentInsensitiveWidthSensitive
 * Single row updates (including off-page storage) of > 370 MB are not supported.
 
 ### Azure SQL DB only
@@ -88,11 +96,11 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 ### Deleting an Azure Synapse Analytics workspace with a running link could cause the transaction log in the source database to fill
 
 * Applies To - Azure Synapse Link for Azure SQL Database and SQL Server 2022
-* Issue - When you delete an Azure Synapse Analytics workspace it is possible that running links might not be stopped, which will cause the source database to think that the link is still operational and could lead to the log filling and not being truncated.
+* Issue - When you delete an Azure Synapse Analytics workspace it is possible that running links might not be stopped, which will cause the source database to think that the link is still operational and could lead to the transaction log to not be truncated, and fill.
 * Resolution - There are two possible resolutions to this situation:
 1. Stop any running links prior to deleting the Azure Synapse Analytics workspace.
 1. Manually clean up the link definition in the source database.
-    1. Find the table_group_id for the link(s) that need to be stopped using the following query:
+    1. Find the `table_group_id` for the link(s) that need to be stopped using the following query:
         ```sql
         SELECT table_group_id, workspace_id, synapse_workgroup_name
         FROM [changefeed].[change_feed_table_groups]
@@ -109,14 +117,17 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 ### Trying to re-enable change feed on a table for that was recently disabled table will show an error. This is an uncommon behavior.
 
 * Applies To - Azure Synapse Link for Azure SQL Database and SQL Server 2022
-* Issue - When you try to enable a table that has been recently disabled with its metadata not yet been cleaned up and state marked as DISABLED, an error will be thrown stating "A table can only be enabled once among all table groups".
+* Issue - When you try to enable a table that has been recently disabled with its metadata not yet been cleaned up and state marked as DISABLED, an error will be thrown stating `A table can only be enabled once among all table groups`.
 * Resolution - Wait for sometime for the disabled table system procedure to complete and then try to re-enable the table again.
 
 ### Attempt to enable Synapse Link on database imported using SSDT, SQLPackage for Import/Export and Extract/Deploy operations 
 
 * Applies To - Azure Synapse Link for Azure SQL Database and SQL Server 2022
-* Issue - For SQL databases enabled with Azure Synapse Link, when you use SSDT Import/Export and Extract/Deploy operations to import/setup a new database, the `changefeed` schema and user do not get excluded in the new database. On attempting to enable Synapse Link on the imported/deployed database, the system stored procedure sys.sp_change_feed_enable_db fails as the `changefeed` user and schema already exists. This issue will also be encountered if you have a user or schema named `changefeed` that is not related to Synapse Link change feed capability.
-* Resolution - Manually drop the empty `changefeed` schema and `changefeed` user. Then, Synapse Link can be enabled successfully on the imported/deployed database. If you have defined a custom schema or user named `changefeed` in your database that is not related to Azure Synapse Link, and you do not intend to use Azure Synapse Link for SQL, it is not necessary to drop your `changefeed` schema or user.
+* Issue - For SQL databases enabled with Azure Synapse Link, when you use SSDT Import/Export and Extract/Deploy operations to import/setup a new database, the `changefeed` schema and user do not get excluded in the new database. However, the tables for the changefeed *are* ignored by DaxFX because they are marked as `is_ms_shipped=1` in `sys.objects`, and those objects never included in SSDT Import/Export and Extract/Deploy operations. When enabling Synapse Link on the imported/deployed database, the system stored procedure `sys.sp_change_feed_enable_db` fails if the `changefeed` user and schema already exist. This issue will also be encountered if you have created a user or schema named `changefeed` that is not related to Synapse Link change feed capability.
+* Resolution - 
+    * Manually drop the empty `changefeed` schema and `changefeed` user. Then, Synapse Link can be enabled successfully on the imported/deployed database.
+    * If you have defined a custom schema or user named `changefeed` in your database that is not related to Azure Synapse Link, and you do not intend to use Azure Synapse Link for SQL, it is not necessary to drop your `changefeed` schema or user. 
+    * If you have defined a customer schema or user named `changedfeed` in your database, currently, this database cannot participate in the Azure Synapse Link for SQL.
 
 ## Next steps
 
