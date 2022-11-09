@@ -2,7 +2,7 @@
 title: Template test cases for test toolkit
 description: Describes the template tests that are run by the Azure Resource Manager template test toolkit.
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 11/09/2022
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -468,6 +468,8 @@ This test finds variables that aren't used in the template or aren't used in a v
 
 Variables that use the `copy` element to iterate values must be referenced. For more information, see [Variable iteration in ARM templates](copy-variables.md).
 
+In Bicep, use [Linter rule - no unused variables](../bicep/linter-rule-no-unused-variables.md).
+
 The following example **fails** because the variable that uses the `copy` element isn't referenced.
 
 ```json
@@ -599,6 +601,8 @@ A warning that an API version wasn't found only indicates the version isn't incl
 
 Learn more about the [toolkit cache](https://github.com/Azure/arm-ttk/tree/master/arm-ttk/cache).
 
+In Bicep, use [Linter rule - use recent API versions](../bicep/linter-rule-use-recent-api-versions.md).
+
 The following example **fails** because the API version is more than two years old.
 
 ```json
@@ -720,7 +724,11 @@ When specifying a resource ID, use one of the resource ID functions. The allowed
 - [tenantResourceId](template-functions-resource.md#tenantresourceid)
 - [extensionResourceId](template-functions-resource.md#extensionresourceid)
 
-Don't use the concat function to create a resource ID. The following example **fails**.
+Don't use the concat function to create a resource ID.
+
+In Bicep, use [Linter rule - use resource ID functions](../bicep/linter-rule-use-resource-id-functions.md).
+
+The following example **fails**.
 
 ```json
 "networkSecurityGroup": {
@@ -735,6 +743,8 @@ The next example **passes**.
     "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
 }
 ```
+
+In Bicep, use [Linter rule - use resource ID functions](./bicep/linter-rule-use-resource-id-functions.md).
 
 ## ResourceId function has correct parameters
 
@@ -776,6 +786,8 @@ Test name: **DependsOn Best Practices**
 When setting the deployment dependencies, don't use the [if](template-functions-logical.md#if) function to test a condition. If one resource depends on a resource that's [conditionally deployed](conditional-resource-deployment.md), set the dependency as you would with any resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
 The `dependsOn` element can't begin with a [concat](template-functions-array.md#concat) function.
+
+In Bicep, use [Linter rule - no unnecessary dependsOn entries](../bicep/linter-rule-no-unnecessary-dependson.md).
 
 The following example **fails** because it contains an `if` function.
 
@@ -829,6 +841,8 @@ Test name: **adminUsername Should Not Be A Literal**
 
 When setting an `adminUserName`, don't use a literal value. Create a parameter for the user name and use an expression to reference the parameter's value.
 
+In Bicep, use [Linter rule - admin user name should not be literal](../bicep/linter-rule-admin-username-should-not-be-literal.md).
+
 The following example **fails** with a literal value.
 
 ```json
@@ -853,6 +867,8 @@ This test is disabled, but the output shows that it passed. The best practice is
 
 If your template includes a virtual machine with an image, make sure it's using the latest version of the image.
 
+In Bicep, use [Linter rule - use stable VM image](../bicep/linter-rule-use-stable-vm-image.md).
+
 ## Use stable VM images
 
 Test name: **Virtual Machines Should Not Be Preview**
@@ -860,6 +876,8 @@ Test name: **Virtual Machines Should Not Be Preview**
 Virtual machines shouldn't use preview images. The test checks the `storageProfile` to verify that the `imageReference` doesn't use a string that contains _preview_. And that _preview_ isn't used in the `imageReference` properties `offer`, `sku`, or `version`.
 
 For more information about the `imageReference` property, see [Microsoft.Compute virtualMachines](/azure/templates/microsoft.compute/virtualmachines#imagereference-object) and [Microsoft.Compute virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets#imagereference-object).
+
+In Bicep, use [Linter rule - use stable VM image](../bicep/linter-rule-use-stable-vm-image.md).
 
 The following example **fails** because `imageReference` is a string that contains _preview_.
 
@@ -912,6 +930,8 @@ Test name: **Outputs Must Not Contain Secrets**
 Don't include any values in the `outputs` section that potentially exposes secrets. For example, secure parameters of type `secureString` or `secureObject`, or [list*](template-functions-resource.md#list) functions such as `listKeys`.
 
 The output from a template is stored in the deployment history, so a malicious user could find that information.
+
+In Bicep, use [Linter rule - outputs should not contain secrets](../bicep/linter-rule-outputs-should-not-contain-secrets.md).
 
 The following example **fails** because it includes a secure parameter in an output value.
 
@@ -967,6 +987,8 @@ For resources with type `CustomScript`, use the encrypted `protectedSettings` wh
 
 Don't use secret data in the `settings` object because it uses clear text. For more information, see [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions), [Windows](
 /azure/virtual-machines/extensions/custom-script-windows), or [Linux](../../virtual-machines/extensions/custom-script-linux.md).
+
+In Bicep, use [Linter rule - use protectedSettings for commandToExecute secrets](../bicep/linter-rule-protect-commandtoexecute-secrets.md).
 
 The following example **fails** because `settings` uses `commandToExecute` with a secure parameter.
 
@@ -1088,6 +1110,8 @@ Test name: **Secure Params In Nested Deployments**
 Use the nested template's `expressionEvaluationOptions` object with `inner` scope to evaluate expressions that contain secure parameters of type `secureString` or `secureObject` or [list*](template-functions-resource.md#list) functions such as `listKeys`. If the `outer` scope is used, expressions are evaluated in clear text within the parent template's scope. The secure value is then visible to anyone with access to the deployment history. The default value of `expressionEvaluationOptions` is `outer`.
 
 For more information about nested templates, see [Microsoft.Resources deployments](/azure/templates/microsoft.resources/deployments) and [Expression evaluation scope in nested templates](linked-templates.md#expression-evaluation-scope-in-nested-templates).
+
+In Bicep, use [Linter rule - secure params in nested deploy](../bicep/linter-rule-secure-params-in-nested-deploy.md).
 
 The following example **fails** because `expressionEvaluationOptions` uses `outer` scope to evaluate secure parameters or `list*` functions.
 
