@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 08/16/2022
 ms.author: victorh
 ---
 
@@ -104,7 +104,7 @@ Unknown bots are classified via published user agents without additional validat
 
 ![Bot Protection Rule Set](../media/afds-overview/botprotect2.png)
 
-If bot protection is enabled, incoming requests that match bot rules are logged at the FrontdoorWebApplicationFirewallLog log. You may access WAF logs from a storage account, event hub, or log analytics.
+If bot protection is enabled, incoming requests that match bot rules are logged. You may access WAF logs from a storage account, event hub, or log analytics.
 
 ## Configuration
 

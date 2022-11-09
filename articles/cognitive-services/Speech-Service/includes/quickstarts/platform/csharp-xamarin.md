@@ -85,7 +85,7 @@ Next, create your project and select the target architecture:
    
    In the **Start-up Projects** drop-down box, select **helloworld.UWP (Universal Windows)**.
 
-#### Install the Speech SDK
+#### Install the Speech SDK for Xamarin
 
 Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and reference the Speech SDK in your project:
 

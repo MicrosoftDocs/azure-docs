@@ -4,7 +4,7 @@ description: Learn how to install third-party Apache Hadoop applications on Azur
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 06/17/2019
+ms.date: 08/26/2022
 
 ---
 # Install third-party Apache Hadoop applications on Azure HDInsight

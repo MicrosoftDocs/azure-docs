@@ -8,23 +8,28 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Form Recognizer service quotas and limits
+<!-- markdownlint-disable MD033 -->
 
-This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
+**Applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v3.0**. ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
 
-For the usage with [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api.md), [Form Recognizer REST API](quickstarts/get-started-v3-sdk-rest-api.md), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/).
+* This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
-| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+* For the usage with [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/):
+
+|Quota|Free (F0)<sup>1</sup>|Standard (S0)|
 |--|--|--|
-| **Concurrent Request limit** | 1 | 15 (default value) |
+| **Transactions Per Second limit** | 1 | 15 (default value) |
 | Adjustable | No | Yes<sup>2</sup> |
-| **Max document size** | 500 MB | 500 MB |
+| **Max document size** | 4 MB | 500 MB |
 | Adjustable | No | No |
-| **Max number of pages (Analysis)** | 2 | No limit |
+| **Max number of pages (Analysis)** | 2 | 2000 |
 | Adjustable | No | No |
 | **Max size of labels file** | 10 MB | 10 MB |
 | Adjustable | No | No |
@@ -35,26 +40,28 @@ For the usage with [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api
 | **Max number of Neural models** | 100 | 500 |
 | Adjustable | No | No |
 
-# [Form Recognizer v3.0 ](#tab/v30)
+::: moniker range="form-recog-3.0.0"
 
-| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+|Quota|Free (F0)<sup>1</sup>|Standard (S0)|
 |--|--|--|
 | **Compose Model limit** | 5 | 200 (default value) |
 | Adjustable | No | No |
-| **Training dataset size - Template** | 50MB | 50MB (default value) |
+| **Training dataset size - Template** | 50 MB | 50 MB (default value) |
 | Adjustable | No | No |
-| **Training dataset size - Neural** | 1GB | 1GB (default value) |
+| **Training dataset size - Neural** | 1 GB | 1 GB (default value) |
 | Adjustable | No | No |
 | **Max number of pages (Training) - Template** | 500 | 500 (default value) |
 | Adjustable | No | No |
 | **Max number of pages (Training) - Neural** | 50,000 | 50,000 (default value) |
 | Adjustable | No | No |
 | **Custom neural model train** | 10 per month | 10 per month |
-| Adjustable | No | Yes<sup>3</sup> |
+| Adjustable | No |Yes<sup>3</sup>|
 
 <sup>3</sup> Open a support request to increase the monthly training limit.
 
-# [Form Recognizer v2.1 ](#tab/v21)
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -65,14 +72,14 @@ For the usage with [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api
 | **Max number of pages (Training)** | 500 | 500 (default value) |
 | Adjustable | No | No |
 
------
+::: moniker-end
 
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
 <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice),  and [adjustment instructions](#create-and-submit-support-request).
 
 ## Detailed description, Quota adjustment, and best practices
 
-Before requesting a quota increase (where applicable), ensure that it's necessary. Form Recognizer service uses autoscaling to bring the required computational resources in "on-demand"  and at the same time to keep the customer costs low, deprovision unused resources by not maintaining an excessive amount of hardware capacity. Every time your application receives a Response Code 429 ("Too many requests") while your workload is within the defined limits (see [Quotas and Limits quick reference](#form-recognizer-service-quotas-and-limits)) the most likely explanation is that the Service is scaling up to your demand and didn't reach the required scale yet, thus it doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long.
+Before requesting a quota increase (where applicable), ensure that it's necessary. Form Recognizer service uses autoscaling to bring the required computational resources in "on-demand"  and at the same time to keep the customer costs low, deprovision unused resources by not maintaining an excessive amount of hardware capacity. If your application receives a Response Code 429 ("Too many requests") while your workload is within the defined limits, the most likely explanation is that the service is scaling up to your demand, but hasn't yet reached the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long. For more information, *see* [Quotas and Limits quick reference](#form-recognizer-service-quotas-and-limits))
 
 ### General best practices to mitigate throttling during autoscaling
 
@@ -87,24 +94,26 @@ Jump to [Form Recognizer: increasing concurrent request limit](#create-and-submi
 
 ### Increasing transactions per second request limit
 
-By default the number of concurrent requests is limited to 15 transactions per second for a Form Recognizer resource. For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you're familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#example-of-a-workload-pattern-best-practice).
+By default the number of transactions per second is limited to 15 transactions per second for a Form Recognizer resource. For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you're familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#example-of-a-workload-pattern-best-practice).
 
 Increasing the Concurrent Request limit does **not** directly affect your costs. Form Recognizer service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 
 Existing value of Concurrent Request limit parameter is **not** visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
 
+If you would like to increase your transactions per second, you can enable auto scaling on your resource. Follow this document to enable auto scaling on your resource - [enable auto scaling](../../cognitive-services/autoscale.md). You can also submit an increase TPS support request.
+
 #### Have the required information ready
 
-- Form Recognizer Resource ID
-- Region
+* Form Recognizer Resource ID
+* Region
 
-- **How to get information (Base model)**:
-  - Go to [Azure portal](https://portal.azure.com/)
-  - Select the Form Recognizer Resource for which you would like to increase the transaction limit
-  - Select *Properties* (*Resource Management* group)
-  - Copy and save the values of the following fields:
-    - **Resource ID**
-    - **Location** (your endpoint Region)
+* **How to get information (Base model)**:
+  * Go to [Azure portal](https://portal.azure.com/)
+  * Select the Form Recognizer Resource for which you would like to increase the transaction limit
+  * Select *Properties* (*Resource Management* group)
+  * Copy and save the values of the following fields:
+    * **Resource ID**
+    * **Location** (your endpoint Region)
 
 #### Create and submit support request
 

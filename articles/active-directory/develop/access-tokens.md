@@ -219,7 +219,7 @@ The `alg` claim indicates the algorithm that was used to sign the token, while t
 
 At any given point in time, Azure AD may sign an ID token using any one of a certain set of public-private key pairs. Azure AD rotates the possible set of keys on a periodic basis, so the application should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD is every 24 hours.
 
-Acquire the signing key data necessary to validate the signature by using the [OpenID Connect metadata document](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document) located at:
+Acquire the signing key data necessary to validate the signature by using the [OpenID Connect metadata document](v2-protocols-oidc.md#fetch-the-openid-configuration-document) located at:
 
 ```
 https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
@@ -280,7 +280,7 @@ An application may receive tokens for a user or directly from an application thr
 - Use `roles` to see permissions that have been granted to the subject of the token.
 - Use `oid` or `sub` to validate that the calling service principal is the expected one.
 
-If the application needs to distinguish between app-only access tokens and access tokens for users, use the `idtyp` [optional claim](active-directory-optional-claims.md). Add the `idtyp` claim to the `accessToken` field, and check for the value `app`, app-only access tokens can be detected. ID tokens and access tokens for users won't have the `idtyp` claim included.
+If the application needs to distinguish between app-only access tokens and access tokens for users, use the `idtyp` [optional claim](active-directory-optional-claims.md). To detect app-only access tokens, add the `idtyp` claim to the `accessToken` field, and check for the value `app`. ID tokens and access tokens for users won't have the `idtyp` claim included.
 
 ## Token revocation
 
@@ -324,4 +324,4 @@ Check out [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md) 
 ## Next steps
 
 - Learn about [`id_tokens` in Azure AD](id-tokens.md).
-- Learn about permission and consent ( [v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](v2-permissions-and-consent.md)).
+- Learn about permission and consent ( [v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](permissions-consent-overview.md)).

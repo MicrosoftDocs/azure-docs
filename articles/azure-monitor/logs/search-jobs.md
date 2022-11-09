@@ -1,23 +1,22 @@
 ---
-title: Search jobs in Azure Monitor (Preview)
+title: Run search jobs in Azure Monitor
 description: Search jobs are asynchronous log queries in Azure Monitor that make results available as a table for further analytics.
 ms.topic: conceptual
-ms.date: 01/27/2022
-
+ms.date: 10/01/2022
+ms.custom: references_regions 
+#customer-intent: As a data scientist or workspace administrator, I want an efficient way to search through large volumes of data in a table, including archived and basic logs.
 ---
 
-# Search jobs in Azure Monitor (preview)
+# Run search jobs in Azure Monitor
 
-Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across extremely large datasets. This article describes how to create a search job and how to query its resulting data.
+Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across large datasets. This article describes how to create a search job and how to query its resulting data.
 
 > [!NOTE]
-> The search job feature is currently in public preview and isn't supported in:
-> - Workspaces with [customer-managed keys](customer-managed-keys.md).
-> - The China East 2 region.
+> The search job feature is currently not supported in workspaces with [customer-managed keys](customer-managed-keys.md) and in the China East 2 region.
 
 ## When to use search jobs
 
-Use a search job when the log query timeout of 10 minutes isn't enough time to search through large volumes of data or when you're running a slow query.
+Use a search job when the log query timeout of 10 minutes isn't sufficient to search through large volumes of data or if you're running a slow query.
 
 Search jobs also let you retrieve records from [Archived Logs](data-retention-archive.md) and [Basic Logs](basic-logs-configure.md) tables into a new log table you can use for queries. In this way, running a search job can be an alternative to:
 
@@ -25,15 +24,15 @@ Search jobs also let you retrieve records from [Archived Logs](data-retention-ar
     Use restore when you have a temporary need to run many queries on a large volume of data. 
 
 - Querying Basic Logs directly and paying for each query.<br/>
-    To decide which alternative is more cost-effective, compare the cost of querying Basic Logs with the cost of performing a search job and storing the resulting data based on your needs.
+    To determine which alternative is more cost-effective, compare the cost of querying Basic Logs with the cost of running a search job and storing the search job results.
 
 ## What does a search job do?
 
 A search job sends its results to a new table in the same workspace as the source data. The results table is available as soon as the search job begins, but it may take time for results to begin to appear. 
 
-The search job results table is a [Log Analytics](log-analytics-workspace-overview.md#log-data-plans-preview) table that is available for log queries and other Azure Monitor features that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this value after the table is created.
+The search job results table is a [Log Analytics](log-analytics-workspace-overview.md#log-data-plans) table that is available for log queries and other Azure Monitor features that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this value after the table is created.
 
-The search results table schema is based on the source table schema and the specified query. The following additional columns help you track the source records:
+The search results table schema is based on the source table schema and the specified query. The following other columns help you track the source records:
 
 | Column | Value |
 |:---|:---|
@@ -44,9 +43,50 @@ The search results table schema is based on the source table schema and the spec
 
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 
-## Create a search job
+## Run a search job
 
-# [API](#tab/api-1)
+Run a search job to fetch records from large datasets into a new search results table in your workspace.
+
+> [!TIP] 
+> You incur charges for running a search job. Therefore, write and optimize your query in interactive query mode before running the search job.  
+
+### [Portal](#tab/portal-1)
+
+To run a search job, in the Azure portal:
+
+1. From the **Log Analytics workspace** menu, select **Logs**. 
+1. Select the ellipsis menu on the right-hand side of the screen and toggle **Search job mode** on. 
+
+    :::image type="content" source="media/search-job/switch-to-search-job-mode.png" alt-text="Screenshot of the Logs screen with the Search job mode switch highlighted." lightbox="media/search-job/switch-to-search-job-mode.png":::
+
+    Azure Monitor Logs intellisense supports [KQL query limitations in search job mode](#kql-query-limitations) to help you write your search job query. 
+
+1. Specify the search job date range using the time picker.
+1. Type the search job query and select the **Search Job** button.
+
+    Azure Monitor Logs prompts you to provide a name for the result set table and informs you that the search job is subject to billing.
+    
+    :::image type="content" source="media/search-job/run-search-job.png" alt-text="Screenshot that shows the Azure Monitor Logs prompt to provide a name for the search job results table." lightbox="media/search-job/run-search-job.png":::
+
+1. Enter a name for the search job result table and select **Run a search job**.
+
+    Azure Monitor Logs runs the search job and creates a new table in your workspace for your search job results. 
+
+    :::image type="content" source="media/search-job/search-job-execution-1.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job is running and the search job results table will be available shortly." lightbox="media/search-job/search-job-execution-1.png":::
+
+1. When the new table is ready, select **View tablename_SRCH** to view the table in Log Analytics.
+
+    :::image type="content" source="media/search-job/search-job-execution-2.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job results table is available to view." lightbox="media/search-job/search-job-execution-2.png":::
+
+    You can see the search job results as they begin flowing into the newly created search job results table.
+
+    :::image type="content" source="media/search-job/search-job-execution-3.png" alt-text="Screenshot that shows search job results table with data." lightbox="media/search-job/search-job-execution-3.png":::
+
+    Azure Monitor Logs shows a **Search job is done** message at the end of the search job. The results table is now ready with all the records that match the search query. 
+
+    :::image type="content" source="media/search-job/search-job-done.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job is done." lightbox="media/search-job/search-job-done.png":::
+
+### [API](#tab/api-1)
 To run a search job, call the **Tables - Create or Update** API. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
  
 ```http
@@ -94,7 +134,7 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 Status code: 202 accepted.
 
-# [CLI](#tab/cli-1)
+### [CLI](#tab/cli-1)
 
 To run a search job, run the [az monitor log-analytics workspace table search-job create](/cli/azure/monitor/log-analytics/workspace/table/search-job#az-monitor-log-analytics-workspace-table-search-job-create) command. The name of the results table, which you set using the `--name` parameter, must end with *_SRCH*.
 
@@ -107,8 +147,15 @@ az monitor log-analytics workspace table search-job create --subscription Contos
 ---
 
 ## Get search job status and details
+### [Portal](#tab/portal-2)
+1. From the **Log Analytics workspace** menu, select **Logs**. 
+1. From the Tables tab, select **Search results** to view all search job results tables. 
 
-# [API](#tab/api-2)
+    The icon on the search job results table displays an update indication until the search job is completed.  
+    
+    :::image type="content" source="media/search-job/search-results-tables.png" alt-text="Screenshot that shows the Tables tab on Logs screen in the Azure portal with the search results tables listed under Search results." lightbox="media/search-job/search-results-tables.png":::
+
+### [API](#tab/api-2)
 
 Call the **Tables - Get** API to get the status and details of a search job:
 ```http
@@ -171,7 +218,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-# [CLI](#tab/cli-2)
+### [CLI](#tab/cli-2)
 
 To check the status and details of a search job table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
 
@@ -183,10 +230,19 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 
 ---
 
-## Delete search job table
+## Delete search a job table
 We recommend deleting the search job table when you're done querying the table. This reduces workspace clutter and extra charges for data retention. 
+### [Portal](#tab/portal-3)
+1. From the Log Analytics workspace menu, select **Tables.**
+1. Search for the tables you want to delete by name, or by selecting **Search results** in the **Type** field.
+    
+    :::image type="content" source="media/search-job/search-results-on-log-analytics-tables-screen.png" alt-text="Screenshot that shows the Tables screen for a Log Analytics workspace with the Filter by name and Type fields highlighted." lightbox="media/search-job/search-results-on-log-analytics-tables-screen.png":::
 
-# [API](#tab/api-3)
+1. Select the tables you want to delete, select **Delete**, and confirm the deletion by typing **yes**.
+
+    :::image type="content" source="media/search-job/delete-table.png" alt-text="Screenshot that shows the Delete Table screen for a table in a Log Analytics workspace." lightbox="media/search-job/delete-table.png":::
+    
+### [API](#tab/api-3)
 
 To delete a table, call the **Tables - Delete** API: 
 
@@ -194,7 +250,7 @@ To delete a table, call the **Tables - Delete** API:
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
 
-# [CLI](#tab/cli-3)
+### [CLI](#tab/cli-3)
 
 To delete a search table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
 
@@ -220,7 +276,8 @@ Search jobs are subject to the following limitations:
 When you reach the record limit, Azure aborts the job with a status of *partial success*, and the table will contain only records ingested up to that point. 
 
 ### KQL query limitations
-Log queries in a search job are intended to scan very large sets of data. To support distribution and segmentation, the queries use a subset of KQL, including the operators: 
+
+Search jobs are intended to scan large volumes of data in a specific table. Therefore, search job queries must always start with a table name. To enable asynchronous execution using distribution and segmentation, the query supports a subset of KQL, including the operators: 
 
 - [where](/azure/data-explorer/kusto/query/whereoperator)
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
@@ -237,13 +294,13 @@ You can use all functions and binary operators within these operators.
 ## Pricing model
 The charge for a search job is based on: 
 
-- The amount of data the search job needs to scan.
-- The amount of data ingested in the results table.
+- Search job execution - the amount of data the search job needs to scan.
+- Search job results - the amount of data ingested in the results table, based on the regular log data ingestion prices.
 
 For example, if your table holds 500 GB per day, for a query on three days, you'll be charged for 1500 GB of scanned data. If the job returns 1000 records, you'll be charged for ingesting these 1000 records into the results table. 
 
 > [!NOTE]
-> There is no charge for search jobs during the public preview. You'll be charged only for the ingestion of the results set.
+> Search job execution is free until early 2023. In other words, until early 2023, you will only incur charges for ingesting the search results, not for executing the search job. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

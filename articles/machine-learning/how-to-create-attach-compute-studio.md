@@ -3,8 +3,8 @@ title: Manage training & deploy computes (studio)
 titleSuffix: Azure Machine Learning
 description: Use studio to manage training and deployment compute resources (compute targets) for machine learning.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
+author: vijetajo 
+ms.author: vijetaj
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -87,7 +87,7 @@ To detach your compute use the following steps:
 
 ## Next steps
 
-* Use the compute resource to [submit a training run](how-to-set-up-training-targets.md).
+* Use the compute resource to [submit a training run](how-to-train-model.md).
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-managed-online-endpoints.md).
 * [Use Azure Machine Learning with Azure Virtual Networks](./how-to-network-security-overview.md)

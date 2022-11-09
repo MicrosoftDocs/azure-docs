@@ -60,6 +60,8 @@
     href: capacity-limits.md  
   - name: Cost management for labs
     href: cost-management-guide.md
+  - name: Azure Policies for Lab Services
+    href: azure-polices-for-lab-services.md
   - name: Reliability
     items:
     - name: Reliability in Azure Lab Services
@@ -125,6 +127,10 @@
     href: setup-guide.md
   - name: Create & configure lab plans (admin)
     items:
+    - name: Request core limit increase
+      href: how-to-request-capacity-increase.md
+    - name: Determine Usage and Quota
+      href: how-to-determine-your-quota-usage.md    
     - name: Create and manage lab plans
       href: how-to-manage-lab-plans.md
     - name: Add a lab creator
@@ -162,7 +168,9 @@
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
     - name: Configure regions for labs
-      href: create-and-configure-labs-admin.md
+      href: create-and-configure-labs-admin.md     
+    - name: Restrict VM sizes allowed for labs
+      href: how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md
   - name: Create & configure labs (educator)
     items:        
     - name: Create and manage labs
@@ -300,7 +308,7 @@
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
   - name: Built-in policies
-    href: /azure/governance/policy/samples/built-in-policies#lab-services
+    href: ../governance/policy/samples/built-in-policies.md#lab-services
   - name: Microsoft Azure SDK for Python
     href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources

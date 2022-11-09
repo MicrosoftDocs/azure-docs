@@ -37,7 +37,7 @@ Get started with facial recognition using the Face client library for .NET. The 
 
     ### Install the client library 
 
-    Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.Face`. Select version `2.7.0-preview.1`, and then **Install**. 
+    Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.Face`. Select the latest version, and then **Install**. 
 
     #### [CLI](#tab/cli)
 
@@ -68,11 +68,14 @@ Get started with facial recognition using the Face client library for .NET. The 
     Within the application directory, install the Face client library for .NET with the following command:
 
     ```console
-    dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.7.0-preview.1
+    dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face
     ```
 
     ---
 1. Add the following code into the *Program.cs* file.
+
+    > [!NOTE]
+    > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
     
     [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart-single.cs?name=snippet_single)]
 

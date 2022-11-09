@@ -96,7 +96,7 @@ You can find the friendly name of that security principal by taking the value of
 
 ### Auditing data plane operations
 
-Data plane operations are captured in [Azure resource logs for Storage](monitor-queue-storage.md#analyzing-logs). You can [configure Diagnostic setting](monitor-queue-storage.md#send-logs-to-azure-log-analytics) to export logs to Log Analytics workspace for a native query experience. 
+Data plane operations are captured in [Azure resource logs for Storage](monitor-queue-storage.md#analyzing-logs). You can [configure Diagnostic setting](../../azure-monitor/platform/diagnostic-settings.md) to export logs to Log Analytics workspace for a native query experience. 
 
 Here's a Log Analytics query that retrieves the "when", "who", "what", and "how" information in a list of log entries. 
 
@@ -139,7 +139,7 @@ You can export logs to Log Analytics for rich native query capabilities. When yo
 
 With Azure Synapse, you can create server-less SQL pool to query log data when you need. This could save costs significantly. 
 
-1. Export logs to storage account. See [Creating a diagnostic setting](monitor-queue-storage.md#creating-a-diagnostic-setting).
+1. Export logs to storage account. See [Creating a diagnostic setting](../../azure-monitor/platform/diagnostic-settings.md).
 
 2. Create and configure a Synapse workspace. See [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md).
 

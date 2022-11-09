@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/03/2022
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -39,7 +39,7 @@ Data Lake Storage Gen2 APIs, NFS 3.0, and Blob APIs can operate on the same data
 
 This section describes issues and limitations with using blob APIs, NFS 3.0, and Data Lake Storage Gen2 APIs to operate on the same data.
 
-- You cannot use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 or APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option.
+- You cannot use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when you are overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option.
 
 - When you use the [List Blobs](/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
@@ -79,9 +79,9 @@ Use only versions `1.6.0` or higher.
 
 <a id="explorer-in-portal"></a>
 
-## Storage Explorer in the Azure portal
+## Storage browser in the Azure portal
 
-ACLs are not yet supported.
+In the storage browser that appears in the Azure portal, you can't access a file or folder by specifying a path. Instead, you must browse through folders to reach a file.  Therefore, if an ACL grants a user read access to a file but not read access to all folders leading up to the file, that user won't be able to view the file in storage browser.  
 
 <a id="third-party-apps"></a>
 
@@ -105,7 +105,7 @@ If parent directories for soft-deleted files or directories are renamed, the sof
 
 ## Events
 
-If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions.
+If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions. Using the dfs endpoint (abfss://URI) for non-hierarchical namespace enabled accounts will not generate events, but the blob endpoint (wasb:// URI) will generate events.
 
 > [!TIP]
 > Read access to the secondary endpoint is available only when you enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).

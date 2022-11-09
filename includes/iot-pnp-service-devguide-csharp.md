@@ -9,7 +9,7 @@ ms.date: 10/20/2020
 The following resources are also available:
 
 - [.NET SDK reference documentation](/dotnet/api/microsoft.azure.devices)
-- [Service client samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/iot-hub/Samples/service/PnpServiceSamples)
+- [Service client samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/solutions/PnpServiceSamples)
 - [Digital Twins samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/iot-hub/Samples/service/DigitalTwinClientSamples)
 
 ## IoT Hub service client examples

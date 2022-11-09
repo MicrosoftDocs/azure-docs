@@ -38,7 +38,7 @@ If you already have a logic app with the connection that you want to block, foll
 
    For example, if you want to block the Instagram connector, which is deprecated, go to this page:
 
-   `https://docs.microsoft.com/connectors/instagram/`
+   `https://learn.microsoft.com/connectors/instagram/`
 
 1. From the page's URL, copy and save the connector reference ID at the end without the forward slash (`/`), for example, `instagram`.
 

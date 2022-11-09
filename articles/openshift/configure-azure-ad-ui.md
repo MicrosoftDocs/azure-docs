@@ -56,7 +56,7 @@ You can use optional claims to:
 
 We'll configure OpenShift to use the `email` claim and fall back to `upn` to set the Preferred Username by adding the `upn` as part of the ID token returned by Azure Active Directory.
 
-Navigate to **Token configuration (preview)** and click on **Add optional claim**. Select **ID** then check the **email** and **upn** claims.
+Navigate to **Token configuration** and click on **Add optional claim**. Select **ID** then check the **email** and **upn** claims.
 
 ![Screenshot that shows the email and upn claims that were added.](media/aro4-ad-tokens.png)
 
@@ -101,7 +101,7 @@ Navigate to **Administration**, click on **Cluster Settings**, then select the *
 Scroll down to select **Add** under **Identity Providers** and select **OpenID Connect**.
 ![Select OpenID Connect from the Identity Providers dropdown](media/aro4-oauth-idpdrop.png)
 
-Fill in the name as **AAD**, the **Client ID** as the **Application ID** and the **Client Secret**. The **Issuer URL** is formatted as such: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Replace the placeholder with the Tenant ID you retrieved earlier.
+Fill in the name as **AAD**, the **Client ID** as the **Application ID** and the **Client Secret**. The **Issuer URL** is formatted as such: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0`. Replace the placeholder with the Tenant ID you retrieved earlier.
 
 ![Fill in OAuth details](media/aro4-oauth-idp-1.png)
 

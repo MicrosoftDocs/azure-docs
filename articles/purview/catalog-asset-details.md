@@ -1,8 +1,8 @@
 ---
 title: Asset details page in the Microsoft Purview Data Catalog
 description: View relevant information and take action on assets in the data catalog
-author: djpmsft
-ms.author: daperlov
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to

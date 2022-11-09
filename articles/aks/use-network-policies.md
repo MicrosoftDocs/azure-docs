@@ -16,7 +16,7 @@ This article shows you how to install the Network Policy engine and create Kuber
 
 ## Before you begin
 
-You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Overview of Network Policy
 
@@ -48,8 +48,8 @@ Azure NPM for Linux uses Linux *IPTables* and Azure NPM for Windows uses *Host N
 
 ## Limitations:
 
-Azure Network Policy Manager(NPM) does not support IPv6. Otherwise, Azure NPM fully supports the network policy spec in Linux.
-* In Windows, Azure NPM does not support the following:
+Azure Network Policy Manager(NPM) doesn't support IPv6. Otherwise, Azure NPM fully supports the network policy spec in Linux.
+* In Windows, Azure NPM doesn't support the following:
     * named ports
     * SCTP protocol
     * negative match label or namespace selectors (e.g. all labels except "debug=true")
@@ -77,7 +77,7 @@ Instead of using a system-assigned identity, you can also use a user-assigned id
 
 ### Create an AKS cluster with Azure NPM enabled - Linux only 
 
-In this section, we will work on creating a cluster with Linux node pools and Azure NPM enabled. 
+In this section, we'll work on creating a cluster with Linux node pools and Azure NPM enabled. 
 
 To begin, you should replace the values for *$RESOURCE_GROUP_NAME* and *$CLUSTER_NAME* variables. 
 
@@ -101,7 +101,7 @@ az aks create \
 
 ### Create an AKS cluster with Azure NPM enabled - Windows Server 2022 (Preview)
 
-In this section, we will work on creating a cluster with Windows node pools and Azure NPM enabled.
+In this section, we'll work on creating a cluster with Windows node pools and Azure NPM enabled.
 
 Please execute the following commands prior to creating a cluster:
 
@@ -132,7 +132,7 @@ Create a username to use as administrator credentials for your Windows Server co
 echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
 ```
 
-Use the following command to create a cluster :
+Use the following command to create a cluster:
 
 ```azurecli
 az aks create \
@@ -202,7 +202,7 @@ When the cluster is ready, configure `kubectl` to connect to your Kubernetes clu
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
 ```
-To begin verification of Network Policy, we will create a sample application and set traffic rules.
+To begin verification of Network Policy, we'll create a sample application and set traffic rules.
 
 Firstly, let's create a namespace called *demo* to run the example pods:
 
@@ -210,7 +210,7 @@ Firstly, let's create a namespace called *demo* to run the example pods:
 kubectl create namespace demo
 ```
 
-We will now create two pods in the cluster named *client* and *server*.
+We'll now create two pods in the cluster named *client* and *server*.
 
 >[!NOTE]
 > If you want to schedule the *client* or *server* on a particular node, add the following bit before the *--command* argument in the pod creation [kubectl run][kubectl-run] command:
@@ -284,7 +284,7 @@ Now, in the client's shell, verify connectivity with the server by executing the
 /agnhost connect <server-ip>:80 --timeout=3s --protocol=tcp
 ```
 
-Connectivity with traffic will be blocked since the server is labeled with app=server, but the client is not labeled. The connect command above will yield this output: 
+Connectivity with traffic will be blocked since the server is labeled with app=server, but the client isn't labeled. The connect command above will yield this output: 
 
 ```output
 TIMEOUT

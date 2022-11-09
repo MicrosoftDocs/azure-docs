@@ -11,7 +11,7 @@ ms.custom: MVC
 
 This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Classic.
 
-For information about disaster recovery in Azure Site Recovery Preview, see [this article](vmware-azure-set-up-replication-tutorial-preview.md)
+For information about disaster recovery in Azure Site Recovery Modernized, see [this article](vmware-azure-set-up-replication-tutorial-modernized.md)
 
 This is the third tutorial in a series that shows how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises VMware environment](vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
 

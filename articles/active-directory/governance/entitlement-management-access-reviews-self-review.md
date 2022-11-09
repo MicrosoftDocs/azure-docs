@@ -4,7 +4,7 @@ description: Learn how to review user access of entitlement management access pa
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity

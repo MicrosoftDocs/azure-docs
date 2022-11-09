@@ -22,9 +22,9 @@ The following table summarizes the compute platforms currently used for instance
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |
-| `stv2` | Single-tenant v2 | [Virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | Developer, Basic, Standard, Premium<sup>1</sup> |
-| `stv1` |  Single-tenant v1 | [Cloud Service (classic)](../cloud-services/cloud-services-choose-me.md) |  Developer, Basic, Standard, Premium | 
-| `mtv1` | Multi-tenant v1 |  [App service](../app-service/overview.md) |  Consumption |
+| `stv2` | Single-tenant v2 | Azure-allocated compute infrastructure that supports availability zones, private endpoints | Developer, Basic, Standard, Premium<sup>1</sup> |
+| `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium | 
+| `mtv1` | Multi-tenant v1 |  Shared infrastructure that supports native autoscaling and scaling down to zero in times of no traffic |  Consumption |
 
 <sup>1</sup> Newly created instances in these tiers, created using the Azure portal or specifying API version 2021-01-01-preview or later. Includes some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
 

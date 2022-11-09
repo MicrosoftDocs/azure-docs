@@ -4,14 +4,14 @@ description: This article explains to Microsoft 365 users how to resolve issues 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 10/13/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -39,16 +39,15 @@ The token signing and token decrypting certificates are usually self-signed cert
 
 ### Renewal notification from the Microsoft 365 admin center or an email
 > [!NOTE]
-> If you received an email or a portal notification asking you to renew your certificate for Office, see [Managing changes to token signing certificates](#managecerts) to check if you need to take any action. Microsoft is aware of a possible issue that can lead to notifications for certificate renewal being sent, even when no action is required.
+> If you received an email asking you to renew your certificate for Office, see [Managing changes to token signing certificates](#managecerts) to check if you need to take any action. Microsoft is aware of a possible issue that can lead to notifications for certificate renewal being sent, even when no action is required.
 >
 >
 
 Azure AD attempts to monitor the federation metadata, and update the token signing certificates as indicated by this metadata. 30 days before the expiration of the token signing certificates, Azure AD checks if new certificates are available by polling the federation metadata.
 
-* If it can successfully poll the federation metadata and retrieve the new certificates, no email notification or warning in the Microsoft 365 admin center is issued to the user.
-* If it cannot retrieve the new token signing certificates, either because the federation metadata is not reachable or automatic certificate rollover is not enabled, Azure AD issues an email notification and a warning in the Microsoft 365 admin center.
+* If it can successfully poll the federation metadata and retrieve the new certificates, no email notification is issued to the user.
+* If it cannot retrieve the new token signing certificates, either because the federation metadata is not reachable or automatic certificate rollover is not enabled, Azure AD issues an email.
 
-![Office 365 portal notification](./media/how-to-connect-fed-o365-certs/notification.png)
 
 > [!IMPORTANT]
 > If you are using AD FS, to ensure business continuity, please verify that your servers have the following updates so that authentication failures for known issues do not occur. This mitigates known AD FS proxy server issues for this renewal and future renewal periods:
@@ -175,7 +174,9 @@ Update Microsoft 365 with the new token signing certificates to be used for the 
 > [!NOTE]
 > If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the **SupportMultipleDomain** switch with any cmdlets. For more information, see [Support for Multiple Top Level Domains](how-to-connect-install-multiple-domains.md).
 >
-
+> If your tenant is federated with more than one domain, the Update-MsolFederatedDomain needs to be run for all the domains, listed in the output from `Get-MsolDomain -Authentication Federated`. This will ensure that all of the federated domains are updated to the Token-Signing certificate.
+>You can achieve this by running:
+>`Get-MsolDomain -Authentication Federated | % { Update-MsolFederatedDomain -DomainName $_.Name -SupportMultipleDomain }`
 
 ## Repair Azure AD trust by using Azure AD Connect <a name="connectrenew"></a>
 If you configured your AD FS farm and Azure AD trust by using Azure AD Connect, you can use Azure AD Connect to detect if you need to take any action for your token signing certificates. If you need to renew the certificates, you can use Azure AD Connect to do so.

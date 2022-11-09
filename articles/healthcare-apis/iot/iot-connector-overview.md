@@ -2,55 +2,55 @@
 title: What is the MedTech service? - Azure Health Data Services
 description: In this article, you'll learn about the MedTech service, its features, functions, integrations, and next steps.
 services: healthcare-apis
-author: mcevoy-building7
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 08/24/2022
-ms.author: v-smcevoy
+ms.date: 10/28/2022
+ms.author: jasteppe
 ---
 
 # What is MedTech service?
 
-## Introduction
+## Overview
 
-MedTech service in Azure Health Data Services is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and change it into a Fast Healthcare Interoperability Resources (FHIR&#174;) service format. MedTech service's device data translation capabilities make it possible to convert a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment.
+MedTech service in Azure Health Data Services is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and convert it into a Fast Healthcare Interoperability Resources (FHIR&#174;) service format. MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment.
 
-MedTech service is important because healthcare data can be difficult to access or lost when it comes from diverse or incompatible devices, systems, or formats. If medical information isn't easy to access, it may have a negative impact on gaining clinical insights and a patient's health and wellness. The ability to translate many types of medical device data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects.
+MedTech service is important because healthcare data can be difficult to access or lost when it comes from diverse or incompatible devices, systems, or formats. If medical information isn't easy to access, it may have a negative effect on gaining clinical insights and a patient's health and wellness. The ability to transform many types of medical device data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects.
 
 ## How MedTech service works
 
 The following diagram outlines the basic elements of how MedTech service transforms medical device data into a standardized FHIR resource in the cloud.
 
-:::image type="content" source="./media/iot-what-is/what-is-simple-diagram.png" alt-text="Simple diagram showing MedTech service." lightbox="./media/iot-what-is/what-is-simple-diagram.png":::
+:::image type="content" source="media/iot-what-is/what-is-simple-diagram.png" alt-text="Simple diagram showing the MedTech service." lightbox="media/iot-what-is/what-is-simple-diagram.png":::
 
 These elements are:
 
 ### Deployment
 
-In order to implement MedTech service, you need to have an Azure subscription and set up a workspace and namespace to deploy three Azure services: MedTech service, FHIR service, and Event Hubs service. This creates the PaaS configuration required to receive and process data from Internet of Medical Things (IoMT) devices.
+In order to implement MedTech service, you need to have an Azure subscription, set up a workspace, and set up a namespace to deploy three Azure services: MedTech service, FHIR service, and Event Hubs service. This setup creates the PaaS configuration required to receive and process data from Internet of Medical Things (IoMT) devices.
 
 ### Devices
 
-When the PaaS deployment is completed, high-velocity and low-velocity patient medical data can be collected from a wide variety of JSON-compatible IoMT devices, systems, and formats.
+After the PaaS deployment is completed, high-velocity and low-velocity patient medical data can be collected from a wide range of JSON-compatible IoMT devices, systems, and formats.
 
 ### Event Hubs service
 
- IoMT data is then sent from a device over the Internet to Event Hubs service to hold it temporarily in the cloud. The event hub asynchronously processes millions of data points per second, eliminating data traffic jams and making it possible to easily handle huge amounts of information in real time.
+ IoMT data is then sent from a device over the Internet to Event Hubs service to hold it temporarily in the cloud. The event hub can asynchronously process millions of data points per second, eliminating data traffic jams, making it possible to easily handle huge amounts of information in real time.
 
 ### MedTech service
 
-After device data has been loaded into Event Hubs service, MedTech service can pick it up and process it into a unified FHIR format in five stages.
+When the device data has been loaded into Event Hubs service, MedTech service can then process it in five stages to convert the data into a unified FHIR format.
 
-These are the five stages:
+These stages are:
 
-1. **Ingest** - MedTech service asynchronously loads the device data from the event hub at very high speed.
+1. **Ingest** - MedTech service asynchronously loads the device data from the event hub at high speed.
 
-2. **Normalize** - After the data has been ingested, MedTech service uses device mapping to streamline and process it into a normalized schema format.
+2. **Normalize** - After the data has been ingested, MedTech service uses device mapping to streamline and translate it into a normalized schema format.
 
-3. **Group** - The normalized data is then grouped by using three different parameters to prepare it for the next stage of processing. The parameters are: device identity, measurement type, time period, and (optionally) correlation id.
+3. **Group** - The normalized data is then grouped by parameters to prepare it for the next stage of processing. The parameters are: device identity, measurement type, time period, and (optionally) correlation id.
 
-4. **Transform** - When the normalized data is grouped, it is transformed through FHIR destination mapping templates and is ready to become FHIR Observation resources.
+4. **Transform** - When the normalized data is grouped, it's transformed through FHIR destination mapping templates and is ready to become FHIR Observation resources.
 
 5. **Persist** - After the transformation is done, the new data is sent to FHIR service and persisted as an Observation resource.
 
@@ -60,7 +60,7 @@ MedTech service data processing is complete when the new FHIR Observation resour
 
 ## Key features of MedTech service
 
-MedTech service has many features that make it very secure, configurable,  scalable, and extensible.
+MedTech service has many features that make it secure, configurable,  scalable, and extensible.
 
 ### Secure
 
@@ -68,13 +68,13 @@ MedTech service delivers your data to FHIR service in Azure Health Data Services
 
 ### Configurable
 
-Your MedTech service can be customized and configured by using [Device](./how-to-use-device-mappings.md) and [FHIR destination](./how-to-use-fhir-mappings.md) mappings to define the filtering and transformation of your data into FHIR Observation resources.
+Your MedTech service can be customized and configured by using [device](how-to-use-device-mappings.md) and [FHIR destination](how-to-use-fhir-mappings.md) mappings to define the filtering and transformation of your data into FHIR observation resources.
 
 Useful options could include:
 
 - Linking Devices and health care consumers together for enhanced insights, trend capture, interoperability between systems, and proactive and remote monitoring.
 
-- Observations that can be created or updated according to existing or new templates.
+- FHIR observation resources that can be created or updated according to existing or new templates.
 
 - Being able to choose Health data terms that work best for your organization and provide consistency in device data ingestion. For example, you could have either "hr" or "heart rate" or "Heart Rate" to define heart rate information.
 
@@ -82,11 +82,11 @@ Useful options could include:
 
 ### Scalable
 
-The MedTech service has special autoscaling features that enable developers to easily modify and extend the capabilities to support new device mapping template types and FHIR resources.
+The MedTech service enables developers to easily modify and extend the capabilities of the MedTech service to support new device mapping template types and FHIR resources.
 
-### Extensible
+### Integration
 
-The MedTech service may also be integrated into our [open-source projects](./iot-git-projects.md) for ingesting IoMT device data from these wearables:
+The MedTech service may also be integrated into our [open-source projects](iot-git-projects.md) for ingesting IoMT device data from these wearables:
 
 - Fitbit&#174;
 
@@ -94,27 +94,27 @@ The MedTech service may also be integrated into our [open-source projects](./iot
 
 - Google&#174;
 
-The following Microsoft solutions can leverage MedTech service for additional functionality:
+The following Microsoft solutions can use MedTech service for extra functionality:
 
 - [**Microsoft Azure IoT Hub**](../../iot-hub/iot-concepts-and-iot-hub.md) - enhances workflow and ease of use.
 
-- [**Azure Machine Learning Service**](./iot-connector-machine-learning.md) - helps build, deploy, and manage models, integrate tools, and increase open-source operability.
+- [**Azure Machine Learning Service**](iot-connector-machine-learning.md) - helps build, deploy, and manage models, integrate tools, and increase open-source operability.
 
-- [**Microsoft Power BI**](./iot-connector-power-bi.md) - enables data visualization features.
+- [**Microsoft Power BI**](iot-connector-power-bi.md) - enables data visualization features.
 
-- [**Microsoft Teams**](./iot-connector-teams.md) - facilitates virtual visits.
+- [**Microsoft Teams**](iot-connector-teams.md) - facilitates virtual visits.
 
 ## Next steps
 
 In this article, you learned about the MedTech service. To learn more about the MedTech service data flow and how to deploy the MedTech service in the Azure portal, see
 
->[!div class="nextstepaction"]
->[The MedTech service data flows](./iot-data-flow.md)
+> [!div class="nextstepaction"]
+> [MedTech service data flows](iot-data-flow.md)
 
->[!div class="nextstepaction"]
->[Deploy the MedTech service using the Azure portal](./deploy-iot-connector-in-azure.md)
+> [!div class="nextstepaction"]
+> [Deploy the MedTech service using the Azure portal](deploy-iot-connector-in-azure.md)
 
->[!div class="nextstepaction"]
->[Frequently asked questions about the MedTech service](./iot-connector-faqs.md)
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](iot-connector-faqs.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

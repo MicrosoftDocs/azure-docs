@@ -5,6 +5,7 @@ services: site-recovery
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
+ms.author: ankitadutta
 ---
 
 # Set up disaster recovery for Azure VMs after migration to Azure 

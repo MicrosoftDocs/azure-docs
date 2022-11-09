@@ -40,40 +40,43 @@ You launch your IoT Central application by navigating to the URL you chose durin
 Once you're inside your IoT application, use the left pane to access various features. You can expand or collapse the left pane by selecting the three-lined icon on top of the pane:
 
 > [!NOTE]
-> The items you see in the left pane depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles.md). 
+> The items you see in the left pane depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles.md).
 
 :::row:::
   :::column span="":::
-      :::image type="content" source="media/overview-iot-central-tour/navigation-bar.png" alt-text="left pane":::
+
+    :::image type="content" source="media/overview-iot-central-tour/navigation-bar.png" alt-text="left pane":::
 
   :::column-end:::
   :::column span="2":::
-     
-     **Devices** lets you manage all your devices.
 
-     **Device groups** lets you view and create collections of devices specified by a query. Device groups are used through the application to perform bulk operations.
+    **Devices** lets you manage all your devices.
 
-     **Device templates** lets you create and manage the characteristics of devices that connect to your application.
+    **Device groups** lets you view and create collections of devices specified by a query. Device groups are used through the application to perform bulk operations.
 
-     **Data explorer** exposes rich capabilities to analyze historical trends and correlate various telemetries from your devices.
+    **Device templates** lets you create and manage the characteristics of devices that connect to your application.
 
-     **Dashboards** displays all application and personal dashboards. 
+    **Data explorer** exposes rich capabilities to analyze historical trends and correlate various telemetries from your devices.
 
-     **Jobs** lets you manage your devices at scale by running bulk operations.
+    **Dashboards** displays all application and personal dashboards. 
 
-     **Rules** lets you create and edit rules to monitor your devices. Rules are evaluated based on device data and trigger customizable actions.
+    **Jobs** lets you manage your devices at scale by running bulk operations.
 
-     **Data export** lets you configure a continuous export to external services such as storage and queues.
+    **Rules** lets you create and edit rules to monitor your devices. Rules are evaluated based on device data and trigger customizable actions.
 
-     **Permissions** lets you manage an organization's users, devices and data.
+    **Data export** lets you configure a continuous export to external services such as storage and queues.
 
-     **Application** lets you manage your application's settings, billing, users, and roles.
+    **Audit logs** lets you view changes made to entities in your application.
+
+    **Permissions** lets you manage an organization's users, devices and data.
+
+    **Application** lets you manage your application's settings, billing, users, and roles.
     
-     **Customization** lets you customize your application appearance.
+    **Customization** lets you customize your application appearance.
 
-     **IoT Central Home** lets you jump back to the IoT Central app manager.
-     
-   :::column-end:::
+    **IoT Central Home** lets you jump back to the IoT Central app manager.
+
+  :::column-end:::
 :::row-end:::
 
 ### Search, help, theme, and support
@@ -144,6 +147,12 @@ This page lets you view and create rules based on device data. When a rule fires
 :::image type="content" source="Media/overview-iot-central-tour/export.png" alt-text="Data Export":::
 
 Data export enables you to set up streams of data to external systems. To learn more, see the [Export your data in Azure IoT Central](./howto-export-to-blob-storage.md) article.
+
+### Audit logs
+
+:::image type="content" source="Media/overview-iot-central-tour/audit.png" alt-text="Screenshot of audit logs page.":::
+
+Audit logs enable you to view a list of recent changes made in your IoT Central application. To learn more, see the [Use audit logs to track activity in your IoT Central application](howto-use-audit-logs.md) article.
 
 ### Permissions
 

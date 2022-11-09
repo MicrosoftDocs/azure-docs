@@ -3,7 +3,7 @@ title: Apache HBase REST not responding to requests in Azure HDInsight
 description: Resolve issue with Apache HBase REST not responding to requests in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 04/07/2022
+ms.date: 10/10/2022
 ---
 
 # Scenario: Apache HBase REST not responding to requests in Azure HDInsight
@@ -28,10 +28,8 @@ System.Net.Sockets.SocketException : A connection attempt failed because the con
 Restart HBase REST using the below command after SSHing to the host. You can also use script actions to restart this service on all worker nodes:
 
 ```bash
-sudo service hdinsight-hbrest restart
+sudo /usr/hdp/current/hbase-master/bin/hbase-daemon.sh restart rest
 ```
-
-This command will stop HBase Region Server on the same host. You can either manually start HBase Region Server through Ambari, or let Ambari auto restart functionality recover HBase Region Server automatically.
 
 If the issue still persists, you can install the following mitigation script as a CRON job that runs every 5 minutes on every worker node. This mitigation script pings the REST service and restarts it in case the REST service does not respond.
 

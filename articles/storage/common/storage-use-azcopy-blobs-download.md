@@ -107,7 +107,7 @@ You can download specific blobs by using complete file names, partial names with
 
 #### Specify multiple complete blob names
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual blob names by using a semicolin (`;`).
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual blob names by using a semicolon (`;`).
 
 **Syntax**
 

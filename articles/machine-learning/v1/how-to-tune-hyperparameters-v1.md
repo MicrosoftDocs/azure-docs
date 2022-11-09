@@ -311,7 +311,7 @@ To [configure your hyperparameter tuning](/python/api/azureml-train-core/azureml
 The ScriptRunConfig is the training script that will run with the sampled hyperparameters. It defines the resources per job (single or multi-node), and the compute target to use.
 
 > [!NOTE]
->The compute target used in `script_run_config` must have enough resources to satisfy your concurrency level. For more information on ScriptRunConfig, see [Configure training runs](../how-to-set-up-training-targets.md).
+>The compute target used in `script_run_config` must have enough resources to satisfy your concurrency level. For more information on ScriptRunConfig, see [Configure training runs](how-to-set-up-training-targets.md).
 
 Configure your hyperparameter tuning experiment:
 
@@ -487,4 +487,4 @@ Refer to train-hyperparameter-* notebooks in this folder:
 
 ## Next steps
 * [Track an experiment](../how-to-log-view-metrics.md)
-* [Deploy a trained model](../how-to-deploy-and-where.md)
+* [Deploy a trained model](../v1/how-to-deploy-and-where.md)

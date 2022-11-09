@@ -38,7 +38,7 @@ docker logs -f sapcon-[SID]
 
 **Enable debug mode printing**:
 
-1. On your VM, edit the **sapcon/[SID]/systemconfig.ini** file.
+1. On your VM, edit the **/opt/sapcon/[SID]/systemconfig.ini** file.
 
 1. Define the **General** section if it wasn't previously defined. In this section, define `logging_debug = True`.
 
@@ -55,7 +55,7 @@ The change takes effect two minutes after you save the file. You don't need to r
 
 **Disable debug mode printing**:
 
-1. On your VM, edit the **sapcon/[SID]/systemconfig.ini** file.
+1. On your VM, edit the **/opt/sapcon/[SID]/systemconfig.ini** file.
 
 1. In the **General** section, define `logging_debug = False`.
 
@@ -70,54 +70,9 @@ The change takes effect two minutes after you save the file. You don't need to r
 
 The change takes effect two minutes after you save the file. You don't need to restart the Docker container.
 
-## View all Docker execution logs
+## View all container execution logs
 
-To view all Docker execution logs for your Microsoft Sentinel Solution for SAP data connector deployment, run one of the following commands:
-
-```bash
-docker exec -it sapcon-[SID] bash && cd /sapcon-app/sapcon/logs
-```
-
-or
-
-```bash
-docker exec –it sapcon-[SID] cat /sapcon-app/sapcon/logs/[FILE_LOGNAME]
-```
-
-Output similar to the following should be displayed:
-
-```bash
-Logs directory:
-root@644c46cd82a9:/sapcon-app# ls sapcon/logs/ -l
-total 508
--rwxr-xr-x 1 root root      0 Mar 12 09:22 ' __init__.py'
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPAppLog.log
--rw-r--r-- 1 root root   1056 Mar 12 16:01  ABAPAuditLog.log
--rw-r--r-- 1 root root    465 Mar 12 16:01  ABAPCRLog.log
--rw-r--r-- 1 root root    515 Mar 12 16:01  ABAPChangeDocsLog.log
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPJobLog.log
--rw-r--r-- 1 root root    480 Mar 12 16:01  ABAPSpoolLog.log
--rw-r--r-- 1 root root    525 Mar 12 16:01  ABAPSpoolOutputLog.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  ABAPTableDataLog.log
--rw-r--r-- 1 root root    495 Mar 12 16:01  ABAPWorkflowLog.log
--rw-r--r-- 1 root root 465311 Mar 14 06:54  API.log # view this log to see submits of data into Microsoft Sentinel
--rw-r--r-- 1 root root      0 Mar 12 15:51  LogsDeltaManager.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  PersistenceManager.log
--rw-r--r-- 1 root root   4830 Mar 12 16:01  RFC.log
--rw-r--r-- 1 root root   5595 Mar 12 16:03  SystemAdmin.log
-```
-
-To copy your logs to the host operating system, run:
-
-```bash
-docker cp sapcon-[SID]:/sapcon-app/sapcon/logs /directory
-```
-
-For example:
-
-```bash
-docker cp sapcon-A4H:/sapcon-app/sapcon/logs /tmp/sapcon-logs-extract
-```
+Connector execution logs for your Microsoft Sentinel Solution for SAP data connector deployment are stored in **/opt/sapcon/[SID]/log**. Log filename is **OmniLog.log**. A history of logfiles is kept, suffixed with *.<number>* such as **OmniLog.log.1**, **OmniLog.log.2** etc
 
 ## Review and update the Microsoft Sentinel for SAP data connector configuration
 
@@ -139,12 +94,11 @@ The following steps reset the connector and reingest SAP logs from the last 30 m
     docker stop sapcon-[SID]
     ```
 
-1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory. Run:
+1.	Delete the **metadata.db** file from the **/opt/sapcon/[SID]** directory. Run:
 
     ```bash
-    cd ~/sapcon/<SID>
-    ls
-    mv metadata.db metadata.old
+    cd /opt/sapcon/<SID>
+    rm metadata.db
     ```
 
     > [!NOTE]
@@ -183,7 +137,7 @@ Docker cp SDK by running docker cp nwrfc750P_8-70002752.zip /sapcon-app/inst/
 
 If ABAP runtime errors appear on large systems, try setting a smaller chunk size:
 
-1. Edit the **sapcon/[SID]/systemconfig.ini** file and in the **Connector Configuration** section define `timechunk = 5`.
+1. Edit the **/opt/sapcon/[SID]/systemconfig.ini** file and in the **Connector Configuration** section define `timechunk = 5`.
 
     For example:
 
@@ -287,7 +241,7 @@ If you attempt to retrieve an audit log, without the [required change request](p
 
 While your system should automatically switch to compatibility mode if needed, you may need to switch it manually. To switch to compatibility mode manually:
 
-1. Edit the **sapcon/[SID]/systemconfig.ini** file
+1. Edit the **/opt/sapcon/[SID]/systemconfig.ini** file
 
 1. In the **Connector Configuration** section defineefine: `auditlogforcexal = True`
 
@@ -336,10 +290,10 @@ To check for misconfigurations, run the **RSDBTIME** report in transaction **SE3
     docker stop sapcon-[SID]
     ```
 
-1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory. Run:
+1.	Delete the **metadata.db** file from the **/opt/sapcon/[SID]** directory. Run:
 
     ```bash
-    rm ~/sapcon/[SID]/metadata.db
+    rm /opt/sapcon/[SID]/metadata.db
     ```
 
 1. Update the SAP system and the SAP host operating system to have matching settings, such as the same time zone. For more information, see the [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/Basis/Time+zone+settings%2C+SAP+vs.+OS+level).

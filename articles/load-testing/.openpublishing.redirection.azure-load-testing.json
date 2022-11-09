@@ -4,6 +4,16 @@
             "source_path_from_root": "/articles/load-testing/how-to-update-rerun-test.md",
             "redirect_url": "/azure/load-testing/how-to-monitor-server-side-metrics",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/tutorial-cicd-azure-pipelines.md",
+            "redirect_url": "/azure/load-testing/tutorial-identify-performance-regression-with-cicd",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/tutorial-cicd-github-actions.md",
+            "redirect_url": "/azure/load-testing/tutorial-identify-performance-regression-with-cicd",
+            "redirect_document_id": false
         }
     ]
 }

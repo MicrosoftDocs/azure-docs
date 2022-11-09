@@ -4,7 +4,7 @@ description: Learn how to configure separation of duties enforcement for request
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -88,7 +88,31 @@ Follow these steps to view the list of other access packages that have indicated
 
 1. Select on **Incompatible With**.
 
-## Identifying users who already have incompatible access to another access package
+## Identifying users who already have incompatible access to another access package (Preview)
+
+If you've configured incompatible access settings on an access package that already has users assigned to it, then you can download a list of those users who have that additional access. Those users who also have an assignment to the incompatible access package won't be able to re-request access.
+
+**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
+
+Follow these steps to view the list of users who have assignments to two access packages.
+
+1.	Sign in to the [Azure portal](https://portal.azure.com).
+
+1.  Select **Azure Active Directory**, and then select **Identity Governance**.
+
+1.	In the left menu, select **Access packages** and then open the access package where you've configured another access package as incompatible.
+
+1.	In the left menu, select **Separation of duties**.
+
+1.  In the table, if there is a non-zero value in the Additional access column for the second access package, then that indicates there are one or more users with assignments.
+
+    ![Screenshot of an access package marked as incompatible with existing access assignments.](./media/entitlement-management-access-package-incompatible/incompatible-ap.png)
+
+1.  Select that count to view the list of incompatible assignments.
+
+1.  If you wish, you can select the **Download** button to save that list of assignments as a CSV file.
+
+## Identifying users who will have incompatible access to another access package
 
 If you're configuring incompatible access settings on an access package that already has users assigned to it, then any of those users who also have an assignment to the incompatible access package or groups won't be able to re-request access.
 

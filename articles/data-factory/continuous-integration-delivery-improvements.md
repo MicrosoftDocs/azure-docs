@@ -87,16 +87,10 @@ npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxx
 - `FactoryId` is a mandatory field that represents the Data Factory resource ID in the format `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>`.
 - `OutputFolder` is an optional parameter that specifies the relative path to save the generated ARM template.
 
-If you would like to stop/ start only the updated triggers, instead use the below command (currently this capability is in preview and the functionality will be transparently merged into the above command during GA): 
-```dos
-npm run build-preview export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
-```
-- `RootFolder` is a mandatory field that represents where the Data Factory resources are located.
-- `FactoryId` is a mandatory field that represents the Data Factory resource ID in the format `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>`.
-- `OutputFolder` is an optional parameter that specifies the relative path to save the generated ARM template.
+The ability to stop/start only the updated triggers is now generally available and is merged into the command shown above. 
+
 > [!NOTE]
 > The ARM template generated isn't published to the live version of the factory. Deployment should be done by using a CI/CD pipeline.
-
 
 
 ### Validate
@@ -125,8 +119,7 @@ Follow these steps to get started:
    ```json
    {
        "scripts":{
-           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index",
-           "build-preview":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index --preview"
+           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
        },
        "dependencies":{
            "@microsoft/azure-data-factory-utilities":"^1.0.0"
@@ -200,6 +193,9 @@ Follow these steps to get started:
 4. Enter your YAML code. We recommend that you use the YAML file as a starting point.
 
 5. Save and run. If you used the YAML, it gets triggered every time the main branch is updated.
+
+> [!NOTE]
+> The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually.
 
 ## Next steps
 

@@ -34,7 +34,7 @@ Semantic search is a collection of features that improve the quality of search r
 |---------|-------------|
 | [Semantic re-ranking](semantic-ranking.md) | Uses the context or semantic meaning of a query to compute a new relevance score over existing results. |
 | [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
-| [Semantic answers](semantic-answers.md) | An optional and additional substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document have text with the characteristics of an answer. |
+| [Semantic answers](semantic-answers.md) | An optional and additional substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document has text with the characteristics of an answer. |
 
 ## How semantic ranking works
 
@@ -135,4 +135,4 @@ To re-enable semantic search, rerun the above request, setting "semanticSearch" 
 
 ## Next steps
 
-[Enable semantic search](#enable-semantic-search) for your search service and follow the documentation on how to [create a semantic query](semantic-how-to-query-request.md) so that you can test out semantic search on your content.
+[Enable semantic search](#enable-semantic-search) for your search service and follow the steps in [Configure semantic ranking](semantic-how-to-query-request.md) so that you can test out semantic search on your content.

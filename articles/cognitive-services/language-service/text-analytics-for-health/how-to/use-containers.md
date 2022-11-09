@@ -3,13 +3,13 @@ title: How to use Text Analytics for health containers
 titleSuffix: Azure Cognitive Services
 description: Learn how to extract and label medical information on premises using Text Analytics for health Docker container.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/20/2022
-ms.author: aahi
+ms.date: 09/05/2022
+ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -46,12 +46,11 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 ## Get the container image with `docker pull`
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry.
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the  [dockerhub page](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)  
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name>
 ```
-
 
 [!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -84,7 +83,7 @@ To run the container in your own environment after downloading the container ima
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
-mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name> \
 Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \

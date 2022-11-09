@@ -6,8 +6,8 @@ services: azure-communication-services
 author: radubulboaca
 manager: mariusu
 
-ms.author: radubulboaca
-ms.date: 07/27/2022
+ms.author: antonsamson
+ms.date: 09/01/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other
@@ -28,11 +28,11 @@ This quickstart will help you get started with Azure Communication Services Room
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-python.md)]
+[!INCLUDE [Use rooms with Python SDK](./includes/rooms-quickstart-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-javascript.md)]
+[!INCLUDE [Use rooms with JavaScript SDK](./includes/rooms-quickstart-javascript.md)]
 ::: zone-end
 
 ## Object model

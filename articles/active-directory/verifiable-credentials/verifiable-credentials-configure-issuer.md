@@ -7,7 +7,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 08/16/2022
+ms.date: 08/26/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 The following diagram illustrates the Microsoft Entra Verified ID architecture and the component you configure.
 
-![Diagram that illustrates the Azure A D Verifiable Credentials architecture.](media/verifiable-credentials-configure-issuer/verifiable-credentials-architecture.png)
+:::image type="content" source="media/verifiable-credentials-configure-issuer/verifiable-credentials-architecture.png" alt-text="Diagram that illustrates the Azure AD Verifiable Credentials architecture.":::
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ The following diagram illustrates the Microsoft Entra Verified ID architecture a
 - To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
-- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization, please read this [FAQ](verifiable-credentials-faq.md#i-can-not-use-ngrok-what-do-i-do).
+- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization, read this [FAQ](verifiable-credentials-faq.md#i-cannot-use-ngrok-what-do-i-do).
 - A mobile device with Microsoft Authenticator:
   - Android version 6.2206.3973 or later installed.
   - iOS version 6.6.2 or later installed.
@@ -91,43 +91,44 @@ In this step, you create the verified credential expert card by using Microsoft 
         ```
 
     1. Copy the following JSON and paste it in the  **Rules definition** textbox
-    ```JSON
-    {
-      "attestations": {
-        "idTokenHints": [
-          {
-            "mapping": [
+    
+        ```JSON
+        {
+          "attestations": {
+            "idTokenHints": [
               {
-                "outputClaim": "firstName",
-                "required": true,
-                "inputClaim": "$.given_name",
-                "indexed": false
-              },
-              {
-                "outputClaim": "lastName",
-                "required": true,
-                "inputClaim": "$.family_name",
-                "indexed": false
+                "mapping": [
+                  {
+                    "outputClaim": "firstName",
+                    "required": true,
+                    "inputClaim": "$.given_name",
+                    "indexed": false
+                  },
+                  {
+                    "outputClaim": "lastName",
+                    "required": true,
+                    "inputClaim": "$.family_name",
+                    "indexed": false
+                  }
+                ],
+                "required": false
               }
-            ],
-            "required": false
+            ]
+          },
+          "validityInterval": 2592000,
+          "vc": {
+            "type": [
+              "VerifiedCredentialExpert"
+            ]
           }
-        ],
-        "validityInterval": 2592000,
-        "vc": {
-          "type": [
-            "VerifiedCredentialExpert"
-          ]
         }
-      }
-    }
-    ```
+        ```
 
     1. Select **Create**.
 
 The following screenshot demonstrates how to create a new credential:
 
-  ![Screenshot that shows how to create a new credential.](media/verifiable-credentials-configure-issuer/how-create-new-credential.png)
+  :::image type="content" source="media/verifiable-credentials-configure-issuer/how-create-new-credential.png" alt-text="Screenshot that shows how to create a new credential.":::
 
 ## Gather credentials and environment details
 
@@ -135,13 +136,16 @@ Now that you have a new credential, you're going to gather some information abou
 
 1. In Verifiable Credentials, select **Issue credential**. 
 
-    ![Screenshot that shows how to select the newly created verified credential.](media/verifiable-credentials-configure-issuer/issue-credential-custom-view.png)
+    :::image type="content" source="media/verifiable-credentials-configure-issuer/issue-credential-custom-view.png" alt-text="Screenshot that shows how to select the newly created verified credential.":::
 
 1. Copy the **authority**, which is the Decentralized Identifier, and record it for later.
 
 1. Copy the **manifest** URL. It's the URL that Authenticator evaluates before it displays to the user verifiable credential issuance requirements. Record it for later use.
 
 1. Copy your **Tenant ID**, and record it for later. The Tenant ID is the guid in the manifest URL highlighted in red above.
+
+    >[!NOTE]
+    > When setting up access policies for Azure Key Vault, you must add the access policies for both **Verifiable Credentials Service Request** and **Verifiable Credentials Service**.
 
 ## Download the sample code
 
@@ -164,7 +168,7 @@ Create a client secret for the registered application that you created. The samp
 
 1. Copy the **Application (client) ID**, and store it for later.  
 
-     ![Screenshot that shows how to copy the app registration ID.](media/verifiable-credentials-configure-issuer/copy-app-id.png)
+     :::image type="content" source="media/verifiable-credentials-configure-issuer/copy-app-id.png" alt-text="Screenshot that shows how to copy the app registration ID.":::
 
 1. From the main menu, under **Manage**, select **Certificates & secrets**.
 
@@ -209,7 +213,7 @@ The following JSON demonstrates a complete *appsettings.json* file:
     "CertificateName": "[Or instead of client secret: Enter here the name of a certificate (from the user cert store) as registered with your application]",
     "IssuerAuthority": "did:web:example.com...",
     "VerifierAuthority": "did:web:example.com...",
-    "CredentialManifest":  "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert"
+    "CredentialManifest":  "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredentials/contracts/VerifiedCredentialExpert"
   }
 }
 ```
@@ -237,74 +241,41 @@ Now you're ready to issue your first verified credential expert card by running 
 
 1. Open the HTTPS URL generated by ngrok.
 
-     ![Screenshot that shows how to get the ngrok public URL.](media/verifiable-credentials-configure-issuer/ngrok-url.png)
+     :::image type="content" source="media/verifiable-credentials-configure-issuer/ngrok-url.png" alt-text="Screenshot that shows how to get the ngrok public URL.":::
 
 1. From a web browser, select **Get Credential**.
 
-     ![Screenshot that shows how to choose get the credential from the sample app.](media/verifiable-credentials-configure-issuer/get-credentials.png)
+     :::image type="content" source="media/verifiable-credentials-configure-issuer/get-credentials.png" alt-text="Screenshot that shows how to choose to get the credential from the sample app.":::
 
 1. Using your mobile device, scan the QR code with the Authenticator app. You can also scan the QR code directly from your camera, which will open the Authenticator app for you.
 
-    ![Screenshot that shows how to scan the Q R code.](media/verifiable-credentials-configure-issuer/scan-issuer-qr-code.png)
+     :::image type="content" source="media/verifiable-credentials-configure-issuer/scan-issuer-qr-code.png" alt-text="Screenshot that shows how to scan the QR code.":::
 
 1. At this time, you'll see a message warning that this app or website might be risky. Select **Advanced**.
 
-     ![Screenshot that shows how to respond to the warning message.](media/verifiable-credentials-configure-issuer/at-risk.png)
+     :::image type="content" source="media/verifiable-credentials-configure-issuer/at-risk.png" alt-text="Screenshot that shows how to respond to the warning message.":::
 
 1. At the risky website warning, select **Proceed anyways (unsafe)**. You're seeing this warning because your domain isn't linked to your decentralized identifier (DID). To verify your domain, follow [Link your domain to your decentralized identifier (DID)](how-to-dnsbind.md). For this tutorial, you can skip the domain registration, and select **Proceed anyways (unsafe).**
 
-     ![Screenshot that shows how to proceed with the risky warning.](media/verifiable-credentials-configure-issuer/proceed-anyway.png)
+     :::image type="content" source="media/verifiable-credentials-configure-issuer/proceed-anyway.png" alt-text="Screenshot that shows how to proceed with the risky warning.":::
 
 1. You'll be prompted to enter a PIN code that is displayed in the screen where you scanned the QR code. The PIN adds an extra layer of protection to the issuance. The PIN code is randomly generated every time an issuance QR code is displayed.
 
-     ![Screenshot that shows how to type the pin code.](media/verifiable-credentials-configure-issuer/enter-verification-code.png)
+     :::image type="content" source="media/verifiable-credentials-configure-issuer/enter-verification-code.png" alt-text="Screenshot that shows how to type the pin code.":::
 
 1. After you enter the PIN number, the **Add a credential** screen appears. At the top of the screen, you see a **Not verified** message (in red). This warning is related to the domain validation warning mentioned earlier.
 
 1. Select **Add** to accept your new verifiable credential.
 
-    ![Screenshot that shows how to add your new credential.](media/verifiable-credentials-configure-issuer/new-verifiable-credential.png)
+    :::image type="content" source="media/verifiable-credentials-configure-issuer/new-verifiable-credential.png" alt-text="Screenshot that shows how to add your new credential.":::
 
 Congratulations! You now have a verified credential expert verifiable credential.
 
-  ![Screenshot that shows a newly added verifiable credential.](media/verifiable-credentials-configure-issuer/verifiable-credential-has-been-added.png)
+  :::image type="content" source="media/verifiable-credentials-configure-issuer/verifiable-credential-has-been-added.png" alt-text="Screenshot that shows a newly added verifiable credential.":::
 
 Go back to the sample app. It shows you that a credential successfully issued.
 
-  ![Screenshot that shows a successfully issued verifiable credential.](media/verifiable-credentials-configure-issuer/credentials-issued.png)
-
-## Verify the verified credential expert card
-
-Now you are ready to verify your verified credential expert card by running the sample application again.
-
-1. Hit the back button in your browser to return to the sample app home page.
-
-1. Select **Verify credentials**.  
-
-   ![Screenshot that shows how to select the verify credential button.](media/verifiable-credentials-configure-issuer/verify-credential.png)
-
-1. Using the authenticator app, scan the QR code, or scan it directly from your mobile camera.
-
-1. When you see the warning message, select **Advanced**. Then select **Proceed anyways (unsafe)**.
-
-1. Approve the presentation request by selecting **Allow**.
-
-    ![Screenshot that shows how to approve the verifiable credentials new presentation request.](media/verifiable-credentials-configure-issuer/approve-presentation-request.jpg)
-
-1. After you approve the presentation request, you can see that the request has been approved. You can also check the log. To see the log, select the verifiable credential.  
-
-    ![Screenshot that shows a verified credential expert card.](media/verifiable-credentials-configure-issuer/verifable-credential-info.png)
-
-1. Then select **Recent Activity**.  
-
-    ![Screenshot that shows the recent activity button that takes you to the credential history.](media/verifiable-credentials-configure-issuer/verifable-credential-history.jpg)
-
-1. You can now see the recent activities of your verifiable credential.
-
-    ![Screenshot that shows the history of the verifiable credential.](media/verifiable-credentials-configure-issuer/verify-credential-history.jpg)
-
-1. Go back to the sample app. It shows you that the presentation of the verifiable credentials was received.  
-    ![Screenshot that shows that a presentation was received.](media/verifiable-credentials-configure-issuer/verifiable-credential-expert-verification.png)
+  :::image type="content" source="media/verifiable-credentials-configure-issuer/credentials-issued.png" alt-text="Screenshot that shows a successfully issued verifiable credential.":::
 
 ## Verifiable credential names 
 
@@ -318,10 +289,9 @@ In real scenarios, your application pulls the user details from an identity prov
 public async Task<ActionResult> issuanceRequest()
   {
     ...
-
     // Here you could change the payload manifest and change the first name and last name.
-    payload["issuance"]["claims"]["given_name"] = "Megan";
-    payload["issuance"]["claims"]["family_name"] = "Bowen";
+    payload["claims"]["given_name"] = "Megan";
+    payload["claims"]["family_name"] = "Bowen";
     ...
 }
   ```

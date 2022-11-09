@@ -4,6 +4,7 @@ description: Describes the
 documentationcenter: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 08/18/2022
 ---
@@ -14,7 +15,7 @@ Enabling observability across today's complex computing environments running dis
 [Azure Monitor](overview.md) collects and aggregates data from various sources into a common data platform where it can be used for analysis, visualization, and alerting. It provides a consistent experience on top of data from multiple sources, which gives you deep insights across all your monitored resources and even with data from other services that store their data in Azure Monitor.
 
 
-:::image type="content" source="media/overview/azure-monitor-overview-optm.svg" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/azure-monitor-overview-optm.svg":::
+:::image type="content" source="media/overview/azure-monitor-overview-2022-08-25-change-analysis-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/azure-monitor-overview-2022-08-25-change-analysis-opt.svg":::
 
 ## Pillars of observability
 
@@ -26,14 +27,14 @@ Azure resources generate a significant amount of monitoring data. Azure Monitor 
 ## Metrics
 [Metrics](essentials/data-platform-metrics.md) are numerical values that describe some aspect of a system at a particular point in time. They are collected at regular intervals and are identified with a timestamp, a name, a value, and one or more defining labels. Metrics can be aggregated using a variety of algorithms, compared to other metrics, and analyzed for trends over time. 
 
-Metrics in Azure Monitor are stored in a time-series database which is optimized for analyzing time-stamped data. This makes metrics particularly suited for alerting and fast detection of issues. They can tell you how your system is performing but typically need to be combined with logs to identify the root cause of issues.
+Metrics in Azure Monitor are stored in a time-series database which is optimized for analyzing time-stamped data. This makes metrics ideal for alerting and fast detection of issues. They can tell you how your system is performing but typically need to be combined with logs to identify the root cause of issues.
 
 Metrics are available for interactive analysis in the Azure portal with [Azure Metrics Explorer](essentials/metrics-getting-started.md). They can be added to an [Azure dashboard](app/tutorial-app-dashboards.md) for visualization in combination with other data and used for near-real time [alerting](alerts/alerts-metric.md).
 
 Read more about Azure Monitor Metrics including their sources of data in [Metrics in Azure Monitor](essentials/data-platform-metrics.md).
 
 ## Logs
-[Logs](logs/data-platform-logs.md) are events that occurred within the system. They can contain different kinds of data and may be structured or free form text with a timestamp. They may be created sporadically as events in the environment generate log entries, and a system under heavy load will typically generate more log volume.
+[Logs](logs/data-platform-logs.md) are events that occurred within the system. They can contain different kinds of data and may be structured or free-form text with a timestamp. They may be created sporadically as events in the environment generate log entries, and a system under heavy load will typically generate more log volume.
 
 Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [Azure Data Explorer](/azure/data-explorer/) which provides a powerful analysis engine and [rich query language](/azure/kusto/query/). Logs typically provide enough information to provide complete context of the issue being identified and are valuable for identifying root case of issues.
 

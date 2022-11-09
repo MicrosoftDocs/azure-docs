@@ -1,7 +1,7 @@
 ---
-title: Generate Responsible AI dashboard with YAML and Python (preview) 
+title: Generate a Responsible AI dashboard with YAML and Python (preview) 
 titleSuffix: Azure Machine Learning
-description: Learn how to generate the Responsible AI dashboard with Python and YAML in Azure Machine Learning.
+description: Learn how to generate a Responsible AI dashboard with Python and YAML in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -12,93 +12,95 @@ ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
-# Generate Responsible AI dashboard with YAML and Python (preview)
+# Generate a Responsible AI dashboard with YAML and Python (preview)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-The Responsible AI (RAI) dashboard can be generated via a pipeline job using RAI components. There are six core components for creating Responsible AI dashboards, along with a couple of helper components. A sample experiment graph:
+You can generate a Responsible AI dashboard via a pipeline job by using Responsible AI components. There are six core components for creating Responsible AI dashboards, along with a couple of helper components. Here's a sample experiment graph:
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-sdk-cli/sample-experiment-graph.png" alt-text="Screenshot of a sample experiment graph." lightbox= "./media/how-to-responsible-ai-dashboard-sdk-cli/sample-experiment-graph.png":::
 
-## Getting started
+## Get started
 
 To use the Responsible AI components, you must first register them in your Azure Machine Learning workspace. This section documents the required steps.
 
 ### Prerequisites
+
 You'll need:
 
-- An AzureML workspace
-- A git installation
+- An Azure Machine Learning workspace
+- A Git installation
 - A MiniConda installation
 - An Azure CLI installation
 
-### Installation Steps
+### Installation steps
 
-1. Clone the Repository
+1. Clone the repository:
+
     ```bash
     git clone https://github.com/Azure/RAI-vNext-Preview.git 
     
     cd RAI-vNext-Preview 
     ```
-2. Log into Azure
+
+2. Sign in to Azure:
 
     ```bash
     Az login
     ```
 
-3. Run the setup script
-
-    We provide a setup script which:
-
-    - Creates a new conda environment with a name you specify
-    - Installs all the required Python packages
-    - Registers all the RAI components in your AzureML workspace
-    - Registers some sample datasets in your AzureML workspace
-    - Sets the defaults for the Azure CLI to point to your workspace
-
-    We provide PowerShell and bash versions of the script. From the repository root, run:
+3. From the repository root, run the following PowerShell setup script:
 
     ```powershell
     Quick-Setup.ps1 
     ```
 
-    This will prompt for the desired conda environment name and AzureML workspace details. Alternatively, use the bash script:
+    Running the script:
+
+    - Creates a new conda environment with a name you specify.
+    - Installs all the required Python packages.
+    - Registers all the Responsible AI components in your Azure Machine Learning workspace.
+    - Registers some sample datasets in your workspace.
+    - Sets the defaults for the Azure CLI to point to your workspace.  
+
+    Running the script prompts for the desired conda environment name and Azure Machine Learning workspace details. 
+
+    Alternatively, you can use the following Bash script:
 
     ```bash
     ./quick-setup.bash <CONDA-ENV-NAME> <SUBSCRIPTION-ID> <RESOURCE-GROUP-NAME> <WORKSPACE-NAME>
     ```
 
-    This script will echo the supplied parameters, and pause briefly before continuing.
+    This script echoes the supplied parameters, and it pauses briefly before continuing.
 
 ## Responsible AI components
 
-The core components for constructing a Responsible AI dashboard in AzureML are:
+The core components for constructing the Responsible AI dashboard in Azure Machine Learning are:
 
-- `RAI Insights Dashboard Constructor`
+- RAI Insights dashboard constructor
 - The tool components:
-    - `Add Explanation to RAI Insights Dashboard`
-    - `Add Causal to RAI Insights Dashboard`
-    - `Add Counterfactuals to RAI Insights Dashboard`
-    - `Add Error Analysis to RAI Insights Dashboard`
-    - `Gather RAI Insights Dashboard`
+    - Add Explanation to RAI Insights dashboard
+    - Add Causal to RAI Insights dashboard
+    - Add Counterfactuals to RAI Insights dashboard
+    - Add Error Analysis to RAI Insights dashboard
+    - Gather RAI Insights dashboard
 
+The RAI Insights dashboard constructor and Gather RAI Insights dashboard components are always required, plus at least one of the tool components. However, it isn't necessary to use all the tools in every Responsible AI dashboard.  
 
-The ` RAI Insights Dashboard Constructor` and `Gather RAI Insights Dashboard ` components are always required, plus at least one of the tool components. However, it isn't necessary to use all the tools in every Responsible AI dashboard.  
-
-Below are specifications of the Responsible AI components and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebook](https://aka.ms/RAIsamplesProgrammer)
+In the following sections are specifications of the Responsible AI components and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebook](https://aka.ms/RAIsamplesProgrammer).
 
 ### Limitations
 
 The current set of components have a number of limitations on their use:
 
-- All models must be in registered in AzureML in MLFlow format with a sklearn flavor.
+- All models must be registered in Azure Machine Learning in MLflow format with a sklearn (scikit-learn) flavor.
 - The models must be loadable in the component environment.
 - The models must be pickleable.
-- The models must be supplied to the RAI components using the 'Fetch Registered Model' component that we provide.
-- The dataset inputs must be `pandas` DataFrames in Parquet format. 
-- A model must still be supplied even if only a causal analysis of the data is performed. The `DummyClassifier` and `DummyRegressor` estimators from SciKit-Learn can be used for this purpose.
+- The models must be supplied to the Responsible AI components by using the *fetch registered model* component, which we provide.
+- The dataset inputs must be in pandas.DataFrame.to_parquet format. 
+- A model must be supplied even if only a causal analysis of the data is performed. You can use the DummyClassifier and DummyRegressor estimators from scikit-learn for this purpose.
 
-### RAI Insights Dashboard Constructor
+### RAI Insights dashboard constructor
 
 This component has three input ports:
 
@@ -106,30 +108,29 @@ This component has three input ports:
 - The training dataset  
 - The test dataset  
 
-Use the train and test dataset that you used when training your model to generate model-debugging insights with components such as Error analysis and Model explanations. For components like Causal analysis that doesn't require a model, the train dataset will be used to train the causal model to generate the causal insights. The test dataset is used to populate your Responsible AI dashboard visualizations.
+To generate model-debugging insights with components such as error analysis and Model explanations, use the training and test dataset that you used when you trained your model. For components like causal analysis, which doesn't require a model, you use the training dataset to train the causal model to generate the causal insights. You use the test dataset to populate your Responsible AI dashboard visualizations.
 
-The easiest way to supply the model is using our `Fetch Registered Model` component, which will be discussed below.
+The easiest way to supply the model is to use the fetch registered model component, which we discuss later in this article.
 
 > [!NOTE]
-> Currently only models with MLFlow format, with a sklearn flavor are supported.
+> Currently, only models in MLflow format and with a sklearn flavor are supported.
 
-The two datasets should be file datasets (of type uri_file) in Parquet format. Tabular datasets aren't supported, we provide a `TabularDataset to Parquet file` component to help with conversions. The training and test datasets provided don't have to be the same datasets used in training the model (although it's permissible for them to be the same). By default, the test dataset is restricted to 5000 rows for performance reasons of the visualization UI.
+The two datasets should be file datasets (of type `uri_file`) in Parquet format. Tabular datasets aren't supported, but we provide a TabularDataset to Parquet file component to help with conversions. The training and test datasets provided don't have to be the same datasets that are used in training the model, but they can be the same. By default, for performance reasons, the test dataset is restricted to 5,000 rows of the visualization UI.
 
 The constructor component also accepts the following parameters:
 
-| Parameter name                | Description                                                                       | Type                                      |
-|-------------------------------|-----------------------------------------------------------------------------------|-------------------------------------------|
-| title                         | Brief description of the dashboard                                                | String                                    |
-| task_type                     | Specifies whether the model is for classification or regression                   | String, `classification` or `regression`  |
-| target_column_name            | The name of the column in the input datasets, which the model is trying to predict | String                                    |
-| maximum_rows_for_test_dataset | The maximum number of rows allowed in the test dataset (for performance reasons)  | Integer (defaults to 5000)                |
-| categorical_column_names      | The columns in the datasets, which represent categorical data                      | Optional list of strings (see note below) |
-| classes                       | The full list of class labels in the training dataset                             | Optional list of strings (see note below) |
+| Parameter name | Description | Type |
+|---|---|---|
+| `title` | Brief description of the dashboard. | String |
+| `task_type` | Specifies whether the model is for classification or regression. | String, `classification` or `regression` |
+| `target_column_name` | The name of the column in the input datasets, which the model is trying to predict. | String |
+| `maximum_rows_for_test_dataset` | The maximum number of rows allowed in the test dataset, for performance reasons. | Integer, defaults to 5,000 |
+| `categorical_column_names` | The columns in the datasets, which represent categorical data. | Optional list of strings<sup>1</sup> |
+| `classes` | The full list of class labels in the training dataset. | Optional list of strings<sup>1</sup> |
 
-> [!NOTE]
-> The lists should be supplied as a single JSON encoded string for`categorical_column_names` and `classes` inputs.
+<sup>1</sup> The lists should be supplied as a single JSON-encoded string for `categorical_column_names` and `classes` inputs.
 
-The constructor component has a single output named `rai_insights_dashboard`. This is an empty dashboard, which the individual tool components will operate on, and then all the results will be assembled by the `Gather RAI Insights Dashboard` component at the end.
+The constructor component has a single output named `rai_insights_dashboard`. This is an empty dashboard, which the individual tool components operate on. All the results are assembled by the Gather RAI Insights dashboard component at the end.
 
 # [YAML](#tab/yaml)
 
@@ -148,7 +149,7 @@ The constructor component has a single output named `rai_insights_dashboard`. Th
       categorical_column_names: '["location", "style", "job title", "OS", "Employer", "IDE", "Programming language"]' 
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 First load the component:
 
@@ -159,7 +160,7 @@ First load the component:
             client=ml_client, name="rai_insights_constructor", version="1" 
         ) 
 
-#Then inside the pipeline: 
+#Then inside the pipeline:
 
             construct_job = rai_constructor_component( 
                 title="From Python", 
@@ -174,16 +175,16 @@ First load the component:
             ) 
 ```
 ---
-### Exporting pre-built Cohorts for score card generation 
+### Export pre-built cohorts for scorecard generation 
 
-Pre-built cohorts can be exported for use in score card generation. Find example of building cohorts in this Jupyter Notebook example: [responsibleaidashboard-diabetes-decision-making.ipynb](https://github.com/microsoft/responsible-ai-toolbox/blob/main/notebooks/responsibleaidashboard/responsibleaidashboard-diabetes-decision-making.ipynb). Once a cohort is defined, it can be exported to json as follows:
+You can export pre-built cohorts for use in scorecard generation. For example, here are building cohorts in a Jupyter Notebook: [responsibleaidashboard-diabetes-decision-making.ipynb](https://github.com/microsoft/responsible-ai-toolbox/blob/main/notebooks/responsibleaidashboard/responsibleaidashboard-diabetes-decision-making.ipynb). After you've defined a cohort, you can export it to a JSON file, as shown here:
 
 ```python
 # cohort1, cohort2 are cohorts defined in sample notebook of type raiwidgets.cohort.Cohort 
 import json 
 json.dumps([cohort1.to_json(), cohort2.to_json) 
 ```
-A sample json string generated is shown below: 
+A sample generated JSON string is shown here: 
 
 ```json
 [ 
@@ -215,31 +216,30 @@ A sample json string generated is shown below:
 ] 
 ```
 
-### Add Causal to RAI Insights Dashboard
+### Add Causal to RAI Insights dashboard
 
-This component performs a causal analysis on the supplied datasets. It has a single input port, which accepts the output of the `RAI Insights Dashboard Constructor`. It also accepts the following parameters:
+This component performs a causal analysis on the supplied datasets. It has a single input port, which accepts the output of the RAI Insights dashboard constructor. It also accepts the following parameters:
 
-| Parameter name                | Description                                                                       | Type                                      |
-|-------------------------------|-----------------------------------------------------------------------------------|-------------------------------------------|
-| treatment_features | A list of feature names in the datasets, which are potentially ‘treatable’ to obtain different outcomes. | List of strings (see note below) |
-| heterogeneity_features | A list of feature names in the datasets, which might affect how the ‘treatable’ features behave. By default all features will be considered | Optional list of strings (see note below).|
-| nuisance_model  | The model used to estimate the outcome of changing the treatment features. | Optional string. Must be ‘linear’ or ‘AutoML’ defaulting to ‘linear.’ |
-| heterogeneity_model | The model used to estimate the effect of the heterogeneity features on the outcome.  | Optional string. Must be ‘linear’ or ‘forest’ defaulting to ‘linear.’ |
-| alpha | Confidence level of confidence intervals | Optional floating point number. Defaults to 0.05. |
-| upper_bound_on_cat_expansion | Maximum expansion for categorical features. | Optional integer. Defaults to 50. |
-| treatment_cost | The cost of the treatments. If 0, then all treatments will have zero cost. If a list is passed, then each element is applied to one of the treatment_features. Each element can be a scalar value to indicate a constant cost of applying that treatment or an array indicating the cost for each sample. If the treatment is a discrete treatment, then the array for that feature should be two dimensional with the first dimension representing samples and the second representing the difference in cost between the non-default values and the default value. | Optional integer or list (see note below).|
-| min_tree_leaf_samples | Minimum number of samples per leaf in policy tree. | Optional integer. Defaults to 2 |
-| max_tree_depth | Maximum depth of the policy tree | Optional integer. Defaults to 2 | 
-| skip_cat_limit_checks | By default, categorical features need to have several instances of each category in order for a model to be fit robustly. Setting this to True will skip these checks. |Optional Boolean. Defaults to False.  |
-| categories | What categories to use for the categorical columns. If `auto`, then the categories will be inferred for all categorical columns. Otherwise, this argument should have as many entries as there are categorical columns. Each entry should be either `auto` to infer the values for that column or the list of values for the column.  If explicit values are provided, the first value is treated as  the "control" value for that column against which other values are compared. | Optional. `auto` or list (see note below.) |
-| n_jobs | Degree of parallelism to use. | Optional integer. Defaults to 1. |
-| verbose | Whether to provide detailed output during the computation. | Optional integer. Defaults to 1. |
-| random_state | Seed for the PRNG. | Optional integer. |
+| Parameter name | Description | Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+|---|---|---|
+| `treatment_features` | A list of feature names in the datasets, which are potentially "treatable" to obtain different outcomes. | List of strings<sup>2</sup>. |
+| `heterogeneity_features` | A list of feature names in the datasets, which might affect how the "treatable" features behave. By default, all features will be considered. | Optional list of strings<sup>2</sup>.|
+| `nuisance_model` | The model used to estimate the outcome of changing the treatment features. | Optional string. Must be `linear` or `AutoML`, defaulting to `linear`. |
+| `heterogeneity_model` | The model used to estimate the effect of the heterogeneity features on the outcome. | Optional string. Must be `linear` or `forest`, defaulting to `linear`. |
+| `alpha` | Confidence level of confidence intervals. | Optional floating point number, defaults to 0.05. |
+| `upper_bound_on_cat_expansion` | The maximum expansion of categorical features. | Optional integer, defaults to 50. |
+| `treatment_cost` | The cost of the treatments. If 0, all treatments will have zero cost. If a list is passed, each element is applied to one of the `treatment_features`.<br><br>Each element can be a scalar value to indicate a constant cost of applying that treatment or an array indicating the cost for each sample. If the treatment is a discrete treatment, the array for that feature should be two dimensional, with the first dimension representing samples and the second representing the difference in cost between the non-default values and the default value. | Optional integer or list<sup>2</sup>.|
+| `min_tree_leaf_samples` | The minimum number of samples per leaf in the policy tree. | Optional integer, defaults to 2. |
+| `max_tree_depth` | The maximum depth of the policy tree. | Optional integer, defaults to 2. | 
+| `skip_cat_limit_checks` | By default, categorical features need to have several instances of each category in order for a model to be fit robustly. Setting this to `True` will skip these checks. |Optional Boolean, defaults to `False`. |
+| `categories` | The categories to use for the categorical columns. If `auto`, the categories will be inferred for all categorical columns. Otherwise, this argument should have as many entries as there are categorical columns.<br><br>Each entry should be either `auto` to infer the values for that column or the list of values for the column.  If explicit values are provided, the first value is treated as the "control" value for that column against which other values are compared. | Optional, `auto` or list<sup>2</sup>. |
+| `n_jobs` | The degree of parallelism to use. | Optional integer, defaults to 1. |
+| `verbose` | Expresses whether to provide detailed output during the computation. | Optional integer, defaults to 1. |
+| `random_state` | Seed for the pseudorandom number generator (PRNG). | Optional integer. |
 
-> [!NOTE]
-> For the `list` parameters: Several of the parameters accept lists of other types (strings, numbers, even other lists). To pass these into the component, they must first be JSON-encoded into a single string.
+<sup>2</sup> For the `list` parameters: Several of the parameters accept lists of other types (strings, numbers, even other lists). To pass these into the component, they must first be JSON-encoded into a single string.
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights Dashboard component.
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component.
 
 # [YAML](#tab/yaml)
 
@@ -252,7 +252,7 @@ This component has a single output port, which can be connected to one of the `i
       treatment_features: `["Number of GitHub repos contributed to", "YOE"]' 
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -268,24 +268,23 @@ This component has a single output port, which can be connected to one of the `i
 
 ---
 
-### Add Counterfactuals to RAI Insights Dashboard
+### Add Counterfactuals to RAI Insights dashboard
 
-This component generates counterfactual points for the supplied test dataset. It has a single input port, which accepts the output of the RAI Insights Dashboard Constructor. It also accepts the following parameters: 
+This component generates counterfactual points for the supplied test dataset. It has a single input port, which accepts the output of the RAI Insights dashboard constructor. It also accepts the following parameters: 
 
-| Parameter Name | Description | Type |
-|----------------|-------------|------|
-| total_CFs | How many counterfactual points to generate for each row in the test dataset | Optional integer. Defaults to 10 |
-| method | The `dice-ml` explainer to use | Optional string. Either `random`, `genetic` or `kdtree`. Defaults to `random` |
-| desired_class | Index identifying the desired counterfactual class. For binary classification, this should be set to `opposite` | Optional string or integer. Defaults to 0 |
-| desired_range | For regression problems, identify the desired range of outcomes | Optional list of two numbers (see note below). |
-| permitted_range  | Dictionary with feature names as keys and permitted range in list as values. Defaults to the range inferred from training data. |  Optional string or list (see note below).|
-| features_to_vary | Either a string "all" or a list of feature names to vary. | Optional string or list (see note below)|
-| feature_importance | Flag to enable computation of feature importances using `dice-ml` |Optional Boolean. Defaults to True |
+| Parameter name | Description | Type |
+|---|---|---|
+| `total_CFs` | The number of counterfactual points to generate for each row in the test dataset. | Optional integer, defaults to 10. |
+| `method` | The `dice-ml` explainer to use. | Optional string. Either `random`, `genetic`, or `kdtree`. Defaults to `random`. |
+| `desired_class` | Index identifying the desired counterfactual class. For binary classification, this should be set to `opposite`. | Optional string or integer. Defaults to 0. |
+| `desired_range` | For regression problems, identify the desired range of outcomes. | Optional list of two numbers<sup>3</sup>. |
+| `permitted_range` | Dictionary with feature names as keys and the permitted range in a list as values. Defaults to the range inferred from training data. |  Optional string or list<sup>3</sup>.|
+| `features_to_vary` | Either a string `all` or a list of feature names to vary. | Optional string or list<sup>3</sup>.|
+| `feature_importance` | Flag to enable computation of feature importances by using `dice-ml`. |Optional Boolean. Defaults to `True`. |
 
-> [!NOTE]
-> For the non-scalar parameters: Parameters which are lists or dictionaries should be passed as single JSON-encoded strings.
+<sup>3</sup> For the non-scalar parameters: Parameters that are lists or dictionaries should be passed as single JSON-encoded strings.
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights Dashboard component. 
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component. 
 
 # [YAML](#tab/yaml)
 
@@ -300,7 +299,7 @@ This component has a single output port, which can be connected to one of the `i
 ```
 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -317,21 +316,18 @@ This component has a single output port, which can be connected to one of the `i
 
 ---
 
-### Add Error Analysis to RAI Insights Dashboard 
+### Add Error Analysis to RAI Insights dashboard 
 
-This component generates an error analysis for the model. It has a single input port, which accepts the output of the RAI Insights Dashboard Constructor. It also accepts the following parameters:
+This component generates an error analysis for the model. It has a single input port, which accepts the output of the RAI Insights dashboard constructor. It also accepts the following parameters:
 
-| Parameter Name    | Description                                                 | Type                                                 |
-|-------------------|-------------------------------------------------------------|------------------------------------------------------|
-| max_depth         | The maximum depth of the error analysis tree                | Optional integer. Defaults to 3                      |
-| num_leaves        | The maximum number of leaves in the error tree              | Optional integer. Defaults to 31                     |
-| min_child_samples | The minimum number of datapoints required to produce a leaf | Optional integer. Defaults to 20                     |
-| filter_features   | A list of one or two features to use for the matrix filter  | Optional list of two feature names (see note below). |
+| Parameter name | Description | Type |
+|---|---|---|
+| `max_depth` | The maximum depth of the error analysis tree. | Optional integer. Defaults to 3. |
+| `num_leaves` | The maximum number of leaves in the error tree. | Optional integer. Defaults to 31. |
+| `min_child_samples` | The minimum number of datapoints required to produce a leaf. | Optional integer. Defaults to 20. |
+| `filter_features` | A list of one or two features to use for the matrix filter. | Optional list, to be passed as a single JSON-encoded string. |
 
-> [!NOTE]
-> filter_features: This list of one or two feature names should be passed as a single JSON-encoded string.
-
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights Dashboard component.
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component.
 
 # [YAML](#tab/yaml)
 
@@ -344,7 +340,7 @@ This component has a single output port, which can be connected to one of the `i
       filter_features: `["style", "Employer"]' 
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -360,11 +356,11 @@ This component has a single output port, which can be connected to one of the `i
 
 ---
 
-### Add Explanation to RAI Insights Dashboard
+### Add Explanation to RAI Insights dashboard
 
-This component generates an explanation for the model. It has a single input port, which accepts the output of the RAI Insights Dashboard Constructor. It accepts a single, optional comment string as a parameter.
+This component generates an explanation for the model. It has a single input port, which accepts the output of the RAI Insights dashboard constructor. It accepts a single, optional comment string as a parameter.
 
-This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights Dashboard component. 
+This component has a single output port, which can be connected to one of the `insight_[n]` input ports of the Gather RAI Insights dashboard component. 
 
 
 # [YAML](#tab/yaml)
@@ -379,7 +375,7 @@ This component has a single output port, which can be connected to one of the `i
 ```
 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -394,14 +390,16 @@ This component has a single output port, which can be connected to one of the `i
 ```
 ---
 
-### Gather RAI Insights Dashboard
+### Gather RAI Insights dashboard
 
 This component assembles the generated insights into a single Responsible AI dashboard. It has five input ports: 
 
-- The `constructor` port that must be connected to the RAI Insights Dashboard Constructor component.
+- The `constructor` port that must be connected to the RAI Insights dashboard constructor component.
 - Four `insight_[n]` ports that can be connected to the output of the tool components. At least one of these ports must be connected.
 
-There are two output ports. The `dashboard` port contains the completed `RAIInsights` object, while the `ux_json` contains the data required to display a minimal dashboard.
+There are two output ports: 
+- The `dashboard` port contains the completed `RAIInsights` object.
+- The `ux_json` port contains the data required to display a minimal dashboard.
 
 
 # [YAML](#tab/yaml)
@@ -419,7 +417,7 @@ There are two output ports. The `dashboard` port contains the completed `RAIInsi
 ```
 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -444,7 +442,7 @@ We provide two helper components to aid in connecting the Responsible AI compone
 
 ### Fetch registered model
 
-This component produces information about a registered model, which can be consumed by the `model_info_path` input port of the RAI Insights Dashboard Constructor component. It has a single input parameter – the AzureML ID (`<NAME>:<VERSION>`) of the desired model.
+This component produces information about a registered model, which can be consumed by the `model_info_path` input port of the RAI Insights dashboard constructor component. It has a single input parameter: the Azure Machine Learning ID (`<NAME>:<VERSION>`) of the desired model.
 
 # [YAML](#tab/yaml)
 
@@ -456,7 +454,7 @@ This component produces information about a registered model, which can be consu
       model_id: my_model_name:12 
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -471,7 +469,7 @@ This component produces information about a registered model, which can be consu
 
 ### Tabular dataset to parquet file
 
-This component converts the tabular dataset named in its sole input parameter into a Parquet file, which can be consumed by the `train_dataset` and `test_dataset` input ports of the RAI Insights Dashboard Constructor component. Its single input parameter is the name of the desired dataset.
+This component converts the tabular dataset named in its sole input parameter into a Parquet file, which can be consumed by the `train_dataset` and `test_dataset` input ports of the RAI Insights dashboard constructor component. Its single input parameter is the name of the desired dataset.
 
 # [YAML](#tab/yaml)
 
@@ -484,7 +482,7 @@ This component converts the tabular dataset named in its sole input parameter in
 ```
 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -502,19 +500,19 @@ This component converts the tabular dataset named in its sole input parameter in
 
 ### What model formats and flavors are supported?
 
-The model must be in MLFlow directory with a sklearn flavor available. Furthermore, the model needs to be loadable in the environment used by the Responsible AI components.
+The model must be in the MLflow directory with a sklearn flavor available. Additionally, the model needs to be loadable in the environment that's used by the Responsible AI components.
 
 ### What data formats are supported?
 
-The supplied datasets should be file datasets (uri_file type) in Parquet format. We provide the `TabularDataset to Parquet File` component to help convert the data into the required format.
+The supplied datasets should be file datasets (of type `uri_file`) in Parquet format. We provide the `TabularDataset to Parquet File` component to help convert the data into the required format.
 
 ## Next steps
 
-- Once your Responsible AI dashboard is generated, [view how to access and use it in Azure Machine Learning studio](how-to-responsible-ai-dashboard.md)
+- After you've generated your Responsible AI dashboard, [view how to access and use it in Azure Machine Learning studio](how-to-responsible-ai-dashboard.md).
 - Summarize and share your Responsible AI insights with the [Responsible AI scorecard as a PDF export](how-to-responsible-ai-scorecard.md).
-- Learn more about the  [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
-- Learn more about how to [collect data responsibly](concept-sourcing-human-data.md)
-- View [sample YAML and Python notebooks](https://aka.ms/RAIsamples) to generate a Responsible AI dashboard with YAML or Python.
-- Learn more about how the Responsible AI dashboard and Scorecard can be used to debug data and models and inform better decision making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
-- Learn about how the Responsible AI dashboard and Scorecard were used by the NHS in a [real life customer story](https://aka.ms/NHSCustomerStory)
-- Explore the features of the Responsible AI dashboard through this [interactive AI Lab web demo](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
+- Learn more about the [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
+- Learn more about how to [collect data responsibly](concept-sourcing-human-data.md).
+- View [sample YAML and Python notebooks](https://aka.ms/RAIsamples) to generate the Responsible AI dashboard with YAML or Python.
+- Learn more about how to use the Responsible AI dashboard and scorecard to debug data and models and inform better decision-making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard).
+- Learn about how the Responsible AI dashboard and scorecard were used by the UK National Health Service (NHS) in a [real life customer story](https://aka.ms/NHSCustomerStory).
+- Explore the features of the Responsible AI dashboard through this [interactive AI lab web demo](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard).

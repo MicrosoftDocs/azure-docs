@@ -7,9 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 12/16/2021
+ms.date: 10/20/2022
 ms.author: lajanuar
-keywords: on-premises, Docker, container, identify
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Install and run Form Recognizer v2.1-preview containers
@@ -132,7 +133,7 @@ Below is a self-contained `docker compose`  example to run the Form Recognizer L
 ```yml
 version: "3.9"
 services:
-azure-cognitive-service-layout:
+  azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
     environment:
@@ -146,6 +147,7 @@ azure-cognitive-service-layout:
 networks:
   ocrvnet:
     driver: bridge
+
 ```
 
 Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:

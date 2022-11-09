@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 08/05/2022
+ms.date: 09/09/2022
 ms.topic: how-to
 ms.custom: references_regions
 ---
@@ -37,35 +37,41 @@ When you start the load test, Azure Load Testing service injects the following A
 These resources are ephemeral and exist only for the duration of the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-your-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
 
 > [!NOTE]
-> Virtual network support for Azure Load Testing is available in the following Azure regions: Australia East, East US, East US 2, and North Europe.
-
+> Virtual network support for Azure Load Testing is available in the following Azure regions: Australia East, East US, East US 2, North Europe, South Central US, UK South, and West US 2.
+> 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
 - An existing virtual network and a subnet to use with Azure Load Testing.
-- The virtual network must be in the same subscription as the Azure Load Testing resource.
+- The virtual network must be in the same subscription and the same region as the Azure Load Testing resource.
+- You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 - The subnet you use for Azure Load Testing must have enough unassigned IP addresses to accommodate the number of load test engines for your test. Learn more about [configuring your test for high-scale load](./how-to-high-scale-load.md).
 - The subnet shouldn't be delegated to any other Azure service. For example, it shouldn't be delegated to Azure Container Instances (ACI). Learn more about [subnet delegation](/azure/virtual-network/subnet-delegation-overview).
+- Azure CLI version 2.2.0 or later (if you're using CI/CD). Run `az --version` to find the version that's installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Configure your virtual network
 
-To test private endpoints, you need an Azure virtual network and at least one subnet. In this section, you'll configure your virtual network and subnet.
+To test private endpoints, you need an existing Azure virtual network. Your virtual network should have at least one subnet, and allow access for traffic coming from the Azure Load Testing service.
 
 ### Create a subnet
 
-When you deploy Azure Load Testing in your virtual network, it's recommended to use different subnets for Azure Load Testing and the application endpoint. This approach enables you to configure network traffic access specifically for each purpose. Learn more about how to [add a subnet to a virtual network](/azure/virtual-network/virtual-network-manage-subnet#add-a-subnet).
+When you deploy Azure Load Testing in your virtual network, it's recommended to use separate subnets for Azure Load Testing and for the application endpoint. This approach enables you to configure network traffic access policies specifically for each purpose. Learn more about how to [add a subnet to a virtual network](/azure/virtual-network/virtual-network-manage-subnet#add-a-subnet).
 
 ### Configure traffic access
 
-Azure Load Testing requires both inbound and outbound access for the injected VMs in your virtual network. If you plan to restrict traffic access to your virtual network, or are already using a network security group, configure the network security group for the subnet in which you deploy the load test.
+Azure Load Testing requires both inbound and outbound access for the injected VMs in your virtual network. If you plan to restrict traffic access to your virtual network, or if you're already using a network security group, configure the network security group for the subnet in which you deploy the load test.
 
-1. If you don't have an NSG yet, create one in the same region as your virtual network and associate it with your subnet. Follow these steps to [create a network security group](/azure/virtual-network/manage-network-security-group#create-a-network-security-group).
+1. Go to the [Azure portal](https://portal.azure.com).
 
-1. Go to the [Azure portal](https://portal.azure.com) to view your network security groups. Search for and select **Network security groups**.
+1. If you don't have an NSG yet, follow these steps to [create a network security group](/azure/virtual-network/manage-network-security-group#create-a-network-security-group).
 
-1. Select the name of your network security group.
+    Create the NSG in the same region as your virtual network, and then associate it with your subnet.
+
+1. Search for and select your network security group.
+
+    <!-- TODO: add screenshot of portal -->
 
 1. Select **Inbound security rules** in the left navigation.
 
@@ -126,34 +132,89 @@ For example, for an endpoint with IP address 10.179.0.7, in a virtual network wi
 </HTTPSamplerProxy>
 ```
 
-## Set up a load test
+## Configure your load test
 
-To create a load test for testing your private endpoint, you have to specify the virtual network details in the test creation wizard.
+To include privately hosted endpoints in your load test, you need to configure the virtual network settings for the load test. You can configure the VNET settings in the Azure portal, or specify them in the [YAML test configuration file](./reference-test-config-yaml.md) for CI/CD pipelines.
+
+> [!IMPORTANT]
+> When you deploy Azure Load Testing in a virtual network, you'll incur additional charges. Azure Load Testing deploys an [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) and a [Public IP address](https://azure.microsoft.com/pricing/details/ip-addresses/) in your subscription and there might be a cost for generated traffic. For more information, see the [Virtual Network pricing information](https://azure.microsoft.com/pricing/details/virtual-network).
+
+### Configure the VNET in the Azure portal
+
+You can specify the VNET configuration settings in the load test creation/update wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
     
-1. Go to your Azure Load Testing resource, select **Tests** from the left pane, and then select **+ Create new test**.
+1. Go to your Azure Load Testing resource, and select **Tests** from the left pane.
 
-    :::image type="content" source="media/how-to-test-private-endpoint/create-new-test.png" alt-text="Screenshot that shows the Azure Load Testing page and the button for creating a new test.":::
+1. Open the load test creation/update wizard in either of two ways:
 
-1. On the **Basics** tab, enter the **Test name** and **Test description** information. Optionally, you can select the **Run test after creation** checkbox.
+    - Select **+ Create > Upload a JMeter script**, if you want to create a new test.
 
-    :::image type="content" source="media/how-to-test-private-endpoint/create-new-test-basics.png" alt-text="Screenshot that shows the 'Basics' tab for creating a test.":::
+        :::image type="content" source="media/how-to-test-private-endpoint/create-new-test.png" alt-text="Screenshot that shows the Tests page, highlighting the button for creating a new test.":::
+    
+    - Select an existing test from the list, and then select **Edit**.
 
-1. On the **Test plan** tab, select your Apache JMeter script, and then select **Upload** to upload the file to Azure.
-
-    You can select and upload other Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
-
+        :::image type="content" source="media/how-to-test-private-endpoint/edit-test.png" alt-text="Screenshot that shows the Tests page, highlighting the button for editing a test.":::
+    
 1. On the **Load** tab, select **Private** traffic mode, and then select your virtual network and subnet.
 
-    :::image type="content" source="media/how-to-test-private-endpoint/create-new-test-load-vnet.png" alt-text="Screenshot that shows the 'Load' tab for creating a test.":::
+    If you have multiple subnets in your virtual network, make sure to select the subnet that will host the injected test engine VMs.
+
+    :::image type="content" source="media/how-to-test-private-endpoint/create-new-test-load-vnet.png" alt-text="Screenshot that shows the Load tab for creating or updating a load test.":::
 
     > [!IMPORTANT]
-    > When you deploy Azure Load Testing in a virtual network, you'll incur additional charges. Azure Load Testing deploys an [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) and a [Public IP address](https://azure.microsoft.com/pricing/details/ip-addresses/) in your subscription and there might be a cost for generated traffic. For more information, see the [Virtual Network pricing information](https://azure.microsoft.com/pricing/details/virtual-network).
-        
-1. Select **Review + create**. Review all settings, and then select **Create** to create the load test.
+    > Make sure you have sufficient permissions for managing virtual networks. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role.
+
+1. Review or fill the load test information. Follow these steps to [create or manage a test](./how-to-create-manage-test.md).
+
+1. Select **Review + create** and then **Create** (or **Apply**, when updating an existing test).
+
+    When the load test starts, Azure Load Testing injects the test engine VMs in your virtual network and subnet. The test script can now access the privately hosted application endpoint in your VNET.
+
+### Configure the VNET for CI/CD pipelines
+
+To configure the load test with your virtual network settings, update the [YAML test configuration file](./reference-test-config-yaml.md).
+
+1. Open a terminal, and use the Azure CLI to sign in to your Azure subscription:
+
+    ```azurecli
+    az login
+    az account set --subscription <your-Azure-Subscription-ID>
+    ```
+1. Retrieve the subnet ID and copy the resulting value:
+
+    ```azurecli
+    az network vnet subnet show -g <your-resource-group> --vnet-name <your-vnet-name> --name <your-subnet-name> --query id
+    ```
+
+1. Open your YAML test configuration file in your favorite editor.
+
+1. Add the `subnetId` property to the configuration file and provide the subnet ID you copied earlier:
+
+    ```yml
+    version: v0.1
+    testName: SampleTest
+    testPlan: SampleTest.jmx
+    description: 'Load test the website home page'
+    engineInstances: 1
+    subnetId: <your-subnet-id>
+    ```
+
+    For more information about the YAML configuration, see [test configuration YAML reference](./reference-test-config-yaml.md).
+
+    > [!IMPORTANT]
+    > Make sure you have sufficient permissions for managing virtual networks. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role.
+
+1. Save the YAML configuration file, and commit your changes to the source code repository.
+
+1. After the CI/CD workflow triggers, your load test starts, and can now access the privately hosted application endpoint in your VNET.
 
 ## Troubleshooting
+
+### Creating or updating the load test fails with `Subnet ID passed is invalid`
+
+To configure a load test in a virtual network, you must have sufficient permissions for managing virtual networks. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 
 ### Starting the load test fails with `Test cannot be started`
 

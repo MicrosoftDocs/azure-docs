@@ -47,6 +47,16 @@ For each table, you'll see the following status:
 * **Failed:** the data on source table can't be replicated to destination due to a fatal error. If you want to retry after fixing the error, remove the table from link connection and add it back.
 * **Suspended:** replication is suspended for this table due to an error. It will be resumed after the error is resolved. 
 
+You can also get the following metrics to enable advanced monitoring of the service:
+
+* **Link connection events:** number of link connection events including start, stop or failure.
+* **Link table event:** number of link table events including snapshot, removal or failure.
+* **Link latency in second:** data processing latency in second.
+* **Link data processed data volume (bytes):** data volume in bytes processed by Synapse link for SQL.
+* **Link processed row:** row counts (changed) processed by Synapse Link for SQL.
+
+For more information, see [Manage Synapse Link for SQL change feed](/sql/sql-server/synapse-link/synapse-link-sql-server-change-feed-manage).
+
 ## Transactional consistency across tables
 
 You can enable transactional consistency across tables for each link connection. However, it limits overall replication throughput.

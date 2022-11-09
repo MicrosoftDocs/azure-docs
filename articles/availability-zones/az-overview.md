@@ -2,7 +2,8 @@
 title: Azure regions and availability zones
 description: Learn about regions and availability zones and how they work to help you achieve true resiliency.
 author: awysza
-ms.service: azure
+ms.service: reliability
+ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 08/23/2022
 ms.author: rarco

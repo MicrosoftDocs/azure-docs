@@ -10,10 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/28/2022
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022
 ---
 
 # Log metrics, parameters and files with MLflow
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
 > * [v1](./v1/how-to-log-view-metrics.md)
@@ -72,16 +74,19 @@ For example, the following code snippet demonstrates configuring the experiment,
 
 ```python
 import mlflow
+# Set the experiment
 mlflow.set_experiment("mlflow-experiment")
 
-# Start the run, log metrics, end the run
+# Start the run
 mlflow_run = mlflow.start_run()
+# Log metrics or other information
 mlflow.log_metric('mymetric', 1)
+# End run 
 mlflow.end_run()
 ```
 
 > [!TIP]
-> Technically you don't have to call `start_run()` as a new run is created if one doesn't exist and you call a logging API. In that case, you can use `mlflow.active_run()` to retrieve the run. However, the `mlflow.ActiveRun` object returned by `mlflow.active_run()` won't contain items like parameters, metrics, etc. For more information, see [mlflow.active_run()](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.active_run).
+> Technically you don't have to call `start_run()` as a new run is created if one doesn't exist and you call a logging API. In that case, you can use `mlflow.active_run()` to retrieve the run once currently being used. For more information, see [mlflow.active_run()](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.active_run).
 
 You can also use the context manager paradigm:
 

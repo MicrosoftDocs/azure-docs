@@ -51,7 +51,7 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 1. Install the Azure Active Directory identity library:
 
     ```terminal
-    pip install azure.identity
+    pip install azure-identity
     ```
 
 

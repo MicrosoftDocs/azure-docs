@@ -4,7 +4,7 @@ description: Learn how to enable, edit, and view Azure Storage Analytics metrics
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 10/03/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
@@ -42,7 +42,7 @@ We recommend you review [Azure Monitor for Storage](./storage-insights-overview.
    > [!div class="mx-imgBorder"]
    > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)
 
-   To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
+   To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is seven days. If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the log data.
 
    > [!WARNING]
    > Metics are stored as data in your account. Metric data can accumulate in your account over time which can increase the cost of storage. If you need metric data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale metrics data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the metrics data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.

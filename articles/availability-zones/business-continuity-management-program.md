@@ -2,7 +2,8 @@
 title: Business continuity management program in Azure
 description: Learn about one of the most mature business continuity management programs in the industry.
 author: arcorob
-ms.service: azure
+ms.service: reliability
+ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 10/21/2021
 ms.author: rarco

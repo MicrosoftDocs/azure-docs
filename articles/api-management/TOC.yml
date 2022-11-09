@@ -68,6 +68,9 @@
         href: api-management-gateways-overview.md
       - name: Self-hosted gateway
         href: self-hosted-gateway-overview.md
+      - name: High availability
+        href: high-availability.md
+        displayName: reliability, resilience, resiliency  
       - name: Networking
         href: virtual-network-concepts.md
       - name: Security
@@ -76,8 +79,13 @@
               href: ./security-controls-policy.md
             - name: Security baseline
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
+            - name: Authentication and authorization
+              href: authentication-authorization-overview.md
       - name: Observability
         href: observability.md
+        displayName: monitoring
+      - name: DevOps and CI/CD
+        href: devops-api-development-templates.md  
       - name: APIs
         items:
             - name: API design ebook
@@ -108,6 +116,8 @@
               href: configure-custom-domain.md
             - name: Deploy to multiple Azure regions
               href: api-management-howto-deploy-multi-region.md
+            - name: Configure Front Door
+              href: front-door-api-management.md
             - name: Enable zone redundancy
               displayName: Availability zones
               href: ../availability-zones/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
@@ -145,8 +155,6 @@
               items:
               - name: Landing zone accelerator
                 href: /azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-              - name: CI/CD using ARM templates
-                href: devops-api-development-templates.md
               - name: Manage using automation
                 href: automation-manage-api-management.md
               - name: Configure using Git
@@ -224,6 +232,9 @@
                   href: backends.md
                 - name: Automate API deployments
                   href: /azure/architecture/example-scenario/devops/automated-api-deployments-apiops?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+                - name: Test and monitor APIs in Postman
+                  href: export-api-postman.md
+                  displayName: collection
           - name: Cache
             items:
                 - name: Add caching to improve performance
@@ -268,6 +279,8 @@
               href: api-management-howto-ca-certificates.md
             - name: Manage protocols and ciphers
               href: api-management-howto-manage-protocols-ciphers.md
+            - name: Defend against DDoS attacks
+              href: protect-with-ddos-protection.md
             - name: Mitigate OWASP API threats
               href: mitigate-owasp-api-threats.md
               displayName: OWASP top 10, vulnerability, vulnerabilities
@@ -295,6 +308,8 @@
                     href: api-management-howto-create-or-invite-developers.md
                   - name: Manage groups
                     href: api-management-howto-create-groups.md
+                  - name: Authenticate with username and password
+                    href: developer-portal-basic-authentication.md
                   - name: Authenticate with Azure AD
                     href: api-management-howto-aad.md
                   - name: Authenticate with Azure AD B2C
@@ -313,12 +328,14 @@
               items:
                   - name: Understand the developer portal
                     href: api-management-howto-developer-portal.md
-                  - name: Frequently asked questions
+                  - name: Frequently asked questions - developer portal
                     href: developer-portal-faq.md
                   - name: Automate portal deployments
                     href: automate-portal-deployments.md
                   - name: Migrate from deprecated to new developer portal
                     href: developer-portal-deprecated-migration.md
+                  - name: Extend portal with custom functionality
+                    href: developer-portal-extend-custom-functionality.md
                   - name: Enable console OAuth support
                     href: api-management-howto-oauth2.md
                   - name: Integrate Application Insights
@@ -331,12 +348,6 @@
                   href: developer-portal-self-host.md
                 - name: Alternative approaches to self-hosting
                   href: developer-portal-alternative-processes-self-host.md
-                - name: Implement widgets
-                  href: developer-portal-implement-widgets.md
-                - name: Contribute widgets
-                  href: developer-portal-widget-contribution-guidelines.md
-                - name: Use community widgets
-                  href: developer-portal-use-community-widgets.md
                 - name: Test self-hosted portal
                   href: developer-portal-testing.md
             - name: Export APIs to the Power Platform
@@ -349,6 +360,8 @@
           href: api-management-howto-log-event-hubs.md
         - name: Log requests with Azure Application Insights
           href: api-management-howto-app-insights.md
+        - name: Visualize data using Managed Grafana
+          href: visualize-using-managed-grafana-dashboard.md
       - name: Troubleshoot
         items:
           - name: Diagnose issues in production
@@ -428,10 +441,20 @@
         href: https://aka.ms/apimupdates
       - name: Release notes
         href: https://aka.ms/apim/releases
-      - name: Retiring features
+      - name: Breaking changes
         items:
-          - name: Deprecated developer portal
-            items:
+            - name: Breaking changes overview
+              href: breaking-changes/overview.md
+            - name: Virtual network changes (March 2023)
+              href: breaking-changes/rp-source-ip-address-change-mar-2023.md
+            - name: Virtual network changes (September 2023)
+              href: breaking-changes/rp-source-ip-address-change-sep-2023.md
+            - name: API version retirements (September 2023)
+              href: breaking-changes/api-version-retirement-sep-2023.md
+            - name: Self-hosted gateway v0/v1 retirements (October 2023)
+              href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
+            - name: Deprecated (legacy) developer portal (October 2023)
+              items:
                 - name: Deprecated portal - customize the portal
                   href: api-management-customize-styles.md
                 - name: Deprecated portal - modify pages and layouts
@@ -460,12 +483,12 @@
                       href: api-management-page-templates.md
                     - name: Template resources
                       href: api-management-template-resources.md
-      - name: Breaking changes
-        items:
-            - name: Breaking changes overview
-              href: breaking-changes/overview.md
-            - name: Virtual network changes (March 2023)
-              href: breaking-changes/rp-source-ip-address-change-mar2023.md
+            - name: stv1 compute platform retirement (August 2024)
+              href: breaking-changes/stv1-platform-retirement-august-2024.md
+            - name: ADAL-based identity provider retirement (September 2025)
+              href: breaking-changes/identity-provider-adal-retirement-sep-2025.md
+            - name: CAPTCHA endpoint update (September 2025)
+              href: breaking-changes/captcha-endpoint-change-sep-2025.md       
       - name: Regional availability
         href: https://azure.microsoft.com/global-infrastructure/services/
       - name: Microsoft Q&A question page

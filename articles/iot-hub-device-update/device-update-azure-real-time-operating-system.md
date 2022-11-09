@@ -1,8 +1,8 @@
 ---
 title: Device Update for Azure RTOS | Microsoft Docs
 description: Get started with Device Update for Azure RTOS.
-author: ValOlson
-ms.author: valls
+author: kgremban
+ms.author: kgremban
 ms.date: 3/18/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
@@ -36,7 +36,7 @@ Learn more about [Azure RTOS](/azure/rtos/).
 
 1. Keep the device application running from the previous step.
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to the IoT hub.
-1. On the left pane, under **IoT Devices**, find your IoT device and go to the device twin.
+1. On the left pane, select **Devices**. Find your IoT device and go to the device twin.
 1. In the device twin, delete any existing Device Update tag values by setting them to null.
 1. Add a new Device Update tag value to the root JSON object, as shown:
 

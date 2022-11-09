@@ -22,7 +22,7 @@ ms.date: 05/04/2022
 
 Use a setup script for an automated way to customize and configure a compute instance at provisioning time. 
 
-Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#train) or for an [inference target](concept-compute-target.md#deploy).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
+Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#training-compute-targets) or for an [inference target](concept-compute-target.md#compute-targets-for-inference).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 
 As an administrator, you can write a customization script to be used to provision all compute instances in the workspace according to your requirements.
 
@@ -52,11 +52,11 @@ Script arguments can be referred to in the script as $1, $2, etc.
 
 If your script was doing something specific to azureuser such as installing conda environment or Jupyter kernel, you'll have to put it within `sudo -u azureuser` block like this
 
-:::code language="bash" source="~/azureml-examples-main/setup-ci/install-pip-package.sh":::
+:::code language="bash" source="~/azureml-examples-main/setup/setup-ci/install-pip-package.sh":::
 
 The command `sudo -u azureuser` changes the current working directory to `/home/azureuser`. You also can't access the script arguments in this block.
 
-For other example scripts, see [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/setup-ci).
+For other example scripts, see [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/setup/setup-ci).
 
 You can also use the following environment variables in your script:
 
@@ -131,4 +131,3 @@ Logs from the setup script execution appear in the logs folder in the compute in
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
-* [Submit a training run](how-to-set-up-training-targets.md)

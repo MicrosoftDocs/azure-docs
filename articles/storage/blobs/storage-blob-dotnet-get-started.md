@@ -3,12 +3,13 @@ title: Get started with Azure Blob Storage and .NET
 titleSuffix: Azure Storage
 description: Get started developing a .NET application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
 services: storage
-author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/28/2022
-ms.author: normesta
+
 ms.subservice: blobs
 ms.custom: template-how-to
 ---
@@ -79,7 +80,7 @@ public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient,
 You can also create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using a connection string. 
 
 ```csharp
-    BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
+BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
 ```
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
