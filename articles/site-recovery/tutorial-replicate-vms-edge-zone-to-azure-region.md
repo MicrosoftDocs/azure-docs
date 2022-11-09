@@ -1,6 +1,6 @@
 ---
-title: Replicate virtual machines running in an Azure Edge Zone (preview) to another zone in the same region
-description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone (preview) to another Edge Zone connected to the same parent region.
+title: Replicate virtual machines running in an Azure Edge Zone (preview) to Azure zones
+description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone (preview) to the parent region where Edge Zone (preview) is an extension. 
 author: v-pgaddala
 ms.service: site-recovery
 ms.topic: tutorial
@@ -8,34 +8,33 @@ ms.date: 11/09/2022
 ms.author: v-pgaddala
 ---
 
-# Replicate virtual machines running in an Azure Edge Zone (preview) to another Edge Zone in the same region 
+# Replicate virtual machines running in an Azure Edge Zone (preview) to Azure region
 
-This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone (preview) to another Edge Zone connected to the same parent region. 
+This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Edge Zone (preview) to the parent Azure region where Edge Zone (preview) is an extension.
 
 Edge Zones (preview) are fully managed solution deployed close to your data center and includes hardware, services, and support. Edge Zones (preview) are ideal for workloads sensitive to low latency, data residency compliance, and data processing at the edge.
 
 ## Disaster recovery in Azure Edge Zone (preview)
 
-Site Recovery service ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Edge Zone and secondary location is another edge zone connected to the same parent region. 
+Site Recovery service ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Edge Zone and secondary location is the parent region to which the Edge Zone is connected. 
 
 ## Set up disaster recovery for VMs in an Edge Zone (preview) via PowerShell
 
 ### Prerequisites
 
 - Ensure to have the Azure Az PowerShell module. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
-- The minimum Azure Az PowerShell version must be 9.1.0+. Use the following command to see the current version:
+- The minimum Azure Az PowerShell version must be 4.1.0. Use the following command to see the current version:
 
     ```
     Get-InstalledModule -Name Az
     ```
 
 - Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix#linux).
-- Ensure the primary VM has a public IP. To validate, go to the VM NIC and check if public IP is attached to the NIC. Ensure that recovery VM has a public IP when you switch to protection direction. Azure Site Recovery doesn’t re-create the public IP, so it's our job to check the availability of the public IP and is attached to the NIC before you switch to protection direction from recovery to primary. 
 
 ## Edge Zone (preview) to Azure region
 
 > [!NOTE] 
-> For this example, the primary location is an Azure Edge Zone (preview), and the secondary/recovery location is the Edge Zone’s (preview) region.
+> For this example, the primary location is an Azure Edge Zone (preview), and the secondary/recovery location is the Edge Zone's (preview) region.
 
 1. Sign-in to your Azure account.
 
@@ -45,20 +44,16 @@ Site Recovery service ensures business continuity by keeping workloads running d
 1. Select Right subscription.
 
     ```
-    $subscription = Get-AzSubscription -SubscriptionName "<SubscriptionName>"
-    Set-AzContext $subscription.Id
-
-    $targetEdgeZoneName = “microsoftrrdclab3” 
+    $subscription = Get-AzSubscription -SubscriptionName "<SubscriptionName>" 
+    Set-AzContext $subscription.Id 
     ```
 
 1. Get the details of the virtual machine that you plan to replicate.
 
     ```
     $VM = Get-AzVM -ResourceGroupName "<ResourceGroupName>" -Name "<VMName>" 
-    
-    $sourceEdgeZoneName = $VM.ExtendedLocation.Name
-
-    Write-Output $VM
+	    
+    Write-Output $VM 
     ```
 
 1. Create a resource group for the recovery services vault in the secondary Azure region.
@@ -218,16 +213,6 @@ Site Recovery service ensures business continuity by keeping workloads running d
 
 1. Create a cache storage account for replication logs in the primary region. The cache storage account is created in the primary region.
 
-    You can use **Local cache** (cache in the EdgeZone) or **Remote cache** (cache in Azure). 
-    
-    In this example, remote cache is used but there is no difference between them in terms of PowerShell commands. ARM ID of the cache storage account we provide to `New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig` is the only difference.
-
-    ```
-    $CacheStorageAccount = New-AzStorageAccount -Name "cachestorage" -ResourceGroupName 
-    "<primary ResourceGroupName>" -Location '<EdgeZoneRegion>' -SkuName Standard_LRS -
-    Kind Storage
-    ```
-
     ```
     $CacheStorageAccount = New-AzStorageAccount -Name "cachestorage" -ResourceGroupName 
     "<primary ResourceGroupName>" -Location '<EdgeZoneRegion>' -SkuName Standard_LRS -
@@ -238,7 +223,7 @@ Site Recovery service ensures business continuity by keeping workloads running d
     
     ```
     $recoveryVnet = New-AzVirtualNetwork -Name "recoveryvnet" -ResourceGroupName 
-    "recoveryrg" -Location '<EdgeZoneRegion>' -AddressPrefix "10.0.0.0/16" -EdgeZone $targetEdgeZoneName 
+    "recoveryrg" -Location '<EdgeZoneRegion>' -AddressPrefix "10.0.0.0/16" 
     Add-AzVirtualNetworkSubnetConfig -Name "defaultsubnetconf" -VirtualNetwork 
     $recoveryVnet -AddressPrefix "10.0.0.0/24" | Set-AzVirtualNetwork
     $recoveryNetwork = $recoveryVnet.Id
@@ -293,14 +278,14 @@ Site Recovery service ensures business continuity by keeping workloads running d
              -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
             ```
     
-    1. Start replication by creating replication protected item. Use a GUID for the name of the replication protected item to ensure uniqueness of name. If you are not recovering to an Availability Zone, then don’t provide the `-RecoveryAvailabilityZone parameter`.
+    1. Start replication by creating replication protected item. Use a GUID for the name of the replication protected item to ensure uniqueness of name. If you are not recovering to an Availability Zone, then don’t provide the `-RecoveryAvailabilityZone` parameter.
     
         ```
         $TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId 
         $VM.Id -Name $vm.Name -ProtectionContainerMapping $EdgeZoneToAzurePCMapping -
         AzureToAzureDiskReplicationConfiguration $DataDisk1ReplicationConfig -
         RecoveryResourceGroupId $RecoveryRGId -RecoveryAvailabilityZone “1” -
-        RecoveryAzureNetworkId $recoveryVnet.Id -RecoveryAzureSubnetName “defaultsubnetconf”-RecoveryExtendedLocation $targetEdgeZoneName
+        RecoveryAzureNetworkId $recoveryVnet.Id -RecoveryAzureSubnetName “defaultsubnetconf”
         ```
     
     1. Track Job status to check for completion.
@@ -322,11 +307,11 @@ Site Recovery service ensures business continuity by keeping workloads running d
     
     The replication process starts by initially creating a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase. This step takes around 20 minutes. See the status of the replication in the Vault blade under **Replicated items**.     
     
-    :::image type="Replicated items" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/replicated-items.png" alt-text="Screenshot of replicated items.":::
+    :::image type="Replicated items" source="./media/tutorial-replicate-vms-edge-zone-to-azure-region/replicated-items.png" alt-text="Screenshot of replicated items.":::
 
     When the replication completes, the Vault replication items will show as below:
     
-    :::image type="Vault replication" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/vault-replication.png" alt-text="Screenshot of Vault replication.":::
+    :::image type="Vault replication" source="./media/tutorial-replicate-vms-edge-zone-to-azure-region/vault-replication.png" alt-text="Screenshot of Vault replication.":::
     
     Now the virtual machine is protected, and you can perform a test failover operation. The replication state of the replicated item that represents the virtual machine goes to the protected state after initial replication completes.
     
@@ -341,7 +326,7 @@ Site Recovery service ensures business continuity by keeping workloads running d
     
     If you see **Protected** in the *ProtectionState*, you are ready to proceed to test failover. 
     
-    :::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/protection-state.png" alt-text="Screenshot of Protection state.":::
+    :::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-azure-region/protection-state.png" alt-text="Screenshot of Protection state.":::
 
 1. Perform, validate, and clean up a test failover. You can skip the Test failover. However, we recommend to execute test failover to ensure that your secondary region comes up as expected. 
 
@@ -469,7 +454,6 @@ Site Recovery service ensures business continuity by keeping workloads running d
         ```
     This step takes ~20 minutes and the status will move from **In progress** to **Successful**. 
 
-    :::image type="Protected items list" source="media/tutorial-replicate-vms-edge-zone-to-another-zone/protected-items-inline.png" alt-text="Screenshot of Protected items list." lightbox="media/tutorial-replicate-vms-edge-zone-to-another-zone/protected-items-expanded.png":::
 
 1. Disable replication.
 
