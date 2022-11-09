@@ -13,10 +13,11 @@ ms.date: 11/08/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-In this tutorial, learn how to programmatically fetch access policies that were created in Microsoft Purview. With this you can troubleshoot the communication of policies between Microsoft Purview, where policies are created and updated, and the data sources on which these policies are enforced.
-This guide will use Azure SQL Server as an example of data source.
+In this tutorial, learn how to programmatically fetch access policies that were created in Microsoft Purview. With this you can troubleshoot the communication of policies between Microsoft Purview, where policies are created and updated, and the data sources, on which these policies are enforced.
 
 To get the necessary context about Microsoft Purview policies, see concept guides listed in [next-steps](#next-steps).
+
+This guide will use examples for Azure SQL Server as data source.
 
 ## Prerequisites
 
@@ -61,7 +62,7 @@ where the path /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName
 |500|Internal server error|Error|Backend service unavailable|Error data|
 |503|Backend service unavailable|Error|Backend service unavailable|Error data|
 
-### Example for Azure SQL Database (Azure SQL Server)
+### Example for Azure SQL Server (Azure SQL Database)
 
 ##### Example parameters:
 - Microsoft Purview account: relecloud-pv
@@ -125,7 +126,7 @@ Provide the syncToken you got from the prior pull in any successive delta pulls.
 |500|Internal server error|Error|Backend service unavailable|Error data|
 |503|Backend service unavailable|Error|Backend service unavailable|Error data|
 
-### Example for Azure SQL Database (Azure SQL Server)
+### Example for Azure SQL Server (Azure SQL Database)
 
 ##### Example parameters:
 - Microsoft Purview account: relecloud-pv
@@ -144,33 +145,37 @@ https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae
 ```json
 {
     "count": 2,
-    "syncToken": "816:0",
+    "syncToken": "822:0",
     "elements": [
         {
-            "eventType": "Microsoft.Purview/PolicyElements/Write",
-            "id": "6554a0d5-2d18-49fb-b44d-dc26f935fc61",
+            "eventType": "Microsoft.Purview/PolicyElements/Delete",
+            "id": "f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4",
             "scopes": [
-                "/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance"
+                "/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg"
             ],
             "kind": "policyset",
-            "updatedAt": "2022-11-09T00:46:23.2085292Z",
+            "updatedAt": "2022-11-04T20:57:20.9389456Z",
             "version": 1,
-            "elementJson": "{\"id\":\"6554a0d5-2d18-49fb-b44d-dc26f935fc61\",\"name\":\"6554a0d5-2d18-49fb-b44d-dc26f935fc61\",\"kind\":\"policyset\",\"version\":1,\"updatedAt\":\"2022-11-09T00:46:23.2085292Z\",\"preconditionRules\":[{\"dnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance/**\"]}]]}],\"policyRefs\":[\"919a18b7-6dfd-4e3c-81c9-3414dcbd0cef\"]}"
+            "elementJson": "{\"id\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"name\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"kind\":\"policyset\",\"version\":1,\"updatedAt\":\"2022-11-04T20:57:20.9389456Z\",\"preconditionRules\":[{\"dnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}]]}],\"policyRefs\":[\"9912572d-58bc-4835-a313-b913ac5bef97\"]}"
         },
         {
-            "eventType": "Microsoft.Purview/PolicyElements/Write",
-            "id": "919a18b7-6dfd-4e3c-81c9-3414dcbd0cef",
+            "eventType": "Microsoft.Purview/PolicyElements/Delete",
+            "id": "9912572d-58bc-4835-a313-b913ac5bef97",
             "scopes": [
-                "/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance"
+                "/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg"
             ],
             "kind": "policy",
-            "updatedAt": "2022-11-09T00:46:23.2085486Z",
+            "updatedAt": "2022-11-04T20:57:20.9389522Z",
             "version": 1,
-            "elementJson": "{\"id\":\"919a18b7-6dfd-4e3c-81c9-3414dcbd0cef\",\"name\":\"ArcSQL-Finance_sqlperfmonitor\",\"kind\":\"policy\",\"version\":1,\"updatedAt\":\"2022-11-09T00:46:23.2085486Z\",\"decisionRules\":[{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"updatedAt\":\"11/09/2022 00:46:23\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance/**\"]}],[{\"fromRule\":\"purviewdatarole_builtin_sqlperfmonitor\",\"attributeName\":\"derived.purview.role\",\"attributeValueIncludes\":\"purviewdatarole_builtin_sqlperfmonitor\"}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"e119d3ec-8353-4a33-96e7-e1a95680d37d\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_81cd13c9-0417-4b97-a310-c14009a7c2ed\",\"updatedAt\":\"11/09/2022 00:46:23\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"e119d3ec-8353-4a33-96e7-e1a95680d37d\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_4b655d27-c8b0-4aa7-aa36-27f95ede2ada\",\"updatedAt\":\"11/09/2022 00:46:23\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.AzureArcData/SqlServerInstances/vm-finance/databases/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/databases/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"e119d3ec-8353-4a33-96e7-e1a95680d37d\"]}]]}]}"
+            "elementJson": "{\"id\":\"9912572d-58bc-4835-a313-b913ac5bef97\",\"name\":\"Finance-rg_sqlsecurityauditor\",\"kind\":\"policy\",\"version\":1,\"updatedAt\":\"2022-11-04T20:57:20.9389522Z\",\"decisionRules\":[{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}],[{\"fromRule\":\"purviewdatarole_builtin_sqlsecurityauditor\",\"attributeName\":\"derived.purview.role\",\"attributeValueIncludes\":\"purviewdatarole_builtin_sqlsecurityauditor\"}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_0235e4df-0d3f-41ca-98ed-edf1b8bfcf9f\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_45fa5236-a2a3-4291-9f0a-813b2883f118\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/databases/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]}]}"
         }
     ]
 }
 ```
+
+In this example, the delta pull communicates that the policy has been deleted
+per the "eventType": "Microsoft.Purview/PolicyElements/Delete".
+
 
 ## Policy constructs
 There are 3 top-level policy constructs used within the full pull (/policyElements) and delta pull (/policyEvents) requests: PolicySet, Policy and AttributeRule.
