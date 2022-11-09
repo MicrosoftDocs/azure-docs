@@ -54,7 +54,8 @@ To define a governance rule that assigns an owner and due date:
 
 1. Navigate to **Environment settings** > **Governance rules**.
 
-1. In **Governance rules**, select **Create governance rule**.
+1. Select **Create governance rule**.
+
 1. Enter a name for the rule.
 1. Select a scope to apply the rule and use the exclusions if needed. Rules on management scope (Azure management groups, AWS master accounts, GCP organizations) are being applyed before rules on single scope.
 1. Priority is assigned automatically after scope selection. You can override this field if needed.
