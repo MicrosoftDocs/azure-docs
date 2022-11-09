@@ -169,21 +169,21 @@ Select **Hierarchy** to see the new hierarchy view. If you have iteration or con
 
 Click the button next to the iteration or conditional activity to collapse the nested activities for a more consolidated view. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-37.png" alt-text="Screenshot of the hierarchy monitoring view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-37.png" alt-text="Screenshot of the hierarchy monitoring  collapsed view.":::
 
 ##### How to enable the hierarchy view in pipeline monitoring
 
 In the detailed view of your pipeline run, there is a new dropdown to select your monitoring view next to the Status filter. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-39.png" alt-text="Screenshot of the drop-down menu to select the monitoring view in pipeline monitoring view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-38.png" alt-text="Screenshot of the drop-down menu to select the monitoring view in pipeline monitoring view.":::
 
 Select **Hierarchy** to see the new hierarchy view. If you have iteration or conditional activities, the nested activities will be grouped under parent activity. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-40.png" alt-text="Screenshot of the drop-down menu to select the monitoring view in pipeline monitoring view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-39.png" alt-text="Screenshot of the hierarchy monitoring view in pipeline monitoring.":::
 
 Click the button next to the iteration or conditional activity to collapse the nested activities for a more consolidated view. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-40.png" alt-text="Screenshot of the hierarchy monitoring view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-40.png" alt-text="Screenshot of the collapsed hierarchy monitoring view.":::
 
 #### Simplified default monitoring view
 
