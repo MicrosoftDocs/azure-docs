@@ -105,8 +105,8 @@ Now that you have a device ID and key, use the sample code to start sending devi
 >If you're following the Azure CLI steps for this tutorial, run the sample code in a separate session. That way, you can allow the sample code to continue running while you follow the rest of the CLI steps.
 
 1. If you didn't as part of the prerequisites, download or clone the [Azure IoT SDK for C# repo](https://github.com/Azure/azure-iot-sdk-csharp) from GitHub now.
-1. In the sample folder, navigate to the `/iothub/device/samples/getting started/RoutingTutorial/SimulatedDevice/` folder.
-1. Install the Azure IoT C# SDK and necessary dependencies as specified in the `SimulatedDevice.csproj` file:
+1. From the folder where you downloaded or cloned the SDK, navigate to the `azure-iot-sdk-csharp\iothub\device\samples\how to guides\HubRoutingSample` folder.
+1. Install the Azure IoT C# SDK and necessary dependencies as specified in the `HubRoutingSample.csproj` file:
 
    ```console
    dotnet restore
