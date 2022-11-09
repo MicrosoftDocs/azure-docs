@@ -14,6 +14,7 @@ This article shows you how to perform the following tasks:
 - Create an application group.
 - Enable or disable an application group
 - Define threshold limits and apply throttling policies to an application group
+- Validate Throttling with Diagnostic Logs
 
 > [!NOTE] 
 > Application groups are available only in **premium** and **dedicated** tiers. 
@@ -317,12 +318,12 @@ The following ARM template shows how to update an existing namespace (`contosona
 
 ### Decide threshold value for throttling policies 
 
-Azure Event Hubs supports [runtime audit logs](monitor-event-hubs-reference.md#runtime-audit-logs) functionality to help you decide on a threshold value for your usual throughput to throttle the application group. You can follow these steps to find out threshold value to explore a good threshold value: 
+Azure Event Hubs supports [Application Metrics logs](https://learn.microsoft.com/en-us/azure/event-hubs/monitor-event-hubs-reference#application-metrics-logs) functionality to observe usual throughput rate within your system and accordingly decide on the threshold value for application group. You can follow these steps to find out threshold value: 
 
-1. Turn on [diagnostic settings](monitor-event-hubs.md#collection-and-routing) in Event Hubs with **runtime audit logs** as selected category and choose **Log Analytics** as destination.  
+1. Turn on [diagnostic settings](monitor-event-hubs.md#collection-and-routing) in Event Hubs with **Application Metrics Logs** as selected category and choose **Log Analytics** as destination.  
 2. Create an empty application group without any throttling policy.  
 3. Continue sending messages/events to event hub at usual throughput. 
-4. Go to **Log Analytics workspace** and query for the right activity name (based on the metric ID) in **AzureDiagnostics** table. The following sample query is set to track threshold value for incoming messages:  
+4. Go to **Log Analytics workspace** and query for the right activity name (based on [metric ID](https://learn.microsoft.com/en-us/azure/event-hubs/resource-governance-overview#throttling-policy---threshold-limits)) in **AzureDiagnostics** table. The following sample query is set to track threshold value for incoming messages:  
 
     ```kusto
     AzureDiagnostics 
@@ -334,16 +335,31 @@ Azure Event Hubs supports [runtime audit logs](monitor-event-hubs-reference.md#r
     :::image type="content" source="./media/resource-governance-with-app-groups/azure-monitor-logs.png" lightbox="./media/resource-governance-with-app-groups/azure-monitor-logs.png" alt-text="Screenshot of the Azure Monitor logs page in the Azure portal.":::
     
     In this example, you can see that the usual throughput never crossed more than 550 messages (expected current throughput). This observation helps you define the actual threshold value.   
-6. Once you decide the best threshold value, add a new throttling policy inside the application group. 
+6. Once you decide the threshold value, add a new throttling policy inside the application group. 
 
 ## Publish or consume events 
 Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. To test, you can use either an [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or a [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application ID that's used to create the application group. 
 
 > [!NOTE]
 > When your client applications are throttled, you should experience a slowness in publishing or consuming data. 
+   
+
+### Validate Throttling with Application Groups
+
+Similar to [Deciding Threshold limits for Throttling Policies](https://learn.microsoft.com/en-us/azure/event-hubs/resource-governance-with-app-groups?tabs=portal#decide-threshold-value-for-throttling-policies), you can use Application Metric logs to validate throttling and find more details. 
+
+You can use the below example query to find out all the throttled requests in certain timeframe. You must update the ActivityName to match the operation that you expect to be throttled. 
 
 
-
+  ```kusto
+  
+    AzureDiagnostics 
+    |  where Category =="ApplicationMetricsLogs"
+    | where ActivityName_s =="IncomingMessages" 
+    | where Outcome_s =="Success"  
+	
+  ``` 
+    
 ## Next steps
 
 - For conceptual information on application groups, see [Resource governance with application groups](resource-governance-overview.md). 
