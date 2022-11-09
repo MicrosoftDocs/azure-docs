@@ -79,7 +79,7 @@ If there are existing recommendations that match the definition of the governanc
 > When you delete or disable a rule, all existing assignments and notifications will remain.
 
 > [!TIP]
-> Use-cases for the at-scale experience
+> Here are some sample use-cases for the at-scale experience:
 > -	View and manage all governance rules effective in the organization using a single page.
 > -	Create and apply rules on multiple scopes at once using management scopes cross cloud.
 > -	Check effective rules on selected scope using the scope filter.
