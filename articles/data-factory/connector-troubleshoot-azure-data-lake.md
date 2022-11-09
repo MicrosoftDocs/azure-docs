@@ -123,7 +123,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
     1. If you have enabled selected virtual networks and IP addresses in your Azure storage account network setting:
 
-        1. It's possible because some IP address ranges of your integration runtime are not allowed by your storage account firewall settings. Add the Azure integration runtime IP addresses or the self-hosted integration runtime IP address to your storage account firewall. For Azure integration runtime IP addresses, see  [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md), and to learn how to add IP ranges in storage account firewall,   see [Managing IP network rules](../storage/common/storage-network-security.md#managing-ip-network-rules.md).
+        1. It's possible because some IP address ranges of your integration runtime are not allowed by your storage account firewall settings. Add the Azure integration runtime IP addresses or the self-hosted integration runtime IP address to your storage account firewall. For Azure integration runtime IP addresses, see  [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md), and to learn how to add IP ranges in storage account firewall,   see [Managing IP network rules](../storage/common/storage-network-security.md).
 
         1. If you allow trusted Azure services to access this storage account in the firewall, you must use [System-assigned managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) in copy activity.
 
