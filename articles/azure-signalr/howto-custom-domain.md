@@ -10,7 +10,7 @@ ms.date: 08/15/2022
 ms.author: dayshen
 ---
 
-# How to Configure a custom domain for Azure SignalR Service
+# How to configure a custom domain for Azure SignalR Service
 
 In addition to the default domain provided with Azure SignalR Service, you can also add a custom DNS domain to your service.  In this article, you'll learn how to add a custom domain to your SignalR Service.
 
