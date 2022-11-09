@@ -97,7 +97,7 @@ We'll finish setup by setting some variables for use in your application: the re
   > Each ledger must have a globally unique name. Replace \<your-unique-ledger-name\> with the name of your ledger in the following example.
 
 ```python
-resource_group = "myResourceGroup"
+resource_group = "<azure-resource-group>"
 ledger_name = "<your-unique-ledger-name>"
 subscription_id = "<azure-subscription-id>"
 
@@ -182,14 +182,17 @@ ledger_client = ConfidentialLedgerClient(
 We are prepared to write to the ledger.  We will do so using the `create_ledger_entry` function.
 
 ```python
-append_result = ledger_client.create_ledger_entry(entry_contents="Hello world!")
-print(append_result.transaction_id)
+sample_entry = {
+    "contents": "Hello world!"
+}
+append_result = ledger_client.create_ledger_entry(entry=sample_entry)
+print(append_result['transactionId'])
 ```
 
 The print function will return the transaction ID of your write to the ledger, which can be used to retrieve the message you wrote to the ledger.
 
 ```python
-latest_entry = ledger_client.get_current_ledger_entry(transaction_id=append_result.transaction_id)
+latest_entry = ledger_client.get_ledger_entry(transaction_id=append_result['transactionId'])['entry']
 print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
 ```
 
@@ -210,12 +213,11 @@ from azure.mgmt.confidentialledger.models import ConfidentialLedger
 
 from azure.confidentialledger import ConfidentialLedgerClient
 from azure.confidentialledger.certificate import ConfidentialLedgerCertificateClient
-from azure.confidentialledger import TransactionState
 
 # Set variables
 
-rg = "myResourceGroup"
-ledger_name = "<unique-ledger-name>"
+resource_group = "<azure-resource-group>"
+ledger_name = "<your-unique-ledger-name>"
 subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
@@ -250,14 +252,14 @@ ledger_properties = ConfidentialLedger(**properties)
 
 # Create a ledger
 
-confidential_ledger_mgmt.ledger.begin_create(rg, ledger_name, ledger_properties)
+confidential_ledger_mgmt.ledger.begin_create(resource_group, ledger_name, ledger_properties)
 
 # Get the details of the ledger you just created
 
-print(f"{rg} / {ledger_name}")
+print(f"{resource_group} / {ledger_name}")
  
 print("Here are the details of your newly created ledger:")
-myledger = confidential_ledger_mgmt.ledger.get(rg, ledger_name)
+myledger = confidential_ledger_mgmt.ledger.get(resource_group, ledger_name)
 
 print (f"- Name: {myledger.name}")
 print (f"- Location: {myledger.location}")
@@ -274,7 +276,7 @@ network_identity = identity_client.get_ledger_identity(
 
 ledger_tls_cert_file_name = "networkcert.pem"
 with open(ledger_tls_cert_file_name, "w") as cert_file:
-    cert_file.write(network_identity.ledger_tls_certificate)
+    cert_file.write(network_identity['ledgerTlsCertificate'])
 
 
 ledger_client = ConfidentialLedgerClient(
@@ -284,11 +286,30 @@ ledger_client = ConfidentialLedgerClient(
 )
 
 # Write to the ledger
-append_result = ledger_client.create_ledger_entry(entry_contents="Hello world!")
-print(append_result.transaction_id)
+sample_entry = {
+    "contents": "Hello world!"
+}
+append_result = ledger_client.create_ledger_entry(entry=sample_entry)
+print(append_result['transactionId'])
+
+# Wait until transaction is committed on the ledger
+while True:
+    commit_result = ledger_client.get_transaction_status(append_result['transactionId'])
+    print(commit_result['state'])
+    if (commit_result['state'] == "Committed"):
+        break
+    time.sleep(1)
+
+# Wait until entry is read from enclave and validated
+while True:
+    latest_entry = ledger_client.get_ledger_entry(transaction_id=append_result['transactionId'])
+    print(latest_entry['state'])
+    if (latest_entry['state'] == "Ready"):
+        break
+    time.sleep(1)
   
 # Read from the ledger
-entry = ledger_client.get_current_ledger_entry(transaction_id=append_result.transaction_id)
+latest_entry = latest_entry['entry']
 print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
 ```
 
