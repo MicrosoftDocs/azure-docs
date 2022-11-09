@@ -22,7 +22,7 @@ When you acquire an access token using the Microsoft Authentication Library for 
 
 You can monitor the source of the tokens by inspecting the `AuthenticationResult.AuthenticationResultMetadata.TokenSource` property
 
-## Web Sites and Web Apis
+## Websites and web APIs
 
 ASP.NET Core and ASP.NET Classic websites should integrate with [Microsoft.Identity.Web](microsoft-identity-web.md), a wrapper for MSAL.NET. Memory token caching or distributed token caching can be configured as described in [token cache serialization](msal-net-token-cache-serialization.md?tabs=aspnetcore). 
 
@@ -34,9 +34,9 @@ Applications which request tokens for an app identity, with no user involved, by
 
 Since no user is involved, there is no need to call `AcquireTokenSilent` API. `AcquireTokenForClient` will look in the cache on its own. There is no API to clear the cache. Cache size is proportional with the number of tenants and resources you need tokens for. Cache size can be managed by setting eviction policies on the underlying cache store, such as MemoryCache, Redis etc.
 
-## Desktop, command line and mobile application
+## Desktop, command-line, and mobile applications
 
-Desktop, command line and mobile application should first call the `AcquireTokenSilent` method to verify if an acceptable token is in the cache. In many cases, it's possible to acquire another token with more scopes based on a token in the cache. It's also possible to refresh a token when it's getting close to expiration (as the token cache also contains a refresh token).
+Desktop, command-line, and mobile applications should first call the AcquireTokenSilent method to verify if an acceptable token is in the cache. In many cases, it's possible to acquire another token with more scopes based on a token in the cache. It's also possible to refresh a token when it's getting close to expiration (as the token cache also contains a refresh token).
 
 For authentication flows that require a user interaction, MSAL caches the access, refresh, and ID tokens, as well as the `IAccount` object, which represents information about a single account. Learn more about [IAccount](/dotnet/api/microsoft.identity.client.iaccount?view=azure-dotnet&preserve-view=true). For application flows, such as [client credentials](msal-authentication-flows.md#client-credentials), only access tokens are cached, because the `IAccount` object and ID token require a user, and the refresh token is not applicable.
 
