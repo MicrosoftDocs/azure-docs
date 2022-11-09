@@ -14,8 +14,8 @@ ms.author: kpunjabi
 ## Prerequisites
 
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
-- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
-- Create a new web service application using the [Call Automation SDK](../../Callflows-for-customer-interactions.md).
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp)
+- Create a new web service application using the [Call Automation SDK](../../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md).
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
@@ -65,15 +65,17 @@ Azure Communication Services Call Automation SDK package is retrieved from the A
 
 ## Prepare your audio file
 
-Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file ACS supports needs to be wav, mono and 16 KHz sample rate.
+Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file ACS supports needs to be **WAV, mono and 16 KHz sample rate**.
+
+You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../cognitive-services/Speech-Service/how-to-audio-content-creation.md).
 
 ## Update App.java with code
 
-In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../../callflows-for-customer-interactions.md) section.
+In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md) section.
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md). In this quickstart, we'll answer an incoming call.
 
 ## Play audio
 
@@ -167,7 +169,7 @@ Your application will receive action lifecycle event updates on the callback URL
 }]
 ```
 
-To learn more about other supported events, visit the [Call Automation overview document](../../../../concepts/voice-video-calling/call-automation.md#call-automation-webhook-events).
+To learn more about other supported events, visit the [Call Automation overview document](../../../concepts/voice-video-calling/call-automation.md#call-automation-webhook-events).
 
 ## Cancel play action
 
