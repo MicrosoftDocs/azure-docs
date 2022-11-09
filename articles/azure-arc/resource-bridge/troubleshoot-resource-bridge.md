@@ -13,9 +13,9 @@ This article provides information on troubleshooting and resolving issues that m
 
 ### Logs
 
-For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same client machine that you used to run commands to deploy the Arc resource bridge. If there is a problem collecting logs, most likely the host machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the host machine to the Appliance VM.
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same deployment machine that was used to run commands to deploy the Arc resource bridge. If there is a problem collecting logs, most likely the deployment machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the deployment machine to the Appliance VM.
 
-The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the client machine where the deployment of the appliance was performed from. To use a different client machine to run the Azure CLI command, make sure the following files are copied to the new client machine:
+The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the deployment machine. To use a different deployment machine to run the logs command, make sure the following files are copied to the new client machine:
 
 ```azurecli
 $HOME\.KVA\.ssh\logkey.pub
@@ -26,7 +26,9 @@ To run the `az arcappliance logs` command, the Appliance VM IP, Control Plane IP
 
 The Appliance VM IP is assigned when the `az arcappliance deploy` command is run, after Control Plane endpoint reconciliation. For example, if the message displayed in the command window reads "Appliance IP is 192.168.1.1", the command to use for logs collection would be:
 
-az arcappliance logs hci --ip 192.168.1.1 --out-dir c:\logs
+```azurecli
+az arcappliance logs hci --ip 192.168.1.1 --out-dir c:\logs`
+```
 
 To specify the IP address of the Azure Arc resource bridge virtual machine, run the following command:
 
