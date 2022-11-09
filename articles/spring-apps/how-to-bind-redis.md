@@ -92,7 +92,6 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
  > [!NOTE]
  > It's recommeded to use Service Connector to connect to your target backing services. We are planning to deprecate Service Binding in favor of Service Connector. See Service Connector tab for help.
 
-
 1. Go to your Azure Spring Apps service page in the Azure portal. Go to **Application Dashboard** and select the application to bind to Azure Cache for Redis. This application is the same one you updated or deployed in the previous step.
 
 1. Select **Service binding** and select **Create service binding**. Fill out the form, being sure to select the **Binding type** value **Azure Cache for Redis**, your Azure Cache for Redis server, and the **Primary** key option.
