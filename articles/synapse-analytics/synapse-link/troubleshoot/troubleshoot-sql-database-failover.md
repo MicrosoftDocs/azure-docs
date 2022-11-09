@@ -39,7 +39,7 @@ You must stop Synapse Link manually and configure Synapse Link according to the 
     * After each failover, edit the linked service **Connection string** with the **Server name**, **Database name**, and authentication information for the new primary server. You can use a managed identity or SQL Authentication. 
     To the auto-failover group read/write listener endpoint:
 
-    :::image type="content" source="media/troubleshoot-sql-database-failover/synapse-studio-edit-linked-service-system-assigned-managed-identity.png" alt-text="Screenshot of the Azure Synapse Studio, showing the Edit linked service dialog. The Fully qualified domain name (FQDN) of the read/write listener endpoint is entered manually." lightbox="media/troubleshoot-sql-database-failover/synapse-studio-edit-linked-service-system-assigned-managed-identity.png":::
+    :::image type="content" source="media/troubleshoot-sql-database-failover/synapse-studio-edit-linked-service-system-assigned-managed-identity.png" alt-text="Screenshot of the Azure Synapse Studio, showing the Edit linked service dialog. The fully-qualified domain name (FQDN) of the read/write listener endpoint is entered manually." lightbox="media/troubleshoot-sql-database-failover/synapse-studio-edit-linked-service-system-assigned-managed-identity.png":::
 
 1. You must refresh the Resource ID and Managed Identity ID after every failover. Open the **Integrate** hub. Select your Synapse Link.
 1. The next step depends on the connection string you chose previously.
@@ -48,11 +48,11 @@ You must stop Synapse Link manually and configure Synapse Link according to the 
     
     :::image type="content" source="media/troubleshoot-sql-database-failover/synapse-studio-integrate-link-connection-refresh.png" alt-text="A screenshot of the Integrate hub of Synapse Studio. The Link connection linkconnection1 is selected. In the general tab, the Refresh button is boxed. This updates the SQL logical server resource ID and the Managed identity ID." lightbox="media/troubleshoot-sql-database-failover/synapse-studio-integrate-link-connection-refresh.png":::
 
-1. Finally, restart the Azure Synapse Link. Before restarting the Link connection, you must clean up the target table if incomplete data is present. Or, check the option to **Drop and recreate table on target**.
+1. Azure Synapse Link for Azure SQL Database currently cannot restart the synchronization from before the failover. Before restarting the Link connection, you must empty the target table in Azure Synapse if data is present. Or, check the option to **Drop and recreate table on target**, as seen in the following screenshot.
 
     :::image type="content" source="media/troubleshoot-sql-database-failover/synapse-studio-start-drop-recreate-table-target.png" alt-text="A screenshot of the Integrate hub of Synapse Studio. The Drop and recreate table on target option is highlighted. The Start button is highlighted." lightbox="media/troubleshoot-sql-database-failover/synapse-studio-start-drop-recreate-table-target.png":::
 
-1. On the **Integrate** hub and with the desired Link connection open, select the **Start** button.
+1. Finally, restart the Azure Synapse Link. On the **Integrate** hub and with the desired Link connection open, select the **Start** button.
 
 
  
