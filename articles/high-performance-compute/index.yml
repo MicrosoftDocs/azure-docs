@@ -7,6 +7,7 @@ brand: azure
 metadata:
   title: Azure HPC documentation
   description: Azure High Performance Computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads, and this page offers a range of available services and use case scenarios for you to explore.
+  imageSrc: ../virtual-machines/media/logos/hpclogo.png
   ms.service: azure-hpc
   ms.topic: hub-page
   author: padmalathas
@@ -30,6 +31,10 @@ highlightedContent:
     - title: Architecture
       itemType: architecture
       url: /azure/architecture/reference-architectures/hpc/
+    # Card
+    - title: Workload
+      itemType: workload
+      url: /azure/workload/hpc/
     # Card
     - title: Start building with Azure HPC for high performance applications
       itemType: reference
@@ -62,7 +67,7 @@ productDirectory:
     # Card
     - title: VDI
       # imageSrc should be square in ratio with no white space
-      imageSrc: ../virtual-machines/media/logos/azure-logo.png
+      imageSrc: ../virtual-machines/media/logos/vdilogo.png
       links:
         - url: /virtual-desktop
           text: Azure Virtual Desktop Infrastructure
@@ -73,7 +78,7 @@ productDirectory:
     # Card
     - title: HPC compute sizes
       # imageSrc should be square in ratio with no white space
-      imageSrc: ..virtual-machines/media/logos/microsoft-logo.png
+      imageSrc: ../virtual-machines/media/sizes/azurevmthumb.png
       links:
         - url: ../virtual-machines/sizes-hpc
           text: HPC VM sizes
@@ -82,18 +87,20 @@ productDirectory:
         - url: /virtual-machines/h-series
           text: H-series
 
+# Super Computing Announcement
+
 # conceptualContent section (optional)
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
   sections:
-    - title: Supercomputing 2022 # < 60 chars (optional)
-      summary: Join us in Dallas at Supercomputing 22! # < 160 chars (optional)
+    - title: SC22 # < 60 chars (optional)
+      summary: See where you can find us in Dallas at Supercomputing, November 14 - 17 # < 160 chars (optional)
       items:
         # Card
         - title: Conference
           links:
-            - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/microsoft-at-sc22/ba-p/3613923#M157
+            - url: https://www.aka.ms/SC22
               itemType: overview
               text: Join us!
             - url: https://youtu.be/5C6i9tXpVlk
