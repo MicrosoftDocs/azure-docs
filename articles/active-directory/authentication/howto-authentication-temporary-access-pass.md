@@ -63,7 +63,7 @@ To configure the Temporary Access Pass authentication method policy:
    |---|---|---|---|
    | Minimum lifetime | 1 hour | 10 – 43,200 Minutes (30 days) | Minimum number of minutes that the Temporary Access Pass is valid. |
    | Maximum lifetime | 8 hours | 10 – 43,200 Minutes (30 days) | Maximum number of minutes that the Temporary Access Pass is valid. |
-   | Default lifetime | 1 hour | 10 – 43,200 Minutes (30 days) | Default values can be override by the individual passes, within the minimum and maximum lifetime configured by the policy. |
+   | Default lifetime | 1 hour | 10 – 43,200 Minutes (30 days) | Default values can be overridden by the individual passes, within the minimum and maximum lifetime configured by the policy. |
    | One-time use | False | True / False | When the policy is set to false, passes in the tenant can be used either once or more than once during its validity (maximum lifetime). By enforcing one-time use in the Temporary Access Pass policy, all passes created in the tenant will be created as one-time use. |
    | Length | 8 | 8-48 characters | Defines the length of the passcode. |
 
@@ -142,10 +142,15 @@ Users managing their security information at [https://aka.ms/mysecurityinfo](htt
 ![Screenshot of how users can manage a Temporary Access Pass in My Security Info.](./media/how-to-authentication-temporary-access-pass/tap-my-security-info.png)
 
 ### Windows device setup
-Users with a Temporary Access Pass can navigate the setup process on Windows 10 and 11 to perform device join operations and configure Windows Hello For Business. Temporary Access Pass usage for setting up Windows Hello for Business varies based on the devices joined state: 
-- During Azure AD Join setup, users can authenticate with a TAP (no password required) and setup Windows Hello for Business.
-- On already Azure AD Joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
-- On Hybrid Azure AD Joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
+Users with a Temporary Access Pass can navigate the setup process on Windows 10 and 11 to perform device join operations and configure Windows Hello for Business. Temporary Access Pass usage for setting up Windows Hello for Business varies based on the devices joined state. 
+
+For Azure AD Joined devices: 
+- During the Azure AD Join setup process, users can authenticate with a TAP (no password required) to join the device and register Windows Hello for Business.
+- On already joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
+- If the [Web sign-in](https://learn.microsoft.com/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin) feature on Windows is also enabled, the user can use TAP to sign into the device. This is intended only for completing initial device setup, or recovery when the user does not know or have a password. 
+
+For Hybrid Azure AD Joined devices: 
+- Users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
 
 ![Screenshot of how to enter Temporary Access Pass when setting up Windows 10.](./media/how-to-authentication-temporary-access-pass/windows-10-tap.png)
 
@@ -164,7 +169,9 @@ If MFA is required for the resource tenant, the guest user needs to perform MFA 
 ### Expiration
 
 An expired or deleted Temporary Access Pass can’t be used for interactive or non-interactive authentication. 
-Users need to reauthenticate with different authentication methods after the Temporary Access Pass is expired or deleted. 
+Users need to reauthenticate with different authentication methods after the Temporary Access Pass is expired or deleted.
+
+The token lifetime (session token, refresh token, access token, etc.) obtained via a Temporary Access Pass login will be limited to the Temporary Access Pass lifetime. As a result, a Temporary Access Pass expiring will lead to the expiration of the associated token.
 
 ## Delete an expired Temporary Access Pass
 

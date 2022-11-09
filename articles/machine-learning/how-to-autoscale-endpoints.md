@@ -10,7 +10,7 @@ ms.author: shnagata
 ms.reviewer: mopeakande
 ms.custom: devplatv2, cliv2, event-tier1-build-2022
 
-ms.date: 04/27/2022
+ms.date: 11/04/2022
 ---
 # Autoscale an online endpoint
 

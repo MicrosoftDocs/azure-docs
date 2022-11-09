@@ -23,7 +23,7 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Limit Name | Limit Value |
 |--|--|
 | OpenAI resources per region | 2 | 
-| Requests per second per deployment | 5 |
+| Requests per second per deployment | 10 |
 | Max fine-tuned model deployments | 2 |
 | Ability to deploy same model to multiple deployments | Not allowed |
 | Total number of training jobs per resource | 100 |
