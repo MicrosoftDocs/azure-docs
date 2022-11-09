@@ -3,7 +3,7 @@ title: Device authentication in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device authentication in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/02/2022
+ms.date: 10/28/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -118,7 +118,7 @@ To automatically register devices that use SAS tokens:
 
 1. Copy the group primary key from the **SAS-IoT-Devices** enrollment group:
 
-    :::image type="content" source="media/concepts-device-authentication/group-primary-key.png" alt-text="Group primary key from S A S - I o T - Devices enrollment group.":::
+    :::image type="content" source="media/concepts-device-authentication/group-primary-key.png" alt-text="Group primary key from SAS IoT Devices enrollment group." lightbox="media/concepts-device-authentication/group-primary-key.png":::
 
 1. Use the `az iot central device compute-device-key` command to generate the device SAS keys. Use the group primary key from the previous step. The device ID can contain letters, numbers, and the `-` character:
 

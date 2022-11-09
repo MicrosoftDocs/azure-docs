@@ -1,24 +1,19 @@
 ---
-title: Create a profile container with Azure Files and Azure Active Directory (preview)
-description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Azure Active Directory domain (preview).
+title: Create a profile container with Azure Files and Azure Active Directory
+description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Azure Active Directory domain.
 services: virtual-desktop
 author: Heidilohr
 manager: femila
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 08/29/2022
+ms.date: 11/07/2022
 ms.author: helohr
 ---
-# Create a profile container with Azure Files and Azure Active Directory (preview)
-
-> [!IMPORTANT]
-> Storing FSLogix profiles on Azure Files for Azure Active Directory-joined VMs is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Create a profile container with Azure Files and Azure Active Directory
 
 In this article, you'll learn how to create an Azure Files share to store FSLogix profiles that can be accessed by hybrid user identities authenticated with Azure Active Directory (Azure AD). Azure AD users can now access an Azure file share using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
 
-This feature is currently supported in the Azure Public, Azure Government, and Azure China clouds.
+This feature is currently supported in the Azure Public cloud.
 
 ## Configure your Azure storage account and file share
 
