@@ -177,25 +177,11 @@ In this example, the delta pull communicates the event that the policy on the re
 
 
 ## Policy constructs
-There are 3 top-level policy constructs used within the full pull (/policyElements) and delta pull (/policyEvents) requests: PolicySet, Policy and AttributeRule.
-
-### PolicySet
-
-PolicySet associates Policy to a resource scope. Purview policy decision compute starts with a list of PolicySets. PolicySet evaluation triggers evaluation of Policy referenced in the PolicySet.
-
-|member|value|type|cardinality|description|
-|------|-----|----|-----------|-----------|
-|ID| |string|1||
-|name| |string|1||
-|kind| |string|1||
-|version|1|number|1||
-|updatedAt| |string|1|String representation of time in yyyy-MM-ddTHH:mm:ss.fffffffZ Ex: "2022-01-11T09:55:52.6472858Z"|
-|preconditionRules| |array[Object:Rule]|0..1||
-|policyRefs| |array[string]|1|List of policy IDs|
+There are 3 top-level policy constructs used within the responses to the full pull (/policyElements) and delta pull (/policyEvents) requests: Policy, PolicySet and AttributeRule.
 
 ### Policy
 
-Policy specifies decision that should be emitted if the policy is applicable for the request provided request context attributes satisfy attribute predicates specified in the policy. Evaluation of policy triggers evaluation of AttributeRules referenced in the Policy.
+Policy specifies the decision the data source must enforce (permit vs. deny) when an Azure AD principal attempts an access via a client, provided request context attributes satisfy attribute predicates specified in the policy (for example scope, requested action, etc.). Evaluation of the Policy triggers evaluation of AttributeRules referenced in the Policy.
 
 |member|value|type|cardinality|description|
 |------|-----|----|-----------|-----------|
@@ -206,6 +192,20 @@ Policy specifies decision that should be emitted if the policy is applicable for
 |updatedAt| |string|1|String representation of time in yyyy-MM-ddTHH:mm:ss.fffffffZ Ex: "2022-01-11T09:55:52.6472858Z"|
 |preconditionRules| |array[Object:Rule]|0..1|All the rules are 'anded'|
 |decisionRules| |array[Object:DecisionRule]|1||
+
+### PolicySet
+
+PolicySet associates an array of Policy IDs to a resource scope where they need to be enforced.
+
+|member|value|type|cardinality|description|
+|------|-----|----|-----------|-----------|
+|ID| |string|1||
+|name| |string|1||
+|kind| |string|1||
+|version|1|number|1||
+|updatedAt| |string|1|String representation of time in yyyy-MM-ddTHH:mm:ss.fffffffZ Ex: "2022-01-11T09:55:52.6472858Z"|
+|preconditionRules| |array[Object:Rule]|0..1||
+|policyRefs| |array[string]|1|List of policy IDs|
 
 
 ### AttributeRule
