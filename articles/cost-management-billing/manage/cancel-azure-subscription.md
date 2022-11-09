@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 11/08/2022
 ms.author: banders
 ---
 
@@ -43,11 +43,11 @@ An account administrator without the service administrator or subscription owner
 
 ## Cancel subscription in the Azure portal
 
-1. Select your subscription from the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Navigate to the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Select the subscription that you want to cancel.
-1. Select **Overview**, and then select **Cancel subscription**.
+1. At the top of the subscription page, select **Cancel subscription**.
     ![Screenshot that shows the Cancel button](./media/cancel-azure-subscription/cancel_ibiza.png)
-1. Follow prompts and finish cancellation.
+1. Follow the prompts and finish cancellation.
 
 > [!NOTE]
 > Partners can suspend or cancel a subscription if requested by a customer or in cases of nonpayment or fraud. For more information, see [Suspend or cancel a subscription](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
