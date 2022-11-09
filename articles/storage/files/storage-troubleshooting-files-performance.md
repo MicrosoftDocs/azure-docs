@@ -53,6 +53,11 @@ To confirm whether your share is being throttled, you can access and use Azure m
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
+    If a throttled request was authenticated with Kerberos, you might see a prefix indicating the authentication protocol, such as:
+
+    - KerberosSuccessWithShareEgressThrottling
+    - KerberosSuccessWithShareIngressThrottling
+
     To learn more about each response type, see [Metric dimensions](./storage-files-monitoring-reference.md#metrics-dimensions).
 
     ![Screenshot of the metrics options for premium file shares, showing a "Response type" property filter.](media/storage-troubleshooting-premium-fileshares/metrics.png)

@@ -15,10 +15,11 @@ ms.author: askaur
 ## Prerequisites
 
 - Azure account with an active subscription.
-- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp). We'll use the resource connection string for this quickstart.
-- [Acquire a PSTN phone number from Azure Communication Services.](../../../telephony/get-phone-number.md?pivots=programming-language-java&tabs=windows)
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the resource connection string for this quickstart by navigating to your resource selecting 'Keys' from the left side menu.
+- [Acquire a PSTN phone number from Azure Communication Services](../../../telephony/get-phone-number.md?pivots=programming-language-java&tabs=windows). Note the phone number you acquired for use in this quickstart.
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
+- An audio file for the message you want to play in the call. This audio should be accessible via a url.
 
 ## Create a new Java Spring application
 
@@ -55,8 +56,6 @@ And then add it to your POM file like this (using version 1.0.0-alpha.20221101.1
 
 **Add other packages’ references:** 
 
-This section is for adding references for packages that will be used in the following examples.
-
 *azure-messaging-eventgrid* - Azure Event Grid SDK package: [com.azure : azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid). Data types from this package are used to handle Call Automation IncomingCall event received from the Event Grid.
 
 ```xml
@@ -76,18 +75,17 @@ This section is for adding references for packages that will be used in the foll
   <version>2.9.0</version>
 </dependency>
 ```
+## Set up a public URI for the local application
 
-## Obtain your connection string and phone number
+In this quick-start, you'll use [Ngrok tool](https://ngrok.com/) to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-From the Azure portal, locate your Communication Service resource.
+First, determine the port of your java application. `8080` is the default endpoint of a spring boot application.
 
-1. Select on the Keys section to obtain your connection string.
-:::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
-2. Then select on the Phone numbers section to obtain your ACS phone number.
+Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
 
 ## Add Controller.java
 
-In your project folder, create a Controller.java file and update it to handle incoming calls. A callback URI is required so the service knows how to contact your web server for subsequent calls state events such as `CallConnected` and `PlayCompleted`.  
+In your project folder, create a Controller.java file and update it to handle incoming calls. A callback URI is required so the service knows how to contact your application for subsequent calls state events such as `CallConnected` and `PlayCompleted`.  
 
 In this code snippet, /api/incomingCall is the default route that will be used to listen for and answer incoming calls. At a later step, we'll register this url with Event Grid. Since Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint, the code sample also handles this one time validation by processing SubscriptionValidationEvent. This requirement prevents a malicious user from flooding your endpoint with events. For more information, see this [guide](../../../../../event-grid/webhook-event-delivery.md).
 
@@ -120,11 +118,17 @@ public class ActionController {
     @Autowired
     private Environment environment;
     private CallAutomationAsyncClient client;
+ 
+    private String connectionString = "<resource_connection_string>"); //noted from pre-requisite step
+    private String callbackUri = "<public_url_generated_by_ngrok>";
+    private Uri mediaFileSource = new Uri("<link_to_media_file>");
+    private String applicationPhoneNumber = "<phone_number_acquired_as_prerequisite>";
+    private String phoneNumberToAddToCall = "<phone_number_to_add_to_call>"; //in format of +1...
 
     private CallAutomationAsyncClient getCallAutomationAsyncClient() {
         if (client == null) {
             client = new CallAutomationClientBuilder()
-                .connectionString(environment.getProperty("connectionString"))
+                .connectionString(connectionString)
                 .buildAsyncClient();
         }
         return client;
@@ -150,7 +154,7 @@ public class ActionController {
             String callerId = data.getAsJsonObject("from").get("rawId").getAsString(); // Query the id of caller for preparing the Recognize prompt.
 
             // Call events of this call will be sent to an url with unique id.
-            String callbackUri = environment.getProperty("callbackUriBase") + String.format("/api/calls/%s?callerId=%s", UUID.randomUUID(), callerId);
+            String callbackUri = callbackUriBase + String.format("/api/calls/%s?callerId=%s", UUID.randomUUID(), callerId);
 
             AnswerCallResult answerCallResult = getCallAutomationAsyncClient().answerCall(incomingCallContext, callbackUri).block();
         }
@@ -176,7 +180,7 @@ public class ActionController {
                         .setStopTones(new ArrayList<>(Arrays.asList(DtmfTone.POUND)))
                         .setInitialSilenceTimeout(Duration.ofSeconds(5))
                         .setInterruptPrompt(true)
-                        .setPlayPrompt(new FileSource().setUri(environment.getProperty("mediaSource")))
+                        .setPlayPrompt(new FileSource().setUri(mediaFileSource))
                         .setOperationContext("MainMenu");
 
                 getCallAutomationAsyncClient().getCallConnectionAsync(callConnectionId)
@@ -191,10 +195,11 @@ public class ActionController {
                     CallConnectionAsync callConnectionAsync = getCallAutomationAsyncClient().getCallConnectionAsync(event.getCallConnectionId());
 
                     // Invite other participants to the call
-                    List<CommunicationIdentifier> participants = new ArrayList<>(
-                            Arrays.asList(new CommunicationUserIdentifier(environment.getProperty("participantToAdd"))));
-                    AddParticipantsOptions options = new AddParticipantsOptions(participants);
-                    AddParticipantsResult addParticipantsResult = callConnectionAsync.addParticipants(participants).block();
+                    CommunicationIdentifier target = new PhoneNumberIdentifier(phoneNumberToAddToCall); 
+                    List<CommunicationIdentifier> targets = new ArrayList<>(Arrays.asList(target)); 
+                    AddParticipantsOptions addParticipantsOptions = new AddParticipantsOptions(targets) 
+        .setSourceCallerId(new PhoneNumberIdentifier(applicationPhoneNumber));  
+                    Response<AddParticipantsResult> addParticipantsResultResponse = callConnectionAsync.addParticipantsWithResponse(addParticipantsOptions).block();
                 }
             }
         }
@@ -203,27 +208,7 @@ public class ActionController {
 }
 
 ```
-
-## Set up a public URI for the local application
-
-In this quick-start, you'll use [Ngrok tool](https://ngrok.com/) to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
-
-First, determine the port of your java application. `8080` is the default endpoint of a spring boot application.
-
-Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
-
-## Set up environment variables
-
-Some environment variables are used in the shown code snippet, configure them in <PROJECT_ROOT>\src\main\resources\application.properties file.
-
-```java
-connectionString=Your_ACS_resource_connection_string
-callbackUriBase=Your_Ngrok_FQDN
-mediaSource=Link_to_media_file_for_play_prompt
-participantToAdd=The_participant_to_be_added_after_recognizing_tones
-```
-
-Input phone number with country code, for example: +18001234567. ParticipantToAdd used in the code snippet is assumed to be an ACS User MRI.
+Replace the placeholders with the actual values in lines 28-32. In your production code, we recommend using [Secret Manager](https://learn.microsoft.com/aspnet/core/security/app-secrets) for storing sensitive information like this. 
 
 ## Run the app
 
@@ -234,7 +219,3 @@ mvn compile
 mvn package
 mvn exec:java -Dexec.mainClass=com.example.demo.DemoApplication -Dexec.cleanupDaemonThreads=false
 ```
-
-## Set up IncomingCall event
-
-IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource, like the phone number purchased in pre-requisites. Follow [this guide](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to set up your IncomingCall event.
