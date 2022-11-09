@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: tutorial
-ms.date: 11/08/2022
+ms.date: 11/09/2022
 ---
 
 # Tutorial: troubleshoot distribution of Microsoft Purview access policies (preview)
@@ -23,13 +23,13 @@ This guide will use examples for Azure SQL Server as data source.
 
 * If you don't have an Azure subscription, [create a free one](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * You must have an existing Microsoft Purview account. If you don't have one, see the [quickstart for creating a Microsoft Purview account](create-catalog-portal.md).
-* To register a data source, enable *Data use management*, and create a policy [follow this guide](how-to-policies-devops-arc-sql-server.md)
-* To establish a bearer token and to call any data plane APIs, see [the documentation about how to call REST APIs for Microsoft Purview data planes](tutorial-using-rest-apis.md). In order to be authorized to fetch policies, you need to be Policy Author, Data Source Admin or Data Curator at root-collection level. You can assign those roles by following the guide on [managing Microsoft Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
+* Register a data source, enable *Data use management*, and create a policy. To do so, follow one of the Microsoft Purview policies guides. To follow along the examples in this tutorial you can [create a DevOps policy for Azure SQL Database](how-to-policies-devops-azure-sql-db.md)
+* To establish a bearer token and to call any data plane APIs, see [the documentation about how to call REST APIs for Microsoft Purview data planes](tutorial-using-rest-apis.md). In order to be authorized to fetch policies, you need to be Policy Author, Data Source Admin or Data Curator at root-collection level in Microsoft Purview. You can assign those roles by following this guide: [managing Microsoft Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
 
 ## Overview
 There are two ways to fetch access policies from Microsoft Purview
 - Full pull: Provides a complete set of policies for a particular data resource scope.
-- Delta pull: Provides an incremental view of policies, that is, what has changed since the last pull request, whether that one was a full pull or a delta pull. A full pull is required prior to the first delta pull.
+- Delta pull: Provides an incremental view of policies, that is, what changed since the last pull request, regardless of whether the last pull  was a full or a delta one. A full pull is required prior to issuing the first delta pull.
 
 Microsoft Purview policy model is described using [JSON syntax](https://datatracker.ietf.org/doc/html/rfc8259)
 
