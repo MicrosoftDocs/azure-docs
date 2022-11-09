@@ -11,20 +11,17 @@ ms.service: microsoft-sentinel
 
 # Monitor the health of your data connectors
 
-After you've configured and connected your Microsoft Sentinel workspace to your data connectors, you'll want to monitor your connector health, viewing any service or data source issues, such as authentication, throttling, and more.
+To ensure complete and uninterrupted data ingestion in your Microsoft Sentinel service, keep track of your data connectors' health, connectivity, and performance. 
 
-You also might like to configure notifications for health drifts for relevant stakeholders who can take action. For example, configure email messages, Microsoft Teams messages, new tickets in your ticketing system, and so on.
+This article describes how to use the following features, which allow you to perform this monitoring from within Microsoft Sentinel:
 
-This article describes how to use the following features, which allow you to keep track of your data connectors' health, connectivity, and performance from within Microsoft Sentinel:
+- **Data connectors health monitoring workbook:** This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
-- **Data connectors health monitoring workbook**. This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
+- ***SentinelHealth* data table (Preview):** Querying this table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
 
-- ***SentinelHealth* data table**. (Public preview) Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
-
-> [!IMPORTANT]
->
-> The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
+    > [!IMPORTANT]
+    >
+    > The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Use the health monitoring workbook
 

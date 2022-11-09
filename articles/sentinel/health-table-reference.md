@@ -10,16 +10,16 @@ ms.service: microsoft-sentinel
 
 # SentinelHealth tables reference 
 
-This article describes the fields in the SentinelHealth tables, which are used for monitoring the health of Microsoft Sentinel resources. With the Microsoft Sentinel health and audit feature, you can keep tabs on the proper functioning of your SIEM and get information on any health drifts in your environment. 
+This article describes the fields in the *SentinelHealth* table used for monitoring the health of Microsoft Sentinel resources. With the Microsoft Sentinel [health monitoring feature](health-audit.md), you can keep tabs on the proper functioning of your SIEM and get information on any health drifts in your environment. 
 
-Learn how to [query and use the health and audit tables](monitor-health-audit.md) for deeper monitoring and visibility of actions in your environment.
+Learn how to [query and use the health table](monitor-health-audit.md) for deeper monitoring and visibility of actions in your environment. ***CHANGE THIS LINK AND PARAGRAPH***
 
 > [!IMPORTANT]
 >
 > The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-Microsoft Sentinel's health monitoring feature covers different kinds of resources, such as data connectors and automation rules. Many of the data fields in the following tables apply across resource types, but some have specific applications for each type. The descriptions below will indicate one way or the other.
+Microsoft Sentinel's health monitoring feature covers different kinds of resources, such as [data connectors](monitor-data-connector-health.md) and [automation rules](monitor-automation-health.md). Many of the data fields in the following tables apply across resource types, but some have specific applications for each type. The descriptions below will indicate one way or the other.
 
 ## SentinelHealth table columns schema
 
@@ -32,12 +32,12 @@ The following table describes the columns and data generated in the SentinelHeal
 | <a name="operationname_health"></a>**OperationName** | String      | The health operation. Possible values depend on the resource type.<br>See [Operation names for different resource types](#operation-names-for-different-resource-types) for details.<br><br>For more information, see [Understanding SentinelHealth table events](monitor-health-audit.md#understanding-sentinelhealth-table-events). |
 | <a name="sentinelresourceid_health"></a>**SentinelResourceId**     | String         | The unique identifier of the resource on which the health event occurred, and its associated Microsoft Sentinel workspace.  |
 | **SentinelResourceName** | String         | The resource name.                                            |
-| <a name="status_health"></a>**Status**      | String         | Indicates the overall result of the operation. Possible values depend on the operation name.<br>See [Operation names for different resource types](#operation-names-for-different-resource-types) for details.                  |
-| **Description**          | String         | Describes the operation, including extended data as needed.   |
+| <a name="status_health"></a>**Status**    | String         | Indicates the overall result of the operation. Possible values depend on the operation name.<br>See [Operation names for different resource types](#operation-names-for-different-resource-types) for details.                  |
+| **Description**          | String         | Describes the operation, including extended data as needed. For failures, this can include details of the failure reason. |
 | **Reason**               | Enum           | Shows the reason for the failure of the resource. Possible values depend on the resource type.<br>See [Failure reasons](#failure-reasons) for details.               |
 | **WorkspaceId**          | String         | The workspace GUID on which the health issue occurred. The full Azure Resource Identifier is available in the [SentinelResourceID](#sentinelresourceid_health) column. |
-| **SentinelResourceType** | String         | The Microsoft Sentinel resource type being monitored.<br>Possible values: `Data connector`, `Analytics rule`, `Automation rule`, `Playbook` |
-| **SentinelResourceKind** | String         | A resource classification within the resource type.<br>- For data connectors, this is the type of connected data source.<br>- For analytics rules, this is the rule type (for example, *Scheduled* or *NRT*).          |
+| **SentinelResourceType** | String         | The Microsoft Sentinel resource type being monitored.<br>Possible values: `Data connector`, `Automation rule`, `Playbook` |
+| **SentinelResourceKind** | String         | A resource classification within the resource type.<br>- For data connectors, this is the type of connected data source. |
 | **RecordId**             | String         | A unique identifier for the record that can be shared with the support team for better correlation as needed.  |
 | **ExtendedProperties**   | Dynamic (json) | A JSON bag that varies by the [OperationName](#operationname_health) value and the [Status](#status_health) of the event.<br>See [Extended properties](#extended-properties) for details.                                                      |
 | **Type**                 | String         | `SentinelHealth`                                              |
