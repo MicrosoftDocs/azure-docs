@@ -1,20 +1,25 @@
 ---
 title: Turn on health monitoring in Microsoft Sentinel
 description: Monitor supported data connectors by using the SentinelHealth data table.
+ms.topic: how-to
+ms.date: 11/07/2022
 author: limwainstein
 ms.author: lwainstein
-ms.topic: how-to
-ms.date: 7/28/2022
 ms.service: microsoft-sentinel
 ---
 
 # Turn on health monitoring for Microsoft Sentinel (preview)
 
-Monitor the health of supported data connectors by turning on health monitoring in Microsoft Sentinel. Get insights on health drifts, such as the latest failure events, or changes from success to failure states. Use this information to create alerts and other automated actions.
+Monitor the health of supported Microsoft Sentinel resources by turning on the health monitoring feature in Microsoft Sentinel's **Settings** page. Get insights on health drifts, such as the latest failure events or changes from success to failure states, and use this information to create notifications and other automated actions.
 
 To get health data from the *SentinelHealth* data table, you must first turn on the Microsoft Sentinel health feature for your workspace.
 
-When the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for supported data connectors.
+When the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for supported resource types.
+
+The following resource types are currently supported:
+- Data connectors
+- Automation rules
+- Playbooks (Azure Logic Apps workflows)
 
 To configure the retention time for your health events, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
 
@@ -25,19 +30,27 @@ To configure the retention time for your health events, see [Configure data rete
 
 ## Turn on health monitoring for your workspace
 
-1. In Microsoft Sentinel, under the **Configuration** menu on the left, select **Settings** and expand the **Health** section.
+1. In Microsoft Sentinel, under the **Configuration** menu on the left, select **Settings**.
 
-1. Select **Configure Diagnostic Settings** and create a new diagnostic setting.
+1. Select **Settings** from the banner.
+
+1. Scroll down to the **Health monitoring** section that appears below, and select it to expand.
+
+1. Select **Configure Diagnostic Settings**.
+
+    :::image type="content" source="media/monitor-sentinel-health/enable-health-monitoring.png" alt-text="Screenshot shows how to get to the health monitoring settings.":::
+
+1. In the **Diagnostic settings** screen, select **+ Add diagnostic setting**.
 
     - In the **Diagnostic setting name** field, enter a meaningful name for your setting.
 
-    - In the **Category details** column, select the appropriate category like **Data Connector**.
+    - In the **Logs** column, select the appropriate **Categories** for the resource types you want to monitor, for example **Data Collection - Connectors**.
 
-    - Under **Destination details**, select **Send to Log Analytics workspace**, and select your subscription and workspace from the dropdown menus.
+    - Under **Destination details**, select **Send to Log Analytics workspace**, and select your **Subscription** and **Log Analytics workspace** from the dropdown menus.
 
-1. Select **Save** to save your new setting.
+1. Select **Save** on the top banner to save your new setting.
 
-The *SentinelHealth* data table is created at the first success or failure event generated for supported resources.
+The *SentinelHealth* data table is created at the first success or failure event generated for the selected resources.
 
 ## Access the *SentinelHealth* table
 
@@ -50,4 +63,5 @@ SentinelHealth
 
 ## Next steps
 
-[Monitor the health of your Microsoft Sentinel data connectors](monitor-data-connector-health.md)
+- [Monitor the health of your Microsoft Sentinel data connectors](monitor-data-connector-health.md).
+- [Monitor the health of your Microsoft Sentinel automation rules](monitor-automation-health.md).

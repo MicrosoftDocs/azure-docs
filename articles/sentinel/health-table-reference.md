@@ -46,14 +46,9 @@ The following table describes the columns and data generated in the SentinelHeal
 
 | Resource types       | Operation names | Statuses |
 | -------------------- | --------------- | -------- |
-| **Data collectors**  |                 |          |
-|                      | Data fetch status change   | Success<br>Failure |
-|                      | Data fetch failure summary | Informational |
-| **Analytics rules**  |                 |          |
-|                      | Scheduled analytics rule run<br>NRT analytics rule run | Success<br>Partial<br>Failure |
-| **Automation rules** |                 |          |
-|                      | Automation rule run | Success<br>Partial success<br>Failure |
-|                      | Playbook was triggered | Success<br>Failure |
+| **Data collectors**  | Data fetch status change<br><br>__________________<br>Data fetch failure summary | Success<br>Failure<br>_____________<br>Informational |
+| **Automation rules** | Automation rule run | Success<br>Partial success<br>Failure |
+| **Playbooks**        | Playbook was triggered | Success<br>Failure |
 
 
 ## Failure reasons
