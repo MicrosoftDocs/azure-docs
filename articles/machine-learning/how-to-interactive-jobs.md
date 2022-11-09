@@ -26,10 +26,6 @@ Interactive training is supported on **Azure Machine Learning Compute Clusters**
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all Azure Machine Learning curated training environments have these packages installed by default).
 - Interactive applications can't be enabled on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported.
 
-The supported distribution types are:
-  * PyTorch
-  * Mpi
-  * TensorFlow
 
 ## Interact with your job container
 
