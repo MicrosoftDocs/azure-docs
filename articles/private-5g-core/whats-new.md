@@ -57,7 +57,7 @@ Make the following changes for each 2022-04-01-preview API template that you wan
         | LargePackage | G10 |
 
 2. In the **Attached Data Network** resource, add the new mandatory field **properties.dnsAddresses** if one doesn't already exist. List your chosen DNS addresses in an array or provide an empty array if no DNS addresses are required.
-3. Remove the field **properties.networkFunctions**. This field is now read-only and will be ignored if provided.
+3. In the **Sites** resource, remove the field **properties.networkFunctions**. This field is now read-only and will be ignored if provided.
 
 See below for a comparison between templates using the 2022-04-01-preview and the 2022-11-01 APIs.
 
@@ -110,7 +110,7 @@ See below for a comparison between templates using the 2022-04-01-preview and th
 ```
 
 # [2022-11-01 API](#tab/2022-11-01)
-
+<!-- "sites": "parameters('siteName')", - should this have a new site ID parameter instead? -->
 ```json
 {
     ...
@@ -119,8 +119,7 @@ See below for a comparison between templates using the 2022-04-01-preview and th
         "type": "Microsoft.MobileNetwork/mobileNetworks/sites",
         "apiVersion": "2022-11-01",
         ...
-        "properties": {
-        },
+        "properties": {},
         ...
       },
       {
@@ -139,7 +138,7 @@ See below for a comparison between templates using the 2022-04-01-preview and th
         "apiVersion": "2022-11-01",
         ...
         "properties": {
-          "sites": "TODO",
+          "sites": "parameters('siteName')",
           "localDiagnosticsAccess": {
             "authenticationType": "Password"
           },
