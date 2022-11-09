@@ -61,7 +61,7 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
 
    - **Fhir Contributor Principle Id** - **Optional** - An Azure AD user object ID that you would like to provide access to for read/write permissions to the FHIR service. This account can be used to access the FHIR service to view the device messages that are generated as part of this tutorial. It's recommended to use your own Azure AD user object ID so that you'll have access to the FHIR service. If you don't choose to use the **Fhir Contributor Principle Id** option, clear the field of any entries. To learn more about how to acquire an Azure AD user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID used in this tutorial isn't real and shouldn't be used. You'll use your own user object ID or that of another person you wish to provide access to the FHIR service.
 
-    - Don't change the **Device Mapping** and **Destination Mapping** default values at this time as they'll work with the provided test message later in this tutorial when you send a device message to your IoT Hub using **VSCode** with the **Azure IoT Hub extension**.
+    - Don't change the **Device Mapping** and **Destination Mapping** default values at this time. These mappings will work with the provided test message later in this tutorial when you send a device message to your IoT Hub using **VSCode** with the **Azure IoT Hub extension**.
 
    > [!IMPORTANT]
    > For this tutorial, the ARM template will configure the MedTech service to operate in **Create** mode so that a Patient Resource and Device Resource are created for each device that sends data to your FHIR service.
