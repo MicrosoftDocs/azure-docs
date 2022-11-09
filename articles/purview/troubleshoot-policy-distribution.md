@@ -171,15 +171,45 @@ There are 3 top-level policy constructs used within the full pull (/policyElemen
 
 PolicySet associates Policy to a resource scope. Purview policy decision compute starts with a list of PolicySets. PolicySet evaluation triggers evaluation of Policy referenced in the PolicySet.
 
+|member|value|type|cardinality|description|
+|------|-----|----|-----------|-----------|
+|Id| |string|1||
+|name| |string|1||
+|kind| |string|1||
+|version|1|number|1||
+|updatedAt| |string|1|String representation of time in yyyy-MM-ddTHH:mm:ss.fffffffZ Ex: "2022-01-11T09:55:52.6472858Z"|
+|preconditionRules| |array[Object:Rule]|0..1||
+|policyRefs| |array[string]|1|List of policy Ids|
 
 ### Policy
 
 Policy specifies decision that should be emitted if the policy is applicable for the request provided request context attributes satisfy attribute predicates specified in the policy. Evaluation of policy triggers evaluation of AttributeRules referenced in the Policy.
 
+|member|value|type|cardinality|description|
+|------|-----|----|-----------|-----------|
+|Id| |string|1||
+|name| |string|1||
+|kind| |string|1||
+|version|1|number|1||
+|updatedAt| |string|1|String representation of time in yyyy-MM-ddTHH:mm:ss.fffffffZ Ex: "2022-01-11T09:55:52.6472858Z"|
+|preconditionRules| |array[Object:Rule]|0..1|All the rules are 'anded'|
+|decisionRules| |array[Object:DecisionRule]|1||
+
+
 ### AttributeRule
 
 AttributeRule produces derived attributes and add them to request context attributes. Evaluation of AttributeRule triggers evaluation of additional AttributeRules referenced in the AttributeRule.
 
+|member|value|type|cardinality|description|
+|------|-----|----|-----------|-----------|
+|Id| |string|1||
+|name| |string|1||
+|kind|AttributeRule|string|1||
+|version|1|number|1||
+|dnfCondition| |array[array[Object:AttributePredicate]]|0..1||
+|cnfCondition| |array[array[Object:AttributePredicate]]|0..1||
+|condition| |Object: Condition|0..1||
+|derivedAttributes| |array[Object:DerivedAttribute]|1||
 
 ## Common sub-constructs used in PolicySet, Policy, AttributeRule
 
