@@ -10,12 +10,12 @@ ms.date: 10/24/2022
 
 # What's new in Azure Private 5G Core?
 
-The Azure Private 5G Core online services and packet core (edge components) receive improvements on an ongoing basis. To help you stay up to date with the most recent developments, this article provides:
+The Azure Private 5G Core online services and packet core receive improvements on an ongoing basis. To help you stay up to date with the most recent developments, this article describes:
 
-- Details of new online services features.
-- Details of improvements to existing online services features.
+- New features for the online services.
+- Improvements to existing features for the online services.
 - Online services bug fixes.
-- Notifications of new packet core releases. These updates will link to the relevant release note for further information.
+- New packet core releases. These updates will link to the relevant release notes for further information.
 
 This page is updated on a monthly basis to list what's new with Azure Private 5G Core since the previous month's update. <!-- TODO: update with agreed update frequency -->
 <!-- In future: If you're looking for items older than six months, you can find them in Archive for What's new in Azure Private 5G Core. -->
