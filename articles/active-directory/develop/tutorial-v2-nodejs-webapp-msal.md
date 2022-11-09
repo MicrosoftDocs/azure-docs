@@ -10,6 +10,7 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.date: 11/09/2022
 ms.author: cwerner
+ms.custom: engagement-fy23
 ---
 
 # Tutorial: Sign in users and acquire a token for Microsoft Graph in a Node.js & Express web app
