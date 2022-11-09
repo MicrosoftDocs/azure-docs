@@ -33,7 +33,7 @@ The WAF protects against the following web vulnerabilities:
 - Bots, crawlers, and scanners
 - Common application misconfigurations (for example, Apache and IIS)
 
-CRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Core Rule Set to meet your application requirements. You can also set specific actions per rule. The CRS supports block, log and anomaly score actions. The Bot Manager ruleset supports the block and log actions.
+CRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Core Rule Set to meet your application requirements. You can also set specific actions per rule. The CRS supports block, log and anomaly score actions. The Bot Manager ruleset supports the allow, block and log actions.
 
 Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You can configure exclusions to apply when specific WAF rules are evaluated, or to apply globally to the evaluation of all WAF rules. Exclusion rules apply to your whole web application. For more information, see [Web Application Firewall (WAF) with Application Gateway exclusion lists](application-gateway-waf-configuration.md).
 
