@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/16/2022
+ms.date: 10/27/2022
 ms.author: pafarley
 ---
 

@@ -121,6 +121,15 @@ The Application Gateway WAF can be configured to run in the following two modes:
 
 The Azure web application firewall (WAF) engine is the component that inspects traffic and determines whether a request includes a signature that represents a potential attack. When you use CRS 3.2 or later, your WAF runs the new [WAF engine](waf-engine.md), which gives you higher performance and an improved set of features. When you use earlier versions of the CRS, your WAF runs on an older engine. New features will only be available on the new Azure WAF engine.
 
+### WAF actions
+
+WAF customers can choose which action is run when a request matches a rules conditions. Below is the listed of supported actions.
+
+* Allow: Request passes through the WAF and is forwarded to back-end. No further lower priority rules can block this request. Allow actions are only applicable to the Bot Manager ruleset, and are not applicable to the Core Rule Set.
+* Block: The request is blocked and WAF sends a response to the client without forwarding the request to the back-end.
+* Log: Request is logged in the WAF logs and WAF continues evaluating lower priority rules.
+* Anomaly score: This is the default action for CRS ruleset where total anomaly score is incremented when a rule with this action is matched. Anomaly scoring is not applicable for the Bot Manager ruleset.
+
 ### Anomaly Scoring mode
 
 OWASP has two modes for deciding whether to block traffic: Traditional mode and Anomaly Scoring mode.

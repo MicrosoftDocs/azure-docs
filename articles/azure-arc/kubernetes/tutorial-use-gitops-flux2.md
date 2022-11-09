@@ -4,7 +4,7 @@ description: "This tutorial shows how to use GitOps with Flux v2 to manage confi
 keywords: "GitOps, Flux, Flux v2, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 10/12/2022
+ms.date: 10/24/2022
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -45,11 +45,6 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
   > For new AKS clusters created with “az aks create”, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI run “az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity”. For more information, refer to [managed identity docs](../../aks/use-managed-identity.md).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
-* Registration of your subscription with the `AKS-ExtensionManager` feature flag. Use the following command:
-
-  ```console
-  az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
-  ```
 
 ### Common to both cluster types
 
@@ -634,6 +629,14 @@ Here's an example for including the [Flux image-reflector and image-automation c
 az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connectedClusters or managedClusters> --name flux --extension-type microsoft.flux --config image-automation-controller.enabled=true image-reflector-controller.enabled=true
 ```
 
+### Using Kubelet identity as authentication method for Azure Kubernetes Clusters
+
+When working with Azure Kubernetes clusters, one of the authentication options to use is kubelet identity. In order to let Flux use this, add a parameter --config useKubeletIdentity=true at the time of Flux extension installation.
+
+```console
+az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config useKubeletIdentity=true
+```
+
 ### Red Hat OpenShift onboarding guidance
 
 Flux controllers require a **nonroot** [Security Context Constraint](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.2/html/authentication/managing-pod-security-policies) to properly provision pods on the cluster. These constraints must be added to the cluster prior to onboarding of the `microsoft.flux` extension.
@@ -697,8 +700,9 @@ Arguments
     --bucket-insecure              : Communicate with a bucket without TLS.  Allowed values: false,
                                      true.
     --bucket-name                  : Name of the S3 bucket to sync.
+    --container-name               : Name of the Azure Blob Storage container to sync
     --interval --sync-interval     : Time between reconciliations of the source on the cluster.
-    --kind                         : Source kind to reconcile.  Allowed values: bucket, git.
+    --kind                         : Source kind to reconcile.  Allowed values: bucket, git, azblob.
                                      Default: git.
     --kustomization -k             : Define kustomizations to sync sources with parameters ['name',
                                      'path', 'depends_on', 'timeout', 'sync_interval',
@@ -752,6 +756,17 @@ Global Arguments
     --subscription                 : Name or ID of subscription. You can configure the default
                                      subscription using `az account set -s NAME_OR_ID`.
     --verbose                      : Increase logging verbosity. Use --debug for full debug logs.
+    
+Azure Blob Storage Account Auth Arguments
+    --sp_client_id                 : The client ID for authenticating a service principal with Azure Blob, required for this authentication method
+    --sp_tenant_id                 : The tenant ID for authenticating a service principal with Azure Blob, required for this authentication method
+    --sp_client_secret             : The client secret for authenticating a service principal with Azure Blob
+    --sp_client_cert               : The Base64 encoded client certificate for authenticating a service principal with Azure Blob
+    --sp_client_cert_password      : The password for the client certificate used to authenticate a service principal with Azure Blob
+    --sp_client_cert_send_chain    : Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate
+    --account_key                  : The Azure Blob Shared Key for authentication
+    --sas_token                    : The Azure Blob SAS Token for authentication
+    --mi_client_id                 : The client ID of the managed identity for authentication with Azure Blob
 
 Examples
     Create a Flux v2 Kubernetes configuration
@@ -768,6 +783,14 @@ Examples
         --kind bucket --url https://bucket-provider.minio.io \
         --bucket-name my-bucket --kustomization name=my-kustomization \
         --bucket-access-key my-access-key --bucket-secret-key my-secret-key
+        
+    Create a Kubernetes v2 Flux Configuration with Azure Blob Storage Source Kind
+        az k8s-configuration flux create --resource-group my-resource-group \
+        --cluster-name mycluster --cluster-type connectedClusters \
+        --name myconfig --scope cluster --namespace my-namespace \
+        --kind azblob --url https://mystorageaccount.blob.core.windows.net \
+        --container-name my-container --kustomization name=my-kustomization \
+        --account-key my-account-key
 ```
 
 ### Configuration general arguments
@@ -786,7 +809,7 @@ Examples
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--kind` | String | Source kind to reconcile. Allowed values: `bucket`, `git`.  Default: `git`. |
+| `--kind` | String | Source kind to reconcile. Allowed values: `bucket`, `git`, `azblob`.  Default: `git`. |
 | `--timeout` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Maximum time to attempt to reconcile the source before timing out. Default: `10m`. |
 | `--sync-interval` `--interval` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Time between reconciliations of the source on the cluster. Default: `10m`. |
 
@@ -867,9 +890,27 @@ If you use a `bucket` source instead of a `git` source, here are the bucket-spec
 | `--bucket-secret-key` | String | Secret Key used to authenticate with the `bucket`. |
 | `--bucket-insecure` | Boolean | Communicate with a `bucket` without TLS.  If not provided, assumed false; if provided, assumed true. |
 
+### Azure Blob Storage Account source arguments
+
+If you use a `azblob` source, here are the blob-specific command arguments.
+
+| Parameter | Format | Notes |
+| ------------- | ------------- | ------------- |
+| `--url` `-u` | URL String | The URL for the `azblob`. |
+| `--container-name` | String | Name of the Azure Blob Storage container to sync |
+| `--sp_client_id` | String | The client ID for authenticating a service principal with Azure Blob, required for this authentication method |
+| `--sp_tenant_id` | String | The tenant ID for authenticating a service principal with Azure Blob, required for this authentication method |
+| `--sp_client_secret` | String | The client secret for authenticating a service principal with Azure Blob |
+| `--sp_client_cert` | String | The Base64 encoded client certificate for authenticating a service principal with Azure Blob |
+| `--sp_client_cert_password` | String | The password for the client certificate used to authenticate a service principal with Azure Blob |
+| `--sp_client_cert_send_chain` | String | Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate |
+| `--account_key` | String | The Azure Blob Shared Key for authentication |
+| `--sas_token` | String | The Azure Blob SAS Token for authentication |
+| `--mi_client_id` | String | The client ID of the managed identity for authentication with Azure Blob |
+
 ### Local secret for authentication with source
 
-You can use a local Kubernetes secret for authentication with a `git` or `bucket` source.  The local secret must contain all of the authentication parameters needed for the source and must be created in the same namespace as the Flux configuration.
+You can use a local Kubernetes secret for authentication with a `git`, `bucket` or `azBlob` source.  The local secret must contain all of the authentication parameters needed for the source and must be created in the same namespace as the Flux configuration.
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |

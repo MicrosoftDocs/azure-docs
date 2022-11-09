@@ -132,7 +132,7 @@ Once the target table is created, you can use the Azure Digital Twins plugin to 
 
 #### Example schema
 
-Here's an example of a schema that might be used to represent shared data.
+Here's an example of a schema that might be used to represent shared data. The example follows the Azure Data Explorer [data history schema](concepts-data-history.md#data-schema).
 
 | `TimeStamp` | `SourceTimeStamp` | `TwinId` | `ModelId` | `Name` | `Value` | `RelationshipTarget` | `RelationshipID` |
 | --- | --- | --- | --- | --- | --- | --- | --- |

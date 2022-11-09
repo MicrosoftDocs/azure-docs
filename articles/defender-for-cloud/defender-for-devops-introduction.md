@@ -37,7 +37,7 @@ Defender for DevOps allows you to manage your connected environments and provide
 
 :::image type="content" source="media/defender-for-devops-introduction/devops-dashboard.png" alt-text="Screenshot of the Defender for DevOps dashboard." lightbox="media/defender-for-devops-introduction/devops-dashboard.png":::
 
-Here, you can [add GitHub](quickstart-onboard-github.md) and [Azure DevOps](quickstart-onboard-devops.md) environments, customize DevOps workbooks to show your desired metrics, view our guides and give feedback, and [configure your pull request annotations](tutorial-enable-pull-request-annotations.md).
+Here, you can [add GitHub](quickstart-onboard-github.md) and [Azure DevOps](quickstart-onboard-devops.md) environments, customize DevOps workbooks to show your desired metrics, view our guides and give feedback, and [configure your pull request annotations](enable-pull-request-annotations.md).
 
 ### Understanding your DevOps security
 
@@ -88,6 +88,6 @@ On this part of the screen you see:
 
 ## Next steps
 
-[Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
+[Configure the Microsoft Security DevOps GitHub action](github-action.md).
 
-[Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-devops.md).
+[Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md)
