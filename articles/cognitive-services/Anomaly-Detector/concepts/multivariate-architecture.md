@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 10/27/2022
 ms.author: mbullwin
 ms.custom: cogserv-non-critical-anomaly-detector
 keywords: anomaly detection, machine learning, algorithms
 ---
 
-# Predictive maintenance solution with Anomaly Detector (multivariate)
+# Predictive maintenance solution with Multivariate Anomaly Detector
 
 Many different industries need predictive maintenance solutions to reduce risks and gain actionable insights through processing data from their equipment. Predictive maintenance evaluates the condition of equipment by performing online monitoring. The goal is to perform maintenance before the equipment degrades or breaks down.
 
-Monitoring the health status of equipment can be challenging, as each component inside the equipment can generate dozens of signals, for example vibration, orientation, and rotation.  This can be even more complex when those signals have an implicit relationship, and need to be monitored and analyzed together. Defining different rules for those signals and correlating them with each other manually can be costly. Anomaly Detector's multivariate feature allows:
+Monitoring the health status of equipment can be challenging, as each component inside the equipment can generate dozens of signals. For example, vibration, orientation, and rotation.  This can be even more complex when those signals have an implicit relationship, and need to be monitored and analyzed together. Defining different rules for those signals and correlating them with each other manually can be costly. Anomaly Detector's multivariate feature allows:
 
 * Multiple correlated signals to be monitored together, and the inter-correlations between them are accounted for in the model.
 * In each captured anomaly, the contribution rank of different signals can help with anomaly explanation, and incident root cause analysis.
 * The multivariate anomaly detection model is built in an unsupervised manner. Models can be trained specifically for different types of equipment.
 
-Here, we provide a reference architecture for a predictive maintenance solution based on Anomaly Detector multivariate.
+Here, we provide a reference architecture for a predictive maintenance solution based on Multivariate Anomaly Detector.
 
 ## Reference architecture
 

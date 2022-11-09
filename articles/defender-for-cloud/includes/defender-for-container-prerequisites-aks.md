@@ -2,6 +2,8 @@
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 07/19/2022
+ms.author: benmansheim
+author: bmansheim
 ---
 
 ## Network requirements - AKS

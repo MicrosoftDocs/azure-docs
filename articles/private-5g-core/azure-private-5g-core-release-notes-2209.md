@@ -4,7 +4,7 @@ description: Discover what's new in the Azure Private 5G Core 2209 release
 author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
-ms.topic: how-to 
+ms.topic: release-notes
 ms.date: 09/30/2022
 ---
 

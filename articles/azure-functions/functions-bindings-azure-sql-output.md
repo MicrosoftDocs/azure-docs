@@ -154,7 +154,7 @@ namespace AzureSQLSamples
 
 # [Isolated process](#tab/isolated-process)
 
-Isolated process isn't currently supported.
+Isolated worker process isn't currently supported.
 
 <!-- Uncomment to support C# script examples.
 # [C# Script](#tab/csharp-script)

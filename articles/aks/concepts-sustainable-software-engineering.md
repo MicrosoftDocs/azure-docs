@@ -112,7 +112,7 @@ An up-to-date cluster avoids unnecessary performance issues and ensures you bene
 
 Add-ons and extensions covered by the [AKS support policy](/azure/aks/support-policies) provide additional and supported functionality to your cluster while allowing you to benefit from the latest performance improvements and energy optimizations throughout your cluster lifecycle.
 
-* Ensure you install [Keda](/azure/aks/integrations#available-add-ons) as an add-on and [GitOps & Dapr](/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions) as extensions.
+* Ensure you install [KEDA](/azure/aks/integrations#available-add-ons) as an add-on and [GitOps & Dapr](/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions) as extensions.
 
 ### Containerize your workload where applicable
 
@@ -218,7 +218,7 @@ Azure Font Door and Application Gateway help manage traffic from web application
 
 Many attacks on cloud infrastructure seek to misuse deployed resources for the attacker's direct gain leading to an unnecessary spike in usage and cost. Vulnerability scanning tools help minimize the window of opportunity for attackers and mitigate any potential malicious usage of resources.
 
-* Follow recommendations from [Microsoft Defender for Cloud](/security/benchmark/azure/security-control-vulnerability-management) and run automated vulnerability scanning tools such as [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-va-acr) to avoid unnecessary resource usage by identifying vulnerabilities in your images and minimizing the window of opportunity for attackers.
+* Follow recommendations from [Microsoft Defender for Cloud](/security/benchmark/azure/security-control-vulnerability-management) and run automated vulnerability scanning tools such as [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure) to avoid unnecessary resource usage by identifying vulnerabilities in your images and minimizing the window of opportunity for attackers.
 
 ## Next steps
 

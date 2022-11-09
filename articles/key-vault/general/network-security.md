@@ -70,6 +70,10 @@ To understand how to configure a private link connection on your key vault, plea
 > * IP network rules are only allowed for public IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) are not allowed in IP rules. Private networks include addresses that start with **10.**, **172.16-31**, and **192.168.**. 
 > * Only IPv4 addresses are supported at this time.
 
+### Public Access Disabled (Private Endpoint Only)
+
+To enhance network security, you can configure your vault to disable public access.  This will deny all public configurations and allow only connections through private endpoints.
+
 ## References
 * ARM Template Reference: [Azure Key Vault ARM Template Reference](/azure/templates/Microsoft.KeyVault/vaults)
 * Azure CLI commands: [az keyvault network-rule](/cli/azure/keyvault/network-rule)

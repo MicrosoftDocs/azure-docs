@@ -27,7 +27,7 @@ The UserInfo endpoint is typically called automatically by [OIDC-compliant libra
 
 ## Consider using an ID token instead
 
-The information in an ID token is a superset of the information available on UserInfo endpoint. Because you can get an ID token at the same time you get a token to call the UserInfo endpoint, we suggest getting the user's information from the token instead calling the UserInfo endpoint. Using the ID token instead of calling the UserInfo endpoint eliminates up to two network requests, reducing latency in your application.
+The information in an ID token is a superset of the information available on UserInfo endpoint. Because you can get an ID token at the same time you get a token to call the UserInfo endpoint, we suggest getting the user's information from the token instead of calling the UserInfo endpoint. Using the ID token instead of calling the UserInfo endpoint eliminates up to two network requests, reducing latency in your application.
 
 If you require more details about the user like manager or job title, call the [Microsoft Graph `/user` API](/graph/api/user-get). You can also use [optional claims](active-directory-optional-claims.md) to include additional user information in your ID and access tokens.
 

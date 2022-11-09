@@ -1,5 +1,5 @@
 ---
-title: Configure a Deployer Web Application for SAP deployment automation framework
+title: Configure a Deployer Web Application for SAP on Azure Deployment Automation Framework
 description: Configure a web app as a part of the control plane to help creating and deploying SAP workload zones and systems on Azure.
 author: wsheehan
 ms.author: wsheehan
@@ -62,7 +62,7 @@ rm ./manifest.json
 
 ## Deploy via Azure Pipelines
 
-For full instructions on setting up the web app using Azure DevOps, see [Use SAP deployment automation framework from Azure DevOps Services](automation-configure-devops.md)
+For full instructions on setting up the web app using Azure DevOps, see [Use SAP on Azure Deployment Automation Framework from Azure DevOps Services](automation-configure-devops.md)
 
 ### Summary of steps required to set up the web app before deploying the control plane:
 1. Add the web app deployment pipeline (deploy/pipelines/21-deploy-web-app.yaml).
