@@ -96,7 +96,7 @@ You can set up the connector in two ways:
 1. Select **Data connectors**, and in the search bar, type *CEF*.
 1. Select the **Common Event Format (CEF) via AMA (Preview)** connector.
 1. Below the connector description, select **Open connector page**.
-1. In the **Configuration** area, select **Add data collection rule**. 
+1. In the **Configuration** area, select **Create data collection rule**. 
 1. Under **Basics**: 
     - Type a DCR name
     - Select your subscription
@@ -196,7 +196,7 @@ Edit the template:
                 "logAnalytics": [
                 {
                     "workspaceResourceId": "/subscriptions/{Your-Subscription-
-Id}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{SentinelWorkspaceName}", "workspaceId": "f746b3d7-5b3b-485e-b268-88bc2ca88bad",
+Id}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{SentinelWorkspaceName}", "workspaceId": "x123x1x2-1x2x-123x-x123-12xx2xx12xxx",
 "name": "la-140366483"
                 }
             ]
@@ -355,8 +355,14 @@ This example collects events for:
 1. You can send demo messages using the logger. For example, this example writes the message to the `local 4` facility, at severity level `Warning`, to port `514`, on the local host, in the CEF RFC format:
 
     ```
-    logger -p local4.warn -P 514 -n 127.0.0.1 --rfc3164 -t CEF "0|Mock-test|MOCK|common=event-format- test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time"
+    echo -n "<164>CEF:0|Mock-test|MOCK|common=event-format-test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time" | nc -u -w1 localhost 514
     ```
+
+1. To verify that the connector is installed correctly, run the troubleshooting script with this command:
+
+```
+sudo wget -O cef_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_AMA_troubleshoot.py&&sudo python cef_AMA_troubleshoot.py
+```
 
 ## Next steps
 
