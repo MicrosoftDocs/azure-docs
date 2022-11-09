@@ -327,6 +327,8 @@ Before creating an IoT Hub route to an Azure Storage, you must create the endpoi
       }
    ```
 
+---
+
 ### Update an IoT Hub route
 
 With an IoT Hub route, no matter the type of endpoint, you can update some properties of the route.

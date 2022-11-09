@@ -11,14 +11,14 @@ ms.author: kgremban
 
 # Message routing with IoT Hub — Azure Resource Manager
 
-[Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) is useful when you need to define resources in a JSON file using a template. Each resource in Azure has a template to export that defines the components used in that resource.
+[Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) is useful when you need to define resources in a JSON file. Each resource in Azure has a template to export that defines the components used in that resource.
 
 This article shows you how to export your IoT hub template, add a route to it, then deploy the template back to your IoT hub using Azure CLI or PowerShell. We use an ARM template to create routes and endpoints to Event Hubs, Service Bus queue, Service Bus topic, and Azure Storage.
 
 > [!IMPORTANT]
-> The ARM template will replace the existing resource, if there is one, when deployed. If you're creating a new IoT hub, this is not a concern and you can use a [basic template](/azure/azure-resource-manager/templates/syntax#template-format) with the required properties. 
+> The ARM template will replace the existing resource, if there is one, when deployed. If you're creating a new IoT hub, this is not a concern and you can use a [basic template](/azure/azure-resource-manager/templates/syntax#template-format) with the required properties instead of exporting an existing template from your IoT hub. 
 >
-> However, adding a route to an existing IoT hub ARM template, exported from your IoT hub, ensures all other resources and properties connected will remain after deployment (they will not be replaced). For example, an exported ARM template might contain storage information for your IoT hub, if you've connected it to storage.
+> However, adding a route to an existing IoT hub ARM template, exported from your IoT hub, ensures all other resources and properties connected will remain after deployment (they won't be replaced). For example, an exported ARM template might contain storage information for your IoT hub, if you've connected it to storage.
 
 To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage, testing on a simulated device, see [Tutorial: Send device data to Azure Storage using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
 
@@ -26,7 +26,7 @@ To learn more about how routing works in IoT Hub, see [Use IoT Hub message routi
 
 **Azure Resource Manager (ARM)**
 
-This article uses templates from ARM. To understand more about ARM, see [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
+This article uses a template from ARM. To understand more about ARM, see [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
 
 **IoT Hub and an endpoint service**
 
@@ -96,3 +96,6 @@ If you need to create an Event Hubs resource (with container), see [Quickstart: 
 
 
 # [Azure Storage](#tab/azurestorage)
+
+
+---

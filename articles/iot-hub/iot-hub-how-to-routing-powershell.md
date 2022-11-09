@@ -220,6 +220,8 @@ To create an endpoint to Azure Storage, you need your access key to construct a 
    Add-AzIotHubRoutingEndpoint -ResourceGroupName MyResourceGroup -Name MyIotHub -EndpointName MyEndpoint -EndpointType azurestorage -EndpointResourceGroup MyResourceGroup -EndpointSubscriptionId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ConnectionString "my connection string"
    ```
 
+---
+
 ## Create an IoT Hub route
 
 1. Finally, with your new endpoint in your IoT hub, you can create a new route.
