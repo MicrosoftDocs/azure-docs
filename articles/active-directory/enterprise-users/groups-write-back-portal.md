@@ -74,12 +74,13 @@ CloudGroup1           True
 CloudGroup2           True
 ```
 
-## Reading the Writeback configuration using Graph Explorer
+## Read the Writeback configuration using Graph Explorer
 
-Open [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) and use the following endpoint ```https://graph.microsoft.com/beta/groups/{Group_ID}```.
+Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) and use the following endpoint ```https://graph.microsoft.com/beta/groups/{Group_ID}```.
 
-Replace the Group_ID with a cloud group id, the click on Run query.
-In the **Response Preview** scroll to the end to see the part of the JSON file
+Replace the Group_ID with a cloud group id, and then click on Run query.
+In the **Response Preview**, scroll to the end to see the part of the JSON file.
+
 ```JSON
 "writebackConfiguration": {
         "isEnabled": true,
@@ -88,5 +89,5 @@ In the **Response Preview** scroll to the end to see the part of the JSON file
 ## Next steps
 
 - Check out the groups REST API documentation for the [preview writeback property on the settings template](/graph/api/resources/group?view=graph-rest-beta&preserve-view=true).
-- For more about group writeback operations, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback.md)
-- For more information about the writebackConfiguration resource, read [writebackConfiguration resource type](https://docs.microsoft.com/en-us/graph/api/resources/writebackconfiguration?view=graph-rest-beta)
+- For more about group writeback operations, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback.md).
+- For more information about the writebackConfiguration resource, read [writebackConfiguration resource type](/graph/api/resources/writebackconfiguration?view=graph-rest-beta).
