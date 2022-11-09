@@ -6,13 +6,15 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 11/05/2022
+ms.date: 11/08/2022
 ms.author: jasteppe
 ---
 
 # Tutorial: Receive device data through Azure IoT Hub
  
-The MedTech service may be used with devices created and managed through an [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) for enhanced workflows and ease of use. This tutorial uses a Quickstart template and a **Deploy to Azure** button to deploy and configure a MedTech service using the Azure IoT Hub for device creation, management, and routing device messages to the device message event hub. 
+The MedTech service may be used with devices created and managed through an [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) for enhanced workflows and ease of use. This tutorial uses an Azure Resource Manager (ARM) template and a **Deploy to Azure** button to deploy and configure a MedTech service using an Azure IoT Hub for device creation, management, and routing device messages to the device message event hub. The ARM template used in this article is available from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors-with-iot/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub/azuredeploy.json). 
+
+For more information about ARM templates, see [What are ARM templates?](/azure/azure-resource-manager/templates/overview).
 
 Below is a diagram of the IoT device message flow when using an IoT Hub with the MedTech service. As you can see, devices send their messages to the IoT Hub, which then routes the device messages to the device message event hub to be picked up by the MedTech service. The MedTech service will then process the device messages and persist them into the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR observations. To learn more about the MedTech service data flow, see [MedTech service data flow](iot-data-flow.md)
 
@@ -38,7 +40,7 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
 
-   This button will call a template from the [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) [Quickstart template library](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) to get information from your Azure subscription environment and begin deploying the MedTech service and IoT Hub using the Azure portal.
+   This button will call an ARM template from the [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) site to get information from your Azure subscription environment and begin deploying the MedTech service and IoT Hub using the Azure portal.
 
 ## Provide configuration details
 
@@ -52,7 +54,7 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
 
    - **Region** - The Azure region of the resource group used for the deployment. This field will auto-fill based on the resource group region.
 
-   - **Basename** - This value will be appended to the name of the Azure resources and services to be deployed. For this tutorial, we're selecting the base name of **azuredocsdemo**. You'll pick a base name of your own choosing.
+   - **Basename** - This value will be appended to the name of the Azure resources and services to be deployed. For this tutorial, we're selecting the basename of **azuredocsdemo**. You'll pick a base name of your own choosing.
 
    - **Location** - Use the drop-down list to select a supported Azure region for the Azure Health Data Services (the value could be the same or different region than your resource group). For a list of Azure regions where the Azure Health Data Services is available, see [Products available by regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=health-data-services).
 
@@ -61,7 +63,7 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
     - Don't change the **Device Mapping** and **Destination Mapping** default values at this time as they'll work with the provided device message sample later in this tutorial when you send a device message to the IoT Hub using Visual Studio Code with the Azure IoT Hub extension.
 
    > [!IMPORTANT]
-   > For this tutorial, the Quickstart template will place the MedTech service into a **Create** mode so that a device record is created on the FHIR service.
+   > For this tutorial, the ARM template will place the MedTech service into a **Create** mode so that a device record is created on the FHIR service.
    >
    > To learn more about the MedTech service resolution types: **Create** and **Lookup**, see: [Destination properties](/azure/healthcare-apis/iot/deploy-05-new-config#destination-properties)
 
