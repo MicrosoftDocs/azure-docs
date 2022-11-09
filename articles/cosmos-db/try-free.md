@@ -112,8 +112,6 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 1. Choose to either **Sign up for an Azure account** or **Sign in** and create a new Azure Cosmos DB account following the instructions in the next section.
 
-    :::image type="content" source="media/try-free/account-creation-options.png" lightbox="media/try-free/account-creation-options.png" alt-text="Screenshot of the sign-in or sign-up page.":::
-
 ### Create a new account
 
 #### [NoSQL / MongoDB / Cassandra / Gremlin / Table](#tab/nosql+mongodb+cassandra+gremlin+table)
@@ -133,7 +131,7 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 1. Navigate back to the **Upgrade** page from the [Start upgrade](#start-upgrade) section of this guide. Select **Next** to move on to the third step and move your data.
 
-    :::image type="content" source="media/try-free/sign-up-sign-in.png" lightbox="media/try-free/sign-up-sign-in.png" alt-text="Screenshot of the sign-in/sign-up experience to upgrade your current account.":::
+    :::image type="content" source="media/try-free/account-creation-options.png" lightbox="media/try-free/account-creation-options.png" alt-text="Screenshot of the sign-in/sign-up experience to upgrade your current account.":::
 
 ## Migrate your data
 
