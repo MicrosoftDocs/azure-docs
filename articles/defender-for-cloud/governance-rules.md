@@ -28,9 +28,15 @@ You can then review the progress of the tasks by subscription, recommendation, o
 |Aspect|Details|
 |----|:----|
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
-|Pricing:|Free while in preview and will be a paid service after preview|
+|Pricing:|Requires [Defender Cloud Security Posture Management (CSPM) plan](https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management)|
 |Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
+
+> [!NOTE]
+> Starting January 1, 2023, governance capabilities will require Defender Cloud Security Posture Management (CSPM) plan enablement.
+> Customers deciding to keep Defender CSPM plan off on scopes with governance content:
+> -	Existing assignments remain as is and continue to work with no customization option or ability to create new ones.
+> -	Existing rules will remain as is but won’t trigger new assignments creation.
 
 ### Defining governance rules to automatically set the owner and due date of recommendations
 
@@ -46,18 +52,19 @@ By default, email notifications are sent to the resource owners weekly to provid
 
 To define a governance rule that assigns an owner and due date:
 
-1. In the **Environment settings**, select the Azure subscription, AWS account, or Google project that you want to define the rule for.
-1. In **Governance rules (preview)**, select **Add rule**.
+1. In the **Environment settings**, select **Governance rules**.
+1. In **Governance rules**, select **Create governance rule**.
 1. Enter a name for the rule.
-1. Set a priority for the rule. You can see the priority for the existing rules in the list of governance rules.
+1. Select a scope to apply the rule and use the exclusions if needed. Rules on management scope (Azure management groups, AWS master accounts, GCP organizations) are being applyed before rules on single scope.
+1. Priority is being assigned automatically after scope selection. You can override this field if needed.
 1. Select the recommendations that the rule applies to, either:
     - **By severity** - The rule assigns the owner and due date to any recommendation in the subscription that doesn't already have them assigned.
-    - **By name** - Select the specific recommendations that the rule applies to.
+    - **By specific recommendations** - Select the specific recommendations that the rule applies to.
 1. Set the owner to assign to the recommendations either:
     - **By resource tag** - Enter the resource tag on your resources that defines the resource owner.
     - **By email address** - Enter the email address of the owner to assign to the recommendations.
 1. Set the **remediation timeframe**, which is the time between when the resources are identified to require remediation and the time that the remediation is due.
-1. If you don't want the resources to affect your secure score until they're overdue, select **Apply grace period**.
+1. If you don't want the resources to impact your secure score until they're overdue, select **Apply grace period**.
 1. If you don't want either the owner or the owner's manager to receive weekly emails, clear the notification options.
 1. Select **Create**.
 
@@ -68,6 +75,12 @@ If there are existing recommendations that match the definition of the governanc
 
 > [!NOTE]
 > When you delete or disable a rule, all existing assignments and notifications will remain.
+
+> [!TIP]
+> Use-cases for the at-scale experience
+> -	View and manage all governance rules effective in the organization using a single page.
+> -	Create and apply rules on multiple scopes at once using management scopes cross cloud.
+> -	Check effective rules on selected scope using the scope filter.
 
 ## Manually assigning owners and due dates for recommendation remediation
 
