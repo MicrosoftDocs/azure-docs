@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 11/09/2022
 ms.author: jammart
 ms.reviewer: nachakra 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
@@ -73,11 +73,11 @@ Follow these steps to assign the built-in policy for the appropriate scope in th
     
 1. Select **Review + create**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-basics.png" alt-text="Screenshot showing the basics tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-basics.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-basics.png" alt-text="Screenshot showing the policy assignment basics tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-basics.png":::
   
 1. On the **Review + create** tab, review the policy assignment then select **Create** to assign the policy definition to the specified scope.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-review.png" alt-text="Screenshot showing how to create the policy assignment" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-review.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-review.png" alt-text="Screenshot showing the policy assignment review and create tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-review.png":::
 
 > [!NOTE]
 > The default settings on the remaining tabs are sufficient for the purpose of assigning the policy in audit mode:
@@ -135,7 +135,7 @@ Follow these steps to create a metric that tracks requests made with Shared Key 
 
     The new metric will display the sum of the number of transactions against the storage account over a given interval of time. The resulting metric appears as shown in the following image:
 
-    :::image type="content" source="media/shared-key-authorization-prevent/configure-metric-account-transactions.png" alt-text="Screenshot showing how to configure metric to sum transactions made with Shared Key or SAS" lightbox="media/shared-key-authorization-prevent/configure-metric-account-transactions.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/configure-metric-account-transactions.png" alt-text="Screenshot showing how to configure a metric to summarize transactions made with Shared Key or SAS" lightbox="media/shared-key-authorization-prevent/configure-metric-account-transactions.png":::
 
 1. Next, select the **Add filter** button to create a filter on the metric for type of authorization.
 1. In the **Filter** dialog, specify the following values:
@@ -232,7 +232,7 @@ To disallow Shared Key authorization for a storage account in the Azure portal, 
 1. Locate the **Configuration** setting under **Settings**.
 1. Set **Allow storage account key access** to **Disabled**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot showing how to disallow Shared Key access for account" lightbox="media/shared-key-authorization-prevent/shared-key-access-portal.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot showing how to disallow Shared Key access for a storage account" lightbox="media/shared-key-authorization-prevent/shared-key-access-portal.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
