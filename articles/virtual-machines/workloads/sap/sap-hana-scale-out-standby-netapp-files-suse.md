@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/10/2022
+ms.date: 10/31/2022
 ms.author: radeltch
 
 ---
@@ -170,7 +170,7 @@ To meet the SAP minimum throughput requirements for data and log, and the guidel
 | --- | --- | --- | --- |
 | /hana/log/ | 4 TiB | 2 TiB | v4.1 |
 | /hana/data | 6.3 TiB | 3.2 TiB | v4.1 |
-| /hana/shared | Max (512 GB, 1xRAM) per 4 worker nodes | Max (512 GB, 1xRAM) per 4 worker nodes | v3 or v4.1 |
+| /hana/shared | 1xRAM per 4 worker nodes | 1xRAM per 4 worker nodes | v3 or v4.1 |
 
 The SAP HANA configuration for the layout that's presented in this article, using Azure NetApp Files Ultra Storage tier, would be:
 

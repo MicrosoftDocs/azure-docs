@@ -96,7 +96,7 @@ items:
     href: concept-metrics.md
   - name: Spring Boot Actuator
     href: concept-manage-monitor-app-spring-boot-actuator.md
-  - name: Customize Azure Spring Cloud egress with a user-defined route
+  - name: Customize Azure Spring Apps egress with a user-defined route
     href: concept-outbound-type.md
 - name: Security
   items:
@@ -130,6 +130,8 @@ items:
         href: how-to-use-enterprise-api-portal.md
       - name: Use Spring Cloud Gateway
         href: how-to-use-enterprise-spring-cloud-gateway.md
+      - name: Configure Spring Cloud Gateway
+        href: how-to-configure-enterprise-spring-cloud-gateway.md
   - name: Deploy
     items:
     - name: Set up a staging environment
@@ -148,6 +150,8 @@ items:
       href: how-to-enterprise-deploy-non-java-apps.md
     - name: Deploy with a custom container
       href: how-to-deploy-with-custom-container-image.md
+    - name: Deploy static files in Azure Spring Enterprise tier
+      href: how-to-enterprise-deploy-static-file.md
   - name: Manage
     items:
     - name: Start or stop a service
@@ -232,7 +236,7 @@ items:
       href: how-to-create-user-defined-route-instance.md
     - name: Customize the ingress configuration in Azure Spring Apps
       href: how-to-configure-ingress.md
-    - name: Customer responsibilities running Azure Spring Apps in VNET
+    - name: Customer responsibilities running Azure Spring Apps in a virtual network
       href: vnet-customer-responsibilities.md
     - name: Troubleshooting Azure Spring Apps in virtual networks
       href: troubleshooting-vnet.md
@@ -272,7 +276,7 @@ items:
     items:
     - name: Self diagnose and solve problems
       href: how-to-self-diagnose-solve.md
-    - name: Self diagnose running in VNET
+    - name: Self diagnose running in virtual networks
       href: how-to-self-diagnose-running-in-vnet.md
     - name: Troubleshoot common issues
       href: troubleshoot.md
@@ -287,11 +291,11 @@ items:
     - name: Migrate Standard and Basic to Enterprise
       href: how-to-migrate-standard-tier-to-enterprise-tier.md
     - name: Spring Cloud
-      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Spring Boot
-      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Tomcat
-      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Architecture
   items:
   - name: Reference architecture

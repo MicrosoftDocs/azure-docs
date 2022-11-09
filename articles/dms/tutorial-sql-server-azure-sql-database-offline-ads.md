@@ -15,9 +15,6 @@ ms.date: 09/28/2022
 ---
 # Tutorial: Migrate SQL Server to an Azure SQL Database offline using Azure Data Studio with DMS (Preview)
 
-> [!NOTE]
-> Azure SQL Database targets are only available using the [Azure Data Studio Insiders](/sql/azure-data-studio/download-azure-data-studio#download-the-insiders-build-of-azure-data-studio) version of the Azure SQL Migration extension.
-
 You can use the Azure SQL migration extension in Azure Data Studio to migrate the database(s) from a SQL Server instance to Azure SQL Database (Preview).
 
 In this tutorial, you'll learn how to migrate the **AdventureWorks2019** database from an on-premises instance of SQL Server to Azure SQL Database (Preview) by using the Azure SQL Migration extension for Azure Data Studio. This tutorial focuses on the offline migration mode that considers an acceptable downtime during the migration process.
@@ -51,7 +48,7 @@ To complete this tutorial, you need to:
     - As an alternative to using the above built-in roles, you can assign a custom role as defined in [this article.](resource-custom-roles-sql-database-ads.md)  
     > [!IMPORTANT]
     > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
-* Create a target [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
+* Create a target [Azure SQL Database](/azure/azure/azure-sql/database/single-database-create-quickstart).
 * Ensure that the SQL Server login to connect the source SQL Server is a member of the `db_datareader` and the login for the target SQL server is `db_owner`.
 * Migrate database schema from source to target using [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
 * If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
@@ -165,6 +162,6 @@ At this point, you've completed the migration to Azure SQL Database. We encour
 
 ## Next steps
 
-* For a tutorial showing you how to create an Azure SQL Database using the Azure portal, PowerShell, or AZ CLI commands, see [Create a single database - Azure SQL Database](/azure-sql/database/single-database-create-quickstart).
-* For information about Azure SQL Database, see [What is Azure SQL Database](/azure-sql/database/sql-database-paas-overview).
-* For information about connecting to Azure SQL Database, see [Connect applications](/azure-sql/database/connect-query-content-reference-guide).
+* For a tutorial showing you how to create an Azure SQL Database using the Azure portal, PowerShell, or AZ CLI commands, see [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
+* For information about Azure SQL Database, see [What is Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
+* For information about connecting to Azure SQL Database, see [Connect applications](/azure/azure-sql/database/connect-query-content-reference-guide).

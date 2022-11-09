@@ -3,13 +3,13 @@ title: Entity categories recognized by Personally Identifiable Information (dete
 titleSuffix: Azure Cognitive Services
 description: Learn about the entities the PII feature can recognize from unstructured text.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/15/2021
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-pii, ignite-fall-2021
 ---
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 10/10/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
 ---
 
@@ -55,29 +55,29 @@ The following table lists the supported languages for print text by the most rec
 |:-----|:----:|:-----|:----:|
 |Afrikaans|`af`|Khasi  | `kha` |
 |Albanian |`sq`|K'iche'  | `quc` |
-|Angika (Devanagiri) | `anp`| Korean | `ko` |
+|Angika (Devanagari) | `anp`| Korean | `ko` |
 |Arabic | `ar` | Korku | `kfq`|
 |Asturian |`ast`| Koryak | `kpy`|
-|Awadhi-Hindi (Devanagiri) | `awa`| Kosraean | `kos`|
+|Awadhi-Hindi (Devanagari) | `awa`| Kosraean | `kos`|
 |Azerbaijani (Latin) | `az`| Kumyk (Cyrillic) | `kum`|
 |Bagheli | `bfy`| Kurdish (Arabic) | `ku-arab`|
 |Basque  |`eu`| Kurdish (Latin) | `ku-latn`
-|Belarusian (Cyrillic)  | `be`, `be-cyrl`|Kurukh (Devanagiri) | `kru`|
+|Belarusian (Cyrillic)  | `be`, `be-cyrl`|Kurukh (Devanagari) | `kru`|
 |Belarusian (Latin) | `be`, `be-latn`| Kyrgyz (Cyrillic)  | `ky`
-|Bhojpuri-Hindi (Devanagiri) | `bho`| Lakota | `lkt` |
+|Bhojpuri-Hindi (Devanagari) | `bho`| Lakota | `lkt` |
 |Bislama   |`bi`| Latin | `la` |
-|Bodo (Devanagiri) | `brx`| Lithuanian | `lt` |
+|Bodo (Devanagari) | `brx`| Lithuanian | `lt` |
 |Bosnian (Latin) | `bs`| Lower Sorbian | `dsb` |
 |Brajbha | `bra`|Lule Sami | `smj`|
 |Breton    |`br`|Luxembourgish  | `lb` |
-|Bulgarian  | `bg`|Mahasu Pahari (Devanagiri) | `bfz`|
+|Bulgarian  | `bg`|Mahasu Pahari (Devanagari) | `bfz`|
 |Bundeli | `bns`|Malay (Latin) | `ms` |
 |Buryat (Cyrillic) | `bua`|Maltese | `mt`
-|Catalan    |`ca`|Malto (Devanagiri) | `kmj`
+|Catalan    |`ca`|Malto (Devanagari) | `kmj`
 |Cebuano    |`ceb`|Manx  | `gv` |
 |Chamling | `rab`|Maori | `mi`|
 |Chamorro  |`ch`|Marathi | `mr`|
-|Chhattisgarhi (Devanagiri)| `hne`| Mongolian (Cyrillic)  | `mn`|
+|Chhattisgarhi (Devanagari)| `hne`| Mongolian (Cyrillic)  | `mn`|
 |Chinese Simplified | `zh-Hans`|Montenegrin (Cyrillic)  | `cnr-cyrl`|
 |Chinese Traditional | `zh-Hant`|Montenegrin (Latin) | `cnr-latn`|
 |Cornish     |`kw`|Neapolitan   | `nap` |
@@ -87,8 +87,8 @@ The following table lists the supported languages for print text by the most rec
 |Czech | `cs` |Northern Sami (Latin) | `sme`|
 |Danish | `da` |Norwegian | `no` |
 |Dari | `prs`|Occitan | `oc` |
-|Dhimal (Devanagiri) | `dhi`| Ossetic  | `os`|
-|Dogri (Devanagiri) | `doi`|Pashto | `ps`|
+|Dhimal (Devanagari) | `dhi`| Ossetic  | `os`|
+|Dogri (Devanagari) | `doi`|Pashto | `ps`|
 |Dutch | `nl` |Persian | `fa`|
 |English | `en` |Polish | `pl` |
 |Erzya (Cyrillic) | `myv`|Portuguese | `pt` |
@@ -97,17 +97,17 @@ The following table lists the supported languages for print text by the most rec
 |Fijian |`fj`|Romanian | `ro` |
 |Filipino  |`fil`|Romansh  | `rm` |
 |Finnish | `fi` | Russian | `ru` |
-|French | `fr` |Sadri  (Devanagiri) | `sck` |
+|French | `fr` |Sadri  (Devanagari) | `sck` |
 |Friulian  | `fur` | Samoan (Latin) | `sm`
 |Gagauz (Latin) | `gag`|Sanskrit (Devanagari) | `sa`|
 |Galician   | `gl` |Santali(Devanagiri) | `sat` |
 |German | `de` | Scots  | `sco` |
 |Gilbertese    | `gil` | Scottish Gaelic  | `gd` |
-|Gondi (Devanagiri) | `gon`| Serbian (Latin) | `sr`, `sr-latn`|
-|Greenlandic   | `kl` | Sherpa (Devanagiri) | `xsr` |
-|Gurung (Devanagiri) | `gvr`| Sirmauri (Devanagiri) | `srx`|
+|Gondi (Devanagari) | `gon`| Serbian (Latin) | `sr`, `sr-latn`|
+|Greenlandic   | `kl` | Sherpa (Devanagari) | `xsr` |
+|Gurung (Devanagari) | `gvr`| Sirmauri (Devanagari) | `srx`|
 |Haitian Creole  | `ht` | Skolt Sami | `sms` |
-|Halbi (Devanagiri) | `hlb`| Slovak | `sk`|
+|Halbi (Devanagari) | `hlb`| Slovak | `sk`|
 |Hani  | `hni` | Slovenian  | `sl` |
 |Haryanvi | `bgc`|Somali (Arabic) | `so`|
 |Hawaiian | `haw`|Southern Sami | `sma`
@@ -123,11 +123,11 @@ The following table lists the supported languages for print text by the most rec
 |Irish    | `ga` |Turkmen (Latin) | `tk`|
 |Italian | `it` |Tuvan | `tyv`|
 |Japanese | `ja` |Upper Sorbian  | `hsb` |
-|Jaunsari (Devanagiri) | `Jns`|Urdu  | `ur`|
+|Jaunsari (Devanagari) | `Jns`|Urdu  | `ur`|
 |Javanese | `jv` |Uyghur (Arabic) | `ug`|
 |Kabuverdianu | `kea` |Uzbek (Arabic) | `uz-arab`|
 |Kachin (Latin) | `kac` |Uzbek (Cyrillic)  | `uz-cyrl`|
-|Kangri (Devanagiri) | `xnr`|Uzbek (Latin)     | `uz` |
+|Kangri (Devanagari) | `xnr`|Uzbek (Latin)     | `uz` |
 |Karachay-Balkar  | `krc`|Volapük   | `vo` |
 |Kara-Kalpak (Cyrillic) | `kaa-cyrl`|Walser    | `wae` |
 |Kara-Kalpak (Latin) | `kaa` |Welsh | `cy` |
@@ -136,7 +136,7 @@ The following table lists the supported languages for print text by the most rec
 |Kazakh (Latin) | `kk-latn`|Zhuang | `za` |
 |Khaling | `klr`|Zulu  | `zu` |
 
-### Preview (2022-06-30-preview)
+### Print text in preview (API version 2022-06-30-preview)
 
 Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDK to support these languages in your applications.
 
@@ -232,6 +232,8 @@ Receipt supports all English receipts with the following locales:
 |English (United Kingdom)|`en-gb`|
 |English (India|`en-in`|
 |English (United States)| `en-us`|
+|French | 'fr' |
+| Spanish | `es` |
 
 ## Business card model
 

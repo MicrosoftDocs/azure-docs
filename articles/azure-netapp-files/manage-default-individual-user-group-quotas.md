@@ -7,7 +7,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/13/2022
+ms.date: 11/09/2022
 ---
 # Manage default and individual user and group quotas for a volume 
 
@@ -35,6 +35,10 @@ Quota rules will only come into effect on the CRR destination volume after the r
     * During sync or reverse resync operations:
         * If you create, update, or delete a rule on a source volume, you must perform the same operation on the destination volume. 
         * Any new rule that is created or existing rule that is updated or deleted on a destination volume following the deletion of the replication relationship will be reverted to keep the  source and destination volumes in sync. 
+* If you are using large volumes (volumes larger than 100 TiB): <!-- confirm large volumes in public preview --> 
+    * The space and file usage in a large volume might exceed as much as five percent more than the configured hard limit before the quota limit is enforced and rejects traffic.
+    * To provide optimal performance, the space consumption may exceed configured hard limit before the quota is enforced. The additional space consumption will not exceed either the lower of 1 GB or five percent of the configured hard limit. 
+    * After reaching the quota limit, if a user or administrator delete files or directories to reduce quota usage under the limit, subsequent quota-consuming file operations may resume with a delay of up to five seconds.
 
 ## Register the feature  
 

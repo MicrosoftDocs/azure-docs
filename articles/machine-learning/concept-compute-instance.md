@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
+ms.author: shoja
+author: shouryaj
 ms.reviewer: sgilley
 ms.date: 10/19/2022
 #Customer intent: As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.

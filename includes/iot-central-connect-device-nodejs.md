@@ -316,7 +316,7 @@ Sending telemetry message 0 from root interface
 
 [!INCLUDE [iot-central-monitor-thermostat](iot-central-monitor-thermostat.md)]
 
-You can see how the device responds to commands and property updates. The `getMaxMinReport` command is in the `thermostat2` component, the `reboot` command is in the default component. The `targetTemperature` writable property was set for the 'thermostat2` component:
+You can see how the device responds to commands and property updates. The `getMaxMinReport` command is in the `thermostat2` component, the `reboot` command is in the default component. The `targetTemperature` writable property was set for the `thermostat2` component:
 
 ```output
 Received command request for command name: thermostat2*getMaxMinReport

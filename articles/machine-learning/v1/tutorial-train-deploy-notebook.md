@@ -8,6 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
+ms.reviewer: sgilley
 ms.date: 09/14/2022
 ms.custom: sdkv1, event-tier1-build-2022
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.

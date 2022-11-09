@@ -23,8 +23,12 @@ items:
         href: deploy-02-new-button.md
       - name: Azure PowerShell & CLI
         href: deploy-08-new-ps-cli.md
-      - name: Manual deployment
+      - name: Manual deployment - Prerequisites
         href: deploy-03-new-manual.md
+      - name: Manual deployment - Configure
+        href: deploy-05-new-config.md
+      - name: Manual deployment - Deploy
+        href: deploy-06-new-deploy.md   
 - name: Tutorials
   expanded: true
   items:
@@ -33,26 +37,20 @@ items:
 - name: How-to guides
   expanded: true
   items: 
-  - name: Mappings
+  - name: Map
     expanded: true
     items:
     - name: Device
       expanded: false
       items:
-      - name: Device mappings
+      - name: Device mappings overview
         href: how-to-use-device-mappings.md
-      - name: JsonPathContentTemplate mappings
-        href: how-to-use-jsonpath-content-mappings.md
-      - name: Calculated Functions mappings
+      - name: CalculatedContentTemplate mappings
         href: how-to-use-calculated-functions-mappings.md
-      - name: CollectionContentTemplate mappings
-        href: how-to-use-collection-content-mappings.md
-      - name: Custom Functions mappings
-        href: how-to-use-custom-functions.md
       - name: IotJsonPathContentTemplate mappings
         href: how-to-use-iot-jsonpath-content-mappings.md
-      - name: IotCentralJsonContentTemplate mappings
-        href: how-to-use-iot-central-json-content-mappings.md
+      - name: Custom functions
+        href: how-to-use-custom-functions.md  
     - name: Destination
       expanded: false
       items:
@@ -60,10 +58,10 @@ items:
         href: how-to-use-fhir-mappings.md
   - name: Create copies of mappings
     href: how-to-create-mappings-copies.md
-  - name: Monitoring
+  - name: Monitor
     expanded: true
     items:
-    - name: Monitoring tab metrics
+    - name: Use the monitoring tab metrics
       href: how-to-use-monitoring-tab.md
     - name: Configure metrics
       href: how-to-configure-metrics.md
@@ -90,8 +88,8 @@ items:
 - name: Resources
   expanded: false
   items:
-    - name: FAQs - MedTech service
-      href: iot-connector-faqs.md
-    - name: Open-source projects
-      href: iot-git-projects.md     
+  - name: FAQs - MedTech service
+    href: iot-connector-faqs.md
+  - name: Open-source projects
+    href: iot-git-projects.md     
            

@@ -7,8 +7,11 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
+ms.custom: references_regions
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -17,19 +20,42 @@ ms.author: lajanuar
 
 # What's new in Azure Form Recognizer
 
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+
+>[!NOTE]
+> With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
 ## October 2022
 
-With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages including Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages, making it a total of 299 supported languages across the most recent GA and the new preview versions. Please refer to the [supported languages](language-support.md) page to see all supported languages.
+### Form Recognizer Studio Sample Code
+
+Sample code the Form Recgonizer Studio labeling experience is now available on github - https://github.com/microsoft/Form-Recognizer-Toolkit/tree/main/SampleCode/LabelingUX. Customers can develop and integrate Form Recognizer into their own UX or build their own new UX using the Form Recognizer Studio sample code. 
+
+### Language expansion
+
+With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages. These language additions include Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages. Form Recognizer now has a total of 299 supported languages across the most recent GA and new preview versions. Refer to the [supported languages](language-support.md) page to see all supported languages.
 
 Use the REST API parameter `api-version=2022-06-30-preview` when using the API or the corresponding SDK to support the new languages in your applications.
 
-## September 2022
+### New Prebuilt Contract model
+
+A new prebuilt that extracts information from contracts such as parties, title, contract ID, execution date and more. Contracts is currently in preview, please request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQTRDQUdHMTBWUDRBQ01QUVNWNlNYMVFDViQlQCN0PWcu_).  
 
 ### Region expansion for training custom neural models 
 
-Training custom neural models is now supported in six additional regions.
+Training custom neural models now supported in added regions.
+* East US
+* East US2
+* US Gov Arizona
+
+## September 2022
+
+### Region expansion for training custom neural models
+
+Training custom neural models is now supported in six new regions.
+
 * Australia East
 * Central US
 * East Asia
@@ -37,7 +63,7 @@ Training custom neural models is now supported in six additional regions.
 * UK South
 * West US2
 
-For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md). 
+For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md).
 
 #### Form Recognizer SDK version 4.0.0 GA release
 
@@ -200,7 +226,7 @@ This release includes the following updates:
 
 * **AI quality improvements**
 
-  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices as well as improved processing of digital PDF documents.
+  * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices and improved processing of digital PDF documents.
 
   * [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables, and improved recognition of long spanning cells.
 
@@ -229,7 +255,7 @@ The **2022-06-30-preview** release presents extensive updates across the feature
 * [**Invoice language expansion**](concept-invoice.md). The invoice model includes expanded language support. _See_ [supported languages](concept-invoice.md#supported-languages-and-locales).
 * [**Prebuilt business card**](concept-business-card.md) now includes Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).
 * [**Prebuilt ID document model**](concept-id-document.md). The ID document model now extracts DateOfIssue, Height, Weight, EyeColor, HairColor, and DocumentDiscriminator from US driver's licenses. _See_ [field extraction](concept-id-document.md).
-* [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [page extraction](concept-read.md#pages).
+* [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [Microsoft Office and HTML text extraction (preview)](concept-read.md#microsoft-office-and-html-text-extraction-preview-).
 
 #### Form Recognizer SDK beta June 2022 preview release
 
@@ -560,7 +586,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 * Client defaults to the latest supported service version, currently v2.1. You can specify version 2.0  in the **FormRecognizerClientOptions** object's **Version** property.
 
-* **StartRecognizeIdentityDocuments**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword for all related identity documents recognition API functionalities.
+* **StartRecognizeIdentityDocuments**. Renamed methods and method parameters using **Identity** to replace _ID_ keyword for all related identity documents recognition API functionalities.
 
 * **FormReadingOrder**. *ReadingOrder* renamed to **FormReadingOrder**.
 
@@ -648,7 +674,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 #### **Breaking changes (May)**
 
-* **begin_recognize_identity_documents** and **begin_recognize_identity_documents_from_url**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword.
+* **begin_recognize_identity_documents** and **begin_recognize_identity_documents_from_url**. Renamed methods and method parameters using **Identity** to replace _ID_ keyword.
 
 * **FieldValueType**. Renamed value type *country* to **countryRegion**.  Removed value type *gender*.
 

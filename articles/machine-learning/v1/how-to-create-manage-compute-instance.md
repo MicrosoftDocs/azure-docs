@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli, references_regions, cliv1, event-tier1-build-2022
-ms.author: sgilley
-author: sdgilley
+author: swatig007
+ms.author: swatig
 ms.reviewer: sgilley
 ms.date: 05/02/2022
 ---

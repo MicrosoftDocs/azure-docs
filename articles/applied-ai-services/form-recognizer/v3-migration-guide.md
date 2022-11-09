@@ -7,8 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 
@@ -17,6 +18,20 @@ recommendations: false
 > [!IMPORTANT]
 >
 > Form Recognizer REST API v3.0 introduces breaking changes in the REST API request and analyze response JSON.
+
+## Migrating from a v3.0 preview API version
+
+Preview APIs are periodically deprecated. If you're using a preview API version, plan on updating your application to target the GA API version once available. To migrate from the 2021-09-30-preview or the 2022-01-30-preview API versions to the 2022-08-31 (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
+
+The 2022-08-31 API has a few updates from the preview API versions:
+* Field rename:  boundingBox to polygon to support non-quadrilateral polygon regions.
+* Field deleted: entities removed from the result of the general document model.
+* Field rename: documentLanguage.languageCode to locale
+* Added support for HEIF format
+* Added paragraph detection, with role classification for layout and general document models
+* Added support for parsed address fields.
+
+## Migrating from v2.1
 
 Form Recognizer v3.0  introduces several new features and capabilities:
 
@@ -91,7 +106,7 @@ Base64 encoding is also supported in Form Recognizer v3.0:
 }
 ```
 
-### Additional supported parameters
+### Additionally supported parameters
 
 Parameters that continue to be supported:
 
@@ -296,7 +311,7 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compo
 The call pattern for copy model remains unchanged:
 
 * Authorize the copy operation with the target resource calling ```authorizeCopy```. Now a POST request.
-* Submit the authorization to the source resource to copy the model calling ```copy-to```
+* Submit the authorization to the source resource to copy the model calling ```copyTo```
 * Poll the returned operation to validate the operation completed successfully
 
 The only changes to the copy model function are:
@@ -317,7 +332,7 @@ POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-versio
 Use the response body from the authorize action to construct the request for the copy.
 
 ```json
-POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?api-version=2022-08-31
+POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copyTo?api-version=2022-08-31
 {
   "targetResourceId": "{targetResourceId}",
   "targetResourceRegion": "{targetResourceRegion}",
@@ -371,4 +386,5 @@ In this migration guide, you've learned how to upgrade your existing Form Recogn
 
 * [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)
-* [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)
+* [Form Recognizer quickstart](./quickstarts/try-sdk-rest-api.md)
+

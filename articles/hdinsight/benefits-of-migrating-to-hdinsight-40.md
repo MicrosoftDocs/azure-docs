@@ -237,7 +237,7 @@ Hive metastore operation takes much time and thus slow down Hive compilation. In
 
 ## Troubleshooting guide
 
-[HDInsight 3.6 to 4.0 troubleshooting guide for Hive workloads](./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md) provides answers to common issues faced when migrating Hive workloads from HDInsight 3.6 to HDInsight 4.0.
+[HDInsight 3.6 to 4.0 troubleshooting guide for Hive workloads](/azure/hdinsight/interactive-query/interactive-query-troubleshoot-migrate-36-to-40) provides answers to common issues faced when migrating Hive workloads from HDInsight 3.6 to HDInsight 4.0.
 
 ## References
 
@@ -255,5 +255,5 @@ https://hadoop.apache.org/docs/r3.1.1/hadoop-project-dist/hadoop-common/release/
 
 ## Further reading
 
-* [HDInsight 4.0 Announcement](./hdinsight-version-release.md)
-* [HDInsight 4.0 deep dive](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0.md)
+* [HDInsight 4.0 Announcement](/azure/hdinsight/hdinsight-version-release)
+* [HDInsight 4.0 deep dive](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)
