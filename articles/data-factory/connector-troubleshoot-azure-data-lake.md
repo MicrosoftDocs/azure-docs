@@ -114,20 +114,20 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Cause**: There are two possible causes:
 
-    1. he integration runtime is blocked by network access in Azure Storage account firewall settings.
+    1. The integration runtime is blocked by network access in Azure Storage account firewall settings.
     2. The service principal or managed identity doesn’t have enough permission to access the data.
 
 - **Recommendation**:
 
     1. Check your Azure storage account network settings to see whether the public network access is disabled. If disabled, use a managed virtual network integration runtime  and create a private endpoint  to access. For more information, see [Managed virtual network](managed-virtual-network-private-endpoint.md) and [Build a copy pipeline using managed VNet and private endpoints](tutorial-copy-data-portal-private.md).
 
-    1. If you enable selected virtual networks and IP addresses in your Azure storage account network setting:
+    1. If you have enabled selected virtual networks and IP addresses in your Azure storage account network setting:
 
-        1. It's possible because some IP address ranges of your integration runtime are not allowed by your storage account firewall settings. Add the Azure integration runtime IP addresses or the self-hosted integration runtime IP address to your storage account firewall. For Azure integration runtime IP addresses, see  [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md), and to learn how to add IP ranges in storage account firewall,   see [Managing IP network rules](/storage/common/storage-network-security).
+        1. It's possible because some IP address ranges of your integration runtime are not allowed by your storage account firewall settings. Add the Azure integration runtime IP addresses or the self-hosted integration runtime IP address to your storage account firewall. For Azure integration runtime IP addresses, see  [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md), and to learn how to add IP ranges in storage account firewall,   see [Managing IP network rules](../storage/common/storage-network-security.md#managing-ip-network-rules.md).
 
-        1. If you allow trusted Azure services to access this storage account in the firewall, you must use managed identity authentication in copy activity.
+        1. If you allow trusted Azure services to access this storage account in the firewall, you must use [System-assigned managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) in copy activity.
 
-         For more information about the Azure Storage account firewalls settings, see [Configure Azure Storage firewalls and virtual networks](/storage/common/storage-network-security).
+         For more information about the Azure Storage account firewalls settings, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
     1. If you use service principal or managed identity authentication, grant service principal or managed identity appropriate permissions to do copy. For source, at least the **Storage Blob Data Reader** role. For sink, at least the **Storage Blob Data Contributor** role. For more information, see [Copy and transform data in Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#service-principal-authentication).
 
