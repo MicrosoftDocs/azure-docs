@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 11/09/2022
 ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -39,7 +39,7 @@ If your storage account is using the classic deployment model, then you can reme
 
 ### Scenarios requiring anonymous access
 
-If your scenario requires that certain containers need to be available for public access, then you should move those containers and their blobs into separate storage accounts that are reserved only for public access. You can then disallow public access for any other storage accounts.
+If your scenario requires that certain containers need to be available for public access, then you should move those containers and their blobs into separate storage accounts that are reserved only for public access. You can then disallow public access for any other storage accounts using the recommendations provided in [Recommendations for remediating anonymous public access](#recommendations-for-remediating-anonymous-public-access).
 
 ## Next steps
 

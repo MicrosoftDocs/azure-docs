@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 11/09/2022
 ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -154,6 +154,9 @@ The following sample PowerShell script runs against all classic storage accounts
 # Run with BypassConfirmation=$true if you wish to remove permissions from all containers
 # without individual confirmation
 
+# Run with BypassArmUpgrade=$true if you wish to upgrade your storage account to use the 
+# Azure Resource Manager deployment model. All accounts must be upgraded by 31 August 2024.
+
 param(
     [boolean]$BypassConfirmation=$false,
     [boolean]$BypassArmUpgrade=$false
@@ -229,4 +232,5 @@ write-host "Script complete"
 
 ## See also
 
-[Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md)
+- [Overview: Remediating anonymous public read access for blob data](anonymous-read-access-overview.md)
+- [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md)

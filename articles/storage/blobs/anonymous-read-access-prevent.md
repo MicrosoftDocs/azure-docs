@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/02/2022
+ms.date: 11/09/2022
 ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -135,10 +135,12 @@ After you have evaluated anonymous requests to containers and blobs in your stor
 
 The public access setting for a storage account overrides the individual settings for containers in that account. When you disallow public access for a storage account, any containers that are configured to permit public access are no longer accessible anonymously. If you've disallowed public access for the account, you do not also need to disable public access for individual containers.
 
-Remediating blob public access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
+If your scenario requires that certain containers need to be available for public access, then you should move those containers and their blobs into separate storage accounts that are reserved for public access. You can then disallow public access for any other storage accounts.
 
 > [!IMPORTANT]
-> If your scenario requires that certain containers need to be available for public access, then you should move those containers and their blobs into separate storage accounts that are reserved for public access. You can then disallow public access for any other storage accounts.
+> After anonymous public access is disallowed for a storage account, clients that use the anonymous bearer challenge will find that Azure Storage returns a 403 error (Forbidden) rather than a 401 error (Unauthorized). We recommend that you make all containers private to mitigate this issue. For more information on modifying the public access setting for containers, see [Set the public access level for a container](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
+
+Remediating blob public access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
 ### Permissions for disallowing public access
 
@@ -547,10 +549,7 @@ The following image shows the error that occurs if you try to create a storage a
 
 :::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
 
-## Known issues
-
-After anonymous public access is disallowed for a storage account, clients that use the anonymous bearer challenge will find that Azure Storage returns a 403 error (Forbidden) rather than a 401 error (Unauthorized). We recommend that you make all containers private to mitigate this issue.
-
 ## Next steps
 
-[Remediate anonymous public read access to blob data (classic deployments)](anonymous-read-access-prevent-classic.md)
+- [Overview: Remediating anonymous public read access for blob data](anonymous-read-access-overview.md)
+- [Remediate anonymous public read access to blob data (classic deployments)](anonymous-read-access-prevent-classic.md)
