@@ -117,6 +117,7 @@ Most of the events sent by Event Grid are platform agnostic meaning they're emit
 | CallEnded         | A call is terminated and all participants are removed |
 | ParticipantAdded  | A participant has been added to a call |
 | ParticipantRemoved| A participant has been removed from a call |
+| RecordingFileStatusUpdated| A recording file is available |
 
 Read more about these events and payload schema [here](../../../event-grid/communication-services-voice-video-events.md)
 

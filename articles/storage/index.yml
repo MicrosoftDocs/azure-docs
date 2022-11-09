@@ -31,7 +31,7 @@ highlightedContent:
       url: ./common/storage-account-create.md?toc=/azure/storage/blobs/toc.json
     - title: Build new Azure Storage skills
       itemType: learn
-      url: /users/henryyan-8971/collections/d2zmi3jdje144m
+      url: /training/browse/?terms=storage
     - title: Migrate data to Azure Storage
       itemType: concept
       url: ./common/storage-migration-overview.md?toc=/azure/storage/blobs/toc.json
