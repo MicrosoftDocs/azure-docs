@@ -1,6 +1,6 @@
 ---
 title: Configure SAP system parameters for automation
-description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters file.
+description: Define the SAP system properties for the SAP on Azure Deployment Automation Framework using a parameters file.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Configure SAP system parameters
 
-Configuration for the [SAP deployment automation framework on Azure](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. You can find examples of the variable file in the 'samples/WORKSPACES/SYSTEM' folder.
+Configuration for the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. You can find examples of the variable file in the 'samples/WORKSPACES/SYSTEM' folder.
 
 The automation supports both creating resources (green field deployment) or using existing resources (brownfield deployment).
 
@@ -52,13 +52,14 @@ The table below contains the parameters that define the environment settings.
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                | Description                                              | Type       | Notes                                                                                       |
-> | ----------------------- | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-> | `environment`           | Identifier for the workload zone (max 5 chars)           | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
-> | `location`              | The Azure region in which to deploy.                     | Required   |                                                                                             |
-> | `custom_prefix`         | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
-> | `use_prefix`            | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
-> | 'name_override_file'    | Name override file                                       | Optional   | see [Custom naming](automation-naming-module.md)                                            |
+> | Variable                 | Description                                              | Type       | Notes                                                                                       |
+> | ------------------------ | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+> | `environment`            | Identifier for the workload zone (max 5 chars)           | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
+> | `location`               | The Azure region in which to deploy.                     | Required   |                                                                                             |
+> | `custom_prefix`          | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
+> | `use_prefix`             | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
+> | 'name_override_file'     | Name override file                                       | Optional   | see [Custom naming](automation-naming-module.md)                                            |
+> | 'save_naming_information | Create a sample naming json file                         | Optional   | see [Custom naming](automation-naming-module.md)                                            |
 
 ## Resource group parameters
 
@@ -75,7 +76,7 @@ The table below contains the parameters that define the resource group.
 
 ## SAP Virtual Hostname parameters
 
-In the SAP deployment automation framework, the SAP virtual hostname is defined by specifying the `use_secondary_ips` parameter.
+In the SAP on Azure Deployment Automation Framework, the SAP virtual hostname is defined by specifying the `use_secondary_ips` parameter.
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -261,7 +262,7 @@ The table below defines the parameters used for defining the Key Vault informati
 
 ### Anchor virtual machine parameters
 
-The SAP deployment automation framework supports having an Anchor virtual machine. The anchor virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
+The SAP on Azure Deployment Automation Framework supports having an Anchor virtual machine. The anchor virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
 
 The table below contains the parameters related to the anchor virtual machine.
 
@@ -307,6 +308,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                       | Description                                                                     | Type        |
 > | ---------------------------------------------- | ------------------------------------------------------------------------------- | ----------- |
+> | `use_msi_for_clusters`                         | If defined, configures the Pacemaker cluster using managed Identities           | Optional    |
 > | `resource_offset`                              | Provides and offset for resource naming. The offset number for resource naming when creating multiple resources. The default value is 0, which creates a naming pattern of disk0, disk1, and so on. An offset of 1 creates a naming pattern of disk1, disk2, and so on. | Optional    |
 > | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks using customer provided keys | Optional   |
 > | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations | Optional |
@@ -335,32 +337,37 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 ### Azure NetApp Files Support
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                            | Type         | Notes                       |
-> | ---------------------------------- | -----------------------------------------------------------------------| -----------  | --------------------------- |
-> | `ANF_use_for_HANA_data`            | Create Azure NetApp Files volume for HANA data.                        | Optional     |                             |
-> | `ANF_use_existing_data_volume`     | Use existing Azure NetApp Files volume for HANA data.                  | Optional     | Use for pre-created volumes |
-> | `ANF_data_volume_name`             | Azure NetApp Files volume name for HANA data.                          | Optional     |                             |
-> | `ANF_HANA_data_volume_size`        | Azure NetApp Files volume size in GB for HANA data.                    | Optional     | default size 256            |
-> |                                    |                                                                        |              |                             |
-> | `ANF_use_for_HANA_log`             | Create Azure NetApp Files volume for HANA log.                         | Optional     |                             |
-> | `ANF_use_existing_log_volume`      | Use existing Azure NetApp Files volume for HANA log.                   | Optional     | Use for pre-created volumes |
-> | `ANF_log_volume_name`              | Azure NetApp Files volume name for HANA log.                           | Optional     |                             |
-> | `ANF_HANA_log_volume_size`         | Azure NetApp Files volume size in GB for HANA log.                     | Optional     | default size 128            |
-> |                                    |                                                                        |              |                             |
-> | `ANF_use_for_HANA_shared`          | Create Azure NetApp Files volume for HANA shared.                      | Optional     |                             |
-> | `ANF_use_existing_shared_volume`   | Use existing Azure NetApp Files volume for HANA shared.                | Optional     | Use for pre-created volumes |
-> | `ANF_shared_volume_name`           | Azure NetApp Files volume name for HANA shared.                        | Optional     |                             |
-> | `ANF_HANA_shared_volume_size`      | Azure NetApp Files volume size in GB for HANA shared.                  | Optional     | default size 128            |
-> |                                    |                                                                        |              |                             |
-> | `ANF_use_for_sapmnt`               | Create Azure NetApp Files volume for sapmnt.                           | Optional     |                             |
-> | `ANF_use_existing_sapmnt_volume`   | Use existing Azure NetApp Files volume for sapmnt.                     | Optional     | Use for pre-created volumes |
-> | `ANF_sapmnt_volume_name`           | Azure NetApp Files volume name for sapmnt.                             | Optional     |                             |
-> | `ANF_sapmnt_volume_size`           | Azure NetApp Files volume size in GB for sapmnt.                       | Optional     | default size 128            |
-> |                                    |                                                                        |              |                             |
-> | `ANF_use_for_usrsap`               | Create Azure NetApp Files volume for usrsap.                           | Optional     |                             |
-> | `ANF_use_existing_usrsap_volume`   | Use existing Azure NetApp Files volume for usrsap.                     | Optional     | Use for pre-created volumes |
-> | `ANF_usrsap_volume_name`           | Azure NetApp Files volume name for usrsap.                             | Optional     |                             |
-> | `ANF_usrsap_volume_size`           | Azure NetApp Files volume size in GB for usrsap.                       | Optional     | default size 128            |
+> | Variable                            | Description                                                            | Type         | Notes                       |
+> | ----------------------------------- | -----------------------------------------------------------------------| -----------  | --------------------------- |
+> | `ANF_HANA_data`                     | Create Azure NetApp Files volume for HANA data.                        | Optional     |                             |
+> | `ANF_HANA_data_use_existing_volume` | Use existing Azure NetApp Files volume for HANA data.                  | Optional     | Use for pre-created volumes |
+> | `ANF_HANA_data_volume_name`         | Azure NetApp Files volume name for HANA data.                          | Optional     |                             |
+> | `ANF_HANA_data_volume_size`         | Azure NetApp Files volume size in GB for HANA data.                    | Optional     | default size 256            |
+> | `ANF_HANA_data_volume_throughput`   | Azure NetApp Files volume throughput for HANA data.                    | Optional     | default is 128 MBs/s        |
+> |                                     |                                                                        |              |                             |
+> | `ANF_HANA_log`                      | Create Azure NetApp Files volume for HANA log.                         | Optional     |                             |
+> | `ANF_HANA_log_use_existing`         | Use existing Azure NetApp Files volume for HANA log.                   | Optional     | Use for pre-created volumes |
+> | `ANF_HANA_log_volume_name`          | Azure NetApp Files volume name for HANA log.                           | Optional     |                             |
+> | `ANF_HANA_log_volume_size`          | Azure NetApp Files volume size in GB for HANA log.                     | Optional     | default size 128            |
+> | `ANF_HANA_log_volume_throughput`    | Azure NetApp Files volume throughput for HANA log.                     | Optional     | default is 128 MBs/s        |
+> |                                     |                                                                        |              |                             |
+> | `ANF_HANA_shared`                   | Create Azure NetApp Files volume for HANA shared.                      | Optional     |                             |
+> | `ANF_HANA_shared_use_existing`      | Use existing Azure NetApp Files volume for HANA shared.                | Optional     | Use for pre-created volumes |
+> | `ANF_HANA_shared_volume_name`       | Azure NetApp Files volume name for HANA shared.                        | Optional     |                             |
+> | `ANF_HANA_shared_volume_size`       | Azure NetApp Files volume size in GB for HANA shared.                  | Optional     | default size 128            |
+> | `ANF_HANA_shared_volume_throughput` | Azure NetApp Files volume throughput for HANA shared.                  | Optional     | default is 128 MBs/s        |
+> |                                     |                                                                        |              |                             |
+> | `ANF_sapmnt`                        | Create Azure NetApp Files volume for sapmnt.                           | Optional     |                             |
+> | `ANF_sapmnt_use_existing_volume`    | Use existing Azure NetApp Files volume for sapmnt.                     | Optional     | Use for pre-created volumes |
+> | `ANF_sapmnt_volume_name`            | Azure NetApp Files volume name for sapmnt.                             | Optional     |                             |
+> | `ANF_sapmnt_volume_size`            | Azure NetApp Files volume size in GB for sapmnt.                       | Optional     | default size 128            |
+> | `ANF_sapmnt_throughput`             | Azure NetApp Files volume throughput for sapmnt.                       | Optional     | default is 128 MBs/s        |
+> |                                     |                                                                        |              |                             |
+> | `ANF_usr_sap`                       | Create Azure NetApp Files volume for usrsap.                           | Optional     |                             |
+> | `ANF_usr_sap_use_existing`          | Use existing Azure NetApp Files volume for usrsap.                     | Optional     | Use for pre-created volumes |
+> | `ANF_usr_sap_volume_name`           | Azure NetApp Files volume name for usrsap.                             | Optional     |                             |
+> | `ANF_usr_sap_volume_size`           | Azure NetApp Files volume size in GB for usrsap.                       | Optional     | default size 128            |
+> | `ANF_usr_sap_throughput`            | Azure NetApp Files volume throughput for usrsap.                       | Optional     | default is 128 MBs/s        |
 
 
 ## Oracle parameters
@@ -394,7 +401,7 @@ The table below contains the Terraform parameters, these parameters need to be 
 
 The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags.
 
-High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device)
+High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device)
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"

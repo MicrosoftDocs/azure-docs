@@ -4,8 +4,8 @@ description: Learn about cryptography mitigation for threats exposed in the Thre
 author: jegeib
 manager: jegeib
 editor: jegeib
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib

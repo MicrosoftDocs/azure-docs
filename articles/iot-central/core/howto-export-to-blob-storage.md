@@ -2,8 +2,8 @@
 title: Export data to Blob Storage IoT Central | Microsoft Docs
 description: How to use the new data export to export your IoT data to Blob Storage
 services: iot-central
-author: v-krishnag
-ms.author: v-krishnag
+author: eross-msft
+ms.author: lizross
 ms.date: 04/28/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -14,6 +14,8 @@ ms.service: iot-central
 This article describes how to configure data export to send data to the  Blob Storage service.
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
+
+To learn how to manage data export by using the IoT Central REST API, see [How to use the IoT Central REST API to manage data exports.](../core/howto-manage-data-export-with-rest-api.md)
 
 ## Set up a Blob Storage export destination
 

@@ -33,6 +33,8 @@ The following screenshot shows an organization hierarchy definition in IoT Centr
 
 :::image type="content" source="media/howto-create-organization/organizations-definition.png" alt-text="Screenshot of organizations hierarchy definition." lightbox="media/howto-create-organization/organizations-definition.png":::
 
+To learn how to manage organizations by using the IoT Central REST API, see [How to use the IoT Central REST API to manage organizations.](../core/howto-manage-organizations-with-rest-api.md)
+
 ## Create a hierarchy
 
 To start using organizations, you need to define your organization hierarchy. Each organization in the hierarchy acts as a logical container where you place devices, save dashboards and device groups, and invite users. To create your organizations, go to the **Permissions** section in your IoT Central application, select the **Organizations** tab, and select either **+ New** or use the context menu for an existing organization. To create one or many organizations at a time, select **+ Add another organization**:
@@ -47,7 +49,7 @@ To reassign an organization to a new parent, select **Edit** and choose a new pa
 To delete an organization, you must delete or move to another organization any associated items such as dashboards, devices, users, device groups, and jobs.
 
 > [!TIP]
-> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/1.2-previewdataplane/organizations).
+> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/2022-07-31dataplane/organizations).
 
 ## Assign devices
 
@@ -123,6 +125,7 @@ After you've created your organization hierarchy you can use organizations in ar
 
 - [Organization dashboards](howto-manage-dashboards.md) that show information to users about devices in their organization.
 - [Device groups](tutorial-use-device-groups.md) for devices in specific organizations.
+- [IoT Edge deployment manifests](concepts-iot-edge.md#iot-edge-deployment-manifests) for deployment manifests associated with specific organizations.
 - [Analytics](howto-create-analytics.md) for devices in specific organizations.
 - [Jobs](howto-manage-devices-in-bulk.md#create-and-run-a-job) that bulk manage devices in specific organizations.
 
@@ -136,7 +139,6 @@ You can set an organization as the default organization to use in your applicati
 To set the default organization, select **Settings** on the top menu bar:
 
 :::image type="content" source="media/howto-create-organization/set-default-organization.png" alt-text="Screenshot that shows how to set your default organization." lightbox="media/howto-create-organization/set-default-organization.png":::
-
 
 ## Add organizations to an existing application
 
@@ -155,8 +157,6 @@ The following limits apply to organizations:
 - The hierarchy can be no more than five levels deep.
 - The total number of organizations can't be more than 200. Each node in the hierarchy counts as an organization.
 
-
 ## Next steps
 
 Now that you've learned how to manage Azure IoT Central organizations, the suggested next step is to learn how to  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
-

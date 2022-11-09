@@ -7,19 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv1, event-tier1-build-2022
-ms.author: sgilley
-author: sdgilley
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
 ms.date: 05/02/2022
 ---
 
 # Create an Azure Machine Learning compute cluster with CLI v1
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI version you are using:"]
-> * [CLI v1](how-to-create-attach-compute-cluster.md)
-> * [CLI v2 (current version)](../how-to-create-attach-compute-cluster.md)
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
+> * [v1](how-to-create-attach-compute-cluster.md)
+> * [v2 (current version)](../how-to-create-attach-compute-cluster.md)
 
 Learn how to create and manage a [compute cluster](../concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 
@@ -31,10 +31,6 @@ In this article, learn how to:
 * Lower your compute cluster cost
 * Set up a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the cluster
 
-This article covers only the CLI v1 way to accomplish these tasks.  To see how to use the SDK, CLI v2, or studio, see [Create an Azure Machine Learning compute cluster (CLI v2)](../how-to-create-attach-compute-cluster.md)
-
-> [!NOTE]
-> This article covers only how to do these tasks using CLI v1.  For more recent ways to manage a compute instance, see [Create an Azure Machine Learning compute cluster](../how-to-create-attach-compute-cluster.md).
 
 ## Prerequisites
 
@@ -42,6 +38,17 @@ This article covers only the CLI v1 way to accomplish these tasks.  To see how t
 
 * The [Azure CLI extension for Machine Learning service (v1)](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
 
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
+* If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment-v1.md).  Once your environment is set up, attach to the workspace in your Python script:
+
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
+    ```python
+    from azureml.core import Workspace
+    
+    ws = Workspace.from_config() 
+    ```
 
 ## What is a compute cluster?
 
@@ -79,6 +86,23 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs are created to run your jobs as needed.
     
+# [Python SDK](#tab/python)
+
+To create a persistent Azure Machine Learning Compute resource in Python, specify the **vm_size** and **max_nodes** properties. Azure Machine Learning then uses smart defaults for the other properties.
+    
+* **vm_size**: The VM family of the nodes created by Azure Machine Learning Compute.
+* **max_nodes**: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
+
+You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) for details.
+
+> [!WARNING]
+> When setting the `location` parameter, if it is a different region than your workspace or datastores you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
+
+# [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
@@ -91,12 +115,23 @@ az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STAN
 
 For more information, see Az PowerShell module [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-amlcompute).
 
-
+---
 
  ## Lower your compute cluster cost
 
 You may also choose to use [low-priority VMs](../how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. You will have to restart a preempted job. 
 
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
+```python
+compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                            vm_priority='lowpriority',
+                                                            max_nodes=4)
+```
+    
+# [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
@@ -105,12 +140,60 @@ Set the `vm-priority`:
 ```azurecli-interactive
 az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
 ```
-
+---
 
 ## Set up managed identity
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-managed-identity-intro.md)]
 
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
+* Configure managed identity in your provisioning configuration:  
+
+    * System assigned managed identity created in a workspace named `ws`
+        ```python
+        # configure cluster with a system-assigned managed identity
+        compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                                max_nodes=5,
+                                                                identity_type="SystemAssigned",
+                                                                )
+        cpu_cluster_name = "cpu-cluster"
+        cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+        ```
+    
+    * User-assigned managed identity created in a workspace named `ws`
+    
+        ```python
+        # configure cluster with a user-assigned managed identity
+        compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                                max_nodes=5,
+                                                                identity_type="UserAssigned",
+                                                                identity_id=['/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'])
+    
+        cpu_cluster_name = "cpu-cluster"
+        cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+        ```
+
+* Add managed identity to an existing compute cluster named `cpu_cluster`
+    
+    * System-assigned managed identity:
+    
+        ```python
+        # add a system-assigned managed identity
+        cpu_cluster.add_identity(identity_type="SystemAssigned")
+        ````
+    
+    * User-assigned managed identity:
+    
+        ```python
+        # add a user-assigned managed identity
+        cpu_cluster.add_identity(identity_type="UserAssigned", 
+                                    identity_id=['/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'])
+        ```
+
+# [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
@@ -162,5 +245,5 @@ If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0
 
 Use your compute cluster to:
 
-* [Submit a training run](../how-to-set-up-training-targets.md) 
+* [Submit a training run](how-to-set-up-training-targets.md) 
 * [Run batch inference](../tutorial-pipeline-batch-scoring-classification.md).

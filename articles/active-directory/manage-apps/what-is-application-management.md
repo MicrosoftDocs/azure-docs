@@ -61,13 +61,13 @@ To [manage access](what-is-access-management.md) for an application, you want to
 
 You can [manage user consent settings](configure-user-consent.md) to choose whether users can allow an application or service to access user profiles and organizational data. When applications are granted access, users can sign in to applications integrated with Azure AD, and the application can access your organization's data to deliver rich data-driven experiences.
 
-Users often are unable to consent to the permissions an application is requesting. Configure the [admin consent workflow](configure-admin-consent-workflow.md) to allow users to provide a justification and request an administrator's review and approval of an application.
+Users often are unable to consent to the permissions an application is requesting. Configure the admin consent workflow to allow users to provide a justification and request an administrator's review and approval of an application. To learn how to configure admin consent workflow in your Azure AD tenant, see [Configure admin consent workflow](configure-admin-consent-workflow.md).
 
 As an administrator, you can [grant tenant-wide admin consent](grant-admin-consent.md) to an application. Tenant-wide admin consent is necessary when an application requires permissions that regular users aren't allowed to grant, and allows organizations to implement their own review processes. Always carefully review the permissions the application is requesting before granting consent. When an application has been granted tenant-wide admin consent, all users are able to sign into the application unless it has been configured to require user assignment.
 
 ### Single sign-on
 
-Consider implementing SSO in your application. You can manually configure most applications for SSO. The most popular options in Azure AD are [SAML-based SSO and OpenID Connect-based SSO](../develop/active-directory-v2-protocols.md). Before you start, make sure that you understand the requirements for SSO and how to [plan for deployment](plan-sso-deployment.md). For training related to configuring SAML-based SSO for an enterprise application in your Azure AD tenant, see [Enable single sign-on for an application by using Azure Active Directory](/learn/modules/enable-single-sign-on).
+Consider implementing SSO in your application. You can manually configure most applications for SSO. The most popular options in Azure AD are [SAML-based SSO and OpenID Connect-based SSO](../develop/active-directory-v2-protocols.md). Before you start, make sure that you understand the requirements for SSO and how to [plan for deployment](plan-sso-deployment.md). For more information on how to configure SAML-based SSO for an enterprise application in your Azure AD tenant, see [Enable single sign-on for an application by using Azure Active Directory](add-application-portal-setup-sso.md).
 
 ### User, group, and owner assignment
 

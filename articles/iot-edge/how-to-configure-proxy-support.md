@@ -12,7 +12,7 @@ ms.custom: [amqp, contperf-fy21q1]
 
 # Configure an IoT Edge device to communicate through a proxy server
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 IoT Edge devices send HTTPS requests to communicate with IoT Hub. If your device is connected to a network that uses a proxy server, you need to configure the IoT Edge runtime to communicate through the server. Proxy servers can also affect individual IoT Edge modules if they make HTTP or HTTPS requests that aren't routed through the IoT Edge hub.
 
@@ -280,27 +280,76 @@ This step takes place once on the IoT Edge device during initial device setup.
 
 2. In the config file, find the `[agent]` section, which contains all the configuration information for the edgeAgent module to use on startup. Check and make sure that the `[agent]`section is uncommented or add it if it is not included in the `config.toml`. The IoT Edge agent definition includes an `[agent.env]` subsection where you can add environment variables.
 
+:::moniker-end
+
+<!-- 1.3 -->
+:::moniker range="=iotedge-2020-11"
+
 3. Add the **https_proxy** parameter to the environment variables section, and set your proxy URL as its value.
 
-   ```toml
-   [agent]
-   name = "edgeAgent"
-   type = "docker"
-   
-   [agent.env]
-   # "RuntimeLogLevel" = "debug"
-   # "UpstreamProtocol" = "AmqpWs"
-   "https_proxy" = "<proxy URL>"
-   ```
+    ```toml
+    [agent]
+    name = "edgeAgent"
+    type = "docker"
+    
+    [agent.config]
+    image = "mcr.microsoft.com/azureiotedge-agent:1.3"
+    
+    [agent.env]
+    # "RuntimeLogLevel" = "debug"
+    # "UpstreamProtocol" = "AmqpWs"
+    "https_proxy" = "<proxy URL>"
+    ```
 
 4. The IoT Edge runtime uses AMQP by default to talk to IoT Hub. Some proxy servers block AMQP ports. If that's the case, then you also need to configure edgeAgent to use AMQP over WebSocket. Uncomment the `UpstreamProtocol` parameter.
 
-   ```toml
-   [agent.env]
-   # "RuntimeLogLevel" = "debug"
-   "UpstreamProtocol" = "AmqpWs"
-   "https_proxy" = "<proxy URL>"
-   ```
+    ```toml
+    [agent.config]
+    image = "mcr.microsoft.com/azureiotedge-agent:1.3"
+    
+    [agent.env]
+    # "RuntimeLogLevel" = "debug"
+    "UpstreamProtocol" = "AmqpWs"
+    "https_proxy" = "<proxy URL>"
+    ```
+
+:::moniker-end
+
+<!-- 1.4 -->
+:::moniker range=">=iotedge-1.4"
+
+3. Add the **https_proxy** parameter to the environment variables section, and set your proxy URL as its value.
+
+    ```toml
+    [agent]
+    name = "edgeAgent"
+    type = "docker"
+    
+    [agent.config]
+    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+    
+    [agent.env]
+    # "RuntimeLogLevel" = "debug"
+    # "UpstreamProtocol" = "AmqpWs"
+    "https_proxy" = "<proxy URL>"
+    ```
+
+4. The IoT Edge runtime uses AMQP by default to talk to IoT Hub. Some proxy servers block AMQP ports. If that's the case, then you also need to configure edgeAgent to use AMQP over WebSocket. Uncomment the `UpstreamProtocol` parameter.
+
+    ```toml
+    [agent.config]
+    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+    
+    [agent.env]
+    # "RuntimeLogLevel" = "debug"
+    "UpstreamProtocol" = "AmqpWs"
+    "https_proxy" = "<proxy URL>"
+    ```
+    
+:::moniker-end
+
+<!-- >= 1.3 -->
+:::moniker range=">=iotedge-2020-11"
 
 5. Save the changes and close the editor. Apply your latest changes.
 

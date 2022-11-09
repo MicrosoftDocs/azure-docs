@@ -4,7 +4,7 @@ description: Use administrative units for more granular delegation of permission
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles

@@ -1,9 +1,9 @@
 ---
 title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance online using Azure Data Studio"
-titleSuffix: Azure Database Migration Service(DMS)
+titleSuffix: Azure Database Migration Service
 description: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with Azure Database Migration Service
 services: dms
-author: dbamaster
+author: croblesm
 ms.author: roblescarlos
 manager: 
 ms.reviewer: cawrites
@@ -60,7 +60,6 @@ To complete this tutorial, you need to:
 
     > [!IMPORTANT]
     > - If your database backup files are provided in an SMB network share, [Create an Azure storage account](../storage/common/storage-account-create.md) that allows the DMS service to upload the database backup files.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
-    > - You can't use an Azure Storage account that has a private endpoint with Azure Database Migration Service.
     > - Azure Database Migration Service does not initiate any backups, and instead uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
     > - You need to take [backups using the `WITH CHECKSUM` option](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server). 
     > - Each backup can be written to either a separate backup file or multiple backup files. However, appending multiple backups (i.e. full and t-log) into a single backup media is not supported. 

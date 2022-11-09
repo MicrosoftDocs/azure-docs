@@ -95,7 +95,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 |---|---|---|---|
 | Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute/virtualmachines)  | Scale Set specific VMs (Microsoft.compute/virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM (Microsoft.compute/virtualmachines) |
 | Maximum Instance Count (with FD guarantees)  | 1000  | 100  | 200 |
-| SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported | All SKUs  | All SKUs |
+| SKUs supported  | All SKUs | All SKUs  | All SKUs |
 | Full control over VM, NICs, Disks  | Yes  | Limited control with virtual machine scale sets VM API  | Yes  |
 | RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network | Compute VMSS Write  | N/A |
 | Cross tenant shared image gallery | No | Yes | Yes |
@@ -104,7 +104,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same availability set |
 | Disk Types  | Managed disks only, all storage types  | Managed and unmanaged disks, all storage types  | Managed and unmanaged disks, Ultradisk not supported |
 | Disk Server Side Encryption with Customer Managed Keys | Yes | Yes | Yes |
-| Write Accelerator   | No  | Yes  | Yes |
+| Write Accelerator   | Yes  | Yes  | Yes |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |
 | Azure Dedicated Hosts   | No  | Yes  | Yes |
 | Managed Identity  | [User Assigned Identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) only<sup>1</sup>  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
@@ -156,7 +156,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Azure Load Balancer Standard SKU | Yes | Yes | Yes |
 | Application Gateway | Yes | Yes | Yes |
 | Infiniband Networking | No | Yes, single placement group only | Yes |
-| Basic SLB | No | Yes | Yes |
+| Basic LB | No | Yes | Yes |
 | Network Port Forwarding | Yes (NAT Rules for individual instances) | Yes (NAT Pool) | Yes (NAT Rules for individual instances) |
 
 ### Backup and recovery 
@@ -173,7 +173,6 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 
 The following virtual machine scale set parameters are not currently supported with virtual machine scale sets in Flexible orchestration mode:
 - Single placement group - you must choose `singlePlacementGroup=False`
-- Deployment using Specialty SKUs: G, H, L, M, N series VM families
 - Ultra disk configuration: `diskIOPSReadWrite`, `diskMBpsReadWrite`
 - Virtual machine scale set Overprovisioning
 - Image-based Automatic OS Upgrades

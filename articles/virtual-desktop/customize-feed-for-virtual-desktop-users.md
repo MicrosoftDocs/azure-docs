@@ -3,7 +3,7 @@ title: Customize feed for Azure Virtual Desktop users - Azure
 description: How to customize feed for Azure Virtual Desktop users with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/14/2019
+ms.date: 08/16/2020
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -18,6 +18,15 @@ You can customize the feed so the RemoteApp and remote desktop resources appear 
 ## Prerequisites
 
 This article assumes you've already downloaded and installed the Azure Virtual Desktop PowerShell module. If you haven't, follow the instructions in [Set up the PowerShell module](powershell-module.md).
+
+## Customize the display name for a session host
+
+You can change the display name for a remote desktop for your users by setting its session host friendly name. By default, the session host friendly name is empty, so users only see the app name. You can set the session host friendly name using REST API.
+
+>[!NOTE]
+>The following instructions only apply to personal desktops, not pooled desktops. Also, personal host pools only allow and support desktop app groups.
+
+To add or change a session host's friendly name, use the [Session Host - Update REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) and update the *properties.friendlyName* parameter with a REST API request.
 
 ## Customize the display name for a RemoteApp
 
@@ -92,7 +101,7 @@ To assign a friendly name to the remote desktop resource, run the following Powe
 Update-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
 ```
 
-## Customize a display name in Azure portal
+## Customize a display name in the Azure portal
 
 You can change the display name for a published remote desktop by setting a friendly name using the Azure portal.
 
@@ -114,8 +123,8 @@ You can change the display name for a published remote desktop by setting a frie
 
 Now that you've customized the feed for users, you can sign in to a Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
 
- * [Connect with Windows 10 or Windows 7](./user-documentation/connect-windows-7-10.md)
- * [Connect with the web client](./user-documentation/connect-web.md)
- * [Connect with the Android client](./user-documentation/connect-android.md)
- * [Connect with the iOS client](./user-documentation/connect-ios.md)
- * [Connect with the macOS client](./user-documentation/connect-macos.md)
+ * [Connect with Windows](./users/connect-windows.md)
+ * [Connect with the web client](./users/connect-web.md)
+ * [Connect with the Android client](./users/connect-android-chrome-os.md)
+ * [Connect with the iOS client](./users/connect-ios-ipados.md)
+ * [Connect with the macOS client](./users/connect-macos.md)

@@ -7,7 +7,7 @@ ms.service: peering-service
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 11/06/2020
+ms.date: 10/03/2022
 ms.author: halkazwini
 ---
 
@@ -17,36 +17,37 @@ Microsoft has partnered with internet service providers (ISPs), internet exchang
 
 This article provides information on the connectivity providers that are partnered with Microsoft to offer Azure Peering Service connection to customers.
 
-
 ## Peering Service partners list
 
 The table in this article provides information on the Peering Service connectivity partners and their associated markets.
 
 | **Partners** | **Market**|
 |-----------|---------|
-| [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) |North America, Europe, Asia|
+| [Atman](https://www.atman.pl/en/atman-internet-maps/) |Europe|
 | [BBIX](https://www.bbix.net/en/service/) |Japan |
+| [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |Europe|
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
+| [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe, Asia|
+| [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) |Asia|
+| [Dimension Data](https://www.dimensiondata.com/en-gb/about-us/our-partners/microsoft/)|Africa |
 | [DE-CIX](https://www.de-cix.net/)|Europe, North America |
-| [IIJ](https://www.iij.ad.jp/en/) | Japan |
+| [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |North America, Asia|
+| [IIJ](https://www.iij.ad.jp/en/) |Japan |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
-| [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) | Africa  |
-| [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan, Indonesia |
+| [LINX](https://www.linx.net/services/microsoft-azure-peering/) |Europe|
+| [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) |Africa  |
+| [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) |North America, Europe, Asia|
+| [MainOne](https://www.mainone.net/connectivity-services/) |Africa|
+| [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |Africa|
+| [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) |Japan, Indonesia |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |Asia |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asia |
-| [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |Africa|
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |Europe|
-| [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
-| [MainOne](https://www.mainone.net/connectivity-services/) |Africa|
-| [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |Europe|
 | [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) |Asia, Europe |
-| [Atman](https://www.atman.pl/en/atman-internet-maps/) |Europe|
-| [LINX](https://www.linx.net/services/microsoft-azure-peering/) |Europe|
-| [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) |Asia|
-
-
+| [Vocusgroup NZ](https://www.vocus.co.nz/microsoftazuredirectpeering/) |Oceania |
+| [Vodacom](https://www.vodacom.com/index.php) |Africa |
 
 > [!NOTE]
 >For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.

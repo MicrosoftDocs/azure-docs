@@ -86,8 +86,8 @@
         href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
-  - name: Microsoft Learn modules
-    href: /learn/browse/?terms=content+moderator
+  - name: Learn modules
+    href: /training/browse/?terms=content+moderator
   - name: Azure webinar series
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Azure Government and global Azure

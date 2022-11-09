@@ -41,7 +41,7 @@ Push notifications are vital for consumer apps in increasing app engagement and 
 
 For more information on push notifications for a few popular platforms, see the following topics:
 
-- [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
+- [Android](https://developer.android.com/develop/ui/views/notifications)
 - [iOS](https://developer.apple.com/notifications/)
 - [Windows](/previous-versions/windows/apps/hh779725(v=win.10))
 
@@ -114,7 +114,7 @@ Get started with creating and using a notification hub by following the [Tutoria
 [1]: ./media/notification-hubs-overview/notification-hub-diagram.png
 
 [How customers are using Notification Hubs]: https://azure.microsoft.com/services/notification-hubs
-[Notification Hubs tutorials and guides]: https://azure.microsoft.com/documentation/services/notification-hubs
+[Notification Hubs tutorials and guides]: ./index.yml
 [iOS]: ./notification-hubs-push-notification-fixer.md
 [Android]: ./notification-hubs-android-push-notification-google-gcm-get-started.md
 [Windows Universal]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

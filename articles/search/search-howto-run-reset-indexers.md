@@ -6,6 +6,7 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 01/07/2022
 ---
@@ -36,12 +37,14 @@ Indexer limits vary by the workload. For each workload, the following job limits
 
 | Workload | Maximum duration | Maximum jobs | Execution environment <sup>1</sup> |
 |----------|------------------|---------------------|-----------------------------|
-| Text-based indexing | 24 hours | One per search unit <sup>2</sup> | Typically runs on the search service. |
+| Text-based indexing <sup>3</sup> | 2 or 24 hours | One per search unit <sup>2</sup> | Typically runs on the search service. It may also run on internally managed, multi-tenant content processing cluster. |
 | Skills-based indexing | 2 hours | Indeterminate | Typically runs on an internally managed, multi-tenant content processing cluster, depending on how complex the skillset is. A simple skill might execute on your search service if the service has capacity. Otherwise, skills-based indexer jobs execute off-service. Because the content processing cluster is multi-tenant, nodes are added to meet demand. If you experience a delay in on-demand or scheduled execution, it's probably because the system is either adding nodes or waiting for one to become available.|
 
 <sup>1</sup> For optimum processing, a search service determines the internal execution environment for the indexer operation. The execution environment is either the search service or a multi-tenant environment that's managed and secured by Microsoft at no extra cost. You cannot control or configure which environment is used. Using an internally managed cluster for skillset processing leaves more service-specific resources available for routine operations like queries and text indexing.
 
 <sup>2</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, and maximum indexer jobs are not tied to one or the other. In other words, if you have four units, you can have four text-based indexer jobs running concurrently, no matter how the search units are deployed.
+
+<sup>3</sup>  Indexer maximum run time for Basic tier or higher can be 2 or 24 hours, depending on system resources, product implementation and other factors.
 
 > [!TIP]
 > If you are [indexing a large data set](search-howto-large-index.md), you can stretch processing out by putting the indexer [on a schedule](search-howto-schedule-indexers.md). For the full list of all indexer-related limits, see [indexer limits](search-limits-quotas-capacity.md#indexer-limits)
@@ -50,7 +53,7 @@ Indexer limits vary by the workload. For each workload, the following job limits
 
 [Run Indexer](/rest/api/searchservice/run-indexer) will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
 
-Change detection is essential for determining what's new or updated in the data source. If the content is unchanged, Run has no effect. Blob storage has built-in change detection through its LastModified property. Other data sources, such as Azure SQL or Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
+Change detection is essential for determining what's new or updated in the data source. If the content is unchanged, Run has no effect. Blob storage has built-in change detection through its LastModified property. Other data sources, such as Azure SQL or Azure Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
 
 <a name="reset-indexers"></a>
 

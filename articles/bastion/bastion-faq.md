@@ -4,12 +4,12 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 10/25/2022
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
 
-## <a name="host"></a>Bastion
+## <a name="host"></a>Bastion FAQs
 
 ### <a name="browsers"></a>Which browsers are supported?
 
@@ -45,6 +45,10 @@ Azure Bastion needs to be able to communicate with certain internal endpoints to
 You may use a private DNS zone ending with one of the names listed above (ex: privatelink.blob.core.windows.net).
 
 Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
+
+### <a name="dns"></a>Does Azure Bastion support Private Link?"
+
+No, Azure Bastion doesn't currently support private link.
 
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 
@@ -84,7 +88,15 @@ Review any error messages and [raise a support request in the Azure portal](../a
 
 Azure Bastion is deployed within VNets or peered VNets, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site VNet. In the event of an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
 
-## <a name="vm"></a>VM features and connections
+### <a name="zone-redundant"></a>Does Bastion support zone redundancies?
+
+Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
+
+### <a name="azure-ad-guests"></a>Does Bastion support Azure AD guest accounts?
+
+Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines.
+
+## <a name="vm"></a>VM features and connection FAQs
 
 ### <a name="roles"></a>Are any roles required to access a virtual machine?
 
@@ -125,7 +137,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
-This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Windows Azure VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
 ### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
 
@@ -151,9 +163,9 @@ Azure Bastion currently supports the following keyboard layouts inside the VM:
 * sv-se-qwerty
 * tr-tr-qwerty
 
-To establish the correct key mappings for your target language, you must set either the keyboard layout on your local computer to English (United States) or the keyboard layout inside the target VM to English (United States). That is, the keyboard layout on your local computer must be set to English (United States) while the keyboard layout on your target VM is set to your target language, or vice versa. 
+To establish the correct key mappings for your target language, you must set the keyboard layout on your local computer to your target language *and* the keyboard layout inside the target VM to your target language. Both keyboards must be set to your target language to establish the correct key mappings inside the target VM. 
 
-To set English (United States) as your keyboard layout on a Windows workstation, navigate to Settings > Time & Language > Language & Region. Under "Preferred languages," select "Add a language" and add English (United States). You'll then be able to see your keyboard layouts on your toolbar. To set English (United States) as your keyboard layout, select "ENG" on your toolbar or click Windows + Spacebar to open keyboard layouts.
+To set your target language as your keyboard layout on a Windows workstation, navigate to Settings > Time & Language > Language & Region. Under "Preferred languages," select "Add a language" and add your target language. You'll then be able to see your keyboard layouts on your toolbar. To set English (United States) as your keyboard layout, select "ENG" on your toolbar or click Windows + Spacebar to open keyboard layouts.
 
 ### <a name="res"></a>What is the maximum screen resolution supported via Bastion?
 
@@ -163,7 +175,7 @@ Currently, 1920x1080 (1080p) is the maximum supported resolution.
 
 Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable.
 
-## <a name="peering"></a>VNet peering
+## <a name="peering"></a>VNet peering FAQs
 
 ### Can I still deploy multiple Bastion hosts across peered virtual networks?
 
@@ -194,3 +206,7 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+## Next steps
+
+For more information, see [What is Azure Bastion](bastion-overview.md).

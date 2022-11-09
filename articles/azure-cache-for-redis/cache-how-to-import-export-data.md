@@ -4,7 +4,7 @@ description: Learn how to import and export data to and from blob storage with y
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 09/01/2022
 ms.author: franlanglois
 
 ---
@@ -30,7 +30,7 @@ Use import to bring Redis compatible RDB files from any Redis server running in 
 >
 >
 
-1. To import one or more exported cache blobs, [browse to your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the Azure portal and select **Import data** from the **Resource menu**. In the working pane you see **Choose Blob(s)** where you can find .RDB files.
+1. To import one or more exported cache blobs, [browse to your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the Azure portal and select **Import data** from the **Resource menu**. In the working pane, you see **Choose Blob(s)** where you can find RDB files.
 
     :::image type="content" source="./media/cache-how-to-import-export-data/cache-import-data.png" alt-text="Screenshot showing Import data selected in the Resource menu.":::
 
@@ -80,7 +80,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
 
     :::image type="content" source="./media/cache-how-to-import-export-data/cache-export-data-choose-account.png" alt-text="Screenshot showing a list of containers in the working pane.":::
 
-3. Choose the storage container you want to hold your export, then **Select**. If you want a new container, select **Add Container** to add it first and then select it from the list.
+3. Choose the storage container you want to hold your export, then **Select**. If you want a new container, select **Add Container** to add it first, and then select it from the list.
 
     :::image type="content" source="./media/cache-how-to-import-export-data/cache-export-data-container.png" alt-text="Screenshot of a list of containers with one highlighted and a select button.":::
 
@@ -166,7 +166,7 @@ To resolve this error, start the import or export operation before 15 minutes ha
 
 ### I got an error when exporting my data to Azure Blob Storage. What happened?
 
-Export works only with RDB files stored as page blobs. Other blob types aren't currently supported, including Blob storage accounts with hot and cool tiers. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
+Export works only with RDB files stored as page blobs. Other blob types aren't currently supported, including Blob storage accounts with hot and cool tiers. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md). If you're using an access key to authenticate a storage account, having firewall exceptions on the storage account tends to cause the import/export process to fail.
 
 ## Next steps
 

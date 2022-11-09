@@ -3,7 +3,7 @@ title: Configure kubenet networking in Azure Kubernetes Service (AKS)
 description: Learn how to configure kubenet (basic) network in Azure Kubernetes Service (AKS) to deploy an AKS cluster into an existing virtual network and subnet.
 services: container-service
 ms.topic: article
-ms.date: 06/20/2022
+ms.date: 10/26/2022
 
 ms.reviewer: nieberts, jomore
 ---
@@ -132,7 +132,7 @@ You can create an AKS cluster using a system-assigned managed identity by runnin
 
 > [!NOTE]
 > When using system-assigned identity, azure-cli will grant Network Contributor role to the system-assigned identity after the cluster is created.
-> System-assigned managed identity is only support for CLI. If you are using an ARM template or other clients, you need to use the [user-assigned managed identity][Create an AKS cluster with user-assigned managed identities]
+> If you are using an ARM template or other clients, you need to use the [user-assigned managed identity][Create an AKS cluster with user-assigned managed identities]
 
 ```azurecli-interactive
 az aks create \
@@ -266,7 +266,12 @@ Limitations:
 * For system-assigned managed identity, it's only supported to provide your own subnet and route table via Azure CLI. That's because CLI will add the role assignment automatically. If you are using an ARM template or other clients, you must use a [user-assigned managed identity][Create an AKS cluster with user-assigned managed identities], assign permissions before cluster creation, and ensure the user-assigned identity has write permissions to your custom subnet and custom route table.
 * Using the same route table with multiple AKS clusters isn't supported.
 
-After you create a custom route table and associate it to your subnet in your virtual network, you can create a new AKS cluster that uses your route table.
+> [!NOTE]
+> To create and use your own VNet and route table with `kubenet` network plugin, you need to use [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, the identity ID cannot be retrieved before creating a cluster, which causes a delay during role assignment.
+> 
+> To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported. But user-assigned managed identity is more recommended for BYO scenarios.
+
+After creating a custom route table and associating it with a subnet in your virtual network, you can create a new AKS cluster specifying your route table with a user-assigned managed identity.
 You need to use the subnet ID for where you plan to deploy your AKS cluster. This subnet also must be associated with your custom route table.
 
 ```azurecli-interactive
@@ -278,7 +283,7 @@ az network vnet subnet list --resource-group
 
 ```azurecli-interactive
 # Create a kubernetes cluster with with a custom subnet preconfigured with a route table
-az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id <MySubnetID-resource-id>
+az aks create -g myResourceGroup -n myManagedCluster --vnet-subnet-id mySubnetIDResourceID --enable-managed-identity --assign-identity controlPlaneIdentityResourceID
 ```
 
 ## Next steps
@@ -311,3 +316,4 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
 [Create an AKS cluster with user-assigned managed identities]: configure-kubenet.md#create-an-aks-cluster-with-user-assigned-managed-identities
+[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-control-plane-managed-identity

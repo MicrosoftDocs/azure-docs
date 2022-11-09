@@ -171,7 +171,7 @@ You can remove your Microsoft peering configuration by right-clicking the peerin
 You can remove your private peering configuration by right-clicking the peering and selecting **Delete** as shown in the following image:
 
 > [!WARNING]
-> You must ensure that all virtual networks and ExpressRoute Global Reach connections are removed before running this operation. 
+> You must ensure that all virtual network connections and ExpressRoute Global Reach connections are removed before running this operation. 
 > 
 
 :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/delete-private-peering.png" alt-text="Screenshot showing how to delete private peering.":::

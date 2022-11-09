@@ -29,8 +29,8 @@ For example, in the following diagram:
 You can also replace the SDWAN appliance with Azure VPN gateway. Since Azure VPN gateway and ExpressRoute are fully managed, you only need to enable the route exchange for the two on-premises networks to talk to each other.
 
 > [!IMPORTANT] 
-> Azure VPN gateway must be configured in [**active-active**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md) mode and have the ASN set to 65515.
->
+> * Azure VPN gateway must be configured in [**active-active**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md) mode and have the ASN set to 65515.
+> * When you create or delete an Azure Route Server from a virtual network that contains a Virtual Network Gateway (ExpressRoute or VPN), expect downtime until the operation complete.
 
 ![Diagram showing ExpressRoute and VPN gateway configured with Route Server.](./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png)
 

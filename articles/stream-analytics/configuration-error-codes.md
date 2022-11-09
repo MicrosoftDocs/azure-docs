@@ -6,6 +6,7 @@ author: sidramadoss
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ---
 
 # Azure Stream Analytics configuration error codes
@@ -48,8 +49,8 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## CosmosDBPartitionKeyNotFound
 
-* **Cause**: Stream Analytics couldn't find the partition key of a particular Cosmos DB collection in the database.
-* **Recommendation**: Ensure there is a valid partition key specified for the collection in Cosmos DB.
+* **Cause**: Stream Analytics couldn't find the partition key of a particular Azure Cosmos DB collection in the database.
+* **Recommendation**: Ensure there is a valid partition key specified for the collection in Azure Cosmos DB.
 
 ## CosmosDBInvalidPartitionKeyColumn
 
@@ -61,15 +62,15 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## CosmosDBDatabaseNotFound
 
-* **Cause**: Stream Analytics can't find a CosmosDB database.
+* **Cause**: Stream Analytics can't find an Azure Cosmos DB database.
 
 ## CosmosDBCollectionNotFound
 
-* **Cause**: Stream Analytics can't find a particular Cosmos DB collection in a database.
+* **Cause**: Stream Analytics can't find a particular Azure Cosmos DB collection in a database.
 
 ## CosmosDBOutputWriteThrottling
 
-* **Cause**: An error occurred while writing data due to throttling by Cosmos DB.
+* **Cause**: An error occurred while writing data due to throttling by Azure Cosmos DB.
 * **Recommendation**: Upgrade the collection performance tier and tune the performance of your database.
 
 ## SQLDatabaseConnectionStringError

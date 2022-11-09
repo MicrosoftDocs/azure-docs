@@ -183,8 +183,8 @@ You can review the JSON for module twins in the Azure IoT Hub, in Visual Studio 
 To view the JSON for the module twin:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
-1. Select **IoT Edge** from the left pane menu.
-1. On the **IoT Edge devices** tab, select the **Device ID** of the device with the modules you want to monitor.
+1. Select **Devices** under the **Device management** menu.
+1. Select the **Device ID** of the IoT Edge device with the modules you want to monitor.
 1. Select the module name from the **Modules** tab and then select **Module Identity Twin** from the upper menu bar.
 
   ![Select a module twin to view in the Azure portal](./media/how-to-monitor-module-twins/select-module-twin.png)

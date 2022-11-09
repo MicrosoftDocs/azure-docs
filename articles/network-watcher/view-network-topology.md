@@ -7,12 +7,16 @@ author: damendo
 ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload:  infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ---
 
 # View the topology of an Azure virtual network
+
+> [!IMPORTANT]
+> Try the new [Topology (Preview)](network-insights-topology.md) experience which offers visualization of Azure resources for ease of inventory management and monitoring network at scale. Leverage it to visualize resources and their dependencies across subscriptions, regions and locations. [Click](https://ms.portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/overview) to navigate to the experience.
 
 In this article, you learn how to view resources in a Microsoft Azure virtual network, and the relationships between the resources. For example, a virtual network contains subnets. Subnets contain resources, such as Azure Virtual Machines (VM). VMs have one or more network interfaces. Each subnet can have a network security group and a route table associated to it. The topology capability of Azure Network Watcher enables you to view all of the resources in a virtual network, the resources associated to resources in a virtual network, and the relationships between the resources.
 

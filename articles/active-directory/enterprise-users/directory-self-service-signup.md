@@ -3,8 +3,8 @@ title: Self-service sign-up for email-verified users - Azure AD | Microsoft Docs
 description: Use self-service sign-up in an Azure Active Directory (Azure AD) organization
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
 ms.date: 06/23/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 

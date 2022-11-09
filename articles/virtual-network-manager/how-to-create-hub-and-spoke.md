@@ -1,8 +1,8 @@
 ---
 title: 'Create a hub and spoke topology with Azure Virtual Network Manager (Preview)'
 description: Learn how to create a hub and spoke network topology with Azure Virtual Network Manager.
-author: duongau
-ms.author: duau
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
 ms.date: 11/02/2021
@@ -30,24 +30,47 @@ This section will help you create a network group containing the virtual network
 
 1. Go to your Azure Virtual Network Manager instance. This how-to guide assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
-1. Select **Network groups** under *Settings*, and then select **+ Add** to create a new network group.
+1. Select **Network Groups** under *Settings*, then select **+ Create**.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-network-group.png" alt-text="Screenshot of add a network group button.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-2.png" alt-text="Screenshot of add a network group button.":::
 
-1. On the *Basics* tab, enter a **Name** and a **Description** for the network group.
+1. On the *Create a network group* page, enter a **Name** for the network group. This example will use the name **myNetworkGroup**. Select **Add** to create the network group.
 
-    :::image type="content" source="./media/how-to-create-hub-and-spoke/basics.png" alt-text="Screenshot of basics tab for add a network group.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-basics.png" alt-text="Screenshot of create a network group page.":::
 
-1. To add virtual network manually, select the **Static group members** tab. For more information, see [static members](concept-network-groups.md#static-membership).
+1. You'll see the new network group added to the *Network Groups* page.
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of network group page with list of network groups.":::
 
-    :::image type="content" source="./media/how-to-create-hub-and-spoke/static-group.png" alt-text="Screenshot of static group members tab.":::
+1. Once your network group is created, you'll add virtual networks as members. Choose one of the options: *[Manually add membership](concept-network-groups.md#static-membership)* or *[Create policy to dynamically add members](concept-network-groups.md#dynamic-membership)*.
+## Define network group members
+Azure Virtual Network manager allows you two methods for adding membership to a network group. You can manually add virtual networks or use Azure Policy to dynamically add virtual networks based on conditions. Choose the option below for your mesh membership configuration:
 
-1. To add virtual networks dynamically, select the **Conditional statements** tab. For more information, see [dynamic membership](concept-network-groups.md#dynamic-membership).
+### Manually adding members
+To manually add the desired virtual networks for your Mesh configuration to your Network Group, follow the steps below:
 
-    :::image type="content" source="./media/how-to-create-hub-and-spoke/conditional-statements.png" alt-text="Screenshot of conditional statements tab.":::
+1. From the list of network groups, select your network group and select **Add virtual networks** under *Manually add members* on the network group page.
 
-1. Once you're satisfied with the virtual networks selected for the network group, select **Review + create**. Then select **Create** once validation has passed.
- 
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-static-member.png" alt-text="Screenshot of add a virtual network.":::
+
+1. On the *Manually add members* page, select all the virtual networks and select **Add**.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of add virtual networks to network group page.":::
+
+1. To review the network group membership manually added, select **Group Members** on the *Network Group* page under **Settings**.
+    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
+
+### Dynamic membership with Azure Policy
+To dynamically add members using [Azure Policy](concept-azure-policy-integration.md), follow the steps below:
+
+1. From the list of network groups, select your network group and select **Create Azure Policy** under *Create policy to dynamically add members*.
+
+    :::image type="content" source="media/create-virtual-network-manager-portal/define-dynamic-membership.png" alt-text="Screenshot of Create Azure Policy button.":::
+
+1. On the **Create Azure Policy** page, create a conditional statement to populate your network group. You can choose different conditional parameters including *Name* and *Tags*.
+    
+    :::image type="content" source="media/how-to-create-hub-and-spoke/create-azure-policy.png" alt-text="Screenshot of Create Azure Policy page with conditional parameters displayed.":::
+
+1. To review the network group membership based on the conditions defined in Azure Policy, select **Group Members** on the *Network Group* page under **Settings**
 ## Create a hub and spoke connectivity configuration
 
 This section will guide you through how to create a hub-and-spoke configuration with the network group you created in the previous section.
@@ -90,7 +113,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
 
 ## Deploy the hub and spoke configuration
 
-To have this configuration take effect in your environment, you'll need to deploy the configuration to the regions where your selected virtual network are created.
+To have this configuration take effect in your environment, you'll need to deploy the configuration to the regions where your selected virtual networks are created.
 
 1. Select **Deployments** under *Settings*, then select **Deploy a configuration**.
 

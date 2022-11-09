@@ -16,9 +16,6 @@ ms.custom: devx-track-azurecli
 # Configure ExpressRoute Global Reach by using the Azure CLI
 
 This article helps you configure Azure ExpressRoute Global Reach by using the Azure CLI. For more information, see [ExpressRoute Global Reach](expressroute-global-reach.md).
-
-> [!NOTE]
-> IPv6 support for ExpressRoute Global Reach is now in Public Preview. See [Enable Global Reach](expressroute-howto-set-global-reach.md) for steps to configure this feature using PowerShell.
  
 Before you start configuration, complete the following requirements:
 

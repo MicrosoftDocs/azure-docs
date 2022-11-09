@@ -3,7 +3,7 @@ title: Find then open the Azure Kinect device
 description: Learn how to find and open an Azure Kinect device using the Azure Kinect Senor SDK.
 author: cedmonds
 ms.author: cedmonds
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, depth, rgb, device, find, open

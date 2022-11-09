@@ -1,8 +1,10 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 06/29/2021
+author: timwarner-msft
+ms.date: 11/03/2022
 ms.topic: how-to
+ms.author: timwarner
 ---
 # Get compliance data of Azure resources
 
@@ -37,7 +39,7 @@ operations of the Azure Policy Insights REST API, see
 
 Evaluations of assigned policies and initiatives happen as the result of various events:
 
-- A policy or initiative is newly assigned to a scope. It takes around 30 minutes for the assignment
+- A policy or initiative is newly assigned to a scope. It takes around five minutes for the assignment
   to be applied to the defined scope. Once it's applied, the evaluation cycle begins for resources
   within that scope against the newly assigned policy or initiative and depending on the effects
   used by the policy or initiative, resources are marked as compliant, non-compliant, or exempt. A
@@ -53,7 +55,7 @@ Evaluations of assigned policies and initiatives happen as the result of various
   compliant status information for the individual resource becomes available in the portal and SDKs
   around 15 minutes later. This event doesn't cause an evaluation of other resources.
 
-- A subscription (resource type `Microsoft.Resource/subscriptions`) is created or moved within a
+- A subscription (resource type `Microsoft.Resources/subscriptions`) is created or moved within a
   [management group hierarchy](../../management-groups/overview.md) with an assigned policy
   definition targeting the subscription resource type. Evaluation of the subscription supported
   effects (audit, auditIfNotExist, deployIfNotExists, modify), logging, and any remediation actions
@@ -67,10 +69,14 @@ Evaluations of assigned policies and initiatives happen as the result of various
   pre-defined expectation of when the evaluation cycle completes. Once it completes, updated
   compliance results are available in the portal and SDKs.
 
-- The [guest configuration](../concepts/guest-configuration.md) resource provider is updated with
+- The [machine configuration](../../machine-configuration/overview.md) resource provider is updated with
   compliance details by a managed resource.
 
 - On-demand scan
+
+> [!NOTE]
+> By design, Azure Policy exempts all resources under the `Microsoft.Resources` resource provider (RP) from
+policy evaluation with the exception of subscriptions and resource groups, which can be evaluated.
 
 ### On-demand evaluation scan
 
@@ -78,6 +84,9 @@ An evaluation scan for a subscription or a resource group can be started with Az
 PowerShell, a call to the REST API, or by using the
 [Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan).
 This scan is an asynchronous process.
+
+> [!NOTE]
+> Not all Azure resource providers support on-demand evaluation scans. For example, [Azure Virtual Network Manager (AVNM)](../../../virtual-network-manager/overview.md) currently doesn't support either manual triggers or the standard policy compliance evaluation cycle (daily scans).
 
 #### On-demand evaluation scan - GitHub Action
 
@@ -277,10 +286,10 @@ either **Compliant**, **Non-compliant**, or **Exempt**. If either **name** or **
 property in the definition, then all included and non-exempt resources are considered applicable and
 are evaluated.
 
-The compliance percentage is determined by dividing **Compliant** and **Exempt** resources by _total
+The compliance percentage is determined by dividing **Compliant**, **Exempt**, and **Unknown** resources by _total
 resources_. _Total resources_ is defined as the sum of the **Compliant**, **Non-compliant**,
 **Exempt**, and **Conflicting** resources. The overall compliance numbers are the sum of distinct
-resources that are **Compliant** or **Exempt** divided by the sum of all distinct resources. In the
+resources that are **Compliant**, **Exempt**, and **Unknown** divided by the sum of all distinct resources. In the
 image below, there are 20 distinct resources that are applicable and only one is **Non-compliant**.
 The overall resource compliance is 95% (19 out of 20).
 
@@ -349,9 +358,6 @@ details on the REST API, see the [Azure Policy](/rest/api/policy/) reference. Th
 pages have a green 'Try It' button on each operation that allows you to try it right in the browser.
 
 Use ARMClient or a similar tool to handle authentication to Azure for the REST API examples.
-
-> [!NOTE]
-> Currently "reason for non-compliance" cannot be retrieved from Command line.  We are working on mapping the reason code to the "reason for non-compliance" and at this point there is no ETA on this.
 
 ### Summarize results
 

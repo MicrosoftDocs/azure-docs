@@ -3,7 +3,8 @@ title: Configure VMware HCX in Azure VMware Solution
 description: Configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. 
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 09/07/2021
+ms.date: 10/26/2022
+ms.custom: engagement-fy23
 ---
 
 # Configure on-premises VMware HCX Connector
@@ -22,7 +23,7 @@ After you complete these steps, you'll have a production-ready environment for c
 
 - [VMware HCX Connector](install-vmware-hcx.md) has been installed.
 
-- If you plan to use VMware HCX Enterprise, make sure you've enabled the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on through a [support request](https://portal.azure.com/#create/Microsoft.Support). It's a free 12-month trial in Azure VMware Solution.
+- If you plan to use VMware HCX Enterprise, make sure you've enabled the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on through a [support request](https://portal.azure.com/#create/Microsoft.Support). VMware HCX Enterprise edition is available and supported on Azure VMware Solution, at no additional cost.
 
 - If you plan to [enable VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html), make sure you have:  
 
@@ -75,6 +76,12 @@ VMware HCX Connector deploys a subset of virtual appliances (automated) that req
    - vMotion
    - Replication
    - Uplink
+   
+   > [!NOTE]
+   > * Azure VMware Solution connected via VPN should set Uplink Network Profile MTU's to 1350 to account for IPSec overhead.
+   > * Azure VMWare Solution defaults to 1500 MTU and is sufficient for most ExpressRoute implementations.
+   >   * If your ExpressRoute provider does not support jumbo frame, MTU may need to be lowered in ExpressRoute setups as well.
+   >   * Changes to MTU should be performed on both HCX Connector (on-premises) and HCX Cloud Manager (Azure VMware Solution) network profiles.
 
 1. Under **Infrastructure**, select **Interconnect** > **Multi-Site Service Mesh** > **Network Profiles** > **Create Network Profile**.
 

@@ -56,7 +56,7 @@ Your function app must be able to access the storage account. Common issues that
 
 * The storage account firewall is enabled and not configured to allow traffic to and from functions. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-* Verify that the `allowSharedKeyAccess` setting is set to `true` which is its default value. For more information, see [Prevent Shared Key authorization for an Azure Storage account](../storage/common/shared-key-authorization-prevent.md?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
+* Verify that the `allowSharedKeyAccess` setting is set to `true`, which is its default value. For more information, see [Prevent Shared Key authorization for an Azure Storage account](../storage/common/shared-key-authorization-prevent.md?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
 
 ## Daily execution quota is full
 
@@ -87,21 +87,36 @@ You can also use the portal from a computer that's connected to the virtual netw
 
 For more information about inbound rule configuration, see the "Network Security Groups" section of [Networking considerations for an App Service Environment](../app-service/environment/network-info.md#network-security-groups).
 
-## Container image unavailable (Linux)
+## Container errors on Linux
 
-For Linux function apps that run from a container, the "Azure Functions runtime is unreachable" error can occur when the container image being referenced is unavailable or fails to start correctly.
+For function apps that run on Linux in a container, the `Azure Functions runtime is unreachable` error can occur as a result of problems with the container. Use the following procedure to review the container logs for errors:
 
-To confirm that the error is caused for this reason:
+1. Navigate to the Kudu endpoint for the function app, which is located at `https://<FUNCTION_APP>.scm.azurewebsites.net`, where `<FUNCTION_APP>` is the name of your app.
 
-1. Navigate to the Kudu endpoint for the function app, which is located at `https://scm.<FUNCTION_APP>.azurewebsites.net`, where `<FUNCTION_APP>` is the name of your app.
+1. Download the Docker logs .zip file and review the contents on your local computer. 
 
-1. Download the Docker logs ZIP file and review them locally, or review the docker logs from within Kudu.
+1. Check for any logged errors that indicate that the container is unable to start successfully.
 
-1. Check for any errors in the logs that would indicate that the container is unable to start successfully.
+### Container image unavailable
 
-Any such error would need to be remedied for the function to work correctly.
+Errors can occur when the container image being referenced is unavailable or fails to start correctly. Check for any logged errors that indicate that the container is unable to start successfully.
 
-When the container image can't be found, you should see a `manifest unknown` error in the Docker logs.  In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli) to change the container image being reference. If you've deployed a custom container image, you need to fix the image and redeploy the updated version to the referenced registry.
+You need to correct any errors that prevent the container from starting for the function app run correctly.
+
+When the container image can't be found, you'll see a `manifest unknown` error in the Docker logs. In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli#manual-version-updates-on-linux) to change the container image being referenced. If you've deployed a [custom container image](functions-create-function-linux-custom-image.md), you need to fix the image and redeploy the updated version to the referenced registry.
+
+### App container has conflicting ports
+
+Your function app might be in an unresponsive state due to conflicting port assignment upon startup. This can happen in the following cases:
+
+* Your container has separate services running where one or more services are tying to bind to the same port as the function app.
+* You've added an Azure Hybrid Connection that shares the same port value as the function app.
+
+By default, the container in which your function app runs uses port `:80`. When other services in the same container are also trying to using port `:80`, the function app can fail to start. If your logs show port conflicts, change the default ports.
+
+## Host ID collision 
+
+Starting with version 3.x of the Functions runtime, [host ID collision](storage-considerations.md#host-id-considerations) are detected and logged as a warning. In version 4.x, an error is logged and the host is stopped. If the runtime can't start for your function app, [review the logs](analyze-telemetry-data.md). If there's a warning or an error about host ID collisions, follow the mitigation steps in [Host ID considerations](storage-considerations.md#host-id-considerations).  
 
 ## Next steps
 

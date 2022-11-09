@@ -8,11 +8,13 @@ items:
       href: overview.md
     - name: Quotas and limits
       href: quotas-limits.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
 - name: Quickstarts
   href: quickstart.md
 - name: Concepts
   items:
-    - name: Azure OpenAI Models
+    - name: Azure OpenAI models
       href: ./concepts/models.md
     - name: Content filtering
       href: ./concepts/content-filter.md
@@ -32,6 +34,8 @@ items:
       href: ./how-to/fine-tuning.md
     - name: Manage identity
       href: ./how-to/managed-identity.md
+    - name: Use with large datasets
+      href: ./how-to/integrate-synapseml.md
     - name: Business continuity & disaster recovery (BCDR)
       href: ./how-to/business-continuity-disaster-recovery.md
 - name: Responsible AI
@@ -64,6 +68,7 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Terms of use
       href: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+    
 
 
 

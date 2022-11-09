@@ -1,9 +1,9 @@
 ---
 title: Prepare network for infrastructure deployment (preview)
-description: Learn how to prepare a network for use with an S/4HANA infrastructure deployment with Azure Center for SAP solutions (ACSS) through the Azure portal.
+description: Learn how to prepare a network for use with an S/4HANA infrastructure deployment with Azure Center for SAP solutions through the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 10/19/2022
 author: lauradolan
 ms.author: ladolan
 #Customer intent: As a developer, I want to create a virtual network so that I can deploy S/4HANA infrastructure in Azure Center for SAP solutions.
@@ -13,16 +13,16 @@ ms.author: ladolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-In this how-to guide, you'll learn how to prepare a virtual network to deploy S/4 HANA infrastructure using *Azure Center for SAP solutions (ACSS)*. This article provides general guidance about creating a virtual network. Your individual environment and use case will determine how you need to configure your own network settings for use with a *Virtual Instance for SAP (VIS)* resource.
+In this how-to guide, you'll learn how to prepare a virtual network to deploy S/4 HANA infrastructure using *Azure Center for SAP solutions*. This article provides general guidance about creating a virtual network. Your individual environment and use case will determine how you need to configure your own network settings for use with a *Virtual Instance for SAP (VIS)* resource.
 
-If you have an existing network that you're ready to use with ACSS, [go to the deployment guide](deploy-s4hana.md) instead of following this guide.
+If you have an existing network that you're ready to use with Azure Center for SAP solutions, [go to the deployment guide](deploy-s4hana.md) instead of following this guide.
 
 ## Prerequisites
 
 - An Azure subscription.
 - [Review the quotas for your Azure subscription](../azure-portal/supportability/view-quotas.md). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error.
 - It's recommended to have multiple IP addresses in the subnet or subnets before you begin deployment. For example, it's always better to have a `/26` mask instead of `/29`. 
-- Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow ACSS to size your SAP system. If you're not sure, you can also select the VMs. There are:
+- Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow Azure Center for SAP solutions to size your SAP system. If you're not sure, you can also select the VMs. There are:
     - A single or cluster of ASCS VMs, which make up a single ASCS instance in the VIS.
     - A single or cluster of Database VMs, which make up a single Database instance in the VIS.
     - A single Application Server VM, which makes up a single Application instance in the VIS. Depending on the number of Application Servers being deployed or registered, there can be multiple application instances.
@@ -77,10 +77,10 @@ If you're using Red Hat for the VMs, [allowlist the Red Hat endpoints](../virtua
 
 ### Allowlist storage accounts
 
-ACSS needs access to the following storage accounts to install SAP software correctly:
+Azure Center for SAP solutions needs access to the following storage accounts to install SAP software correctly:
 
 - The storage account where you're storing the SAP media that is required during software installation.
-- The storage account created by ACSS in a managed resource group, which ACSS also owns and manages.
+- The storage account created by Azure Center for SAP solutions in a managed resource group, which Azure Center for SAP solutions also owns and manages.
 
 There are multiple options to allow access to these storage accounts:
 
@@ -91,7 +91,7 @@ There are multiple options to allow access to these storage accounts:
 
 ### Allowlist Key Vault
 
-ACSS creates a key vault to store and access the secret keys during software installation. This key vault also stores the SAP system password. To allow access to this key vault, you can:
+Azure Center for SAP solutions creates a key vault to store and access the secret keys during software installation. This key vault also stores the SAP system password. To allow access to this key vault, you can:
 
 - Allow internet connectivity
 - Configure a [**AzureKeyVault** service tag](../virtual-network/service-tags-overview.md#available-service-tags)
@@ -99,14 +99,14 @@ ACSS creates a key vault to store and access the secret keys during software ins
 
 ### Allowlist Azure AD
 
-ACSS uses Azure AD to get the authentication token for obtaining secrets from a managed key vault during SAP installation. To allow access to Azure AD, you can:
+Azure Center for SAP solutions uses Azure AD to get the authentication token for obtaining secrets from a managed key vault during SAP installation. To allow access to Azure AD, you can:
 
 - Allow internet connectivity
 - Configure an [**AzureActiveDirectory** service tag](../virtual-network/service-tags-overview.md#available-service-tags).
 
 ### Allowlist Azure Resource Manager
 
-ACSS uses a managed identity for software installation. Managed identity authentication requires a call to the Azure Resource Manager endpoint. To allow access to this endpoint, you can:
+Azure Center for SAP solutions uses a managed identity for software installation. Managed identity authentication requires a call to the Azure Resource Manager endpoint. To allow access to this endpoint, you can:
 
 - Allow internet connectivity
 - Configure an [**AzureResourceManager** service tag](../virtual-network/service-tags-overview.md#available-service-tags).

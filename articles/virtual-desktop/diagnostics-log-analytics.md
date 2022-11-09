@@ -27,13 +27,17 @@ Azure Virtual Desktop uses [Azure Monitor](../azure-monitor/overview.md) for mon
     - Are users encountering any issues with specific activities? This feature can generate a table that tracks activity data for you as long as the information is joined with the activities.
 - Checkpoints:
     - Specific steps in the lifetime of an activity that were reached. For example, during a session, a user was load balanced to a particular host, then the user was signed on during a connection, and so on.
+- Agent Health Status:
+    - Monitor the health and status of the Azure Virtual Desktop agent installed on each session host. For example, verify that the agents are up to date, or whether the agent is in a healthy state and ready to accept new user sessions. 
+- Connection Network Data:
+    - Track the average network data for user sessions to monitor for details including the estimated round trip time and available bandwidth throughout their connection.
 
 Connections that don't reach Azure Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Azure Virtual Desktop. Azure Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
 
 Azure Monitor lets you analyze Azure Virtual Desktop data and review virtual machine (VM) performance counters, all within the same tool. This article will tell you more about how to enable diagnostics for your Azure Virtual Desktop environment.
 
 >[!NOTE]
->To learn how to monitor your VMs in Azure, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Also, make sure to [review the performance counter thresholds](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) for a better understanding of your user experience on the session host.
+>To learn how to monitor your VMs in Azure, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Also, make sure to review the [Azure Monitor glossary](./azure-monitor-glossary.md) for a better understanding of your user experience on the session host.
 
 ## Before you get started
 
@@ -108,7 +112,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 5. You are ready to query diagnostics. All diagnostics tables have a "WVD" prefix.
 
 >[!NOTE]
->For more detailed information about the tables stored in Azure Monitor Logs, see the [Azure Monitor data refence](/azure/azure-monitor/reference/). All tables related to Azure Virtual Desktop are labeled "WVD."
+>For more detailed information about the tables stored in Azure Monitor Logs, see the [Azure Monitor data reference](/azure/azure-monitor/reference/tables/tables-category#azure-virtual-desktop). All tables related to Azure Virtual Desktop are prefixed with "WVD."
 
 ## Cadence for sending diagnostic events
 

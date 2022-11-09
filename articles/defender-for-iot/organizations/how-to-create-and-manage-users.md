@@ -11,7 +11,7 @@ This article describes how to create and manage users of sensors and the on-prem
 
 Features are also available to track user activity and enable Active Directory sign in.
 
-By default, each sensor and on-premises management console is installed with a *cyberx, support* and *cyberx_host* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create extra users for security analysts and read-only users.
+By default, each sensor and on-premises management console is installed with the *cyberx* and *support* users. Sensors are also installed with the *cyberx_host* user. These users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an admin user, and then create extra users for security analysts and read-only users.
 
 ## Role-based permissions
 The following user roles are available:
@@ -61,6 +61,7 @@ This section describes permissions available to sensor Administrators, Security 
 | Manage alerts: acknowledge, learn, and pin |  | ✓ | ✓ |
 | View events in a timeline |  | ✓ | ✓ |
 | Authorize devices, known scanning devices, programming devices |  | ✓ | ✓ |
+| Merge and delete devices |  |  | ✓ |
 | View investigation data | ✓ | ✓ | ✓ |
 | Manage system settings |  |  | ✓ |
 | Manage users |  |  | ✓ |
@@ -258,6 +259,8 @@ You can recover the password for the on-premises management console or the senso
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
 
     :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of entering enter the unique identifier and then selecting recover." lightbox="media/how-to-create-and-manage-users/enter-identifier.png":::
+
+   [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
 1. On the Password recovery screen, select **Upload**. **The Upload Password Recovery File** window will open.
 

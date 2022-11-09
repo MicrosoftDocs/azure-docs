@@ -60,4 +60,4 @@ To set the rule for a specific subscription, resource group, and function app na
 
 ## Next steps
 
-[Configure a lifecycle management policy](/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal).
+[Configure a lifecycle management policy](../../storage/blobs/lifecycle-management-policy-configure.md?tabs=azure-portal).

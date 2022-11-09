@@ -121,10 +121,10 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path ./<p
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
 
-The following example uses the `--src-url` parameter to specify the URL of an Azure Storage account that the web app should pull the ZIP from.
+The following example uses the `--src-url` parameter to specify the URL of an Azure Storage account that the web app should pull the WAR from.
 
 ```azurecli-interactive
-az webapp deploy --resource-group <group-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3
+az webapp deploy --resource-group <group-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3 --type war
 ```
 
 The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the package and can be fully customized.

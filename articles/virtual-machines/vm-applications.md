@@ -1,26 +1,24 @@
 ---
-title: Overview of VM Applications in the Azure Compute Gallery (preview)
+title: Overview of VM Applications in the Azure Compute Gallery
 description: Learn more about VM application packages in an Azure Compute Gallery.
-author: ericd-mst-github
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 05/18/2022
-ms.author: erd
-ms.reviewer: amjads
+author: ericd-mst-github
+ms.author: nikhilpatel
+ms.reviewer: erd
 ms.custom: 
 
 ---
 
-# VM Applications overview (preview)
+# VM Applications overview
 
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing, and global distribution of applications for your virtual machines.
 
 > [!IMPORTANT]
-> **VM applications in Azure Compute Gallery** are currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Deploying VM applications in Azure Compute Gallery **do not currently support using Azure policies**.
 
 
 While you can create an image of a VM with apps pre-installed, you would need to update your image each time you have application changes. Separating your application installation from your VM images means there’s no need to publish a new image for every line of code change.
@@ -67,6 +65,7 @@ The VM application packages use multiple resource types:
 - **Requires a VM Agent**: The VM agent must exist on the VM and be able to receive goal states.
 
 - **Multiple versions of same application on the same VM**: You can't have multiple versions of the same application on a VM.
+- **Move operations currently not supported**: Moving VMs with VM Apps to other resource groups are not supported at this time.
 
 
 ## Cost
@@ -97,7 +96,7 @@ VM application versions are the deployable resource. Versions are defined with t
 - Remove string to show how to properly remove the app
 - Package file name to use when it's downloaded to the VM
 - Configuration file name to be used to configure the app on the VM
-- A link to the configuration file for the VM application
+- A link to the configuration file for the VM application, which you can include license files
 - Update string for how to update the VM application to a newer version
 - End-of-life date. End-of-life dates are informational; you'll still be able to deploy VM application versions past the end-of-life date.
 - Exclude from latest. You can keep a version from being used as the latest version of the application. 
@@ -109,18 +108,18 @@ VM application versions are the deployable resource. Versions are defined with t
 The download location of the application package and the configuration files are:
   
 - Linux: `/var/lib/waagent/Microsoft.CPlat.Core.VMApplicationManagerLinux/<appname>/<app version> `
-- Windows: `C:\Packages\Plugins\Microsoft.CPlat.Core.VMApplicationManagerWindows\1.0.4\Downloads\<appname>\<app version> `
+- Windows: `C:\Packages\Plugins\Microsoft.CPlat.Core.VMApplicationManagerWindows\1.0.9\Downloads\<appname>\<app version> `
 
 
 The install/update/remove commands should be written assuming the application package and the configuration file are in the current directory.
 
 ## File naming
 
-During the preview, when the application file gets downloaded to the VM, the file name is the same as the name you use when you create the VM application. For example, if I name my VM application `myApp`, the file that will be downloaded to the VM will also be named `myApp`, regardless of what the file name is used in the storage account. If your VM application also has a configuration file, that file is the name of the application with `_config` appended. If `myApp` has a configuration file, it will be named `myApp_config`.
+When the application file gets downloaded to the VM, the file name is the same as the name you use when you create the VM application. For example, if I name my VM application `myApp`, the file that will be downloaded to the VM will also be named `myApp`, regardless of what the file name is used in the storage account. If your VM application also has a configuration file, that file is the name of the application with `_config` appended. If `myApp` has a configuration file, it will be named `myApp_config`.
 
 For example, if I name my VM application `myApp` when I create it in the Gallery, but it's stored as `myApplication.exe` in the storage account, when it gets downloaded to the VM the file name will be `myApp`. My install string should start by renaming the file to be whatever it needs to be to run on the VM (like myApp.exe).
 
-The install, update, and remove commands must be written with file naming in mind. 
+The install, update, and remove commands must be written with file naming in mind. The `configFileName` is assigned to the config file for the VM and `packageFileName` is the name assigned downloaded package on the VM. For more information regarding these additional VM settings, refer to [UserArtifactSettings](/rest/api/compute/gallery-application-versions/create-or-update?tabs=HTTP#userartifactsettings) in our API docs.
  
 ## Command interpreter  
 
@@ -128,12 +127,12 @@ The default command interpreters are:
 - Linux: `/bin/sh` 
 - Windows: `cmd.exe`
 
-It's possible to use a different interpreter, as long as it's installed on the machine, by calling the executable and passing the command to it. For example, to have your command run in PowerShell on Windows instead of cmd, you can pass `powershell.exe -Command '<powershell commmand>'`
+It's possible to use a different interpreter like Chocolatey or PowerShell, as long as it's installed on the machine, by calling the executable and passing the command to it. For example, to have your command run in PowerShell on Windows instead of cmd, you can pass `powershell.exe -Command '<powershell commmand>'`
   
 
 ## How updates are handled
 
-When you update an application version, the update command you provided during deployment will be used. If the updated version doesn’t have an update command, then the current version will be removed and the new version will be installed. 
+When you update an application version on a VM or VMSS, the update command you provided during deployment will be used. If the updated version doesn’t have an update command, then the current version will be removed and the new version will be installed. 
 
 Update commands should be written with the expectation that it could be updating from any older version of the VM application.
 
@@ -236,12 +235,12 @@ start /wait %windir%\\system32\\msiexec.exe /x $appname /quiet /forcerestart /lo
 
 ### Zipped files 
 
-For .zip or other zipped files, just unzip the contents of the application package to the desired destination. 
+For .zip or other zipped files, rename and unzip the contents of the application package to the desired destination. 
 
 Example install command:
 
 ```
-mkdir C:\\myapp && powershell.exe -Command \"Expand-Archive -Path myapp -DestinationPath C:\\myapp\" 
+rename myapp myapp.zip && mkdir C:\myapp && powershell.exe -Command "Expand-Archive -path myapp.zip -destinationpath C:\myapp"
 ```
 
 Example remove command:
@@ -249,11 +248,13 @@ Example remove command:
 ```
 rmdir /S /Q C:\\myapp
 ```
+## Treat failure as deployment failure
 
+The VM application extension always returns a *success* regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there's a problem with the extension or the underlying infrastructure. This is triggered by the "treat failure as deployment failure" flag which is set to `$false` by default and can be changed to `$true`. The failure flag can be configured in [PowerShell](/powershell/module/az.compute/add-azvmgalleryapplication#parameters) or [CLI](/cli/azure/vm/application#az-vm-application-set).
 
-## Troubleshooting during preview
+## Troubleshooting VM Applications
 
-During the preview, the VM application extension always returns a success regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there's a problem with the extension or the underlying infrastructure. To know whether a particular VM application was successfully added to the VM instance, check the message of the VM Application extension.
+To know whether a particular VM application was successfully added to the VM instance, check the message of the VM Application extension.
 
 To learn more about getting the status of VM extensions, see [Virtual machine extensions and features for Linux](extensions/features-linux.md#view-extension-status) and [Virtual machine extensions and features for Windows](extensions/features-windows.md#view-extension-status).
 
@@ -266,7 +267,13 @@ Get-AzVM -name <VM name> -ResourceGroupName <resource group name> -Status | conv
 To get status of scale set extensions, use [Get-AzVMSS](/powershell/module/az.compute/get-azvmss):
 
 ```azurepowershell-interactive
-Get-AzVmss -name <VMSS name> -ResourceGroupName <resource group name> -Status | convertto-json -Depth 10  
+$result = Get-AzVmssVM -ResourceGroupName $rgName -VMScaleSetName $vmssName -InstanceView
+$resultSummary  = New-Object System.Collections.ArrayList
+$result | ForEach-Object {
+    $res = @{ instanceId = $_.InstanceId; vmappStatus = $_.InstanceView.Extensions | Where-Object {$_.Name -eq "VMAppExtension"}}
+    $resultSummary.Add($res) | Out-Null
+}
+$resultSummary | convertto-json -depth 5  
 ```
 
 ## Error messages

@@ -2,8 +2,8 @@
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 07/14/2022
-author: elazark
-ms.author: elazarK
+ms.author: benmansheim
+author: bmansheim
 ---
 
 ## Protect Google Kubernetes Engine (GKE) clusters

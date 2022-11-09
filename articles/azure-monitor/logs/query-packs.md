@@ -3,15 +3,15 @@ title: Query packs in Azure Monitor
 description: Query packs in Azure Monitor provide a way to share collections of log queries in multiple Log Analytics workspaces. 
 ms.subservice: logs
 ms.topic: conceptual
-author: guywild
+author: guywi-ms
 ms.author: guywild
 ms.reviewer: roygal
 ms.date: 06/22/2022
 
 ---
 
-# Query packs in Azure Monitor Logs (preview)
-A query pack is a Resource Manager object that acts as a container for log queries in Azure Monitor that provide a way to save log queries and share them across multiple workspaces and other contexts in Log Analytics. 
+# Query packs in Azure Monitor Logs
+Query packs act as containers for log queries in Azure Monitor and let you save log queries and share them across workspaces and other contexts in Log Analytics. 
 
 ## View query packs
 You can view and manage query packs in the Azure portal from the **Log Analytics query packs** menu. Select a query pack to view and edit its permissions. See below for details on creating a query pack using the API.
@@ -77,12 +77,12 @@ Each query in the query pack has the following properties.
 | tags        | Additional tags used by the user for sorting and filtering in Log Analytics. Each tag will be added to Category, Resource Type, and Solution when [grouping and filtering queries](queries.md#finding-and-filtering-queries). |
 
 ## Create a query pack
-You can create a query pack in the Azure portal on the Log Analytics query packs blade or by using the REST API. 
+You can create a query pack using the REST API or from the **Log Analytics query packs** blade in the Azure portal. Currently the **Log Analytics query packs** blade shows up under **Other** category of **All services** page in the Azure portal.
 
 ### Create token
 You require a token for authentication of the API request. There are multiple methods to get a token including using **armclient**.
 
-First login to Azure using the following command:
+First log in to Azure using the following command:
 
 ```
 armclient login
@@ -130,7 +130,7 @@ The payload of the request is the JSON defining one or more queries and the loca
 Use the following request to create a new query pack using the REST API. The request should use bearer token authorization. Content type should be application/json.
 
 ```rest
-POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/querypacks/my-query-pack?api-version=2019-09-01-preview
+POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/querypacks/my-query-pack?api-version=2019-09-01
 ```
 
 Use a tool that can submit a REST API request such as Fiddler or Postman to submit the request using the payload described in the previous section. The query ID will be generated and returned in the payload. 
@@ -139,7 +139,7 @@ Use a tool that can submit a REST API request such as Fiddler or Postman to subm
 To update a query pack, submit the following request with an updated payload. This command requires the query pack ID.
 
 ```rest
-POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/querypacks/my-query-pack/queries/query-id/?api-version=2019-09-01-preview
+POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/querypacks/my-query-pack/queries/query-id/?api-version=2019-09-01
 ```
 
 ## Next steps

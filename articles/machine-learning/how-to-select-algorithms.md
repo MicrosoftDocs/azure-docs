@@ -36,6 +36,16 @@ Along with guidance in the Azure Machine Learning Algorithm Cheat Sheet, keep in
 
 ## Comparison of machine learning algorithms
 
+>[!Note]
+> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible.  
+>
+>Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added.
+>
+>
+>Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>
+>This article applies to classic prebuilt components. 
+
 Some learning algorithms make particular assumptions about the structure of the data or the desired results. If you can find one that fits your needs, it can give you more useful results, more accurate predictions, or faster training times.
 
 The following table summarizes some of the most important characteristics of algorithms from the classification, regression, and clustering families:

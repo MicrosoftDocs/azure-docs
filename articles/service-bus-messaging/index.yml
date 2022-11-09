@@ -30,7 +30,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Compare Azure messaging services
-            url: ../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json
+            url: ../event-grid/compare-messaging-services.md?toc=/azure/service-bus-messaging/toc.json
           - text: Compare Azure queues and Service Bus queues
             url: service-bus-azure-and-service-bus-queues-compared-contrasted.md            
           - text: Queues, topics, and subscriptions
@@ -73,6 +73,8 @@ landingContent:
             url: service-bus-dotnet-get-started-with-queues.md
           - text: Java
             url: service-bus-java-how-to-use-queues.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
           - text: Node.js
             url: service-bus-nodejs-how-to-use-queues.md
           - text: Python
@@ -88,6 +90,8 @@ landingContent:
             url: service-bus-dotnet-how-to-use-topics-subscriptions.md
           - text: Java
             url: service-bus-java-how-to-use-topics-subscriptions.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
           - text: Node.js
             url: service-bus-nodejs-how-to-use-topics-subscriptions.md
           - text: Python
@@ -101,13 +105,13 @@ landingContent:
       - linkListType: learn
         links:
           - text: Choose a messaging model in Azure to loosely connect your services
-            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
           - text: Implement message-based communication workflows with Azure Service Bus
-            url: /learn/modules/implement-message-workflows-with-service-bus/
+            url: /training/modules/implement-message-workflows-with-service-bus/
           - text: Discover Azure message queues
-            url: /learn/modules/discover-azure-message-queue/
+            url: /training/modules/discover-azure-message-queue/
           - text: Enable asynchronous messaging in Java apps by using JMS and Azure Service Bus
-            url: /learn/modules/cloud-scale-messaging-with-jms-service-bus/
+            url: /training/modules/cloud-scale-messaging-with-jms-service-bus/
 
   # Card
   - title: Monitor and manage

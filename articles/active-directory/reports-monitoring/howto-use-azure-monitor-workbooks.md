@@ -2,18 +2,14 @@
 title: Azure Monitor workbooks for reports | Microsoft Docs
 description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
 services: active-directory
-author: MarkusVi
-manager: karenhoran
-
-ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang:
 ms.topic: how-to
-ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/10/2022
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: sarbar
 ---
 # How to use Azure Monitor workbooks for Azure Active Directory reports
@@ -23,7 +19,7 @@ As an IT admin, you need powerful tools to turn the data about your Azure AD ten
 This article gives you an overview of how you can use Azure Monitor workbooks for Azure Active Directory reports to analyze your Azure AD tenant. 
 
 
-## What it is
+## What is Azure Monitor workbooks for Azure AD reports?
 
 Azure AD tracks all activities in your Azure AD in the activity logs. The data in your Azure AD logs enables you to assess how your Azure AD is doing. The Azure Active Directory portal gives you access to three activity logs:
 
@@ -34,7 +30,7 @@ Azure AD tracks all activities in your Azure AD in the activity logs. The data i
 
 Using the access capabilities provided by the Azure portal, you can review the information that is tracked in your activity logs. This option is helpful if you need to do a quick investigation of an event with a limited scope. For example, a user had trouble signing in during a period of a few hours. In this scenario, reviewing the recent records of this user in the sign-in logs can help to shed light on this issue. 
 
-For one-off investigations with a limited scope, the Azure portal is often the easiest way to find the data you need. However, there are also business problems requiring a more complex analysis of the data in your activity logs. This is, for example, true if you're watching for trends in signals of interest. One common example for a scenario that requires a trend analysis is related to blocking legacy authentication in your Azure AD tenant. 
+For one-off investigations with a limited scope, the Azure portal is often the easiest way to find the data you need. However, there are also business problems requiring a more complex analysis of the data in your activity logs. One common example for a scenario that requires a trend analysis is related to blocking legacy authentication in your Azure AD tenant. 
 
 Azure AD supports several of the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication refers to basic authentication, a widely used industry-standard method for collecting user name and password information. Examples of applications that commonly or only use legacy authentication are:
 
@@ -44,9 +40,7 @@ Azure AD supports several of the most widely used authentication and authorizati
 
 Typically, legacy authentication clients can't enforce any type of second factor authentication. However, multi-factor authentication (MFA) is a common requirement in many environments to provide a high level of protection.   
 
-How can you determine whether it is safe to block legacy authentication in an environment? Answering this question requires an analysis of the sign-ins in your environment for a certain timeframe. This is a scenario where Azure Monitor workbooks can help you.
-
-Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences.
+How can you determine whether it's safe to block legacy authentication in an environment? Answering this question requires an analysis of the sign-ins in your environment for a certain timeframe. Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences.
 
 With Azure Monitor workbooks, you can:
 
@@ -94,7 +88,7 @@ When working with workbooks, you can either start with an empty workbook, or use
 
 There are:
 
-- **Public templates** published to a [gallery](../../azure-monitor/visualize/workbooks-overview.md#the-gallery) that serve as a good starting point when you are just getting started with workbooks.
+- **Public templates** published to a [gallery](../../azure-monitor/visualize/workbooks-overview.md#the-gallery) that serve as a good starting point when you're just getting started with workbooks.
 - **Private templates** when you start building your own workbooks and want to save one as a template to serve as the foundation for multiple workbooks in your tenant.
 
 
@@ -108,7 +102,7 @@ To use Monitor workbooks, you need:
 - A [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 
 - [Access](../../azure-monitor/logs/manage-access.md#azure-rbac) to the log analytics workspace
-- Following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)
+- Following roles in Azure Active Directory (if you're accessing Log Analytics through Azure Active Directory portal)
     - Security administrator
     - Security reader
     - Report reader

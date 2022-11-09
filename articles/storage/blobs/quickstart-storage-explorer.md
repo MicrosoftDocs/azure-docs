@@ -49,7 +49,7 @@ After you successfully sign in with an Azure account, the account and the Azure 
 
 :::image type="content" source="media/quickstart-storage-explorer/storage-explorer-account-panel-sml.png" alt-text="Select Azure subscriptions" lightbox="media/quickstart-storage-explorer/storage-explorer-account-panel-lrg.png":::
 
-After Storage Explorer finishes connecting, it displays the **Explorer** tab. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
+After Storage Explorer finishes connecting, it displays the **Explorer** tab. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=/azure/storage/blobs/toc.json) or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=/azure/storage/blobs/toc.json) environments.
 
 :::image type="content" source="media/quickstart-storage-explorer/storage-explorer-main-page-sml.png" alt-text="Screenshot showing Storage Explorer main page" lightbox="media/quickstart-storage-explorer/storage-explorer-main-page-lrg.png":::
 
