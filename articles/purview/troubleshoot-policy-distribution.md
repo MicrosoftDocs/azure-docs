@@ -38,13 +38,16 @@ The policy distribution endpoint can be constructed from the Microsoft Purview a
 ## Full pull
 
 ### Request
-To fetch policies via full pull, send a `GET` request to /policyElements as follows:
+To fetch policies for a data source via full pull, send a `GET` request to /policyElements as follows:
 
 ```
 GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyelements?api-version={apiVersion}
 ```
 
-The path /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName} matches the resource ID of the data source, which can be found under the properties for the data source in Azure portal.
+where the path /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName} matches the resource ID for the data source.
+
+>[!Tip]
+> The resource ID can be found under the properties for the data source in Azure portal.
 
 
 ### Response status codes 
@@ -61,8 +64,8 @@ The path /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/prov
 ### Example for Azure SQL Database (Azure SQL Server)
 
 ##### Example parameters:
-- Microsoft Purview account = relecloud-pv
-- Resource ID: /subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1
+- Microsoft Purview account: relecloud-pv
+- Data source Resource ID: /subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1
 
 ##### Example request:
 ```
@@ -125,9 +128,9 @@ Provide the syncToken you got from the prior pull in any successive delta pulls.
 ### Example for Azure SQL Database (Azure SQL Server)
 
 ##### Example parameters:
-- Microsoft Purview account = relecloud-pv
-- Resource ID: /subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1
-- syncToken = 820:0
+- Microsoft Purview account: relecloud-pv
+- Data source Resource ID: /subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1
+- syncToken: 820:0
 
 ##### Example request:
 ```
