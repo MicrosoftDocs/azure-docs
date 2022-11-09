@@ -322,11 +322,11 @@ Site Recovery service ensures business continuity by keeping workloads running d
     
     The replication process starts by initially creating a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase. This step takes around 20 minutes. See the status of the replication in the Vault blade under **Replicated items**.     
     
-    :::image type="Replicated items" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone-in-same-region/replicated-items.png" alt-text="Screenshot of replicated items.":::
+    :::image type="Replicated items" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/replicated-items.png" alt-text="Screenshot of replicated items.":::
 
     When the replication completes, the Vault replication items will show as below:
     
-    :::image type="Vault replication" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone-in-same-region/vault-replication.png" alt-text="Screenshot of Vault replication.":::
+    :::image type="Vault replication" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/vault-replication.png" alt-text="Screenshot of Vault replication.":::
     
     Now the virtual machine is protected, and you can perform a test failover operation. The replication state of the replicated item that represents the virtual machine goes to the protected state after initial replication completes.
     
@@ -341,7 +341,7 @@ Site Recovery service ensures business continuity by keeping workloads running d
     
     If you see **Protected** in the *ProtectionState*, you are ready to proceed to test failover. 
     
-    :::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone-in-same-region/protection-state.png" alt-text="Screenshot of Protection state.":::
+    :::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/protection-state.png" alt-text="Screenshot of Protection state.":::
 
 1. Perform, validate, and clean up a test failover. You can skip the Test failover. However, we recommend to execute test failover to ensure that your secondary region comes up as expected. 
 
@@ -469,7 +469,7 @@ Site Recovery service ensures business continuity by keeping workloads running d
         ```
     This step takes ~20 minutes and the status will move from **In progress** to **Successful**. 
 
-    :::image type="Protected items list" source="media/tutorial-replicate-vms-edge-zone-to-another-zone-in-same-region/protected-items-inline.png" alt-text="Screenshot of Protected items list." lightbox="media/tutorial-replicate-vms-edge-zone-to-another-zone-in-same-region/protected-items-expanded.png":::
+    :::image type="Protected items list" source="media/tutorial-replicate-vms-edge-zone-to-another-zone/protected-items-inline.png" alt-text="Screenshot of Protected items list." lightbox="media/tutorial-replicate-vms-edge-zone-to-another-zone/protected-items-expanded.png":::
 
 1. Disable replication.
 
