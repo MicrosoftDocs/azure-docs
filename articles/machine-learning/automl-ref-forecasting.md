@@ -65,8 +65,6 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `weight_column_name` | string | The name of the sample weight column. Automated ML supports a weighted column as an input, causing rows in the data to be weighted up or down. This parameter is applicable to ``training_data`` and ``validation_data`` parameters. |  | None |
 
 
-=================================================================================
-
 ### limits
 
 | Key | Type | Description | Allowed values | Default value |
