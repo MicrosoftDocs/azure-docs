@@ -314,7 +314,9 @@ ledger_entry_result = ledger_entry_poller.result()
 Querying an older ledger entry requires the ledger to read the entry from disk and validate it. You can use the `begin_get_ledger_entry` function to create a poller that will wait until the queried entry is in a ready state to view.
 
 ```python
-get_entry_poller = ledger_client.begin_get_ledger_entry(transaction_id=ledger_entry_result['transactionId'])
+get_entry_poller = ledger_client.begin_get_ledger_entry(
+    transaction_id=ledger_entry_result['transactionId']
+)
 entry = get_entry_poller.result()
 ```
 
