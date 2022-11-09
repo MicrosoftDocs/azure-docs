@@ -44,7 +44,7 @@ A sample request:
 {
   "variables": [
     {
-      "variableName": "Variable_1",
+      "variable": "Variable_1",
       "timestamps": [
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
@@ -59,7 +59,7 @@ A sample request:
       ]
     },
     {
-      "variableName": "Variable_2",
+      "variable": "Variable_2",
       "timestamps": [
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
@@ -74,7 +74,7 @@ A sample request:
       ]
     },
     {
-      "variableName": "Variable_3",
+      "variable": "Variable_3",
       "timestamps": [
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
