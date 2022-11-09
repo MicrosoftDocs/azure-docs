@@ -63,7 +63,7 @@ This section shows how to create a contained user in the database that represent
 - [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](/azure/azure-sql/database/authentication-mfa-ssms-overview)
 - [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse Analytics](/azure/azure-sql/database/authentication-aad-configure)
 
-SQL DB requires unique Azure AD display names. With this, the Azure AD accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in AAD regarding their display names. SQL DB checks the Azure AD display name during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique Azure AD display name for a given account.
+SQL DB requires unique Azure AD display names. With this, the Azure AD accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in Azure AD regarding their display names. SQL DB checks the Azure AD display name during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique Azure AD display name for a given account.
 
 **To create a contained user:**
 
