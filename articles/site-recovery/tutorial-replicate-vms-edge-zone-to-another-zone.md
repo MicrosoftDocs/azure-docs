@@ -32,8 +32,8 @@ Site Recovery ensure business continuity by keeping workloads running during out
 - Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix#linux).
 - Ensure the primary VM has a public IP. To validate, go to the VM NIC and check if public IP is attached to the NIC. Ensure that recovery VM has a public IP when you switch to protection direction. 
 
->[!Note]
->Azure Site Recovery doesn’t re-create the public IP, so it's important to check the availability of the public IP and that it is attached to the NIC before you switch to protection direction from recovery to primary. 
+    >[!Note]
+    >Azure Site Recovery doesn’t re-create the public IP, so it's important to check the availability of the public IP and that it is attached to the NIC before you switch to protection direction from recovery to primary. 
 
 ## Replicate Virtual machines running in an Edge Zone (preview) to another Edge Zone
 
