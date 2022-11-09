@@ -166,7 +166,7 @@ network_identity = identity_client.get_ledger_identity(
 
 ledger_tls_cert_file_name = "networkcert.pem"
 with open(ledger_tls_cert_file_name, "w") as cert_file:
-    cert_file.write(network_identity.ledger_tls_certificate)
+    cert_file.write(network_identity['ledgerTlsCertificate'])
 ```
 
 Now we can use the network certificate, along with the ledger URL and our credentials, to create a confidential ledger client.
@@ -179,12 +179,10 @@ ledger_client = ConfidentialLedgerClient(
 )
 ```
 
-We are prepared to write to the ledger.  We will do so using the `create_ledger_entry` function.
+We are prepared to write to the ledger. We will do so using the `create_ledger_entry` function.
 
 ```python
-sample_entry = {
-    "contents": "Hello world!"
-}
+sample_entry = {"contents": "Hello world!"}
 append_result = ledger_client.create_ledger_entry(entry=sample_entry)
 print(append_result['transactionId'])
 ```
@@ -196,7 +194,14 @@ latest_entry = ledger_client.get_ledger_entry(transaction_id=append_result['tran
 print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
 ```
 
-The print function will return "Hello world!", as that is the message in the ledger that that corresponds to the transaction ID.
+If you would simply like the latest transaction that was committed to the ledger, you can use the `get_current_ledger_entry` function.
+
+```python
+latest_entry = ledger_client.get_current_ledger_entry()
+print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
+```
+
+The print function will return "Hello world!", as that is the message in the ledger that that corresponds to the transaction ID and is the latest transaction.
 
 ## Full sample code
 
@@ -286,31 +291,31 @@ ledger_client = ConfidentialLedgerClient(
 )
 
 # Write to the ledger
-sample_entry = {
-    "contents": "Hello world!"
-}
-append_result = ledger_client.create_ledger_entry(entry=sample_entry)
-print(append_result['transactionId'])
-
-# Wait until transaction is committed on the ledger
-while True:
-    commit_result = ledger_client.get_transaction_status(append_result['transactionId'])
-    print(commit_result['state'])
-    if (commit_result['state'] == "Committed"):
-        break
-    time.sleep(1)
-
-# Wait until entry is read from enclave and validated
-while True:
-    latest_entry = ledger_client.get_ledger_entry(transaction_id=append_result['transactionId'])
-    print(latest_entry['state'])
-    if (latest_entry['state'] == "Ready"):
-        break
-    time.sleep(1)
+sample_entry = {"contents": "Hello world!"}
+ledger_client.create_ledger_entry(entry=sample_entry)
   
 # Read from the ledger
-latest_entry = latest_entry['entry']
+latest_entry = ledger_client.get_current_ledger_entry()
 print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
+```
+
+## Pollers
+
+If you would like to wait for your write transaction to be committed to your ledger you can use the `begin_create_ledger_entry` function. This will return a poller to wait until the your entry is durably committed.
+
+```python
+sample_entry = {"contents": "Hello world!"}
+ledger_entry_poller = ledger_client.begin_create_ledger_entry( 
+    entry=sample_entry
+)
+ledger_entry_result = ledger_entry_poller.result()
+```
+
+Querying an older ledger entry requires the ledger to read the entry from disk and validate it. You can use the `begin_get_ledger_entry` function to create a poller that will wait until the queried entry is in a ready state to view.
+
+```python
+get_entry_poller = ledger_client.begin_get_ledger_entry(transaction_id=ledger_entry_result['transactionId'])
+entry = get_entry_poller.result()
 ```
 
 ## Clean up resources
