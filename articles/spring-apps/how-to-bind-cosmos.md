@@ -76,7 +76,9 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 #### [Service Connector](#tab/Service-Connector)
 
-1. Use **Azure CLI** to configure your Spring app to connect to a Cosmos SQL Database with a system-assigned managed identity by using the az spring connection create command, as shown in the following example.
+1. Use **Azure CLI** to configure your Spring app to connect to a Cosmos SQL Database with a system-assigned managed identity by using the az spring connection create command, as shown in the following example. 
+    > [!NOTE]
+    > This opeartion can take a few minutes to finish
 
    ```azurecli
    az spring connection create cosmos-sql \
@@ -111,7 +113,9 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
    * In the **Networking** tab, we will use "Configure firewall rules to enable access to target service". Click Next button.
 
-   * In the **Review + Create** tab, wait for the validation to pass and then click Create button.
+   * In the **Review + Create** tab, wait for the validation to pass and then click Create button. The creation can take a few minutes to finish.
+
+   * Once the creation is done, you can see the connection in the Service Connector page and click unfold to view the configured connection variables. 
 
 
 #### [Service Binding](#tab/Service-Binding)
