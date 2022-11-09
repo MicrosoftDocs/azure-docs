@@ -128,12 +128,12 @@ For clarity, "deployment machine" refers to the machine where deployment CLI com
 
 #### Top causes of the KVA timeout error  
 
-1. Deployment machine is unable to communicate with Control Plane IP and Appliance VM IP.
-1. Appliance VM is unable to communicate with the deployment machine, vCenter endpoint (for VMware), or MOC cloud agent endpoint (for Azure Stack HCI).  
-1. Appliance VM does not have internet access.
-1. Appliance VM has internet access, but connectivity to one or more required URLs is being blocked, possibly due to a proxy or firewall.
-1. Appliance VM is unable to reach a DNS server that can resolve internal names, such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses and container registry names.  
-1. Proxy server configuration on the deployment machine or Arc resource bridge configuration files are incorrect. This can impact both the deployment machine and the Appliance VM. When the `az arcappliance prepare` command is run, the deployment machine won't be able to connect and download OS images if the host proxy isn't correctly configured. Internet access on the Appliance VM might be broken by incorrect or missing proxy configuration, which impacts the VM’s ability to pull container images.  
+- Deployment machine is unable to communicate with Control Plane IP and Appliance VM IP.
+- Appliance VM is unable to communicate with the deployment machine, vCenter endpoint (for VMware), or MOC cloud agent endpoint (for Azure Stack HCI).  
+- Appliance VM does not have internet access.
+- Appliance VM has internet access, but connectivity to one or more required URLs is being blocked, possibly due to a proxy or firewall.
+- Appliance VM is unable to reach a DNS server that can resolve internal names, such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses and container registry names.  
+- Proxy server configuration on the deployment machine or Arc resource bridge configuration files is incorrect. This can impact both the deployment machine and the Appliance VM. When the `az arcappliance prepare` command is run, the deployment machine won't be able to connect and download OS images if the host proxy isn't correctly configured. Internet access on the Appliance VM might be broken by incorrect or missing proxy configuration, which impacts the VM’s ability to pull container images.  
 
 #### Troubleshoot KVA timeout error
 
