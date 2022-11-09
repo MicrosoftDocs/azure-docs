@@ -38,6 +38,10 @@ CEF normalizes the data, making it more immediately useful for analysis with Mic
 1. The AMA connector installed on the log forwarder collects and parses the logs. 
 1. The connector streams the events to the Microsoft Sentinel workspace to be further analyzed. 
 
+When you install a log forwarder, the originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. The Syslog daemon on the forwarder sends events to the Log Analytics agent over UDP. If this Linux forwarder is expected to collect a high volume of Syslog events, its Syslog daemon sends events to the agent over TCP instead. In either case, the agent then sends the events from there to your Log Analytics workspace in Microsoft Sentinel.
+
+:::image type="content" source="media/connect-cef-ama/syslog-forwarder-diagram-ama.png" alt-text="Diagram showing the data flow from syslog sources to the Microsoft Sentinel workspace, where the AMA is installed on a separate log-forwarding device." border="false":::
+
 ## Set up the Common Event Format (CEF) via AMA connector
 
 ### Prerequisites
@@ -49,10 +53,7 @@ Before you begin, verify that you have:
 - A Linux machine to collect logs.
     - The Linux machine must have Python 2.7 or 3 installed on the Linux machine. Use the ``python --version`` or ``python3 --version`` command to check.
 - Either the `syslog-ng` or `rsyslog` daemon enabled.
-- To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed. Install and enable Azure Arc before you enable the Azure Monitor Agent-based connector. This requirement includes:
-    - Windows servers installed on physical machines
-    - Windows servers installed on on-premises virtual machines
-    - Windows servers installed on virtual machines in non-Azure clouds 
+- To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed.
 
 ### Configure a log forwarder
 
@@ -93,15 +94,13 @@ You can set up the connector in two ways:
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
 1. Select **Data connectors**, and in the search bar, type *CEF*.
-1. Select the **CEF over AMA (Preview)** connector.
+1. Select the **Common Event Format (CEF) via AMA (Preview)** connector.
 1. Below the connector description, select **Open connector page**.
 1. In the **Configuration** area, select **Add data collection rule**. 
-1. Select the **Basics** tab: 
+1. Under **Basics**: 
     - Type a DCR name
     - Select your subscription
-    - Select the resource group where your collector is defined 
-    - Fill in the region where you want your DCR to be saved
-    - In the **Platform Type**, select **Linux**.
+    - Select the resource group where your collector is defined
 
 [SCREENSHOT TBD]
 
@@ -119,7 +118,14 @@ Select the machines on which you want to install the AMA. These machines are VMs
 ##### Select the data source type and create the DCR
 
 > [!NOTE]
-> Select at least one facility and a minimum log level for the facility.
+> **Using the same machine to forward both plain Syslog *and* CEF messages**
+>
+> If you plan to use this log forwarder machine to forward Syslog messages as well as CEF, then in order to avoid the duplication of events to the Syslog and CommonSecurityLog tables:
+>
+> 1. On each source machine that sends logs to the forwarder in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) for detailed instructions on how to do this.
+>
+> 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Microsoft Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.<br>
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 1. Select the **Collect** tab and select **Linux syslog** as the data source type.
 1. Configure the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with lower severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_WARNING**, **LOG_NOTICE**, **LOG_INFO**, and **LOG_DEBUG** levels.
@@ -134,13 +140,13 @@ Select the machines on which you want to install the AMA. These machines are VMs
 1.	Log in to the Linux forwarder machine, where you want the AMA to be installed.
 1.	Run this command to launch the installation script:
  
-```python
-sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure- Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
-```
-The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.
+    ```python
+    sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure- Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
+    ```
+    The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.
 
-> [!NOTE] 
-> To avoid full disk scenarios where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs.
+    > [!NOTE] 
+    > To avoid full disk scenarios where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs.
 
 ### Set up the connector with the API
 
@@ -149,7 +155,7 @@ You can create DCRs using the [API](/rest/api/monitor/data-collection-rules). Le
 Run this command to launch the installation script:
  
 ```python
-sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure- Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
+sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure- Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py 
 ```
 The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.  
 
@@ -339,12 +345,6 @@ This example collects events for:
     ```
 
     You should see the `rsyslog` or `syslog-ng` daemon listening on port 514. 
-
-1. To verify that the is AMA listening on port 28130, run the following command:
-
-    ```
-    sudo service azuremonitoragent status
-    ```
 
 1. To capture messages sent from a logger or a connected device, run this command in the background:
 
