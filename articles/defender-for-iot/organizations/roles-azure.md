@@ -19,7 +19,8 @@ Roles for management actions are applied to user roles across an entire Azure su
 
 | Action and scope|[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|
-|  **Onboard OT or Enterprise IoT sensors** <br>Apply per subscription only<!--check w idan that we added this, check with geffen about EIoT sensors, could be we need an update in the tutorial too. need to check with geffen that security readers can onboard eiot sensors.--> | -       |  ✔       |   ✔      | ✔ |
+| **Grant permissions to others**<br>Apply per subscription or site | -       |  -       |   -      | ✔ |
+|  **Onboard OT or Enterprise IoT sensors** <br>Apply per subscription only | -       |  ✔       |   ✔      | ✔ |
 |  **Download OT sensor and on-premises management console software** <br>Apply per subscription only| ✔      |  ✔       |   ✔      | ✔ |
 |  **Download sensor activation files** <br>Apply per subscription only|   -     |   ✔      | ✔ | ✔ |
 |  **View values on the Pricing page**  <br>Apply per subscription only| ✔      |   ✔     | ✔ | ✔ |
@@ -34,8 +35,8 @@ Roles for management actions are applied to user roles across an entire Azure su
 | **Modify alerts (write access)** <br>Apply per subscription only|  - | ✔ |✔ | ✔ |
 | **View device inventory** <br>Apply per subscription or site  |  ✔ | ✔ |✔ | ✔|
 | **Manage device inventory (write access)** <br>Apply per subscription or site  | - | ✔ |✔ | ✔ |
-| **View workbooks** <br>Apply per subscription or site<!--check with idan and yair about this--> | - | ✔ |✔ | ✔ |
-| **Manage workbooks (write access)** <br>Apply per subscription or site<!--check with idan and yair about this--> |  - | ✔ |✔ | ✔ |
+| **View workbooks** <br>Apply per subscription or site | ✔ | ✔ |✔ | ✔ |
+| **Manage workbooks (write access)** <br>Apply per subscription or site <!--check w yair--> |  - | ✔ |✔ | ✔ |
 
 ## Enterprise IoT security
 

@@ -21,7 +21,7 @@ Manage user access for Defender for IoT using Azure RBAC, applying the roles to 
 - [Grant a group access to Azure resources using Azure PowerShell](/azure/role-based-access-control/tutorial-role-assignments-group-powershell)
 - [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md)
 
-## Define Azure users for Defender for IoT
+## Manage site-based access control
 
 Define user roles per site to add a level of granularity and apply different user roles across different Defender for IoT sites. You can also use site-based access control resources to do any of the following:
 
