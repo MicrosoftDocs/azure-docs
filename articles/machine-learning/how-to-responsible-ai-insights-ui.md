@@ -144,7 +144,7 @@ The wizard will allow you to customize your PDF scorecard without having to touc
 1. PDF scorecard summary
 2. Model performance
 3. Tool selection
-4. Data analysis ( previously called data explorer )
+4. Data analysis (previously called data explorer)
 5. Causal analysis
 6. Interpretability
 7. Experiment configuration
