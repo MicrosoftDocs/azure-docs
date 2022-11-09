@@ -105,6 +105,8 @@
     items:
     - name: Endpoints and rulesets
       href: private-resolver-endpoints-rulesets.md
+    - name: Resiliency in Azure DNS Private Resolver
+      href: private-resolver-reliability.md
 - name: How-to guides
   items:
   - name: Public DNS
@@ -216,7 +218,18 @@
     - name: Go
       href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/dnsresolver/armdnsresolver
     - name: Resource Manager template
-      href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azure-dns-private-resolver   
+      href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azure-dns-private-resolver
+    - name: Terraform
+      items:
+      - name: Manages a private DNS resolver
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver
+      - name: Manages a private DNS resolver inbound endpoint
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver_inbound_endpoint
+      - name: Manages a private DNS resolver outbound endpoint
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver_outbound_endpoint
+      - name: Manages a private DNS resolver DNS forwarding ruleset
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver_dns_forwarding_ruleset
+
 - name: Resources
   items:
   - name: Azure Roadmap

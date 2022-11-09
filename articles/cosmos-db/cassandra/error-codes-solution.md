@@ -1,31 +1,31 @@
 ---
-title: Server diagnostics for Azure Cosmos DB Cassandra API
-description: This article explains some common error codes in Azure Cosmos DB's Cassandra API and how to troubleshoot using Log Analytics
+title: Server diagnostics for Azure Cosmos DB for Apache Cassandra
+description: This article explains some common error codes in Azure Cosmos DB's API for Cassandra and how to troubleshoot using Log Analytics
 author: IriaOsara
 ms.author: IriaOsara
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: troubleshooting
 ms.date: 10/12/2021
-ms.custom: template-how-to
+ms.custom: template-how-to, ignite-2022
 ---
 
-# Server diagnostics for Azure Cosmos DB Cassandra API
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# Server diagnostics for Azure Cosmos DB for Apache Cassandra
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
-Log Analytics is a tool in the Azure portal that helps you run server diagnostics on your Cassandra API account. Run log queries from data collected by Azure Monitor Logs and interactively analyze their results. Records retrieved from Log Analytics queries help provide various insights into your data.
+Log Analytics is a tool in the Azure portal that helps you run server diagnostics on your API for Cassandra account. Run log queries from data collected by Azure Monitor Logs and interactively analyze their results. Records retrieved from Log Analytics queries help provide various insights into your data.
 
 ## Prerequisites
 
 - Create a [Log Analytics Workspace](../../azure-monitor/logs/quick-create-workspace.md).
-- Create [Diagnostic Settings](../cosmosdb-monitor-resource-logs.md).
-- Start [log analytics](../../azure-monitor/logs/log-analytics-overview.md) on your Cassandra API account.
+- Create [Diagnostic Settings](../monitor-resource-logs.md).
+- Start [log analytics](../../azure-monitor/logs/log-analytics-overview.md) on your API for Cassandra account.
 
 ## Use Log Analytics
 After you've completed the log analytics setup, you can begin to explore your logs to gain more insights.
 
 ### Explore Data Plane Operations
-Use the CDBCassandraRequests table to see data plane operations specifically for your Cassandra API account. A sample query to see the topN(10) consuming request and get detailed information on each request made.
+Use the CDBCassandraRequests table to see data plane operations specifically for your API for Cassandra account. A sample query to see the topN(10) consuming request and get detailed information on each request made.
 
 ```Kusto
 CDBCassandraRequests
@@ -70,7 +70,7 @@ CDBPartitionKeyRUConsumption
  ```
 
 ### Explore Control Plane Operations
-The CBDControlPlaneRequests table contains details on control plane operations, specifically  for Cassandra API accounts. 
+The CBDControlPlaneRequests table contains details on control plane operations, specifically  for API for Cassandra accounts. 
 
 ```Kusto
 CDBControlPlaneRequests
@@ -83,4 +83,4 @@ CDBControlPlaneRequests
 ## Next steps
 
 - Learn more about [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
-- Learn how to [migrate from native Apache Cassandra to Azure Cosmos DB Cassandra API](migrate-data-databricks.md).
+- Learn how to [migrate from native Apache Cassandra to Azure Cosmos DB for Apache Cassandra](migrate-data-databricks.md).

@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This article describes how you can configure an Azure Database for MySQL server to enforce minimum TLS version allowed for connections to go through and deny all connections with lower TLS version than configured minimum TLS version thereby enhancing the network security.
 
 You can enforce TLS version for connecting to their Azure Database for MySQL. Customers now have a choice to set the minimum TLS version for their database server. For example, setting this Minimum TLS version to 1.0 means you shall allow clients connecting using TLS 1.0,1.1 and 1.2. Alternatively, setting this to 1.2 means that you only allow clients connecting using TLS 1.2+ and all incoming connections with TLS 1.0 and TLS 1.1 will be rejected.

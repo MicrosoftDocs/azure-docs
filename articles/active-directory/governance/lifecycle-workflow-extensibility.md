@@ -15,7 +15,7 @@ ms.custom: template-concept
 # Lifecycle Workflows Custom Task Extension (Preview)
 
 
-Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of these built-in tasks. With the extensibility feature, you'll be able to utilize the concept of custom task extensions to call-out to external systems as part of a workflow. By calling out to the external systems, you're able to accomplish things, which can extend the purpose of your workflows. When a user joins your organization you can have a workflow with a custom task extension that assigns a Teams number, or have a separate workflow that grants access to an email account for a manager when a user leaves. With the extensibility feature, Lifecycle Workflows currently support creating custom tasks extensions to call-out to [Azure Logic Apps](/azure/logic-apps/logic-apps-overview).
+Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of these built-in tasks. With the extensibility feature, you'll be able to utilize the concept of custom task extensions to call-out to external systems as part of a workflow. By calling out to the external systems, you're able to accomplish things, which can extend the purpose of your workflows. When a user joins your organization you can have a workflow with a custom task extension that assigns a Teams number, or have a separate workflow that grants access to an email account for a manager when a user leaves. With the extensibility feature, Lifecycle Workflows currently support creating custom tasks extensions to call-out to [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 
 ## Prerequisite Logic App roles required for integration with the custom task extension
@@ -29,7 +29,7 @@ The roles on the Azure Logic App, which allows it to be compatible with the cust
 - **Owner**
 
 > [!NOTE]
-> The **Logic App Operator** role alone will not make an Azure Logic App compatible with the custom task extension. For more information on the required **Logic App contributor** role, see: [Logic App Contributor](/azure/role-based-access-control/built-in-roles#logic-app-contributor).
+> The **Logic App Operator** role alone will not make an Azure Logic App compatible with the custom task extension. For more information on the required **Logic App contributor** role, see: [Logic App Contributor](../../role-based-access-control/built-in-roles.md#logic-app-contributor).
 
 ## Custom task extension deployment scenarios
 

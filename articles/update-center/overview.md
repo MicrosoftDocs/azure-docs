@@ -43,7 +43,7 @@ Update management center (preview) has been redesigned and doesn't depend on Azu
     - Ability to take immediate action either by installing updates immediately or schedule them for a later date.
     - Check updates automatically or on demand.
     - Helps secure machines with new ways of patching such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hotpatching](../automanage/automanage-hotpatch.md) or custom maintenance schedules.
-    - Sync patch cycles in relation to patch Tuesday—the unofficial term for Microsoft's scheduled security fix release on every Tuesday.
+    - Sync patch cycles in relation to patch Tuesday—the unofficial term for Microsoft's scheduled security fix release on every second Tuesday of each month.
 
 
 The following diagram illustrates how update management center (preview) assesses and applies updates to all Azure machines and Arc-enabled servers for both Windows and Linux.
@@ -105,11 +105,7 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../v
 
 ### VM images
 
-Update management center (preview) supports Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image. If you have created Azure VMs using custom VM images and not an image from the Azure Marketplace, you need to manually install and enable the Azure virtual machine agent. For details, see:
-
-- [Manual install of Azure Windows VM agent](../virtual-machines/extensions/agent-windows.md#manual-installation)
-- [Manual install of Azure Linux VM agent](../virtual-machines/extensions/agent-linux.md#installation)
-
+Update management center (preview) supports Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image.
 
  
 ## Next steps

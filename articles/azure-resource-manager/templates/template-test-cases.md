@@ -1114,7 +1114,7 @@ The following example **passes** because `expressionEvaluationOptions` uses `inn
 ## Next steps
 
 - To learn about running the test toolkit, see [Use ARM template test toolkit](test-toolkit.md).
-- For a Learn module that covers using the test toolkit, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).
+- For a Learn module that covers using the test toolkit, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/training/modules/arm-template-test/).
 - To test parameter files, see [Test cases for parameter files](parameters.md).
 - For createUiDefinition tests, see [Test cases for createUiDefinition.json](createUiDefinition-test-cases.md).
 - To learn about tests for all files, see [Test cases for all files](all-files-test-cases.md).

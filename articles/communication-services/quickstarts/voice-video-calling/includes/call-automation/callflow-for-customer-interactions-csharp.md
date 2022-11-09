@@ -5,7 +5,7 @@ services: azure-communication-services
 author: ashwinder
 
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
+ms.subservice: call-automation
 ms.date: 09/06/2022
 ms.topic: include
 ms.custom: include file
@@ -15,145 +15,134 @@ ms.author: askaur
 ## Prerequisites
 
 - An Azure account with an active subscription.
-- A deployed Communication Service resource.
-- [Acquire a PSTN phone number from the Communication Service resource](../../../telephony/get-phone-number.md?pivots=programming-language-csharp).
-- The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- A [web service application](https://dotnet.microsoft.com/download/dotnet-core) to handle web hook callback events.
-- Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
-- The [ARMClient application](https://github.com/projectkudu/ARMClient), used to configure the Event Grid subscription.
-- Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
-
-## Configure an Event Grid subscription
-
-The Call Automation platform uses Event Grid to deliver the IncomingCall event to a subscription of your choice. For this guide, we'll use a web hook subscription pointing to your NGROK application proxy address.
-
-1. Locate and copy the following to be used in the armclient command-line statement below:
-    - Azure subscription ID
-    - Resource group name
-
-    On the picture below you can see the required fields:
-
-    :::image type="content" source="./../../media/call-automation/portal.png" alt-text="Screenshot of Communication Services resource page on Azure portal.":::
-
-2. Communication Service resource name
-3. Determine your local development HTTP port used by your web service application.
-4. Start NGROK by issuing the following command from a command prompt.
-
-    ```console
-    ngrok http <https://localhost:<your_web_service_port>>
-    ```
-
-    This command will produce a public URI you can use to receive the events from the Event Grid subscription.
-
-5. Optional: Determine an API route path for the incoming call event together with your NGROK URI that will be used in the armclient command-line statement below, for example: `https://ff2f-75-155-253-232.ngrok.io/api/incomingcall`.
-6. Event Grid web hooks require a valid reachable endpoint before they can be created. As such, start your web service application and run the commands below.
-7. Since the `IncomingCall` event isn't yet published in the portal, you must run the following command-line statements to configure your subscription:
-
-    ``` console
-    armclient login
-
-    armclient put "/subscriptions/<your_azure_subscription_guid>/resourceGroups/<your_resource_group_name>/providers/Microsoft.Communication/CommunicationServices/<your_acs_resource_name>/providers/Microsoft.EventGrid/eventSubscriptions/<subscription_name>?api-version=2022-06-15" "{'properties':{'destination':{'properties':{'endpointUrl':'<your_ngrok_uri>'},'endpointType':'WebHook'},'filter':{'includedEventTypes': ['Microsoft.Communication.IncomingCall']}}}" -verbose
-    ```
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the resource connection string for this quickstart by navigating to your resource selecting 'Keys' from the left side menu.
+- [Acquire a phone number for your Communication Service resource](../../../telephony/get-phone-number.md?pivots=programming-language-csharp). Note the phone number you acquired for use in this quickstart. 
+- The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. .NET 6.0 or higher is recommended as this quickstart uses the minimal API feature. 
+- An audio file for the message you want to play in the call. This audio should be accessible via a url. 
 
 ## Create a new C# application
 
 In the console window of your operating system, use the `dotnet` command to create a new web application.
-
 ```console
-dotnet new web -n MyApplication
+    dotnet new web -n MyApplication
 ```
 
-## Install the NuGet package
+## Install required packages
 
-During the preview phase, the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
+1. Configure NuGet Package Manager to use dev feed: During the preview phase, the CallAutomation package is published to the dev feed. Configure your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
 
-## Obtain your connection string
+2. Install the NuGet packages: [Azure.Communication.CallAutomation](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/versions/) and [Azure.Messaging.EventGrid](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Messaging.EventGrid/versions/) to your project. 
+```console 
+dotnet add <path-to-project> package Azure.Communication.CallAutomation --prerelease
+dotnet add <path-to-project> package Azure.Messaging.EventGrid --prerelease
+```
+## Set up a public URI for the local application 
 
-From the Azure portal, locate your Communication Service resource and click on the Keys section to obtain your connection string.
+In this quick-start, you'll use [Ngrok tool](https://ngrok.com/) to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-:::image type="content" source="./../../media/call-automation/Key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys":::
+First, determine the port of the .NET application. Minimal API dynamically allocates a port for the project at the time of creation. Find out the http port in <PROJECT_ROOT>\Properties\launchSettings.json.
+:::image type="content" source="./../../media/call-automation/dotnet-application-port.jpg" alt-text="Screenshot of demo application's launchsetting.json file":::
 
-## Configure Program.cs to answer the call
+Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
 
-Using the minimal API feature in .NET 6, we can easily add an HTTP POST map and answer the call. A callback URI is required so the service knows how to contact your web server for subsequent calls state events such as `CallConnected` and `PlayCompleted`.  
+## Update Program.cs
 
-NOTE: The code sample also illustrates how you can control the callback URI by setting your own context/ID when you answer the call. All events generated by the call will be sent to the specific route you provide when answering an inbound call and the same applies to when you place an outbound call.
-```csharp
+Using the minimal API feature in .NET 6, we can easily add an HTTP POST map and answer the call. A callback URI is required so the service knows how to contact your application for subsequent calls state events such as `CallConnected` and `PlayCompleted`.  
+
+In this code snippet, /api/incomingCall is the default route that will be used to listen for and answer incoming calls. At a later step, you'll register this url with Event Grid. Since Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint, the code sample also handles this one time validation by processing SubscriptionValidationEvent. This requirement prevents a malicious user from flooding your endpoint with events. For more information, see this [guide](../../../../../event-grid/webhook-event-delivery.md).  
+
+The code sample also illustrates how you can control the callback URI by setting your own context/ID when you answer the call. All events generated by the call will be sent to the specific route you provide when answering an inbound call and the same applies to when you place an outbound call.  
+
+``` csharp
 using Azure.Communication;
-using Azure.Communication.CallingServer;
+using Azure.Communication.CallAutomation;
+using Azure.Messaging;
 using Azure.Messaging.EventGrid;
+using Azure.Messaging.EventGrid.SystemEvents;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Nodes;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var client = new CallAutomationClient(builder.Configuration["ACS:ConnectionString"]);
-var callbackUriBase = "<YOUR_NGROK_FQDN>"; // i.e. https://someguid.ngrok.io
+var client = new CallAutomationClient("<resource_connection_string"); //noted from pre-requisite step
+var callbackUriBase = "<public_url_generated_by_ngrok>";
+var mediaFileSource = new Uri("<link_to_media_file>");
+var applicationPhoneNumber = "<phone_number_acquired_as_prerequisite>";
+var phoneNumberToAddToCall = "<phone_number_to_add_to_call>"; //in format of +1...
 
 var app = builder.Build();
-
 app.MapPost("/api/incomingCall", async (
     [FromBody] EventGridEvent[] eventGridEvents) =>
+{
+    foreach (var eventGridEvent in eventGridEvents)
     {
-        foreach (var eventGridEvent in eventGridEvents)
+        // Handle system events
+        if (eventGridEvent.TryGetSystemEventData(out object eventData))
         {
-            // Handle system events
-            if (eventGridEvent.TryGetSystemEventData(out object eventData))
+            // Handle the subscription validation event.
+            if (eventData is SubscriptionValidationEventData subscriptionValidationEventData)
             {
-                // Handle the subscription validation event
-                if (eventData is SubscriptionValidationEventData subscriptionValidationEventData)
+                var responseData = new SubscriptionValidationResponse
                 {
-                    var responseData = new SubscriptionValidationResponse
-                    {
-                        ValidationResponse = subscriptionValidationEventData.ValidationCode
-                    };
-                    return Results.Ok(responseData);
-                }
+                    ValidationResponse = subscriptionValidationEventData.ValidationCode
+                };
+                return Results.Ok(responseData);
             }
-
-            var jsonObject = JsonNode.Parse(eventGridEvent.Data).AsObject();
-            var incomingCallContext = (string)jsonObject["incomingCallContext"];
-            var callbackUri = new Uri(callbackUriBase + $"/api/calls/{Guid.NewGuid()}");
-            AnswerCallResult answerCallResult = await client.AnswerCallAsync(incomingCallContext, callbackUri);
         }
+        var jsonObject = JsonNode.Parse(eventGridEvent.Data).AsObject();
+        var callerId = (string)(jsonObject["from"]["rawId"]);
+        var incomingCallContext = (string)jsonObject["incomingCallContext"];
+        var callbackUri = new Uri(callbackUriBase + $"/api/calls/{Guid.NewGuid()}?callerId={callerId}");
 
-        return Results.Ok();
-    });
+        AnswerCallResult answerCallResult = await client.AnswerCallAsync(incomingCallContext, callbackUri);
+    }
+    return Results.Ok();
+});
 
 app.MapPost("/api/calls/{contextId}", async (
     [FromBody] CloudEvent[] cloudEvents,
-    [FromRoute] string contextId) =>
+    [FromRoute] string contextId,
+    [Required] string callerId) =>
 {
     foreach (var cloudEvent in cloudEvents)
     {
         CallAutomationEventBase @event = CallAutomationEventParser.Parse(cloudEvent);
-        if (@event == typeof(CallConnected))
+        if (@event is CallConnected)
         {
-            // play audio file to caller
-            var playSource = new FileSource("<INSERT_AUDIO_FILE_URI>");
-            var playOptions = new PlayOptions() { Loop = true };
+            // play audio then recognize 3-digit DTMF input with pound (#) stop tone
+            var recognizeOptions =
+                new CallMediaRecognizeDtmfOptions(CommunicationIdentifier.FromRawId(callerId), 3)
+                {
+                    InterruptPrompt = true,
+                    InterToneTimeout = TimeSpan.FromSeconds(10),
+                    InitialSilenceTimeout = TimeSpan.FromSeconds(5),
+                    Prompt = new FileSource(mediaFileSource),
+                    StopTones = new[] { DtmfTone.Pound },
+                    OperationContext = "MainMenu"
+                };
             await client.GetCallConnection(@event.CallConnectionId)
                 .GetCallMedia()
-                .PlayToAllAsync(playSource, playOptions);
+                .StartRecognizingAsync(recognizeOptions);
         }
-        if (@event == typeof(PlayCompleted))
-        {            
-            // add ACS user as a participant to the call after audio has completed playing
-            await client.GetCallConnection(@event.CallConnectionId)
-                .AddParticipantsAsync(new List<CommunicationIdentifier>() { new CommunicationUserIdentifier("<ACS_USER_ID>")});
+        if (@event is RecognizeCompleted { OperationContext: "MainMenu" })
+        {
+            // this RecognizeCompleted correlates to the previous action as per the OperationContext value
+            var addThisPerson = new PhoneNumberIdentifier(phoneNumberToAddToCall); 
+            var listOfPersonToBeAdded = new List<CommunicationIdentifier>(); 
+            listOfPersonToBeAdded.Add(addThisPerson); 
+            var addParticipantsOption = new AddParticipantsOptions(listOfPersonToBeAdded); 
+            addParticipantsOption.SourceCallerId = new PhoneNumberIdentifier(applicationPhoneNumber);
+            AddParticipantsResult result = await client.GetCallConnection(@event.CallConnectionId).AddParticipantsAsync(addParticipantsOption);
         }
     }
-
     return Results.Ok();
 }).Produces(StatusCodes.Status200OK);
 
 app.Run();
 ```
+Replace the placeholders with the actual values in lines 12-16. In your production code, we recommend using [Secret Manager](https://learn.microsoft.com/aspnet/core/security/app-secrets) for storing sensitive information like this.  
+ 
+## Run the app
 
-## Testing the application
-
-1. Place a call to the number you acquired in the Azure portal (see prerequisites above).
-2. Your Event Grid subscription to the `IncomingCall` should execute and call your web server.
-3. The call will be answered, and an asynchronous web hook callback will be sent to the NGROK callback URI.
-4. When the call is connected, a `CallConnected` event will be sent to your web server, wrapped in a `CloudEvent` schema and can be easily deserialized using the Call Automation SDK parser. At this point, the application will request audio to be played in a loop to all participants on the call.
-5. When the audio file has played, a `PlayCompleted` event is received, and the web server will make a request to add a participant to the call.
+Open Your_Project_Name.csproj file in your project with Visual Studio, and then select Run button or press F5 on your keyboard.

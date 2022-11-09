@@ -13,7 +13,7 @@ ms.author: pafarley
 
 Get started with facial recognition using the Face client library for JavaScript. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images. Follow these steps to install the package and try out the example code for basic face identification using remote images.
 
-[Reference documentation](/javascript/api/overview/azure/cognitiveservices/face) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
+[Reference documentation](/javascript/api/overview/azure/cognitiveservices-face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
 
 ## Prerequisites
 
@@ -52,6 +52,9 @@ Get started with facial recognition using the Face client library for JavaScript
     Your app's `package.json` file will be updated with the dependencies.
 
 1. Create a file named `index.js`, open it in a text editor, and paste in the following code:
+
+    > [!NOTE]
+    > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
 
     :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart-single.js" id="snippet_single":::
 

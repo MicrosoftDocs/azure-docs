@@ -18,7 +18,7 @@ Premium plan hosting provides the following benefits to your functions:
 
 * Avoid cold starts with warm instances.
 * Virtual network connectivity.
-* Unlimited execution duration, with 60 minutes guaranteed.
+* Supports [longer runtime durations](#longer-run-duration).
 * [Choice of Premium instance sizes](#available-instance-skus).
 * More predictable pricing, compared with the Consumption plan.
 * High-density app allocation for plans with multiple function apps.
@@ -143,7 +143,13 @@ To learn more about how scaling works, see [Event-driven scaling in Azure Functi
 
 ## Longer run duration
 
-Azure Functions in a Consumption plan are limited to 10 minutes for a single execution. In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps. When set to an unbounded duration, your function app is guaranteed to run for at least 60 minutes. 
+Functions in a Consumption plan are limited to 10 minutes for a single execution. In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps, with the following limitations:
+
++ Platform upgrades can trigger a managed shutdown and halt the function execution.
++ Platform outages can cause an unhandled shutdown and halt the function execution.
++ There's an idle timer that stops the worker after 60 minutes with no new executions.
++ [Scale-in behavior](event-driven-scaling.md#scale-in-behaviors) can cause worker shutdown after 60 minutes.
++ [Slot swaps](functions-deployment-slots.md) can terminate executions on the source and target slots during the swap.
 
 ## Migration
 
@@ -229,7 +235,7 @@ For example, a JavaScript function app is constrained by the default memory limi
 
 And for plans with more than 4GB memory, ensure the Bitness Platform Setting is set to `64 Bit` under [General Settings](../app-service/configure-common.md#configure-general-settings).
 
-## Region max scale out
+## Region max scale-out
 
 Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration.
 
@@ -244,12 +250,12 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Brazil South| 100 | 20 |
 |Canada Central| 100 | 20 |
 |Central India| 100 | 20 |
-|Central US| 100 | 80 |
+|Central US| 100 | 100 |
 |China East 2| 100 | 20 |
 |China North 2| 100 | 20 |
 |East Asia| 100 | 20 |
-|East US | 100 | 80 |
-|East US 2| 100 | 60 |
+|East US | 100 | 100 |
+|East US 2| 100 | 100 |
 |France Central| 100 | 20 |
 |Germany West Central| 100 | 20 |
 |Japan East| 100 | 20 |
@@ -258,24 +264,24 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Korea Central| 100 | 20 |
 |Korea South| Not Available | 20 |
 |North Central US| 100 | 20 |
-|North Europe| 100 | 40 |
+|North Europe| 100 | 80 |
 |Norway East| 100 | 20 |
 |South Africa North| 100 | 20 |
-|South Central US| 100 | 40 |
+|South Central US| 100 | 60 |
 |South India | 100 | Not Available |
 |Southeast Asia| 100 | 20 |
 |Switzerland North| 100 | 20 |
 |Switzerland West| 100 | 20 |
 |UAE North| 100 | 20 |
-|UK South| 100 | 20 |
+|UK South| 100 | 60 |
 |UK West| 100 | 20 |
 |USGov Arizona| 100 | 20 |
 |USGov Texas| 100 | Not Available |
 |USGov Virginia| 100 | 20 |
 |West Central US| 100 | 20 |
-|West Europe| 100 | 80 |
+|West Europe| 100 | 100 |
 |West India| 100 | 20 |
-|West US| 100 | 20 |
+|West US| 100 | 40 |
 |West US 2| 100 | 20 |
 |West US 3| 100 | 20 |
 

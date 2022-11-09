@@ -145,7 +145,7 @@ If you want to delay the UserID or Email writeback so that it happens on or afte
       The expression above uses the [DateDiff](../app-provisioning/functions-for-customizing-application-data.md#datediff) function to evaluate the difference between *employeeHireDate* and today's date in UTC obtained using [Now](../app-provisioning/functions-for-customizing-application-data.md#now) function. If *employeeHireDate* is greater than or equal to today's date, then it updates the UserID. Else it returns an empty value and the [IgnoreFlowIfNullOrEmpty](../app-provisioning/functions-for-customizing-application-data.md#ignoreflowifnullorempty) function excludes this attribute from Writeback.
 
 > [!IMPORTANT]
-> For the delayed Writeback to work as expected, an operation in on-premises AD or Azure AD must trigger a change to the user just a day before the arrival or on the hire date, so that this user's profile is updated and is considered for Writeback.
+> For the delayed Writeback to work as expected, an operation in on-premises AD or Azure AD must trigger a change to the user just a day before the arrival or on the hire date, so that this user's profile is updated and is considered for Writeback. It must be a change, that updates an attribute value on the user profile, where the new attribute value is different from the old attribute value. 
 
 
 ### Handling phone number with country code and phone number

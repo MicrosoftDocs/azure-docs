@@ -45,7 +45,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Alcala Consulting Inc.](https://www.alcalaconsulting.com/)|
 |[Alliance Enterprises, Inc.](https://www.allianceenterprises.com)|
 |[Alvarez Technology Group](https://www.alvareztg.com/)|
-|[Amalgama Technologies Inc](http://amalgamatetech.com/)|
+|Amalgama Technologies Inc|
 |[Ambonare](https://redriver.com/press-release/austinacquisition)|
 |[American Technology Services LLC](https://networkats.com/)|
 |[Anautics](https://anautics.com)|

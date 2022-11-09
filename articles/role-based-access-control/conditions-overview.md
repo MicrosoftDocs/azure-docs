@@ -1,5 +1,5 @@
 ---
-title: What is Azure attribute-based access control (Azure ABAC)? (preview)
+title: What is Azure attribute-based access control (Azure ABAC)?
 description: Get an overview of Azure attribute-based access control (Azure ABAC). Use role assignments with conditions to control access to Azure resources.
 services: active-directory
 author: rolyon
@@ -8,24 +8,19 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/24/2022
+ms.date: 10/24/2022
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
 ---
 
-# What is Azure attribute-based access control (Azure ABAC)? (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# What is Azure attribute-based access control (Azure ABAC)?
 
 Attribute-based access control (ABAC) is an authorization system that defines access based on attributes associated with security principals, resources, and environment. With ABAC, you can grant a security principal access to a resource based on attributes. Azure ABAC refers to the implementation of ABAC for Azure.
 
 ## What are role assignment conditions?
 
-[Azure role-based access control (Azure RBAC)](overview.md) is an authorization system that helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. In most cases, Azure RBAC will provide the access management you need by using role definitions and role assignments. However, in some cases you might want to provide more fined-grained access management or simplify the management of hundreds of role assignments.
+[Azure role-based access control (Azure RBAC)](overview.md) is an authorization system that helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. In most cases, Azure RBAC will provide the access management you need by using role definitions and role assignments. However, in some cases you might want to provide more fine-grained access management or simplify the management of hundreds of role assignments.
 
 Azure ABAC builds on Azure RBAC by adding role assignment conditions based on attributes in the context of specific actions. A *role assignment condition* is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. A condition filters down permissions granted as a part of the role definition and role assignment. For example, you can add a condition that requires an object to have a specific tag to read the object. You cannot explicitly deny access to specific resources using conditions.
 
@@ -33,7 +28,7 @@ Azure ABAC builds on Azure RBAC by adding role assignment conditions based on at
 
 There are three primary benefits for using role assignment conditions:
 
-- **Provide more fine-grained access control** - A role assignment uses a role definition with actions and data actions to grant a security principal permissions. You can write conditions to filter down those permissions for more fine-grained access control. You can also add conditions to specific actions. For example, you can grant John read access to blobs in your subscription only if the blobs are tagged as Project=Blue. 
+- **Provide more fine-grained access control** - A role assignment uses a role definition with actions and data actions to grant security principal permissions. You can write conditions to filter down those permissions for more fine-grained access control. You can also add conditions to specific actions. For example, you can grant John read access to blobs in your subscription only if the blobs are tagged as Project=Blue. 
 - **Help reduce the number of role assignments** - Each Azure subscription currently has a role assignment limit. There are scenarios that would require thousands of role assignments. All of those role assignments would have to be managed. In these scenarios, you could potentially add conditions to use significantly fewer role assignments. 
 - **Use attributes that have specific business meaning** - Conditions allow you to use attributes that have specific business meaning to you in access control. Some examples of attributes are project name, software development stage, and classification levels. The values of these resource attributes are dynamic and change as users move across teams and projects.
 
@@ -51,7 +46,7 @@ There are several scenarios where you might want to add a condition to your role
 - Read access to blobs with the tag Program=Alpine and a path of logs
 - Read access to blobs with the tag Project=Baker and the user has a matching attribute Project=Baker
 
-For more information about how to create these examples, see [Examples of Azure role assignment conditions](../storage/blobs/storage-auth-abac-examples.md).
+For more information about how to create these examples, see [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md).
 
 ## Where can conditions be added?
 
@@ -102,21 +97,21 @@ Here is what the condition looks like in code:
 
 For more information about the format of conditions, see [Azure role assignment condition format and syntax](conditions-format.md).
 
-## Features of conditions
+## Status of condition features
 
-Here's a list of the primary features of conditions:
+Some features of conditions are still in preview. The following table lists the status of condition features:
 
 | Feature | Status | Date |
 | --- | --- | --- |
-| Use the following [attributes](../storage/blobs/storage-auth-abac-attributes.md#azure-blob-storage-attributes) in a condition: Account name, Blob prefix, Encryption scope name, Is Current Version, Is hierarchical namespace enabled, Snapshot, Version ID | Preview | May 2022 |
+| Add conditions using the [condition editor in the Azure portal](conditions-role-assignments-portal.md) | GA | October 2022 |
+| Add conditions using [Azure PowerShell](conditions-role-assignments-powershell.md), [Azure CLI](conditions-role-assignments-cli.md), or [REST API](conditions-role-assignments-rest.md) | GA | October 2022 |
+| Use [resource and request attributes](conditions-format.md#attributes) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers. For more information, see [Status of condition features in Azure Storage](../storage/common/authorize-data-access.md#status-of-condition-features-in-azure-storage). | GA | October 2022 |
 | Use [custom security attributes on a principal in a condition](conditions-format.md#principal-attributes) | Preview | November 2021 |
-| Add conditions to blob storage data role assignments | Preview | May 2021 |
-| Use attributes on a resource in a condition | Preview | May 2021 |
-| Use attributes that are part of the action request in a condition | Preview | May 2021 |
+| Use resource and request attributes in a condition | Preview | May 2021 |
 
-## Conditions and Privileged Identity Management (PIM)
+## Conditions and Azure AD PIM
 
-You can also add conditions to eligible role assignments using Privileged Identity Management (PIM). With PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using conditions in PIM enables you not only to limit a user's access to a resource using fine-grained conditions, but also to use PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+You can also add conditions to eligible role assignments using Azure AD Privileged Identity Management (Azure AD PIM) for Azure resources. With Azure AD PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using conditions in Azure AD PIM enables you not only to limit a user's access to a resource using fine-grained conditions, but also to use Azure AD PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ## Terminology
 
@@ -146,6 +141,6 @@ Here are the known issues with conditions:
 
 ## Next steps
 
-- [FAQ for Azure role assignment conditions (preview)](conditions-faq.md)
-- [Example Azure role assignment conditions (preview)](../storage/blobs/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/blobs/storage-auth-abac-portal.md)
+- [FAQ for Azure role assignment conditions](conditions-faq.md)
+- [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal](../storage/blobs/storage-auth-abac-portal.md)

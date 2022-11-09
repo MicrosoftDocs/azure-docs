@@ -35,7 +35,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * Review [optional sync features you can enable in Azure AD](how-to-connect-syncservice-features.md), and evaluate which features you should enable.
 
 ### On-premises Active Directory
-* The Active Directory schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema version and forest-level requirements are met.
+* The Active Directory schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema version and forest-level requirements are met. You might require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for domain controllers running Windows Server 2016 or older.
 * The domain controller used by Azure AD must be writable. Using a read-only domain controller (RODC) *isn't supported*, and Azure AD Connect doesn't follow any write redirects.
 * Using on-premises forests or domains by using "dotted" (name contains a period ".") NetBIOS names *isn't supported*.
 * We recommend that you [enable the Active Directory recycle bin](how-to-connect-sync-recycle-bin.md).
@@ -57,13 +57,13 @@ To read more about securing your Active Directory environment, see [Best practic
 
 #### Installation prerequisites
 
-- Azure AD Connect must be installed on a domain-joined Windows Server 2016 or later - note that Windows Server 2022 is not yet supported. 
+- Azure AD Connect must be installed on a domain-joined Windows Server 2019 or later - note that Windows Server 2022 is not yet supported. You can deploy Azure AD Connect on Windows Server 2016 but since WS2016 is in extended support, you may require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for this configuration. 
 - The minimum .Net Framework version required is 4.6.2, and newer versions of .Net are also supported.
 - Azure AD Connect can't be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better. 
 - The Azure AD Connect server must have a full GUI installed. Installing Azure AD Connect on Windows Server Core isn't supported. 
 - The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you use the Azure AD Connect wizard to manage Active Directory Federation Services (AD FS) configuration. You can enable PowerShell transcription if you use the Azure AD Connect wizard to manage sync configuration. 
 - If AD FS is being deployed: 
-    - The servers where AD FS or Web Application Proxy are installed must be Windows Server 2012 R2 or later. Windows remote management must be enabled on these servers for remote installation. 
+    - The servers where AD FS or Web Application Proxy are installed must be Windows Server 2012 R2 or later. Windows remote management must be enabled on these servers for remote installation. You may require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for Windows Server 2016 and older.
     - You must configure TLS/SSL certificates. For more information, see [Managing SSL/TLS protocols and cipher suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) and [Managing SSL certificates in AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - You must configure name resolution. 
 - It is not supported to break and analyze traffic between Azure AD Connect and Azure AD. Doing so may disrupt the service.
@@ -83,12 +83,13 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 - Follow these [additional guidelines](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) to reduce the attack surface of your Active Directory environment.
 - Follow the [Monitor changes to federation configuration](how-to-connect-monitor-federation-changes.md) to setup alerts to monitor changes to the trust established between your Idp and Azure AD. 
 - Enable Multi Factor Authentication (MFA) for all users that have privileged access in Azure AD or in AD. One security issue with using AADConnect is that if an attacker can get control over the Azure AD Connect server they can manipulate users in Azure AD. To prevent a attacker from using these capabilities to take over Azure AD accounts, MFA offers protections so that even if an attacker manages to e.g. reset a user's password using Azure AD Connect they still cannot bypass the second factor.
-- Disable Soft Matching on your tenant. Soft Matching is a great feature to help transfering source of autority for existing cloud only objects to Azure AD Connect, but it comes with certain security risks. If you do not require Soft Matching, you should disable it: https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-features#blocksoftmatch
+- Disable Soft Matching on your tenant. Soft Matching is a great feature to help transfering source of autority for existing cloud managed objects to Azure AD Connect, but it comes with certain security risks. If you do not require it, you should [disable Soft Matching](how-to-connect-syncservice-features.md#blocksoftmatch).
+- Disable Hard Match Takeover. Hard match takeover allows Azure AD Connect to take control of a cloud managed object and changing the source of authority for the object to Active Directory. Once the source of authority of an object is taken over by Azure AD Connect, changes made to the Active Directory object that is linked to the Azure AD object will overwrite the original Azure AD data - including the password hash, if Password Hash Sync is enabled. An attacker could use this capability to take over control of cloud managed objects. To mitigate this risk, [disable hard match takeover](https://learn.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-3-block-cloud-object-takeover-through-hard-matching-for-the-tenant).
 
 ### SQL Server used by Azure AD Connect
 * Azure AD Connect requires a SQL Server database to store identity data. By default, a SQL Server 2019 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10-GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, point the installation wizard to a different installation of SQL Server. The type of SQL Server installation can impact the [performance of Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors).
 * If you use a different installation of SQL Server, these requirements apply:
-  * Azure AD Connect supports all versions of SQL Server from 2012 (with the latest service pack) to SQL Server 2019. Azure SQL Database *isn't supported* as a database.  This includes both Azure SQL Database and Azure SQL Managed Instance.
+  * Azure AD Connect support all mainstream supported SQL Server versions up to SQL Server 2019. Please refer to the [SQL Server lifecycle article](https://learn.microsoft.com/lifecycle/products/?products=sql-server) to verify the support status of your SQL Server version. Azure SQL Database *isn't supported* as a database.  This includes both Azure SQL Database and Azure SQL Managed Instance.
   * You must use a case-insensitive SQL collation. These collations are identified with a \_CI_ in their name. Using a case-sensitive collation identified by \_CS_ in their name *isn't supported*.
   * You can have only one sync engine per SQL instance. Sharing a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync *isn't supported*.
 

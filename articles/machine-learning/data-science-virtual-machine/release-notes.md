@@ -21,6 +21,49 @@ Azure portal users will always find the latest image available for provisioning 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
 
+## September 20, 2022
+**Announcement:**
+Ubuntu 18 DSVM will **not be** available on the marketplace starting Oct 1, 2022. We recommend users switch to Ubuntu 20 DSVM as we continue to ship updates/patches on our latest [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Users that are using Azure Resource Manager (ARM) template/virtual machine scale set to deploy the Ubuntu DSVM machines, should configure:
+
+| Offer | SKU |
+| --------- | ------------|
+| ubuntu-2004  | 2004 for Gen1 or 2004-gen2 for Gen2 VM sizes  |
+
+Instead of:
+
+| Offer | SKU |
+| --------- | ------------|
+| ubuntu-1804  | 1804 for Gen1 or 1804-gen2 for Gen2 VM sizes  |
+
+**Note**: There is no impact to existing customers who are still on Ubuntu-18 DSVM as of our October 2022 update. Howeverm the deprecation plan is scheduled for December 2022. We recommend that you switch to Ubuntu-20 DSVM at your earliest convenience.
+
+## September 19, 2022
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `22.09.19`
+
+Main changes:
+
+- `.Net Framework` to version `3.1.423`
+- `Azure Cli` to version `2.40.0`
+- `Intelijidea` to version `2022.2.2`
+- Microsoft Edge Browser to version `107.0.1379.1`
+- `Nodejs` to version `v16.17.0`
+- `Pycharm` to version `2022.2.1`
+
+Environment Specific Updates:
+
+`azureml_py38`:
+- `azureml-core` to version `1.45.0`
+
+`py38_default`:
+- `Jupyter Lab` to version `3.4.7`
+- `azure-core` to version `1.25.1`
+- `keras` to version `2.10.0`
+- `tensorflow-gpu` to version `2.10.0`
+
 ## September 12, 2022
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
 
@@ -342,7 +385,7 @@ Selected version updates are:
 - CUDA 11.3, cuDNN 8, NCCL2
 - Python 3.8
 - R 4.0.5
-- Spark 3.1 incl. mmlspark, connectors to Blob Storage, Data Lake, Cosmos DB
+- Spark 3.1 incl. mmlspark, connectors to Blob Storage, Data Lake, Azure Cosmos DB
 - Java 11 (OpenJDK)
 - Jupyter Lab 3.0.14
 - PyTorch 1.8.1 incl. torchaudio torchtext torchvision, torch-tb-profiler

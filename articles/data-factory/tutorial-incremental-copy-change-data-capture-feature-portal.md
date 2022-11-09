@@ -6,7 +6,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 07/05/2021
+ms.date: 09/26/2022
 ---
 
 # Incrementally load data from Azure SQL Managed Instance to Azure Storage using change data capture (CDC)

@@ -78,7 +78,7 @@ The following table shows locations by service provider. If you want to view ava
 | **du datamena** |Supported |Supported | Dubai2 |
 | **[eir](https://www.eirevo.ie/cloud-services/cloud-connectivity)** |Supported |Supported | Dublin|
 | **[Epsilon Global Communications](https://epsilontel.com/solutions/cloud-connect/)** |Supported |Supported | Hong Kong2, Singapore, Singapore2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported | Amsterdam, Amsterdam2, Atlanta, Berlin, Bogota, Canberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Frankfurt2, Geneva, Hong Kong SAR, Hong Kong2, London, London2, Los Angeles*, Los Angeles2, Melbourne, Miami, Milan, New York, Osaka, Paris, Paris2, Quebec City, Rio de Janeiro, Sao Paulo, Seattle, Seoul, Silicon Valley, Singapore, Singapore2, Stockholm, Sydney, Tokyo, Toronto, Washington DC, Zurich</br></br> **New ExpressRoute circuits are no longer supported with Equinix in Los Angeles. Please create new circuits in Los Angeles2.* |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported | Amsterdam, Amsterdam2, Atlanta, Berlin, Bogota, Canberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Frankfurt2, Geneva, Hong Kong SAR, Hong Kong2, London, London2, Los Angeles*, Los Angeles2, Melbourne, Miami, Milan, New York, Osaka, Paris, Paris2, Quebec City, Rio de Janeiro, Sao Paulo, Seattle, Seoul, Silicon Valley, Singapore, Singapore2, Stockholm, Sydney, Tokyo, Tokyo2, Toronto, Washington DC, Zurich</br></br> **New ExpressRoute circuits are no longer supported with Equinix in Los Angeles. Please create new circuits in Los Angeles2.* |
 | **Etisalat UAE** |Supported |Supported | Dubai |
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Supported |Supported | Amsterdam, Amsterdam2, Dublin, Frankfurt, London |
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** |Supported |Supported | Taipei |
@@ -102,7 +102,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Supported |Supported | Amsterdam, London2, Silicon Valley, Tokyo2, Toronto, Washington DC |
 | **Jaguar Network** |Supported |Supported | Marseille, Paris |
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Supported |Supported | London, London2, Newport(Wales) |
-| **[KINX](https://www.kinx.net/service/cloudhub/ms-expressroute/?lang=en)** |Supported |Supported | Seoul |
+| **[KINX](https://www.kinx.net/service/cloudhub/clouds/microsoft_azure_expressroute/?lang=en)** |Supported |Supported | Seoul |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | Supported |Supported | Auckland, Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Supported | Supported | Amsterdam |
 | **[KT](https://cloud.kt.com/)** | Supported | Supported | Seoul, Seoul2 |
@@ -137,7 +137,7 @@ The following table shows locations by service provider. If you want to view ava
 | **SCSK** |Supported |Supported | Tokyo3 |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Supported |Supported | Seoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Supported |Supported | London2, Washington DC |
-| **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supported |Supported | Chennai, Mumbai2 |
+| **[SIFY](https://sifytechnologies.com/)** |Supported |Supported | Chennai, Mumbai2 |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supported |Supported | Hong Kong2, Singapore, Singapore2 |
 | **[SK Telecom](http://b2b.tworld.co.kr/bizts/solution/solutionTemplate.bs?solutionId=0085)** |Supported |Supported | Seoul |
 | **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Supported |Supported | Osaka, Tokyo, Tokyo2 |
@@ -265,7 +265,7 @@ If you are remote and do not have fiber connectivity or you want to explore othe
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas |
 | **[Epsilon Telecommunications Limited](https://www.epsilontel.com/solutions/cloud-connect/)** | Equinix | London, Singapore, Washington DC |
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
-| **[Exponential E](https://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | London |
+| **[Exponential E](https://www.exponential-e.com/services/connectivity-services/)** | Equinix | London |
 | **[Fastweb S.p.A](https://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | Amsterdam |
 | **[Fibrenoire](https://www.fibrenoire.ca/en/cloudextn)** | Megaport | Quebec City |
 | **[FPT Telecom International](https://cloudconnect.vn/en)** |Equinix |Singapore|

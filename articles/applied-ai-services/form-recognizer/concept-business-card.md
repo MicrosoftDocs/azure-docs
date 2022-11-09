@@ -1,19 +1,28 @@
 ---
-title: Form Recognizer business card model
+title: Business card data extraction - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Concepts related to data extraction and analysis using the prebuilt business card model.
+description: OCR and machine learning based business card scanning in Form Recognizer extracts key data from business cards.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 10/14/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer business card model
+# Business card data extraction
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+
+## How business card data extraction works
+
+Business cards are a great way of representing a business or a professional. The company logo, fonts and background images found in business cards help the company branding and differentiate it from others. Applying OCR and machine-learning based techniques to automate scanning of business cards is a common image processing scenario. Enterprise systems used by sales and marketing teams typically have business card data extraction capability integrated into them for the benefit of their users.
+
+## Form Recognizer Business Card model
 
 The business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
 
@@ -27,15 +36,15 @@ The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Business card model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**JavaScript SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li></ul>|**prebuilt-businessCard**|
+|**Business card model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-businessCard**|
 
 The following tools are supported by Form Recognizer v2.1:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**Business card model**|  <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**Business card model**|  <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-### Try Form Recognizer
+### Try business card data extraction
 
 See how data, including name, job title, address, email, and company name, is extracted from business cards using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
 
@@ -82,7 +91,8 @@ See how data, including name, job title, address, email, and company name, is ex
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li><li>English (Japan)—en-JP</li><li>Japanese (Japan)—ja-JP</li></ul>  | Autodetected (en-US or ja-JP) |
+|Business card (v3.0 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li><li>English (Japan)—en-JP</li><li>Japanese (Japan)—ja-JP</li></ul>  | Autodetected (en-US or ja-JP) |
+|Business card (v2.1 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li> | Autodetected |
 
 ## Field extractions
 
@@ -115,7 +125,7 @@ See how data, including name, job title, address, email, and company name, is ex
 * Complete a Form Recognizer quickstart:
 
   > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md)
+  > [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)
 
 * Explore our REST API:
 

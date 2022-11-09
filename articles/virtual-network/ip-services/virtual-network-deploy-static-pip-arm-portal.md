@@ -47,7 +47,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Select inbound ports | Select **RDP (3389)** |
 
     > [!WARNING]
-    > Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](../../bastion/bastion-overview.md)**
+    > Port 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](../../bastion/bastion-overview.md)**
 
 3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
