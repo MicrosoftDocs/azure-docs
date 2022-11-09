@@ -280,7 +280,7 @@ To begin enforcing [the Azure Policy assignment you previously created](#configu
 > [!NOTE]
 > It might take up to 30 minutes for your policy change to take effect.
 
-Continue to monitor the policy for ongoing compliance.
+Continue to [monitor the policy](#monitor-compliance-with-the-shared-key-access-policy) for ongoing compliance.
 
 ## Verify that Shared Key access is not allowed
 
