@@ -108,7 +108,7 @@ The following table provides unique requirements for each destination including 
 | Destination | Requirements |
 |:---|:---|
 | Log Analytics workspace | The workspace doesn't need to be in the same region as the resource being monitored.|
-| Storage account | Don't use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you're archiving the activity log and resource logs together, you might choose to use the same storage account to keep all monitoring data in a central location.<br><br>To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Azure Blob Storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.<br><br>[Azure DNS zone endpoints (preview)](/azure/storage/common/storage-account-overview#azure-dns-zone-endpoints-preview) are not supported as a log or metric destination.|
+| Storage account | Don't use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you're archiving the activity log and resource logs together, you might choose to use the same storage account to keep all monitoring data in a central location.<br><br>To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Azure Blob Storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.<br><br>[Azure DNS zone endpoints (preview)](/azure/storage/common/storage-account-overview#azure-dns-zone-endpoints-preview) and [Azure Premium LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage) (locally redundant storage) storage accounts are not supported as a log or metric destination.|
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in Event Hubs so that the Azure Monitor diagnostic settings service is granted access to your Event Hubs resources.|
 | Partner integrations | The solutions vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
 
@@ -274,14 +274,6 @@ Diagnostic settings don't support resource IDs with non-ASCII characters. For ex
 ### Possibility of duplicated or dropped data
 
 Every effort is made to ensure all log data is sent correctly to your destinations, however it's not possible guarantee 100% data transfer of logs between endpoints. Retries and other mechanisms are in place to work around these issues and attempt to ensure log data arrives at the endpoint.
-
-Below are two common causes of data transfer issues and mismatched log ingestion.
-
-- Logs may be duplicated for some endpoints when it isn't clear if logs were successfully sent. Duplication can occasionally happen with Log Analytics endpoints.
-
-- Some endpoints have throttling and uptime restrictions that can lead to dropped data. For example, Event Hubs will often be throttled if the data ingestion volume increases too quickly and the Event Hub isn't sufficiently scaled for the load.
-
-The combination of the issues described above can lead to the mismatch in log count between your Event Hubs and Log Analytics Workspaces.”
 
 ## Next step
 
