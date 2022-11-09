@@ -57,7 +57,7 @@ As an administrator, you can easily add guest users to your organization in the 
 
 - Guest users follow a few simple [redemption steps](redemption-experience.md) to sign in.
 
-:::image type="content" source="media/what-is-b2b/consentscreen.png" alt-text="Screenshot showing the Review permissions page.":::
+:::image type="content" source="media/what-is-b2b/consent-screen.png" alt-text="Screenshot showing the Review permissions page.":::
 
 ## Allow self-service sign-up
 
