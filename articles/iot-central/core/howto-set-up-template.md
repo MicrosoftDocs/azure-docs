@@ -97,7 +97,7 @@ To create a device model, you can:
 
 1. To view the model ID, select the root interface in the model and select **Edit identity**:
 
-    :::image type="content" source="media/howto-set-up-template/view-id.png" alt-text="Screenshot that shows model id for device template root interface.":::
+    :::image type="content" source="media/howto-set-up-template/view-id.png" alt-text="Screenshot that shows model ID for device template root interface.":::
 
 1. To view the component ID, select **Edit Identity** on any of the component interfaces in the model.
 
@@ -178,7 +178,7 @@ The following table shows the configuration settings for a property capability:
 
 You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you can call a command to reboot a device in 10 seconds as shown in the following screenshot:
 
-:::image type="content" source="media/howto-set-up-template/command.png" alt-text="Screenshot that shows how to add commands" lightbox="media/howto-set-up-template/command.png":::
+:::image type="content" source="media/howto-set-up-template/command.png" alt-text="Screenshot that shows how to add commands." lightbox="media/howto-set-up-template/command.png":::
 
 The following table shows the configuration settings for a command capability:
 
@@ -215,7 +215,7 @@ Cloud-to-device messages:
 
 Use cloud properties to store information about devices in IoT Central. Cloud properties are never sent to a device. For example, you can use cloud properties to store the name of the customer who has installed the device, or the device's last service date.
 
-:::image type="content" source="media/howto-set-up-template/cloud-properties.png" alt-text="Screenshot that shows how to add cloud properties":::
+:::image type="content" source="media/howto-set-up-template/cloud-properties.png" alt-text="Screenshot that shows how to add cloud properties.":::
 
 > [!TIP]
 > You can only add cloud properties to the **Root** component in the model.
