@@ -57,7 +57,8 @@ To define a governance rule that assigns an owner and due date:
 1. In **Governance rules**, select **Create governance rule**.
 1. Enter a name for the rule.
 1. Select a scope to apply the rule and use the exclusions if needed. Rules on management scope (Azure management groups, AWS master accounts, GCP organizations) are being applyed before rules on single scope.
-1. Priority is being assigned automatically after scope selection. You can override this field if needed.
+1. Priority is assigned automatically after scope selection. You can override this field if needed.
+
 1. Select the recommendations that the rule applies to, either:
     - **By severity** - The rule assigns the owner and due date to any recommendation in the subscription that doesn't already have them assigned.
     - **By specific recommendations** - Select the specific recommendations that the rule applies to.
