@@ -124,14 +124,14 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 | Country/Region                    | Infrared satellite & Radar tiles | Minute forecast | Severe weather alerts | Other* |
 |-----------------------------------|:------------------------:|:-----------------------:|:---------------------:|:------:|
 | Afghanistan                        |            ✓            |            ✓           |                       |   ✓   |
-| American Samoa                     |            ✓            |                         |           ✓           |   ✓   |
-| Australia                          |            ✓            |             ✓          |            ✓         |   ✓   |
-| Bangladesh                         |            ✓            |                         |                       |   ✓   |
+| American Samoa                     |            ✓            |                        |           ✓           |   ✓   |
+| Australia                          |            ✓            |            ✓           |            ✓          |   ✓   |
+| Bangladesh                         |            ✓            |            ✓           |                       |   ✓   |
 | Bhutan                             |            ✓            |            ✓           |                       |   ✓   |
 | British Indian Ocean Territory     |            ✓            |                         |                       |   ✓   |
 | Brunei                             |            ✓            |            ✓           |                       |   ✓   |
-| Cambodia                           |            ✓            |                         |                       |   ✓   |
-| China                              |            ✓            |             ✓           |            ✓         |   ✓   |
+| Cambodia                           |            ✓            |            ✓           |                       |   ✓   |
+| China                              |            ✓            |            ✓           |            ✓          |   ✓   |
 | Christmas Island                   |            ✓            |                         |                       |   ✓   |
 | Cocos (Keeling) Islands            |            ✓            |                         |                       |   ✓   |
 | Cook Islands                       |            ✓            |                         |                       |   ✓   |
@@ -169,13 +169,13 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 | Philippines                        |            ✓            |             ✓           |           ✓           |   ✓   |
 | Pitcairn Islands                   |            ✓            |                         |                       |   ✓   |
 | Samoa                              |            ✓            |                         |                       |   ✓   |
-| Singapore                          |            ✓           |             ✓           |                       |   ✓   |
+| Singapore                          |            ✓            |             ✓           |                       |   ✓   |
 | Solomon Islands                    |            ✓            |                         |                       |   ✓   |
 | Sri Lanka                          |            ✓            |             ✓           |                       |   ✓   |
 | Taiwan                             |            ✓            |             ✓           |                       |   ✓   |
 | Tajikistan                         |            ✓            |             ✓           |                       |   ✓   |
 | Thailand                           |            ✓            |             ✓           |                       |   ✓   |
-| Timor-Leste                        |            ✓            |                         |                       |   ✓   |
+| Timor-Leste                        |            ✓            |             ✓           |                       |   ✓   |
 | Tokelau                            |            ✓            |                         |                       |   ✓   |
 | Tonga                              |            ✓            |                         |                       |   ✓   |
 | Turkmenistan                       |            ✓            |             ✓           |                       |   ✓   |
@@ -190,7 +190,7 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 | Country/Region          | Infrared satellite & Radar tiles | Minute forecast | Severe weather alerts | Other* |
 |-------------------------|:------------------------:|:-----------------------:|:---------------------:|:------:|
 | Albania                 |            ✓            |            ✓            |                       |   ✓   |
-| Andorra                 |            ✓            |                          |           ✓           |   ✓   |
+| Andorra                 |            ✓            |            ✓            |           ✓           |   ✓   |
 | Armenia                 |            ✓            |            ✓            |                       |   ✓   |
 | Austria                 |            ✓            |            ✓            |            ✓          |   ✓   |
 | Azerbaijan              |            ✓            |            ✓            |                       |   ✓   |
@@ -203,18 +203,18 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 | Czechia                 |            ✓            |            ✓            |            ✓          |   ✓   |
 | Denmark                 |            ✓            |            ✓            |            ✓          |   ✓   |
 | Estonia                 |            ✓            |            ✓            |            ✓          |   ✓   |
-| Faroe Islands           |            ✓            |                          |                       |   ✓   |
+| Faroe Islands           |            ✓            |                         |                       |   ✓   |
 | Finland                 |            ✓            |            ✓            |            ✓          |   ✓   |
 | France                  |            ✓            |            ✓            |            ✓          |   ✓   |
 | Georgia                 |            ✓            |            ✓            |                       |   ✓   |
 | Germany                 |            ✓            |            ✓            |            ✓          |   ✓   |
-| Gibraltar               |            ✓            |            ✓            |                     |   ✓   |
-| Greece                  |            ✓            |                          |           ✓           |   ✓   |
-| Guernsey                |            ✓            |                          |                       |   ✓   |
+| Gibraltar               |            ✓            |            ✓            |                       |   ✓   |
+| Greece                  |            ✓            |            ✓            |           ✓           |   ✓   |
+| Guernsey                |            ✓            |                         |                       |   ✓   |
 | Hungary                 |            ✓            |            ✓            |            ✓          |   ✓   |
-| Iceland                 |            ✓            |                          |           ✓           |   ✓   |
+| Iceland                 |            ✓            |                         |           ✓           |   ✓   |
 | Ireland                 |            ✓            |            ✓            |            ✓          |   ✓   |
-| Isle of Man             |            ✓            |                          |                       |   ✓   |
+| Isle of Man             |            ✓            |                         |                       |   ✓   |
 | Italy                   |            ✓            |            ✓            |           ✓           |   ✓   |
 | Jan Mayen               |            ✓            |                          |                       |   ✓   |
 | Jersey                  |            ✓            |                          |                       |   ✓   |
@@ -245,7 +245,7 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 | Turkey                  |            ✓            |             ✓           |                       |   ✓   |
 | Ukraine                 |            ✓            |             ✓           |                       |   ✓   |
 | United Kingdom          |            ✓            |            ✓            |            ✓          |   ✓   |
-| Vatican City            |            ✓            |                          |           ✓           |   ✓   |
+| Vatican City            |            ✓            |                         |            ✓          |   ✓   |
 
 1 Partial coverage includes Moscow and Saint Petersburg
 
@@ -261,7 +261,7 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 | Bouvet Island                          |            ✓             |                         |                       |   ✓   |
 | Burkina Faso                           |            ✓             |           ✓             |                       |   ✓   |
 | Burundi                                |            ✓             |           ✓             |                       |   ✓   |
-| Cameroon                               |            ✓             |                         |                       |   ✓   |
+| Cameroon                               |            ✓             |           ✓             |                       |   ✓   |
 | Cape Verde                             |            ✓             |           ✓             |                       |   ✓   |
 | Central African Republic               |            ✓             |           ✓             |                       |   ✓   |
 | Chad                                   |            ✓             |           ✓             |                       |   ✓   |
@@ -293,14 +293,14 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 | Madagascar                             |            ✓             |           ✓             |                       |   ✓   |
 | Malawi                                 |            ✓             |           ✓             |                       |   ✓   |
 | Mali                                   |            ✓             |           ✓             |                       |   ✓   |
-| Mauritania                             |            ✓             |                         |                       |   ✓   |
+| Mauritania                             |            ✓             |           ✓             |                       |   ✓   |
 | Mauritius                              |            ✓             |           ✓             |                       |   ✓   |
 | Mayotte                                |            ✓             |           ✓             |                       |   ✓   |
 | Morocco                                |            ✓             |                         |                       |   ✓   |
-| Mozambique                             |            ✓             |                         |                       |   ✓   |
+| Mozambique                             |            ✓             |           ✓             |                       |   ✓   |
 | Namibia                                |            ✓             |           ✓             |                       |   ✓   |
-| Niger                                  |            ✓             |                         |                       |   ✓   |
-| Nigeria                                |            ✓             |                         |                       |   ✓   |
+| Niger                                  |            ✓             |           ✓             |                       |   ✓   |
+| Nigeria                                |            ✓             |           ✓             |                       |   ✓   |
 | Oman                                   |            ✓             |           ✓             |                       |   ✓   |
 | Palestinian Authority                  |            ✓             |           ✓             |                       |   ✓   |
 | Qatar                                  |            ✓             |           ✓             |                       |   ✓   |
@@ -308,11 +308,11 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 | Rwanda                                 |            ✓             |           ✓             |                       |   ✓   |
 | Saint Helena, Ascension, Tristan da Cunha |         ✓             |           ✓             |                       |   ✓   |
 | São Tomé & Príncipe                    |            ✓             |           ✓             |                       |   ✓   |
-| Saudi Arabia                           |            ✓             |             ✓           |                       |   ✓   |
-| Senegal                                |            ✓             |             ✓           |                       |   ✓   |
-| Seychelles                             |            ✓             |             ✓           |                       |   ✓   |
-| Sierra Leone                           |            ✓             |             ✓           |                       |   ✓   |
-| Somalia                                |            ✓             |             ✓           |                       |   ✓   |
+| Saudi Arabia                           |            ✓             |           ✓             |                       |   ✓   |
+| Senegal                                |            ✓             |           ✓             |                       |   ✓   |
+| Seychelles                             |            ✓             |           ✓             |                       |   ✓   |
+| Sierra Leone                           |            ✓             |           ✓             |                       |   ✓   |
+| Somalia                                |            ✓             |           ✓             |                       |   ✓   |
 | South Africa                           |            ✓             |           ✓             |                       |   ✓   |
 | South Sudan                            |            ✓             |           ✓             |                       |   ✓   |
 | Sudan                                  |            ✓             |           ✓             |                       |   ✓   |
