@@ -181,8 +181,8 @@ The following table lists the dimensions of the shipping package in millimeters 
 | 6      | Shipping weight with wall mount                                                    | 31.1       |
 | 7      | Model 64G2T install handling without bezel                                         | 19.8       |
 |        |                                                                                    |            |
-| 4      | 4-post in box                                                                      | 6.28       |
-| 7      | 2-post in box                                                                      | 3.08       |
+| 8      | 4-post in box                                                                      | 6.28       |
+| 9      | 2-post in box                                                                      | 3.08       |
 | 10      | Wallmount as packaged                                                             | 2.16       |
 
 # [Model 128G4T1GPU](#tab/sku-b)
