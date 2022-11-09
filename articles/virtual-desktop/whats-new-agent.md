@@ -21,7 +21,7 @@ Make sure to check back here often to keep up with new updates.
 
 ## Latest agent versions
 
-New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they are rolled out progressively to all session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout. The following table lists the version that is in-flight and the version the is generally available (GA).
+New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they are rolled out progressively to all session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout. The following table lists the version that is in-flight and the version that is generally available (GA).
 
 | Release   | Latest version |
 |-----------|----------------|
