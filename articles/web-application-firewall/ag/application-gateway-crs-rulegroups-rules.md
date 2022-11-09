@@ -43,7 +43,7 @@ Custom rules are always applied before rules in the Core Rule Set are evaluated.
 
 ### Anomaly scoring
 
-When you use CRS, your WAF uses anomaly scoring. Traffic that matches any rule isn't immediately blocked, even when your WAF is in prevention mode. Instead, the OWASP rule sets define a severity for each rule: Critical, Error, Warning, or Notice. The severity affects a numeric value for the request, which is called the anomaly score:
+When you use CRS, your WAF is configured to use anomaly scoring by default. Traffic that matches any rule isn't immediately blocked, even when your WAF is in prevention mode. Instead, the OWASP rule sets define a severity for each rule: Critical, Error, Warning, or Notice. The severity affects a numeric value for the request, which is called the anomaly score:
 
 | Rule severity | Value contributed to anomaly score |
 |-|-|
