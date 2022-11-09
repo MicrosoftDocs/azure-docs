@@ -24,7 +24,7 @@ This article walks you through how to create your account, limits, and upgrading
 
 ## Limits to free account
 
-### [NoSQL](#tab/nosql)
+### [NoSQL / Cassandra/ Gremlin / Table](#tab/nosql+cassandra+gremlin+table)
 
 The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
 
@@ -50,60 +50,6 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 | --- | --- |
 | Duration of the trial | 30 days¹²  |
 | Maximum containers per subscription | 3 |
-| Maximum throughput per container | 5,000 |
-| Maximum throughput per shared-throughput database | 20,000 |
-| Maximum total storage per account | 10 GB |
-
-¹ A new trial can be requested after expiration.
-² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
-
-> [!NOTE]
-> Try Azure Cosmos DB supports global distribution in only the **Central US**, **North Europe**, and **Southeast Asia** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
-
-### [Cassandra](#tab/cassandra)
-
-The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
-
-| Resource | Limit |
-| --- | --- |
-| Duration of the trial | 30 days¹²  |
-| Maximum containers per subscription | 1 |
-| Maximum throughput per container | 5,000 |
-| Maximum throughput per shared-throughput database | 20,000 |
-| Maximum total storage per account | 10 GB |
-
-¹ A new trial can be requested after expiration.
-² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
-
-> [!NOTE]
-> Try Azure Cosmos DB supports global distribution in only the **Central US**, **North Europe**, and **Southeast Asia** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
-
-### [Gremlin](#tab/gremlin)
-
-The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
-
-| Resource | Limit |
-| --- | --- |
-| Duration of the trial | 30 days¹²  |
-| Maximum containers per subscription | 1 |
-| Maximum throughput per container | 5,000 |
-| Maximum throughput per shared-throughput database | 20,000 |
-| Maximum total storage per account | 10 GB |
-
-¹ A new trial can be requested after expiration.
-² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
-
-> [!NOTE]
-> Try Azure Cosmos DB supports global distribution in only the **Central US**, **North Europe**, and **Southeast Asia** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
-
-### [Table](#tab/table)
-
-The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
-
-| Resource | Limit |
-| --- | --- |
-| Duration of the trial | 30 days¹²  |
-| Maximum containers per subscription | 1 |
 | Maximum throughput per container | 5,000 |
 | Maximum throughput per shared-throughput database | 20,000 |
 | Maximum total storage per account | 10 GB |
@@ -235,7 +181,7 @@ After you create a Try Azure Cosmos DB sandbox account, you can start building a
 * Get started with Azure Cosmos DB with one of our quickstarts:
   * [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-portal.md#create-container-database)
   * [Get started with Azure Cosmos DB for PostgreSQL](postgresql/quickstart-create-portal.md)
-  * [Get started with Azure Cosmos DB for MongoDB](mongodb/quickstart-python.md#object-model)
+  * [Get started with Azure Cosmos DB for MongoDB](mongodb/quickstart-python.md#learn-the-object-model)
   * [Get started with Azure Cosmos DB for Cassandra](cassandra/adoption.md)
   * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-console.md#add-a-graph)
   * [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
