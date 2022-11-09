@@ -125,6 +125,7 @@ The Azure web application firewall (WAF) engine is the component that inspects t
 
 WAF customers can choose which action is run when a request matches a rules conditions. Below is the listed of supported actions.
 
+* Allow: Request passes through the WAF and is forwarded to back-end. No further lower priority rules can block this request. Allow actions are only applicable to the Bot Manager ruleset, and are not applicable to the Core Rule Set.
 * Block: The request is blocked and WAF sends a response to the client without forwarding the request to the back-end.
 * Log: Request is logged in the WAF logs and WAF continues evaluating lower priority rules.
 * Anomaly score: This is the default action for CRS ruleset where total anomaly score is incremented when a rule with this action is matched. Anomaly scoring is not applicable for the Bot Manager ruleset.
