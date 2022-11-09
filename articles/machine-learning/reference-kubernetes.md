@@ -16,6 +16,7 @@ ms.date: 06/06/2022
 
 This article contains reference information that may be useful when [configuring Kubernetes with Azure Machine Learning](./how-to-attach-kubernetes-anywhere.md).
 
+
 ## Supported Kubernetes version and region
 
 
@@ -149,4 +150,18 @@ metadata:
   namespace: azureml
 type: Opaque
 ```
+## Azureml Extension Release Note
+> [!NOTE]
+ >
+ > New features are released at a biweekly cadance.
 
+| Date | Version |Verson descrisption |
+|---|---|---|
+| Aug 29, 2022 | 1.1.9 |<ul><li>Improved health check logic.</li><li>Bugs fixed.</li></ul>|
+| Jun 23, 2022 | 1.1.6 |<ul><li>Bugs fixed</li></ul>|
+| Jun 15, 2022 | 1.1.5 |<ul><li>Updated training to use new common runtime to run jobs. </li><li>Removed Azure Relay usage for Aks extension. </li><li>Removed service bus usage from the extension. </li><li>Updated security context usage. </li><li>Updated inference scorefe to v2. </li><li>Updated to use Volcano as training job scheduler. </li><li>Bugs fixed. </li></ul> |
+| Oct 14, 2021 | -- | <ul><li>PV/PVC volume mount support in AMLArc training job. </li></ul> |
+| Sept 16, 2021 | -- | <ul><li>New regions available, WestUS, CentralUS, NorthCentralUS, KoreaCentral. </li><li>Job queue explanability. See job queue details in AML Workspace Studio. </li><li>Auto-killing policy. </li><li>Support max_run_duration_seconds in ScriptRunConfig. </li><li>The system will attempt to automatically cancel the run if it took longer than the setting value. </li><li>Performance improvement on cluster autoscale support. </li><li>Arc agent and ML extension deployment from on-prem container registry. </li></ul>|
+| August 24, 2021 | --| <ul><li>Compute instance type is supported in job YAML. </li><li> Assign Managed Identity to AMLArc compute. </li></ul>|
+| August 10, 2021 | -- |<ul><li>New Kubernetes distribution support, K3S - Lightweight Kubernetes.</li><li>Deploy AzureML extension to your AKS cluster without connecting via Azure Arc. </li><li>Automated Machine Learning (AutoML) via Python SDK. </li><li>Use 2.0 CLI to attach the Kubernetes cluster to AML Workspace. </li><li>Optimize AzureML extension components CPU/memory resources utilization. </li></ul> |
+| July 2, 2021 | -- | <ul><li>New Kubernetes distributions support, OpenShift Kubernetes and GKE (Google Kubernetes Engine). </li><li>Autoscale support. If the user-managed Kubernetes cluster enables the autoscale, the cluster will be automatically scaled out or scaled in according to the volume of active runs and deployments.</li><li>Performance improvement on job launcher, which shortens the job execution time to a great deal.</li></ul> |
