@@ -480,6 +480,9 @@
             - name: Use automated ML with Databricks
               displayName: automl
               href: how-to-configure-databricks-automl-environment.md
+            - name: Debug jobs and monitor training progress
+              displayName: automl
+              href: how-to-interactive-jobs.md
             - name: Prep image data for computer vision models (Python)
               displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
               href: how-to-prepare-datasets-for-automl-images.md
