@@ -25,7 +25,7 @@ This article shows you how to use [Application Accelerator](https://docs.vmware.
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
 ## Enable or disable App accelerator
-- Enable App Accelerator when provisioning Azure Spring Apps service instance
+### Enable App Accelerator when provisioning Azure Spring Apps service instance
 #### [Portal](#tab/Portal)
 1. Navigate to [Azure Portal](https://portal.azure.com/#create/vmware-inc.azure-spring-cloud-vmware-tanzu-2).
 1. In the "Basic" tab, select "Enterprise tier" in pricing and fulfill other input fields. Click "next".
@@ -44,7 +44,7 @@ az spring create \
     --enable-application-accelerator
 ```
 
-- Enable App Accelerator after provisioning Azure Spring Apps service instance
+### Enable App Accelerator after provisioning Azure Spring Apps service instance
 #### [Portal](#tab/Portal)
 In **Developer Tools**, go to **Manage tools**. Check or uncheck **Enable App Accelerator** and then click **Apply** to enable or disable App Accelerator.
 ![Enable-Application-Accelerator](./media/how-to-use-accelerator/enable-app-accelerator.png)
@@ -98,7 +98,16 @@ This command produces output similar to the following example:
 
 
 ## Use App Accelerator to bootstrap your new projects
-There are several built-in accelerators which you can start with to bootstrap your new projects. You can disable or enable the built-in accelerators according to you own preference.
+### Get Permissions to manage accelerators
+Before manage your accelerators, you need following permissions:
+
+- Read : Get Azure Spring Apps Predefined Accelerator
+- Other: Disable Azure Spring Apps Predefined Accelerator
+- Other: Enable Azure Spring Apps Predefined Accelerator
+- Write : Create or Update Microsoft Azure Spring Apps Customized Accelerator
+- Read : Get Azure Spring Apps Customized Accelerator
+
+For more information, see: [Use permissions in Azure Spring Apps | Microsoft Learn](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-permissions?tabs=Azure-portal)
 
 ### Manage predefined accelerators
 
@@ -191,9 +200,10 @@ Application Accelerator allows you to generate new projects from files in Git re
     > [!NOTE]
     > It might take a few seconds for Tanzu Application Platform GUI to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as git interval when you create the accelerator.
 
-
-
 ### Use accelerators to bootstrap a new project
 
-- Access accelerator url with SSO
-- Configure and download an accelerator
+Click **App Accelerator URL** and jump to **Tanzu Application Platform GUI**, you can choose one accelerator to explore file and download as zip file.
+![explore-accelerator](./media/how-to-use-accelerator/explore-accelerator.png)   
+![explore-accelerator-project](./media/how-to-use-accelerator/explore-accelerator-project.png)   
+![generate-accelerator-](./media/how-to-use-accelerator/generate-accelerator.png)   
+![download-accelerator-](./media/how-to-use-accelerator/download-file.png)   
