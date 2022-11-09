@@ -29,7 +29,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Web Application** | <ul><li>[Applications available over HTTPS must use secure cookies](#https-secure-cookies)</li><li>[All http based application should specify http only for cookie definition](#cookie-definition)</li><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET web pages](#csrf-asp)</li><li>[Set up session for inactivity lifetime](#inactivity-lifetime)</li><li>[Implement proper logout from the application](#proper-app-logout)</li></ul> |
 | **Web API** | <ul><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET Web APIs](#csrf-api)</li></ul> |
 
-## <a id="logout-msal"></a>Implement proper logout using MSAL methods when using Azure AD
+## <a id="logout-msal"></a>Implement proper sign-out using MSAL methods when using Azure AD
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
