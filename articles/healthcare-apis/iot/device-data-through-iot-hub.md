@@ -6,13 +6,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 11/08/2022
+ms.date: 11/09/2022
 ms.author: jasteppe
 ---
 
 # Tutorial: Receive device data through Azure IoT Hub
  
-The MedTech service may be used with devices created and managed through an [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) for enhanced workflows and ease of use. This tutorial uses an Azure Resource Manager (ARM) template and a **Deploy to Azure** button to deploy and configure a MedTech service using an Azure IoT Hub for device creation, management, and routing device messages to the device message event hub. The ARM template used in this article is available from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors-with-iot/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub/azuredeploy.json). 
+The MedTech service may be used with devices created and managed through an [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) for enhanced workflows and ease of use. This tutorial uses an Azure Resource Manager (ARM) template and a **Deploy to Azure** button to deploy and configure a MedTech service using an Azure IoT Hub for device creation, management, and routing device messages to the device message event hub. The ARM template used in this article is available from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub/azuredeploy.json). 
 
 For more information about ARM templates, see [What are ARM templates?](/azure/azure-resource-manager/templates/overview).
 
@@ -40,7 +40,7 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
 
-   This button will call an ARM template from the [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) site to get information from your Azure subscription environment and begin deploying the MedTech service and IoT Hub using the Azure portal.
+   This button will call an ARM template from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) site to get information from your Azure subscription environment and begin deploying the MedTech service and IoT Hub using the Azure portal.
 
 ## Provide configuration details
 
