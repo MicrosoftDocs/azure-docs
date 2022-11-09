@@ -1,4 +1,15 @@
-# How to Connect to App Instance for troubleshooting
+---
+title:  Connect to an app instance for troubleshooting
+description: Learn how to connect to an app instance in Azure Spring Apps for troubleshooting.
+author: karlerickson
+ms.author: xiangy
+ms.service: spring-apps
+ms.topic: article
+ms.date: 11/09/2021
+ms.custom: devx-track-java, devx-track-azurecli
+---
+
+# Connect to an app instance for troubleshooting
 
 While Azure Spring Apps tries to offer managed troubleshooting approaches as much as possible, it may not be sufficient sometimes as some customers would like to: 
 
