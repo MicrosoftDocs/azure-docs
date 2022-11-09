@@ -406,7 +406,7 @@ These steps apply only to Standard logic apps in an App Service Environment v3 w
 
       1. Click inside the **File Content** parameter box. appears, click inside the edit box. From the dynamic content list that appears, in the **When a file is created** section, select **File Content**.
 
-         ![Screenshot showing Standard workflow designer and the File System managed connector "Create file" action.](media/logic-apps-using-file-connector/action-file-system-create-file-built-in-standard.png)
+         ![Screenshot showing Standard workflow designer and the File System managed connector "Create file" action.](media/logic-apps-using-file-connector/action-file-system-create-file-managed-standard.png)
 
    1. To test your workflow, add an Outlook action that sends you an email when the File System action creates a file. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
