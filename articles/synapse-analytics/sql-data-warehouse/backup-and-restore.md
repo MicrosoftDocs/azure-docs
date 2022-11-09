@@ -101,6 +101,13 @@ To restore a data warehouse, see [Restore a dedicated SQL pool](sql-data-warehou
 
 To restore a deleted data warehouse, see [Restore a deleted database](sql-data-warehouse-restore-deleted-dw.md), or if the entire server was deleted, see [Restore a data warehouse from a deleted server](sql-data-warehouse-restore-from-deleted-server.md).
 
+> [!NOTE]
+> Table-level restore is not supported in dedicated SQL Pools. You can only recover an entire database from your backup, and then copy the require table(s) by using 
+>  - ETL tools activities such as [Copy Activity](/azure/data-factory/copy-activity-overview)
+>  - Export and Import
+>     - Export the data from the restored backup into your Data Lake by using CETAS [CETAS Example](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=sql-server-linux-ver16&preserve-view=true#d-use-create-external-table-as-select-exporting-data-as-parquet)
+>     - Import the data by using [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) or [Polybase](/azure/synapse-analytics/sql/load-data-overview#options-for-loading-with-polybase)
+
 ## Cross subscription restore
 
 You can perform a cross-subscription restore by follow the guidance [here](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-dedicated-sql-pool-formerly-sql-dw-to-a-different-subscription-through-powershell).
