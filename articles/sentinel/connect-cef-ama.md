@@ -117,7 +117,7 @@ Select the machines on which you want to install the AMA. These machines are VMs
 1. Select the **Resources** tab and select **Add Resource(s)**. 
 1. Select the VMs on which you want to install the connector to collect logs.
 
-   :::image type="content" source="media/connect-cef-ama/dcr-select-resources.png" alt-text="Screenshot showing how to select resources when setting up the DCR." lightbox="media/connect-cef-ama/dcr-select-resources":::
+   :::image type="content" source="media/connect-cef-ama/dcr-select-resources.png" alt-text="Screenshot showing how to select resources when setting up the DCR." lightbox="media/connect-cef-ama/dcr-select-resources.png":::
 
 1. Review your changes and select **Collect**. 
 
@@ -136,7 +136,7 @@ Select the machines on which you want to install the AMA. These machines are VMs
 1. Select the **Collect** tab and select **Linux syslog** as the data source type.
 1. Configure the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with lower severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_WARNING**, **LOG_NOTICE**, **LOG_INFO**, and **LOG_DEBUG** levels.
 
-   :::image type="content" source="media/connect-cef-ama/dcr-log-levels.png" alt-text="Screenshot showing how to select log levels when setting up the DCR." lightbox="media/connect-cef-ama/dcr-log-levels.png":::
+   :::image type="content" source="media/connect-cef-ama/dcr-log-levels.png" alt-text="Screenshot showing how to select log levels when setting up the DCR.":::
 
 1. Review your changes and select **Next: Review and create**. 
 1. In the **Review and create** tab, select **Create**.
