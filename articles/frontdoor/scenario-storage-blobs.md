@@ -41,7 +41,7 @@ Data flows through the scenario as follows:
 
 ## Scenario details
 
-Static content delivery is useful in many situations, including the following:
+Static content delivery is useful in many situations, such as these examples:
 - Delivering images, CSS files, and JavaScript files for a web application.
 - Serving files and documents, such as PDF files or JSON files.
 - Delivering non-streaming video.
