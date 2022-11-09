@@ -43,7 +43,7 @@ To configure directory settings to disable automatic writeback of newly created 
   New-AzureADDirectorySetting -DirectorySetting $Setting 
   ``` 
 
-- Microsoft Graph: Use the [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta) resource type. 
+- Microsoft Graph: Use the [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta&preserve-view=true) resource type. 
 
 ### Disable writeback for each existing Microsoft 365 group 
 
