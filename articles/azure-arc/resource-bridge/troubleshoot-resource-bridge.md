@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 11/08/2022
+ms.date: 11/09/2022
 ms.topic: conceptual
 ---
 
@@ -15,7 +15,7 @@ This article provides information on troubleshooting and resolving issues that m
 
 For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same deployment machine that was used to run commands to deploy the Arc resource bridge. If there is a problem collecting logs, most likely the deployment machine is unable to reach the Appliance VM, and the network administrator needs to allow communication between the deployment machine to the Appliance VM.
 
-The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the deployment machine. To use a different deployment machine to run the logs command, make sure the following files are copied to the new client machine:
+The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the deployment machine. To use a different machine to run the logs command, make sure the following files are copied to the machine in the same location:
 
 ```azurecli
 $HOME\.KVA\.ssh\logkey.pub
