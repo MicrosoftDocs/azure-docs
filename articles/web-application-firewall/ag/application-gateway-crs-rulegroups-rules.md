@@ -54,7 +54,7 @@ When you use CRS, your WAF is configured to use anomaly scoring by default. Traf
 
 If the anomaly score is 5 or greater, WAF blocks the request.
 
-For example, a single *Critical* rule match is enough for the WAF to block a request, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. For more information, please see [Anomaly Scoring mode](~/ag-overview#anomaly-scoring-mode).
+For example, a single *Critical* rule match is enough for the WAF to block a request, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. For more information, please see [Anomaly Scoring mode](https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview#anomaly-scoring-mode).
 
 ### OWASP CRS 3.2
 
