@@ -117,6 +117,6 @@ If the agent initiated a recording and stopped and restarted the recording  mult
     "AudioChannelsCount": 1
 }
 ```
-Refer to call recording for more info 
+See also call recording for more info 
 [Azure Communication Services Call Recording overview](../../../communication-services/concepts/voice-video-calling/call-recording.md) 
 

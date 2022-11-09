@@ -243,6 +243,8 @@ items:
         href: concepts/analytics/insights.md
       - name: Logging and diagnostics
         href: concepts/logging-and-diagnostics.md
+      - name: Recording Logs
+        href: concepts/analytics/recording-logs.md
       - name: Metrics
         href: concepts/metrics.md
   - name: Service Events (Event Grid)
