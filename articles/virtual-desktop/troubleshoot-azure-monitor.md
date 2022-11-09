@@ -12,7 +12,7 @@ manager: femila
 This article presents known issues and solutions for common problems in Azure Monitor for Azure Virtual Desktop.
 
 >[!IMPORTANT]
->[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Monitor currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to Azure Monitor by August 31, 2024. We will provide instructions for how to migrate when we release the update that will allow Azure Virtual Desktop Insights to support the Azure Monitor Agent.
+>[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Monitor currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to Azure Monitor by August 31, 2024. We'll provide instructions for how to migrate when we release the update that allows Azure Virtual Desktop Insights to support the Azure Monitor Agent.
 
 ## Issues with configuration and setup
 
