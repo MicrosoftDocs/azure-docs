@@ -54,18 +54,18 @@ This section describes how to register an Azure Arc-enabled SQL Server instance 
 
 There are two ways to set up authentication for scanning Azure Arc-enabled SQL Server with a self-hosted integration runtime:
 
-- SQL Server authentication
 - Windows authentication
+- SQL Server authentication
 
 To configure authentication for the SQL Server deployment:
 
 1. In SQL Server Management Studio (SSMS), go to **Server Properties**, and then select **Security** on the left pane. 
 1. Under **Server authentication**:
 
-   - For SQL Server authentication, select **SQL Server and Windows Authentication mode**.
    - For Windows authentication, select **Windows Authentication mode**.
+   - For SQL Server authentication, select **SQL Server and Windows Authentication mode**.   
 
-:::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/enable-sql-server-authentication.png" alt-text="Screenshot that shows the Security page of the Server Properties window, with options for selecting authentication mode.":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/enable-sql-server-authentication.png" alt-text="Screenshot that shows the Security page of the Server Properties window, with options for selecting authentication mode.":::
 
 A change to the server authentication requires you to restart the SQL Server instance and SQL Server Agent. In SSMS, go to the SQL Server instance and select **Restart** on the right-click options pane.
 
@@ -73,7 +73,7 @@ A change to the server authentication requires you to restart the SQL Server ins
 
 If you want to create a new login and user to scan your SQL Server instance, use the following the steps.
 
-The account must have access to the master database. This is because `sys.databases` is in the master database. The Microsoft Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
+The account must have access to the master database, because `sys.databases` is in the master database. The Microsoft Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
 
 > [!Note]
 > You can run all the following steps by using [this code](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
@@ -92,7 +92,12 @@ The account must have access to the master database. This is because `sys.databa
 
 1. Select **OK** to save.
 
-1. If SQL Server authentication is applied, select and hold (or right-click) the user that you created, and then select **Properties**. Enter a new password and confirm it. Select the **Specify old password** checkbox and enter the old password, and then select **OK**. *You must change your password as soon as you create a new login.*
+1. If SQL Server authentication is applied, you must change your password as soon as you create a new login:
+
+   1. Select and hold (or right-click) the user that you created, and then select **Properties**. 
+   1. Enter a new password and confirm it. 
+   1. Select the **Specify old password** checkbox and enter the old password.
+   1. Select **OK**.
 
    :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/change-password.png" alt-text="Screenshot that shows selections for changing a password.":::
 
@@ -104,7 +109,7 @@ The account must have access to the master database. This is because `sys.databa
 1. If your key vault is not connected to Microsoft Purview yet, [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account).
 1. [Create a new credential](manage-credentials.md#create-a-new-credential) by using the username and password to set up your scan. 
 
-   Be sure to select the right authentication method when you're creating a new credential. If SQL Server authentication is applied, select **SQL Server authentication**. If Windows authentication is applied, select **Windows authentication**.
+   Be sure to select the right authentication method when you're creating a new credential. If Windows authentication is applied, select **Windows authentication**. If SQL Server authentication is applied, select **SQL Server authentication**.
 
 ### Steps to register
 
@@ -156,7 +161,7 @@ To create and run a new scan:
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
-## Supported policies
+## Access policy
 
 The following types of policies are supported on this data resource from Microsoft Purview:
 * [DevOps policies](how-to-policies-devops-arc-sql-server.md)

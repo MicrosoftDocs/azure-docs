@@ -18,7 +18,12 @@ To view existing scans:
 
 1. Select the scan that has results you want to view.
 
-   The page that appears shows you all of the previous scan runs, along with the status and metrics for each scan run. It also displays whether your scan was scheduled or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan, and the total scan duration.
+   The page that appears shows you all of the previous scan runs, along with the status and metrics for each scan run. It also displays:
+   
+   - Whether your scan was scheduled or manual.
+   - How many assets had classifications applied.
+   - How many total assets were discovered.
+   - The start and end times of the scan, and the total scan duration.
 
 ### Manage your scans - edit, delete, or cancel
 
