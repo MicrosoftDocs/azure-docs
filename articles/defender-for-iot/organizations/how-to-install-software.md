@@ -271,7 +271,7 @@ After installing OT monitoring software, make sure to run the following tests:
 
 Use the `route` command to show the IP address of the Gateway. For example:
 
-```cli
+```
 
 <root@xsense:/# route -n
 Kernel IP routing table
@@ -282,9 +282,9 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 
 ```
 
-Use the `arp -a` command to verify that the MAC recognizes the IP if a ping command to the gateway IP trigger fails. For example:
+Use the `arp -a` command to verify that the MAC recognizes the IP, if a ping command to the gateway IP fails to trigger it. For example:
 
-```cli
+```
 
 <root@xsense:/# arp -a
 cusalvtecca101-gi0-02-2851.network.microsoft.com (172.18.0.1) at 02:42:b0:3a:e8:b5 [ether] on eth0
@@ -298,7 +298,7 @@ redis_22.2.6.27-r-c64cbca.iot_network_22.2.6.27-r-c64cbca (172.18.0.3) at 02:42:
 
 Use the `cat /etc/resolv.conf` command to check the IP that is configured for DNS. For example:
 
-```cli
+```
 
 <root@xsense:/# cat /etc/resolv.conf
 search reddog.microsoft.com
@@ -310,7 +310,7 @@ options ndots:0
 
 Use the `host` command to resolve an FQDN. For example:
 
-```cli
+```
 
 <root@xsense:/# host www.apple.com
 www.apple.com is an alias for www.apple.com.edgekey.net.
@@ -327,7 +327,7 @@ e6858.dscx.akamaiedge.net has IPv6 address 2a02:26f0:5700:182::1aca
 
 Use the `wget` command to verify that port 443 is open for communication. For example:
 
-```cli
+```
 
 <root@xsense:/# wget https://www.apple.com
 --2022-11-09 11:21:15--  https://www.apple.com/
