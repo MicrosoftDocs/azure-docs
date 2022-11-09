@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/09/2022
 ms.author: ramakk
+ms.custom: references_regions
 ---
 # Guidelines for Azure NetApp Files network planning
 
