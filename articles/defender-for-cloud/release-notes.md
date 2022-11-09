@@ -16,6 +16,20 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## November 2022
+
+Updates in November include:
+
+- [Protect containers in your entire GKE organization with Defender for Containers](#protect-containers-in-your-entire-gke-organization-with-defender-for-containers)
+
+### Protect containers in your entire GKE organization with Defender for Containers
+
+Defender for Containers helps you secure your Azure and multicloud container environments with environment hardening, vulnerability assessment, and run-time threat protection for nodes and clusters. GCP users enable this protection by connecting the GCP projects to Defender for Cloud using the native GCP connector.
+
+Now you can enable Defender for Containers for your GCP organization to protect clusters across your entire GCP organization. Create a new GCP connector or update your existing GCP connectors that connect organizations to Defender for Cloud, and enable Defender for Containers.
+
+Learn more about [connecting GCP projects and organizations](quickstart-onboard-gcp.md#connect-your-gcp-project) to Defender for Cloud.
+
 ## October 2022
 
 Updates in October include:
