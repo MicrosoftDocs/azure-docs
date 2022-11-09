@@ -26,13 +26,13 @@ You can monitor the source of the tokens by inspecting the `AuthenticationResult
 
 ASP.NET Core and ASP.NET Classic websites should integrate with [Microsoft.Identity.Web](microsoft-identity-web.md), a wrapper for MSAL.NET. Memory token caching or distributed token caching can be configured as described in [token cache serialization](msal-net-token-cache-serialization.md?tabs=aspnetcore). 
 
-Web Apis using MSAL directly, by calling `AcquireTokenOnBehalfOf` API, should configure memory or distributed caching, as described [here](msal-net-token-cache-serialization.md?tabs=aspnet). Ther is no need to call `AcquireTokenSilent` API. There is no API to clear the cache. Cache size can be managed by setting eviction policies on the underlying cache store, such as MemoryCache, Redis etc.
+Web APIs on ASP.NET Core should use Microsoft.Identity.Web. Web APIs on ASP.NET classic, use MSAL directly, by calling `AcquireTokenOnBehalfOf`, and should configure memory or distributed caching, as described [here](msal-net-token-cache-serialization.md?tabs=aspnet). Ther is no need to call `AcquireTokenSilent` API. There is no API to clear the cache. Cache size can be managed by setting eviction policies on the underlying cache store, such as MemoryCache, Redis etc.
 
 ## Web service / Daemon apps 
 
 Applications which request tokens for an app identity, with no user involved, by calling `AcquiretTokenForClient` can either rely on MSAL's internal caching, define their own memory token caching or distributed token caching, as per instructions [here](msal-net-token-cache-serialization.md?tabs=aspnet). 
 
-Since no user is involved, there is no need to call `AcquireTokenSilent` API. `AcquiretTokenForClient` will look in the cache on its own. There is no API to clear the cache. Cache size is proportional with the number of tenants and resources you need tokens for. Cache size can be managed by setting eviction policies on the underlying cache store, such as MemoryCache, Redis etc.
+Since no user is involved, there is no need to call `AcquireTokenSilent` API. `AcquireTokenForClient` will look in the cache on its own. There is no API to clear the cache. Cache size is proportional with the number of tenants and resources you need tokens for. Cache size can be managed by setting eviction policies on the underlying cache store, such as MemoryCache, Redis etc.
 
 ## Desktop, command line and mobile application
 
