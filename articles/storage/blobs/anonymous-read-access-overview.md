@@ -41,6 +41,8 @@ If your storage account is using the classic deployment model, then you can reme
 
 If your scenario requires that certain containers need to be available for public access, then you should move those containers and their blobs into separate storage accounts that are reserved only for public access. You can then disallow public access for any other storage accounts using the recommendations provided in [Recommendations for remediating anonymous public access](#recommendations-for-remediating-anonymous-public-access).
 
+For information on how to configure containers for public access, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
+
 ## Next steps
 
 - [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md)
