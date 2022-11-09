@@ -71,6 +71,16 @@
           "redirect_document_id": false
       },
       {
+          "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/play-action.md",
+          "redirect_url": "/azure/communication-services/how-tos/call-automation-sdk/play-action",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/recognize-action.md",
+          "redirect_url": "/azure/communication-services/how-tos/call-automation-sdk/recognize-action",
+          "redirect_document_id": false
+      },
+      {
         "source_path_from_root": "/articles/communication-services/how-tos/call-automation-sdk/subscribe-to-incoming-call.md",
         "redirect_url": "/azure/communication-services/concepts/voice-video-calling/incoming-call-notification",
         "redirect_document_id": false
