@@ -39,10 +39,10 @@ The following services are generally available for Customer Lockbox:
 - Azure Edge Zone Platform Storage
 - Azure Functions
 - Azure HDInsight
+- Azure Health Bot
 - Azure Intelligent Recommendations
 - Azure Kubernetes Service
 - Azure Monitor
-- Azure Red Hat OpenShift
 - Azure Spring Apps
 - Azure SQL Database
 - Azure SQL managed Instance

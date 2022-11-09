@@ -40,6 +40,8 @@ items:
   - name: Operations
     expanded: false
     items:
+    - name: Export DICOM Files
+      href: export-dicom-files.md
     - name: Pull DICOM changes using the Change Feed
       href: pull-dicom-changes-from-change-feed.md
   - name: Using Azure Active Directory (Azure AD) for DICOM service

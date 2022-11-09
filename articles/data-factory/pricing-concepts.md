@@ -30,6 +30,7 @@ The prices used in these examples below are hypothetical and are not intended to
 - [Data integration in Azure Data Factory Managed VNET](pricing-examples-data-integration-managed-vnet.md)
 - [Pricing example: Get delta data from SAP ECC via SAP CDC in mapping data flows](pricing-examples-get-delta-data-from-sap-ecc.md)
 
+
 ## Next steps
 Now that you understand the pricing for Azure Data Factory, you can get started!
 

@@ -12,7 +12,7 @@ items:
   - name: Get started with MedTech service
     href: get-started-with-iot.md
   - name: Deploy the MedTech service
-    expanded: false
+    expanded: true
     items:
     - name: Deployment methods   
       expanded: true
@@ -23,46 +23,59 @@ items:
         href: deploy-02-new-button.md
       - name: Azure PowerShell & CLI
         href: deploy-08-new-ps-cli.md
-      - name: Manual deployment
+      - name: Manual deployment - Prerequisites
         href: deploy-03-new-manual.md
+      - name: Manual deployment - Configure
+        href: deploy-05-new-config.md
+      - name: Manual deployment - Deploy
+        href: deploy-06-new-deploy.md   
 - name: Tutorials
   expanded: true
   items:
-  - name: Ingest data from IoT devices
-    expanded: false
-    items:
-    - name: Receive device data through Azure IoT Hub
-      href: device-data-through-iot-hub.md 
+  - name: Receive device data through Azure IoT Hub
+    href: device-data-through-iot-hub.md 
 - name: How-to guides
   expanded: true
   items: 
-    - name: Use Device mappings
+  - name: Map
+    expanded: true
+    items:
+    - name: Device
       expanded: false
       items:
-      - name: Device mappings
+      - name: Device mappings overview
         href: how-to-use-device-mappings.md
-      - name: JsonPathContentTemplate mappings
-        href: how-to-use-jsonpath-content-mappings.md
-      - name: Calculated Functions mappings
+      - name: CalculatedContentTemplate mappings
         href: how-to-use-calculated-functions-mappings.md
-      - name: CollectionContentTemplate mappings
-        href: how-to-use-collection-content-mappings.md
       - name: IotJsonPathContentTemplate mappings
         href: how-to-use-iot-jsonpath-content-mappings.md
-      - name: IotCentralJsonContentTemplate mappings
-        href: how-to-use-iot-central-json-content-mappings.md
-    - name: Use Custom Functions
-      href: how-to-use-custom-functions.md  
-    - name: Use FHIR destination mappings
-      href: how-to-use-fhir-mappings.md
-    - name: Display metrics
-      href: how-to-display-metrics.md
-    - name: Enable metrics export
-      href: iot-metrics-diagnostics-export.md
-    - name: Create copies of mappings
-      href: how-to-create-mappings-copies.md
+      - name: Custom functions
+        href: how-to-use-custom-functions.md  
+    - name: Destination
+      expanded: false
+      items:
+      - name: FHIR destination mappings
+        href: how-to-use-fhir-mappings.md
+  - name: Create copies of mappings
+    href: how-to-create-mappings-copies.md
+  - name: Monitor
+    expanded: true
+    items:
+    - name: Use the monitoring tab metrics
+      href: how-to-use-monitoring-tab.md
+    - name: Configure metrics
+      href: how-to-configure-metrics.md
+    - name: Enable diagnostic settings
+      href: how-to-enable-diagnostic-settings.md
+  - name: Troubleshoot and problem solve
+    expanded: true
+    items:
+    - name: Errors and conditions
+      href: iot-troubleshoot-error-messages-and-conditions.md
+    - name: Device and destination mappings
+      href: iot-troubleshoot-mappings.md
 - name: Concepts
-  expanded: true
+  expanded: false
   items:
   - name: MedTech service data flow
     href: iot-data-flow.md
@@ -73,19 +86,10 @@ items:
   - name: MedTech service and Microsoft Teams notifications
     href: iot-connector-teams.md
 - name: Resources
-  expanded: true
+  expanded: false
   items:
-    - name: FAQs - MedTech service
-      href: iot-connector-faqs.md
-    - name: Open-source projects
-      href: iot-git-projects.md
-    - name: Troubleshooting
-      expanded: false
-      items:
-      - name: Troubleshooting guide  
-        href: iot-troubleshoot-guide.md
-      - name: Device and FHIR destination mappings
-        href: iot-troubleshoot-mappings.md
-      - name: Errors and conditions
-        href: iot-troubleshoot-error-messages-and-conditions.md
+  - name: FAQs - MedTech service
+    href: iot-connector-faqs.md
+  - name: Open-source projects
+    href: iot-git-projects.md     
            

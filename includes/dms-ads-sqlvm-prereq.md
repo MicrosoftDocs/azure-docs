@@ -12,7 +12,7 @@ ms.date: 09/30/2022
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
     - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
     - Owner or Contributor role for the Azure subscription.
-    - As an alternative to using the above built-in roles you can assign a custom role as defined in [this article.](../articles/dms/resource-custom-roles-sql-db-virtual-machine-ads.md)
+    - As an alternative to using the above built-in roles you can assign a custom role as defined in [this article.](/azure/dms/resource-custom-roles-sql-db-virtual-machine-ads)
     > [!IMPORTANT]
     > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
 * Create a target [SQL Server on Azure Virtual Machine](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal).
@@ -45,5 +45,5 @@ ms.date: 09/30/2022
     > [!TIP]
     > If your database backup files are already provided in an Azure storage account, self-hosted integration runtime is not required during the migration process.
 
-* Runtime is installed on the machine using self-hosted integration runtime. The machine will connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to access the network file share. Also, see [recommendations](../articles/dms/migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations) for using self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations)
-* If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](../articles/dms/quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
+* Runtime is installed on the machine using self-hosted integration runtime. The machine will connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to access the network file share. Also, see [recommendations](/azure/dms/migration-using-azure-data-studio#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations) for using self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations)
+* If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](/azure/dms/quickstart-create-data-migration-service-portal#register-the-resource-provider)

@@ -22,7 +22,7 @@ ms.date: 05/04/2022
 
 Use a setup script for an automated way to customize and configure a compute instance at provisioning time. 
 
-Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#train) or for an [inference target](concept-compute-target.md#deploy).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
+Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#training-compute-targets) or for an [inference target](concept-compute-target.md#compute-targets-for-inference).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 
 As an administrator, you can write a customization script to be used to provision all compute instances in the workspace according to your requirements.
 

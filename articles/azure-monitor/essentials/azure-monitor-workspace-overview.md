@@ -58,11 +58,11 @@ In addition to the methods below, you may be given the option to create a new Az
 Use the following command to create an Azure Monitor workspace using Azure CLI.
 
 ```azurecli
-az resource create --resource-group divyaj-test --namespace microsoft.monitor --resource-type accounts --name testmac0929 --location westus2 --properties {}
+az resource create --resource-group <resource-group-name> --namespace microsoft.monitor --resource-type accounts --name <azure-monitor-workspace-name> --location <location> --properties {}
 ```
 
 ### [Resource Manager](#tab/resource-manager)
-Use the following Resource Manager template with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
+Use one of the following Resource Manager templates with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
 
 ```json
 {
@@ -86,6 +86,20 @@ Use the following Resource Manager template with any of the [standard deployment
         }
     ]
 }
+```
+
+```bicep
+@description('Specify the name of the workspace.')
+param workspaceName string
+
+@description('Specify the location for the workspace.')
+param location string = resourceGroup().location
+
+resource workspace 'microsoft.monitor/accounts@2021-06-03-preview' = {
+  name: workspaceName
+  location: location
+}
+
 ```
 
 

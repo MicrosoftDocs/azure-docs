@@ -283,6 +283,6 @@ The following example shows how to update a dataset, create a new tileset, and d
 [tileset]: /rest/api/maps/v20220901preview/tileset
 [style-picker-control]: choose-map-style.md#add-the-style-picker-control
 [style-how-to]: how-to-create-custom-styles.md
-[map-config-api]: /rest/api/maps/v20220901preview/mapconfiguration
+[map-config-api]: /rest/api/maps/v20220901preview/map-configuration
 [instantiate-indoor-manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor

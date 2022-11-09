@@ -43,7 +43,8 @@ First, set up some environment variables. In [Azure Cloud Shell](https://shell.a
 
 ```bash
 export AZ_RESOURCE_GROUP=database-workshop
-export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+export AZ_DATABASE_SERVER_NAME=<YOUR_DATABASE_SERVER_NAME>
+export AZ_DATABASE_NAME=demo
 export AZ_LOCATION=<YOUR_AZURE_REGION>
 export AZ_MYSQL_AD_NON_ADMIN_USERNAME=demo-non-admin
 export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
@@ -53,7 +54,7 @@ export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id -o tsv)
 
 Replace the placeholders with the following values, which are used throughout this article:
 
-- `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
+- `<YOUR_DATABASE_SERVER_NAME>`: The name of your MySQL server, which should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
@@ -61,7 +62,8 @@ Replace the placeholders with the following values, which are used throughout th
 
 ```bash
 export AZ_RESOURCE_GROUP=database-workshop
-export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+export AZ_DATABASE_SERVER_NAME=<YOUR_DATABASE_SERVER_NAME>
+export AZ_DATABASE_NAME=demo
 export AZ_LOCATION=<YOUR_AZURE_REGION>
 export AZ_MYSQL_ADMIN_USERNAME=demo
 export AZ_MYSQL_ADMIN_PASSWORD=<YOUR_MYSQL_ADMIN_PASSWORD>
@@ -72,7 +74,7 @@ export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 
 Replace the placeholders with the following values, which are used throughout this article:
 
-- `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
+- `<YOUR_DATABASE_SERVER_NAME>`: The name of your MySQL server, which should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
 - `<YOUR_MYSQL_ADMIN_PASSWORD>` and `<YOUR_MYSQL_NON_ADMIN_PASSWORD>`: The password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Java application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
@@ -110,7 +112,7 @@ Then, run the following command to create the server:
 ```azurecli
 az mysql server create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME \
+    --name $AZ_DATABASE_SERVER_NAME \
     --location $AZ_LOCATION \
     --sku-name B_Gen5_1 \
     --storage-size 5120 \
@@ -122,7 +124,7 @@ Next, run the following command to set the Azure AD admin user:
 ```azurecli
 az mysql server ad-admin create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --server-name $AZ_DATABASE_NAME \
+    --server-name $AZ_DATABASE_SERVER_NAME \
     --display-name $CURRENT_USERNAME \
     --object-id $CURRENT_USER_OBJECTID
 ```
@@ -137,7 +139,7 @@ This command creates a small MySQL server and sets the Active Directory admin to
 ```azurecli
 az mysql server create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME \
+    --name $AZ_DATABASE_SERVER_NAME \
     --location $AZ_LOCATION \
     --sku-name B_Gen5_1 \
     --storage-size 5120 \
@@ -159,8 +161,8 @@ Because you configured your local IP address at the beginning of this article, y
 ```azurecli
 az mysql server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME-database-allow-local-ip \
-    --server $AZ_DATABASE_NAME \
+    --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
+    --server $AZ_DATABASE_SERVER_NAME \
     --start-ip-address $AZ_LOCAL_IP_ADDRESS \
     --end-ip-address $AZ_LOCAL_IP_ADDRESS \
     --output tsv
@@ -185,8 +187,8 @@ Then, use the following command to open the server's firewall to your WSL-based 
 ```azurecli
 az mysql server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME-database-allow-local-ip-wsl \
-    --server $AZ_DATABASE_NAME \
+    --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip-wsl \
+    --server $AZ_DATABASE_SERVER_NAME \
     --start-ip-address $AZ_WSL_IP_ADDRESS \
     --end-ip-address $AZ_WSL_IP_ADDRESS \
     --output tsv
@@ -194,19 +196,19 @@ az mysql server firewall-rule create \
 
 ### Configure a MySQL database
 
-The MySQL server that you created earlier is empty. Use the following command to create a new database called `demo`:
+The MySQL server that you created earlier is empty. Use the following command to create a new database.
 
 ```azurecli
 az mysql db create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name demo \
-    --server-name $AZ_DATABASE_NAME \
+    --name $AZ_DATABASE_NAME \
+    --server-name $AZ_DATABASE_SERVER_NAME \
     --output tsv
 ```
 
 ### Create a MySQL non-admin user and grant permission
 
-Next, create a non-admin user and grant all permissions on the `demo` database to it.
+Next, create a non-admin user and grant all permissions to the database.
 
 > [!NOTE]
 > You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](./how-to-create-users.md).
@@ -223,7 +225,7 @@ SET aad_auth_validate_oids_in_tenant = OFF;
 
 CREATE AADUSER '$AZ_MYSQL_AD_NON_ADMIN_USERNAME' IDENTIFIED BY '$AZ_MYSQL_AD_NON_ADMIN_USERID';
 
-GRANT ALL PRIVILEGES ON demo.* TO '$AZ_MYSQL_AD_NON_ADMIN_USERNAME'@'%';
+GRANT ALL PRIVILEGES ON $AZ_DATABASE_NAME.* TO '$AZ_MYSQL_AD_NON_ADMIN_USERNAME'@'%';
 
 FLUSH privileges;
 
@@ -233,7 +235,7 @@ EOF
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` < create_ad_user.sql
+mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
@@ -251,7 +253,7 @@ cat << EOF > create_user.sql
 
 CREATE USER '$AZ_MYSQL_NON_ADMIN_USERNAME'@'%' IDENTIFIED BY '$AZ_MYSQL_NON_ADMIN_PASSWORD';
 
-GRANT ALL PRIVILEGES ON demo.* TO '$AZ_MYSQL_NON_ADMIN_USERNAME'@'%';
+GRANT ALL PRIVILEGES ON $AZ_DATABASE_NAME.* TO '$AZ_MYSQL_NON_ADMIN_USERNAME'@'%';
 
 FLUSH PRIVILEGES;
 
@@ -261,7 +263,7 @@ EOF
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $AZ_MYSQL_ADMIN_USERNAME@$AZ_DATABASE_NAME --enable-cleartext-plugin --password=$AZ_MYSQL_ADMIN_PASSWORD < create_user.sql
+mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $AZ_MYSQL_ADMIN_USERNAME@$AZ_DATABASE_SERVER_NAME --enable-cleartext-plugin --password=$AZ_MYSQL_ADMIN_PASSWORD < create_user.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
@@ -351,8 +353,8 @@ Run the following script in the project root directory to create a *src/main/res
 mkdir -p src/main/resources && touch src/main/resources/application.properties
 
 cat << EOF > src/main/resources/application.properties
-url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
-user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
+user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 EOF
 ```
 
@@ -362,8 +364,8 @@ EOF
 mkdir -p src/main/resources && touch src/main/resources/application.properties
 
 cat << EOF > src/main/resources/application.properties
-url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
-user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
+user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
 EOF
 ```

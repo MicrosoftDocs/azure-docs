@@ -3,13 +3,13 @@ title: How to call Text Analytics for health
 titleSuffix: Azure Cognitive Services
 description: Learn how to extract and label medical information from unstructured clinical text with Text Analytics for health.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
 ms.date: 09/05/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
 
@@ -38,6 +38,7 @@ By default, Text Analytics for health will use the latest available AI model on 
 
 | Supported Versions | latest version |
 |--|--|
+| `2022-08-15-preview` | `2022-08-15-preview`   |
 | `2022-03-01` | `2022-03-01`   |
 | `2021-05-15` | `2021-05-15`   |
 
@@ -61,7 +62,7 @@ The [Text Analytics for health container](use-containers.md) uses separate model
 
 ### Input languages
 
-Currently the Text Analytics for health hosted API only [supports](../language-support.md) the English language. Additional languages are currently in preview when deploying the API in a container, as detailed [under Text Analytics for health languages support](../language-support.md).
+The Text Analytics for health supports English in addition to multiple languages that are currently in preview. You can use the hosted API or deploy the API in a container, as detailed [under Text Analytics for health languages support](../language-support.md).
 
 ## Submitting data
 
@@ -73,6 +74,17 @@ To send an API request, You will need your Language resource endpoint and key.
 Analysis is performed upon receipt of the request. If you send a request using the REST API or client library, the results will be returned asynchronously. If you're using the Docker container, they will be returned synchronously.  
 
 [!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
+
+
+## Submitting a Fast Healthcare Interoperability Resources (FHIR) request
+
+To receive your result using the **FHIR** structure, you must send the FHIR version in the API request body. You can also send the **document type** as a parameter to the FHIR API request body. If the request does not specify a document type, the value is set to none.
+
+| Parameter Name  | Type |  Value |
+|--|--|--|
+| fhirVersion |  string  | `4.0.1` |
+| documentType | string | `ClinicalTrial`, `Consult`, `DischargeSummary`,  `HistoryAndPhysical`, `Imaging`, `None`, `Pathology`, `ProcedureNote`, `ProgressNote`|
+
 
 
 ## Getting results from the feature

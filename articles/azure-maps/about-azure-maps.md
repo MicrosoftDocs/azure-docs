@@ -3,7 +3,7 @@ title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 11/29/2021
+ms.date: 10/21/2022
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
@@ -168,16 +168,20 @@ Maps Creator service is a suite of web services that developers can use to creat
 
 Maps Creator provides three core services:
 
-* [Dataset service](/rest/api/maps/v2/dataset). Use the Dataset service to create a dataset from a converted Drawing package data. For information about Drawing package requirements, see Drawing package requirements.
+* [Dataset service][Dataset service]. Use the Dataset service to create a dataset from a converted Drawing package data. For information about Drawing package requirements, see Drawing package requirements.
 
-* [Conversion service](/rest/api/maps/v2/dataset). Use the Conversion service to convert a DWG design file into Drawing package data for indoor maps.
+* [Conversion service][Conversion service]. Use the Conversion service to convert a DWG design file into Drawing package data for indoor maps.
 
-* [Tileset service](/rest/api/maps/v2/tileset). Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
+* [Tileset service][Tileset]. Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
 
-* [Feature State service](/rest/api/maps/v2/feature-state). Use the Feature State service to support dynamic map styling. Dynamic map styling allows applications to reflect real-time events on spaces provided by IoT systems.
+* [Custom styling service][Custom styling] (preview). Use the [style service][style] or [visual style editor][style editor] to customize the visual elements of an indoor map.
 
-* [WFS service](/rest/api/maps/v2/feature-state). Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) standards for querying a single dataset.
+* [Feature State service][FeatureState]. Use the Feature State service to support dynamic map styling. Dynamic map styling allows applications to reflect real-time events on spaces provided by IoT systems.
 
+* [WFS service][WFS]. Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) standards for querying a single dataset.
+
+<!----* [Wayfinding service][wayfinding-preview] (preview). Use the [wayfinding API][wayfind] to generate a path between two points within a facility. Use the [routeset API][routeset] to create the data that the wayfinding service needs to generate paths.
+--->
 ### Elevation service
 
 The Azure Maps Elevation service is a web service that developers can use to retrieve elevation data from anywhere on the Earth’s surface.
@@ -233,3 +237,13 @@ Try a sample app that showcases Azure Maps:
 Stay up to date on Azure Maps:
 
 [Azure Maps blog](https://azure.microsoft.com/blog/topics/azure-maps/)
+
+[Dataset service]: creator-indoor-maps.md#datasets
+[Conversion service]: creator-indoor-maps.md#convert-a-drawing-package
+[Tileset]: creator-indoor-maps.md#tilesets
+[Custom styling]: creator-indoor-maps.md#custom-styling-preview
+[style]: /rest/api/maps/v20220901preview/style
+[style editor]: https://azure.github.io/Azure-Maps-Style-Editor
+[FeatureState]: creator-indoor-maps.md#feature-statesets
+[WFS]: creator-indoor-maps.md#web-feature-service-api
+<!--[wayfinding-preview]: creator-indoor-maps.md# -->
