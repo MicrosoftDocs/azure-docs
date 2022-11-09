@@ -235,8 +235,8 @@ Specify the storage output location to any datastore and path. By default, batch
 
 ## Next steps
 
-- [How to deploy online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
-- [How to deploy batch endpoints with the Azure CLI](batch-inference/how-to-use-batch-endpoint.md)
+- [How to deploy online endpoints with the Azure CLI and Python SDK](how-to-deploy-managed-online-endpoints.md)
+- [How to deploy batch endpoints with the Azure CLI and Python SDK](batch-inference/how-to-use-batch-endpoint.md)
 - [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)

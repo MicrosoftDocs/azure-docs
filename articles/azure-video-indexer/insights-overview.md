@@ -10,8 +10,6 @@ ms.author: juliako
 
 Insights contain an aggregated view of the data: faces, topics, emotions. Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. For more information about available models, see [overview](video-indexer-overview.md).
 
-## Concepts
-
 Before you start using the insights, make sure to check [Limited Access features of Azure Video Indexer](limited-access-features.md).
 
 Then, check out Azure Video Indexer insights [transparency notes and use cases](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context):  
@@ -25,7 +23,5 @@ Then, check out Azure Video Indexer insights [transparency notes and use cases](
 * [Named entities](/legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context)
 * [Observed people tracking & matched faces](/legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context)
 * [Topics inference](/legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context)
-
-## Next steps
 
 Once you are [set up](video-indexer-get-started.md) with Azure Video Indexer, start using [insights](video-indexer-output-json-v2.md) and check out other **How to guides** that demonstrate how to navigate the website.

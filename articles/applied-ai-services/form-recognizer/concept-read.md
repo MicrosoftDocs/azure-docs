@@ -26,11 +26,11 @@ recommendations: false
 
 Optical Character Recognition (OCR) for documents is optimized for large text-heavy documents in multiple file formats and global languages. It should include features like higher-resolution scanning of document images for better handling of smaller and dense text, paragraphs detection, handling fillable forms, and advanced forms and document scenarios like single character boxes and accurate extraction of key fields commonly found in invoices, receipts, and other prebuilt scenarios.
 
-## Form Recognizer Read model
+## OCR in Form Recognizer - Read model
 
 Form Recognizer v3.0’s Read Optical Character Recognition (OCR) model runs at a higher resolution than Computer Vision Read and extracts print and handwritten text from PDF documents and scanned images. It also includes preview support for extracting text from Microsoft Word, Excel, PowerPoint, and HTML documents. It detects paragraphs, text lines, words, locations, and languages, and is the underlying OCR engine for other Form Recognizer models like Layout, General Document, Invoice, Receipt, Identity (ID) document, and other prebuilt models, as well as custom models.
 
-## Supported document types
+## OCR supported document types
 
 > [!NOTE]
 >
@@ -91,7 +91,7 @@ Try extracting text from forms and documents using the Form Recognizer Studio. Y
 
 ## Supported languages and locales
 
-Form Recognizer v3.0 version supports several languages for the read model. *See* our [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
+Form Recognizer v3.0 version supports several languages for the read OCR model. *See* our [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
 
 ## Data detection and extraction
 

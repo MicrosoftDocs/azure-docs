@@ -361,6 +361,8 @@ items:
     - name: Generate a REST API client library
       href: swagger-documentation.md
       displayName: rest
+    - name: Embedded Speech
+      href: embedded-speech.md
     - name: Speech containers
       items:
         - name: Cognitive Services containers documentation

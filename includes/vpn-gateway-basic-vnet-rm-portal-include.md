@@ -19,6 +19,11 @@ ms.date: 04/29/2022
    - **Resource group**: Select an existing resource group, or select **Create new** to create a new one. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md#resource-groups).
    - **Name**: Enter the name for your virtual network.
    - **Region**: Select the location for your VNet. The location determines where the resources that you deploy to this VNet will live.
+1. Select **Security** to advance to the Security tab. At this time, leave the default values.
+
+   - **BastionHost**: Disable
+   - **DDoS Protection Standard**: Disable
+   - **Firewall**: Disable
 1. Select **IP Addresses** to advance to the IP Addresses tab. On the IP Addresses tab, configure the settings. The values shown in the example can be adjusted according to the settings that you require.
 
    :::image type="content" source="./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png" alt-text="Screenshot shows the IP Addresses tab." lightbox= "./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png":::
@@ -27,11 +32,5 @@ ms.date: 04/29/2022
    - **+ Add subnet**: If you use the default address space, a default subnet is created automatically. If you change the address space, you need to add a subnet. Select **+ Add subnet** to open the **Add subnet** window. Configure the following settings, then select **Add** at the bottom of the page to add the values.
       - **Subnet name**: In this example, we named the subnet "FrontEnd".
       - **Subnet address range**: The address range for this subnet.
-
-1. Select **Security** to advance to the Security tab. At this time, leave the default values.
-
-   - **BastionHost**: Disable
-   - **DDoS Protection Standard**: Disable
-   - **Firewall**: Disable
 1. Select **Review + create** to validate the virtual network settings.
 1. After the settings have been validated, select **Create** to create the virtual network.

@@ -23,7 +23,7 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 ## Prerequisites
 
 * An application deployed to Azure Spring Apps. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
-* An Azure Database for PostgreSQL Flexible Server instance.
+* An Azure Database for MySQL Flexible Server instance.
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.41.0 or higher.
 
 ## Prepare your Java project

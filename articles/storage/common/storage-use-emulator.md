@@ -117,7 +117,7 @@ New-AzStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime
 The resulting shared access signature URI for the new container should be similar to:
 
 ```
-http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst/8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 The shared access signature created with this example is valid for one day. The signature grants full access (read, write, delete, list) to blobs within the container.
