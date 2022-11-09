@@ -15,8 +15,9 @@ This article describes how to collect events and performance counters from virtu
 
 To collect data from virtual machines by using Azure Monitor Agent, you'll:
 
-1. Create [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define which data Azure Monitor Agent sends to which destinations.
-1. Associate the data collection rule to specific virtual machines.
+1. Review [permissions required](../essentials/data-collection-rule-overview#permissions) to work with data collection rules using programmatic methods.
+2. Create [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define which data Azure Monitor Agent sends to which destinations.
+3. Associate the data collection rule to specific virtual machines.
 
     You can associate virtual machines to multiple data collection rules. Define each data collection rule to address a particular requirement. Associate one or more data collection rules to a virtual machine based on the specific data you want the machine to collect.
 
