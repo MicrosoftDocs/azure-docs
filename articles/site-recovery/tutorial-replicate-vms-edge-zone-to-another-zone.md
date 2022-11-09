@@ -16,13 +16,13 @@ Edge Zones (preview) are fully managed solution deployed close to your data cent
 
 ## Disaster recovery in Azure Edge Zone (preview)
 
-Site Recovery service ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Edge Zone and secondary location is another edge zone connected to the same parent region. 
+Site Recovery ensure business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Edge Zone and secondary location is another Edge Zone connected to the same parent region. 
 
 ## Set up disaster recovery for VMs in an Edge Zone (preview) using PowerShell
 
 ### Prerequisites
 
-- Ensure to have the Azure Az PowerShell module. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+- Ensure Azure Az PowerShell module is installed. For information on how to install, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 - The minimum Azure Az PowerShell version must be 9.1.0+. Use the following command to see the current version:
 
     ```
@@ -30,11 +30,14 @@ Site Recovery service ensures business continuity by keeping workloads running d
     ```
 
 - Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix#linux).
-- Ensure the primary VM has a public IP. To validate, go to the VM NIC and check if public IP is attached to the NIC. Ensure that recovery VM has a public IP when you switch to protection direction. Azure Site Recovery doesn’t re-create the public IP, so it's important to check the availability of the public IP and that it is attached to the NIC before you switch to protection direction from recovery to primary. 
+- Ensure the primary VM has a public IP. To validate, go to the VM NIC and check if public IP is attached to the NIC. Ensure that recovery VM has a public IP when you switch to protection direction. 
 
-## Replicate Virtual machines running in an Edge Zone (preview) to another Edge zone
+>[!Note]
+>Azure Site Recovery doesn’t re-create the public IP, so it's important to check the availability of the public IP and that it is attached to the NIC before you switch to protection direction from recovery to primary. 
 
-Follow the below steps to replicate VMs running in an edge zone (preview) to another Edge zone:
+## Replicate Virtual machines running in an Edge Zone (preview) to another Edge Zone
+
+To replicate VMs running in an Edge Zone (preview) to another Edge Zone, follow these steps:
 
 > [!NOTE] 
 > For this example, the primary location is an Azure Edge Zone (preview), and the secondary/recovery location is another Edge Zone connected to the same region. 
@@ -104,7 +107,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to ano
         }
         ```
     
-    1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
+    1. On successful completion, the job state must be **Succeeded**.
 
         ```
         Write-Output $TempASRJob.State
@@ -156,7 +159,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to ano
         }
         ```
     
-    1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
+    1. On successful completion, the job state must be **Succeeded**.
     
         ```
         Write-Output $TempASRJob.State
@@ -182,7 +185,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to ano
         }
         ```
     
-    1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
+    1. On successful completion, the job state must be **Succeeded**.
     
         ```
         Write-Output $TempASRJob.State
@@ -210,7 +213,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to ano
             }
             ```
     
-       1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
+       1. On successful completion, the job state must be **Succeeded**.
     
             ```
             Write-Output $TempASRJob.State 
@@ -220,7 +223,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to ano
 
 1. Create a cache storage account for replication logs in the primary region. The cache storage account is created in the primary region.
 
-    You can use **Local cache** (cache in the EdgeZone) or **Remote cache** (cache in Azure). 
+    You can use **Local cache** (cache in the Edge Zone) or **Remote cache** (cache in Azure). 
     
     In this example, remote cache is used but there is no difference between them in terms of PowerShell commands. ARM ID of the cache storage account we provide to `New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig` is the only difference.
 
@@ -389,7 +392,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to ano
     >To check the progress, go to the portal, select the vault and then select the Site Recovery Jobs.
 
     After the test failover job completes successfully, you can connect to the test failed over virtual machine and validate the test failover. Once testing is complete on the test failed over virtual machine, clean up the test copy by starting the cleanup test failover operation. This operation deletes the test copy of the virtual machine that was created by the test failover.
-    Verify that all the target settings are right in the test failover VM including location, network setting, no data corruption, and no data is lost in the target VM. Now you can delete the test failover so you can start the real failover.
+    Verify that all the target settings are right in the test failover VM including location, network setting, no data corruption, and no data is lost in the target VM. Now you can delete the test failover and start the failover.
 
     ```
     $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -
@@ -405,9 +408,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to ano
     $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem 
     $ReplicationProtectedItem 
     ```
-    The list of recovery points returned may not be sorted chronologically and will 
-    need to be sorted first, to be able to find the oldest or the latest recovery 
-    points for the virtual machine.
+    The list of recovery points returned may not be sorted chronologically. You need to sort these first to find the oldest or the latest recovery points for the virtual machine.
 
     ```
      "{0} {1}" -f $RecoveryPoints[0].RecoveryPointType, $RecoveryPoints[-

@@ -16,13 +16,13 @@ Edge Zones (preview) are fully managed solution deployed close to your data cent
 
 ## Disaster recovery in Azure Edge Zone (preview)
 
-Site Recovery service ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Edge Zone and secondary location is the parent region to which the Edge Zone is connected. 
+Site Recovery ensure business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Edge Zone and secondary location is the parent region to which the Edge Zone is connected. 
 
 ## Set up disaster recovery for VMs in an Edge Zone (preview) using PowerShell
 
 ### Prerequisites
 
-- Ensure to have the Azure Az PowerShell module. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+- Ensure Azure Az PowerShell module is installed. For information on how to install, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 - The minimum Azure Az PowerShell version must be 4.1.0. Use the following command to see the current version:
 
     ```
@@ -33,7 +33,7 @@ Site Recovery service ensures business continuity by keeping workloads running d
 
 ## Replicate Virtual machines running in an Edge Zone (preview) to Azure region
 
-Follow the below steps to replicate VMs running in an edge zone (preview) to Azure region:
+To replicate VMs running in an Edge Zone (preview) to Azure region, Follow these steps: 
 
 > [!NOTE] 
 > For this example, the primary location is an Azure Edge Zone (preview), and the secondary/recovery location is the Edge Zone's (preview) region.
@@ -99,7 +99,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to Azu
         }
         ```
     
-    1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
+    1. On successful completion, the job state must be **Succeeded**.
 
         ```
         Write-Output $TempASRJob.State
@@ -151,7 +151,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to Azu
         }
         ```
     
-    1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
+    1. On successful completion, the job state must be **Succeeded**.
     
         ```
         Write-Output $TempASRJob.State
@@ -177,7 +177,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to Azu
         }
         ```
     
-    1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
+    1. On successful completion, the job state must be **Succeeded**.
     
         ```
         Write-Output $TempASRJob.State
@@ -205,7 +205,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to Azu
             }
             ```
     
-       1. On a successful completion, the job state of a successfully completed job must be **Succeeded**.
+       1. On successful completion, the job state must be **Succeeded**.
     
             ```
             Write-Output $TempASRJob.State 
@@ -374,7 +374,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to Azu
     >You can also check the progress of the job by going to portal, selecting the Vault and then select the Site Recovery Jobs.
 
     After the test failover job completes successfully, you can connect to the test failed over virtual machine and validate the test failover. Once testing is complete on the test failed over virtual machine, clean up the test copy by starting the cleanup test failover operation. This operation deletes the test copy of the virtual machine that was created by the test failover.
-    Verify that all the target settings are right in the test failover VM including location, network setting, no data corruption, and no data is lost in the target VM. Now you can delete the test failover so you can start the real failover.
+    Verify that all the target settings are right in the test failover VM including location, network setting, no data corruption, and no data is lost in the target VM. Now you can delete the test failover and start the failover.
 
     ```
     $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -
@@ -390,9 +390,7 @@ Follow the below steps to replicate VMs running in an edge zone (preview) to Azu
     $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem 
     $ReplicationProtectedItem 
     ```
-    The list of recovery points returned may not be sorted chronologically and will 
-    need to be sorted first, to be able to find the oldest or the latest recovery 
-    points for the virtual machine.
+    The list of recovery points returned may not be sorted chronologically. You need to sort these first to find the oldest or the latest recovery points for the virtual machine.
 
     ```
      "{0} {1}" -f $RecoveryPoints[0].RecoveryPointType, $RecoveryPoints[-
