@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot distribution of Microsoft Purview access policies
-description: Learn how to troubleshoot the enforcement of access policies that were created in Microsoft Purview
+description: Learn how to troubleshoot the communication of access policies that were created in Microsoft Purview and need to be enforced in data sources
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
