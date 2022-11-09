@@ -25,7 +25,7 @@ Data is collected using:
 
 ## Why use Defender for Cloud to deploy monitoring components?
 
-The security of your workloads depends on the data that the monitoring components collect. The components ensure security coverage for all supported resources.
+Visibility into the security of your workloads depends on the data that the monitoring components collect. The components ensure security coverage for all supported resources.
 
 To save you the process of manually installing the extensions, Defender for Cloud reduces management overhead by installing all required extensions on existing and new machines. Defender for Cloud assigns the appropriate **Deploy if not exists** policy to the workloads in the subscription. This policy type ensures the extension is provisioned on all existing and future resources of that type.
 
