@@ -72,8 +72,8 @@ The following table provides an overview of how to switch from each type of repl
 <sup>3</sup> Customer-initiated conversion is only supported for standard general-purpose v2 storage accounts. Support-requested conversion is supported for standard general-purpose v2 and premium file share storage accounts. Premium block blob and page blob storage accounts don't support either type of conversion.<br />
 <sup>4</sup> If you performed an account failover of a (RA-)GRS or (RA-)GZRS account, the account is locally redundant (LRS) in the new primary region after the failover. Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of failback operations. For more details see [Failover and failback](#failover-and-failback).<br />
 <sup>5</sup> Converting from LRS to ZRS is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares. <br />
-<sup>6</sup> Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region cannot be initiated until data synchronization between the two regions has completed.
-<sup>7</sup> ZRS, GZRS and RA-GZRS accounts do not support blobs in the archive tier. Before converting an account to one that supports zone-redundancy, consider [moving them to an LRS, GRS or RA-GRS storage account](#access-tier).<br />
+<sup>6</sup> Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region cannot be initiated until data synchronization between the two regions has completed.<br />
+<sup>7</sup> ZRS, GZRS and RA-GZRS storage accounts do not support blobs in the archive tier. Before converting an account to one that supports zone-redundancy, consider [moving them to an LRS, GRS or RA-GRS storage account](#access-tier).<br />
 
 ## Change the replication setting
 
@@ -289,11 +289,12 @@ If you want to migrate your data into a zone-redundant storage account located i
 
 ### Access tier
 
-Ensure the target replication option supports the access tiers currently used in the storage account. For example, ZRS, GZRS and RA-GZRS storage accounts do not support the archive tier. See [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details. To convert an LRS, GRS or RA-GRS account to one that supports zone-redundancy move the archived blobs to a storage account that supports blobs in the archive tier, then convert the source account to ZRS, GZRS and RA-GZRS.
+Make sure your target redundancy option supports the access tiers currently used in the storage account. For example, ZRS, GZRS and RA-GZRS storage accounts do not support the archive tier. See [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details. To convert an LRS, GRS or RA-GRS account to one that supports zone-redundancy move the archived blobs to a storage account that supports blobs in the archive tier, then convert the source account to ZRS, GZRS and RA-GZRS.
 
 To switch an LRS storage account that contains blobs in the archive tier to GRS or RA-GRS, you must first rehydrate all archived blobs to the Hot or Cool tier or perform a [manual migration](#manual-migration).
 
-Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming.
+> [!TIP]
+> Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming. But if you must change it, a [manual migration](#manual-migration) can save you the expense of rehydration.
 
 ### Protocol support
 
