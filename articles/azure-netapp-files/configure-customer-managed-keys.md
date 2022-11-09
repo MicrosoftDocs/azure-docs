@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 11/09/2022
 ms.author: anfdocs
 ---
 
@@ -28,9 +28,7 @@ Customer-managed keys in Azure NetApp Files enable you to use your own keys rath
 > While in preview, customer-managed keys are only available in the **West Europe** region. 
 
 * Customer-managed keys can only be configured on new volumes. You cannot migrate existing volumes to customer-managed key encryption. 
-* To create a volume using customer-managed keys, you must select the *Standard* network features. Customer-managed key volumes are not supported for the Basic network features. Follow instructions in [Configure network features for a volume to](configure-network-features.md):  
-    * [Register for the standard network features](configure-network-features.md#register-the-feature).
-    * [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
+* To create a volume using customer-managed keys, you must select the *Standard* network features. Customer-managed key volumes are not supported for the Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
 * Rekey operation is currently not supported.
 * Switching from user-assigned identity to the system-assigned identity is currently not supported.
 * MSI Automatic certificate renewal is not currently supported.  
@@ -138,8 +136,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
 ## Create an Azure NetApp Files volume using customer-manager keys
 
 1. From Azure NetApp Files, select **Volumes** and then **+ Add volume**.    
-1. Follow the instructions in [Configure network features for an Azure NetApp Files volume](configure-network-features.md) to:  
-    * [Register for the Standard network features](configure-network-features.md#register-the-feature).
+1. Follow the instructions in [Configure network features for an Azure NetApp Files volume](configure-network-features.md):
     * [Set the Network Features option in volume creation page](configure-network-features.md#set-the-network-features-option).
     * The network security group for the volume’s delegated subnet must allow incoming traffic from NetApp's storage VM.
 1. For a NetApp account configured to use a customer-managed key, the Create Volume page includes an option Encryption Key Source.  
