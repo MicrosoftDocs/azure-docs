@@ -12,8 +12,9 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/07/2022
+ms.date: 11/09/2022
 ms.author: ramakk
+ms.custom: references_regions
 ---
 # Guidelines for Azure NetApp Files network planning
 
@@ -23,7 +24,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ## Configurable network features  
 
- Register for the [**configurable network features**](configure-network-features.md) to create volumes with standard network features. You can create new volumes choosing *Standard* or *Basic* network features in supported regions. In regions where the Standard network features aren't supported, the volume defaults to using the Basic network features.  
+ You can create new volumes choosing *Standard* or *Basic* network features in supported regions. In regions where the Standard network features aren't supported, the volume defaults to using the Basic network features. For more information, see [Configure network features](configure-network-features.md).
 
 * ***Standard***  
     Selecting this setting enables higher IP limits and standard VNet features such as [network security groups](../virtual-network/network-security-groups-overview.md) and [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) on delegated subnets, and additional connectivity patterns as indicated in this article.
@@ -39,12 +40,14 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   Australia Central 2
 *   Australia East
 *   Australia Southeast
+*   Brazil South
 *   Canada Central
 *   Central US
 *   East Asia
 *   East US
 *   East US 2
 *	France Central
+*   Germany North
 *   Germany West Central
 *   Japan East
 *   Japan West

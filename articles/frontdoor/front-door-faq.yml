@@ -170,7 +170,7 @@ sections:
       - question: | 
           How does Front Door handle ‘domain fronting’ behavior? 
         answer: |
-          Beginning November 1, 2022, all the newly created Azure Front Door, Azure Front Door (classic)  or Azure CDN Standard from Microsoft (classic) resources will block any HTTP request that exhibits domain fronting behavior. Requests where Host header in HTTP/HTTPS requests doesn't match the original TLS SNI extension used during the TLS negotiation, will be blocked.
+          Beginning November 8, 2022, all the newly created Azure Front Door, Azure Front Door (classic)  or Azure CDN Standard from Microsoft (classic) resources will block any HTTP request that exhibits domain fronting behavior. Requests where Host header in HTTP/HTTPS requests doesn't match the original TLS SNI extension used during the TLS negotiation, will be blocked.
           
           If you wish to block domain fronting for any existing Azure Front Door Standard and Premium, Azure Front Door (classic) and Azure CDN Standard from Microsoft (classic) resources or for new Azure Front Door Standard and Premium, Azure Front Door (classic) and Azure CDN Standard from Microsoft (classic) resources, please create a support request and provide your subscription and 
           resource information. Upon enabling of blocking domain fronting behavior, Azure Front Door and Azure CDN Standard from Microsoft (classic) resources will block any HTTP request that exhibit this behavior.
