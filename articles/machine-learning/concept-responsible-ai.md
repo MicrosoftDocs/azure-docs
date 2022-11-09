@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
-ms.date: 08/05/2022
+ms.date: 11/09/2022
 ms.custom: responsible-ai, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to learn what Responsible AI is and how I can use it in Azure Machine Learning.
 ---
@@ -26,7 +26,7 @@ Microsoft has developed a [Responsible AI Standard](https://blogs.microsoft.com/
 
 This article demonstrates how Azure Machine Learning supports tools for enabling developers and data scientists to implement and operationalize the six principles.
 
-:::image type="content" source="./media/concept-responsible-ml/concept-responsible-ml.png" alt-text=" Diagram of the six principles of Microsoft Responsible AI, which encompass fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability." border="false":::
+:::image type="content" source="./media/concept-responsible-ai/concept-responsible-ml.png" alt-text=" Diagram of the six principles of Microsoft Responsible AI, which encompass fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability." border="false":::
 
 ## Fairness and inclusiveness
 
@@ -57,9 +57,9 @@ The model interpretability component provides multiple views into a model's beha
 
 - *Global explanations*. For example, what features affect the overall behavior of a loan allocation model?
 - *Local explanations*. For example, why was a customer's loan application approved or rejected? 
-- *Model explanations for a selected cohort of data points*. For example, what features affect the overall behavior of a loan allocation model for low-income applicants? 
+- *Model explanations for a selected cohort of data points*. For example, what features affect the overall behavior of a loan allocation model for low-income applicants?
 
-The counterfactual what-if component enables understanding and debugging a machine learning model in terms of how it reacts to feature changes and perturbations. 
+The counterfactual what-if component enables understanding and debugging a machine learning model in terms of how it reacts to feature changes and perturbations.
 
 Azure Machine Learning also supports a [Responsible AI scorecard](./how-to-responsible-ai-scorecard.md). The scorecard is a customizable PDF report that developers can easily configure, generate, download, and share with their technical and non-technical stakeholders to educate them about their datasets and models health, achieve compliance, and build trust. This scorecard can also be used in audit reviews to uncover the characteristics of machine learning models.
 
@@ -95,7 +95,7 @@ The people who design and deploy AI systems must be accountable for how their sy
 - Notify and alert on events in the machine learning lifecycle. Examples include experiment completion, model registration, model deployment, and data drift detection.
 - Monitor applications for operational issues and issues related to machine learning. Compare model inputs between training and inference, explore model-specific metrics, and provide monitoring and alerts on your machine learning infrastructure.
 
-Besides the MLOps capabilities, the [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) in Azure Machine Learning creates accountability by enabling cross-stakeholder communications. The scorecard also creates accountability by empowering developers to configure, download, and share their model health insights with their technical and non-technical stakeholders about AI data and model health. Sharing these insights can help build trust.  
+Besides the MLOps capabilities, the [Responsible AI scorecard](concept-responsible-ai-scorecard.md) in Azure Machine Learning creates accountability by enabling cross-stakeholder communications. The scorecard also creates accountability by empowering developers to configure, download, and share their model health insights with their technical and non-technical stakeholders about AI data and model health. Sharing these insights can help build trust.  
 
 The machine learning platform also enables decision-making by informing business decisions through:
 
@@ -106,5 +106,5 @@ The machine learning platform also enables decision-making by informing business
 
 - For more information on how to implement Responsible AI in Azure Machine Learning, see [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - Learn how to generate the Responsible AI dashboard via [CLI and SDK](how-to-responsible-ai-dashboard-sdk-cli.md) or [Azure Machine Learning studio UI](how-to-responsible-ai-dashboard-ui.md).
-- Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in your Responsible AI dashboard.
+- Learn how to generate a [Responsible AI scorecard](concept-responsible-ai-scorecard.md) based on the insights observed in your Responsible AI dashboard.
 - Learn about the [Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf) for building AI systems according to six key principles.

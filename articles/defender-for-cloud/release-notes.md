@@ -140,12 +140,12 @@ We have renamed the Auto-provisioning page to **Settings & monitoring**.
 Auto-provisioning was meant to allow at-scale enablement of prerequisites, which are needed by Defender for Cloud's advanced features and capabilities. To better support our expanded capabilities, we are launching a new experience with the following changes: 
 
 **The Defender for Cloud's plans page now includes**:
-- When you enable Defender plans, a Defender plan that requires monitoring components automatically turns on the required components with default settings. These settings can be edited by the user at any time.
+- When you enable a Defender plan that requires monitoring components, those components are enabled for automatic provisioning with default settings. These settings can optionally be edited at any time.
 - You can access the monitoring component settings for each Defender plan from the Defender plan page.
 - The Defender plans page clearly indicates whether all the monitoring components are in place for each Defender plan, or if your monitoring coverage is incomplete.
 
 **The Settings & monitoring page**:
-- Each monitoring component indicates the Defender plans that it is related to.
+- Each monitoring component indicates the Defender plans to which it's related.
 
 Learn more about [managing your monitoring settings](monitoring-components.md).
 
