@@ -250,6 +250,7 @@ A scenario when you might want to override the value for cloud role instance cou
 
 For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
+---------------------------------------------------------------------------------
 ## Application Map Filters
 
 Application Map filters allow the user to reduce the number of nodes and edges shown by applying one or more filters. These filters can be used to reduce the scope of the map, showing a smaller and more focused map.
@@ -293,9 +294,6 @@ There are three parameters available for nodes:
 
     -   "Nodes only"--All nodes in the resulting map must have a property value that matches.
 
-```{=html}
-<!-- -->
-```
 -   "**Operator**" is the type of check that will be performed on each
     node's property values:
 
@@ -494,6 +492,8 @@ Intelligent view has some limitations:
 * Time frames of up to seven days are supported.
 
 To provide feedback, see [Portal feedback](#portal-feedback).
+
+---------------------------------------------------------------------------------
 
 ## Troubleshooting
 
