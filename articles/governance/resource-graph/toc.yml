@@ -52,7 +52,7 @@
     href: ./shared-query-template.md
   - name: Paginate query results with Azure PowerShell
     displayName: queries, powershell, Az.ResourceGraph
-    href: ./paging-powershell.md
+    href: ./paginate-powershell.md
 - name: Tutorials
   items:
   - name: Create and share a query in Azure portal
