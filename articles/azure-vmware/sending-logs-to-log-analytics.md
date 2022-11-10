@@ -8,12 +8,11 @@ ms.date: 11/07/2022
 
 # Sending your Azure VMware Solution logs to Log Analytic
 
-You can now send your Azure VMware Solution logs to Azure Monitor Log Analytics, adding another tool to your toolkit in addition to Azure Blob Storage, Azure Event Hub, and third-party solutions. Configuring such a tool has never been easier! In this article, we’ll show how you can send logs from your AVS private cloud to your Log Analytics workspace, allowing you to take advantage of the rich feature set Log Analytics has to offer - from powerful querying capabilities with Kusto Query Language (KQL) to creating interactive reports with your data using Workbooks - without having to get your logs out of the Microsoft ecosystem.
-Once configured, you can take advantage of Log Analytics’ rich feature set, including:
+This article shows you how to send Azure VMware Solution logs to Azure Monitor Log Analytics. You can send logs from your AVS private cloud to your Log Analytics workspace, allowing you to take advantage of the Log Analytics feature set, including:
 
 • Powerful querying capabilities with Kusto Query Language (KQL)
 
-• Interactive report-creation capability based on your data, using Workboooks
+• Interactive report-creation capability based on your data, using Workbooks
 
 ...Without having to get your logs out of the Microsoft ecosystem!
 
@@ -38,15 +37,17 @@ A Log Analytics workspace:
 1. In the Azure portal, go to + Create a resource.
 2. Search for “Log Analytics Workspace” and click Create -> Log Analytics Workspace.
 
-:::image type="content" source="media/log-analytics/Marketplace.png" alt-text="Marketplace.":::
+:::image type="content" source="media/log-analytics/Marketplace.png" alt-text="Marketplace":::
 
 1. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
 
-:::image type="content" source="media/log-analytics/create-workspace.png" alt-text="Marketplace.":::
+:::image type="content" source="media/log-analytics/create-workspace.png" alt-text="create-workspace":::
 
 ### Add a diagnostic setting
 
 Next, we’ll want to add a diagnostic setting in your AVS private cloud, so it knows where to send your logs to.
+
+:::image type="content" source="media/log-analytics/create-workspace.png" alt-text="create-workspace":::
 
 1. Click on your AVS private cloud. Go to Diagnostic settings on the left-hand menu under Monitoring. Select + Add diagnostic setting.
 
