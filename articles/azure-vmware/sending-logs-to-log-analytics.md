@@ -1,4 +1,5 @@
 ---
+author: v-ianwh
 title: Sending your Azure VMware Solution logs to Log Analytics
 description: Learn about sending logs to log analytics.
 ms.topic: how-to
@@ -41,13 +42,13 @@ A Log Analytics workspace:
 
 1. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
 
-:::image type="content" source="media/log-analytics/create-workspace.png" alt-text="create-workspace":::
+:::image type="content" source="media/log-analytics/create-workspace.png" alt-text="Workspace":::
 
 ### Add a diagnostic setting
 
 Next, we’ll want to add a diagnostic setting in your AVS private cloud, so it knows where to send your logs to.
 
-:::image type="content" source="media/log-analytics/create-workspace.png" alt-text="create-workspace":::
+:::image type="content" source="media/log-analytics/add-diagnostics-setting.png" alt-text="Diagnostics Setting":::
 
 1. Click on your AVS private cloud. Go to Diagnostic settings on the left-hand menu under Monitoring. Select + Add diagnostic setting.
 
