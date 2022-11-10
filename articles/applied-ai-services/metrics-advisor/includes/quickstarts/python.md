@@ -26,7 +26,7 @@ ms.author: mbullwin
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
 > * `https://<instance-name>.cognitiveservices.azure.com/`
 
-## Setting up
+## Set up
 
 ### Install the client library
 
@@ -36,7 +36,7 @@ Install the client library. You can install the client library with:
 pip install azure-ai-metricsadvisor --pre
 ```
 
-## Creating environment variables
+## Environment variables
 
 To successfully make a call against the Anomaly Detector service, you'll need the following values:
 
@@ -121,7 +121,9 @@ echo export SQL_QUERY="REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYIN
 
 ---
 
-### Create a new Python application
+## Create your application
+
+Create a python application based off the follow code:
 
 ```python
 """

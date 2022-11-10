@@ -19,7 +19,7 @@ This article describes a set of different tools used to transfer your historical
 
 ## Azure Monitor Basic Logs/Archive 
 
-Before you ingest data to Azure Monitor Basic Logs or Archive, for lower ingestion prices, ensure that the table you're writing to is [configured as Basic Logs](../azure-monitor/logs/basic-logs-configure.md#check-table-configuration). Review the [Azure Monitor custom log ingestion tool](#azure-monitor-custom-log-ingestion-tool) and the [direct API](#direct-api) method for Azure Monitor Basic Logs. 
+Before you ingest data to Azure Monitor Basic Logs or Archive, for lower ingestion prices, ensure that the table you're writing to is [configured as Basic Logs](../azure-monitor/logs/basic-logs-configure.md#view-a-tables-log-data-plan). Review the [Azure Monitor custom log ingestion tool](#azure-monitor-custom-log-ingestion-tool) and the [direct API](#direct-api) method for Azure Monitor Basic Logs. 
 
 ### Azure Monitor custom log ingestion tool 
 
