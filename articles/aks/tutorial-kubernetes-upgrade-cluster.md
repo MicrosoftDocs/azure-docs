@@ -3,29 +3,30 @@ title: Kubernetes on Azure tutorial - Upgrade a cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to upgrade an existing AKS cluster to the latest available Kubernetes version.
 services: container-service
 ms.topic: tutorial
-ms.date: 05/24/2021
+ms.date: 11/10/2022
 ms.custom: mvc, devx-track-azurepowershell, event-tier1-build-2022
 #Customer intent: As a developer or IT pro, I want to learn how to upgrade an Azure Kubernetes Service (AKS) cluster so that I can use the latest version of Kubernetes and features.
 ---
 
 # Tutorial: Upgrade Kubernetes in Azure Kubernetes Service (AKS)
 
-As part of the application and cluster lifecycle, you may wish to upgrade to the latest available version of Kubernetes and use new features. An Azure Kubernetes Service (AKS) cluster can be upgraded using the Azure CLI.
+As part of the application and cluster lifecycle, you may wish to upgrade to the latest available version of Kubernetes and use new features. An Azure Kubernetes Service (AKS) cluster can be upgraded using the Azure CLI, Azure PowerShell, or the Azure portal.
 
-In this tutorial, part seven of seven, a Kubernetes cluster is upgraded. You learn how to:
+In this tutorial, part seven of seven, you learn how to:
 
 > [!div class="checklist"]
+
 > * Identify current and available Kubernetes versions
-> * Upgrade the Kubernetes nodes
+> * Upgrade your Kubernetes nodes
 > * Validate a successful upgrade
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into a container image. This image was uploaded to Azure Container Registry, and you created an AKS cluster. The application was then deployed to the AKS cluster. If you have not done these steps, and would like to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
+In previous tutorials, an application was packaged into a container image. This container image was uploaded to Azure Container Registry (ACR), and you created an AKS cluster. The application was then deployed to the AKS cluster. If you have not done these steps and would like to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
 ### [Azure CLI](#tab/azure-cli)
 
-This tutorial requires that you are running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -37,10 +38,10 @@ This tutorial requires that you're running Azure PowerShell version 5.9.0 or lat
 
 ### [Azure CLI](#tab/azure-cli)
 
-Before you upgrade a cluster, use the [az aks get-upgrades][] command to check which Kubernetes releases are available for upgrade:
+Before you upgrade a cluster, use the [az aks get-upgrades][] command to check which Kubernetes releases are available.
 
 ```azurecli
-az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 In the following example, the current version is *1.18.10*, and the available versions are shown under *upgrades*.
@@ -111,7 +112,7 @@ Upgrades            : {}
 
 To minimize disruption to running applications, AKS nodes are carefully cordoned and drained. In this process, the following steps are performed:
 
-1. The Kubernetes scheduler prevents additional pods being scheduled on a node that is to be upgraded.
+1. The Kubernetes scheduler prevents additional pods from being scheduled on a node that is to be upgraded.
 1. Running pods on the node are scheduled on other nodes in the cluster.
 1. A node is created that runs the latest Kubernetes components.
 1. When the new node is ready and joined to the cluster, the Kubernetes scheduler begins to run pods on it.
@@ -187,7 +188,7 @@ Tags                    : {}
 
 ## View the upgrade events
 
-When you upgrade your cluster, the following Kubenetes events may occur on each node:
+When you upgrade your cluster, the following Kubernetes events may occur on each node:
 
 * Surge – Create surge node.
 * Drain – Pods are being evicted from the node. Each pod has a 5 minute timeout to complete the eviction.
