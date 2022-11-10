@@ -36,8 +36,8 @@ Azure Maps Python SDK supports Python version 3.7 or later. Check the [Azure S
 | Service Name  | PyPi package            |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][py search readme] | [azure-maps-search][py search package] | [search samples][py search sample] |
-| [Routing][py routing readme] | [azure-maps-routing][py routing package] |  [routing samples][py routing sample] |
-| [Rendering][py rendering readme]| [azure-maps-rendering][py rendering package]|[rendering sample][py rendering sample] |
+| [Route][py route readme] | [azure-maps-route][py route package] |  [route samples][py route sample] |
+| [Render][py render readme]| [azure-maps-render][py render package]|[render sample][py render sample] |
 | [Geolocation][py geolocation readme]|[azure-maps-geolocation][py geolocation package]|[geolocation sample][py geolocation sample] |
 
 <!--For more information, see the [python SDK Developers Guide](how-to-dev-guide-py-sdk.md).-->
@@ -88,12 +88,12 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 [py search package]: https://pypi.org/project/azure-maps-search
 [py search readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-search/README.md
 [py search sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-search/samples
-[py routing package]: https://pypi.org/project/azure-maps-route
-[py routing readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-routing/README.md
-[py routing sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-routing/samples
-[py rendering package]: https://pypi.org/project/azure-maps-render
-[py rendering readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-rendering/README.md
-[py rendering sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-rendering/samples
+[py route package]: https://pypi.org/project/azure-maps-route
+[py route readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-routing/README.md
+[py route sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-routing/samples
+[py render package]: https://pypi.org/project/azure-maps-render
+[py render readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-render/README.md
+[py render sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-render/samples
 [py geolocation package]: https://pypi.org/project/azure-maps-geolocation
 [py geolocation readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-geolocation/README.md
 [py geolocation sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-geolocation/samples

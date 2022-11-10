@@ -12,7 +12,7 @@ services: azure-maps
 
 # C# REST SDK Developers Guide
 
-The Azure Maps C# SDK supports all of the functionality provided in the [Azure Maps Rest API][Rest API], like searching for an address, routing between different coordinates, and getting the geo-location of a specific IP address. This article will help you get started building location-aware applications that incorporate the power of Azure Maps.
+The Azure Maps C# SDK supports functionality available in the [Azure Maps Rest API][Rest API], like searching for an address, routing between different coordinates, and getting the geo-location of a specific IP address. This article introduces the C# REST SDK with examples to help you get started building location-aware applications in C# that incorporate the power of Azure Maps.
 
 > [!NOTE]
 > Azure Maps C# SDK supports any .NET version that is compatible with [.NET standard 2.0][.NET standard]. For an interactive table, see [.NET Standard versions][.NET Standard versions].
@@ -75,12 +75,12 @@ You'll need to register the new Azure AD application and grant access to Azure M
 
 Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
 
-| Environment Variable  | Description                                                     |
-|-----------------------|-----------------------------------------------------------------|
-| AZURE_CLIENT_ID       | Application (client) ID in your registered application          |
-| AZURE_CLIENT_SECRET   | The value of the client secret in your registered application   |
-| AZURE_TENANT_ID       | Directory (tenant) ID in your registered application            |
-| MAPS_CLIENT_ID           | The client ID in your Azure Map resource                   |
+| Environment Variable | Description                                                   |
+|----------------------|---------------------------------------------------------------|
+| AZURE_CLIENT_ID      | Application (client) ID in your registered application        |
+| AZURE_CLIENT_SECRET  | The value of the client secret in your registered application |
+| AZURE_TENANT_ID      | Directory (tenant) ID in your registered application          |
+| MAPS_CLIENT_ID       | The client ID in your Azure Map resource                      |
 
 Now you can create environment variables in PowerShell to store these values:
 
@@ -103,6 +103,9 @@ var clientId = Environment.GetEnvironmentVariable("MAPS_CLIENT_ID");
 var client = new MapsSearchClient(credential, clientId); 
 
 ```
+
+> [!NOTE]
+> The other environment variable created above, while not used in the code sample here, will be referenced in DefaultAzureCredential().
 
 ### Using a subscription key credential
 
@@ -134,13 +137,15 @@ var client = new MapsSearchClient(credential);
 The following code snippet demonstrates how, in a simple console application, to import the `Azure.Maps.Search` package and perform a fuzzy search on“Starbucks” near Seattle. In `Program.cs`:
 
 ```csharp
+using System;
 using Azure; 
 using Azure.Core.GeoJson; 
 using Azure.Maps.Search; 
 using Azure.Maps.Search.Models; 
 
 // Use Azure Maps subscription key authentication 
-var credential = new AzureKeyCredential("Azure_Maps_Subscription_key"); 
+var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
+var credential = new AzureKeyCredential(subscriptionKey);
 var client = new MapsSearchClient(credential); 
 
 SearchAddressResult searchResult = client.FuzzySearch( 
@@ -163,7 +168,7 @@ foreach (var result in searchResult.Results)
 } 
 ```
 
-In the above code snippet, you create a `MapsSearchClient` object using your Azure credentials, then use that Search Client's [FuzzySearch][FuzzySearch] method passing in the point of interest (POI) name "_Starbucks_" and coordinates _GeoPosition(-122.31, 47.61)_. This all gets wrapped up by the SDK and sent to the Azure Maps REST endpoints. When the search results are returned, they're written out to the screen using `Console.WriteLine`.
+The above code snippet demonstrates how to create a `MapsSearchClient` object using your Azure credentials, then uses its [FuzzySearch][FuzzySearch] method, passing in the point of interest (POI) name "_Starbucks_" and coordinates _GeoPosition(-122.31, 47.61)_. This all gets wrapped up by the SDK and sent to the Azure Maps REST endpoints. When the search results are returned, they're written out to the screen using `Console.WriteLine`.
 
 The following libraries are used:
 
@@ -228,8 +233,9 @@ Call the `SearchAddress` method to get the coordinate of an address. Modify the 
 
 ```csharp
 // Use Azure Maps subscription key authentication 
-var credential = new AzureKeyCredential("Azure_Maps_Subscription_key");
-var client = new MapsSearchClient(credential);
+var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
+var credential = new AzureKeyCredential(subscriptionKey);
+var client = new MapsSearchClient(credential); 
 
 SearchAddressResult searchResult = client.SearchAddress(
     "1301 Alaskan Way, Seattle, WA 98101, US");
@@ -315,14 +321,16 @@ printReverseBatchAddresses(newOperationResult);
 The complete code for reverse address batch search with operation ID:
 
 ```csharp
+using system;
 using Azure;
 using Azure.Core.GeoJson;
 using Azure.Maps.Search;
 using Azure.Maps.Search.Models;
 
 // Use Azure Maps subscription key authentication 
-var credential = new AzureKeyCredential("Azure_Maps_Subscription_key");
-var client = new MapsSearchClient(credential);
+var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
+var credential = new AzureKeyCredential(subscriptionKey);
+var client = new MapsSearchClient(credential); 
 
 var queries = new List<ReverseSearchAddressQuery>()
 {
