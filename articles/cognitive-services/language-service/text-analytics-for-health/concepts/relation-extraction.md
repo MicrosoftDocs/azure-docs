@@ -15,7 +15,7 @@ ms.custom: language-service-health, ignite-fall-2021
 
 # Relation extraction
 
-Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description.  
+Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time.
 
 
 ## Relation extraction output
