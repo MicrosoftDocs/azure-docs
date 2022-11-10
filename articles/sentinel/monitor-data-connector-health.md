@@ -4,8 +4,7 @@ description: Use the SentinelHealth data table and the Health Monitoring workboo
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
-ms.date: 07/28/2022
+ms.date: 11/09/2022
 ms.service: microsoft-sentinel
 ---
 
@@ -91,7 +90,7 @@ The following types of health events are logged in the *SentinelHealth* table:
 
 - **Failure summary**. Logged once an hour, per connector, per workspace, with an aggregated failure summary. Failure summary events are created only when the connector has experienced polling errors during the given hour. They contain any extra details provided in the *ExtendedProperties* column, such as the time period for which the connector's source platform was queried, and a distinct list of failures encountered during the time period.
 
-For more information, see [SentinelHealth table columns schema](#sentinelhealth-table-columns-schema).
+For more information, see [SentinelHealth table columns schema](./health-table-reference.md#sentinelhealth-table-columns-schema).
 
 ### Run queries to detect health drifts
 
@@ -163,26 +162,6 @@ For example:
 1. For the rule actions, select an existing action group or create a new one as needed to configure push notifications or other automated actions such as triggering a Logic App, Webhook, or Azure Function in your system.
 
 For more information, see [Azure Monitor alerts overview](../azure-monitor/alerts/alerts-overview.md) and [Azure Monitor alerts log](../azure-monitor/alerts/alerts-log.md).
-
-### SentinelHealth table columns schema
-
-The following table describes the columns and data generated in the SentinelHealth data table for data connectors:
-
-| ColumnName    | ColumnType     | Description|
-| ----------------------------------------------- | -------------- | --------------------------------------------------------------------------- |
-| **TenantId**      | String         | The tenant ID for your Microsoft Sentinel workspace.                    |
-| **TimeGenerated** | Datetime       | The time at which the health event occurred.         |
-| <a name="operationname"></a>**OperationName** | String         | The health operation. One of the following values: <br><br>-`Data fetch status change` for health or success indications <br>- `Failure summary` for aggregated health summaries. <br><br>For more information, see [Understanding SentinelHealth table events](#understanding-sentinelhealth-table-events). |
-| <a name="sentinelresourceid"></a>**SentinelResourceId**        | String         | The unique identifier of the Microsoft Sentinel workspace and the associated connector on which the health event occurred. |
-| **SentinelResourceName**      | String         | The data connector name.                           |
-| <a name="status"></a>**Status**        | String         | Indicates `Success` or `Failure` for the `Data fetch status change` [OperationName](#operationname), and `Informational` for the `Failure summary` [OperationName](#operationname).         |
-| **Description**   | String         | Describes the operation, including extended data as needed. For example, for failures, this column might indicate the failure reason. |
-| **WorkspaceId**   | String         | The workspace GUID on which the health issue occurred. The full Azure Resource Identifier is available in the [SentinelResourceID](#sentinelresourceid) column. |
-| **SentinelResourceType**      | String         |The Microsoft Sentinel resource type being monitored: `Data connector`|
-| **SentinelResourceKind**      | String         | The type of data connector being monitored, such as `Office365`.               |
-| **RecordId**      | String         | A unique identifier for the record that can be shared with the support team for better correlation as needed.                |
-| **ExtendedProperties**        | Dynamic (json) | A JSON bag that varies by the [OperationName](#operationname) value and the [Status](#status) of the event: <br><br>- For `Data fetch status change` events with a success indicator, the bag contains a ‘DestinationTable’ property to indicate where data from this connector is expected to land. For failures, the contents vary depending on the failure type.    |
-| **Type**          | String         | `SentinelHealth`                         |
 
 ## Next steps
 

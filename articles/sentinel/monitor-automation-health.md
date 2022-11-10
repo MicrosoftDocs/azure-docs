@@ -14,7 +14,7 @@ To ensure proper functioning and performance of your security orchestration, aut
 
 Set up notifications of health drifts for relevant stakeholders, who can then take action. For example, define and send email or Microsoft Teams messages, create new tickets in your ticketing system, and so on.
 
-This article describes how to use Microsoft Sentinel's health monitoring features, which allow you to keep track of your automation rules and playbooks' health from within Microsoft Sentinel.
+This article describes how to use Microsoft Sentinel's health monitoring features to keep track of your automation rules and playbooks' health from within Microsoft Sentinel.
 
 ## Summary
 
@@ -26,34 +26,42 @@ Automation health monitoring in Microsoft Sentinel has two parts:
 | **Azure Logic Apps diagnostics logs** | *AzureDiagnostics* | - Playbook run started/ended<br>- Playbook actions/triggers started/ended | Logic Apps resource > [Diagnostics settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=portal#create-diagnostic-settings) |
 
 
-- **Microsoft Sentinel automation health logs:** These logs are collected in the *SentinelHealth* table in Log Analytics. Querying this table provides information on health drifts, such as automation rules failing to run or playbooks that don't launch.
+- **Microsoft Sentinel automation health logs:**
 
+    - This log captures events that record the running of automation rules and playbooks, and the end result of these runnings - if they succeeded or failed, and if they failed, why.
+    - This log *does not include* a record of each individual action taken by an automation rule, only of the collective success or failure of the launch of the rule's actions.
+    - This log also *does not include* a record of the execution of the contents of a playbook, only of the success or failure of the launching of the playbook. For a log of the actions taken within a playbook, see the next list below.
+    - These logs are collected in the *SentinelHealth* table in Log Analytics.
+    
     > [!IMPORTANT]
     >
     > The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+- **Azure Logic Apps diagnostics logs:**
+
+    - These logs capture the results of the running of playbooks (also known as Logic Apps workflows) and the actions in them.
+    - 
+
 ## Use the SentinelHealth data table (Public preview)
 
-To get data connector health data from the *SentinelHealth* data table, you must first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on health monitoring for Microsoft Sentinel](enable-monitoring.md).
+To get automation health data from the *SentinelHealth* data table, you must first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on health monitoring for Microsoft Sentinel](enable-monitoring.md).
 
-Once the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
-
-### Supported data connectors
-
-The *SentinelHealth* data table is currently supported only for the following data connectors:
-
-- [Amazon Web Services (CloudTrail and S3)](connect-aws.md)
-- [Dynamics 365](connect-dynamics-365.md)
-- [Office 365](connect-office-365.md)
-- [Office ATP](connect-microsoft-defender-advanced-threat-protection.md)
-- [Threat Intelligence - TAXII](connect-threat-intelligence-taxii.md)
-- [Threat Intelligence Platforms](connect-threat-intelligence-tip.md)
+Once the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your automation rules and playbooks.
 
 ### Understanding SentinelHealth table events
 
-The following types of health events are logged in the *SentinelHealth* table:
+The following types of automation health events are logged in the *SentinelHealth* table:
 
-- **Data fetch status change**. Logged once an hour as long as a data connector status remains stable, with either continuous success or failure events. For as long as a data connector's status does not change, monitoring only hourly works to prevent redundant auditing and reduce table size. If the data connector's status has continuous failures, additional details about the failures are included in the *ExtendedProperties* column.
+- **Automation rule run**. Logged whenever an automation rule's conditions are met, causing it to run. The following sample query will display these events:
+
+    ```kusto
+    SentinelHealth
+    | where OperationName == "Automation rule run"
+    ```
+
+- **Playbook was triggered**
+
+ once an hour as long as a data connector status remains stable, with either continuous success or failure events. For as long as a data connector's status does not change, monitoring only hourly works to prevent redundant auditing and reduce table size. If the data connector's status has continuous failures, additional details about the failures are included in the *ExtendedProperties* column.
 
     If the data connector's status changes, either from a success to failure, from failure to success, or has changes in failure reasons, the event is logged immediately to allow your team to take proactive and immediate action.
 

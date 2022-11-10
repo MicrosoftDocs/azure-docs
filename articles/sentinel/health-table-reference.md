@@ -12,7 +12,9 @@ ms.service: microsoft-sentinel
 
 This article describes the fields in the *SentinelHealth* table used for monitoring the health of Microsoft Sentinel resources. With the Microsoft Sentinel [health monitoring feature](health-audit.md), you can keep tabs on the proper functioning of your SIEM and get information on any health drifts in your environment. 
 
-Learn how to [query and use the health table](monitor-health-audit.md) for deeper monitoring and visibility of actions in your environment. ***CHANGE THIS LINK AND PARAGRAPH***
+Learn how to query and use the health table for deeper monitoring and visibility of actions in your environment:
+- For [data connectors](monitor-data-connector-health.md)
+- For [automation rules and playbooks](monitor-automation-health.md)
 
 > [!IMPORTANT]
 >
@@ -29,7 +31,7 @@ The following table describes the columns and data generated in the SentinelHeal
 | ------------------------ | -------------- | ------------------------------------------------------------- |
 | **TenantId**             | String         | The tenant ID for your Microsoft Sentinel workspace.          |
 | **TimeGenerated**        | Datetime       | The time at which the health event occurred.                  |
-| <a name="operationname_health"></a>**OperationName** | String      | The health operation. Possible values depend on the resource type.<br>See [Operation names for different resource types](#operation-names-for-different-resource-types) for details.<br><br>For more information, see [Understanding SentinelHealth table events](monitor-health-audit.md#understanding-sentinelhealth-table-events). |
+| <a name="operationname_health"></a>**OperationName** | String      | The health operation. Possible values depend on the resource type.<br>See [Operation names for different resource types](#operation-names-for-different-resource-types) for details. |
 | <a name="sentinelresourceid_health"></a>**SentinelResourceId**     | String         | The unique identifier of the resource on which the health event occurred, and its associated Microsoft Sentinel workspace.  |
 | **SentinelResourceName** | String         | The resource name.                                            |
 | <a name="status_health"></a>**Status**    | String         | Indicates the overall result of the operation. Possible values depend on the operation name.<br>See [Operation names for different resource types](#operation-names-for-different-resource-types) for details.                  |
@@ -46,9 +48,9 @@ The following table describes the columns and data generated in the SentinelHeal
 
 | Resource types       | Operation names | Statuses |
 | -------------------- | --------------- | -------- |
-| **Data collectors**  | Data fetch status change<br><br>__________________<br>Data fetch failure summary | Success<br>Failure<br>_____________<br>Informational |
-| **Automation rules** | Automation rule run | Success<br>Partial success<br>Failure |
-| **Playbooks**        | Playbook was triggered | Success<br>Failure |
+| **[Data collectors](monitor-data-connector-health.md)**  | Data fetch status change<br><br>__________________<br>Data fetch failure summary | Success<br>Failure<br>_____________<br>Informational |
+| **[Automation rules](monitor-automation-health.md)** | Automation rule run | Success<br>Partial success<br>Failure |
+| **[Playbooks](monitor-automation-health.md)**        | Playbook was triggered | Success<br>Failure |
 
 
 ## Failure reasons
