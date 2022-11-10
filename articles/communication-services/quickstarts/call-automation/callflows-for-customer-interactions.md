@@ -34,12 +34,12 @@ In this quickstart, you'll learn how to build an application that uses the Azure
 
 ## Subscribe to IncomingCall event
 
-IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource. To learn more about it, see [this guide](../../concepts/voice-video-calling/incoming-call-notification.md). 
+IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource. To learn more about it, see [this guide](../../concepts/call-automation/incoming-call-notification.md). 
 1. Navigate to your resource on Azure portal and select `Events` from the left side menu.
 1. Select `+ Event Subscription` to create a new subscription. 
 1. Filter for Incoming Call event. 
 1. Choose endpoint type as web hook and provide the public url generated for your application by ngrok. Make sure to provide the exact api route that you programmed to receive the event previously. In this case, it would be <ngrok_url>/api/incomingCall. 
-![Screenshot of portal page to create a new event subscription.](./media/call-automation/event-susbcription.png)
+![Screenshot of portal page to create a new event subscription.](./media/event-susbcription.png)
 
 1. Select create to start the creation of subscription and validation of your endpoint as mentioned previously. The subscription is ready when the provisioning status is marked as succeeded. 
 
@@ -60,7 +60,7 @@ This subscription currently has no filters and hence all incoming calls will be 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
-- Learn more about [Call Automation](../../concepts/voice-video-calling/call-automation.md) and its features. 
-- Learn how to [redirect inbound telephony calls](../../how-tos/call-automation-sdk/redirect-inbound-telephony-calls.md) with Call Automation.
-- Learn more about [Play action](../../concepts/voice-video-calling/play-action.md).
-- Learn more about [Recognize action](../../concepts/voice-video-calling/recognize-action.md).
+- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features. 
+- Learn how to [redirect inbound telephony calls](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md) with Call Automation.
+- Learn more about [Play action](../../concepts/call-automation/play-action.md).
+- Learn more about [Recognize action](../../concepts/call-automation/recognize-action.md).

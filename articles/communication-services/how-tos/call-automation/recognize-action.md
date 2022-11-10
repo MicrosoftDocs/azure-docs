@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services how-to document
 description: Provides a how-to guide for gathering user input from participants on a call.
 author: kunaal
 ms.service: azure-communication-services
-ms.topic: include
+ms.topic: how-tos
 ms.date: 09/16/2022
 ms.author: kpunjabi
 ms.custom: private_preview
@@ -16,7 +16,7 @@ zone_pivot_groups: acs-csharp-java
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-This quickstart will help you get started with recognizing DTMF input provided by participants through Azure Communication Services Call Automation SDK. 
+This guide will help you get started with recognizing DTMF input provided by participants through Azure Communication Services Call Automation SDK. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Recognize action with .NET](./includes/recognize-action-quickstart-csharp.md)]
@@ -45,6 +45,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next Steps
 
-- Learn more about [Gathering user input](../../concepts/voice-video-calling/recognize-action.md)
-- Learn more about [Playing audio in call](../../concepts/voice-video-calling/play-action.md)
-- Learn more about [Call Automation](../../concepts/voice-video-calling/call-automation.md)
+- Learn more about [Gathering user input](../../concepts/call-automation/recognize-action.md)
+- Learn more about [Playing audio in call](../../concepts/call-automation/play-action.md)
+- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md)

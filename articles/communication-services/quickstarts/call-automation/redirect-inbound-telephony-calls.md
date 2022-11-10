@@ -30,7 +30,7 @@ Get started with Azure Communication Services by using the Call Automation SDKs 
 
 ## Subscribe to IncomingCall event
 
-IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource. To learn more about it, see [this guide](../../concepts/voice-video-calling/incoming-call-notification.md). 
+IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource. To learn more about it, see [this guide](../../concepts/call-automation/incoming-call-notification.md). 
 1. Navigate to your resource on Azure portal and select `Events` from the left side menu.
 1. Select `+ Event Subscription` to create a new subscription. 
 1. Filter for Incoming Call event. 
@@ -53,6 +53,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-- Learn more about [Call Automation](../../concepts/voice-video-calling/call-automation.md) and its features. 
-- Learn about [Play action](../../concepts/voice-video-calling/play-Action.md) to play audio in a call.
-- Learn how to build a [call workflow](../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md) for a customer support scenario. 
+- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features. 
+- Learn about [Play action](../../concepts/call-automation/play-Action.md) to play audio in a call.
+- Learn how to build a [call workflow](../../quickstarts/call-automation/callflows-for-customer-interactions.md) for a customer support scenario. 

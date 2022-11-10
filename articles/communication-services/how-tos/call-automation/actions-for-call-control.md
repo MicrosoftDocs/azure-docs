@@ -27,7 +27,7 @@ Call Automation supports various other actions to manage call media and recordin
 > Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making, redirecting a call to a Teams user or adding them to a call using Call Automation isn't supported. 
 
 As a pre-requisite, we recommend you to read the below articles to make the most of this guide: 
-1. Call Automation [concepts guide](../../concepts/voice-video-calling/call-automation.md#call-actions) that describes the action-event programming model and event callbacks. 
+1. Call Automation [concepts guide](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks. 
 2. Learn about [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like CommunicationUserIdentifier and PhoneNumberIdentifier used in this guide. 
 
 For all the code samples, `client` is CallAutomationClient object that can be created as shown and `callConnection` is the CallConnection object obtained from Answer or CreateCall response. You can also obtain it from callback events received by your application. 
@@ -74,7 +74,7 @@ The response provides you with CallConnection object that you can use to take fu
 
 
 ## Answer an incoming call
-Once you've subscribed to receive [incoming call notifications](../../concepts/voice-video-calling/incoming-call-notification.md) to your resource, below is sample code on how to answer that call. When answering a call, it's necessary to provide a callback url. Communication Services will post all subsequent events about this call to that url.  
+Once you've subscribed to receive [incoming call notifications](../../concepts/call-automation/incoming-call-notification.md) to your resource, below is sample code on how to answer that call. When answering a call, it's necessary to provide a callback url. Communication Services will post all subsequent events about this call to that url.  
 ### [csharp](#tab/csharp)
 
 ```csharp
