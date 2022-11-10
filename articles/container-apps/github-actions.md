@@ -19,7 +19,7 @@ The GitHub Actions workflow is triggered by commits to a specific branch in your
 
 This article shows you how to create your own workflow that you can fully customize. To generate a starter GitHub Actions workflow with Azure CLI, see [Generate GitHub Actions workflow with Azure CLI](github-actions-cli.md).
 
-## Container Apps action
+## Azure Container Apps GitHub action
 
 To build and deploy your container app, you add the [`azure/container-apps-deploy-action`](https://github.com/marketplace/actions/oryx-builder-github-action) action to your GitHub Actions workflow. It supports the following scenarios:
 

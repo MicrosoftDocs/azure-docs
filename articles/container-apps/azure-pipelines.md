@@ -15,7 +15,7 @@ Azure Container Apps allows you to use Azure Pipelines to publish [revisions](re
 
 The pipeline is triggered by commits to a specific branch in your repository. When creating the pipeline, you decide which branch is the trigger.
 
-## Container Apps task
+## Container Apps Azure Pipelines task
 
 To build and deploy your container app, you add the [`AzureContainerAppsRCV0`](#) Azure Pipelines task to your pipeline. It supports the following scenarios:
 
