@@ -13,7 +13,7 @@ ms.custom: references_regions, event-tier1-build-2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Self-service policies](concept-self-service-data-access-policy.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
+[Self-service policies](concept-self-service-data-access-policy.md) allow you to manage access from Microsoft Purview to data sources that have been registered for **Data Use Management**.
 
 This how-to guide describes how self-service policies get created in Microsoft Purview to enable access to Azure SQL DB. The following actions are currently enabled: *Read Tables*, and *Read Views*. 
 
@@ -32,11 +32,11 @@ The Azure SQL DB resources need to be registered first with Microsoft Purview to
 
 [Register and scan Azure SQL DB](./register-scan-azure-sql-database.md)
 
-After you've registered your resources, you'll need to enable Data Use Management. Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**:
+After you've registered your resources, you'll need to enable data use management. Data use management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to data use management in this guide**:
 
-[How to enable Data Use Management](./how-to-enable-data-use-management.md)
+[How to enable data use management](./how-to-enable-data-use-management.md)
 
-Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. This will enable the access policies to be used with the given SQL server and all its contained databases.
+Once your data source has the **Data use management** toggle *Enabled*, it will look like this picture. This will enable the access policies to be used with the given SQL server and all its contained databases.
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
 
 
@@ -104,18 +104,6 @@ This section contains a reference of how actions in Microsoft Purview data polic
 ||Microsoft.Sql/sqlservers/databases/Connect |
 ||Microsoft.Sql/Sqlservers/Databases/Schemas/Tables/Rows|
 ||Microsoft.Sql/Sqlservers/Databases/Schemas/Views/Rows |
-|||
-| *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
-|||               
-| *SQL Security Auditor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
 |||
 
 ## Next steps
