@@ -344,3 +344,7 @@ $t.Update()
 1. In the section **Reply URL (Assertion Consumer Service URL)**, add the URL (for example, `https://otherwebapp.contoso.local/`) of all additional web applications that need to sign in users with Azure Active Directory and click **Save**.
 
 ![Specify additional web applications](./media/sharepoint-on-premises-tutorial/azure-active-directory-app-reply-urls.png)
+
+### Configure the lifetime of the security token
+
+[TODO]
