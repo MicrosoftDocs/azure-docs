@@ -298,8 +298,5 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [upgrade-cluster]:  #upgrade-an-aks-cluster
 [planned-maintenance]: planned-maintenance.md
 [aks-auto-upgrade]: auto-upgrade-cluster.md
-<<<<<<< HEAD
 [release-tracker]: release-tracker.md
-=======
 [specific-nodepool]: node-image-upgrade.md#upgrade-a-specific-node-pool
->>>>>>> e05c90da69526d1c34bb0d4048c7c66d1bda4bee
