@@ -1,5 +1,5 @@
 ---
-author: v-ianwh
+author: v-ianwhyte@microsoft.com
 title: Sending your Azure VMware Solution logs to Log Analytics
 description: Learn about sending logs to log analytics.
 ms.topic: how-to
@@ -38,7 +38,13 @@ A Log Analytics workspace:
 1. In the Azure portal, go to + Create a resource.
 2. Search for “Log Analytics Workspace” and click Create -> Log Analytics Workspace.
 
-:::image type="content" source="media/log-analytics/Marketplace.png" alt-text="Marketplace":::
+:::image type="content" source="media/log-analytics/Marketplace.png" alt-text="Search for Log Analytics Workspace"
+
+### Setup your workspace
+
+1. In the Azure portal, go to + Create a resource.
+2. Search for “Log Analytics Workspace” and click Create -> Log Analytics Workspace.
+
 
 1. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
 
