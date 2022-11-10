@@ -58,14 +58,11 @@ For more information, see our [introduction to Data Sharing](concept-data-share.
 
 ## Data Policy
 Microsoft Purview Data Policy is a set of central, cloud-based experiences that help you manage access to data sources and datasets securely and at scale.
-Benefits:
-* Structure and simplify the process of granting/revoking access.
-* Reduce the effort of access provisioning.
-* Access decision in Microsoft data systems has negligible latency penalty.
-* Enhanced security:
-   - Easier to review access/revoke it in a central vs. distributed access provisioning model.
-   - Reduced need for privileged accounts to configure access.
-   - Support Principle of Least Privilege (give people the appropriate level of access, limiting to the minimum permissions and the least data objects).
+- Manage access to data sources from a single-pane of glass, cloud-based experience
+- Introduces a new data-plane permission model that is external to data sources
+- Seamless integration with Microsoft Purview Data Map and Catalog helps search for data assets and grant access only to what is required via fine-grained policies
+- Based on role definitions that are simple and abstracted (e.g. Read, Modify)
+- At-scale access provisioning
 
 For more information, see our introductory guides:
 * [Data owner access policies](concept-policies-data-owner.md) (preview): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
@@ -116,6 +113,13 @@ Discovering and understanding data sources and their use is the primary purpose 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
 
 Lastly, Microsoft Purview Data Policy app leverages the metadata in the Data Map, providing a superior solution to keep your data secure.
+* Structure and simplify the process of granting/revoking access.
+* Reduce the effort of access provisioning.
+* Access decision in Microsoft data systems has negligible latency penalty.
+* Enhanced security:
+   - Easier to review access/revoke it in a central vs. distributed access provisioning model.
+   - Reduced need for privileged accounts to configure access.
+   - Support Principle of Least Privilege (give people the appropriate level of access, limiting to the minimum permissions and the least data objects).
 
 ## Next steps
 
