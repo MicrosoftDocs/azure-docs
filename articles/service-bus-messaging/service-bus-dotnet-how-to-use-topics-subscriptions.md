@@ -41,7 +41,7 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 [!INCLUDE [service-bus-create-namespace-portal-passwordless](../../includes/passwordless/service-bus/service-bus-create-namespace-portal-passwordless.md)]
 
 ## [Connection String](#tab/connection-string)
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/passwordless/service-bus/service-bus-create-namespace-portal-passwordless.md)]
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
 ---
 

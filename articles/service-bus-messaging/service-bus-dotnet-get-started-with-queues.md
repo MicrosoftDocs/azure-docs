@@ -31,17 +31,27 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 [!INCLUDE [service-bus-create-namespace-portal-passwordless](../../includes/passwordless/service-bus/service-bus-create-namespace-portal-passwordless.md)]
 
 ## [Connection String](#tab/connection-string)
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/passwordless/service-bus/service-bus-create-namespace-portal-passwordless.md)]
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
 ---
-
-[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
 
 [!INCLUDE [service-bus-create-queue-portal](./includes/service-bus-create-queue-portal.md)]
 
 
-> [!IMPORTANT]
-> Note down the connection string to the namespace, the queue name. You'll use them later in this tutorial.
+[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
+
+## Launch Visual Studio and sign-in to Azure
+
+You can authorize access to the service bus namespace using the following steps:
+
+Select the **Sign in** button in the top right of Visual Studio.
+
+:::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-small.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
+
+Sign-in using the Azure AD account you assigned a role to previously.
+
+:::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
+
 
 ## Send messages to the queue
 
@@ -78,9 +88,6 @@ This section shows you how to create a .NET console application to send messages
     Install-Package Azure.Identity
     ```
 
-    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
-
-
 ### [Connection String](#tab/connection-string)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
@@ -89,9 +96,6 @@ This section shows you how to create a .NET console application to send messages
     ```powershell
     Install-Package Azure.Messaging.ServiceBus
     ```
-
-    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
-
 
 ---
 
