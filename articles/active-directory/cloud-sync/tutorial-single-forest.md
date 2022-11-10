@@ -60,7 +60,7 @@ You can use the environment you create in this tutorial for testing or for getti
 
 1. Select **Download agent**, and select **Accept terms & download**.
 
-   [![Screenshot that shows how to accept the terms and start the download of Azure AD cloud sync.](media/how-to-install/install-6a.png)](media/how-to-install/media/how-to-install/install-6a.png#lightbox)
+   [![Screenshot that shows how to accept the terms and start the download of Azure AD cloud sync.](media/how-to-install/install-6a.png)](/media/how-to-install/install-6a.png#lightbox)
 
 1. Run the **Azure AD Connect Provisioning Agent Package** AADConnectProvisioningAgentSetup.exe in your downloads folder.
 
@@ -68,7 +68,7 @@ You can use the environment you create in this tutorial for testing or for getti
 
    ![Screenshot that shows the "Microsoft Azure A D Connect Provisioning Agent Package" splash screen.](media/how-to-install/install-1.png)
 
-1. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  If you have Internet Explorer enhanced security enabled this will block the sign-in.  If so, close the installation, [disable Internet Explorer enhanced security](/troubleshoot/developer/browsers/security-privacy/enhanced-security-configuration-faq), and restart the **Azure AD Connect Provisioning Agent Package**  installation.
+1. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  If you have Internet Explorer enhanced security enabled, it will block the sign-in.  If so, close the installation, [disable Internet Explorer enhanced security](/troubleshoot/developer/browsers/security-privacy/enhanced-security-configuration-faq), and restart the **Azure AD Connect Provisioning Agent Package**  installation.
 
 1. On the **Connect Active Directory** screen, select **Authenticate** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account shouldn't have password change requirements. If the password expires or changes, you'll need to reconfigure the agent with the new credentials. 
 
@@ -117,7 +117,7 @@ To verify the agent is being registered by Azure AD, follow these steps:
 
 ### On the local server
 
-To verify that the agent is running follow these steps:
+To verify that the agent is running, follow these steps:
 
 1. Log on to the server with an administrator account
 
@@ -136,19 +136,19 @@ To verify that the agent is running follow these steps:
 1. Select **Azure AD Connect**
 1. Select **Manage cloud sync**
 
-    [![Screenshot showing "Manage cloud sync" link.](media/how-to-configure/manage-1.png)](media/how-to-install/manage-1.png#lightbox)
+    [![Screenshot showing "Manage cloud sync" link.](media/how-to-configure/manage-1.png)](media/how-to-configure/manage-1.png#lightbox)
 
 1. Select **New Configuration**
     
-    [![Screenshot of Azure A D Connect cloud sync screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png)](media/how-to-install/configure-1.png#lightbox)
+    [![Screenshot of Azure A D Connect cloud sync screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png)](media/tutorial-single-forest/configure-1.png#lightbox)
 
 1. On the configuration screen, enter a **Notification email**, move the selector to **Enable** and select **Save**.
 
-    [![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/how-to-configure/configure-2.png)](media/how-to-install/configure-2.png#lightbox)
+    [![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/how-to-configure/configure-2.png)](media/how-to-configure/configure-2.png#lightbox)
 
 1. The configuration status should now be **Healthy**.
 
-    [![Screenshot of Azure A D Connect cloud sync screen showing Healthy status.](media/how-to-configure/manage-4.png)](media/how-to-install/how-to-install#lightbox)
+    [![Screenshot of Azure A D Connect cloud sync screen showing Healthy status.](media/how-to-configure/manage-4.png)](media/how-to-configure/manage-4.png#lightbox)
 
 ## Verify users are created and synchronization is occurring
 
