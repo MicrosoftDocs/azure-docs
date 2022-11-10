@@ -303,11 +303,11 @@ Follow these steps to [enable inbound access](/azure/load-testing/how-to-test-pr
 
 The virtual network isn't in the same subscription and region as your Azure load testing resource. Either move or recreate the Azure virtual network or the Azure load testing resource to the same subscription and region.
 
-### Creating or updating the load test fails with `An azure policy is restricting engine deployment to your subscription (ALTVNET012)`
+### Provisioning fails with `An azure policy is restricting engine deployment to your subscription (ALTVNET012)`
 
 An Azure policy is restricting load test engine deployment to your subscription. Check your policy restrictions and try again.
 
-### Creating or updating the load test fails with `Engines could not be deployed due to an error in subnet configuration (ALTVNET013)`
+### Provisioning fails with `Engines could not be deployed due to an error in subnet configuration (ALTVNET013)`
 
 The load test engine instances couldn't be deployed due to an error in the subnet configuration. Verify your subnet configuration. If the issue persists, raise a ticket with support along with the run ID of the test.
 
