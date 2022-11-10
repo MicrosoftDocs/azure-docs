@@ -107,12 +107,12 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
         <td>$0.00001</td>
         <td>$0.00001</td>
     </tr>
-    <tr bgcolor="beige">
-        <td>Cost to write (transactions * price of a write operation)</td>
-        <td>$20.00</td>
-        <td>$0.00</td>
-        <td>$0.00</td>
-        <td>$20.00</td>
+    <tr>
+        <td><strong>Cost to write (transactions * price of a write operation)</strong></td>
+        <td><strong>$20.00</strong></td>
+        <td><strong>$0.00</strong></td>
+        <td><strong>$0.00</strong></td>
+        <td><strong>$20.00</strong></td>
     </tr>
     <tr>
         <td>Total file size (GB)</td>
@@ -128,12 +128,12 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
         <td>$0.00099</td>
         <td>$0.00099</td>
     </tr>
-    <tr bgcolor="beige">
-        <td>Cost to store (file size * data price)</td>
-        <td>$101.38</td>
-        <td>$101.38</td>
-        <td>$101.38</td>
-        <td>$1,216.51</td>
+    <tr>
+        <td><strong>Cost to store (file size * data price)</strong></td>
+        <td><strong>$101.38</strong></td>
+        <td><strong>$101.38</strong></td>
+        <td><strong>$101.38</strong></td>
+        <td><strong>$1,216.51</strong></td>
     </tr>
     <tr>
         <td>Data retrieval size</td>
@@ -163,12 +163,12 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
         <td>$0.0005</td>
         <td>$0.0005</td>
     </tr>
-    <tr bgcolor="beige">
-        <td>Cost to rehydrate (cost to retrieve + cost to read)</td>
-        <td>$30.48</td>
-        <td>$30.48</td>
-        <td>$30.48</td>
-        <td>$365.76</td>
+    <tr>
+        <td><strong>Cost to rehydrate (cost to retrieve + cost to read)</strong></td>
+        <td><strong>$30.48</strong></td>
+        <td><strong>$30.48</strong></td>
+        <td><strong>$30.48</strong></td>
+        <td><strong>$365.76</strong></td>
     </tr>
     <tr>
         <td><strong>Total cost</strong></td>
