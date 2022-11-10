@@ -10,9 +10,9 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/10/2022
-ms.author: asudbring
+ms.author: allensu
 ms.reviewer: kumud
-ms.custom: contperf-fy21q1
+ms.custom: FY23 content-maintenance
 ---
 
 # Network security groups
