@@ -20,8 +20,8 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 > [!NOTE]
 > If you are deploying a model to Azure Kubernetes Service (AKS), we advise you enable [Azure Monitor](/azure/azure-monitor/containers/container-insights-enable-existing-clusters) for that cluster. This will help you understand overall cluster health and resource usage. You might also find the following resources useful:
 >
-> * [Check for Resource Health events impacting your AKS cluster](/azure/aks/aks-resource-health)
-> * [Azure Kubernetes Service Diagnostics](/azure/aks/concepts-diagnostics)
+> * [Check for Resource Health events impacting your AKS cluster](../../aks/aks-resource-health.md)
+> * [Azure Kubernetes Service Diagnostics](../../aks/concepts-diagnostics.md)
 >
 > If you are trying to deploy a model to an unhealthy or overloaded cluster, it is expected to experience issues. If you need help troubleshooting AKS cluster problems please contact AKS Support.
 

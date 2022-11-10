@@ -102,21 +102,21 @@ ms.custom: devx-track-csharp
 
 1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and select one of the following code samples to copy and paste into your application's Program.cs file:
 
-    > * [prebuilt-read](#read-model)
-    >
-    > * [prebuilt-layout](#layout-model)
-    >
-    > * [prebuilt-document](#general-document-model)
-    >
-    > * [prebuilt-tax.us.w2](#w-2-tax-model)
-    >
-    > * [prebuilt-invoice](#invoice-model)
-    >
-    > * [prebuilt-receipt](#receipt-model)
-    >
-    > * [prebuilt-idDocument](#id-document-model)
-    >
-    > * [prebuilt-businessCard](#business-card-model)
+    * [prebuilt-read](#read-model)
+
+    * [prebuilt-layout](#layout-model)
+
+    * [prebuilt-document](#general-document-model)
+
+    * [prebuilt-tax.us.w2](#w-2-tax-model)
+
+    * [prebuilt-invoice](#invoice-model)
+
+    * [prebuilt-receipt](#receipt-model)
+
+    * [prebuilt-idDocument](#id-document-model)
+
+    * [prebuilt-businessCard](#business-card-model)
 
 1. Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 

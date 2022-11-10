@@ -5,8 +5,8 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 10/04/2022
-ms.custom: template-how-to, ignite-fall-2021
+ms.date: 10/28/2022
+ms.custom: template-how-to
 ---
 # Connect to Azure SQL Database in Microsoft Purview
 
@@ -38,7 +38,7 @@ When setting up scan, you can further scope the scan after providing the databas
 
 ### Known limitations
 
-* Microsoft Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 300 columns.
+* Microsoft Purview doesn't support over 800 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 800 columns.
 * Column level lineage is currently not supported in the lineage tab. However, the columnMapping attribute in properties tab of Azure SQL Stored Procedure Run captures column lineage in plain text.
 * Stored procedures running remotely from data integration tools like Azure Data Factory is currently not supported
 * Data lineage extraction is currently not supported for Functions, Triggers.
@@ -360,6 +360,11 @@ Scans can be managed or run again on completion
 
 ## Access policy
 
+### Supported policies
+The following types of policies are supported on this data resource from Microsoft Purview:
+- [DevOps policies](concept-policies-devops.md)
+- [Data owner policies](concept-policies-data-owner.md)
+
 ### Access policy pre-requisites on Azure SQL Database
 [!INCLUDE [Access policies specific Azure SQL DB pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
 
@@ -369,7 +374,7 @@ Scans can be managed or run again on completion
 ### Register the data source and enable Data use management
 The Azure SQL Database resource needs to be registered first with Microsoft Purview before you can create access policies. 
 To register your resources, follow the **Prerequisites** and **Register** sections of this guide:
-[Register Azure SQL Database](./register-scan-azure-sql-database.md#prerequisites)
+[Register Azure SQL Database in Microsoft Purview](./register-scan-azure-sql-database.md#prerequisites)
 
 After you've registered the data source, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data source. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
@@ -378,7 +383,8 @@ Once your data source has the **Data Use Management** option *Enabled*, it will 
 
 ### Create a policy
 To create an access policy for Azure SQL Database, follow these guides:
-* [Data owner policy on a single Azure SQL Database account](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on a single Azure SQL Database account in your subscription.
+* [DevOps policy on a single Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#create-a-new-devops-policy)
+* [Data owner policy on a single Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on a single Azure SQL Database account in your subscription.
 * [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md) - This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled. 
 
 ## Lineage (Preview) 
@@ -442,7 +448,7 @@ You can [browse data catalog](how-to-browse-catalog.md) or [search data catalog]
 ## Next steps
 
 Follow the below guides to learn more about Microsoft Purview and your data.
-- [Data owner policies in Microsoft Purview](concept-policies-data-owner.md)
+- [DevOps policies in Microsoft Purview](concept-policies-devops.md)
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

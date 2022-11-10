@@ -299,7 +299,7 @@ To move a subscription in PowerShell, you use the New-AzManagementGroupSubscript
 New-AzManagementGroupSubscription -GroupId 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-To remove the link between and subscription and the management group use the
+To remove the link between the subscription and the management group use the
 Remove-AzManagementGroupSubscription command.
 
 ```azurepowershell-interactive

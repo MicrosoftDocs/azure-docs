@@ -2,7 +2,8 @@
 title: 'Export to SQL from Azure Application Insights | Microsoft Docs'
 description: Continuously export Application Insights data to SQL using Stream Analytics.
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 10/24/2022
+ms.author: ebnkruma
 ms.service: stream-analytics
 ---
 
@@ -18,7 +19,7 @@ We'll start with the assumption that you already have the app you want to monito
 In this example, we will be using the page view data, but the same pattern can easily be extended to other data types such as custom events and exceptions. 
 
 > [!IMPORTANT]
-> Continuous export has been deprecated and is only supported for classic Application Insights resources. [Migrate to a workspace-based Application Insights resource](../azure-monitor/app/convert-classic-resource.md) to use [diagnostic settings](../azure-monitor/app/export-telemetry.md#diagnostic-settings-based-export) for exporting telemetry.
+> Continuous export will be deprecated on February 29, 2024 and is only supported for classic Application Insights resources. Azure Stream Analytics does not support reading from AppInsights with diagnostic settings.
 
 ## Add Application Insights to your application 
 To get started:
@@ -242,7 +243,6 @@ FROM [dbo].[PageViewsTable]
 ```
 
 ## Next steps
-* [Export to Power BI using Stream Analytics](../azure-monitor/app/export-power-bi.md)
 * [detailed data model reference for the property types and values.](../azure-monitor/app/export-data-model.md)
 * [Continuous Export in Application Insights](../azure-monitor/app/export-telemetry.md)
 

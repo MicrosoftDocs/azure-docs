@@ -9,11 +9,11 @@ ms.topic: conceptual
 author: dem108
 ms.author: sehan
 ms.reviewer: larryfr
-ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
+ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022, ignite-2022
 ms.date: 05/11/2022
 ---
 
-# MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning
+# MLOps: Model management, deployment, and monitoring with Azure Machine Learning
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 

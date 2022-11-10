@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 11/02/2022
 ms.author: alkohli
 ---
 
@@ -26,7 +26,7 @@ The Azure Stack Edge Pro device has the following specifications for compute and
 | CPU: usable    | 40 vCPUs                                                                    |
 | Memory type    | Dell Compatible 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM |
 | Memory: raw    | 128 GB RAM (8 x 16 GB)                                                      |
-| Memory: usable | 102 GB RAM                                                                  |
+| Memory: usable | 96 GB RAM                                                                  |
 
 
 ## Compute acceleration specifications
@@ -35,7 +35,7 @@ A Graphics Processing Unit (GPU) is included on every Azure Stack Edge Pro devic
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| GPU   | One or two nVidia T4 GPUs <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| 
+| GPU   | One or two nVidia T4 GPUs <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).|
 
 
 ## Power supply unit specifications

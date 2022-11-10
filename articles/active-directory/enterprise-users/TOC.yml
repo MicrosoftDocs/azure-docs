@@ -40,8 +40,10 @@
       href: users-bulk-add.md    
     - name: Manage user profiles
       href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Add custom data using extensions - Microsoft Graph
+      href: /graph/extensibility-overview?toc=/azure/active-directory/enterprise-users/toc.json&bc=/azure/active-directory/enterprise-users/breadcrumb/toc.json
     - name: Assign custom security attributes
-      href: users-custom-security-attributes.md    
+      href: users-custom-security-attributes.md
     - name: Download user info
       href: users-bulk-download.md
     - name: Share user accounts
@@ -186,7 +188,7 @@
       href: licensing-groups-resolve-problems.md
 - name: Reference
   items:
-  - name: Graph API  
+  - name: Microsoft Graph API  
     href: /graph/api/resources/azure-ad-overview
   - name: Azure AD CLI    
     href: /cli/azure/ad

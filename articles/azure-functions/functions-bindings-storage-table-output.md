@@ -4,13 +4,13 @@ description: Understand how to use Azure Tables output bindings in Azure Functio
 ms.topic: reference
 ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, ignite-2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Tables output bindings for Azure Functions
 
-Use an Azure Tables output binding to write entities to a table in an Azure Storage or Cosmos DB account.
+Use an Azure Tables output binding to write entities to a table in an Azure Storage or Azure Cosmos DB account.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-table.md)
 
@@ -346,7 +346,7 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
 ::: zone pivot="programming-language-csharp"
 ## Attributes 
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 
@@ -464,7 +464,7 @@ An in-process class library is a compiled C# function runs in the same process a
  
 # [Isolated process](#tab/isolated-process)
 
-An isolated process class library compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.   
    
 # [C# script](#tab/csharp-script)
 
@@ -483,7 +483,7 @@ The following types are supported for `out` parameters and return types:
 
 You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
 
-# [Table API extension](#tab/table-api/in-process)
+# [Azure Cosmos DB for Table extension](#tab/table-api/in-process)
 
 The following types are supported for `out` parameters and return types:
 
@@ -505,13 +505,13 @@ You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.a
 
 Return a plain-old CLR object (POCO) with properties that can be mapped to the table entity.
 
-# [Table API extension (preview)](#tab/table-api/isolated-process)
+# [Azure Cosmos DB for Table extension (preview)](#tab/table-api/isolated-process)
 
-The Table API extension does not currently support isolated process. You will instead need to use the combined Azure Storage extension.
+The Azure Cosmos DB for Table extension does not currently support isolated worker process. You will instead need to use the combined Azure Storage extension.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated process.
+Functions version 1.x doesn't support isolated worker process.
 
 # [Combined Azure Storage extension](#tab/storage-extension/csharp-script)
 
@@ -522,9 +522,9 @@ The following types are supported for `out` parameters and return types:
 
 You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
 
-# [Table API extension (preview)](#tab/table-api/csharp-script)
+# [Azure Cosmos DB for Table extension (preview)](#tab/table-api/csharp-script)
 
-Version 3.x of the extension bundle doesn't currently include the Table API bindings. For now, you need to instead use version 2.x of the extension bundle, which uses the combined Azure Storage extension.
+Version 3.x of the extension bundle doesn't currently include the Azure Cosmos DB for Table bindings. For now, you need to instead use version 2.x of the extension bundle, which uses the combined Azure Storage extension.
 
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 

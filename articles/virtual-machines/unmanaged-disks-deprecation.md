@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 11/08/2022
 ms.author: rogarana
 ---
 
@@ -20,7 +20,7 @@ With managed disks, you don't have to worry about managing storage accounts for 
 
 ## How does this affect me?
 
-- As of November 18, 2022, new customer subscriptions won't be eligible to create unmanaged disks.
+- As of June 30th, 2023, new subscriptions won't be eligible to create unmanaged disks.
 - As of September 30, 2023, existing customers won't be able to create new unmanaged disks.
 - On September 30, 2025, customers will no longer be able to start IaaS VMs by using unmanaged disks. Any VMs that are still running or allocated will be stopped and deallocated.
 
@@ -42,7 +42,7 @@ Start planning your migration to Azure managed disks today.
 
 ## What resources are available for this migration?
 
-- [Microsoft Q&A](https://github.com/MicrosoftDocs/azure-docs/blob/master/answers/topics/azure-virtual-machines-migration.html): Microsoft and community support for migration.
+- [Microsoft Q&A](/answers/topics/azure-virtual-machines-migration.html): Microsoft and community support for migration.
 - [Azure Migration Support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%226f16735c-b0ae-b275-ad3a-03479cfa1396%22,%22supportTopicId%22:%221135e3d0-20e2-aec5-4ef0-55fd3dae2d58%22%7D): Dedicated support team for technical assistance during migration.
 - [Microsoft FastTrack](https://www.microsoft.com/fasttrack): FastTrack can assist eligible customers with planning and execution of this migration. [Nominate yourself](https://azure.microsoft.com/programs/azure-fasttrack/#nomination).
 - If your company/organization has partnered with Microsoft or works with Microsoft representatives such as cloud solution architects (CSAs) or technical account managers (TAMs), please work with them for additional resources for migration.

@@ -59,6 +59,10 @@
       href: confidential-vm-faq-amd.yml
     - name: AMD processor options for confidential VMs
       href: virtual-machine-solutions-amd.md
+    - name: Guest attestation for confidential VMs
+      href: guest-attestation-confidential-vms.md
+    - name: Microsoft Defender for Cloud integration
+      href: guest-attestation-defender-for-cloud.md
     - name: References
       items:
       - name: DCasv5 and DCadsv5-series
@@ -124,10 +128,12 @@
         href: how-to-fortanix-confidential-computing-manager.md
       - name: Fortanix Confidential Computing Manager Node Agent
         href: how-to-fortanix-confidential-computing-manager-node-agent.md
-    - name: Azure confidential VM
+    - name: Azure confidential VMs
       items:
       - name: Key rotation for Azure confidential VMs
         href: key-rotation-offline.md
+      - name: Use sample app with guest attestation
+        href: guest-attestation-example.md
 
 - name: Resources
   items:

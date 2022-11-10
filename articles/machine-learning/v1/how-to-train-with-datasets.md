@@ -297,7 +297,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## Troubleshooting
 
 **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: 
-  * If you don't have any outbound [network security group](/azure/virtual-network/network-security-groups-overview) rules and are using `azureml-sdk>=1.12.0`, update `azureml-dataset-runtime` and its dependencies to be the latest for the specific minor version, or if you're using it in a run, recreate your environment so it can have the latest patch with the fix. 
+  * If you don't have any outbound [network security group](../../virtual-network/network-security-groups-overview.md) rules and are using `azureml-sdk>=1.12.0`, update `azureml-dataset-runtime` and its dependencies to be the latest for the specific minor version, or if you're using it in a run, recreate your environment so it can have the latest patch with the fix. 
   * If you're using `azureml-sdk<1.12.0`, upgrade to the latest version.
   * If you have outbound NSG rules, make sure there's an outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
 

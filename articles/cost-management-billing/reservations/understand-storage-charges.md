@@ -29,7 +29,7 @@ Stopped resources are billed and continue to use reservation hours. Deallocate o
 ## Discount examples
 The following examples show how the reserved capacity discount applies, depending on the deployments.
 
-Suppose that you have purchased 100 TiB of reserved capacity in the in US West 2 region for a 1-year term. Your reservation is for locally redundant storage (LRS) blob storage in the hot access tier.
+Suppose that you have purchased 100 TiB of reserved capacity in the US West 2 region for a 1-year term. Your reservation is for locally redundant storage (LRS) blob storage in the hot access tier.
 
 Assume that the cost of this sample reservation is $18,540. You can either choose to pay the full amount up front or to pay fixed monthly installments of $1,545 per month for the next twelve months.
 

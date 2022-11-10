@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: s-polly
-ms.author: scottpolly
+author: saachigopal
+ms.author: sagopal
 ms.date: 04/08/2022
-ms.reviewer: nibaccam
-ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
+ms.reviewer: larryfr
+ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Install and set up the CLI (v2)
@@ -22,7 +22,7 @@ ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 > * [v1](v1/reference-azure-machine-learning-cli.md)
 > * [v2 (current version)](how-to-configure-cli.md)
 
-The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
+The `ml` extension to the [Azure CLI](/cli/azure/) is the enhanced interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
 
 ## Prerequisites
 
@@ -77,18 +77,18 @@ If you have access to multiple Azure subscriptions, you can set your active subs
 
 Optionally, setup common variables in your shell for usage in subsequent commands:
 
-:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="set_variables":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="set_variables":::
 
 > [!WARNING]
 > This uses Bash syntax for setting variables -- adjust as needed for your shell. You can also replace the values in commands below inline rather than using variables.
 
 If it doesn't already exist, you can create the Azure resource group:
 
-:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="az_group_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="az_group_create":::
 
 And create a machine learning workspace:
 
-:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
 
 Machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters. To avoid typing these repeatedly, configure defaults:
 

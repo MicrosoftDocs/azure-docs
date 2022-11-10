@@ -4,7 +4,7 @@ description: Create your first app to Azure App Service in seconds using a Terra
 author: seligj95
 ms.author: msangapu
 ms.topic: article
-ms.date: 8/5/2022
+ms.date: 10/20/2022
 ms.tool: terraform
 ms.custom: subject-terraform
 ---
@@ -65,7 +65,7 @@ resource "azurerm_service_plan" "appserviceplan" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   os_type             = "Linux"
-  sku_name            = "F1"
+  sku_name            = "B1"
 }
 
 # Create the web app, pass in the App Service Plan ID

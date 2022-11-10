@@ -88,7 +88,7 @@ You can install the multimedia redirection extension using Group Policy, either 
 
 # [Edge](#tab/edge)
 
-1. Download and install the Microsoft Edge administrative template by following the directions in [Configure Microsoft Edge policy settings on Windows devices](/deployedge/configure-microsoft-edge.md#1-download-and-install-the-microsoft-edge-administrative-template)
+1. Download and install the Microsoft Edge administrative template by following the directions in [Configure Microsoft Edge policy settings on Windows devices](/deployedge/configure-microsoft-edge#1-download-and-install-the-microsoft-edge-administrative-template)
 
 1. Next, decide whether you want to configure Group Policy centrally from your domain or locally for each session host:
    

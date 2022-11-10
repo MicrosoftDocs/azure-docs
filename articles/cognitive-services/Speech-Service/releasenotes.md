@@ -19,7 +19,7 @@ See below for information about changes to Speech services and resources.
 
 ## What's new?
 
-* Speech SDK 1.23.0 and Speech CLI 1.23.0 were released in July 2022. See details below.
+* Speech SDK 1.24.0 and Speech CLI 1.24.0 were released in October 2022. See details below.
 * Custom speech-to-text container v3.1.0 released in March 2022, with support to get display models.
 * TTS Service August 2022, five new voices in public preview were released.
 * TTS Service September 2022, all the prebuilt neural voices have been upgraded to high-fidelity voices with 48kHz sample rate.
