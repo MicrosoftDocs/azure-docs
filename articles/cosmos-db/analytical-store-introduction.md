@@ -350,7 +350,7 @@ Spark will manage each datatype as a column when loading into a `DataFrame`. Let
 
 While the first document has `rating` as a number and `timestamp` in utc format, the second document has `rating` and `timestamp` as strings. Assuming that this collection was loaded into `DataFrame` without any data transformation, the output of the `df.printSchema()`  is:
 
-`
+```JSON
 root
  |-- _rid: string (nullable = true)
  |-- _ts: long (nullable = true)
@@ -378,7 +378,7 @@ In well-defined schema representation, both `rating` and `timestamp` of the seco
 ```PySpark
 # Run aggregations
 df.groupBy(df.item.string).sum().show()
-`
+` 
 
 ```PySQL
 # Let's see the data for pizzas that have a string timestamp
