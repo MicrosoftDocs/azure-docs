@@ -12,7 +12,7 @@ ms.date: 11/09/2022
 Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
 ## November 2022
-AV36P and AV52 node sizes   available in Azure VMware Solution  
+AV36P and AV52 node sizes   available in Azure VMware Solution. 
 The new node sizes increase memory and storage options to optimize your workloads. The gains in performance enable you to do more per server, break storage bottlenecks, and lower transaction costs of latency-sensitive workloads. The availability of the new nodes allow for large latency-sensitive services to be hosted efficiently on the Azure VMware Solution infrastructure.    
  For pricing and region availability, see the [Azure VMware Solution pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/) and see the [Products available by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
