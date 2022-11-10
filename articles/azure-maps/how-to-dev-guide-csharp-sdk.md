@@ -113,7 +113,7 @@ You can authenticate with your Azure Maps subscription key. Your subscription ke
 Now you can create environment variables in PowerShell to store the subscription key:
 
 ```powershell
-$Env:Subscription_key="your subscription key"
+$Env:SUBSCRIPTION_KEY="your subscription key"
 ```
 
 Once your environment variable is created, you can access it in your code:
