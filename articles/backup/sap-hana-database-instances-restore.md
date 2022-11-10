@@ -105,7 +105,7 @@ Recover the system database from the data snapshot by using HANA Studio. For mor
 
 When the system database is restored, recover all tenant databases from a data snapshot by using HANA Studio. For more information, see [the HANA documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/b2c283094b9041e7bdc0830c06b77bf8.html).
 
-## Restore the database to a different log point&nbsp;in&nbsp;time over a snapshot
+## Restore the database to a different log point in time over a snapshot
 
 To restore the database to a different log point&nbsp;in&nbsp;time, do the following.
 
