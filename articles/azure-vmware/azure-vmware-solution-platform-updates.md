@@ -13,7 +13,7 @@ Microsoft will regularly apply important updates to the Azure VMware Solution fo
 
 ## November 2022
 AV36P and AV52 node sizes   available in Azure VMware Solution. 
-The new node sizes increase memory and storage options to optimize your workloads. The gains in performance enable you to do more per server, break storage bottlenecks, and lower transaction costs of latency-sensitive workloads. The availability of the new nodes allow for large latency-sensitive services to be hosted efficiently on the Azure VMware Solution infrastructure.    
+The new node sizes increase memory and storage options to optimize your workloads. The gains in performance enable you to do more per server, break storage bottlenecks, and lower transaction costs of latency-sensitive workloads. The availability of the new nodes allows for large latency-sensitive services to be hosted efficiently on the Azure VMware Solution infrastructure.    
  For pricing and region availability, see the [Azure VMware Solution pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/) and see the [Products available by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
 ## July 2022
