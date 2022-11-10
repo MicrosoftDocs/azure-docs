@@ -1,5 +1,5 @@
 ---
-title: Migrate to with Azure Lab Services August 2022 Update
+title: Migrate from Azure Lab Services version 1 to Azure Lab Services August 2022 Update (version 2)
 description: 'Learn how to migrate from Azure Lab Services v1 to Azure Lab Services August 2022 Update (v2)'
 ms.topic: conceptual
 ms.author: rosemalcolm
@@ -7,7 +7,7 @@ author: RoseHJM
 ms.date: 11/08/2022
 ---
 
-# Migrate to Azure Lab Services August 2022 Update
+# Migrate from Azure Lab Services version 1 to Azure Lab Services August 2022 Update (version 2)
 
 Use the following checklist to get started with Azure Lab Services August 2022 Update:
 
@@ -28,7 +28,7 @@ This article covers each step to get started with the August 2022 Update in more
 
 ## 1. Create a temporary lab plan. 
 
-Before you request capacity, you must have at least one lab plan in your subscription. You can create a temporary lab plan for requesting capacity, and delete the plan afterwards.  The first time you create a lab plan, a special Microsoft-managed Azure subscription is automatically created.  This subscription isn’t visible to you and is used internally to assign you [dedicated capacity](/azure/lab-services/capacity-limits#per-customer-assigned-capacity).
+Before you request capacity, you must have at least one lab plan in your subscription. You can create a temporary lab plan for requesting capacity, and delete the plan afterwards.  The first time you create a lab plan, a special Microsoft-managed Azure subscription is automatically created.  This subscription isn’t visible to you and is used internally to assign your [dedicated capacity](/azure/lab-services/capacity-limits#per-customer-assigned-capacity).
  
 - [Create a  lab plan](/azure/lab-services/tutorial-setup-lab-plan).
     - This lab plan can be deleted once capacity is requested.
@@ -37,13 +37,14 @@ Before you request capacity, you must have at least one lab plan in your subscri
 
 ## 2. Request capacity 
 
-Customers are now assigned their own [dedicated VM cores quota](/azure/lab-services/capacity-limits#per-customer-assigned-capacity).  This quota is assigned per-subscription. The initial number of VM cores assigned to your subscription is limited, so you'll need to request a core limit increase.  Even if you're already using lab accounts in the current version of Azure Lab Services, you'll still need to request a core limit increase; existing cores in a lab account will not be available when you create a lab plan.
+Customers are now assigned their own [dedicated VM cores quota](/azure/lab-services/capacity-limits#per-customer-assigned-capacity).  This quota is assigned per-subscription. The initial number of VM cores assigned to your subscription is limited, so you'll need to request a core limit increase.  Even if you're already using lab accounts in the current version of Azure Lab Services, you'll still need to request a core limit increase; existing cores in a lab account won't be available when you create a lab plan.
 
 1. [Request a core limit increase](/azure/lab-services/how-to-request-capacity-increase?tabs=Labplans).
 1. If you created a temporary lab plan, you can delete it at this point.  Deleting lab plans has no impact on your subscription or the capacity you have available. Capacity is assigned to your subscription.
 
-> [!TIP] The time that it takes to assign capacity varies depending on the VM size, region, and number of cores requested.  
-> You should:
+> [!TIP]
+> The time that it takes to assign capacity varies depending on the VM size, region, and number of cores requested.  
+> To ensure you have the resources you require when you need them, you should:
 > - Request capacity as far in advance as possible.
 > - Make incremental requests for VM cores rather than making large, bulk requests.  
 > For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
@@ -90,3 +91,10 @@ Once you have capacity assigned to your subscription, you can [create and publis
 
 Update reports to include the new cost entry type, `Microsoft.LabServices/labs`, for labs created using the August 2022 Update. [Built-in and custom tags](/azure/lab-services/cost-management-guide#understand-the-entries) allow for [grouping](/azure/cost-management-billing/costs/quick-acm-cost-analysis) in cost analysis. For more information about tracking costs, see [Cost management for Azure Lab Services](/azure/lab-services/cost-management-guide).
 
+
+## Next steps
+
+- As an educator, [create and manage labs](how-to-manage-classroom-labs.md).
+- As an educator, [configure and publish templates](how-to-create-manage-template.md).
+- As an educator, [configure and control usage of a lab](how-to-configure-student-usage.md).
+- As a student, [access labs](how-to-use-lab.md).
