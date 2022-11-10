@@ -25,7 +25,7 @@ The following sources are supported by Network Watcher:
 
 - Virtual Machines
 - Bastion
-- Application Gateways (except v1, which is not supported)
+- Application Gateways (except v1)
 
 ## Response
 
