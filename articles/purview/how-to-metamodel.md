@@ -14,7 +14,7 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-Metamodel is a feature in the Microsoft Purview Data Map that gives the technical data in your data map relationships and reference points to make it easier to navigate. Like adding streets and cities to a map, the metamodel orients users so they know where they are and can discover the information they need.
+Metamodel is a feature in the Microsoft Purview Data Map that gives the technical data in your data map relationships and reference points to make it easier to navigate. Like adding streets and cities to a map, the metamodel orients users so they know where they're and can discover the information they need.
 
 This article will get you started in building a metamodel for your Microsoft Purview Data Map.
 
@@ -51,7 +51,7 @@ This article will get you started in building a metamodel for your Microsoft Pur
 
 1. When you’re ready to begin working with assets, go to the data catalog and select **Business assets**.
 
-    :::image type="content" source="./media/how-to-metamodel/metamodel-assets-in-catalog.png" alt-text="Screenshot of left menu in the Microsoft Purview Governance portal, the data map and business assets buttons highlighted." border="true":::
+    :::image type="content" source="./media/how-to-metamodel/metamodel-assets-in-catalog.png" alt-text="Screenshot of left menu in the Microsoft Purview governance portal, the data map and business assets buttons highlighted." border="true":::
 
 1. There will be no integration with collections when private preview opens, so all assets created via the metamodel canvas will be listed under the data catalog.
 
@@ -89,13 +89,13 @@ An asset type is a template for storing a concept that’s important to your org
 | Asset Type | Description |
 |---|---|
 | Application service| A well-defined software component, especially one that implements a specific business function such as on-boarding a new customer, taking an order, or sending an invoice.  |
-| Business process | A set of activities that are performed in coordination in an organizational or technical environment that jointly realize a business goal. |
+| Business process | A set of activities that are performed in coordination in an organizational or technical environment that jointly realizes a business goal. |
 | Data Domain | A category of data that is governed or explicitly managed for master data management. |
-| Department | An organizational subunit that only has full recognition within the context of that organization. A department would not be regarded as a legal entity in its own right. |
+| Department | An organizational subunit that only has full recognition within the context of that organization. A department wouldn't be regarded as a legal entity in its own right. |
 | Line of business | An organization subdivision focused on a single product or family of products. |
-| Organization | A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as a unit. Organizations are often decomposable into hierarchical structures. |
+| Organization | A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence that goes beyond the set of people belonging to it and can act as a unit. Organizations are often decomposable into hierarchical structures. |
 | Product | Any offered product or service. |
-| Project | A specific activity used to control the use of resources and associated costs so they are used appropriately in order to successfully achieve the project's goals, such as building a new capability or improving an existing capability. |
+| Project | A specific activity used to control the use of resources and associated costs so they're used appropriately in order to successfully achieve the project's goals, such as building a new capability or improving an existing capability. |
 | System | An IT system including hardware and software. |
 
 ## Next steps

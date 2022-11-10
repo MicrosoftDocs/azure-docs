@@ -16,7 +16,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 Metamodel is a feature in the Microsoft Purview Data Map that helps you represent a business perspective of your data: how it’s grouped into data domains, used in business processes, organized into systems, and more.
 
-Without this metamodel, your datamap contains technical metadata, but lacks clear reference points. It's like a map with longitude and latitude, but no city or street names. Metamodel adds reference points that orient your users in your data map and help them discover what they need.
+Without this metamodel, your data map contains technical metadata, but lacks clear reference points. It's like a map with longitude and latitude, but no city or street names. Metamodel adds reference points that orient your users in your data map and help them discover what they need.
 
 So what does a metamodel look like?
 It's built from asset types and their relationships.
