@@ -47,9 +47,9 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 
 ## Bind your app to the Azure Database for MySQL instance
 
-#### [Service Connector](#tab/Service-Connector)
+### [Service Connector](#tab/Service-Connector)
 
-Configure your Spring app to connect to an Azure Database for MySQL Flexible Server with a system-assigned managed identity, using the `az spring connection create` command, as shown in the following example.
+To configure your Spring app to connect to an Azure Database for MySQL Flexible Server with a system-assigned managed identity, use the `az spring connection create` command, as shown in the following example.
 
 ```azurecli
 az spring connection create mysql-flexible \
@@ -63,10 +63,10 @@ az spring connection create mysql-flexible \
     --system-assigned-identity
 ```
 
-#### [Service Binding](#tab/Service-Binding)
+### [Service Binding](#tab/Service-Binding)
 
- > [!NOTE]
- > We recommend using Service Connector instead of Service Binding to connect your app to your database. Service Binding is going to be deprecated in favor of Service Connector. See Service Connector tab for instructions.
+> [!NOTE]
+> We recommend using Service Connector instead of Service Binding to connect your app to your database. Service Binding is going to be deprecated in favor of Service Connector. For instructions, see the Service Connector tab.
 
 1. Note the admin username and password of your Azure Database for MySQL account.
 
@@ -89,7 +89,7 @@ az spring connection create mysql-flexible \
    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
    ```
 
-#### [Terraform](#tab/Terraform)
+### [Terraform](#tab/Terraform)
 
 The following Terraform script shows how to set up an Azure Spring Apps app with Azure Database for MySQL.
 
