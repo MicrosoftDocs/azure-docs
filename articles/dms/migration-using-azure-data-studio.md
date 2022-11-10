@@ -55,7 +55,7 @@ The following 16-minute video explains recent updates and features added to the 
 
 Azure Database Migration Service is a core component of the Azure SQL Migration extension architecture. Database Migration Service provides a reliable migration orchestrator to support database migrations to Azure SQL. You can create an instance of Database Migration Service or use an existing instance by using the Azure SQL Migration extension in Azure Data Studio.
 
-Database Migration Service uses the Azure Data Factory self-hosted integration runtime to access and upload valid backup files from your on-premises network share or from your Azure Storage account.
+Database Migration Service uses the Azure Data Factory self-hosted integration runtime to access and upload valid backup files from your on-premises network share or from your Azure storage account.
 
 The workflow of the migration process is illustrated in the following diagram:
 
@@ -75,7 +75,7 @@ The following list describes each step in the workflow:
 
 (6) **Self-hosted integration runtime**: Install a self-hosted integration runtime on a computer that can connect to the source SQL Server instance and to the location of the backup file. Database Migration Service provides the authentication keys and registers the self-hosted integration runtime.
 
-(7) **Backup files upload to Azure storage**: Database Migration Service uses a self-hosted integration runtime to upload valid backup files from the on-premises backup location to your Azure storage account. Data movement activities and pipelines are automatically created in the migration workflow to upload the backup files.
+(7) **Backup files upload to your Azure storage account**: Database Migration Service uses a self-hosted integration runtime to upload valid backup files from the on-premises backup location to your Azure storage account. Data movement activities and pipelines are automatically created in the migration workflow to upload the backup files.
 
 (8) **Restore backups on target Azure SQL**: Database Migration Service restores backup files from your Azure storage account to the supported target Azure SQL instance.
 
@@ -83,7 +83,7 @@ The following list describes each step in the workflow:
 > If your migration target is Azure SQL Database, you don't need backups for this migration. Database migration to Azure SQL Database is considered a logical migration that involves the database's pre-creation and data movement (performed by Database Migration Service).
 
 > [!IMPORTANT]
-> In online migration mode, Database Migration Service continuously uploads the backup source files to Azure storage and restores them to the target until you complete the final step of cutting over to the target.
+> In online migration mode, Database Migration Service continuously uploads the backup source files to your Azure storage account and restores them to the target until you complete the final step of cutting over to the target.
 >
 > In offline migration mode, Database Migration Service uploads the backup source files to Azure storage and restores them to the target without requiring a cutover.
 
