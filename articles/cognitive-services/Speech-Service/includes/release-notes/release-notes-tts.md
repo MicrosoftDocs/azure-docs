@@ -39,8 +39,8 @@ The following voices are now available in public preview. See the [full language
 - Improved question tone for the `nl-NL-MaartenNeural` and `pt-BR-AntonioNeural` voices.
 - Added support for the `<lang ="en-US">` tag for better English pronunciation with the following voices: `de-DE-ConradNeural`, `de-DE-KatjaNeural`, `es-ES-AlvaroNeural`, `es-MX-DaliaNeural`, `es-MX-JorgeNeural`, `fr-CA-SylvieNeural`, `fr-FR-DeniseNeural`, `fr-FR-HenriNeural`, `it-IT-DiegoNeural`, and `it-IT-IsabellaNeural`.
 - Added support for the `style="chat"` tag with the following voices: `en-GB-RyanNeural`, `es-MX-JorgeNeural`, and `it-IT-IsabellaNeural`.
-- Added support for the `style="cheerful"` tag with the following voices: `en-GB-RyanNeural`, `en-GB-SoniaNeural`, `es-MX-JorgeNeural`, `fr-FR-HenriNeural`, and `it-IT-IsabellaNeural`.
-- Added support for the `style="sad"` tag with the following voices: `en-GB-SoniaNeural` and `fr-FR-HenriNeural`.
+- Added support for the `style="cheerful"` tag with the following voices: `en-GB-RyanNeural`, `en-GB-SoniaNeural`, `es-MX-JorgeNeural`, `fr-FR-DeniseNeural`, `fr-FR-HenriNeural`, and `it-IT-IsabellaNeural`.
+- Added support for the `style="sad"` tag with the following voices: `en-GB-SoniaNeural`, `fr-FR-DeniseNeural` and `fr-FR-HenriNeural`.
 
 ### 2022-September release
 
@@ -207,7 +207,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### Custom Neural Voice
 
-* Enabled to fix data issues online. Learn more on [how to fix data issues online](../../how-to-custom-voice-create-voice.md#fix-data-issues-online).
+* Enabled to fix data issues online. Learn more on [how to resolve data issues in Speech Studio](../../how-to-custom-voice-prepare-data.md#resolve-data-issues-online).
 * Added training recipe version. Learn more on [selecting the training recipe version for your voice model](../../how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
 
 #### Audio Content Creation tool
@@ -265,7 +265,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### Custom Neural Voice
 
-* Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice.md#custom-neural-voice-project-types).
+* Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice-lite.md).
 * Extended language support to 49 locales. See [language support](../../language-support.md?tabs=stt-tts).
 * Supported more regions/datacenters. See [region support](../../regions.md#speech-service).
 

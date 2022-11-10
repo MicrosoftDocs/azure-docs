@@ -541,6 +541,26 @@
         "source_path_from_root": "/articles/healthcare-apis/iot/iot-metrics-diagnostics-export.md",
         "redirect_url": "/azure/healthcare-apis/iot/how-to-enable-diagnostic-settings",
         "redirect_document_id": false
+    },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-collection-content-mappings.md",
+        "redirect_url": "/azure/healthcare-apis/iot/how-to-use-device-mappings",
+        "redirect_document_id": false
+    },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-jsonpath-content-mappings.md",
+        "redirect_url": "/azure/healthcare-apis/iot/how-to-use-device-mappings",
+        "redirect_document_id": false
+    }, 
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-iot-central-json-content-mappings.md",
+        "redirect_url": "/azure/healthcare-apis/iot/how-to-use-iot-jsonpath-content-mappings",
+        "redirect_document_id": false
+    },
+    {   "source_path_from_root": "/articles/healthcare-apis/events/events-display-metrics.md",
+        "redirect_url": "/azure/healthcare-apis/events/events-use-metrics",
+        "redirect_document_id": false
+    },
+    {    "source_path_from_root": "/articles/healthcare-apis/events/events-export-logs-metrics.md",
+        "redirect_url": "/azure/healthcare-apis/events/events-enable-diagnostic-settings",
+        "redirect_document_id": false
     }
   ]
 }

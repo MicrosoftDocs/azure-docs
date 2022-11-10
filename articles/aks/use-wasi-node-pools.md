@@ -57,7 +57,7 @@ az extension update --name aks-preview
 
 ### Limitations
 
-* Currently, there are only containerd shims available for [spin][spin] and [slight][slight] applications, which use the [wasmtime][wasmtime] runtime. In addition to wasmtime runtime applications, you can also run containers on WASI/WASM node pools.  
+* Currently, there are only containerd shims available for [spin][spin] and [slight][slight] applications, which use the [wasmtime][wasmtime] runtime. In addition to wasmtime runtime applications, you can also run containers on WASM/WASI node pools.  
 * You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
 * The WASM/WASI node pools can't be used for system node pool.
 * The *os-type* for WASM/WASI node pools must be Linux.

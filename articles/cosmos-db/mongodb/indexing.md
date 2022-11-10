@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
-ms.date: 4/5/2022
+ms.date: 10/24/2022
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js, cosmos-db-video, ignite-2022
@@ -52,9 +52,22 @@ In the API for MongoDB, compound indexes are **required** if your query needs th
 
 A compound index or single field indexes for each field in the compound index will result in the same performance for filtering in queries.
 
+Compounded indexes on nested fields are not supported by default due to limiations with arrays. If your nested field does not contain an array, the index will work as intended. If your nested field contains an array (anywhere on the path), that value will be ignored in the index. 
+
+For example a compound index containing people.tom.age will work in this case since there's no array on the path:
+```javascript
+{ "people": { "tom": { "age": "25" }, "mark": { "age": "30" } } }
+```
+but won't won't work in this case since there's an array in the path:
+```javascript
+{ "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
+```
+
+This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+
 
 > [!NOTE]
-> You can't create compound indexes on nested properties or arrays.
+> You can't create compound indexes on arrays.
 
 The following command creates a compound index on the fields `name` and `age`:
 
@@ -148,7 +161,7 @@ Here's how you can create a wildcard index on all fields:
 
 You can also create wildcard indexes using the Data Explorer in the Azure portal:
 
-:::image type="content" source="/media/indexing/add-wildcard-index.png" alt-text="Add wildcard index in indexing policy editor":::
+![Add wildcard index in indexing policy editor](./media/indexing/add-wildcard-index.png)
 
 > [!NOTE]
 > If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
@@ -244,6 +257,20 @@ In the preceding example, omitting the ```"university":1``` clause returns an er
 #### Limitations
 
 Unique indexes need to be created while the collection is empty. 
+
+Unique indexes on nested fields are not supported by default due to limiations with arrays. If your nested field does not contain an array, the index will work as intended. If your nested field contains an array (anywhere on the path), that value will be ignored in the unique index and uniqueness wil not be preserved for that value. 
+
+For example a unique index on people.tom.age will work in this case since there's no array on the path:
+```javascript
+{ "people": { "tom": { "age": "25" }, "mark": { "age": "30" } } }
+```
+but won't won't work in this case since there's an array in the path:
+```javascript
+{ "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
+```
+
+This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+
 
 ### TTL indexes
 
@@ -351,7 +378,7 @@ Regardless of the value specified for the **Background** index property, index u
 
 There is no impact to read availability when adding a new index. Queries will only utilize new indexes once the index transformation is complete. During the index transformation, the query engine will continue to use existing indexes, so you'll observe similar read performance during the indexing transformation to what you had observed before initiating the indexing change. When adding new indexes, there is also no risk of incomplete or inconsistent query results.
 
-When removing indexes and immediately running queries the have filters on the dropped indexes, results might be inconsistent and incomplete until the index transformation finishes. If you remove indexes, the query engine does not provide consistent or complete results when queries filter on these newly removed indexes. Most developers do not drop indexes and then immediately try to query them so, in practice, this situation is unlikely.
+When removing indexes and immediately running queries that have filters on the dropped indexes, results might be inconsistent and incomplete until the index transformation finishes. If you remove indexes, the query engine does not provide consistent or complete results when queries filter on these newly removed indexes. Most developers do not drop indexes and then immediately try to query them so, in practice, this situation is unlikely.
 
 > [!NOTE]
 > You can [track index progress](#track-index-progress).

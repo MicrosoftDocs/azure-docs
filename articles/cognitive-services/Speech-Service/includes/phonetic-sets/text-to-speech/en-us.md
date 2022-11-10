@@ -20,9 +20,9 @@
 | ow     | `oʊ`  | 8,4      | **o**ld       | cl**o**ne | g**o**                      |
 | uw     | `u`   | 7        | **U**ber      | b**oo**st | t**oo**                     |
 | ah     | `ʌ`   | 1        | **u**ncle     | c**u**t   |                             |
-| ay     | `aɪ`  | 2,6      | **i**ce       | b**i**te  | fl**y**                     |
-| aw     | `aʊ`  | 2,4      | **ou**t       | s**ou**th | c**ow**                     |
-| oy     | `ɔɪ`  | 3,6      | **oi**l       | j**oi**n  | t**oy**                     |
+| ay     | `aɪ`  | 11       | **i**ce       | b**i**te  | fl**y**                     |
+| aw     | `aʊ`  | 9        | **ou**t       | s**ou**th | c**ow**                     |
+| oy     | `ɔɪ`  | 10       | **oi**l       | j**oi**n  | t**oy**                     |
 | y uw   | `ju`  | 6,7      | **Yu**ma      | h**u**man | f**ew**                     |
 | ax     | `ə`   | 1        | **a**go       | wom**a**n | are**a**                    |
 
@@ -33,8 +33,8 @@
 | ih r   | `ɪɹ`  | 6,13     | **ear**s     | t**ir**amisu   | n**ear**   |
 | eh r   | `ɛɹ`  | 4,13     | **air**plane | app**ar**ently | sc**ar**e  |
 | uh r   | `ʊɹ`  | 4,13     |              |                | c**ur**e   |
-| ay r   | `aɪɹ` | 2,6,13   | **Ire**land  | f**ir**eplace  | ch**oir**  |
-| aw r   | `aʊɹ` | 2,4,13   | **hour**s    | p**ower**ful   | s**our**   |
+| ay r   | `aɪɹ` | 11,13    | **Ire**land  | f**ir**eplace  | ch**oir**  |
+| aw r   | `aʊɹ` | 9,13     | **hour**s    | p**ower**ful   | s**our**   |
 | ao r   | `ɔɹ`  | 3,13     | **or**ange   | m**or**al      | s**oar**   |
 | aa r   | `ɑɹ`  | 2,13     | **ar**tist   | st**ar**t      | c**ar**    |
 | er r   | `ɝ`   | 5        | **ear**th    | b**ir**d       | f**ur**    |

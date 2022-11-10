@@ -19,6 +19,21 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles//hdinsight/hdinsight-36-component-versioning.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/migrate-versions.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles//hdinsight/spark/spark-dotnet-version-update.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/storm/apache-storm-write-data-lake-store.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false

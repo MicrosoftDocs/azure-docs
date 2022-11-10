@@ -70,12 +70,12 @@ A User VPN configuration defines the parameters for connecting remote clients. I
    * **Authentication method** - Select Azure Active Directory.
    * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Azure AD tenant.
    * **Issuer** - `https://sts.windows.net/<your Directory ID>/`
-   * **AAD Tenant:** TenantID for the Azure AD tenant
+   * **AAD Tenant:** TenantID for the Azure AD tenant. Make sure there is no `/` at the end of the AAD tenant URL. 
 
-     * Enter `https://login.microsoftonline.com/{AzureAD TenantID}/` for Azure Public AD
-     * Enter `https://login.microsoftonline.us/{AzureAD TenantID/` for Azure Government AD
-     * Enter `https://login-us.microsoftonline.de/{AzureAD TenantID/` for Azure Germany AD
-     * Enter `https://login.chinacloudapi.cn/{AzureAD TenantID/` for China 21Vianet AD
+     * Enter `https://login.microsoftonline.com/{AzureAD TenantID}` for Azure Public AD
+     * Enter `https://login.microsoftonline.us/{AzureAD TenantID}` for Azure Government AD
+     * Enter `https://login-us.microsoftonline.de/{AzureAD TenantID}` for Azure Germany AD
+     * Enter `https://login.chinacloudapi.cn/{AzureAD TenantID}` for China 21Vianet AD
 
 1. Click **Create** to create the User VPN configuration. You'll select this configuration later in the exercise.
 

@@ -27,7 +27,7 @@ Use the Log Analytics agent if you need to:
 * Use [VM insights](../vm/vminsights-overview.md), which allows you to monitor your machines at scale and monitor their processes and dependencies on other resources and external processes.  
 * Manage the security of your machines by using [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) or [Microsoft Sentinel](../../sentinel/overview.md).
 * Use [Azure Automation Update Management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure and non-Azure machines.
-* Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application.
+* Use different [solutions](../insights/solutions.md) to monitor a particular service or application.
 
 Limitations of the Log Analytics agent:
 

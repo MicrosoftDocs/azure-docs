@@ -1,13 +1,13 @@
 ---
 title: Plan to manage costs for Azure Data Factory
 description: Learn how to plan for and manage costs for Azure Data Factory by using cost analysis in the Azure portal.
-author: shirleywangmsft
-ms.author: shwang
+author: chez-charlie
+ms.author: chez
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 08/18/2022
+ms.date: 10/21/2022
 ---
 
 # Plan to manage costs for Azure Data Factory
@@ -24,9 +24,9 @@ Cost analysis in Cost Management supports most Azure account types, but not all 
 
 ## Estimate costs before using Azure Data Factory
  
-Use the [ADF pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=data-factory) to get an estimate of the cost of running your ETL workload in Azure Data Factory.  .To use the calculator, you have to input details such as number of activity runs, number of data integration unit hours, type of compute used for Data Flow, core count, instance count, execution duration, and etc.
+Use the [ADF pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=data-factory) to get an estimate of the cost of running your ETL workload in Azure Data Factory. To use the calculator, you have to input details such as number of activity runs, number of data integration unit hours, type of compute used for Data Flow, core count, instance count, execution duration, and etc.
 
-One of the commonly asked questions for the pricing calculator is what values should be used as inputs.  During the proof-of-concept phase, you can conduct trial runs using sample datasets to understand the consumption for various ADF meters.  Then based on the consumption for the sample dataset, you can project out the consumption for the full dataset and operationalization schedule.
+One of the commonly asked questions for the pricing calculator is what values should be used as inputs.  During the proof-of-concept phase, you can conduct trial runs using sample datasets to understand the consumption for various ADF meters.  Then based on the consumption for the sample dataset, you can project out the consumption for the full dataset and operational schedule.
 
 > [!NOTE]
 > The prices used in this example below are hypothetical and are not intended to imply actual pricing.
@@ -84,7 +84,7 @@ You can pay for Azure Data Factory charges with your Azure Prepayment credit. Ho
 
 ## Monitor costs
 
-Azure Data Factory costs can be monitored at the factory, pipeline-run and activity-run levels.
+Azure Data Factory costs can be monitored at the factory, pipeline, pipeline-run and activity-run levels.
 
 ### Monitor costs at factory level with Cost Analysis
 
@@ -100,13 +100,13 @@ To view Data Factory costs in cost analysis:
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-:::image type="content" source="media/all-costs.png" alt-text="Example showing accumulated costs for a subscription":::
+:::image type="content" source="media/plan-manage-costs/all-costs.png" alt-text="Example showing accumulated costs for a subscription":::
 
 - To narrow costs for a single service, like Data Factory, select **Add filter** and then select **Service name**. Then, select **Azure Data Factory v2**.
 
 Here's an example showing costs for just Data Factory.
 
-:::image type="content" source="media/service-specific-cost.png" alt-text="Example showing accumulated costs for ServiceName":::
+:::image type="content" source="media/plan-manage-costs/service-specific-cost.png" alt-text="Example showing accumulated costs for ServiceName":::
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Data Factory costs by resource group are also shown. From here, you can explore costs on your own.
 
@@ -117,7 +117,7 @@ In certain cases, you may want a granular breakdown of cost of operations within
 You need to opt in for _each_ factory that you want detailed billing for. To turn on per pipeline detailed billing feature,
 
 1. Go to Azure Data Factory portal
-1. Under _Monitor_ tab, select _Factory setting_ in _General_ section
+1. Under _Manage_ tab, select _Factory setting_ in _General_ section
 1. Select _Showing billing report_ by pipeline
 1. Publish the change
 
@@ -131,6 +131,8 @@ Once the feature is enabled, each pipeline will have a separate entry in our Bil
 :::image type="content" source="media/plan-manage-costs/per-pipeline-billing-statement.png" alt-text="Screenshot of example showing granular cost for a pipeline.":::
 
 Using the graphing tools of Cost Analysis, you get similar charts and trends lines as shown [above](#monitor-costs-at-factory-level-with-cost-analysis), but for individual pipelines. You also get the summary view by factory name, as factory name is included in billing report, allowing for proper filtering when necessary.
+
+The change _only_ impacts how bills are emitted going forward, and does not change past charges. Please give some time before the change populate to billing report: typically, the change is reflected within 1 day.
 
 > [!WARNING]
 > By opting in the per billing setting, there will be one entry for each pipeline in your factory. Please be particularly aware if you have excessive amount of pipelines in the factory, as it may significantly lengthen and complicate your billing report.

@@ -201,7 +201,7 @@ Add these lines, updating the URI to reflect the `vaultUri` of your key vault. B
             Console.Write("Input the value of your secret > ");
             string secretValue = Console.ReadLine();
 
-            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
+            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "' ...");
 
             client.SetSecret(secretName, secretValue);
 
