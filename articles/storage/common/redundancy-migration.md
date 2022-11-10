@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 11/10/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell, engagement-fy23
@@ -38,9 +38,12 @@ You can change how your storage account is replicated from any type to any other
 
 To add or remove geo-replication or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-To add or remove zone-redundancy requires using either [customer-initiated conversion](#customer-initiated-conversion), [support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration). 
+To add or remove zone-redundancy requires using either [customer-initiated conversion](#customer-initiated-conversion), [support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration).
 
 During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the conversion process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
+
+> [!TIP]
+> Microsoft recommends you use customer-initiated conversion instead of support-requested conversion when possible. With customer-initiated conversion you can start and monitor the conversion request directly from the Azure portal, and there is no need to open and manage a support request.
 
 Performing a manual migration involves downtime and requires the most manual effort, but you have more control over the timing of the process.
 
@@ -129,6 +132,9 @@ There are two ways to initiate a conversion:
 
 - [Customer-initiated](#customer-initiated-conversion)
 - [Support-requested](#support-requested-conversion)
+
+> [!TIP]
+> Microsoft recommends you use customer-initiated conversion instead of support-requested conversion when possible. With customer-initiated conversion you can start and monitor the conversion request directly from the Azure portal, and there is no need to open and manage a support request.
 
 #### Customer-initiated conversion
 
