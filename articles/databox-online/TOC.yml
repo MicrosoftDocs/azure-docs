@@ -32,8 +32,12 @@
       
   - name: Concepts
     items:
-    - name: Ready safety
-      href: azure-stack-edge-pro-2-safety.md
+    - name: View safety
+      items:
+        - name: In English (en-us)
+          href: azure-stack-edge-pro-2-safety.md
+        - name: In other languages
+          href: azure-stack-edge-pro-2-safety-languages.md
     - name: Review requirements
       href: azure-stack-edge-pro-2-system-requirements.md
     - name: Understand limits
