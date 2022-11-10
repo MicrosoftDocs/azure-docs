@@ -30,11 +30,7 @@ highlightedContent:
     # Card
     - title: Architecture
       itemType: architecture
-      url: /azure/architecture/reference-architectures/hpc/
-    # Card
-    - title: Workload
-      itemType: sample
-      url: /azure/workload/hpc/
+      url: https://learn.microsoft.com/en-us/azure/architecture/
     # Card
     - title: Start building with Azure HPC for high performance applications
       itemType: reference
@@ -42,11 +38,7 @@ highlightedContent:
     # Card
     - title: Azure HPC on Microsoft Learn
       itemType: learn
-      url: /learn/browse/?products=azure&term=hpc
-    # Card
-    - title: Customer Stories
-      itemType: deploy
-      url: ../virtual-machines/overview.md
+      url: https://learn.microsoft.com/en-us/training/browse/?products=azure&term=hpc&terms=hpc
 
 # productDirectory section (optional)
 productDirectory:
@@ -58,48 +50,33 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       links:
         - url: ../virtual-machines/overview.md
-          text: Provision virtual machines for Ubuntu, Red Hat, and more
+          text: High performance Linux VMs on Azure
         - url: ../virtual-machines/linux/quick-create-cli.md
-          text: Quickstart
+          text: Getting Started
     # Card
     - title: Windows Virtual Machines
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       links:
         - url: ../virtual-machines/index.yml
-          text: Provision Windows virtual machines in seconds
+          text: High performance Linux VMs on Azure
         - url: ../virtual-machines/linux/quick-create-cli.md
-          text: Quickstart
+          text: Getting Started with Windows VMs
     # Card
-    - title: Azure Virtual Desktop
+    - title: Azure Virtual Desktop Infrastructure
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-desktop.svg
       links:
-        - url: /batch
-          text: Product Overview
-        - url: https://azure.microsoft.com/en-us/products/virtual-desktop/#overview
-          text: What is Azure Batch?
-        - url: https://learn.microsoft.com/en-us/azure/virtual-desktop/
-          text: Quickstart
+        - url: ../virtual-desktop/overview.md
+          text: What is Azure VDI?
+        - url: ../virtual-desktop/getting-started-feature.md
+          text: Getting Started with VDI
     # Card
     - title: Batch
       imageSrc: ../virtual-machines/media/logos/azure-logo.png
       links:
-        - url: /batch
-          text: Azure Batch
         - url: ../batch/batch-technical-overview.md
           text: What is Azure Batch?
         - url: ../batch/quick-create-cli.md
-          text: Quickstart
-    # Card
-    - title: VDI
-      # imageSrc should be square in ratio with no white space
-      imageSrc: ../virtual-machines/media/logos/vdilogo.png
-      links:
-        - url: /virtual-desktop
-          text: Azure Virtual Desktop Infrastructure
-        - url: ../virtual-desktop/overview.md
-          text: What is Azure VDI?
-        - url: ../virtual-desktop/getting-started-feature.md
-          text: Quickstart
+          text: Getting Started with Batch
     # Card
     - title: HPC compute sizes
       # imageSrc should be square in ratio with no white space
@@ -117,11 +94,11 @@ productDirectory:
       imageSrc: ../virtual-machines/media/sizes/azurevmsthumb.jpg
       links:
         - url: ../hpc-cache/hpc-cache-overview.md
-          text: HPC Cache Overview
-        - url: /learn/browse/?products=azure&term=hpc-cache
-          text: Azure HPC Cache documentation
+          text: What is Azure HPC Cache
         - url: ../hpc-cache/hpc-cache-create.md
           text: Create an Azure HPC Cache
+        - url: ../learn/browse/?products=azure&term=hpc-cache
+          text: Azure HPC Cache documentation
 
 # Super Computing Announcement
 
@@ -130,15 +107,27 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
   sections:
-    - title: SC22 # < 60 chars (optional)
+    - title: HPC Conferences # < 60 chars (optional)
       summary: See where you can find us in Dallas at Supercomputing, November 14 - 17 # < 160 chars (optional)
       items:
         # Card
-        - title: Conference
+        - title: SC22 (Supercomputing) 
           links:
             - url: https://www.aka.ms/SC22
               itemType: overview
-              text: Join us!
+              text: Join us at SC22!
             - url: https://youtu.be/5C6i9tXpVlk
               itemType: video
               text: Keynote
+            - url: https://sc22.supercomputing.org/
+              itemType: overview
+              text: SuperComputing 22
+        # Card
+        - title: GTC
+          links:
+            - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/we-ll-see-you-at-nvidia-s-spring-gtc-conference/ba-p/3194882
+              itemType: overview
+              text: Microsoft at GTC
+            - url: https://www.nvidia.com/gtc/
+              itemType: overview
+              text: GTC Website
