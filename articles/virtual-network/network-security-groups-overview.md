@@ -135,4 +135,4 @@ Application security groups enable you to configure network security as a natura
 * If you've never created a network security group, you can complete a quick [tutorial](tutorial-filter-network-traffic.md) to get some experience creating one.
 * If you're familiar with network security groups and need to manage them, see [Manage a network security group](manage-network-security-group.md). 
 * If you're having communication problems and need to troubleshoot network security groups, see [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md). 
-* Learn how to enable [network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal) to analyze network traffic to and from resources that have an associated network security group.
+* Learn how to enable [network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md) to analyze network traffic to and from resources that have an associated network security group.
