@@ -11,9 +11,9 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Connect to an app instance for troubleshooting
 
-Although Azure Spring Apps offers a variety of managed troubleshooting approaches, you may want to do advanced troubleshooting using the shell environment. For example, you may want to accomplish the following troubleshooting tasks:
+Although Azure Spring Apps offers various managed troubleshooting approaches, you may want to do advanced troubleshooting using the shell environment. For example, you may want to accomplish the following troubleshooting tasks:
 
-- Directly leverage Java Development Kit (JDK) tools.
+- Directly use Java Development Kit (JDK) tools.
 - Diagnose against an app’s back-end services for network connection and API call latency for both virtual-network and non-virtual-network instances.
 - Diagnose storage capacity and performance and CPU/memory issues.
 
@@ -30,7 +30,7 @@ This article describes how to access the shell environment inside your applicati
   ```
 
 - A deployed application in Azure Spring Apps.
-- If you have deployed a custom container, a shell program. The default is `/bin/sh`.
+- If you've deployed a custom container, a shell program. The default is `/bin/sh`.
 
 ## Assign an Azure role
 
@@ -98,9 +98,9 @@ Use the following command to find the Java process ID, which is usually `1`:
 jps
 ```
 
-The output should look like the following:
+The output should look like the following example:
 
-:::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/jps-result.png" alt-text="Screenshot showing the output of the jps command.":::
+:::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/jps-result.png" alt-text="Screenshot showing the output of the command.":::
 
 Then use the following command to run the JDK tool to check the result:
 
@@ -108,11 +108,13 @@ Then use the following command to run the JDK tool to check the result:
 jstat -gc 1
 ```
 
-:::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/jstat-result.png" alt-text="Screenshot showing the output of the jstat command.":::
+The output should look like the following example:
+
+:::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/jstat-result.png" alt-text="Screenshot showing the output of the command.":::
 
 ## Disconnect from your app instance
 
-When your are done troubleshooting, use the `exit` command to disconnect from the app instance, or press `Ctrl+d`.
+When you're done troubleshooting, use the `exit` command to disconnect from the app instance, or press `Ctrl+d`.
 
 ## Troubleshooting tools
 
@@ -130,7 +132,7 @@ The following list describes some of the pre-installed tools that you can use fo
 
 You can also use JDK-bundled tools such as `jps`, `jcmd`, and `jstat`.
 
-The available tools depends on your service tier and type of app deployment. The following table describes the availability of troubleshooting tools:
+The available tools depend on your service tier and type of app deployment. The following table describes the availability of troubleshooting tools:
 
 | Tier                  | Deployment Type         | Common tools                                 | JDK tools                   | Notes                                   |
 |------------------------|--------------------------|-----------------------------------------------|------------------------------|------------------------------------------|
