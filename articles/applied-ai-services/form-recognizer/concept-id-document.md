@@ -14,9 +14,7 @@ ms.custom: references.regions
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Azure Form Recognizer Identity document (ID) model
-
-The Form Recognizer Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents: US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident cards and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
+# Form Recognizer identity document (ID) model
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -26,9 +24,13 @@ The Form Recognizer Identity document (ID) model combines Optical Character Reco
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-## Identity document (ID) processing
+Azure Form Recognizer Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents: US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident cards and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
 
-Identity document (ID) processing involves extraction of data from identity documents whether manually or using OCR based techniques. Examples of identity documents include passports, driver licenses, resident cards, and national identity cards like the social security card in the US. It's an important step in any business process that requires some proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
+## Identity document processing
+
+Identity document processing involves extracting data from identity documents either manually or by using OCR based techniques. Examples of identity documents include passports, driver licenses, resident cards, and national identity cards like the US social security card.
+
+ID document processing an important step in any business process that requires some proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
 
 ::: moniker range="form-recog-3.0.0"
 
@@ -73,9 +75,13 @@ The following tools are supported by Form Recognizer v2.1:
 |**ID document model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-identity-id-documents)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 ::: moniker-end
 
+## Input requirements
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
 ### Try Form Recognizer
 
-Extract data, including name, birth date, machine-readable zone, and expiration date, from ID documents using the Form Recognizer Studio. You'll need the following resources:
+Extract data, including name, birth date, and expiration date, from ID documents. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -144,10 +150,6 @@ Extract data, including name, birth date, machine-readable zone, and expiration 
     * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
     * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
 ::: moniker-end
-
-## Input requirements
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ::: moniker range="form-recog-3.0.0"
 
@@ -301,7 +303,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 
 ## Supported document types and locales
 
- **Pre-built ID v2.1** extracts key values from worldwide passports, and U.S. Driver's Licenses in the **en-us** locale.
+ **Prebuilt ID v2.1** extracts key values from worldwide passports, and U.S. Driver's Licenses in the **en-us** locale.
 
 ## Fields extracted
 
@@ -330,7 +332,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 
 ::: moniker range="form-recog-3.0.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-v3-form-recognizer-studio.md) with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
@@ -338,7 +340,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 
 ::: moniker range="form-recog-2.1.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

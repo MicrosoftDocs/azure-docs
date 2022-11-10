@@ -13,7 +13,7 @@ monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Azure Form Recognizer read (OCR) model
+# Form Recognizer read (OCR) model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
@@ -95,7 +95,8 @@ Form Recognizer v3.0 version supports several languages for the read OCR model. 
 
 ## Data detection and extraction
 
-### Microsoft Office and HTML text extraction 
+### Microsoft Office and HTML text extraction
+
 Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDKs of that API version to preview text extraction from Microsoft Word, Excel, PowerPoint, and HTML files. The following illustration shows extraction of the digital text and text from the images embedded in the Word document by running OCR on the images.
 
 :::image type="content" source="media/office-to-ocr.png" alt-text="Screenshot of a Microsoft Word document extracted by Form Recognizer Read OCR.":::
@@ -104,10 +105,10 @@ The page units in the model output are computed as shown:
 
  **File format**   | **Computed page unit**   | **Total pages**  |
 | --- | --- | --- |
-|Word (preview) | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
-|Excel (preview) | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
-|PowerPoint (preview)|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
-|HTML (preview)| Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+|Word  | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
+|Excel  | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
+|PowerPoint |  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
+|HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
 ### Paragraphs extraction
 
@@ -122,6 +123,7 @@ The Read OCR model in Form Recognizer extracts all identified blocks of text in 
     }
 ]
 ```
+
 ### Language detection 
 
 The Read OCR model in Form Recognizer adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
@@ -190,6 +192,7 @@ For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, Rea
     }
 ]
 ```
+
 ### Select page (s) for text extraction
 
 For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.

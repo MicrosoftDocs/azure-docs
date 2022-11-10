@@ -13,7 +13,7 @@ monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Azure Form Recognizer W-2 form model
+# Form Recognizer W-2 form model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 

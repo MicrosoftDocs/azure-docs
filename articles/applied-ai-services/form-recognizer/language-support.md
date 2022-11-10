@@ -507,7 +507,7 @@ This table lists the written languages supported by each Form Recognizer service
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
-Pre-Built Receipt and Business Cards support all English receipts and business cards with the following locales:
+Prebuilt Receipt and Business Cards support all English receipts and business cards with the following locales:
 
 |Language| Locale code |
 |:-----|:----:|

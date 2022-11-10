@@ -16,7 +16,7 @@ recommendations: false
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
-Form Recognizer uses advanced machine learning technology to detect and extract information from forms and documents and returns the extracted data in a structured JSON output. With Form Recognizer, you can use pre-built or pre-trained models or you can train standalone custom models. Custom models extract and analyze distinct data and use cases from forms and documents specific to your business. Standalone custom models can be combined to create [composed models](concept-composed-models.md).
+Form Recognizer uses advanced machine learning technology to detect and extract information from forms and documents and returns the extracted data in a structured JSON output. With Form Recognizer, you can use prebuilt or pre-trained models or you can train standalone custom models. Custom models extract and analyze distinct data and use cases from forms and documents specific to your business. Standalone custom models can be combined to create [composed models](concept-composed-models.md).
 
 To create a custom model, you label a dataset of documents with the values you want extracted and train the model on the labeled dataset. You only need five examples of the same form or document type to get started.
 

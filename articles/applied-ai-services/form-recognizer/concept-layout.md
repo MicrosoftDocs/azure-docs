@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Azure Form Recognizer layout model
+# Form Recognizer layout model
 
 The Form Recognizer Layout is an advanced machine-learning based document layout analysis model available in the Form Recognizer cloud API. In the version v2.1, the document layout model extracted text lines, words, tables, and selection marks.
 
@@ -404,7 +404,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ::: moniker range="form-recog-3.0.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-v3-form-recognizer-studio.md) with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
@@ -412,7 +412,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ::: moniker range="form-recog-2.1.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

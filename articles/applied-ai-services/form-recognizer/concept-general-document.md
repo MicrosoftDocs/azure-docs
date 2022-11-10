@@ -14,7 +14,7 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Azure Form Recognizer general document model
+# Form Recognizer general document model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
