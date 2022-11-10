@@ -38,7 +38,7 @@ To configure the retention time for your health events, see [Configure data rete
 
 1. Select **Configure Diagnostic Settings**.
 
-    :::image type="content" source="media/monitor-sentinel-health/enable-health-monitoring.png" alt-text="Screenshot shows how to get to the health monitoring settings.":::
+    :::image type="content" source="media/enable-monitoring/enable-health-monitoring.png" alt-text="Screenshot shows how to get to the health monitoring settings.":::
 
 1. In the **Diagnostic settings** screen, select **+ Add diagnostic setting**.
 

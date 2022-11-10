@@ -165,4 +165,6 @@ For more information, see [Azure Monitor alerts overview](../azure-monitor/alert
 
 ## Next steps
 
-Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md), [connect data sources](connect-data-sources.md), and [get visibility into your data, and potential threats](get-visibility.md).
+- Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
+- See more information about the [*SentinelHealth* table schema](health-table-reference.md).
+- Monitor the health of your [automation rules and playbooks](monitor-automation-health.md).

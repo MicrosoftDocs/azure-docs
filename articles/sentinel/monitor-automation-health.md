@@ -68,8 +68,6 @@ The following types of automation health events are logged in the *SentinelHealt
 
 For more information, see [SentinelHealth table columns schema](health-table-reference.md#sentinelhealth-table-columns-schema).
 
-See [more sample queries](#run-queries-to-detect-health-drifts) below.
-
 ### Statuses, errors and suggested steps
 
 For **Automation rule run**, you may see the following statuses:
@@ -108,33 +106,71 @@ For **Playbook was triggered**, you may see the following statuses:
 
 ## Get the complete automation picture
 
-Microsoft Sentinel automation health table allows you to track playbooks triggering, but to monitor playbooks run results Logic Apps diagnostics should be turned on.
+Microsoft Sentinel's health monitoring table allows you to track the triggering of playbooks, but to monitor what happens inside your playbooks and their results when they're run, you must also turn on **Azure Logic Apps diagnostics**.
 
-Monitor playbook runs using Azure Logic Apps diagnostic logs
-
-By enabling Azure Logic Apps diagnostics logs, the following logs will be streamed to *AzureDiagnostics* table:
+By [enabling Azure Logic Apps diagnostics](../azure-monitor/essentials/diagnostic-settings.md?tabs=portal#create-diagnostic-settings), you'll ingest the following events to the *AzureDiagnostics* table:
 - {Action name} started
 - {Action name} ended
 - Workflow (playbook) started
 - Workflow (playbook) ended
 
+These added events will give you additional insights into the actions being taken in your playbooks.
+
 ### Turn on Logic Apps diagnostics
 
-For each playbook you are interested in monitoring, follow these steps. Make sure to select Send to Log Analytics workspace as destination and choose your Microsoft Sentinel workspace.
+For each playbook you are interested in monitoring, [follow these steps](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs). Make sure to select **Send to Log Analytics workspace** as your log destination, and choose your Microsoft Sentinel workspace.
 
-Correlate Microsoft Sentinel and Azure Logic Apps logs
-Now that your workspace has logs of automation and Logic Apps, you can correlate them. Example query:
+### Correlate Microsoft Sentinel and Azure Logic Apps logs
+
+Now that you have logs for your automation rules and playbooks *and* logs for your individual Logic Apps workflows in your workspace, you can correlate them to get the complete picture. Consider the following sample query:
 
 ```kusto
 SentinelHealth 
 | where SentinelResourceType == "Automation rule"
-| mv-expand TriggeredPlaybooks = ExtendedProperties.TriggeredPlaybooks| extend runId = tostring(TriggeredPlaybooks.RunId)
+| mv-expand TriggeredPlaybooks = ExtendedProperties.TriggeredPlaybooks
+| extend runId = tostring(TriggeredPlaybooks.RunId)
 | join (AzureDiagnostics 
-| where OperationName == "Microsoft.Logic/workflows/workflowRunCompleted"
-| project resource_runId_s, playbookName = resource_workflowName_s, playbookRunStatus = status_s) on $left.runId == $right.resource_runId_s
-| project RecordId, TimeGenerated, AutomationRuleName= SentinelResourceName, AutomationRuleStatus = Status, Description, workflowRunId = runId, playbookName, playbookRunStatus
+    | where OperationName == "Microsoft.Logic/workflows/workflowRunCompleted"
+    | project
+        resource_runId_s,
+        playbookName = resource_workflowName_s,
+        playbookRunStatus = status_s)
+    on $left.runId == $right.resource_runId_s
+| project
+    RecordId,
+    TimeGenerated,
+    AutomationRuleName= SentinelResourceName,
+    AutomationRuleStatus = Status,
+    Description,
+    workflowRunId = runId,
+    playbookName,
+    playbookRunStatus
 ```
+
+## Use the health monitoring workbook
+
+The **Automation health** workbook helps you visualize your health data, as well as the correlation between the two types of logs that we just mentioned. The workbook includes the following displays:
+- Automation rule health and details
+- Playbook trigger health and details
+- Playbook runs health and details (requires Azure Diagnostic enabled on the Playbook level)
+- Automation details per incident
+
+:::image type="content" source="media/monitor-automation-health/automation-health-monitoring-workbook.png" alt-text="Screenshot shows the opening panel of the automation health workbook.":::
+
+Select the **Playbooks run by Automation Rules** tab to see playbook activity.
+
+:::image type="content" source="media/monitor-automation-health/automation-health-monitoring-workbook-playbooks.png" alt-text="Screenshot shows a list of the playbooks called by automation rules.":::
+
+Select a playbook to see the list of its runs in the drill-down chart below.
+
+:::image type="content" source="media/monitor-automation-health/automation-health-monitoring-workbook-playbook-run-list.png" alt-text="Screenshot shows a list of runs of the chosen playbook.":::
+
+Select a particular run to see the results of the actions in the playbook.
+
+:::image type="content" source="media/monitor-automation-health/automation-health-monitoring-workbook-playbook-runs.png" alt-text="Screenshot shows the actions taken in a given run of this playbook." lightbox="media/monitor-automation-health/automation-health-monitoring-workbook-playbook-runs.png":::
 
 ## Next steps
 
-Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md), [connect data sources](connect-data-sources.md), and [get visibility into your data, and potential threats](get-visibility.md).
+- Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
+- See more information about the [*SentinelHealth* table schema](health-table-reference.md).
+- Monitor the health of your [data connectors](monitor-data-connector-health.md).
