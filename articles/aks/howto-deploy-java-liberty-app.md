@@ -2,7 +2,7 @@
 title: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 recommendations: false
 description: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
-author: zhengchang907
+author: KarlErickson
 ms.author: zhengchang
 ms.service: container-service
 ms.topic: how-to
@@ -66,14 +66,14 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. Save aside the values for **Login server**, **Registry name**, **Username**, and **password**. You may use the copy icon at the right of each field to copy the value of that field to the system clipboard.
 1. Navigate again to the resource group into which you deployed the resources.
 1. In the **Settings** section, select **Deployments**.
-1. Select the bottom-most deployment in the list. The **Deployment name** will match the publisher ID of the offer. It will contain the string **ibm**.
+1. Select the bottom-most deployment in the list. The **Deployment name** will match the publisher ID of the offer. It will contain the string `ibm`.
 1. In the left pane, select **Outputs**.
 1. Using the same copy technique as with the preceding values, save aside the values for the following outputs:
 
-   * **cmdToConnectToCluster**
-   * **appDeploymentTemplateYaml**
+   * `cmdToConnectToCluster`
+   * `appDeploymentTemplateYaml`
 
-1. Paste the value of **appDeploymentTemplateYaml** into a bash shell, append `| grep secretName` and execute. It will output the Ingress TLS secret name, e.g., `- secretName: secret785e2c`. Save aside the value for **secretName** from the output.
+1. Paste the value of `appDeploymentTemplateYaml` into a Bash shell, append `| grep secretName`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
 These values will be used later in this article. Note that several other useful commands are listed in the outputs.
 
@@ -164,7 +164,7 @@ Use your local ide, or `liberty:run` command to run and test the project locally
    cd <path-to-your-repo>/java-app
    mvn liberty:run
    ```
-   
+
 1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
 
 1. Press `Ctrl+C` to stop `liberty:run` mode.
@@ -176,10 +176,10 @@ After successfully running the app in the Liberty Docker container, you can run 
 ```bash
 cd <path-to-your-repo>/java-app/target
 
-# If you are running with Open Liberty
+# If you're running with Open Liberty
 docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
 
-# If you are running with WebSphere Liberty
+# If you're running with WebSphere Liberty
 docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 ```
 
@@ -199,7 +199,7 @@ The following steps deploy and test the application.
 
 1. Connect to the AKS cluster.
 
-   Paste the value of **cmdToConnectToCluster** into a bash shell and execute.
+   Paste the value of **cmdToConnectToCluster** into a Bash shell and execute.
 
 1. Apply the DB secret.
 
@@ -244,7 +244,6 @@ The following steps deploy and test the application.
       Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
 
    1. Go to `https://<ADDRESS>` to test the application.
-   
 
 ## Clean up resources
 
