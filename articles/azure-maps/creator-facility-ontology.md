@@ -72,7 +72,7 @@ When importing a GeoJSON package, the `ID` and `Geometry` fields must be supplie
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
 |`Geometry` | object | true | Each Geometry object consists of a `type` and `coordinates` array. While a required field, the value can be set to `null`. For more information, see [Geometry Object][GeometryObject] in the GeoJSON (RFC 7946) format specification. |
-|`ID` | string | true | The value of this field is either a JSON string or number. Maximum length allowed is 1,000 characters.|
+|`ID` | string | true | The value of this field can be alphanumeric characters (0-9, a-z, A-Z), dots (.), hyphens (-) and underscores (_). Maximum length allowed is 1,000 characters.|
 
 :::image type="content" source="./media/creator-indoor-maps/geojson.png" alt-text="A screenshot showing the geometry and ID fields in a GeoJSON file.":::
 
@@ -551,5 +551,5 @@ The `category` class feature defines category names. For example: "room.conferen
 [MultiPolygon]: /rest/api/maps/v2/wfs/get-features?tabs=HTTP#geojsonmultipolygon
 [GeometryObject]: https://www.rfc-editor.org/rfc/rfc7946#section-3.1
 [feature object]: https://www.rfc-editor.org/rfc/rfc7946#section-3.2
-[datasetv20220901]: /rest/api/maps/v20220901/dataset
+[datasetv20220901]: /rest/api/maps/v20220901preview/dataset
 [Open Street Map specification]: https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification
