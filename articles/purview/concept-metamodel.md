@@ -32,7 +32,9 @@ Which we can then use to describe how a specific business process uses a specifi
 
 :::image type="content" source="media/concept-metamodel/specific-example.png" alt-text="Diagram mirroring previous diagram showing social media management using customer demographics.":::
 
-Metamodel includes several [predefined asset types](how-to-metamodel.md#predefined-asset-types) and relationship definitions to help you get started, but you can also create your own. 
+Metamodel includes several [predefined asset types](how-to-metamodel.md#predefined-asset-types) and relationship definitions to help you get started, but you can also create your own.
+
+Adding business context likes this not only helps data consumers find the information they need, it helps describe the business significance of your data so you can better manage and govern it. For example, you may have different privacy obligations if you use personal information for marketing activities vs. analytics that improve a product or service.
 
 ## Next steps
 
