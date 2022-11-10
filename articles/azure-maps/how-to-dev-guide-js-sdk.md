@@ -10,9 +10,9 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# JavaScript REST SDK Developers Guide (preview)
+# JavaScript/TypeScript REST SDK Developers Guide (preview)
 
-The Azure Maps JavaScript SDK supports searching using the [Azure Maps search Rest API][search], like searching for an address, fuzzy searching for a point of interest (POI), and searching by coordinates. This article will help you get started building location-aware applications that incorporate the power of Azure Maps.
+The Azure Maps JavaScript/TypeScript REST SDK (JavaScript SDK) supports searching using the [Azure Maps search Rest API][search], like searching for an address, fuzzy searching for a point of interest (POI), and searching by coordinates. This article will help you get started building location-aware applications that incorporate the power of Azure Maps.
 
 > [!NOTE]
 > Azure Maps JavaScript SDK supports the LTS version of Node.js. For more information, see [Node.js Release Working Group][Node.js Release].
