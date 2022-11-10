@@ -89,12 +89,9 @@ You can also configure an alert rule to notify you when a certain number of anon
 
 Azure Storage logs capture details about requests made against the storage account, including how a request was authorized. You can analyze the logs to determine which containers are receiving anonymous requests.
 
-To log requests to your Azure Storage account in order to evaluate anonymous requests, you can use Azure Storage logging in Azure Monitor (preview). For more information, see [Monitor Azure Storage](./monitor-blob-storage.md).
+To log requests to your Azure Storage account in order to evaluate anonymous requests, you can use Azure Storage logging in Azure Monitor. For more information, see [Monitor Azure Storage](./monitor-blob-storage.md).
 
 Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
-
-> [!NOTE]
-> The preview of Azure Storage logging in Azure Monitor is supported only in the Azure public cloud. Government clouds do not support logging for Azure Storage with Azure Monitor.
 
 #### Create a diagnostic setting in the Azure portal
 
@@ -102,7 +99,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 
 1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. Navigate to your storage account in the Azure portal.
-1. In the Monitoring section, select **Diagnostic settings (preview)**.
+1. In the Monitoring section, select **Diagnostic settings**.
 1. Select **Blob** to log requests made against Blob storage.
 1. Select **Add diagnostic setting**.
 1. Provide a name for the diagnostic setting.
@@ -113,7 +110,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 
 After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
-For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs (preview)](./monitor-blob-storage-reference.md#resource-logs-preview).
+For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](./monitor-blob-storage-reference.md#resource-logs).
 
 #### Query logs for anonymous requests
 
@@ -229,7 +226,7 @@ To disallow public access for a storage account with a template, create a templa
 
 1. In the Azure portal, choose **Create a resource**.
 1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
-1. Choose **Template deployment (deploy using custom templates) (preview)**, choose **Create**, and then choose **Build your own template in the editor**.
+1. Choose **Template deployment (deploy using custom templates)**, choose **Create**, and then choose **Build your own template in the editor**.
 1. In the template editor, paste in the following JSON to create a new account and set the **AllowBlobPublicAccess** property to **false**. Remember to replace the placeholders in angle brackets with your own values.
 
     ```json
