@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 11/3/2022
+ms.date: 11/9/2022
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -111,7 +111,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Agent diagnostics logs	|		|		|	X	|
 |	**Data sent to**	|		|		|		|		|
 |		|	Azure Monitor Logs	|	X	|	X	|		|
-|		|	Azure Monitor Metrics<sup>1</sup>	|	X	|		|	X	|
+|		|	Azure Monitor Metrics<sup>1</sup>	|	X (Public preview)	|		|	X (Public preview)	|
 |		|	Azure Storage	|		|		|	X	|
 |		|	Event Hub	|		|		|	X	|
 |	**Services and features supported**	|		|		|		|		|
@@ -135,7 +135,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	File based logs	|	X (Public preview)	|		|		|		|
 |	**Data sent to**	|		|		|		|		|		|
 |		|	Azure Monitor Logs	|	X	|	X	|		|		|
-|		|	Azure Monitor Metrics<sup>1</sup>	|	X	|		|		|	X	|
+|		|	Azure Monitor Metrics<sup>1</sup>	|	X (Public preview)	|		|		|	X (Public preview)	|
 |		|	Azure Storage	|		|		|	X	|		|
 |		|	Event Hub	|		|		|	X	|		|
 |	**Services and features supported**	|		|		|		|		|		|
