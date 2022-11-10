@@ -9,7 +9,7 @@ ms.date: 11/09/2022
 ms.author: cshoe
 ---
 
-# Deploy to Azure Container Apps with GitHub Actions
+# Deploy to Azure Container Apps with GitHub Actions (preview)
 
 Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a GitHub Actions workflow is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
 
@@ -45,10 +45,9 @@ steps:
     uses: azure/container-apps-deploy-action@v0
     with:
       appSourcePath: ${{ github.workspace }}/src
-      acrName: mytestacr
-      containerAppName: my-test-container-app
-      resourceGroup: my-test-rg
-      containerAppEnvironment: my-test-container-app-env
+      acrName: myregistry
+      containerAppName: my-container-app
+      resourceGroup: my-rg
 ```
 
 The action uses the Dockerfile in `appSourcePath` to build the container image. If no Dockerfile is found, the action attempts to build the container image from source code in `appSourcePath`.
@@ -69,8 +68,10 @@ steps:
     uses: azure/container-apps-deploy-action@v0
     with:
       appSourcePath: ${{ github.workspace }}
-      acrName: mytestacr
-      imageToDeploy: mytestacr.azurecr.io/app:latest
+      acrName: myregistry
+      containerAppName: my-container-app
+      resourceGroup: my-rg
+      imageToDeploy: myregistry.azurecr.io/app:latest
 ```
 
 ### Authenticate with Azure Container Registry
@@ -97,7 +98,7 @@ To configure a GitHub Actions workflow to deploy to Azure Container Apps, you ta
 | Requirement  | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
-| GitHub Account | If you use a GitHub repo, sign up for [free](https://github.com/join). |
+| GitHub Account | Sign up for [free](https://github.com/join). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 
 ### Create Azure resources and configure managed identity
@@ -127,66 +128,7 @@ Before creating a workflow, the source code for your app must be in a GitHub rep
     git clone https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-container-app.git
     ```
 
-1. Change into the *src* folder of the cloned repository.
-
-    ```bash
-    cd my-container-app
-    cd src
-    ```
-
-1. Create Azure resources and deploy a container app with the [`az containerapp up` command](./containerapp-up.md).
-
-    ```azurecli
-    az containerapp up \
-      --name my-container-app \
-      --source . \
-      --ingress external 
-    ```
-
-1. In the command output, note the name of the Azure Container Registry.
-
-1. Get the full resource ID of the container registry.
-
-    ```azurecli
-    az acr show --name <ACR_NAME> --query id --output tsv
-    ```
-
-    Replace `<ACR_NAME>` with the name of your registry.
-
-1. Enable managed identity for the container app.
-
-    ```azurecli
-    az containerapp identity assign \
-      --name my-container-app \
-      --resource-group my-container-app-rg \
-      --system-assigned \
-      --output tsv
-    ```
-
-    Note the principal ID of the managed identity in the command output.
-
-1. Assign the `AcrPull` role for the Azure Container Registry to the container app's managed identity.
-
-    ```azurecli
-    az role assignment create \
-      --assignee <MANAGED_IDENTITY_PRINCIPAL_ID> \
-      --role AcrPull \
-      --scope <ACR_RESOURCE_ID>
-    ```
-
-    Replace `<MANAGED_IDENTITY_PRINCIPAL_ID>` with the principal ID of the managed identity and `<ACR_RESOURCE_ID>` with the resource ID of the Azure Container Registry.
-
-1. Configure the container app to use the managed identity to pull images from the Azure Container Registry.
-
-    ```azurecli
-    az containerapp registry set \
-      --name my-container-app \
-      --resource-group my-container-app-rg \
-      --server <ACR_NAME>.azurecr.io \
-      --identity system
-    ```
-
-    Replace `<ACR_NAME>` with the name of your Azure Container Registry.
+[!INCLUDE [container-apps-github-devops-setup.md](../../includes/container-apps-github-devops-setup.md)]
 
 ### Configure secrets in your GitHub repository
 

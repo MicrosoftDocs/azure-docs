@@ -9,12 +9,184 @@ ms.date: 11/09/2022
 ms.author: cshoe
 ---
 
-# Deploy to Azure Container Apps from Azure Pipelines
+# Deploy to Azure Container Apps from Azure Pipelines (preview)
 
-Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a GitHub Actions workflow is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
+Azure Container Apps allows you to use Azure Pipelines to publish [revisions](revisions.md) to your container app. As commits are pushed to your Azure DevOps repository, a pipeline is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
 
-:::image type="content" source="media/github-actions/azure-container-apps-github-actions.png" alt-text="Changes to a GitHub repo trigger an action to create a new revision.":::
+The pipeline is triggered by commits to a specific branch in your repository. When creating the pipeline, you decide which branch is the trigger.
 
-The GitHub Actions workflow is triggered by commits to a specific branch in your repository. When creating the workflow, you decide which branch triggers the action.
+## Container Apps task
 
-This article shows you how to create your own workflow that you can fully customize. To generate a starter GitHub Actions workflow with Azure CLI, see [Generate GitHub Actions workflow with Azure CLI](github-actions-cli.md).
+To build and deploy your container app, you add the [`AzureContainerAppsRCV0`](#) Azure Pipelines task to your pipeline. It supports the following scenarios:
+
+* Build from a Dockerfile and deploy to Container Apps.
+* Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby.
+* Deploy an existing container image to Container Apps.
+
+Here are some common scenarios for using the action. For more information, see the [task's GitHub Marketplace page](#).
+
+### Build and deploy to Container Apps
+
+The following snippet shows how to build a container image and deploy it to Container Apps.
+
+```yaml
+steps:
+- task: AzureContainerAppsRC@V0
+  inputs:
+    appSourcePath: '$(Build.SourcesDirectory)/src'
+    azureSubscription: 'my-subscription-service-connection'
+    acrName: 'myregistry'
+    containerAppName: 'my-container-app'
+    resourceGroup: 'my-container-app-rg'
+```
+
+The task uses the Dockerfile in `appSourcePath` to build the container image. If no Dockerfile is found, the task attempts to build the container image from source code in `appSourcePath`.
+
+### Deploy an existing container image to Container Apps
+
+The following snippet shows how to deploy an existing container image to Container Apps.
+
+```yaml
+steps:
+  - task: AzureContainerAppsRC@V0
+    inputs:
+      appSourcePath: '$(Build.SourcesDirectory)'
+      azureSubscription: 'my-subscription-service-connection'
+      acrName: 'myregistry'
+      containerAppName: 'my-container-app'
+      resourceGroup: 'my-container-app-rg'
+      imageToDeploy: 'myregistry.azurecr.io/my-container-app:latest'
+```
+
+### Authenticate with Azure Container Registry
+
+The Azure Container Apps task needs to authenticate with your Azure Container Registry to push the container image. The container app also needs to authenticate with your Azure Container Registry to pull the container image.
+
+To push images, the task automatically authenticates with the container registry specified in `acrName` using the service connection provided in `azureSubscription`.
+
+To pull images, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the container app the action is deploying to must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the action's `acrUsername` and `acrPassword` inputs.
+
+## Configuration
+
+To configure an Azure DevOps pipeline to deploy to Azure Container Apps, you take the following steps.
+
+> [!div class="checklist"]
+> * Create an Azure DevOps repository for your app
+> * Create a container app with managed identity enabled
+> * Assign the `AcrPull` role for the Azure Container Registry to the container app's managed identity
+> * Install the Azure Container Apps task from the Azure DevOps Marketplace
+> * Configure an Azure DevOps service connection for your Azure subscription
+> * Create an Azure DevOps pipeline
+
+### Prerequisites
+
+| Requirement  | Instructions |
+|--|--|
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
+| Azure Devops project | Go to [Azure DevOps](https://azure.microsoft.com/services/devops/) and select *Start free*. Then create a new project. |
+| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
+
+### Create Azure resources and configure managed identity
+
+Before creating a pipeline, the source code for your app must be in a repository. You also need to create a container app with managed identity enabled and ensure the identity has permissions to pull images from your Azure Container Registry.
+
+1. Log in to [Azure DevOps](https://dev.azure.com/) and navigate to your project.
+
+1. Open the **Repos** page.
+
+1. In the top navigation bar, select the repositories dropdown and select **Import repository**.
+
+1. Enter the following information and select **Import**:
+
+    | Field  | Value |
+    |--|--|
+    | **Repository type** | Git |
+    | **Clone URL** | `https://github.com/Azure-Samples/containerapps-albumapi-csharp.git` |
+    | **Name** | `my-container-app` |
+
+1. Select **Clone** to view the repository URL and copy it.
+
+1. Open a terminal and run the following command to clone the repository:
+
+    ```bash
+    git clone <REPOSITORY_URL>
+    ```
+
+    Replace `<REPOSITORY_URL>` with the URL you copied.
+
+[!INCLUDE [container-apps-github-devops-setup.md](../../includes/container-apps-github-devops-setup.md)]
+
+### Install the Azure Container Apps task
+
+The Azure Container Apps Azure Pipelines task is currently in preview. Before you use it, you must install it from the Azure DevOps Marketplace.
+
+1. Open the [Azure Container Apps task](#) in the Azure DevOps Marketplace.
+
+1. Select **Get it free**.
+
+1. Select your Azure DevOps organization and select **Install**.
+
+### Create an Azure DevOps service connection
+
+To deploy to Azure Container Apps, you need to create an Azure DevOps service connection for your Azure subscription.
+
+1. In Azure DevOps, select **Project settings**.
+
+1. Select **Service connections**.
+
+1. Select **New service connection**.
+
+1. Select **Azure Resource Manager**.
+
+1. Select **Service principal (automatic)** and select **Next**.
+
+1. Enter the following information and select **Save**:
+
+    | Field  | Value |
+    |--|--|
+    | **Subscription** | Select your Azure subscription. |
+    | **Resource group** | Select the resource group (`my-container-app-rg`) that contains your container app and container registry. |
+    | **Service connection name** | `my-subscription-service-connection` |
+
+To learn more about service connections, see [Connect to Microsoft Azure](/azure/devops/pipelines/library/connect-to-azure).
+
+### Create an Azure DevOps YAML pipeline
+
+1. In your Azure DevOps project, select **Pipelines**.
+
+1. Select **New pipeline**.
+
+1. Select **Azure Repos Git**.
+
+1. Select the repo that contains your source code (`my-container-app`).
+
+1. Select **Starter pipeline**.
+
+1. In the editor, replace the contents of the file with the following YAML:
+
+    ```yaml
+    trigger:
+      branches:
+        include:
+          - main
+
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+      - task: AzureContainerAppsRC@V0
+        inputs:
+          appSourcePath: '$(Build.SourcesDirectory)/src'
+          azureSubscription: '<AZURE_SUBSCRIPTION_SERVICE_CONNECTION>'
+          acrName: '<ACR_NAME>'
+          containerAppName: 'my-container-app'
+          resourceGroup: 'my-container-app-rg'
+    ```
+
+    Replace `<AZURE_SUBSCRIPTION_SERVICE_CONNECTION>` with the name of the Azure DevOps service connection you created in the previous step and `<ACR_NAME>` with the name of your Azure Container Registry.
+
+1. Select **Save and run**.
+
+An Azure Pipelines run should start to build and deploy your container app. To check its progress, navigate to *Pipelines* and select the run.
+
+To deploy a new revision of your app, push a new commit to the *main* branch.
