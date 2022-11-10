@@ -155,9 +155,8 @@ Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat
        --type war
    ```
 
-## Connect Postgres Database with identity connectivity
+## Connect Postgres database with identity connectivity
 
-Next, connect your app to an Postgres Database with a system-assigned managed identity using Service Connector. 
 
 ### [Flexible Server](#tab/flexible)
 
