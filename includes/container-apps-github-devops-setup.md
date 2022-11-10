@@ -13,7 +13,7 @@ ms.author: cshoe
     cd src
     ```
 
-1. Create Azure resources and deploy a container app with the [`az containerapp up` command](./containerapp-up.md).
+1. Create Azure resources and deploy a container app with the [`az containerapp up` command](../articles/container-apps/containerapp-up.md).
 
     ```azurecli
     az containerapp up \
@@ -66,4 +66,3 @@ ms.author: cshoe
     ```
 
     Replace `<ACR_NAME>` with the name of your Azure Container Registry.
-    
