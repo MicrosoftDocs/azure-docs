@@ -119,30 +119,6 @@ productDirectory:
         - url: ../hpc-cache/hpc-cache-create.md
           text: Create an Azure HPC Cache
 
-additionalContent:
-  sections:
-    - title: Architecting applications on Azure
-      summary: Best practices and patterns for building applications on Microsoft Azure
-      items: 
-        # Card
-        - title: VM workload 
-          summary: Workloads on general use virtual machines in Azure
-          url: ../virtual-machines/index.yml
-        # Card
-        - title: Azure architecture Center
-          summary: A dedicated cloud located in China and operated by 21Vianet.
-          url: https://learn.microsoft.com/en-us/azure/architecture/
-    - title: Partner solutions
-      items:
-        # Card
-        - title: Azure References and Community
-          summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
-          url: ../partner-solutions/overview.md
-        # Card
-        - title: Commercial marketplace
-          summary: An online marketplace of applications and services from independent software vendor (ISV) partners.
-          url: https://azuremarketplace.microsoft.com/en-us/marketplace/
-
 # Super Computing Announcement
 
 # conceptualContent section (optional)
