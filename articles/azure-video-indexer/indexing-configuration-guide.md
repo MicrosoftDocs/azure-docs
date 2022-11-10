@@ -68,7 +68,7 @@ Below are the indexing type options with details of their insights provided. To 
 
 ### Audio only  
 
-- **Basic**: Indexes and extract insights by using audio only (ignoring video) and provides the following insights: transcription, translation, formatting of output captions and subtitles, named entities (brands, locations, people), and topics.  
+- **Basic**: Indexes and extract insights by using audio only (ignoring video) and provides the following insights: transcription, translation, formatting of output captions and subtitles.
 - **Standard**: Indexes and extract insights by using audio only (ignoring video) and provides the following insights: transcription, translation, formatting of output captions and subtitles, emotions, keywords, named entities (brands, locations, people), sentiments, speakers, and topics.   
 - **Advanced**: Indexes and extract insights by using audio only (ignoring video) and provides the following insights: transcription, translation, formatting of output captions and subtitles, audio effects (preview), emotions, keywords, named entities (brands, locations, people), sentiments, speakers, and articles.   
 

@@ -114,7 +114,7 @@ This category contains the following entity:
 
         IBAN codes for payment instruction information. Also returned with `domain=phi`.
 
-        To get this entity category, add `InternationalBankingAccountNumber` to the `piiCategories` parameter. `InternationlBankingAccountNumber` will be returned in the API response if detected.
+        To get this entity category, add `InternationalBankingAccountNumber` to the `piiCategories` parameter. `InternationalBankingAccountNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="2":::

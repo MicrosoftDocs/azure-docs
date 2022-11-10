@@ -19,7 +19,7 @@ ms.custom: devplatv2
 
 Azure Batch Deployments supports low priority VMs to reduce the cost of batch inference workloads. Low priority VMs enable a large amount of compute power to be used for a low cost. Low priority VMs take advantage of surplus capacity in Azure. When you specify low priority VMs in your pools, Azure can use this surplus, when available.
 
-The tradeoff for using them is that those VMs may not always be available to be allocated, or may be preempted at any time, depending on available capacity. For this reason, they are most suitable for batch and asynchronous processing workloads where the job completion time is flexible and the work is distributed across many VMs.
+The tradeoff for using them is that those VMs may not always be available to be allocated, or may be preempted at any time, depending on available capacity. For this reason, __they are most suitable for batch and asynchronous processing workloads__ where the job completion time is flexible and the work is distributed across many VMs.
 
 Low priority VMs are offered at a significantly reduced price compared with dedicated VMs. For pricing details, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
