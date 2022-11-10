@@ -10,7 +10,8 @@ ms.custom: dev-track-azurepowershell
 # Quickstart: Paginate Azure Resource Graph query results using Azure PowerShell
 
 By default, Azure Resource Graph returns a maximum of 1000 records for each query. However, you can
-use the `skipToken` parameter to adjust how many records you return per request.
+use the *Search-AzGraph* cmdlet's `skipToken` parameter to adjust how many records you return per
+request.
 
 At the end of this quickstart, you'll be able to customize the output volume returned by your Azure Resource
 Graph queries by using Azure PowerShell.
@@ -73,14 +74,19 @@ We'll then configure the query to return five records (VMs) at a time.
    ```powershell
    # Login first with Connect-AzAccount if not using Cloud Shell
 
-   # Run Azure Resource Graph query
-   Search-AzGraph -Query "Resources | join kind=leftouter (ResourceContainers | where type=='microsoft.resources/subscriptions' | project subscriptionName = name, subscriptionId) on subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' | project VMResourceId = id, subscriptionName, resourceGroup, name"
+   # Run Azure Resource Graph query Search-AzGraph -Query "Resources | join kind=leftouter
+   (ResourceContainers | where type=='microsoft.resources/subscriptions' | project subscriptionName
+   = name, subscriptionId) on subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' |
+   project VMResourceId = id, subscriptionName, resourceGroup, name"
    ```
 
 1. Update the query to implement the `skipToken` parameter and return 5 VMs in each batch:
 
    ```powershell
-$kqlQuery = "Resources | join kind=leftouter (ResourceContainers | where type=='microsoft.resources/subscriptions' | project subscriptionName = name,subscriptionId) on subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' | project VMResourceId = id, subscriptionName, resourceGroup,name"
+$kqlQuery = "Resources | join kind=leftouter (ResourceContainers | where
+type=='microsoft.resources/subscriptions' | project subscriptionName = name,subscriptionId) on
+subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' | project VMResourceId = id,
+subscriptionName, resourceGroup,name"
 
 $batchSize = 5
 $skipResult = 0
