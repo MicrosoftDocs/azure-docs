@@ -82,7 +82,7 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
 
 6. After a few minutes wait, a message will appear telling you that your deployment is completed.
 
-   :::image type="content" source="media\iot-hub-to-iot-connector\iot-deployment-complete-banner.png" alt-text="Screenshot of Azure portal page displaying **Your deployment is complete**." lightbox="media\iot-hub-to-iot-connector\iot-deployment-complete-banner.png":::
+   :::image type="content" source="media\iot-hub-to-iot-connector\iot-deployment-complete-banner.png" alt-text="Screenshot of Azure portal page displaying Your deployment is complete." lightbox="media\iot-hub-to-iot-connector\iot-deployment-complete-banner.png":::
 
 ## Review of deployed resources and access permissions
 
@@ -123,14 +123,14 @@ Now that your deployment has successfully completed, we'll connect to your IoT H
 
 3. To create a device within your IoT Hub to use to send a test message, select **…**, and then select **Create Device**. For this example, we'll be creating a device named **device-001**. You'll create a device name of your own choosing.
 
-   :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-device.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting **Create device** for this tutorial." lightbox="media\iot-hub-to-iot-connector\iot-create-device.png":::
+   :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-device.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting Create device for this tutorial." lightbox="media\iot-hub-to-iot-connector\iot-create-device.png":::
 
 4. To send a test message from the newly created device to your IoT Hub, right-click the device and select the **Send D2C Message to IoT Hub** option. For this example, we'll be using a device named **device-001**. You'll use the device you created as part of the previous step.
 
    > [!NOTE]
    > **D2C** stands for Device-to-Cloud. In this example, cloud is the IoT Hub that will be receiving the device message. IoT Hub allows two-way communications, which is why there's also the option to **Send C2D Message to Device Cloud** (C2D stands for Cloud-to-Device).
 
-   :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting the **Send D2C Message to IoT Hub** option." lightbox="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png":::
+   :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting the Send D2C Message to IoT Hub option." lightbox="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png":::
 
 5. In the **Send D2C Messages** box, make the following selections and edits:
 
