@@ -23,9 +23,9 @@ You can migrate Azure Active Directory (Azure AD) policy settings that separatel
 
 For more information about how these policies work together during migration, see [Manage authentication methods for Azure AD](concept-authentication-methods-manage.md).
 
-## Prepare for migration
+## Before you begin
 
-Start by conducting an audit of your existing settings for every authentication method available to users. If you roll back during migration, you'll want a record of the authentication method settings from each of these policies:
+Do an audit of your existing policy settings for each authentication method that's available for users. If you roll back during migration, you'll want a record of the authentication method settings from each of these policies:
 
 - MFA policy
 - SSPR policy
