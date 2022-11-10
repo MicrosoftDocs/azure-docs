@@ -1,7 +1,9 @@
 This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into a SQL database.  
  
-For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md). The following video provides an overview of on-premises provisioning.
+For important details on what this service does, how it works, and frequently asked questions, check out the [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md) articles. 
 
+
+The following video provides an overview of on-premises provisioning.
 
 > [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
@@ -90,28 +92,49 @@ The Windows Server where you'll be installing the provisioning agent requires an
 The generic SQL connector requires a Data Source Name (DSN) file to connect to the SQL endpoint. First, you need to create a file with the ODBC connection information.
 
  1. Start the ODBC management utility on your server.  Use the 64-bit version.
-     ![Screenshot that shows ODBC management.](./media/active-directory-app-provisioning-sql/odbc.png)</br>
- 2. Select the **File DSN** tab, and select **Add**. 
-     ![Screenshot that shows the File DSN tab.](./media/active-directory-app-provisioning-sql/dsn-2.png)</br>
- 3. If you're using SQL Server or Azure SQL, select **SQL Server Native Client 11.0** and select **Next**. If you're using another database, select its ODBC driver.
-     ![Screenshot that shows choosing a native client.](./media/active-directory-app-provisioning-sql/dsn-3.png)</br>
- 4. Give the file a name, such as **GenericSQL**, and select **Next**. 
-     ![Screenshot that shows naming the connector.](./media/active-directory-app-provisioning-sql/dsn-4.png)</br>
- 5. Select **Finish**. 
-     ![Screenshot that shows Finish.](./media/active-directory-app-provisioning-sql/dsn-5.png)</br>
- 6. Now configure the connection. If the SQL Server is located on a different server computer, then enter the name of the server. Then, select **Next**.  Note that the following steps will differ depending upon which ODBC driver you're using.  These assume you're using the driver to connect to SQL Server.
-     ![Screenshot that shows entering a server name.](./media/active-directory-app-provisioning-sql/dsn-6.png)</br>
- 7. If the user you are running this step as has permissions to connect to the database, then keep Windows authentication selected. If the SQL Server administrator requires a SQL local account, then provide those credentials instead. Then select **Next**.
-     ![Screenshot that shows Windows authentication.](./media/active-directory-app-provisioning-sql/dsn-7.png)</br>
- 8. Enter the name of the database, which in this sample is **CONTOSO**.
+     
+    ![Screenshot that shows ODBC management.](./media/active-directory-app-provisioning-sql/odbc.png)
+
+ 1. Select the **File DSN** tab, and select **Add**. 
+ 
+     ![Screenshot that shows the File DSN tab.](./media/active-directory-app-provisioning-sql/dsn-2.png)
+
+ 1. If you're using SQL Server or Azure SQL, select **SQL Server Native Client 11.0** and select **Next**. If you're using another database, select its ODBC driver.
+
+     ![Screenshot that shows choosing a native client.](./media/active-directory-app-provisioning-sql/dsn-3.png)
+     
+ 1. Give the file a name, such as **GenericSQL**, and select **Next**. 
+     ![Screenshot that shows naming the connector.](./media/active-directory-app-provisioning-sql/dsn-4.png)
+     
+ 1. Select **Finish**. 
+     
+     ![Screenshot that shows Finish.](./media/active-directory-app-provisioning-sql/dsn-5.png)
+     
+ 1. Now configure the connection. If the SQL Server is located on a different server computer, then enter the name of the server. Then, select **Next**.  Note that the following steps will differ depending upon which ODBC driver you're using.  These assume you're using the driver to connect to SQL Server.
+     
+     ![Screenshot that shows entering a server name.](./media/active-directory-app-provisioning-sql/dsn-6.png)
+
+ 1. If the user you are running this step as has permissions to connect to the database, then keep Windows authentication selected. If the SQL Server administrator requires a SQL local account, then provide those credentials instead. Then select **Next**.
+
+     ![Screenshot that shows Windows authentication.](./media/active-directory-app-provisioning-sql/dsn-7.png)
+
+ 1. Enter the name of the database, which in this sample is **CONTOSO**.
+     
      ![Screenshot that shows entering a database name.](./media/active-directory-app-provisioning-sql/dsn-8.png)
- 9. Keep everything default on this screen, and select **Finish**.
-     ![Screenshot that shows selecting Finish.](./media/active-directory-app-provisioning-sql/dsn-9.png)</br>
- 10. To check everything is working as expected, select **Test Data Source**. 
-     ![Screenshot that shows Test Data Source.](./media/active-directory-app-provisioning-sql/dsn-10.png)</br>
- 11. Make sure the test is successful.
-     ![Screenshot that shows success.](./media/active-directory-app-provisioning-sql/dsn-11.png)</br>
- 12. Select **OK** twice. Close the ODBC Data Source Administrator.
+
+ 1. Keep everything default on this screen, and select **Finish**.
+
+     ![Screenshot that shows selecting Finish.](./media/active-directory-app-provisioning-sql/dsn-9.png)
+
+ 1. To check everything is working as expected, select **Test Data Source**.
+  
+     ![Screenshot that shows Test Data Source.](./media/active-directory-app-provisioning-sql/dsn-10.png)
+
+ 1. Make sure the test is successful.
+ 
+     ![Screenshot that shows success.](./media/active-directory-app-provisioning-sql/dsn-11.png)
+
+ 1. Select **OK** twice. Close the ODBC Data Source Administrator.
 
 
 
@@ -130,7 +153,9 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
  1. Navigate to the provisioning page of your application.
  1. Select **Get started**.
  1. On the **Provisioning** page, change the mode to **Automatic**.
-     ![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)</br>
+
+     ![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)
+
  1. On the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
  1. Keep this browser window open, as you complete the next step of configuration using the configuration wizard.
 
@@ -138,7 +163,9 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
  ## Configure the Azure AD ECMA Connector Host certificate
  1. On the Windows Server where the provisioning agent is installed, launch the Microsoft ECMA2Host Configuration Wizard from the start menu.
  2. After the ECMA Connector Host Configuration starts, if this is the first time you have run the wizard, it will ask you to create a certificate. Leave the default port **8585** and select **Generate** to generate a certificate. The autogenerated certificate will be self-signed as part of the trusted root. The SAN matches the host name.
+
      ![Screenshot that shows configuring your settings.](.\media\active-directory-app-provisioning-sql\configure-1.png)
+
  3. Select **Save**.
 
 ## Create a generic SQL connector
@@ -147,8 +174,11 @@ In this section, you'll create the connector configuration for your database.
 
  1. If you have not already done so, launch the Microsoft ECMA2Host Configuration Wizard from the start menu.
  2. Select **New Connector**.
-     ![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-3.png)</br>
+
+     ![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-3.png)
+
  3. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+
      ![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-sql\conn-1.png)
 
      |Property|Value|
@@ -158,7 +188,8 @@ In this section, you'll create the connector configuration for your database.
      |Secret Token|Enter your own key here. It should be 12 characters minimum.|
      |Extension DLL|For the generic SQL connector, select **Microsoft.IAM.Connector.GenericSql.dll**.|
 4. On the **Connectivity** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
-     ![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-sql\conn-2.png)</br>
+
+     ![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-sql\conn-2.png)
      
      |Property|Description|
      |-----|-----|
@@ -172,14 +203,16 @@ In this section, you'll create the connector configuration for your database.
 After having provided credentials, the ECMA Connector Host will be ready to retrieve the schema of your database.
 
  5. On the **Schema 1** page, you'll specify the list of object types. In this sample, there is a single object type, `User`. Fill in the boxes with the values specified in the table that follows the image and select **Next**.
-     ![Screenshot that shows the Schema 1 page.](.\media\active-directory-app-provisioning-sql\conn-3.png)</br>
+
+     ![Screenshot that shows the Schema 1 page.](.\media\active-directory-app-provisioning-sql\conn-3.png)
 
      |Property|Value|
      |-----|-----|
      |Object type detection method|Fixed Value|
      |Fixed value list/Table/View/SP|User|
  6. Once you clicked **Next**, an additional page will automatically appear, for the configuration of the `User` object type. On the **Schema 2** page, you'll indicate how users are represented in your database. In this sample, it's a single SQL table, named `Employees`. Fill in the boxes with the values specified in the table that follows the image and select **Next**.
-     ![Screenshot that shows the Schema 2 page.](.\media\active-directory-app-provisioning-sql\conn-4.png)</br>
+
+     ![Screenshot that shows the Schema 2 page.](.\media\active-directory-app-provisioning-sql\conn-4.png)
  
      |Property|Value|
      |-----|-----|
@@ -190,6 +223,7 @@ After having provided credentials, the ECMA Connector Host will be ready to retr
     >If an error occurs, check your database configuration to ensure that the user you specified on the **Connectivity** page has read access to the database's schema.
 
  7. Once you clicked **Next**, an additional page will automatically appear, for you to select the columns of the `Employees` table that are to be used as the `Anchor` and `DN` of users.  On the **Schema 3** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+
      ![Screenshot that shows the Schema 3 page.](.\media\active-directory-app-provisioning-sql\conn-5.png)
 
      |Property|Description|
@@ -197,22 +231,27 @@ After having provided credentials, the ECMA Connector Host will be ready to retr
      |Select Anchor for :User|User:ContosoLogin|
      |Select DN attribute for User|AzureID|
 8. Once you clicked **Next**, an additional page will automatically appear, for you to confirm the data type of each of the columns of the `Employee` table, and whether the connector should import or export them. On the **Schema 4** page, leave the defaults and select **Next**.
-     ![Screenshot that shows the Schema 4 page.](.\media\active-directory-app-provisioning-sql\conn-6.png)</br>
+
+     ![Screenshot that shows the Schema 4 page.](.\media\active-directory-app-provisioning-sql\conn-6.png)
+
  9. On the **Global** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.
-     ![Screenshot that shows the Global page.](.\media\active-directory-app-provisioning-sql\conn-7.png)</br>
+
+     ![Screenshot that shows the Global page.](.\media\active-directory-app-provisioning-sql\conn-7.png)
      
      |Property|Description|
      |-----|-----|
      |Data Source Date Time Format|yyyy-MM-dd HH:mm:ss|
  10. On the **Partitions** page, select **Next**.
-     ![Screenshot that shows the Partitions page.](.\media\active-directory-app-provisioning-sql\conn-8.png)</br>
+
+     ![Screenshot that shows the Partitions page.](.\media\active-directory-app-provisioning-sql\conn-8.png)
 
 ### Configure the run profiles
 
 Next, you'll configure the **Export** and **Full import** run profiles.  The **Export** run profile will be used when the ECMA Connector host needs to send changes from Azure AD to the database, to insert, update and delete records.  The **Full Import** run profile will be used when the ECMA Connector host service starts, to read in the current content of the database.  In this sample, you'll use the Table method in both run profiles, so that the ECMA Connector Host will generate the necessary SQL statements.
 
  11. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**.
-     ![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-sql\conn-9.png)</br>
+
+     ![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-sql\conn-9.png)
      
      |Property|Description|
      |-----|-----|
@@ -220,14 +259,16 @@ Next, you'll configure the **Export** and **Full import** run profiles.  The **E
      |Full import|Run profile that will import all data from SQL sources specified earlier.|
      |Delta import|Run profile that will import only changes from SQL since the last full or delta import.|
  12. Once you clicked **Next**, an additional page will automatically appear, for you to configure the method for the **Export** run profile. On the **Export** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes. 
-     ![Screenshot that shows the Export page.](.\media\active-directory-app-provisioning-sql\conn-10.png)</br>
+
+     ![Screenshot that shows the Export page.](.\media\active-directory-app-provisioning-sql\conn-10.png)
      
      |Property|Description|
      |-----|-----|
      |Operation Method|Table|
      |Table/View/SP|Employees|
  13. On the **Full Import** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes. 
-     ![Screenshot that shows the Full Import page.](.\media\active-directory-app-provisioning-sql\conn-11.png)</br>
+
+     ![Screenshot that shows the Full Import page.](.\media\active-directory-app-provisioning-sql\conn-11.png)
      
      |Property|Description|
      |-----|-----|
@@ -248,18 +289,23 @@ Next, you'll configure the **Export** and **Full import** run profiles.  The **E
      |Query Attribute|ContosoLogin|
      |DN|ContosoLogin|
      |Autogenerated|Checked|      
+
  15. The ECMA connector host discovers the attributes supported by the target database. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning. On the **Select Attributes** page, add all the attributes in the dropdown list one at a time.
-     ![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-sql\conn-13.png)</br>
+ 
+     ![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-sql\conn-13.png)
+
       The **Attribute** dropdown list shows any attribute that was discovered in the target database and *wasn't* chosen on the previous **Select Attributes** page. Once all the relevant attributes have been added, select **Next**.
  
  16. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. Please note that attributes selected on the previous page won't be available to select on the Deprovisioning page. Select **Finish**.
-     ![Screenshot that shows the Deprovisioning page.](.\media\active-directory-app-provisioning-sql\conn-14.png)</br>
+
+     ![Screenshot that shows the Deprovisioning page.](.\media\active-directory-app-provisioning-sql\conn-14.png)
 
 
 ## Ensure the ECMA2Host service is running
  1. On the server the running the Azure AD ECMA Connector Host, select **Start**.
  2. Enter **run** and enter **services.msc** in the box.
  3. In the **Services** list, ensure that **Microsoft ECMA2Host** is present and running. If not, select **Start**.
+
      ![Screenshot that shows the service is running.](.\media\active-directory-app-provisioning-sql\configure-2.png)
 
 
@@ -283,8 +329,11 @@ Next, you'll configure the **Export** and **Full import** run profiles.  The **E
      >[!NOTE]
      >If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes. Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
  7. Select **Test Connection**, and wait one minute.
+
      ![Screenshot that shows assigning an agent.](.\media\active-directory-app-provisioning-sql\configure-5.png)
- 7. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.</br>
+
+ 7. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.
+
      ![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)
 
 ## Configure attribute mappings
@@ -294,11 +343,16 @@ Now you need to map attributes between the representation of the user in Azure A
  1. In the Azure AD portal, under **Enterprise applications**, select the **On-premises ECMA app** application, and then the **Provisioning** page.
  2. Select **Edit provisioning**, and wait 10 seconds.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.
-     ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)</br>
+
+     ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)
+
 4. Select **Add New Mapping**.
-     ![Screenshot that shows Add New Mapping.](.\media\active-directory-app-provisioning-sql\configure-11.png)</br>
+
+     ![Screenshot that shows Add New Mapping.](.\media\active-directory-app-provisioning-sql\configure-11.png)
+
  5. Specify the source and target attributes, and add all the mappings in the following table.
-     ![Screenshot that shows saving the mapping.](.\media\active-directory-app-provisioning-sql\app-6.png)</br>
+
+     ![Screenshot that shows saving the mapping.](.\media\active-directory-app-provisioning-sql\app-6.png)
      
      |Mapping type|Source attribute|Target attribute|
      |-----|-----|-----|
@@ -326,12 +380,19 @@ Otherwise, if there are no current users of the application, then select a test 
  2. Select the **On-premises ECMA app** application.
  3. On the left, under **Manage**, select **Users and groups**.
  4. Select **Add user/group**.
+
      ![Screenshot that shows adding a user.](.\media\active-directory-app-provisioning-sql\app-2.png)
+
 5. Under **Users**, select **None Selected**.
+
      ![Screenshot that shows None Selected.](.\media\active-directory-app-provisioning-sql\app-3.png)
- 6. Select users from the right and select the **Select** button.</br>
+
+ 6. Select users from the right and select the **Select** button.
+ 
      ![Screenshot that shows Select users.](.\media\active-directory-app-provisioning-sql\app-4.png)
+
  7. Now select **Assign**.
+
      ![Screenshot that shows Assign users.](.\media\active-directory-app-provisioning-sql\app-5.png)
      
 ## Test provisioning
@@ -342,13 +403,16 @@ Now that your attributes are mapped and users are assigned, you can test on-dema
  3. On the left, select **Provisioning**.
  4. Select **Provision on demand**.
  5. Search for one of your test users, and select **Provision**.
+
      ![Screenshot that shows testing provisioning.](.\media\active-directory-app-provisioning-sql\configure-13.png)
+
  6. After several seconds, then the message **Successfully created user in target system** will appear, with a list of the user attributes.
 
 ## Start provisioning users
 1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
  
     ![Screenshot that shows Start provisioning.](.\media\active-directory-app-provisioning-sql\configure-14.png)
+
 2. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, if you are done testing, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
 
 ## Troubleshooting provisioning errors
