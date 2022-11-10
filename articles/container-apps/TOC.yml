@@ -106,12 +106,12 @@
       href: connect-apps.md
     - name: Set up continuous deployment
       items:
-        - name: GitHub Actions with Azure CLI
-          href: github-actions-cli.md
-        - name: GitHub Actions
-          href: github-actions.md
         - name: Azure Pipelines
           href: azure-pipelines.md
+        - name: GitHub Actions
+          href: github-actions.md
+        - name: GitHub Actions with Azure CLI
+          href: github-actions-cli.md
     - name: Use a custom VNET
       href: vnet-custom.md
     - name: Use health probes
