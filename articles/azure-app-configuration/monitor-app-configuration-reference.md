@@ -22,7 +22,7 @@ Resource Provider and Type: [App Configuration Platform Metrics](../azure-monito
 | Http Incoming Request Count	| Count	| Total number of incoming Http Request |
 | Http Incoming Request Duration | Milliseconds | Server side duration of an Http Request |
 | Throttled Http Request Count | Count |	Throttled requests are Http requests that receive a response with a status code of 429 |
-| Daily Storage Usage | Count |	Represents the amount of storage in use as a percentage of the maximum allowance. This metric is updated at least once daily. |
+| Daily Storage Usage | Percent |	Represents the amount of storage in use as a percentage of the maximum allowance. This metric is updated at least once daily. |
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
