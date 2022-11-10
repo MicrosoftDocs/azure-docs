@@ -5,7 +5,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
 ms.date: 11/10/2022
-ms.custom: 
+ms.custom: references_regions
 ---
 
 #### Configure the subscription where the Azure Storage account resides for policies from Microsoft Purview
