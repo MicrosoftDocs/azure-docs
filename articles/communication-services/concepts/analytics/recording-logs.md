@@ -43,7 +43,7 @@ Recording file is generated at the end of a call or meeting. The recording can b
 |recordingEndReason|	String | The reason why the recording ended |   
 
 
-### Call recording and sample data
+## Call recording and sample data
 ```json
 "operationName":            "Call Recording Summary",
 "operationVersion":         "1.0",
@@ -55,7 +55,7 @@ A call can have one recording or many recordings depending on how many times a r
 For example, if an agent initiates an outbound call in a recorded line and the call drops due to poor network signal, the `callid` will have one `recordingid`. If the agent calls back the customer, the system will generate a new `callid` as well as a new `recordingid`. 
 
 
-#### Example1: Call recording for " One call to one recording"
+#### Example1: Call recording for "One call to one recording"
 ```json
 "properties"
 {  
@@ -79,7 +79,7 @@ For example, if an agent initiates an outbound call in a recorded line and the c
 
 If the agent initiated a recording and stopped and restarted the recording  multiple times while the call is still on, the `callid` will have many `recordingid` depending on how many times the recording events were triggered.
 
-#### Example2: Call recording for " One call to many recordings"
+#### Example2: Call recording for "One call to many recordings"
 ```json 
 
 {   
