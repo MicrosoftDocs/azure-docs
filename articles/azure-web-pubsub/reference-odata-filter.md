@@ -47,27 +47,57 @@ An interactive syntax diagram is also available:
 
 The filter syntax is used to filter out the connections matching the filter expression to send messages to.
 
-The model for a connection is defined as below:
+Azure Web PubSub supports below identifiers:
+| Identifier | Description | Note | Examples
+| --- | --- | -- | --
+| `userId` | The userId of the connection. | Case insensitive. It can be used in [string operations](#string-operations). | `userId eq 'user1'`
+| `connectionId` | The connectionId of the connection. | Case insensitive. It can be used in [string operations](#string-operations). | `connectionId ne '123'`
+| `groups` | The collection of groups the connection is currently in. | Case insensitive. It can be used in [collection operations](#string-operations). | `'group1' in groups`
 
-```ts
-{
-  connectionId : string,
-  userId: string,
-  groups: string[]
-}
-```
-
-Identifiers are used to refer to the property value of a connection. For example, to filter out connections with userId `user1`, we specify the filter as `userId eq 'user1'`. Read through the below sections for more samples using the filter.
+Identifiers are used to refer to the property value of a connection. Azure Web PubSub supports 3 identifiers matching the property name of the connection model. and supports identifiers `userId` and `connectionId` in string operations, supports identifier `groups` in [collection operations](#collection-operations). For example, to filter out connections with userId `user1`, we specify the filter as `userId eq 'user1'`. Read through the below sections for more samples using the filter.
 
 ### Boolean expressions
+
+The expression for a filter is a boolean expression. When sending messages to connections, Azure Web PubSub sends messages to connections with filter expression evaluated to `true`.
+
 The types of Boolean expressions include:
 
 - Logical expressions that combine other Boolean expressions using the operators `and`, `or`, and `not`. 
 - Comparison expressions, which compare fields or range variables to constant values using the operators `eq`, `ne`, `gt`, `lt`, `ge`, and `le`.
 - The Boolean literals `true` and `false`. These constants can be useful sometimes when programmatically generating filters, but otherwise don't tend to be used in practice.
-- Boolean expressions in parentheses. Using parentheses can help to explicitly determine the order of operations in a filter. For more information on the default precedence of the OData operators, see the next section.
+- Boolean expressions in parentheses. Using parentheses can help to explicitly determine the order of operations in a filter. For more information on the default precedence of the OData operators, see [operator precedence section](#operator-precedence).
 
-### Operator precedence in filters
+### Supported operations
+| Operator | Description | Example
+| --- | --- | ---
+| **Logical Operators**
+| `and` | Logical and | `length(userId) le 10 and length(userId) gt 3`
+| `or` | Logical or | `length(userId) gt 10 or length(userId) le 3`
+| `not` | Logical negation | `not endswith(userId, 'milk')`
+| **Comparison Operators**
+| `eq` | Equal | `userId eq 'user1'`, </br> `userId eq null`
+| `ne` | Not equal | `userId ne 'user1'`, </br> `userId ne null`
+| `gt` | Greater than | `length(userId) gt 10`
+| `ge` | Greater than or equal | `length(userId) ge 10`
+| `lt` | Less than | `length(userId) lt 3`
+| `le` | Less than or equal | `'group1' in groups`, </br> `user in ('user1','user2')`
+| **In Operator**
+| `in` | The right operand MUST be either a comma-separated list of primitive values, enclosed in parentheses, or a single expression that resolves to a collection.| `userId ne 'user1'`
+| **Grouping Operator**
+| `()` | Controls the evaluation order of an expression | `userId eq 'user1' or (not (startswith(userId,'user2'))`
+| **String Functions**
+| `string tolower(string p)` | Get the lower case for the string value | `tolower(userId) eq 'user1'` can match connections for user `USER1` 
+| `string toupper(string p)` | Get the upper case for the string value | `toupper(userId) eq 'USER1'` can match connections for user `user1` 
+| `string trim(string p)` | Trim the string value | `trim(userId) eq 'user1'` can match connections for user ` user1 ` 
+| `string substring(string p, int startIndex)`,</br>`string substring(string p, int startIndex, int length)` | Substring of the string | `substring(userId,5,2) eq 'ab'` can match connections for user `user-ab-de` 
+| `bool endswith(string p0, string p1)` | Check if `p0` ends with `p1` | `endswith(userId,'de')` can match connections for user `user-ab-de` 
+| `bool startswith(string p0, string p1)` | Check if `p0` starts with `p1` | `startswith(userId,'user')` can match connections for user `user-ab-de` 
+| `int indexof(string p0, string p1)` | Get the index of `p1` in `p0`. Returns `-1` if `p0` does not contain `p1`. | `indexof(userId,'-ab-') ge 0` can match connections for user `user-ab-de`
+| `int length(string p)` | Get the length of the input string | `length(userId) gt 1` can match connections for user `user-ab-de`
+| **Collection Functions**
+| `int length(collection p)` | Get the length of the collection | `length(groups) gt 1` can match connections in 2 groups
+
+### Operator precedence
 
 If you write a filter expression with no parentheses around its sub-expressions, Azure Web PubSub service will evaluate it according to a set of operator precedence rules. These rules are based on which operators are used to combine sub-expressions. The following table lists groups of operators in order from highest to lowest precedence:
 
@@ -81,31 +111,31 @@ If you write a filter expression with no parentheses around its sub-expressions,
 An operator that is higher in the above table will "bind more tightly" to its operands than other operators. For example, `and` is of higher precedence than `or`, and comparison operators are of higher precedence than either of them, so the following two expressions are equivalent:
 
 ```odata-filter-expr
-    length(userId) gt 0 and length(userId) lt 3 or length(userId) gt 7 and length(userId) lt 10
-    ((length(userId) gt 0) and (length(userId) lt 3)) or ((length(userId) gt 7) and (length(userId) lt 10))
+length(userId) gt 0 and length(userId) lt 3 or length(userId) gt 7 and length(userId) lt 10
+((length(userId) gt 0) and (length(userId) lt 3)) or ((length(userId) gt 7) and (length(userId) lt 10))
 ```
 
 The `not` operator has the highest precedence of all -- even higher than the comparison operators. That's why if you try to write a filter like this:
 
 ```odata-filter-expr
-    not length(userId) gt 5
+not length(userId) gt 5
 ```
 
 You'll get this error message:
 
 ```text
-    Invalid syntax for 'not length(userId)': Type 'null', expect 'bool'. (Parameter 'filter')
+Invalid syntax for 'not length(userId)': Type 'null', expect 'bool'. (Parameter 'filter')
 ```
 
 This error happens because the operator is associated with just the `length(userId)` expression, which is of type `null` when `userId` is `null`, and not with the entire comparison expression. The fix is to put the operand of `not` in parentheses:
 
 ```odata-filter-expr
-    not (length(userId) gt 5)
+not (length(userId) gt 5)
 ```
 
 ### Filter size limitations
 
-There are limits to the size and complexity of filter expressions that you can send to Azure Web PubSub service. The limits are based roughly on the number of clauses in your filter expression. A good guideline is that if you have hundreds of clauses, you are at risk of exceeding the limit. We recommend designing your application in such a way that it doesn't generate filters of unbounded size.
+There are limits to the size and complexity of filter expressions that you can send to Azure Web PubSub service. The limits are based roughly on the number of clauses in your filter expression. A good guideline is that if you have over 100 clauses, you are at risk of exceeding the limit. We recommend designing your application in such a way that it doesn't generate filters of unbounded size.
 
 ## Examples
 
