@@ -23,7 +23,7 @@ In Database Migration Service, you can migrate your databases offline or while t
 
 ## Migration scenario status
 
-The status of migration scenarios that are supported by Database Migration Service varies over time. Generally, scenarios are first released in *preview*. In preview, Database Migration Service users can try out migration scenarios in directly in the UI. No sign-up is required. Migration scenarios that have a preview release status might not be available in all regions, and they might be revised before final release.
+The status of migration scenarios that are supported by Database Migration Service varies over time. Generally, scenarios are first released in *preview*. In preview, Database Migration Service users can try out migration scenarios directly in the UI. No sign-up is required. Migration scenarios that have a preview release status might not be available in all regions, and they might be revised before final release.
 
 After preview, the scenario status changes to *general availability* (GA). GA is the final release status. Scenarios that have a status of GA have complete functionality and are accessible to all users.
 
