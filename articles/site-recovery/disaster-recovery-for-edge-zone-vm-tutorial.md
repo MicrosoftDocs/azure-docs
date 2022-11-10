@@ -1,5 +1,5 @@
 ---
-title: Set up disaster recovery for VMs on Edge Zone (preview)
+title: Set up disaster recovery for VMs on Edge Zone (preview) using Vault flow
 description: Learn how to set up disaster recovery for virtual machines on Edge Zone (preview).
 author: v-pgaddala
 ms.service: site-recovery
@@ -8,7 +8,7 @@ ms.date: 11/09/2022
 ms.author: v-pgaddala
 ---
 
-# Tutorial: Set up disaster recovery for VMs on Edge Zone (preview)
+# Tutorial: Set up disaster recovery for VMs on Edge Zone (preview) using Vault flow
 
 This tutorial shows you how to set up disaster recovery for VMs on Edge Zone (preview) using Azure Site Recovery. In this article, you learn how to:
 
