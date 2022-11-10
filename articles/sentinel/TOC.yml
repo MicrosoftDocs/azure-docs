@@ -240,7 +240,7 @@
         href: connect-microsoft-365-defender.md
       - name: Windows security events
         href: data-connectors-reference.md#windows-security-events-via-ama
-     - name: All connectors
+    - name: All connectors
       href: 
       displayName: 
       monikers: 
