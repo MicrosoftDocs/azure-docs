@@ -80,6 +80,7 @@ Set the values of the Application (client) ID, Directory (tenant) ID, and client
 | AZURE_CLIENT_ID       | Application (client) ID in your registered application          |
 | AZURE_CLIENT_SECRET   | The value of the client secret in your registered application   |
 | AZURE_TENANT_ID       | Directory (tenant) ID in your registered application            |
+| MAPS_CLIENT_ID           | The client ID in your Azure Map resource                   |
 
 Now you can create environment variables in PowerShell to store these values:
 
