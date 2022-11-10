@@ -111,7 +111,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-network-group.png" alt-text="Screenshot of add a network group button.":::
 
-1. On the *Basics* tab, enter the following information:
+1. On the **Create a network group** screen, enter the following information:
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-basics.png" alt-text="Screenshot of the Basics tab on Create a network group page.":::
 
@@ -120,7 +120,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Name | Enter **myNetworkGroupB** for the network group name. |
     | Description | Provide a description about this network group. |
 
-1. Select **Add** to create the virtual network group.
+1. Select **Create** to create the virtual network group.
 
 1. From the **Network groups** page, select the created network group from above to configure the network group.
 
