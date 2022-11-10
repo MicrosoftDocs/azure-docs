@@ -83,7 +83,9 @@ Every 30 minutes, Change Analysis captures the configuration state of a web appl
 
 :::image type="content" source="./media/change-analysis/scan-changes.png" alt-text="Screenshot of the selecting the Refresh button to view latest changes.":::   
 
-If you don't see file changes within 30 minutes or configuration changes within 6 hours, refer to [our troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app). [See known limitations.](#limitations)
+If you don't see file changes within 30 minutes or configuration changes within 6 hours, refer to [our troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app). 
+
+[See known limitations.](#limitations)
 
 Currently, all text-based files under site root **wwwroot** with the following extensions are supported:
 
@@ -123,6 +125,7 @@ Currently the following dependencies are supported in **Web App Diagnose and sol
 - **Web app deployment changes**: Code deployment change information might not be available immediately in the Change Analysis tool. To view the latest changes in Change Analysis, select **Refresh**.
 - **App Services file changes**: File changes take up to 30 minutes to display.
 - **App Services configuration changes**: Due to the snapshot approach to configuration changes, timestamps of configuration changes could take up to 6 hours to display from when the change actually happened.
+- **Web app deployment and configuration changes**: Since these changes are collected by a site extension and stored on disk space owned by your application, data collection and storage is subject to your application's behavior. Check to see if a misbehaving application is affecting the results.
 
 ## Next steps
 

@@ -227,7 +227,7 @@ Number Friendly Name Serial Number                    HealthStatus         Opera
 Where disk number 2 is the uninitialized data disk attached to this compute node. These disks can then be initialized, partitioned,
 and formatted as required for your workflow.
 
-For more information about Azure data disks in Linux, see this [article](../virtual-machine-scale-sets/tutorial-use-disks-powershell.md).
+For more information about Azure data disks in Windows, see this [article](../virtual-machine-scale-sets/tutorial-use-disks-powershell.md).
 
 ### Collect Batch agent logs
 

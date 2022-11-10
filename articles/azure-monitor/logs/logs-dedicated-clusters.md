@@ -25,7 +25,7 @@ Capabilities that require dedicated clusters:
 
   | Americas | Europe | Middle East | Africa | Asia Pacific |
   |---|---|---|---|---|
-  | Brazil South | France Central | | South Africa North | Australia East |
+  | Brazil South | France Central | UAE North | South Africa North | Australia East |
   | Canada Central | Germany West Central | | | Central India |
   | Central US | North Europe | | | Japan East |
   | East US | Norway East | | | Korea Central |
