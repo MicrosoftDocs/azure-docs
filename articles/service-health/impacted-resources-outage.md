@@ -9,7 +9,7 @@ ms.date: 11/9/2022
 
 [Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health/) helps customers view any health events that impact their Subscriptions and Tenants. The Service Issues blade on Service Health shows any ongoing problems in Azure services that are impacting your resources. You can understand when the issue began, and what services and regions are impacted. Previously, the Potential Impact tab on the Service Issues blade was within the details of an incident. It showed any resources under a customer's Subscriptions or Tenants that may be impacted by an outage, and their resource health signal to help customers evaluate impact.
 
-**In support of the impacted resource experience Service health enabled a new feature for to:**
+**In support of the impacted resource experience, Service Health has enabled a new feature to:**
 
 - Replace “Potential Impact” tab with “Impacted Resources” tab on Service Issues.
 - Display resources that are confirmed to be impacted by an outage.
