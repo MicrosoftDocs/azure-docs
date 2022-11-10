@@ -378,7 +378,7 @@ In the example below, we can use `PySpark` to run an aggregation:
 
 ```PySpark
 df.groupBy(df.item.string).sum().show()
-` ``
+```
 
 In the example below, we can use `PySQL` to run another aggregation:
 
