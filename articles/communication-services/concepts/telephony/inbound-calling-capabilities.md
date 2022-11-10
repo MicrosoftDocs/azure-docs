@@ -22,7 +22,7 @@ Supported in General Availability, to set up inbound calling for Dynamics 365 OC
 
 **Inbound calling with ACS Call Automation SDK**
 
-Call Automation enables you to build server-based, intelligent call workflows. You can use the SDK to receive and manage incoming calls to your resource. It supports managing incoming calls to the phone numbers acquired from Communication Services and incoming calls via Direct Routing. You can also use Call Automation to place outbound calls from the phone numbers owned by your resource, among other capabilities.   
+Call Automation enables you to build custom calling workflows within your applications to optimize business processes and boost customer satisfaction. The library supports managing incoming calls to the phone numbers acquired from Communication Services and incoming calls via Direct Routing. You can also use Call Automation to place outbound calls from the phone numbers owned by your resource, among other capabilities.   
 
 Learn more about [Call Automation](../voice-video-calling/call-automation.md), currently available in public preview.
 
