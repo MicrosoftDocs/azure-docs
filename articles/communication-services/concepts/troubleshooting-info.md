@@ -331,7 +331,7 @@ The below error codes are exposed by Call Automation SDK.
 
 Consider the below tips when troubleshooting certain issues. 
 - Your application is not getting IncomingCall Event Grid event: Make sure the application endpoint has been [validated with Event Grid](../../event-grid/webhook-event-delivery.md) at the time of creating event subscription. The provisioning status for your event subscription will be marked as succeeded if the validation was successful. 
-- Getting the error 'The field CallbackUri is invalid': Call Automation does not support HTTP endpoints. Make sure the the callback url you provide supports HTTPS.
+- Getting the error 'The field CallbackUri is invalid': Call Automation does not support HTTP endpoints. Make sure the callback url you provide supports HTTPS.
 - PlayAudio action does not play anything: Currently only Wave file (.wav) format is supported for audio files. The audio content in the wave file must be mono (single-channel), 16-bit samples with a 16,000 (16KHz) sampling rate.
 - Actions on PSTN endpoints aren't working: CreateCall, Transfer, AddParticipant and Redirect to phone numbers require you to set the  SourceCallerId in the action request. Unless you are using Direct Routing, the source caller ID should be a phone number owned by your Communication Services resource for the action to succeed. 
 
