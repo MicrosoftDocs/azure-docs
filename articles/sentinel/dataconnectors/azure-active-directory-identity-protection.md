@@ -1,0 +1,28 @@
+---
+title: # Azure Active Directory Identity Protection connector for Microsoft Sentinel
+description: Learn how to install the # Azure Active Directory Identity Protection connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+author: cwatson-cat
+ms.topic: how-to
+ms.date: 11/10/2022
+ms.service: microsoft-sentinel
+ms.author: cwatson
+---
+
+# Azure Active Directory Identity Protection connector for Microsoft Sentinel
+
+Azure Active Directory Identity Protection provides a consolidated view at risk users, risk events and vulnerabilities, with the ability to remediate risk immediately, and set policies to auto-remediate future events. The service is built on Microsoft’s experience protecting consumer identities and gains tremendous accuracy from the signal from over 13 billion logins a day. ​ Integrate Microsoft Azure Active Directory Identity Protection alerts with Microsoft Sentinel to view dashboards, create custom alerts, and improve investigation.​
+
+[Get Azure Active Directory Premium P1/P2 >​](https://aka.ms/asi-ipcconnectorgetlink)
+
+## Connector attributes
+
+| Connector attribute | Description |
+| --- | --- |
+| **Log Analytics table(s)** | SecurityAlert (IPC)<br/> |
+| **Data collection rules support** | Not currently supported |
+| **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
+
+
+## Next steps
+
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivedirectoryip?tab=Overview) in the Azure Marketplace.
