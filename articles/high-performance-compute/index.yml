@@ -71,7 +71,7 @@ productDirectory:
           text: Getting Started with VDI
     # Card
     - title: Batch
-      imageSrc: ../virtual-machines/media/logos/azure-logo.png
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       links:
         - url: ../batch/batch-technical-overview.md
           text: What is Azure Batch?
@@ -80,7 +80,7 @@ productDirectory:
     # Card
     - title: HPC compute sizes
       # imageSrc should be square in ratio with no white space
-      imageSrc: ../virtual-machines/media/sizes/azurevmsthumb.jpg
+      imageSrc: ../high-performance-compute/media/Scale.svg
       links:
         - url: ../virtual-machines/sizes-hpc.md
           text: HPC VM sizes
@@ -91,14 +91,16 @@ productDirectory:
     # Card
     - title: HPC Cache
       # imageSrc should be square in ratio with no white space
-      imageSrc: ../virtual-machines/media/sizes/azurevmsthumb.jpg
+      imageSrc: ../high-performance-compute/media/Azure-HCP-Cache.svg
       links:
         - url: ../hpc-cache/hpc-cache-overview.md
           text: What is Azure HPC Cache
         - url: ../hpc-cache/hpc-cache-create.md
           text: Create an Azure HPC Cache
-        - url: ../learn/browse/?products=azure&term=hpc-cache
-          text: Azure HPC Cache documentation
+        - url: https://learn.microsoft.com/en-us/training/modules/introduction-azure-hpc-cache/
+          text: Introduction to Azure HPC Cache (Training)
+        - url: https://learn.microsoft.com/en-us/training/modules/accelerate-storage-with-hpc-cache/
+          text: Accelerating storage with HPC Cache (Training) 
 
 # Super Computing Announcement
 
