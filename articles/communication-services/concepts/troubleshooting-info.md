@@ -317,27 +317,25 @@ The Azure Communication Services Calling SDK uses the following error codes to h
 | 603 | Call globally declined by remote Communication Services participant | Expected behavior. |
 
 ## Call Automation SDK error codes 
-The below error codes are exposed by Call Automation SDK through the property <placeholder>  
+The below error codes are exposed by Call Automation SDK.
+
 | Error Code | Description | Actions to take |
 |--|--|--|
-| 400 | Bad request           | Request is not valid.
-| 401 | Unauthorized          | Request is unauthorized.
-| 403 | Forbidden             | Request is forbidden, most probably invalid signature or attempt at cross acs resource access.
-| 404 | Resource not found    | The call automation resource identified by the request does not exist.    
-| 429 | Too many requests     | The caller has sent too many requests in a given amount of time, exceeding the request rate limit. Retry after a delay suggested in the Retry-After header, then exponentially backoff.
-| 500 | Internal server error | The service is currently unable to handle the request due to an internal error. Retry after a delay.
-| 502 | Bad gateway           | The service became unreachable, retry after a delay with fresh http client.
-
-Todo: refine actions to take, check if sub codes need to be exposed + media actions + recording.
+| 400 | Bad request           | The input request is invalid. Look at the error message to determine which input is incorrect.
+| 401 | Unauthorized          | HMAC authentication failed. Verify whether the connection string used to create CallAutomationClient is correct.
+| 403 | Forbidden             | Request is forbidden. Make sure that you can have access to the resource you are trying to access. 
+| 404 | Resource not found    | The call you are trying to act on doesn't exist. For example, transferring a call that has already disconnected.
+| 429 | Too many requests     | Retry after a delay suggested in the Retry-After header, then exponentially backoff.
+| 500 | Internal server error | Retry after a delay. If it persists, raise a support ticket.
+| 502 | Bad gateway           | Retry after a delay with a fresh http client.
 
 Consider the below tips when troubleshooting certain issues. 
 - Your application is not getting IncomingCall Event Grid event: Make sure the application endpoint has been [validated with Event Grid](../../event-grid/webhook-event-delivery.md) at the time of creating event subscription. The provisioning status for your event subscription will be marked as succeeded if the validation was successful. 
 - Getting the error 'The field CallbackUri is invalid': Call Automation does not support HTTP endpoints. Make sure the the callback url you provide supports HTTPS.
 - PlayAudio action does not play anything: Currently only Wave file (.wav) format is supported for audio files. The audio content in the wave file must be mono (single-channel), 16-bit samples with a 16,000 (16KHz) sampling rate.
-- Actions on PSTN endpoints aren't working: CreateCall, Transfer, AddParticipant and Redirect to phone numbers require you to set the  SourceCallerId in the action request. The source caller ID should be a phone number owned by your Communication Services resource for the action to succeed. If you are using Direct Routing, the source caller ID doesn't need to be Communication Services owned phone number.
-- 404 Call Not Found error for pre-call actions: Due to asynchronous nature of call actions, when you receive a success response (200 OK, 204 No Content) it means your request has been submitted and the actual action is being performed. A successful answer will result in CallConnected event. However a failed answer or redirect or reject doesn't result in a failure event. Lets take an example. Trying to answer a call that has already been hung up will immediately return 200 OK with CallConnectionProperties. However, since the call cannot be answered,  the action will fail. Any subsequent action on the call (eg. HangUp call) will return 404 Call Not Found error. 
+- Actions on PSTN endpoints aren't working: CreateCall, Transfer, AddParticipant and Redirect to phone numbers require you to set the  SourceCallerId in the action request. Unless you are using Direct Routing, the source caller ID should be a phone number owned by your Communication Services resource for the action to succeed. 
 
-Refer to [this article](./known-issues.md) to learn about known issues being tracked by the product team. 
+Refer to [this article](./known-issues.md) to learn about any known issues being tracked by the product team. 
 
 ## Chat SDK error codes
 
