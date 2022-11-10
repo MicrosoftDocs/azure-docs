@@ -61,7 +61,7 @@ This article provides a feature analysis of Cloud Services (extended support) an
 
 | Feature |  Cloud Services (extended Support) | Virtual Machine Scale Sets (Flex) | Virtual Machine Scale Sets (Uniform) | 
 |---|---|---|---|
-|Availability SLA|[99.95%](https://azure.microsoft.com/support/legal/sla/cloud-services/v1_5/) for instances spread across fault domains|99.95% for instances spread across fault domains; [99.99%](https://azure.microsoft.com/support/legal/sla/virtual-machine-scale-sets/v1_1/) for instances spread across multiple zones|[99.95](https://azure.microsoft.com/support/legal/sla/virtual-machine-scale-sets/v1_1/) for FD>1 in Single Placement Group 99.99% for instances spread across multiple zones|
+|Availability SLA|[SLA](https://azure.microsoft.com/support/legal/sla/cloud-services/v1_5/)|[SLA](https://azure.microsoft.com/support/legal/sla/virtual-machine-scale-sets/v1_1/)|[SLA](https://azure.microsoft.com/support/legal/sla/virtual-machine-scale-sets/v1_1/)|
 |Availability Zones|No|Specify instances land across 1, 2 or 3 availability zones|Specify instances land across 1, 2 or 3 availability zones|
 |Assign VM to a Specific Availability Zone|No|Yes|No|
 |Fault Domain – Max Spreading (Azure will maximally spread instances)|Yes|Yes|Yes|
