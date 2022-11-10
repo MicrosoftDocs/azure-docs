@@ -1615,9 +1615,9 @@ additionalContent:
     - title: Partner solutions
       items:
         # Card
-        - title: Azure partner solutions
+        - title: Azure Native ISV Services
           summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
-          url: ./partner-solutions/overview.md
+          url: ./partner-solutions/index.yml
         # Card
         - title: Commercial marketplace
           summary: An online marketplace of applications and services from independent software vendor (ISV) partners.
