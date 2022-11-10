@@ -51,7 +51,7 @@ Any container that is created in a serverless account is a serverless container.
 
 ### Serverless 1 TB container preview
 Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md). After the request is approved, all existing and future serverless accounts in the subscription will be able to use containers with size up to 1 TB.
-:::image type="content" source="media/serverless/enable-1TB-preview.png" alt-text="Image of serverless 1 TB container in Preview Features page in Subscription overview in Azure Portal":::
+:::image type="content" source="media/serverless/enable-1-tb-preview.png" alt-text="Screenshot of serverless 1 TB container in Preview Features page in Subscription overview in Azure Portal.":::
 
 ## Monitoring your consumption
 
@@ -59,7 +59,7 @@ If you have used Azure Cosmos DB in provisioned throughput mode before, you'll f
 
 When browsing the **Metrics** pane of your account, you'll find a chart named **Request Units consumed** under the **Overview** tab. This chart shows how many Request Units your account has consumed:
 
-:::image type="content" source="./media/serverless/request-units-consumed.png" alt-text="Chart showing the consumed Request Units" border="false":::
+:::image type="content" source="./media/serverless/request-units-consumed.png" alt-text="Chart showing the consumed Request Units." border="false":::
 
 You can find the same chart when using Azure Monitor, as described [here](monitor-request-unit-usage.md). Azure Monitor enables the ability to configure [alerts](../azure-monitor/alerts/alerts-metric-overview.md), which can be used to notify you when your Request Unit consumption has passed a certain threshold.
 
