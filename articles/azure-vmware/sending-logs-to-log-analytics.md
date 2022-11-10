@@ -37,7 +37,10 @@ A Log Analytics workspace:
 
 1. In the Azure portal, go to + Create a resource.
 2. Search for “Log Analytics Workspace” and click Create -> Log Analytics Workspace.
-3. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
+
+:::image type="content" source="media/log-analytics/Marketplace.png" alt-text="Marketplace.":::
+
+1. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
 
 ### Add a diagnostic setting
 
