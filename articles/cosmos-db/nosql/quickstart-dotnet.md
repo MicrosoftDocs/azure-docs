@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 11/03/2022
+ms.date: 11/07/2022
 ms.custom: devx-track-csharp, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet-path
 ---
 
@@ -27,8 +27,7 @@ Get started with the Azure Cosmos DB client library for .NET to create databases
 ## Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  - Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit.
+  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 - [.NET 6.0 or later](https://dotnet.microsoft.com/download)
 - [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
@@ -44,7 +43,7 @@ This section walks you through creating an Azure Cosmos DB account and setting u
 ### <a id="create-account"></a>Create an Azure Cosmos DB account
 
 > [!TIP]
-> Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit. If you create an account using the free trial, you can safely skip this section.
+> No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required. If you create an account using the free trial, you can safely skip ahead to the [Create a new .NET app](#create-a-new-net-app) section.
 
 [!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](./includes/create-resources.md)]
 

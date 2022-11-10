@@ -3,7 +3,7 @@ title: Manage GCP assessments and standards
 titleSuffix: Defender for Cloud
 description: Learn how to create custom security assessments and standards for your GCP environment.
 ms.topic: how-to
-ms.date: 10/18/2022
+ms.date: 11/08/2022
 ---
 
 # Manage GCP assessments and standards
@@ -81,7 +81,7 @@ You can either use the built-in compliance standards or create your own custom s
 
 1. Select **Save**.
 
-## Create a new custom assessment for your GCP project
+## Create a new custom assessment for your GCP project (Preview)
 
 **To create a new custom assessment to your GCP project**:
 

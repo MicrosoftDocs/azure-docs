@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022, passwordless-java
 ---
 
 # Bind an Azure Database for MySQL instance to your application in Azure Spring Apps

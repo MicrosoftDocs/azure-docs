@@ -59,7 +59,7 @@ After deleting workflows, you can view them on the **Deleted Workflows (Preview)
 
 ## Delete a workflow using Microsoft Graph
 
-To delete a workflow using API via Microsoft Graph, see: [Delete workflow (lifecycle workflow)](/graph/api/identitygovernance-workflow-delete?view=graph-rest-beta).
+To delete a workflow using API via Microsoft Graph, see: [Delete workflow (lifecycle workflow)](/graph/api/identitygovernance-workflow-delete?view=graph-rest-beta&preserve-view=true).
 
 
 To view
