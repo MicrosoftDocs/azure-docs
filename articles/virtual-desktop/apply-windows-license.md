@@ -3,7 +3,7 @@ title: Apply Windows license to session host virtual machines - Azure
 description: Describes how to apply the Windows license for Azure Virtual Desktop VMs.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/14/2019
+ms.date: 11/10/2022
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 ---
@@ -12,15 +12,24 @@ ms.custom: devx-track-azurepowershell
 Customers who are properly licensed to run Azure Virtual Desktop workloads are eligible to apply a Windows license to their session host virtual machines and run them without paying for another license. For more information, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
 ## Ways to use your Azure Virtual Desktop license
-Azure Virtual Desktop licensing allows you to apply a license to any Windows or Windows Server virtual machine that is registered as a session host in a host pool and receives user connections. This license does not apply to virtual machines that are running as file share servers, domain controllers, and so on.
 
-There are a few ways to use the Azure Virtual Desktop license:
-- You can create a host pool and its session host virtual machines using the [Azure Marketplace offering](./create-host-pools-azure-marketplace.md). Virtual machines created this way automatically have the license applied.
-- You can create a host pool and its session host virtual machines using the [GitHub Azure Resource Manager template](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates). Virtual machines created this way automatically have the license applied.
-- You can apply a license to an existing session host virtual machine. To do this, first follow the instructions in [Create a host pool with PowerShell or the Azure CLI](./create-host-pools-powershell.md) to create a host pool and associated VMs, then return to this article to learn how to apply the license.
+Azure Virtual Desktop licensing allows you to apply a license to any Windows or Windows Server virtual machine (VM) that's registered as a session host in a host pool and receives user connections. This license doesn't apply to virtual machines running as file share servers, domain controllers, and so on.
+
+These are the ways you can apply a Azure Virtual Desktop license to your VMs:
+
+- You can create a host pool and its session host virtual machines [in the Azure portal](./create-host-pools-azure-marketplace.md). Creating VMs in the Azure portal automatically applies the license.
+  
+   >[!NOTE]
+   >If you create a VM using the Azure Virtual desktop host pool creation process, your VM will automatically have the Windows_Client license type and be visible in the **Configuration - Licensing** menu.
+
+- You can create a host pool and its session host virtual machines using the [GitHub Azure Resource Manager template](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates). Creating VMs with this method automatically applies the license.
+- You can manually apply a license to an existing session host virtual machine. To apply the license this way, first follow the instructions in [Create a host pool with PowerShell or the Azure CLI](./create-host-pools-powershell.md) to create a host pool and associated VMs, then return to this article to learn how to apply the license.
 
 ## Apply a Windows license to a session host VM
-Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azure/). Run the following PowerShell cmdlet to apply the Windows license:
+
+Before you start, make sure you have [installed and configured the latest version of Azure PowerShell](/powershell/azure/). 
+
+Next, run the following PowerShell cmdlet to apply the Windows license:
 
 ```powershell
 $vm = Get-AzVM -ResourceGroup <resourceGroupName> -Name <vmName>
@@ -29,7 +38,9 @@ Update-AzVM -ResourceGroupName <resourceGroupName> -VM $vm
 ```
 
 ## Verify your session host VM is utilizing the licensing benefit
+
 After deploying your VM, run this cmdlet to verify the license type:
+
 ```powershell
 Get-AzVM -ResourceGroupName <resourceGroupName> -Name <vmName>
 ```
