@@ -25,7 +25,7 @@ This article details what is communicated to users and where they can view infor
 
 The impacted resources tab under Azure Portal-> Service Health ->Service Issues will display resources that are Confirmed to be impacted by an outage and resources that could Potentially be impacted by an outage. Below is an example of impacted resources tab for an incident on Service Issues with Confirmed and Potential impact resources.
 
-:::image type="content" source="./media/impacted-resource-outages/ir-portal.PNG" alt-text="Screenshot of Azure Service Health impacted resources information.":::
+:::image type="content" source="./media/impacted-resource-outage/ir-portal.PNG" alt-text="Screenshot of Azure Service Health impacted resources information.":::
 
 ##### Service Health provides the below information to users whose resources are impacted by an outage:
 
@@ -61,7 +61,7 @@ The health status listed under **[Resource Health](../azure/service-health/resou
 - A health status of available means your resource is healthy but it may have been affected by the service event at a previous point in time.
 - A health status of degraded or unavailable (caused by a customer-initiated action or platform-initiated action) means your resource is impacted but could be now healthy and pending a status update.
 
-:::image type="content" source="./media/impacted-resource-outages/icons.PNG" alt-text="Screenshot of Impacted resource health status icons and impact type":::
+:::image type="content" source="./media/impacted-resource-outage/icons.PNG" alt-text="Screenshot of Impacted Resources health status icons and impact type":::
 
 
 >[!Note]
