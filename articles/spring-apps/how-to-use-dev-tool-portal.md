@@ -49,7 +49,7 @@ To set up SSO with Azure AD, see [How to set up single sign-on with Azure AD for
 > [!NOTE]
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
 
-To update SSO configuration with Azure CLI, run the following command:
+To update SSO configuration and expose to public with Azure CLI, run the following command:
 
 ```azurecli
 az spring update \
@@ -57,6 +57,7 @@ az spring update \
     --scopes "scope1,scope2" \
     --client-secret "<client-secret>" \
     --metadata-url "https://example.com/.well-known/openid-configuration"
+    --assign-endpoint
 ```
 
 ## Assign a public endpoint for Dev Tool Portal
