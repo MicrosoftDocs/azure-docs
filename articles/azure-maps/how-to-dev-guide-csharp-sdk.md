@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the C# SDK Developers Guide.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/31/2021
+ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -58,6 +58,73 @@ dotnet add package Azure.Maps.Geolocation --prerelease
 | [Routing][routing readme] | [Azure.Maps.Routing][routing package] |  [routing samples][routing sample] |
 | [Rendering][rendering readme]| [Azure.Maps.Rendering][rendering package]|[rendering sample][rendering sample] |
 | [Geolocation][geolocation readme]|[Azure.Maps.Geolocation][geolocation package]|[geolocation sample][geolocation sample]|
+
+## Create and authenticate a MapsSearchClient
+
+The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a `TokenCredential` object with the Azure Maps client ID when authenticating using Azure Active Directory (Azure AD).  For more information on authentication, see [Authentication with Azure Maps][authentication].
+
+### Using an Azure AD credential
+
+You can authenticate with Azure AD using the [Azure Identity library][Identity library .NET]. To use the [DefaultAzureCredential][defaultazurecredential.NET] provider, you'll need to install the Azure Identity client library for .NET:
+
+```powershell
+dotnet add package Azure.Identity 
+```
+
+You'll need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. During this process you'll get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You'll need them in the following steps.
+
+Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
+
+| Environment Variable  | Description                                                     |
+|-----------------------|-----------------------------------------------------------------|
+| AZURE_CLIENT_ID       | Application (client) ID in your registered application          |
+| AZURE_CLIENT_SECRET   | The value of the client secret in your registered application   |
+| AZURE_TENANT_ID       | Directory (tenant) ID in your registered application            |
+
+Now you can create environment variables in PowerShell to store these values:
+
+```powershell
+$Env:AZURE_CLIENT_ID="Application (client) ID"
+$Env:AZURE_CLIENT_SECRET="your client secret"
+$Env:AZURE_TENANT_ID="your Directory (tenant) ID"
+```
+
+After setting up the environment variables, you can use them in your program to instantiate the `AzureMapsSearch` client:
+
+```csharp
+using System;
+using Azure.Identity; 
+using Azure.Maps.Search; 
+
+var credential = new DefaultAzureCredential(); 
+var clientId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID"); 
+var client = new MapsSearchClient(credential, clientId); 
+
+```
+
+### Using a subscription key credential
+
+You can authenticate with your Azure Maps subscription key. Your subscription key can be found in the **Authentication** section in the Azure Maps account as shown in the following screenshot:
+
+:::image type="content" source="./media/rest-sdk-dev-guides/subscription-key.png" alt-text="A screenshot showing the subscription key in the Authentication section of an Azure Maps account." lightbox="./media/rest-sdk-dev-guides/subscription-key.png":::
+
+Now you can create environment variables in PowerShell to store the subscription key:
+
+```powershell
+$Env:Subscription_key="your subscription key"
+```
+
+Once your environment variable is created, you can access it in your code:
+
+```csharp
+using System;
+using Azure; 
+using Azure.Maps.Search; 
+
+// Use Azure Maps subscription key authentication 
+var credential = Environment.GetEnvironmentVariable("Subscription_key"); 
+var client = new MapsSearchClient(credential); 
+```
 
 ### Fuzzy search an entity
 
@@ -317,3 +384,7 @@ The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 [geolocation sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Geolocation/samples
 [FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch
 [Azure.Maps Namespace]: /dotnet/api/azure.maps
+[search-api]: /dotnet/api/azure.maps.search
+[Identity library .NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet
+[defaultazurecredential.NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet#defaultazurecredential
+[NuGet]: https://www.nuget.org/
