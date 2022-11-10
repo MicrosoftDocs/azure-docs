@@ -17,7 +17,7 @@
     },
     "areas": [
         {
-            "name": ".",
+            "name": [ "."],
             "heading": "Azure Active Directory application management"
         }
     ]

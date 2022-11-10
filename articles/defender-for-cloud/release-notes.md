@@ -16,6 +16,27 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## November 2022
+
+Updates in November include:
+
+- [Protect containers in your entire GKE organization with Defender for Containers](#protect-containers-in-your-entire-gke-organization-with-defender-for-containers)
+- [Validate Defender for Containers protections with sample alerts](#validate-defender-for-containers-protections-with-sample-alerts)
+
+### Protect containers in your entire GKE organization with Defender for Containers
+
+Defender for Containers helps you secure your Azure and multicloud container environments with environment hardening, vulnerability assessment, and run-time threat protection for nodes and clusters. GCP users enable this protection by connecting the GCP projects to Defender for Cloud using the native GCP connector.
+
+Now you can enable Defender for Containers for your GCP organization to protect clusters across your entire GCP organization. Create a new GCP connector or update your existing GCP connectors that connect organizations to Defender for Cloud, and enable Defender for Containers.
+
+Learn more about [connecting GCP projects and organizations](quickstart-onboard-gcp.md#connect-your-gcp-project) to Defender for Cloud.
+
+### Validate Defender for Containers protections with sample alerts
+
+You can now create sample alerts also for Defender for Containers plan. The new sample alerts are presented as being from AKS, Arc-connected clusters, EKS, and GKE resources with different severities and MITRE tactics. You can use the sample alerts to validate security alert configurations, such as SIEM integrations, workflow automation, and email notifications.
+
+Learn more about [alert validation](alert-validation.md).
+
 ## October 2022
 
 Updates in October include:
@@ -126,12 +147,12 @@ We have renamed the Auto-provisioning page to **Settings & monitoring**.
 Auto-provisioning was meant to allow at-scale enablement of prerequisites, which are needed by Defender for Cloud's advanced features and capabilities. To better support our expanded capabilities, we are launching a new experience with the following changes: 
 
 **The Defender for Cloud's plans page now includes**:
-- When you enable Defender plans, a Defender plan that requires monitoring components automatically turns on the required components with default settings. These settings can be edited by the user at any time.
+- When you enable a Defender plan that requires monitoring components, those components are enabled for automatic provisioning with default settings. These settings can optionally be edited at any time.
 - You can access the monitoring component settings for each Defender plan from the Defender plan page.
 - The Defender plans page clearly indicates whether all the monitoring components are in place for each Defender plan, or if your monitoring coverage is incomplete.
 
 **The Settings & monitoring page**:
-- Each monitoring component indicates the Defender plans that it is related to.
+- Each monitoring component indicates the Defender plans to which it's related.
 
 Learn more about [managing your monitoring settings](monitoring-components.md).
 

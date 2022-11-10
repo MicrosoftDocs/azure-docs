@@ -22,6 +22,7 @@ This how-to guide covers how to provision access from Microsoft Purview to Azure
 [!INCLUDE [Access policies Azure SQL Database pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
 
 ## Microsoft Purview Configuration
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register the data sources in Microsoft Purview
 The Azure SQL Database data source needs to be registered first with Microsoft Purview, before access policies can be created. You can follow these guides:
