@@ -86,57 +86,63 @@ az spring app connect \
     --shell-cmd /bin/bash
 ```
 
-You can also use the `--shell-cmd` parameter to specify a shell if your app is deployed with a custom image and custom shells.
+If your app is deployed with a custom image and shell, you can also use the `--shell-cmd` parameter to specify your shell.
 
-## Troubleshooting
+## Troubleshoot your app instance
 
-After connecting successfully, you can start to perform the troubleshooting. For example, check the status of the heap memory and GC:
+After you connect to an app instance, you can check the status of the heap memory.
 
-Find the pid of the java process, which is usually `1`:
+Use the following command to find the Java process ID, which is usually `1`:
 
 ```azurecli
 jps
 ```
-![jps-result](./media/how-to-connect-to-app-instance-for-troubleshooting/jps-result.png)
 
-And then run the jdk tool to check the result:
+The output should look like the following:
+
+:::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/jps-result.png" alt-text="Screenshot showing the output of the jps command.":::
+
+Then use the following command to run the JDK tool to check the result:
 
 ```azurecli
 jstat -gc 1
 ```
 
-![jstat-result](./media/how-to-connect-to-app-instance-for-troubleshooting/jstat-result.png)
+:::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/jstat-result.png" alt-text="Screenshot showing the output of the jstat command.":::
 
-## Disconnect
+## Disconnect from your app instance
 
-When the troubleshooting is done, you can disconnect from the app instance by running `exit` or pressing `Ctrl+d` simply.
+When your are done troubleshooting, use the `exit` command to disconnect from the app instance, or press `Ctrl+d`.
 
-## Pre-installed tools
+## Troubleshooting tools
 
-The pre-installed tools includes some common tools as the following:
+The following list describes some of the pre-installed tools that you can use for troubleshooting:
 
-- lsof - list open files
-- top - display system summary information and current utilization
-- ps - get a snapshot of the running process
-- netstat - print network connections, interface statistics
-- nslookup - query Internet name servers interactively
-- ping - the ping
-- nc - arbitrary TCP and UDP connections and listens
-- wget - The non-interactive network downloader
-- df - free of disk space
+- `lsof` - Lists open files.
+- `top` - Displays system summary information and current utilization.
+- `ps` - Get a snapshot of the running process.
+- `netstat` - Prints network connections and interface statistics.
+- `nslookup` - Queries internet name servers interactively.
+- `ping` - Test whether a network host can be reached.
+- `nc` - Reads from and writes to network connections using TCP or UDP.
+- `wget` - Lets you download files and interact with REST APIs.
+- `df` - Displays the amount of available disk space.
 
-As well as the JDK-bundled tools such as: `jps`, `jcmd`, `jstat` and etc.
+You can also use JDK-bundled tools such as `jps`, `jcmd`, and `jstat`.
 
-The available tools depends on the tier of your service and deployment type of the application: 
+The available tools depends on your service tier and type of app deployment. The following table describes the availability of troubleshooting tools:
 
-| Tier | Deployment Type | Common tools | JDK tools | Notes |
-| -- | -- | -- | -- | -- |
-| Basic / Standard tier | Source code / Jar | Y | Y (for java workloads only)  | |
-| Basic / Standard tier | Custom Image | N | N | Up to your installed toolset |
-| Enterprise Tier | Source code / Artifacts | Y (for full OS stack)<br>N (for base OS stack) | Y (for java workloads only) | Depends on the os stack of your builder |
-| Enterprise Tier | Custom Image | N | N | Up to your installed toolset |
+| Tier                  | Deployment Type         | Common tools                                 | JDK tools                   | Notes                                   |
+|------------------------|--------------------------|-----------------------------------------------|------------------------------|------------------------------------------|
+| Basic / Standard tier | Source code / Jar       | Y                                            | Y (for Java workloads only) |                                         |
+| Basic / Standard tier | Custom Image            | N                                            | N                           | Up to your installed tool set           |
+| Enterprise Tier       | Source code / Artifacts | Y (for full OS stack), N (for base OS stack) | Y (for Java workloads only) | Depends on the os stack of your builder |
+| Enterprise Tier       | Custom Image            | N                                            | N                           | Up to your installed tool set           |
 
 ## Limitations
 
-The app is running as a non-root user, so you can't execute some actions requiring root permission, including install new tools by the system package manager `apt / yum`.
-Also, some of the linux capabilities are prohibited, so those tools that need some special privileges don't work (e.g. `tcpdump`).
+Using the shell environment inside your application instances has the following limitation:
+
+- Because the app is running as a non-root user, you can't execute some actions requiring root permission. For example, you can't install new tools by the system package manager `apt / yum`.
+
+- Because some Linux capabilities are prohibited, tools that require special privileges, such as `tcpdump`, don't work.
