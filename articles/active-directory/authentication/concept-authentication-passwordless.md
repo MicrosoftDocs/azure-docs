@@ -77,7 +77,7 @@ To get started with passwordless sign-in, complete the following how-to:
 > [!div class="nextstepaction"]
 > [Enable passwordless sign using the Authenticator app](howto-authentication-passwordless-phone.md)
 
-### FIPS 140 compliance
+### FIPS 140 compliance for enterprise authentication
 
 [Executive Order 14028](https://www.gsa.gov/technology/technology-products-services/it-security/executive-order-14028-improving-the-nations-cybersecurity) requires authenticator apps to comply with Federal Information Processing Standard (FIPS) 140. FIPS 140 defines a minimum set of security requirements for products that implement cryptography. 
 
@@ -85,11 +85,10 @@ The [Cryptographic Module Validation Program](https://csrc.nist.gov/Projects/Cry
 
 As a mobile app in enterprise authentication scenarios like MFA and passwordless, Microsoft Authenticator on iOS relies upon the [Apple Corecrypto module](https://support.apple.com/guide/sccc/security-certifications-for-ios-scccfa917cb49/web) of the corresponding iOS version. Beginning with iOS 14, the Apple Corecrypto module is pending FIPS 140-3 validation.On earlier versions of iOS, the Apple Corecrypto module is FIPS 140-2 validated. 
 
-For Android, Microsoft Authenticator uses WolfSSL cryptography, which is also pending FIPS 140-3 validation. By using WolfSSL cryptography, Microsoft Authenticator relies upon the same FIPS 140 compliant cryptography for all Android device manufacturers.  
- 
+For Android, Microsoft Authenticator uses WolfSSL cryptography. By using WolfSSL cryptography, Microsoft Authenticator relies upon the same FIPS 140 compliant cryptography for all Android device manufacturers. The encryption method is FIPS 140-2 validated, and pending FIPS 140-3 validation. For more information, see [wolfCrypt FIPS 140-2 and FIPS 140-3](https://www.wolfssl.com/license/fips/).
 
-
-
+>[!NOTE]
+>Microsoft Authenticator is FIPS 140 compliant only for enterprise authentication flows like MFA, time-based one-time passcode (TOTP), and passwordless authentication. Consumer authentication flows aren't FIPS 140 compliant. 
 
 ## FIDO2 security keys
 
