@@ -205,7 +205,7 @@ These formats are allowed for the respective components:
 
 | :::no-loc text="Vertex"::: component | Supported formats (bold = default) | Usage in materials |
 |:-----------------|:------------------|:------------------|
-|position| **32_32_32_FLOAT**, 16_16_16_16_FLOAT | Vertex position, must always be present |
+|position| **32_32_32_FLOAT**, 16_16_16_16_FLOAT | Vertex position, must always be present. |
 |color0| **8_8_8_8_UNSIGNED_NORMALIZED**, NONE | Vertex colors. See `useVertexColor` property in both [Color materials](../../overview/features/color-materials.md) and [PBR materials](../../overview/features/pbr-materials.md), and `vertexMix` in [Color materials](../../overview/features/color-materials.md). |
 |color1| 8_8_8_8_UNSIGNED_NORMALIZED, **NONE**| Unused, leave it to **NONE**. |
 |normal| **8_8_8_8_SIGNED_NORMALIZED**, 16_16_16_16_FLOAT, NONE | Used for lighting in [PBR materials](../../overview/features/pbr-materials.md). |
