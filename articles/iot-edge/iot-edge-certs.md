@@ -111,7 +111,7 @@ In summary, *EdgeGateway* can verify and trust *ContosoIotHub's* identity becaus
 
 ## IoT Hub verifies IoT Edge device identity
 
-How does *ContosoIotHub* verify it's communicating with *EdgeGateway*? Verification is done by checking the certificate at the IoTHub application code level. This step happens together with the *TLS handshake*. IoT Hub doesn't do mutual TLS. Authentication of the client doesn't happen at the TLS level, only at the application layer. For simplicity, we'll skip some steps in the following diagram.
+How does *ContosoIotHub* verify it's communicating with *EdgeGateway*? Verification is done by checking the certificate at the IoTHub application code level. This step happens together with the *TLS handshake* (IoT Hub doesn't support mutual TLS). Authentication of the client doesn't happen at the TLS level, only at the application layer. For simplicity, we'll skip some steps in the following diagram.
 
 :::image type="content" source="./media/iot-edge-certs/verify-edge-identity.svg" alt-text="Sequence diagram showing certificate exchange from IoT Edge device to IoT Hub with certificate thumbprint check verification on IoT Hub.":::
 
@@ -148,10 +148,7 @@ If we view the thumbprint value for the *EdgeGateway* device in the Azure portal
 
 :::image type="content" source="./media/iot-edge-certs/edge-id-thumbprint.png" alt-text="Screenshot from Azure portal of EdgeGateway device's thumbprint in ContosoIotHub.":::
 
-In summary, *ContosoIotHub* can trust *EdgeGateway* because:
-
-* *ContosoIotHub* presents a valid **IoT Edge device identity certificate** whose thumbprint matches the one registered in IoT Hub
-* *EdgeGateway's* ability to decrypt data signed with its public key using its private key verifies the cryptographic key pair
+In summary, *ContosoIotHub* can trust *EdgeGateway* because *EdgeGateway* presents a valid **IoT Edge device identity certificate** whose thumbprint matches the one registered in IoT Hub.
 
 > [!NOTE]
 > This example doesn't address Azure IoT Hub Device Provisioning Service (DPS), which has support for X.509 CA authentication with IoT Edge when provisioned with an enrollment group. Using DPS, you upload the CA certificate or an intermediate certificate, the certificate chain is verified, then the device is provisioned. To learn more, see [DPS X.509 certificate attestation](../iot-dps/concepts-x509-attestation.md).
@@ -192,7 +189,7 @@ stateDiagram-v2
 
 ## Device verifies gateway identity
 
-How does *TempSensor* verify it's communicating with the genuine *EdgeGateway?* When *TempSensor* wants to talk to the *EdgeGateway*, *TempSensor* needs *EdgeGateway* to show an ID. The ID must be issued by an authority that *EdgeGateway* trusts.
+How does *TempSensor* verify it's communicating with the genuine *EdgeGateway?* When *TempSensor* wants to talk to the *EdgeGateway*, *TempSensor* needs *EdgeGateway* to show an ID. The ID must be issued by an authority that *TempSensor* trusts.
 
 :::image type="content" source="./media/iot-edge-certs/verify-gateway-identity.svg" alt-text="Sequence diagram showing certificate exchange from gateway device to IoT Edge device with certificate verification using the private root certificate authority.":::
 

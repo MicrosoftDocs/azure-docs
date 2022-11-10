@@ -53,7 +53,7 @@ The following example shows how to assign the **Key Vault Crypto Officer** role 
 
 1. In the Azure portal, locate your key vault using the main search bar or left navigation.
 
-2. On the storage account overview page, select **Access control (IAM)** from the left-hand menu.
+2. On the key vault overview page, select **Access control (IAM)** from the left-hand menu.
 
 3. On the **Access control (IAM)** page, select the **Role assignments** tab.
 

@@ -195,7 +195,7 @@ To enable Microsoft Defender for Storage at the subscription level with the per-
 
 To disable the plan, set the `-tier` property value to `free` and remove the `subPlan` parameter.
 
-Learn more about the [az security pricing create](/cli/azure/security/pricing.md#az-security-pricing-create.md) command.
+Learn more about the [az security pricing create](/cli/azure/security/pricing.md#az-security-pricing-create) command.
 
 ### REST API
 
