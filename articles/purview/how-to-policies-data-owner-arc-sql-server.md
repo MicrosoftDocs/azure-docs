@@ -22,6 +22,7 @@ This guide covers how a data owner can delegate authoring policies in Microsoft 
 [!INCLUDE [Access policies Arc enabled SQL Server pre-requisites](./includes/access-policies-prerequisites-arc-sql-server.md)]
 
 ## Microsoft Purview configuration
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register data sources in Microsoft Purview
 Register each data source with Microsoft Purview to later define access policies. 
