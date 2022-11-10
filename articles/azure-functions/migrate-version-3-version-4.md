@@ -153,7 +153,7 @@ The following table indicates key .NET classes used by Functions that could chan
 | --- | --- | --- | --- |
 | `FunctionName` (attribute) | `FunctionName` (attribute) | `Function` (attribute) | `Function` (attribute) |
 | `HttpRequest` | `HttpRequest` | `HttpRequestData` | `HttpRequestData` |
-| `OkObjectResult` | `OkObjectResult` | `HttpResonseData` | `HttpResonseData` |
+| `OkObjectResult` | `OkObjectResult` | `HttpResponseData` | `HttpResponseData` |
 
 There might also be class name differences in bindings. For more information, see the reference articles for the specific bindings.    
 
