@@ -55,7 +55,7 @@ using Azure.Storage.Blobs.Specialized;
 
 ## Connect to Blob Storage
 
-To connect to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point. You can use it to operate on the blob service instance and it's containers. You can create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using an account access key, a shared access signature (SAS), or by using an Azure Active Directory (Azure AD) authorization token. 
+To connect to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point. You can use it to operate on the blob service instance and its containers. You can create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using an account access key, a shared access signature (SAS), or by using an Azure Active Directory (Azure AD) authorization token.
 
 To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
