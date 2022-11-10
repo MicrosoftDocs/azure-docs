@@ -110,10 +110,10 @@ az acr login --name $ACRName
 az acr build --registry $ACR_NAME --image albumapp-ui .
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-az acr build --registry $ACR_NAME --image albumapp-ui .
+az acr build --registry $ACRName --image albumapp-ui .
 ```
 
 ---
@@ -132,10 +132,10 @@ Output from the `az acr build` command shows the upload progress of the source c
     docker build --tag "$ACR_NAME.azurecr.io/albumapp-ui" . 
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    docker build --tag "$ACR_NAME.azurecr.io/albumapp-ui" . 
+    docker build --tag "$ACRName.azurecr.io/albumapp-ui" . 
     ```
 
     ---
@@ -150,9 +150,9 @@ Output from the `az acr build` command shows the upload progress of the source c
     az acr login --name $ACR_NAME
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
-    ```powershell
+    ```azurepowershell
     az acr login --name $ACRName
     ```
 
@@ -167,9 +167,9 @@ Output from the `az acr build` command shows the upload progress of the source c
      docker push "$ACR_NAME.azurecr.io/albumapp-ui" 
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
-    ```powershell
+    ```azurepowershell
 
     docker push "$ACRName.azurecr.io/albumapp-ui"
     ```
@@ -207,10 +207,11 @@ Run the following command to query for the API endpoint address.
 API_BASE_URL=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query properties.configuration.ingress.fqdn -o tsv)
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$API_BASE_URL=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query properties.configuration.ingress.fqdn -o tsv)
+```azurepowershell
+$APIBaseURL = (Get-AzContainerApp -Name $APIName -ResourceGroupName $ResourceGroup).IngressFqdn
+
 ```
 
 ---
@@ -235,18 +236,35 @@ az containerapp create \
   --registry-server $ACR_NAME.azurecr.io
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az containerapp create `
-  --name $FRONTEND_NAME `
-  --resource-group $RESOURCE_GROUP `
-  --environment $ENVIRONMENT `
-  --image "$ACR_NAME.azurecr.io/albumapp-ui"  `
-  --env-vars API_BASE_URL=https://$API_BASE_URL `
-  --target-port 3000 `
-  --ingress 'external' `
-  --registry-server "$ACR_NAME.azurecr.io"
+
+```azurepowershell
+$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroup -EnvName Environment).Id
+
+$EnvVars = New-AzContainerAppEnvironmentVarObject -Name API_BASE_URL -Value https://$APIBaseURL
+
+$ContainerObject = @{
+  Name = $FrontendName
+  Image = $ACRName + '.azurecr.io/albumapp-ui'
+  Env = $EnvVars
+}
+
+
+$ServiceTemplateObj = New-AzContainerAppTemplateObject @TemplateArgs
+
+$ContainerAppArgs = @{
+    Name = $FrontendName
+    ResourceGroupName = $ResourceGroup
+    Location = $Location
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $ContainerObject
+    IngressTargetPort = 3000
+    IngressExternal = $true
+    ManagedEnvironmentId = $EnvId
+}
+
+New-AzContainerApp @ContainerAppArgs
 ```
 
 ---
@@ -263,16 +281,20 @@ The `az containerapp create` CLI command returns the fully qualified domain name
 
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
 
+> [!CAUTION]
+> This command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
+
+
 # [Bash](#tab/bash)
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az group delete --name $RESOURCE_GROUP
+```azurepowershell
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
