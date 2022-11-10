@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 11/02/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -168,11 +168,11 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
         See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
 
-    * **Encrypted SMB connections to Domain Controller**
+    * <a name="encrypted-smb-dc"></a> **Encrypted SMB connections to Domain Controller**
         
-        **Encrypted SMB connections to Domain Controller** specifies whether encryption should be used for communication between SMB server and domain controller. When enabled, only SMB3 will be used for encrypted domain controller connections.
+        **Encrypted SMB connections to Domain Controller** specifies whether encryption should be used for communication between an SMB server and domain controller. When enabled, only SMB3 will be used for encrypted domain controller connections.
 
-        If this is your first time using this feature, you must register it: 
+        This feature is currently in preview. If this is your first time using Encrypted SMB connections to domain controller, you must register it: 
 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName  ANFEncryptedSMBConnectionsToDC 

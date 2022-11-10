@@ -27,7 +27,7 @@ Create a new Search resource with the [Azure Cognitive Search](https://marketpla
 
 1. In the Side bar, **right-click on your Azure subscription** under the `Azure: Cognitive Search` area and select **Create new search service**.
 
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-create-search-resource.png" alt-text="In the Side bar, right-click on your Azure subscription under the **Azure: Cognitive Search** area and select **Create new search service**.":::
+    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-create-search-resource.png" alt-text="Screenshot of Visual Studio Code showing Azure explorer, right-click on your Azure subscription under the Azure: Cognitive Search area and select Create new search service.":::
 
 1. Follow the prompts to provide the following information:
 
@@ -46,7 +46,7 @@ Get your Search resource admin key with the Visual Studio Code extension.
 
 1. In Visual Studio Code, in the Side bar, right-click on your Search resource and select **Copy Admin Key**.
 
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-admin-key.png" alt-text="In the Side bar, right-click on your Search resource and select **Copy Admin Key**.":::
+    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-admin-key.png" alt-text="Screenshot of Visual Studio Code showing Azure explorer, right-click on your Search resource and select Copy Admin Key.":::
 
 1. Keep this admin key, you'll need to use it in [a later section](#prepare-the-bulk-import-script-for-search). 
 
