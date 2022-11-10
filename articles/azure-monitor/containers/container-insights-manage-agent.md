@@ -22,15 +22,15 @@ If the agent upgrade fails for a cluster hosted on AKS, this article also descri
 
 ### Upgrade the agent on an AKS cluster
 
-The process to upgrade the agent on AKS clusters consists of two steps. The first step is to disable monitoring with Container insights by using the Azure CLI. Follow the steps described in the [Disable monitoring](container-insights-optout.md?#azure-cli) article. Using the Azure CLI allows you to remove the agent from the nodes in the cluster without affecting the solution and the corresponding data that's stored in the workspace.
+The process to upgrade the agent on an AKS cluster consists of two steps. The first step is to disable monitoring with Container insights by using the Azure CLI. Follow the steps described in the [Disable monitoring](container-insights-optout.md?#azure-cli) article. By using the Azure CLI, you can remove the agent from the nodes in the cluster without affecting the solution and the corresponding data that's stored in the workspace.
 
 >[!NOTE]
 >While you're performing this maintenance activity, the nodes in the cluster aren't forwarding collected data. Performance views won't show data between the time you removed the agent and installed the new version.
 >
 
-To install the new version of the agent, follow the steps described in [Enable monitoring by using the Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli) to complete this process.
+The second step is to install the new version of the agent. Follow the steps described in [Enable monitoring by using the Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli) to finish this process.
 
-After you've reenabled monitoring, it might take about 15 minutes before you can view updated health metrics for the cluster. To verify the agent upgraded successfully, you have two options. You can:
+After you've reenabled monitoring, it might take about 15 minutes before you can view updated health metrics for the cluster. You have two methods to verify the agent upgraded successfully:
 
 * Run the command `kubectl get pod <ama-logs-agent-pod-name> -n kube-system -o=jsonpath='{.spec.containers[0].image}'`. In the status returned, note the value under **Image** for Azure Monitor Agent in the **Containers** section of the output.
 * On the **Nodes** tab, select the cluster node. On the **Properties** pane to the right, note the value under **Agent Image Tag**.
@@ -83,7 +83,7 @@ This command opens your default text editor. After you set the variable, save th
 
 To verify the configuration change took effect, select a container in the **Containers** view in Container insights. In the property pane, expand **Environment Variables**. The section should show only the variable created earlier, which is `AZMON_COLLECT_ENV=FALSE`. For all other containers, the **Environment Variables** section should list all the environment variables discovered.
 
-To reenable discovery of the environmental variables, apply the same process earlier and change the value from `False` to `True`. Then rerun the `kubectl` command to update the container.
+To reenable discovery of the environmental variables, apply the same process you used earlier and change the value from `False` to `True`. Then rerun the `kubectl` command to update the container.
 
 ```yaml
 - name: AZMON_COLLECT_ENV  
