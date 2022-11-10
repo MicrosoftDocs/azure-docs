@@ -71,7 +71,7 @@ For more information, see [Create custom roles by using the Azure portal](../rol
 
 | Permission action    | Description       |
 | ------------------------------------------- | --------------------------------------------------------------------|
-| Microsoft.Sql/servers/read | Return the list of SQL database resources or gets the properties for the specified SQL database. |
+| Microsoft.Sql/servers/read | Return the list of SQL database resources or get the properties for the specified SQL database. |
 | Microsoft.Sql/servers/write | Create a SQL database with the specified parameters or update the properties or tags for the specified SQL database. |
 | Microsoft.Sql/servers/databases/read | Get an existing SQL database. |
 | Microsoft.Sql/servers/databases/write | Create a new database or update an existing database. |
