@@ -48,7 +48,7 @@ You can use the environment you create in this tutorial for testing or for getti
 
 ## Install the Azure AD Connect provisioning agent
 
-1. Sign in to the domain joined server.  If you're using the  [Basic A D and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1.
+1. Sign in to the domain joined server.  If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1.
 
 1. Sign in to the Azure portal using cloud-only global admin credentials.
 
@@ -66,7 +66,7 @@ You can use the environment you create in this tutorial for testing or for getti
 
 1. On the splash screen, select **I agree to the license and conditions**, and select **Install**.
 
-   ![Screenshot that shows the "Microsoft Azure A D Connect Provisioning Agent Package" splash screen.](media/how-to-install/install-1.png)
+   ![Screenshot that shows the "Microsoft Azure AD Connect Provisioning Agent Package" splash screen.](media/how-to-install/install-1.png)
 
 1. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  If you have Internet Explorer enhanced security enabled, it will block the sign-in.  If so, close the installation, [disable Internet Explorer enhanced security](/troubleshoot/developer/browsers/security-privacy/enhanced-security-configuration-faq), and restart the **Azure AD Connect Provisioning Agent Package**  installation.
 
@@ -76,11 +76,11 @@ You can use the environment you create in this tutorial for testing or for getti
 
 1. On the **Configure Service Account screen**, select  **Create gMSA** and enter the Active Directory domain administrator credentials to create the group Managed Service Account. This account will be used to run the agent service. To continue, select **Next**.
 
-    [![Screenshot that shows create service account](media/how-to-install/new-install-7.png)](media/how-to-install/new-install-7.png#lightbox)
+    [![Screenshot that shows create service account.](media/how-to-install/new-install-7.png)](media/how-to-install/new-install-7.png#lightbox)
 
 1. On the **Connect Active Directory** screen, select **Next**.  Your current domain has been added automatically.  
 
-    [![Screenshot that shows connecting to the Active Directory](media/how-to-install/new-install-8.png)](media/how-to-install/new-install-8.png#lightbox)
+    [![Screenshot that shows connecting to the Active Directory.](media/how-to-install/new-install-8.png)](media/how-to-install/new-install-8.png#lightbox)
 
 1. On the **Configuration complete** screen, select **Confirm**.  This operation will register and restart the agent.
 
@@ -88,7 +88,7 @@ You can use the environment you create in this tutorial for testing or for getti
 
 1. Once this operation completes, you should see a notice: **Your agent configuration was successfully verified.**  You can select **Exit**.
 
-    ![Screenshot that shows the "configuration complete" screen](media/how-to-install/install-5.png)
+    ![Screenshot that shows the "configuration complete" screen.](media/how-to-install/install-5.png)
 
 1. If you still get the initial splash screen, select **Close**.
 
@@ -140,7 +140,7 @@ Use the following steps to configure and start the provisioning:
 
 1. Select **New Configuration**
     
-    [![Screenshot of Azure A D Connect cloud sync screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png)](media/tutorial-single-forest/configure-1.png#lightbox)
+    [![Screenshot of Azure AD Connect cloud sync screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png)](media/tutorial-single-forest/configure-1.png#lightbox)
 
 1. On the configuration screen, enter a **Notification email**, move the selector to **Enable** and select **Save**.
 
@@ -148,7 +148,7 @@ Use the following steps to configure and start the provisioning:
 
 1. The configuration status should now be **Healthy**.
 
-    [![Screenshot of Azure A D Connect cloud sync screen showing Healthy status.](media/how-to-configure/manage-4.png)](media/how-to-configure/manage-4.png#lightbox)
+    [![Screenshot of Azure AD Connect cloud sync screen showing Healthy status.](media/how-to-configure/manage-4.png)](media/how-to-configure/manage-4.png#lightbox)
 
 ## Verify users are created and synchronization is occurring
 
