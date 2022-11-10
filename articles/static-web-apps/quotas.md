@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  overview
-ms.date: 10/13/2021
+ms.date: 11/10/2022
 ms.author: cshoe
 ---
 
@@ -26,6 +26,7 @@ The following quotas exist for Azure Static Web Apps.
 | Authorization (built-in roles) | Unlimited end-users that may authenticate with built-in `authenticated` role | Unlimited end-users that may authenticate with built-in `authenticated` role |
 | Authorization (custom roles) | Maximum of 25 end-users that may belong to custom roles via [invitations](authentication-authorization.md?tabs=invitations#role-management) | Maximum of 25 end-users that may belong to custom roles via [invitations](authentication-authorization.md?tabs=invitations#role-management), or unlimited end-users that may be assigned custom roles via [serverless function](authentication-authorization.md?tabs=function#role-management) |
 | Request Size Limit | 30 MB               | 30 MB |
+| File count         | 15,000              | 15,000|
 
 ## GitHub storage
 
@@ -39,4 +40,4 @@ See the following resources for more detail:
 
 ## Next steps
 
-- [Overview](overview.md)
+- [Azure Static Web Apps overview](overview.md)
