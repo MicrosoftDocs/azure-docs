@@ -5963,11 +5963,11 @@
             "redirect_url": "/azure/reliability/cross-region-replication-azure",
             "redirect_document_id": true
         },
-        {
-            "source_path_from_root": "/articles/partner-solutions/index.md",
-            "redirect_url": "/azure/partner-solutions",
-            "redirect_document_id": false
-        },
+        // {
+        //     "source_path_from_root": "/articles/partner-solutions/index.md",
+        //     "redirect_url": "/azure/partner-solutions",
+        //     "redirect_document_id": false
+        // },
         {
             "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-nodes.md",
             "redirect_url": "/azure/fxt-edge-filer/add-nodes",
