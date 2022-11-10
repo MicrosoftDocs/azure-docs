@@ -52,7 +52,7 @@ Because Azure Disks are mounted as *ReadWriteOnce*, they're only available to a 
 
 ### Azure Files
 
-Use [Azure Files][azure-files-volume] to mount a Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by an Azure storage account to pods. Azure Files let you share data across multiple nodes and pods and can use:
+Use [Azure Files][azure-files-volume.md] to mount a Server Message Block (SMB) version 3.1.1 share or Network File System (NFS) version 4.1 share backed by an Azure storage account to pods. Azure Files let you share data across multiple nodes and pods and can use:
 
 * Azure Premium storage backed by high-performance SSDs
 * Azure Standard storage backed by regular HDDs
@@ -109,6 +109,9 @@ You can use Azure Disks or Files to provide the PersistentVolume. As noted in th
 ![Persistent volumes in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/persistent-volumes.png)
 
 A PersistentVolume can be *statically* created by a cluster administrator, or *dynamically* created by the Kubernetes API server. If a pod is scheduled and requests currently unavailable storage, Kubernetes can create the underlying Azure Disk or Files storage and attach it to the pod. Dynamic provisioning uses a *StorageClass* to identify what type of Azure storage needs to be created.
+
+> [!IMPORTANT]
+> Persistent volumes can't be shared by Windows and Linux pods due to differences in file system support between the two operating systems.
 
 ## Storage classes
 
