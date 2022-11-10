@@ -178,13 +178,19 @@ tcp:[18] <name>:port,-1 <iqn>
 ```
 15 is the session ID we'll use from the previous example.
 
-With the session ID, you can create as many sessions as you need however, none of the additional sessions are persistent, even if you modified node.startup. You must recreate them after each reboot. The following script is a loop that creates as many additional sessions as you specify. Replace **numberOfAdditionalSessions** with your desired number of additional sessions and replace **sessionID** with the session ID you'd like to use, then run the script.
+The following script is a loop that creates as many additional sessions as you specify. Replace **numberOfAdditionalSessions** with your desired number of additional sessions and replace **sessionID** with the session ID you'd like to use, then run the script.
 
 ```
 for i in `seq 1 numberOfAdditionalSessions`; do sudo iscsiadm -m session -r sessionID --op new; done
 ```
 
 You can verify the number of sessions using `sudo multipath -ll`
+
+When you've finished creating sessions for each of your volumes, run the following command once for each volume you'd like to maintain persistent connections to. This keeps the volume's connections active when your client reboots.
+
+```
+sudo iscsiadm -m node --targetname yourTargetIQN --portal yourTargetPortalHostName:yourTargetPortalPort --op update -n node.session.nr_sessions -v numberofAdditionalSessions+1
+```
 
 ### Single-session connections
 

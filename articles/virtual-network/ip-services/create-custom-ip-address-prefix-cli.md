@@ -25,6 +25,7 @@ The steps in this article detail the process to:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - This tutorial requires version 2.28 or later of the Azure CLI (you can run az version to determine which you have). If using Azure Cloud Shell, the latest version is already installed.
 - Sign in to Azure CLI and ensure you've selected the subscription with which you want to use this feature using `az account`.
 - A customer owned IPv4 range to provision in Azure.
@@ -136,11 +137,12 @@ The following command creates a custom IP prefix in the specified region and res
 ```azurecli-interactive
   byoipauth="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd"
   
-  az network public-ip prefix create \
+  az network custom-ip prefix create \
     --name myCustomIpPrefix \
     --resource-group myResourceGroup \
     --location westus2 \
     --cidr ‘1.2.3.0/24’ \
+    --zone 1 2 3
     --authorization-message $byoipauth \
     --signed-message $byoipauthsigned
 ```

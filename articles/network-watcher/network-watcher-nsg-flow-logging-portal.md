@@ -5,9 +5,9 @@ services: network-watcher
 author: damendo
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 10/17/2022
+ms.date: 10/28/2022
 ms.author: damendo
-ms.custom: mvc
+ms.custom: template-tutorial, mvc, engagement-fy23
 # Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ---
 

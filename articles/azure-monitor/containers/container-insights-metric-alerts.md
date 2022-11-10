@@ -28,7 +28,7 @@ There are two types of metric rules used by Container insights based on either P
 
 ### Prerequisites
 
-Your cluster must be configured to send metrics to [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). For more information, see [Collect Prometheus metrics from Kubernetes cluster with Container insights](container-insights-prometheus-metrics-addon.md).
+Your cluster must be configured to send metrics to [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). For more information, see [Collect Prometheus metrics with Container insights](container-insights-prometheus-metrics-addon.md).
 
 ### Enable alert rules
 

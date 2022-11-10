@@ -4,7 +4,8 @@ description: This article describes how to monitor Azure Site Recovery process s
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Monitor the process server
 

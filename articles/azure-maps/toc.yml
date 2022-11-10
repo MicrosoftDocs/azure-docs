@@ -239,6 +239,8 @@ items:
       items:
       - name: Indoor Maps module
         href: how-to-use-indoor-module.md
+      - name: Create dataset using GeoJson package (Preview)
+        href: how-to-dataset-geojson.md
       - name: Dynamic styling for indoor maps
         href: indoor-map-dynamic-styling.md
       - name: Custom styling for indoor maps

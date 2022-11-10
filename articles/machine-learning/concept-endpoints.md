@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: dem108
 ms.author: sehan
-ms.reviewer: mopekande
+ms.reviewer: mopeakande
 ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ms.date: 05/24/2022
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
@@ -235,8 +235,8 @@ Specify the storage output location to any datastore and path. By default, batch
 
 ## Next steps
 
-- [How to deploy online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
-- [How to deploy batch endpoints with the Azure CLI](batch-inference/how-to-use-batch-endpoint.md)
+- [How to deploy online endpoints with the Azure CLI and Python SDK](how-to-deploy-managed-online-endpoints.md)
+- [How to deploy batch endpoints with the Azure CLI and Python SDK](batch-inference/how-to-use-batch-endpoint.md)
 - [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)

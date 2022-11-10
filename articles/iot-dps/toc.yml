@@ -17,6 +17,9 @@ items:
     - name: Bicep
       displayName: Resource Manager,ARM,template
       href: quick-setup-auto-provision-bicep.md
+    - name: Terraform
+      displayName: Resource Manager, ARM, template 
+      href: quick-setup-auto-provision-terraform.md
     - name: ARM template
       displayName: Resource Manager
       href: quick-setup-auto-provision-rm.md
