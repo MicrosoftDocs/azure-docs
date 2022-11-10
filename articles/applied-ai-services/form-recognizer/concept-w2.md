@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 11/10/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
@@ -25,7 +25,7 @@ Form W-2, also known as the Wage and Tax Statement, is sent by an employer to ea
 
 ***Sample W-2 tax form processed using Form Recognizer Studio***
 
-:::image type="content" source="media/studio/w-2.png" alt-text="Screenshot of sample w-2 form processed in the Form Recognizer Studio.":::
+:::image type="content" source="media/studio/w-2.png" alt-text="Screenshot of sample W-2 processed in the Form Recognizer Studio.":::
 
 ## Development options
 
@@ -35,7 +35,7 @@ The prebuilt W-2 model is supported by Form Recognizer v3.0 with the following t
 |----------|-------------|-----------|
 |**W-2 model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
 
-### Try W-2 form data extraction
+### Try W-2 data extraction
 
 Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need the following resources:
 

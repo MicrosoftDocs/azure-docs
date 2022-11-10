@@ -1,13 +1,13 @@
 ---
 title: General key-value extraction - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Extract key-value paits, tables, selection marks,and text from your documents with Form Recognizer
+description: Extract key-value pairs, tables, selection marks, and text from your documents with Form Recognizer
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 11/10/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
@@ -25,7 +25,7 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 The general document API supports most form types and will analyze your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
 > [!NOTE]
-> The ```2022-06-30``` and later versions of the general document model add support for selection marks.
+> The ```2022-06-30``` and subsequent versions of the general document model add support for selection marks.
 
 ## General document features
 

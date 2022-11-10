@@ -123,7 +123,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown window.":::
+    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot of the select-form-type dropdown menu.":::
 
 1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 

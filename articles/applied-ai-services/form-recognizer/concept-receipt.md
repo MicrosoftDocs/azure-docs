@@ -38,7 +38,7 @@ Receipt digitization is the process of converting scanned receipts into digital 
 
 ::: moniker-end
 
-:: moniker range="form-recog-2.1.0"
+::: moniker range="form-recog-2.1.0"
 
 **Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/connection)**:
 
@@ -120,11 +120,11 @@ See how data, including time and date of transactions, merchant information, and
 
     :::image type="content" source="media/label-tool/fott-select-url.png" alt-text="Screenshot of source location dropdown menu.":::
 
-1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
+1. In the **Form Recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
 
 1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown window.":::
+    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot of the select-form-type dropdown menu.":::
 
 1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 

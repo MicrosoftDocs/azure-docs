@@ -27,7 +27,7 @@ The machine-learning-based invoice model combines powerful Optical Character Rec
 
 ## Automated invoice processing
 
-Automated invoice processing is the process of extracting key accounts payable fields from including invoice line items from invoices and integrating it with your accounts payable (AP) workflows for reviews and payments. Historically, the accounts payable process has been very manual and time consuming. Accurate extraction of key data from invoices is typically the first and one of the most critical steps in the invoice automation process.
+Automated invoice processing is the process of extracting key accounts payable fields from billing account documents. Extracted data includes line items from invoices integrated with your accounts payable (AP) workflows for reviews and payments. Historically, the accounts payable process has been done manually and, hence, very time consuming. Accurate extraction of key data from invoices is typically the first and one of the most critical steps in the invoice automation process.
 
 ::: moniker range="form-recog-3.0.0"
 
@@ -121,7 +121,7 @@ See how data, including customer information, vendor details, and line items, is
 
 1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown window.":::
+    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot showing the select-form-type dropdown menu.":::
 
 1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 
@@ -233,17 +233,17 @@ The Invoice service will extract the text, tables, and 26 invoice fields. Follow
 | VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
 | VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters | |
-| CustomerAddress | string | Mailing address for the Customer | 123 Other St, Redmond WA, 98052 | |
+| CustomerAddress | string | Mailing address for the Customer | 123 Other Street, Redmond WA, 98052 | |
 | CustomerAddressRecipient | string | Name associated with the CustomerAddress | Microsoft Corp | |
-| BillingAddress | string | Explicit billing address for the customer | 123 Bill St, Redmond WA, 98052 | |
+| BillingAddress | string | Explicit billing address for the customer | 123 Bill Street, Redmond WA, 98052 | |
 | BillingAddressRecipient | string | Name associated with the BillingAddress | Microsoft Services | |
-| ShippingAddress | string | Explicit shipping address for the customer | 123 Ship St, Redmond WA, 98052 | |
+| ShippingAddress | string | Explicit shipping address for the customer | 123 Ship Street, Redmond WA, 98052 | |
 | ShippingAddressRecipient | string | Name associated with the ShippingAddress | Microsoft Delivery | |
 | SubTotal | number | Subtotal field identified on this invoice | $100.00 | 100 |
 | TotalTax | number | Total tax field identified on this invoice | $10.00 | 10 |
 | InvoiceTotal | number | Total new charges associated with this invoice | $110.00 | 110 |
 | AmountDue |  number | Total Amount Due to the vendor | $610.00 | 610 |
-| ServiceAddress | string | Explicit service address or property address for the customer | 123 Service St, Redmond WA, 98052 | |
+| ServiceAddress | string | Explicit service address or property address for the customer | 123 Service Street, Redmond WA, 98052 | |
 | ServiceAddressRecipient | string | Name associated with the ServiceAddress | Microsoft Services | |
 | RemittanceAddress | string | Explicit remittance or payment address for the customer | 123 Remit St New York, NY, 10001 |  |
 | RemittanceAddressRecipient | string | Name associated with the RemittanceAddress | Contoso Billing |  |
@@ -262,7 +262,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 | UnitPrice | number | The net or gross price (depending on the gross invoice setting of the invoice) of one unit of this item | $30.00 | 30 |
 | ProductCode | string| Product code, product number, or SKU associated with the specific line item | A123 | |
 | Unit | string| The unit of the line item, e.g,  kg, lb etc. | hours | |
-| Date | date| Date corresponding to each line item. Often it is a date the line item was shipped | 3/4/2021| 2021-03-04 |
+| Date | date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
 
 ### JSON output
@@ -271,7 +271,7 @@ The JSON output has three parts:
 
 * `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words.
 * `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults".
-* `"documentResults"` node contains the invoice-specific values and line items that the model discovered. It is where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total, line items and lots more.
+* `"documentResults"` node contains the invoice-specific values and line items that the model discovered. It's where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total, line items and lots more.
 
 ## Migration guide
 

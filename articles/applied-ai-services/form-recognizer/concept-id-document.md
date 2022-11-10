@@ -28,7 +28,7 @@ The Form Recognizer Identity document (ID) model combines Optical Character Reco
 
 ## Identity document (ID) processing
 
-Identity document (ID) processing involves extraction of data from identity documents whether manually or using OCR based techniques. Examples of identity documents include passports, driver licenses, resident cards, and national identity cards like the social security card in the US. It is an important step in any business process that requires some proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
+Identity document (ID) processing involves extraction of data from identity documents whether manually or using OCR based techniques. Examples of identity documents include passports, driver licenses, resident cards, and national identity cards like the social security card in the US. It's an important step in any business process that requires some proof of identity. Examples include customer verification in banks and other financial institutions, mortgage applications, medical visits, claim processing, hospitality industry, and more. Individuals provide some proof of their identity via driver licenses, passports, and other similar documents so that the business can efficiently verify them before providing services and benefits.
 
 ::: moniker range="form-recog-3.0.0"
 
