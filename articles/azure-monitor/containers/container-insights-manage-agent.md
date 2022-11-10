@@ -8,7 +8,7 @@ ms.reviewer: aul
 
 # Manage the Container insights agent
 
-Container insights uses a containerized version of the Log Analytics agent for Linux. After initial deployment, there are routine or optional tasks you might need to perform during its lifecycle. This article explains how to manually upgrade the agent and disable collection of environmental variables from a particular container.
+Container insights uses a containerized version of the Log Analytics agent for Linux. After initial deployment, you might need to perform routine or optional tasks during its lifecycle. This article explains how to manually upgrade the agent and disable collection of environmental variables from a particular container.
 
 >[!NOTE]
 >The Container Insights agent name has changed from OMSAgent to Azure Monitor Agent, along with a few other resource names. This article reflects the new name. Update your commands, alerts, and scripts that reference the old name. Read more about the name change in [our blog post](https://techcommunity.microsoft.com/t5/azure-monitor-status-archive/name-update-for-agent-and-associated-resources-in-azure-monitor/ba-p/3576810).

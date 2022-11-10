@@ -116,7 +116,7 @@ Diagnostic settings don't allow granular filtering of resource logs. You might r
 
 See the documentation for other services that store their data in a Log Analytics workspace for recommendations on optimizing their data usage:
 
-- **Container insights**: [Understand monitoring costs for Container insights](containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost)
+- **Container insights**: [Understand monitoring costs for Container insights](containers/container-insights-cost.md#control-ingestion-to-reduce-cost)
 - **Microsoft Sentinel**: [Reduce costs for Microsoft Sentinel](../sentinel/billing-reduce-costs.md)
 - **Defender for Cloud**: [Setting the security event option at the workspace level](../defender-for-cloud/working-with-log-analytics-agent.md#data-collection-tier)
 

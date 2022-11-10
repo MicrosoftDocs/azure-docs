@@ -47,7 +47,7 @@ You might want to see a list of the alerts by affected computer. You can use a c
 
 ## Resource utilization
 
-**Average CPU utilization as an average of member nodes' CPU utilization every minute (metric measurement)**
+Average CPU utilization as an average of member nodes' CPU utilization every minute (metric measurement):
 
 ```kusto
 let endDateTime = now();
@@ -82,7 +82,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-**Average memory utilization as an average of member nodes' memory utilization every minute (metric measurement)**
+Average memory utilization as an average of member nodes' memory utilization every minute (metric measurement):
 
 ```kusto
 let endDateTime = now();
@@ -120,7 +120,7 @@ KubeNodeInventory
 >[!IMPORTANT]
 >The following queries use the placeholder values \<your-cluster-name> and \<your-controller-name> to represent your cluster and controller. Replace them with values specific to your environment when you set up alerts.
 
-**Average CPU utilization of all containers in a controller as an average of CPU utilization of every container instance in a controller every minute (metric measurement)**
+Average CPU utilization of all containers in a controller as an average of CPU utilization of every container instance in a controller every minute (metric measurement):
 
 ```kusto
 let endDateTime = now();
@@ -160,7 +160,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-**Average memory utilization of all containers in a controller as an average of memory utilization of every container instance in a controller every minute (metric measurement)**
+Average memory utilization of all containers in a controller as an average of memory utilization of every container instance in a controller every minute (metric measurement):
 
 ```kusto
 let endDateTime = now();
@@ -202,7 +202,7 @@ KubePodInventory
 
 ## Resource availability
 
-**Nodes and counts that have a status of Ready and NotReady (metric measurement)**
+Nodes and counts that have a status of Ready and NotReady (metric measurement):
 
 ```kusto
 let endDateTime = now();
@@ -296,10 +296,8 @@ InsightsMetrics
 | where AggregatedValue >= 90
 ```
 
-**Individual container restarts (number of results)**<br>
-Alerts when the individual system container restart count exceeds a threshold for the last 10 minutes.
+Individual container restarts (number of results) alert when the individual system container restart count exceeds a threshold for the last 10 minutes:
 
- 
 ```kusto
 let _threshold = 10m; 
 let _alertThreshold = 2;

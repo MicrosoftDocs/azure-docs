@@ -11,7 +11,7 @@ ms.reviewer: aul
 
 # Stop monitoring your Azure Kubernetes Service cluster with Container insights
 
-After you enable monitoring of your Azure Kubernetes Service (AKS) cluster, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows how to do this task by using the Azure CLI or with the provided Azure Resource Manager templates (ARM templates).
+After you enable monitoring of your Azure Kubernetes Service (AKS) cluster, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows you how to do this task by using the Azure CLI or the provided Azure Resource Manager templates (ARM templates).
 
 ## Azure CLI
 
@@ -128,7 +128,7 @@ Now you're ready to deploy this template.
 
 ### Remove the solution by using the Azure CLI
 
-To remove the solution and clean up the configuration on your AKS cluster, execute the following command with the Azure CLI on Linux:
+To remove the solution and clean up the configuration on your AKS cluster, run the following command with the Azure CLI on Linux:
 
 ```azurecli
 az login   
@@ -146,7 +146,7 @@ ProvisioningState       : Succeeded
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To remove the solution and clean up the configuration from your AKS cluster, execute the following PowerShell commands in the folder that contains the template:
+To remove the solution and clean up the configuration from your AKS cluster, run the following PowerShell commands in the folder that contains the template:
 
 ```powershell
 Connect-AzAccount
