@@ -1,7 +1,7 @@
 ---
 title: OCR for documents - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Extract print and handwritten text from scanned and digital documents with Form Recognizer’s Read OCR model.
+description: Extract print and handwritten text from scanned and digital documents with Form Recognizer's Read OCR model.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -13,14 +13,14 @@ monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# OCR for documents
+# Azure Form Recognizer read (OCR) model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
 > [!NOTE]
 >
 > For extracting text from in-the-wild images like labels, street signs, and posters, use the [Computer Vision v4.0 preview Read](../../cognitive-services/Computer-vision/concept-ocr.md) feature optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR in your user experience scenarios.
-> 
+>
 
 ## What is OCR for documents?
 
@@ -28,7 +28,7 @@ Optical Character Recognition (OCR) for documents is optimized for large text-he
 
 ## OCR in Form Recognizer - Read model
 
-Form Recognizer v3.0’s Read Optical Character Recognition (OCR) model runs at a higher resolution than Computer Vision Read and extracts print and handwritten text from PDF documents and scanned images. It also includes preview support for extracting text from Microsoft Word, Excel, PowerPoint, and HTML documents. It detects paragraphs, text lines, words, locations, and languages, and is the underlying OCR engine for other Form Recognizer models like Layout, General Document, Invoice, Receipt, Identity (ID) document, and other prebuilt models, as well as custom models.
+Form Recognizer v3.0's Read Optical Character Recognition (OCR) model runs at a higher resolution than Computer Vision Read and extracts print and handwritten text from PDF documents and scanned images. It also includes preview support for extracting text from Microsoft Word, Excel, PowerPoint, and HTML documents. It detects paragraphs, text lines, words, locations, and languages, and is the underlying OCR engine for other Form Recognizer models like Layout, General Document, Invoice, Receipt, Identity (ID) document, and other prebuilt models, as well as custom models.
 
 ## OCR supported document types
 
@@ -204,14 +204,14 @@ The response includes classifying whether each text line is of handwriting style
 ```json
 "styles": [
 {
-	"confidence": 0.95,
-	"spans": [
-	{
-		"offset": 509,
-		"length": 24
-	}
-	"isHandwritten": true
-	]
+    "confidence": 0.95,
+    "spans": [
+    {
+        "offset": 509,
+        "length": 24
+    }
+    "isHandwritten": true
+    ]
 }
 ```
 

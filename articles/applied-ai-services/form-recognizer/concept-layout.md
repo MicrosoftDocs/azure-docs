@@ -7,12 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/08/2022
+ms.date: 11/10/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
-# Document layout analysis
+# Azure Form Recognizer layout model
+
+The Form Recognizer Layout is an advanced machine-learning based document layout analysis model available in the Form Recognizer cloud API. In the version v2.1, the document layout model extracted text lines, words, tables, and selection marks.
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -22,7 +24,7 @@ recommendations: false
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-## What is document layout analysis?
+## Document layout analysis
 
 Document structure and layout analysis is the process of analyzing a document to extract regions of interest and their inter-relationships. The goal is to extract text and structural elements from the page for building better semantic understanding models. For all extracted text, there are two types of roles that text plays in a document layout.  Text, tables, and selection marks are examples of geometric roles. Titles, headings, and footers are examples of logical roles. For example. a reading system requires differentiating text regions from non-textual ones along with their reading order.
 
@@ -30,13 +32,20 @@ The following illustration shows the typical components in an image of a sample 
 
 :::image type="content" source="media/document-layout-example.png" alt-text="Illustration of document layout example.":::
 
-## Form Recognizer Layout model
-
-The Form Recognizer Layout is an advanced machine-learning based document layout analysis model available in the Form Recognizer cloud API. In the version v2.1, the document layout model extracted text lines, words, tables, and selection marks.
+::: moniker range="form-recog-3.0.0"
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
 :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Form Recognizer studio":::
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+**Sample document processed with [Form Recognizer sample labeling tool layout model](https://fott-2-1.azurewebsites.net/layout-analyze)**:
+
+:::image type="content" source="media/layout-tool-example.jpg" alt-text="Screenshot of a document processed with the layout model.":::
+::: moniker-end
 
 ## Supported document types
 

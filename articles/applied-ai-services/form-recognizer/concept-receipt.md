@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 11/10/2022
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -26,7 +26,7 @@ The Form Recognizer receipt model combines powerful Optical Character Recognitio
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-# Receipt data extraction
+## Receipt data extraction
 
 Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. Azure Form Recognizer OCR powered receipt data extraction helps to automate the conversion and save time and effort. The output from the receipt data extraction is used for accounts payable and receivables automation, sales data analytics, and other business scenarios.
 
@@ -40,9 +40,11 @@ Receipt digitization is the process of converting scanned receipts into digital 
 
 :: moniker range="form-recog-2.1.0"
 
-**Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/connections)**:
+**Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/connection)**:
 
 :::image type="content" source="media/receipts-example.jpg" alt-text="Screenshot of a processed receipt.":::
+
+::: moniker-end
 
 ## Development options
 
@@ -250,4 +252,3 @@ The receipt model supports all English receipts and the following locales:
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
-

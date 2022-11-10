@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/08/2022
+ms.date: 11/10/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -39,7 +39,7 @@ Automated invoice processing is the process of extracting key accounts payable f
 
 ::: moniker range="form-recog-2.1.0"
 
-**Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/connections)**:
+**Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net)**:
 
 :::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of a processed Contoso invoice."::: 
 
