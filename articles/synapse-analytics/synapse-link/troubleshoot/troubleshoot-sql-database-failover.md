@@ -22,6 +22,9 @@ For the safety of data, users may choose to set [auto-failover group](/sql/azure
 
 You must stop Synapse Link manually and configure Synapse Link according to the new primary server's information so that it can continue to work normally.  
 
+
+
+1. Verify that your Azure SQL Database logical server Azure Active Directory admin is provided. It can be an Azure AD account, the system-assigned managed identity (SMI) of the Azure SQL Database logical server, or a user-assigned managed identity (UMI).
 1. Launch [Synapse Studio](https://web.azuresynapse.net).
 1. Open the **Integrate** hub.
 1. Select the Synapse Link whose database has failover occurred.
