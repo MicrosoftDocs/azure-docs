@@ -7,7 +7,7 @@
     href: lab-services-overview.md
   - name: What's New in Lab Services?
     href: lab-services-whats-new.md
-  - name: Migrate to Azure Lab Services August 2022 Update (v2)
+  - name: Migrate to Azure Lab Services August 2022 Update
     href: migrate-v1-to-v2.md  
 - name: Quickstarts
   expanded: true
