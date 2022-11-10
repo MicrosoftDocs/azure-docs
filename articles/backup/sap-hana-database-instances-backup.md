@@ -62,7 +62,7 @@ When you're assigning permissions, keep in mind the following considerations:
 
 - We recommend that you *not* change the resource groups after they're given or assigned to Azure Backup, because it makes it easier to handle the permissions.
 
-Learn about the [permissions required for snapshot restore](sap-hana-database-instances-restore.md#permissions-required-for-snapshot-restore).
+Learn about the [permissions required for snapshot restore](sap-hana-database-instances-restore.md#permissions-required-for-the-snapshot-restore).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
