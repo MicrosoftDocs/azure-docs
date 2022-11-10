@@ -28,7 +28,7 @@ For pricing information, please see Managed HSM Pools section on [Azure Key Vaul
 ### Fully managed, highly available, single-tenant HSM as a service
 
 - **Fully managed**: HSM provisioning, configuration, patching, and maintenance is handled by the service.
-- **Highly available and zone resilient** (where Availability zones are supported): Each HSM cluster consists of multiple HSM partitions that span across at least two availability zones. If the hardware fails, member partitions for your HSM cluster will be automatically migrated to healthy nodes.
+- **Highly available**: Each HSM cluster consists of multiple HSM partitions. If the hardware fails, member partitions for your HSM cluster will be automatically migrated to healthy nodes. For more information refer to [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
 - **Single-tenant**: Each Managed HSM instance is dedicated to a single customer and consists of a cluster of multiple HSM partitions. Each HSM cluster uses a separate customer-specific security domain that cryptographically isolates each customer's HSM cluster.
 
 
