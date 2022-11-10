@@ -112,7 +112,7 @@ The application needs a few configuration settings, which you can set in `appset
 
 ```json
 {
-    "FhirServerUrl": "https://MYFHIRAPI.azurehealthcareapis.com",
+    "FhirServerUrl": "https://MYFHIRAPI.fhir.azurehealthcareapis.com",
     "ClientId": "APP-ID",
     "DefaultSmartAppUrl": "/sampleapp/launch.html"
 }
@@ -121,7 +121,7 @@ The application needs a few configuration settings, which you can set in `appset
 We recommend that you use the `dotnet user-secrets` feature:
 
 ```PowerShell
-dotnet user-secrets set FhirServerUrl https://MYFHIRAPI.azurehealthcareapis.com
+dotnet user-secrets set FhirServerUrl https://MYFHIRAPI.fhir.azurehealthcareapis.com
 dotnet user-secrets set ClientId <APP-ID>
 ```
 
