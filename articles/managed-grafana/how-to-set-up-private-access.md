@@ -49,11 +49,11 @@ Once you have disabled public access, set up a [private endpoint](../private-lin
 
 ### [Portal](#tab/azure-portal)
 
-1. Select the **Private Access** tab and then **Add** to start setting up a new private endpoint.
+1. In **Networking**, select the **Private Access** tab and then **Add** to start setting up a new private endpoint.
 
-   :::image type="content" source="media/private-endpoints/create-endpoint-basics.png" alt-text="Screenshot of the Azure portal filling out Basics tab.":::
+   :::image type="content" source="media/private-endpoints/add-private-endpoint.png" alt-text="Screenshot of the Azure portal selecting Add button.":::
 
-1. Fill out the form with the following information:
+1. Fill out the **Basics** tab with the following information:
 
     | Parameter              | Description                                                                                                                                                                 | Example                 |
     |------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
@@ -62,6 +62,8 @@ Once you have disabled public access, set up a [private endpoint](../private-lin
     | Name                   | Enter a name for the new private endpoint for your Azure Managed Grafana instance.                                                                                          | *MyPrivateEndpoint*     |
     | Network Interface Name | This field is completed automatically. Optionally edit the name of the network interface.                                                                                   | *MyPrivateEndpoint-nic* |
     | Region                 | Select a region. Your private endpoint must be in the same region as your virtual network.                                                                                  | *(US) West Central US*            |
+
+   :::image type="content" source="media/private-endpoints/create-endpoint-basics.png" alt-text="Screenshot of the Azure portal filling out Basics tab.":::
 
 1. Select **Next : Resource >**. Private Link offers options to create private endpoints for different types of Azure resources. The current Azure Managed Grafana instance is automatically filled in the **Resource** field.
 
@@ -157,7 +159,7 @@ Go to **Networking** > **Private Access** in your Azure Managed Grafana workspac
 
 1. Select the name of the private endpoint to open the private endpoint resource and access more information or to edit the private endpoint.
 
-    :::image type="content" source="media/private-endpoints/create-endpoint-approval.png" alt-text="Screenshot of the Azure portal filling out DNS tab.":::
+    :::image type="content" source="media/private-endpoints/create-endpoint-approval.png" alt-text="Screenshot of the Azure portal, manage private endpoint.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
