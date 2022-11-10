@@ -105,7 +105,12 @@ sections:
       - question: |
           Does Azure API for FHIR support SMART on FHIR?
         answer: |
-          We have a basic SMART on FHIR proxy as part of the managed service. If this doesn't meet your needs, you can use the open-source FHIR proxy for more advanced SMART scenarios.  
+          Azure API for FHIR supports SMART on FHIR as part of the managed service using APIM. Learn more : <Link will be added>
+
+      - question: |
+           How am I charged for using APIM for SMART on FHIR?
+        answer: |
+          There are no extra charges for using SMART capability on <Azure Health Data Services/ Azure API for FHIR>. However, applicable charges for the APIM will be assessed against your Azure subscription, per consumption.
 
       - question: |
           Can I create a custom FHIR resource?
