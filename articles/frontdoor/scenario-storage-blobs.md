@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2022
+ms.date: 11/10/2022
 ms.author: jodowns
 ---
 
@@ -27,6 +27,7 @@ In this reference architecture, you deploy a storage account and Front Door prof
 Data flows through the scenario as follows:
 
 1. The client establishes a secure connection to Azure Front Door by using a custom domain name and Front Door-provided TLS certificate. The client's connection terminates at a nearby Front Door point of presence (PoP).
+1. The Front Door web application firewall (WAF) scans the request. If the WAF determines the request's risk level is too high, it blocks the request and Front Door returns an HTTP 403 error response.
 1. If the Front Door PoP's cache contains a valid response for this request, Front Door returns the response immediately.
 1. Otherwise, the PoP sends the request to the origin storage account, wherever it is in the world, by using Microsoft's backbone network. The PoP connects to the storage account by using a separate, long-lived, TCP connection. In this scenario, Private Link is used to securely connect to the storage account.
 1. The storage account sends a response to the Front Door PoP.
@@ -37,7 +38,7 @@ Data flows through the scenario as follows:
 ## Components
 
 - [Azure Storage](https://azure.microsoft.com/products/storage/blobs) stores static content in blobs.
-- [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) receives inbound connections from clients, securely forwards the request to the storage account, and caches responses.
+- [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) receives inbound connections from clients, scans them with the WAF, securely forwards the request to the storage account, and caches responses.
 
 ## Scenario details
 
@@ -74,7 +75,9 @@ Azure Storage also supports custom domain names, but doesn't support HTTPS when 
 
 #### Web application firewall
 
-You can use the Front Door WAF to perform [rate limiting](../web-application-firewall/afds/waf-front-door-rate-limit.md) and [geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md) if require those capabilities. When serving static content, managed WAF rules are generally not used, because they're designed to protect application servers and dynamic applications.
+The Front Door WAF's managed rule sets scan requests for common and emerging security threats. We recommend using the WAF and managed rules for both static and dynamic applications.
+
+You can also use the Front Door WAF to perform [rate limiting](../web-application-firewall/afds/waf-front-door-rate-limit.md) and [geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md) if you require those capabilities.
 
 ### Resiliency
 
