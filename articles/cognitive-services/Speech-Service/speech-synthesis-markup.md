@@ -930,7 +930,7 @@ All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3
 > [!NOTE]
 > If an element is not recognized, it will be ignored, and the child elements within it will still be processed.
 
-The MathML entities are not supported by XML syntax, so you must use the their corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
+The MathML entities are not supported by XML syntax, so you must use the corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
 
 ## Viseme element
 
