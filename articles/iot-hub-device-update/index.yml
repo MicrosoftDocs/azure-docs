@@ -33,8 +33,6 @@ landingContent:
           url: device-update-ubuntu-agent.md
         - text: Device update for Azure RTOS
           url: device-update-azure-real-time-operating-system.md
-        - text: Device Update for Azure Real Time Operating System
-          url: device-update-azure-real-time-operating-system.md
   - title: Prep your devices with the agent
     linkLists:
     - linkListType: concept
