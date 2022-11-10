@@ -59,7 +59,7 @@ In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), 
 
 ### Dependencies
 
-Starting with version 2.x of Functions, Application Insights automatically collects data on dependencies for bindings that use certain client SDKs. Application Insights distributed tracing and dependency tracking aren't currently supported for C# apps running in an [isolated process](dotnet-isolated-process-guide.md). Application Insights collects data on the following dependencies:
+Starting with version 2.x of Functions, Application Insights automatically collects data on dependencies for bindings that use certain client SDKs. Application Insights distributed tracing and dependency tracking aren't currently supported for C# apps running in an [isolated worker process](dotnet-isolated-process-guide.md). Application Insights collects data on the following dependencies:
 
 + Azure Cosmos DB 
 + Azure Event Hubs

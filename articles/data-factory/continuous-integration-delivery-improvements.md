@@ -119,7 +119,7 @@ Follow these steps to get started:
    ```json
    {
        "scripts":{
-           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index",
+           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
        },
        "dependencies":{
            "@microsoft/azure-data-factory-utilities":"^1.0.0"

@@ -14,7 +14,7 @@ ms.custom: template-concept, ignite-2022
 
 The [*guest attestation*](guest-attestation-confidential-vms.md) feature helps you to confirm that a confidential VM runs on a hardware-based trusted execution environment (TEE) with security features enabled for isolation and integrity.
 
-Sample applications for use with the guest attestation APIs are [available on GitHub](https://github.com/Azure/confidential-computing-cvm-guest-attestation) for [Linux](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-guest-attestation-linux-app) and [Windows](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-guest-attestation-windows-app).
+Sample applications for use with the guest attestation APIs are [available on GitHub](https://github.com/Azure/confidential-computing-cvm-guest-attestation).
 
 Depending on your [type of scenario](guest-attestation-confidential-vms.md#scenarios), you can reuse the sample code in your client program or workload code. 
 
@@ -30,7 +30,7 @@ To use a sample application in C++ for use with the guest attestation APIs, foll
 
 1. Sign in to your VM.
 
-1. Clone the [sample Linux application](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-guest-attestation-linux-app).
+1. Clone the sample Linux application.
 
 1. Install the `build-essential` package. This package installs everything required for compiling the sample application.
 
@@ -59,7 +59,7 @@ To use a sample application in C++ for use with the guest attestation APIs, foll
 #### [Windows](#tab/windows)
 
 1. Install Visual Studio with the [**Desktop development with C++** workload](/cpp/build/vscpp-step-0-installation).
-1. Clone the [sample Windows application](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-guest-attestation-windows-app).
+1. Clone the sample Windows application.
 1. Build your project. From the **Build** menu, select **Build Solution**.
 1. After the build succeeds, go to the `Release` build folder.
 1. Run the application by running the `AttestationClientApp.exe`.

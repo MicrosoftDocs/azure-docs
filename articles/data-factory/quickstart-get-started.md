@@ -13,10 +13,6 @@ ms.custom: subject-armqs
 
 # Quickstart: Get started with Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-rest-api.md)
-
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Welcome to Azure Data Factory!  This getting started article will let you create your first data factory and pipeline within 5 minutes. The ARM template below will create and configure everything you need to try it out.  Then you only need to navigate to your demo data factory and make one more click to trigger the pipeline, which moves some sample data from one Azure blob storage to another.

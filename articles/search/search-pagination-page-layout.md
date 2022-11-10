@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 11/02/2022
 ---
 
 # How to work with search results in Azure Cognitive Search
@@ -103,11 +103,15 @@ Notice that document 2 is fetched twice. This is because the new document 5 has 
 
 ## Ordering results
 
-In a full text search query, results can be ranked by a search score, a semantic reranker score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request.
+In a full text search query, results can be ranked by a search score, a semantic reranker score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request that specifies an explicit sort order.
 
-A @search.score equal to 1.00 indicates an unscored or unranked result set, where the 1.0 score is uniform across all results. Unscored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`). If you need to impose a ranking structure over unscored results, an **`$orderby`** expression will help you achieve that objective.
+Sorting methodologies aren't designed to be used together. For example, if you're sorting with **`$orderby`** for primary sorting, you can't apply a secondary sort based on search score (because the search score will be uniform).
+
+### Ordering by search score
 
 For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term.
+
+The "@search.score" range is 0 up to (but not including) 1.00. A "@search.score" equal to 1.00 indicates an unscored or unranked result set, where the 1.0 score is uniform across all results. Unscored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`). If you need to impose a ranking structure over unscored results, an **`$orderby`** expression will help you achieve that objective.
 
 Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores aren't always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
 
@@ -117,13 +121,31 @@ Search scores convey general sense of relevance, reflecting the strength of matc
 | Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Typically, differences in per-replica statistics are more noticeable in smaller indexes. For more information about this condition, see [Concepts: search units, replicas, partitions, shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards) in the capacity planning documentation. |
 | Identical scores | If multiple documents have the same score, any one of them might appear first.  |
 
-### How to get consistent ordering
+### Ordering by the semantic reranker
+
+If you're using [semantic search](semantic-search-overview.md), the "@search.rerankerScore" determines the sort order of your results. 
+
+The "@search.rerankerScore" range is 1 to 4.00, where a higher score indicates a stronger semantic match.
+
+### Ordering with $orderby
 
 If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`** expression](query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as "sortable" can be used to order results.
 
 Fields commonly used in an **`$orderby`** include rating, date, and location. Filtering by location requires that the filter expression calls the [**`geo.distance()` function**](search-query-odata-geo-spatial-functions.md?#order-by-examples), in addition to the field name.
 
-Another approach that promotes order consistency is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The additional scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
+Numeric fields (Edm.Double, Edm.Int32, Edm.Int64) are sorted in numeric order (for example, 1, 2, 10, 11, 20).
+
+String fields (Edm.String, Edm.ComplexType subfields) are sorted in either [ASCII sort order](https://en.wikipedia.org/wiki/ASCII#Printable_characters) or [Unicode sort order](https://en.wikipedia.org/wiki/List_of_Unicode_characters), depending on the language. You can't sort collections of any type.
+
++ Numeric content in string fields is sorted alphabetically (1, 10, 11, 2, 20).
+
++ Upper case strings are sorted ahead of lower case (APPLE, Apple, BANANA, Banana, apple, banana). You can assign a [text normalizer](search-normalizers.md) to preprocess the text before sorting to change this behavior. Using the lowercase tokenizer ona field will have no effect on sorting behavior because Cognitive Search sorts on a non-analyzed copy of the field.
+
++ Strings that lead with diacritics appear last (Äpfel, Öffnen, Üben)
+
+### Use a scoring profile to influence relevance
+
+Another approach that promotes order consistency is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The extra scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
 
 ## Hit highlighting
 

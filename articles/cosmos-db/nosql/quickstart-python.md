@@ -1,223 +1,198 @@
 ---
-title: 'Quickstart: Build a Python app using Azure Cosmos DB for NoSQL account'
-description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB for NoSQL
-author: Rodrigossz
+title: Quickstart - Azure Cosmos DB for NoSQL client library for Python
+description: Learn how to build a .NET app to manage Azure Cosmos DB for NoSQL account resources and data in this quickstart.
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/25/2022
-ms.author: rosouz
-ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api, ignite-2022
+ms.date: 11/03/2022
+ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet-path
 ---
 
-# Quickstart: Build a Python application using an Azure Cosmos DB for NoSQL account
+# Quickstart: Azure Cosmos DB for NoSQL client library for Python
+
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-> [!div class="op_single_selector"]
->
-> * [.NET](quickstart-dotnet.md)
-> * [Node.js](quickstart-nodejs.md)
-> * [Java](quickstart-java.md)
-> * [Spring Data](quickstart-java-spring-data.md)
-> * [Python](quickstart-python.md)
-> * [Spark v3](quickstart-spark.md)
-> * [Go](quickstart-go.md)
->
+[!INCLUDE[Quickstart selector](includes/quickstart-selector.md)]
 
-In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account from the Azure portal, and from Visual Studio Code with a Python app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+Get started with the Azure Cosmos DB client library for Python to create databases, containers, and items within your account. Follow these steps to install the package and try out example code for basic tasks.
+
+> [!NOTE]
+> The [example code snippets](https://github.com/azure-samples/cosmos-db-nosql-python-samples) are available on GitHub as a .NET project.
+
+[API reference documentation](/python/api/azure-cosmos/azure.cosmos) | [Library source code](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos) | [Package (PyPI)](https://pypi.org/project/azure-cosmos) | [Samples](samples-python.md)
 
 ## Prerequisites
 
-- An Azure Cosmos DB Account. You options are:
-    * Within an Azure active subscription:
-        * [Create an Azure free Account](https://azure.microsoft.com/free) or use your existing subscription 
-        * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB Free Tier](../optimize-dev-test.md#azure-cosmos-db-free-tier)
-    * Without an Azure active subscription:
-        * [Try Azure Cosmos DB for free](../try-free.md), a tests environment that lasts for 30 days.
-        * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
-- [Python 3.7+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
-- [Visual Studio Code](https://code.visualstudio.com/).
-- The [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
-- [Git](https://www.git-scm.com/downloads). 
-- [Azure Cosmos DB for NoSQL SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
+- An Azure account with an active subscription. [Create an account for free](https://aka.ms/trycosmosdb).
+- [Python 3.7 or later](https://www.python.org/downloads/)
+  - Ensure the `python` executable is in your `PATH`.
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
-## Important update on Python 2.x Support
+### Prerequisite check
 
-New releases of this SDK won't support Python 2.x starting January 1st, 2022. Please check the [CHANGELOG](./sdk-python.md) for more information.
+- In a terminal or command window, run ``python --version`` to check that the .NET SDK is version 3.7 or later.
+- Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
-## Create a database account
+## Setting up
 
-[!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
+This section walks you through creating an Azure Cosmos DB account and setting up a project that uses Azure Cosmos DB for NoSQL client library for .NET to manage resources.
 
-## Add a container
+### Create an Azure Cosmos DB account
 
-[!INCLUDE [cosmos-db-create-collection](../includes/cosmos-db-create-collection.md)]
+> [!TIP]
+> Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit. If you create an account using the free trial, you can safely skip this section.
 
-## Add sample data
+[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](./includes/create-resources.md)]
 
-[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+### Create a new Python app
 
-## Query your data
+Create a new Python code file (*app.py*) in an empty folder using your preferred integrated development environment (IDE).
 
-[!INCLUDE [cosmos-db-create-sql-api-query-data](../includes/cosmos-db-create-sql-api-query-data.md)]
+### Install the package
 
-## Clone the sample application
+Add the [`azure-cosmos`](https://pypi.org/project/azure-cosmos) PyPI package to the Python app. Use the `pip install` command to install the package.
 
-Now let's clone a API for NoSQL app from GitHub, set the connection string, and run it. This quickstart uses version 4 of the [Python SDK](https://pypi.org/project/azure-cosmos/#history).
+```bash
+pip install azure-cosmos
+```
 
-1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+### Configure environment variables
 
-    ```cmd
-    md git-samples
-    ```
+[!INCLUDE [Create environment variables for key and endpoint](./includes/environment-variables.md)]
 
-   If you are using a bash prompt, you should instead use the following command:
+## Object model
 
-   ```bash
-   mkdir "git-samples"
-   ```
+[!INCLUDE [Explain DOCUMENT DB object model](./includes/object-model.md)]
 
-2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
+You'll use the following Python classes to interact with these resources:
 
-    ```bash
-    cd "git-samples"
-    ```
+- [``CosmosClient``](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
+- [``DatabaseProxy``](/python/api/azure-cosmos/azure.cosmos.database.databaseproxy) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
+- [``ContainerProxy``](/python/api/azure-cosmos/azure.cosmos.container.containerproxy) - This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it.
 
-3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
+## Code examples
 
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git
-    ```  
+- [Authenticate the client](#authenticate-the-client)
+- [Create a database](#create-a-database)
+- [Create a container](#create-a-container)
+- [Create an item](#create-an-item)
+- [Get an item](#get-an-item)
+- [Query items](#query-items)
 
-## Update your connection string
+The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
-Now go back to the Azure portal to get your connection string information and copy it into the app.
+For this sample code, the container will use the category as a logical partition key.
 
-1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Keys** from the left navigation. Use the copy buttons on the right side of the screen to copy the **URI** and **Primary Key** into the *cosmos_get_started.py* file in the next step.
+### Authenticate the client
 
-    :::image type="content" source="./media/quickstart-python/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Get an access key and URI in the Keys settings in the Azure portal":::
+From the project directory, open the *app.py* file. In your editor, import the `os` and `json` modules. Then, import the `CosmosClient` and `PartitionKey` classes from the `azure.cosmos` module.
 
-2. In Visual Studio Code, open the *cosmos_get_started.py* file in *\git-samples\azure-cosmos-db-python-getting-started*.
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="imports":::
 
-3. Copy your **URI** value from the portal (using the copy button) and make it the value of the **endpoint** variable in *cosmos_get_started.py*. 
+Create variables for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variables using `os.environ`.
 
-    `endpoint = 'https://FILLME.documents.azure.com',`
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="environment_variables":::
 
-4. Then copy your **PRIMARY KEY** value from the portal and make it the value of the **key** in *cosmos_get_started.py*. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the two variables you created as parameters.
 
-    `key = 'FILLME'`
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_client":::
 
-5. Save the *cosmos_get_started.py* file.
+### Create a database
 
-## Review the code
+Use the [`CosmosClient.create_database_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#azure-cosmos-cosmos-client-cosmosclient-create-database-if-not-exists) method to create a new database if it doesn't already exist. This method will return a [`DatabaseProxy`](/python/api/azure-cosmos/azure.cosmos.databaseproxy) reference to the existing or newly created database.
 
-This step is optional. Learn about the database resources created in code, or skip ahead to [Update your connection string](#update-your-connection-string).
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_database":::
 
-The following snippets are all taken from the [cosmos_get_started.py](https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started/blob/main/cosmos_get_started.py) file.
+### Create a container
 
-* The CosmosClient is initialized. Make sure to update the "endpoint" and "key" values as described in the [Update your connection string](#update-your-connection-string) section. 
+The [`PartitionKey`](/python/api/azure-cosmos/azure.cosmos.partitionkey) class defines a partition key path that you can use when creating a container.
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_cosmos_client)]
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_partition_key":::
 
-* A new database is created.
+The [`Databaseproxy.create_container_if_not_exists`](/python/api/azure-cosmos/azure.cosmos.databaseproxy#azure-cosmos-databaseproxy-create-container-if-not-exists) method will create a new container if it doesn't already exist. This method will also return a [`ContainerProxy`](/python/api/azure-cosmos/azure.cosmos.containerproxy) reference to the container.
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_database_if_not_exists)]
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_container":::
 
-* A new container is created, with 400 RU/s of [provisioned throughput](../request-units.md). We choose `lastName` as the [partition key](../partitioning-overview.md#choose-partitionkey), which allows us to do efficient queries that filter on this property. 
+### Create an item
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_container_if_not_exists)]
+Create a new item in the container by first creating a new variable (`newItem`) with a sample item defined. In this example, the unique identifier of this item is `70b63682-b93a-4c77-aad2-65501347265f`. The partition key value is derived from the `/categoryId` path, so it would be `61dba35b-4f02-45c5-b648-c6badc0cbd79`.
 
-* Some items are added to the container. Containers are a collection of items (JSON documents) that can have varied schema. The helper methods ```get_[name]_family_item``` return representations of a family that are stored in Azure Cosmos DB as JSON documents.
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="new_item":::
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_item)]
+> [!TIP]
+> The remaining fields are flexible and you can define as many or as few as you want. You can even combine different item schemas in the same container.
 
-* Point reads (key value lookups) are performed using the `read_item` method. We print out the [RU charge](../request-units.md) of each operation.
+Create an item in the container by using the [`ContainerProxy.create_item`](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-create-item) method passing in the variable you already created.
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=read_item)]
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_item":::
 
-* A query is performed using SQL query syntax. Because we're using partition key values of ```lastName``` in the WHERE clause, Azure Cosmos DB will efficiently route this query to the relevant partitions, improving performance.
+### Get an item
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=query_items)]
-   
-## Run the app
+In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [`ContainerProxy.read_item](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-read-item) passing in both values to return an item as a dictionary of strings and values (`dict[str, Any]`).
 
-1. In Visual Studio Code, select **View** > **Command Palette**. 
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="read_item":::
 
-2. At the prompt, enter  **Python: Select Interpreter** and then select the version of Python to use.
+In this example, the dictionary result is saved to a variable named `existingItem`.
 
-    The Footer in Visual Studio Code is updated to indicate the interpreter selected. 
+### Query items
 
-3. Select **View** > **Integrated Terminal** to open the Visual Studio Code integrated terminal.
+After you insert an item, you can run a query to get all items that match a specific filter. This example runs the SQL query: ``SELECT * FROM products p WHERE p.categoryId = "61dba35b-4f02-45c5-b648-c6badc0cbd79"``. This example uses query parameterization to construct the query. The query uses a string of the SQL query, and a dictionary of query parameters.
 
-4. In the integrated terminal window, ensure you are in the *azure-cosmos-db-python-getting-started* folder. If not, run the following command to switch to the sample folder. 
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="build_query":::
 
-    ```cmd
-    cd "\git-samples\azure-cosmos-db-python-getting-started"`
-    ```
+This example dictionary included the `@categoryId` query parameter and the corresponding value `61dba35b-4f02-45c5-b648-c6badc0cbd79`.
 
-5. Run the following command to install the azure-cosmos package. 
+Once the query is defined, call [`ContainerProxy.query_items`](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-query-items) to run the query and return the results as a paged set of items (`ItemPage[Dict[str, Any]]`).
 
-    ```python
-    pip install azure-cosmos aiohttp
-    ```
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="query_items":::
 
-    If you get an error about access being denied when attempting to install azure-cosmos, you'll need to [run VS Code as an administrator](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
+Finally, use a for loop to iterate over the results in each page and perform various actions.
 
-6. Run the following command to run the sample and create and store new documents in Azure Cosmos DB.
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="iterate_query_results":::
 
-    ```python
-    python cosmos_get_started.py
-    ```
+In this example, `json.dumps` is used to print the item to the console in a human-readable way.
 
-7. To confirm the new items were created and saved, in the Azure portal, select **Data Explorer** > **AzureSampleFamilyDatabase** > **Items**. View the items that were created. For example, here is a sample JSON document for the Andersen family:
-   
-   ```json
-   {
-       "id": "Andersen-1569479288379",
-       "lastName": "Andersen",
-       "district": "WA5",
-       "parents": [
-           {
-               "familyName": null,
-               "firstName": "Thomas"
-           },
-           {
-               "familyName": null,
-               "firstName": "Mary Kay"
-           }
-       ],
-       "children": null,
-       "address": {
-           "state": "WA",
-           "county": "King",
-           "city": "Seattle"
-       },
-       "registered": true,
-       "_rid": "8K5qAIYtZXeBhB4AAAAAAA==",
-       "_self": "dbs/8K5qAA==/colls/8K5qAIYtZXc=/docs/8K5qAIYtZXeBhB4AAAAAAA==/",
-       "_etag": "\"a3004d78-0000-0800-0000-5d8c5a780000\"",
-       "_attachments": "attachments/",
-       "_ts": 1569479288
-   }
-   ```
+## Run the code
 
-## Review SLAs in the Azure portal
+This app creates an API for NoSQL database and container. The example then creates an item and then reads the exact same item back. Finally, the example issues a query that should only return that single item. At the final step, the example outputs the final item to the console.
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../includes/cosmos-db-tutorial-review-slas.md)]
+Use a terminal to navigate to the application directory and run the application.
+
+```bash
+python app.py
+```
+
+The output of the app should be similar to this example:
+
+```output
+{
+  "id": "70b63682-b93a-4c77-aad2-65501347265f",
+  "categoryId": "61dba35b-4f02-45c5-b648-c6badc0cbd79",
+  "categoryName": "gear-surf-surfboards",
+  "name": "Yamba Surfboard",
+  "quantity": 12,
+  "sale": false,
+  "_rid": "yzN6AIfJxe0BAAAAAAAAAA==",
+  "_self": "dbs/yzN6AA==/colls/yzN6AIfJxe0=/docs/yzN6AIfJxe0BAAAAAAAAAA==/",
+  "_etag": "\"2a00ccd4-0000-0200-0000-63650e420000\"",
+  "_attachments": "attachments/",
+  "_ts": 16457527130
+}
+```
+
+> [!NOTE]
+> The fields assigned by Azure Cosmos DB (ex. ) will vary from this sample output.
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](./includes/clean-up-resources.md)]
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a container using the Data Explorer, and run a Python app in Visual Studio Code. You can now import additional data to your Azure Cosmos DB account. 
-
-Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
-* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
+In this quickstart, you learned how to create an Azure Cosmos DB for NoSQL account, create a database, and create a container using the Python SDK. You can now dive deeper into guidance on how to import your data into the API for NoSQL.
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for the API for NoSQL](../import-data.md)
+> [Import data into Azure Cosmos DB for NoSQL](../import-data.md)

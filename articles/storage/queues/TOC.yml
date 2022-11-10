@@ -51,7 +51,7 @@
     href: ../common/authorize-data-access.md?toc=/azure/storage/queues/toc.json
     items:
     - name: Authorizing data operations
-      href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json
       items:
       - name: Authorize with Azure AD
         items:

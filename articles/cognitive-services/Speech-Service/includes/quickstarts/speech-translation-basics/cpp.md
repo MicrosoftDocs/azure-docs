@@ -17,6 +17,10 @@ ms.author: eur
 ## Set up the environment
 The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK later in this guide, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements
 
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
 ## Translate speech from a microphone
 
 Follow these steps to create a new console application and install the Speech SDK.
@@ -30,18 +34,22 @@ Follow these steps to create a new console application and install the Speech SD
     
     ```cpp
     #include <iostream> 
+    #include <stdlib.h>
     #include <speechapi_cxx.h>
     
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
     using namespace Microsoft::CognitiveServices::Speech::Translation;
     
-    auto YourSubscriptionKey = "YourSubscriptionKey";
-    auto YourServiceRegion = "YourServiceRegion";
+    std::string GetEnvironmentVariable(const char* name);
     
     int main()
     {
-        auto speechTranslationConfig = SpeechTranslationConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        auto speechKey = GetEnvironmentVariable("SPEECH_KEY");
+        auto speechRegion = GetEnvironmentVariable("SPEECH_REGION");
+
+        auto speechTranslationConfig = SpeechTranslationConfig::FromSubscription(speechKey, speechRegion);
         speechTranslationConfig->SetSpeechRecognitionLanguage("en-US");
         speechTranslationConfig->AddTargetLanguage("it");
     
@@ -78,11 +86,26 @@ Follow these steps to create a new console application and install the Speech SD
             }
         }
     }
+
+    std::string GetEnvironmentVariable(const char* name)
+    {
+    #if defined(_MSC_VER)
+        size_t requiredSize = 0;
+        (void)getenv_s(&requiredSize, nullptr, 0, name);
+        if (requiredSize == 0)
+        {
+            return "";
+        }
+        auto buffer = std::make_unique<char[]>(requiredSize);
+        (void)getenv_s(&requiredSize, buffer.get(), requiredSize, name);
+        return buffer.get();
+    #else
+        auto value = getenv(name);
+        return value ? value : "";
+    #endif
+    }
     ```
 
-1. In `SpeechTranslation.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md#speech-to-text). Specify the full locale with a dash (`-`) separator. For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 1. To change the translation target language, replace `it` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md#speech-translation). With few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. The default language is `en` if you don't specify a language.
 
