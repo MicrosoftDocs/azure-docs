@@ -73,11 +73,12 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 
 ### Training Parameters
 
+While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are model-specific or task-specific. Note that the `training_parameters` object for AutoML image classification job can have properties from [Model Agnostic Hyperparameters](#model-agnostic-hyperparameters) and [Image Classification (multi-class and multi-label) Specific Hyperparameters](#image-classification-multi-class-and-multi-label-specific-hyperparameters).
+
+#### Discrete and Continuous Hyperparameters
 This section describes the hyperparameters available specifically for computer vision tasks in automated ML experiments. There are two types of hyperparameters: 
 - **Discrete Hyperparameters**: Discrete hyperparameters are specified as a `Choice` among discrete values. `Choice` can be one or more comma-separated values, a `range` object, or any arbitrary `list` object. Advanced discrete hyperparameters can also be specified using a distribution - `QUniform(min_value, max_value)`, `QLogUniform(min_value, max_value)`, `QNormal(mu, sigma)`, `QLogNormal(mu, sigma)`. For further details, refer to this [section](./how-to-tune-hyperparameters.md#discrete-hyperparameters).
 - **Continuous hyperparameters**: Continuous hyperparameters are specified as a distribution over a continuous range of values. Currently supported distributions namely are - `Uniform(min_value, max_value)`, `LogUniform(min_value, max_value)`, `Normal(mu, sigma)`, `LogNormal(mu, sigma)`. For further details, refer to this [section](./how-to-tune-hyperparameters.md#continuous-hyperparameters).
-
-While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are model-specific or task-specific. Note that the `training_parameters` object for AutoML image classification job can have properties from [Model Agnostic Hyperparameters](#model-agnostic-hyperparameters) and [Image Classification (multi-class and multi-label) Specific Hyperparameters](#image-classification-multi-class-and-multi-label-specific-hyperparameters).
 
 #### Model Agnostic Hyperparameters
 The following table describes the hyperparameters that are model agnostic.
