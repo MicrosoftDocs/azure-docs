@@ -34,7 +34,7 @@ This article describes how to access the shell environment inside your applicati
 
 ## Assign an Azure role
 
-Before connecting to an app instance, you must be granted the role *Azure Spring Apps Connect Role*. Connecting to an app instance it requires the data action permission `Microsoft.AppPlatform/Spring/apps/deployments/connect/action`.
+Before connecting to an app instance, you must be granted the role *Azure Spring Apps Connect Role*. Connecting to an app instance requires the data action permission `Microsoft.AppPlatform/Spring/apps/deployments/connect/action`.
 
 Use the following command to assign the *Azure Spring Apps Connect Role* role:
 
@@ -100,7 +100,7 @@ jps
 
 The output should look like the following example:
 
-:::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/jps-result.png" alt-text="Screenshot showing the output of the command.":::
+:::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/jps-result.png" alt-text="Screenshot showing the output of the jps command.":::
 
 Then use the following command to run the JDK tool to check the result:
 
@@ -110,7 +110,7 @@ jstat -gc 1
 
 The output should look like the following example:
 
-:::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/jstat-result.png" alt-text="Screenshot showing the output of the command.":::
+:::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/jstat-result.png" alt-text="Screenshot showing the output of the jstat command.":::
 
 ## Disconnect from your app instance
 
@@ -122,10 +122,10 @@ The following list describes some of the pre-installed tools that you can use fo
 
 - `lsof` - Lists open files.
 - `top` - Displays system summary information and current utilization.
-- `ps` - Get a snapshot of the running process.
+- `ps` - Gets a snapshot of the running process.
 - `netstat` - Prints network connections and interface statistics.
 - `nslookup` - Queries internet name servers interactively.
-- `ping` - Test whether a network host can be reached.
+- `ping` - Tests whether a network host can be reached.
 - `nc` - Reads from and writes to network connections using TCP or UDP.
 - `wget` - Lets you download files and interact with REST APIs.
 - `df` - Displays the amount of available disk space.
@@ -134,12 +134,12 @@ You can also use JDK-bundled tools such as `jps`, `jcmd`, and `jstat`.
 
 The available tools depend on your service tier and type of app deployment. The following table describes the availability of troubleshooting tools:
 
-| Tier                  | Deployment Type         | Common tools                                 | JDK tools                   | Notes                                   |
-|------------------------|--------------------------|-----------------------------------------------|------------------------------|------------------------------------------|
-| Basic / Standard tier | Source code / Jar       | Y                                            | Y (for Java workloads only) |                                         |
-| Basic / Standard tier | Custom Image            | N                                            | N                           | Up to your installed tool set           |
-| Enterprise Tier       | Source code / Artifacts | Y (for full OS stack), N (for base OS stack) | Y (for Java workloads only) | Depends on the os stack of your builder |
-| Enterprise Tier       | Custom Image            | N                                            | N                           | Up to your installed tool set           |
+| Tier                  | Deployment Type         | Common tools                                 | JDK tools                   | Notes                                    |
+|------------------------|--------------------------|-----------------------------------------------|------------------------------|-------------------------------------------|
+| Basic / Standard tier | Source code / Jar       | Y                                            | Y (for Java workloads only) |                                          |
+| Basic / Standard tier | Custom Image            | N                                            | N                           | Up to your installed tool set.           |
+| Enterprise Tier       | Source code / Artifacts | Y (for full OS stack), N (for base OS stack) | Y (for Java workloads only) | Depends on the os stack of your builder. |
+| Enterprise Tier       | Custom Image            | N                                            | N                           | Up to your installed tool set.           |
 
 ## Limitations
 
