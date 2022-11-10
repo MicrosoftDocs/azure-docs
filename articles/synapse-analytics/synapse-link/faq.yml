@@ -109,7 +109,7 @@ sections:
       - question: |
           What is the impact when a user removes the Azure Synapse workspace that contains an Azure Synapse Link to Azure SQL DB?
         answer: |
-          If the Azure Synapse workspace is removed, Azure SQL DB will stop data replication from landing zone into Azure Synapse. The system stored procedure [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group) will be called automatically, and the storage account for the landing zone is managed and will be cleaned up automatically. If this fails, you may receive error 22739 from the SynapseLinkGatewayClient in [sys.dm_change_feed_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors). If this occurs, you can manually drop the changefeed table group with `sp_change_feed_drop_table_group`.
+          If the Azure Synapse workspace is removed, Azure SQL DB will stop data replication from landing zone into Azure Synapse. The system stored procedure [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group) will be called automatically, and the storage account for the landing zone is managed and will be cleaned up automatically. If this fails, you may receive error 22739 from the SynapseGatewayClient in [sys.dm_change_feed_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors). If this occurs, you can manually drop the changefeed table group with `sp_change_feed_drop_table_group`.
       - question: |
           What is the impact when a user removes the Azure Synapse workspace that contains an Azure Synapse Link to SQL Server?
         answer: | 
