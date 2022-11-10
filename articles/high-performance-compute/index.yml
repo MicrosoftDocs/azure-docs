@@ -90,7 +90,7 @@ productDirectory:
       # imageSrc should be square in ratio with no white space
       imageSrc: ../virtual-machines/media/logos/vdilogo.png
       links:
-        - url: ../virtual-desktop
+        - url: ../virtual-desktop/overview.md
           text: Azure Virtual Desktop Infrastructure
         - url: ../virtual-desktop/overview.md
           text: What is Azure VDI?
@@ -126,7 +126,7 @@ additionalContent:
       items: 
         # Card
         - title: VM workload 
-          imageSrc: ../virtual-machines/media/sizes/azurevmsthumb.jpg
+          summary: Workloads on general use virtual machines in Azure
           url: ../virtual-machines/index.yml
         # Card
         - title: Azure architecture Center
