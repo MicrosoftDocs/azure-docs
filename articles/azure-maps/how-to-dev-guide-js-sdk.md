@@ -50,7 +50,7 @@ mapsDemo
 
 ### Azure Maps search service
 
-| Service Name  | NuGet package           |  Samples     |
+| Service Name  | NPM package             |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][search readme] | [Azure.Maps.Search][search package] | [search samples][search sample] |
 
@@ -356,15 +356,15 @@ main().catch((err) => {
 
 - The [Azure Maps Search client library for JavaScript/TypeScript][JS-SDK].
 
-[JS-SDK]: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-maps-search/1.0.0-beta.1/index.html
+[JS-SDK]: /javascript/api/overview/azure/maps-search-readme?view=azure-node-preview
 
 [defaultazurecredential]: https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-search_1.0.0-beta.1/sdk/identity/identity#defaultazurecredential
 
-[searchAddress]: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-maps-search/1.0.0-beta.1/interfaces/search.html#searchaddress
+[searchAddress]: /javascript/api/@azure/maps-search/mapssearchclient?view=azure-node-preview#@azure-maps-search-mapssearchclient-searchaddress
 
-[FuzzySearchRequest]: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-maps-search/1.0.0-beta.1/interfaces/fuzzysearchrequest.html
+[FuzzySearchRequest]: /javascript/api/@azure/maps-search/fuzzysearchrequest?view=azure-node-preview
 
-[SearchAddressResult]: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-maps-search/1.0.0-beta.1/interfaces/searchaddressresult.html
+[SearchAddressResult]: /javascript/api/@azure/maps-search/searchaddressresult?view=azure-node-preview
 
 [search]: /rest/api/maps/search
 [Node.js Release]: https://github.com/nodejs/release#release-schedule
@@ -378,8 +378,6 @@ main().catch((err) => {
 [Host daemon]: /azure/azure-maps/how-to-secure-daemon-app#host-a-daemon-on-non-azure-resources
 [dotenv]: https://github.com/motdotla/dotenv#readme
 
-
-
-[search package]: https://www.nuget.org/packages/Azure.Maps.Search
-[search readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Search/README.md
-[search sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Search/samples
+[search package]: https://www.npmjs.com/package/@azure/maps-search
+[search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search/README.md
+[search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search/samples/v1-beta
