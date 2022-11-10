@@ -239,7 +239,7 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
     <tr>
         <td><strong>Cost to store (file size * data price)</strong></td>
         <td><strong>$10.14</strong></td>
-        <td<strong>20.28</></td>
+        <td><strong>20.28</></td>
         <td><strong>$30.41</></td>
         <td><strong>$790.73</strong></td>
     </tr>
@@ -306,10 +306,10 @@ The following table compares the cost of archive storage with the cost of cold s
         <td>$0.00001</td>
         <td>$0.00001</td>
     </tr>
-    <tr bgcolor="beige">
-        <td>Cost to write (transactions * price of a write operation)</td>
-        <td>$2.00</td>
-        <td>$2.00</td>
+    <tr>
+        <td><strong>Cost to write (transactions * price of a write operation)</strong></td>
+        <td><strong>$2.00</strong></td>
+        <td><strong>$2.00</strong></td>
     </tr>
     <tr>
         <td>Total file size (GB)</td>
@@ -321,10 +321,10 @@ The following table compares the cost of archive storage with the cost of cold s
         <td>$0.00099</td>
         <td>$0.0152</td>
     </tr>
-    <tr bgcolor="beige">
-        <td>Cost to store (file size * data price)</td>
-        <td>$10.14</td>
-        <td>$155.65</td>
+    <tr>
+        <td><strong>Cost to store (file size * data price)</strong></td>
+        <td><strong>$10.14</strong></td>
+        <td><strong>$155.65</strong></td>
     </tr>    
     <tr>
         <td>Data retrieval size</td>
@@ -346,10 +346,10 @@ The following table compares the cost of archive storage with the cost of cold s
         <td>$0.0005</td>
         <td>$0.000001</td>
     </tr>
-    <tr bgcolor="beige">
-        <td>Cost to rehydrate (cost to retrieve + cost to read)</td>
-        <td>$30.48</td>
-        <td>$10.26</td>
+    <tr>
+        <td><strong>Cost to rehydrate (cost to retrieve + cost to read)</strong></td>
+        <td><strong>$30.48</strong></td>
+        <td><strong>$10.26</strong></td>
     </tr>
     <tr>
         <td><strong>Monthly cost</strong></td>
