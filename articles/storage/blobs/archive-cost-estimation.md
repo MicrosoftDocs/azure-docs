@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to calculate the cost of storing and maintaining data in the archive storage tier.
 author: normesta
 ms.author: normesta
-ms.date: 11/02/2022
+ms.date: 11/09/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -179,6 +179,8 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
     </tr>
 </table>
 
+> [!TIP]
+> To view these costs over 12 months, open the **One-Time Backup** tab of this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx). You can modify the values in that worksheet to estimate your costs. 
 
 ## Scenario: Continuous tiering
 
@@ -278,6 +280,8 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
     </tr>
 </table>
 
+> [!TIP]
+> To view these costs over 12 months, open the **Continuous Tiering** tab of this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx). You can modify the values in that worksheet to estimate your costs. 
 
 ## Archive versus cool 
 
@@ -353,6 +357,9 @@ The following table compares the cost of archive storage with the cost of cold s
         <td><strong>$167.91</strong></td>
     </tr>
 </table>
+
+> [!TIP]
+> To view these costs over 12 months, open the **Cool vs Archive** tab of this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx). You can modify the values in that worksheet to estimate your costs. 
 
 The following chart shows the impact on monthly spending given various read percentages. This chart assumes a monthly ingest of 1,000,000 files totaling 10,240 GB in size.
 
