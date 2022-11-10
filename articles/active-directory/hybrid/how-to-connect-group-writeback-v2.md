@@ -55,7 +55,7 @@ To view the existing writeback settings on Microsoft 365 groups in the portal, g
 
 [![Screenshot of Microsoft 365 group properties.](media/how-to-connect-group-writeback/group-2.png)](media/how-to-connect-group-writeback/group-2.png#lightbox)
 
-You can also view the writeback state via Microsoft Graph. For more information, see [Get group](/graph/api/group-get?tabs=http&view=graph-rest-beta).  
+You can also view the writeback state via Microsoft Graph. For more information, see [Get group](/graph/api/group-get?tabs=http&view=graph-rest-beta&preserve-view=true).  
 
 > Example: `GET https://graph.microsoft.com/beta/groups?$filter=groupTypes/any(c:c eq 'Unified')&$select=id,displayName,writebackConfiguration`  
 
