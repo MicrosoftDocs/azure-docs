@@ -88,6 +88,7 @@ Now you can create environment variables in PowerShell to store these values:
 $Env:AZURE_CLIENT_ID="Application (client) ID"
 $Env:AZURE_CLIENT_SECRET="your client secret"
 $Env:AZURE_TENANT_ID="your Directory (tenant) ID"
+$Env:MAPS_CLIENT_ID="your Azure Maps client ID"
 ```
 
 After setting up the environment variables, you can use them in your program to instantiate the `AzureMapsSearch` client:
