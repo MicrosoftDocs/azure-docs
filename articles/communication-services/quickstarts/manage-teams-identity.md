@@ -104,6 +104,24 @@ The service principal of the Contoso application in the Fabrikam tenant is creat
 
 You can see that the status of the Communication Services Teams.ManageCalls and Teams.ManageChats permissions are *Granted for {Directory_name}*.
 
+
+If you run into the issue "The app is trying to access a service '1fd5118e-2576-4263-8130-9503064c837a'(Azure Communication Services) that your organization '{GUID}' lacks a service principal for. Contact your IT Admin to review the configuration of your service subscriptions or consent to the application to create the required service principal." your Azure Active Directory tenant lacks a service principal for the Azure Communication Services application. To fix this issue, use PowerShell as an Azure AD administrator to connect to your tenant. Replace `Tenant_ID` with an ID of your AAD tenancy. 
+
+```script
+Connect-AzureAD -TenantId "Tenant_ID"
+```
+If the command is not found, start PowerShell as an administrator and install the Azure AD package.
+
+```script
+Install-Module AzureAD
+```
+Then execute the following command to add a service principal to your tenant. Do not modify the GUID of the App ID.
+
+```script
+New-AzureADServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
+```
+
+
 ## Developer actions
 
 The Contoso developer needs to set up the *client application* to authenticate users. The developer then needs to create an endpoint on the back-end *server* to process the Azure AD user token after redirection. When the Azure AD user token is received, it's exchanged for the access token of Teams user and returned to the *client application*. 

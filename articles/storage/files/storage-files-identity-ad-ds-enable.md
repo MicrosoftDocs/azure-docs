@@ -1,16 +1,16 @@
 ---
-title: Enable AD DS authentication to Azure file shares
+title: Enable AD DS authentication for Azure file shares
 description: Learn how to enable Active Directory Domain Services authentication over SMB for Azure file shares. Your domain-joined Windows virtual machines can then access Azure file shares by using AD DS credentials. 
 author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 11/09/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Part one: enable AD DS authentication for your Azure file shares
+# Enable AD DS authentication for Azure file shares
 
 This article describes the process for enabling Active Directory Domain Services (AD DS) authentication on your storage account. After enabling the feature, you must configure your storage account and your AD DS, to use AD DS credentials for authenticating to your Azure file share. 
 
@@ -49,7 +49,10 @@ The AD DS account created by the cmdlet represents the storage account. If the A
 You must run the script below in PowerShell 5.1 on a device that's domain joined to your on-premises AD DS, using an on-premises AD DS credential that's synced to your Azure AD. To follow the [Least privilege principle](../../role-based-access-control/best-practices.md), the on-premises AD DS credential must have the following Azure roles:
 
 - **Reader** on the resource group where the target storage account is located.
-- **Contributor** on the storage account to be joined to AD DS (**Owner** will also work).
+- **Contributor** on the storage account to be joined to AD DS.
+
+> [!NOTE]
+> If the account used to join the storage account in AD DS is an **Owner** or **Contributor** in the Azure subscription where the target resources are located, then that account is already enabled to perform the join and no further assignments are required.
 
 The AD DS credential must also have permissions to create a service logon account or computer account in the target AD. Replace the placeholder values with your own before executing the script.
 
@@ -245,6 +248,4 @@ AzureStorageID:<yourStorageSIDHere>
 
 ## Next steps
 
-You've now successfully enabled the feature on your storage account. To use the feature, you must assign share-level permissions for users and groups. Continue to the next section.
-
-[Part two: assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md)
+You've now successfully enabled the feature on your storage account. To use the feature, you must [assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).

@@ -157,6 +157,12 @@ items:
       href: how-to-request-weather-data.md
     - name: Request elevation data
       href: how-to-request-elevation-data.md
+  - name: Develop with the REST SDK
+    items:
+    - name: REST SDK Developer Guide
+      href: rest-sdk-developer-guide.md
+    - name: C# REST SDK Developers Guide
+      href: how-to-dev-guide-csharp-sdk.md
   - name: Develop with the Web SDK
     items:
     - name: Map control
@@ -233,6 +239,8 @@ items:
       items:
       - name: Indoor Maps module
         href: how-to-use-indoor-module.md
+      - name: Create dataset using GeoJson package (Preview)
+        href: how-to-dataset-geojson.md
       - name: Dynamic styling for indoor maps
         href: indoor-map-dynamic-styling.md
       - name: Custom styling for indoor maps

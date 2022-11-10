@@ -2,7 +2,7 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date: 10/24/2022
+ms.date: 10/31/2022
 ms.devlang: csharp, java, javascript, vb
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: mmcc
@@ -1140,6 +1140,14 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## Frequently asked questions
+
+### Why am I missing telemetry data?
+
+Both [TelemetryChannels](telemetry-channels.md#what-are-telemetry-channels) will lose buffered telemetry if it isn't flushed before an application shuts down.
+
+To avoid data loss, flush the TelemetryClient when an application is shutting down.
+
+For more information, see [Flushing data](#flushing-data).
 
 ### What exceptions might `Track_()` calls throw?
 
