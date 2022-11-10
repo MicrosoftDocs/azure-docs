@@ -241,7 +241,7 @@ To initialize the tool in Visual Studio:
 
 ## Build and debug a single module
 
-Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules.
+Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules. The IoT Edge simulator tool allows you to run a single module in isolation a send messages over port 53000.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -252,9 +252,9 @@ Typically, you'll want to test and debug each module before running it within an
 :::moniker-end
 <!-- end 1.1 -->
 
-1. In **Solution Explorer**, select and highlight the module project folder, for example, *IotEdgeModule1*. Set the module as the startup project. Select **Project** > **Set as StartUp Project** from the menu.
+1. In **Solution Explorer**, select and highlight the module project folder (for example, *IotEdgeModule1*). Set the custom module as the startup project. Select **Project** > **Set as StartUp Project** from the menu.
 
-1. Press **F5** or select the run toolbar button to run the module. It may take 10 to 20 seconds the first time you do so. Be sure you don't have other Docker containers running that might bind the port you need for this project.
+1. Press **F5** or select the run toolbar button to start the IoT Edge simulator for a single module. It may take 10 to 20 seconds the initially.
 
    :::image type="content" source="./media/how-to-visual-studio-develop-module/run-module.png" alt-text="Screenshot of how to run a module.":::
 
@@ -265,7 +265,7 @@ Typically, you'll want to test and debug each module before running it within an
    * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
-1. Test the module by sending a message by running the following command in a **Git Bash** or **WSL Bash** shell. You cannot run the `curl` command from a PowerShell or command prompt.
+1. Test the module by sending a message. When debugging a single module, the simulator listens on the default port 53000 for messages. To send a message to your module, run the following curl command from a command shell like **Git Bash** or **WSL Bash**.
 
    ```bash
    curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
@@ -278,7 +278,7 @@ Typically, you'll want to test and debug each module before running it within an
   
    :::image type="content" source="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png" alt-text="Screenshot of the output console, Visual Studio project, and Bash window." lightbox="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png":::
 
-   The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window, found when the debugger is running. Go to Debug > Windows > Locals. 
+   The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window, found when the debugger is running. Go to **Debug** > **Windows** > **Locals**.
 
    In your Bash or shell, you should see a `{"message":"accepted"}` confirmation.
 
@@ -296,7 +296,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 ## Build and debug multiple modules
 
-After you're done developing a single module, you might want to run and debug an entire solution with multiple modules.
+After you're done developing a single module, you might want to run and debug an entire solution with multiple modules. The IoT Edge simulator tool allows you to run all modules defined in the deployment manifest including a simulated edgeHub for message routing. In this example, you'll run two custom modules and the simulated temperature sensor module. Messages from the simulated temperature sensor module are routed to each custom module.
 
 1. In **Solution Explorer**, add a second module to the solution by right-clicking the main project folder. On the menu, select **Add** > **New IoT Edge Module**.
 
@@ -310,7 +310,18 @@ After you're done developing a single module, you might want to run and debug an
    "sensorTo<NewModuleName>": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/<NewModuleName>/inputs/input1\")"
     ```
 
-1. Right-click the main project (for example, `IoTEdgeProject`) and select **Set as StartUp Project**. 
+1. Right-click the main project (for example, *AzureIotEdgeApp1*) and select **Set as StartUp Project**. By setting the main project as the startup project, all modules in the solution run. This includes both modules you added to the solution as well as the simulated temperature sensor module and the simulated Edge hub.
+
+1. Press **F5** or select the run toolbar button to run the solution. It may take 10 to 20 seconds initially. Be sure you don't have other Docker containers running that might bind the port you need for this project.
+
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/run-solution.png" alt-text="Screenshot of how to run a solution." lightbox="./media/how-to-visual-studio-develop-module/run-solution.png":::
+
+1. You should see two .NET Core console app windows appear one for each module.
+
+1. Set a breakpoint to inspect the modules.
+
+   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
+   * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
 1. Create breakpoints in each module and then press **F5** to run and debug multiple modules simultaneously. You should see multiple .NET Core console app windows, with each window representing a different module.
 
