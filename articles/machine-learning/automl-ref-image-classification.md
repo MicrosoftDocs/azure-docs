@@ -178,32 +178,7 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Several are shown below.
-
-## YAML: hello world
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
-
-## YAML: display name, experiment name, description, and tags
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml":::
-
-## YAML: hello pipeline
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline.yml":::
-
-## YAML: pipeline input/output dependency
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-io.yml":::
-
-## YAML: common pipeline job settings
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-settings.yml":::
-
-## YAML: top-level input and overriding common pipeline job settings
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-abc.yml":::
-
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Examples relevant to image classification job are linked below.  
 
 ## YAML: AutoML image classification job
 
