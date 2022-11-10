@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot distribution of Microsoft Purview access policies
-description: Learn how to troubleshoot the enforcement of access policies that were created in Microsoft Purview
+description: Learn how to troubleshoot the communication of access policies that were created in Microsoft Purview and need to be enforced in data sources
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
@@ -13,7 +13,7 @@ ms.date: 11/09/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-In this tutorial, learn how to programmatically fetch access policies that were created in Microsoft Purview. With this you can troubleshoot the communication of policies between Microsoft Purview, where policies are created and updated, and the data sources, on which these policies are enforced.
+In this tutorial, learn how to programmatically fetch access policies that were created in Microsoft Purview. With this you can troubleshoot the communication of policies between Microsoft Purview, where policies are created and updated, and the data sources, where these policies need to be enforced.
 
 To get the necessary context about Microsoft Purview policies, see concept guides listed in [next-steps](#next-steps).
 
