@@ -37,7 +37,7 @@ git clone https://github.com/Azure-Samples/Passwordless-Connections-for-Java-App
 cd Passwordless-Connections-for-Java-Apps/Tomcat/
 ```
 
-## Create an Azure Postgres DB
+## Create an Azure Database for PostgreSQL
 
 Follow these steps to create an Azure Database for Postgres in your subscription. The Spring Boot app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
@@ -57,7 +57,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
    az group create --name $RESOURCE_GROUP --location $LOCATION
    ```
 
-1. Create an Azure Postgres Database server. The server is created with an administrator account, but it won't be used because we'll use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
+1. Create an Azure Database for PostgreSQL server. The server is created with an administrator account, but it won't be used because we'll use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
 
    ### [Flexible Server](#tab/flexible)
 
