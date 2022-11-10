@@ -118,6 +118,10 @@ Linked services can be created in the Azure Data Factory UX via the [management 
 
 You can create linked services by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), [Azure Resource Manager Template](quickstart-create-data-factory-resource-manager-template.md), and [Azure portal](quickstart-create-data-factory-portal.md).
 
+> When creating a linked service, the User would need appropriate authorization to the designated service, if such access is not granted, the User will not be able to see the available resources and will need to use manual entry option, as shown in the screenshot:
+
+![create_ls_adls](https://user-images.githubusercontent.com/37622785/201118242-367c4fda-7fd6-444e-aa09-050182a7883d.jpg)
+
 
 ## Data store linked services
 
