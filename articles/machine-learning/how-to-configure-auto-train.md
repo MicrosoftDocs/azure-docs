@@ -180,7 +180,7 @@ Automated ML supports tabular data based tasks (classification, regression, fore
 
 Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, there's no need for you to specify the algorithm. 
 
-The task method determines the list of algorithms/models, to apply. Use the `allowed_algorithms` or `blocked_training_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
+The task method determines the list of algorithms/models, to apply. Use the `allowed_training_algorithms` or `blocked_training_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
 
 In the following list of links you can explore the supported algorithms per machine learning task listed below.
 
@@ -421,7 +421,7 @@ def automl_classification(
             automl_output=Input(type="mlflow_model")
         ),
         command="ls ${{inputs.automl_output}}",
-        environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:1"
+        environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:latest"
     )
     show_output = command_func(automl_output=classification_node.outputs.best_model)
 
@@ -440,4 +440,4 @@ For more examples on how to do include AutoML in your pipelines, please check ou
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
++ Learn more about [how and where to deploy a model](./how-to-deploy-managed-online-endpoints.md).

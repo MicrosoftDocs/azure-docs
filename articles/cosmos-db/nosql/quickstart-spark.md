@@ -219,7 +219,7 @@ print("document after patch operation")
 dfAfterPatch.show()
 ```
 
-For more samples related to partial document update, see the Github code sample [Patch Sample](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/Python/patch-sample.py).
+For more samples related to partial document update, see the GitHub code sample [Patch Sample](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/Python/patch-sample.py).
 
 
 #### [Scala](#tab/scala)
@@ -251,7 +251,7 @@ println("document after patch operation")
 dfAfterPatch.show()
 ```
 
-For more samples related to partial document update, see the Github code sample [Patch Sample](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/Scala/PatchSample.scala).
+For more samples related to partial document update, see the GitHub code sample [Patch Sample](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/Scala/PatchSample.scala).
 
 ---
 

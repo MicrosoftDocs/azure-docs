@@ -12,6 +12,8 @@
       href: ../saas-apps/tutorial-list.md
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
+    - name: Configure Application Proxy - Microsoft Graph
+      href: /graph/application-proxy-configure-api?toc=/azure/active-directory/app-proxy/toc.json&bc=/azure/active-directory/app-proxy/breadcrumb/toc.json
   - name: Samples
     expanded: false
     items: 

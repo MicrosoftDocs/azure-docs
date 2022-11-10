@@ -2,8 +2,8 @@
 title: Distributed GPU training guide (SDK v1)
 titleSuffix: Azure Machine Learning
 description: Learn the best practices for performing distributed training with Azure Machine Learning SDK (v1) supported frameworks, such as MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow, and InfiniBand.
-author: fuhuifang
-ms.author: fufang
+author: rtanase
+ms.author: ratanase
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -96,7 +96,7 @@ Make sure your code follows these tips:
 * Your Azure ML environment contains DeepSpeed and its dependencies, Open MPI, and mpi4py.
 * Create an `MpiConfiguration` with your distribution.
 
-### DeepSeed example
+### DeepSpeed example
 
 * [azureml-examples: Distributed training with DeepSpeed on CIFAR-10](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/workflows/train/deepspeed/cifar)
 
@@ -416,5 +416,5 @@ If you create an `AmlCompute` cluster of one of these RDMA-capable, InfiniBand-e
 
 ## Next steps
 
-* [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
+* [Deploy machine learning models to Azure](../how-to-deploy-managed-online-endpoints.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

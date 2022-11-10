@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect your Azure DevOps repositories to Microsoft Defender for Cloud'
 description: Learn how to connect your Azure DevOps repositories to Defender for Cloud.
-ms.date: 09/20/2022
+ms.date: 11/03/2022
 ms.topic: quickstart
 ms.custom: ignite-2022
 ---
@@ -10,28 +10,29 @@ ms.custom: ignite-2022
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), GitHub, and Azure DevOps (ADO).
 
-To protect your ADO-based resources, you can connect your ADO organizations on the environment settings page. This page provides a simple onboarding experience (including auto discovery). 
+To protect your ADO-based resources, you can connect your ADO organizations on the environment settings page in Microsoft Defender for Cloud. This page provides a simple onboarding experience (including auto discovery). 
 
 By connecting your Azure DevOps repositories to Defender for Cloud, you'll extend Defender for Cloud's enhanced security features to your ADO resources. These features include:
 
-- **Defender for Cloud's CSPM features** - Assesses your Azure DevOps resources according to ADO-specific security recommendations. These recommendations are also included in your secure score. Resources will be assessed for compliance with built-in standards that are specific to DevOps. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature that helps you manage your Azure DevOps resources alongside your Azure resources.
+- **Defender for Cloud's Cloud Security Posture Management (CSPM) features** - Assesses your Azure DevOps resources according to ADO-specific security recommendations. You can also learn about all the [recommendations for DevOps](recommendations-reference.md) resources. Resources are assessed for compliance with built-in standards that are specific to DevOps. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature that helps you manage your Azure DevOps resources alongside your Azure resources.
 
-- **Microsoft Defender for DevOps** - Extends Defender for Cloud's threat detection capabilities and advanced defenses to your Azure DevOps resources.
+- **Defender for Cloud's Workload Protection features** - Extends Defender for Cloud's threat detection capabilities and advanced defenses to your Azure DevOps resources.
 
-
-You can view all of the [recommendations for DevOps](recommendations-reference.md) resources.
+API calls performed by Defender for Cloud count against the [Azure DevOps Global consumption limit](/azure/devops/integrate/concepts/rate-limits?view=azure-devops). For more information, see the [FAQ section](#faq).
 
 ## Prerequisites
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 
 ## Availability
 
 | Aspect | Details |
 |--|--|
 | Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
-| Pricing: | The Defender for DevOps plan is free during the Preview. <br><br> After which it will be billed. Pricing to be determined at a later date. |
-| Required roles and permissions: | **Contributor** on the relevant Azure subscription <br> **Security Admin Role** in Defender for Cloud <br> **Azure DevOps Organization Administrator**  <br> Third-party applications can gain access using an OAuth, which must be set to `On` . [Learn more about Oath](/azure/devops/organizations/accounts/change-application-access-policies?view=azure-devops)|
+| Pricing: | For pricing, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing). |
+| Required permissions: | **- Azure account:** with permissions to sign into Azure portal <br> **- Contributor:** on the Azure subscription where the connector will be created <br> **- Security Admin Role:** in Defender for Cloud <br> **- Organization Administrator:** in Azure DevOps  <br> - In Azure DevOps, configure: Third-party applications gain access via OAuth, which must be set to `On` . [Learn more about OAuth](/azure/devops/organizations/accounts/change-application-access-policies?view=azure-devops)|
+| Regions: | Central US |
 | Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial clouds <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Connect your Azure DevOps organization
@@ -58,6 +59,9 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
 1. Select **Next: Authorize connection**.
 
 1. Select **Authorize**.
+    
+    > [!NOTE]
+    > The authorization will automatically login using the session from your browser's tab. After you select **Authorize**, if you don't see the Azure DevOps organizations you expect to see, check whether you are logged in to Microsoft Defender for Cloud in one browser tab and logged in to Azure DevOps in another browser tab.
 
 1. In the popup screen, read the list of permission requests, and select **Accept**.
 
@@ -74,7 +78,7 @@ You can view all of the [recommendations for DevOps](recommendations-reference.m
     - Select your relevant project(s) from the drop-down menu.
     
     > [!NOTE]
-    > If you select your relevant project(s) from the drop down menu, you will also need select to auto discover repositories or select individual repositories.
+    > If you select your relevant project(s) from the drop down menu, you will also need to select auto discover repositories or select individual repositories.
 
 1. Select **Next: Review and create**.
 
@@ -88,9 +92,21 @@ The Defender for DevOps service automatically discovers the organizations, proje
 
 - Learn how to [create your first pipeline](https://learn.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
 
+## FAQ
+
+### Do API calls made by Defender for Cloud count against my consumption limit?
+
+Yes, API calls made by Defender for Cloud count against the [Azure DevOps Global consumption limit](/azure/devops/integrate/concepts/rate-limits?view=azure-devops). Defender for Cloud makes calls on-behalf of the user who onboards the connector.
+
+### Why is my organization list empty in the UI?
+
+If your organization list is empty in the UI after you onboarded an Azure DevOps connector, you need to ensure that the organization in Azure DevOps is connected to the Azure tenant that has the user who authenticated the connector.
+
+For information on how to correct this issue, check out the [DevOps trouble shooting guide](troubleshooting-guide.md#troubleshoot-azure-devops-organization-connector-issues).
+
 ## Next steps
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [configure the MSDO Azure DevOps extension](azure-devops-extension.md).
 
-Learn how to [configure pull request annotations](tutorial-enable-pull-request-annotations.md) in Defender for Cloud.
+Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud.

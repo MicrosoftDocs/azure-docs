@@ -74,7 +74,7 @@ items:
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
     - name: Record calls
-      href: quickstarts/voice-video-calling/call-recording-sample.md
+      href: quickstarts/voice-video-calling/get-started-call-recording.md
     - name: Handle calling events
       href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Raw media access
@@ -243,6 +243,8 @@ items:
         href: concepts/analytics/insights.md
       - name: Logging and diagnostics
         href: concepts/logging-and-diagnostics.md
+      - name: Recording Logs
+        href: concepts/analytics/recording-logs.md
       - name: Metrics
         href: concepts/metrics.md
   - name: Service Events (Event Grid)

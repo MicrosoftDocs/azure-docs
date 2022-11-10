@@ -1,5 +1,5 @@
 ---
-title: Create Dynatrace for Azure resource - Azure partner solutions
+title: Create Dynatrace for Azure resource
 description: This article describes how to use the Azure portal to create an instance of Dynatrace.
 ms.topic: quickstart
 author: flang-msft
@@ -58,7 +58,7 @@ Use the Azure portal to find Dynatrace for Azure application.
     | **Property** |   **Description** |
     |--------------|-------------------|
     | Subscription | Select the Azure subscription you want to use for creating the Dynatrace resource. You must have owner or contributor access.|
-    | Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure-resource-manager/management/overview.md) is a container that holds related resources for an Azure solution. |
+    | Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure/azure-resource-manager/management/overview) is a container that holds related resources for an Azure solution. |
     | Resource name   | Specify a name for the Dynatrace resource. This name will be the friendly name of the new Dynatrace environment.|
     | Location        | Select the region. Select the region where the Dynatrace resource in Azure and the Dynatrace environment is created.|
     | Pricing plan    | Select from the list of available plans. |
@@ -69,13 +69,13 @@ Use the Azure portal to find Dynatrace for Azure application.
 
     :::image type="content" source="media/dynatrace-create/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs.":::
 
-    - **Subscription activity logs** - These logs provide insight into the operations on your resources at the [control plane](/azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service-health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
+    - **Subscription activity logs** - These logs provide insight into the operations on your resources at the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). Updates on service-health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
 
-    - **Azure resource logs** - These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+    - **Azure resource logs** - These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
 1. To send subscription level logs to Dynatrace, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Dynatrace.
 
-1. To send Azure resource logs to Dynatrace, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure-monitor/essentials/resource-logs-categories.md).
+1. To send Azure resource logs to Dynatrace, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
    When the checkbox for Azure resource logs is selected, by default, logs are forwarded for all resources. To filter the set of Azure resources sending logs to Dynatrace, use inclusion and exclusion rules and set the Azure resource tags:
 

@@ -104,13 +104,13 @@ Follow these steps to create a new console application for speech recognition.
                 return;
             }
     
-            SpeechSynthesisResult speechRecognitionResult = speechSynthesizer.SpeakTextAsync(text).get();
+            SpeechSynthesisResult speechSynthesisResult = speechSynthesizer.SpeakTextAsync(text).get();
     
-            if (speechRecognitionResult.getReason() == ResultReason.SynthesizingAudioCompleted) {
+            if (speechSynthesisResult.getReason() == ResultReason.SynthesizingAudioCompleted) {
                 System.out.println("Speech synthesized to speaker for text [" + text + "]");
             }
-            else if (speechRecognitionResult.getReason() == ResultReason.Canceled) {
-                SpeechSynthesisCancellationDetails cancellation = SpeechSynthesisCancellationDetails.fromResult(speechRecognitionResult);
+            else if (speechSynthesisResult.getReason() == ResultReason.Canceled) {
+                SpeechSynthesisCancellationDetails cancellation = SpeechSynthesisCancellationDetails.fromResult(speechSynthesisResult);
                 System.out.println("CANCELED: Reason=" + cancellation.getReason());
     
                 if (cancellation.getReason() == CancellationReason.Error) {
@@ -146,6 +146,9 @@ I'm excited to try text to speech
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
+
+> [!WARNING]
+> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](/azure/cognitive-services/speech-service/troubleshooting#connection-closed-or-timeout).
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:

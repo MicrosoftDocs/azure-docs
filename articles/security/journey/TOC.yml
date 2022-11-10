@@ -217,7 +217,7 @@
     - name: Virtual machine security overview
       href: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Automatic VM guest patching
-      href: /azure/virtual-machines/automatic-vm-guest-patching?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      href: ../../virtual-machines/automatic-vm-guest-patching.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2fjourney%2ftoc.json
     - name: Best practices - IaaS workloads
       href: ../fundamentals/iaas.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Marketplace images

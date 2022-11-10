@@ -124,6 +124,8 @@
         href: ./samples/iso-27001.md
       - name: PCI DSS 3.2.1
         href: ./samples/pci-dss-3-2-1.md
+      - name: PCI DSS 3.2.1 v2018 Audit
+        href: ./samples/PCIv3_2_1_2018_audit.md
       - name: RMIT Malaysia
         href: ./samples/rmit-malaysia.md
       - name: New Zealand ISM Restricted v3.5
@@ -134,6 +136,8 @@
         href: ./samples/nist-sp-800-53-r4.md
       - name: NIST SP 800-171 R2
         href: ./samples/nist-sp-800-171-r2.md
+      - name: RBI ITF Banks v2016
+        href: ./samples/RBI_ITF_Banks_v2016.md
       - name: RBI ITF NBFC v2017
         href: ./samples/rbi_itf_nbfc_v2017.md
       - name: SWIFT CSCF 2021

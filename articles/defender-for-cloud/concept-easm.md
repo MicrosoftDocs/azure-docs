@@ -30,4 +30,4 @@ You can also learn how to [deploy Defender for EASM](../external-attack-surface-
 
 ## Next step
 
-[What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer?](concept-attack-path.md)
+[What are the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md)

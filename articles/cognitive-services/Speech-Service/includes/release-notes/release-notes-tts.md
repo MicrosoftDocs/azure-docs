@@ -6,6 +6,42 @@ ms.date: 01/24/2022
 ms.author: eur
 ---
 
+### 2022-October release
+
+#### Prebuilt Neural TTS Voices (GA)
+
+The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=stt-tts) for more information.
+
+| Locale (BCP-47) | Language | Text-to-speech voices |
+| ----- | ----- | ----- | ----- |
+| `eu-ES` | Basque | `eu-ES-AinhoaNeural` (Female)<br/>`eu-ES-AnderNeural` (Male) | 
+| `hy-AM` | Armenian (Armenia) | `hy-AM-AnahitNeural` (Female)<br/>`hy-AM-HaykNeural` (Male) | 
+
+#### Prebuilt Neural TTS Voices (Preview)
+
+The following voices are now available in public preview. See the [full language and voice list](../../language-support.md?tabs=stt-tts) for more information.
+
+| Locale (BCP-47) | Language | Text-to-speech voices |
+| ----- | ----- | ----- | ----- |
+| `en-AU` | English (Australia) | `en-AU-AnnetteNeural`(Female)<br/>`en-AU-CarlyNeural`(Female)<br/>`en-AU-DarrenNeural`(Male)<br/>`en-AU-DuncanNeural`(Male)<br/>`en-AU-ElsieNeural`(Female)<br/>`en-AU-FreyaNeural`(Female)<br/>`en-AU-JoanneNeural`(Female)<br/>`en-AU-KenNeural`(Male)<br/>`en-AU-KimNeural`(Female)<br/>`en-AU-NeilNeural`(Male)<br/>`en-AU-TimNeural`(Male)<br/>`en-AU-TinaNeural`(Female) | 
+| `es-ES` | Spanish (Spain) | `es-ES-AbrilNeural`(Female)<br/>`es-ES-AlvaroNeural`(Male)<br/>`es-ES-ArnauNeural`(Male)<br/>`es-ES-DarioNeural`(Male)<br/>`es-ES-EliasNeural`(Male)<br/>`es-ES-EstrellaNeural`(Female)<br/>`es-ES-IreneNeural`(Female)<br/>`es-ES-LaiaNeural`(Female)<br/>`es-ES-LiaNeural`(Female)<br/>`es-ES-NilNeural`(Male)<br/>`es-ES-SaulNeural`(Male)<br/>`es-ES-TeoNeural`(Male)<br/>`es-ES-TrianaNeural`(Female)<br/>`es-ES-VeraNeural`(Female) | 
+| `ja-JP` | Japanese (Japan) | `ja-JP-AoiNeural`(Female)<br/>`ja-JP-DaichiNeural`(Male)<br/>`ja-JP-MayuNeural`(Female)<br/>`ja-JP-NaokiNeural`(Male)<br/>`ja-JP-ShioriNeural`(Female) | 
+| `ko-KR` | Korean (Korea) | `ko-KR-BongJinNeural`(Male)<br/>`ko-KR-GookMinNeural`(Male)<br/>`ko-KR-JiMinNeural`(Female)<br/>`ko-KR-SeoHyeonNeural`(Female)<br/>`ko-KR-SoonBokNeural`(Female)<br/>`ko-KR-YuJinNeural`(Female) | 
+| `wuu-CN` | Chinese (Wu, Simplified) | `wuu-CN-XiaotongNeural` (Female)<br/>`wuu-CN-YunzheNeural` (Male) | 
+| `yue-CN` | Chinese (Cantonese, Simplified) | `yue-CN-XiaoMinNeural` (Female)<br/>`yue-CN-YunSongNeural` (Male) | 
+
+#### General TTS voice updates
+
+- Improved quality for the `fil-PH-AngeloNeural` and `fil-PH-BlessicaNeural` voices.
+- Text Normalization rules are updated for voices with the `es-CL` Spanish (Chile) and `uz-UZ` Uzbek (Uzbekistan) locales.
+- Added English letters spelling for voices with the `sq-AL` Albanian (Albania) and `az-AZ` Azerbaijani (Azerbaijan) locales.
+- Improved English pronunciation for the `zh-HK-WanLungNeural` voice.
+- Improved question tone for the `nl-NL-MaartenNeural` and `pt-BR-AntonioNeural` voices.
+- Added support for the `<lang ="en-US">` tag for better English pronunciation with the following voices: `de-DE-ConradNeural`, `de-DE-KatjaNeural`, `es-ES-AlvaroNeural`, `es-MX-DaliaNeural`, `es-MX-JorgeNeural`, `fr-CA-SylvieNeural`, `fr-FR-DeniseNeural`, `fr-FR-HenriNeural`, `it-IT-DiegoNeural`, and `it-IT-IsabellaNeural`.
+- Added support for the `style="chat"` tag with the following voices: `en-GB-RyanNeural`, `es-MX-JorgeNeural`, and `it-IT-IsabellaNeural`.
+- Added support for the `style="cheerful"` tag with the following voices: `en-GB-RyanNeural`, `en-GB-SoniaNeural`, `es-MX-JorgeNeural`, `fr-FR-DeniseNeural`, `fr-FR-HenriNeural`, and `it-IT-IsabellaNeural`.
+- Added support for the `style="sad"` tag with the following voices: `en-GB-SoniaNeural`, `fr-FR-DeniseNeural` and `fr-FR-HenriNeural`.
+
 ### 2022-September release
 
 #### Prebuilt Neural TTS Voice
@@ -171,7 +207,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### Custom Neural Voice
 
-* Enabled to fix data issues online. Learn more on [how to fix data issues online](../../how-to-custom-voice-create-voice.md#fix-data-issues-online).
+* Enabled to fix data issues online. Learn more on [how to resolve data issues in Speech Studio](../../how-to-custom-voice-prepare-data.md#resolve-data-issues-online).
 * Added training recipe version. Learn more on [selecting the training recipe version for your voice model](../../how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
 
 #### Audio Content Creation tool
@@ -229,7 +265,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### Custom Neural Voice
 
-* Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice.md#custom-neural-voice-project-types).
+* Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice-lite.md).
 * Extended language support to 49 locales. See [language support](../../language-support.md?tabs=stt-tts).
 * Supported more regions/datacenters. See [region support](../../regions.md#speech-service).
 

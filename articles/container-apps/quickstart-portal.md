@@ -22,9 +22,6 @@ An Azure account with an active subscription is required. If you don't already h
 
 ## Setup
 
-> [!NOTE]
-> An Azure Container Apps environment can be deployed as a zone redundant resource in regions where support is available. This is a deployment-time only configuration option.
-
 <!-- Create -->
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
@@ -55,4 +52,4 @@ If you're not going to continue to use this application, you can delete the Azur
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Communication between microservices](communicate-between-microservices.md)

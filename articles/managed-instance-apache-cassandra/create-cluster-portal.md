@@ -218,7 +218,7 @@ As with CQLSH, connecting from an application using one of the supported [Apache
 
 Disabling certificate verification is recommended because certificate verification will not work unless you either store and validate against locally held copies of our certificates, or map I.P addresses of your cluster nodes to the appropriate domain. If you have an internal policy which mandates that you do SSL certificate verification for any application, you can facilitate this by either:
 
-- Storing our certificates locally and verifying against them. Our certificates are signed with Digicert - see [here](/azure/active-directory/fundamentals/certificate-authorities). You would need to ensure that you keep this up-to-date. 
+- Storing our certificates locally and verifying against them. Our certificates are signed with Digicert - see [here](../active-directory/fundamentals/certificate-authorities.md). You would need to ensure that you keep this up-to-date. 
 - Adding entries like `10.0.1.5 host1.managedcassandra.cosmos.azure.com` in your hosts file for each node. If taking this approach, you would also need to add new entries whenever scaling up nodes. 
 
 

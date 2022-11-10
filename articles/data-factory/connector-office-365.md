@@ -28,6 +28,7 @@ This Microsoft 365 (Office 365) connector is supported for the following capabil
 |---------| --------|
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;|
+|[Lookup activity](control-flow-lookup-activity.md) (source/-)|&#9312; &#9313;|
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
@@ -175,6 +176,7 @@ If you were setting `dateFilterColumn`, `startTime`, `endTime`, and `userScopeFi
 ## Copy activity properties
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Microsoft 365 (Office 365) source.
+
 
 ### Microsoft 365 (Office 365) as source
 
@@ -359,6 +361,10 @@ To create a mapping data flow using the Microsoft 365 connector as a source, com
 5. For the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
 
 6. On the tab **Data preview** click on the **Refresh** button to fetch a sample dataset for validation.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -50,10 +50,9 @@ dotnet build
 
 ## Connect to Azure Cosmos DB for Table
 
-To connect to the API for Table of Azure Cosmos DB, create an instance of the [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) class. This class is the starting point to perform all operations against tables. There are two primary ways to connect to a API for Table account using the **TableServiceClient** class:
+To connect to the API for Table of Azure Cosmos DB, create an instance of the [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) class. This class is the starting point to perform all operations against tables. There are two primary ways to connect to an API for Table account using the **TableServiceClient** class:
 
 * [Connect with a API for Table connection string](#connect-with-a-connection-string)
-* [Connect with Azure Active Directory](#connect-using-the-microsoft-identity-platform)
 
 ### Connect with a connection string
 
@@ -140,62 +139,6 @@ Create a new instance of the **TableServiceClient** class with the ``COSMOS_CONN
 
 :::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/101-client-connection-string/Program.cs" id="connection_string" highlight="3":::
 
-### Connect using the Microsoft Identity Platform
-
-To connect to your API for Table account using the Microsoft Identity Platform and Azure AD, use a security principal. The exact type of principal will depend on where you host your application code. The table below serves as a quick reference guide.
-
-| Where the application runs | Security principal
-|--|--|---|
-| Local machine (developing and testing) | User identity or service principal |
-| Azure | Managed identity |
-| Servers or clients outside of Azure | Service principal |
-
-#### Import Azure.Identity
-
-The **Azure.Identity** NuGet package contains core authentication functionality that is shared among all Azure SDK libraries.
-
-Import the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) NuGet package using the ``dotnet add package`` command.
-
-```dotnetcli
-dotnet add package Azure.Identity
-```
-
-Rebuild the project with the ``dotnet build`` command.
-
-```dotnetcli
-dotnet build
-```
-
-In your code editor, add using directives for ``Azure.Core`` and ``Azure.Identity`` namespaces.
-
-:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/102-client-default-credential/Program.cs" id="using_identity_directives":::
-
-#### Create TableServiceClient with default credential implementation
-
-If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/dotnet/api/azure.identity.defaultazurecredential) instance.
-
-For this example, we saved the instance in a variable of type [``TokenCredential``](/dotnet/api/azure.core.tokencredential) as that's a more generic type that's reusable across SDKs.
-
-:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/102-client-default-credential/Program.cs" id="credential":::
-
-Create a new instance of the **TableServiceClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
-
-:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/102-client-default-credential/Program.cs" id="default_credential":::
-
-#### Create TableServiceClient with a custom credential implementation
-
-If you plan to deploy the application out of Azure, you can obtain an OAuth token by using other classes in the [Azure.Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These other classes also derive from the ``TokenCredential`` class.
-
-For this example, we create a [``ClientSecretCredential``](/dotnet/api/azure.identity.clientsecretcredential) instance by using client and tenant identifiers, along with a client secret.
-
-:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/103-client-secret-credential/Program.cs" id="credential":::
-
-You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
-
-Create a new instance of the **TableServiceClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
-
-:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/103-client-secret-credential/Program.cs" id="secret_credential":::
-
 ## Build your application
 
 As you build your application, your code will primarily interact with four types of resources:
@@ -239,7 +182,7 @@ The following guides show you how to use each of these classes to build your app
 
 ## Next steps
 
-Now that you've connected to a API for Table account, use the next guide to create and manage tables.
+Now that you've connected to an API for Table account, use the next guide to create and manage tables.
 
 > [!div class="nextstepaction"]
 > [Create a table in Azure Cosmos DB for Table using .NET](how-to-dotnet-create-table.md)

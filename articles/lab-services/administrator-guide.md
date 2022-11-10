@@ -56,7 +56,7 @@ The following list highlights scenarios where more than one lab plan might be be
   When you create a lab plan, you set policies that apply to all newly created labs, such as:
 
   - The Azure virtual network with shared resources that the lab can access. For example, you might have a set of labs that need access to a license server within a virtual network.
-  - The virtual machine images that the labs can use to create VMs. For example, you might have a set of labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Azure Marketplace image.
+  - The virtual machine images that the labs can use to create VMs. For example, you might have a set of labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) Azure Marketplace image.
 
   If each of your labs has unique policy requirements, it might be beneficial to create separate lab plans for managing each lab separately.
 
