@@ -116,55 +116,6 @@ To create a wayfinding query:
 
 1. The details of the path and legs are displayed in the Body of the response.
 
-    ```json
-    {
-        "formatVersion": "1",
-        "routes": [
-            {
-                "summary": {
-                    "lengthInMeters": 27.1394,
-                    "travelTimeInSeconds": 28,
-                    "startLevel": 0,
-                    "endLevel": 0
-                },
-                "legs": [
-                    {
-                        "summary": {
-                            "travelMode": "Default",
-                            "lengthInMeters": 27.1394,
-                            "travelTimeInSeconds": 28,
-                            "startLevel": 0,
-                            "endLevel": 0
-                        },
-                        "points": [
-                            {
-                                "latitude": 47.6405662,
-                                "longitude": -122.1424352
-                            },
-                            {
-                                "latitude": 47.6405528,
-                                "longitude": -122.1424211
-                            },
-                            {
-                                "latitude": 47.64055,
-                                "longitude": -122.1424182
-                            },
-                            {
-                                "latitude": 47.64055,
-                                "longitude": -122.1424182
-                            },
-                            {
-                                "latitude": 47.64055,
-                                "longitude": -122.1424182
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-    ```
-
 The summary displays the estimated travel time in seconds for the total journey. In addition, the estimated time for each section of the journey is displayed at the beginning of each leg.
 
 The wayfinding service calculates the path through specific intervening points. Each point is displayed, along with its latitude and longitude details.
