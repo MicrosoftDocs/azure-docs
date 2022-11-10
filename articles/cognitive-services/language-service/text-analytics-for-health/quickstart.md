@@ -66,4 +66,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 * [How to call the hosted API](./how-to/call-api.md)
-* [How to use containers](./how-to/use-containers.md) 
+* [How to use the service with Docker containers](./how-to/use-containers.md) 
