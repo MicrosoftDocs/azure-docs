@@ -79,11 +79,13 @@ To get started with passwordless sign-in, complete the following how-to:
 
 ### FIPS 140 compliance
 
-[Executive Order 14028](https://www.gsa.gov/technology/technology-products-services/it-security/executive-order-14028-improving-the-nations-cybersecurity) requires authenticator apps to comply with Federal Information Protection Standard (FIPS) 140. FIPS 140 defines a minimum set of security requirements for products that implement cryptography. 
+[Executive Order 14028](https://www.gsa.gov/technology/technology-products-services/it-security/executive-order-14028-improving-the-nations-cybersecurity) requires authenticator apps to comply with Federal Information Processing Standard (FIPS) 140. FIPS 140 defines a minimum set of security requirements for products that implement cryptography. 
 
-The [Cryptographic Module Validation Program](https://csrc.nist.gov/Projects/Cryptographic-Module-Validation-Program) lists cryptographic modules that have been validated to comply with FIPS requirements. For example, Windows uses Symcrypt... 
+The [Cryptographic Module Validation Program](https://csrc.nist.gov/Projects/Cryptographic-Module-Validation-Program) lists cryptographic modules that have been validated to comply with FIPS requirements. For example, Windows uses [SymCrypt](/windows/security/cryptography-certificate-mgmt), which is FIPS 140 certified for Windows-based devices but not for mobile.
 
-As a mobile app in enterprise authentication scenarios like MFA and passwordless, Microsoft Authenticator on iOS relies upon [Apple CoreCrypto module](https://support.apple.com/guide/sccc/security-certifications-for-ios-scccfa917cb49/web) of the corresponding iOS version. the platform cryptography. For Android, Microsoft Authenticator uses WolfSSL cryptography, which is pending FIPS 140-3 validation.  
+As a mobile app in enterprise authentication scenarios like MFA and passwordless, Microsoft Authenticator on iOS relies upon [Apple Corecrypto module](https://support.apple.com/guide/sccc/security-certifications-for-ios-scccfa917cb49/web) of the corresponding iOS version. Beginning with iOS 14, the Apple Corecrypto module is pending FIPS 140-3 validation.
+
+For Android, Microsoft Authenticator uses WolfSSL cryptography, which is also pending FIPS 140-3 validation. By using WolfSSL cryptography, Microsoft Authenticator relies upon the same FIPS 140 compliant cryptography for all Android device manufacturers.  
  
 
 
