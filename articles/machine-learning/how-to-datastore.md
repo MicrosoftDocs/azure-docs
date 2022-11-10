@@ -222,7 +222,7 @@ store = AzureDataLakeGen2Datastore(
     name="",
     description="",
     account_name="",
-    file_system=""
+    filesystem=""
 )
 
 ml_client.create_or_update(store)

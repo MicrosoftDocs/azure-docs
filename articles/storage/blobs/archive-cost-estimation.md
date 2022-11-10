@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to calculate the cost of storing and maintaining data in the archive storage tier.
 author: normesta
 ms.author: normesta
-ms.date: 11/02/2022
+ms.date: 11/09/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -107,12 +107,12 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
         <td>$0.00001</td>
         <td>$0.00001</td>
     </tr>
-    <tr bgcolor="beige">
-        <td>Cost to write (transactions * price of a write operation)</td>
-        <td>$20.00</td>
-        <td>$0.00</td>
-        <td>$0.00</td>
-        <td>$20.00</td>
+    <tr>
+        <td><strong>Cost to write (transactions * price of a write operation)</strong></td>
+        <td><strong>$20.00</strong></td>
+        <td><strong>$0.00</strong></td>
+        <td><strong>$0.00</strong></td>
+        <td><strong>$20.00</strong></td>
     </tr>
     <tr>
         <td>Total file size (GB)</td>
@@ -128,12 +128,12 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
         <td>$0.00099</td>
         <td>$0.00099</td>
     </tr>
-    <tr bgcolor="beige">
-        <td>Cost to store (file size * data price)</td>
-        <td>$101.38</td>
-        <td>$101.38</td>
-        <td>$101.38</td>
-        <td>$1,216.51</td>
+    <tr>
+        <td><strong>Cost to store (file size * data price)</strong></td>
+        <td><strong>$101.38</strong></td>
+        <td><strong>$101.38</strong></td>
+        <td><strong>$101.38</strong></td>
+        <td><strong>$1,216.51</strong></td>
     </tr>
     <tr>
         <td>Data retrieval size</td>
@@ -163,12 +163,12 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
         <td>$0.0005</td>
         <td>$0.0005</td>
     </tr>
-    <tr bgcolor="beige">
-        <td>Cost to rehydrate (cost to retrieve + cost to read)</td>
-        <td>$30.48</td>
-        <td>$30.48</td>
-        <td>$30.48</td>
-        <td>$365.76</td>
+    <tr>
+        <td><strong>Cost to rehydrate (cost to retrieve + cost to read)</strong></td>
+        <td><strong>$30.48</strong></td>
+        <td><strong>$30.48</strong></td>
+        <td><strong>$30.48</strong></td>
+        <td><strong>$365.76</strong></td>
     </tr>
     <tr>
         <td><strong>Total cost</strong></td>
@@ -179,6 +179,8 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
     </tr>
 </table>
 
+> [!TIP]
+> To view these costs over 12 months, open the **One-Time Backup** tab of this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx). You can modify the values in that worksheet to estimate your costs. 
 
 ## Scenario: Continuous tiering
 
@@ -278,6 +280,8 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
     </tr>
 </table>
 
+> [!TIP]
+> To view these costs over 12 months, open the **Continuous Tiering** tab of this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx). You can modify the values in that worksheet to estimate your costs. 
 
 ## Archive versus cool 
 
@@ -353,6 +357,9 @@ The following table compares the cost of archive storage with the cost of cold s
         <td><strong>$167.91</strong></td>
     </tr>
 </table>
+
+> [!TIP]
+> To view these costs over 12 months, open the **Cool vs Archive** tab of this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx). You can modify the values in that worksheet to estimate your costs. 
 
 The following chart shows the impact on monthly spending given various read percentages. This chart assumes a monthly ingest of 1,000,000 files totaling 10,240 GB in size.
 

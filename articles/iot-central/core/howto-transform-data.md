@@ -81,7 +81,7 @@ In the example described in the following sections, the downstream device sends 
 }
 ```
 
-You want to use an IoT Edge module to transform the data and convert the temperature value from `Celsius` to `Fahrenheit` before sending it to IoT Central:
+You use an IoT Edge module to transform the data and convert the temperature value from `Celsius` to `Fahrenheit` before sending it to IoT Central:
 
 ```json
 {
@@ -391,7 +391,7 @@ For simplicity, the code for the downstream device provisions the device in IoT 
 
 To verify the scenario is running, navigate to your **IoT Edge gateway device** in IoT Central:
 
-:::image type="content" source="media/howto-transform-data/transformed-data.png" alt-text="Screenshot that shows transformed data on devices page.":::
+:::image type="content" source="media/howto-transform-data/transformed-data.png" alt-text="Screenshot that shows transformed data on devices page." lightbox="media/howto-transform-data/transformed-data.png":::
 
 - Select **Modules**. Verify that the three IoT Edge modules **$edgeAgent**, **$edgeHub** and **transformmodule** are running.
 - Select **Raw data**. The telemetry data in the **Device** column looks like:
