@@ -46,7 +46,7 @@ Before you begin the tutorial:
 - Have an Azure account that's assigned to one of the following built-in roles:
 
   - Contributor for the target instance of Azure SQL Managed Instance and for the storage account where you upload your database backup files from a Server Message Block (SMB) network share
-  - Reader role for the Azure resource groups that contain the target instance of Azure SQL Managed Instance or your Azure Storage account
+  - Reader role for the Azure resource groups that contain the target instance of Azure SQL Managed Instance or your Azure storage account
   - Owner or Contributor role for the Azure subscription (required if you create a new Database Migration Service instance)
 
   As an alternative to using one of these built-in roles, you can [assign a custom role](resource-custom-roles-sql-database-ads.md).
@@ -102,7 +102,7 @@ To open the Migrate to Azure SQL wizard:
 
 1. Right-click the server connection and select **Manage**.
 
-1. In the server menu under **General**, select **Azure SQL Migration**.
+1. In the server menu, under **General**, select **Azure SQL Migration**.
 
 1. In the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to open the migration wizard.
 
@@ -226,7 +226,7 @@ In **Step 7: Summary** in the Migrate to Azure SQL wizard, review the configurat
 
 ## Monitor the database migration
 
-1. In Azure Data Studio, in the server menu under **General**, select **Azure SQL Migration** to go to the dashboard for your Azure SQL migrations.
+1. In Azure Data Studio, in the server menu, under **General**, select **Azure SQL Migration** to go to the dashboard for your Azure SQL migrations.
 
    Under **Database migration status**, you can track migrations that are in progress, completed, and failed (if any), or you can view all database migrations.  
 
@@ -241,8 +241,8 @@ In **Step 7: Summary** in the Migrate to Azure SQL wizard, review the configurat
     | Status | Description |
     |--------|-------------|
     | Arrived | The backup file arrived in the source backup location and was validated. |
-    | Uploading | The integration runtime is uploading the backup file to Azure storage. |
-    | Uploaded | The backup file was uploaded to Azure storage. |
+    | Uploading | The integration runtime is uploading the backup file to the Azure storage account. |
+    | Uploaded | The backup file was uploaded to the Azure storage account. |
     | Restoring | The service is restoring the backup file to Azure SQL Managed Instance. |
     | Restored | The backup file is successfully restored in Azure SQL Managed Instance. |
     | Canceled | The migration process was canceled. |
