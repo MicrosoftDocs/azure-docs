@@ -102,7 +102,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: AutoML image instance segmentation pipeline job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/image-instance-segmentation-fridge-items-pipeline/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/image-instance-segmentation-task-fridge-items-pipeline/pipeline.yml":::
 
 
 ## Next steps
