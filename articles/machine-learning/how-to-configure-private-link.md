@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: devx-track-azurecli, sdkv2, event-tier1-build-2022
+ms.custom: devx-track-azurecli, sdkv2, event-tier1-build-2022, ignite-2022
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
@@ -271,7 +271,7 @@ To enable public access, use the following steps:
 > [!TIP]
 > There are two possible properties that you can configure:
 > * `allow_public_access_when_behind_vnet` - used by the Python SDK v1
-> * `public_network_access` - used by the CLI and Python SDK v2 (preview)
+> * `public_network_access` - used by the CLI and Python SDK v2
 > Each property overrides the other. For example, setting `public_network_access` will override any previous setting to `allow_public_access_when_behind_vnet`.
 >
 > Microsoft recommends using `public_network_access` to enable or disable public access to a workspace.
@@ -280,7 +280,7 @@ To enable public access, use the following steps:
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 
-When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), use the `az ml update` command to enable `public_network_access` for the workspace:
+When using the Azure CLI [extension 2.0 CLI for machine learning](how-to-configure-cli.md), use the `az ml update` command to enable `public_network_access` for the workspace:
 
 ```azurecli
 az ml workspace update \

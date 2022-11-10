@@ -140,9 +140,9 @@ After a department is created, the EA admin can add department administrators an
 - Add accounts
 - Remove accounts
 - Download usage details
-- View the monthly usage and charges <sup>1</sup>
+- View the monthly usage and charges ¹
 
- <sup>1</sup> An EA admin must grant the permissions.
+ ¹ An EA admin must grant the permissions.
 
 ### To add a department administrator
 

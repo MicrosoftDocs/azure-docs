@@ -713,6 +713,8 @@
     href: marketplace-faq-publisher-guide.yml
   - name: Cloud Partner Portal migration FAQ
     href: cloud-partner-portal-migration-faq.yml
+  - name: GitHub commercial marketplace project template 
+    href: https://aka.ms/marketplace-template
   - name: Marketplace Office Hours
     href: https://go.microsoft.com/fwlink/?linkid=2185526
   - name: Partner Center support options
@@ -728,7 +730,7 @@
   - name: Find Tenant and Object IDs
     href: find-tenant-object-id.md
   - name: Supported countries and regions
-    href: sell-from-countries.md  
+    href: supported-countries-regions.md  
   - name: Co-sell country, region, state, and province codes
     href: /partner-center/commercial-marketplace-co-sell-location-codes?context=/azure/marketplace/context/context
   - name: Categories and subcategories

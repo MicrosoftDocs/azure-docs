@@ -1,7 +1,7 @@
 ---
 title: Use the Azure Video Indexer API
 description: This article describes how to get started with Azure Video Indexer API.
-ms.date: 06/14/2022
+ms.date: 08/14/2022
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ---

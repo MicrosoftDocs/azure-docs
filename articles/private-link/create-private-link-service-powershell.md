@@ -263,6 +263,7 @@ $par2 = @{
     ServiceName = 'myPrivateLinkService'
     ResourceGroupName = 'CreatePrivLinkService-rg'
     Description = 'Approved'
+    PrivateLinkResourceType = 'Microsoft.Network/privateLinkServices'
 }
 Approve-AzPrivateEndpointConnection @par2
 

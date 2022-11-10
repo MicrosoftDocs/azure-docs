@@ -12,7 +12,7 @@ ms.custom: "devops-pipelines-deploy"
 
 **Azure DevOps Services | Azure DevOps Server 2020 | Azure DevOps Server 2019**
 
-Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy your web app to [Azure App Service](/azure/app-service/overview) on every successful build. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). 
+Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy your web app to [Azure App Service](./overview.md) on every successful build. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). 
 
 YAML pipelines are defined using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (pre-packaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
@@ -211,7 +211,7 @@ By default, your deployment happens to the root application in the Azure Web App
 ```
 
 * **VirtualApplication**: the name of the Virtual Application that has been configured in the Azure portal. See [Configure an App Service app in the Azure portal
-](/azure/app-service/configure-common) for more details.
+](./configure-common.md) for more details.
 
 # [Classic](#tab/classic/)
 
@@ -329,9 +329,9 @@ You can control the order of deployment. To learn more, see [Stages](/azure/devo
 
 ## Make configuration changes
 
-For most language stacks, [app settings](/azure/app-service/configure-common?toc=%252fazure%252fapp-service%252fcontainers%252ftoc.json#configure-app-settings) and [connection strings](/azure/app-service/configure-common?toc=%252fazure%252fapp-service%252fcontainers%252ftoc.json#configure-connection-strings) can be set as environment variables at runtime. 
+For most language stacks, [app settings](./configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) and [connection strings](./configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-connection-strings) can be set as environment variables at runtime. 
 
-App settings can also be resolved from Key Vault using [Key Vault references](/azure/app-service/app-service-key-vault-references).
+App settings can also be resolved from Key Vault using [Key Vault references](./app-service-key-vault-references.md).
 
 For ASP.NET and ASP.NET Core developers, setting app settings in App Service are like setting them in `<appSettings>` in Web.config.
 You might want to apply a specific configuration for your web app target before deploying to it. 
@@ -484,4 +484,4 @@ You're now ready to create a release, which means to run the release pipeline wi
 
 ## Next steps
 
-- Customize your [Azure DevOps pipeline](/azure/devops/pipelines/customize-pipeline). 
+- Customize your [Azure DevOps pipeline](/azure/devops/pipelines/customize-pipeline).

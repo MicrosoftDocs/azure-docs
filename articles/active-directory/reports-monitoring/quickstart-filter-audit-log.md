@@ -5,9 +5,9 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: quickstart
-ms.date: 08/26/2022
-ms.author: markvi
-author: MarkusVi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
+author: shlipsey3
 manager: amycolannino
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -38,15 +38,15 @@ This section provides you with the steps to filter your audit log.
 
 2. To list only records for Isabella Simonsen:
 
-    a. In the toolbar, click **Add filters**.
+    a. In the toolbar, select **Add filters**.
     
     ![Add user filter](./media/quickstart-analyze-sign-in/add-filters.png)   
 
-    b. In the **Pick a field** list, select **Target**, and then click **Apply**
+    b. In the **Pick a field** list, select **Target**, and then select **Apply**
 
-    c. In the **Target** textbox, type the **User Principal Name** of **Isabella Simonsen**, and then click **Apply**.
+    c. In the **Target** textbox, type the **User Principal Name** of **Isabella Simonsen**, and then select **Apply**.
 
-3. Click the filtered item.
+3. Select the filtered item.
 
     ![Filtered items](./media/quickstart-filter-audit-log/audit-log-list.png)  
 

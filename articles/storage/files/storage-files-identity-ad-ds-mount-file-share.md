@@ -5,19 +5,18 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 11/09/2022
 ms.author: kendownie
+ms.custom: engagement-fy23
 ---
 
-# Part four: mount a file share from a domain-joined VM
+# Mount a file share from a domain-joined VM
 
-Before you begin this article, make sure you complete the previous article, [configure directory and file level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
+Before you begin this article, make sure you've read [configure directory and file-level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-The process described in this article verifies that your SMB file share and access permissions are set up correctly and that you can access an Azure file share from a domain-joined VM. Share-level role assignment can take some time to take effect.
+The process described in this article verifies that your SMB file share and access permissions are set up correctly and that you can access an Azure file share from a domain-joined VM. Remember that share-level role assignment can take some time to take effect.
 
-Sign in to the client by using the credentials that you granted permissions to, as shown in the following image.
-
-![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
+Sign in to the client using the credentials of the identity that you granted permissions to.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -37,7 +36,7 @@ Before you can mount the Azure file share, make sure you've gone through the fol
 
 Run the PowerShell script below or [use the Azure portal](storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to persistently mount the Azure file share and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
-Always mount Azure file shares using.file.core.windows.net, even if you set up a private endpoint for your share. Using CNAME for file share mount isn't supported for identity-based authentication (AD DS or Azure AD DS).
+Always mount Azure file shares using file.core.windows.net, even if you set up a private endpoint for your share. Using CNAME for file share mount isn't supported for identity-based authentication.
 
 ```powershell
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
@@ -51,10 +50,6 @@ if ($connectTestResult.TcpTestSucceeded) {
 
 If you run into issues mounting with AD DS credentials, refer to [Unable to mount Azure Files with AD credentials](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) for guidance.
 
-If mounting your file share succeeded, then you've successfully enabled and configured on-premises AD DS authentication for your Azure file share.
-
 ## Next steps
 
-If the identity you created in AD DS to represent the storage account is in a domain or OU that enforces password rotation, continue to the next article for instructions on updating your password:
-
-[Update the password of your storage account identity in AD DS](storage-files-identity-ad-ds-update-password.md)
+If the identity you created in AD DS to represent the storage account is in a domain or OU that enforces password rotation, you might need to [update the password of your storage account identity in AD DS](storage-files-identity-ad-ds-update-password.md).

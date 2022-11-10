@@ -237,7 +237,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	k. **Enable Use of Application Proxy** checkbox, if you have configured your on-premise atlassian application in an App Proxy setup.
 
-	* For App proxy setup , follow the steps on the [Azure AD App Proxy Documentation](/articles/active-directory/app-proxy/what-is-application-proxy.md).
+	* For App proxy setup , follow the steps on the [Azure AD App Proxy Documentation](../app-proxy/what-is-application-proxy.md).
 
 	l. Click **Save** button to save the settings.
 

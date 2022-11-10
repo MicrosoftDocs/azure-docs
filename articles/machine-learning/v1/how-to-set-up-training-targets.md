@@ -136,7 +136,7 @@ If you want to run a [distributed training](../how-to-train-distributed-gpu.md) 
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
 
-* [Train PyTorch models](../how-to-train-pytorch.md#distributed-training)
+* [Distributed training of deep learning models on Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
 
 ## Submit the experiment
 

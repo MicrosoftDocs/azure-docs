@@ -44,9 +44,9 @@ https://github.com/azure/azureml-examples
 
 ## Step 2: Sign in to Azure Pipelines
 
-[!INCLUDE [include](~/reusable-content/devops-pipelines/sign-in-azure-pipelines.md)]
+[!INCLUDE [include](~/articles/reusable-content/devops-pipelines/sign-in-azure-pipelines.md)]
 
-[!INCLUDE [include](~/reusable-content/devops-pipelines/create-project.md)]
+[!INCLUDE [include](~/articles/reusable-content/devops-pipelines/create-project.md)]
 
 ## Step 3: Create an Azure Resource Manager connection
 
@@ -85,7 +85,7 @@ You should already have a resource group in Azure with [Azure Machine Learning](
 
     :::image type="content" source="media/how-to-devops-machine-learning/machine-learning-select-variables.png" alt-text="Screenshot of variables option in pipeline edit. ":::   
  
-1. Create a new variable, `Subscription_ID`, and select the checkbox **Keep this value secret**. Set the value to your [Azure portal subscription ID](/azure/azure-portal/get-subscription-tenant-id).
+1. Create a new variable, `Subscription_ID`, and select the checkbox **Keep this value secret**. Set the value to your [Azure portal subscription ID](../azure-portal/get-subscription-tenant-id.md).
 1. Create a new variable for `Resource_Group` with the name of the resource group for Azure Machine Learning (example: `machinelearning`). 
 1. Create a new variable for `AzureML_Workspace_Name` with the name of your Azure ML workspace (example: `docs-ws`).
 1. Select **Save** to save your variables. 

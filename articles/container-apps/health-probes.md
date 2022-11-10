@@ -4,7 +4,7 @@ description: Check startup, liveness, and readiness with Azure Container Apps he
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
 ms.date: 03/30/2022
 ms.author: cshoe
@@ -190,4 +190,4 @@ The following example demonstrates how to configure the liveness and readiness p
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor an app](monitor.md)
+> [Application logging](logging.md)

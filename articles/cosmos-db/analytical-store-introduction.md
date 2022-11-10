@@ -6,21 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/24/2022
 ms.author: rosouz
-ms.custom: seo-nov-2020, devx-track-azurecli
+ms.custom: seo-nov-2020, devx-track-azurecli, ignite-2022
 ms.reviewer: mjbrown
 ---
 
 # What is Azure Cosmos DB analytical store?
-[!INCLUDE[appliesto-sql-mongodb-gremlin-api](includes/appliesto-sql-mongodb-gremlin-api.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
 Azure Cosmos DB analytical store is a fully isolated column store for enabling large-scale analytics against operational data in your Azure Cosmos DB, without any impact to your transactional workloads. 
 
 Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. This article describes in detailed about analytical storage.
-
-> [!NOTE]
-> Synapse Link for Gremlin API is now in preview. You can enable Synapse Link in your new or existing graphs using Azure CLI. For more information on how to configure it, click [here](configure-synapse-link.md).
-
-
 
 ## Challenges with large-scale analytics on operational data
 
@@ -129,7 +124,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
 }
 ```
 
-* While JSON documents (and Cosmos DB collections/containers) are case-sensitive from the uniqueness perspective, analytical store isn't.
+* While JSON documents (and Azure Cosmos DB collections/containers) are case-sensitive from the uniqueness perspective, analytical store isn't.
 
   * **In the same document:** Properties names in the same level should be unique when compared case-insensitively. For example, the following JSON document has "Name" and "name" in the same level. While it's a valid JSON document, it doesn't satisfy the uniqueness constraint and hence won't be fully represented in the analytical store. In this example, "Name" and "name" are the same when compared in a case-insensitive manner. Only `"Name": "fred"` will be represented in analytical store, because it's the first occurrence. And `"name": "john"` won't be represented at all.
   
@@ -225,8 +220,8 @@ df = spark.read\
 
 There are two types of schema representation in the analytical store. These types define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
 
-* Well-defined schema representation, default option for SQL (CORE) and Gremlin API accounts. 
-* Full fidelity schema representation, default option for Azure Cosmos DB API for MongoDB accounts.
+* Well-defined schema representation, default option for API for NoSQL and Gremlin accounts. 
+* Full fidelity schema representation, default option for API for MongoDB accounts.
 
 
 #### Well-defined schema representation
@@ -359,13 +354,13 @@ FROM OPENROWSET('CosmosDB',
                 HTAP) WITH (_id VARCHAR(1000)) as HTAP
 ```
 
-#### Full fidelity schema for SQL or Gremlin API accounts
+#### Full fidelity schema for API for NoSQL or Gremlin accounts
 
-It's possible to use full fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
+It's possible to use full fidelity Schema for API for NoSQL accounts, instead of the default option, by setting the schema type when enabling Synapse Link on an Azure Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
 
  * This option is only valid for accounts that **don't** have Synapse Link already enabled.
  * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
- * Currently Azure Cosmos DB API for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+ * Currently Azure Cosmso DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
  * Currently this change can't be made through the Azure portal. All database accounts that have Synapse Link enabled by the Azure portal will have the default schema representation type, well-defined schema.
  
 The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
@@ -407,6 +402,7 @@ Some points to consider:
 *    You can achieve longer retention of your operational data in the analytical store by setting ATTL >= TTTL at the container level.
 *    The analytical store can be made to mirror the transactional store by setting ATTL = TTTL.
 *    If you have ATTL bigger than TTTL, at some point in time you'll have data that only exists in analytical store. This data is read only.
+*    Currently we don't delete any data from analytical store. If you set your ATTL to any positive integer, the data won't be included in your queries and you won't be billed for it. But if you change ATTL back to `-1`, all the data will show up again, you will start to be billed for all the data volume.
 
 How to enable analytical store on a container:
 
@@ -453,10 +449,10 @@ Synapse Link, and analytical store by consequence, has different compatibility l
 
 ### Backup Polices
 
-There are two possible backup polices and to understand how to use them, the following details about Cosmos DB backups are very important:
+There are two possible backup polices and to understand how to use them, the following details about Azure Cosmos DB backups are very important:
 
  * The original container is restored without analytical store in both backup modes.
- * Cosmos DB doesn't support containers overwrite from a restore.
+ * Azure Cosmos DB doesn't support containers overwrite from a restore.
 
 Now let's see how to use backup and restores from the analytical store perspective.
 
@@ -497,7 +493,7 @@ Analytical store partitioning is completely independent of partitioning in�
 
 ## Security
 
-* **Authentication with the analytical store** is the same as the transactional store for a given database. You can use primary, secondary, or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. For Azure Synapse SQL serverless, you can use SQL credentials to also prevent pasting the Azure Cosmos DB keys in the SQL notebooks. The Access to these Linked Services or to these SQL credentials are available to anyone who has access to the workspace. Please note that the Cosmos DB read only key can also be used.
+* **Authentication with the analytical store** is the same as the transactional store for a given database. You can use primary, secondary, or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. For Azure Synapse SQL serverless, you can use SQL credentials to also prevent pasting the Azure Cosmos DB keys in the SQL notebooks. The Access to these Linked Services or to these SQL credentials are available to anyone who has access to the workspace. Please note that the Azure Cosmos DB read only key can also be used.
 
 * **Network isolation using private endpoints** - You can control network access to the data in the transactional and analytical stores independently. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
 
@@ -512,7 +508,7 @@ The analytical store is optimized to provide scalability, elasticity, and perfor
 By decoupling the analytical storage system from the analytical compute system, data in Azure Cosmos DB analytical store can be queried simultaneously from the different analytics runtimes supported by Azure Synapse Analytics. As of today, Azure Synapse Analytics supports Apache Spark and serverless SQL pool with Azure Cosmos DB analytical store.
 
 > [!NOTE]
-> You can only read from analytical store using Azure Synapse Analytics runtimes. And the opposite is also true, Azure Synapse Analytics runtimes can only read from analytical store. Only the auto-sync process can change data in analytical store. You can write data back to Cosmos DB transactional store using Azure Synapse Analytics Spark pool, using the built-in Azure Cosmos DB OLTP SDK.
+> You can only read from analytical store using Azure Synapse Analytics runtimes. And the opposite is also true, Azure Synapse Analytics runtimes can only read from analytical store. Only the auto-sync process can change data in analytical store. You can write data back to Azure Cosmos DB transactional store using Azure Synapse Analytics Spark pool, using the built-in Azure Cosmos DB OLTP SDK.
 
 ## <a id="analytical-store-pricing"></a> Pricing
 
@@ -526,14 +522,13 @@ Analytical store follows a consumption-based pricing model where you're charged 
 
 Analytical store pricing is separate from the transaction store pricing model. There's no concept of provisioned RUs in the analytical store. See [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for full details on the pricing model for analytical store.
 
-Data in the analytics store can only be accessed through Azure Synapse Link, which is done in the Azure Synapse Analytics runtimes: Azure Synapse Apache Spark pools and
-Azure Synapse serverless SQL pools. See [Azure Synapse Analytics pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics/) for full details on the pricing model to access data in analytical store.
+Data in the analytics store can only be accessed through Azure Synapse Link, which is done in the Azure Synapse Analytics runtimes: Azure Synapse Apache Spark pools and Azure Synapse serverless SQL pools. See [Azure Synapse Analytics pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics/) for full details on the pricing model to access data in analytical store.
 
-In order to get a high-level cost estimate to enable analytical store on an Azure Cosmos DB container, from the analytical store perspective, you can use the [Azure Cosmos DB Capacity planner](https://cosmos.azure.com/capacitycalculator/) and get an estimate of your analytical storage and write operations costs. Analytical read operations costs depends on the analytics workload characteristics but as a high-level estimate, scan of 1 TB of data in analytical store typically results in 130,000 analytical read operations, and results in a cost of $0.065.
+In order to get a high-level cost estimate to enable analytical store on an Azure Cosmos DB container, from the analytical store perspective, you can use the [Azure Cosmos DB Capacity planner](https://cosmos.azure.com/capacitycalculator/) and get an estimate of your analytical storage and write operations costs. 
 
-> [!NOTE]
-> Analytical store read operations estimates aren't included in the Cosmos DB cost calculator since they are a function of your analytical workload. While the above estimate is for scanning 1TB of data in analytical store, applying filters reduces the volume of data scanned and this determines the exact number of analytical read operations given the consumption pricing model. A proof-of-concept around the analytical workload would provide a more finer estimate of analytical read operations. This estimate doesn't include the cost of Azure Synapse Analytics.
+Analytical store read operations estimates aren't included in the Azure Cosmos DB cost calculator since they are a function of your analytical workload. But as a high-level estimate, scan of 1 TB of data in analytical store typically results in 130,000 analytical read operations, and results in a cost of $0.065. As an example, if you use Azure Synapse serverless SQL pools to perform this scan of 1 TB, it will cost $5.00 according to [Azure Synapse Analytics pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics/). The final total cost for this 1 TB scan would be $5.065.
 
+While the above estimate is for scanning 1TB of data in analytical store, applying filters reduces the volume of data scanned and this determines the exact number of analytical read operations given the consumption pricing model. A proof-of-concept around the analytical workload would provide a more finer estimate of analytical read operations. This estimate doesn't include the cost of Azure Synapse Analytics.
 
 
 ## Next steps
