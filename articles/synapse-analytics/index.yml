@@ -125,7 +125,7 @@ landingContent:
         links:
           - text: Connect to Azure Synapse Link for Azure Cosmos DB
             url: quickstart-connect-synapse-link-cosmos-db.md
-          - text: Connect to Azure Synapse Link for SQL DB
+          - text: Connect to Azure Synapse Link for Azure SQL DB
             url: ./synapse-link/connect-synapse-link-sql-database.md
           - text: Connect to Azure Synapse Link for SQL Server 2022
             url: ./synapse-link/connect-synapse-link-sql-server-2022.md
