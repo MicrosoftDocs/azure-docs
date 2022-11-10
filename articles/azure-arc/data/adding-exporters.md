@@ -12,7 +12,7 @@ ms.custom: template-how-to
 > [!NOTE]
 >
 > - The telemetry router is currently in Public Preview and you should only deploy it for **testing purposes only**.
-> > - While the telemetry router is in Public Preview, be advised that future preview releases could include schema changes.
+> - While the telemetry router is in Public Preview, be advised that future preview releases could include schema changes.
 > - In-place upgrades of a data controller deployed with the Arc telemetry router enabled are not currently available in the current preview. In order to install a data controller in a future release, you will need to uninstall the data controller and then re-install.
 
 # Add exporters to your telemetry router deployment
