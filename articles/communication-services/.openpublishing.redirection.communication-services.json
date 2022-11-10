@@ -101,7 +101,7 @@
         "redirect_document_id": false
       },
       {
-        "source_path_from_root": "/ articles/communication-services/how-tos/call-automation-sdk/actions-for-call-control.md",
+        "source_path_from_root": "/articles/communication-services/how-tos/call-automation-sdk/actions-for-call-control.md",
         "redirect_url": "/azure/communication-services/how-tos/call-automation/actions-for-call-control",
         "redirect_document_id": false
       },
