@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Azure Cosmos DB for MongoDB for .NET with MongoDB drier
+title: Quickstart - Azure Cosmos DB for MongoDB for .NET with MongoDB driver
 description: Learn how to build a .NET app to manage Azure Cosmos DB for MongoDB account resources in this quickstart.
 author: alexwolfmsft
 ms.author: alexwolf

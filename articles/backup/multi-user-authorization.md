@@ -3,7 +3,7 @@ title: Configure Multi-user authorization using Resource Guard
 description: This article explains how to configure Multi-user authorization using Resource Guard.
 ms.topic: how-to
 zone_pivot_groups: backup-vaults-recovery-services-vault-backup-vault
-ms.date: 09/15/2022
+ms.date: 11/08/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -45,7 +45,12 @@ Learn about various [MUA usage scenarios](./multi-user-authorization-concept.md?
 
 The **Security admin** creates the Resource Guard. We recommend that you create it in a **different subscription** or a **different tenant** as the vault. However, it should be in the **same region** as the vault. The Backup admin must **NOT** have *contributor* access on the Resource Guard or the subscription that contains it.
 
-For the following example, create the Resource Guard in a tenant different from the vault tenant.
+**Choose a client**
+
+# [Azure portal](#tab/azure-portal)
+
+To create the Resource Guard in a tenant different from the vault tenant, follow these steps:
+
 1. In the Azure portal, go to the directory under which you want to create the Resource Guard.
    
    :::image type="content" source="./media/multi-user-authorization/portal-settings-directories-subscriptions.png" alt-text="Screenshot showing the portal settings.":::
@@ -68,9 +73,33 @@ For the following example, create the Resource Guard in a tenant different from 
 
    Follow notifications for status and successful creation of the Resource Guard.
 
+# [PowerShell](#tab/powershell)
+
+To create a resource guard, run the following cmdlet:
+
+   ```azurepowershell-interactive
+   New-AzDataProtectionResourceGuard -Location “Location” -Name “ResourceGuardName” -ResourceGroupName “rgName”
+   ```
+
+# [CLI](#tab/cli)
+
+To create a resource guard, run the following command:
+
+   ```azurecli-interactive
+   az dataprotection resource-guard create --location "Location" --tags key1="val1" --resource-group "RgName" --resource-guard-name "ResourceGuardName"
+   ```
+
+---
+
 ### Select operations to protect using Resource Guard
 
-Choose the operations you want to protect using the Resource Guard out of all supported critical operations. By default, all supported critical operations are enabled. However, you can exempt certain operations from falling under the purview of MUA using Resource Guard. The security admin can perform the following  steps:
+Choose the operations you want to protect using the Resource Guard out of all supported critical operations. By default, all supported critical operations are enabled. However, you (as the security admin) can exempt certain operations from falling under the purview of MUA using Resource Guard.
+
+**Choose a client**
+
+# [Azure portal](#tab/azure-portal)
+
+To exempt operations, follow these steps:
 
 1. In the Resource Guard created above, go to **Properties**.
 2. Select **Disable** for operations that you want to exclude from being authorized using the Resource Guard.
@@ -81,6 +110,48 @@ Choose the operations you want to protect using the Resource Guard out of all su
 1. Select **Save**.
 
    :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-properties.png" alt-text="Screenshot showing demo resource guard properties.":::
+
+# [PowerShell](#tab/powershell)
+
+To update the operations. These exclude operations from protection by the resource guard, run the following cmdlets:
+
+   ```azurepowershell-interactive
+   $resourceGuard = Get-AzDataProtectionResourceGuard -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx" -ResourceGroupName "rgName" -Name "resGuardName"
+   $criticalOperations = $resourceGuard.ResourceGuardOperation.VaultCriticalOperation
+   $operationsToBeExcluded = $criticalOperations | Where-Object { $_ -match "backupSecurityPIN/action" -or $_ -match "backupInstances/delete" }
+
+
+   Update-AzDataProtectionResourceGuard -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx" -ResourceGroupName "rgName" -Name $resourceGuard.Name -CriticalOperationExclusionList $operationsToBeExcluded
+   ```
+
+- The first command fetches the resource guard that needs to be updated.
+- The second and third commands fetch the critical operations that you want to update.
+- The fourth command excludes some critical operations from the resource guard.
+
+# [CLI](#tab/cli)
+
+To update the operations that are to be excluded from being protected by the resource guard, run the following commands:
+
+   ```azurecli-interactive
+   az dataprotection resource-guard update --name
+                                          --resource-group
+                                          [--critical-operation-exclusion-list {deleteProtection, getSecurityPIN, updatePolicy, updateProtection}]
+                                          [--resource-type {Microsoft.RecoveryServices/vaults}]
+                                          [--tags]
+                                          [--type]
+
+   ```
+
+**Example**:
+
+   ```azurecli
+   az dataprotection resource-guard update --resource-group "RgName" --resource-guard-name "ResourceGuardName" --resource-type "Microsoft.RecoveryServices/vaults" --critical-operation-exclusion-list deleteProtection getSecurityPIN updatePolicy   
+   ```
+
+
+---
+
+
 
 ## Assign permissions to the Backup admin on the Resource Guard to enable MUA
 
@@ -102,7 +173,13 @@ To enable MUA on a vault, the admin of the vault must have **Reader** role on th
 
 ## Enable MUA on a Recovery Services vault
 
-Now that the Backup admin has the Reader role on the Resource Guard, they can easily enable multi-user authorization on vaults managed by them. The following steps are performed by the **Backup admin**.
+After the Reader role assignment on the Resource Guard is complete, enable multi-user authorization on vaults (as the **Backup admin**) that you manage.
+
+**Choose a client**
+
+# [Azure portal](#tab/azure-portal)
+
+To enable MUA on the vaults, follow these steps.
 
 1. Go to the Recovery Services vault. Go to **Properties** on the left navigation panel, then to **Multi-User Authorization** and click **Update**.
 
@@ -126,6 +203,45 @@ Now that the Backup admin has the Reader role on the Resource Guard, they can ea
 1. Select **Save** once done to enable MUA.
 
    :::image type="content" source="./media/multi-user-authorization/testvault1-enable-mua.png" alt-text="Screenshot showing how to enable Multi-user authentication.":::
+
+# [PowerShell](#tab/powershell)
+
+To enable MUA on a Recovery Services vault, run the following cmdlet:
+
+   ```azurepowershell-interactive
+   $token = (Get-AzAccessToken -TenantId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx").Token
+   Set-AzRecoveryServicesResourceGuardMapping -VaultId “VaultArmId” -ResourceGuardId "ResourceGuardArmId" -Token $token
+   ```
+
+- The first command fetches the access token for the resource guard tenant where the resource guard is present. 
+- The second command creates a mapping between the RSVault $vault and Resource guard. 
+
+>[!NOTE]
+>The token parameter is optional and is only needed to authenticate cross tenant protected operations.
+
+# [CLI](#tab/cli)
+
+To enable MUA on a Recovery Services vault, run the following command:
+
+   ```azurecli-interactive
+   az backup vault resource-guard-mapping update --resource-guard-id
+                                                [--ids]
+                                                [--name]
+                                                [--resource-group]
+                                                [--tenant-id]
+
+   ```
+
+The tenant ID is required if the resource guard exists in a different tenant.
+
+**Example**:
+
+   ```azurecli
+   az backup vault resource-guard-mapping update --resource-group RgName --name VaultName --resource-guard-id ResourceGuardId
+   ```
+
+---
+
 
 ## Protected operations using MUA
 
@@ -232,7 +348,14 @@ The following screenshot shows an example of disabling soft delete for an MUA-en
 
 ## Disable MUA on a Recovery Services vault
 
-Disabling MUA is a protected operation, and hence, is protected using MUA. This means that the Backup admin must have the required Contributor role in the Resource Guard. Details on obtaining this role are described here. Following is a summary of steps to disable MUA on a vault.
+Disabling MUA is a protected operation, so, so, vaults are protected using MUA. If you (the Backup admin) want to disable MUA, you must have the required Contributor role in the Resource Guard.
+
+**Choose a client**
+
+# [Azure portal](#tab/azure-portal)
+
+To disable MUA on a vault, follow these steps:
+
 1. The Backup admin requests the Security admin for **Contributor** role on the Resource Guard. They can request this to use the methods approved by the organization such as JIT procedures, like [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), or other internal tools and procedures. 
 1. The Security admin approves the request (if they find it worthy of being approved) and informs the Backup admin. Now the Backup admin has the ‘Contributor’ role on the Resource Guard.
 1. The Backup admin goes to the vault > **Properties** > **Multi-user Authorization**.
@@ -242,6 +365,47 @@ Disabling MUA is a protected operation, and hence, is protected using MUA. This 
    1. After **authentication**, select **Save**. With the right access, the request should be successfully completed.
    
    :::image type="content" source="./media/multi-user-authorization/disable-mua.png" alt-text="Screenshot showing to disable multi-user authentication.":::
+
+# [PowerShell](#tab/powershell)
+
+To disable MUA on a Recovery Services vault, use the following cmdlet:
+
+   ```azurepowershell-interactive
+   $token = (Get-AzAccessToken -TenantId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx").Token
+   Remove-AzRecoveryServicesResourceGuardMapping -VaultId “VaultArmId”  -Token $token
+   ```
+
+- The first command fetches the access token for the resource guard tenant, where the resource guard is present.
+- The second command deletes the mapping between the Recovery Services vault and the resource guard.
+
+>[!NOTE]
+>The token parameter is optional and is only needed to authenticate the cross tenant protected operations.
+
+# [CLI](#tab/cli)
+
+To disable MUA on a Recovery Services vault, run the following command:
+
+   ```azurecli-interactive
+   az backup vault resource-guard-mapping delete [--ids]
+                                                [--name]
+                                                [--resource-group]
+                                                [--tenant-id]
+                                                [--yes]
+
+   ```
+   ---
+
+The tenant ID is required if the resource guard exists in a different tenant.
+
+**Example**:
+
+   ```azurecli
+   az backup vault resource-guard-mapping delete --resource-group RgName --name VaultName
+   ```
+
+
+
+
 
 ::: zone-end
 

@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer general document model
+title: General key-value extraction - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Concepts related to data extraction and analysis using prebuilt general document v3.0 model
+description: Extract key-value paits, tables, selection marks,and text from your documents with Form Recognizer
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -14,7 +14,7 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer general document model
+# General key-value extraction with General Document model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 

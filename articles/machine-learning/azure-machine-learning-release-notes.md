@@ -9,7 +9,7 @@ ms.custom: event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 09/26/2022
+ms.date: 10/25/2022
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -19,6 +19,18 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+
+## 2022-10-25
+
+### Azure Machine Learning SDK for Python v1.47.0
+  + **azureml-automl-dnn-nlp**
+    + Runtime changes for AutoML NLP to account for fixed training parameters, as part of the newly introduced model sweeping and hyperparameter tuning.
+  + **azureml-mlflow**
+    + AZUREML_ARTIFACTS_DEFAULT_TIMEOUT can be used to control the timeout for artifact upload
+  + **azureml-train-automl-runtime**
+    + Many Models and Hierarchical Time Series training now enforces check on timeout parameters to detect conflict before submitting the experiment for run. This will prevent experiment failure during the run by raising exception before submitting experiment.
+    + Customers can now control the step size while using rolling forecast in Many Models inference.
+    + ManyModels inference with unpartitioned tabular data now supports forecast_quantiles.
 
 ## 2022-09-26
 

@@ -76,11 +76,11 @@ The `voice` element is required. It's used to specify the voice that's used for 
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md?tabs=stt-tts). | Required             |
+| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=stt-tts). To use your [custom neural voice](how-to-deploy-and-use-endpoint.md#use-your-custom-voice), specify the model name as the voice name in SSML.| Required             |
 
 **Example**
 
-This example uses the `en-US-JennyNeural` voice. For a complete list of supported voices, see [Language support](language-support.md?tabs=stt-tts).
+This example uses the `en-US-JennyNeural` voice. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
