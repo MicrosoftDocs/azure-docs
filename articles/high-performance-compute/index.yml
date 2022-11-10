@@ -42,7 +42,7 @@ highlightedContent:
     # Card
     - title: Azure HPC on Microsoft Learn
       itemType: learn
-      url: /learn/browse/?products=azure&term=hpc
+      url: https://learn.microsoft.com/en-us/training/browse/?products=azure&term=hpc&terms=hpc
     # Card
     - title: Customer Stories
       itemType: deploy
@@ -114,7 +114,7 @@ productDirectory:
       links:
         - url: ../hpc-cache/hpc-cache-overview.md
           text: HPC Cache Overview
-        - url: /learn/browse/?products=azure&term=hpc-cache
+        - url: https://learn.microsoft.com/en-us/training/browse/?products=azure&term=hpc&terms=hpc%20cache
           text: Azure HPC Cache documentation
         - url: ../hpc-cache/hpc-cache-create.md
           text: Create an Azure HPC Cache
