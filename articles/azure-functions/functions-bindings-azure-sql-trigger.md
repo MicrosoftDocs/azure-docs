@@ -25,7 +25,7 @@ More samples for the Azure SQL trigger are available in the [GitHub repository](
 
 The example refers to a `ToDoItem` class and a corresponding database table:
 
-:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-14":::
+:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
