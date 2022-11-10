@@ -99,7 +99,7 @@ using Azure.Identity;
 using Azure.Maps.Search; 
 
 var credential = new DefaultAzureCredential(); 
-var clientId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID"); 
+var clientId = Environment.GetEnvironmentVariable("MAPS_CLIENT_ID"); 
 var client = new MapsSearchClient(credential, clientId); 
 
 ```
