@@ -18,7 +18,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 # Clear the token cache using MSAL.NET
 
-## Web Api and Daemon apps
+## Web API and daemon apps
 
 There is no API to remove the tokens from the cache. Cache size should be handled by setting eviction policies on the underlying storage. See [Cache Serialization](msal-net-token-cache-serialization.md?tabs=aspnetcore) for details on how to use a memory cache or distributed cache.
 
