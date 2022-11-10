@@ -25,7 +25,7 @@ This article provides an overview of how to remediate anonymous public access fo
 
 ## Recommendations for remediating anonymous public access
 
-To remediate anonymous public access, first determine whether your storage account use the Azure Resource Manager deployment model or the classic deployment model. For more information, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md).
+To remediate anonymous public access, first determine whether your storage account uses the Azure Resource Manager deployment model or the classic deployment model. For more information, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
 ### Azure Resource Manager accounts
 
