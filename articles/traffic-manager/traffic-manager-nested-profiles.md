@@ -20,6 +20,22 @@ Traffic Manager includes a range of traffic-routing methods that allow you to co
 
 Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments.
 
+To create a nested profile, you add a 'child' profile as an endpoint to a 'parent' profile. Some examples are provided in this article. 
+
+## MinChildEndpoints
+
+When you add a child profile as an endpoint in the parent profile, the **MinChildEndpoints** parameter is created and assigned a default value of **1**. This parameter determines the minimum number of endpoints that must be available in the child profile for it to be healthy. Below this threshold, the parent profile will consider the entire child profile as unavailable, and direct traffic to the other parent profile endpoints.
+
+The following parameters are available in the parent profile:
+
+- **MinChildEndpoints**: The minimum number of healthy child endpoints for the nested profile status to be healthy. The default value is **1**.
+- **MinChildEndpointsIPv4**: The minimum number of healthy IPv4 child endpoints for the nested profile status to be healthy. The default value is **1**.
+- **MinChildEndpointsIPv6**: The minimum number of healthy IPv6 child endpoints for the nested profile status to be healthy. The default value is **0**.
+
+> [!IMPORTANT]
+> There must be at least one IPv4 and one IPv6 endpoint for any nested MultiValue profile. You should configure values for MinChildEndpointsIPv4 and MinChildEndpointsIPv6 based on your multivalue routing mechanism and not simply use the default values.<br>
+> The value of **MinChildEndpoints** must be high enough to allow for all endpoint types to be available. An error message is displayed for values that are too low.
+
 The following examples illustrate how to use nested Traffic Manager profiles in various scenarios.
 
 ## Example 1: Combining 'Performance' and 'Weighted' traffic routing
@@ -48,15 +64,7 @@ Returning to the previous example, suppose the production deployment in West Eur
 
 ![Nested Profile failover (default behavior)][3]
 
-You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. To enable this failover, you can specify the **MinChildEndpoints** parameter when configuring the child profile as an endpoint in the parent profile. The following parameters are available:
-
-- **MinChildEndpoints**: The minimum number of healthy child endpoints for the nested profile status to be healthy. The default value is **1**.
-- **MinChildEndpointsIPv4**: The minimum number of healthy IPv4 child endpoints for the nested profile status to be healthy.
-- **MinChildEndpointsIPv6**: The minimum number of healthy IPv6 child endpoints for the nested profile status to be healthy.
-
-> [!IMPORTANT]
-> There must be at least one IPv4 and one IPv6 endpoint for any nested MultiValue profile.<br>
-> The value of **MinChildEndpoints** must be high enough to allow for all endpoint types to be available. An error message is displayed for values that are too low.
+You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. 
 
 In the scenario below, the **MinChildEndpoints** value is set to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints:
 
