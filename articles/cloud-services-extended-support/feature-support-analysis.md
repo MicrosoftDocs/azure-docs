@@ -1,6 +1,6 @@
 ---
-title: Feature Analysis CSES vs VMSS
-description: Learn about the feature set avaialble in CSES and VMSS
+title: Feature Analysis Cloud Services vs Virtual Machine Scale Sets
+description: Learn about the feature set available in Cloud Services and Virtual Machine Scale Sets
 ms.topic: article
 ms.service: cloud-services-extended-support
 author: surbhijain
@@ -10,20 +10,20 @@ ms.date: 11/8/2022
 ms.custom: 
 ---
 # Feature Analysis: Cloud Services (extended support) and Virtual Machine Scale Sets
-This article provides a feature analysis of Cloud Services (extended support) and Virtual Machine Scale Sets. For more information on VMSS, please visit the documentation [here](https://learn.microsoft.com/azure/virtual-machine-scale-sets/overview)
+This article provides a feature analysis of Cloud Services (extended support) and Virtual Machine Scale Sets. For more information on Virtual Machine Scale Sets, please visit the documentation [here](https://learn.microsoft.com/azure/virtual-machine-scale-sets/overview)
 
 
 ## Basic setup
 
-| Feature |  CSES | VMSS Flex | VMSS Uniform | 
+| Feature |  CSES | Virtual Machine Scale Sets (Flex) | Virtual Machine Scale Sets (Uniform) | 
 |---|---|---|---|
 |Virtual machine type|Basic Azure PaaS VM (Microsoft.compute/cloudServices)|Standard Azure IaaS VM (Microsoft.compute/virtualmachines)|Scale Set specific VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)| 
 |Maximum Instance Count (with FD guarantees)|1100|1000|3000 (1000 per Availability Zone)|
 |SKUs supported|D, Dv2, Dv3, Dav4 series, Ev3, Eav4 series, G series, H series|D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported|All SKUs|
 |Full control over VM, NICs, Disks|Limited control over NICs and VM via CS-ES APIs. No support for Disks|Yes|Limited control with virtual machine scale sets VM API|
-|RBAC Permissions Required|Compute VMSS Write, Compute VM Write, Network|Compute VMSS Write, Compute VM Write, Network|Compute VMSS Write|
+|RBAC Permissions Required|Compute Virtual Machine Scale Sets Write, Compute VM Write, Network|Compute Virtual Machine Scale Sets Write, Compute VM Write, Network|Compute Virtual Machine Scale Sets Write|
 |Accelerated networking|Yes|Yes|Yes|
-|Spot instances and pricingr|No|Yes, you can have both Spot and Regular priority instances|Yes, instances must either be all Spot or all Regular|
+|Spot instances and pricing|No|Yes, you can have both Spot and Regular priority instances|Yes, instances must either be all Spot or all Regular|
 |Mix operating systems|Extremely limited Windows support|Yes, Linux and Windows can reside in the same Flexible scale set|No, instances are the same operating system|
 |Disk Types|No Disk Support|Managed disks only, all storage types|Managed and unmanaged disks, All Storage Types
 |Disk Server Side Encryption with Customer Managed Keys|No|Yes| |
@@ -40,7 +40,7 @@ This article provides a feature analysis of Cloud Services (extended support) an
 
 ## Autoscaling and instance orchestration
 
-| Feature |  CSES | VMSS Flex | VMSS Uniform | 
+| Feature |  Cloud Services (extended Support) | Virtual Machine Scale Sets (Flex) | Virtual Machine Scale Sets (Uniform) | 
 |---|---|---|---|
 |List VMs in Set|No|Yes|Yes|
 |Automatic Scaling (manual, metrics based, schedule based)|Yes|Yes|Yes|
@@ -59,9 +59,9 @@ This article provides a feature analysis of Cloud Services (extended support) an
 
 ## High availability 
 
-| Feature |  CSES | VMSS Flex | VMSS Uniform | 
+| Feature |  Cloud Services (extended Support) | Virtual Machine Scale Sets (Flex) | Virtual Machine Scale Sets (Uniform) | 
 |---|---|---|---|
-|Availability SLA|99.95% for instances spread across fault domains|99.95% for instances spread across fault domains; 99.99% for instances spread across multiple zones|99.95 for FD>1 in Single Placement Group 99.99% for instances spread across multiple zones|
+|Availability SLA|[99.95%](https://azure.microsoft.com/support/legal/sla/cloud-services/v1_5/) for instances spread across fault domains|99.95% for instances spread across fault domains; [99.99%](https://azure.microsoft.com/support/legal/sla/virtual-machine-scale-sets/v1_1/) for instances spread across multiple zones|[99.95](https://azure.microsoft.com/support/legal/sla/virtual-machine-scale-sets/v1_1/) for FD>1 in Single Placement Group 99.99% for instances spread across multiple zones|
 |Availability Zones|No|Specify instances land across 1, 2 or 3 availability zones|Specify instances land across 1, 2 or 3 availability zones|
 |Assign VM to a Specific Availability Zone|No|Yes|No|
 |Fault Domain – Max Spreading (Azure will maximally spread instances)|Yes|Yes|Yes|
@@ -73,7 +73,7 @@ This article provides a feature analysis of Cloud Services (extended support) an
 
 ## Networking 
 
-| Feature |  CSES | VMSS Flex | VMSS Uniform | 
+| Feature |  Cloud Services (extended Support) | Virtual Machine Scale Sets (Flex) | Virtual Machine Scale Sets (Uniform) | 
 |---|---|---|---|
 |Default outbound connectivity|Yes|No, must have explicit outbound connectivity|Yes|
 |Azure Load Balancer Standard SKU|No|Yes|Yes|
@@ -87,7 +87,7 @@ This article provides a feature analysis of Cloud Services (extended support) an
 
 ## Backup and recovery 
 
-| Feature |  CSES | VMSS Flex | VMSS Uniform | 
+| Feature |  Cloud Services (extended Support) | Virtual Machine Scale Sets (Flex) | Virtual Machine Scale Sets (Uniform) | 
 |---|---|---|---|
 |Azure Backup|No |Yes|No|
 |Azure Site Recovery|No|Yes (via PowerShell)|No|
