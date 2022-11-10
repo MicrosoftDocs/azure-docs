@@ -134,7 +134,7 @@ Customer-initiated conversion adds a new option for customers to start a convers
 
 Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is available in all public ZRS regions except the following:
+The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is available in all public ZRS regions except for the following:
 
 - (Europe) West Europe
 - (Europe) UK South
@@ -142,7 +142,7 @@ The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is av
 - (North America) East US
 - (North America) East US 2
 
-##### Monitor customer-initiated conversion progress
+##### Monitoring customer-initiated conversion progress
 
 The status of your customer-initiated conversion is displayed on the **Redundancy** page of the storage account:
 
@@ -156,7 +156,7 @@ As the conversion request is evaluated and processed, the status should progress
 | In Progress<sup>1</sup>                        | The actual conversion has begun.                                                     |
 | Completed<br>**- or -**</br>Failed<sup>2</sup> | The conversion has successfully completed.<br>**- or -**</br>The conversion failed.  |
 
-<sup>1</sup> If the conversion does not enter the "In Progress" status within 96 hours of submitting the request, please submit a support request to Microsoft to determine why.<br />
+<sup>1</sup> Once initiated, the conversion could take up to 72 hours to actually begin. If the conversion does not enter the "In Progress" status within 96 hours of initiating the request, please submit a support request to Microsoft to determine why.<br />
 <sup>2</sup> If the conversion fails, please submit a support request to Microsoft to determine the reason for the failure.<br />
 
 > [!NOTE]
@@ -236,7 +236,7 @@ Limitations apply to some replication change scenarios depending on:
 
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
-The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is available in all public ZRS regions except the following:
+The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is available in all public ZRS regions except for the following:
 
 - (Europe) West Europe
 - (Europe) UK South
