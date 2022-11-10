@@ -13,25 +13,27 @@ This article lists the supported software versions for Microsoft Defender for Io
 
 The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
-Release versions have the following syntax: **[Major][Minor][Patch]**
-
-- **Urgent, high-risk security updates are applied in minor versions subsequent to a major version**, and are not applied to earlier versions. Each subsequent version includes aggregated features and fixes from previous versions.
-
-- **Features available from the Azure portal that are dependent on a specific sensor version** are only available for sensors that have the required version installed, or higher.
-
-Version numbers are listed only in this article and in the [What's new in Microsoft Defender for IoT?](whats-new.md) article, and not in detailed descriptions elsewhere in the documentation. To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
-
 ### Version update recommendations
 
-We recommend that you make sure to update your sensor versions once every 6 months. When updating, we recommend that you generally update to the latest major version.
+When updating your on-premises software, we recommend:
 
-- **Update to minor versions** only if you want to use the specific features available in that version.
+- Plan to update your sensor versions to the **latest major version once every 6 months**.
 
-- **Update to patch versions** only for specific bug fixes or security patches. When working with the Defender for IoT support team on a specific issue, verify whether a patch installation is recommended to resolve the issue.
+- Update to a **patch version only for specific bug fixes or security patches**. When working with support on a specific issue, verify which patch version is recommended to resolve your issue.
 
-- **When updating your sensor software version**, make sure to also update your on-premises management console to the same version, if you have one.
+Features available from the Azure portal that are dependent on a specific sensor version are only available for sensors that have the required version installed, or higher.
+
+> [!NOTE]
+> If you have an on-premises management console, make sure to also update your on-premises management console to the same version as your sensors.
+>
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
+### Threat intelligence updates
+
+Threat intelligence updates are continuously available and are independent of specific sensor versions. You don't need to update your sensor version in order to get the latest threat intelligence updates.
+
+For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
 
 ### Support model
 
@@ -42,6 +44,13 @@ Other versions use a legacy support model. For more information, see the tables 
 > [!IMPORTANT]
 > Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
 >
+
+### Feature documentation per versions
+
+Version numbers are listed only in this article and in the [What's new in Microsoft Defender for IoT?](whats-new.md) article, and not in detailed descriptions elsewhere in the documentation.
+
+To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
+
 
 ## Versions 22.2.x
 
