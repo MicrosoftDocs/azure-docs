@@ -50,8 +50,8 @@ It is *strongly recommended* to use redisson 3.14.1 or higher. Older versions co
 
 Other notes: 
 * redisson defaults to 'read from replica' strategy, unlike some other clients. To change this, modify the 'readMode' config setting.
-* redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are QUITE LARGE, which can lead to aggressive reconnect behaviors or 'connection storms'. 
-* redisson has an idle connection timeout of 10 seconds, which leads to more closing and reopening of connections than is ideal
+* redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are quite big. Which could contribute to more aggressive reconnect behaviors or 'connection storms'. To reduce the risk, consider using less connections, because you can efficiently pipeline commands, or batches of commands, over a small number of connections.
+* redisson has a default idle connection timeout of 10 seconds, which leads to more closing and reopening of connections than is ideal
 
 A recommended baseline configuration for cluster mode, which you can modfiy as needed, is:
 
