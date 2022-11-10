@@ -122,7 +122,8 @@ using Azure;
 using Azure.Maps.Search; 
 
 // Use Azure Maps subscription key authentication 
-var credential = Environment.GetEnvironmentVariable("Subscription_key"); 
+var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
+var credential = new AzureKeyCredential(subscriptionKey);
 var client = new MapsSearchClient(credential); 
 ```
 
