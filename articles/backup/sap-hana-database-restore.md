@@ -250,7 +250,7 @@ For example, you might have a backup policy of weekly fulls, daily differentials
 
 #### Excluding backup file types
 
-The *ExtensionSettingOverrides.json* is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For a *partial restore as files* operation, you must add a new JSON field, `RecoveryPointsToBeExcludedForRestoreAsFiles`. This field holds a string value that denotes which recovery point types should be excluded in the next *restore as files* operation.
+*ExtensionSettingOverrides.json* is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For a *partial restore as files* operation, you must add a new JSON field, `RecoveryPointsToBeExcludedForRestoreAsFiles`. This field holds a string value that denotes which recovery point types should be excluded in the next *restore as files* operation.
 
 1. On the target machine where files are to be downloaded, go to the *opt/msawb/bin* folder.
 
@@ -325,15 +325,15 @@ To begin using the feature, see [Set Cross Region Restore](./backup-create-rs-va
 
 If CRR is enabled, you can view the backup items in the secondary region.
 
-1. From the Azure portal, go to **Recovery Services vault**, and then select **Backup items**.
+1. In the Azure portal, go to **Recovery Services vault**, and then select **Backup items**.
 1. Select **Secondary Region** to view the items in the secondary region.
 
->[!NOTE]
->Only Backup Management Types supporting the CRR feature will be shown in the list. Currently, only support for restoring secondary region data to a secondary region is allowed.
+> [!NOTE]
+> Only backup management types that support the CRR feature are shown in the list. Currently, only support for restoring secondary region data to a secondary region is allowed.
 
-![Backup items in secondary region](./media/sap-hana-db-restore/backup-items-secondary-region.png)
+![Screenshot that shows backup items in the secondary region](./media/sap-hana-db-restore/backup-items-secondary-region.png)
 
-![Databases in secondary region](./media/sap-hana-db-restore/databases-secondary-region.png)
+![Screenshot that shows databases in the secondary region](./media/sap-hana-db-restore/databases-secondary-region.png)
 
 ### Restore in the secondary region
 
