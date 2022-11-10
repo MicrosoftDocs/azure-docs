@@ -4,7 +4,7 @@ description: C# Media Streaming quickstart
 services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
+ms.subservice: call-automation
 ms.date: 10/25/2022
 ms.topic: include
 ms.topic: include file

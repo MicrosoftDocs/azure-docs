@@ -482,12 +482,6 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUICalling/index.html
     - name: UI Library (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html   
-  - name: Call Automation library
-    items:
-    - name: Call Automation library (.NET)
-      href: dotnet/api/overview/azure/communication/callingautomation?view=azure-dotnet-preview
-    - name: Call Automation library (Java)
-      href: java/api/com.azure.communication.callautomation?view=azure-java-preview
 - name: Resources
   items:
   - name: Release notes

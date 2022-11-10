@@ -25,11 +25,11 @@ In this quickstart, you'll learn how to build an application that uses the Azure
 - adding a communication user to the call such as a customer service agent who uses a web application built using Calling SDKs to connect to Azure Communication Services
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Call flows for customer interactions with .NET](./includes/call-automation/Callflow-for-customer-interactions-csharp.md)]
+[!INCLUDE [Call flows for customer interactions with .NET](./includes/callflow-for-customer-interactions-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Call flows for customer interactions with Java](./includes/call-automation/Callflow-for-customer-interactions-java.md)]
+[!INCLUDE [Call flows for customer interactions with Java](./includes/callflow-for-customer-interactions-java.md)]
 ::: zone-end
 
 ## Subscribe to IncomingCall event

@@ -18,7 +18,7 @@ ms.custom: public_preview
 Call Recording APIs use exclusively the `serverCallId`to initiate recording. There are a couple of methods you can use to fetch the `serverCallId` depending on your scenario:
 
 ### Call Automation scenarios
-- When using [Call Automation](../../callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
+- When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
     1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get CallConnected event](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) from Call Automation SDK.
     2) Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
 
@@ -34,7 +34,7 @@ Let's get started with a few simple steps!
 
 ## 1. Create a Call Automation client
 
-Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/voice-video-calling/call-automation.md) libraries. Thus, it's necessary to create a Call Automation client. 
+Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/call-automation/call-automation.md) libraries. Thus, it's necessary to create a Call Automation client. 
 To create a call automation client, you'll use your Communication Services connection string and pass it to `CallAutomationClient` object.
 
 ```java
