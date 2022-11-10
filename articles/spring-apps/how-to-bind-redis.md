@@ -47,7 +47,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 #### [Service Connector](#tab/Service-Connector)
 
-1. Use the **Azure CLI** to configure your Spring app to connect to a Redis database with an access key using the `az spring connection create` command, as shown in the following example.
+1. Use the Azure CLI to configure your Spring app to connect to a Redis database with an access key using the `az spring connection create` command, as shown in the following example.
 
    ```azurecli
    az spring connection create redis \
