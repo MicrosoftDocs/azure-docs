@@ -131,7 +131,7 @@ additionalContent:
         # Card
         - title: Azure architecture Center
           summary: A dedicated cloud located in China and operated by 21Vianet.
-          url: ../azure/architecture/index.yml
+          url: https://learn.microsoft.com/en-us/azure/architecture/
     - title: Partner solutions
       items:
         # Card
@@ -141,7 +141,7 @@ additionalContent:
         # Card
         - title: Commercial marketplace
           summary: An online marketplace of applications and services from independent software vendor (ISV) partners.
-          url: ../marketplace/index.yml
+          url: https://azuremarketplace.microsoft.com/en-us/marketplace/
 
 # Super Computing Announcement
 
