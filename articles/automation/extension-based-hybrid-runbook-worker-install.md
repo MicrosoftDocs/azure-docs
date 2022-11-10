@@ -213,17 +213,17 @@ You can also add machines to an existing hybrid worker group.
 
 ## Migrate an existing Agent based to Extension based Hybrid Workers
 
-To leverage on the benefits of extension based Hybrid Workers, you must migrate all existing agent based User Hybrid Workers to extension based Workers. A hybrid worker machine can co-exist on both **Agent based (V1)** and **Extension based (V2)** platforms. The extension based installation does not affect the installation or management of an agent based Worker.
+To utilize on the benefits of extension based Hybrid Workers, you must migrate all existing agent based User Hybrid Workers to extension based Workers. A hybrid worker machine can co-exist on both **Agent based (V1)** and **Extension based (V2)** platforms. The extension based installation doesn't affect the installation or management of an agent based Worker.
 
-Follow the steps to install Hybrid worker extension on an existing agent based hybrid worker:
+To install Hybrid worker extension on an existing agent based hybrid worker, follow these steps:
 1. Under **Process Automation**, select **Hybrid worker groups**, and then select your existing hybrid worker group to go to the **Hybrid worker group** page.
-1. Under **Hybrid worker group**, select **Hybrid Workers** and select **+ Add** to go to the **Add machines as hybrid worker** page.
-1. Select the checkbox next to the existing Agent,based (V1) Hybrid worker.
-1. Select **Add** to add the machine to the group.
+1. Under **Hybrid worker group**, select **Hybrid Workers** > **+ Add** to go to the **Add machines as hybrid worker** page.
+1. Select the checkbox next to the existing Agent based (V1) Hybrid worker.
+1. Select **Add** to append the machine to the group.
 
-   The Platform column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. After you are confident of the extension based Hybrid Worker experience and use, you can remove the agent based Worker. 
+   The Platform column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. After you're confident of the extension based Hybrid Worker experience and use, you can remove the agent based Worker. 
    
-   For at-scale migration of multiple Agent based Hybrid Workers, you can also use other [channels](#manage-hybrid-worker-extension-using-bicep--arm-templates-rest-api-azure-cli-and-powershell) such as Bicep, ARM templates, PowerShell cmdlets, REST API and Azure CLI.
+   For at-scale migration of multiple Agent based Hybrid Workers, you can also use other [channels](#manage-hybrid-worker-extension-using-bicep--arm-templates-rest-api-azure-cli-and-powershell) such as - Bicep, ARM templates, PowerShell cmdlets, REST API, and Azure CLI.
 
 
 ## Delete a Hybrid Runbook Worker
