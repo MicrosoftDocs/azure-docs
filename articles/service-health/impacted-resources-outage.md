@@ -1,5 +1,5 @@
 ---
-title: Impacted Resources Support for Outages
+title: Impacted resources support for outages
 description: This article details what is communicated to users and where they can view information about their impacted resources.
 ms.topic: conceptual
 ms.date: 11/9/2022
@@ -23,7 +23,7 @@ This article details what is communicated to users and where they can view infor
 
 ## Impacted Resources for Outages on the Service Health Portal
 
-The impacted resources tab under Azure Portal-> Service Health ->Service Issues will display resources that are Confirmed to be impacted by an outage and resources that could Potentially be impacted by an outage. Below is an example of impacted resources tab for an incident on Service Issues with Confirmed and Potential impact resources.
+The impacted resources tab under Azure portal-> Service Health ->Service Issues will display resources that are Confirmed to be impacted by an outage and resources that could Potentially be impacted by an outage. Below is an example of impacted resources tab for an incident on Service Issues with Confirmed and Potential impact resources.
 
 :::image type="content" source="./media/impacted-resource-outage/ir-portal.PNG" alt-text="Screenshot of Azure Service Health impacted resources information.":::
 
@@ -41,20 +41,20 @@ The impacted resources tab under Azure Portal-> Service Health ->Service Issues 
 |Subscription Name|Subscription name for the subscription which contains the impacted resource|
 |Tenant ID|Unique ID for the tenant that contains the impacted resource|
 
-**Resource Name**
+## Resource Name
 
 This will be the resource name of the resource. The resource name will be a clickable link that links to Resource Health page for this resource.
 
 It will be text only if there is no Resource Health signal available for this resource.
 
-**Impact Type**
+## Impact Type
 
 This column will display values “Confirmed vs Potential”
 
 - *Confirmed*: Resource that was confirmed to be impacted by an outage. Customers should check the Summary section to make sure customer action items (if any) are taken to remediate the issue.
 - *Potential*: Resource that is not confirmed to be impacted by an outage but could potentially be impacted as it is under a service or region which is impacted by an outage. Customers are advised to look at the resource health and make sure everything is working as planned.
 
-**Resource Health**
+## Resource Health
 
 The health status listed under **[Resource Health](../service-health/resource-health-overview.md)** refers to the status of a given resource at that point in time.
 
@@ -65,9 +65,9 @@ The health status listed under **[Resource Health](../service-health/resource-he
 
 
 >[!Note]
->Not all resources will show resource health status. This will be shown on resources for which we have a resource health signal available only. The status of resources where the health signal will be available is shown as **“N/A”** and corresponding Resource name value will be text only and not a clickable link.
+>Not all resources will show resource health status. This will be shown on resources for which we have a resource health signal available only. The status of resources where the health signal is not available is shown as **“N/A”** and corresponding Resource name value will be text only not a clickable link.
 
-**Filters**
+## Filters
 
 Customers can filter on the results using the below filters:
 
@@ -75,6 +75,6 @@ Customers can filter on the results using the below filters:
 - Subscription ID: All Subscription IDs the user has access to
 - Status: Resource Health status column that shows Available, Unavailable, Degraded, Unknown, N/A
 
-**Export to CSV**
+## Export to CSV
 
-The list of impacted resources can be exported to an excel file by clicking on this option
+The list of impacted resources can be exported to an excel file by clicking on this option.
