@@ -19,7 +19,7 @@
   items:
   - name: Choose a commitment amount
     href: choose-commitment-amount.md
-  - name: Buy a saving plan
+  - name: Buy an Azure savings plan
     href: buy-savings-plan.md
   - name: Trade a reservation for a savings plan
     href: reservation-trade-in.md
