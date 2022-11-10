@@ -19,7 +19,7 @@ Azure Communication Services Call Automation provides developers the ability to 
 > [!NOTE]
 > Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making, redirecting a call to a Teams user or adding them to a call using Call Automation isn't supported. 
 
-## Common Use Cases
+## Common use cases
 
 Some of the common use cases that can be built using Call Automation include:
 
@@ -67,7 +67,7 @@ Azure Communication Services uses Event Grid to deliver the [IncomingCall event]
 
 ![Screenshot of flow for incoming call and actions.](./media/action-architecture.png)
 
-## Call Actions
+## Call actions
 
 ### Pre-call actions
 
@@ -140,18 +140,16 @@ The Call Automation events are sent to the web hook callback URI specified when 
 
 To understand which events are published for different actions, refer to [this guide](../../how-tos/call-automation/actions-for-call-control.md) that provides code samples as well as sequence diagrams for various call control flows. 
 
-## Known Issues
+## Known issues
 
 1. Using the incorrect IdentifierType for endpoints for `Transfer` requests (like using CommunicationUserIdentifier to specify a phone number) returns a 500 error instead of a 400 error code. Solution: Use the correct type, CommunicationUserIdentifier for Communication Users and PhoneNumberIdentifier for phone numbers. 
 2. Taking a pre-call action like Answer/Reject on the original call after redirected it gives a 200 success instead of failing on 'call not found'.
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Get started with Call Automation](./../../quickstarts/call-automation/Callflows-for-customer-interactions.md)
 
 Here are some articles of interest to you: 
-1. Understand how your resource will be [charged for various calling use cases](../pricing.md) with examples. 
-2. Learn about metrics and logs available for this service.
-1. Troubleshoot common issues. 
-
+- Understand how your resource will be [charged for various calling use cases](../pricing.md) with examples. 
+- Learn how to [manage an inbound phone call](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md).
