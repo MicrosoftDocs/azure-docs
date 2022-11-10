@@ -896,7 +896,7 @@ items:
         items:
         - name: Failover of an Azure SQL Database
           href: ./synapse-link/troubleshoot/troubleshoot-sql-database-failover.md
-        - name: Azure Active Directory (AAD) user impersonation
+        - name: Azure AD user impersonation
           href: ./synapse-link/troubleshoot/troubleshoot-sql-azure-active-directory.md
     - name: SQL Server 2022
       items:
