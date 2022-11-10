@@ -1,5 +1,5 @@
 ---
-title: What's new for Azure VMware Solution?
+title: What's new in Azure VMware Solution?
 description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
@@ -7,7 +7,7 @@ ms.service: azure-vmware
 ms.date: 11/09/2022
 ---
 
-# What's new for Azure VMware Solution?
+# What's new in Azure VMware Solution?
 
 Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
