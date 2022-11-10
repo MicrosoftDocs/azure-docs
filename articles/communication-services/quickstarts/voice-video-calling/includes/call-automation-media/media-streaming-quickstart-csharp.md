@@ -14,7 +14,7 @@ ms.author: kpunjabi
 ## Prerequisites 
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
-- Create a new web service application using the [Call Automation SDK](../../../call-automation/allflows-for-customer-interactions.md).
+- Create a new web service application using the [Call Automation SDK](../../../call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A websocket server that can receive media streams.
@@ -24,7 +24,7 @@ Azure Communication Services requires your server application to set up a WebSoc
 You can optionally use Azure services Azure WebApps that allows you to create an application to receive audio streams over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/).
 
 ## Establish a call
-In this quickstart we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](../../../call-automation/call-automation/callflows-for-customer-interactions.md). For the purposes of this quickstart, we'll be going through the process of starting media streaming for both incoming calls and outbound calls. 
+In this quickstart we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](../../../call-automation/callflows-for-customer-interactions.md). For the purposes of this quickstart, we'll be going through the process of starting media streaming for both incoming calls and outbound calls. 
 
 ## Start media streaming - incoming call 
 Your application will start receiving media streams once you answer the call and provide ACS with the WebSocket information. 

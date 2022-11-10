@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services how-to document
 description: Provides a quick start for playing audio to participants as part of a call.
 author: kunaal
 ms.service: azure-communication-services
-ms.topic: how-tos
+ms.topic: how-to
 ms.date: 09/06/2022
 ms.author: kpunjabi
 ms.custom: public_preview
