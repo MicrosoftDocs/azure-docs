@@ -8,15 +8,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/06/2022
 ms.author: askaur
-ms.custom: private_preview
+ms.custom: public_preview
 services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
 # Redirect inbound telephony calls with Call Automation
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
-> Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Get started with Azure Communication Services by using the Call Automation SDKs to build automated calling workflows that listen for and manage inbound calls placed to a phone number or received via Direct Routing.
 
@@ -30,7 +29,7 @@ Get started with Azure Communication Services by using the Call Automation SDKs 
 
 ## Subscribe to IncomingCall event
 
-IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource. To learn more about it, see [this guide](../../concepts/voice-video-calling/incoming-call-notification.md). 
+IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource. To learn more about it, see [this guide](../../concepts/call-automation/incoming-call-notification.md). 
 1. Navigate to your resource on Azure portal and select `Events` from the left side menu.
 1. Select `+ Event Subscription` to create a new subscription. 
 1. Filter for Incoming Call event. 
@@ -53,6 +52,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-- Learn more about [Call Automation](../../concepts/voice-video-calling/call-automation.md) and its features. 
-- Learn about [Play action](../../concepts/voice-video-calling/play-Action.md) to play audio in a call.
-- Learn how to build a [call workflow](../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md) for a customer support scenario. 
+- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features. 
+- Learn about [Play action](../../concepts/call-automation/play-Action.md) to play audio in a call.
+- Learn how to build a [call workflow](../../quickstarts/call-automation/callflows-for-customer-interactions.md) for a customer support scenario. 

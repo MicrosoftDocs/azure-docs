@@ -4,17 +4,16 @@ description: Java Recognize action quickstart
 services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
+ms.subservice: call-automation
 ms.date: 09/16/2022
 ms.topic: include
-ms.topic: include file
 ms.author: kpunjabi
 ---
 
 ## Prerequisites
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp)
-- Create a new web service application using the [Call Automation SDK](../../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md).
+- Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
@@ -78,7 +77,7 @@ In your POM file, add the following reference for the project
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about how to start a call view our [quickstart](../../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md). In this instance we'll answer an incoming call.
+By this point you should be familiar with starting calls, if you need to learn more about how to start a call view our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this instance we'll answer an incoming call.
 
 ## Call the recognize action
 

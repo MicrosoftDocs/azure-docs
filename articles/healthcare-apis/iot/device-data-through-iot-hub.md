@@ -1,12 +1,12 @@
 ---
 title: Receive device data through Azure IoT Hub - Azure Health Data Services
-description: In this tutorial, you'll learn how to enable device data routing from IoT Hub into the FHIR service through MedTech service.
+description: In this tutorial, you'll learn how us deploy an Azure IoT Hub with message routing to send device messages to the MedTech service using VSCode and the Azure IoT Hub extension.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 11/09/2022
+ms.date: 11/10/2022
 ms.author: jasteppe
 ---
 
@@ -174,9 +174,9 @@ Now that your deployment has successfully completed, we'll connect to your IoT H
 
 ## View test data in the FHIR service (Optional)
 
-If you provided your own Azure AD user object ID as the optional Fhir Contributor Principal ID when deploying this tutorial's template, then you have access to query FHIR resources on the FHIR service. 
+If you provided your own Azure AD user object ID as the optional Fhir Contributor Principal ID when deploying this tutorial's template, then you have access to query FHIR resources in the FHIR service. 
 
-Use this tutorial, [Access using Postman](/azure/healthcare-apis/fhir/use-postman) to get an Azure AD access token and view FHIR resources on the FHIR service.
+Use this tutorial, [Access using Postman](/azure/healthcare-apis/fhir/use-postman) to get an Azure AD access token and view FHIR resources in the FHIR service.
 
 ## Next steps
 
