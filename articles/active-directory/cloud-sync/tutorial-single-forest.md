@@ -60,7 +60,7 @@ You can use the environment you create in this tutorial for testing or for getti
 
 1. Select **Download agent**, and select **Accept terms & download**.
 
-   [![Screenshot that shows how to accept the terms and start the download of Azure AD cloud sync.](media/how-to-install/install-6a.png)](/media/how-to-install/install-6a.png#lightbox)
+   [![Screenshot that shows how to accept the terms and start the download of Azure AD cloud sync.](media/how-to-install/install-6a.png)](media/how-to-install/install-6a.png#lightbox)
 
 1. Run the **Azure AD Connect Provisioning Agent Package** AADConnectProvisioningAgentSetup.exe in your downloads folder.
 
@@ -129,14 +129,14 @@ To verify that the agent is running, follow these steps:
 
 ## Configure Azure AD Connect cloud sync
 
- Use the following steps to configure provisioning
+Use the following steps to configure and start the provisioning:
 
 1. Sign in to the Azure AD portal.
 1. Select **Azure Active Directory**
 1. Select **Azure AD Connect**
 1. Select **Manage cloud sync**
 
-    [![Screenshot showing "Manage cloud sync" link.](media/how-to-configure/manage-1.png)](media/how-to-configure/manage-1.png#lightbox)
+    ![Screenshot showing "Manage cloud sync" link.](media/how-to-configure/manage-1.png)
 
 1. Select **New Configuration**
     
