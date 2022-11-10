@@ -4,7 +4,7 @@ description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
 ms.custom: event-tier1-build-2022
-ms.date: 6/3/2022
+ms.date: 11/10/2022
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -56,26 +56,13 @@ You can install this version of the extension in your function app by registerin
 ::: zone-end 
 
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
 
 ## Install bundle    
 
 The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
 
-# [Preview Bundle v3.x](#tab/extensionv3)
-
-You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
-  }
-}
-```
 
 # [Preview Bundle v4.x](#tab/extensionv4)
 
@@ -90,6 +77,10 @@ You can add the preview extension bundle by adding or replacing the following co
   }
 }
 ```
+
+# [Preview Bundle v3.x](#tab/extensionv3)
+
+Azure SQL bindings for Azure Functions aren't available for the v3 version of the functions runtime.
 
 ---
 
@@ -124,7 +115,7 @@ You can add the preview extension bundle by adding or replacing the following co
 
 # [Preview Bundle v3.x](#tab/extensionv3)
 
-Python support isn't available with the SQL bindings extension in the v3 version of the functions runtime.
+Azure SQL bindings for Azure Functions aren't available for the v3 version of the functions runtime.
 
 ---
 
@@ -148,10 +139,44 @@ Support for Python durable functions with SQL bindings isn't yet available.
 ::: zone-end
 
 
-::: zone pivot="programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-java"  
 
-> [!NOTE]
-> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), and [Python functions](functions-reference-python.md). 
+
+## Install bundle
+
+The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
+
+# [Preview Bundle v4.x](#tab/extensionv4)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+```
+
+# [Preview Bundle v3.x](#tab/extensionv3)
+
+Azure SQL bindings for Azure Functions aren't available for the v3 version of the functions runtime.
+
+---
+
+## Update packages
+
+Add the Java library for SQL bindings to your functions project with an update to the `pom.xml` file in your Python Azure Functions project as seen in the following snippet:
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure.functions</groupId>
+    <artifactId>azure-functions-java-library-sql</artifactId>
+    <version>0.1.0</version>
+</dependency>
+```
 
 ::: zone-end
 
