@@ -40,7 +40,6 @@ For safety instructions in English, go to [Safety instructions for your Azure St
 |Turkish               |tr       |         |
 |Chinese - simplified  |zh - hans|         |
 |Chinese - traditional |zh - hant|         |
-|
 
 ## Safety instructions in other languages
 
@@ -81,7 +80,6 @@ For safety instructions in English, go to [Safety instructions for your Azure St
 | Urdu                | ur   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Urdu_RevA_5-25-2022.pdf)        |
 | Uzbek               | uz   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Uzbek_RevA_5-25-2022.pdf)       |
 | Vietnamese          | vi   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Vietnamese_RevA_5-25-2022.pdf)  |
-|
 
 ## Next steps
 
