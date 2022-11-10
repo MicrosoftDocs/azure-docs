@@ -20,6 +20,7 @@ This how-to guide covers how to provision access from Microsoft Purview to Arc-e
 [!INCLUDE [Access policies Arc enabled SQL Server pre-requisites](./includes/access-policies-prerequisites-arc-sql-server.md)]
 
 ## Microsoft Purview configuration
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register data sources in Microsoft Purview
 The Arc-enabled SQL Server data source needs to be registered first with Microsoft Purview, before policies can be created.
