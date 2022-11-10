@@ -121,7 +121,7 @@ Devices integrated with Azure AD can be either [hybrid joined devices](../device
 
 * [Azure Linux virtual machines](../devices/howto-vm-sign-in-azure-ad-linux.md)
 
-* [Azure Virtual Desktop](https://learn.microsoft.com/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join)
+* [Azure Virtual Desktop](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join)
 
 * [Virtual desktop infrastructure](../devices/howto-device-identity-virtual-desktop-infrastructure.md)
 
