@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 11/09/2022
+ms.date: 11/10/2022
 ms.topic: conceptual
 ---
 
