@@ -86,6 +86,11 @@ items:
           href: monitor-grafana-kibana.md
         - name: Deploy telemetry router 
           href: deploy-telemetry-router.md
+        - name: Add exporters to telemetry router 
+          href: adding-exporters.md
+        - name: Add pipelines to telemetry router 
+          href: adding-pipelines.md
+        
         - name: Upload to Azure Monitor
           items:
             - name: Upload prerequisites
