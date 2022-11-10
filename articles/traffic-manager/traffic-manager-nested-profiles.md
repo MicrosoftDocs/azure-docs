@@ -10,7 +10,7 @@ ms.service: traffic-manager
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/22/2022
+ms.date: 11/10/2022
 ms.author: greglin
 ---
 
@@ -48,9 +48,17 @@ Returning to the previous example, suppose the production deployment in West Eur
 
 ![Nested Profile failover (default behavior)][3]
 
-You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. To enable this failover, you can specify the 'MinChildEndpoints' parameter when configuring the child profile as an endpoint in the parent profile. The parameter determines the minimum number of available endpoints in the child profile. The default value is '1'. For this scenario, you set the MinChildEndpoints value to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints.
+You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. To enable this failover, you can specify the **MinChildEndpoints** parameter when configuring the child profile as an endpoint in the parent profile. The following parameters are available:
 
-The following figure illustrates this configuration:
+- **MinChildEndpoints**: The minimum number of healthy child endpoints for the nested profile status to be healthy. The default value is **1**.
+- **MinChildEndpointsIPv4**: The minimum number of healthy IPv4 child endpoints for the nested profile status to be healthy.
+- **MinChildEndpointsIPv6**: The minimum number of healthy IPv6 child endpoints for the nested profile status to be healthy.
+
+> [!IMPORTANT]
+> There must be at least one IPv4 and one IPv6 endpoint for any nested MultiValue profile.<br>
+> The value of **MinChildEndpoints** must be high enough to allow for all endpoint types to be available. An error message is displayed for values that are too low.
+
+In the scenario below, the **MinChildEndpoints** value is set to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints:
 
 ![Nested Profile failover with 'MinChildEndpoints' = 2][4]
 
