@@ -42,17 +42,9 @@ To add or remove zone-redundancy requires using either [customer-initiated conve
 
 During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the conversion process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
 
-> [!TIP]
-> Microsoft recommends you use customer-initiated conversion instead of support-requested conversion when possible. With customer-initiated conversion you can start and monitor the conversion request directly from the Azure portal, and there is no need to open and manage a support request.
-
 Performing a manual migration involves downtime and requires the most manual effort, but you have more control over the timing of the process.
 
 If you want to change how data is replicated in the primary region and also configure geo-replication or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
-
-> [!NOTE]
-> While Microsoft handles your request for a conversion promptly, there's no guarantee as to when it will complete. If you need your data converted by a certain date, Microsoft recommends that you perform a manual migration instead.
->
-> Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
 
 ### Replication change table
 
@@ -134,11 +126,11 @@ There are two ways to initiate a conversion:
 - [Support-requested](#support-requested-conversion)
 
 > [!TIP]
-> Microsoft recommends you use customer-initiated conversion instead of support-requested conversion when possible. With customer-initiated conversion you can start and monitor the conversion request directly from the Azure portal, and there is no need to open and manage a support request.
+> Microsoft recommends you use customer-initiated conversion instead of support-requested conversion when possible. With customer-initiated conversion you can start and monitor the progress of the conversion request directly from the Azure portal, and there is no need to open and manage a support request.
 
 #### Customer-initiated conversion
 
-Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can start the conversion directly from within the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
+Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can start and monitor the progress of the conversion directly from the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
 
 Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
@@ -149,6 +141,28 @@ The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is av
 - (North America) Canada Central
 - (North America) East US
 - (North America) East US 2
+
+##### Monitor customer-initiated conversion progress
+
+The status of your customer-initiated conversion is displayed on the **Redundancy** page of the storage account:
+
+:::image type="content" source="media/redundancy-migration/change-replication-status.png" alt-text="Screenshot showing the status of the conversion request on the Redundancy page of the Azure portal." lightbox="media/redundancy-migration/change-replication-status.png":::
+
+As the conversion request is evaluated and processed, the status should progress through the list shown in the table below:
+
+| Status                                         | Explanation                                                                          |
+|------------------------------------------------|--------------------------------------------------------------------------------------|
+| Submitted for conversion                       | The conversion request was successfully submitted for processing.                    |
+| In Progress<sup>1</sup>                        | The actual conversion has begun.                                                     |
+| Completed<br>**- or -**</br>Failed<sup>2</sup> | The conversion has successfully completed.<br>**- or -**</br>The conversion failed.  |
+
+<sup>1</sup> If the conversion does not enter the "In Progress" status within 96 hours of submitting the request, please submit a support request to Microsoft to determine why.<br />
+<sup>2</sup> If the conversion fails, please submit a support request to Microsoft to determine the reason for the failure.<br />
+
+> [!NOTE]
+> While Microsoft handles your request for a conversion promptly, there's no guarantee as to when it will complete. If you need your data converted by a certain date, Microsoft recommends that you perform a manual migration instead.
+>
+> Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
 
 #### Support-requested conversion
 
