@@ -8,7 +8,7 @@ ms.author: chrhoder
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
-ms.date: 6/30/2021
+ms.date: 11/07/2022
 ms.custom: event-tier1-build-2022
 recommendations: false
 keywords:  
@@ -48,6 +48,12 @@ Apply here for initial access or for a production review:
 <a href="https://aka.ms/oaiapply" target="_blank">Apply now</a>
 
 All solutions using the Azure OpenAI service are also required to go through a use case review before they can be released for production use, and are evaluated on a case-by-case basis. In general, the more sensitive the scenario the more important risk mitigation measures will be for approval.
+
+## Comparing Azure OpenAI and OpenAI
+
+Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
+
+With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering.  
 
 ## Key concepts
 

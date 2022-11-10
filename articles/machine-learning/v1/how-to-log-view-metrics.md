@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022, ignite-2022
-ms.date: 04/19/2021
+ms.date: 10/26/2022
 ms.topic: how-to
 ---
 
@@ -179,7 +179,7 @@ This example performs a parameter sweep over alpha values and captures the resul
 
 1. Create a training script that includes the logging logic, `train.py`.
 
-   [!code-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
+   [!code-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/scripts/train.py)]
 
 
 1. Submit the ```train.py``` script to run in a user-managed environment. The entire script folder is submitted for training.

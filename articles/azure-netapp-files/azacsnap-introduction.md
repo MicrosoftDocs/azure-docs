@@ -69,6 +69,7 @@ This is a list of technical articles where AzAcSnap has been used as part of a d
 * [Manual Recovery Guide for SAP Oracle 19c on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-oracle-19c-on-azure-vms-from-azure/ba-p/3242408)
 * [Manual Recovery Guide for SAP HANA on Azure Large Instance from storage snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-large-instance-from/ba-p/3242347)
 * [Automating SAP system copy operations with Libelle SystemCopy](https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/libelle-sc-overview.html)
+* [Protecting HANA databases configured with HSR on Azure NetApp Files with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/protecting-hana-databases-configured-with-hsr-on-azure-netapp/ba-p/3654620)
 
 ## Command synopsis
 

@@ -20,7 +20,7 @@ ms.author: anfdocs
 
 If you do not want to [restore the entire snapshot to a new volume](snapshots-restore-new-volume.md) or [copy large files across the network](snapshots-restore-file-client.md), you have the option to use the single-file snapshot restore feature to recover individual files directly within a volume from a snapshot, without requiring an external client data copy.  
 
-The single-file snapshot restore feature enables you to restore a single file or a list of files (up to 10 files at a time) from a snapshot.  You can specify a specific destination location or folder where the files will be restored to.    
+The single-file snapshot restore feature enables you to restore a single file or a list of files (up to 10 files at a time) from a snapshot. You can specify a specific destination location or folder where the files will be restored to.    
 
 <!-- differentiate from backup restore-->
 

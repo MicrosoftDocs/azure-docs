@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN (preview) volume from 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 10/27/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
@@ -88,7 +88,10 @@ Add-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName $resourceGroupName -El
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
+# First, get the current length of the list of virtual networks. This is needed to ensure you append a new network instead of replacing existing ones.
+virtualNetworkListLength = az elastic-san volume-group show -e $sanName -n $volumeGroupName -g $resourceGroupName --query 'length(networkAcls.virtualNetworkRules)'
+
+az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls virtual-network-rules[$virtualNetworkListLength] "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
 ```
 ---
 
@@ -175,13 +178,19 @@ tcp:[18] <name>:port,-1 <iqn>
 ```
 15 is the session ID we'll use from the previous example.
 
-With the session ID, you can create as many sessions as you need however, none of the additional sessions are persistent, even if you modified node.startup. You must recreate them after each reboot. The following script is a loop that creates as many additional sessions as you specify. Replace **numberOfAdditionalSessions** with your desired number of additional sessions and replace **sessionID** with the session ID you'd like to use, then run the script.
+The following script is a loop that creates as many additional sessions as you specify. Replace **numberOfAdditionalSessions** with your desired number of additional sessions and replace **sessionID** with the session ID you'd like to use, then run the script.
 
 ```
 for i in `seq 1 numberOfAdditionalSessions`; do sudo iscsiadm -m session -r sessionID --op new; done
 ```
 
 You can verify the number of sessions using `sudo multipath -ll`
+
+When you've finished creating sessions for each of your volumes, run the following command once for each volume you'd like to maintain persistent connections to. This keeps the volume's connections active when your client reboots.
+
+```
+sudo iscsiadm -m node --targetname yourTargetIQN --portal yourTargetPortalHostName:yourTargetPortalPort --op update -n node.session.nr_sessions -v numberofAdditionalSessions+1
+```
 
 ### Single-session connections
 

@@ -181,7 +181,7 @@ bcc_address = EmailAddress(email="<bccemailalias@emaildomain.com>")
 recipient = EmailRecipients(to=[to_address_1, to_address_2], cc=[cc_address], bcc=[bcc_address])
 ```
 
-You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced/send-email-multiple-recipients)
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
 
 
 ### Send an email message with attachments
@@ -210,4 +210,4 @@ message = EmailMessage(
 )
 ```
 
-You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced/send-email-attachments)
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)

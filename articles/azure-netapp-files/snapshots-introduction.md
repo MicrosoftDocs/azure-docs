@@ -194,6 +194,8 @@ To restore individual files or directories, the complete vaulted snapshot is res
 
 If a volume is deleted, its vaulted snapshots (backups) are still retained, unlike the online snapshots, which are part of the volume and are deleted with the volume deletion. You can restore complete volumes and then individual directories from vaulted backups even if the parent volume was deleted or lost due to application or user error. You can do so by selecting the appropriate vaulted snapshot from the backup list and restoring it to a new volume. See [Restore a backup to a new volume](backup-restore-new-volume.md) for details.
 
+<!-- ### Restoring individual files or directories from backups -->
+
 ## How snapshots are deleted  
 
 This section explains how online snapshots and vaulted snapshots are deleted.

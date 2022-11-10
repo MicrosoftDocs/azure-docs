@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/11/2022
+ms.date: 10/31/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
@@ -15,7 +15,7 @@ ms.custom: references_regions, event-tier1-build-2022
 
 [Data owner policies](concept-policies-data-owner.md) are a type of Microsoft Purview access policies. They allow you to manage access to user data in sources that have been registered for *Data Use Management* in Microsoft Purview. These policies can be authored directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source.
 
-This guide covers how a data owner can delegate authoring policies in Microsoft Purview to enable access to SQL Server on Azure Arc-enabled servers. The following actions are currently enabled: *SQL Performance Monitoring*, *SQL Security Auditing* and *Read*. These 3 actions are only supported for policies at server level. *Modify* is not supported at this point. 
+This guide covers how a data owner can delegate authoring policies in Microsoft Purview to enable access to SQL Server on Azure Arc-enabled servers. The following actions are currently enabled: *Read*. This action is only supported for policies at server level. *Modify* is not supported at this point.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
@@ -52,15 +52,9 @@ Once your data source has the **Data Use Management** toggle *Enabled*, it will 
 
 ## Create and publish a data owner policy
 
-Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-policies-data-owner-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to one of the examples shown in the images.
+Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-policies-data-owner-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to the example:
 
-**Example #1: SQL Performance Monitor policy**. This policy assigns the Azure AD principal 'Christie Cline' to the *SQL Performance monitoring* action, in the scope of Arc-enabled SQL server *DESKTOP-xxx*. This policy has also been published to that server. Note: Policies related to this action are not supported below server level.
-
-![Screenshot shows a sample data owner policy giving SQL Performance Monitor access to an Azure SQL Database.](./media/how-to-policies-data-owner-sql/data-owner-policy-example-arc-sql-server-performance-monitor.png)
-
-**Example #2: SQL Security Auditor policy**. Similar to example 1, but choose the *SQL Security auditing* action (instead of *SQL Performance monitoring*), when authoring the policy. Note: Policies related to this action are not supported below server level.
-
-**Example #3: Read policy**. This policy assigns the Azure AD principal 'sg-Finance' to the *SQL Data reader* action, in the scope of SQL server *DESKTOP-xxx*. This policy has also been published to that server. Note: Policies related to this action are not supported below server level.
+**Example: Read policy**. This policy assigns the Azure AD principal 'sg-Finance' to the *SQL Data reader* action, in the scope of SQL server *DESKTOP-xxx*. This policy has also been published to that server. Note that policies related to this action are not supported below server level.
 
 ![Screenshot shows a sample data owner policy giving Data Reader access to an Azure SQL Database.](./media/how-to-policies-data-owner-sql/data-owner-policy-example-arc-sql-server-data-reader.png)
 
@@ -125,22 +119,6 @@ This section contains a reference of how actions in Microsoft Purview data polic
 ||Microsoft.Sql/Sqlservers/Databases/Schemas/Tables/Rows|
 ||Microsoft.Sql/Sqlservers/Databases/Schemas/Views/Rows |
 |||
-| *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
-|||               
-| *SQL Security Auditor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
-|||
-
-
-
-
 
 
 ## Next steps

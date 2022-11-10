@@ -23,10 +23,10 @@ To learn how to configure your load test, see [Monitor server-side application m
 
 This section lists the Azure resource types that Azure Load Testing supports for server-side monitoring.
 
-* API Management
-* App Service
-* App Service plan
-* Application Insights
+* Azure API Management
+* Azure App Service
+* Azure App Service plan
+* Azure Application Insights
 * Azure Cache for Redis
 * Azure Cosmos DB
 * Azure Database for MariaDB server

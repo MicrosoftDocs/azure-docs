@@ -2,7 +2,8 @@
 title: What's new in Azure Site Recovery
 description: Provides a summary of new features and the latest updates in the Azure Site Recovery service.
 ms.topic: conceptual
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ms.date: 07/28/2021
 
 ---
@@ -19,7 +20,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Configuration server/Replication appliance** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Rollup 64](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | 9.51.6477.1 | 5.1.7802.0 | 9.51.6477.1 | 5.1.7802.0 | 2.0.9249.0
+[Rollup 64](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | 9.51.6477.1 | 5.1.7802.0 | 9.51.6477.1 | 5.1.7802.0 | 2.0.9257.0
 [Rollup 63](https://support.microsoft.com/topic/update-rollup-63-for-azure-site-recovery-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 9.50.6419.1 | 5.1.7626.0 | 9.50.6419.1 | 5.1.7626.0 | 2.0.9249.0
 [Rollup 62](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | 9.49.6395.1 | 5.1.7418.0 | 9.49.6395.1 | 5.1.7418.0 | 2.0.9248.0
 [Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 9.48.6349.1 | 5.1.7387.0 | 9.48.6349.1 | 5.1.7387.0 | 2.0.9245.0

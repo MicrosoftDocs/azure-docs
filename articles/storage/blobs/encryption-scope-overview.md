@@ -5,11 +5,12 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 09/20/2022
+ms.date: 10/27/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: engagement-fy23
 ---
 
 # Encryption scopes for Blob storage
@@ -65,7 +66,8 @@ A default encryption scope must be specified for a container at the time that th
 
 If no default encryption scope is specified for the container, then you can upload a blob using any encryption scope that you've defined for the storage account. The encryption scope must be specified at the time that the blob is uploaded.
 
-When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob. You also cannot change the access tier for an existing blob that uses an encryption scope. For more information about access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+> [!NOTE]
+> When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob. You also cannot change the access tier for an existing blob that uses an encryption scope. For more information about access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ## Disabling an encryption scope
 

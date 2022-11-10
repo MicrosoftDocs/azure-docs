@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer composed models
+title: Composed custom models - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn about composed custom models
+description: Compose several custom models into a single model for easier data extraction from groups of distinct form types.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services

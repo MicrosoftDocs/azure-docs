@@ -105,32 +105,45 @@ Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for det
 
 ## Call Recording
 
-Azure Communication Services allows customers to record PSTN, WebRTC, Conference, SIP Interface calls. Currently Call Recording supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats. Call Recording SDKs are available for Java and C#. Refer to [this page to learn more](../quickstarts/voice-video-calling/call-recording-sample.md).
+Azure Communication Services allow developers to record PSTN, WebRTC, Conference, or SIP calls. Call Recording supports mixed video MP4, mixed audio MP3/WAV, and unmixed audio WAV output formats. Call Recording SDKs are available for Java and C#. To learn more view Call Recording [concepts](./voice-video-calling/call-recording.md) and [quickstart](../quickstarts/voice-video-calling/get-started-call-recording.md).
 
 ### Price
 
-You're charged $0.01/min for mixed audio+video format and $0.002/min for mixed audio-only.
+- Mixed video (audio+video): $0.01/min
+- Mixed audio: $0.002/min
+- Unmixed audio: $0.0012/participant/min
 
-### Pricing example: Record a call in a mixed audio+video format
+
+### Pricing example: Record a video call
 
 Alice made a group call with her colleagues, Bob and Charlie. 
 
-- The call lasts a total of 60 minutes. And recording was active during 60 minutes.
+- The call lasts a total of 60 minutes and recording was active during 60 minutes.
 - Bob stayed in a call for 30 minutes and Alice and Charlie for 60 minutes.
 
 **Cost calculations**
-- You'll be charged the length of the meeting. (Length of the meeting is the timeline between user starts a recording and either explicitly stops or when there's no one left in a meeting).
+- You'll be charged for the length of the meeting. (Length of the meeting is the timeline between user starts a recording and either explicitly stops or when there's no one left in a meeting).
 - 60 minutes x $0.01 per recording per minute = $0.6
 
-### Pricing example: Record a call in a mixed audio+only format
+### Pricing example: Record an audio call in a mixed format
 
 Alice starts a call with Jane. 
 
 - The call lasts a total of 60 minutes. The recording lasted for 45 minutes.
 
 **Cost calculations**
-- You'll be charged the length of the recording. 
+- You'll be charged for the length of the recording. 
 - 45 minutes x $0.002 per recording per minute = $0.09
+
+### Pricing example: Record an audio call in an unmixed format
+
+Bob starts a call with his financial advisor, Charlie. 
+
+- The call lasts a total of 60 minutes. The recording lasted for 50 minutes.
+
+**Cost calculations**
+- You'll be charged for the length of the recording per participant. 
+- 50 minutes x $0.0012 x 2 per recording per participant per minute = $0.12
 
 ## Chat
 
