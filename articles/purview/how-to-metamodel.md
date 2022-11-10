@@ -6,7 +6,7 @@ ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/13/2022
+ms.date: 11/10/2022
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 
@@ -14,14 +14,9 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
+Metamodel is a feature in the Microsoft Purview Data Map that gives the technical data in your data map relationships and reference points to make it easier to navigate. Like adding streets and cities to a map, the metamodel orients users so they know where they are and can discover the information they need.
 
-Required: Lead with a light intro that describes, in customer-friendly language, what the 
-customer will do. Answer the fundamental “why would I want to do this?” question. Keep it 
-short.
-Readers should have a clear idea of what they will do in this article after reading the 
-introduction.
--->
+This article will get you started in building a metamodel for your Microsoft Purview Data Map.
 
 ## Prerequisites
 
@@ -32,7 +27,7 @@ introduction.
 
 ## Create and modify asset types
 
-1. To get started, open the data map and select **Asset types**. You’ll see a list of available asset types. Predefined asset types will have unique icons. All custom assets are designated with a puzzle piece icon.
+1. To get started, open the data map and select **Asset types**. You’ll see a list of available asset types. [Predefined asset types](#predefined-asset-types) will have unique icons. All custom assets are designated with a puzzle piece icon.
 
 1. To create a new asset type, select **New asset type** and add a name, description, and attributes.
 
@@ -87,8 +82,22 @@ introduction.
     >[!NOTE]
     >This is the experience provided by default from Atlas.
 
+## Predefined asset types
+
+An asset type is a template for storing a concept that’s important to your organization—anything you might want to represent in your data map alongside your physical metadata. You can create your own, but Purview also comes with a prepackaged set of business asset types you can modify to meet your needs.
+
+| Asset Type | Description |
+| | |
+| Application service| A well-defined software component, especially one that implements a specific business function such as on-boarding a new customer, taking an order, or sending an invoice.  |
+| Business process | A set of activities that are performed in coordination in an organizational or technical environment that jointly realize a business goal. |
+| Data Domain | A category of data that is governed or explicitly managed for master data management. |
+| Department | An organizational subunit that only has full recognition within the context of that organization. A department would not be regarded as a legal entity in its own right. |
+| Line of business | An organization subdivision focused on a single product or family of products. |
+| Organization | A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as a unit. Organizations are often decomposable into hierarchical structures. |
+| Product | Any offered product or service. |
+| Project | A specific activity used to control the use of resources and associated costs so they are used appropriately in order to successfully achieve the project's goals, such as building a new capability or improving an existing capability. |
+| System | An IT system including hardware and software. |
+
 ## Next steps
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+For more information about the metamodel, see the metamodel [concept page](concept-metamodel.md).
