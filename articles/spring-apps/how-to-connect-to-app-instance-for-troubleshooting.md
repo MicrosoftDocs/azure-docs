@@ -11,17 +11,17 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Connect to an app instance for troubleshooting
 
+This article describes how to access the shell environment inside your application instances to do advanced troubleshooting.
+
 Although Azure Spring Apps offers various managed troubleshooting approaches, you may want to do advanced troubleshooting using the shell environment. For example, you may want to accomplish the following troubleshooting tasks:
 
 - Directly use Java Development Kit (JDK) tools.
 - Diagnose against an app’s back-end services for network connection and API call latency for both virtual-network and non-virtual-network instances.
-- Diagnose storage capacity and performance and CPU/memory issues.
-
-This article describes how to access the shell environment inside your application instances to do advanced troubleshooting.
+- Diagnose storage capacity, performance, and CPU/memory issues.
 
 ## Prerequisites
 
-- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. Use the following command to remove previous versions and install the latest extension. If you previously installed the spring-cloud extension, uninstall it to avoid configuration and version mismatches.
+- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. Use the following command to remove previous versions and install the latest extension. If you previously installed the `spring-cloud` extension, uninstall it to avoid configuration and version mismatches.
 
   ```azurecli
   az extension remove --name spring
@@ -134,18 +134,18 @@ You can also use JDK-bundled tools such as `jps`, `jcmd`, and `jstat`.
 
 The available tools depend on your service tier and type of app deployment. The following table describes the availability of troubleshooting tools:
 
-| Tier                  | Deployment Type         | Common tools                                 | JDK tools                   | Notes                                    |
+| Tier                  | Deployment type         | Common tools                                 | JDK tools                   | Notes                                    |
 |------------------------|--------------------------|-----------------------------------------------|------------------------------|-------------------------------------------|
 | Basic / Standard tier | Source code / Jar       | Y                                            | Y (for Java workloads only) |                                          |
-| Basic / Standard tier | Custom Image            | N                                            | N                           | Up to your installed tool set.           |
-| Enterprise Tier       | Source code / Artifacts | Y (for full OS stack), N (for base OS stack) | Y (for Java workloads only) | Depends on the os stack of your builder. |
-| Enterprise Tier       | Custom Image            | N                                            | N                           | Up to your installed tool set.           |
+| Basic / Standard tier | Custom image            | N                                            | N                           | Up to your installed tool set.           |
+| Enterprise Tier       | Source code / Artifacts | Y (for full OS stack), N (for base OS stack) | Y (for Java workloads only) | Depends on the OS stack of your builder. |
+| Enterprise Tier       | Custom image            | N                                            | N                           | Depends on your installed tool set.           |
 
 ## Limitations
 
 Using the shell environment inside your application instances has the following limitation:
 
-- Because the app is running as a non-root user, you can't execute some actions requiring root permission. For example, you can't install new tools by the system package manager `apt / yum`.
+- Because the app is running as a non-root user, you can't execute some actions requiring root permission. For example, you can't install new tools by using the system package manager `apt / yum`.
 
 - Because some Linux capabilities are prohibited, tools that require special privileges, such as `tcpdump`, don't work.
 
