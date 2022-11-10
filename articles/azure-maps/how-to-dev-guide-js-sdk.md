@@ -53,6 +53,7 @@ mapsDemo
 | Service Name  | NPM package             |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][search readme] | [Azure.Maps.Search][search package] | [search samples][search sample] |
+| [Route][js route readme] | [@azure/maps-route][js route package] | [route samples][js route sample] |
 
 ## Create a Node.js project
 
@@ -381,3 +382,7 @@ main().catch((err) => {
 [search package]: https://www.npmjs.com/package/@azure/maps-search
 [search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search/README.md
 [search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search/samples/v1-beta
+
+[js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
+[js route package]: https://www.npmjs.com/package/@azure-rest/maps-route
+[js route sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-route-rest/samples/v1-beta
