@@ -49,7 +49,7 @@ At this point, the MIM Sync server is no longer needed.
  1. Copy the MA DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.
  1. Change to the directory C:\Program Files\Microsoft ECMA2Host\Wizard. Run the program Microsoft.ECMA2Host.ConfigWizard.exe to set up the ECMA Connector Host configuration.
  1. A new window appears with a list of connectors. By default, no connectors will be present. Select **New connector**.
- 1. Specify the management agent XML file that was exported from MIM Sync earlier. Continue with the configuration and schema-mapping instructions from the section "Create a connector" in either the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#create-a-generic-sql-connector) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#configure-a-generic-ldap-connector) articles.
+ 1. Specify the management agent XML file that was exported from MIM Sync earlier. Continue with the configuration and schema-mapping instructions from the section "Create a connector" in either the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#6-create-a-generic-sql-connector) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#configure-a-generic-ldap-connector) articles.
 
 ## Next steps
 
