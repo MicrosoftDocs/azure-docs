@@ -87,7 +87,7 @@ Use the following checklist to ensure that your application is effectively integ
 
 ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Where applicable, enrich your application with user data. Using the [Microsoft Graph API](https://developer.microsoft.com/graph) is an easy way to do this. The [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) tool that can help you get started.
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Register the full set of permissions that your app requires so admins can grant consent easily to their tenant. Use [incremental consent](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) at run time to help users understand why your app is requesting permissions that may concern or confuse users when requested on first start.
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Register the full set of permissions that your app requires so admins can grant consent easily to their tenant. Use [incremental consent](./permissions-consent-overview.md#consent) at run time to help users understand why your app is requesting permissions that may concern or confuse users when requested on first start.
 
 ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Implement a [clean single sign-out experience](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). It’s a privacy and a security requirement, and makes for a good user experience.
 
