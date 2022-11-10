@@ -50,32 +50,42 @@ highlightedContent:
 
 # productDirectory section (optional)
 productDirectory:
-  title: Services # < 60 chars (optional)
+  title: Components # < 60 chars (optional)
   summary: There are several Azure services that make up our High Performance Computing offering # < 160 chars (optional)
   items:
     # Card
-    - title: VMs
-      # imageSrc should be square in ratio with no white space
-      imageSrc: ../virtual-machines/media/logos/azure-logo.png
-      links:
-        - url: /virtual-machines
-          text: Azure Virtual Machines
-        - url: ../virtual-machines/overview.md
-          text: Overview of virtual machines in Azure
-        - url: ../virtual-machines/linux/quick-create-cli.md
-          text: Quickstart
+    - title: Linux Virtual Machines
+      summary: Provision virtual machines for Ubuntu, Red Hat, and more
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
+      azureCategories:
+        - featured
+        - compute
+      url: ./virtual-machines/index.yml
+    # Card
+    - title: Windows Virtual Machines
+      summary: Provision Windows virtual machines in seconds
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
+      azureCategories:
+        - featured
+        - compute
+      url: ./virtual-machines/index.yml
+    # Card
+    - title: Azure Virtual Desktop
+     summary: The best virtual desktop experience, delivered on Azure
+     imageSrc: https://static.docs.com/ui/media/product/azure/virtual-desktop.svg
+     azureCategories:
+       - featured
+       - compute
+       - azure-virtual-desktop
+      url: virtual-desktop/index.yml
     # Card
     - title: Batch
-      # imageSrc should be square in ratio with no white space
-      imageSrc: ../virtual-machines/media/logos/azure-logo.png
-      links:
-        - url: /batch
-          text: Azure Batch
-        - url: ../batch/batch-technical-overview.md
-          text: What is Azure Batch?
-        - url: ../batch/quick-create-cli.md
-          text: Quickstart
-    # Card
+      summary: Cloud-scale job scheduling and compute management
+      imageSrc: https://static.docs.com/ui/media/product/azure/batch-accounts.svg
+      azureCategories:
+        - compute
+      url: batch/index.yml
+   # Card
     - title: VDI
       # imageSrc should be square in ratio with no white space
       imageSrc: ../virtual-machines/media/logos/vdilogo.png
@@ -108,6 +118,30 @@ productDirectory:
           text: Azure HPC Cache documentation
         - url: ../hpc-cache/hpc-cache-create.md
           text: Create an Azure HPC Cache
+
+additionalContent:
+  sections:
+    - title: Architecting applications on Azure
+      summary: Best practices and patterns for building applications on Microsoft Azure
+      items: 
+        # Card
+        - title: VM workload 
+          imageSrc: ../virtual-machines/media/sizes/azurevmsthumb.jpg
+          url: ../virtual-machines/index.yml
+        # Card
+        - title: Azure architecture Center
+          summary: A dedicated cloud located in China and operated by 21Vianet.
+          url: /azure/architecture/index.yml
+    - title: Partner solutions
+      items:
+        # Card
+        - title: Azure References and Community
+          summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
+          url: ./partner-solutions/overview.md
+        # Card
+        - title: Commercial marketplace
+          summary: An online marketplace of applications and services from independent software vendor (ISV) partners.
+          url: ./marketplace/index.yml
 
 # Super Computing Announcement
 
