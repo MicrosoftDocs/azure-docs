@@ -370,22 +370,23 @@ root
  |    |-- string: string (nullable = true)
  |-- _partitionKey: struct (nullable = true)
  |    |-- string: string (nullable = true)
- `
+ ```
 
 In well-defined schema representation, both `rating` and `timestamp` of the second document wouldn't be represented. In full fidelity schema, you can use the following examples to individually access to each value of each datatype.
 
+In the example below, we can use `PySpark` to run an aggregation:
 
 ```PySpark
-# Run aggregations
 df.groupBy(df.item.string).sum().show()
-` 
+` ``
+
+In the example below, we can use `PySQL` to run another aggregation:
 
 ```PySQL
-# Let's see the data for pizzas that have a string timestamp
 df.createOrReplaceTempView("Pizza")
 sql_results = spark.sql("SELECT sum(price.float64),count(*) FROM Pizza where timestamp.string is not null and item.string = 'Pizza'")
 sql_results.show()
-`
+```
 
 ##### Using full fidelity schema on SQL
 
@@ -403,7 +404,8 @@ timestamp varchar(50) '$.timestamp.string',
 timestamp_utc float '$.timestamp.float64' 
 ) as HTAP 
 WHERE timestamp is not null or timestamp_utc is not null
-`
+```
+
 Starting from the query above, customers can implement transformations using `cast`, `convert` or any other T-SQL function to manipulate your data. Customers can also hide complex datatype structures by using views.
 
 ```SQL
@@ -429,7 +431,7 @@ rating_string varchar(50) '$.rating.string',
 timestamp_string varchar(50) '$.timestamp.string' 
 ) as HTAP 
 WHERE  timestamp_string is not null
-`
+```
 
 
 ##### Working with the MongoDB `_id` field
