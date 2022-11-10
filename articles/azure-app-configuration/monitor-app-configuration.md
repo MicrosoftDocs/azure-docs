@@ -98,7 +98,8 @@ You can analyze metrics for App Configuration with metrics from other Azure serv
 
 * Http Incoming Request Count 
 * Http Incoming Request Duration 
-* Throttled Http Request Count (Http Status Code 429 Responses)
+* Throttled Http Request Count (Http status code 429 Responses)
+* Daily Storage Usage
 
 In the portal, navigate to the **Metrics** section and select the **Metric Namespaces** and **Metrics** you want to analyze. This screenshot shows you the metrics view when selecting **Http Incoming Request Count** for your configuration store.
 
