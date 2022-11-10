@@ -50,11 +50,11 @@ The filter syntax is used to filter out the connections matching the filter expr
 Azure Web PubSub supports below identifiers:
 | Identifier | Description | Note | Examples
 | --- | --- | -- | --
-| `userId` | The userId of the connection. | Case insensitive. It can be used in [string operations](#string-operations). | `userId eq 'user1'`
-| `connectionId` | The connectionId of the connection. | Case insensitive. It can be used in [string operations](#string-operations). | `connectionId ne '123'`
-| `groups` | The collection of groups the connection is currently in. | Case insensitive. It can be used in [collection operations](#string-operations). | `'group1' in groups`
+| `userId` | The userId of the connection. | Case insensitive. It can be used in [string operations](#supported-operations). | `userId eq 'user1'`
+| `connectionId` | The connectionId of the connection. | Case insensitive. It can be used in [string operations](#supported-operations). | `connectionId ne '123'`
+| `groups` | The collection of groups the connection is currently in. | Case insensitive. It can be used in [collection operations](#supported-operations). | `'group1' in groups`
 
-Identifiers are used to refer to the property value of a connection. Azure Web PubSub supports 3 identifiers matching the property name of the connection model. and supports identifiers `userId` and `connectionId` in string operations, supports identifier `groups` in [collection operations](#collection-operations). For example, to filter out connections with userId `user1`, we specify the filter as `userId eq 'user1'`. Read through the below sections for more samples using the filter.
+Identifiers are used to refer to the property value of a connection. Azure Web PubSub supports 3 identifiers matching the property name of the connection model. and supports identifiers `userId` and `connectionId` in string operations, supports identifier `groups` in [collection operations](#supported-operations). For example, to filter out connections with userId `user1`, we specify the filter as `userId eq 'user1'`. Read through the below sections for more samples using the filter.
 
 ### Boolean expressions
 
