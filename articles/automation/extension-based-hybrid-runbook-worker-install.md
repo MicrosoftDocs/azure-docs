@@ -20,7 +20,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 
 > [!NOTE]
-> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2)on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [**Learn more**](#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker).
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2)on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [**Learn more**](#migrate-an-existing-agent-based-to-extension-based-hybrid-workers).
 
 ## Prerequisites
 
@@ -211,18 +211,17 @@ You can also add machines to an existing hybrid worker group.
 
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-inline.png" alt-text="Screenshot of platform field showing agent or extension based." lightbox="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-expanded.png":::
 
-## Migrate an existing Agent-based to Extension-based Hybrid Workers
+## Migrate an existing Agent based to Extension based Hybrid Workers
 
-To take advantage of the benefits of extension-based Hybrid Workers, you must migrate all existing agent-based User Hybrid Workers to extension-based Workers. A hybrid worker machine can co-exist on both platforms: **Agent-based (V1)** and **Extension based (V2)**. The extension-based installation does not affect the installation or management of an agent-based Worker.
+To leverage on the benefits of extension based Hybrid Workers, you must migrate all existing agent based User Hybrid Workers to extension based Workers. A hybrid worker machine can co-exist on both **Agent based (V1)** and **Extension based (V2)** platforms. The extension based installation does not affect the installation or management of an agent based Worker.
 
-Follow the steps to install Hybrid Worker Extension on an existing agent-based hybrid worker:
-1. Under **Process Automation**, select **Hybrid Worker groups**, and then your existing hybrid worker group to go to the **Hybrid Worker Group** page.
-1. Under **Hybrid worker group**, select **Hybrid Workers**.
-1. Select **+ Add** to go to the **Add machines as hybrid worker** page.
-1. Select the checkbox next to the existing Agent-based (V1) Hybrid worker.
+Follow the steps to install Hybrid worker extension on an existing agent based hybrid worker:
+1. Under **Process Automation**, select **Hybrid worker groups**, and then select your existing hybrid worker group to go to the **Hybrid worker group** page.
+1. Under **Hybrid worker group**, select **Hybrid Workers** and select **+ Add** to go to the **Add machines as hybrid worker** page.
+1. Select the checkbox next to the existing Agent,based (V1) Hybrid worker.
 1. Select **Add** to add the machine to the group.
 
-   The Platform column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. Once you are confident with the extension-based Hybrid Worker experience and use, you can remove the agent-based Worker. 
+   The Platform column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. After you are confident of the extension based Hybrid Worker experience and use, you can remove the agent based Worker. 
    
    For at-scale migration of multiple Agent based Hybrid Workers, you can also use other [channels](#manage-hybrid-worker-extension-using-bicep--arm-templates-rest-api-azure-cli-and-powershell) such as Bicep, ARM templates, PowerShell cmdlets, REST API and Azure CLI.
 
