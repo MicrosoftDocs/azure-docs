@@ -46,7 +46,7 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `status` | string |  ??  | ?? | ?? |
 | `tags` | object |  ??  | ?? | ?? |
 | `properties` | properties(string) |  ??  | ?? | ?? |
-| `id` | string | ?? | pattern `"[^azureml:.*]"` | ?? |
+| `id` | string | ?? | ?? | ?? |
 | `identity` | ?? | ?? | ?? | ?? |
 | `target_column_name` | string |  **Required.** The name of the target/label column. It must always be specified.|  |  |
 | `task` | string | **Required.** The type of AutoML task to execute. | 'forecasting' | 'forecasting' |
@@ -54,17 +54,17 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `featurization` | object | Dictionary containing the featurization config. See [featurization](#featurization) to see the properties of this object. |  |  |
 | `forecasting` | object | Dictionary containing the forecasting settings config. See [forecasting](#forecasting) to see the properties of this object.|  |  |
 | `limits` | object | Dictionary of limit configurations of the job. The key is name for the limit within the context of the job and the value is limit value. See [limits](#limits) to see the properties of this object.|  |  |
-| `n_cross_validations` | string or integer | Number of cross-validation folds to use for model/pipeline selection when user validation data is not specified.The default value is "auto", in which case AutoMl determines the number of cross-validations automatically, if a validation set is not provided. Or, users could specify an integer value. OR ---------- Number of cross validations to perform when user validation data is not specified. Specify `validation_data` to provide validation data, otherwise set `n_cross_validations` or `validation_size` to extract validation data out of the specified training data.For more information, see `Configure data splits and cross-validation in automated machine learning <https://docs.microsoft.com/azure/machine-learning/how-to-configure-cross-validation-data-splits>`__. | 'auto', integer,None | None |
+| `n_cross_validations` | string or integer | 
+Number of cross-validation folds to use for model/pipeline selection when user validation data is not specified.The default value is "auto", in which case AutoMl determines the number of cross-validations automatically, if a validation set is not provided. Or, users could specify an integer value. OR ---------- Number of cross validations to perform when user validation data is not specified. Specify `validation_data` to provide validation data, otherwise set `n_cross_validations` or `validation_size` to extract validation data out of the specified training data.For more information, see `Configure data splits and cross-validation in automated machine learning <https://docs.microsoft.com/azure/machine-learning/how-to-configure-cross-validation-data-splits>`__. | 'auto', integer,None | None |
 | `primary_metric` | string | The metric that AutoML will optimize for Time Series Forecasting model selection. If not specified, then AutoML use normalized RMSE for forecasting tasks.| "spearman_correlation", "normalized_root_mean_squared_error", "r2_score", "normalized_mean_absolute_error" | None |
-| `test_data` | object | The test data to be used for a test run that will automatically be started after model training is complete. The test run will get predictions using the best model and will compute metrics given these predictions. If this parameter or the ``test_size`` parameter are not specified then no test run will be executed automatically after model training is completed. Test data should contain both features and label column. If ``test_data`` is specified then the ``label_column_name`` parameter must be specified. See [Training or Validation or Test Data](#training-or-validation-or-test-data) to see the properties of this object. |  | None |
+| `test_data` | object | The test data to be used for a test run that will automatically be started after model training is complete. The test run will get predictions using the best model and will compute metrics given these predictions. If this parameter or the ``test_size`` parameter are not specified then no test run will be executed automatically after model training is completed. Test data should contain both features and label column. If ``test_data`` is specified then the ``label_column_name`` parameter must be specified. See [training_data or test_data or validation_data](#training_data) to see the properties of this object. |  | None |
 | `test_data_size` | float | Specifies what fraction of the training data to hold out for test data for a test run that will automatically be started after model training is complete. The test run will get predictions using the best model and will compute metrics given these predictions. If ``test_size`` is specified at the same time as ``validation_size``, then the test data is split from ``training_data`` before the validation data is split. For example, if ``validation_size=0.1``, ``test_size=0.1`` and the original training data has 1000 rows, then the test data will have 100 rows, the validation data will contain 90 rows and the training data will have 810 rows. Forecasting does not currently support specifying a test dataset using a train/test split. If this parameter or the ``test_data`` parameter are not specified then no test run will be executed automatically after model training is completed. |  0.0 < size_value < 1.0 | None |
 | `training` | object | Dictionary containing the parameters that will be used in training the model. |  |  |
-| `training_data` | object | The subset of data to be used as input for model training. It should contain both training features and a label column (optionally a sample weights column). If ``training_data`` is specified, then the ``label_column_name``(or ``target_column_name``) parameter must also be specified. See [Training or Validation or Test Data](#training-or-validation-or-test-data) to see the properties of this object. |  | None |
-| `validation_data` | object | The validation data to be used within the experiment for cross validation.It should contain both training features and label column (optionally a sample weights column). If ``validation_data`` is specified, then ``training_data`` and ``label_column_name`` parameters must be specified. For more information, see `Configure data splits and cross-validation in automated machine learning <https://docs.microsoft.com/azure/machine-learning/how-to-configure-cross-validation-data-splits>`__.Please note that samples in training data and validation data can not overlap in a fold. See [Training or Validation or Test Data](#training-or-validation-or-test-data) to see the properties of this object. |  | None |
+| `training_data` | object | The subset of data to be used as input for model training. It should contain both training features and a label column (optionally a sample weights column). If ``training_data`` is specified, then the ``label_column_name``(or ``target_column_name``) parameter must also be specified. See [training_data or test_data or validation_data](#training_data) to see the properties of this object. |  | None |
+| `validation_data` | object | The validation data to be used within the experiment for cross validation.It should contain both training features and label column (optionally a sample weights column). If ``validation_data`` is specified, then ``training_data`` and ``label_column_name`` parameters must be specified. For more information, see `Configure data splits and cross-validation in automated machine learning <https://docs.microsoft.com/azure/machine-learning/how-to-configure-cross-validation-data-splits>`__.Please note that samples in training data and validation data can not overlap in a fold. See [training_data or test_data or validation_data](#training_data) to see the properties of this object. |  | None |
 | `validation_data_size` | float | Specifies the fraction of data to hold out as validation dataset when client has not passed validation dataset explicitly. Specify ``validation_data`` to provide validation data, otherwise set ``n_cross_validations`` or ``validation_size`` to extract validation data out of the specified training data.
 For more information, see `Configure data splits and cross-validation in automated machine learning <https://docs.microsoft.com/azure/machine-learning/how-to-configure-cross-validation-data-splits>`__.| 0.0 <= size_value <= 1.0 | None |
 | `weight_column_name` | string | The name of the sample weight column. Automated ML supports a weighted column as an input, causing rows in the data to be weighted up or down. This parameter is applicable to ``training_data`` and ``validation_data`` parameters. |  | None |
-
 
 ### limits
 
@@ -78,6 +78,7 @@ For more information, see `Configure data splits and cross-validation in automat
 | `trial_timeout_minutes ` | integer | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of one month or 43200 minutes is used. |  | None |
 | `exit_score` | float | Target score for experiment. The experiment terminates after this score is reached. If not specified (no criteria), the experiment runs until no further progress is made on the primary metric. For for more information on exit criteria, see this `article <https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#exit-criteria>`. | | None |
 
+
 ### forecasting
 
 | Key | Type | Description | Allowed values | Default value |
@@ -85,65 +86,73 @@ For more information, see `Configure data splits and cross-validation in automat
 | `country_or_region_for_holidays` | string or None | The country/region used to generate holiday features. These should be ISO 3166 two-letter country/region codes, for example 'US' or 'GB'. |  | None |
 | `cv_step_size` | integer or None | Number of periods between the origin_time of one CV fold and the next fold. For example, if n_step = 3 for daily data, the origin time for each fold will be three days apart. |  | None |
 | `feature_lags` | string or None| Flag for generating lags for the numeric features | "auto", None | None |
-| `forecast_horizon` | string or integer or None | The desired maximum forecast horizon in units of time-series frequency. Units are based on the time interval of your training data, e.g., monthly, weekly that the forecaster should predict out. When task type is forecasting, this parameter is required.| string, integer, None | None |
+| `forecast_horizon` | **Required.** string or integer or None | The desired maximum forecast horizon in units of time-series frequency. Units are based on the time interval of your training data, e.g., monthly, weekly that the forecaster should predict out. When task type is forecasting, this parameter is required.| string, integer, None | None |
 | `frequency` | string or None | Forecast frequency. When forecasting, this parameter represents the period with which the forecast is desired, for example daily, weekly, yearly, etc. The forecast frequency is dataset frequency by default. You can optionally set it to greater (but not lesser) than dataset frequency. We'll aggregate the data and generate the results at forecast frequency. For example, for daily data, you can set the frequency to be daily, weekly or monthly, but not hourly. The frequency needs to be a pandas offset alias.Please refer to pandas documentation for more information:https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects | string, None | None |
 | `seasonality` | string or integer | Set time series seasonality as an integer multiple of the series frequency. If seasonality is set to 'auto', it will be inferred. If set to None, the time series is assumed non-seasonal which is equivalent to seasonality=1| 'auto', integer, None | None | 
 | `short_series_handling_config` | string | The parameter defining how if AutoML should handle short time series. Possible values: <br>'auto' : short series will be padded if there are no long series,otherwise short series will be dropped.<br>'pad': all the short series will be padded with zeros.<br>'drop': all the short series will be dropped.<br> None:the short series will not be modified.| "auto","pad","drop", None | None |
 | `target_aggregate_function` | string | The function to be used to aggregate the time series target column to conform to a user specified frequency. If the target_aggregation_function is set, but the `freq` parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean". | "sum","max","min","mean", None | None |
 | `target_lags` | string or integer or list(integer) | The number of past periods to lag from the target column. Use 'auto' to use the automatic heuristic based lag. | string,"auto",None | None |
-| `target_rolling_window_size` | string or integer | The number of past periods used to create a rolling window average of the target column. | string, integer,"auto",None | None |
+| `target_rolling_window_size` | string or integer | The number of past periods used to create a rolling window average of the target column. When forecasting, this parameter represents n historical periods to use to generate forecasted values, <= training set size. If omitted, n is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model. | string, integer,"auto",None | None |
 | `time_column_name` | string | The name(header) of the time column. This parameter is required when forecasting to specify the datetime column in the input data used for building the time series and inferring its frequency. |  | None |
-| `time_series_id_column_names` | string or list(string) | The names of columns used to group a timeseries. |  | None |
-| `use_stl` | string | Configure STL Decomposition of the time-series target column. use_stl can take two values: 'season' - only generate season component and 'season_trend' - generate both season and trend components. |"season", "seasontrend", None | None |
+| `time_series_id_column_names` | string or list(string) | The names of columns used to group a timeseries. It can be used to create multiple series. If time_series_id_column_names is not defined, the data set is assumed to be one time-series. |  | None |
+| `use_stl` | string | Configure STL Decomposition of the time-series target column. use_stl can take two values: 'season' - only generate season component and 'season_trend' - generate both season and trend components. | "season", "seasontrend" | None |
 
-### training_data or test_data or validation_data
+===================================================================================
+
+### training or validation or test data
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `datastore` | string | Name of the datastore to upload to. | ?? | None |
-| `path` | string | Path can be a `file` path, `folder` path or `pattern` for paths. `pattern` specifies a search pattern to allow globbing(`*` and `**`) of files and folders containing data. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. For more information, see [Core yaml syntax](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-core-syntax) to understand how to use the `azureml://` URI format. URI of the location of the artifact file. If this URI doesn't have a scheme (for example, http:, azureml: etc.), then it's considered a local reference and the file it points to is uploaded to the default workspace blob-storage as the entity is created.  | | | 
+| `path` | string | Path can be a `file` path, `folder` path or `pattern` for paths. `pattern` specifies a search pattern to allow globbing of files and folders containing data. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. For more information, see [Core yaml syntax](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-core-syntax) to understand how to use the `azureml://` URI format. URI of the location of the artifact file. If this URI doesn't have a scheme (for example, http:, azureml: etc.), then it's considered a local reference and the file it points to is uploaded to the default workspace blob-storage as the entity is created.  | | | 
 | `mode` | string | ?? | 'download','ro_mount','eval_mount','eval_download','direct' | ?? |
 | `type` | string |  In order to generate computer vision models, the user needs to bring labeled image data as input for model training in the form of an MLTable. | 'mltable' | 'mltable'|
 
-
-### Distribution configurations
-
-#### MpiConfiguration
-
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-| `type` | const | **Required.** Distribution type.  | `mpi` |
-| `process_count_per_instance` | integer | **Required.** The number of processes per node to launch for the job.  | |
-
-#### PyTorchConfiguration
+### training
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | const | **Required.** Distribution type.  | `pytorch` | |
-| `process_count_per_instance` | integer | The number of processes per node to launch for the job. | |  `1` |
+| `allowed_training_algorithms` | list(string) | A list of Time Series Forecasting algorithms (base model) to try in the multiple trials while training. If not specified, then all algorithms supported for the task are used minus any specified in `blocked_training_algorithms`. The supported models for each task type are described in the :class:`azureml.train.automl.constants.SupportedModels` class. | "auto_arima", "prophet", "naive","seasonal_naive", "average", "seasonal_average", "exponential_smoothing", "arimax", "tcn_forecaster", "elastic_net", "gradient_boosting", "decision_tree", "knn", "lasso_lars", "sgd", "random_forest", "extreme_random_trees", "light_gbm", "xg_boost_regressor" |  |
+| `blocked_training_algorithms` | list(string) | A list of Time Series Forecasting algorithms (base model) to ignore in while training in AutoML job. The training algorithm must be one of the algorithms listed in the :class:`azureml.train.automl.constants.SupportedModels` class. | 
+"auto_arima", "prophet", "naive", "seasonal_naive", "average", "seasonal_average", "exponential_smoothing", "arimax","tcn_forecaster", "elastic_net", "gradient_boosting", "decision_tree", "knn", "lasso_lars", "sgd", "random_forest", "extreme_random_trees", "light_gbm", "xg_boost_regressor" | None |
+| `enable_dnn_training` | boolean | Whether to include DNN based models during model selection. The default in the init is None. However, the default is True for DNN NLP tasks, and it's False for all other AutoML tasks.  | True, False | False |
+| `enable_model_explainability` | boolean |  Flag to turn on explainability on model like feature importance. | True, False | False |
+| `enable_onnx_compatible_models` | boolean | Flag to enable or disable enforcing the ONXX compatible models. For more information about Open Neural Network Exchange (ONNX) and Azure Machine Learning, see this `article <https://docs.microsoft.com/azure/machine-learning/concept-onnx>`__.| True, False | False |
+| `enable_stack_ensemble` | boolean | Flag to enable/disable StackEnsemble iteration. If `enable_onnx_compatible_models` flag is being set, then StackEnsemble iteration will be disabled. Similarly, for Timeseries tasks, StackEnsemble iteration will be disabled by default, to avoid risks of overfitting due to small training set used in fitting the meta learner. For more information about ensembles, see `Ensemble configuration <https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#ensemble>`_ | True, False | None |
+| `enable_vote_ensemble` | boolean | Whether to enable/disable VotingEnsemble iteration. The default is True. For more information about ensembles, see `Ensemble configuration <https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#ensemble>`_. | True, False | True |
+| `ensemble_model_download_timeout_minutes` | integer | During VotingEnsemble and StackEnsemble model generation, multiple fitted models from the previous child runs are downloaded. Configure this parameter with a higher value than 300 secs, if more time is needed. | ?? | ?? |
+| `stack_ensemble_settings` | object | Dictionary containing stack ensemble settings for stack ensemble run. See [stack_ensemble_settings](#stack_ensemble_settings) for the properties in this object. |  |  |
 
-#### TensorFlowConfiguration
 
-| Key | Type | Description | Allowed values | Default value |
-| --- | ---- | ----------- | -------------- | ------------- |
-| `type` | const | **Required.** Distribution type.  | `tensorflow` |
-| `worker_count` | integer | The number of workers to launch for the job. | | Defaults to `resources.instance_count`. |
-| `parameter_server_count` | integer | The number of parameter servers to launch for the job. | | `0` |
-
-### Job inputs
-
-| Key | Type | Description | Allowed values | Default value |
-| --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | The type of job input. Specify `uri_file` for input data that points to a single file source, or `uri_folder` for input data that points to a folder source. | `uri_file`, `uri_folder`, `mlflow_model`, `custom_model`| `uri_folder` |
-| `path` | string | The path to the data to use as input. This can be specified in a few ways: <br><br> - A local path to the data source file or folder, e.g. `path: ./iris.csv`. The data will get uploaded during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. <br><br> - An existing registered Azure ML data asset to use as the input. To reference a registered data asset use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), e.g. `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
-| `mode` | string | Mode of how the data should be delivered to the compute target. <br><br> For read-only mount (`ro_mount`), the data will be consumed as a mount path. A folder will be mounted as a folder and a file will be mounted as a file. Azure ML will resolve the input to the mount path. <br><br> For `download` mode the data will be downloaded to the compute target. Azure ML will resolve the input to the downloaded path. <br><br> If you only want the URL of the storage location of the data artifact(s) rather than mounting or downloading the data itself, you can use the `direct` mode. This will pass in the URL of the storage location as the job input. Note that in this case you are fully responsible for handling credentials to access the storage. | `ro_mount`, `download`, `direct` | `ro_mount` |
-
-### Job outputs
+### featurization
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | The type of job output. For the default `uri_folder` type, the output will correspond to a folder. | `uri_folder` , `mlflow_model`, `custom_model`| `uri_folder` |
-| `mode` | string | Mode of how output file(s) will get delivered to the destination storage. For read-write mount mode (`rw_mount`) the output directory will be a mounted directory. For upload mode the file(s) written will get uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
+| `blocked_transformers` | list(string) | Specifies a list of transformer names given by user to be blocked during featurization by AutoML . The transformers must be one of the transformers listed in the :class:`azureml.automl.core.constants.SupportedTransformers` class BLOCKED_TRANSFORMERS attribute | "text_target_encoder","one_hot_encoder","cat_target_encoder","tf_idf","wo_e_target_encoder","label_encoder","word_embedding","naive_bayes","count_vectorizer","hash_one_hot_encoder" | None |
+| `column_name_and_types` | object | Dictionary of column name and its type. the key is the column name and value is the type like int, float, datetime, etc.|  |  |
+| `dataset_language` | string | Three character ISO 639-3 code for the language(s) contained in the dataset.The languages other than English are only supported if you use GPU-enabled compute.  The langugage_code 'mul' should be used if the dataset contains multiple languages. To find ISO 639-3 codes for different languages, please refer to https://en.wikipedia.org/wiki/List_of_ISO_639-3_codes. |  | None |
+| `enable_dnn_featurization` | boolean | whether to use Dnn based featurizers for data featurization.| True, False | ?? |
+| `mode` | string | Defines featurization modes that are used in AutoML. 'auto' indicates whether featurization step should be done automatically, 'off' if not to use, 'custom' to indicate whether customized featurization should be used.If omitted, then AutoML will use 'auto' for featurization. | "auto","off","custom" | None |
+| `transformer_params` | object | The customized featurization config params. It is a dictionary containing trandformer name as key and values as another dictionary object (see how to create this here [column_transformer](#column_transformer). This parameter is needed if `mode` is set to 'custom' | ?? | None |
+
+
+### stack_ensemble_settings
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `stack_meta_learner_kwargs` | object | ?? | ?? | ?? |
+| `stack_meta_learner_train_percentage` | float | ?? | ?? | ?? |
+| `stack_meta_learner_type` | string | ?? | "logistic_regression", "logistic_regression_cv", "light_gbm_classifier", "elastic_net", "elastic_net_cv", "light_gbm_regressor", "linear_regression", "none"| ?? |
+
+
+
+### column_transformers
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `fields` | list(string) | column name to transform  | ?? | ?? |
+| `parameters` | object | Dictionary containing the  | ?? | ?? |
+
 
 ## Remarks
 
