@@ -8,13 +8,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/26/2022
 ms.author: jassha
-ms.custom: private_preview
+ms.custom: public_preview
 ---
 
 # Incoming call concepts
 
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly. Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services Call Automation provides developers the ability to build applications, which can make and receive calls. Azure Communication Services relies on Event Grid subscriptions to deliver each `IncomingCall` event, so setting up your environment to receive these notifications is critical to your application being able to redirect or answer a call.
 

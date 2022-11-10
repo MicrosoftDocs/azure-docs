@@ -14,9 +14,7 @@ zone_pivot_groups: acs-csharp-java
 
 # Customize voice prompts to users with Play action
 
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
-> Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This guide will help you get started with playing audio files to participants by using the play action provided through Azure Communication Services Call Automation SDK.
 

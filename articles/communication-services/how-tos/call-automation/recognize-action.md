@@ -7,7 +7,7 @@ ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 09/16/2022
 ms.author: kpunjabi
-ms.custom: private_preview
+ms.custom: public_preview
 services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---

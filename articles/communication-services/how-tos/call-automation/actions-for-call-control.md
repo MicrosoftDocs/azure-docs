@@ -10,14 +10,14 @@ ms.subservice: call-automation
 ms.date: 11/03/2022
 ms.author: askaur
 manager: visho
-ms.custom: private_preview
+ms.custom: public_preview
 services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
 # How to control and steer calls with Call Automation
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly. Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Due to the asynchronous nature of calling, most actions have corresponding events that are triggered when the action completes successfully or fails. This guide covers the  actions available for steering calls, like CreateCall, Transfer, Redirect, and managing participants. Actions are accompanied with sample code on how to invoke the said action and sequence diagrams describing the events expected after invoking an action. These diagrams will help you visualize how to program your service application with Call Automation. 
 

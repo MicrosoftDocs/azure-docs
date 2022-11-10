@@ -8,15 +8,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/06/2022
 ms.author: askaur
-ms.custom: private_preview
+ms.custom: public_preview
 services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
 # Build a customer interaction workflow using Call Automation
 
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly. Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this quickstart, you'll learn how to build an application that uses the Azure Communication Services Call Automation SDK to handle the following scenario:
 - handling the `IncomingCall` event from Event Grid
