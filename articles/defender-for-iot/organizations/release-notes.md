@@ -33,7 +33,7 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 Threat intelligence updates are continuously available and are independent of specific sensor versions. You don't need to update your sensor version in order to get the latest threat intelligence updates.
 
-For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
 
 ### Support model
 
