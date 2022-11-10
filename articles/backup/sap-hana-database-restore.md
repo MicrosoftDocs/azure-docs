@@ -20,7 +20,7 @@ Azure Backup now supports backup and restore of SAP HANA System Replication (HSR
 
 For information about the supported configurations and scenarios, see the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
-## Restore to a point&nbsp;in&nbsp;time or to a recovery point
+## Restore to a point in time or to a recovery point
 
 Azure Backup restores SAP HANA databases that are running on Azure VMs. It can:
 
@@ -148,15 +148,15 @@ To restore the backup data as files instead of a database, select **Restore as F
 
     a. Set permissions on the folder or directory where the backup files are stored by running the following command:
 
-        ```bash
-        chown -R <SID>adm:sapsys <directory>
-        ```
+    ```bash
+    chown -R <SID>adm:sapsys <directory>
+    ```
 
     b. Run the next set of commands as `<SID>adm`:
 
-        ```bash
-        su: <sid>adm
-        ```
+    ```bash
+    su: <sid>adm
+    ```
 
     c. Generate the catalog file for restore. Extract the BackupId from the JSON metadata file for the full backup, which you'll use later in the restore operation. Make sure that the full and log backups (not present for the full backup recovery) are in different folders, and delete the JSON metadata files in these folders. Run:
 
@@ -280,7 +280,7 @@ The *ExtensionSettingOverrides.json* is a JSON (JavaScript Object Notation) file
 - `ExcludeFullAndIncremental`. Other backup types such as differential and logs will be downloaded, if they're present in the restore point chain.
 - `ExcludeFullAndDifferentialAndIncremental`. Other backup types such as logs will be downloaded, if they're present in the restore point chain.
 
-### Restore to a specific point&nbsp;in&nbsp;time
+### Restore to a specific point in time
 
 If you've selected **Logs (Point in Time)** as the restore type, do the following:
 
