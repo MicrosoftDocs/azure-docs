@@ -27,7 +27,7 @@ The example code for this quickstart will show you how to call the REST API usin
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. it will look like this:
 > * `https://<instance-name>.cognitiveservices.azure.com/`
 
-## Creating environment variables
+## Environment variables
 
 To successfully make a call against the Anomaly Detector service, you'll need the following values:
 
@@ -111,6 +111,8 @@ echo export SQL_QUERY="REPLACE_WITH_YOUR_UNIQUE_SQL_QUERY_BASED_ON_THE_UNDERLYIN
 ```
 
 ---
+
+## Create your application
 
 ```python
 import requests

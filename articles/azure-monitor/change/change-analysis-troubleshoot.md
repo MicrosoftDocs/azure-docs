@@ -68,6 +68,7 @@ This error message may occur in the Azure portal when loading change data via th
 
 To load all change data, try waiting a few minutes and refreshing the page. If you are still only receiving partial data, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
 
+
 ## You don't have enough permissions to view some changes. Contact your Azure subscription administrator.
 
 This general unauthorized error message occurs when the current user doesn't have sufficient permissions to view the change. At minimum, 
@@ -89,7 +90,18 @@ To troubleshoot virtual machine issues using the troubleshooting tool in the Azu
 
 ![Screenshot of the tile for the Analyze recent changes troubleshooting tool for a Virtual Machine.](./media/change-analysis/analyze-recent-changes.png)
 
+## Can't filter to your resource to view changes
 
+When filtering down to a particular resource in the Change Analysis standalone page, you may encounter a known limitation that only returns 1,000 resource results. To filter through and pinpoint changes for one of your 1,000+ resources:
+
+1. In the Azure portal, select **All resources**.
+1. Select the actual resource you want to view.
+1. In that resource's left side menu, select **Diagnose and solve problems**.
+1. In the Change Analysis card, select **View change details**.
+
+   :::image type="content" source="./media/change-analysis/change-details-card.png" alt-text="Screenshot of viewing change details from the Change Analysis card in Diagnose and solve problems tool.":::
+
+From here, you'll be able to view all of the changes for that one resource.
 
 ## Next steps
 
