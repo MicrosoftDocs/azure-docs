@@ -62,7 +62,7 @@ If you have any Azure resources associated with the subscription, they're shows 
 1. Select **Cancel subscription**.  
     :::image type="content" source="./media/cancel-azure-subscription/cancel-subscription-final.png" alt-text="Screenshot showing the Cancel subscription window options." lightbox="./media/cancel-azure-subscription/cancel-subscription-final.png" :::
 
-After the subscription is canceled, you'll see a notification that the cancellation is complete. If you have any outstanding charges that haven't been invoiced yet, you'll see their estimated charges. If you have any outstanding credits that haven't been applied to your invoice, you'll see the estimated credits that will get applied to your invoice. For more information about data update frequency, see [Cost and usage data updates and retention](../costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention).
+After the subscription is canceled, you'll see a notification that the cancellation is complete. If you have any outstanding charges that haven't been invoiced yet, you'll see their estimated charges. If you have any outstanding credits that haven't been applied to your invoice, you'll see the estimated credits that will get applied to your invoice. For more information about data update frequency, see [Cost and usage data updates and retention](../costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
 
 :::image type="content" source="./media/cancel-azure-subscription/cancel-complete.png" alt-text="Screenshot showing that subscription cancellation status." lightbox="./media/cancel-azure-subscription/cancel-complete.png" :::
 
@@ -91,7 +91,7 @@ If you have a free trial or pay-as-you-go subscription, you don't have to wait 9
 
 ## Delete other subscriptions
 
-The only subscription types that you can manually delete are free trial and pay-as-you-go subscriptions. All other subscription types are deleted only through the [subscription cancellation](#cancel-subscription-in-the-azure-portal) process. In other words, you can't delete a subscription directly unless it's a free trial or pay-as-you-go subscription. However, after you cancel a subscription, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) to ask to have the subscription deleted immediately.
+The only subscription types that you can manually delete are free trial and pay-as-you-go subscriptions. All other subscription types are deleted only through the [subscription cancellation](#cancel-a-subscription-in-the-azure-portal) process. In other words, you can't delete a subscription directly unless it's a free trial or pay-as-you-go subscription. However, after you cancel a subscription, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) to ask to have the subscription deleted immediately.
 
 ## Reactivate a subscription
 
