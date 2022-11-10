@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 11/09/2022
+ms.date: 11/10/2022
 ms.author: victorh
 ms.custom: template-tutorial, engagement-fy23
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
@@ -174,7 +174,7 @@ To do this, you'll:
 
 In this example, you install NGINX on the virtual machines only to verify Azure created the application gateway successfully.
 
-1. Open a Bash Cloud Shell. To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **Bash** from the drop-down list.
+1. Open a Bash Cloud Shell. To do so, select the **Cloud Shell** icon from the top navigation bar of the Azure portal and then select **Bash** from the drop-down list.
 
    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/bash-shell.png" alt-text="Screenshot showing the Bash Cloud Shell.":::
 
