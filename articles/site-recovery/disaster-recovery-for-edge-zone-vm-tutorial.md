@@ -80,8 +80,6 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
     >- For *Edge Zone to region* replication flow, an existing storage account associated with the recovery vault will be preselected. If a storage account doesn't exist with the recovery vault, a new one will be created in the region.
     >- For *Edge Zone to Edge Zone* replication flow, you must select an existing storage account in the drop down for **cache storage**.
 
-    :::image type="Customize target settings" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/customize-target-settings.png" alt-text="Screenshot showing customize target settings.":::
-
 ### Manage
     
 1. In **Manage**, do the following: 
@@ -94,7 +92,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
     1. Under **Extension settings**, 
         - Select **Update settings** and **Automation account**. 
             
-     :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/manage.png" alt-text=" Manage replication tab":::
+        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/manage.png" alt-text=" Manage replication tab":::
 
     > [!NOTE]
     > There are no changes to select replication policy for Edge Zones (preview). 
