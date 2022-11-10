@@ -87,7 +87,7 @@ This article will get you started in building a metamodel for your Microsoft Pur
 An asset type is a template for storing a concept that’s important to your organization—anything you might want to represent in your data map alongside your physical metadata. You can create your own, but Purview also comes with a prepackaged set of business asset types you can modify to meet your needs.
 
 | Asset Type | Description |
-| | |
+|---|---|
 | Application service| A well-defined software component, especially one that implements a specific business function such as on-boarding a new customer, taking an order, or sending an invoice.  |
 | Business process | A set of activities that are performed in coordination in an organizational or technical environment that jointly realize a business goal. |
 | Data Domain | A category of data that is governed or explicitly managed for master data management. |
