@@ -125,14 +125,14 @@ The following table describes the hyperparameters that are model agnostic.
 | `warmup_cosine_lr_warmup_epochs` | integer | Value of warmup epochs when learning rate scheduler is `warmup_cosine`. | | 2 |
 | `weight_decay` | float | Value of weight decay when optimizer is `sgd`, `adam`, or `adamw`. | A value in the range [0, 1] | 1e-4 |
 
-#### Image Object Detection and Instance Segmentation Task Specific Hyperparameters
+#### Image Object Detection Task Specific Hyperparameters
 
-The following hyperparameters are for object detection and instance segmentation tasks.
+The following hyperparameters are for object detection tasks.
 
 | Key | Type | Description | Allowed values |Default value |
 | --- | ---- | ----------- | -------------- | ------------ |
-| `model_name` | string | Model name to be used for image classification task at hand. | `yolov5`, `fasterrcnn_resnet18_fpn`, `fasterrcnn_resnet34_fpn`, `fasterrcnn_resnet50_fpn`, `fasterrcnn_resnet101_fpn`, `fasterrcnn_resnet152_fpn`, `retinanet_resnet50_fpn` | `yolov5` |
-| `box_detections_per_img` | integer | Maximum number of detections per image, for all classes. <br> <br> *Note: This setting isno't supported for the 'yolov5' algorithm.* | | 100 |
+| `model_name` | string | Model name to be used for image object detection task at hand. | `yolov5`, `fasterrcnn_resnet18_fpn`, `fasterrcnn_resnet34_fpn`, `fasterrcnn_resnet50_fpn`, `fasterrcnn_resnet101_fpn`, `fasterrcnn_resnet152_fpn`, `retinanet_resnet50_fpn` | `yolov5` |
+| `box_detections_per_img` | integer | Maximum number of detections per image, for all classes. <br> <br> *Note: This setting isn't supported for the 'yolov5' algorithm.* | | 100 |
 | `box_score_threshold` | float | During inference, only return proposals with a score greater than `box_score_threshold`. The score is the multiplication of the objectness score and classification probability. | A value in the range [0, 1] | 0.1 |
 | `min_size` | integer | Minimum size of the image to be rescaled before feeding it to the backbone. <br> <br> *Note: <br>- training run may get into CUDA OOM if the size is too large. <br>- This setting isn't supported for the 'yolov5' algorithm.*| | 600 |
 | `max_size` | integer | Maximum size of the image to be rescaled before feeding it to the backbone. <br> <br> *Note: <br>- training run may get into CUDA OOM if the size is too large. <br>- This setting isn't supported for the 'yolov5' algorithm.* | | 1333 |
