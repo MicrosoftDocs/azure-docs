@@ -71,7 +71,7 @@ In this scenario, the virtual networks are both in the Resource Manager deployme
    * Traffic forwarded from remote virtual network: **Allow**
    * Virtual network gateway: **Use this virtual network's gateway**
 
-     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-vnet.png" alt-text="Screenshot shows add peering. lightbox="./media/vpn-gateway-peering-gateway-transit/peering-vnet.png":::
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-vnet.png" alt-text="Screenshot shows add peering." lightbox="./media/vpn-gateway-peering-gateway-transit/peering-vnet.png":::
 
 1. On the same page, continue on to configure the values for the **Remote virtual network**.
 
