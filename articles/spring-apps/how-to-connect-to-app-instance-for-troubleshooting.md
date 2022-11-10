@@ -148,3 +148,7 @@ Using the shell environment inside your application instances has the following 
 - Because the app is running as a non-root user, you can't execute some actions requiring root permission. For example, you can't install new tools by the system package manager `apt / yum`.
 
 - Because some Linux capabilities are prohibited, tools that require special privileges, such as `tcpdump`, don't work.
+
+## Next steps
+
+- [Self-diagnose and solve problems in Azure Spring Apps](./how-to-self-diagnose-solve.md)
