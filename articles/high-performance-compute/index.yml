@@ -30,11 +30,11 @@ highlightedContent:
     # Card
     - title: Architecture
       itemType: architecture
-      url: /azure/architecture/reference-architectures/hpc/
+      url: https://learn.microsoft.com/en-us/azure/architecture/
     # Card
     - title: Workload
       itemType: sample
-      url: /azure/workload/hpc/
+      url: https://learn.microsoft.com/en-us/azure/architecture/topics/high-performance-computing#customer-stories
     # Card
     - title: Start building with Azure HPC for high performance applications
       itemType: reference
@@ -105,7 +105,7 @@ productDirectory:
           text: HPC VM sizes
         - url: ../virtual-machines/sizes.md
           text: What are VM sizes?
-        - url: /virtual-machines/h-series
+        - url: ..//virtual-machines/h-series.md
           text: H-series
     # Card
     - title: HPC Cache
@@ -131,7 +131,7 @@ additionalContent:
         # Card
         - title: Azure architecture Center
           summary: A dedicated cloud located in China and operated by 21Vianet.
-          url: /azure/architecture/index.yml
+          url: ../azure/architecture/index.yml
     - title: Partner solutions
       items:
         # Card
