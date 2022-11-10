@@ -744,8 +744,6 @@ The next example **passes**.
 }
 ```
 
-In Bicep, use [Linter rule - use resource ID functions](../bicep/linter-rule-use-resource-id-functions.md).
-
 ## ResourceId function has correct parameters
 
 Test name: **ResourceIds should not contain**
