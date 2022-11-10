@@ -19,7 +19,7 @@ ms.custom: devx-track-python, sdkv2, event-tier1-build-2022
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](v1/how-to-train-scikit-learn.md)
-> * [v2 (preview)](how-to-train-scikit-learn.md)
+> * [v2 (current version)](how-to-train-scikit-learn.md)
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning Python SDK v2.
 
@@ -125,7 +125,7 @@ In this article, we've provided the training script *train_iris.py*. In practice
 > - downloads and extracts the training data using `iris = datasets.load_iris()`; and
 > - trains a model, then saves and registers it.
 
-To use and access your own data, see [how to train with datasets](v1/how-to-train-with-datasets.md) to make data available during training.
+To use and access your own data, see [how to read and write data in a job](how-to-read-write-data-v2.md) to make data available during training.
 
 To use the training script, first create a directory where you will store the file.
 

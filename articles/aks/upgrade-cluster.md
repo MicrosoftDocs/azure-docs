@@ -11,7 +11,7 @@ ms.date: 12/17/2020
 
 Part of the AKS cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It’s important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your AKS cluster.
 
-For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
+For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade]. To upgrade a specific node pool without doing a Kubernetes cluster upgrade, see [Upgrade a specific node pool][specific-nodepool].
 
 > [!NOTE]
 > Any upgrade operation, whether performed manually or automatically, will upgrade the node image version if not already on the latest. The latest version is contingent on a full AKS release, and can be determined by visiting the [AKS release tracker][release-tracker].
@@ -21,13 +21,8 @@ For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgr
 
 ## Before you begin
 
-### [Azure CLI](#tab/azure-cli)
-
-This article requires that you're running the Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-This tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+* If you're using Azure CLI, this article requires that you're running the Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+* If you're using Azure PowerShell, this tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
 
 ---
 
@@ -100,6 +95,18 @@ default 1.18.10                                        1.19.3
 ```
 
 If no upgrade is available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when `Get-AzAksUpgradeProfile` shows that no upgrades are available.
+
+### [Azure portal](#tab/azure-portal)
+
+To check which Kubernetes releases are available for your cluster:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to your AKS cluster.
+3. Under **Settings**, select **Cluster configuration**.
+4. In **Kubernetes version**, select **Upgrade version**. This will redirect you to a new page.
+5. In **Kubernetes version**, select the version to check for available upgrades.
+
+If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when no upgrades are available.
 
 ---
 
@@ -211,6 +218,20 @@ Name         Location KubernetesVersion ProvisioningState Fqdn
 myAKSCluster eastus   1.19.1            Succeeded         myakscluster-dns-379cbbb9.hcp.eastus.azmk8s.io
 ```
 
+### [Azure portal](#tab/azure-portal)
+
+You can also manually upgrade your cluster in the Azure portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to your AKS cluster.
+3. Under **Settings**, select **Cluster configuration**.
+4. In **Kubernetes version**, select **Upgrade version**. This will redirect you to a new page.
+5. In **Kubernetes version**, select your desired version and then select **Save**.
+
+It takes a few minutes to upgrade the cluster, depending on how many nodes you have.
+
+To confirm that the upgrade was successful, navigate to your AKS cluster in the Azure portal. On the **Overview** page, select the **Kubernetes version**.
+
 ---
 
 ## View the upgrade events
@@ -277,4 +298,8 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [upgrade-cluster]:  #upgrade-an-aks-cluster
 [planned-maintenance]: planned-maintenance.md
 [aks-auto-upgrade]: auto-upgrade-cluster.md
+<<<<<<< HEAD
 [release-tracker]: release-tracker.md
+=======
+[specific-nodepool]: node-image-upgrade.md#upgrade-a-specific-node-pool
+>>>>>>> e05c90da69526d1c34bb0d4048c7c66d1bda4bee

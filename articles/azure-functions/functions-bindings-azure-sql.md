@@ -33,10 +33,10 @@ Add the extension to your project by installing this [NuGet package](https://www
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 > [!NOTE]
-> In the current preview, Azure SQL bindings aren't supported when your function app runs in an isolated process.
+> In the current preview, Azure SQL bindings aren't supported when your function app runs in an isolated worker process.
 
 <!--
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SignalRService/).

@@ -49,7 +49,7 @@ This method is preferred when you have a single server and less than about 100,0
 
 ![In-place upgrade](./media/how-to-upgrade-previous-version/inplaceupgrade.png)
 
-If you've made changes to the out-of-box synchronization rules, then these rules are set back to the default configuration on upgrade. To make sure that your configuration is kept between upgrades, make sure that you make changes as they're described in [Best practices for changing the default configuration](how-to-connect-sync-best-practices-changing-default-configuration.md). If you already changed the default sync rules, please see how to [Fix modified default rules in Azure AD Connect](/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration), before starting the upgrade process.
+If you've made changes to the out-of-box synchronization rules, then these rules are set back to the default configuration on upgrade. To make sure that your configuration is kept between upgrades, make sure that you make changes as they're described in [Best practices for changing the default configuration](how-to-connect-sync-best-practices-changing-default-configuration.md). If you already changed the default sync rules, please see how to [Fix modified default rules in Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration), before starting the upgrade process.
 
 During in-place upgrade, there may be changes introduced that require specific synchronization activities (including Full Import step and Full Synchronization step) to be executed after upgrade completes. To defer such activities, refer to section [How to defer full synchronization after upgrade](#how-to-defer-full-synchronization-after-upgrade).
 

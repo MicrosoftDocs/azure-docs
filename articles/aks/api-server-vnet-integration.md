@@ -22,12 +22,9 @@ API Server VNet Integration is supported for public or private clusters, and pub
 
 ## Region availability
 
-API Server VNet Integration is available in the following regions at this time:
+API Server VNet Integration is available in all Public Azure regions except the following at this time:
 
-- eastus2
-- northcentralus
-- westcentralus
-- westus2
+- southcentralus
 
 ## Prerequisites
 

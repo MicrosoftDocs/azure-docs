@@ -283,7 +283,7 @@ sections:
         answer: Yes, vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter Server operations for key management.  When a host is removed from a vSphere cluster, data on SSDs is invalidated immediately.
 
       - question: Can I rename a datastore or cluster during creation?
-        answer: No, you can't change the name of datastores or clusters. The cluster name is configurable through non-portal deployment mechanisms for non-primary clusters.
+        answer: No, you can't change the name of datastores or clusters.
 
       - question: What is the Fault tolerance of hardware failure on the vSAN?
         answer: RAID-1, FTT-1, with Object Space reservation set to Thin Provisioning is the Default Storage policy for the software-defined datacenters (SDDCs).

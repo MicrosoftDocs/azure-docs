@@ -162,7 +162,7 @@ When NAT gateway is configured with public IP address 65.52.1.1, the source IPs 
 
 ### NAT gateway dynamically allocates SNAT ports
 
-NAT gateway dynamically allocates SNAT ports across a subnet's private resources such as virtual machines. SNAT port inventory is made available by attaching public IP addresses to NAT gateway. All available SNAT portscan be used on-demand by any virtual machine in subnets configured with NAT gateway:
+NAT gateway dynamically allocates SNAT ports across a subnet's private resources such as virtual machines. SNAT port inventory is made available by attaching public IP addresses to NAT gateway. All available SNAT ports can be used on-demand by any virtual machine in subnets configured with NAT gateway:
 
 :::image type="content" source="./media/nat-overview/lb-vnnat-chart.png" alt-text="Diagram that depicts the inventory of all available SNAT ports used by any VM on subnets configured with NAT.":::
 

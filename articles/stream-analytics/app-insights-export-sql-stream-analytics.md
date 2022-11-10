@@ -2,7 +2,7 @@
 title: 'Export to SQL from Azure Application Insights | Microsoft Docs'
 description: Continuously export Application Insights data to SQL using Stream Analytics.
 ms.topic: conceptual
-ms.date: 10/17/2022
+ms.date: 10/24/2022
 ms.author: ebnkruma
 ms.service: stream-analytics
 ---
@@ -243,7 +243,6 @@ FROM [dbo].[PageViewsTable]
 ```
 
 ## Next steps
-* [Export to Power BI using Stream Analytics](../azure-monitor/app/export-power-bi.md)
 * [detailed data model reference for the property types and values.](../azure-monitor/app/export-data-model.md)
 * [Continuous Export in Application Insights](../azure-monitor/app/export-telemetry.md)
 
