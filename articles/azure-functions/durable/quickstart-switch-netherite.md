@@ -1,7 +1,7 @@
 ---
 title: Walkthrough for switching to the Netherite Storage Provider
 description: Configure a Durable Functions Project to use the Netherite Storage Provider
-author: sburckha
+author: sebastianburckhardt
 ms.topic: quickstart
 ms.date: 11/04/2022
 ms.reviewer: azfuncdf
@@ -11,7 +11,7 @@ ms.reviewer: azfuncdf
 
 Azure Functions allows you to choose from several [storage providers](durable-functions-storage-providers.md) with different characteristics.
 By default, new projects are configured to use the Azure Table Storage provider. In this article, we walk through the steps required to configure an existing
-Azure Durable Functions project to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite-preview).
+Azure Durable Functions project to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
 The Netherite storage provider was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) to distribute task hub partitions over the workers, and [optimizes the storage accesses of each partition using commit logs and checkpointing](https://www.vldb.org/pvldb/vol15/p1591-burckhardt.pdf). This architecture enables [significantly higher throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) for processing orchestrations and entities, compared to other providers. In some [benchmark scenarios](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude when compared to the default Azure Storage provider.
 
@@ -45,7 +45,7 @@ To get started, we need to install the Netherite NuGet package and update the ho
 
 Using the NuGet package manager, install the latest version of the [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) package into your functions project. There is another package with a similar but shorter name, make sure to import the correct one.
 
-For more information about how to install NuGet packages in Visual Studio, see the [documentation](https://learn.microsoft.com/en-us/nuget/consume-packages/install-use-packages-visual-studio).
+For more information about how to install NuGet packages in Visual Studio, see the [documentation](../../../nuget/consume-packages/install-use-packages-visual-studio).
 
 ### Update host.json
 
@@ -80,7 +80,7 @@ For example, if using C#, the local.settings.json file may look something like [
 
 Netherite is now ready for local operation: You can start the function app locally to test it.
 While Netherite is running, it publishes load information about each of its partitions that is currently active to a Azure Storage table.
-You can inspect this table in the [Azure Storage Explorer](https://learn.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to
+You can inspect this table in the [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to
 verify that Netherite has started correctly and is executing normally. You should see something like this:
 
 ![Partition Table](./media/quickstart-netherite/partitiontable.png)
@@ -89,11 +89,11 @@ Each row corresponds to one Netherite partition, and there are 12 partitions by 
 
 ## Part 2: Event Hubs configuration
 
-To run Netherite in a cloud deployment, or if you prefer to not use an emulation during local testing, you need to configure Netherite so it can use Azure Event Hubs [https://azure.microsoft.com/en-us/products/event-hubs/]. Netherite uses this Azure resource to provide communication and placement of partitions among the worker hosts. Netherite automatically creates the required Event Hubs resources inside the Event Hubs namespace, but it does not create the namespace itself. So you have to create a namespace first. Note that an Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Netherite.
+To run Netherite in a cloud deployment, or if you prefer to not use an emulation during local testing, you need to configure Netherite so it can use Azure Event Hubs [https://azure.microsoft.com/products/event-hubs/]. Netherite uses this Azure resource to provide communication and placement of partitions among the worker hosts. Netherite automatically creates the required Event Hubs resources inside the Event Hubs namespace, but it does not create the namespace itself. So you have to create a namespace first. Note that an Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Netherite.
 
 ### Create an Event Hubs namespace
 
-To create an Azure Event Hubs namespace in the Azure Management Portal, you can follow [these steps](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace). When creating the namespace, you may be prompted to
+To create an Azure Event Hubs namespace in the Azure Management Portal, you can follow [these steps](../../event-hubs/event-hubs-create#create-an-event-hubs-namespace). When creating the namespace, you may be prompted to
 
 1. choose a *resource group*. A typical choice is to use the same resource group as the function app and storage account, because it makes it easy to delete all resources at once later on.
 2. choose a *plan* and provision *throughput units*. These choices determine the cost incurred. For the purpose of this quick start, using the defaults is fine. The allocated throughput units can be changed at any time; you can raise this setting later if running a workload with heavy communication traffic between clients and partitions.
@@ -147,7 +147,7 @@ runtime scaling in the Portal here:
 If you are running a function app with a runtime version prior to 4.x, ensure that it is set to run on 64 bit.
 You can update this setting in the portal as shown below, if you are running on an old runtime. Otherwise, no action is required.
 
-![Enter application configuration setting](./media/quickstart-netherite/64bit.png)
+![Configure runtime to use 64 bit](./media/quickstart-netherite/64bit.png)
 
 ## Part 4: Deploy and enjoy
 
