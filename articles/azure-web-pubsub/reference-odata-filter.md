@@ -12,7 +12,7 @@ ms.date: 11/11/2022
 
 In Azure Web PubSub service, the **filter** parameter specifies inclusion or exclusion criteria for the connections to send messages to. This article describes the OData syntax of **filter** and provides examples.
 
-The complete syntax is described in the [formal grammar](#complete-syntax).
+The complete syntax is described in the [formal grammar](#formal-grammar).
 
 There is also a browsable [syntax diagram](https://aka.ms/awps/filter-syntax-diagram) that allows you to interactively explore the grammar and the relationships between its rules.
 
@@ -41,7 +41,7 @@ An interactive syntax diagram is also available:
 > [OData syntax diagram for Azure Web PubSub service](https://aka.ms/awps/filter-syntax-diagram)
 
 > [!NOTE]
-> See [formal grammar section](#complete-syntax) for the complete EBNF.
+> See [formal grammar section](#formal-grammar) for the complete EBNF.
 
 ### Identifiers
 
@@ -226,10 +226,6 @@ trim_function_call       ::= "trim"       '(' string_expression ')'
 /* Rules for string and collection functions */
 length_function_call     ::= "length"     '(' string_expression | collection_expression ')'
 ```
-
-
-[!INCLUDE [syntax](includes/filter.ebnf)]
-
 
 ## Next steps
 
