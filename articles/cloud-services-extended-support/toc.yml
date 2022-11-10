@@ -71,8 +71,8 @@
       href: post-migration-changes.md
     - name: Common errors and known issues
       href: in-place-migration-common-errors.md
-  - name: Feature Analysis CSES vs VMSS
-    href: feature-support-cses-vmss.md
+  - name: Feature Support for CSES
+    href: feature-support-analysis.md
 - name: How To
   items:
   - name: Apply extensions
