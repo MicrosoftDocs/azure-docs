@@ -169,7 +169,7 @@ Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat
 > [!NOTE]  
 > Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
-Next, connect your app to a Postgres Database with a system-assigned managed identity using Service Connector. 
+Next, connect your app to a Postgres database with a system-assigned managed identity using Service Connector. 
 
 To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
 
