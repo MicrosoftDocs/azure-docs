@@ -6,7 +6,7 @@ ms.service: azure-vmware
 ms.date: 11/07/2022
 ---
 
-# Sending your Azure VMware Solution logs to Log Analytics
+# Sending your Azure VMware Solution logs to Log Analytic
 
 You can now send your Azure VMware Solution logs to Azure Monitor Log Analytics, adding another tool to your toolkit in addition to Azure Blob Storage, Azure Event Hub, and third-party solutions. Configuring such a tool has never been easier! In this article, we’ll show how you can send logs from your AVS private cloud to your Log Analytics workspace, allowing you to take advantage of the rich feature set Log Analytics has to offer - from powerful querying capabilities with Kusto Query Language (KQL) to creating interactive reports with your data using Workbooks - without having to get your logs out of the Microsoft ecosystem.
 Once configured, you can take advantage of Log Analytics’ rich feature set, including:
@@ -41,6 +41,8 @@ A Log Analytics workspace:
 :::image type="content" source="media/log-analytics/Marketplace.png" alt-text="Marketplace.":::
 
 1. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
+
+:::image type="content" source="media/log-analytics/create-workspace.png" alt-text="Marketplace.":::
 
 ### Add a diagnostic setting
 
