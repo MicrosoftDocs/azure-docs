@@ -54,6 +54,17 @@ productDirectory:
   summary: There are several Azure services that make up our High Performance Computing offering # < 160 chars (optional)
   items:
     # Card
+    - title: VMs
+      # imageSrc should be square in ratio with no white space
+      imageSrc: ../virtual-machines/media/logos/azure-logo.png
+      links:
+        - url: /virtual-machines
+          text: Azure Virtual Machines
+        - url: ../virtual-machines/overview.md
+          text: Overview of virtual machines in Azure
+        - url: ../virtual-machines/linux/quick-create-cli.md
+          text: Quickstart
+    # Card
     - title: Batch
       # imageSrc should be square in ratio with no white space
       imageSrc: ../virtual-machines/media/logos/azure-logo.png
@@ -86,6 +97,17 @@ productDirectory:
           text: What are VM sizes?
         - url: /virtual-machines/h-series
           text: H-series
+    # Card
+    - title: HPC Cache
+      # imageSrc should be square in ratio with no white space
+      imageSrc: ../virtual-machines/media/sizes/azurevmsthumb.jpg
+      links:
+        - url: ../hpc-cache/hpc-cache-overview.md
+          text: HPC Cache Overview
+        - url: /learn/browse/?products=azure&term=hpc-cache
+          text: Azure HPC Cache documentation
+        - url: ../hpc-cache/hpc-cache-create.md
+          text: Create an Azure HPC Cache
 
 # Super Computing Announcement
 
