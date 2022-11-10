@@ -107,7 +107,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
 1. Go to your Azure Virtual Network Manager instance. This tutorial assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
-1. Select **Network groups** under *Settings*, and then select **+ Add** to create a new network group.
+1. Select **Network groups** under *Settings*, and then select **+ Create** to create a new network group.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-network-group.png" alt-text="Screenshot of add a network group button.":::
 
