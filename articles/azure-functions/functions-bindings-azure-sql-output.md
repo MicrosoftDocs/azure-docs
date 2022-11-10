@@ -164,12 +164,168 @@ Isolated worker process isn't currently supported.
 
 ::: zone-end
 
-::: zone pivot="programming-language-java"  
+::: zone pivot="programming-language-java"
 
-> [!NOTE]
-> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), [PowerShell functions](functions-reference-powershell.md), and [Python functions](functions-reference-python.md). 
+More samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-java).
 
-::: zone-end
+This section contains the following examples:
+
+* [HTTP trigger, write a record to a table](#http-trigger-write-record-to-table-java)
+<!-- * [HTTP trigger, write to two tables](#http-trigger-write-to-two-tables-java) -->
+
+The examples refer to a `ToDoItem` class (in a separate file `ToDoItem.java`) and a corresponding database table:
+
+```java
+package com.function;
+import java.util.UUID;
+
+public class ToDoItem {
+    public UUID Id;
+    public int order;
+    public String title;
+    public String url;
+    public boolean completed;
+
+    public ToDoItem() {
+    }
+
+    public ToDoItem(UUID Id, int order, String title, String url, boolean completed) {
+        this.Id = Id;
+        this.order = order;
+        this.title = title;
+        this.url = url;
+        this.completed = completed;
+    }
+}
+```
+
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
+<a id="http-trigger-write-record-to-table-java"></a>
+### HTTP trigger, write a record to a table
+
+The following example shows a SQL output binding in a Java function that adds a record to a table, using data provided in an HTTP POST request as a JSON body.  The function takes an additional dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
+
+```xml
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.13.4.1</version>
+</dependency>
+```
+
+```java
+package com.function;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.sql.annotation.SQLOutput;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.Optional;
+
+public class PostToDo {
+    @FunctionName("PostToDo")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @SQLOutput(
+                commandText = "dbo.ToDo",
+                connectionStringSetting = "SqlConnectionString")
+                OutputBinding<ToDoItem> output) throws JsonParseException, JsonMappingException, JsonProcessingException {
+        String json = request.getBody().get();
+        ObjectMapper mapper = new ObjectMapper();
+        ToDoItem newToDo = mapper.readValue(json, ToDoItem.class);
+
+        newToDo.Id = UUID.randomUUID();
+        output.setValue(newToDo);
+
+        return request.createResponseBuilder(HttpStatus.CREATED).header("Content-Type", "application/json").body(output).build();
+    }
+}
+```
+
+<!-- commented out until issue with java library resolved
+
+<a id="http-trigger-write-to-two-tables-java"></a>
+### HTTP trigger, write to two tables
+
+The following example shows a SQL output binding in a JavaS function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.  The function takes an additional dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
+
+```xml
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.13.4.1</version>
+</dependency>
+```
+
+The second table, `dbo.RequestLog`, corresponds to the following definition:
+
+```sql
+CREATE TABLE dbo.RequestLog (
+    Id int identity(1,1) primary key,
+    RequestTimeStamp datetime2 not null,
+    ItemCount int not null
+)
+```
+
+and Java class in `RequestLog.java`:
+
+```java
+package com.function;
+
+import java.util.Date;
+
+public class RequestLog {
+    public int Id;
+    public Date RequestTimeStamp;
+    public int ItemCount;
+
+    public RequestLog() {
+    }
+
+    public RequestLog(int Id, Date RequestTimeStamp, int ItemCount) {
+        this.Id = Id;
+        this.RequestTimeStamp = RequestTimeStamp;
+        this.ItemCount = ItemCount;
+    }
+}
+```
+
+
+```java
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger and SQL output binding function processed a request.');
+    context.log(req.body);
+
+    const newLog = {
+        RequestTimeStamp = Date.now(),
+        ItemCount = 1
+    }
+
+    if (req.body) {
+        context.bindings.todoItems = req.body;
+        context.bindings.requestLog = newLog;
+        context.res = {
+            body: req.body,
+            mimetype: "application/json",
+            status: 201
+        }
+    } else {
+        context.res = {
+            status: 400,
+            body: "Error reading request body"
+        }
+    }
+}
+``` -->
+
+
+::: zone-end  
 
 ::: zone pivot="programming-language-javascript"
 
@@ -640,11 +796,6 @@ def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow], requestLog: fu
 
 ::: zone-end
 
-<!---### Use these pivots when we get other non-C# languages added. ###
-::: zone pivot="programming-language-java"
-
-::: zone-end
---->
 
 ::: zone pivot="programming-language-csharp"
 ## Attributes 
@@ -658,19 +809,19 @@ The [C# library](functions-dotnet-class-library.md) uses the [SqlAttribute](http
 
 
 ::: zone-end  
-<!---### Use these pivots when we get other non-C# languages added. ###
+
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@Sql` annotation on parameters whose value would come from Azure SQL. This annotation supports the following elements:
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@SQLOutput` annotation (`com.microsoft.azure.functions.sql.annotation.SQLOutput`) on parameters whose value would come from Azure SQL. This annotation supports the following elements:
 
 | Element |Description|
 |---------|---------|
-| **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
+| **commandText** | Required.  The name of the table being written to by the binding.  |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
 
 ::: zone-end  
--->
+
 
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
@@ -691,7 +842,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java"
 The `CommandText` property is the name of the table where the data is to be stored. The connection string setting name corresponds to the application setting that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
 
 The output bindings uses the T-SQL [MERGE](/sql/t-sql/statements/merge-transact-sql) statement which requires [SELECT](/sql/t-sql/statements/merge-transact-sql#permissions) permissions on the target database. 
