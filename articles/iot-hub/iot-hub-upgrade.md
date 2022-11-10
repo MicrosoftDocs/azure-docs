@@ -6,7 +6,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 11/08/2022
 ms.author: kgremban
 ---
 # How to upgrade your IoT hub
@@ -15,11 +15,11 @@ As your IoT solution grows, Azure IoT Hub is ready to help you scale up. Azure I
 
 When you have more devices and need more capabilities, there are three ways to adjust your IoT hub to suit your needs:
 
-* Add units within the IoT hub. For example, each additional unit in a B1 IoT hub allows for an additional 400,000 messages per day.
+* Add units within the IoT hub to increase the daily message limit for that hub. For example, each additional unit in a B1 IoT hub allows for an additional 400,000 messages per day.
 
-* Change the size of the IoT hub. For example, migrate from the B1 tier to the B2 tier to increase the number of messages that each unit can support per day.
+* Change the size of the IoT hub. For example, migrate a hub from the B1 tier to the B2 tier to increase the number of messages that each unit can support per day from 400,000 to 6 million.
 
-* Upgrade to a higher tier. For example, upgrade from the B1 tier to the S1 tier for access to advanced features with the same messaging capacity.
+* Upgrade to a higher tier. For example, upgrade a hub from the B1 tier to the S1 tier for access to advanced features with the same messaging capacity.
 
 These changes can all occur without interrupting existing operations.
 
@@ -31,17 +31,13 @@ These examples are meant to help you understand how to adjust your IoT hub as yo
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT hub.
 
-2. Select **Pricing and scale** from the left navigation pane.
+1. To upgrade the tier for your hub, select the value for **Tier** from the **Essentials** section of the details pane. Choose the new tier, select **I agree** to agree to the updated tier and pricing, then click **Upgrade**.
 
-3. To change the tier for your hub, select **Pricing and scale tier**. Choose the new tier, then click **select**.
-
-4. To change the number of units in your hub, enter a new value under **IoT Hub units**.
-
-5. Select **Save** to save your changes.
+1. To change the size or units for your hub, select the value for **Daily message limit** from the **Essentials** section of the details pane. Choose the new daily message limit, then click **Adjust**.
 
 Your IoT hub is now adjusted, and your configurations are unchanged.
 
-The maximum partition limit for basic tier IoT Hub and standard tier IoT Hub is 32. Most IoT Hubs only need 4 partitions. The partition limit is chosen when IoT Hub is created, and relates the device-to-cloud messages to the number of simultaneous readers of these messages. This value remains unchanged when you migrate from basic tier to standard tier.
+The maximum partition limit for basic tier and standard tier IoT hubs is 32. Most IoT hubs only need 4 partitions. The partition limit is chosen when the IoT hub is created, and relates the device-to-cloud messages to the number of simultaneous readers of these messages. This value remains unchanged when you migrate from the basic tier to the standard tier.
 
 ## Next steps
 
