@@ -14,7 +14,7 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-Metamodel is a feature in the Microsoft Purview Data Map that gives the technical data in your data map relationships and reference points to make it easier to navigate. Like adding streets and cities to a map, the metamodel orients users so they know where they're and can discover the information they need.
+Metamodel is a feature in the Microsoft Purview Data Map that gives the technical data in your data map relationships and reference points to make it easier to navigate. Like adding streets and cities to a map, the metamodel orients users so they know where they are and can discover the information they need.
 
 This article will get you started in building a metamodel for your Microsoft Purview Data Map.
 
