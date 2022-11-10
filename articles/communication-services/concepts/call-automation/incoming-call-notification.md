@@ -8,13 +8,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/26/2022
 ms.author: jassha
-ms.custom: private_preview
+ms.custom: public_preview
 ---
 
 # Incoming call concepts
 
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly. Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services Call Automation provides developers the ability to build applications, which can make and receive calls. Azure Communication Services relies on Event Grid subscriptions to deliver each `IncomingCall` event, so setting up your environment to receive these notifications is critical to your application being able to redirect or answer a call.
 
@@ -57,5 +56,5 @@ You can use [advanced filters](../../../event-grid/event-filtering.md) in your E
 Since the `IncomingCall` notification doesn't have a specific destination other than the Event Grid subscription you've created, you're free to associate any particular number to any endpoint in Azure Communication Services. For example, if you acquired a PSTN phone number of `+14255551212` and want to assign it to a user with an identity of `375f0e2f-e8db-4449-9bf7-2054b02e42b4` in your application, you'll maintain a mapping of that number to the identity. When an `IncomingCall` notification is sent matching the phone number in the **to** field, you'll invoke the `Redirect` API and supply the identity of the user. In other words, you maintain the number assignment within your application and route or answer calls at runtime.
 
 ## Next steps
-- [Build a Call Automation application](../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md) to simulate a customer interaction.
-- [Redirect an inbound PSTN call](../../how-tos/call-automation-sdk/redirect-inbound-telephony-calls.md) to your resource.
+- [Build a Call Automation application](../../quickstarts/call-automation/callflows-for-customer-interactions.md) to simulate a customer interaction.
+- [Redirect an inbound PSTN call](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md) to your resource.
