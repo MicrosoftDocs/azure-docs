@@ -56,7 +56,7 @@ This column will display values “Confirmed vs Potential”
 
 **Resource Health**
 
-The health status listed under **[Resource Health](../azure/service-health/resource-health-overview.md)** refers to the status of a given resource at that point in time.
+The health status listed under **[Resource Health](../service-health/resource-health-overview.md)** refers to the status of a given resource at that point in time.
 
 - A health status of available means your resource is healthy but it may have been affected by the service event at a previous point in time.
 - A health status of degraded or unavailable (caused by a customer-initiated action or platform-initiated action) means your resource is impacted but could be now healthy and pending a status update.
