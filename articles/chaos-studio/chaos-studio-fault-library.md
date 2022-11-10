@@ -441,7 +441,7 @@ Known issues on Linux:
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:dnsFailure/1.0 |
 | Parameters (key, value) |  |
-| hosts | Delimited JSON array of host names to fail DNS lookup request for. |
+| hosts | Delimited JSON array of host names to fail DNS lookup request for.<br><br>This property accepts wildcards (`*`), but only for the first subdomain in an address and only applies to the subdomain for which they're specified. For example:<ul><li>\*.microsoft.com is supported</li><li>subdomain.\*.microsoft is not supported</li><li>\*.microsoft.com will not account for multiple subdomains in an address such as subdomain1.subdomain2.microsoft.com.</li></ul>   |
 | dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more details on DNS return codes, visit [the IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6) |
 | virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
