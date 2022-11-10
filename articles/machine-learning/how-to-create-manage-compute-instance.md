@@ -266,11 +266,13 @@ The data scientist can start, stop, and restart the compute instance. They can u
 * RStudio
 * Integrated notebooks
 
-## Schedule automatic start and stop (preview)
+## Schedule automatic start and stop
 
 Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
 
 Schedules can also be defined for [create on behalf of](#create-on-behalf-of-preview) compute instances. You can create a schedule that creates the compute instance in a stopped state. Stopped compute instances are useful when you create a compute instance on behalf of another user.
+
+Prior to a scheduled shutdown, users will see a notification alerting them that the Compute Instance is about to shutdown. At that point, the user can choose to dismiss the upcoming shutdown event, if for example they are in the middle of using their Compute Instance.
 
 ### Create a schedule in studio
 
@@ -307,6 +309,36 @@ Where the file *create-instance.yml* is:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/instance-schedule.yml":::
 
+
+### Create a schedule with SDK
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+from azure.ai.ml import MLClient
+from azure.ai.ml.constants import TimeZone
+from azure.ai.ml.entities import ComputeInstance, AmlCompute, ComputeSchedules, ComputeStartStopSchedule, RecurrencePattern, RecurrenceTrigger
+from azure.identity import DefaultAzureCredential
+from dateutil import tz
+import datetime
+# Enter details of your AML workspace
+subscription_id = "<guid>"
+resource_group = "sample-rg"
+workspace = "sample-ws"
+# get a handle to the workspace
+ml_client = MLClient(
+    DefaultAzureCredential(), subscription_id, resource_group, workspace
+)
+ci_minimal_name = "sampleCI"
+mytz = tz.gettz("Asia/Kolkata")
+now = datetime.datetime.now(tz = mytz)
+starttime = now + datetime.timedelta(minutes=25)
+triggers = RecurrenceTrigger(frequency="day", interval=1, schedule=RecurrencePattern(hours=17, minutes=30))
+myschedule = ComputeStartStopSchedule(start_time=starttime, time_zone=TimeZone.INDIA_STANDARD_TIME, trigger=triggers, action="Stop")
+com_sch = ComputeSchedules(compute_start_stop=[myschedule])
+ci_minimal = ComputeInstance(name=ci_minimal_name, schedules=com_sch)
+ml_client.begin_create_or_update(ci_minimal)
+```
 
 ### Create a schedule with a Resource Manager template
 
