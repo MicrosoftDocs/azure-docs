@@ -1,5 +1,5 @@
 ---
-title: self-service policies for Azure SQL DB (preview)
+title: Self-service policies for Azure SQL DB (preview)
 description: Step-by-step guide on how self-service policy is created for Azure SQL DB through Microsoft Purview access policies.
 author: bjspeaks
 ms.author: blessonj
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 10/13/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
-# self-service policies for Azure SQL DB (preview)
+# Self-service policies for Azure SQL DB (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[self-service policies](concept-self-service-data-access-policy.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
+[Self-service policies](concept-self-service-data-access-policy.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
 
 This how-to guide describes how self-service policies get created in Microsoft Purview to enable access to Azure SQL DB. The following actions are currently enabled: *Read Tables*, and *Read Views*. 
 
@@ -42,7 +42,7 @@ Once your data source has the **Data Use Management** toggle *Enabled*, it will 
 
 ## Create a self-service data access request
 
-[!INCLUDE [request access to datasets](how-to-request-access.md)]
+[!INCLUDE [request access to datasets](includes/how-to-self-service-request-access.md)]
 
 
 >[!Important]
@@ -52,15 +52,15 @@ Once your data source has the **Data Use Management** toggle *Enabled*, it will 
 
 ## View a self-service Policy
 
-[!INCLUDE [View the self-service policies](how-to-view-self-service-data-access-policy.md)]
+To view the policies you've created, follow the article to [view the self-service policies](how-to-view-self-service-data-access-policy.md).
 
 
 ### Test the policy
 
-The AAD Account, group, MSI or SPN for which the self-service policies where created, should now be able to connect to the database on the server and execute a select query against the requested table or view.
+The Azure Active Directory Account, group, MSI, or SPN for which the self-service policies were created, should now be able to connect to the database on the server and execute a select query against the requested table or view.
 
 #### Force policy download
-It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.
+It's possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it's membership in ##MS_ServerStateManager##-server role.
 
 ```sql
 -- Force immediate download of latest published policies

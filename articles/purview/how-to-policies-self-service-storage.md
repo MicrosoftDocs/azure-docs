@@ -1,5 +1,5 @@
 ---
-title: self-service policies for Azure Storage (preview)
+title: Self-service policies for Azure Storage (preview)
 description: Step-by-step guide on how self-service policy is created for storage through Microsoft Purview access policies.
 author: bjspeaks
 ms.author: blessonj
@@ -10,7 +10,7 @@ ms.date: 10/24/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 
-# Access provisioning by data owner to Azure Storage datasets (Preview)
+# Self-service access provisioning for Azure Storage datasets (Preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
@@ -46,13 +46,18 @@ Once your data source has the  **Data Use Management** toggle **Enabled**, it wi
 
 ## Create a self-service data access request
 
-[!INCLUDE [request access to datasets](how-to-request-access.md)]
+[!INCLUDE [request access to datasets](includes/how-to-self-service-request-access.md)]
 
 >[!Important]
 > - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
 
+## View a self-service Policy
+
+To view the policies you've created, follow the article to [view the self-service policies](how-to-view-self-service-data-access-policy.md).
+
 ## Data Consumption
-- Data consumer can access the requested dataset using tools such as PowerBI or Azure Synapse Analytics workspace.
+
+- Data consumer can access the requested dataset using tools such as Power BI or Azure Synapse Analytics workspace.
 
 >[!NOTE]
 > Users will not be able to browse to the asset using the Azure Portal or Storage explorer if the only permission granted is read/modify access at the file or folder level of the storage account.
@@ -65,7 +70,7 @@ Once your data source has the  **Data Use Management** toggle **Enabled**, it wi
 ### Known issues
 
 **Known issues** related to Policy creation
-- self-service policies are not supported for Microsoft Purview resource sets. Even if displayed in Microsoft Purview, it is not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
+- self-service policies aren't supported for Microsoft Purview resource sets. Even if displayed in Microsoft Purview, it isn't yet enforced. Learn more about [resource sets](concept-resource-sets.md).
 
 
 ## Next steps
