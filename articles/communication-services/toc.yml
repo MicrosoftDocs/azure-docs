@@ -46,7 +46,7 @@ items:
       - name: Send an Email
         href: quickstarts/email/send-email.md
       - name: Send an Email in Azure Logic Apps
-        href: quickstarts/email/logic-app.md        
+        href: quickstarts/email/logic-app.md            
   - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
@@ -79,6 +79,12 @@ items:
       href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Raw media access
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
+  - name: Call Automation library
+    items:
+      - name: Handle an inbound phone call
+        href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
+      - name: Build a workflow for customer interactions 
+        href: quickstarts/call-automation/callflows-for-customer-interactions.md
   - name: Rooms
     items:
       - name: Create and manage a room resource
@@ -221,6 +227,16 @@ items:
         href: concepts/known-issues.md
       - name: Media access
         href: concepts/voice-video-calling/media-access.md
+  - name: Call Automation library
+    items:
+      - name: Overview
+        href: concepts/call-automation/call-automation.md
+      - name: Learn about inbound calls
+        href: concepts/call-automation/incoming-call-notification.md
+      - name: Play audio in call
+        href: concepts/call-automation/play-action.md
+      - name: Gathering user input 
+        href: concepts/call-automation/recognize-action.md
   - name: Rooms
     items:
       - name: Rooms overview
@@ -368,6 +384,14 @@ items:
       href: how-tos/ui-library-sdk/theming.md
     - name: Participant View Data Injection
       href: how-tos/ui-library-sdk/data-model.md
+  - name: Using the Call Automation
+    items: 
+    - name: Control and steer calls
+      href: how-tos/call-automation/actions-for-call-control.md
+    - name: Customize voice prompts to users with Play action 
+      href: how-tos/call-automation/play-action.md
+    - name: Gather user input with Recognize action 
+      href: how-tos/call-automation/recognize-action.md
 - name: Samples
   items:
   - name: Overview

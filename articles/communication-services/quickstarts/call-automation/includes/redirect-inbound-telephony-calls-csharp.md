@@ -14,8 +14,8 @@ ms.author: askaur
 ## Prerequisites
 
 - An Azure account with an active subscription.
-- A deployed [Communication Service resource](../../../quickstarts/create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
-- [Acquire a PSTN phone number from the Communication Service resource](../../../quickstarts/telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart. 
+- A deployed [Communication Service resource](../../create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
+- [Acquire a PSTN phone number from the Communication Service resource](../../telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart. 
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 
 ## Create a new C# application
@@ -40,7 +40,7 @@ dotnet add <path-to-project> package Azure.Messaging.EventGrid --prerelease
 In this quick-start, you'll use Ngrok tool to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid IncomingCall event and Call Automation events using webhooks.
 
 First, determine the port of the .NET application. Minimal API dynamically allocates a port for the project at the time of creation. Find out the http port in <PROJECT_ROOT>\Properties\launchSettings.json. 
-![Screenshot of demo application's launchsetting.json file.](../../../quickstarts/voice-video-calling/media/call-automation/dotnet-application-port.jpg)
+![Screenshot of demo application's launchsetting.json file.](../media/dotnet-application-port.jpg)
 
 Then, install Ngrok and run Ngrok with the following command: ngrok http <replace_with_port>. This command will create a public URI like https://ff2f-75-155-253-232.ngrok.io/, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
 

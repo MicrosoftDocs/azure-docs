@@ -14,8 +14,8 @@ ms.author: askaur
 ## Prerequisites
 
 - An Azure account with an active subscription.
-- A deployed [Communication Service resource](../../../quickstarts/create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
-- [Acquire a PSTN phone number from the Communication Service resource](../../../quickstarts/telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart.
+- A deployed [Communication Service resource](../../create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
+- [Acquire a PSTN phone number from the Communication Service resource](../../telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart.
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
