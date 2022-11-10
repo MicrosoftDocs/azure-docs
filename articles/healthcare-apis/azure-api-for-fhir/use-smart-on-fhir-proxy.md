@@ -18,7 +18,7 @@ Authentication is based on OAuth2. But because SMART on FHIR uses parameter nami
 
 Below tutorial describes how to use the proxy to enable SMART on FHIR applications with Azure API for FHIR.
 
-## Tutorial: Azure Active Directory SMART on FHIR proxy
+## Tutorial: SMART on FHIR proxy
 <b> Prerequisites </b>
 
 - An instance of the Azure API for FHIR
