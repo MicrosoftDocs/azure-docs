@@ -132,7 +132,7 @@ To restore the backup data as files instead of a database, select **Restore as F
     >[!NOTE]
     >To restore the database backup files on an Azure file share mounted on the target registered VM, make sure that the root account has read/write permissions on the share.
 
-   :::image type="content" source="./media/sap-hana-db-restore/hana-restore-as-files.png" alt-text="Screenshot that shows how choose the destination path.":::
+   :::image type="content" source="./media/sap-hana-db-restore/hana-restore-as-files.png" alt-text="Screenshot that shows how to choose the destination path.":::
 
 1. Select the **Restore Point** to which all the backup files and folders will be restored.
 
