@@ -3,7 +3,6 @@ title: 'Paginate Azure Resource Graph query results using Azure PowerShell'
 description: In this quickstart, you control the volume Azure Resource Graph query output by using pagination in Azure PowerShell.
 ms.date: 11/10/2022
 ms.topic: quickstart
-ms.custom: mode-api
 ms.author: timwarner
 author: timwarner-msft
 ms.custom: dev-track-azurepowershell
