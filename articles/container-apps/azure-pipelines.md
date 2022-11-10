@@ -50,7 +50,6 @@ The following snippet shows how to deploy an existing container image to Contain
 steps:
   - task: AzureContainerAppsRC@V0
     inputs:
-      appSourcePath: '$(Build.SourcesDirectory)'
       azureSubscription: 'my-subscription-service-connection'
       acrName: 'myregistry'
       containerAppName: 'my-container-app'

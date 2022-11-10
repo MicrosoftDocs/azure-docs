@@ -67,7 +67,6 @@ steps:
   - name: Build and deploy Container App
     uses: azure/container-apps-deploy-action@v0
     with:
-      appSourcePath: ${{ github.workspace }}
       acrName: myregistry
       containerAppName: my-container-app
       resourceGroup: my-rg
