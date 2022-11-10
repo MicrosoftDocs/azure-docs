@@ -59,108 +59,81 @@ The following types of automation health events are logged in the *SentinelHealt
     | where OperationName == "Automation rule run"
     ```
 
-- **Playbook was triggered**
+- **Playbook was triggered**. Logged whenever a playbook is triggered on an incident manually from the portal, or through the API. The following sample query will display these events:
 
- once an hour as long as a data connector status remains stable, with either continuous success or failure events. For as long as a data connector's status does not change, monitoring only hourly works to prevent redundant auditing and reduce table size. If the data connector's status has continuous failures, additional details about the failures are included in the *ExtendedProperties* column.
+    ```kusto
+    SentinelHealth
+    | where OperationName == "Playbook was triggered"
+    ```
 
-    If the data connector's status changes, either from a success to failure, from failure to success, or has changes in failure reasons, the event is logged immediately to allow your team to take proactive and immediate action.
+For more information, see [SentinelHealth table columns schema](health-table-reference.md#sentinelhealth-table-columns-schema).
 
-    Potentially transient errors, such as source service throttling, are logged only after they've continued for more than 60 minutes. These 60 minutes allow Microsoft Sentinel to overcome a transient issue in the backend and catch up with the data, without requiring any user action. Errors that are definitely not transient are logged immediately.
+See [more sample queries](#run-queries-to-detect-health-drifts) below.
 
-- **Failure summary**. Logged once an hour, per connector, per workspace, with an aggregated failure summary. Failure summary events are created only when the connector has experienced polling errors during the given hour. They contain any extra details provided in the *ExtendedProperties* column, such as the time period for which the connector's source platform was queried, and a distinct list of failures encountered during the time period.
+### Statuses, errors and suggested steps
 
-For more information, see [SentinelHealth table columns schema](#sentinelhealth-table-columns-schema).
+For **Automation rule run**, you may see the following statuses:
+- Success: Rule executed successfully, triggering all actions.
+- Partial success: Rule executed and triggered at least one action, but some actions failed... 
+- Failure: automation rule did not run any action due to one of the following reasons:
+    - Conditions evaluation failed
+    - Conditions met, but the first action failed
 
-### Run queries to detect health drifts
+For **Playbook was triggered**, you may see the following statuses:
+- Success: playbook was triggered successfully.
+- Failure: playbook could not be triggered. 
+    > [!NOTE]
+    > 
+    > "Success" means only that a playbook run ended. It doesn't tell you the results of the actions in the playbook, or the final result of the playbook. To find this information, query the Logic Apps diagnostics logs (see the instructions later in this article).
 
-Create queries on the *SentinelHealth* table to help you detect health drifts in your data connectors. For example:
+#### Error descriptions and suggested steps
 
-**Detect latest failure events per connector**:
+| Reason                          | Description                 | Suggested actions                         |
+| ------------------------------- | --------------------------- | ----------------------------------------- |
+| Could not add task: *\<TaskName>*<br>Could not run action: *\<ActionName>*<br>Could not run playbook: *\<PlaybookName>* | Incident/alert was not found. | If the error occurred when trying to trigger a playbook on demand, make sure the incident/alert exists and try again. |
+| Could not run playbook: *\<PlaybookName>* | Could not run playbook because playbook was not found or because Microsoft Sentinel was missing permissions on it. | Edit the automation rule, find and select the playbook in its new location, and save. Make sure Microsoft Sentinel has [permission to run this playbook](tutorial-respond-threats-playbook.md?tabs=LAC#respond-to-incidents). |
+| Could not trigger playbook *\<PlaybookName>* | Playbook could not be triggered because it contains an unsupported trigger type. | Make sure your playbook starts with the [correct Logic Apps trigger](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary): Microsoft Sentinel Incident or Microsoft Sentinel Alert. |
+| Could not trigger playbook *\<PlaybookName>* | Playbook could not be triggered because the subscription is disabled and marked as read-only. Playbooks in this subscription cannot be run until the subscription is re-enabled. | Re-enable the Azure subscription in which the playbook is located. |
+| Could not trigger playbook *\<PlaybookName>* | Playbook could not be triggered because it was disabled. | Enable your playbook: In Microsoft Sentinel, in the Active Playbooks tab under Automation, or in the Logic Apps resource page. |
+| Could not trigger playbook *\<PlaybookName>* | Playbook could not be triggered because of invalid template definition. | There is an error in the playbook definition. Go to the Logic Apps designer to fix the issues and save the playbook. |
+| Could not trigger playbook *\<PlaybookName>* | Playbook could not be triggered because access control configuration restricts Microsoft Sentinel. | Logic Apps configurations allow restricting access to trigger the playbook. This restriction is in effect for this playbook. Remove this restriction so Microsoft Sentinel is not blocked. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md?tabs=azure-portal#restrict-access-by-ip-address-range) |
+| Could not trigger playbook *\<PlaybookName>* | Playbook could not be triggered because Microsoft Sentinel is missing permissions to run it. | Microsoft Sentinel requires [permissions to run playbooks](tutorial-respond-threats-playbook.md?tabs=LAC#respond-to-incidents). |
+| Could not trigger playbook *\<PlaybookName>* | Playbook could not be triggered because it wasn’t migrated to new permissions model. Grant Microsoft Sentinel permissions to run this playbook and resave the rule. | Grant Microsoft Sentinel [permissions to run this playbook](tutorial-respond-threats-playbook.md?tabs=LAC#respond-to-incidents) and resave the rule. |
+| ***?????????????????????????????????????????????*** | Action could not run due to too many requests exceeding workflow throttling limits. | The number of waiting workflow runs has exceeded the maximum allowed limit. Try increasing the value of `'maximumWaitingRuns'` in [trigger concurrency configuration](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs-limit). |
+| ***?????????????????????????????????????????????*** | Action could not run due to too many requests exceeding throttling limits. | Learn more about [subscription and tenant limits](../azure-resource-manager/management/request-limits-and-throttling.md#subscription-and-tenant-limits). |
+| Could not trigger playbook *\<PlaybookName>* | Playbook could not be triggered because access was forbidden. Managed identity is missing configuration or Logic Apps network restriction has been set. | If the playbook uses managed identity, make sure the managed identity was assigned with permissions. The playbook may have network restriction rules preventing it from being triggered as they block Microsoft Sentinel service. |
+| Could not trigger playbook *\<PlaybookName>* | Playbook could not be triggered because the subscription or resource group was locked. | Remove the lock to allow Microsoft Sentinel trigger playbooks in the locked scope. Learn more about [locked resources](../azure-resource-manager/management/lock-resources.md?tabs=json). |
+| Could not trigger playbook *\<PlaybookName>* | Caller is missing required playbook-triggering permissions on playbook or Microsoft Sentinel is missing permissions on it. | The user trying to trigger the playbook on demand is missing Logic Apps Contributor role on the playbook or to trigger the playbook. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md?tabs=azure-portal#restrict-access-by-ip-address-range) |
+| Could not trigger playbook *\<PlaybookName>* | Playbooks could not be triggered because playbook ARM ID is not valid. |  |
+
+## Get the complete automation picture
+
+Microsoft Sentinel automation health table allows you to track playbooks triggering, but to monitor playbooks run results Logic Apps diagnostics should be turned on.
+
+Monitor playbook runs using Azure Logic Apps diagnostic logs
+
+By enabling Azure Logic Apps diagnostics logs, the following logs will be streamed to *AzureDiagnostics* table:
+- {Action name} started
+- {Action name} ended
+- Workflow (playbook) started
+- Workflow (playbook) ended
+
+### Turn on Logic Apps diagnostics
+
+For each playbook you are interested in monitoring, follow these steps. Make sure to select Send to Log Analytics workspace as destination and choose your Microsoft Sentinel workspace.
+
+Correlate Microsoft Sentinel and Azure Logic Apps logs
+Now that your workspace has logs of automation and Logic Apps, you can correlate them. Example query:
 
 ```kusto
-SentinelHealth
-| where TimeGenerated > ago(3d)
-| where OperationName == 'Data fetch status change'
-| where Status in ('Success', 'Failure')
-| summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId
-| where Status == 'Failure'
+SentinelHealth 
+| where SentinelResourceType == "Automation rule"
+| mv-expand TriggeredPlaybooks = ExtendedProperties.TriggeredPlaybooks| extend runId = tostring(TriggeredPlaybooks.RunId)
+| join (AzureDiagnostics 
+| where OperationName == "Microsoft.Logic/workflows/workflowRunCompleted"
+| project resource_runId_s, playbookName = resource_workflowName_s, playbookRunStatus = status_s) on $left.runId == $right.resource_runId_s
+| project RecordId, TimeGenerated, AutomationRuleName= SentinelResourceName, AutomationRuleStatus = Status, Description, workflowRunId = runId, playbookName, playbookRunStatus
 ```
-
-**Detect connectors with changes from fail to success state**:
-
-```kusto
-let lastestStatus = SentinelHealth
-| where TimeGenerated > ago(12h)
-| where OperationName == 'Data fetch status change'
-| where Status in ('Success', 'Failure')
-| project TimeGenerated, SentinelResourceName, SentinelResourceId, LastStatus = Status
-| summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-let nextToLastestStatus = SentinelHealth
-| where TimeGenerated > ago(12h)
-| where OperationName == 'Data fetch status change'
-| where Status in ('Success', 'Failure')
-| join kind = leftanti (lastestStatus) on SentinelResourceName, SentinelResourceId, TimeGenerated
-| project TimeGenerated, SentinelResourceName, SentinelResourceId, NextToLastStatus = Status
-| summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-lastestStatus
-| join kind=inner (nextToLastestStatus) on SentinelResourceName, SentinelResourceId
-| where NextToLastStatus == 'Failure' and LastStatus == 'Success'
-```
-
-**Detect connectors with changes from success to fail state**:
-
-```kusto
-let lastestStatus = SentinelHealth
-| where TimeGenerated > ago(12h)
-| where OperationName == 'Data fetch status change'
-| where Status in ('Success', 'Failure')
-| project TimeGenerated, SentinelResourceName, SentinelResourceId, LastStatus = Status
-| summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-let nextToLastestStatus = SentinelHealth
-| where TimeGenerated > ago(12h)
-| where OperationName == 'Data fetch status change'
-| where Status in ('Success', 'Failure')
-| join kind = leftanti (lastestStatus) on SentinelResourceName, SentinelResourceId, TimeGenerated
-| project TimeGenerated, SentinelResourceName, SentinelResourceId, NextToLastStatus = Status
-| summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-lastestStatus
-| join kind=inner (nextToLastestStatus) on SentinelResourceName, SentinelResourceId
-| where NextToLastStatus == 'Success' and LastStatus == 'Failure'
-```
-
-### Configure alerts and automated actions for health issues
-
-While you can use the Microsoft Sentinel [analytics rules](automate-incident-handling-with-automation-rules.md) to configure automation in Microsoft Sentinel logs, if you want to be notified and take immediate action for health drifts in your data connectors, we recommend that you use [Azure Monitor alert rules](../azure-monitor/alerts/alerts-overview.md).
-
-For example:
-
-1. In an Azure Monitor alert rule, select your Microsoft Sentinel workspace as the rule scope, and **Custom log search** as the first condition.
-
-1. Customize the alert logic as needed, such as frequency or lookback duration, and then use [queries](#run-queries-to-detect-health-drifts) to search for health drifts.
-
-1. For the rule actions, select an existing action group or create a new one as needed to configure push notifications or other automated actions such as triggering a Logic App, Webhook, or Azure Function in your system.
-
-For more information, see [Azure Monitor alerts overview](../azure-monitor/alerts/alerts-overview.md) and [Azure Monitor alerts log](../azure-monitor/alerts/alerts-log.md).
-
-### SentinelHealth table columns schema
-
-The following table describes the columns and data generated in the SentinelHealth data table for data connectors:
-
-| ColumnName    | ColumnType     | Description|
-| ----------------------------------------------- | -------------- | --------------------------------------------------------------------------- |
-| **TenantId**      | String         | The tenant ID for your Microsoft Sentinel workspace.                    |
-| **TimeGenerated** | Datetime       | The time at which the health event occurred.         |
-| <a name="operationname"></a>**OperationName** | String         | The health operation. One of the following values: <br><br>-`Data fetch status change` for health or success indications <br>- `Failure summary` for aggregated health summaries. <br><br>For more information, see [Understanding SentinelHealth table events](#understanding-sentinelhealth-table-events). |
-| <a name="sentinelresourceid"></a>**SentinelResourceId**        | String         | The unique identifier of the Microsoft Sentinel workspace and the associated connector on which the health event occurred. |
-| **SentinelResourceName**      | String         | The data connector name.                           |
-| <a name="status"></a>**Status**        | String         | Indicates `Success` or `Failure` for the `Data fetch status change` [OperationName](#operationname), and `Informational` for the `Failure summary` [OperationName](#operationname).         |
-| **Description**   | String         | Describes the operation, including extended data as needed. For example, for failures, this column might indicate the failure reason. |
-| **WorkspaceId**   | String         | The workspace GUID on which the health issue occurred. The full Azure Resource Identifier is available in the [SentinelResourceID](#sentinelresourceid) column. |
-| **SentinelResourceType**      | String         |The Microsoft Sentinel resource type being monitored: `Data connector`|
-| **SentinelResourceKind**      | String         | The type of data connector being monitored, such as `Office365`.               |
-| **RecordId**      | String         | A unique identifier for the record that can be shared with the support team for better correlation as needed.                |
-| **ExtendedProperties**        | Dynamic (json) | A JSON bag that varies by the [OperationName](#operationname) value and the [Status](#status) of the event: <br><br>- For `Data fetch status change` events with a success indicator, the bag contains a ‘DestinationTable’ property to indicate where data from this connector is expected to land. For failures, the contents vary depending on the failure type.    |
-| **Type**          | String         | `SentinelHealth`                         |
 
 ## Next steps
 

@@ -86,44 +86,6 @@ These are the possible **Reason** values for the **Data collector** resource typ
 | Playbooks could not be triggered because playbook ARM ID is not valid. |  |
 
 
-### Analytics rule failure reasons
-
-These are the possible **Reason** values for the **Analytics rule** resource type.
-
-| Failure reason                        | Description                                                      |
-| ------------------------------------- | ---------------------------------------------------------------- |
-| **GENERAL_ERROR**                     | An internal server error occurred while running the query.       |
-| **QUERY_TIMEOUT**                     | The query execution timed out.                                   |
-| **TABLE_NOT_EXISTS**                  | A table referenced in the query was not found. Verify that the relevant data source is connected. |
-| **SEMANTIC_ERROR**                    | A semantic error occurred while running the query. Try resetting the alert rule by editing and saving it (without changing any settings). |
-| **FUNCTION_RESERVED_FUNCTION**        | A function called by the query is named with a reserved word. Remove or rename the function. |
-| **SYNTAX_ERROR**                      | A syntax error occurred while running the query. Try resetting the alert rule by editing and saving it (without changing any settings). |
-| **WORKSPACE_NOT_EXIST**               | The workspace does not exist.                                    |
-| **QUERY_CONSUMES_TOO_MANY_RESOURCES** | This query was found to use too many system resources and was prevented from running. |
-| **UNKNOWN_FUNCTION**                  | A function called by the query was not found. Verify the existence in your workspace of all functions called by the query. |
-| **FAILED_TO_RESOLVE_RESOURCE**        | The workspace used in the query was not found. Verify that all workspaces in the query exist. |
-| **INSUFFICIENT_ACCESS_TO_QUERY**      | You don't have permissions to run this query. Try resetting the alert rule by editing and saving it (without changing any settings). |
-| **INSUFFICIENT_ACCESS_TO_RESOURCE**   | You don't have access permissions to one or more of the resources in the query. |
-| **PERSISTENT_STORAGE_PATH_NOT_EXIST** | The query referred to a storage path that was not found.         |
-| **PERSISTENT_STORAGE_ACCESS_DENIED**  | The query was denied access to a storage path.                   |
-| **MULTIPLE_FUNCTIONS_WITH_SAME_NAME** | Multiple functions with the same name are defined in this workspace. Remove or rename the redundant function and reset the rule by editing and saving it. |
-| **QUERT_RESULT_MISSING**              | This query did not return any result.                            |
-| **MULTIPLE_RESULT_SET_NOT_ALLOWED**   | Multiple result sets in this query are not allowed.              |
-| **WRONG_NUMBER_OF_FIELDS**            | Query results contain inconsistent number of fields per row.     |
-| **INGESTION_DELAY**                   | The rule's running was delayed due to long data ingestion times. |
-| **TEMPORARY_ISSUE_DELAY**             | The rule's running was delayed due to temporary issues.          |
-| **ENRICHMENT_ABORTED_DUE_TO_TEMPRARY_ISSUES** | The alert was not enriched due to temporary issues.      |
-| **ENRICHMENT_ABORTED_DUE_TO_PERMENANT_ISSUES** | The alert was not enriched due to entity mapping issues. |
-| **ENTITIES_DROPPED_DUE_TO_SIZE_LIMIT** | X entities were dropped in alert Y due to the 32 KB alert size limit. |
-| **ENTITIES_DROPPED_DUE_TO_MAPPING_ISSUES** | X entities were dropped in alert Y due to entity mapping issues. |
-
-#### Automation rule failure reasons
-
-These are the possible **Reason** values for the **Automation rule** resource type.
-
-| Failure reason                        | Description                                                      |
-| ------------------------------------- | ---------------------------------------------------------------- |
-
 ## Extended properties
 
 - For `Data fetch status change` events with a success indicator, the bag contains a ‘DestinationTable’ property to indicate where data from this resource is expected to land. For failures, the contents vary depending on the failure type. 

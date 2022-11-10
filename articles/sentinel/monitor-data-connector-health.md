@@ -90,7 +90,7 @@ The following types of health events are logged in the *SentinelHealth* table:
 
 - **Failure summary**. Logged once an hour, per connector, per workspace, with an aggregated failure summary. Failure summary events are created only when the connector has experienced polling errors during the given hour. They contain any extra details provided in the *ExtendedProperties* column, such as the time period for which the connector's source platform was queried, and a distinct list of failures encountered during the time period.
 
-For more information, see [SentinelHealth table columns schema](./health-table-reference.md#sentinelhealth-table-columns-schema).
+For more information, see [SentinelHealth table columns schema](health-table-reference.md#sentinelhealth-table-columns-schema).
 
 ### Run queries to detect health drifts
 
