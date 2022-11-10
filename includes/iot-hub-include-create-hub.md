@@ -32,9 +32,9 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
    
    - **Tier**: Select the tier that you want to use for your hub. Tier selection depends on how many features you want and how many messages you send through your solution per day. Some features, such as [device twins](../articles/iot-hub/iot-hub-devguide-device-twins.md), are only available in specific tiers. The free tier is intended for testing and evaluation. The free tier allows 500 devices to be connected to the hub and up to 8,000 messages per day. Each Azure subscription can create one IoT hub in the free tier. 
    
-   To compare the features available to each tier, select **Compare tiers** and select the tier that contains the features you want to use for your hub. For more information, see [Choose the right IoT Hub tier for your solution](../articles/iot-hub/iot-hub-scaling.md).
+      To compare the features available to each tier, select **Compare tiers** and select the tier that contains the features you want to use for your hub. For more information, see [Choose the right IoT Hub tier for your solution](../articles/iot-hub/iot-hub-scaling.md).
    
-   If you're working through a quickstart, select the free tier.
+      If you're working through a quickstart, select the free tier.
    
    -  **Daily message limit**: Select the maximum daily quota of messages for your hub. The available options depend on the tier you've selected for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](/articles/iot-hub/iot-hub-devguide-quotas-throttling.md).
    
