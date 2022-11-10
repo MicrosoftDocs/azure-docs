@@ -38,10 +38,50 @@ For information on client library-specific guidance best practices, see the foll
 - [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
 - [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
 - [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
+- [Redisson (Java)](cache-best-practices-client-libraries.md#redisson-java)
 - [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
 - [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
 - [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
 - [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+
+## redisson (Java)
+
+It is *strongly recommended* to use redisson 3.14.1 or higher. Older versions contain known connection leak issues which cause problems after failovers. Do monitor the redisson changelog for other known issues which may impact features used by your application [Link](https://github.com/redisson/redisson/blob/master/CHANGELOG.md) See also the redisson FAQ [Link](https://github.com/redisson/redisson/wiki/16.-FAQ)
+
+Other notes: 
+* redisson defaults to 'read from replica' strategy, unlike some other clients. To change this, modify the 'readMode' config setting.
+* redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are QUITE LARGE, which can lead to aggressive reconnect behaviors or 'connection storms'. 
+* redisson has an idle connection timeout of 10 seconds, which leads to more closing and reopening of connections than is ideal
+
+A recommended baseline configuration for cluster mode, which you can modfiy as needed, is:
+
+```
+clusterServersConfig:
+  idleConnectionTimeout: 30000
+  connectTimeout: 15000
+  timeout: 5000
+  retryAttempts: 3
+  retryInterval: 3000
+  failedSlaveReconnectionInterval: 15000
+  failedSlaveCheckInterval: 60000
+  subscriptionsPerConnection: 5
+  clientName: "redisson"
+  loadBalancer: !<org.redisson.connection.balancer.RoundRobinLoadBalancer> {}
+  subscriptionConnectionMinimumIdleSize: 1
+  subscriptionConnectionPoolSize: 50
+  slaveConnectionMinimumIdleSize: 2
+  slaveConnectionPoolSize: 24
+  masterConnectionMinimumIdleSize: 2
+  masterConnectionPoolSize: 24
+  readMode: "MASTER"
+  subscriptionMode: "MASTER"
+  nodeAddresses:
+  - "redis://mycacheaddress:6380"
+  scanInterval: 1000
+  pingConnectionInterval: 60000
+  keepAlive: false
+  tcpNoDelay: true
+```
 
 ## How to use client libraries
 
