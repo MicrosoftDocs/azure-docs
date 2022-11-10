@@ -5964,7 +5964,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/index.yml",
+            "source_path_from_root": "/articles/partner-solutions/index.md",
             "redirect_url": "/azure/partner-solutions",
             "redirect_document_id": false
         },
