@@ -80,7 +80,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: AutoML image multi-label classification job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-classification-multilablel-task-fridge-items/cli-automl-image-classification-multilablel-task-fridge-items.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-classification-multilablel-task-fridge-items/cli-automl-image-classification-multilabel-task-fridge-items.yml":::
 
 ## YAML: AutoML image multi-label classification pipeline job
 
