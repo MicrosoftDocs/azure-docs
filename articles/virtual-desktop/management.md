@@ -22,7 +22,7 @@ Microsoft Intune can manage your Azure AD-joined and Hybrid Azure AD-joined sess
 For Windows 11 and Windows 10 multi-session hosts, Intune supports both device-based configurations on Windows 11 and Windows 10 and user-scope configurations on Windows 11. User-scope configurations for Windows 10 are currently in preview. To learn more about using Intune to manage multi-session hosts, see [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 > [!NOTE]
-> Managing Azure Virtual Desktop session hosts using Intune is currently supported in the Azure Public and Azure Government clouds.
+> Managing Azure Virtual Desktop session hosts using Intune is currently supported in the Azure Public and [Azure Government clouds](/enterprise-mobility-security/solutions/ems-intune-govt-service-description).
 
 ## Licensing
 
