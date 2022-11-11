@@ -37,7 +37,7 @@ A properly implemented multitenant application provides the following benefits t
 
 In short, while there are many considerations that you must take into account to provide a highly scalable service, there are also multiple goals and requirements that are common to many multitenant applications. Some may not be relevant in specific scenarios, and the importance of individual goals and requirements will differ in each scenario. As a provider of the multitenant application, you'll also have goals and requirements, such as meeting the tenant's needs, profitability, billing, multiple service levels, provisioning, maintainability monitoring, and automation.
 
-For more information on additional design considerations of a multitenant application, see [Hosting a Multi-Tenant Application on Azure][Hosting a Multi-Tenant Application on Azure]. For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](/azure/azure-sql/database/saas-tenancy-app-design-patterns). 
+For more information on additional design considerations of a multitenant application, see [Hosting a Multi-Tenant Application on Azure][Hosting a Multi-Tenant Application on Azure] and [Cross-Tenant Communication using Azure Service Bus Sample][Cross-Tenant Communication using Azure Service Bus Sample]. For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](/azure/azure-sql/database/saas-tenancy-app-design-patterns). 
 
 Azure provides many features that allow you to address the key problems encountered when designing a multitenant system.
 
@@ -88,3 +88,4 @@ Azure provides a number of ways to provision new tenants for the application. Fo
 
 [Hosting a Multi-Tenant Application on Azure]: /previous-versions/msp-n-p/hh534480(v=pandp.10)
 [Designing Multitenant Applications on Azure]: https://msdn.microsoft.com/library/windowsazure/hh689716
+[Cross-Tenant Communication using Azure Service Bus Sample]: https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus
