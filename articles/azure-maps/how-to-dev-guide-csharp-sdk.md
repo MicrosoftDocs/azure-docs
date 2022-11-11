@@ -104,8 +104,8 @@ var client = new MapsSearchClient(credential, clientId);
 
 ```
 
-> [!NOTE]
-> The other environment variable created above, while not used in the code sample here, will be referenced in DefaultAzureCredential().
+> [!IMPORTANT]
+> The other environment variableS created above, while not used in the code sample here, are required by `DefaultAzureCredential()`. If you do not set these environment variables correctly, using the same naming conventions, you will get run-time errors. For example, if your `AZURE_CLIENT_ID` is missing or invalid you will get an `InvalidAuthenticationTokenTenant` error.
 
 ### Using a subscription key credential
 
