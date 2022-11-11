@@ -26,8 +26,8 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
 - Check the error message shown in the Hybrid worker extension status/Detailed Status. It contains error message(s) and respective recommendation(s) to fix the issue.
 
 - Run the troubleshooter tool on the VM and it will generate an output file. Open the output file and verify the errors identified by the troubleshooter tool.
-  - For windows: you can find the troubleshooter at `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\TroubleShootWindowsExtension.ps1`.
-  - For Linux: you can find the troubleshooter at `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux/troubleshootLinuxExtension.py`.
+  - For windows: you can find the troubleshooter at `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\TroubleShootWindowsExtension.ps1`
+  - For Linux: you can find the troubleshooter at `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux/troubleshootLinuxExtension.py`
 
 - For Linux machines, the Hybrid worker extension creates a `hweautomation` user and starts the Hybrid worker under the user. Check whether the user `hweautomation` is set up with the correct permissions. If your runbook is trying to access any local resources, ensure that the `hweautomation` has the correct permissions to the local resources.
 
