@@ -56,7 +56,7 @@ Other notes:
 
 Here's a recommended baseline configuration for cluster mode that you can modify as needed:
 
-```json
+```yml
 clusterServersConfig:
   idleConnectionTimeout: 30000
   connectTimeout: 15000
