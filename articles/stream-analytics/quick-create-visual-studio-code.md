@@ -34,12 +34,8 @@ This quickstart shows you how to create, run and submit an Azure Stream Analytic
 
 4. Once you're signed in, you can see the subscriptions under your Azure account.
 
----
-**NOTE**
-* The ASA Tools extension will automatically sign you in every time you open VS Code.
-* If your account has two-factor authentication, we recommend that you use phone authentication rather than using a PIN.
-* To sign out your Azure account, press `Ctrl + Shift + P` and enter `Azure: Sign Out`.
----
+> [!NOTE] 
+> The ASA Tools extension will automatically sign you in every time you open VS Code. If your account has two-factor authentication, we recommend that you use phone authentication rather than using a PIN. To sign out your Azure account, press `Ctrl + Shift + P` and enter `Azure: Sign Out`.
 
 ## Prepare the input data
 
