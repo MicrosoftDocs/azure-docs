@@ -234,12 +234,12 @@ The following table provides a brief description of each built-in role. Click th
 > | [Security Reader](#security-reader) | View permissions for Microsoft Defender for Cloud. Can view recommendations, alerts, a security policy, and security states, but cannot make changes. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
-> | [Lab Assistant](#lab-assistant) | The lab assistant role. | ce40b423-cede-4313-a93f-9b28290b72e1 |
-> | [Lab Contributor](#lab-contributor) | The lab contributor role. | 5daaa2af-1fe8-407c-9122-bba179798270 |
+> | [Lab Assistant](#lab-assistant) | Enables you to view an existing lab, perform actions on the lab VMs and send invitations to the lab. | ce40b423-cede-4313-a93f-9b28290b72e1 |
+> | [Lab Contributor](#lab-contributor) | Applied at lab level, enables you to manage the lab. Applied at a resource group, enables you to create and manage labs. | 5daaa2af-1fe8-407c-9122-bba179798270 |
 > | [Lab Creator](#lab-creator) | Lets you create new labs under your Azure Lab Accounts. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
-> | [Lab Operator](#lab-operator) | The lab operator role. | a36e6959-b6be-4b12-8e9f-ef4b474d304d |
-> | [Lab Services Contributor](#lab-services-contributor) | The lab services contributor role. | f69b8690-cc87-41d6-b77a-a4bc3c0a966f |
-> | [Lab Services Reader](#lab-services-reader) | The lab services reader role. | 2a5c394f-5eb7-4d4f-9c8e-e8eae39faebc |
+> | [Lab Operator](#lab-operator) | Gives you limited ability to manage existing labs. | a36e6959-b6be-4b12-8e9f-ef4b474d304d |
+> | [Lab Services Contributor](#lab-services-contributor) | Enables you to fully control all Lab Services scenarios in the resource group. | f69b8690-cc87-41d6-b77a-a4bc3c0a966f |
+> | [Lab Services Reader](#lab-services-reader) | Enables you to view, but not change, all lab plans and lab resources. | 2a5c394f-5eb7-4d4f-9c8e-e8eae39faebc |
 > | **Monitor** |  |  |
 > | [Application Insights Component Contributor](#application-insights-component-contributor) | Can manage Application Insights components | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Gives user permission to view and download debug snapshots collected with the Application Insights Snapshot Debugger. Note that these permissions are not included in the [Owner](#owner) or [Contributor](#contributor) roles. When giving users the Application Insights Snapshot Debugger role, you must grant the role directly to the user. The role is not recognized when it is added to a custom role. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
@@ -11464,6 +11464,8 @@ Lets you connect, start, restart, and shutdown your virtual machines in your Azu
 
 ### Lab Assistant
 
+Enables you to view an existing lab, perform actions on the lab VMs and send invitations to the lab.
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -11531,6 +11533,8 @@ Lets you connect, start, restart, and shutdown your virtual machines in your Azu
 ```
 
 ### Lab Contributor
+
+Applied at lab level, enables you to manage the lab. Applied at a resource group, enables you to create and manage labs.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -11697,6 +11701,8 @@ Lets you create new labs under your Azure Lab Accounts. [Learn more](../lab-serv
 
 ### Lab Operator
 
+Gives you limited ability to manage existing labs.
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -11779,6 +11785,8 @@ Lets you create new labs under your Azure Lab Accounts. [Learn more](../lab-serv
 
 ### Lab Services Contributor
 
+Enables you to fully control all Lab Services scenarios in the resource group.
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -11825,6 +11833,8 @@ Lets you create new labs under your Azure Lab Accounts. [Learn more](../lab-serv
 
 
 ### Lab Services Reader
+
+Enables you to view, but not change, all lab plans and lab resources. 
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
