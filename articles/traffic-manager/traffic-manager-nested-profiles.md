@@ -28,12 +28,12 @@ When you add a child profile as an endpoint in the parent profile, the **MinChil
 
 The following parameters are available in the parent profile:
 
-- **MinChildEndpoints**: The minimum number of healthy child endpoints for the nested profile status to be healthy. The default value is **1**.
-- **MinChildEndpointsIPv4**: The minimum number of healthy IPv4 child endpoints for the nested profile status to be healthy. The default value is **1**.
-- **MinChildEndpointsIPv6**: The minimum number of healthy IPv6 child endpoints for the nested profile status to be healthy. The default value is **0**.
+- **MinChildEndpoints**: The minimum number of healthy child endpoints for the nested profile status to be healthy. 
+- **MinChildEndpointsIPv4**: The minimum number of healthy IPv4 child endpoints for the nested profile status to be healthy. 
+- **MinChildEndpointsIPv6**: The minimum number of healthy IPv6 child endpoints for the nested profile status to be healthy. 
 
 > [!IMPORTANT]
-> There must be at least one IPv4 and one IPv6 endpoint for any nested MultiValue profile. You should configure values for MinChildEndpointsIPv4 and MinChildEndpointsIPv6 based on your multivalue routing mechanism and not simply use the default values.<br>
+> There must be at least one IPv4 and one IPv6 endpoint for any nested MultiValue profile. Always configure values for MinChildEndpointsIPv4 and MinChildEndpointsIPv6 based on your multivalue routing mechanism and do not simply use the default values.<br>
 > The value of **MinChildEndpoints** must be high enough to allow for all endpoint types to be available. An error message is displayed for values that are too low.
 
 The following examples illustrate how to use nested Traffic Manager profiles in various scenarios.
