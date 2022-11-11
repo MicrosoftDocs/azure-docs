@@ -55,13 +55,13 @@ To add yourself or another user as owner of an app:
 
 Enable the SMART on FHIR proxy in the **Authentication** settings for your FHIR instance by selecting the **SMART on FHIR proxy** check box:
 
-![Selections for enabling the SMART on FHIR proxy](media/tutorial-smart-on-fhir/enable-smart-on-fhir-proxy.png)
+<!---![Selections for enabling the SMART on FHIR proxy](media/tutorial-smart-on-fhir/enable-smart-on-fhir-proxy.png)--->
 
 ## Enable CORS
 
 Because most SMART on FHIR applications are single-page JavaScript apps, you need to [enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md) for the Azure API for FHIR:
 
-![Selections for enabling CORS](media/tutorial-smart-on-fhir/enable-cors.png)
+<!---![Selections for enabling CORS](media/tutorial-smart-on-fhir/enable-cors.png)--->
 
 ## Configure the reply URL
 
@@ -91,7 +91,7 @@ $newReplyUrl = $FhirServerUrl.TrimEnd('/') + "/AadSmartOnFhirProxy/callback/" + 
 
 Add the reply URL to the public client application that you created earlier for Azure AD:
 
-![Reply URL configured for the public client](media/tutorial-smart-on-fhir/configure-reply-url.png)
+<!---![Reply URL configured for the public client](media/tutorial-smart-on-fhir/configure-reply-url.png)--->
 
 ## Get a test patient
 
@@ -135,7 +135,7 @@ dotnet run
 
 After you start the SMART on FHIR app launcher, you can point your browser to `https://localhost:5001`, where you should see the following screen:
 
-![SMART on FHIR app launcher](media/tutorial-smart-on-fhir/smart-on-fhir-app-launcher.png)
+<!---![SMART on FHIR app launcher](media/tutorial-smart-on-fhir/smart-on-fhir-app-launcher.png)--->
 
 When you enter **Patient**, **Encounter**, or **Practitioner** information, you'll notice that the **Launch context** is updated. When you're using the FHIR service, the launch context is simply a JSON document that contains information about patient, practitioner, and more. This launch context is base64 encoded and passed to the SMART on FHIR app as the `launch` query parameter. According to the SMART on FHIR specification, this variable is opaque to the SMART on FHIR app and passed on to the identity provider. 
 
