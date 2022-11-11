@@ -55,7 +55,7 @@ A billing account owner uses the following steps to cancel a subscription.
 A subscription owner can navigate in the Azure portal to **Subscriptions** and then start at step 3.
 
 1. In the Azure portal, navigate to Cost Management + Billing.
-1. In the left menu under **Products + services**, select **All billing subscriptions**. If you a support plan, its shown in the list.  
+1. In the left menu under **Products + services**, select **All billing subscriptions**. If you a support plan, it's shown in the list.  
     :::image type="content" source="./media/cancel-azure-subscription/all-billing-subscriptions.png" alt-text="Screenshot showing all billing subscriptions." lightbox="./media/cancel-azure-subscription/all-billing-subscriptions.png" :::
 1. Select the subscription that you want to cancel.
 1. At the top of page, select **Cancel**.
