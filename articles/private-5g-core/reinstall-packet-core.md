@@ -20,7 +20,7 @@ If you're experiencing issues with your deployment, reinstalling packet core may
 
 Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
-## View the the packet core instance's current status
+## View the packet core instance's current status
 
 To check which version your packet core instance is currently running, and whether there's a newer version available:
 
