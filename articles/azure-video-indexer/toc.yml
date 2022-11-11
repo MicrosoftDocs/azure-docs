@@ -150,20 +150,24 @@
       displayName: customizing   
       items:
       - name: Animated characters
+        displayName: customizing       
         href: animated-characters-recognition-how-to.md
       - name: Person
+        displayName: customizing       
         items:
         - name: using the website
           href: customize-person-model-with-website.md
         - name: using the API
           href: customize-person-model-with-api.md
       - name: Brands
+        displayName: customizing       
         items:
         - name: using the website
           href: customize-brands-model-with-website.md
         - name: using the API
           href: customize-brands-model-with-api.md
       - name: Language
+        displayName: customizing       
         items:
         - name: using the website
           href: customize-language-model-with-website.md
