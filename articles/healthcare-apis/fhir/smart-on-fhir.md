@@ -10,7 +10,7 @@ author: expekesheth
 ms.date: 11/10/2022
 ---
 
-# Tutorial: Azure Active Directory SMART on FHIR proxy
+# Overview : SMART on FHIR
 
 [SMART on FHIR](https://docs.smarthealthit.org/) is a set of open specifications to integrate partner applications with FHIR servers and electronic medical records systems that have Fast Healthcare Interoperability Resources (FHIR&#174;) interfaces. One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for an FHIR server and start an authentication sequence. 
 
