@@ -44,7 +44,7 @@ For information more about public IP prefixes and a NAT gateway, see [Manage NAT
     | Availability Zone | Select **No Zone**. |
     | Idle timeout (minutes) | Enter **10**. |
 
-For information about availability zones and NAT gateway, see [NAT gateway and availability zones](/azure/virtual-network/nat-gateway/nat-availability-zones).
+    For information about availability zones and NAT gateway, see [NAT gateway and availability zones](/azure/virtual-network/nat-gateway/nat-availability-zones).
 
 5. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
 
