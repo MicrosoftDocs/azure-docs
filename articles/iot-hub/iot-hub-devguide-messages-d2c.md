@@ -109,10 +109,10 @@ As CosmosDB is a hyperscale datastore, all data/documents written to it must con
 
  You can choose any of the supported authentication types for accessing the database, based on your system setup.
 
-Note: If you are using the System managed identity for authenticating to CosmosDB, you will need to have a “Cosmos DB Built in Data Contributor” Role assigned via CLI. The role setup is not supported from the portal today. For more details on the various roles, see [here](/azure/cosmos-db/how-to-setup-rbac). To understand assigning roles via CLI, see [here](/cli/azure/cosmosdb/sql/role?view=azure-cli-latest)
+> [!Caution]
+> If you are using the System managed identity for authenticating to CosmosDB, you will need to have a “Cosmos DB Built in Data Contributor” Role assigned via CLI. The role setup is not supported from the portal today. For more details on the various roles, see [here](/azure/cosmos-db/how-to-setup-rbac). To understand assigning roles via CLI, see [here](/cli/azure/cosmosdb/sql/role?view=azure-cli-latest)
 
- Once you have selected all the details, click on create and complete the setup of the custom endpoint.
-
+Once you have selected all the details, click on create and complete the setup of the custom endpoint.
 
 ## Reading data that has been routed
 
@@ -139,6 +139,8 @@ You can enable/disable the fallback route in the Azure portal->Message Routing b
 ## Non-telemetry events
 
 In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, digital twin change events, and device connection state events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device or module was deleted or created. For more information about device lifecycle events, see [Device and module lifecycle notifications](./iot-hub-devguide-identity-registry.md#device-and-module-lifecycle-notifications). When using [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin property is set or changed, a digital twin is replaced, or when a change event happens for the underlying device twin. Finally, if a route is created with data source set to **device connection state events**, IoT Hub sends a message indicating whether the device was connected or disconnected.
+
+
 
 
 
@@ -175,4 +177,5 @@ Use the [troubleshooting guide for routing](troubleshoot-message-routing.md) for
 * [How to send device-to-cloud messages](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 * For information about the SDKs you can use to send device-to-cloud messages, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
+
 
