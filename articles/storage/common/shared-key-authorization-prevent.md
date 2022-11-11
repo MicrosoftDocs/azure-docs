@@ -22,6 +22,62 @@ When you disallow Shared Key authorization for a storage account, Azure Storage 
 
 This article describes how to detect requests sent with Shared Key authorization and how to remediate Shared Key authorization for your storage account.
 
+## Prerequisites
+
+Before disallowing Shared Key access on any of your storage accounts:
+
+> [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
+> [Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
+> Consider the need to [disallow Shared Key authorization to use Azure AD Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
+> [Transition Azure Files workloads](#transition-azure-files-workloads)
+
+### Understand how disallowing Shared Key affects SAS tokens
+
+When Shared Key access is disallowed for the storage account, Azure Storage handles SAS tokens based on the type of SAS and the service that is targeted by the request. The following table shows how each type of SAS is authorized and how Azure Storage will handle that SAS when the **AllowSharedKeyAccess** property for the storage account is **false**.
+
+| Type of SAS | Type of authorization | Behavior when AllowSharedKeyAccess is false |
+|-|-|-|
+| User delegation SAS (Blob storage only) | Azure AD | Request is permitted. Microsoft recommends using a user delegation SAS when possible for superior security. |
+| Service SAS | Shared Key | Request is denied for all Azure Storage services. |
+| Account SAS | Shared Key | Request is denied for all Azure Storage services. |
+
+Azure metrics and logging in Azure Monitor do not distinguish between different types of shared access signatures. The **SAS** filter in Azure Metrics Explorer and the **SAS** field in Azure Storage logging in Azure Monitor both report requests that are authorized with any type of SAS. However, different types of shared access signatures are authorized differently, and behave differently when Shared Key access is disallowed:
+
+- A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
+- A user delegation SAS is authorized with Azure AD and will be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
+
+When you are evaluating traffic to your storage account, keep in mind that metrics and logs as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) may include requests made with a user delegation SAS.
+
+For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
+
+### Consider compatibility with other Azure tools and services
+
+A number of Azure services use Shared Key authorization to communicate with Azure Storage. If you disallow Shared Key authorization for a storage account, these services will not be able to access data in that account, and your applications may be adversely affected.
+
+Some Azure tools offer the option to use Azure AD authorization to access Azure Storage. The following table lists some popular Azure tools and notes whether they can use Azure AD to authorize requests to Azure Storage.
+
+| Azure tool | Azure AD authorization to Azure Storage |
+|-|-|
+| Azure portal | Supported. For information about authorizing with your Azure AD account from the Azure portal, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md). |
+| AzCopy | Supported for Blob storage. For information about authorizing AzCopy operations, see [Choose how you'll provide authorization credentials](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) in the AzCopy documentation. |
+| Azure Storage Explorer | Supported for Blob storage, Queue storage, Table storage and Azure Data Lake Storage Gen2. Azure AD access to File storage is not supported. Make sure to select the correct Azure AD tenant. For more information, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
+| Azure PowerShell | Supported. For information about how to authorize PowerShell commands for blob or queue operations with Azure AD, see [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-data-operations-powershell.md) or [Run PowerShell commands with Azure AD credentials to access queue data](../queues/authorize-data-operations-powershell.md). |
+| Azure CLI | Supported. For information about how to authorize Azure CLI commands with Azure AD for access to blob and queue data, see [Run Azure CLI commands with Azure AD credentials to access blob or queue data](../blobs/authorize-data-operations-cli.md). |
+| Azure IoT Hub | Supported. For more information, see [IoT Hub support for virtual networks](../../iot-hub/virtual-network-support.md). |
+| Azure Cloud Shell | Azure Cloud Shell is an integrated shell in the Azure portal. Azure Cloud Shell hosts files for persistence in an Azure file share in a storage account. These files will become inaccessible if Shared Key authorization is disallowed for that storage account. For more information, see [Connect your Microsoft Azure Files storage](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> To run commands in Azure Cloud Shell to manage storage accounts for which Shared Key access is disallowed, first make sure that you have been granted the necessary permissions to these accounts via Azure RBAC. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). |
+
+### Disallow Shared Key authorization to use Azure AD Conditional Access
+
+To protect an Azure Storage account with Azure AD [Conditional Access](../../active-directory/conditional-access/overview.md) policies, you must disallow Shared Key authorization for the storage account. Follow the steps described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to analyze the potential impact of this change for existing storage accounts before disallowing Shared Key authorization.
+
+### Transition Azure Files workloads
+
+Azure Storage supports Azure AD authorization for requests to blob, table and queue storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files that use Shared Key authorization will fail. Because the Azure portal always uses Shared Key authorization to access file data, if you disallow authorization with Shared Key for the storage account, you will not be able to access Azure Files data in the Azure portal.
+
+Microsoft recommends that you either migrate any Azure Files data to a separate storage account before you disallow access to the account via Shared Key, or that you do not apply this setting to storage accounts that support Azure Files workloads.
+
+Disallowing Shared Key access for a storage account does not affect SMB connections to Azure Files.
+
 ## Identify storage accounts with Shared Key access enabled
 
 There are two ways to identify storage accounts with Shared Key access enabled:
@@ -283,87 +339,8 @@ az storage container create \
     --auth-mode key
 ```
 
-<<<<<<< HEAD
 > [!NOTE]
 > Anonymous requests are not authorized and will proceed if you have configured the storage account and container for anonymous public read access. For more information, see [Configure anonymous public read access for containers and blobs](../blobs/anonymous-read-access-configure.md).
-=======
-### Check the Shared Key access setting for multiple accounts
-
-To check the Shared Key access setting across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
-
-Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays the Shared Key access setting for each account:
-
-```kusto
-resources
-| where type =~ 'Microsoft.Storage/storageAccounts'
-| extend allowSharedKeyAccess = parse_json(properties).allowSharedKeyAccess
-| project subscriptionId, resourceGroup, name, allowSharedKeyAccess
-```
-
-## Permissions for allowing or disallowing Shared Key access
-
-To set the **AllowSharedKeyAccess** property for the storage account, a user must have permissions to create and manage storage accounts. Azure role-based access control (Azure RBAC) roles that provide these permissions include the **Microsoft.Storage/storageAccounts/write** or **Microsoft.Storage/storageAccounts/\*** action. Built-in roles with this action include:
-
-- The Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role
-- The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
-- The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
-
-These roles do not provide access to data in a storage account via Azure Active Directory (Azure AD). However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
-
-Role assignments must be scoped to the level of the storage account or higher to permit a user to allow or disallow Shared Key access for the storage account. For more information about role scope, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
-
-Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
-
-> [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
->>>>>>> 228b63efa29222163ab6c0b22063d82733e77a25
-
-## Understand how disallowing Shared Key affects SAS tokens
-
-When Shared Key access is disallowed for the storage account, Azure Storage handles SAS tokens based on the type of SAS and the service that is targeted by the request. The following table shows how each type of SAS is authorized and how Azure Storage will handle that SAS when the **AllowSharedKeyAccess** property for the storage account is **false**.
-
-| Type of SAS | Type of authorization | Behavior when AllowSharedKeyAccess is false |
-|-|-|-|
-| User delegation SAS (Blob storage only) | Azure AD | Request is permitted. Microsoft recommends using a user delegation SAS when possible for superior security. |
-| Service SAS | Shared Key | Request is denied for all Azure Storage services. |
-| Account SAS | Shared Key | Request is denied for all Azure Storage services. |
-
-Azure metrics and logging in Azure Monitor do not distinguish between different types of shared access signatures. The **SAS** filter in Azure Metrics Explorer and the **SAS** field in Azure Storage logging in Azure Monitor both report requests that are authorized with any type of SAS. However, different types of shared access signatures are authorized differently, and behave differently when Shared Key access is disallowed:
-
-- A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
-- A user delegation SAS is authorized with Azure AD and will be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
-
-When you are evaluating traffic to your storage account, keep in mind that metrics and logs as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) may include requests made with a user delegation SAS.
-
-For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
-
-## Consider compatibility with other Azure tools and services
-
-A number of Azure services use Shared Key authorization to communicate with Azure Storage. If you disallow Shared Key authorization for a storage account, these services will not be able to access data in that account, and your applications may be adversely affected.
-
-Some Azure tools offer the option to use Azure AD authorization to access Azure Storage. The following table lists some popular Azure tools and notes whether they can use Azure AD to authorize requests to Azure Storage.
-
-| Azure tool | Azure AD authorization to Azure Storage |
-|-|-|
-| Azure portal | Supported. For information about authorizing with your Azure AD account from the Azure portal, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md). |
-| AzCopy | Supported for Blob storage. For information about authorizing AzCopy operations, see [Choose how you'll provide authorization credentials](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) in the AzCopy documentation. |
-| Azure Storage Explorer | Supported for Blob storage, Queue storage, Table storage and Azure Data Lake Storage Gen2. Azure AD access to File storage is not supported. Make sure to select the correct Azure AD tenant. For more information, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
-| Azure PowerShell | Supported. For information about how to authorize PowerShell commands for blob or queue operations with Azure AD, see [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-data-operations-powershell.md) or [Run PowerShell commands with Azure AD credentials to access queue data](../queues/authorize-data-operations-powershell.md). |
-| Azure CLI | Supported. For information about how to authorize Azure CLI commands with Azure AD for access to blob and queue data, see [Run Azure CLI commands with Azure AD credentials to access blob or queue data](../blobs/authorize-data-operations-cli.md). |
-| Azure IoT Hub | Supported. For more information, see [IoT Hub support for virtual networks](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell is an integrated shell in the Azure portal. Azure Cloud Shell hosts files for persistence in an Azure file share in a storage account. These files will become inaccessible if Shared Key authorization is disallowed for that storage account. For more information, see [Connect your Microsoft Azure Files storage](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> To run commands in Azure Cloud Shell to manage storage accounts for which Shared Key access is disallowed, first make sure that you have been granted the necessary permissions to these accounts via Azure RBAC. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). |
-
-## Disallow Shared Key authorization to use Azure AD Conditional Access
-
-To protect an Azure Storage account with Azure AD [Conditional Access](../../active-directory/conditional-access/overview.md) policies, you must disallow Shared Key authorization for the storage account. Follow the steps described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to analyze the potential impact of this change for existing storage accounts before disallowing Shared Key authorization.
-
-## Transition Azure Files workloads
-
-Azure Storage supports Azure AD authorization for requests to blob, table and queue storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files that use Shared Key authorization will fail. Because the Azure portal always uses Shared Key authorization to access file data, if you disallow authorization with Shared Key for the storage account, you will not be able to access Azure Files data in the Azure portal.
-
-Microsoft recommends that you either migrate any Azure Files data to a separate storage account before you disallow access to the account via Shared Key, or that you do not apply this setting to storage accounts that support Azure Files workloads.
-
-Disallowing Shared Key access for a storage account does not affect SMB connections to Azure Files.
 
 ## Next steps
 
