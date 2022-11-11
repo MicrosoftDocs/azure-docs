@@ -73,7 +73,7 @@ An Azure subscription and GitHub account.
       build:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - uses: azure/login@v1
           with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
