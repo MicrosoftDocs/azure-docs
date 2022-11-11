@@ -33,8 +33,8 @@ To manage these scenarios previously, you had to manually delete the guest userâ
 To reset a user's redemption status, you'll need one of the following roles:
 
 - [Guest Inviter](../roles/permissions-reference.md#guest-inviter) (least privileged)
-- [User administrator](../roles/permissions-reference.md#user-administrator)
-- [Global administrator](../roles/permissions-reference.md#global-administrator)
+- [User Administrator](../roles/permissions-reference.md#user-administrator)
+- [Global Administrator](../roles/permissions-reference.md#global-administrator)
 
 ## Use the Azure portal to reset redemption status
 
