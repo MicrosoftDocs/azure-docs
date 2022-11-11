@@ -144,17 +144,17 @@ additionalContent:
   # Supports up to 4 subsections
   sections:
     - title: HPC Conferences # < 60 chars (optional)
-      summary: See where you can find HPC at a variety of tech conferences. # < 160 chars (optional)
+      #summary: See where you can find HPC at a variety of tech conferences. # < 160 chars (optional)
       items:
         # Card
         - title: SC22 (Supercomputing) 
           links:
             - text: Microsoft at at SC22!
               url: https://www.aka.ms/SC22
-            - text: SuperComputing 22 Website
+            - text: Supercomputing 22 Website
               url: https://sc22.supercomputing.org/
         # Card
-        - title: Nvidia GTC (GPU Technology Conference)
+        - title: NVIDIA GTC (GPU Technology Conference)
           links:
             - text: Microsoft at GTC
               url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/we-ll-see-you-at-nvidia-s-spring-gtc-conference/ba-p/3194882
