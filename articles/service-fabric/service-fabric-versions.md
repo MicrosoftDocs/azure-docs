@@ -12,6 +12,8 @@ ms.date: 07/14/2022
 # Service Fabric supported versions
 The tables in this article outline the Service Fabric and platform versions that are actively supported.
 
+If you want to find a list of all the available Service Fabric runtime versions in available for your subscription, follow the guidance in the [Check for supported cluster versions section of the Manage Service Fabric Cluster Upgrades guide](service-fabric-cluster-upgrade-version-azure#check-for-supported-cluster-versions).
+
 ## Windows
 
 ### Current versions
