@@ -20,16 +20,16 @@ A host pool is a collection of Azure virtual machines that register to Azure Vir
 
 A host pool can be one of two types:
 
-- Personal, where each session host is assigned to individual users. Personal host pools provide dedicated desktop environments to end-users that optimize environments for performance and data separation. 
-- Pooled, where session hosts can accept connections from any user authorized to an app group within the host pool. Pooled host pools provide a shared desktop experience to end-users, which ensures lower costs costs and greater efficiency. 
+- Personal, where each session host is assigned to an individual user. Personal host pools provide dedicated desktop environments to end-users that optimize environments for performance and data separation. 
+- Pooled, where user sessions can be load balanced to any session host in the host pool and there can be multiple user sessions on a single session host. Pooled host pools provide a shared remote experience to end-users, which ensures lower costs costs and greater efficiency. 
 
 The following table goes into more detail about the features each type of host pool has:
 
 |Feature|Personal host pools|Pooled host pools|
 |---|---|---|
-|Load balancing| User sessions are always load balanced to the session host the user is assigned to. If the user isn't currently assigned to a session host, the user session is load balanced to the next available session host in the host pool. | User sessions are load balanced to session hosts in the host pool by the load balancing algorithm. You can choose which load balancing algorithm to use: breadth first or depth first. Sessions are load balanced based on user session count. |
+|Load balancing| User sessions are always load balanced to the session host the user is assigned to. If the user isn't currently assigned to a session host, the user session is load balanced to the next available session host in the host pool. | User sessions are load balanced to session hosts in the host pool based on user session count. You can choose which load balancing algorithm to use: breadth first or depth first. |
 |Maximum session limit| One | As many as the user wants. |
-|User assignment process| Customers can either directly assign users to session hosts or automatically assign users to the first available session host. In automatic assignment, the load balancing algorithm will always assign them to the same session host if they sign out and sign back in. | Users aren't assigned to session hosts. After a user signs out and signs back in, the load balancing algorithm might assign them to a different session host. |
+|User assignment process| Customers can either directly assign users to session hosts or choose to have users automatically assigned to the first available session host. Users always have sessions on the session hosts they are assigned to. | Users aren't assigned to session hosts. After a user signs out and signs back in, their user session might get load balanced to a different session host. |
 |Scaling|None. | Autoscale for pooled host pools turns VMs on and off based on the capacity thresholds and schedules the customer defines. |
 |Updates|Updated with Windows Updates, System Center Configuration Manager (SCCM), or other software distribution configuration tools.|Updated by redeploying session hosts from updated images instead of traditional updates.|
 |User data| Each user only ever uses one session host, so they can store their user profile data in either drive C or the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in FSLogix. |
