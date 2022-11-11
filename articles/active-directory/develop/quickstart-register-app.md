@@ -14,7 +14,7 @@ ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, cont
 #Customer intent: As developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
 ---
 
-[!INCLUDE [asp.net](../../../includes/active-directory-develop-quickstart-register-app.md)]
+[!INCLUDE [quickstart-register-app](../../../includes/active-directory-develop-quickstart-register-app.md)]
 
 
 ## Next steps
