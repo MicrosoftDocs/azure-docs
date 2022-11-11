@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path": "/articles/high-performance-compute/",
-            "redirect_url": "/articles/high-performance-computing/",
+            "source_path": "/articles/high-performance-compute/index.yml",
+            "redirect_url": "/articles/high-performance-computing/index.yml",
             "redirect_document_id": true
         },
