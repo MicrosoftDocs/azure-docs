@@ -22,7 +22,7 @@ In this article, you'll learn how to:
 >- Create a policy.
 >- Discover database instances.
 >- Configure backups.
->- Track a backup job
+>- Track a backup job.
 
 For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md). 
 
@@ -38,7 +38,7 @@ According to SAP, it's mandatory to run a weekly full backup of all databases wi
 To summarize the backup policy:
 
 - Always protect all databases within an instance with a database policy before you apply daily snapshots to the database instance.
-- Make sure that all database policies have only *Weekly fulls + logs*. No differential/incremental backups.
+- Make sure that all database policies have only *Weekly fulls + logs* and no differential/incremental backups.
 - Do *not* trigger on-demand Backint-based streaming differential or incremental backups for these databases.
 
 ### Permissions required for backup
@@ -54,11 +54,11 @@ Source disk resource group (where all disks are present for backup) | Disk Backu
 Source snapshot resource group | Disk Snapshot Contributor | The source VM system-assigned managed identity | Creates disk snapshots and stores them in the source snapshot resource group
 Source snapshot resource group | Disk Snapshot Contributor | Backup Management Service | Deletes old snapshots in the source snapshot resource group.
 
-When you're assigning permissions, keep in mind the following considerations:
+When you're assigning permissions, consider the following:
 
 - The credentials that are used should have permissions to grant roles to other resources and should be either Owner or User Access Administrator, as mentioned in the [steps for assigning user roles](../role-based-access-control/role-assignments-steps.md#step-4-check-your-prerequisites).
 
-- During backup configuration, you can use the Azure portal to assign the previously mentioned permissions, except Disk Snapshot Contributor to Backup Management Service principal for the snapshot resource group. You need to manually assign this permission.
+- During backup configuration, you can use the Azure portal to assign the previously mentioned permissions, except Disk Snapshot Contributor to the Backup Management Service principal for the snapshot resource group. You need to manually assign this permission.
 
 - We recommend that you *not* change the resource groups after they're given or assigned to Azure Backup, because it makes it easier to handle the permissions.
 
@@ -68,7 +68,7 @@ Learn about the [permissions required for snapshot restore](sap-hana-database-in
 
 ## Create a policy
 
-To create a policy for SAP HANA database instance backup, follow these steps:
+To create a policy for the SAP HANA database instance backup, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), select a Recovery Services vault.
 
@@ -90,7 +90,7 @@ To create a policy for SAP HANA database instance backup, follow these steps:
      >[!Note]
      >Azure Backup currently supports **Daily** backup only.
 
-   c. **Instant Restore**: Set the retention of recovery snapshots from *1* to *35* days. The default value is set to *2*.  
+   c. **Instant Restore**: Set the retention of recovery snapshots from *1* to *35* days. The default value is *2*.  
    d. **Resource group**: Select the appropriate resource group in the drop-down list.  
    e. **Managed Identity**: Select a managed identity in the dropdown list to assign permissions for taking snapshots of the managed disks and place them in the resource group that you've selected in the policy.
    
@@ -112,9 +112,9 @@ Before you configure a snapshot backup in this section, [configure the backup fo
 
 Then, to configure a snapshot backup, do the following:
 
-1. Go to the **Recovery Services vault**, and then select **Backup**.
+1. In the Recovery Services vault, select **Backup**.
 
-1. Select **SAP HANA in Azure VM** as the data source type, select a **Recovery Services vault** to use for backup, and then select **Continue**.
+1. Select **SAP HANA in Azure VM** as the data source type, select a Recovery Services vault to use for backup, and then select **Continue**.
 
 1. On the **Backup Goal** pane, under **Step 2: Configure Backup**, select **DB Instance via snapshot (Preview)**, and then select **Configure Backup**.
 
@@ -144,7 +144,7 @@ Then, to configure a snapshot backup, do the following:
 
 To run an on-demand backup, do the following:
 
-1. In the Azure portal, go to **Recovery Services vault**.
+1. In the Azure portal, select a Recovery Services vault.
 
 1. In the Recovery Services vault, on the left pane, select **Backup items**.
 
@@ -168,7 +168,7 @@ The Azure Backup service creates a job if you schedule backups or if you trigger
 
 1. In the Recovery Services vault, on the left pane, select **Backup Jobs**.
 
-   The jobs dashboard displays the status of the jobs that were triggered in *past 24 hours*. To modify the time range, select **Filter**, and then make the required changes.
+   The jobs dashboard displays the status of the jobs that were triggered in the past 24 hours. To modify the time range, select **Filter**, and then make the required changes.
 
 1. To review the details of a job, select the **View details** link next to the job name.
 
