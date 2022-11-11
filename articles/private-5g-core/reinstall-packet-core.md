@@ -20,6 +20,22 @@ If you're experiencing issues with your deployment, reinstalling packet core may
 
 Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
+## View the the packet core instance's current status
+
+To check which version your packet core instance is currently running, and whether there's a newer version available:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Search for and select the **Mobile Network** resource representing the private mobile network.
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
+3. In the **Resource** menu, select **Sites**.
+4. Select the site containing the packet core instance you're interested in.
+5. Under the **Network function** heading, select the name of the **Packet Core Control Plane** resource shown next to **Packet Core**.
+
+    :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
+
+6. Under the **Essentials** heading, make sure the **Installation status** field contains **Installed**. If the packet core instance is running a different process, wait for it to finish before attempting a reinstall.
+<!-- TODO: add image -->
+
 ## Back up deployment information
 
 The following list contains data that will get lost over a packet core reinstall. Back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
@@ -33,31 +49,20 @@ The following list contains data that will get lost over a packet core reinstall
 
 To reinstall your packet core instance:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Search for and select the **Mobile Network** resource representing the private mobile network.
+1. Navigate to the **Packet Core Control Plane** resource as described in [View the the packet core instance's current status](#view-the-the-packet-core-instances-current-status).
 
-    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
+2. Select **Reinstall packet core**.
 
-3. In the resource menu, select **Sites**.
-4. Select the site containing the packet core instance you're interested in.
-5. Under the **Network function** heading, select the name of the **Packet Core Control Plane** resource shown next to **Packet Core**.
-
-    :::image type="content" source="media/upgrade-packet-core-azure-portal/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
-
-6. Select **Reinstall packet core**.
-
-<!-- TODO: add image
+    <!-- TODO: add image
     :::image type="content" source="media/upgrade-packet-core-azure-portal/upgrade-version.png" alt-text="Screenshot of the Azure portal showing the Reinstall packet core option."::: -->
 
-7. In the **Confirm reinstall** field, type *Yes*.
+3. In the **Confirm reinstall** field, type **yes**.
 
-<!-- TODO: add image
+    <!-- TODO: add image
     :::image type="content" source="media/upgrade-packet-core-azure-portal/upgrade-packet-core-version.png" alt-text="Screenshot of the Azure portal showing the Reinstall packet core screen."::: -->
 
-8. Select **Reinstall**.
-9. Azure will now uninstall the packet core instance and redeploy it with the same configuration. The Azure portal will display the following confirmation screen when this deployment is complete.
-
-    :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
+4. Select **Reinstall**.
+5. Azure will now uninstall the packet core instance and redeploy it with the same configuration. You can check the progress of the reinstall by selecting the notifications icon (TODO) <!-- TODO: instructions and screenshot -->
 
 ## Restore backed up deployment information
 
@@ -70,8 +75,8 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 
 ## Verify reinstall
 
-Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after the reinstall.
-<!-- Advice if they're still experiencing issues? -->
+1. Navigate to the **Packet Core Control Plane** resource and check that the **Installation status** field contains **Installed**, as described in [View the the packet core instance's current status](#view-the-the-packet-core-instances-current-status).
+2. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after the reinstall.
 
 ## Next steps
 
