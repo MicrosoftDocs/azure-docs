@@ -29,11 +29,11 @@ ms.custom: include file
 
 1. Once the installation operation completes, the configuration wizard will launch. Select **Next** to start the configuration.
 
-    ![Screenshot that shows the "Microsoft Azure AD Connect Provisioning Agent Package" splash screen.](./media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-config-splash-screen.png)
+    ![Screenshot that shows the "Welcome to Azure AD Connect provisioning agent configuration wizard".](./media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-config-splash-screen.png)
 
 1. Sign in with your Azure AD global administrator account.  If you have Internet Explorer enhanced security enabled, it will block the sign-in.  If so, close the installation, [disable Internet Explorer enhanced security](/troubleshoot/developer/browsers/security-privacy/enhanced-security-configuration-faq), and restart the **Azure AD Connect Provisioning Agent Package**  installation.
 
-   ![Screenshot of the "Connect Active Directory" screen.](./media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-sign-in-to-azure.png)
+   ![Screenshot of the "Connect Azure AD" screen.](./media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-sign-in-to-azure.png)
 
 1. On the **Configure Service Account** screen, select a group Managed Service Account (gMSA). This account is used to run the agent service. If a managed service account is already configured in your domain, you might skip this screen. If prompted, choose either:
 
