@@ -27,7 +27,7 @@ In this how-to guide, we'll configure a service using the Azure portal.
 
 In this step, you'll configure basic settings for your new service using the Azure portal.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to configure a service.
 :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 1. In the **Resource** menu, select **Services**.

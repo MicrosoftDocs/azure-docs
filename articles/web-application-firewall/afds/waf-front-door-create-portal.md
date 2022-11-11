@@ -5,8 +5,9 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 10/21/2022
+ms.date: 10/28/2022
 ms.author: victorh
+ms.custom: template-tutorial, engagement-fy23
 ---
 
 # Tutorial: Create a Web Application Firewall policy on Azure Front Door using the Azure portal
@@ -43,11 +44,11 @@ First, create a basic WAF policy with managed Default Rule Set (DRS) by using th
 
    :::image type="content" source="../media/waf-front-door-create-portal/basic.png" alt-text="Screenshot of the Create a W A F policy page, with a Review + create button and list boxes for the subscription, resource group, and policy name.":::
 
-1. Select **Association**, and then select **+ Associate a Front door profile**, enter the following settings, and then select **Add**:
+1. Select **Association** tab, and then select **+ Associate a Front door profile**, enter the following settings, and then select **Add**:
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
-    | Front door profile              | Select your Front Door profile name. |
+    | Front Door profile              | Select your Front Door profile name. |
     | Domains          | Select the domains you want to associate the WAF policy to, then select **Add**. |
 
     :::image type="content" source="../media/waf-front-door-create-portal/associate-profile.png" alt-text="Screenshot of the associate a Front Door profile page.":::
@@ -62,9 +63,9 @@ First, create a basic WAF policy with managed Default Rule Set (DRS) by using th
 ### Change mode
 
 When you create a WAF policy, by default, WAF policy is in **Detection** mode. In **Detection** mode, WAF doesn't block any requests, instead, requests matching the WAF rules are logged at WAF logs.
-To see WAF in action, you can change the mode settings from **Detection** to **Prevention**. In **Prevention** mode, requests that match rules that are defined in Default Rule Set (DRS) are blocked and logged at WAF logs.
+To see WAF in action, you can change the mode settings from **Detection** to **Prevention**. In **Prevention** mode, requests that match defined rules are blocked and logged at WAF logs.
 
- :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot of the Policy settings section. The Mode toggle is set to Prevention.":::
+ :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot of the Overview page of Front Door WAF policy that shows how to switch to prevention mode.":::
 
 ### Custom rules
 
@@ -78,15 +79,18 @@ Below is an example of configuring a custom rule to block a request if the query
 
 ### Default Rule Set (DRS)
 
-Azure-managed Default Rule Set (DRS) is enabled by default. Current default version is Microsoft_DefaultRuleSet_2.0. From **Managed rules** page, select **Assign** to assign a different DRS.
+Azure-managed Default Rule Set (DRS) is enabled by default for Premium and Classic tiers of Front Door. Current default rule set for Premium Front Door is Microsoft_DefaultRuleSet_2.0. Microsoft_DefaultRuleSet_1.1 is the current default rule set for Classic Front Door. From **Managed rules** page, select **Assign** to assign a different DRS.
 
 To disable an individual rule, select the **check box** in front of the rule number, and select **Disable** at the top of the page. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** at the top of the page.
 
-:::image type="content" source="../media/waf-front-door-create-portal/managed-rules.png" alt-text="Screenshot of the Managed rules page showing a rule set, rule groups, rules, and Enable, Disable, and Change Action buttons." lightbox="../media/waf-front-door-create-portal/managed-rules-expanded.png":::
+:::image type="content" source="../media/waf-front-door-create-portal/managed-rules.png" alt-text="Screenshot of the Managed rules page showing a rule set, rule groups, rules, and Enable, Disable, and Change Action buttons." lightbox="../media/waf-front-door-create-portal/managed-rules.png":::
+
+> [!NOTE]
+> Managed rules are only supported in Front Door Premium tier and Front Door Classic tier policies.
 
 ## Clean up resources
 
-When no longer needed, remove the resource group and all related resources.
+When no longer needed, delete the resource group and all related resources.
 
 ## Next steps
 

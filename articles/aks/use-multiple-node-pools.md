@@ -48,7 +48,7 @@ To get started, create an AKS cluster with a single node pool. The following exa
 # Create a resource group in East US
 az group create --name myResourceGroup --location eastus
 
-# Create a basic single-node AKS cluster
+# Create a basic single-node pool AKS cluster
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \

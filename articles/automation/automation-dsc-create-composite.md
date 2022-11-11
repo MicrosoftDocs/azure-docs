@@ -4,7 +4,7 @@ description: This article tells how to convert configurations to composite resou
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.subservice: dsc
-ms.date: 08/08/2019
+ms.date: 10/21/2022
 ms.custom: engagement-fy23
 ms.topic: conceptual
 ---
@@ -12,6 +12,9 @@ ms.topic: conceptual
 # Convert configurations to composite resources
 
 > **Applies to:** :heavy_check_mark: Windows PowerShell 5.1
+
+> [!NOTE]
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
 
 > [!IMPORTANT]
 > This article refers to a solution that is maintained by the Open Source community and support is only available in the form of GitHub collaboration, not from Microsoft.

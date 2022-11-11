@@ -309,7 +309,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
         1. Select **JSON** and copy the `id` field.
              
-            You'll need the `/providers/Microsoft.Authorization/roleDefinitions/<definition_id>` value when you call the https://management.azure.com/batch?api-version=2020-06-01 POST API.
+            You'll need the `/providers/Microsoft.Authorization/roleDefinitions/<definition_id>` value when you call the `https://management.azure.com/batch?api-version=2020-06-01` POST API.
 
 1. Assign your custom role to the relevant users or groups:
     1. Select **Access control (AIM)** > **Add** > **Add role assignment**.
@@ -330,7 +330,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
     1. Search for and select the relevant user or group and click **Select**.
     1. Select **Review and assign**.
 
-1. Grant the users or groups read access to specific tables in a workspace by calling the https://management.azure.com/batch?api-version=2020-06-01 POST API and sending the following details in the request body:
+1. Grant the users or groups read access to specific tables in a workspace by calling the `https://management.azure.com/batch?api-version=2020-06-01` POST API and sending the following details in the request body:
 
     ```json
     {

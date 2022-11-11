@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 11/03/2022
 ms.author: kendownie
 ---
 
@@ -14,7 +14,7 @@ ms.author: kendownie
 
 We strongly recommend that you review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right AD source for authentication. The setup is different depending on the domain service you choose. This article focuses on enabling and configuring on-premises AD DS for authentication with Azure file shares.
 
-If you're new to Azure Files, we recommend reading our [planning guide](storage-files-planning.md) before reading the following series of articles.
+If you're new to Azure Files, we recommend reading our [planning guide](storage-files-planning.md).
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -25,13 +25,13 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 
 ## Supported scenarios and restrictions
 
-- AD DS identities used for Azure Files on-premises AD DS authentication must be synced to Azure AD or use a default share-level permission. Password hash synchronization is optional. 
+- AD DS identities used for Azure Files on-premises AD DS authentication must be synced to Azure AD or [use a default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities). Password hash synchronization is optional.
 - Supports Azure file shares managed by Azure File Sync.
 - Supports Kerberos authentication with AD with [AES 256 encryption](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption is not yet supported.
 - Supports single sign-on experience.
 - Only supported on clients running OS versions Windows 8/Windows Server 2012 or newer.
 - Only supported against the AD forest that the storage account is registered to. You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see the [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) for details.
-- Doesn't support authentication against computer accounts created in AD DS.
+- Doesn't support assigning share-level permissions to computer accounts (machine accounts) using Azure RBAC. You can either [use a default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) to allow computer accounts to access the share, or consider using a service logon account instead.
 - Doesn't support authentication against Network File System (NFS) file shares.
 - Doesn't support using CNAME to mount file shares.
 
@@ -78,13 +78,13 @@ Enabling AD DS authentication for your Azure file shares allows you to authentic
 
 Follow these steps to set up Azure Files for AD DS authentication: 
 
-1. [Part one: enable AD DS authentication on your storage account](storage-files-identity-ad-ds-enable.md)
+1. [Enable AD DS authentication on your storage account](storage-files-identity-ad-ds-enable.md)
 
-1. [Part two: assign share-level permissions to the Azure AD identity (a user, group, or service principal) that is in sync with the target AD identity](storage-files-identity-ad-ds-assign-permissions.md)
+1. [Assign share-level permissions to the Azure AD identity (a user, group, or service principal) that is in sync with the target AD identity](storage-files-identity-ad-ds-assign-permissions.md)
 
-1. [Part three: configure Windows ACLs over SMB for directories and files](storage-files-identity-ad-ds-configure-permissions.md)
+1. [Configure Windows ACLs over SMB for directories and files](storage-files-identity-ad-ds-configure-permissions.md)
  
-1. [Part four: mount an Azure file share to a VM joined to your AD DS](storage-files-identity-ad-ds-mount-file-share.md)
+1. [Mount an Azure file share to a VM joined to your AD DS](storage-files-identity-ad-ds-mount-file-share.md)
 
 1. [Update the password of your storage account identity in AD DS](storage-files-identity-ad-ds-update-password.md)
 
@@ -96,6 +96,4 @@ Identities used to access Azure file shares must be synced to Azure AD to enforc
 
 ## Next steps
 
-To enable on-premises AD DS authentication for your Azure file share, continue to the next article:
-
-[Part one: enable AD DS authentication for your account](storage-files-identity-ad-ds-enable.md)
+To get started, you must [enable AD DS authentication for your storage account](storage-files-identity-ad-ds-enable.md).

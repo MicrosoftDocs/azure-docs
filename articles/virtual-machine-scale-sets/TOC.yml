@@ -69,6 +69,9 @@
   - name: Configure autoscale - ARM Template
     href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
     maintainContext: true
+  - name: Predictive autoscale
+    href: ../azure-monitor/autoscale/autoscale-predictive.md
+    maintainContext: true
   - name: Troubleshoot autoscale
     href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Scale-In Policy

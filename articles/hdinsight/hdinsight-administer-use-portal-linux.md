@@ -213,9 +213,8 @@ The password is changed on all nodes in the cluster.
 
 > [!NOTE]
 > SSH passwords cannot contain the following characters:
-> ```
-> " ' ` / \ < % ~ | $ & ! 
-> ```
+>
+> ``` " ' ` / \ < % ~ | $ & ! ```
 
    | Field | Value |
    | --- | --- |
