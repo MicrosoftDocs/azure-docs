@@ -28,7 +28,7 @@ Considering their native granularity, which allow a given DCR to be associated t
 
 , it is really important to keep the DCR as smallest as possible.
 
-This means that it not ideal to create a single DCR to collect all the data we need to implement our observability. Given the operating system constraint, below there are several recommendations which could help:
+This means that it not ideal, even not recommended, to create a single DCR containing all the data source, collection items and destination necessary to implement our observability. Below there are several recommendations which could help in better planning DCR creation and maintenance:
 
 | Category | Best practice | Explanation | Impact area |
 |:---|:---|:---|:---|
