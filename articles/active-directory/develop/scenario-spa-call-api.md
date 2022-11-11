@@ -2,7 +2,7 @@
 title: Build single-page app calling a web API
 description: Learn how to build a single-page application that calls a web API
 services: active-directory
-author: rwike77
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/27/2021
-ms.author: ryanwi
+ms.author: owenrichards
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
