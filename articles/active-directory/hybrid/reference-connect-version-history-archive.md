@@ -93,7 +93,7 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 
 ### Functional changes ADSyncAutoUpgrade 
 
-- Added support for the mS-DS-ConsistencyGuid feature for group objects. Allows you to move groups between forests or reconnect groups in AD to Azure AD where the AD group objectID has changed. For more information see [Moving groups between forests](how-to-connect-migrate-groups.md).
+- Added support for the mS-DS-ConsistencyGuid feature for group objects. Allows you to move groups between forests or reconnect groups in AD to Azure AD where the AD group objectID has changed. For more information, see [Moving groups between forests](how-to-connect-migrate-groups.md).
 - The mS-DS-ConsistencyGuid attribute is automatically set on all synced groups and you do not have to do anything to enable this feature. 
 - Removed the Get-ADSyncRunProfile because it is no longer in use. 
 - Changed the warning you see when attempting to use an Enterprise Admin or Domain Admin account for the AD DS connector account to provide more context. 
@@ -108,7 +108,7 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 - Introduced a new error page that will be displayed if the required DCOM registry values are missing with a new help link. Information is also written to log files. 
 - Fixed an issue with the creation of the Azure Active Directory synchronization account where enabling Directory Extensions or PHS may fail because the account has not propagated across all service replicas before attempted use. 
 - Fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly. 
-- Fixed a bug in the auto upgrade which left the server in the scheduler suspended state. 
+- Fixed a bug in the auto upgrade that left the server in the scheduler suspended state. 
 
 ## 1.4.38.0
 ### Release status
@@ -133,7 +133,7 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 ### Fixed issues
 
 This version fixes an issue with existing Hybrid Azure AD joined devices. This release contains a new device sync rule that corrects this issue.
-Note that this rule change may cause deletion of obsolete devices from Azure AD. This is not a cause for concern, as these device objects are not used by Azure AD during Conditional Access authorization. For some customers, the number of devices that will be deleted through this rule change can exceed the deletion threshold. If you see the deletion of device objects in Azure AD exceeding the Export Deletion Threshold, it is advised to allow the deletions to go through. [How to allow deletes to flow when they exceed the deletion threshold](how-to-connect-sync-feature-prevent-accidental-deletes.md)
+This rule change may cause deletion of obsolete devices from Azure AD. This is not a cause for concern, as these device objects are not used by Azure AD during Conditional Access authorization. For some customers, the number of devices that will be deleted through this rule change can exceed the deletion threshold. If you see the deletion of device objects in Azure AD exceeding the Export Deletion Threshold, it is advised to allow the deletions to go through. [How to allow deletes to flow when they exceed the deletion threshold](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
 ## 1.4.25.0
 
@@ -154,7 +154,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 >We are investigating an incident where some customers are experiencing an issue with existing Hybrid Azure AD joined devices after upgrading to this version of Azure AD Connect. We advise customers who have deployed Hybrid Azure AD join to postpone upgrading to this version until the root cause of these issues are fully understood and mitigated. More information will be provided as soon as possible.
 
 >[!IMPORTANT]
->With this version of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during Conditional Access authorization. For more information see [Understanding Azure AD Connect 1.4.xx.x device disappearnce](/troubleshoot/azure/active-directory/reference-connect-device-disappearance)
+>With this version of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during Conditional Access authorization. For more information, see [Understanding Azure AD Connect 1.4.xx.x device disappearnce](/troubleshoot/azure/active-directory/reference-connect-device-disappearance)
 
 
 ### Release status
@@ -186,7 +186,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 - Resolved sync error issue for the scenario where a user object taking over its corresponding contact object has a self-reference (e.g. user is their own manager).
 - Help pop-ups now show on keyboard focus.
 - For Auto upgrade, if any conflicting app is running from 6 hours, kill it and continue with upgrade.
-- Limit the number of attributes a customer can select to 100 per object when selecting directory extensions. This will prevent the error from occurring during export as Azure has a maximum of 100 extension attributes per object.
+- Limit the number of attributes a customer can select to 100 per object when selecting directory extensions. This limit will prevent the error from occurring during export as Azure has a maximum of 100 extension attributes per object.
 - Fixed a bug to make the AD Connectivity script more robust.
 - Fixed a bug to make Azure AD Connect install on a machine using an existing Named Pipes WCF service more robust.
 - Improved diagnostics and troubleshooting around group policies that do not allow the ADSync service to start when initially installed.
@@ -199,7 +199,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 >[!IMPORTANT]
 >There is a known issue with upgrading Azure AD Connect from an earlier version to 1.3.21.0 where the Microsoft 365 portal does not reflect the updated version even though Azure AD Connect upgraded successfully.
 >
-> To resolve this, you need to import the **AdSync** module and then run the `Set-ADSyncDirSyncConfiguration` PowerShell cmdlet on the Azure AD Connect server.  You can use the following steps:
+> To resolve this issue, you need to import the **AdSync** module and then run the `Set-ADSyncDirSyncConfiguration` PowerShell cmdlet on the Azure AD Connect server.  You can use the following steps:
 >
 >1.    Open PowerShell in administrator mode.
 >2.    Run `Import-Module "ADSync"`.
@@ -211,7 +211,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 
 ### Fixed issues 
 
-- Fixed an elevation of privilege vulnerability that exists in Microsoft Azure Active Directory Connect build 1.3.20.0.  This vulnerability, under certain conditions, may allow an attacker to execute two PowerShell cmdlets in the context of a privileged account, and perform privileged actions.  This security update addresses the issue by disabling these cmdlets. For more information see [security update](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
+- Fixed an elevation of privilege vulnerability that exists in Microsoft Azure Active Directory Connect build 1.3.20.0.  This vulnerability, under certain conditions, may allow an attacker to execute two PowerShell cmdlets in the context of a privileged account, and perform privileged actions.  This security update addresses the issue by disabling these cmdlets. For more information, see [security update](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
 
 
 ## 1.3.20.0 
@@ -235,7 +235,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 - Upgrade to ADAL 3.19.8 to pick up a WS-Trust fix for Ping and add support for new Azure instances 
 - Modify Group Sync Rules to flow samAccountName, DomainNetbios and DomainFQDN to cloud - needed for claims 
 - Modified Default Sync Rule Handling – read more [here](how-to-connect-fix-default-rules.md).
-- Added a new agent running as a Windows service. This agent, named “Admin Agent”, enables deeper remote diagnostics of the Azure AD Connect server to help Microsoft Engineers troubleshoot when you open a support case. This agent is not installed and enabled by default.  For more information on how to install and enable the agent see [What is the Azure AD Connect Admin Agent?](whatis-aadc-admin-agent.md). 
+- Added a new agent running as a Windows service. This agent, named “Admin Agent”, enables deeper remote diagnostics of the Azure AD Connect server to help Microsoft Engineers troubleshoot when you open a support case. This agent is not installed and enabled by default.  For more information on how to install and enable the agent, see [What is the Azure AD Connect Admin Agent?](whatis-aadc-admin-agent.md). 
 - Updated the End User License Agreement (EULA) 
 - Added auto upgrade support for deployments that use AD FS as their login type.  This also removed the requirement of updating the AD FS Azure AD Relying Party Trust as part of the upgrade process. 
 - Added an Azure AD trust management task that provides two options: analyze/update trust and reset trust. 
@@ -318,10 +318,10 @@ This hotfix build fixes a regression in the previous build where Password Writeb
 
 - Changed the  functionality of attribute write-back to ensure hosted voice-mail is working as expected.  Under certain scenarios, Azure AD was overwriting the msExchUcVoicemailSettings attribute during write-back with a null value.  Azure AD will now no longer clear the on-premises value of this attribute if the cloud value is not set.
 - Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to Azure AD. These same diagnostics can also be run directly through PowerShell using the Test- AdSyncAzureServiceConnectivity Cmdlet. 
-- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to AD. These same diagnostics can also be run directly through PowerShell using the Start-ConnectivityValidation function in the ADConnectivityTools PowerShell module.  For more information see [What is the ADConnectivityTool PowerShell Module?](how-to-connect-adconnectivitytools.md)
+- Added diagnostics in the Azure AD Connect wizard to investigate and identify Connectivity issues to AD. These same diagnostics can also be run directly through PowerShell using the Start-ConnectivityValidation function in the ADConnectivityTools PowerShell module.  For more information, see [What is the ADConnectivityTool PowerShell Module?](how-to-connect-adconnectivitytools.md)
 - Added an AD schema version pre-check for Hybrid Azure Active Directory Join and device write-back 
 - Changed the Directory Extension page attribute search to be non-case sensitive.
--	Added full support for TLS 1.2. This release supports all other protocols being disabled and only TLS 1.2 being enabled on the machine where Azure AD Connect is installed.  For more information see [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)
+-	Added full support for TLS 1.2. This release supports all other protocols being disabled and only TLS 1.2 being enabled on the machine where Azure AD Connect is installed.  For more information, see [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)
 
 
 
@@ -468,7 +468,7 @@ Status 3/22/2018: Released for auto-upgrade and download.
 #### Fixed issues
 
 * Set-ADSyncAutoUpgrade cmdlet would previously block Autoupgrade if auto-upgrade state is set to Suspended. This functionality has now changed so it does not block AutoUpgrade of future builds.
-* Changed the **User Sign-in** page option "Password Synchronization" to "Password Hash Synchronization".  Azure AD Connect synchronizes password hashes, not passwords, so this aligns with what is actually occurring.  For more information see [Implement password hash synchronization with Azure AD Connect sync](how-to-connect-password-hash-synchronization.md)
+* Changed the **User Sign-in** page option "Password Synchronization" to "Password Hash Synchronization".  Azure AD Connect synchronizes password hashes, not passwords, so this aligns with what is actually occurring.  For more information, see [Implement password hash synchronization with Azure AD Connect sync](how-to-connect-password-hash-synchronization.md)
 
 ## 1.1.749.0
 Status: Released to select customers
@@ -492,7 +492,7 @@ Status: Released to select customers
 
 #### New features and improvements
 
-* Adding Privacy Settings for the General Data Protection Regulation (GDPR).  For more information see the article [here](reference-connect-user-privacy.md).
+* Adding Privacy Settings for the General Data Protection Regulation (GDPR).  For more information, see the article [here](reference-connect-user-privacy.md).
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]  
 
@@ -607,7 +607,7 @@ Status: October 27 2017
 Status: October 19 2017
 
 > [!IMPORTANT]
-> There is a known compatibility issue between Azure AD Connect version 1.1.647.0 and Azure AD Connect Health Agent (for sync) version 3.0.127.0. This issue prevents the Health Agent from sending health data about the Azure AD Connect Synchronization Service (including object synchronization errors and run history data) to Azure AD Health Service. Before manually upgrading your Azure AD Connect deployment to version 1.1.647.0, please verify the current version of Azure AD Connect Health Agent installed on your Azure AD Connect server. You can do so by going to *Control Panel → Add Remove Programs* and look for application *Microsoft Azure AD Connect Health Agent for Sync*. If its version is 3.0.127.0, it is recommended that you wait for the next Azure AD Connect version to be available before upgrade. If the Health Agent version isn't 3.0.127.0, it is fine to proceed with the manual, in-place upgrade. Note that this issue does not affect swing upgrade or customers who are performing new installation of Azure AD Connect.
+> There is a known compatibility issue between Azure AD Connect version 1.1.647.0 and Azure AD Connect Health Agent (for sync) version 3.0.127.0. This issue prevents the Health Agent from sending health data about the Azure AD Connect Synchronization Service (including object synchronization errors and run history data) to Azure AD Health Service. Before manually upgrading your Azure AD Connect deployment to version 1.1.647.0, please verify the current version of Azure AD Connect Health Agent installed on your Azure AD Connect server. You can do so by going to *Control Panel → Add Remove Programs* and look for application *Microsoft Azure AD Connect Health Agent for Sync*. If its version is 3.0.127.0, it is recommended that you wait for the next Azure AD Connect version to be available before upgrade. If the Health Agent version isn't 3.0.127.0, it is fine to proceed with the manual, in-place upgrade. This issue does not affect swing upgrade or customers who are performing new installation of Azure AD Connect.
 >
 >
 ### Azure AD Connect
