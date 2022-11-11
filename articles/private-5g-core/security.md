@@ -15,8 +15,8 @@ ms.date: 01/25/2022
 
 Azure Private 5G Core consists of two main components that interact with each other:
 
-- **The Azure Private 5G Core service, hosted in Azure**. The management resource used to create the private mobile network, manage sites, provision SIMs, and deploy packet core instances to sites.
-- **Packet core instances, hosted on Azure Stack Edge devices**. The packet core, which provides connectivity to mobile devices at an edge location.
+- **The Azure Private 5G Core service**, hosted in Azure - the management tools used to configure and monitor the deployment.
+- **Packet core instances**, hosted on Azure Stack Edge devices - the complete set of 5G network functions that provide connectivity to mobile devices at an edge location.
 
 ## Secure platform
 

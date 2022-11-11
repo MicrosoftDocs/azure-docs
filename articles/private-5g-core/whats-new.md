@@ -10,14 +10,17 @@ ms.date: 10/24/2022
 
 # What's new in Azure Private 5G Core?
 
-The Azure Private 5G Core online services and packet core receive improvements on an ongoing basis. To help you stay up to date with the most recent developments, this article describes:
+*Azure Private 5G Core* consists of two main components that interact with each other:
 
-- New features for the online services.
-- Improvements to existing features for the online services.
-- Online services bug fixes.
-- New packet core releases. These updates will link to the relevant release notes for further information.
+- **The Azure Private 5G Core service**, hosted in Azure - the management tools used to configure and monitor the deployment. Changes to the online service are available immediately.
+- **Packet core instances**, hosted on Azure Stack Edge devices - the complete set of 5G network functions that provide connectivity to mobile devices at an edge location. Changes to the packet core are only available after upgrading to a new software version.
 
-This page is updated on a monthly basis to list what's new with Azure Private 5G Core since the previous month's update. <!-- TODO: update with agreed update frequency -->
+To help you stay up to date with the latest developments, this article covers:
+
+- New features, improvements and bug notifications for the online service
+- New releases for the packet core, referencing the packet core release notes for further information.
+
+This page is updated regularly with the latest developments in Azure Private 5G Core. <!-- TODO: maybe update with agreed update frequency -->
 <!-- In future: If you're looking for items older than six months, you can find them in Archive for What's new in Azure Private 5G Core. -->
 
 ## November 2022
