@@ -167,7 +167,7 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
 
 1. Use the drop-down menu to choose the runtime version that your IoT Edge devices are running, then select **OK** to save your changes. If no change was made, select **Cancel** to exit.
 
-    The extension hasn't been updated to include version 1.4. If you want to set the runtime version higher than 1.2, open *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
 
     ```json
     ...
@@ -313,8 +313,6 @@ After you're done developing a single module, you might want to run and debug an
 1. Right-click the main project (for example, *AzureIotEdgeApp1*) and select **Set as StartUp Project**. By setting the main project as the startup project, all modules in the solution run. This includes both modules you added to the solution as well as the simulated temperature sensor module and the simulated Edge hub.
 
 1. Press **F5** or select the run toolbar button to run the solution. It may take 10 to 20 seconds initially. Be sure you don't have other Docker containers running that might bind the port you need for this project.
-
-   :::image type="content" source="./media/how-to-visual-studio-develop-module/run-solution.png" alt-text="Screenshot of how to run a solution." lightbox="./media/how-to-visual-studio-develop-module/run-solution.png":::
 
 1. You should see two .NET Core console app windows appear one for each module.
 
