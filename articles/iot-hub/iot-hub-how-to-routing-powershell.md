@@ -224,23 +224,23 @@ To create an endpoint to Azure Storage, you need your access key to construct a 
 
 ## Create an IoT Hub route
 
-1. Finally, with your new endpoint in your IoT hub, you can create a new route.
+Finally, with your new endpoint in your IoT hub, you can create a new route.
 
-   The default fallback route in IoT Hub collects messages from `DeviceMessages`, so let's choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more information on source options, see [Add-AzIotHubRoute](/powershell/module/az.iothub/add-aziothubroute#parameters). The **Enabled** parameter is a switch, so no value needs to follow it.
+The default fallback route in IoT Hub collects messages from `DeviceMessages`, so let's choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more information on source options, see [Add-AzIotHubRoute](/powershell/module/az.iothub/add-aziothubroute#parameters). The **Enabled** parameter is a switch, so no value needs to follow it.
 
-   ```powershell
-   Add-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteName MyRoute -Source DeviceLifecycleEvents -EndpointName MyEndpoint -Enabled
-   ```
+```powershell
+Add-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteName MyRoute -Source DeviceLifecycleEvents -EndpointName MyEndpoint -Enabled
+```
 
-   You see a confirmation in your console:
+You see a confirmation in your console:
 
-   ```powershell
-   RouteName     : MyIotHub 
-   DataSource    : DeviceLifecycleEvents
-   EndpointNames : MyEndpoint
-   Condition     : true
-   IsEnabled     : True
-   ```
+```powershell
+RouteName     : MyIotHub 
+DataSource    : DeviceLifecycleEvents
+EndpointNames : MyEndpoint
+Condition     : true
+IsEnabled     : True
+```
 
 ## Update your IoT hub route
 
