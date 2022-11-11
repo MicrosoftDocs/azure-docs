@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 11/11/2022
 ms.author: jammart
 ms.reviewer: nachakra 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
@@ -21,17 +21,6 @@ Every secure request to an Azure Storage account must be authorized. By default,
 When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with the account access keys. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
 This article describes how to detect requests sent with Shared Key authorization and how to remediate Shared Key authorization for your storage account.
-
-## Plan for disallowing Shared Key authorization
-
-When you disallow Shared Key authorization for a storage account, requests from clients that are using the account access keys for Shared Key authorization will fail. To minimize the impact to clients, applications and other services, create a plan that includes:
-
-- [Identify storage accounts with Shared Key access enabled](#identify-storage-accounts-with-shared-key-access-enabled)
-- [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications)
-- [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
-- [Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
-- [Disallow Shared Key authorization to use Azure AD Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
-- [Transition Azure Files workloads](#transition-azure-files-workloads)
 
 ## Identify storage accounts with Shared Key access enabled
 
@@ -55,7 +44,7 @@ resources
 
 ### Configure the Azure Policy for Shared Key access in audit mode
 
-Azure Policy **Storage accounts should prevent shared key access** prevents enabling Shared Key access on existing storage accounts and creating new ones with  it enabled. Configure this policy in audit mode to identify storage accounts that have Shared Key access enabled. After you have changed applications to use Azure AD instead of shared keys for authorization, you can [change the policy to block enabling Shared Key access](#update-azure-policy-assignment-to-prevent-enabling-shared-key-access).
+Azure Policy **Storage accounts should prevent shared key access** prevents users with appropriate permissions from configuring new or existing storage accounts to permit Shared Key authorization. Configure this policy in audit mode to identify storage accounts where Shared Key authorization is allowed. After you have changed applications to use Azure AD rather than Shared Key for authorization, you can [change the policy to block enabling Shared Key access](#update-azure-policy-assignment-to-prevent-enabling-shared-key-access).
 
 For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
