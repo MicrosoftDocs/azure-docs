@@ -50,7 +50,7 @@ productDirectory:
   items:
     # Card
     - title: HPC Compute VM Sizes
-      imageSrc: ../high-performance-compute/media/Scale.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       links:
         - url: ../virtual-machines/sizes.md
           text: What are VM sizes?
@@ -74,7 +74,7 @@ productDirectory:
           text: Getting Started with VDI
     # Card
     - title: Azure Batch
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      imageSrc: ../high-performance-compute/media/Azure-Batch.svg
       links:
         - url: ../batch/batch-technical-overview.md
           text: What is Azure Batch?
