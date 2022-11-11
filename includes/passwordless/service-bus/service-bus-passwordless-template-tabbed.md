@@ -12,6 +12,19 @@ ms.custom: include file
 
 
 
+## [Passwordless](#tab/passwordless)
+
+## Authenticate the app to Azure
+
+[!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
+
+[!INCLUDE [passwordless-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
+
+### Assign roles to your Azure AD user
+
+[!INCLUDE [service-bus-assign-roles](service-bus-assign-roles.md)]
+
+
 ## [Connection String](#tab/connection-string)
 
 ## Get the connection string 
@@ -26,27 +39,6 @@ A client can use the connection string to connect to the Service Bus namespace. 
     :::image type="content" source="./media/service-bus-passwordless-template-tabbed/connection-string.png" lightbox="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screenshot shows an SAS policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
 
     You can use this page to copy primary key, secondary key, primary connection string, and secondary connection string. 
-
-
-## [Passwordless](#tab/passwordless)
-
-## Authenticate the app to Azure
-
-[!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
-
-[!INCLUDE [passwordless-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
-
-### Assign roles to your Azure AD user
-
-[!INCLUDE [service-bus-assign-roles](service-bus-assign-roles.md)]
-
-### Sign in and add the Azure Identity package
-
-You can authorize access to the service bus namespace using the following steps:
-
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
-
-[!INCLUDE [visual-studio-add-identity](../../../includes/passwordless/visual-studio-add-identity.md)]
 
 
 ---
