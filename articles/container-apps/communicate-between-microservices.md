@@ -240,7 +240,7 @@ az containerapp create \
 
 
 ```azurepowershell
-$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroup -EnvName Environment).Id
+$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroup -EnvName $Environment).Id
 
 $EnvVars = New-AzContainerAppEnvironmentVarObject -Name API_BASE_URL -Value https://$APIBaseURL
 
@@ -294,7 +294,7 @@ az group delete --name $RESOURCE_GROUP
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name $ResourceGroupName -Force
+Remove-AzResourceGroup -Name $ResourceGroup -Force
 ```
 
 ---

@@ -128,7 +128,7 @@ az group create \
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Location $Location -Name $ResourceGroupName
+New-AzResourceGroup -Location $Location -Name $ResourceGroup
 ```
 
 ---
@@ -150,7 +150,7 @@ az acr create \
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$acr = New-AzContainerRegistry -ResourceGroupName $ResourceGroupName -Name $ACRName -Sku Basic -AdminUserEnabled $true
+$acr = New-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $ACRName -Sku Basic -EnableAdminUser
 ```
 
 ---
@@ -271,8 +271,8 @@ $WorkspaceArgs = @{
     PublicNetworkAccessForQuery = 'Enabled'
 }
 New-AzOperationalInsightsWorkspace @WorkspaceArgs
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
-$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup -Name $WorkspaceArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroup -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
 To create the environment, run the following command:
@@ -319,7 +319,7 @@ $ImageParams = @{
     Image = $ACRName + '.azurecr.io/' + $APIName
 }
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
-$EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroup $ResourceGroup).Id
+$EnvId = (Get-AzContainerAppManagedEnv -EnvName $Environment -ResourceGroup $ResourceGroup).Id
 
 $AppArgs = @{
     Name = $APIName
@@ -364,7 +364,7 @@ az group delete --name $RESOURCE_GROUP
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name $ResourceGroupName -Force
+Remove-AzResourceGroup -Name $ResourceGroup -Force
 ```
 
 ---
