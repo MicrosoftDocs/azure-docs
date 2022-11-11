@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/16/2018
+ms.date: 11/11/2022
 ms.subservice: hybrid
 ms.author: billmath
 
