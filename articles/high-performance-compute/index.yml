@@ -6,15 +6,16 @@ brand: azure
 
 metadata:
   title: Azure HPC documentation
-  description: Azure High Performance Computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads, and this page offers a range of available services and use case scenarios for you to explore.
+  description: Azure High Performance Computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads. This page offers a range of available services and use case scenarios for you to explore.
   imageSrc: ../virtual-machines/media/logos/hpclogo.png
   ms.service: azure-hpc
   ms.topic: hub-page
   author: padmalathas
   ms.author: padmalathas
-  ms.date: 11/10/2022
+  ms.reviewer: mattmcinnes
+  ms.date: 11/11/2022
 
-# highlightedContent section (optional)
+# Main Items (Icons)
 # Maximum of 8 items
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -30,24 +31,24 @@ highlightedContent:
     # Card
     - title: HPC Architecture
       itemType: architecture
-      url: https://learn.microsoft.com/en-us/azure/architecture/
+      url: /azure/architecture/topics/high-performance-computing
     # Card
-    - title: Start building with an Azure HPC service for high performance applications
+    - title: Azure HPC Documentation
       itemType: reference
-      url: /architecture/guide/technology-choices/compute-decision-tree
+      url: /azure/architecture/topics/high-performance-computing
     # Card
-    - title: Azure HPC on Microsoft Learn
+    - title: Azure HPC Training Path
       itemType: learn
-      url: /training/browse/?products=azure&term=hpc&terms=hpc
+      url: /training/paths/run-high-performance-computing-applications-azure/
     # Card
     - title: Azure HPC Blog
       itemType: whats-new
       url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
 
-# productDirectory section (optional)
+# Azure Services
 productDirectory:
   title: Components # < 60 chars (optional)
-  summary: There are several Azure services that make up our High Performance Computing offering # < 160 chars (optional)
+  summary: There are several Azure services that make up our High Performance Computing offering. # < 160 chars (optional)
   items:
     # Card
     - title: Linux Virtual Machines
@@ -94,12 +95,11 @@ productDirectory:
       # imageSrc should be square in ratio with no white space
       imageSrc: ../high-performance-compute/media/Azure-HCP-Cache.svg
       links:
-        - url: https://learn.microsoft.com/en-us/azure/hpc-cache/hpc-cache-overview
+        - url: /azure/hpc-cache/hpc-cache-overview/
           text: What is Azure HPC Cache
-        - url: https://learn.microsoft.com/en-us/azure/hpc-cache/hpc-cache-create?tabs=azure-portal
+        - url: /azure/hpc-cache/hpc-cache-create?tabs=azure-portal/
           text: Create an Azure HPC Cache
-
-# conceptualContent section (optional)
+#Additional Content
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
@@ -119,21 +119,27 @@ conceptualContent:
         # Card
         - title: HPC VM Sizes
           links:
-            - url: /virtual-machines/hx-series/
+            - url: /azure/virtual-machines/hx-series/
               itemType: concept
               text: HX-series VMs
-            - url: /virtual-machines/hbv4-series/
+            - url: /azure/virtual-machines/hbv4-series/
               itemType: concept
               text: HBv4-series VMs
-            - url: /virtual-machines/h-series/
+            - url: /azure/virtual-machines/h-series/
               itemType: concept
               text: H-series VMs
          # Card
         - title: HPC Workloads
           links:
-            - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/deploy-linux-workstations-for-3d-visualization-in-azure/ba-p/3658520
-              itemType: sample
-              text: 3D Visualization with Linux on Azure HPC
+            - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
+              itemType: overview
+              text: 3d Video Rendering
+            - url: /azure/architecture/example-scenario/apps/hpc-saas
+              itemType: overview
+              text: Computer-aided Engineering
+            - url: /azure/architecture/example-scenario/infrastructure/image-modeling/
+              itemType: overview
+              text: Digital image-based modeling on Azure
 
 # Super Computing Announcement included
 
@@ -142,7 +148,7 @@ additionalContent:
   # Supports up to 4 subsections
   sections:
     - title: HPC Conferences # < 60 chars (optional)
-      summary: See where you can find HPC at a variety of tech conferences # < 160 chars (optional)
+      summary: See where you can find HPC at a variety of tech conferences. # < 160 chars (optional)
       items:
         # Card
         - title: SC22 (Supercomputing) 
