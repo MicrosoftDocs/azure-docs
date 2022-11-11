@@ -17,7 +17,7 @@ The pipeline is triggered by commits to a specific branch in your repository. Wh
 
 ## Container Apps Azure Pipelines task
 
-To build and deploy your container app, you add the [`AzureContainerAppsRCV0`](https://marketplace.visualstudio.com/items?itemName=microsoft-oryx.AzureContainerAppsRC) (preview) Azure Pipelines task to your pipeline. It supports the following scenarios:
+To build and deploy your container app, you add the [`AzureContainerAppsRC@0`](https://marketplace.visualstudio.com/items?itemName=microsoft-oryx.AzureContainerAppsRC) (preview) Azure Pipelines task to your pipeline. It supports the following scenarios:
 
 * Build from a Dockerfile and deploy to Container Apps.
 * Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby.
@@ -31,7 +31,7 @@ The following snippet shows how to build a container image and deploy it to Cont
 
 ```yaml
 steps:
-- task: AzureContainerAppsRC@V0
+- task: AzureContainerAppsRC@0
   inputs:
     appSourcePath: '$(Build.SourcesDirectory)/src'
     azureSubscription: 'my-subscription-service-connection'
@@ -48,7 +48,7 @@ The following snippet shows how to deploy an existing container image to Contain
 
 ```yaml
 steps:
-  - task: AzureContainerAppsRC@V0
+  - task: AzureContainerAppsRC@0
     inputs:
       azureSubscription: 'my-subscription-service-connection'
       acrName: 'myregistry'
@@ -173,7 +173,7 @@ To learn more about service connections, see [Connect to Microsoft Azure](/azure
       vmImage: ubuntu-latest
 
     steps:
-      - task: AzureContainerAppsRC@V0
+      - task: AzureContainerAppsRC@0
         inputs:
           appSourcePath: '$(Build.SourcesDirectory)/src'
           azureSubscription: '<AZURE_SUBSCRIPTION_SERVICE_CONNECTION>'
