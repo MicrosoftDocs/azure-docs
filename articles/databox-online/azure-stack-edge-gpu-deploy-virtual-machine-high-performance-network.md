@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 11/11/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -20,34 +20,45 @@ You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU 
 
 ## About HPN VMs
 
-A non-uniform memory access (NUMA) architecture is used to increase processing speeds. In a NUMA system, CPUs are arranged in smaller systems called nodes. Each node has its own processors and memory. Processors are typically allocated memory that they're close to so the access is quicker. For more information, see [NUMA Support](/windows/win32/procthread/numa-support).  
+HPN VMs are specifically designed for 5G network functions that require low latencies and high throughput network applications.
+
+ (Get context from Jia’s doc). HPN VMs rely on a non-uniform memory access (NUMA) architecture to increase processing speeds. In a NUMA system, CPUs are arranged in smaller systems called nodes. Each node has its own processors and memory. Processors are typically allocated memory that they're close to so that the access is quicker. For more information, see [NUMA Support](/windows/win32/procthread/numa-support).  
 
 On your Azure Stack Edge device, logical processors are distributed on NUMA nodes and high speed network interfaces can be attached to these nodes. An HPN VM has a dedicated set of logical processors, but an HPN VM can use CPU from only one NUMA node.
 
-For versions 2209 and lower, to run low latency and high throughput network applications on the HPN VMs deployed on your device, make sure to reserve vCPUs that reside in NUMA node 0. This node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it. 
+### [2210 and later](#tab/2210)
 
-For versions 2210 and higher, vCPUs are automatically reserved with the maximum supported vCPU set on each NUMA node. If HPN is already enabled from a pre-2210 version, the configuration will be carried over.
+For this version, vCPUs are automatically reserved with the maximum number of vCPUs supported on each NUMA node. If the vCPUs were already reserved for HPN VMs in an earlier version, like 2209 or earlier, then the existing reservation is carried forth to the 2210 version.
+
+### [2209 and earlier](#tab/2209)
+
+Before you deploy HPN VMs on your device, vCPUs must be reserved on NUMA nodes. We recommend that the vCPU reservation be done on NUMA node 0, as this node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it.
+
+---
 
 ## HPN VM deployment workflow
 
 The high-level summary of the HPN deployment workflow is as follows:
 
-1. Enable a network interface for compute on your Azure Stack Edge device. This step creates a virtual switch on the specified network interface.
-1. Enable cloud management of VMs from the Azure portal.
-1. Upload a VHD to an Azure Storage account by using Azure Storage Explorer. 
-1. Use the uploaded VHD to download the VHD onto the device, and create a VM image from the VHD.
-1. Reserve vCPUs on the device for HPN VMs with versions 2209 and earlier.
-1. Use the resources created in the previous steps:
-    1. VM image that you created.
-    1. Virtual switch associated with the network interface on which you enabled compute.
-    1. Subnet associated with the virtual switch.
+1. While configuring the network settings on your device, make sure that there is a virtual switch associated with a network interface on your device that can be used for the VM resources and VMs. We will use the default virtual network created with the vswitch for this article. You have the option of creating and using another virtual network, if needed. 
 
-    And create or specify the following resources inline:
-    1. VM name, choose a supported HPN VM size, sign-in credentials for the VM. 
-    1. Create new data disks or attach existing data disks.
-    1. Configure static or dynamic IP for the VM. If you're providing a static IP, choose from a free IP in the subnet range of the network interface enabled for compute.
+2. Enable cloud management of VMs from the Azure portal. Download a VHD onto your device, and create a VM image from the VHD.
 
-    Use the preceding resources to create an HPN VM.
+3. Reserve vCPUs on the device for HPN VMs with versions 2209 and earlier. For versions 2210 and later, the vCPUs are automatically reserved.
+
+4. Use the resources created in the previous steps:
+
+   1. The VM image that you created.
+   2. The default virtual network associated with the virtual switch. The default virtual network has the same name as that of the virtual switch.
+   3. The default subnet for the default virtual network.
+
+And create or specify the following resources inline: 
+
+1. For the VM name, choose a supported HPN VM size, and specify login credentials for the VM.
+1. Create new data disks or attach existing data disks. 
+1. Configure static or dynamic IP for the VM. If you're providing a static IP, choose from a free IP in the subnet range of the default virtual network. 
+
+Use the preceding resources to create an HPN VM.
 
 ## Prerequisites
 
@@ -292,31 +303,8 @@ Follow these steps to create an HPN VM on your device.
 
     You'll use the IP address for the network interface to connect to the VM.
 
-## Troubleshooting
-
-### **Issue: HPN VM provisioning fails**
-   
-   **Error description:** Use the following cmdlet to check capacity/host resource when HPN VM provisioning fails. 
-
-   *Customer-facing error message*
-
-   **Suggested solution:**
-
-   Cmdlet:
-
-   Next steps:
-
-### **Issue: Insufficient CPU or memory resources**
-
-   **Error description:** If deployment fails because not enough vCPUs are reserved for HPN VMs, you will see the following error message: 
-
-   *`FabricVmPlacementErrorInsufficientNumaNodeCapacity`*
-
-   **Suggested solution:** For versions 2210 and higher, you must reserve vCPUs for HPN VMs prior to deployment.
- 
 ## Next steps
 
 - [Troubleshoot VM deployment](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
 - [Monitor VM activity on your device](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)
 - [Monitor CPU and memory on a VM](azure-stack-edge-gpu-monitor-virtual-machine-metrics.md)
-
