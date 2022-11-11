@@ -57,8 +57,6 @@ productDirectory:
           text: High performance Linux VMs on Azure
         - url: ../virtual-machines/linux/quick-create-cli.md
           text: Getting Started
-        - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/deploy-linux-workstations-for-3d-visualization-in-azure/ba-p/3658520
-          text: 3D Visualization with Linux on Azure HPC
     # Card
     - title: Windows Virtual Machines
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
@@ -91,12 +89,6 @@ productDirectory:
           text: HPC VM sizes
         - url: ../virtual-machines/sizes.md
           text: What are VM sizes?
-        - url: https://learn.microsoft.com/en-us/azure/virtual-machines/hx-series
-          text: HX-series VMs
-        - url: https://learn.microsoft.com/en-us/azure/virtual-machines/hbv4-series
-          text: HBv4-series VMs
-        - url: https://learn.microsoft.com/en-us/azure/virtual-machines/h-series
-          text: H-series VMs
     # Card
     - title: HPC Cache
       # imageSrc should be square in ratio with no white space
@@ -106,10 +98,42 @@ productDirectory:
           text: What is Azure HPC Cache
         - url: https://learn.microsoft.com/en-us/azure/hpc-cache/hpc-cache-create?tabs=azure-portal
           text: Create an Azure HPC Cache
-        - url: https://learn.microsoft.com/en-us/training/modules/introduction-azure-hpc-cache/
-          text: Introduction to Azure HPC Cache (Training)
-        - url: https://learn.microsoft.com/en-us/training/modules/accelerate-storage-with-hpc-cache/
-          text: Accelerating storage with HPC Cache (Training) 
+
+# conceptualContent section (optional)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # Supports up to 3 subsections
+  sections:
+    - title:  # < 60 chars (optional)
+      summary: HPC Training and Informational Content # < 160 chars (optional)
+      items:
+        # Card
+        - title: HPC Cache Training Modules
+          links:
+            - url: https://learn.microsoft.com/en-us/training/modules/introduction-azure-hpc-cache/
+              itemType: tutorial
+              text: Introduction to Azure HPC Cache
+            - url: https://learn.microsoft.com/en-us/training/modules/accelerate-storage-with-hpc-cache/
+              itemType: tutorial
+              text: Accelerating storage with HPC Cache
+        # Card
+        - title: HPC VM Sizes
+          links:
+            - url: url: ../virtual-machines/hx-series
+              itemType: concept
+              text: HX-series VMs
+            - url: https://learn.microsoft.com/en-us/azure/virtual-machines/hbv4-series
+              itemType: concept
+              text: HBv4-series VMs
+            - url: https://learn.microsoft.com/en-us/azure/virtual-machines/h-series
+              itemType: concept
+              text: H-series VMs
+         # Card
+        - title: HPC Workloads
+          links:
+            - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/deploy-linux-workstations-for-3d-visualization-in-azure/ba-p/3658520
+              itemType: sample
+              text: 3D Visualization with Linux on Azure HPC
 
 # Super Computing Announcement included
 
