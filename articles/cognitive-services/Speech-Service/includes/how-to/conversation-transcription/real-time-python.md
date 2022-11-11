@@ -24,11 +24,34 @@ The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz
 The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in Python. You must insert your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
 
 ```python
+import requests
+from scipy.io.wavfile import read
+import json
 
+speech_key, service_region = "your-subscription-key", "your-region"
+endpoint="https://signature.{service_region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray"
 
+#Enrollment audio for each speaker.(As example, two speaker enrollment audio are added)
+enrollment_audio_speaker1="enrollment-audio-speaker1.wav"
+enrollment_audio_speaker2="enrollment-audio-speaker2.wav"
+
+def voicedataConverter(enrollment_audio):
+  with open(enrollment_audio, "rb") as wavfile:
+    input_wav = wavfile.read()
+  return input_wav
+  
+def voicesignatureCreator(endpoint,speech_key, enrollment_audio):
+  data=voicedataConverter(enrollment_audio)
+  headers={"Ocp-Apim-Subscription-Key":speech_key}
+  r = requests.post(url = endpoint,headers=headers, data = data)
+  voiceSignatureString=json.dumps(r.json()['Signature'])
+  return voiceSignatureString
+
+voiceSignatureStringUser1 = voicesignatureCreator(endpoint,speech_key, enrollment_audio_speaker1)
+voiceSignatureStringUser2 = voicesignatureCreator(endpoint,speech_key, enrollment_audio_speaker2)
 ```
 
-Running this script returns a voice signature string in the variable `voiceSignatureString`. Run the function twice so you have two strings to use as input to the variables `voiceSignatureStringUser1` and `voiceSignatureStringUser2` below.
+you may use these two voiceSignatureStrings as input to the variables `voiceSignatureStringUser1` and `voiceSignatureStringUser2` below.
 
 > [!NOTE]
 > Voice signatures can **only** be created using the REST API.
@@ -98,11 +121,11 @@ def conversation_transcription_differentiate_speakers():
 
     # Note user voice signatures are not required for speaker differentiation.
     # Use voice signatures when adding participants when more enhanced speaker identification is required.
-    katie = speechsdk.transcription.Participant("katie@example.com", "en-us")
-    stevie = speechsdk.transcription.Participant("stevie@example.com", "en-us")
+    user1 = speechsdk.transcription.Participant("user1@example.com", "en-us", voiceSignatureStringUser1)
+    user2 = speechsdk.transcription.Participant("user2@example.com", "en-us", voiceSignatureStringUser2)
 
-    conversation.add_participant_async(katie)
-    conversation.add_participant_async(stevie)
+    conversation.add_participant_async(user1)
+    conversation.add_participant_async(user2)
     transcriber.join_conversation_async(conversation).get()
     transcriber.start_transcribing_async()
 
