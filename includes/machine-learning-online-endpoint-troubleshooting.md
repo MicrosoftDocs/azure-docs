@@ -68,7 +68,7 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
     >
     > If it is an HTTP endpoint, the IP address will be contained in the endpoint URI which you can get directly in the Studio UI.
     >
-    > More ways to get the IP address of the endpoint can be found in [Secure Kubernetes online endpoint](../articles/machine-learning/how-to-secure-Kubernetes-online-endpoint#update-your-dns-with-an-fqdn).
+    > More ways to get the IP address of the endpoint can be found in [Secure Kubernetes online endpoint](../articles/machine-learning/how-to-secure-Kubernetes-online-endpoint.md#update-your-dns-with-an-fqdn).
 
 1. If the host name isn't resolved by the `nslookup` command:
 
@@ -84,6 +84,7 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
         The results should contain an entry that is similar to `*.<GUID>.inference.<region>`.
     1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](../articles/container-registry/container-registry-private-link.md). 
   1. If the workspace with a private endpoint is setup using a custom DNS [How to use your workspace with a custom DNS server](../articles/machine-learning/how-to-custom-dns.md), use following command to verify if resolution works correctly from custom DNS. 
+    
     ```bash
     dig endpointname.westcentralus.inference.ml.azure.com
     ```
@@ -92,7 +93,7 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
     1. Check the DNS configuration in Kubernetes cluster.
     1. Additionally, you can check if the ScoringFE work as expected, use the following the command:
         
-         ```bash
+        ```bash
         kubectl exec -it deploy/azureml-fe -- /bin/bash
         (Run in azureml-fe pod)
         

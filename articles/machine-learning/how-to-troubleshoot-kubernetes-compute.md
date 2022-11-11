@@ -2,17 +2,17 @@
 title: Troubleshoot Kubernetes Compute for Machine Learning Tasks
 description: Learn how to troubleshoot some common Kubernetes compute errors for training jobs and model deployments. 
 titleSuffix: Azure Machine Learning
-author: Chenlu Jiao
-ms.author: 
+author: jiaochenlu
+ms.author: Chenlu Jiao
 ms.reviewer: 
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 
+ms.date: 11/11/2022
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
 
-# Troubleshoot AzureML extension
+# Troubleshoot Kubernetes Compute
 
 In this article, you will learn how to troubleshoot some common problems you may encounter with using [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md) for training jobs and model deployments.
 
