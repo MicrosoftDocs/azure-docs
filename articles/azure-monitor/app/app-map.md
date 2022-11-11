@@ -285,7 +285,7 @@ There are three parameters available for nodes:
     matching properties or to also include source nodes, target nodes,
     or both in the resulting map.
 
-    -   "Nodes and sources, targets" -- This means nodes that match the search parameters will be included in the resulting map, and nodes that are sources or targets for the matching node will also be included, even if they don't have property values that
+    -   "Nodes and sources, targets"--This means nodes that match the search parameters will be included in the resulting map, and nodes that are sources or targets for the matching node will also be included, even if they don't have property values that
         match the search. Source and target nodes are collectively referred to as "Connected" nodes.
 
     -   "Nodes and sources"--Same as above, but target nodes aren't automatically included in the results.
@@ -400,7 +400,7 @@ Filters can be reused in two ways:
     later time may be different from the one observed when the link was
     created.
 
--   The dashboard pin :::image type="content" source="media/app-map/image10.png" alt-text="A screenshot displaying the dashboard pin button"::: is located next to the title bar of the Application Map blade. This pins the map to a dashboard, along     with the filters applied to it. This can be useful for filters that are frequently interesting, for example, the user can pin a map with "Error connector" filter applied to it, and the dashboard view will only show nodes that have errors in their HTTP calls.
+-   The dashboard pin :::image type="content" source="media/app-map/image10.png" alt-text="A screenshot displaying the dashboard pin button"::: is located next to the title bar of the Application Map blade. This button pins the map to a dashboard, along with the filters applied to it. This action can be useful for filters that are frequently interesting. As an example, the user can pin a map with "Error connector" filter applied to it, and the dashboard view will only show nodes that have errors in their HTTP calls.
 
 #### Filter usage scenarios
 
