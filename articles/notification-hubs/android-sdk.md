@@ -90,7 +90,7 @@ The first step is to create a project in Android Studio:
     4. Go back to your firebase console project Cloud Messaging tab, and refresh the page.
     5. See that the Cloud Messaging API header has changed to "Cloud Messaging API (Legacy) ✅ Enabled" and now shows a Server Key.
     
-    ![Screenshot showing the Enable Cloud Messaging API (Legacy) tab.](./media/notification-hubs-enable-firebase-cloud-messaging-legacy-api.png)
+    :::image type="content" source="media/android-sdk/notification-hubs-enable-firebase-cloud-messaging-legacy-api.png" alt-text="Enable Cloud Messaging API (Legacy)":::
     
 ## Configure a notification hub
 
