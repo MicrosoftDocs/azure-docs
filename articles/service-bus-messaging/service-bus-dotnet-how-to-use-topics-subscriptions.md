@@ -29,6 +29,7 @@ In this quickstart, you'll do the following steps:
 
 > [!NOTE]
 > This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
+> - This quick start shows you two ways of connecting to Azure Service Bus: **connection string** and **passwordless**. The first option shows you how to use a connection string to connect to a Service Bus namespace. The second option shows you how to use your security principal in Azure Active Directory and the role-based access control (RBAC) to connect to a Service Bus namespace. You don't need to worry about having hard-coded connection string in your code or in a configuration file or in secure storage like Azure Key Vault. If you are new to Azure, you may find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](service-bus-authentication-and-authorization.md).
 
 ## Prerequisites
 
@@ -37,13 +38,7 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 - **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/dotnet/).
 - **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10. You can still use the Service Bus client library with previous C# language versions, but the syntax may vary. To use the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
 
-## [Passwordless](#tab/passwordless)
-[!INCLUDE [service-bus-create-namespace-portal-passwordless](../../includes/passwordless/service-bus/service-bus-create-namespace-portal-passwordless.md)]
-
-## [Connection String](#tab/connection-string)
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
-
----
 
 [!INCLUDE [service-bus-create-topic-subscription-portal](./includes/service-bus-create-topic-subscription-portal.md)]
 
@@ -246,6 +241,9 @@ This section shows you how to create a .NET console application to send messages
     ```bash
     A batch of 3 messages has been published to the topic
     ```
+
+    > [!IMPORTANT]
+    > In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it may take up to **eight minutes**. If you receive authentication errors when you first run your code, wait a few moments and try again.
 1. In the Azure portal, follow these steps:
     1. Navigate to your Service Bus namespace. 
     1. On the **Overview** page, in the bottom-middle pane, switch to the **Topics** tab, and select the Service Bus topic. In the following example, it's `mytopic`.

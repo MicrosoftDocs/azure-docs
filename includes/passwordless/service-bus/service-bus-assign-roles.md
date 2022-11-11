@@ -23,25 +23,12 @@ For Azure Service Bus, the management of namespaces and all related resources th
 
 If you want to create a custom role, see [Rights required for Service Bus operations](../../../articles/service-bus-messaging/service-bus-sas.md#rights-required-for-service-bus-operations).
 
-### Create a user in Azure Active Directory 
-
-If you already have an Azure Active Directory (Azure AD) user account, skip this step. If not (for example, if you logged in using a Microsoft account like: `john.doe@hotmail.com`), create a user in Azure AD.
-
-1. Sign-in to [Azure portal](https://portal.azure.com) in a new tab or new web browser window.
-1. In the search bar at the top, type **Azure Active Directory**, and select **Azure Active Directory** from the results. 
-1. On the Azure Active Directory page, select **Users** under **Manage** on the left navigational menu.
-1. On the **Users** page, select **+ New user** on the command bar, and then select **Create new user**.
-1. On the **New user** page, follow these steps:
-    1. For **User name**, enter a name for the user. For example: **john.doe**.
-    1. For **Name**, specify the full name. For example: **John Doe**. 
-    1. Select **Create** to create the user in Azure AD. 
-
 ### Add Azure AD user to Azure Service Bus Owner role
 
-Add your Azure AD user name or the one you created in the previous step to the **Azure Service Bus Data Owner** role at the Service Bus namespace level. It will allow an app running in the context of this user account to send messages to a queue or a topic, and receive messages from a queue or a topic's subscription. 
+Add your Azure AD user name to the **Azure Service Bus Data Owner** role at the Service Bus namespace level. It will allow an app running in the context of your user account to send messages to a queue or a topic, and receive messages from a queue or a topic's subscription. 
 
 > [!IMPORTANT]
-> In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
+> In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it may take up to **eight minutes**. If you receive authentication errors when you first run your code, wait a few moments and try again.
 
 1. If you don't have the Service Bus Namespace page open in the Azure portal, locate your Service Bus namespace using the main search bar or left navigation.
 2. On the overview page, select **Access control (IAM)** from the left-hand menu.	
