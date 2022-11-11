@@ -97,7 +97,9 @@ When filtering down to a particular resource in the Change Analysis standalone p
 1. In the Azure portal, select **All resources**.
 1. Select the actual resource you want to view.
 1. In that resource's left side menu, select **Diagnose and solve problems**.
-1. Select **Change details**.
+1. In the Change Analysis card, select **View change details**.
+
+   :::image type="content" source="./media/change-analysis/change-details-card.png" alt-text="Screenshot of viewing change details from the Change Analysis card in Diagnose and solve problems tool.":::
 
 From here, you'll be able to view all of the changes for that one resource.
 
