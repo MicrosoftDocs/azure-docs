@@ -20,9 +20,9 @@ If you're experiencing issues with your deployment, reinstalling packet core may
 
 Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
-## View the packet core instance's current status
+## View the packet core instance's installation status
 
-To check which version your packet core instance is currently running, and whether there's a newer version available:
+Before reinstalling, follow this step to check the packet core instance's installation status.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Search for and select the **Mobile Network** resource representing the private mobile network.
@@ -49,7 +49,7 @@ The following list contains data that will get lost over a packet core reinstall
 
 To reinstall your packet core instance:
 
-1. Navigate to the **Packet Core Control Plane** resource as described in [View the packet core instance's current status](#view-the-packet-core-instances-current-status).
+1. Navigate to the **Packet Core Control Plane** resource as described in [View the packet core instance's installation status](#view-the-packet-core-instances-installation-status).
 
 2. Select **Reinstall packet core**.
 
@@ -75,7 +75,7 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 
 ## Verify reinstall
 
-1. Navigate to the **Packet Core Control Plane** resource and check that the **Installation status** field contains **Installed**, as described in [View the packet core instance's current status](#view-the-packet-core-instances-current-status).
+1. Navigate to the **Packet Core Control Plane** resource and check that the **Installation status** field contains **Installed**, as described in [View the packet core instance's installation status](#view-the-packet-core-instances-installation-status).
 2. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after the reinstall.
 
 ## Next steps
