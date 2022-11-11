@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Tutorial: Register an application](tutorial-dotnet-web-app-register-application.md).
+* Completion of the prerequisites and steps in [Tutorial: Register an application](web-app-tutorial-01-register-application.md).
 * Although any integrated development environment (IDE) that supports .NET applications can be used, this tutorial uses Visual Studio 2022. A free version can be downloaded at [Downloads](https://visualstudio.microsoft.com/downloads).
 * Some steps in this tutorial use the .NET CLI. For more information about this tool, see [dotnet command](https://learn.microsoft.com/dotnet/core/tools/dotnet).
 
@@ -97,14 +97,14 @@ To make the certificate available to the application, it must be uploaded into t
 1. Under **Manage**, select **Certificates & secrets** and select the **Certificates (0)** tab.
 1. Select **Upload certificate**.
 
-    :::image type="content" source="./media/tutorial-dotnet-web-app-prepare-application/upload-certificate.png" alt-text="Upload a certificate into an Azure Active Directory tenant.":::
+    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate.png" alt-text="Upload a certificate into an Azure Active Directory tenant.":::
 
 1. Browse for and select the certificate that was previously created.
 1. Enter a description for the certificate.
 1. Select **Add**.
 1. Double-click the thumbprint, select the verticle ellipsis, and then select **Copy** to record the thumbprint for the certificate to be used later.
 
-    :::image type="content" source="./media/tutorial-dotnet-web-app-prepare-application/copy-certificate-thumbprint.png" alt-text="Copy the certificate thumbprint.":::
+    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/copy-certificate-thumbprint.png" alt-text="Copy the certificate thumbprint.":::
 
 ## Configure the application for authentication
 
@@ -149,4 +149,4 @@ The following articles are related to the concepts presented in this tutorial:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add sign-in to an application](tutorial-dotnet-web-app-sign-in-users.md)
+> [Tutorial: Add sign-in to an application](web-app-tutorial-03-sign-in-users.md)

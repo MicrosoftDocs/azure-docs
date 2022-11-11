@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](tutorial-dotnet-web-app-prepare-application.md).
+* Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](web-app-tutorial-02-prepare-application.md).
 * Although any integrated development environment (IDE) that supports .NET applications can be used, this tutorial uses Visual Studio 2022. A free version can be downloaded at [Downloads](https://visualstudio.microsoft.com/downloads).
 
 ## Install identity packages
@@ -148,4 +148,4 @@ In progress.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Prepare an application for authentication in the tenant](tutorial-dotnet-web-app-prepare-tenant-application.md)
+> [Tutorial: Prepare an application for authentication in the tenant](web-app-tutorial-prepare-tenant-app.md)

@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Tutorial: Add sign-in to an application](tutorial-dotnet-web-app-sign-in-users.md).
+* Completion of the prerequisites and steps in [Tutorial: Add sign-in to an application](web-app-tutorial-03-sign-in-users.md).
 
 ## Define the platform
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 1. In the left menu, under **Manage**, select **Authentication**.
 1. In **Platform configurations**, select **Add a platform**, and then select **Web**.
 
-    :::image type="content" source="./media/tutorial-dotnet-web-app-prepare-tenant-application/select-platform.png" alt-text="Select the platform for the application.":::
+    :::image type="content" source="./media/web-app-tutorial-04-prepare-tenant-application/select-platform.png" alt-text="Select the platform for the application.":::
 
 ## Define URLs
 
@@ -38,4 +38,4 @@ In this tutorial, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Call an API and display results](tutorial-dotnet-web-app-call-api.md)
+> [Call an API and display results](web-app-tutorial-05-call-api.md)
