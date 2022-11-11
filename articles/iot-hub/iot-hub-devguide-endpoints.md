@@ -73,7 +73,8 @@ IoT Hub currently supports the following Azure services as additional endpoints:
 * Event Hubs
 * Service Bus Queues
 * Service Bus Topics
-
+* Azure Cosmos DB (preview)
+   
 For the limits on the number of endpoints you can add, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## Endpoint Health
