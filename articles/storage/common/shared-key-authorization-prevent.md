@@ -26,13 +26,10 @@ This article describes how to detect requests sent with Shared Key authorization
 
 Before disallowing Shared Key access on any of your storage accounts:
 
-> [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
-
-> [Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
-
-> Consider the need to [disallow Shared Key authorization to use Azure AD Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
-
-> [Transition Azure Files workloads](#transition-azure-files-workloads)
+- [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
+- [Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
+- Consider the need to [disallow Shared Key authorization to use Azure AD Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
+- [Transition Azure Files workloads](#transition-azure-files-workloads)
 
 ### Understand how disallowing Shared Key affects SAS tokens
 
@@ -125,16 +122,8 @@ Follow these steps to assign the built-in policy for the appropriate scope in th
   
 1. On the **Review + create** tab, review the policy assignment then select **Create** to assign the policy definition to the specified scope.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-review.png" alt-text="Screenshot showing the policy assignment review and create tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-review.png":::
-
 > [!NOTE]
 > The default settings on the remaining tabs are sufficient for the purpose of assigning the policy in audit mode:
->
->- Parameters: **Effect**=`Audit`
->- Remediation: *(none)*
->- Non-compliance messages: *(none)*
->
-> If you want to set a non-compliance message, select the **Non-Compliance messages** tab and type the message you want displayed when a storage account is out of compliance.
 
 #### Monitor compliance with the Shared Key access policy
 
@@ -148,12 +137,6 @@ To monitor your storage accounts for compliance with the Shared Key access polic
 
 To get more information about why a storage account is non-compliant, select **Details** under **Compliance reason**.
 
-To bring a storage account into compliance, follow the remaining steps in this article to:
-
-1. [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to access the storage account.
-1. Change those applications to use Azure AD authorization.
-1. [Remediate authorization via Shared Key](#remediate-authorization-via-shared-key)
-
 ## Detect the type of authorization used by client applications
 
 To understand how disallowing Shared Key authorization may affect client applications before you make this change, enable logging and metrics for the storage account. You can then analyze patterns of requests to your account over a period of time to determine how requests are being authorized.
@@ -162,7 +145,7 @@ Use metrics to determine how many requests the storage account is receiving that
 
 A SAS may be authorized with either Shared Key or Azure AD. For more information about interpreting requests made with a shared access signature, see [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
-### Monitor how many requests are authorized with Shared Key
+### Determine the number and frequency of requests authorized with Shared Key
 
 To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
@@ -328,11 +311,11 @@ az storage container create \
 > [!NOTE]
 > Anonymous requests are not authorized and will proceed if you have configured the storage account and container for anonymous public read access. For more information, see [Configure anonymous public read access for containers and blobs](../blobs/anonymous-read-access-configure.md).
 
-## Monitor Azure Policy for accounts that allow Shared Key access
+## Monitor the Azure Policy for compliance
 
 Continue to [monitor the policy](#monitor-compliance-with-the-shared-key-access-policy) you created earlier for ongoing compliance.
 
-## Update Azure Policy assignment to prevent allowing Shared Key access
+## Update the Azure Policy assignment to prevent allowing Shared Key access
 
 To begin enforcing [the Azure Policy assignment you previously created](#configure-the-azure-policy-for-shared-key-access-in-audit-mode) for policy **Storage accounts should prevent shared key access**, change the effect of the policy assignment to deny to allow Shared Key access on storage accounts. To change the effect of the policy, perform the following steps:
 
