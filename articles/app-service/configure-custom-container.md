@@ -39,12 +39,8 @@ It takes some time to download a parent image during app start-up. However, you 
 - [https://mcr.microsoft.com/windows/servercore:ltsc2019](https://mcr.microsoft.com/product/windows/servercore/about)
 - [https://mcr.microsoft.com/dotnet/framework/aspnet](https://mcr.microsoft.com/product/dotnet/framework/aspnet/tags):4.8-windowsservercore-ltsc2022
 - [https://mcr.microsoft.com/dotnet/framework/aspnet](https://mcr.microsoft.com/product/dotnet/framework/aspnet/tags):4.8-windowsservercore-ltsc2019
-- [https://mcr.microsoft.com/dotnet/runtime](https://mcr.microsoft.com/product/dotnet/runtime/tags):3.1-nanoserver-ltsc2022
-- [https://mcr.microsoft.com/dotnet/runtime](https://mcr.microsoft.com/product/dotnet/runtime/tags):3.1-nanoserver-1809
 - [https://mcr.microsoft.com/dotnet/runtime](https://mcr.microsoft.com/product/dotnet/runtime/tags):6.0-nanoserver-ltsc2022
 - [https://mcr.microsoft.com/dotnet/runtime](https://mcr.microsoft.com/product/dotnet/runtime/tags):6.0-nanoserver-1809
-- [https://mcr.microsoft.com/dotnet/aspnet](https://mcr.microsoft.com/product/dotnet/aspnet/tags):3.1-nanoserver-ltsc2022
-- [https://mcr.microsoft.com/dotnet/aspnet](https://mcr.microsoft.com/product/dotnet/aspnet/tags):3.1-nanoserver-1809
 - [https://mcr.microsoft.com/dotnet/aspnet](https://mcr.microsoft.com/product/dotnet/aspnet/tags):6.0-nanoserver-ltsc2022
 - [https://mcr.microsoft.com/dotnet/aspnet](https://mcr.microsoft.com/product/dotnet/aspnet/tags):6.0-nanoserver-1809
 
