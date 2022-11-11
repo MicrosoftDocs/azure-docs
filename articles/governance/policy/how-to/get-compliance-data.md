@@ -863,7 +863,7 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## Monitor logs
+## Azure Monitor logs
 
 If you have a [Log Analytics workspace](../../../azure-monitor/logs/log-query-overview.md) with
 `AzureActivity` from the
