@@ -24,7 +24,7 @@ Considering all these factors is critical for a good DCR oragnization. The above
 
 Considering their native granularity, which allow a given DCR to be associated to more than one target virtual machine and vice versa
 
-:::image type="content" source="media/data-collection-rule-overview/DCR-to-VM-relationship.png" lightbox="media/data-collection-rule-overview/DCR-to-VM-relationship.png" alt-text="Screenshot of data collection rules to virtual machines relation.":::
+:::image type="content" source="/media/data-collection-rule-bestpractices/DCR-to-VM-relationship.png" lightbox="/media/data-collection-rule-bestpractices/DCR-to-VM-relationship.png" alt-text="Screenshot of data collection rules to virtual machines relation.":::
 
 , it is really important to keep the DCR as smallest as possible.
 
