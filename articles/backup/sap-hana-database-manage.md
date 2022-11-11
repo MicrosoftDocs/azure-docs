@@ -36,11 +36,11 @@ To learn more about monitoring, go to [Monitor Azure Backup workloads in the Azu
 
 Alerts are an easy means of monitoring backups of SAP HANA databases. Alerts help you focus on the events you care about the most without getting lost in the multitude of events that a backup generates. 
 
-Azure Backup allows you to set alerts, which you can monitor by doing the following:
+Azure Backup lets you set alerts, which you can monitor by doing the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. On the left pane of the Recovery Services vault dashboard, select **Backup Alerts**.
+1. On the left pane of the Recovery Services vault, select **Backup Alerts**.
 
    ![Screenshot that shows the 'Backup Alerts' link on the Recovery Services vault dashboard.](./media/sap-hana-db-manage/backup-alerts-dashboard.png)
 
@@ -64,7 +64,7 @@ Azure Backup supports several management operations that make it easy to manage 
 
 ### Run on-demand backups
 
-Backups run in accordance with the policy schedule. You can run on-demand backups by doing the following:
+Backups run according to the policy schedule. You can run on-demand backups by doing the following:
 
 1. On the left pane of the Recovery Services vault, select **Backup items**.
 
@@ -88,14 +88,14 @@ Backups run in accordance with the policy schedule. You can run on-demand backup
 
 In the following sections, you'll learn how to trigger the backup and restore operations from non-Azure clients, such as HANA Studio.
 
->[!Note]
->HANA native clients are integrated for *Backint*-based operations only. Snapshots and HANA System Replication mode-related operations are currently not supported.
+> [!Note]
+> HANA native clients are integrated for Backint-based operations only. Snapshots and HANA System Replication mode-related operations are currently not supported.
 
 #### Backup
 
 On-demand backups that are triggered from any of the HANA native clients that use Backint are displayed in the backup list on the **Backup Instances** page.
 
-![Screenshot of the 'Restore points' pane for viewing the most recently run backups.](./media/sap-hana-db-manage/last-backups.png)
+![Screenshot that shows the 'Restore points' pane for viewing the most recently run backups.](./media/sap-hana-db-manage/last-backups.png)
 
 > [!Note]
 > You can also [monitor the backups](#monitor-manual-backup-jobs-by-using-the-azure-portal) from the **Backup jobs** page.
@@ -106,9 +106,9 @@ These on-demand backups are also displayed in the list of restore points on the 
 
 #### Restore
 
-Restores that are triggered from HANA native clients that use Backint to restore backups *to the same machine* can be [monitored](#monitor-manual-backup-jobs-by-using-the-azure-portal) from the **Backup jobs** page.
+Restore operations that are triggered from HANA native clients that use Backint to restore backups *to the same machine* can be [monitored](#monitor-manual-backup-jobs-by-using-the-azure-portal) from the **Backup jobs** page.
 
-Restores that are triggered from HANA native clients to restore *to another machine* are not allowed. This is because, as per Azure role-based access control (RBAC) rules, the Azure Backup service can't authenticate the target server for restore.
+Restore operations that are triggered from HANA native clients to restore *to another machine* are not allowed. This is because, according to Azure role-based access control (RBAC) rules, the Azure Backup service can't authenticate the target server for restore operations.
 
 #### Delete
 
@@ -225,21 +225,21 @@ To resume protection for an SAP HANA database:
 
 ### Upgrade from SDC to MDC
 
-Learn how to continue backup for an SAP HANA database [after upgrading from single container database (SDC) to multiple container database (MDC)](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid).
+Learn how to continue backing up an [SAP HANA database after you upgrade from a single container database (SDC) to a multiple container database (MDC)](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid).
 
 ### Upgrade from SDC to MDC without a SID change
 
-Learn how to continue backup of an SAP HANA database whose [SID hasn't changed after upgrade from SDC to MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
+Learn how to continue backing up an [SAP HANA database whose SID hasn't changed after you upgrade from an SDC to an MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
 
 ### Upgrade to a new version in either SDC or MDC
 
-Learn how to continue backup of an SAP HANA database [whose version is being upgraded](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm).
+Learn how to continue backing up an [SAP HANA database whose version you're upgrading](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm).
 
 ### Unregister an SAP HANA instance
 
 Unregister an SAP HANA instance after you disable protection but before you delete the vault:
 
-1. On the Recovery Services vault dashboard, under **Manage**, select **Backup Infrastructure**.
+1. In the Recovery Services vault, under **Manage**, select **Backup Infrastructure**.
 
    ![Screenshot that shows the 'Backup Infrastructure' link on the Recovery Services dashboard.](./media/sap-hana-db-manage/backup-infrastructure.png)
 
@@ -255,10 +255,10 @@ Unregister an SAP HANA instance after you disable protection but before you dele
 
 ### Re-register an extension on the SAP HANA server VM
 
-Sometimes the workload extension on the VM might be adversely affected for one reason or another. If it is, all the operations that are triggered on the VM will begin to fail. You might then need to re-register the extension on the VM. The re-register operation reinstalls the workload backup extension on the VM for operations to continue.
+The workload extension on the VM might sometimes be adversely affected for one reason or another. If it is, all operations that are triggered on the VM will begin to fail. You might then need to re-register the extension on the VM. The re-register operation reinstalls the workload backup extension on the VM for operations to continue.
 
-Use this option with caution: when it's triggered on a VM with an already healthy extension, the operation will cause the extension to restart. This might cause all the in-progress jobs to fail. Before you trigger a re-register operation, [check for one or more of the symptoms](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures).
+Use this option with caution: when it's triggered on a VM with an already healthy extension, the operation will cause the extension to restart. This might in turn cause all the in-progress jobs to fail. Before you trigger a re-register operation, [check for one or more of the symptoms](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures).
 
 ## Next steps
 
-* [Troubleshoot common issues with SAP HANA database backups.](./backup-azure-sap-hana-database-troubleshoot.md)
+* [Troubleshoot common issues with SAP HANA database backups](./backup-azure-sap-hana-database-troubleshoot.md)
