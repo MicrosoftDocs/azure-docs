@@ -4,7 +4,6 @@ description: Learn how to download, install and run the setup wizard for Azure A
 services: active-directory
 author: billmath
 manager: amycolannino
-editor: curtand
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
 ms.workload: identity
