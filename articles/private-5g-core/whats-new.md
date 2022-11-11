@@ -17,7 +17,7 @@ ms.date: 10/24/2022
 
 To help you stay up to date with the latest developments, this article covers:
 
-- New features, improvements and bug notifications for the online service.
+- New features, improvements and fixes for the online service.
 - New releases for the packet core, referencing the packet core release notes for further information.
 
 This page is updated regularly with the latest developments in Azure Private 5G Core. <!-- TODO: maybe update with agreed update frequency -->
