@@ -35,11 +35,11 @@ These commands include:
 
 These commands are also shown in the context menu when you right-click a Bicep file:
 
-:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu.":::
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu for Bicep files.":::
 
 When you right-click a JSON file:
 
-:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu-json.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu.":::
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu-json.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu for ARM JSON templates.":::
 
 ### Build ARM template
 
