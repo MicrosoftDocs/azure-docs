@@ -166,7 +166,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-Debian 7 | [9.51](https://support.microsoft.com/en-us/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | 4.19.0-22-amd64 </br> 4.19.0-22-cloud-amd64 </br> 5.10.0-0.deb10.19-amd64 </br> 5.10.0-0.deb10.19-cloud-amd64 |
+Debian 7 | [9.51](https://support.microsoft.com/en-us/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | No new Debian 7 kernels supported in this release. |
 Debian 7 | [9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | No new Debian 7 kernels supported in this release. |
 Debian 7 | [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | No new Debian 7 kernels supported in this release. |
 Debian 7 | [9.48](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | No new Debian 7 kernels supported in this release. |
@@ -184,7 +184,7 @@ Debian 9.1 | [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-f
 Debian 9.1 | [9.48](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 4.9.0-18-amd64 </br> 4.19.0-0.bpo.19-amd64 </br> 4.19.0-0.bpo.17-cloud-amd64 to 4.19.0-0.bpo.19-cloud-amd64
 Debian 9.1 | [9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | 4.9.0-16-amd64, 4.9.0-17-amd64
 |||
-Debian 10 | [9.51](https://support.microsoft.com/en-us/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | No new Debian 10 kernels supported in this release. |
+Debian 10 | [9.51](https://support.microsoft.com/en-us/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | 4.19.0-22-amd64 </br> 4.19.0-22-cloud-amd64 </br> 5.10.0-0.deb10.19-amd64 </br> 5.10.0-0.deb10.19-cloud-amd64 |
 Debian 10 | [9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | No new Debian 10 kernels supported in this release.
 Debian 10 | [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | 4.19.0-21-amd64 </br> 4.19.0-21-cloud-amd64 </br> 5.10.0-0.bpo.15-amd64 </br> 5.10.0-0.bpo.15-cloud-amd64
 Debian 10 | [9.48](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 4.19.0-20-amd64 </br> 4.19.0-20-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64, 5.8.0-0.bpo.2-cloud-amd64, 5.9.0-0.bpo.2-amd64, 5.9.0-0.bpo.2-cloud-amd64, 5.9.0-0.bpo.5-amd64, 5.9.0-0.bpo.5-cloud-amd64, 5.10.0-0.bpo.7-amd64, 5.10.0-0.bpo.7-cloud-amd64, 5.10.0-0.bpo.9-amd64, 5.10.0-0.bpo.9-cloud-amd64, 5.10.0-0.bpo.11-amd64, 5.10.0-0.bpo.11-cloud-amd64, 5.10.0-0.bpo.12-amd64, 5.10.0-0.bpo.12-cloud-amd64 |
