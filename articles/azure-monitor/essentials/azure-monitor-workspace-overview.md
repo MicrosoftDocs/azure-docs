@@ -39,7 +39,7 @@ There are several reasons that you may consider creating additional workspaces i
 ## Limitations
 See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor managed service for Prometheus.
 - Private Links aren't supported for Prometheus metrics collection into Azure monitor workspace.
-- Azure monitor managed service for Prometheus is only supported in public clouds.
+- Azure monitor workspaces are currently only supported in public clouds.
 
 
 ## Create an Azure Monitor workspace
