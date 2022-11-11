@@ -32,13 +32,13 @@ highlightedContent:
       itemType: architecture
       url: https://learn.microsoft.com/en-us/azure/architecture/
     # Card
-    - title: Start building with Azure HPC for high performance applications
+    - title: Start building with an Azure HPC service for high performance applications
       itemType: reference
-      url: ../virtual-machines/overview.md
+      url: ../architecture/guide/technology-choices/compute-decision-tree
     # Card
     - title: Azure HPC on Microsoft Learn
       itemType: learn
-      url: https://learn.microsoft.com/en-us/training/browse/?products=azure&term=hpc&terms=hpc
+      url: ../training/browse/?products=azure&term=hpc&terms=hpc
     # Card
     - title: Azure HPC Blog
       itemType: whats-new
@@ -126,12 +126,12 @@ conceptualContent:
           links:
             - url: https://www.aka.ms/SC22
               itemType: overview
-              text: Join us at SC22!
+              text: Microsoft at at SC22!
             - url: https://sc22.supercomputing.org/
               itemType: overview
               text: SuperComputing 22 Website
         # Card
-        - title: GTC
+        - title: Nvidia GTC (GPU Technology Conference)
           links:
             - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/we-ll-see-you-at-nvidia-s-spring-gtc-conference/ba-p/3194882
               itemType: overview
