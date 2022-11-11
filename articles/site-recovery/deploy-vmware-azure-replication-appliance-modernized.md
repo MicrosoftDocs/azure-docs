@@ -4,6 +4,8 @@ description: This article describes support and requirements when deploying the 
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/21/2022
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Deploy Azure Site Recovery replication appliance - Modernized

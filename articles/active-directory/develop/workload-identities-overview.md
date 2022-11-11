@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 11/02/2022
 ms.author: ryanwi
 ms.reviewer: udayh, ilanas
 ms.custom: aaddev 
