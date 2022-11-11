@@ -153,14 +153,6 @@ These fields are meant to provide guidance to the app, but they don't convey any
 Notice that the SMART on FHIR app launcher updates the **Launch URL** information at the bottom of the page. Select **Launch** to start the sample app, and you should see something like this sample:
 
 <!---![SMART on FHIR app](media/tutorial-smart-on-fhir/smart-on-fhir-app.png)--->
-
 Inspect the token response to see how the launch context fields are passed on to the app.
-
-## Next steps
-
-In this tutorial, you've configured the Azure Active Directory SMART on FHIR proxy. To explore the use of SMART on FHIR applications with the Azure API for FHIR and the open-source FHIR Server for Azure, go to the repository of FHIR server samples on GitHub:
-
->[!div class="nextstepaction"]
->[FHIR server samples](https://github.com/Microsoft/fhir-server-samples)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
