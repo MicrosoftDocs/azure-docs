@@ -33,11 +33,15 @@ A single Azure Monitor workspace can collect data from multiple sources, but the
 > [!NOTE]
 > You cannot currently query across multiple Azure Monitor workspaces.
 
-## Workspace limits
-These are currently only related to Prometheus metrics, since this is the only data currently stored in Azure Monitor workspaces. 
-
+## Workspace design
 Many customers will choose an Azure Monitor workspace design to match their Log Analytics workspace design. Since Azure Monitor workspaces currently only contain Prometheus metrics, and metric data is typically not as sensitive as log data, you may choose to further consolidate your Azure Monitor workspaces for simplicity.
 
+## Limitations
+See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor managed service for Prometheus.
+- Private Links aren't supported for Prometheus metrics collection into Azure monitor workspace.
+- Azure monitor managed service for Prometheus is only supported in public clouds.
+- Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
+- Scraping and storing metrics at frequencies less than 1 second isn't supported.
 
 
 ## Create an Azure Monitor workspace
