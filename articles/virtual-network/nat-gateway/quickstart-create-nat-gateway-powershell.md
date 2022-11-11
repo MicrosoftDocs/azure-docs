@@ -13,7 +13,7 @@ ms.custom: template-quickstart, devx-track-azurepowershell
 
 # Quickstart: Create a NAT gateway using Azure PowerShell
 
-This quickstart shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
+This quickstart shows you how to use the Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
 ## Prerequisites
 
