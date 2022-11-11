@@ -7,7 +7,7 @@ ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 10/24/2022
 ms.custom: ignite-2022
 ---
 
@@ -31,6 +31,8 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 | `EnableMongoRoleBasedAccessControl` | Enable support for creating Users/Roles for native MongoDB role-based access control | No |
 | `EnableMongoRetryableWrites` | Enables support for retryable writes on the account | Yes |
 | `EnableMongo16MBDocumentSupport` | Enables support for inserting documents upto 16 MB in size | No |
+| `EnableUniqueCompoundNestedDocs` | Enables support for compound and unique indexes on nested fields, as long as the nested field is not an array. | No |
+
 
 ## Enable a capability
 

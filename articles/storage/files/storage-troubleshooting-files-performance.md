@@ -53,6 +53,11 @@ To confirm whether your share is being throttled, you can access and use Azure m
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
+    If a throttled request was authenticated with Kerberos, you might see a prefix indicating the authentication protocol, such as:
+
+    - KerberosSuccessWithShareEgressThrottling
+    - KerberosSuccessWithShareIngressThrottling
+
     To learn more about each response type, see [Metric dimensions](./storage-files-monitoring-reference.md#metrics-dimensions).
 
     ![Screenshot of the metrics options for premium file shares, showing a "Response type" property filter.](media/storage-troubleshooting-premium-fileshares/metrics.png)
@@ -62,7 +67,7 @@ To confirm whether your share is being throttled, you can access and use Azure m
 
 #### Solution
 
-- If you're using a standard file share, [enable large file shares](storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account) on your storage account and [increase the size of file share quota to take advantage of the large file share support](storage-how-to-create-file-share.md#expand-existing-file-shares). Large file shares support great IOPS and bandwidth limits; see [Azure Files scalability and performance targets](storage-files-scale-targets.md) for details.
+- If you're using a standard file share, [enable large file shares](storage-how-to-create-file-share.md#enable-large-file-shares-on-an-existing-account) on your storage account and [increase the size of file share quota to take advantage of the large file share support](storage-how-to-create-file-share.md#expand-existing-file-shares). Large file shares support great IOPS and bandwidth limits; see [Azure Files scalability and performance targets](storage-files-scale-targets.md) for details.
 - If you're using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the [Understanding provisioning for premium file shares](./understanding-billing.md#provisioned-model).
 
 ### Cause 2: Metadata or namespace heavy workload
@@ -179,17 +184,6 @@ If the number of **DirectoryOpen/DirectoryClose** calls is among the top API cal
 ### Workaround
 
 - A fix for this issue is available in the [April Platform Update for Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
-
-## File creation is slower than expected
-
-### Cause
-
-Workloads that rely on creating a large number of files won't see a substantial difference in performance between premium file shares and standard file shares.
-
-### Workaround
-
-- None.
-
 ## Slow performance from Windows 8.1 or Server 2012 R2
 
 ### Cause

@@ -1,11 +1,11 @@
 ---
-title: 'Azure DDoS Protection SKU Comparison'
+title: 'About Azure DDoS Protection SKU Comparison'
 description: Learn about the available SKUs for Azure DDoS Protection.
 author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 10/13/2022
+ms.date: 10/19/2022
 ms.custom: template-concept, ignite-2022
 ---
 

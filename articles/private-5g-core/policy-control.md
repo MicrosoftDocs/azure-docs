@@ -31,7 +31,7 @@ A *QoS profile* has two main components.
   The required parameters for each 5QI value are pre-configured in the Next Generation Node B (gNB).
 
 > [!NOTE]
-> Azure Private 5G Core does not support dynamically assigned 5QI, where specific QoS characteristics are signalled to the gNB during QoS flow creation.
+> Azure Private 5G Core does not support dynamically assigned 5QI, where specific QoS characteristics are signaled to the gNB during QoS flow creation.
 
 - An *allocation and retention priority (ARP) value*. The ARP value defines a QoS flow's importance. It controls whether a particular QoS flow should be retained or preempted when there's resource constraint in the network, based on its priority compared to other QoS flows. The QoS profile may also define whether the QoS flow can preempt or be preempted by another QoS flow.
 

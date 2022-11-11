@@ -70,5 +70,7 @@ landingContent:
         url: view-utilization.md
       - text: View savings plan cost and usage
         url: utilization-cost-reports.md
+      - text: Troubleshoot utilization
+        url: troubleshoot-savings-plan-utilization.md
       - text: Charge back Azure savings plan costs
         url: charge-back-costs.md

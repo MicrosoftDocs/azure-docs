@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Train a regression model that predicts car prices using the Azure Machine Learning designer.
 author: likebupt
 ms.author: keli19
+ms.reviewer: lagayhar
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -63,13 +64,16 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 
 1. Sign in to <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>, and select the workspace you want to work with.
 
-1. Select **Designer**.
+1. Select **Designer** -> **Classic prebuilt**
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/launch-designer.png" alt-text="Screenshot of the visual workspace showing how to access the designer.":::
 
-1. Select **Easy-to-use prebuilt components**.
+1. Select **Create a new pipeline using classic prebuilt components**.
 
-1. Open the ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) **Settings** pane to the right of the canvas, and scroll to **Draft name** text box. Rename it to *Automobile price prediction*. The name doesn't need to be unique.
+1. Click the pencil icon beside the automatically generated pipeline draft name, rename it to *Automobile price prediction*. The name doesn't need to be unique.
+
+![Screenshot of pencil icon to change pipeline draft name.](./media/tutorial-designer-automobile-price-train-score/change-pipeline-draft-name.png) 
+
 
 ## Set the default compute target
 
@@ -100,11 +104,12 @@ You can set a **Default compute target** for the entire pipeline, which will tel
 
 There are several sample datasets included in the designer for you to experiment with. For this tutorial, use **Automobile price data (Raw)**.
 
-1. To the left of the pipeline canvas is a palette of datasets and components. Select **Data**.
+1. To the left of the pipeline canvas is a palette of datasets and components. Select **Component** -> **Sample data**.
 
 1. Select the dataset **Automobile price data (Raw)**, and drag it onto the canvas.
 
-   :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/drag-data.gif" alt-text="Gif of dragging the Automobile price data to the canvas.":::
+   :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/automobile-data.png" alt-text="Gif of dragging the Automobile price data to the canvas.":::
+
 
 ### Visualize the data
 

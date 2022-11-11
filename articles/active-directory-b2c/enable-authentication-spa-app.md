@@ -109,7 +109,7 @@ The resources referenced by the *index.html* file are detailed in the following 
 |[`ui.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | Controls the UI elements. |
 | | |
 
-To render the SPA index file, in the *myApp* folder, create a file named *index.html*, which contains the following HTML snippet.
+To render the SPA index file, in the *myApp* folder, create a file named *index.html*, which contains the following HTML snippet:
 
 ```html
 <!DOCTYPE html>
@@ -221,7 +221,7 @@ To specify your Azure AD B2C user flows, do the following:
 
 In this step, implement the methods to initialize the sign-in flow, API access token acquisition, and the sign-out methods. 
 
-For more information, see the [MSAL PublicClientApplication class reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html), and [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-microsoft-authentication-library-msal-to-sign-in-the-user) articles.
+For more information, see the [MSAL PublicClientApplication class reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html), and [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-msal-to-sign-in-the-user) articles.
 
 To sign in the user, do the following:
 
@@ -442,7 +442,7 @@ To call your web API by using the token you acquired, do the following:
 
 ## Step 10: Add the UI elements reference
 
-The SPA app uses JavaScript to control the UI elements. For example, it displays the sign-in and sign-out buttons, and renders the users ID token claims to the screen.
+The SPA app uses JavaScript to control the UI elements. For example, it displays the sign-in and sign-out buttons, and renders the users' ID token claims to the screen.
 
 To add the UI elements reference, do the following:
 

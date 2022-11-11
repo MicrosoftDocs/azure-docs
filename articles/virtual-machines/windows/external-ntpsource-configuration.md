@@ -40,12 +40,15 @@ To check current time source in your **PDC**, from an elevated command prompt ru
 7. Navigate to *Computer Configuration* -> *Administrative Templates* -> *System* -> *Windows Time Service* -> *Time Providers*.
 8. Double click the *Configure Windows NTP Client* policy and set it to *Enabled*, configure the parameter *NTPServer* to point to an IP address or FQDN of a time server followed by `,0x9` for example: `131.107.13.100,0x9` and configure *Type* to **NTP**. For all the other parameters you can use the default values, or use custom ones according to your corporate needs.
 9. Click the *Next Setting* button, set the *Enable Windows NTP Client* policy to *Enabled* and click *OK*
-10. In the **Security Filtering** of the newly created GPO highlight the *Authenticated Users* group -> Click the *Remove* button -> *OK* -> *OK*
-11. In the **Security Filtering** of the newly created GPO click the *Add* button and browse for the computer object that holds the **PDC** role in your domain, then click *OK*
-12. Link the GPO to the **Domain Controllers** Organizational Unit.
-
->[!IMPORTANT]
->Avoid using a WMI Filter in the Security Filtering options to dinamycally get the Domain Controller that holds the PDC role. If you do so, the WMI Filter will be automatically exluded by the virtual platform, resulting in the GPO not being applied to the PDC.
+10. In the *Scope* tab of the newly created GPO navigate to **Security Filtering** and highlight the *Authenticated Users* group -> Click the *Remove* button -> *OK* -> *OK*
+11. Create a WMI Filter to dinamycally get the Domain Controller that holds the PDC role:
+    - In the *Group Policy Management* console, navigate to *WMI Filters*, right-click on it and select *New*.
+    - In the *New WMI Filter* window, give a name to the new filter, for example, *Get PDC Emulator* -> Fill out the *Description* field (optional) -> Click the *Add* button.
+    - In the *WMI Query* window leave the *Namespace* as is, in the *Query* text box paste the following string `Select * from Win32_ComputerSystem where DomainRole = 5`, then click the *OK* button.
+    - Back in the *New WMI Filter* window click the *Save* button.
+12. In the *Scope* tab of the newly created GPO navigate to the **WMI Filtering** drop-down menu and select the previously created WMI filter then click *OK*.
+13. In the *Scope* tab of the newly created GPO navigate to the **Security Filtering** click the *Add* button and browse for the *Domain Controllers* group, then click the *OK* button.
+14. Link the GPO to the **Domain Controllers** Organizational Unit.
 
 >[!NOTE]
 >It can take up to 15 minutes for these changes to reflect in the system.

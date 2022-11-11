@@ -12,8 +12,9 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 11/09/2022
 ms.author: ramakk
+ms.custom: references_regions
 ---
 # Guidelines for Azure NetApp Files network planning
 
@@ -23,7 +24,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ## Configurable network features  
 
- Register for the [**configurable network features**](configure-network-features.md) to create volumes with standard network features. You can create new volumes choosing *Standard* or *Basic* network features in supported regions. In regions where the Standard network features aren't supported, the volume defaults to using the Basic network features.  
+ You can create new volumes choosing *Standard* or *Basic* network features in supported regions. In regions where the Standard network features aren't supported, the volume defaults to using the Basic network features. For more information, see [Configure network features](configure-network-features.md).
 
 * ***Standard***  
     Selecting this setting enables higher IP limits and standard VNet features such as [network security groups](../virtual-network/network-security-groups-overview.md) and [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) on delegated subnets, and additional connectivity patterns as indicated in this article.
@@ -39,12 +40,14 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   Australia Central 2
 *   Australia East
 *   Australia Southeast
+*   Brazil South
 *   Canada Central
 *   Central US
 *   East Asia
 *   East US
 *   East US 2
 *	France Central
+*   Germany North
 *   Germany West Central
 *   Japan East
 *   Japan West
@@ -55,8 +58,10 @@ Azure NetApp Files Standard network features are supported for the following reg
 *	South Central US
 *   South India 
 *   Southeast Asia
+*   Sweden Central
 *   Switzerland North
 *   UAE Central
+*   UAE North
 *   UK South
 *	West Europe
 *   West US
@@ -66,9 +71,6 @@ Azure NetApp Files Standard network features are supported for the following reg
 ## Considerations  
 
 You should understand a few considerations when you plan for Azure NetApp Files network.
-
-> [!IMPORTANT]
-> [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)]
 
 ### Constraints
 
@@ -107,7 +109,8 @@ The following table describes the network topologies supported by each network f
 |     Connectivity from on-premises to a volume in a spoke VNet   over VPN gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
 |     Connectivity over Active/Passive VPN gateways    |     Yes    |     Yes    |
 |     Connectivity over Active/Active VPN gateways    |     Yes    |     No    |
-|     Connectivity over Active/Active Zone Redundant gateways    |     Yes    |     Yes    |
+|     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
+| Connectivity over Active/Passive Zone Redundant gateways | Yes | Yes |
 |     Connectivity over Virtual WAN (VWAN)    |    No    |     No    |
 
 \* This option will incur a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 

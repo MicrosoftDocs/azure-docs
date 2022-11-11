@@ -2,7 +2,6 @@
 title: Monitor Azure Arc-enabled Kubernetes clusters
 ms.date: 05/24/2022
 ms.topic: article
-ms.custom: ignite-2022
 author: shashankbarsin
 ms.author: shasb
 description: Collect metrics and logs of Azure Arc-enabled Kubernetes clusters using Azure Monitor.
@@ -138,7 +137,7 @@ If you want to tweak the default resource requests and limits, you can use the a
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  omsagent.resources.daemonset.limits.cpu=150m omsagent.resources.daemonset.limits.memory=600Mi omsagent.resources.deployment.limits.cpu=1 omsagent.resources.deployment.limits.memory=750Mi
 ```
 
-Check out the [resource requests and limits section of Helm chart](https://github.com/helm/charts/blob/master/incubator/azuremonitor-containers/values.yaml) for the available configuration settings.
+Checkout the [resource requests and limits section of Helm chart](https://github.com/helm/charts/blob/master/incubator/azuremonitor-containers/values.yaml) for the available configuration settings.
 
 ### Option 4 - On Azure Stack Edge
 
@@ -279,4 +278,4 @@ For issues with enabling monitoring, we have provided a [troubleshooting script]
 
 - By default, the containerized agent collects the stdout/ stderr container logs of all the containers running in all the namespaces except kube-system. To configure container log collection specific to particular namespace or namespaces, review [Container Insights agent configuration](container-insights-agent-config.md) to configure desired data collection settings to your ConfigMap configurations file.
 
-- To scrape and analyze Prometheus metrics from your cluster, review [Configure Prometheus metrics scraping](container-insights-prometheus.md)
+- To scrape and analyze Prometheus metrics from your cluster, review [Configure Prometheus metrics scraping](container-insights-prometheus-integration.md)

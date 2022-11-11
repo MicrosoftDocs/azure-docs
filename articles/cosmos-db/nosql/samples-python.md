@@ -1,45 +1,50 @@
 ---
 title: API for NoSQL Python examples for Azure Cosmos DB
 description: Find Python examples on GitHub for common tasks in Azure Cosmos DB, including CRUD operations.
-author: Rodrigossz
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: rosouz
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: python
 ms.topic: sample
-ms.date: 08/26/2021
-ms.author: rosouz
+ms.date: 10/18/2021
 ms.custom: devx-track-python, ignite-2022
 ---
+
 # Azure Cosmos DB Python examples
+
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET SDK Examples](samples-dotnet.md)
-> * [Java V4 SDK Examples](samples-java.md)
-> * [Spring Data V3 SDK Examples](samples-java-spring-data.md)
-> * [Node.js Examples](samples-nodejs.md)
-> * [Python Examples](samples-python.md)
-> * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
+>
+> - [.NET SDK Examples](samples-dotnet.md)
+> - [Java V4 SDK Examples](samples-java.md)
+> - [Spring Data V3 SDK Examples](samples-java-spring-data.md)
+> - [Node.js Examples](samples-nodejs.md)
+> - [Python Examples](samples-python.md)
+> - [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
+>
 
-Sample solutions that do CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) GitHub repository. This article provides:
+Sample solutions that do CRUD operations and other common operations on Azure Cosmos DB resources are included in the `main/sdk/cosmos` folder of the [azure/azure-sdk-for-python](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/cosmos) GitHub repository. This article provides:
 
-* Links to the tasks in each of the Python example project files.
-* Links to the related API reference content.
+- Links to the tasks in each of the Python example project files.
+- Links to the related API reference content.
 
 ## Prerequisites
 
-- An Azure Cosmos DB Account. You options are:
-    * Within an Azure active subscription:
-        * [Create an Azure free Account](https://azure.microsoft.com/free) or use your existing subscription 
-        * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB Free Tier](../free-tier.md)
-    * Without an Azure active subscription:
-        * [Try Azure Cosmos DB for free](../try-free.md), a tests environment that lasts for 30 days.
-        * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
+- An Azure Cosmos DB Account. Your options are:
+  - Within an Azure active subscription:
+    - [Create an Azure free Account](https://azure.microsoft.com/free) or use your existing subscription
+    - [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
+    - [Azure Cosmos DB Free Tier](../free-tier.md)
+    - Without an Azure active subscription:
+      - [Try Azure Cosmos DB for free](../try-free.md), a tests environment that lasts for 30 days.
+      - [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator)
 - [Python 2.7 or 3.6+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
-- [Git](https://www.git-scm.com/downloads). 
+- [Git](https://www.git-scm.com/downloads).
 - [Azure Cosmos DB for NoSQL SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
 
 ## Database examples
@@ -98,5 +103,6 @@ The [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/mas
 ## Next steps
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
-* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
+
+- If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md)
+- If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
