@@ -2,7 +2,7 @@
 title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
-ms.date: 11/10/2022
+ms.date: 11/11/2022
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -54,11 +54,11 @@ To create a Bicep configuration file:
 1. Open Visual Studio Code.
 1. From the **View** menu, select **Command Palette** (or press **[CTRL/CMD]**+**[SHIRT]**+**P**), and then select **Bicep: Create Bicep Configuration File**.
 1. Select the file directory where you want to place the file.
-1. Save the configuration file when you are done.
+1. Save the configuration file when you're done.
 
 ### Decompile into Bicep
 
-This command decompiles an ARM JSON template into a Bicep file, and places it in the same directory as the ARM JSON template. The new file has the same file name with the .bicep extension. If a Bicep file with the same file name already exists in the same folder, vscode prompts you to overwrite the existing file or create a copy.
+This command decompiles an ARM JSON template into a Bicep file, and places it in the same directory as the ARM JSON template. The new file has the same file name with the *.bicep* extension. If a Bicep file with the same file name already exists in the same folder, Visual Studio Code prompts you to overwrite the existing file or create a copy.
 
 ### Deploy Bicep file
 
