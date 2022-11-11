@@ -83,40 +83,42 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
 
         The results should contain an entry that is similar to `*.<GUID>.inference.<region>`.
     1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](../articles/container-registry/container-registry-private-link.md). 
-  1. If the workspace with a private endpoint is setup using a custom DNS [How to use your workspace with a custom DNS server](../articles/machine-learning/how-to-custom-dns.md), use following command to verify if resolution works correctly from custom DNS. 
     
-    ```bash
-    dig endpointname.westcentralus.inference.ml.azure.com
-    ```
-    
-    For Kubernetes online endpoint, 
-    1. Check the DNS configuration in Kubernetes cluster.
-    1. Additionally, you can check if the ScoringFE work as expected, use the following the command:
-        
-        ```bash
-        kubectl exec -it deploy/azureml-fe -- /bin/bash
-        (Run in azureml-fe pod)
-        
-        curl -vi -k https://localhost:<port>/api/v1/endpoint/<endpoint-name>/swagger.json
-        "Swagger not found"
-        ```
+  1. If the workspace with a private endpoint is setup using a custom DNS [How to use your workspace with a custom DNS server](../articles/machine-learning/how-to-custom-dns.md), use following command to verify if resolution works correctly from custom DNS.
 
-        For **HTTP**, use
-        
         ```bash
-        curl https://localhost:<port>/api/v1/endpoint/<endpoint-name>/swagger.json
-        "Swagger not found"
+        dig endpointname.westcentralus.inference.ml.azure.com
         ```
+        
+        For Kubernetes online endpoint, 
+
+        1. Check the DNS configuration in Kubernetes cluster.
+        2. Additionally, you can check if the ScoringFE work as expected, use the following the command:
+        
+            ```bash
+            kubectl exec -it deploy/azureml-fe -- /bin/bash
+            (Run in azureml-fe pod)
+        
+            curl -vi -k https://localhost:<port>/api/v1/endpoint/<endpoint-name>/swagger.json
+            "Swagger not found"
+            ```
+
+            For **HTTP**, use
+        
+            ```bash
+            curl https://localhost:<port>/api/v1/endpoint/<endpoint-name>/swagger.json
+            "Swagger not found"
+            ```
         
         If curl HTTPs fails (e.g. timeout) but HTTP works, please check that certificate is valid.
 
 
-    If this fails to resolve to A record, verify if the resolution works from Azure DNS(168.63.129.16). 
-    ```bash
-    dig @168.63.129.16 endpointname.westcentralus.inference.ml.azure.com
-    ```
+        If this fails to resolve to A record, verify if the resolution works from Azure DNS(168.63.129.16). 
+        ```bash
+        dig @168.63.129.16 endpointname.westcentralus.inference.ml.azure.com
+        ```
 
-    if this succeeds then troubleshoot conditional forwarder for private link on custom DNS.
+        if this succeeds then troubleshoot conditional forwarder for private link on custom DNS.
 
 ### Online deployments can't be scored
 
