@@ -23,7 +23,7 @@ The benefits of smart inventory management include:
 
 This application template focuses on device connectivity, and the configuration and management of RFID and Bluetooth low energy (BLE) reader devices.
 
-:::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-architecture.png" alt-text="smart inventory management.":::
+:::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-architecture.png" alt-text="smart inventory management." border="false":::
 
 ### RFID tags (1)
 
@@ -75,23 +75,21 @@ To learn more, see [Create an IoT Central application](../core/howto-create-iot-
 
 The following sections walk you through the key features of the application:
 
-### Dashboard 
+### Dashboard
 
-After successfully deploying the application template, your default dashboard is a smart inventory management operator focused portal. Northwind Trader is a fictitious smart inventory provider managing warehouse with Bluetooth low energy (BLE) and retail store with Radio-frequency identification (RFID). In this dashboard, you'll see two different gateways providing telemetry about inventory along with associated commands, jobs, and actions that you can perform. 
+After successfully deploying the application template, your default dashboard is a smart inventory management operator focused portal. Northwind Trader is a fictitious smart inventory provider managing warehouse with Bluetooth low energy (BLE) and retail store with Radio-frequency identification (RFID). In this dashboard, you'll see two different gateways providing telemetry about inventory along with associated commands, jobs, and actions that you can perform.
+
 This dashboard is pre-configured to showcase the critical smart inventory management device operations activity.
 The dashboard is logically divided between two different gateway device management operations:
 
 * The warehouse is deployed with a fixed BLE gateway and BLE tags on pallets to track and trace inventory at a larger facility.
 * Retail store is implemented with a fixed RFID gateway and RFID tags at individual an item level to track and trace the stock in a store outlet.
 * View the gateway [location](../core/howto-use-location-data.md), status and related details.
-
-   :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-dashboard-1.png" alt-text="Screenshot showing the top half of the smart inventory management dashboard.":::
-
 * You can easily track the total number of gateways, active, and unknown tags.
 * You can perform device management operations such as update firmware, disable sensor, enable sensor, update sensor threshold, update telemetry intervals and update device service contracts.
 * Gateway devices can perform on-demand inventory management with a complete or incremental scan.
 
-   :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-dashboard-2.png" alt-text="Screenshot showing the bottom half of the smart inventory management dashboard.":::
+:::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-dashboard.png" alt-text="Screenshot showing the smart inventory management application dashboard." lightbox="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-dashboard.png":::
 
 ### Device Template
 
@@ -99,11 +97,9 @@ Click on the Device templates tab, and you'll see the gateway capability model. 
 
 **Gateway Telemetry and Property** - This interface represents all the telemetry related to sensors, location, device info, and device twin property capability such as gateway thresholds and update intervals.
 
-:::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-device-template-1.png" alt-text="Screenshot showing the inventory gateway device template in the application.":::
-
 **Gateway Commands** - This interface organizes all the gateway command capabilities
 
-:::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-device-template-2.png" alt-text="Screenshot showing the gateway commands interface in the inventory gateway device template.":::
+:::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-device-template.png" alt-text="Screenshot showing the inventory gateway device template." lightbox="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-device-template.png":::
 
 ### Rules
 
@@ -113,13 +109,11 @@ Select the rules tab to see two different rules that exist in this application t
 
 **Unknown tags**: It's critical to track every RFID and BLE tags associated with an asset. If the gateway is detecting too many unknown tags, it's an indication of synchronization challenges with tag sourcing applications.
 
-:::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-rules.png" alt-text="Screenshot showing the list of rules in the smart inventory management application.":::
+:::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-rules.png" alt-text="Screenshot showing the list of rules in the smart inventory management application." lightbox="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-rules.png":::
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the application template by visiting **Application** > **Management** and click **Delete**.
-
-:::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-cleanup.png" alt-text="Screenshot showing how to delete the application when you're done with it.":::
+[!INCLUDE [iot-central-clean-up-resources-industry](../../../includes/iot-central-clean-up-resources-industry.md)]
 
 ## Next steps
 
@@ -127,4 +121,3 @@ Learn more about :
 
 > [!div class="nextstepaction"]
 > [IoT Central data integration](../core/overview-iot-central-solution-builder.md)
-
