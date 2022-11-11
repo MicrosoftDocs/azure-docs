@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: active-directory
- author: curtand
+ author: rolyon
  ms.service: active-directory
  ms.topic: include
  ms.date: 05/10/2022
- ms.author: curtand
+ ms.author: rolyon
  ms.custom: include file
 ---
 Here are the usage constraints and other service limits for the Azure AD service.
