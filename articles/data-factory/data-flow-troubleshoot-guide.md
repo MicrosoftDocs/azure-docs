@@ -135,7 +135,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Azure Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
 - **Cause**: The throughput scale operation of the Azure Cosmos DB can't be performed because another scale operation is in progress.
-- **Recommendation**: Login to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
+- **Recommendation**: Log in to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
 
 ### Error code: DF-Cosmos-IdPropertyMissed
 
@@ -667,7 +667,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-SAPODP-DataParsingFailed 
 
-- **Cause**: Mostly you have hidden column settings in your SAP table. When you use SAP mapping data flow to read data from SAP server, it returns all the schema (columns, including hidden ones), but returned data do not contain related values. So, data misalignment happened and lead to parse value issue or wrong data value issue.  
+- **Cause**: Mostly you have hidden column settings in your SAP table. When you use SAP mapping data flow to read data from SAP server, it returns all the schema (columns, including hidden ones), but returned data do not contain related values. So, data misalignment happened and led to parse value issue or wrong data value issue.  
 - **Recommendation**: There are two recommendations for this issue： 
     1. Remove hidden settings from the related column(s) through SAP GUI.   
     2. If you want to keep existed SAP settings unchanged, use hidden feature (manually add DSL property `enableProjection:true` in script) in SAP mapping data flow to filter the hidden column(s) and continue to read data.  
@@ -792,7 +792,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODP-OOM
 
 - **Message**: No more memory available to add rows to an internal table
-- **Cause**: SAP Table connector has its limitation for big table extraction. SAP Table underlying relies on an RFC which will read all the data from the table into the memory of SAP system, so out of memory (OOM) issue will happen when we extracting big tables.
+- **Cause**: SAP Table connector has its limitation for big table extraction. SAP Table underlying relies on an RFC which will read all the data from the table into the memory of SAP system, so out of memory (OOM) issue will happen when extracting big tables.
 - **Recommendation**: Use SAP CDC connector to do full load directly from your source system, then move delta to SAP Landscape Transformation Replication Server (SLT) after init without delta is released.
 
 ### Error code: DF-SAPODP-SourceNotSupportDelta
