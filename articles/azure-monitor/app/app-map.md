@@ -255,7 +255,7 @@ For more information about how to override the cloud role name property with tel
 
 Application Map filters allow the user to reduce the number of nodes and edges shown by applying one or more filters. These filters can be used to reduce the scope of the map, showing a smaller and more focused map.
 
-## Creating Application Map filters
+### Creating Application Map filters
 
 To create a filter, select the "Add filter" button in the application map's toolbar.
 
@@ -275,7 +275,7 @@ The first section has two options:
  
 The contents in the other sections change based on the option selected.
 
-### Node filters
+#### Node filters
 
 Node filters allow the user to leave only selected nodes on the map and hide the rest. A node filter checks each node if it contains a property (its name, for example) with a value that matches a search value through a given operator. If a node is removed by a node filter, all of its connectors (edges) are also removed.
 
@@ -320,7 +320,7 @@ in the map.
 
 :::image type="content" source="media/app-map/image4.png" alt-text="A screenshot with the filter configured to select nodes that contain the text west":::
 
-### Connector (edge) filters
+#### Connector (edge) filters
 
 Connector filters examine the properties of a connector to match a value. Connectors that don't match the filter are removed from the map. The same happens to nodes with no connectors left.
 
