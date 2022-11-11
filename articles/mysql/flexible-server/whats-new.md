@@ -22,6 +22,15 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > [!NOTE]
 > This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## November 2021
+
+- **General availability in Azure US Government regions**
+    The Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
+    - USGov Virginia
+    - USGov Arizona
+    - USGov Texas
+
+
 ## October 2022
 
 - **AMD compute SKUs for General Purpose and Business Critical tiers in in Azure Database for MySQL - Flexible Server**
