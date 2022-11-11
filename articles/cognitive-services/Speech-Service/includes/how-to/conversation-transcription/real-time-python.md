@@ -113,10 +113,6 @@ def conversation_transcription_differentiate_speakers():
         time.sleep(.5)
 
     transcriber.stop_transcribing_async()
-
-
-
- 
 ```
 
 
