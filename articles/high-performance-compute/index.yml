@@ -104,7 +104,7 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
   sections:
-    - title:  # < 60 chars (optional)
+    - title: Additional HPC Content # < 60 chars (optional)
       summary: HPC Training and Informational Content # < 160 chars (optional)
       items:
         # Card
