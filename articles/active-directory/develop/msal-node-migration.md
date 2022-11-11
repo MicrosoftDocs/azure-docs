@@ -27,12 +27,6 @@ ms.custom: has-adal-ref
 
 When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint**. Apps migrating from ADAL to MSAL should switch to **Azure AD v2.0 endpoint**.
 
-1. Review the [differences between v1 and v2 endpoints](azure-ad-endpoint-comparison.md)
-1. Update, if necessary, your existing app registrations accordingly.
-
-> [!NOTE]
-> In order to ensure backward compatibility, MSAL Node supports both v1.0 end v2.0 endpoints.
-
 ## Install and import MSAL
 
 1. install MSAL Node package via NPM:
