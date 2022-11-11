@@ -236,7 +236,7 @@ Now let’s step through how we can see logs for our Azure Synapse Link connecti
     
     b. You can perform a query in the query pane that retrieves a specific set of records. In this case, we'll type in “**SynapseLinkEvent**” in the query pane and then press the blue **Run** button. We can see the link connections that ran in the Results section where you can see details about each of the link connections.  
     
-    :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-display-results-of-log-query.png" alt-text="Screenshot that shows the tables, query, and results of the log query that were ran." lightbox="./media/connect-synapse-link-sql-database/monitor-display-results-of-log-query.png":::
+    :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-display-results-of-log-query.png" alt-text="Screenshot that shows the tables, query, and results of the log query that were ran." lightbox="../media/connect-synapse-link-sql-database/monitor-display-results-of-log-query.png":::
 
 
 ## Next steps
