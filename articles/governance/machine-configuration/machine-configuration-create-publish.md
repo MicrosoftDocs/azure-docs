@@ -53,13 +53,15 @@ $Context = New-AzStorageContext -ConnectionString "DefaultEndpointsProtocol=http
 Next, add the configuration package to the storage account. This example uploads the zip file ./MyConfig.zip to the blob "guestconfiguration".
 
 ```powershell
-Set-AzStorageBlobContent -Container "guestconfiguration" -File ./MyConfig.zip -Blob "guestconfiguration" -Context $Context
+Set-AzStorageBlobContent -Container "guestconfiguration" -File ./MyConfig.zip -Context $Context
 ```
 
-Optionally, you can add a SAS token in the URL, this ensures that the content package will be accessed securely. The below example generates a blob SAS token with full blob permission and returns the full blob URI with the shared access signature token.
+Optionally, you can add a SAS token in the URL, this ensures that the content package will be accessed securely. The below example generates a blob SAS token with read access and returns the full blob URI with the shared access signature token. In this example, this includes a time limit of 3 years.
 
 ```powershell
-$contenturi = New-AzStorageBlobSASToken -Context $Context -FullUri -Container guestconfiguration -Blob "guestconfiguration" -Permission rwd
+$StartTime = Get-Date
+$EndTime = $startTime.AddYears(3)
+$contenturi = New-AzStorageBlobSASToken -StartTime $StartTime -ExpiryTime $EndTime -Container "guestconfiguration" -Blob "MyConfig.zip" -Permission rwd -Context $Context -FullUri 
 ```
 
 ## Next steps

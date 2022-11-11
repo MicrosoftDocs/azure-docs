@@ -1,6 +1,6 @@
 ---
-title: View and manage alerts in the Microsoft Defender for IoT portal on Azure
-description: View and manage alerts detected by cloud-connected network sensors in the Microsoft Defender for IoT portal on Azure. 
+title: View and manage alerts in Microsoft Defender for IoT on the Azure portal
+description: View and manage alerts detected by cloud-connected network sensors in Microsoft Defender for IoT on the Azure portal.
 ms.date: 06/30/2022
 ms.topic: how-to
 ---
@@ -9,7 +9,6 @@ ms.topic: how-to
 
 > [!IMPORTANT]
 > The **Alerts** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 
 This article describes how to manage your alerts from Microsoft Defender for IoT on the Azure portal.
 
@@ -61,7 +60,7 @@ The following alert details are displayed by default in the grid:
 | **Source device** | The IP address, MAC, or device name. |
 | **Tactics** | The MITRE ATT&CK stage. |
 
-**To view additional information:**
+### View more alert details
 
 1. Select **Edit columns** from the Alerts page.
 1. In the Edit Columns dialog box, select **Add Column** and choose an item to add. The following items are available:
@@ -87,39 +86,6 @@ Use the **Search** box, **Time range**, and **Add filter** options to filter the
 For example, filter alerts by **Category**:
 
 :::image type="content" source="media/how-to-view-manage-cloud-alerts/category-filter.png" alt-text="Screenshot of the Category filter option in Alerts page in the Azure portal.":::
-
-Supported categories include:
-
-:::row:::
-   :::column span="":::
-      - Abnormal Communication Behavior
-      - Abnormal HTTP Communication Behavior
-      - Authentication
-      - Backup
-      - Bandwidth Anomalies
-      - Buffer overflow
-      - Command Failures
-      - Configuration changes
-      - Custom Alerts
-      - Discovery
-      - Firmware change
-      - Illegal commands
-   :::column-end:::
-   :::column span="":::
-      - Internet Access
-      - Operation Failures
-      - Operational issues
-      - Programming
-      - Remote access
-      - Restart/Stop Commands
-      - Scan
-      - Sensor traffic
-      - Suspicion of malicious activity
-      - Suspicion of Malware
-      - Unauthorized Communication Behavior
-      - Unresponsive
-   :::column-end:::
-:::row-end:::
 
 ### Group alerts displayed
 

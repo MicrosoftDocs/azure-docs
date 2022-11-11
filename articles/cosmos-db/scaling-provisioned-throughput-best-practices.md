@@ -3,7 +3,8 @@ title: Best practices for scaling provisioned throughput (RU/s)
 description: Learn best practices for scaling provisioned throughput for manual and autoscale throughput
 author: deborahc
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
+ms.custom: ignite-2022
 ms.date: 08/20/2021
 ms.author: dech
 ms.topic: troubleshooting
@@ -11,7 +12,7 @@ ms.reviewer: mjbrown
 ---
 
 # Best practices for scaling provisioned throughput (RU/s) 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article describes best practices and strategies for scaling the throughput (RU/s) of your database or container (collection, table, or graph). The concepts apply when you're increasing either the provisioned manual RU/s or the autoscale max RU/s of any resource for any of the Azure Cosmos DB APIs. 
  
@@ -109,14 +110,14 @@ As a result, we see in the following diagram that each physical partition gets 3
 
 In general, if you have a starting number of physical partitions `P`, and want to set a desired RU/s `S`:
 
-Increase your RU/s to: `10,000 * P * 2 ^ (ROUNDUP(LOG_2 (S/(10,000 * P)))`. This gives the closest RU/s to the desired value that will ensure all partitions are split evenly. 
+Increase your RU/s to: `10,000 * P * (2 ^ (ROUNDUP(LOG_2 (S/(10,000 * P))))`. This gives the closest RU/s to the desired value that will ensure all partitions are split evenly. 
 
 > [!NOTE]
 > When you increase the RU/s of a database or container, this can impact the minimum RU/s you can lower to in the future. Typically, the minimum RU/s is equal to MAX(400 RU/s, Current storage in GB * 10 RU/s, Highest RU/s ever provisioned / 100). For example, if the highest RU/s you've ever scaled to is 100,000 RU/s, the lowest RU/s you can set in the future is 1000 RU/s. Learn more about [minimum RU/s](concepts-limits.md#minimum-throughput-limits).
 
 #### Step 2: Lower your RU/s to the desired RU/s
  
-For example, suppose we have five physical partitions, 50,000 RU/s and want to scale to 150,000 RU/s. We should first set: `10,000 * 5 * 2 ^ (ROUND(LOG_2(150,000/(10,000 * 5)))` = 200,000 RU/s, and then lower to 150,000 RU/s. 
+For example, suppose we have five physical partitions, 50,000 RU/s and want to scale to 150,000 RU/s. We should first set: `10,000 * 5 * (2 ^ (ROUND(LOG_2(150,000/(10,000 * 5))))` = 200,000 RU/s, and then lower to 150,000 RU/s. 
 
 When we scaled up to 200,000 RU/s, the lowest manual RU/s we can now set in the future is 2000 RU/s. The [lowest autoscale max RU/s](autoscale-faq.yml#lowering-the-max-ru-s) we can set is 20,000 RU/s (scales between 2000 - 20,000 RU/s). Since our target RU/s is 150,000 RU/s, we are not affected by the minimum RU/s.
 
@@ -132,7 +133,7 @@ Follow [best practices](partitioning-overview.md#choose-partitionkey) for choosi
 ### Step 2: Calculate the number of physical partitions you'll need 
 `Number of physical partitions = Total data size in GB / Target data per physical partition in GB`
 
-Each physical partition can hold a maximum of 50 GB of storage (30 GB for Cassandra API). The value you should choose for the `Target data per physical partition in GB` depends on how fully packed you want the physical partitions to be and how much you expect storage to grow post-migration. 
+Each physical partition can hold a maximum of 50 GB of storage (30 GB for API for Cassandra). The value you should choose for the `Target data per physical partition in GB` depends on how fully packed you want the physical partitions to be and how much you expect storage to grow post-migration. 
 
 For example, if you anticipate that storage will continue to grow, you may choose to set the value to 30 GB. Assuming you've chosen a good partition key that evenly distributes storage, each partition will be ~60% full (30 GB out of 50 GB). As future data is written, it can be stored on the existing set of physical partitions, without requiring the service to immediately add more physical partitions.
 

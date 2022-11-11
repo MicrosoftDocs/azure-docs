@@ -4,7 +4,7 @@ description: Get an overview of Azure Active Directory entitlement management an
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -137,8 +137,6 @@ To better understand entitlement management and its documentation, you can refer
 ## License requirements
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
-
-Specialized clouds, such as Azure Germany, and Azure China 21Vianet, aren't currently available for use.
 
 ### How many licenses must you have?
 

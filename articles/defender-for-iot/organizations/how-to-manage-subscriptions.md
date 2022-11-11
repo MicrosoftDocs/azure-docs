@@ -55,17 +55,37 @@ When onboarding or editing your Defender for IoT plan, you'll need to know how m
 
 [!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 
-**To calculate the number of devices you need to monitor**:
+#### Calculate the number of devices you need to monitor
 
 We recommend making an initial estimate of your committed devices when onboarding your Defender for IoT plan.
 
-1. Collect the total number of devices in your network.
+**For OT devices**:
 
-1. Remove any devices that are *not* considered as committed devices by Defender for IoT.
+1. Collect the total number of devices at each site in your network, and add them together.
 
-    If you are also a Defender for Endpoint customer, you can identify devices managed by Defender for Endpoint in the Defender for Endpoint **Device inventory** page. In the **Endpoints** tab, filter for devices by **Onboarding status**. For more information, see [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
+1. Remove any devices that are [*not* considered as committed devices by Defender for IoT](#defender-for-iot-committed-devices).
 
 After you've set up your network sensor and have full visibility into all devices, you can [Edit a plan](#edit-a-plan-for-ot-networks) to update the number of committed devices as needed.
+
+**For Enterprise IoT devices**:
+
+In the **Device inventory** page in the **Defender for Endpoint** portal:
+
+1. Add the total number of discovered **network devices** with the total number of discovered **IoT devices**. 
+
+    For example: 
+
+    :::image type="content" source="media/how-to-manage-subscriptions/eiot-calculate-devices.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint.":::
+
+    For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
+
+1. Remove any devices that are [*not* considered as committed devices by Defender for IoT](#defender-for-iot-committed-devices).
+
+1. Round up your total to a multiple of 100.
+
+    For example: In the device inventory, you have 473 network devices and 1206 IoT devices. Added together the total is 1679 devices, and rounded up to a multiple of 100 is 1700. Use 1700 as the estimated number of committed devices.  
+ 
+To edit the number of committed Enterprise IoT devices after you've onboarded a plan, you will need to cancel the plan and onboard a new plan in Defender for Endpoint. For more information, see the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
 ## Onboard a Defender for IoT plan for OT networks
 
@@ -164,21 +184,40 @@ Delete all sensors that are associated with the subscription prior to removing t
 
 ## Move existing sensors to a different subscription
 
-Business considerations may require that you apply your existing IoT sensors to a different subscription than the one you’re currently using. To do this, you'll need to onboard a new plan and register the sensors under the new subscription, and then remove them from the old subscription. This process may include some downtime, and historic data isn't migrated.
+Business considerations may require that you apply your existing IoT sensors to a different subscription than the one you’re currently using. To do this, you'll need to onboard a new plan to the new subscription, register the sensors under the new subscription, and then remove them from the previous subscription.
+
+Billing changes will take effect one hour after cancellation of the previous subscription, and will be reflected on the next month's bill. Devices will be synchronized from the sensor to the new subscription automatically. Manual edits made in the portal will not be migrated. New alerts created by the sensor will be created under the new subscription, and existing alerts in the old subscription can be closed in bulk.
 
 **To switch to a new subscription**:
 
-1. Onboard a new plan to the new subscription you want to use. For more information, see:
+**For OT sensors**:
 
-    [Onboard a plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks) in the Azure portal
+1. In the Azure portal, [onboard a new plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks) to the new subscription you want to use. 
 
-    [Onboard a plan for Enterprise IoT networks](#onboard-a-defender-for-iot-plan-for-enterprise-iot-networks) in Defender for Endpoint
+1. Create a new activation file by [following the steps to onboard an OT sensor](onboard-sensors.md#onboard-ot-sensors). 
+    - Replicate site and sensor hierarchy as is.
+    - For sensors monitoring overlapping network segments, create the activation file under the same zone. Identical devices that are detected in more than one sensor in a zone, will be merged into one device.  
 
-1. Onboard your sensors again under the new subscription. For OT sensors, [upload a new activation](how-to-manage-individual-sensors.md#upload-new-activation-files) file for your sensors.
+1. [Upload a new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files) for your sensors under the new subscription.
 
-1. Delete the sensor identities from the legacy subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
+1. Delete the sensor identities from the previous subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the legacy subscription.
+1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the previous subscription.
+
+**For Enterprise IoT sensors**:
+
+1. In Defender for Endpoint, [onboard a new plan for Enterprise IoT networks](#onboard-a-defender-for-iot-plan-for-enterprise-iot-networks) to the new subscription you want to use.
+
+1. In the Azure portal, [follow the steps to register an Enterprise IoT sensor](tutorial-getting-started-eiot-sensor.md#register-an-enterprise-iot-sensor) under the new subscription.
+
+1. Log into your sensor and run the activation command you saved when registering the sensor under the new subscription.
+
+1. Delete the sensor identities from the previous subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
+
+1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the previous subscription.
+
+> [!NOTE]
+> If the previous subscription was connected to Microsoft Sentinel, you will need to connect the new subscription to Microsoft Sentinel and remove the old subscription. For more information, see [Connect Microsoft Defender for IoT with Microsoft Sentinel](/azure/sentinel/iot-solution).
 
 ## Next steps
 

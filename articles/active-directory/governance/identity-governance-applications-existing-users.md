@@ -4,7 +4,7 @@ description: Planning for a successful access reviews campaign for a particular 
 services: active-directory
 documentationCenter: ''
 author: markwahl-msft
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -300,7 +300,7 @@ The first time your organization uses these cmdlets for this scenario, you need 
 1. If there were users who couldn't be located in Azure AD, or weren't active and able to sign in, but you want to have their access reviewed or their attributes updated in the database, you need to update or create Azure AD users for them. You can create users in bulk by using either:
 
    - A CSV file, as described in [Bulk create users in the Azure AD portal](../enterprise-users/users-bulk-add.md)
-   - The [New-MgUser](/powershell/module/microsoft.graph.users/new-mguser?view=graph-powershell-1.0#examples) cmdlet  
+   - The [New-MgUser](/powershell/module/microsoft.graph.users/new-mguser?view=graph-powershell-1.0#examples&preserve-view=true) cmdlet  
 
    Ensure that these new users are populated with the attributes required for Azure AD to later match them to the existing users in the application.
 

@@ -4,7 +4,7 @@ description: Reference of declarative provisioning expressions in Azure AD Conne
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f

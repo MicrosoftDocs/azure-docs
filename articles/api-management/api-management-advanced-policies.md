@@ -287,7 +287,7 @@ In the following example, the policy fragment named *myFragment* is added in the
 [...]
 ```
 
-## Elements
+### Elements
 
 | Element           | Description   | Required |
 | ----------------- | ------------- | -------- |
@@ -858,7 +858,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="SetHttpProxy"></a> Set HTTP proxy
 
-The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only.
+The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only. To route the send-request via HTTP proxy, you must place the set HTTP proxy policy inside the send-request policy block.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 

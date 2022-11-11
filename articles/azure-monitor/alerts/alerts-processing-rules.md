@@ -1,6 +1,6 @@
 ---
 title: Alert processing rules for Azure Monitor alerts
-description: Understand what alert processing rules in Azure Monitor are and how to configure and manage them.
+description: Understand Azure Monitor alert processing rules and how to configure and manage them.
 ms.topic: conceptual
 ms.date: 2/23/2022
 ms.reviewer: ofmanor
@@ -13,9 +13,9 @@ ms.reviewer: ofmanor
 <a name="suppression-of-alerts"></a>
 
 > [!NOTE]
-> The previous name for alert processing rules was action rules. The Azure resource type of these rules remains **Microsoft.AlertsManagement/actionRules** for backward compatibility.
+> Alert processing rules were previously known as 'action rules'. For backward compatibility, the Azure resource type of these rules is still **Microsoft.AlertsManagement/actionRules** .
 
-Alert processing rules allow you to apply processing on fired alerts. You might be familiar with Azure Monitor alert rules, which are rules that generate new alerts. Alert processing rules are different. They're rules that modify the fired alerts themselves as they're being fired.
+Alert processing rules allow you to apply processing on fired alerts. Alert processing rules are different from alert rules. Alert rules generate new alerts, while alert processing rules  modify the fired alerts as they're being fired.
 
 You can use alert processing rules to add [action groups](./action-groups.md) or remove (suppress) action groups from your fired alerts. You can apply alert processing rules to different resource scopes, from a single resource, or to an entire subscription. You can also use them to apply various filters or have the rule work on a predefined schedule.
 
@@ -25,13 +25,13 @@ Some common use cases for alert processing rules are described here.
 
 Many customers set up a planned maintenance time for their resources, either on a one-time basis or on a regular schedule. The planned maintenance might cover a single resource, like a virtual machine, or multiple resources, like all virtual machines in a resource group. So, you might want to stop receiving alert notifications for those resources during the maintenance window. In other cases, you might prefer to not receive alert notifications outside of your business hours. Alert processing rules allow you to achieve that.
 
-You could alternatively suppress alert notifications by disabling the alert rules themselves at the beginning of the maintenance window. Then you can reenable them after the maintenance is over. In that case, the alerts won't fire in the first place. That approach has several limitations:
+You could suppress alert notifications by disabling the alert rules themselves at the beginning of the maintenance window, and reenable them after the maintenance is over. In that case, the alerts won't fire in the first place. That approach has several limitations:
 
    * This approach is only practical if the scope of the alert rule is exactly the scope of the resources under maintenance. For example, a single alert rule might cover multiple resources, but only a few of those resources are going through maintenance. So, if you disable the alert rule, you won't be alerted when the remaining resources covered by that rule run into issues.
    * You might have many alert rules that cover the resource. Updating all of them is time consuming and error prone.
    * You might have some alerts that aren't created by an alert rule at all, like alerts from Azure Backup.  
 
-In all these cases, an alert processing rule provides an easy way to achieve the notification suppression goal.
+In all these cases, an alert processing rule provides an easy way to suppress notifications.
 
 ## Management at scale
 
@@ -51,10 +51,6 @@ For those alert types, you can use alert processing rules to add action groups.
 ## Scope and filters for alert processing rules
 <a name="filter-criteria"></a>
 
-An alert processing rule definition covers several aspects, as described here.
-
-### Which fired alerts are affected by this rule?
-
 This section describes the scope and filters for alert processing rules.
 
 Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, a specific resource group, or an entire subscription. *The alert processing rule applies to alerts that fired on resources within that scope*.  
@@ -63,16 +59,17 @@ You can also define filters to narrow down which specific subset of alerts are a
 
 | Filter | Description|
 |:---|:---|
-Alert context (payload)  |  The rule applies only to alerts that contain any of the filter's strings within the [alert context](./alerts-common-schema-definitions.md#alert-context) section of the alert. This section includes fields specific to each alert type. |
+Alert context (payload)  |  The rule applies only to alerts that contain any of the filter's strings within the [alert context](./alerts-common-schema-definitions.md#alert-context) section of the alert. This section includes fields specific to each alert type. This filter does not apply to log alert search results. |
 Alert rule ID |  The rule applies only to alerts from a specific alert rule. The value should be the full resource ID, for example, `/subscriptions/SUB1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/MY-API-LATENCY`.  To locate the alert rule ID, open a specific alert rule in the portal, select **Properties**, and copy the **Resource ID** value. You can also locate it by listing your alert rules from PowerShell or the Azure CLI. |
 Alert rule name |  The rule applies only to alerts with this alert rule name. It can also be useful with a **Contains** operator. |
 Description |  The rule applies only to alerts that contain the specified string within the alert rule description field. |
 Monitor condition |  The rule applies only to alerts with the specified monitor condition, either **Fired** or **Resolved**. |
-Monitor service |  The rule applies only to alerts from any of the specified monitor services. For example, use **Platform** to have the rule apply only to metric alerts. |
+Monitor service |  The rule applies only to alerts from any of the specified monitoring services that are sending the signal. Different services are available depending on the type of signal. For example: </br>**- Platform**: For metric signals, the monitor service is the metric namespace. ‘Platform’ means the metrics are provided by the resource provider, namely 'Azure'.</br>**- Azure.ApplicationInsights**: Customer-reported metrics, sent by the Application Insights SDK.</br>**- Azure.VM.Windows.GuestMetrics**: VM guest metrics, collected by an extension running on the VM. Can include built-in operating system perf counters, and custom perf counters.</br>**- _\<Custom namespace\>_**: A custom metric namespace, containing custom metrics sent with the Azure Monitor Metrics API.</br>**- Log Analytics**: The service that provides the ‘Custom log search’ and ‘Log (saved query)’ signals.</br>**- Activity Log – Administrative**: The service that provides the ‘Administrative’ activity log events.</br>**- Activity Log – Policy**: The service that provides the 'Policy' activity log events.</br>**- Activity Log – Autoscale** The service that provides the ‘Autoscale’ activity log events.</br>**- Activity Log – Security**: The service that provides the ‘Security’ activity log events.</br>**- Resource health**: The service that provides the resource-level health status.</br>**- Service health**: The service that provides the subscription-level health status.|
 Resource |  The rule applies only to alerts from the specified Azure resource. For example, you can use this filter with **Does not equal** to exclude one or more resources when the rule's scope is a subscription. | 
 Resource group |  The rule applies only to alerts from the specified resource groups. For example, you can use this filter with **Does not equal** to exclude one or more resource groups when the rule's scope is a subscription. | 
 Resource type |  The rule applies only to alerts on resources from the specified resource types, such as virtual machines. You can use **Equals** to match one or more specific resources. You can also use **Contains** to match a resource type and all its child resources. For example, use `resource type contains "MICROSOFT.SQL/SERVERS"` to match both SQL servers and all their child resources, like databases.
 Severity |  The rule applies only to alerts with the selected severities. |
+
 
 #### Alert processing rule filters
 

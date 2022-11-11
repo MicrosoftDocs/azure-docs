@@ -4,7 +4,7 @@ description: This article describes the default configuration in Azure AD Connec
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1

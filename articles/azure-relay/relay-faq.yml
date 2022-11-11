@@ -3,7 +3,7 @@ metadata:
   title: Azure Relay FAQs | Microsoft Docs
   description: This article provides answers to some of the frequently asked questions about the Azure Relay service.
   ms.topic: faq
-  ms.service: azure
+  ms.service: service-bus-relay
   ms.date: 06/21/2022
 title: Azure Relay FAQs
 summary: |
@@ -41,26 +41,6 @@ sections:
           For complete information about Relay pricing, see the [Hybrid Connections and WCF Relays](https://azure.microsoft.com/pricing/details/service-bus) table on the Service Bus pricing details page. In addition to the prices noted on that page, you are charged for associated data transfers for egress outside of the datacenter in which your application is provisioned.
           
       - question: |
-          How am I billed for Hybrid Connections?
-        answer: |
-          Here are three example billing scenarios for Hybrid Connections:
-          
-          *   Scenario 1:
-              *   You have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month.
-              *   You send 3 GB of data across the connection during the month. 
-              *   Your total charge is $5.
-          *   Scenario 2:
-              *   You have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month.
-              *   You send 10 GB of data across the connection during the month.
-              *   Your total charge is $7.50. That's $5 for the connection and first 5 GB + $2.50 for the additional 5 GB of data.
-          *   Scenario 3:
-              *   You have two instances, A and B, of the Hybrid Connections Manager installed and continuously running for the entire month.
-              *   You send 3 GB of data across connection A during the month.
-              *   You send 6 GB of data across connection B during the month.
-              *   Your total charge is $10.50. That's $5 for connection A + $5 for connection B + $0.50 (for the sixth gigabyte on connection B).
-          
-          
-      - question: |
           How are hours calculated for Relay?
         answer: |
           WCF Relay is available only in Standard tier namespaces. Pricing and [connection quotas](../service-bus-messaging/service-bus-quotas.md) for relays otherwise have not changed. This means that relays continue to be charged based on the number of messages (not operations) and relay hours. For more information, see the ["Hybrid Connections and WCF Relays"](https://azure.microsoft.com/pricing/details/service-bus/) table on the pricing details page.
@@ -84,6 +64,7 @@ sections:
           
           | Quota name | Scope |  Notes | Value |
           | --- | --- | --- | --- |
+          | Relay namespaces per Azure subscription | Azure subscription |- | 1000 |          
           | Concurrent listeners on a relay |Entity (hybrid connection or WCF relay) |Subsequent requests for additional connections are rejected and an exception is received by the calling code. |25 |
           | Concurrent relay connections per all relay endpoints in a service namespace |Namespace |- |5,000 |
           | Relay endpoints per service namespace |Namespace |- |10,000 |
@@ -148,7 +129,7 @@ sections:
           Is it possible to allow only some relay endpoints?
         answer: |
           Yes. The relay client makes connections to the Azure Relay service by using fully qualified domain names. Customers can add an entry for `*.servicebus.windows.net` on firewalls that support DNS approval listing. 
-          It is also possible to whitelist a specific namespace by using `your-namespace-name.servicebus.windows.net`. In this case you will also need to whitelist the gateways for your namespace, which can be found by using [this PowerShell script](https://github.com/Azure/azure-relay-dotnet/blob/master/tools/GetNamespaceInfo.ps1).
+          It is also possible to allowlist a specific namespace by using `your-namespace-name.servicebus.windows.net`. In this case you will also need to allowlist the gateways for your namespace, which can be found by using [this PowerShell script](https://github.com/Azure/azure-relay-dotnet/blob/master/tools/GetNamespaceInfo.ps1).
 
 additionalContent: |
 

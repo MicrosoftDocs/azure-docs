@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/03/2022
+ms.date: 11/02/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -27,8 +27,9 @@ To use 3D Scenes Studio, you'll need the following resources:
     * Obtain *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance. For instructions, see [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
     * Take note of the *host name* of your instance to use later.
 * An Azure storage account. For instructions, see [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
+    * Take note of the *URL* of your storage account to use later.
 * A private container in the storage account. For instructions, see [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
-    * Take note of the *URL* of your storage container to use later.
+    * Take note of the *name* of your storage container to use later.
 * *Storage Blob Data Owner* or *Storage Blob Data Contributor* access to your storage resources. You can grant required roles at either the storage account level or the container level. For instructions and more information about permissions to Azure storage, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
 
 You should also configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. You can use the following [Azure CLI](/cli/azure/what-is-azure-cli) command to set the minimum required methods, origins, and headers. The command contains one placeholder for the name of your storage account.
@@ -50,7 +51,7 @@ In this section, you'll set the environment in *3D Scenes Studio* and customize 
 
     1. The **Azure Digital Twins instance URL** should start with *https://*, followed by the *host name* of your instance from the [Prerequisites](#prerequisites) section.
     
-    1. For the **Azure storage container URL**, enter the URL of your storage container from the [Prerequisites](#prerequisites) section.
+    1. For the **Azure Storage account URL**, enter the URL of your storage container from the [Prerequisites](#prerequisites) section. For the **Azure Storage container name**, enter the name of your storage container from the [Prerequisites](#prerequisites) section.
     
     1. Select **Save**.
     
@@ -324,6 +325,20 @@ When looking at your scene in the viewer, you can use the **Select layers** butt
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/layers-select-viewer.png" alt-text="Screenshot of 3D Scenes Studio in View mode. The layer selection is highlighted." lightbox="media/how-to-use-3d-scenes-studio/layers-select-viewer.png":::
 
+## Configure minimum refresh rate
+
+You can manually configure the **minimum refresh rate** for the 3D scene viewer, to exercise some control over how often data is pulled and the resulting impact on performance. You can configure the minimum refresh rate to be anywhere between 10 seconds and one hour.
+
+In the builder for a scene, select the **Scene configuration** button.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/scene-configuration.png" alt-text="Screenshot of 3D Scenes Studio in Build mode. The scene configuration option is highlighted." lightbox="media/how-to-use-3d-scenes-studio/scene-configuration.png":::
+
+Use the dropdown list to select a refresh rate option.
+
+While looking at the scene in the viewer, you can hover over the **Refresh** button to see the refresh rate setting and the time of the last refresh. You can also select it to refresh the scene manually.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/viewer-refresh.png" alt-text="Screenshot of 3D Scenes Studio in View mode. The refresh button highlighted." lightbox="media/how-to-use-3d-scenes-studio/viewer-refresh.png":::
+
 ## Modify theme 
 
 In either the builder or viewer for a scene, select the **Theme** icon to change the style, object colors, and background color of the display.
@@ -349,7 +364,7 @@ Once someone has the required permissions, there are two ways to give them acces
     :::image type="content" source="media/how-to-use-3d-scenes-studio/copy-url.png" alt-text="Screenshot of the Share environment button in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/copy-url.png":::
 
     Share it with the recipient, who can paste this URL directly into their browser to connect to your environment.
-* Share the **URL of your Azure Digital Twins instance** and the **URL of your Azure storage container** that you used when [initializing your 3D Scenes Studio environment](#initialize-your-3d-scenes-studio-environment). The recipient can access [3D Scenes Studio](https://dev.explorer.azuredigitaltwins-test.net/3dscenes) and initialize it with these same URL values to connect to your same environment.
+* Share the **URL of your Azure Digital Twins instance** and the **URL of your Azure storage container** that you used when [initializing your 3D Scenes Studio environment](#initialize-your-3d-scenes-studio-environment). The recipient can access [3D Scenes Studio](https://explorer.digitaltwins.azure.net/3dscenes) and initialize it with these same URL values to connect to your same environment.
 
 After this, the recipient can view and interact with your scenes in the studio.
 

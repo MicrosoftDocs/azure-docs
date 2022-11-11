@@ -12,7 +12,7 @@ manager: femila
 > Applies to: iOS 13.0 or later. Compatible with iPhone, iPad, and iPod touch.
 
 >[!IMPORTANT]
->This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../user-documentation/connect-ios.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../users/connect-ios-ipados.md).
 
 You can access Azure Virtual Desktop resources from your iOS device with our downloadable client. This guide will tell you how to set up the iOS client.
 
@@ -28,7 +28,7 @@ To subscribe to a feed:
 
 1. In the Connection Center, tap **+**, and then tap **Add Workspace**.
 2. Enter the feed URL into the **Feed URL** field. The feed URL can be either a URL or an email address.
-   - If you use a URL, use the one your admin gave you. Normally, the URL is <https://rdweb.wvd.microsoft.com>.
+   - If you use a URL, use the one your admin gave you. Normally, the URL is `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`.
    - To use email, enter your email address. This tells the client to search for a URL associated with your email address if your admin configured the server that way.
 3. Tap **Next**.
 4. Provide your credentials when prompted.

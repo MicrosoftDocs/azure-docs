@@ -27,6 +27,8 @@
     href: virtual-wan-expressroute-portal.md
 - name: Concepts
   items:
+  - name: What's new?
+    href: whats-new.md
   - name: Work remotely
     items:
     - name: Support for working remotely
@@ -99,6 +101,8 @@
       href: about-client-address-pools.md
     - name: P2S global and hub profiles
       href: global-hub-profile.md
+    - name: User groups - assign client-specific addresses 
+      href: user-groups-about.md
   - name: Virtual hub settings
     href: hub-settings.md
   - name: Gateway settings
@@ -211,12 +215,26 @@
         href: howto-always-on-device-tunnel.md
     - name: Configure forced tunneling
       href: how-to-forced-tunnel.md
+    - name: Configure user groups for address pools
+      items:
+      - name: Configure a user group
+        href: user-groups-create.md
+      - name: RADIUS - configure NPS vendor-specific attributes
+        href: user-groups-radius.md
   - name: Routing
     items:
     - name: Configure virtual hub routing
-      href: how-to-virtual-hub-routing.md
+      items:
+      - name: Azure portal
+        href: how-to-virtual-hub-routing.md
+      - name: Azure PowerShell
+        href: how-to-virtual-hub-routing-powershell.md
     - name: Configure virtual hub routing preference
-      href: howto-virtual-hub-routing-preference.md
+      items:
+      - name: Azure portal
+        href: howto-virtual-hub-routing-preference.md
+      - name: Azure PowerShell
+        href: how-to-virtual-hub-routing-preference-powershell.md
     - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
     - name: How to configure routing intent and policies
@@ -228,7 +246,11 @@
         - name: Azure PowerShell
           href: virtual-wan-route-table-nva.md
     - name: Configure BGP peering to an NVA
-      href: create-bgp-peering-hub-portal.md
+      items:
+      - name: Azure portal
+        href: create-bgp-peering-hub-portal.md
+      - name: Azure PowerShell
+        href: create-bgp-peering-hub-powershell.md
   - name: Security
     items:
     - name: Install Azure Firewall in a hub

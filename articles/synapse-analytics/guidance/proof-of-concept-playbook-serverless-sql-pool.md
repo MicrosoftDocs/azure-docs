@@ -42,7 +42,7 @@ Before you begin planning your serverless SQL Pool POC project:
 Before you start preparing for the POC project, we recommend you first read the [serverless SQL pool documentation](../sql/on-demand-workspace-overview.md).
 
 > [!TIP]
-> If you're new to serverless SQL pools, we recommend you work through the [Build data analytics solutions using Azure Synapse serverless SQL pools](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/) learning path.
+> If you're new to serverless SQL pools, we recommend you work through the [Build data analytics solutions using Azure Synapse serverless SQL pools](/training/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/) learning path.
 
 ### Set the goals
 
@@ -161,7 +161,7 @@ When you complete all the POC tests, you evaluate the results. Begin by evaluati
 > [Big data analytics with Apache Spark pool in Azure Synapse Analytics](proof-of-concept-playbook-spark-pool.md)
 
 > [!div class="nextstepaction"]
-> [Build data analytics solutions using Azure Synapse serverless SQL pools](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/)
+> [Build data analytics solutions using Azure Synapse serverless SQL pools](/training/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/)
 
 > [!div class="nextstepaction"]
 > [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)

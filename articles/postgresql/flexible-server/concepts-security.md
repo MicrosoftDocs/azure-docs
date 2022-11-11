@@ -14,7 +14,7 @@ ms.date: 11/30/2021
 
 # Security in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Multiple layers of security are available to help protect the data on your Azure Database for PostgreSQL server. This article outlines those security options.
 

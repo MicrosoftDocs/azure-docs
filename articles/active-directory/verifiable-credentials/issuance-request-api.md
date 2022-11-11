@@ -35,7 +35,7 @@ The Request Service REST API issuance request requires the following HTTP header
 |`Authorization`| Attach the access token as a bearer token to the authorization header in an HTTP request. For example, `Authorization: Bearer <token>`.|
 |`Content-Type`| `Application/json`|
 
-Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your tenant ID or tenant name.
+Construct an HTTP POST request to the Request Service REST API. 
 
 ```http
 https://verifiedid.did.msidentity.com/v1.0/verifiableCredentials/createIssuanceRequest
@@ -86,7 +86,7 @@ The issuance request payload contains information about your verifiable credenti
     "clientName": "Verifiable Credential Expert Sample"
   },
   "type": "VerifiedCredentialExpert",
-  "manifest": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert",
+  "manifest": "https://verifiedid.did.msidentity.com/v1.0/tenants/12345678-0000-0000-0000-000000000000/verifiableCredentials/contracts/MTIzNDU2NzgtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwdmVyaWZpZWRjcmVkZW50aWFsZXhwZXJ0/manifest",
   "claims": {
     "given_name": "Megan",
     "family_name": "Bowen"
@@ -193,7 +193,7 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 | `requestId`| string | Mapped to the original request when the payload was posted to the Verifiable Credentials service.|
 | `requestStatus` |string |The status returned for the request. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the issuance flow.</li><li>`issuance_successful`: The issuance of the verifiable credentials was successful.</li><li>`issuance_error`: There was an error during issuance. For details, see the `error` property.</li></ul>    |
 | `state` |string| Returns the state value that you passed in the original payload.   |
-| `error`| error | When the `code` property value is `Issuance_error`, this property contains information about the error.| 
+| `error`| error | When the `code` property value is `issuance_error`, this property contains information about the error.| 
 | `error.code` | string| The return error code. |
 | `error.message`| string| The error message. |
 
@@ -223,8 +223,8 @@ The callback endpoint might be called with an error message. The following table
 
 |Message  |Definition    |
 |---------|---------|
-| `fetch_contract_error*`| Unable to fetch the verifiable credential contract. This error usually happens when the API can't fetch the manifest you specify in the request payload [RequestIssuance object](#issuance-request-payload).|
-| `issuance_service_error*` | The Verifiable Credentials service isn't able to validate requirements, or something went wrong in Verifiable Credentials.|
+| `fetch_contract_error`| Unable to fetch the verifiable credential contract. This error usually happens when the API can't fetch the manifest you specify in the request payload [RequestIssuance object](#issuance-request-payload).|
+| `issuance_service_error` | The Verifiable Credentials service isn't able to validate requirements, or something went wrong in Verifiable Credentials.|
 | `unspecified_error`| This error is uncommon, but worth investigating. |
 
 The following example demonstrates a callback payload when an error occurred:

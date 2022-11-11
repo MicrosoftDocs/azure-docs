@@ -193,7 +193,7 @@ Most configuration fields are named so that they can default to false. All field
 | samplingPercentage | Percentage of events that will be sent. Default is 100, meaning all events are sent. Set this option if you want to preserve your data cap for large-scale applications. | numeric<br/>100 |
 | autoTrackPageVisitTime | If true, on a pageview, the _previous_ instrumented page's view time is tracked and sent as telemetry and a new timer is started for the current pageview. It's sent as a custom metric named `PageVisitTime` in `milliseconds` and is calculated via the Date [now()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now) function (if available) and falls back to (new Date()).[getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime) if now() is unavailable (Internet Explorer 8 or less). Default is false. | boolean<br/>false |
 | disableAjaxTracking | If true, Ajax calls aren't autocollected. | boolean<br/> false |
-| disableFetchTracking | If true, Fetch requests aren't autocollected.|boolean<br/>true |
+| disableFetchTracking | If true, Fetch requests aren't autocollected.|boolean<br/>false |
 | overridePageViewDuration | If true, default behavior of trackPageView is changed to record end of page view duration interval when trackPageView is called. If false and no custom duration is provided to trackPageView, the page view performance is calculated by using the navigation timing API. |boolean<br/>
 | maxAjaxCallsPerView | Default 500 controls how many Ajax calls will be monitored per page view. Set to -1 to monitor all (unlimited) Ajax calls on the page. | numeric<br/> 500 |
 | disableDataLossAnalysis | If false, internal telemetry sender buffers will be checked at startup for items not yet sent. | boolean<br/> true |
@@ -305,7 +305,7 @@ const appInsights = new ApplicationInsights({ config: { // Application Insights 
 ---
 
 > [!NOTE]
-> There are two distributed tracing modes/protocols: AI (Classic) and [W3C TraceContext](https://www.w3.org/TR/trace-context/) (New). In version 2.6.0 and later, they are _both_ enabled by default. For older versions, users need to [explicitly opt in to WC3 mode](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+> There are two distributed tracing modes/protocols: AI (Classic) and [W3C TraceContext](https://www.w3.org/TR/trace-context/) (New). In version 2.6.0 and later, they are _both_ enabled by default. For older versions, users need to [explicitly opt in to W3C mode](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
 ### Route tracking
 
@@ -525,7 +525,9 @@ Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<
 
 If the SDK reports correlation recursively, enable the configuration setting of `excludeRequestFromAutoTrackingPatterns` to exclude the duplicate data. This scenario can occur when you use connection strings. The syntax for the configuration setting is `excludeRequestFromAutoTrackingPatterns: [<endpointUrl>]`.
 
-## <a name="next"></a> Next steps
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
+## Next steps
 
 * [Source map for JavaScript](source-map-support.md)
 * [Track usage](usage-overview.md)

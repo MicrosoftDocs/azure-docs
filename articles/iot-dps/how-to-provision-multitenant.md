@@ -1,32 +1,28 @@
 ---
-title: Tutorial - Provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
-description: This tutorial shows how to provision devices for multitenancy with your Device Provisioning Service (DPS) instance
+title: Tutorial - Provision devices for geolatency in Azure IoT Hub Device Provisioning Service
+description: This tutorial shows how to provision devices for geolocation/geolatency with your Device Provisioning Service (DPS) instance
 author: kgremban
 ms.author: kgremban
 ms.topic: tutorial
-ms.date: 08/19/2022
+ms.date: 08/24/2022
 ms.service: iot-dps
 services: iot-dps
 ---
 
-# Tutorial: Provision for multitenancy
+# Tutorial: Provision for geolatency
 
-This tutorial shows how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). Allocation policies that are defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
+This tutorial shows how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). IoT Hub Device Provisioning Service (DPS) supports a variety of allocation scenarios through its built-in allocation policies and its support for custom allocation policies.
 
-* **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
+Provisioning for **Geolocation/ GeoLatency** is a common allocation scenario. As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The built-in **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
 
-* **Multi-tenancy**: Devices used within an IoT solution may need to be assigned to a specific IoT hub or group of IoT hubs. The solution may require all devices for a particular tenant to communicate with a specific group of IoT hubs. In some cases, a tenant may own IoT hubs and require devices to be assigned to their IoT hubs.
-
-It's common to combine these two scenarios. For example, a multitenant IoT solution commonly assigns tenant devices using a group of IoT hubs that are scattered across different regions. These tenant devices can be assigned to the IoT hub in the group that has the lowest latency based on geographic location.
-
-This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices in a multitenant scenario across regions. You will perform the following steps in this tutorial:
+This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices across regions. You'll perform the following steps in this tutorial:
 
 > [!div class="checklist"]
 > * Use the Azure CLI to create two regional IoT hubs (**West US 2** and **East US**)
-> * Create a multitenant enrollment
+> * Create an enrollment that provisions devices based on geolocation (lowest latency)
 > * Use the Azure CLI to create two regional Linux VMs to act as devices in the same regions (**West US 2** and **East US**)
 > * Set up the development environment for the Azure IoT C SDK on both Linux VMs
-> * Simulate the devices to see that they are provisioned for the same tenant in the closest region.
+> * Simulate the devices and verify that they're provisioned to the IoT hub in the closest region.
 
 >[!IMPORTANT]
 > Some regions may, from time to time, enforce restrictions on the creation of Virtual Machines. At the time of writing this guide, the *westus2* and *eastus* regions permitted the creation of VMs. If you're unable to create in either one of those regions, you can try a different region. To learn more about choosing Azure geographical regions when creating VMs, see [Regions for virtual machines in Azure](../virtual-machines/regions.md)
@@ -41,10 +37,10 @@ This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://
 
 ## Create two regional IoT hubs
 
-In this section, you'll create an Azure resource group, and two new regional IoT hub resources for a tenant. One IoT hub will be for the **West US 2** region and the other will be for the **East US** region.
+In this section, you'll create an Azure resource group, and two new regional IoT hub resources. One IoT hub will be for the **West US 2** region and the other will be for the **East US** region.
 
 >[!IMPORTANT]
->It's recommended that you use the same resource group for all resources created in this tutorial. This will make clean up easier after you are finished.
+>It's recommended that you use the same resource group for all resources created in this tutorial. This will make clean up easier after you're finished.
 
 1. In the Azure Cloud Shell, create a resource group with the following [az group create](/cli/azure/group#az-group-create) command:
 
@@ -68,9 +64,9 @@ In this section, you'll create an Azure resource group, and two new regional IoT
 
     This command may take a few minutes to complete.
 
-## Create the multitenant enrollment
+## Create an enrollment for geolatency
 
-In this section, you'll create a new enrollment group for the tenant devices.  
+In this section, you'll create a new enrollment group for the your devices.  
 
 For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
@@ -92,7 +88,7 @@ For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetri
 
 5. Select **Link a new IoT Hub**
 
-    :::image type="content" source="./media/how-to-provision-multitenant/create-multitenant-enrollment.png" alt-text="Add multitenant enrollment group for symmetric key attestation.":::
+    :::image type="content" source="./media/how-to-provision-multitenant/create-multitenant-enrollment.png" alt-text="Add enrollment group for symmetric key attestation and lowest latency.":::
 
 6. On the **Add link to IoT hub** page, enter the following information:
 
@@ -122,7 +118,7 @@ For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetri
 
 ## Create regional Linux VMs
 
-In this section, you'll create two regional Linux virtual machines (VMs). These VMs will run a device simulation sample from each region to demonstrate device provisioning for tenant devices from both regions.
+In this section, you'll create two regional Linux virtual machines (VMs). These VMs will run a device simulation sample from each region to demonstrate device provisioning for devices from both regions.
 
 To make clean-up easier, these VMs will be added to the same resource group that contains the IoT hubs that were created, *contoso-us-resource-group*. However, the VMs will run in separate regions (**West US 2** and **East US**).
 
@@ -194,7 +190,7 @@ To make clean-up easier, these VMs will be added to the same resource group that
 
 ## Prepare the Azure IoT C SDK development environment
 
-In this section, you'll clone the Azure IoT C SDK on each VM. The SDK contains a sample that simulates a tenant's device provisioning from each region.
+In this section, you'll clone the Azure IoT C SDK on each VM. The SDK contains a sample that simulates a device provisioning from each region.
 
 For each VM:
 
@@ -279,7 +275,7 @@ For **both** *eastus* and *westus 2* devices:
     p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=
     ```
 
-3. Now each tenant device has their own derived device key and unique registration ID to perform symmetric key attestation with the enrollment group during the provisioning process.
+3. Now each device has its own derived device key and unique registration ID to perform symmetric key attestation with the enrollment group during the provisioning process.
 
 ## Simulate the devices from each region
 
@@ -344,7 +340,7 @@ The sample code simulates a device boot sequence that sends the provisioning req
     cmake --build . --target prov_dev_client_sample --config Debug
     ```
 
-8. Once the build succeeds, run **prov\_dev\_client\_sample.exe** on both VMs to simulate a tenant device from each region. Notice that each device is allocated to the tenant IoT hub closest to the simulated device's regions.
+8. Once the build succeeds, run **prov\_dev\_client\_sample.exe** on both VMs to simulate a device from each region. Notice that each device is allocated to the IoT hub closest to the simulated device's region.
 
     Run the simulation:
     ```bash
@@ -390,7 +386,7 @@ If you plan to continue working with resources created in this tutorial, you can
 The steps here assume that you created all resources in this tutorial as instructed in the same resource group named **contoso-us-resource-group**.
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
+> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
 >
 
 To delete the resource group by name:

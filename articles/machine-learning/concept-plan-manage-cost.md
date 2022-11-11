@@ -55,7 +55,7 @@ When you create resources for an Azure Machine Learning workspace, resources for
 * [Key Vault](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Application Insights](https://azure.microsoft.com/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
-When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop-preview) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
  
 ### Costs might accrue before resource deletion
 
@@ -176,4 +176,4 @@ For more information, see [manage and optimize costs in Azure Machine Learning](
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

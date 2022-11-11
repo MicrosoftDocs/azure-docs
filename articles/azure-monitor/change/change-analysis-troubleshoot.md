@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 07/28/2022 
+ms.date: 09/21/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
@@ -15,10 +15,10 @@ ms.reviewer: cawa
 
 ## Trouble registering Microsoft.ChangeAnalysis resource provider from Change history tab.
 
-If you're viewing Change history after its first integration with Azure Monitor's Change Analysis, you will see it automatically registering the **Microsoft.ChangeAnalysis** resource provider. The resource may fail and incur the following error messages: 
+If you're viewing Change history after its first integration with Azure Monitor's Change Analysis, you'll see it automatically registering the **Microsoft.ChangeAnalysis** resource provider. The resource may fail and incur the following error messages: 
 
 ### You don't have enough permissions to register Microsoft.ChangeAnalysis resource provider.  
-You're receiving this error message because your role in the current subscription is not associated with the **Microsoft.Support/register/action** scope. For example, you are not the owner of your subscription and instead received shared access permissions through a coworker (like view access to a resource group). 
+You're receiving this error message because your role in the current subscription isn't associated with the **Microsoft.Support/register/action** scope. For example, you aren't the owner of your subscription and instead received shared access permissions through a coworker (like view access to a resource group). 
 
 To resolve the issue, contact the owner of your subscription to register the **Microsoft.ChangeAnalysis** resource provider. 
 1. In the Azure portal, search for **Subscriptions**.
@@ -62,9 +62,16 @@ When changes can't be loaded, Azure Monitor's Change Analysis service presents t
 
 Refreshing the page after a few minutes usually fixes this issue. If the error persists, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
 
+## Only partial data loaded.
+
+This error message may occur in the Azure portal when loading change data via the Change Analysis home page. Typically, the Change Analysis service calculates and returns all change data. However, in a network failure or a temporary outage of service, you may receive an error message indicating only partial data was loaded.
+
+To load all change data, try waiting a few minutes and refreshing the page. If you are still only receiving partial data, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
+
+
 ## You don't have enough permissions to view some changes. Contact your Azure subscription administrator.
 
-This general unauthorized error message occurs when the current user does not have sufficient permissions to view the change. At minimum, 
+This general unauthorized error message occurs when the current user doesn't have sufficient permissions to view the change. At minimum, 
 * To view infrastructure changes returned by Azure Resource Graph and Azure Resource Manager, reader access is required. 
 * For web app in-guest file changes and configuration changes, contributor role is required. 
 
@@ -83,7 +90,18 @@ To troubleshoot virtual machine issues using the troubleshooting tool in the Azu
 
 ![Screenshot of the tile for the Analyze recent changes troubleshooting tool for a Virtual Machine.](./media/change-analysis/analyze-recent-changes.png)
 
+## Can't filter to your resource to view changes
 
+When filtering down to a particular resource in the Change Analysis standalone page, you may encounter a known limitation that only returns 1,000 resource results. To filter through and pinpoint changes for one of your 1,000+ resources:
+
+1. In the Azure portal, select **All resources**.
+1. Select the actual resource you want to view.
+1. In that resource's left side menu, select **Diagnose and solve problems**.
+1. In the Change Analysis card, select **View change details**.
+
+   :::image type="content" source="./media/change-analysis/change-details-card.png" alt-text="Screenshot of viewing change details from the Change Analysis card in Diagnose and solve problems tool.":::
+
+From here, you'll be able to view all of the changes for that one resource.
 
 ## Next steps
 

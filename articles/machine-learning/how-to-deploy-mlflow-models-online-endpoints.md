@@ -5,11 +5,11 @@ description: Learn to deploy your MLflow model as a web service that's automatic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: fasantia
 author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.date: 03/31/2022
 ms.topic: how-to
-ms.reviewer: larryfr
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
@@ -116,11 +116,11 @@ Once you're done with the endpoint, use the following command to delete it:
 
 This example shows how you can deploy an MLflow model to an online endpoint using [Azure Machine Learning studio](https://ml.azure.com).
 
-1. Models need to be registered in the Azure Machine Learning workspace to be deployed. Deployment of unregistered models is not supported. To create a model in Azure Machine Learning, open the Models page in Azure Machine Learning. Click **Register model** and select where your model is located. Fill out the required fields, and then select __Register__.
+1. Models need to be registered in the Azure Machine Learning workspace to be deployed. Deployment of unregistered models isn't supported. To create a model in Azure Machine Learning, open the Models page in Azure Machine Learning. Select **Register model** and select where your model is located. Fill out the required fields, and then select __Register__.
 
    :::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-as-asset.png":::
 
-2. To create an endpoint deployment, use either the __endpoints__ or __models__ page :
+2. To create an endpoint deployment, use either the __endpoints__ or __models__ page:
 
     # [Endpoints page](#tab/endpoint)
 
@@ -151,12 +151,12 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
 
 ## Deploy models after a training job
 
-This section helps you understand how to deploy models to an online endpoint once you have completed your [training job](how-to-train-cli.md). Models logged in a run are stored as artifacts. If you have used `mlflow.autolog()` in your training script, you will see model artifacts generated in the job's output. You can use `mlflow.autolog()` for several common ML frameworks to log model parameters, performance metrics, model artifacts, and even feature importance graphs. 
+This section helps you understand how to deploy models to an online endpoint once you've completed your [training job](how-to-train-model.md). Models logged in a run are stored as artifacts. If you have used `mlflow.autolog()` in your training script, you'll see model artifacts generated in the job's output. You can use `mlflow.autolog()` for several common ML frameworks to log model parameters, performance metrics, model artifacts, and even feature importance graphs. 
 
-For more information, see [Train models with CLI](how-to-train-cli.md#model-tracking-with-mlflow). Also see the [training job samples](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step) in the GitHub repository.
+For more information, see [Train models](how-to-train-model.md). Also see the [training job samples](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step) in the GitHub repository.
 
 
-1. Models need to be registered in the Azure Machine Learning workspace to be deployed. Deployment of unregistered models is not supported. You can register the model directly from the job's output using the Azure ML CLI (v2), the Azure ML SDK for Python (v2) or Azure Machine Learning studio. 
+1. Models need to be registered in the Azure Machine Learning workspace to be deployed. Deployment of unregistered models isn't supported. You can register the model directly from the job's output using the Azure ML CLI (v2), the Azure ML SDK for Python (v2) or Azure Machine Learning studio. 
    
     > [!TIP]
     > To register the model, you will need to know the location where the model has been stored. If you are using `autolog` feature of MLflow, the path will depend on the type and framework of the model being used. We recommed to check the jobs output to identify which is the name of this folder. You can look for the folder that contains a file named `MLModel`. If you are logging your models manually using `log_model`, then the path is the argument you pass to such method. As an expample, if you log the model using `mlflow.sklearn.log_model(my_model, "classifier")`, then the path where the model is stored is `classifier`.
@@ -167,7 +167,7 @@ For more information, see [Train models with CLI](how-to-train-cli.md#model-trac
 
     # [Azure ML CLI (v2)](#tab/cli)
     
-    Use the Azure ML CLI v2 to create a model from a training job output. In the following example a model named `$MODEL_NAME` is registered using the artifacts of a job with ID `$RUN_ID`. The path where the model is stored is `$MODEL_PATH`.
+    Use the Azure ML CLI v2 to create a model from a training job output. In the following example, a model named `$MODEL_NAME` is registered using the artifacts of a job with ID `$RUN_ID`. The path where the model is stored is `$MODEL_PATH`.
 
     ```bash
     az ml model create --name $MODEL_NAME --path azureml://jobs/$RUN_ID/outputs/artifacts/$MODEL_PATH
@@ -208,7 +208,7 @@ To learn more, review these articles:
 - [Create and use online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)
+- [Use batch endpoints for batch scoring](batch-inference/how-to-use-batch-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
 - [Access Azure resources with an online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot online endpoint deployment](how-to-troubleshoot-managed-online-endpoints.md)

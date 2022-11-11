@@ -98,7 +98,8 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
 1. Select the **I accept the terms** option, and then select **Save**.
 
-Your OT networks plan will be shown under the associated subscription in the **Plans** grid. 
+Your OT networks plan will be shown under the associated subscription in the **Plans** grid. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
+
 
 ## Add a Defender for IoT plan for Enterprise IoT networks to an Azure subscription
 
@@ -119,3 +120,4 @@ For more information, see:
 
 - [Welcome to Microsoft Defender for IoT for organizations](overview.md)
 - [Microsoft Defender for IoT architecture](architecture.md)
+- [Move existing sensors to a different subscription](how-to-manage-subscriptions.md#move-existing-sensors-to-a-different-subscription)

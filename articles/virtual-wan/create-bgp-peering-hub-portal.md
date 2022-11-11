@@ -5,13 +5,13 @@ description: Learn how to create a BGP peering with Virtual WAN hub router.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 09/06/2022
 ms.author: cherylmc
 
 ---
 # Configure BGP peering to an NVA - Azure portal
 
-This article helps you configure an Azure Virtual WAN hub router to peer with a Network Virtual Appliance (NVA) in your virtual network using BGP Peering via the Azure portal. The virtual hub router learns routes from the NVA in a spoke VNet that is connected to a virtual WAN hub. The virtual hub router also advertises the virtual network routes to the NVA. For more information, see [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md).
+This article helps you configure an Azure Virtual WAN hub router to peer with a Network Virtual Appliance (NVA) in your virtual network using BGP Peering using the Azure portal. The virtual hub router learns routes from the NVA in a spoke VNet that is connected to a virtual WAN hub. The virtual hub router also advertises the virtual network routes to the NVA. For more information, see [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md). You can also create this configuration using [Azure PowerShell](create-bgp-peering-hub-powershell.md).
 
 :::image type="content" source="./media/create-bgp-peering-hub-portal/diagram.png" alt-text="Diagram of configuration.":::
 
@@ -21,11 +21,11 @@ Verify that you've met the following criteria before beginning your configuratio
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
 
-## <a name="openvwan"></a>Create a virtual WAN
+## Create a virtual WAN
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
-## <a name="hub"></a>Create a hub
+## Create a hub
 
 A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
@@ -33,7 +33,7 @@ A hub is a virtual network that can contain gateways for site-to-site, ExpressRo
 
 Once you have the settings configured, click **Review + Create** to validate, then click **Create**. The hub will begin provisioning. After the hub is created, go to the hub's **Overview** page. When provisioning is completed, the **Routing status** is **Provisioned**.
 
-## <a name="vnet"></a>Connect the VNet to the hub
+## Connect the VNet to the hub
 
 After your hub router status is provisioned, create a connection between your hub and VNet.
 

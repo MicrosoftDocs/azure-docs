@@ -2,8 +2,8 @@
 title: Firmware secure boot - Azure Security
 description: Technical overview of Azure firmware secure boot.
 author: yosharm
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin

@@ -99,10 +99,10 @@ The structure of the JSON is:
 ```bash
 {
 "properties": {
- "SourceDBServerResourceId":"subscriptions/<subscriptionid>/resourceGroups/<src_ rg_name>/providers/Microsoft.DBforPostgreSQL/servers/<source server name>",
+ "SourceDBServerResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<src_ rg_name>/providers/Microsoft.DBforPostgreSQL/servers/<source server name>",
 
 "SourceDBServerFullyQualifiedDomainName": "fqdn of the source server as per the custom DNS server", 
-"TargetDBServerFullyQualifiedDomainName": "fqdn of the target server as per the custom DNS server"
+"TargetDBServerFullyQualifiedDomainName": "fqdn of the target server as per the custom DNS server",
 
 "SecretParameters": {
     "AdminCredentials": 
@@ -120,7 +120,7 @@ The structure of the JSON is:
 
 "MigrationResourceGroup":
     {
- "ResourceId":"subscriptions/<subscriptionid>/resourceGroups/<temp_rg_name>",
+ "ResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<temp_rg_name>",
  "SubnetResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<rg_name>/providers/Microsoft.Network/virtualNetworks/<Vnet_name>/subnets/<subnet_name>"
     },
 

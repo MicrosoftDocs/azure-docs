@@ -115,39 +115,103 @@ When you're seeing the aggregation type:
 - **Average** shows the average value of all data points in the time granularity.
 - **Sum** shows the sum of all data points in the time granularity and may be misleading depending on the specific metric.
 
-Under normal conditions, **Average** and **Max** are similar because only one node emits these metrics (the primary node). In a scenario where the number of connected clients changes rapidly, **Max**, **Average**, and **Min** would show different values and this is also expected behavior.
+Under normal conditions, **Average** and **Max** are similar because only one node emits these metrics (the primary node). In a scenario where the number of connected clients changes rapidly, **Max**, **Average**, and **Min** would show different values and is also expected behavior.
 
 Generally, **Average** shows you a smooth chart of your desired metric and reacts well to changes in time granularity. **Max** and **Min** can hide large changes in the metric if the time granularity is large but can be used with a small time granularity to help pinpoint exact times when large changes occur in the metric.
 
 The types **Count** and **“Sum** can be misleading for certain metrics (connected clients included). Instead, we suggest you look at the **Average** metrics and not the **Sum** metrics.
 
 > [!NOTE]
-> Even when the cache is idle with no connected active client applications, you might see some cache activity, such as connected clients, memory usage, and operations being performed. This activity is normal during the operation of an instance of Azure Cache for Redis.
+> Even when the cache is idle with no connected active client applications, you might see some cache activity, such as connected clients, memory usage, and operations being performed. The activity is normal in the operation of cache.
 >
 
-| Metric | Description |
-| -------|-------------|
-| Cache Hits |The number of successful key lookups during the specified reporting interval. This number maps to `keyspace_hits` from the Redis [INFO](https://redis.io/commands/info) command. |
-| Cache Latency | The latency of the cache calculated using the internode latency of the cache. This metric is measured in microseconds, and has three dimensions: `Avg`, `Min`, and `Max`. The dimensions represent the average, minimum, and maximum latency of the cache during the specified reporting interval.  |
-| Cache Misses |The number of failed key lookups during the specified reporting interval. This number maps to `keyspace_misses` from the Redis INFO command. Cache misses don't necessarily mean there's an issue with the cache. For example, when using the cache-aside programming pattern, an application looks first in the cache for an item. If the item isn't there (cache miss), the item is retrieved from the database and added to the cache for next time. Cache misses are normal behavior for the cache-aside programming pattern. If the number of cache misses is higher than expected, examine the application logic that populates and reads from the cache. If items are being evicted from the cache because of memory pressure, then there may be some cache misses, but a better metric to monitor for memory pressure would be `Used Memory` or `Evicted Keys`. |
-| Cache Read |The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. **This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](./cache-planning-faq.yml#azure-cache-for-redis-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.** |
-| Cache Write |The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client. |
-| Connected Clients |The number of client connections to the cache during the specified reporting interval. This number maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there may still be a few instances of connected clients because of internal processes and connections. |
-| Connections Created Per Second | The number of instantaneous connections created per second on the cache via port 6379 or 6380 (SSL). This metric can help identify whether clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and Redis Server Load. |
-| Connections Closed Per Second | The number of instantaneous connections closed per second on the cache via port 6379 or 6380 (SSL). This metric can help identify whether clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and Redis Server Load. |
-| CPU |The CPU utilization of the Azure Cache for Redis server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter. Note: This metric can be noisy due to low priority background security processes running on the node, so we recommend monitoring Server Load metric to track load on a Redis server.|
-| Errors | Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could have more added in the future. The error types represented now are as follows: <br/><ul><li>**Failover** – when a cache fails over (subordinate promotes to primary)</li><li>**Dataloss** – when there's data loss on the cache</li><li>**UnresponsiveClients** – when the clients aren't reading data from the server fast enough</li><li>**AOF** – when there's an issue related to AOF persistence</li><li>**RDB** – when there's an issue related to RDB persistence</li><li>**Import** – when there's an issue related to Import RDB</li><li>**Export** – when there's an issue related to Export RDB</li></ul> |
-| Evicted Keys |The number of items evicted from the cache during the specified reporting interval because of the `maxmemory` limit. This number maps to `evicted_keys` from the Redis INFO command. |
-| Expired Keys |The number of items expired from the cache during the specified reporting interval. This value maps to `expired_keys` from the Redis INFO command.|
-| Gets |The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval. |
-| Operations per Second | The total number of commands processed per second by the cache server during the specified reporting interval.  This value maps to "instantaneous_ops_per_sec" from the Redis INFO command. |
-| Redis Server Load |The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. If this counter reaches 100, it means the Redis server has hit a performance ceiling and the CPU can't process work any faster. If you're seeing high Redis Server Load, then you see timeout exceptions in the client. In this case, you should consider scaling up or partitioning your data into multiple caches. |
-| Sets |The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`. |
-| Total Keys  | The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command. Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.  |
-| Total Operations |The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. When Azure Cache for Redis is used purely for pub/sub there will be no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there will be `Total Operations` metrics that reflect the cache usage for pub/sub operations. |
-| Used Memory |The amount of cache memory in MB that is used for key/value pairs in the cache during the specified reporting interval. This value maps to `used_memory` from the Redis INFO command. This value doesn't include metadata or fragmentation. |
-| Used Memory Percentage | The % of total memory that is being used during the specified reporting interval.  This value references the `used_memory` value from the Redis INFO command to calculate the percentage. |
-| Used Memory RSS |The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to `used_memory_rss` from the Redis INFO command. |
+## List of metrics
+
+- Cache Latency (preview)
+  - The latency of the cache calculated using the internode latency of the cache. This metric is measured in microseconds, and has three dimensions: `Avg`, `Min`, and `Max`. The dimensions represent the average, minimum, and maximum latency of the cache during the specified reporting interval.
+- Cache Misses
+  - The number of failed key lookups during the specified reporting interval. This number maps to `keyspace_misses` from the Redis INFO command. Cache misses don't necessarily mean there's an issue with the cache. For example, when using the cache-aside programming pattern, an application looks first in the cache for an item. If the item isn't there (cache miss), the item is retrieved from the database and added to the cache for next time. Cache misses are normal behavior for the cache-aside programming pattern. If the number of cache misses is higher than expected, examine the application logic that populates and reads from the cache. If items are being evicted from the cache because of memory pressure, then there may be some cache misses, but a better metric to monitor for memory pressure would be `Used Memory` or `Evicted Keys`.
+- Cache Miss Rate
+  - The percent of unsuccessful key lookups during the specified reporting interval. This metric isn't available in Enterprise or Enterprise Flash tier caches.
+- Cache Read
+  - The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](./cache-planning-faq.yml#azure-cache-for-redis-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.
+- Cache Write
+  - The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.
+- Connected Clients
+  - The number of client connections to the cache during the specified reporting interval. This number maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there may still be a few instances of connected clients because of internal processes and connections.
+- Connections Created Per Second
+  - The number of instantaneous connections created per second on the cache via port 6379 or 6380 (SSL). This metric can help identify whether clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and Redis Server Load. This metric isn't available in Enterprise or Enterprise Flash tier caches.
+- Connections Closed Per Second
+  - The number of instantaneous connections closed per second on the cache via port 6379 or 6380 (SSL). This metric can help identify whether clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and Redis Server Load. This metric isn't available in Enterprise or Enterprise Flash tier caches.
+- CPU
+  - The CPU utilization of the Azure Cache for Redis server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter. Note: This metric can be noisy due to low priority background security processes running on the node, so we recommend monitoring Server Load metric to track load on a Redis server.
+- Errors
+  - Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could have more added in the future. The error types represented now are as follows:
+    - **Failover** – when a cache fails over (subordinate promotes to primary)
+    - **Dataloss** – when there's data loss on the cache
+    - **UnresponsiveClients** – when the clients aren't reading data from the server fast enough
+    - **AOF** – when there's an issue related to AOF persistence
+    - **RDB** – when there's an issue related to RDB persistence
+    - **Import** – when there's an issue related to Import RDB
+    - **Export** – when there's an issue related to Export RDB
+- Evicted Keys
+  - The number of items evicted from the cache during the specified reporting interval because of the `maxmemory` limit.
+  - This number maps to `evicted_keys` from the Redis INFO command.
+- Expired Keys
+  - The number of items expired from the cache during the specified reporting interval. This value maps to `expired_keys` from the Redis INFO command.
+
+> [!IMPORTANT]
+> Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+>
+
+- Geo Replication Connectivity Lag (preview)
+  - Depicts the time, in seconds, since the last successful data synchronization between geo-primary & geo-secondary. If the link goes down, this value continues to increase, indicating a problem.
+  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+  - This metric is only available in the Premium tier for caches with geo-replication enabled.
+- Geo Replication Data Sync Offset (preview)
+  - Depicts the approximate amount of data, in bytes, that has yet to be synchronized to geo-secondary cache.
+  - This metric is only emitted **from the geo-primary** cache instance. On the geo-secondary instance, this metric has no value.
+  - This metric is only available in the Premium tier for caches with geo-replication enabled.
+- Geo Replication Full Sync Event Finished (preview)
+  - Depicts the completion of full synchronization between geo-replicated caches. When you see lots of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
+   - This metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
+   - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+   - This metric is only available in the Premium tier for caches with geo-replication enabled.
+
+- Geo Replication Full Sync Event Started (preview)
+  - Depicts the start of full synchronization between geo-replicated caches. When there are a lot of writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
+  - This metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
+  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+  - This metric is only available in the Premium tier for caches with geo-replication enabled.
+
+- Geo Replication Healthy
+  - Depicts the status of the geo-replication link between caches. There can be two possible states that the replication link can be in:
+    - 0 disconnected/unhealthy
+    - 1 – healthy
+  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+  - This metric is only available in the Premium tier for caches with geo-replication enabled.
+  - This metric may indicate a disconnected/unhealthy replication status for several reasons, including: monthly patching, host OS updates, network misconfiguration, or failed geo-replication link provisioning.
+  - A value of 0 does not mean that data on the geo-replica is lost. It just means that the link between geo-primary and geo-secondary is unhealthy. 
+  - If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+- Gets
+  - The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval.
+- Operations per Second
+  - The total number of commands processed per second by the cache server during the specified reporting interval.  This value maps to "instantaneous_ops_per_sec" from the Redis INFO command.
+- Server Load
+  - The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. If this counter reaches 100, the Redis server has hit a performance ceiling, and the CPU can't process work any faster. If you're seeing high Redis Server Load, then you see timeout exceptions in the client. In this case, you should consider scaling up or partitioning your data into multiple caches.
+- Sets
+  - The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`.
+- Total Keys  
+  - The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command. Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.
+- Total Operations
+  - The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. When Azure Cache for Redis is used purely for pub/sub there will be no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there will be `Total Operations` metrics that reflect the cache usage for pub/sub operations.
+- Used Memory
+  - The amount of cache memory in MB that is used for key/value pairs in the cache during the specified reporting interval. This value maps to `used_memory` from the Redis INFO command. This value doesn't include metadata or fragmentation.
+- Used Memory Percentage
+  - The percent of total memory that is being used during the specified reporting interval.  This value references the `used_memory` value from the Redis INFO command to calculate the percentage.
+- Used Memory RSS
+  - The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to `used_memory_rss` from the Redis INFO command. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 
 ## Create alerts
 

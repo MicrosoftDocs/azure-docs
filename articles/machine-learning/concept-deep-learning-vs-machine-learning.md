@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
-ms.date: 04/12/2021
+ms.date: 11/04/2022
 ms.custom: contperf-fy21q1,contperfq1
 ---
 
@@ -142,5 +142,3 @@ The following articles show you more options for using open-source deep learning
 - [Classify handwritten digits by using a TensorFlow model](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Classify handwritten digits by using a TensorFlow estimator and Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
-
-- [Classify handwritten digits by using a Chainer model](./how-to-set-up-training-targets.md?WT.mc_id=docs-article-lazzeri)

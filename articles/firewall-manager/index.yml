@@ -30,7 +30,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Firewall Manager
-            url: /learn/modules/intro-to-azure-firewall-manager/
+            url: /training/modules/intro-to-azure-firewall-manager/
   # Card
   - title: Learn about secured virtual hubs
     linkLists:

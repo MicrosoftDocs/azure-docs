@@ -177,6 +177,7 @@ The KQL operators that perform parsing are listed below, ordered by their perfor
 |---------|---------|
 |[split](/azure/data-explorer/kusto/query/splitfunction)     |    Parse a string of delimited values.     |
 |[parse_csv](/azure/data-explorer/kusto/query/parsecsvfunction)     |     Parse a string of values formatted as a CSV (comma-separated values) line.    |
+|[parse-kv](/azure/data-explorer/kusto/query/parse-kv-operator)     |     Extracts structured information from a string expression and represents the information in a key/value form.    |
 |[parse](/azure/data-explorer/kusto/query/parseoperator)     |    Parse multiple values from an arbitrary string using a pattern, which can be a simplified pattern with better performance, or a regular expression.     |
 |[extract_all](/azure/data-explorer/kusto/query/extractallfunction)     | Parse single values from an arbitrary string using a regular expression. `extract_all` has a similar performance to `parse` if the latter uses a regular expression.        |
 |[extract](/azure/data-explorer/kusto/query/extractfunction)     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is less efficient than a single `parse` or `extract_all` and should be avoided.      |
@@ -203,7 +204,7 @@ In many cases, the original value extracted needs to be normalized. For example,
 
 Also, ensuring that parser output fields matches type defined in the schema is critical for parsers to work.  For example, you may need to convert a string representing date and time to a datetime field. Functions such as `todatetime` and `tohex` are helpful in these cases.
 
-For example, the original unique event ID may be sent as an integer, but ASIM requires the value to be a string, to ensure broad compatibility among data sources. Therefore, when assigning the source field use `extned` and `tostring` instead of `project-rename`:
+For example, the original unique event ID may be sent as an integer, but ASIM requires the value to be a string, to ensure broad compatibility among data sources. Therefore, when assigning the source field use `extend` and `tostring` instead of `project-rename`:
 
 ```KQL
   | extend EventOriginalUid = tostring(ReportId),

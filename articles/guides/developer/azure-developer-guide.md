@@ -2,7 +2,7 @@
 title: Get started guide for developers on Azure | Microsoft Docs
 description: This article provides essential information for developers looking to get started using the Microsoft Azure platform for their development needs.
 author: ggailey777
-ms.service: azure
+ms.service: az-devops-project
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
@@ -90,20 +90,19 @@ Service Fabric supports WebAPI with Open Web Interface for .NET (OWIN) and ASP.N
 >
 > **Get started:** [Create your first Azure Service Fabric application](../../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
 
-#### Azure Spring Cloud
+#### Azure Spring Apps
 
-Azure Spring Cloud is a serverless microservices platform that enables you to build, deploy, scale and monitor your applications in the cloud. Use Spring Cloud to bring modern microservice patterns to Spring Boot apps, eliminating boilerplate code to quickly build robust Java apps.
+Azure Spring Apps is a serverless app platform that enables you to build, deploy, scale and monitor your applications in the cloud. Use Spring Cloud to bring modern microservice patterns to Spring Boot apps, eliminating boilerplate code to quickly build robust Java apps.
 
 * Leverage managed versions of Spring Cloud Service Discovery and Config Server, while we ensure those critical components are running in optimum conditions.
 * Focus on building your business logic and we will take care of your service runtime with security patches, compliance standards and high availability.
 * Manage application lifecycle (for example, deploy, start, stop, scale) on top of Azure Kubernetes Service.
 * Easily bind connections between your apps and Azure services such as Azure Database for MySQL and Azure Cache for Redis.
-* Monitor and troubleshoot microservices and applications using enterprise-grade unified monitoring tools that offer deep insights on application dependencies and operational telemetry.
+* Monitor and troubleshoot applications using enterprise-grade unified monitoring tools that offer deep insights on application dependencies and operational telemetry.
 
-> **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you're minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure.
+> **When to use:** As a fully managed service Azure Spring Apps is a good choice when you're minimizing operational cost running Spring Boot and Spring Cloud apps on Azure.
 >
 > **Get started:** [Deploy your first Spring Boot app in Azure Spring Apps](../../spring-apps/quickstart.md).
-
 
 ### Enhance your applications with Azure services
 
@@ -131,7 +130,6 @@ Most applications must store data, so however you decide to host your applicatio
   >
   > **Get started**: [Create a database in Azure SQL Database in minutes by using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 
-
 You can use [Azure Data Factory](../../data-factory/introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../../app-service/app-service-hybrid-connections.md) in Azure App Service lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
 
 #### Docker support
@@ -139,7 +137,6 @@ You can use [Azure Data Factory](../../data-factory/introduction.md) to move exi
 Docker containers, a form of OS virtualization, let you deploy applications in a more efficient and predictable way. A containerized application works in production the same way as on your development and test systems. You can manage containers by using standard Docker tools. You can use your existing skills and popular open-source tools to deploy and manage container-based applications on Azure.
 
 Azure provides several ways to use containers in your applications.
-
 
 * **Azure Kubernetes Service**: Lets you create, configure, and manage a cluster of virtual machines  that are preconfigured to run containerized applications. To learn more about Azure Kubernetes Service, see [Azure Kubernetes Service introduction](../../aks/intro-kubernetes.md).
 
@@ -306,7 +303,7 @@ When you allow access to Azure resources, it's always a best practice to provide
   >
   > **Get started**: To learn more, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-- **Service principal objects**: Along with providing access to user principals and groups, you can grant the same access to a service principal.
+* **Service principal objects**: Along with providing access to user principals and groups, you can grant the same access to a service principal.
 
   > **When to use**: When you're programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory application and service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
 

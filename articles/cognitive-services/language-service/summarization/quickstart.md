@@ -3,7 +3,7 @@ title: "Quickstart: Use Document Summarization (preview)"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using Document Summarization.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
