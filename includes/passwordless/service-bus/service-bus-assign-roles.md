@@ -25,7 +25,7 @@ If you want to create a custom role, see [Rights required for Service Bus operat
 
 ### Create a user in Azure Active Directory 
 
-If you are already have an Azure Active Directory (Azure AD) user account, skip this step. If not (for example, if you logged in using a Microsoft account like: `john.doe@hotmail.com`), create a user in Azure AD.
+If you already have an Azure Active Directory (Azure AD) user account, skip this step. If not (for example, if you logged in using a Microsoft account like: `john.doe@hotmail.com`), create a user in Azure AD.
 
 1. Sign-in to [Azure portal](https://portal.azure.com) in a new tab or new web browser window.
 1. In the search bar at the top, type **Azure Active Directory**, and select **Azure Active Directory** from the results. 

@@ -10,7 +10,7 @@ ms.custom: contperf-fy22q2, mode-api
 
 # Quickstart: Send and receive messages from an Azure Service Bus queue (.NET)
 
-In this quickstart, you will do the following steps:
+In this quickstart, you'll do the following steps:
 
 1. Create a Service Bus namespace, using the Azure portal.
 2. Create a Service Bus queue, using the Azure portal.
@@ -108,14 +108,16 @@ This section shows you how to create a .NET console application to send messages
 
     ### [Passwordless](#tab/passwordless)
 
-    > [!IMPORTANT]
-    > As per the `TODO` comment in the source code, update the placeholder values (`<NAMESPACE-NAME>` and `<QUEUE-NAME>`) in the code snippet with the values from the Service Bus you created.
-
     * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
     * Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.
     * Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync) method.
     * Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage).
     * Sends the batch of messages to the Service Bus queue using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
+
+    > [!IMPORTANT]
+    > Update placeholder values (`<NAMESPACE-CONNECTION-STRING>` and `<QUEUE-NAME>`) in the code snippet with names of your Service Bus namespace and queue.
+
+
 
     ```csharp
     using Azure.Messaging.ServiceBus;
@@ -181,14 +183,15 @@ This section shows you how to create a .NET console application to send messages
 
     ### [Connection string](#tab/connection-string)
 
-    > [!IMPORTANT]
-    > Update placeholder values (`<NAMESPACE-CONNECTION-STRING>` and `<QUEUE-NAME>`) in the code snippet with actual values you noted down earlier.
-
     * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string.
     * Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.
     * Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync) method.
     * Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage).
     * Sends the batch of messages to the Service Bus queue using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
+
+    > [!IMPORTANT]
+    > Update placeholder values (`<NAMESPACE-CONNECTION-STRING>` and `<QUEUE-NAME>`) in the code snippet with names of your Service Bus namespace and queue.
+
 
     ```csharp
     using Azure.Messaging.ServiceBus;
@@ -387,7 +390,7 @@ In this section, you'll add code to retrieve messages from the queue.
     * When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) on the `ServiceBusProcessor` object.
 
     > [!IMPORTANT]
-    > Update placeholder values (`<NAMESPACE-NAME>` and `<QUEUE-NAME>`) in the code snippet with actual values you noted down earlier..
+    > Update placeholder values (`<NAMESPACE-NAME>` and `<QUEUE-NAME>`) in the code snippet with names of your Service Bus namespace and queue.
     
     ```csharp
     // The Service Bus client types are safe to cache and use as a singleton for the lifetime

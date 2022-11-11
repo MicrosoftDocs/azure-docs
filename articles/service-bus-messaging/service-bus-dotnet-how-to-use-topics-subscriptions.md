@@ -45,12 +45,20 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 ---
 
-[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
-
 [!INCLUDE [service-bus-create-topic-subscription-portal](./includes/service-bus-create-topic-subscription-portal.md)]
 
-> [!IMPORTANT]
-> Note down the connection string to the namespace, the topic name, and the subscription name. You'll use them later in this tutorial.
+[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
+
+## Launch Visual Studio and sign-in to Azure
+
+You can authorize access to the service bus namespace using the following steps:
+
+1. Select the **Sign in** button in the top right of Visual Studio.
+
+    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
+2. Sign-in using the Azure AD account you assigned a role to previously.
+
+    :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 
 ## Send messages to the topic
 This section shows you how to create a .NET console application to send messages to a Service Bus topic. 
@@ -60,12 +68,11 @@ This section shows you how to create a .NET console application to send messages
 
 ### Create a console application
 
-1. Start Visual Studio 2022.
-1. Select **Create a new project**.
+1. In Visual Studio, select **File** -> **New** -> **Project** menu. 
 1. On the **Create a new project** dialog box, do the following steps: If you don't see this dialog box, select **File** on the menu, select **New**, and then select **Project**.
     1. Select **C#** for the programming language.
     1. Select **Console** for the type of the application.
-    1. Select **Console Application** from the results list.
+    1. Select **Console App** from the results list.
     1. Then, select **Next**.
 
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/new-send-project.png" alt-text="Image showing the Create a new project dialog box with C# and Console selected":::
@@ -77,14 +84,16 @@ This section shows you how to create a .NET console application to send messages
 ### [Passwordless](#tab/passwordless)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
-1. Run the following command to install the **Azure.Messaging.ServiceBus** and **Azure.Identity** NuGet packages:
+1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package.
 
     ```powershell
     Install-Package Azure.Messaging.ServiceBus
+    ```
+1. Run the following command to install the **Azure.Identity** NuGet package.
+
+    ```powershell
     Install-Package Azure.Identity
     ```
-
-    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
 
 ### [Connection String](#tab/connection-string)
 
@@ -94,9 +103,6 @@ This section shows you how to create a .NET console application to send messages
     ```Powershell
     Install-Package Azure.Messaging.ServiceBus
     ```
-
-    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
-
 ---
 
 
@@ -106,11 +112,14 @@ This section shows you how to create a .NET console application to send messages
 
     ## [Passwordless](#tab/passwordless)
 
-    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
+    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus. 
     1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the `ServiceBusClient` object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus topic.     
     1. Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
     1. Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
     1. Sends the batch of messages to the Service Bus topic using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
+
+    > [!IMPORTANT]
+    > Update placeholder values (`<NAMESPACE-NAME>` and `<TOPIC-NAME>`) in the code snippet with names of your Service Bus namespace and topic.
     
     ```csharp
     using System.Threading.Tasks;
@@ -242,7 +251,7 @@ This section shows you how to create a .NET console application to send messages
     1. On the **Overview** page, in the bottom-middle pane, switch to the **Topics** tab, and select the Service Bus topic. In the following example, it's `mytopic`.
     
         :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-topic.png" alt-text="Select topic":::
-    1. On the **Service Bus Topic** page, In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the topic. If you don't see the value, wait for a few minutes and refresh the page to see the updated chart. 
+    1. On the **Service Bus Topic** page, In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the topic. If you don't see the value, wait for a few minutes, and refresh the page to see the updated chart. 
 
         :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png" alt-text="Messages sent to the topic" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png":::
     4. Select the subscription in the bottom pane. In the following example, it's **S1**. On the **Service Bus Subscription** page, you see the **Active message count** as **3**. The subscription has received the three messages that you sent to the topic, but no receiver has picked them yet. 
@@ -269,14 +278,17 @@ In this section, you'll create a .NET console application that receives messages
 ### [Passwordless](#tab/passwordless)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
-1. Run the following command to install the **Azure.Messaging.ServiceBus** and **Azure.Identity** NuGet packages:
+1. Select **SubscriptionReceiver** for **Default project** drop-down list. 
+1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package.
 
     ```powershell
     Install-Package Azure.Messaging.ServiceBus
+    ```
+1. Run the following command to install the **Azure.Identity** NuGet package.
+
+    ```powershell
     Install-Package Azure.Identity
     ```
-
-    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
 
 ### [Connection String](#tab/connection-string)
 
@@ -286,8 +298,6 @@ In this section, you'll create a .NET console application that receives messages
     ```Powershell
     Install-Package Azure.Messaging.ServiceBus
     ```
-
-    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console.":::
 
 ---
 
@@ -366,12 +376,15 @@ In this section, you'll add code to retrieve messages from the subscription.
 
      ## [Passwordless](#tab/passwordless)
 
-    * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the passwordless `DefaultAzureCredential` object. 
+    * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
     * Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus topic. 
     * Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the `ServiceBusProcessor` object. 
     * Starts processing messages by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) on the `ServiceBusProcessor` object. 
     * When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) on the `ServiceBusProcessor` object. 
     
+    > [!IMPORTANT]
+    > Update placeholder values (`<NAMESPACE-NAME>`, `<TOPIC-NAME>`, `<SUBSCRIPTION-NAME>`) in the code snippet with names of your Service Bus namespace, topic, and subscription.
+
     For more information, see code comments.
 
     ```csharp
