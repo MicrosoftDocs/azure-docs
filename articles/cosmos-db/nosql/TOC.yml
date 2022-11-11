@@ -752,8 +752,8 @@
               href: ../how-to-restrict-user-data.md
         - name: Configure Cross Origin Resource Sharing (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
-        - name: Use Azure Key Vault to store master keys
-          href: ../access-secrets-from-keyvault.md
+        - name: Use credentials to access data
+          href: ../credentials-based-authentication.md
         - name: Use certificates to access data
           href: certificate-based-authentication.md
     - name: Monitor
