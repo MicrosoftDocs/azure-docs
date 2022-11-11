@@ -386,7 +386,7 @@ This article uses the following fictitious prices.
 | Price of a single read operation (cost / 10,000)      | $0.0005  | $0.000001 |
 | Price of high priority read transactions (per 10,000) | $50.00   | N/A       |
 | Price of data retrieval (per GB)                      | $0.02    | $0.01     |
-| PRice of high priority data retrieval (per GB)        | $0.10    | N/A       |
+| Price of high priority data retrieval (per GB)        | $0.10    | N/A       |
 
 For official prices, see [Azure Blob Storage pricing](/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](/pricing/details/storage/data-lake/). 
 
