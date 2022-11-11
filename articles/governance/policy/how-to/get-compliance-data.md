@@ -337,7 +337,7 @@ This means that if there are both non-compliant and compliant states, the rolled
 
 Assume an initiative contains 10 policies, and a resource is exempt from one policy but compliant to the remaining nine. Because a compliant state has a higher rank than an exempted state, the resource would register as compliant in the rolled-up summary of the initiative. So, a resource will only show as exempt for the entire initiative if it is exempt from, or has unknown compliance to, every other single applicable policy in that initiative. On the other extreme, if the resource is non-compliant to at least one applicable policy in the initiative, it will have an overall compliance state of non-compliant, regardless of the remaining applicable policies.
 
-## Compliance reporting through Azure Portal
+## Portal
 
 The Azure portal showcases a graphical experience of visualizing and understanding the state of
 compliance in your environment. On the **Policy** page, the **Overview** option provides details for
@@ -381,7 +381,7 @@ log provides additional context and information about those events.
 > [!NOTE]
 > Compliance results can be exported from the Portal through [Azure Resource Graph queries](../samples/resource-graph-samples.md).
 
-## Compliance reporting through the command line
+## Command line
 
 The same information available in the portal can be retrieved with the REST API (including with
 [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell, and Azure CLI. For full
@@ -863,7 +863,7 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## Compliance reporting through Azure Monitor logs
+## Monitor logs
 
 If you have a [Log Analytics workspace](../../../azure-monitor/logs/log-query-overview.md) with
 `AzureActivity` from the
