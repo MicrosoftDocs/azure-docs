@@ -35,6 +35,10 @@ You can transcribe meetings and other conversations with the ability to add, rem
 [!INCLUDE [C# Basics include](includes/how-to/conversation-transcription/real-time-csharp.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python Basics include](includes/how-to/conversation-transcription/real-time-python.md)]
+::: zone-end
+
 ## Next steps
 
 > [!div class="nextstepaction"]
