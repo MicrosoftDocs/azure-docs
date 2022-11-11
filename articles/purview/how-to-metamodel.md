@@ -14,7 +14,7 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-Metamodel is a feature in the Microsoft Purview Data Map that gives the technical data in your data map relationships and reference points to make it easier to navigate. Like adding streets and cities to a map, the metamodel orients users so they know where they're and can discover the information they need.
+Metamodel is a feature in the Microsoft Purview Data Map that gives the technical data in your data map relationships and reference points to make it easier to navigate and understand in the day to day. Like adding streets and cities to a map, the metamodel orients users so they know where they are and can discover the information they need.
 
 This article will get you started in building a metamodel for your Microsoft Purview Data Map.
 
@@ -53,7 +53,7 @@ This article will get you started in building a metamodel for your Microsoft Pur
 
     :::image type="content" source="./media/how-to-metamodel/metamodel-assets-in-catalog.png" alt-text="Screenshot of left menu in the Microsoft Purview governance portal, the data map and business assets buttons highlighted." border="true":::
 
-1. There will be no integration with collections when private preview opens, so all assets created via the metamodel canvas will be listed under the data catalog.
+1. Currently there's no integration with collections, so all assets created via the metamodel canvas will be listed under the data catalog.
 
     :::image type="content" source="./media/how-to-metamodel/assets-page.png" alt-text="Screenshot of the business assets page." border="true":::
 
@@ -61,7 +61,7 @@ This article will get you started in building a metamodel for your Microsoft Pur
 
     :::image type="content" source="./media/how-to-metamodel/select-new-asset.png" alt-text="Screenshot of the business assets page with the new asset button highlighted." border="true":::
 
-    :::image type="content" source="./media/how-to-metamodel/create-new-asset.png" alt-text="Screenshot of the new asset page with a name and description added and create button highlighted." border="true":::
+    :::image type="content" source="./media/how-to-metamodel/create-new-asset.png" alt-text="Screenshot of the new asset page with a name and description added and the create button highlighted." border="true":::
 
 1. To establish a relationship between two assets, go to the asset detail page and select **Edit > Related**, and the relationship you’d like to populate.
 
