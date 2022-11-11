@@ -16,11 +16,6 @@ You can choose the following scenarios for deployment:
 - Filter clickstream requests
 - Join clickstream with a file
 
-<!-- 
-- Analyze Twitter sentiment (coming soon)
-- Build geofencing (coming soon)  
--->
-
 ## Prerequisites
 * Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 * Install [Git](https://git-scm.com/downloads).
