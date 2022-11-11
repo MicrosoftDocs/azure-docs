@@ -1,7 +1,7 @@
 ---
 title: 'Paginate Azure Resource Graph query results using Azure PowerShell'
 description: In this quickstart, you control the volume Azure Resource Graph query output by using pagination in Azure PowerShell.
-ms.date: 11/10/2022
+ms.date: 11/11/2022
 ms.topic: quickstart
 ms.author: timwarner
 author: timwarner-msft
@@ -82,34 +82,34 @@ We'll then configure the query to return five records (VMs) at a time.
 
 1. Update the query to implement the `skipToken` parameter and return 5 VMs in each batch:
 
-   ```powershell
-$kqlQuery = "Resources | join kind=leftouter (ResourceContainers | where
-type=='microsoft.resources/subscriptions' | project subscriptionName = name,subscriptionId) on
-subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' | project VMResourceId = id,
-subscriptionName, resourceGroup,name"
+  ```powershell
+  $kqlQuery = "Resources | join kind=leftouter (ResourceContainers | where
+  type=='microsoft.resources/subscriptions' | project subscriptionName = name,subscriptionId) on
+  subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' | project VMResourceId = id,
+  subscriptionName, resourceGroup,name"
 
-$batchSize = 5
-$skipResult = 0
+  $batchSize = 5
+  $skipResult = 0
 
-[System.Collections.Generic.List[string]]$kqlResult
+  [System.Collections.Generic.List[string]]$kqlResult
 
-while ($true) {
+  while ($true) {
 
-  if ($skipResult -gt 0) {
-    $graphResult = Search-AzGraph -Query $kqlQuery -First $batchSize -SkipToken $graphResult.SkipToken
+    if ($skipResult -gt 0) {
+      $graphResult = Search-AzGraph -Query $kqlQuery -First $batchSize -SkipToken $graphResult.SkipToken
+    }
+    else {
+      $graphResult = Search-AzGraph -Query $kqlQuery -First $batchSize
+    }
+
+    $kqlResult += $graphResult.data
+
+    if ($graphResult.data.Count -lt $batchSize) {
+      break;
+    }
+    $skipResult += $skipResult + $batchSize
   }
-  else {
-    $graphResult = Search-AzGraph -Query $kqlQuery -First $batchSize
-  }
-
-  $kqlResult += $graphResult.data
-
-  if ($graphResult.data.Count -lt $batchSize) {
-    break;
-  }
-  $skipResult += $skipResult + $batchSize
-}
-   ```
+  ```
 
 ## Clean up resources
 
