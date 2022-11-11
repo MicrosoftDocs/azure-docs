@@ -21,7 +21,7 @@ landingContent:
         links:
           - text: What is Azure VMware Solution?
             url: introduction.md
-          - text: Platform updates
+          - text: What's new?
             url: azure-vmware-solution-platform-updates.md
           - text: FAQ
             url: ./faq.yml

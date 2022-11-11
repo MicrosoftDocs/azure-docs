@@ -69,6 +69,8 @@ Either the load balancers and services IP address can be dynamically assigned, o
 
 You can create both *internal* and *external* load balancers. Internal load balancers are only assigned a private IP address, so they can't be accessed from the Internet.
 
+Learn more about Services in the [Kubernetes docs][k8s-service].
+
 ## Azure virtual networks
 
 In AKS, you can deploy a cluster that uses one of the following two network models:
@@ -232,6 +234,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.netlify.app/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
+[k8s-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md

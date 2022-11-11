@@ -21,6 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in November include:
 
 - [Protect containers in your entire GKE organization with Defender for Containers](#protect-containers-in-your-entire-gke-organization-with-defender-for-containers)
+- [Validate Defender for Containers protections with sample alerts](#validate-defender-for-containers-protections-with-sample-alerts)
 
 ### Protect containers in your entire GKE organization with Defender for Containers
 
@@ -29,6 +30,12 @@ Defender for Containers helps you secure your Azure and multicloud container env
 Now you can enable Defender for Containers for your GCP organization to protect clusters across your entire GCP organization. Create a new GCP connector or update your existing GCP connectors that connect organizations to Defender for Cloud, and enable Defender for Containers.
 
 Learn more about [connecting GCP projects and organizations](quickstart-onboard-gcp.md#connect-your-gcp-project) to Defender for Cloud.
+
+### Validate Defender for Containers protections with sample alerts
+
+You can now create sample alerts also for Defender for Containers plan. The new sample alerts are presented as being from AKS, Arc-connected clusters, EKS, and GKE resources with different severities and MITRE tactics. You can use the sample alerts to validate security alert configurations, such as SIEM integrations, workflow automation, and email notifications.
+
+Learn more about [alert validation](alert-validation.md).
 
 ## October 2022
 

@@ -109,6 +109,10 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 [js route package]: https://www.npmjs.com/package/@azure-rest/maps-route
 [js route sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-route-rest/samples/v1-beta
 
+[js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
+[js route package]: https://www.npmjs.com/package/@azure-rest/maps-route
+[js route sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-route-rest/samples/v1-beta
+
 <!--  Java SDK Developers Guide  --->
 [Java 8]: https://www.java.com/en/download/java8_update.jsp
 [java search package]: https://repo1.maven.org/maven2/com/azure/azure-maps-search
