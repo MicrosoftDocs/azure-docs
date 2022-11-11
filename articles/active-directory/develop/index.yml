@@ -97,7 +97,7 @@ productDirectory:
 ## BAND 3 - CONCEPTUAL CONTENT #############################################################################################################################
 conceptualContent:
   title: Get started
-  summary: Quick access to documentation for adding core IAM features to your applications and guidance on the best practices for keeping your apps secure and available.
+  summary: Quick access to guidance on adding core IAM features to your applications and best practices for keeping your apps secure and available.
   items:
     ## CARD 1 ######################
     - title: Sign in users
