@@ -17,7 +17,7 @@ ms.date: 10/24/2022
 
 To help you stay up to date with the latest developments, this article covers:
 
-- New features, improvements and bug notifications for the online service
+- New features, improvements and bug notifications for the online service.
 - New releases for the packet core, referencing the packet core release notes for further information.
 
 This page is updated regularly with the latest developments in Azure Private 5G Core. <!-- TODO: maybe update with agreed update frequency -->
@@ -187,17 +187,10 @@ Once a SIM group is created, you can't change the encryption type. If you want t
 
 For more information, see [Customer-managed key encryption at rest](security.md#customer-managed-key-encryption-at-rest).
 
-### Fixed bug which prevented the creation/update of ADN objects
+### Fixes and enhancements
 
-**Type:** Bug fix
-
-**Date available:** October 11, 2022
-
-### Time to provision SIMs greatly reduced
-
-**Type:** Enhancement
-
-**Date available:** October 5, 2022
+- October 5, 2022: Time to provision SIMs greatly reduced
+- October 11, 2022: Fixed bug which prevented the creation/update of ADN objects
 
 ## Next steps
 
