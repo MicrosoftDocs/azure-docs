@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure HPC documentation
-summary: Azure High Performance Computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads, and this page offers a range of available services and use case scenarios for you to explore.
+summary: Azure High Performance Computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads. This page offers a range of available services and use case scenarios for you to explore.
 brand: azure
 
 metadata:
@@ -26,9 +26,9 @@ highlightedContent:
     # Card
     - title: Getting started with Azure VMs
       itemType: get-started
-      url: ../virtual-machines/overview.md
+      url: ../virtual-machines/workloads/hpc/set-up-hpc-vms.md?context=/azure/virtual-machines/context/context
     # Card
-    - title: Architecture
+    - title: HPC Architecture
       itemType: architecture
       url: https://learn.microsoft.com/en-us/azure/architecture/
     # Card
