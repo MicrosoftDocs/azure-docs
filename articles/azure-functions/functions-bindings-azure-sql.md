@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 # Azure SQL bindings for Azure Functions overview (preview)
 
 > [!NOTE]
-> The Azure SQL trigger is only fully supported on **Premium and Dedicated** plans. Consumption is not supported. Azure SQL input/output bindings are supported for all plans.
+> The Azure SQL trigger is only supported on **Premium and Dedicated** plans. Consumption is not supported. Azure SQL input/output bindings are supported for all plans.
 
 This set of articles explains how to work with [Azure SQL](/azure/azure-sql/index) bindings in Azure Functions. Azure Functions supports input bindings, output bindings, and a function trigger for the Azure SQL and SQL Server products.
 
