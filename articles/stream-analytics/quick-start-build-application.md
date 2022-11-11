@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Build a streaming application in a few clicks
+title: Build a clickstream analyzer using one-click deployment
 description: This quickstart shows you how to get started ASA using a GitHub repository and PowerShell scripts with data generator. 
 ms.service: stream-analytics
 author: alexlzx
@@ -8,17 +8,22 @@ ms.date: 10/27/2022
 ms.topic: quickstart
 ---
 
-# Analyze a website clickstream
+# Build a clickstream analyzer using one-click deployment
 
-This quickstart shows how to build a streaming application by running a few commands in PowerShell. It's an easy way to deploy Azure resources with auto-generated data streams. You can choose the following application examples to implement and explore different stream analytic scenarios.
+This quickstart shows how to build a streaming application to analyze a website clickstream using a PowerShell script. It's an easy way to deploy Azure resources with auto-generated data streams and help you explore different stream analytic scenarios.
+
+You can choose the following scenarios for deployment: 
 - Filter clickstream requests
 - Join clickstream with a file
+
+<!-- 
 - Analyze Twitter sentiment (coming soon)
-- Build geofencing (coming soon)
+- Build geofencing (coming soon)  
+-->
 
 ## Prerequisites
 * Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-* Install [Git](https://git-scm.com/downloads). 
+* Install [Git](https://git-scm.com/downloads).
 * Azure PowerShell module. See [here](https://learn.microsoft.com/en-us/powershell/azure/install-Az-ps) to install or upgrade.
 
 ## Filter clickstream requests
@@ -46,7 +51,7 @@ Sample of a website clickstream:
 }
 ```
 
-Follow these steps to deploy resources:
+This guide is going to use [GitHub repository](https://github.com/Azure/azure-stream-analytics) for demo. Follow these steps to deploy resources:
 
 1. Open **PowerShell** from the Start menu, clone this GitHub repository to your working directory.
 
@@ -98,7 +103,7 @@ Follow these steps to deploy resources:
 
     ![Test Query](./media/quick-start-with-mock-data/test-query.png)
 
-8. There are two sample code provided in the query comments helping you understand other stream analytic scenarios with one stream input.
+8. There are sample codes in the query comments that you can use for other stream analytic scenarios with one stream input.
 
     * Count clicks for every hour
 
