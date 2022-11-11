@@ -23,7 +23,7 @@ highlightedContent:
     # Card
     - title: What is Azure HPC?
       itemType: overview
-      url: ../virtual-machines/workloads/hpc/overview.md?context=/azure/virtual-machines/context/context
+      url: /azure/architecture/topics/high-performance-computing
     # Card
     - title: Getting started with HPC VMs
       itemType: get-started
@@ -31,13 +31,9 @@ highlightedContent:
     # Card
     - title: HPC Architecture
       itemType: architecture
-      url: /azure/architecture/topics/high-performance-computing
+      url: /azure/architecture/browse/?terms=HPC
     # Card
-    - title: Azure HPC Documentation
-      itemType: reference
-      url: /azure/architecture/topics/high-performance-computing
-    # Card
-    - title: Azure HPC Training Path
+    - title: Run HPC applications on Azure
       itemType: learn
       url: /training/paths/run-high-performance-computing-applications-azure/
     # Card
@@ -47,25 +43,25 @@ highlightedContent:
 
 # Azure Services
 productDirectory:
-  title: Components # < 60 chars (optional)
-  summary: There are several Azure services that make up our High Performance Computing offering. # < 160 chars (optional)
+  title: HPC Components # < 60 chars (optional)
+  summary: # < 160 chars (optional)
   items:
     # Card
-    - title: Linux Virtual Machines
+    - title: HPC Compute VM Sizes
+      imageSrc: ../high-performance-compute/media/Scale.svg
+      links:
+        - url: ../virtual-machines/sizes.md
+          text: What are VM sizes?
+        - url: ../virtual-machines/sizes-hpc.md
+          text: HPC VM sizes
+    # Card
+    - title: Virtual Machines
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       links:
         - url: ../virtual-machines/overview.md
-          text: High performance Linux VMs on Azure
+          text: Linux and Windows VMs on Azure
         - url: ../virtual-machines/linux/quick-create-cli.md
-          text: Getting Started
-    # Card
-    - title: Windows Virtual Machines
-      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-      links:
-        - url: ../virtual-machines/index.yml
-          text: High performance Windows VMs on Azure
-        - url: ../virtual-machines/linux/quick-create-cli.md
-          text: Getting Started with Windows VMs
+          text: What's New?
     # Card
     - title: Virtual Desktop Infrastructure (VDI)
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-desktop.svg
@@ -83,20 +79,11 @@ productDirectory:
         - url: ../batch/quick-create-cli.md
           text: Getting Started with Batch
     # Card
-    - title: HPC Compute VM Sizes
-      imageSrc: ../high-performance-compute/media/Scale.svg
-      links:
-        - url: ../virtual-machines/sizes-hpc.md
-          text: HPC VM sizes
-        - url: ../virtual-machines/sizes.md
-          text: What are VM sizes?
-    # Card
     - title: HPC Cache
-      # imageSrc should be square in ratio with no white space
       imageSrc: ../high-performance-compute/media/Azure-HCP-Cache.svg
       links:
         - url: /azure/hpc-cache/hpc-cache-overview/
-          text: What is Azure HPC Cache
+          text: What is Azure HPC Cache?
         - url: /azure/hpc-cache/hpc-cache-create?tabs=azure-portal/
           text: Create an Azure HPC Cache
 #Additional Content
@@ -104,12 +91,30 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
   sections:
-    - title: Additional HPC Content # < 60 chars (optional)
-      summary: HPC Training and Informational Content # < 160 chars (optional)
+    - title: # < 60 chars (optional)
+      summary: # < 160 chars (optional)
       items:
         # Card
-        - title: HPC Cache Training Modules
+        - title: Compute
           links:
+            - url: /azure/virtual-machines/sizes-hpc
+              itemType: concept
+              text: CPU Optimized VMs
+            - url: /azure/virtual-machines/sizes-gpu
+              itemType: concept
+              text: GPU Optimized VMs
+            - url: /azure/virtual-machines/hx-series
+              itemType: concept
+              text: Memory Optimized VMs
+            - url: /azure/virtual-machines/workloads/hpc/configure#ubuntu-hpc-vm-images
+              itemType: concept
+              text: HPC VM Images      
+        # Card
+        - title: Storage
+          links:
+            - url: /azure/hpc-cache/hpc-cache-netapp
+              itemType: concept
+              text: Use Azure HPC Cache and NetApp Files
             - url: /training/modules/introduction-azure-hpc-cache/
               itemType: tutorial
               text: Introduction to Azure HPC Cache
@@ -117,19 +122,7 @@ conceptualContent:
               itemType: tutorial
               text: Accelerating storage with HPC Cache
         # Card
-        - title: HPC VM Sizes
-          links:
-            - url: /azure/virtual-machines/hx-series/
-              itemType: concept
-              text: HX-series VMs
-            - url: /azure/virtual-machines/hbv4-series/
-              itemType: concept
-              text: HBv4-series VMs
-            - url: /azure/virtual-machines/h-series/
-              itemType: concept
-              text: H-series VMs
-         # Card
-        - title: HPC Workloads
+        - title: Workloads
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
               itemType: overview
