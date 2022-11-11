@@ -75,7 +75,7 @@
       - name: 4 - Prepare your app for auth
         href: web-app-tutorial-04-prepare-tenant-app.md
       - name: 5 - Get user data from web API
-        href: web-app-tutorial-05-call-web-api-graph.md
+        href: web-app-tutorial-05-call-web-api.md
   - name: Mobile and desktop
     items:
     - name: Android

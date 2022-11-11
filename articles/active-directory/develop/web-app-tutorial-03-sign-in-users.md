@@ -148,4 +148,4 @@ In progress.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Prepare an application for authentication in the tenant](web-app-tutorial-prepare-tenant-app.md)
+> [Tutorial: Prepare an application for authentication in the tenant](web-app-tutorial-04-prepare-tenant-app.md)
