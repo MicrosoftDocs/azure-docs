@@ -336,8 +336,12 @@
         href: hbv2-series.md
       - name: HBv3-series
         href: hbv3-series.md
+      - name: HBv4-series
+        href: hbv4-series.md
       - name: HC-series
         href: hc-series.md
+      - name: HX-series
+        href: hx-series.md        
       - name: H-series retirement
         href: h-series-retirement.md
       - name: HB-series retirement

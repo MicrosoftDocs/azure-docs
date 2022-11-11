@@ -85,6 +85,8 @@ items:
         href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
       - name: Build a workflow for customer interactions 
         href: quickstarts/call-automation/callflows-for-customer-interactions.md
+      - name: Record calls
+        href: quickstarts/voice-video-calling/get-started-call-recording.md
   - name: Rooms
     items:
       - name: Create and manage a room resource
@@ -227,7 +229,7 @@ items:
         href: concepts/known-issues.md
       - name: Media access
         href: concepts/voice-video-calling/media-access.md
-  - name: Call Automation library
+  - name: Call Automation
     items:
       - name: Overview
         href: concepts/call-automation/call-automation.md
@@ -237,6 +239,8 @@ items:
         href: concepts/call-automation/play-action.md
       - name: Gathering user input 
         href: concepts/call-automation/recognize-action.md
+      - name: Call recording
+        href: concepts/voice-video-calling/call-recording.md
   - name: Rooms
     items:
       - name: Rooms overview
@@ -384,7 +388,7 @@ items:
       href: how-tos/ui-library-sdk/theming.md
     - name: Participant View Data Injection
       href: how-tos/ui-library-sdk/data-model.md
-  - name: Using the Call Automation
+  - name: Using the Call Automation library
     items: 
     - name: Control and steer calls
       href: how-tos/call-automation/actions-for-call-control.md

@@ -623,6 +623,9 @@
             - name: Overview
               href: functions-bindings-azure-sql.md
               displayName: Azure SQL
+            - name: Trigger
+              href: functions-bindings-azure-sql-trigger.md
+              displayName: Azure SQL
             - name: Input
               href: functions-bindings-azure-sql-input.md
               displayName: Azure SQL
