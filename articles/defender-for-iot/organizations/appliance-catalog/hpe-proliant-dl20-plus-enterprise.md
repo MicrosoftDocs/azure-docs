@@ -6,7 +6,7 @@ ms.topic: reference
 ---
 
 
-# HPE ProLiant DL20 Gen10 Plus
+# HPE ProLiant DL20 Gen10 Plus (4SFF)
 
 This article describes the **HPE ProLiant DL20 Gen10 Plus** appliance for OT sensors in an enterprise deployment.
 
@@ -29,13 +29,26 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 
 ## Specifications
 
-|Component  |Specifications|
-|---------|---------|
-|Chassis     |1U rack server         |
-|Dimensions   |Four 3.5" chassis: 4.29 x 43.46 x 38.22 cm  /  1.70 x 17.11 x 15.05 in         |
-|Weight    | Max 7.9 kg / 17.41 lb        |
+## Specifications
 
-## DL20 Gen10 Plus BOM
+|Component|Technical specifications|
+|----|----|
+|Chassis|1U rack server|
+|Physical Characteristics  | HPE DL20 Gen10+ NHP 4SFF CTO Server |
+|Processor| Intel Xeon E-2334 <br> 3.4 GHz 4C 65 W|
+|Chipset|Intel C256 |
+|Memory|2x 16-GB Dual Rank x8 DDR4-3200|
+|Storage|2x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 |
+|Network controller|On-board: 2x 1 Gb|
+|External| 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
+|On-board| iLO Port Card 1 Gb|
+|Management|HPE iLO Advanced|
+|Device access| Front: One USB 3.0 1 x USB iLO Service Port<br> Rear: Two USBs 3.0|
+|Internal| One USB 3.0|
+|Power|2x Hot Plug Power Supply 290 W|
+|Rack support|HPE 1U Short Friction Rail Kit|
+
+## DL20 Gen10 Plus (4SFF) - Bill of Materials
 
 |Quantity|PN|Description|
 |----|---|----|
@@ -51,7 +64,7 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 |1|	512485-B21 | HPE iLO Adv 1 Server License 1 year support|
 |1|	P46114-B21 | HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
 
-Optional Storage Arrays:
+## Optional Storage Arrays:
 
 |Quantity|PN|Description|
 |----|---|----|
@@ -63,13 +76,17 @@ Optional modules for port expansion include:
 
 |Location |Type|Specifications|
 |--------------|--------------|---------|
-| PCI Slot 1 (Low profile)| Quad Port Ethernet NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI |
-| PCI Slot 1 (Low profile)  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
-| PCI Slot 2 (High profile)| Quad Port Ethernet NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI|
-| PCI Slot 2 (High profile)|DP F/O NIC| 727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter|
-| PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adapter SI|
+| PCI Slot 1 (Low profile)  | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25Gb 2-port SFP28 Adapter for HPE |
+| PCI Slot 1 (Low profile)  | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10Gb 2-port SFP+ Adapter for HPE |
+| PCI Slot 2 (High profile) | Quad Port Ethernet NIC| P21106-B21 - Intel I350-T4 Ethernet 1Gb 4-port BASE-T Adapter for HPE |
+| PCI Slot 2 (High profile) | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25Gb 2-port SFP28 Adapter for HPE |
+| PCI Slot 2 (High profile) | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10Gb 2-port SFP+ Adapter for HPE |
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
+
+
+
+
 
 ## HPE ProLiant DL20 Gen10 Plus installation
 
@@ -128,7 +145,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
 1. Select **Esc** twice to close the **System Configuration** form.
 
-1. Select **Embedded RAID 1: HPE Smart Array P408i-a SR Gen 10** > **Array Configuration** > **Create Array**.
+1. Select **Embedded RAID 1: HPE Smart Array E208i-a SR Gen 10** > **Array Configuration** > **Create Array**.
 
 1. In the **Create Array** form, select all four disk options, and on the next page select **RAID10**.
 
