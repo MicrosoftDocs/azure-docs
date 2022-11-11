@@ -24,7 +24,7 @@ highlightedContent:
       itemType: overview
       url: ../virtual-machines/workloads/hpc/overview.md?context=/azure/virtual-machines/context/context
     # Card
-    - title: Getting started with Azure VMs
+    - title: Getting started with HPC VMs
       itemType: get-started
       url: ../virtual-machines/workloads/hpc/set-up-hpc-vms.md?context=/azure/virtual-machines/context/context
     # Card
@@ -110,22 +110,22 @@ conceptualContent:
         # Card
         - title: HPC Cache Training Modules
           links:
-            - url: https://learn.microsoft.com/en-us/training/modules/introduction-azure-hpc-cache/
+            - url: /training/modules/introduction-azure-hpc-cache/
               itemType: tutorial
               text: Introduction to Azure HPC Cache
-            - url: https://learn.microsoft.com/en-us/training/modules/accelerate-storage-with-hpc-cache/
+            - url: /training/modules/accelerate-storage-with-hpc-cache/
               itemType: tutorial
               text: Accelerating storage with HPC Cache
         # Card
         - title: HPC VM Sizes
           links:
-            - url: ../virtual-machines/hx-series
+            - url: /virtual-machines/hx-series/
               itemType: concept
               text: HX-series VMs
-            - url: ../virtual-machines/hbv4-series
+            - url: /virtual-machines/hbv4-series/
               itemType: concept
               text: HBv4-series VMs
-            - url: ../virtual-machines/h-series
+            - url: /virtual-machines/h-series/
               itemType: concept
               text: H-series VMs
          # Card
