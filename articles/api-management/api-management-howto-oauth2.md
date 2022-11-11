@@ -274,29 +274,13 @@ After saving the OAuth 2.0 server configuration, configure an API or APIs to use
 
     :::image type="content" source="./media/api-management-howto-oauth2/oauth-07.png" alt-text="Configure OAuth 2.0 authorization server":::
 
+## Configure a JWT validation policy to pre-authorize requests
 
-##  Configure policy to pre-authorize the OAuth 2.0 token 
+In the preceding section, API Management doesn't validate the access token. It only passes the token in the authorization header to the backend API.
 
-The configuration up to now enables the developer portal to obtain an OAuth 2.0 token and pass it to the backend API. However, the API can still be called without an OAuth 2.0 token.
+To pre-authorize requests, configure a [validate-jwt](api-management-access-restriction-policies.md#ValidateJWT) policy to validate the access token of each incoming request. If a request doesn't have a valid token, API Management blocks it.
 
-You can configure a `validate-jwt` policy to pre-authorize the token, so that API Management blocks requests that do not include a valid token from the OAuth 2.0 provider.
-
-Add the following `validate-jwt` policy to the Inbound section at a scope that's appropriate to protect the API. 
-
-* In `openid-config`, enter the URL the OpenID Connect metadata endpoint configured in your app registration. The example shown assumes a single-tenant Azure AD app with tenant ID `aad-tenant` and a v2 configuration endpoint.
-* In the `claim` value, enter the client (application) ID of the backend-app you configured.
-
-
-```xml
-<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.microsoftonline.com/{aad-tenant}/v2.0/.well-known/openid-configuration" />
-    <required-claims>
-	    <claim name="aud">
-            <value>{backend-app-client-id}</value>
-        </claim>
-	</required-claims>
-</validate-jwt>
-```
+[!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
 
 ## Developer portal - test the OAuth 2.0 user authorization
 
@@ -332,13 +316,6 @@ Once you've signed in, the **Request headers** are populated with an `Authorizat
 
 At this point you can configure the desired values for the remaining parameters, and submit the request.
 
-## Configure a JWT validation policy to pre-authorize requests
-
-In the preceding section, API Management doesn't validate the access token. It only passes the token in the authorization header to the backend API.
-
-To pre-authorize requests, configure a [validate-jwt](api-management-access-restriction-policies.md#ValidateJWT) policy to validate the access token of each incoming request. If a request doesn't have a valid token, API Management blocks it.
-
-[!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
 
 ## Next steps
 
