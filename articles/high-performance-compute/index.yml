@@ -119,13 +119,13 @@ conceptualContent:
         # Card
         - title: HPC VM Sizes
           links:
-            - url: url: ../virtual-machines/hx-series
+            - url: ../virtual-machines/hx-series
               itemType: concept
               text: HX-series VMs
-            - url: https://learn.microsoft.com/en-us/azure/virtual-machines/hbv4-series
+            - url: ../virtual-machines/hbv4-series
               itemType: concept
               text: HBv4-series VMs
-            - url: https://learn.microsoft.com/en-us/azure/virtual-machines/h-series
+            - url: ../virtual-machines/h-series
               itemType: concept
               text: H-series VMs
          # Card
