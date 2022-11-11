@@ -98,7 +98,7 @@ To restore a database, you need the following permissions:
 
 1. If applicable, select the **Overwrite if the DB with the same name already exists on selected HANA instance** checkbox.
 
-1. In **Select restore point**, select **Logs (Point in Time)** to [restore to a specific point&nbsp;in&nbsp;time](#restore-to-a-specific-point-in-time). Or select **Full & Differential** to [restore to a specific recovery point](#restore-to-a-specific-recovery-point).
+1. In **Select restore point**, select **Logs (Point in Time)** to [restore to a specific point in time](#restore-to-a-specific-point-in-time). Or select **Full & Differential** to [restore to a specific recovery point](#restore-to-a-specific-recovery-point).
 
 ### Restore and overwrite
 
@@ -108,7 +108,7 @@ To restore a database, you need the following permissions:
 
 1. On the **Select restore point** pane, do either of the following:
 
-   * To [restore to a specific point&nbsp;in&nbsp;time](#restore-to-a-specific-point-in-time), select **Logs (Point in Time)**. 
+   * To [restore to a specific point in time](#restore-to-a-specific-point-in-time), select **Logs (Point in Time)**. 
    * To [restore to a specific recovery point](#restore-to-a-specific-recovery-point), select **Full & Differential**.
 
 ### Restore as files
@@ -139,10 +139,10 @@ To restore the backup data as files instead of a database, select **Restore as F
    :::image type="content" source="./media/sap-hana-db-restore/hana-select-recovery-point-inline.png" alt-text="Screenshot that shows where to select the restore point." lightbox="./media/sap-hana-db-restore/hana-select-recovery-point-expanded.png":::
 
 1. All the backup files associated with the selected restore point are dumped into the destination path.
-1. Depending on the type of restore point you've chosen (**Point&nbsp;in&nbsp;time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders, *Data_\<date and time of restore>* contains the full backups, and the other folder, *Log* contains the log backups and other backups (such as differential and incremental).
+1. Depending on the type of restore point you've chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders, *Data_\<date and time of restore>* contains the full backups, and the other folder, *Log* contains the log backups and other backups (such as differential and incremental).
 
    >[!Note]
-   >If you've selected **Restore to a point&nbsp;in&nbsp;time**, the log files, which were dumped to the target VM, might sometimes contain logs beyond the point&nbsp;in&nbsp;time that were chosen for restore. Azure Backup does this to ensure that log backups for all HANA services are available for consistent and successful restore to the chosen point&nbsp;in&nbsp;time.
+   >If you've selected **Restore to a point in time**, the log files, which were dumped to the target VM, might sometimes contain logs beyond the point in time that were chosen for restore. Azure Backup does this to ensure that log backups for all HANA services are available for consistent and successful restore to the chosen point in time.
 
 1. Move the restored files to the SAP HANA server where you want to restore them as a database, and then do the following:
 
@@ -176,7 +176,7 @@ To restore the backup data as files instead of a database, select **Restore as F
         hdbsql -U AZUREWLBACKUPHANAUSER -d systemDB
         ```
 
-     * To restore to a point&nbsp;in&nbsp;time:
+     * To restore to a point in time:
 
         If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>`, and then stop the database for restore by using the command `ALTER SYSTEM STOP DATABASE <db> IMMEDIATE`. However, if you're restoring an existing database only, run the HDBSQL command to stop the database.
 
@@ -187,7 +187,7 @@ To restore the backup data as files instead of a database, select **Restore as F
         ```
 
         * `<DatabaseName>`: The name of the new database or existing database that you want to restore.
-        * `<Timestamp>`: The exact timestamp of the point&nbsp;in&nbsp;time restore.
+        * `<Timestamp>`: The exact timestamp of the point in time restore.
         * `<DatabaseName@HostName>`: The name of the database whose backup is used for restore and the host or SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>` option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. It doesn't need to be specified for restores that are done on the same HANA server from where the backup is taken.
         * `<PathToGeneratedCatalogInStep3>`: The path to the catalog file that was generated in "step c."
         * `<DataFileDir>`: The folder that contains the full backups.
@@ -203,7 +203,7 @@ To restore the backup data as files instead of a database, select **Restore as F
         ```
 
         * `<DatabaseName>`: The name of the new database or existing database that you want to restore.
-        * `<Timestamp>`: The exact timestamp of the point&nbsp;in&nbsp;time restore.
+        * `<Timestamp>`: The exact timestamp of the point in time restore.
         * `<DatabaseName@HostName>`: The name of the database whose backup is used for restore and the host or SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>` option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it doesn't need to be specified for restores that are done on the same HANA server from where the backup is taken.
         * `<PathToGeneratedCatalogInStep3>`: The path to the catalog file that was generated in "step c."
         * `<DataFileDir>`: The folder that contains the full backups.
