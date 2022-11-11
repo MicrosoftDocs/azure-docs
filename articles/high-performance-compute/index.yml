@@ -34,11 +34,11 @@ highlightedContent:
     # Card
     - title: Start building with an Azure HPC service for high performance applications
       itemType: reference
-      url: ../architecture/guide/technology-choices/compute-decision-tree
+      url: /architecture/guide/technology-choices/compute-decision-tree
     # Card
     - title: Azure HPC on Microsoft Learn
       itemType: learn
-      url: ../training/browse/?products=azure&term=hpc&terms=hpc
+      url: /training/browse/?products=azure&term=hpc&terms=hpc
     # Card
     - title: Azure HPC Blog
       itemType: whats-new
@@ -138,9 +138,8 @@ conceptualContent:
 # Super Computing Announcement included
 
 # conceptualContent section (optional)
-conceptualContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
-  # Supports up to 3 subsections
+additionalContent:
+  # Supports up to 4 subsections
   sections:
     - title: HPC Conferences # < 60 chars (optional)
       summary: See where you can find HPC at a variety of tech conferences # < 160 chars (optional)
@@ -148,18 +147,14 @@ conceptualContent:
         # Card
         - title: SC22 (Supercomputing) 
           links:
-            - url: https://www.aka.ms/SC22
-              itemType: overview
-              text: Microsoft at at SC22!
-            - url: https://sc22.supercomputing.org/
-              itemType: overview
-              text: SuperComputing 22 Website
+            - text: Microsoft at at SC22!
+              url: https://www.aka.ms/SC22
+            - text: SuperComputing 22 Website
+              url: https://sc22.supercomputing.org/
         # Card
         - title: Nvidia GTC (GPU Technology Conference)
           links:
-            - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/we-ll-see-you-at-nvidia-s-spring-gtc-conference/ba-p/3194882
-              itemType: overview
-              text: Microsoft at GTC
-            - url: https://www.nvidia.com/gtc/
-              itemType: overview
-              text: GTC Website
+            - text: Microsoft at GTC
+              url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/we-ll-see-you-at-nvidia-s-spring-gtc-conference/ba-p/3194882
+            - text: GTC Website
+              url: https://www.nvidia.com/gtc/
