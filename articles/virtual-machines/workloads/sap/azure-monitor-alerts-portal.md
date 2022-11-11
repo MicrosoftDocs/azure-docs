@@ -6,7 +6,7 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
-ms.date: 07/28/2022
+ms.date: 10/19/2022
 #Customer intent: As a developer, I want to configure alerts in Azure Monitor for SAP solutions so that I can receive alerts and notifications about my SAP systems.
 ---
 
@@ -14,14 +14,14 @@ ms.date: 07/28/2022
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-In this how-to guide, you'll learn how to configure alerts in Azure Monitor for SAP solutions (AMS). You can configure alerts and notifications from the [Azure portal](https://azure.microsoft.com/features/azure-portal) using its browser-based interface.
+In this how-to guide, you'll learn how to configure alerts in Azure Monitor for SAP solutions. You can configure alerts and notifications from the [Azure portal](https://azure.microsoft.com/features/azure-portal) using its browser-based interface.
 
-This content applies to both versions of the service, AMS and AMS (classic).
+This content applies to both versions of the service, Azure Monitor for SAP solutions and Azure Monitor for SAP solutions (classic).
 
 ## Prerequisites
 
 - An Azure subscription.
-- A deployment of an AMS resource with at least one provider. You can configure providers for: 
+- A deployment of an Azure Monitor for SAP solutions resource with at least one provider. You can configure providers for: 
     - The SAP application (NetWeaver)
     - SAP HANA
     - Microsoft SQL Server

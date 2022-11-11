@@ -29,10 +29,6 @@ landingContent:
         links:
           - text: Use the Education Hub
             url: access-education-hub.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create a lab in Education Hub using REST APIs
-            url: create-lab-education-hub.md
 
   # Card
   - title: Azure Dev Tools for Teaching

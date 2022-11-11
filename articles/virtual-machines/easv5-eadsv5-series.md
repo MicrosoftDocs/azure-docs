@@ -33,7 +33,7 @@ Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
@@ -51,9 +51,9 @@ Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 
 <sup>1</sup> Easv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md)<br>
-<sup>3</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E112ias_v5** results in higher IOPs and MBps than standard premium disks:
-- Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 160000/2000 
-- Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 160000/2000
+<sup>3</sup> Attaching Ultra Disk or Premium SSDs V2 to **Standard_E112ias_v5** results in higher IOPs and MBps than standard premium disks:
+- Max uncached Ultra Disk and Premium SSD V2 throughput (IOPS/ MBps): 120000/2000 
+- Max burst uncached Ultra Disk and Premium SSD V2 disk throughput (IOPS/ MBps): 120000/2000
 
 
 ## Eadsv5-series
@@ -69,7 +69,7 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
@@ -89,9 +89,9 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md).
 
-<sup>3</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E112iads_v5** results in higher IOPs and MBps than standard premium disks:
-- Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 160000/2000 
-- Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 160000/2000
+<sup>3</sup> Attaching Ultra Disk or Premium SSDs V2 to **Standard_E112iads_v5** results in higher IOPs and MBps than standard premium disks:
+- Max uncached Ultra Disk and Premium SSD V2 throughput (IOPS/ MBps): 120000/2000 
+- Max burst uncached Ultra Disk and Premium SSD V2 disk throughput (IOPS/ MBps): 120000/2000
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

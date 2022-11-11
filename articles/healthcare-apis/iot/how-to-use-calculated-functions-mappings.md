@@ -5,20 +5,17 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 10/25/2022
 ms.author: jasteppe
 ---
 
 # How to use CalculatedContentTemplate mappings
 
-> [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings. Export mappings for uploading to MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of MedTech service.
-
-This article describes how to use CalculatedContentTemplate mappings with MedTech service Device mappings templates.
+This article describes how to use CalculatedContentTemplate mappings with MedTech service device mapping template.
 
 ## CalculatedContentTemplate
 
-MedTech service provides an expression-based content template to both match the wanted template and extract values. **Expressions** may be used by either JSONPath or JmesPath. Each expression within the template may choose its own expression language. 
+MedTech service provides an expression-based content template to both match the wanted template and extract values. **Expressions** may be used by either JSONPath or JMESPath. Each expression within the template may choose its own expression language. 
 
 > [!NOTE]
 > If an expression language isn't defined, the default expression language configured for the template will be used. The default is JSONPath but can be overwritten if needed.
@@ -45,8 +42,9 @@ In the example below, *typeMatchExpression* is defined as:
         ...
     }
 ```
+
 > [!TIP]
-> The default expression language to use for a Device mapping template is JsonPath. If you want to use JsonPath, the expression alone may be supplied.
+> The default expression language to use for a MedTech service device mapping template is JsonPath. If you want to use JsonPath, the expression alone may be supplied.
 
 ```json
 "templateType": "CalculatedContent",
@@ -57,7 +55,7 @@ In the example below, *typeMatchExpression* is defined as:
     }
 ```
 
-The default expression language to use for a template can be explicitly set using the `defaultExpressionLanguage` parameter:
+The default expression language to use for a MedTech service device template can be explicitly set using the `defaultExpressionLanguage` parameter:
 
 ```json
 "templateType": "CalculatedContent",
@@ -69,7 +67,7 @@ The default expression language to use for a template can be explicitly set usin
     }
 ```
 
-The CalculatedContentTemplate allows matching on and extracting values from an Azure Event Hub message using **Expressions** as defined below:
+The CalculatedContentTemplate allows matching on and extracting values from an Azure Event Hubs message using **Expressions** as defined below:
 
 |Property|Description|Example|
 |--------|-----------|-------|
@@ -82,7 +80,7 @@ The CalculatedContentTemplate allows matching on and extracting values from an A
 |CorrelationIdExpression|*Optional*: The expression to extract the correlation identifier. This output can be used to group values into a single observation in the FHIR destination mappings.|`$.matchedToken.correlationId`|
 |Values[].ValueName|The name to associate with the value extracted by the next expression. Used to bind the wanted value/component in the FHIR destination mapping template.|`hr`|
 |Values[].ValueExpression|The expression to extract the wanted value.|`$.matchedToken.heartRate`|
-|Values[].Required|Will require the value to be present in the payload. If not found, a measurement won't be generated and an InvalidOperationException will be created.|`true`|
+|Values[].Required|Will require the value to be present in the payload. If not found, a measurement won't be generated, and an InvalidOperationException will be created.|`true`|
 
 ### Expression Languages
 
@@ -91,16 +89,16 @@ When specifying the language to use for the expression, the below values are val
 | Expression Language | Value        |
 |---------------------|--------------|
 | JSONPath            | **JsonPath** |
-| JmesPath            | **JmesPath** |
+| JMESPath            | **JmesPath** |
 
 >[!TIP]
->For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
+> For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 >
->For more information on JmesPath, see [JmesPath](https://jmespath.org/specification.html). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JmesPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JmesPath expressions.
+> For more information on JMESPath, see [JMESPath](https://jmespath.org/specification.html). The [CalculatedContentTemplate](#calculatedcontenttemplate) uses the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
 
-### Custom Functions
+### Custom functions
 
-A set of MedTech service Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JmesPath specification. For more information on Custom Functions, see [MedTech service Custom Functions](./how-to-use-custom-functions.md).
+A set of MedTech service custom functions is also available. The MedTech service custom functions are outside of the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use MedTech service custom functions](how-to-use-custom-functions.md).
 
 ### Matched Token
 
@@ -221,7 +219,6 @@ And
       "systolic": "122",
       "diastolic": "82",
       "date": "2021-07-13T17:28:01.061122Z"
-    }
   }
 }
 ```
@@ -509,7 +506,7 @@ In the below example, height data arrives in either inches or meters. We want al
           {
             "required": "true",
             "valueExpression": {
-              "value": "multiply(to_number(matchedToken.height), `0.0254`)", // Convert inches to meters. Notice we utilize JmesPath as that gives us access to transformation functions
+              "value": "multiply(to_number(matchedToken.height), `0.0254`)", // Convert inches to meters. Notice we utilize JMESPath as that gives us access to transformation functions
               "language": "JmesPath"
             },
             "valueName": "height"
@@ -541,13 +538,13 @@ In the below example, height data arrives in either inches or meters. We want al
 ```
 
 > [!TIP]
-> See MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
 
 ## Next steps
 
 In this article, you learned how to use Device mappings. To learn how to use FHIR destination mappings, see
 
->[!div class="nextstepaction"]
->[How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
+> [!div class="nextstepaction"]
+> [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

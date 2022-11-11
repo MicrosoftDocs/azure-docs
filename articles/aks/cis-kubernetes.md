@@ -3,7 +3,7 @@ title: Center for Internet Security (CIS) Kubernetes benchmark
 description: Learn how AKS applies the CIS Kubernetes benchmark
 services: container-service
 ms.topic: article
-ms.date: 01/18/2022
+ms.date: 10/04/2022
 ---
 
 # Center for Internet Security (CIS) Kubernetes benchmark
@@ -139,7 +139,7 @@ Recommendations can have one of the following statuses:
 |4.2.9|Ensure that the `--event-qps` argument is set to 0 or a level which ensures appropriate event capture|Not Scored|L2|Pass|
 |4.2.10|Ensure that the `--tls-cert-file`and `--tls-private-key-file` arguments are set as appropriate|Scored|L1|Equivalent Control|
 |4.2.11|Ensure that the `--rotate-certificates` argument is not set to false|Scored|L1|Pass|
-|4.2.12|Ensure that the RotateKubeletServerCertificate argument is set to true|Scored|L1|Pass|
+|4.2.12|Ensure that the RotateKubeletServerCertificate argument is set to true|Scored|L1|Fail|
 |4.2.13|Ensure that the Kubelet only makes use of Strong Cryptographic Ciphers|Not Scored|L1|Pass|
 |5|Policies||||
 |5.1|RBAC and Service Accounts||||

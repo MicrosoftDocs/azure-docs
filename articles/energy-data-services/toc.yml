@@ -19,17 +19,17 @@
       href: quickstart-create-microsoft-energy-data-services-instance.md
 - name: Tutorials
   items:
-    - name: CSV Parser ingestion tutorial
+    - name: Ingest CSV wellbore data
       href: tutorial-csv-ingestion.md
-    - name: Manifest ingestion tutorial
+    - name: Ingest manifests
       href: tutorial-manifest-ingestion.md
-    - name: Seismic DDMS sdutil tutorial
+    - name: Use Seismic Store DDMS sdutil
       href: tutorial-seismic-ddms-sdutil.md
-    - name: Seismic DDMS tutorial
+    - name: Use Seismic Store DDMS APIs
       href: tutorial-seismic-ddms.md
-    - name: Wellbore DDMS tutorial
+    - name: Use Wellbore DDMS APIs
       href: tutorial-wellbore-ddms.md
-    - name: Well delivery DDMS tutorial
+    - name: Use Well Delivery DDMS APIs
       href: tutorial-well-delivery-ddms.md
 - name: Concepts
   items:
@@ -59,6 +59,12 @@
           href: how-to-integrate-airflow-logs-with-azure-monitor.md
         - name: Elastic logs integration with Azure Monitor
           href: how-to-integrate-elastic-logs-with-azure-monitor.md
+    - name: Security
+      items:
+        - name: Set up Private Links
+          href: how-to-set-up-private-links.md
+        - name: Set up Customer managed encryption keys (CMEK)
+          href: how-to-manage-data-security-and-encryption.md
     - name: Load datasets
       href: https://github.com/Azure/osdu-data-load-tno
     - name: Convert SEG-Y to ZGY
@@ -77,4 +83,7 @@
   items:
   - name: FAQ
     href: faq-energy-data-services.yml
-
+  - name: Region availability
+    href: https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all
+  - name: Partners
+    href: resources-partner-solutions.md

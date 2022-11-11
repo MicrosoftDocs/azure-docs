@@ -1,7 +1,7 @@
 ---
-title: Migrate pipelines from SDK v1 to SDK v2
+title: Upgrade pipelines to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate pipelines from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade pipelines from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate pipelines from SDK v1 to SDK v2
+# Upgrade pipelines to SDK v2
 
 In SDK v2, "pipelines" are consolidated into jobs.
 
@@ -131,7 +131,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
     
     ```
 
-* SDK v2. [Full sample link](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb)
+* SDK v2. [Full sample link](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb)
 
     ```python
     # import required libraries
@@ -215,8 +215,8 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[azureml.pipeline.core.Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.dsl.pipeline]/python/api/azure-ai-ml/azure.ai.ml.dsl#azure-ai-ml-dsl-pipeline)|
-|[OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py&preserve-view=true)|[Output]/python/api/azure-ai-ml/azure.ai.ml.output|
+|[azureml.pipeline.core.Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.dsl.pipeline](/python/api/azure-ai-ml/azure.ai.ml.dsl#azure-ai-ml-dsl-pipeline)|
+|[OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py&preserve-view=true)|[Output](/python/api/azure-ai-ml/azure.ai.ml.output)|
 |[dataset as_mount](/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py#azureml-data-filedataset-as-mount&preserve-view=true)|[Input](/python/api/azure-ai-ml/azure.ai.ml.input)|
 
 ## Step and job/component type mapping
@@ -244,7 +244,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 For more information, see the documentation here:
 
 * [steps in SDK v1](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true)
-* [Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)](how-to-create-component-pipeline-python.md)
+* [Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2](how-to-create-component-pipeline-python.md)
 * [Build a simple ML pipeline for image classification (SDK v1)](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/using-pipelines/image-classification.ipynb)
-* [OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py)
+* [OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py&preserve-view=true)
 * [`mldesigner`](https://pypi.org/project/mldesigner/)

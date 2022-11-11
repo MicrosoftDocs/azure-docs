@@ -1,8 +1,8 @@
 ---
 title: Available metadata for Power BI in the Microsoft Purview governance portal
 description: This reference article provides a list of metadata that is available for a Power BI tenant in the Microsoft Purview governance portal.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference

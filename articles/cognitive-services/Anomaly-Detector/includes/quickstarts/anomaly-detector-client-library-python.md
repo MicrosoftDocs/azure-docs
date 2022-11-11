@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/09/2022
+ms.date: 10/13/2022
 ms.author: mbullwin
 recommendations: false
 ---
@@ -23,10 +23,9 @@ Use the Anomaly Detector client library for Python to:
 
 ## Prerequisites
 
-* [Python 3.x](https://www.python.org/)
+* An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 * <a href="https://www.python.org/" target="_blank">Python 3.x</a>
 * <a href="https://pandas.pydata.org/" target="_blank">Pandas data analysis library</a>
-* An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Set up
@@ -95,7 +94,7 @@ This quickstart uses the `request-data.csv` file that can be downloaded from our
 curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv
 ```
 
-## Create a new Python application
+## Detect anomalies
 
 1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 

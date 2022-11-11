@@ -9,6 +9,9 @@ ms.date: 08/22/2020
 
 # App schema definition
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 The LUIS app is represented in either the `.json` or `.lu` and includes all intents, entities, example utterances, features, and settings.
 
 ## Format

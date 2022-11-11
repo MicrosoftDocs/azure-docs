@@ -4,7 +4,7 @@ description: Learn how to use customer-managed keys with your Azure disks in dif
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 10/31/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -22,22 +22,11 @@ A disk encryption set with federated identity in a cross-tenant CMK workflow spa
 
 If you have questions about cross-tenant customer-managed keys with managed disks, email <crosstenantcmkvteam@service.microsoft.com>.
 
-## Prerequisites
-- Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
-- You must enable the preview on your subscription. Use the following command to enable the preview:
-    ```azurepowershell
-    Register-AzProviderFeature -FeatureName "EncryptionAtRestWithCrossTenantKey" -ProviderNamespace "Microsoft.Compute"
-    ```
-
-    It may take some time for the feature registration to complete. You can confirm if it has with the following command:
-    
-    ```azurepowershell
-    Get-AzProviderFeature -FeatureName "EncryptionAtRestWithCrossTenantKey" -ProviderNamespace "Microsoft.Compute"
-    ```
-
 ## Limitations
 
-Currently this feature is only available in the North Central US, West Central US, and West US regions. Managed Disks and the customer's Key Vault must be in the same Azure region, but they can be in different subscriptions. This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
+- Managed Disks and the customer's Key Vault must be in the same Azure region, but they can be in different subscriptions.
+- This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
+- This feature isn't available in Azure China or Government clouds.
 
 [!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
 

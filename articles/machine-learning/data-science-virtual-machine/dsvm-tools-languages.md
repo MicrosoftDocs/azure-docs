@@ -25,7 +25,7 @@ artificial intelligence (AI) applications. Here are some of the notable ones.
 | Category | Value |
 |--|--|
 | Language versions supported | Python 3.8 |
-| Supported DSVM editions | Windows Server 2019, Ubuntu 18.04 |
+| Supported DSVM editions | Windows Server 2019, Linux |
 | How is it configured / installed on the DSVM? | There is multiple `conda` environments whereby each of these has different Python packages pre-installed. To list all available environments in your machine, run `conda env list`. |
 
 ### How to use and run it

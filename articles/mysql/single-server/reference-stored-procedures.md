@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Stored procedures are available on Azure Database for MySQL servers to help manage your MySQL server. This includes managing your server's connections, queries, and setting up Data-in Replication.  
 
 ## Data-in Replication stored procedures

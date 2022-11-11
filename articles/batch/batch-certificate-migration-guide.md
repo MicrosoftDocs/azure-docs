@@ -1,91 +1,47 @@
 ---
-title: Batch Certificate Migration Guide
-description: Describes the migration steps for the batch certificates and the end of support details.
+title: Migrate Batch account certificates to Azure Key Vault
+description: Learn how to migrate Batch account certificates to Azure Key Vault and plan for feature end of support.
 author: harperche
 ms.author: harpercheng
 ms.service: batch
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 08/15/2022
+ms.topic: how-to
+ms.date: 10/12/2022
 ---
-# Batch Certificate Migration Guide
 
-Securing the application and critical information has become essential in today's needs. With growing customers and increasing demand for security, managing key information plays a significant role in securing data. Many customers need to store secure data in the application, and it needs to be managed to avoid any leakage. In addition, only legitimate administrators or authorized users should access it. Azure Batch offers Certificates created and managed by the Batch service. Azure Batch also provides a Key Vault option, and it's considered an azure-standard method for delivering more controlled secure access management.
+# Migrate Batch account certificates to Azure Key Vault
 
-Azure Batch provides certificates feature at the account level. Customers must generate the Certificate and upload it manually to the Azure Batch via the portal. To access the Certificate, it must be associated and installed for the 'Current User.' The Certificate is usually valid for one year and must follow a similar procedure every year.
+On *February 29, 2024*, the Azure Batch account certificates feature will be retired. Learn how to migrate your certificates on Azure Batch accounts using Azure Key Vault in this article.
 
-For Azure Batch customers, a secure way of access should be provided in a more standardized way, reducing any manual interruption and reducing the readability of key generated. Therefore, we'll retire the certificate feature on **29 February 2024** to reduce the maintenance effort and better guide customers to use Azure Key Vault as a standard and more modern method with advanced security. After it's retired, the Certificate functionality may cease working properly. Additionally, pool creation with certificates will be rejected and possibly resize up.
+## About the feature
 
-## Retirement alternatives
+Certificates are often required in various scenarios such as decrypting a secret, securing communication channels, or [accessing another service](credential-access-key-vault.md). Currently, Azure Batch offers two ways to manage certificates on Batch pools. You can add certificates to a Batch account or you can use the Azure Key Vault VM extension to manage certificates on Batch pools. Only the [certificate functionality on an Azure Batch account](https://learn.microsoft.com/rest/api/batchservice/certificate) and the functionality it extends to Batch pools via `CertificateReference` to [Add Pool](https://learn.microsoft.com/rest/api/batchservice/pool/add#certificatereference), [Patch Pool](https://learn.microsoft.com/rest/api/batchservice/pool/patch#certificatereference), [Update Properties](https://learn.microsoft.com/rest/api/batchservice/pool/update-properties#certificatereference) and the corresponding references on Get and List Pool APIs are being retired.
 
-Azure Key Vault is the service provided by Microsoft Azure to store and manage secrets, certificates, tokens, keys, and other configuration values that authenticated users access the applications and services. The original idea was to remove the hard-coded storing of these secrets and keys in the application code.
+## Feature end of support
 
-Azure Key Vault provides security at the transport layer by ensuring any data flow from the key vault to the client application is encrypted. Azure key vault stores the secrets and keys with such strong encryption that even Microsoft itself won't see the keys or secrets in any way.
+[Azure Key Vault](../key-vault/general/overview.md) is the standard, recommended mechanism for storing and accessing secrets and certificates across Azure securely. Therefore, on February 29, 2024, we'll retire the Batch account certificates feature in Azure Batch. The alternative is to use the Azure Key Vault VM Extension and a user-assigned managed identity on the pool to securely access and install certificates on your Batch pools.
 
-Azure Key Vault provides a secure way to store the information and define the fine-grained access control. All the secrets can be managed from one dashboard. Azure Key Vault can store the key in the software-protected or hardware protected by hardware security module (HSMs) mechanism. In addition, it has a mechanism to auto-renew the Key Vault certificates.
+After the certificates feature in Azure Batch is retired on February 29, 2024, a certificate in Batch won't work as expected. After that date, you'll no longer be able to add certificates to a Batch account or link these certificates to Batch pools. Pools that continue to use this feature after this date may not behave as expected such as updating certificate references or the ability to install existing certificate references. 
 
-## Migration steps
+## Alternative: Use Azure Key Vault VM extension with pool user-assigned managed identity
 
-Azure Key Vault can be created in three ways:
+Azure Key Vault is a fully managed Azure service that provides controlled access to store and manage secrets, certificates, tokens, and keys. Key Vault provides security at the transport layer by ensuring that any data flow from the key vault to the client application is encrypted. Azure Key Vault gives you a secure way to store essential access information and to set fine-grained access control. You can manage all secrets from one dashboard. Choose to store a key in either software-protected or hardware-protected hardware security modules (HSMs). You also can set Key Vault to auto-renew certificates.
 
-1. Using Azure portal
+For a complete guide on how to enable Azure Key Vault VM Extension with Pool User-assigned Managed Identity, see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
 
-2. Using PowerShell
+## FAQs
 
-3. Using CLI
+- Do `CloudServiceConfiguration` pools support Azure Key Vault VM extension and managed identity on pools?
 
-**Create Azure Key Vault step by step procedure using Azure portal:**
+  No. `CloudServiceConfiguration` pools will be [retired](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/) on the same date as Azure Batch account certificate retirement on February 29, 2024. We recommend that you migrate to `VirtualMachineConfiguration` pools before that date where you'll be able to use these solutions.
 
-__Prerequisite__: Valid Azure subscription and owner/contributor access on Key Vault service.
+- Do user subscription pool allocation Batch accounts support Azure Key Vault?
 
-   1. Log in to the Azure portal.
+  Yes. You may use the same Key Vault as specified with your Batch account as for use with your pools, but your Key Vault used for certificates for your Batch pools may be entirely separate.
 
-   2. In the top-level search box, look for **Key Vaults**.
-
-   3. In the Key Vault dashboard, click on create and provide all the details like subscription, resource group, Key Vault name, select the pricing tier (standard/premium), and select region. Once all these details are provided, click on review, and create. This will create the Key Vault account.
-
-   4. Key Vault names need to be unique across the globe. Once any user has taken a name, it won’t be available for other users.
-
-   5. Now go to the newly created Azure Key Vault. There you can see the vault name and the vault URI used to access the vault.
-
-**Create Azure Key Vault step by step using the Azure PowerShell:**
-
-   1. Log in to the user PowerShell using the following command - Login-AzAccount
-
-   2. Create an 'azure secure' resource group in the 'eastus' location. You can change the name and location as per your need.
-``` 
-  New-AzResourceGroup -Name "azuresecure" -Location "EastUS"
-```
-   3. Create the Azure Key Vault using the cmdlet. You need to provide the key vault name, resource group, and location.
-```
-  New-AzKeyVault -Name "azuresecureKeyVault" -ResourceGroupName "azuresecure" -Location "East US"
-``` 
-
-   4. Created the Azure Key Vault successfully using the PowerShell cmdlet.
-
-**Create Azure Key Vault step by step using the Azure CLI bash:**
-
-   1. Create an 'azure secure' resource in the 'eastus' location. You can change the name and location as per your need. Use the following bash command.
-``` 
-  az group create –name "azuresecure" -l "EastUS."
-``` 
-
-   2. Create the Azure Key Vault using the bash command. You need to provide the key vault name, resource group, and location.
-``` 
-  az keyvault create –name “azuresecureKeyVault” –resource-group “azure” –location “EastUS”
-```
-   3. Successfully created the Azure Key Vault using the Azure CLI bash command.
-
-## FAQ
-
-   1. Is Certificates or Azure Key Vault recommended?  
-   Azure Key Vault is recommended and essential to protect the data in the cloud.
-
-   2. Does user subscription mode support Azure Key Vault?   
-   Yes, it's mandatory to create Key Vault while creating the Batch account in user subscription mode.
-
-   3. Are there best practices to use Azure Key Vault?   
-   Best practices are covered [here](../key-vault/general/best-practices.md).
+- Where can I find best practices for using Azure Key Vault?
+  
+  See [Azure Key Vault best practices](../key-vault/general/best-practices.md).
 
 ## Next steps
 
-For more information, see [Certificate Access Control](../key-vault/certificates/certificate-access-control.md).
+For more information, see [Key Vault certificate access control](../key-vault/certificates/certificate-access-control.md). For more information about Batch functionality related to this migration, see [Azure Batch Pool extensions](create-pool-extensions.md) and [Azure Batch Pool Managed Identity](managed-identity-pools.md).

@@ -29,7 +29,6 @@ The information below should be kept in mind, when selecting a solution.
 
 - Users and groups must be uniquely identified across all forests
 - Matching across forests doesn't occur with cloud sync
-- A user or group must be represented only once across all forests
 - The source anchor for objects is chosen automatically.  It uses ms-DS-ConsistencyGuid if present, otherwise ObjectGUID is used.
 - You can't change the attribute that is used for source anchor.
 

@@ -1,25 +1,25 @@
 ---
-title: Get started with Azure Cosmos DB MongoDB API and .NET
-description: Get started developing a .NET application that works with Azure Cosmos DB MongoDB API. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB MongoDB API database.
+title: Get started with Azure Cosmos DB for MongoDB and .NET
+description: Get started developing a .NET application that works with Azure Cosmos DB for MongoDB. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB for MongoDB database.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.devlang: dotnet
 ms.topic: how-to
-ms.date: 07/22/2022
-ms.custom: devx-track-dotnet
+ms.date: 10/17/2022
+ms.custom: devx-track-dotnet, ignite-2022
 ---
 
-# Get started with Azure Cosmos DB MongoDB API and .NET Core
-[!INCLUDE[appliesto-mongo-api](../includes/appliesto-mongodb-api.md)]
+# Get started with Azure Cosmos DB for MongoDB and .NET Core
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-This article shows you how to connect to Azure Cosmos DB MongoDB API using .NET Core and the relevant NuGet packages. Once connected, you can perform operations on databases, collections, and documents.
+This article shows you how to connect to Azure Cosmos DB for MongoDB using .NET Core and the relevant NuGet packages. Once connected, you can perform operations on databases, collections, and documents.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples) are available on GitHub as a .NET Core project.
 
-[MongoDB API reference documentation](https://docs.mongodb.com/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
+[API for MongoDB reference documentation](https://docs.mongodb.com/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
 
 
 ## Prerequisites
@@ -27,7 +27,7 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using .NET 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * [.NET 6.0](https://dotnet.microsoft.com/en-us/download)
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
-* [Azure Cosmos DB MongoDB API resource](quickstart-dotnet.md#create-an-azure-cosmos-db-account)
+* [Azure Cosmos DB for MongoDB resource](quickstart-dotnet.md#create-an-azure-cosmos-db-account)
 
 ## Create a new .NET Core app
 
@@ -49,7 +49,7 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using .NET 
     dotnet run
     ```
 
-## Connect to Azure Cosmos DB MongoDB API with the MongoDB native driver
+## Connect to Azure Cosmos DB for MongoDB with the MongoDB native driver
 
 To connect to Azure Cosmos DB with the MongoDB native driver, create an instance of the [``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/T_MongoDB_Driver_MongoClient.htm) class. This class is the starting point to perform all operations against MongoDb databases. The most common constructor for **MongoClient** accepts a connection string, which you can retrieve using the following steps:
 
@@ -98,7 +98,7 @@ Define a new instance of the ``MongoClient`` class using the constructor and the
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/101-manage-connection/program.cs" id="client_credentials":::
 
-## Use the MongoDB client classes with Cosmos DB for MongoDB API
+## Use the MongoDB client classes with Azure Cosmos DB for API for MongoDB
 
 [!INCLUDE [Conceptual object model](<./includes/conceptual-object-model.md>)]
 
@@ -106,7 +106,7 @@ Each type of resource is represented by one or more associated C# classes. Here'
 
 | Class | Description |
 |---|---|
-|[``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoClient.htm)|This class provides a client-side logical representation for the MongoDB API layer on Cosmos DB. The client object is used to configure and execute requests against the service.|
+|[``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoClient.htm)|This class provides a client-side logical representation for the API for MongoDB layer on Azure Cosmos DB. The client object is used to configure and execute requests against the service.|
 |[``MongoDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoDatabase.htm)|This class is a reference to a database that may, or may not, exist in the service yet. The database is validated or created server-side when you attempt to perform an operation against it.|
 |[``Collection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoCollection.htm)|This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.|
 
@@ -126,7 +126,7 @@ The following guides show you how to use each of these classes to build your app
 
 ## Next steps
 
-Now that you've connected to a MongoDB API account, use the next guide to create and manage databases.
+Now that you've connected to a API for MongoDB account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
-> [Create a database in Azure Cosmos DB MongoDB API using .NET](how-to-dotnet-manage-databases.md)
+> [Create a database in Azure Cosmos DB for MongoDB using .NET](how-to-dotnet-manage-databases.md)

@@ -1,8 +1,9 @@
 ---
 title: Enable Microsoft Defender for Azure Cosmos DB
-description: Learn how to enable Microsoft Defender for Azure Cosmos DB's enhanced security features.
+description: Learn how to enable enhanced security features in Microsoft Defender for Azure Cosmos DB.
 titleSuffix: Microsoft Defender for Azure Cosmos DB
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.date: 06/07/2022
 ---
 
@@ -100,9 +101,9 @@ You can use sample Microsoft Defender for Azure Cosmos DB alerts to evaluate the
 
 1. Sign in to the  [Azure portal](https://portal.azure.com/) as a Subscription Contributor user.
 
-1. Navigate to the Alerts page. 
+1. Navigate to the security alerts page. 
 
-1. Select **Create sample alerts**. 
+1. Select **Sample alerts**. 
 
 1. Select the subscription. 
 

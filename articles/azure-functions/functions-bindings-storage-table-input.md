@@ -4,13 +4,13 @@ description: Understand how to use Azure Tables input bindings in Azure Function
 ms.topic: reference
 ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, ignite-2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Tables input bindings for Azure Functions
 
-Use the Azure Tables input binding to read a table in an Azure Storage or Cosmos DB account.
+Use the Azure Tables input binding to read a table in an Azure Storage or Azure Cosmos DB account.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-table.md).
 
@@ -26,7 +26,7 @@ An [in-process class library](functions-dotnet-class-library.md) is a compiled C
  
 # [Isolated process](#tab/isolated-process)
 
-An [isolated process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.   
+An [isolated worker process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime.  
    
 # [C# script](#tab/csharp-script)
 
@@ -113,7 +113,7 @@ For more information about how to use CloudTable, see [Get started with Azure Ta
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 
-# [Table API extension](#tab/table-api/in-process)
+# [Azure Cosmos DB for Table extension](#tab/table-api/in-process)
 
 The following example shows a [C# function](./functions-dotnet-class-library.md) that reads a single table row. For every message sent to the queue, the function will be triggered.
 
@@ -264,13 +264,13 @@ public static void Run([QueueTrigger("myqueue", Connection = "AzureWebJobsStorag
 ```
 The `Filter` and `Take` properties are used to limit the number of entities returned.
 
-# [Table API extension (preview)](#tab/table-api/isolated-process)
+# [Azure Cosmos DB for Table extension (preview)](#tab/table-api/isolated-process)
 
-The Table API extension does not currently support isolated process. You will instead need to use the combined Azure Storage extension.
+The Azure Cosmos DB for Table extension does not currently support isolated worker process. You will instead need to use the combined Azure Storage extension.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated process.
+Functions version 1.x doesn't support isolated worker process.
 
 # [Combined Azure Storage extension](#tab/storage-extension/csharp-script)
 
@@ -382,9 +382,9 @@ For more information about how to use CloudTable, see [Get started with Azure Ta
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 
-# [Table API extension (preview)](#tab/table-api/csharp-script)
+# [Azure Cosmos DB for Table extension (preview)](#tab/table-api/csharp-script)
 
-Version 3.x of the extension bundle doesn't currently include the Table API bindings. For now, you need to instead use version 2.x of the extension bundle, which uses the combined Azure Storage extension.
+Version 3.x of the extension bundle doesn't currently include the Azure Cosmos DB for Table bindings. For now, you need to instead use version 2.x of the extension bundle, which uses the combined Azure Storage extension.
 
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 
@@ -705,7 +705,7 @@ With this simple binding, you can't programmatically handle a case in which no r
 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 
@@ -831,7 +831,7 @@ An in-process class library is a compiled C# function that runs in the same proc
  
 # [Isolated process](#tab/isolated-process)
 
-An isolated process class library compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
    
 # [C# script](#tab/csharp-script)
 
@@ -847,7 +847,7 @@ To return a specific entity by key, use a binding parameter that derives from [T
 
 To execute queries that return multiple entities, bind to a [CloudTable] object. You can then use this object to create and execute queries against the bound table. Note that [CloudTable] and related APIs belong to the [Microsoft.Azure.Cosmos.Table](/dotnet/api/microsoft.azure.cosmos.table) namespace.  
 
-# [Table API extension](#tab/table-api/in-process)
+# [Azure Cosmos DB for Table extension](#tab/table-api/in-process)
 
 To return a specific entity by key, use a binding parameter that derives from [TableEntity](/dotnet/api/azure.data.tables.tableentity).  
 
@@ -865,13 +865,13 @@ To return a specific entity by key, use a plain-old CLR object (POCO). The speci
 
  When returning multiple entities as an [`IEnumerable<T>`], you can instead use `Take` and `Filter` properties to restrict the result set.
 
-# [Table API extension (preview)](#tab/table-api/isolated-process)
+# [Azure Cosmos DB for Table extension (preview)](#tab/table-api/isolated-process)
 
-The Table API extension does not currently support isolated process. You will instead need to use the combined Azure Storage extension.
+The Azure Cosmos DB for Table extension does not currently support isolated worker process. You will instead need to use the combined Azure Storage extension.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated process.
+Functions version 1.x doesn't support isolated worker process.
 
 # [Combined Azure Storage extension](#tab/storage-extension/csharp-script)
 
@@ -879,9 +879,9 @@ To return a specific entity by key, use a binding parameter that derives from [T
 
 To execute queries that return multiple entities, bind to a [CloudTable] object. You can then use this object to create and execute queries against the bound table. Note that [CloudTable] and related APIs belong to the [Microsoft.Azure.Cosmos.Table](/dotnet/api/microsoft.azure.cosmos.table) namespace.  
 
-# [Table API extension (preview)](#tab/table-api/csharp-script)
+# [Azure Cosmos DB for Table extension (preview)](#tab/table-api/csharp-script)
 
-Version 3.x of the extension bundle doesn't currently include the Table API bindings. For now, you need to instead use version 2.x of the extension bundle, which uses the combined Azure Storage extension.
+Version 3.x of the extension bundle doesn't currently include the Azure Cosmos DB for Table bindings. For now, you need to instead use version 2.x of the extension bundle, which uses the combined Azure Storage extension.
 
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 

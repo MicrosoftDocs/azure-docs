@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 08/1/2022
 ms.author: shwetn
 ms.reviewer: sidandrews
-ms.custom: references_regions 
+ms.custom: references_regions, ignite-2022
 ---
 
 # Intra-account container copy jobs in Azure Cosmos DB (Preview)
-[!INCLUDE[appliesto-sql-cassandra-api](includes/appliesto-sql-cassandra-api.md)]
+[!INCLUDE[NoSQL, Cassandra](includes/appliesto-nosql-cassandra.md)]
 
 You can perform offline container copy within an Azure Cosmos DB account using container copy jobs.
 
@@ -28,11 +28,11 @@ Intra-account container copy jobs can be [created and managed using CLI commands
 
 ## Get started
 
-To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview will be effective for all Cassandra and SQL API accounts in the subscription.
+To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview will be effective for all Cassandra and API for NoSQL accounts in the subscription.
 
 ## Overview of steps needed to do container copy
 
-1. Create the target Cosmos DB container with the desired settings (partition key, throughput granularity, RUs, unique key, etc.).
+1. Create the target Azure Cosmos DB container with the desired settings (partition key, throughput granularity, RUs, unique key, etc.).
 2. Stop the operations on the source container by pausing the application instances or any clients connecting to it.
 3. [Create the container copy job](how-to-container-copy.md).
 4. [Monitor the progress of the container copy job](how-to-container-copy.md#monitor-the-progress-of-a-container-copy-job) and wait until it's completed.
@@ -89,10 +89,10 @@ The container copy job will run in the write region. If there are accounts confi
 
 The account's write region may change in the rare scenario of a region outage or due to manual failover. In such a scenario, incomplete container copy jobs created within the account would fail. You would need to recreate these failed jobs. Recreated jobs would then run in the new (current) write region.
 
-### Why is a new database *_datatransferstate* created in the account when I run container copy jobs? Am I being charged for this database?
-* *_datatransferstate* is a database that is created while running container copy jobs. This database is used by the platform to store the state and progress of the copy job.
+### Why is a new database *__datatransferstate* created in the account when I run container copy jobs? Am I being charged for this database?
+* *__datatransferstate* is a database that is created while running container copy jobs. This database is used by the platform to store the state and progress of the copy job.
 * The database uses manual provisioned throughput of 800 RUs. You'll be charged for this database.
-* Deleting this database will remove the container copy job history from the account. It can be safely deleted once all the jobs in the account have completed, if you no longer need the job history. The platform will not clean up the *_datatransferstate* database automatically.
+* Deleting this database will remove the container copy job history from the account. It can be safely deleted once all the jobs in the account have completed, if you no longer need the job history. The platform will not clean up the *__datatransferstate* database automatically.
 
 ## Supported regions
 
@@ -129,7 +129,7 @@ Make sure the target container is created before running the job as specified in
 * Error - Shared throughput database creation is not supported for serverless accounts
 
 Job creation on serverless accounts may fail with the error *"Shared throughput database creation is not supported for serverless accounts"*.
-As a work-around, create a database called *_datatransferstate* manually within the account and try creating the container copy job again.
+As a work-around, create a database called *__datatransferstate* manually within the account and try creating the container copy job again.
 
 ```
 ERROR: (BadRequest) Response status code does not indicate success: BadRequest (400); Substatus: 0; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Shared throughput database creation is not supported for serverless accounts.
