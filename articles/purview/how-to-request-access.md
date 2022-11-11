@@ -31,4 +31,4 @@ This article outlines how to make an access request.
 - [What are Microsoft Purview workflows](concept-workflow.md)
 - [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)
 - [Self-service data access workflow for hybrid data estates](how-to-workflow-self-service-data-access-hybrid.md)
-- [self-service policies](concept-self-service-data-access-policy.md) 
+- [Self-service policies](concept-self-service-data-access-policy.md) 
