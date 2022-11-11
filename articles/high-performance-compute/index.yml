@@ -22,7 +22,7 @@ highlightedContent:
     # Card
     - title: What is Azure HPC?
       itemType: overview
-      url: ../virtual-machines/overview.md
+      url: ../virtual-machines/workloads/hpc/overview.md?context=/azure/virtual-machines/context/context
     # Card
     - title: Getting started with Azure VMs
       itemType: get-started
