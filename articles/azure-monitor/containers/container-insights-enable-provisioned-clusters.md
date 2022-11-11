@@ -1,26 +1,30 @@
-# Private preview – Container Insights Extension support for LCM clusters
+---
+title: Monitor AKS hybrid clusters
+ms.date: 11/10/2022
+ms.topic: article
+author: austonli
+ms.author: aul
+description: Collect metrics and logs of AKS hybrid clusters using Azure Monitor.
+ms.reviewer: aul
+---
+
+# Azure Monitor container insights for AKS hybrid clusters (preview)
 
 ## Overview
 
-This private preview supports onboarding the Container Insights extension onto provisioned cluster.
+>[!NOTE]
+>Support for monitoring AKS hybrid clusters is currently private preview. We recommend only using preview features in safe testing environments.
 
-Provisioning K8s clusters into environments is complex and error prone for many customers leading to multiple customer asking for simplifying provisioning (day 0) and maintaining (day1) clusters, namely 'k8s cluster lifecycle management' (LCM).
+[Azure Monitor container insights](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) provides a rich monitoring experience for [AKS hybrid clusters (preview)](https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-hybrid-preview-overview).
 
-For Arc Agent Onboarding Provisioned Clusters details:
 
-[Project Haiku - Cluster Lifecycle Management - All Documents (sharepoint.com)](https://microsoft.sharepoint.com/teams/ProjectHaiku/Shared%20Documents/Forms/AllItems.aspx?RootFolder=%2Fteams%2FProjectHaiku%2FShared%20Documents%2FCluster%20Lifecycle%20Management&FolderCTID=0x012000FF58C9350911CA4EBC5A6983E11990B6)
+## Supported configurations
 
-Provisioned cluster operations:
-
-[azure-arc-kubernetes-preview/2. Create and access AKS-HCI clusters.md at master · Azure/azure-arc-kubernetes-preview (github.com)](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/docs/aks-hci/2.%20Create%20and%20access%20AKS-HCI%20clusters.md)
-
-CLI examples:
-
-- az hybridaks create –name
-- az hybridaks show
-- az hybridaks nodepool add
+- Azure Monitor container insights supports monitoring only Linux containers.
 
 ## Pre-requisites
+
+- Pre-requisites listed under the [generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
 
 - azure-cli: 2.39.0+
 
