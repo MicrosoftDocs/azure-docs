@@ -116,7 +116,7 @@ az resource delete \
 
 ## Required access and deletion failures
 
-To delete a resource group, you need access to the delete action for the **Microsoft.Resources/subscriptions/resourceGroups** resource. You also need delete for all resources in the resource group.
+To delete a resource group, you need access to the delete action for the **Microsoft.Resources/subscriptions/resourceGroups** resource.
 
 For a list of operations, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). For a list of built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
