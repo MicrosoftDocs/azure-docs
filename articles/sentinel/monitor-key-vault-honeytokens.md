@@ -25,7 +25,7 @@ In order to start using the **Microsoft Sentinel Deception (Honey Tokens)** solu
 
 - **Required roles**: You must be a tenant admin to install the **Microsoft Sentinel Deception (Honey Tokens)** solution. Once the solution is installed, you can share the workbook with key vault owners so that they can deploy their own honeytokens.
 
-- **Required data connectors**: Make sure that you've deployed the [Azure Key Vault](data-connectors-reference.md#azure-key-vault) and the [Azure Activity](data-connectors-reference.md#azure-activity) data connectors in your workspace, and that they're connected.
+- **Required data connectors**: Make sure that you've deployed the [Azure Key Vault](data-connectors/azure-key-vault-solution-for-sentinel.md) and the [Azure Activity](data-connectors-reference.md#azure-activity) data connectors in your workspace, and that they're connected.
 
   Verify that data routing succeeded and that the **KeyVault** and **AzureActivity** data is flowing into Microsoft Sentinel. For more information, see:
 
