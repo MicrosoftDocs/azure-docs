@@ -126,13 +126,13 @@ Now let’s step through how we can see these metrics in the Azure portal.
 
     1. You can add another chart. 
 
-    1. You can add another metric to the same chart. Then you can click between the metrics and their corresponding graphs.  
+    2. You can add another metric to the same chart. Then you can click between the metrics and their corresponding graphs.  
 
-    1. You can customize the aggregation. Some of the metrics only have one aggregation, but others have many. Please refer to the chart above for the aggregations available for each metric. 
+    3. You can customize the aggregation. Some of the metrics only have one aggregation, but others have many. Please refer to the chart above for the aggregations available for each metric. 
 
-    1. You can pick how far back you want the metrics to go. By default, the metrics show the past 24 hours, but you have the ability to customize the time period by clicking on the time.
+    4. You can pick how far back you want the metrics to go. By default, the metrics show the past 24 hours, but you have the ability to customize the time period by clicking on the time.
     
-    1. You can pin your metrics chart to your dashboard. This makes it easy to look at your specific chart whenever you login into your Azure Portal. 
+    5. You can pin your metrics chart to your dashboard. This makes it easy to look at your specific chart whenever you login into your Azure Portal. 
 
 ### Alerts
 
