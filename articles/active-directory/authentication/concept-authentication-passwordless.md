@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 11/11/2022
 
 ms.author: justinha
 author: justinha
@@ -83,12 +83,12 @@ To get started with passwordless sign-in, complete the following how-to:
 
 The [Cryptographic Module Validation Program](https://csrc.nist.gov/Projects/Cryptographic-Module-Validation-Program) lists cryptographic modules that have been validated to comply with FIPS requirements. For example, Windows uses [SymCrypt](/windows/security/cryptography-certificate-mgmt), which is FIPS 140 certified for Windows-based devices, but not for mobile.
 
-As a mobile app in enterprise authentication scenarios like MFA and passwordless, Microsoft Authenticator on iOS relies upon the [Apple Corecrypto module](https://support.apple.com/guide/sccc/security-certifications-for-ios-scccfa917cb49/web) of the corresponding iOS version. Beginning with iOS 14, the Apple Corecrypto module is pending FIPS 140-3 validation.On earlier versions of iOS, the Apple Corecrypto module is FIPS 140-2 validated. 
+As a mobile app in enterprise authentication scenarios like MFA and passwordless, Microsoft Authenticator on iOS relies upon the [Apple Corecrypto module](https://support.apple.com/guide/sccc/security-certifications-for-ios-scccfa917cb49/web) of the corresponding iOS version. The Apple Corecrypto module is pending FIPS 140-3 validation beginning with iOS 14, and FIPS 140-2 validated on earlier versions of iOS. 
 
 For Android, Microsoft Authenticator uses WolfSSL cryptography. By using WolfSSL cryptography, Microsoft Authenticator relies upon the same FIPS 140 compliant cryptography for any Android device manufacturer. The encryption method is FIPS 140-2 validated, and pending FIPS 140-3 validation. For more information, see [wolfCrypt FIPS 140-2 and FIPS 140-3](https://www.wolfssl.com/license/fips/).
 
 >[!NOTE]
->Microsoft Authenticator is FIPS 140 compliant only for enterprise authentication flows like MFA, time-based one-time passcode (TOTP), and passwordless authentication. Consumer authentication flows aren't FIPS 140 compliant. 
+>Microsoft Authenticator is FIPS 140 compliant only for enterprise authentication flows like MFA, time-based one-time passcodes (TOTP), or passwordless authentication. Consumer authentication flows aren't FIPS 140 compliant. 
 
 ## FIDO2 security keys
 
