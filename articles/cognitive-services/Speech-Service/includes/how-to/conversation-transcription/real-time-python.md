@@ -44,18 +44,79 @@ If you don't use pre-enrolled user profiles, it will take a few more seconds to 
 
 This sample code does the following:
 
-* Creates a push stream to use for transcription, and writes the sample `.wav` file to it.
-* Creates a `Conversation` using `createConversationAsync()`.
-* Creates a `ConversationTranscriber` using the constructor.
+* Creates speech configuration with subscription information.
+* Create audio configuration using the push stream.
+* Creates a `ConversationTranscriber and Subscribe to the events fired by the conversation transcriber`.
+* Conversation identifier for creating conversation.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above.
-* Registers to events and begins transcription.
+* Read the whole wave files at once and stream it to sdk and begins transcription.
 * If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
 
 ```python
+import azure.cognitiveservices.speech as speechsdk
+import time
+import uuid
+from scipy.io import wavfile
+
+speech_key, service_region="Your-Subscription-Key","Your-Region"
+conversationfilename= "audio-file-to-transcribe.wav" # 8 channel, 16 bits, 16kHz audio
+
+def conversation_transcription_differentiate_speakers():
+    
+    speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+    speech_config.set_property_by_name("ConversationTranscriptionInRoomAndOnline", "true")
+    speech_config.set_property_by_name("DifferentiateGuestSpeakers", "true")
+
+    channels = 8
+    bits_per_sample = 16
+    samples_per_second = 16000
+    
+    wave_format = speechsdk.audio.AudioStreamFormat(samples_per_second, bits_per_sample, channels)
+    stream = speechsdk.audio.PushAudioInputStream(stream_format=wave_format)
+    audio_config = speechsdk.audio.AudioConfig(stream=stream)
+    
+    transcriber = speechsdk.transcription.ConversationTranscriber(audio_config)
+
+    conversation_id = str(uuid.uuid4())
+    conversation = speechsdk.transcription.Conversation(speech_config, conversation_id)    
+
+    done = False
+
+    def stop_cb(evt: speechsdk.SessionEventArgs):
+        """callback that signals to stop continuous transcription upon receiving an event `evt`"""
+        print('CLOSING {}'.format(evt))
+        nonlocal done
+        done = True
+    
+    transcriber.transcribed.connect(lambda evt: print('TRANSCRIBED: {}'.format(evt)))
+    transcriber.session_started.connect(lambda evt: print('SESSION STARTED: {}'.format(evt)))
+    transcriber.session_stopped.connect(lambda evt: print('SESSION STOPPED {}'.format(evt)))
+    transcriber.canceled.connect(lambda evt: print('CANCELED {}'.format(evt)))
+    # stop continuous transcription on either session stopped or canceled events
+    transcriber.session_stopped.connect(stop_cb)
+    transcriber.canceled.connect(stop_cb)
+
+    # Note user voice signatures are not required for speaker differentiation.
+    # Use voice signatures when adding participants when more enhanced speaker identification is required.
+    katie = speechsdk.transcription.Participant("katie@example.com", "en-us")
+    stevie = speechsdk.transcription.Participant("stevie@example.com", "en-us")
+
+    conversation.add_participant_async(katie)
+    conversation.add_participant_async(stevie)
+    transcriber.join_conversation_async(conversation).get()
+    transcriber.start_transcribing_async()
+
+       _, wav_data = wavfile.read(conversationfilename)
+    stream.write(wav_data.tobytes())
+    stream.close()
+    while not done:
+        time.sleep(.5)
+
+    transcriber.stop_transcribing_async()
+
+
 
  
 ```
 
-See more samples on GitHub:
-- [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
-- [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
+
