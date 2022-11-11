@@ -25,7 +25,7 @@ Azure Active Directory is available as an identity provider option for [B2B coll
 
 Azure Active Directory is available in the list of External Identities identity providers by default. No further configuration is needed to allow guest users to sign in with their Azure AD account using either the [invitation flow](redemption-experience.md#invitation-redemption-flow) or a [self-service sign-up user flow](self-service-sign-up-overview.md).
 
-:::image type="content" source="media/azure-ad-account/azure-ad-account-identity-provider.png" alt-text="Screenshot of Azure AD account in the identity provider list.":::
+:::image type="content" source="media/azure-ad-account/azure-ad-account-identity-provider.png" alt-text="Screenshot of Azure AD account in the identity provider list." lightbox="media/azure-ad-account/azure-ad-account-identity-provider.png":::
 
 ### Azure AD account in the invitation flow
 
