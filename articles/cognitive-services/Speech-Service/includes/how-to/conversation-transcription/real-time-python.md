@@ -21,7 +21,7 @@ If you want to enroll user profiles, the first step is to create voice signature
 
 The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between 30 seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of one person's voice so that a unique voice profile is created.
 
-The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in JavaScript. You must insert your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
+The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in Python. You must insert your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
 
 ```python
 
