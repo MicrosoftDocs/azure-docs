@@ -144,6 +144,12 @@ In addition to device telemetry, message routing also enables sending device twi
 
 
 
+
+
+
+
+
+
 [IoT Hub also integrates with Azure Event Grid](iot-hub-event-grid.md) to publish device events to support real-time integrations and automation of workflows based on these events. See key [differences between message routing and Event Grid](iot-hub-event-grid-routing-comparison.md) to learn which works best for your scenario.
 
 ## Limitations for device connection state events
