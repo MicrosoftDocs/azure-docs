@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/23/2022
+ms.date: 11/11/2022
 ms.author: dhivyag
 ---
 
@@ -145,6 +145,27 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	> [!NOTE]
 	> The SSO service provided by Microsoft Azure supports SAML authentication which is able to perform user identification using different attributes such as givenname (first name), surname (last name), email (email address), and user principal name (username). We recommend not to use email as an authentication attribute as email addresses are not always verified by Azure AD. The plugin compares the values of Atlassian username attribute with the NameID attribute in Azure AD in order to determine the valid user authentication.
+
+1. If your Azure tenant has **guest users** then follow the below configuration steps:
+ 
+	a. Click on **Edit/pencil** icon to go to the Attributes & Claims section.
+
+	> [!div class="mx-imgBorder"]
+    > ![Screenshot showing how to edit Attributes and Claims.](common/edit-attribute.png)
+
+	b. Click on **NameID** on Attributes & Claims section.
+
+	> [!div class="mx-imgBorder"]
+    > ![Screenshot showing the NameID in Attributes and Claims.](common/attribute-nameID.png)
+
+	c. Setup the claim conditions based on the User Type.
+
+	![Screenshot for claim conditions.](./media/jiramicrosoft-tutorial/claim-conditions.png)
+
+	>[!NOTE]
+	>  Give the NameID value as `user.userprinciplename` for Members and `user.mail` for External Guests.
+
+	d. **Save** the changes and verify the SSO for external guest users.
 
 ### Create an Azure AD test user
 
