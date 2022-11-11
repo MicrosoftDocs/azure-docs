@@ -5,7 +5,7 @@ description: Get started creating a NAT gateway using the Azure CLI.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
-ms.subservice: nat
+ms.subservice: nat 
 ms.topic: quickstart 
 ms.date: 02/04/2022
 ms.custom: template-quickstart, devx-track-azurecli
@@ -59,7 +59,7 @@ Create a virtual network with a subnet with [az network vnet create](/cli/azure/
 
 Create an Azure Bastion host to access the virtual machine.
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a Azure Bastion subnet.
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create an Azure Bastion subnet.
 
 :::code language="azurecli" source="~/azure_cli_scripts/virtual-network/create-nat-gateway/create-nat-gateway-cli.sh" id="subnet":::
 
