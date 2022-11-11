@@ -2,15 +2,15 @@
 title: Quickstart - Build a streaming application in a few clicks
 description: This quickstart shows you how to get started ASA using a GitHub repository and PowerShell scripts with data generator. 
 ms.service: stream-analytics
-author: alexlin
+author: alexlzx
 ms.author: zhenxilin
 ms.date: 10/27/2022
 ms.topic: quickstart
 ---
 
-# Build a streaming application in a few clicks
+# Analyze a website clickstream
 
-This quickstart shows how to build a streaming application with executing a few commands on PowerShell. It's the fastest way to deploy the Azure resources and get your streaming application running with auto-generated data streams. You can choose the following application examples and explore different stream analytic scenarios.
+This quickstart shows how to build a streaming application by running a few commands in PowerShell. It's a easy way to deploy Azure resources with auto-generated data streams. You can choose the following application examples to implement and explore different stream analytic scenarios.
 - Filter clickstream requests
 - Join clickstream with a file
 - Analyze Twitter sentiment (coming soon)
@@ -18,14 +18,15 @@ This quickstart shows how to build a streaming application with executing a few 
 
 ## Prerequisites
 * Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-* Azure PowerShell module. If you need to install or upgrade, see [Install Azure PowerShell module](https://learn.microsoft.com/en-us/powershell/azure/install-Az-ps).
+* Install [Git](https://git-scm.com/downloads). 
+* Azure PowerShell module. See [here](https://learn.microsoft.com/en-us/powershell/azure/install-Az-ps) to install or upgrade.
 
 ## Filter clickstream requests
 
 In this example, you learn to extract `GET` and `POST` requests from a website clickstream and store the output results to an Azure Blob Storage. Here's the architecture for this example:
 ![Clickstream one input](./media/quick-start-with-mock-data/clickstream-one-input.png)
 
-Sample of clickstream:
+Sample of a website clickstream:
 
 ```json
 {
@@ -45,22 +46,30 @@ Sample of clickstream:
 }
 ```
 
-Follow these steps to deploy resources: 
+Follow these steps to deploy resources:
 
-1. Open PowerShell from the Start Menu, clone this [GitHub repository](https://github.com/Azure/azure-stream-analytics) to your working directory.
-
-2. Go to **BuildApplications** folder with command `cd`.
-
-3. Run the following command to sign in to Azure and enter your Azure credentials in the pop-up browser.
+1. Open **PowerShell** from the Start menu, clone this GitHub repository to your working directory.
 
     ```powershell
-    $ Connect-AzAccount
+    git clone https://github.com/Azure/azure-stream-analytics.git
+    ```
+
+2. Go to **BuildApplications** folder.
+
+    ```powershell
+    cd .\azure-stream-analytics\BuildApplications\
+    ```
+
+3. Sign in to Azure and enter your Azure credentials in the pop-up browser.
+
+    ```powershell
+    Connect-AzAccount
     ```
 
 4. Replace `$subscriptionId` with your Azure subscription id and run the following command to deploy Azure resources. This process may take a few minutes to complete.
 
     ```powershell
-    $ .\CreateJob.ps1 -job ClickStream-Filter -eventsPerMinute 11 -subscriptionid $subscriptionId
+    .\CreateJob.ps1 -job ClickStream-Filter -eventsPerMinute 11 -subscriptionid $subscriptionId
     ```
 
     * `eventsPerMinute` is the input rate for generated data. In this case, the input source generates 11 events per minute.
@@ -76,7 +85,9 @@ Follow these steps to deploy resources:
     | Blob Storage | clickstream* | Output destination for the ASA job |
     | App Service Plan | clickstream* | A necessity for Azure Function |
 
-6. The ASA job **ClickStream-Filter** uses the following query to extract HTTP requests from the clickstream. Select **Test query** in the query editor to preview the output results.
+6. **Congratulation!** You've deployed a streaming application to extract requests from a website clickstream. 
+
+7. The ASA job **ClickStream-Filter** uses the following query to extract HTTP requests from the clickstream. Select **Test query** in the query editor to preview the output results.
 
     ```sql
     SELECT System.Timestamp Systime, UserId, Request.Method, Response.Code, Browser
@@ -87,30 +98,28 @@ Follow these steps to deploy resources:
 
     ![Test Query](./media/quick-start-with-mock-data/test-query.png)
 
-7. All output results are stored as `JSON` file in the Blog Storage. You can find it via: Blob Storage > Containers > job-output.
+    For other stream analytic scenarios with one stream input, you can check out the comments in the query and use them as examples for your own project. 
+    
+        * Count clicks for every hour
+    
+            ```sql
+            select System.Timestamp as Systime, count( * )
+            FROM clickstream
+            TIMESTAMP BY EventTime
+            GROUP BY TumblingWindow(hour, 1)
+            ```
+    
+        * Select distinct user
+    
+            ```sql
+            SELECT *
+            FROM clickstream
+            TIMESTAMP BY Time
+            WHERE ISFIRST(hour, 1) OVER(PARTITION BY userId) = 1
+            ```
+
+8. All output results are stored as `JSON` file in the Blog Storage. You can find it via: **Blob Storage > Containers > job-output**.
 ![Blob Storage](./media/quick-start-with-mock-data/blog-storage-containers.png)
-
-8. **Congratulation!** You've deployed a streaming application to filter a website clickstream. 
-
-<!-- For other stream analytic scenarios with one stream input, you can use the following examples for the query:
-
-    * Count clicks for every hour
-    
-        ```sql
-        select System.Timestamp as Systime, count( * )
-        FROM clickstream
-        TIMESTAMP BY EventTime
-        GROUP BY TumblingWindow(hour, 1)
-        ```
-    
-    * Select distinct user
-    
-        ```sql
-        SELECT *
-        FROM clickstream
-        TIMESTAMP BY Time
-        WHERE ISFIRST(hour, 1) OVER(PARTITION BY userId) = 1
-        ``` -->
 
 ## Clickstream-RefJoin
 
@@ -119,13 +128,13 @@ If you want to find out the username for the clickstream using a user file in st
 
 Assume you've completed the steps for previous example, run following commands to create a new resource group: 
 
-1. Replace `$subscriptionId` with your Azure subscription ID. This process may take a few minutes to deploy the resources: 
+1. Replace `$subscriptionId` with your Azure subscription id and run the following command to deploy Azure resources. This process may take a few minutes to complete.
 
     ```powershell
-    $ .\CreateJob.ps1 -job ClickStream-RefJoin -eventsPerMinute 11 -subscriptionid $subscriptionId
+    .\CreateJob.ps1 -job ClickStream-RefJoin -eventsPerMinute 11 -subscriptionid $subscriptionId
     ```
 
-2. Once it's done, it opens your browser automatically and you can see a resource group named **ClickStream-RefJoin-rg-\*** in the Azure portal. 
+2. Once the deployment is completed, it opens your browser automatically, and you can see a resource group named **ClickStream-RefJoin-rg-\*** in the Azure portal. The resource group contains five resources.
 
 3. The ASA job **ClickStream-RefJoin** uses the following query to join the clickstream with reference sql input.
 
@@ -141,14 +150,14 @@ Assume you've completed the steps for previous example, run following commands t
     LEFT JOIN UserInfo ON ClickStream.UserId = UserInfo.UserId
     ```
 
-4. **Congratulation!** You've deployed a streaming application to joins clickstream with a reference input.
+4. **Congratulation!** You've deployed a streaming application to join your user file with a website clickstream.
 
 ## Clean up resources
 
 If you've tried out this project and no longer need the resource group, run this command on PowerShell to delete the resource group.
 
 ```powershell
-$ Remove-AzResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 If you're planning to use this project in the future, you can skip deleting it, and stop the job for now.

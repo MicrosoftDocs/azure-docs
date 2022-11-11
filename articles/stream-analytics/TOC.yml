@@ -29,7 +29,7 @@
       href: create-cluster.md
   - name: Build application
     items:
-    - name: Build a streaming application with a few clicks
+    - name: Clickstream analysis
       href: quick-start-build-application.md
 - name: Tutorials
   items:
