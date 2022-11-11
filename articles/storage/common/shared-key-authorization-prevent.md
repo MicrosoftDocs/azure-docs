@@ -64,7 +64,7 @@ You can also configure an alert rule to notify you when a certain number of requ
 
 Azure Storage logs capture details about requests made against the storage account, including how a request was authorized. You can analyze the logs to determine which clients are authorizing requests with Shared Key or a SAS token.
 
-To log requests to your Azure Storage account in order to evaluate how they are authorized, you can use Azure Storage logging in Azure Monitor (preview). For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
+To log requests to your Azure Storage account in order to evaluate how they are authorized, you can use Azure Storage logging in Azure Monitor. For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
 Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
 
@@ -165,9 +165,6 @@ az storage container create \
     --account-key <key> \
     --auth-mode key
 ```
-
-> [!NOTE]
-> Anonymous requests are not authorized and will proceed if you have configured the storage account and container for anonymous public read access. For more information, see [Configure anonymous public read access for containers and blobs](../blobs/anonymous-read-access-configure.md).
 
 ### Check the Shared Key access setting for multiple accounts
 

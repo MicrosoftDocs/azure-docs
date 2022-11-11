@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: shohei1029
 ms.author:  shnagata
 ms.reviewer: mopeakande
-ms.date: 04/12/2022
+ms.date: 11/04/2022
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -183,7 +183,11 @@ Below is a list of common deployment errors that are reported as part of the dep
 * [ResourceNotReady](#error-resourcenotready)
 * [ResourceNotFound](#error-resourcenotfound)
 * [OperationCanceled](#error-operationcanceled)
-* [InternalServerError](#error-internalservererror)
+* [NamespaceNotFound](#error-namespacenotfound)
+* [KubernetesCrashLoopBackOff](#error-kubernetescrashloopbackoff)
+* [ARCSecretError](#error-arcsecreterror)
+* [InferencingClientError](#error-inferencingclienterror)
+
 
 ### ERROR: ImageBuildFailure
 
@@ -470,9 +474,14 @@ Below is a list of reasons you might run into this error when using Kubernetes o
 
 The reason you might run into this error when using Kubernetes online endpoint is because the k8s-extension of the Kubernetes cluster is not connectable.
 
-In this case, you can detach and the **re-attach** your cluster to your workspace with the same compute configuration like compute name and namespace, and then try again. 
+In this case, you can detach and then **re-attach** your compute. 
 
-If it is still not working, please ask the administrator who can access the cluster to use "kubectl get po -n azureml" to check whether the *relayserver* pods are running.
+> [!NOTE]
+>
+> To troubleshoot errors by re-attaching, please guarantee to re-attach with the exact same configuration as previously detached compute, such as the same compute name and namespace, otherwise you may encounter other errors.
+
+If it is still not working, please ask the administrator who can access the cluster to use `kubectl get po -n azureml` to check whether the *relayserver* pods are running.
+
 
 ### ERROR: InternalServerError
 
@@ -506,7 +515,7 @@ Below are common error codes when consuming managed online endpoints with REST r
 | 404 | Not found | The endpoint doesn't have any valid deployment with positive weight. |
 | 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
 | 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
-| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow maximum 2 * `max_concurrent_requests_per_instance` * `instance_count` / `request_process_time (in seconds)` requests per second. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`, respectively. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. Apart from enable auto-scaling, you could also increase the number of instances by using the below [code](#how-to-calculate-instance-count). |
+| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow maximum 2 * `max_concurrent_requests_per_instance` * `instance_count` requests in parallel at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`, respectively. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. Apart from enable auto-scaling, you could also increase the number of instances by using the below [code](#how-to-calculate-instance-count). |
 | 429 | Rate-limiting | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.|
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
 
@@ -543,7 +552,7 @@ There are two things that can help prevent 503 status codes:
     from math import ceil
     # target requests per second
     target_rps = 20
-    # time to process the request (in seconds)
+    # time to process the request (in seconds, choose appropriate percentile)
     request_process_time = 10
     # Maximum concurrent requests per instance
     max_concurrent_requests_per_instance = 1
