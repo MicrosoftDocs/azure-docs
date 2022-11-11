@@ -47,7 +47,8 @@ For more information about reading from custom endpoints, see:
 * Reading from [Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 * Reading from [Service Bus topics](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
-
+* Reading from [Azure Cosmos DB](/azure/cosmos-db/nosql/query/getting-started)
+   
 ## Next steps
 
 * For more information about IoT Hub endpoints, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
@@ -55,3 +56,4 @@ For more information about reading from custom endpoints, see:
 * For more information about the query language you use to define routing queries, see [Message Routing query syntax](iot-hub-devguide-routing-query-syntax.md).
 
 * The [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md) tutorial shows you how to use routing queries and custom endpoints.
+
