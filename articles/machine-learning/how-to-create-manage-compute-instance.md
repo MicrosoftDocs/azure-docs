@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-author: swatig007
-ms.author: swatig
+author: jesscioffi
+ms.author: jcioffi
 ms.reviewer: sgilley
-ms.date: 10/19/2022
+ms.date: 11/10/2022
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -137,6 +137,12 @@ SSH access is disabled by default.  SSH access can't be changed after creation. 
 ---
 
 ## Configure auto-stop (preview)
+
+> [!IMPORTANT]
+> Items marked (preview) below are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 To avoid getting charged for a compute instance that is switched on but inactive, you can configure auto-stop. 
 
 A compute instance is considered inactive if the below conditions are met:
@@ -243,6 +249,11 @@ You can also create your own custom Azure policy. For example, if the below poli
 ```
 
 ## Create on behalf of (preview)
+
+> [!IMPORTANT]
+> Items marked (preview) below are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
 
@@ -463,6 +474,11 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 ## Assign managed identity (preview)
 
+> [!IMPORTANT]
+> Items marked (preview) below are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
 
 You can create compute instance with managed identity from Azure ML Studio:
@@ -517,6 +533,11 @@ arm_access_token = get_access_token_msi("https://management.azure.com")
 > To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in: ```az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID```.
 
 ## Add custom applications such as RStudio (preview)
+
+> [!IMPORTANT]
+> Items marked (preview) below are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can set up other applications, such as RStudio, when creating a compute instance. Follow these steps in studio to set up a custom application on your compute instance
 
