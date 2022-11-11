@@ -4,7 +4,7 @@ description: Describes the recommended workflow when migrating Azure resources a
 author: joshuawaddell
 ms.author: jowaddel
 ms.topic: conceptual
-ms.date: 03/16/2022
+ms.date: 11/11/2022
 ---
 # Migrate to Bicep
 
@@ -28,7 +28,7 @@ The convert phase consists of two steps, which you complete in sequence:
 
 1. **Capture a representation of your Azure resources.** If you have an existing JSON template that you're converting to Bicep, the first step is easy - you already have your source template. If you're converting Azure resources that were deployed by using the portal or another tool, you need to capture the resource definitions. You can capture a JSON representation of your resources using the Azure portal, Azure CLI, or Azure PowerShell cmdlets to *export* single resources, multiple resources, and entire resource groups. You can use the **Insert Resource** command within Visual Studio Code to import a Bicep representation of your Azure resource.
 
-1. **If required, convert the JSON representation to Bicep using the _decompile_ command.** [The Bicep tooling includes the `decompile` command to convert templates.](decompile.md) You can invoke the `decompile` command from either the Azure CLI, or from the Bicep CLI. The decompilation process is a best-effort process and doesn't guarantee a full mapping from JSON to Bicep. You may need to revise the generated Bicep file to meet your template best practices before using the file to deploy resources.
+1. **If required, convert the JSON representation to Bicep using the _decompile_ command.** [The Bicep tooling includes the `decompile` command to convert templates.](decompile.md) You can invoke the `decompile` command from [Visual Studio Code with the Bicep extension](./visual-studio-code.md#decompile-into-bicep), the [Azure CLI](./bicep-cli.md#decompile), or from the [Bicep CLI](./bicep-cli.md#decompile). The decompilation process is a best-effort process and doesn't guarantee a full mapping from JSON to Bicep. You may need to revise the generated Bicep file to meet your template best practices before using the file to deploy resources.
 
 > [!NOTE]
 > You can import a resource by opening the Visual Studio Code command palette. Use <kbd>Ctrl+Shift+P</kbd> on Windows and Linux and <kbd>⌘+Shift+P</kbd> on macOS.
