@@ -26,7 +26,6 @@ The following example shows how to create a voice signature by [using the REST A
 ```python
 
 
-
 ```
 
 Running this script returns a voice signature string in the variable `voiceSignatureString`. Run the function twice so you have two strings to use as input to the variables `voiceSignatureStringUser1` and `voiceSignatureStringUser2` below.
@@ -52,71 +51,9 @@ This sample code does the following:
 * Registers to events and begins transcription.
 * If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
 
-```javascript
-(function() {
-    "use strict";
-    var sdk = require("microsoft-cognitiveservices-speech-sdk");
-    var fs = require("fs");
-    
-    var subscriptionKey = "your-subscription-key";
-    var region = "your-region";
-    var filepath = "audio-file-to-transcribe.wav"; // 8-channel audio
-    
-    var speechTranslationConfig = sdk.SpeechTranslationConfig.fromSubscription(subscriptionKey, region);
-    var audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync(filepath));
-    speechTranslationConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
+```python
 
-    // en-us by default. Adding this code to specify other languages, like zh-cn.
-    speechTranslationConfig.speechRecognitionLanguage = "en-US";
-    
-    // create conversation and transcriber
-    var conversation = sdk.Conversation.createConversationAsync(speechTranslationConfig, "myConversation");
-    var transcriber = new sdk.ConversationTranscriber(audioConfig);
-    
-    // attach the transcriber to the conversation
-    transcriber.joinConversationAsync(conversation,
-    function () {
-        // add first participant using voiceSignature created in enrollment step
-        var user1 = sdk.Participant.From("user1@example.com", "en-us", voiceSignatureStringUser1);
-        conversation.addParticipantAsync(user1,
-        function () {
-            // add second participant using voiceSignature created in enrollment step
-            var user2 = sdk.Participant.From("user2@example.com", "en-us", voiceSignatureStringUser2);
-            conversation.addParticipantAsync(user2,
-            function () {
-                transcriber.sessionStarted = function(s, e) {
-                console.log("(sessionStarted)");
-                };
-                transcriber.sessionStopped = function(s, e) {
-                console.log("(sessionStopped)");
-                };
-                transcriber.canceled = function(s, e) {
-                console.log("(canceled)");
-                };
-                transcriber.transcribed = function(s, e) {
-                console.log("(transcribed) text: " + e.result.text);
-                console.log("(transcribed) speakerId: " + e.result.speakerId);
-                };
-    
-                // begin conversation transcription
-                transcriber.startTranscribingAsync(
-                function () { },
-                function (err) {
-                    console.trace("err - starting transcription: " + err);
-                });
-        },
-        function (err) {
-            console.trace("err - adding user1: " + err);
-        });
-    },
-    function (err) {
-        console.trace("err - adding user2: " + err);
-    });
-    },
-    function (err) {
-    console.trace("err - " + err);
-    });
-}()); 
+ 
 ```
 
 See more samples on GitHub:
