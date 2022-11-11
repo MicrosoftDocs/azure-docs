@@ -776,7 +776,7 @@ Do not use. This role is automatically assigned to the Azure AD Connect service,
 
 ## Directory Writers
 
-Users in this role can read and update basic information of users, groups, and service principals. Assign this role only to applications that don’t support the [Consent Framework](../develop/quickstart-register-app.md). It should not be assigned to any users.
+Users in this role can read and update basic information of users, groups, and service principals.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
