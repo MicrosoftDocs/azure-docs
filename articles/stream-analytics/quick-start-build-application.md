@@ -98,25 +98,25 @@ Follow these steps to deploy resources:
 
     ![Test Query](./media/quick-start-with-mock-data/test-query.png)
 
-    For other stream analytic scenarios with one stream input, you can check out the comments in the query and use them as examples for your own project. 
-    
-        * Count clicks for every hour
-    
-            ```sql
-            select System.Timestamp as Systime, count( * )
-            FROM clickstream
-            TIMESTAMP BY EventTime
-            GROUP BY TumblingWindow(hour, 1)
-            ```
-    
-        * Select distinct user
-    
-            ```sql
-            SELECT *
-            FROM clickstream
-            TIMESTAMP BY Time
-            WHERE ISFIRST(hour, 1) OVER(PARTITION BY userId) = 1
-            ```
+8. There are two sample code provided in the query comments helping you understand other stream analytic scenarios with one stream input.
+
+    * Count clicks for every hour
+
+        ```sql
+        select System.Timestamp as Systime, count( * )
+        FROM clickstream
+        TIMESTAMP BY EventTime
+        GROUP BY TumblingWindow(hour, 1)
+        ```
+
+    * Select distinct user
+
+        ```sql
+        SELECT *
+        FROM clickstream
+        TIMESTAMP BY Time
+        WHERE ISFIRST(hour, 1) OVER(PARTITION BY userId) = 1
+        ```
 
 8. All output results are stored as `JSON` file in the Blog Storage. You can find it via: **Blob Storage > Containers > job-output**.
 ![Blob Storage](./media/quick-start-with-mock-data/blog-storage-containers.png)
