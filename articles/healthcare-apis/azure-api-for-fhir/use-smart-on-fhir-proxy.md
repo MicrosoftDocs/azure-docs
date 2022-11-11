@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory SMART on FHIR proxy
+title: SMART on FHIR - Azure API for FHIR
 description: This tutorial describes how to use a proxy to enable SMART on FHIR applications with the Azure API for FHIR.
 services: healthcare-apis
 ms.service: healthcare-apis
