@@ -11,7 +11,7 @@ ms.date: 03/09/2022
 
 # Create, import, export, and delete glossary terms
 
-This article describes how to work with the business glossary in Microsoft Purview. It provides steps to create a business glossary term in the Microsoft Purview data catalog. It also shows you how to import and export glossary terms by using .CSV files, and how to delete terms that you no longer need.
+This article describes how to work with the business glossary in Microsoft Purview. It provides steps to create a business glossary term in the Microsoft Purview Data Catalog. It also shows you how to import and export glossary terms by using .CSV files, and how to delete terms that you no longer need.
 
 ## Create a term
 
@@ -105,7 +105,7 @@ To create a glossary term, follow these steps:
 
 ## Import terms into the glossary
 
-The Microsoft Purview data catalog provides a template .CSV file for you to import terms from the catalog into your glossary. Duplicate terms include both spelling and capitalization, because term names are case-sensitive. 
+The Microsoft Purview Data Catalog provides a template .CSV file for you to import terms from the catalog into your glossary. Duplicate terms include both spelling and capitalization, because term names are case-sensitive. 
 
 1. On the **Glossary terms** page, select **Import terms**.
 
