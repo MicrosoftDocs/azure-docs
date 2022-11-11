@@ -455,6 +455,11 @@
         displayName: 
         monikers: 
         items: []
+      - name: Citrix Analytics Application for Microsoft Sentinel
+        href: dataconnectors/citrix-analytics-application-for-microsoft-sentinel.md
+        displayName: 
+        monikers: 
+        items: []
       - name: Cloudflare Solution
         href: dataconnectors/cloudflare-solution.md
         displayName: 

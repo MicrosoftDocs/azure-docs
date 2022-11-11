@@ -1,9 +1,9 @@
 ---
-title: # Oracle Database Audit Solution connector for Microsoft Sentinel
-description: Learn how to install the # Oracle Database Audit Solution connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: Oracle Database Audit Solution connector for Microsoft Sentinel
+description: Learn how to install the Oracle Database Audit Solution connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/10/2022
+ms.date: 11/11/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

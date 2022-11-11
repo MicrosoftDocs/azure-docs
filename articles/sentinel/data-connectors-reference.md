@@ -118,6 +118,7 @@ Data connectors are available as part of the following offerings:
 ## Citrix
 
 - [Citrix ADC](dataconnectors/citrix-adc.md)
+- [Citrix Analytics Application for Microsoft Sentinel](dataconnectors/citrix-analytics-application-for-microsoft-sentinel.md)
 
 ## Cloudflare
 
