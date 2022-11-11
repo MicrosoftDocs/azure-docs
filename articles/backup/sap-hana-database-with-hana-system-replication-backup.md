@@ -16,13 +16,13 @@ SAP HANA databases are critical workloads that require a low recovery-point obje
 In this article, you'll learn how to:
 
 >[!div class="checklist"]
->- Create and configure a Recovery Services vault.
->- Create a policy.
->- Discover databases.
->- Run the preregistration script.
->- Configure backups.
->- Run an on-demand backup.
->- Run an SAP HANA Studio backup.
+>- Create and configure a Recovery Services vault
+>- Create a policy
+>- Discover databases
+>- Run the preregistration script
+>- Configure backups
+>- Run an on-demand backup
+>- Run an SAP HANA Studio backup
 
 >[!Note]
 > For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
@@ -227,15 +227,15 @@ To monitor the portal notifications and the job progress on the vault dashboard,
 >[!Note]
 >The time it takes to create the initial backup depends on the size of your database.
 
-## Run SAP HANA Studio backup on a database with Azure Backup enabled
+## Run an SAP HANA Studio backup on a database with Azure Backup enabled
 
-To take a local backup (using HANA Studio) of a database that's backed up with Azure Backup, follow these steps:
+To take a local backup, by using HANA Studio, of a database that's backed up with Azure Backup, do the following:
 
-1. After the full or log backups for the database are complete, check the status in SAP HANA Studio Cockpit.
+1. After the full or log backups of the database are complete, check the status in the SAP HANA cockpit.
 
-1. Disable the log backups, and set the backup catalog to the file system for the relevant database. To do so:
+1. Disable the log backups, and then set the backup catalog to the file system for the relevant database. To do so:
 
-   a. Double-click **systemdb**, select **Configuration** > **Database** > **Filter (Log)**.  
+   a. Double-click **systemdb**, and then select **Configuration** > **Database** > **Filter (Log)**.  
    b. Set **enable_auto_log_backup** to **No**.  
    c. Set **log_backup_using_backint** to **False**.  
    d. Set **catalog_backup_using_backint** to **False**.
@@ -250,5 +250,5 @@ To take a local backup (using HANA Studio) of a database that's backed up with A
 
 ## Next steps
 
-- [Restore SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-restore.md).
-- [About backup of SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview).
+- [Restore SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-restore.md)
+- [About backing up SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview)
