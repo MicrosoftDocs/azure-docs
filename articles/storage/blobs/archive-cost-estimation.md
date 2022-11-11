@@ -218,7 +218,7 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
     <tr>
         <td><strong>Cost to write (transactions * price of a write operation)</></strong></td>
         <td><strong>$2.00</strong></td>
-        <td><strong>$2.</strong></td>
+        <td><strong>$2.00</strong></td>
         <td><strong>$2.00</strong></td>
         <td><strong>$24.00</strong></td>
     </tr>
