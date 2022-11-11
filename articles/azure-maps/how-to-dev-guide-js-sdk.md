@@ -53,7 +53,7 @@ mapsDemo
 | Service Name  | NPM package             |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][search readme] | [Azure.Maps.Search][search package] | [search samples][search sample] |
-| [Route][js route readme] | [@azure/maps-route][js route package] | [route samples][js route sample] |
+| [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
 
 ## Create a Node.js project
 
