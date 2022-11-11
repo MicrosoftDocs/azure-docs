@@ -44,7 +44,7 @@ highlightedContent:
 # Azure Services
 productDirectory:
   title: HPC Components # < 60 chars (optional)
-  summary: # < 160 chars (optional)
+  # summary: # < 160 chars (optional)
   items:
     # Card
     - title: HPC Compute VM Sizes
@@ -91,9 +91,9 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
   sections:
-    - title: # < 60 chars (optional)
-      summary: # < 160 chars (optional)
-      items:
+      #title: # < 60 chars (optional)
+      #summary: # < 160 chars (optional)
+    - items:
         # Card
         - title: Compute
           links:
