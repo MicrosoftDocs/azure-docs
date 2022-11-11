@@ -196,6 +196,7 @@ public class GetToDoItems {
                 authLevel = AuthorizationLevel.ANONYMOUS)
                 HttpRequestMessage<Optional<String>> request,
             @SQLInput(
+                name = "sqlInput1",
                 commandText = "SELECT * FROM dbo.ToDo",
                 commandType = "Text",
                 connectionStringSetting = "SqlConnectionString")
@@ -220,6 +221,7 @@ public class GetToDoItem {
                 authLevel = AuthorizationLevel.ANONYMOUS)
                 HttpRequestMessage<Optional<String>> request,
             @SQLInput(
+                name = "sqlInput2",
                 commandText = "SELECT * FROM dbo.ToDo",
                 commandType = "Text",
                 parameters = "@Id={Query.id}",
@@ -251,6 +253,7 @@ public class DeleteToDo {
                 authLevel = AuthorizationLevel.ANONYMOUS)
                 HttpRequestMessage<Optional<String>> request,
             @SQLInput(
+                name = "sqlInput3",
                 commandText = "dbo.DeleteToDo",
                 commandType = "StoredProcedure",
                 parameters = "@Id={Query.id}",
