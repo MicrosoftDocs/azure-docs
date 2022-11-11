@@ -46,7 +46,7 @@ This sample code does the following:
 
 * Creates speech configuration with subscription information.
 * Create audio configuration using the push stream.
-* Creates a `ConversationTranscriber and Subscribe to the events fired by the conversation transcriber`.
+* Creates a `ConversationTranscriber` and Subscribe to the events fired by the conversation transcriber.
 * Conversation identifier for creating conversation.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above.
 * Read the whole wave files at once and stream it to sdk and begins transcription.
