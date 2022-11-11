@@ -134,7 +134,7 @@ When this flag is on (its value is set to `1`), all MDM-managed apps not in the 
 #### Enable SSO for all apps with a specific bundle ID prefix
 - **Key**: `AppPrefixAllowList`
 - **Type**: `String`
-- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in SSO. This parameter allows all apps that start with a particular prefix to participate in SSO. For iOS,  the default value would be set to `com.apple.` and that would enable SSO for all Apple apps. For macOS, the default value would be set to `com.apple.` and `com.microsoft.` and that would enable SSO for all Apple and Microsoft apps. Developers could override the default value or add apps to `AppBlockList` to prevent them from participating in SSO.
+- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in SSO. This parameter allows all apps that start with a particular prefix to participate in SSO. For iOS,  the default value would be set to `com.apple.` and that would enable SSO for all Apple apps. For macOS, the default value would be set to `com.apple.` and `com.microsoft.` and that would enable SSO for all Apple and Microsoft apps. Admins could override the default value or add apps to `AppBlockList` to prevent them from participating in SSO.
 - **Example**: `com.contoso., com.fabrikam.`
 
 #### Disable SSO for specific apps
@@ -226,7 +226,7 @@ Use these parameters to enable the flag:
 
 - **Key**: `browser_sso_interaction_enabled`
 - **Type**: `Integer`
-- **Value**: 1 or 0.This value is set to 1 by default. 
+- **Value**: 1 or 0. This value is set to 1 by default. 
 
 macOS requires this setting so it can provide a consistent experience across all apps. iOS and iPadOS don't require this setting because most apps use the Authenticator application for sign-in. But we recommend that you enable this setting because if some of your applications don't use the Authenticator app on iOS or iPadOS, this flag will improve the experience. The setting is disabled by default.
 
