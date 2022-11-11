@@ -23,16 +23,15 @@ These effects are currently supported in a policy definition:
 - [Manual (preview)](#manual-preview)
 - [Modify](#modify)
 
-The following effects are _deprecated_:
+## Interchanging effects
 
-- [EnforceOPAConstraint](#enforceopaconstraint)
-- [EnforceRegoPolicy](#enforceregopolicy)
+Sometimes multiple effects can be valid for a given policy definition. Parameters are often used to specify allowed effect values so that a single definition can be more versatile. However, it is important to note that not all effects are interchangeable. Resource properties and logic in the policy rule can determine whether a cerain effect is considered valid to the policy definition. For example, policy definitions with effect **AuditIfNotExists** require additional details in the policy rule which are not required for policies with effect **Audit**. The effects also behave differently. **Audit** policies will assess a resource's compliance based on its own properties, while **AuditIfNotExists** policies will assess a resource's compliance based on a child or extension resource's properties.
 
-> [!IMPORTANT]
-> In place of the **EnforceOPAConstraint** or **EnforceRegoPolicy** effects, use _audit_ and
-> _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`. The built-in policy definitions
-> have been updated. When existing policy assignments of these built-in policy definitions are
-> modified, the _effect_ parameter must be changed to a value in the updated _allowedValues_ list.
+The following is general guidance around interchangeable effects:
+- **Audit**, **Deny**, and either **Modify** or **Append** are often interchangeable.
+- **AuditIfNotExists** and **DeployIfNotExists** are often interchangeable.
+- **Manual** is not interchangeable.
+- **Disabled** is interchangeable with any effect.
 
 ## Order of evaluation
 
@@ -620,133 +619,6 @@ An alternative to the **Disabled** effect is **enforcementMode**, which is set o
 When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
-
-## EnforceOPAConstraint
-
-This effect is used with a policy definition _mode_ of `Microsoft.Kubernetes.Data`. It's used to
-pass Gatekeeper v3 admission control rules defined with
-[OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
-to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clusters on Azure.
-
-> [!IMPORTANT]
-> The limited preview policy definitions with **EnforceOPAConstraint** effect and the related
-> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
-> Resource Provider mode `Microsoft.Kubernetes.Data`.
-
-### EnforceOPAConstraint evaluation
-
-The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
-
-### EnforceOPAConstraint properties
-
-The **details** property of the EnforceOPAConstraint effect has the subproperties that describe the
-Gatekeeper v3 admission control rule.
-
-- **constraintTemplate** (required)
-  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
-    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
-    passed via **values** from Azure Policy.
-- **constraint** (required)
-  - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
-    `{{ .Values.<valuename> }}`. In the following example, these values are `{{ .Values.cpuLimit }}`
-    and `{{ .Values.memoryLimit }}`.
-- **values** (optional)
-  - Defines any parameters and values to pass to the Constraint. Each value must exist in the
-    Constraint template CRD.
-
-### EnforceOPAConstraint example
-
-Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in
-Kubernetes.
-
-```json
-"if": {
-    "allOf": [
-        {
-            "field": "type",
-            "in": [
-                "Microsoft.ContainerService/managedClusters",
-                "AKS Engine"
-            ]
-        },
-        {
-            "field": "location",
-            "equals": "westus2"
-        }
-    ]
-},
-"then": {
-    "effect": "enforceOPAConstraint",
-    "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/constraint.yaml",
-        "values": {
-            "cpuLimit": "[parameters('cpuLimit')]",
-            "memoryLimit": "[parameters('memoryLimit')]"
-        }
-    }
-}
-```
-
-## EnforceRegoPolicy
-
-This effect is used with a policy definition _mode_ of `Microsoft.ContainerService.Data`. It's used
-to pass Gatekeeper v2 admission control rules defined with
-[Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) to
-[Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
-[Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
-
-> [!IMPORTANT]
-> The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
-> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
-> Resource Provider mode `Microsoft.Kubernetes.Data`.
-
-### EnforceRegoPolicy evaluation
-
-The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
-
-### EnforceRegoPolicy properties
-
-The **details** property of the EnforceRegoPolicy effect has the subproperties that describe the
-Gatekeeper v2 admission control rule.
-
-- **policyId** (required)
-  - A unique name passed as a parameter to the Rego admission control rule.
-- **policy** (required)
-  - Specifies the URI of the Rego admission control rule.
-- **policyParameters** (optional)
-  - Defines any parameters and values to pass to the rego policy.
-
-### EnforceRegoPolicy example
-
-Example: Gatekeeper v2 admission control rule to allow only the specified container images in AKS.
-
-```json
-"if": {
-    "allOf": [
-        {
-            "field": "type",
-            "equals": "Microsoft.ContainerService/managedClusters"
-        },
-        {
-            "field": "location",
-            "equals": "westus2"
-        }
-    ]
-},
-"then": {
-    "effect": "EnforceRegoPolicy",
-    "details": {
-        "policyId": "ContainerAllowedImages",
-        "policy": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/KubernetesService/container-allowed-images/limited-preview/gatekeeperpolicy.rego",
-        "policyParameters": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]"
-        }
-    }
-}
-```
 
 ## Manual (preview)
 

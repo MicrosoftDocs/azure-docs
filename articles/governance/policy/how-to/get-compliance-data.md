@@ -238,9 +238,18 @@ For details and steps, see
 
 ## How compliance works
 
-In an assignment, a resource is **Non-compliant** if it doesn't follow policy or initiative rules
-and isn't _exempt_. The following table shows how different policy effects work with the condition
-evaluation for the resulting compliance state:
+When initiative or policy definitions are assigned and evaluated, resulting compliance states are determined based on conditions in the policy rule and resources' adherence to those requirements.
+
+Azure Policy supports the following compliance states:
+- Non-compliant
+- Compliant
+- Conflict
+- Exempted
+- Unknown (preview)
+
+### Compliant and non-compliant states
+
+In an assignment, a resource is **non-compliant** if it is applicable to the policy assignment and does not adhere to conditions in the policy rule. The following table shows how different policy effects work with the condition evaluation for the resulting compliance state:
 
 | Resource State | Effect | Policy Evaluation | Compliance State |
 | --- | --- | --- | --- |
@@ -253,6 +262,8 @@ evaluation for the resulting compliance state:
 > The DeployIfNotExist and AuditIfNotExist effects require the IF statement to be TRUE and the
 > existence condition to be FALSE to be non-compliant. When TRUE, the IF condition triggers
 > evaluation of the existence condition for the related resources.
+
+#### Example
 
 For example, assume that you have a resource group - ContsoRG, with some storage accounts
 (highlighted in red) that are exposed to public networks.
@@ -270,6 +281,14 @@ audits the three non-compliant storage accounts, consequently changing their sta
    Diagram showing images for five storage accounts in the Contoso R G resource group. Storage accounts one and three now have green checkmarks beneath them, while storage accounts two, four, and five now have red warning signs beneath them.
 :::image-end:::
 
+#### Understand non-compliance
+
+When a resource is determined to be **non-compliant**, there are many possible reasons. To determine
+the reason a resource is **non-compliant** or to find the change responsible, see
+[Determine non-compliance](./determine-non-compliance.md).
+
+### Other compliance states
+
 Besides **Compliant** and **Non-compliant**, policies and resources have four other states:
 
 - **Exempt**: The resource is in scope of an assignment, but has a
@@ -280,11 +299,7 @@ Besides **Compliant** and **Non-compliant**, policies and resources have four ot
 - **Not registered**: The Azure Policy Resource Provider hasn't been registered or the account
   logged in doesn't have permission to read compliance data.
 
-Azure Policy uses the **type**, **name**, or **kind** fields in the definition to determine whether
-a resource is a match. When the resource matches, it's considered applicable and has a status of
-either **Compliant**, **Non-compliant**, or **Exempt**. If either **name** or **kind** is the only
-property in the definition, then all included and non-exempt resources are considered applicable and
-are evaluated.
+Azure Policy relies on several factors to determine whether a resource is considered [applicable](../concepts/policy-applicability.md), then to determine its compliance state.
 
 The compliance percentage is determined by dividing **Compliant**, **Exempt**, and **Unknown** resources by _total
 resources_. _Total resources_ is defined as the sum of the **Compliant**, **Non-compliant**,
@@ -300,7 +315,29 @@ The overall resource compliance is 95% (19 out of 20).
 > pages in portal are different for enabled initiatives. For more information, see
 > [Regulatory Compliance](../concepts/regulatory-compliance.md)
 
-## Portal
+### Compliance roll up
+
+There are several ways to view aggregated compliance results:
+
+| Aggregate scope | Factors determining resulting compliance state |
+| --- | --- |
+| Initiative | All policies within |
+| Initiative group or control | All policies within  |
+| Policy | All applicable resources |
+| Resource | All applicable policies |
+
+So how is the aggregate compliance state determined if multiple resources or policies have different compliance states themselves? This is done by ranking each compliance state so that one "wins" over another in this situation. The rank order is:
+1. Non-compliant
+1. Compliant
+1. Conflict
+1. Exempted
+1. Unknown (preview)
+
+This means that if there are both non-compliant and compliant states, the rolled up aggregate would be non-compliant, and so on. Let's look at an example.
+
+Assume an initiative contains 10 policies, and a resource is exempt from one policy but compliant to the remaining nine. Because a compliant state has a higher rank than an exempted state, the resource would register as compliant in the rolled-up summary of the initiative. So, a resource will only show as exempt for the entire initiative if it is exempt from, or has unknown compliance to, every other single applicable policy in that initiative. On the other extreme, if the resource is non-compliant to at least one applicable policy in the initiative, it will have an overall compliance state of non-compliant, regardless of the remaining applicable policies.
+
+## Compliance reporting through Azure Portal
 
 The Azure portal showcases a graphical experience of visualizing and understanding the state of
 compliance in your environment. On the **Policy** page, the **Overview** option provides details for
@@ -323,9 +360,6 @@ resources for the current assignment. The tab defaults to **Non-compliant**, but
 Events (append, audit, deny, deploy, modify) triggered by the request to create a resource are shown
 under the **Events** tab.
 
-> [!NOTE]
-> For an AKS Engine policy, the resource shown is the resource group.
-
 :::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Screenshot of the Events tab on Compliance Details page." border="false":::
 
 <a name="component-compliance"></a>
@@ -344,13 +378,10 @@ log provides additional context and information about those events.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Screenshot of the Activity Log for Azure Policy activities and evaluations." border="false":::
 
-### Understand non-compliance
+> [!NOTE]
+> Compliance results can be exported from the Portal through [Azure Resource Graph queries](../samples/resource-graph-samples.md).
 
-When a resource is determined to be **non-compliant**, there are many possible reasons. To determine
-the reason a resource is **non-compliant** or to find the change responsible, see
-[Determine non-compliance](./determine-non-compliance.md).
-
-## Command line
+## Compliance reporting through the command line
 
 The same information available in the portal can be retrieved with the REST API (including with
 [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell, and Azure CLI. For full
@@ -832,7 +863,7 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## Azure Monitor logs
+## Compliance reporting through Azure Monitor logs
 
 If you have a [Log Analytics workspace](../../../azure-monitor/logs/log-query-overview.md) with
 `AzureActivity` from the

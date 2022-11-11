@@ -21,7 +21,9 @@ Condition(s) in the `if` block of the policy rule are evaluated for applicabilit
 > [!NOTE]
 > Applicability is different from compliance, and the logic used to determine each is different. If a resource is **applicable** that means it is relevant to the policy. If a resource is **compliant** that means it adheres to the policy. Sometimes only certain conditions from the policy rule impact applicability, while all conditions of the policy rule impact compliance state.
 
-## Applicability logic for Append/Modify/Audit/Deny/RP Mode specific effects
+## Applicability logic for resource manager modes
+
+### Append, Audit, Manual, Modify and Deny policy effects
 
 Azure Policy evaluates only `type`, `name`, and `kind` conditions in the policy rule `if` expression and treats other conditions as true (or false when negated). If the final evaluation result is true, the policy is applicable. Otherwise, it's not applicable.
 
@@ -35,9 +37,27 @@ Following are special cases to the previously described applicability logic:
 |When the `if` conditions consist of only `type` and `kind` or `type` and `name` conditions     |Only type conditions are considered when deciding applicability |
 |When any conditions (including deployment parameters) include a `location` condition     |Will not be applicable to subscriptions |
 
-## Applicability logic for AuditIfNotExists and DeployIfNotExists policy effects
+### AuditIfNotExists and DeployIfNotExists policy effects
 
-The applicability of AuditIfNotExists and DeployIfNotExists policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy is not applicable.
+The applicability of `AuditIfNotExists` and `DeployIfNotExists` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy is not applicable.
+
+## Applicability logic for resource provider modes
+
+### Microsoft.Kubernetes.Data
+
+The applicability of `Microsoft.Kubernetes.Data` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy is not applicable.
+
+### Microsoft.KeyVault.Data
+
+Policies with mode `Microsoft.KeyVault.Data` are applicable if the `type` condition of the policy rule evaluates to true. The `type` refers to component type, such as:
+- Microsoft.KeyVault.Data/vaults/certificates
+- Microsoft.KeyVault.Data/vaults/keys
+- Microsoft.KeyVault.Data/vaults/secrets
+
+### Microsoft.Network.Data
+
+Policies with mode `Microsoft.Network.Data` are applicable if the `type` and `name` conditions of the policy rule evaluate to true. The `type` refers to  component type:
+- Microsoft.Network/virtualNetworks
 
 ## Next steps
 
