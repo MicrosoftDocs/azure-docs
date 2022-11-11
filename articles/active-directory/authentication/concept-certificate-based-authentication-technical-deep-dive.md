@@ -68,7 +68,7 @@ Now we'll walk through each step:
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png":::
 
 1. Azure AD verifies the certificate revocation list to make sure the certificate isn't revoked and is valid. Azure AD identifies the user by using the [username binding configured](how-to-certificate-based-authentication.md#step-4-configure-username-binding-policy) on the tenant to map the certificate field value to the user attribute value.
-1. If a unique user is found with a Conditional Access policy that requires multifactor authentication (MFA), and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-3-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD Multi-Factor Authentication.
+1. If a unique user is found with a Conditional Access policy that requires multifactor authentication (MFA), and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-3-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If multifactor authentication is required but the certificate satisfies only a single factor, authentication will fail.
 1. Azure AD completes the sign-in process by sending a primary refresh token back to indicate successful sign-in.
 1. If the user sign-in is successful, the user can access the application.
 
