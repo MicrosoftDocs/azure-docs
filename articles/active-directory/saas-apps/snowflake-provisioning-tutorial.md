@@ -37,7 +37,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md)
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (Application Administrator, Cloud Application Administrator, Application Owner, or Global Administrator)
 * [A Snowflake tenant](https://www.Snowflake.com/pricing/)
-* A user account in Snowflake with admin permissions
+* At least one user in Snowflake with the **ACCOUNTADMIN** role.
 
 ## Step 1: Plan your provisioning deployment
 
@@ -65,19 +65,19 @@ Before you configure Snowflake for automatic user provisioning with Azure AD, yo
     select system$generate_scim_access_token('AAD_PROVISIONING');
    ```
 
-2. Use the ACCOUNTADMIN role.
+1. Use the ACCOUNTADMIN role.
 
     ![Screenshot of a worksheet in the Snowflake UI with the SCIM access token called out.](media/Snowflake-provisioning-tutorial/step-2.png)
 
-3. Create the custom role AAD_PROVISIONER. All users and roles in Snowflake created by Azure AD will be owned by the scoped down AAD_PROVISIONER role.
+1. Create the custom role AAD_PROVISIONER. All users and roles in Snowflake created by Azure AD will be owned by the scoped down AAD_PROVISIONER role.
 
     ![Screenshot showing the custom role.](media/Snowflake-provisioning-tutorial/step-3.png)
 
-4. Let the ACCOUNTADMIN role create the security integration using the AAD_PROVISIONER custom role.
+1. Let the ACCOUNTADMIN role create the security integration using the AAD_PROVISIONER custom role.
 
     ![Screenshot showing the security integrations.](media/Snowflake-provisioning-tutorial/step-4.png)
 
-5. Create and copy the authorization token to the clipboard and store securely for later use. Use this token for each SCIM REST API request and place it in the request header. The access token expires after six months and a new access token can be generated with this statement.
+1. Create and copy the authorization token to the clipboard and store securely for later use. Use this token for each SCIM REST API request and place it in the request header. The access token expires after six months and a new access token can be generated with this statement.
 
     ![Screenshot showing the token generation.](media/Snowflake-provisioning-tutorial/step-5.png)
 
@@ -103,35 +103,37 @@ To configure automatic user provisioning for Snowflake in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise applications** > **All applications**.
 
- ![Screenshot that shows the Enterprise applications pane.](common/enterprise-applications.png)
+    ![Screenshot that shows the Enterprise applications pane.](common/enterprise-applications.png)
 
-2. In the list of applications, select **Snowflake**.
+1. In the list of applications, select **Snowflake**.
 
- ![Screenshot that shows a list of applications.](common/all-applications.png)
+   ![Screenshot that shows a list of applications.](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
- ![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
+   ![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
-4. Set **Provisioning Mode** to **Automatic**.
+1. Set **Provisioning Mode** to **Automatic**.
 
- ![Screenshot of the Provisioning Mode drop-down list with the Automatic option called out.](common/provisioning-automatic.png)
+    ![Screenshot of the Provisioning Mode drop-down list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. In the **Admin Credentials** section, enter the SCIM 2.0 base URL and authentication token that you retrieved earlier in the **Tenant URL** and **Secret Token** boxes, respectively.
+1. In the **Admin Credentials** section, enter the SCIM 2.0 base URL and authentication token that you retrieved earlier in the **Tenant URL** and **Secret Token** boxes, respectively.
+    >[!NOTE]
+    >The Snowflake SCIM endpoint consists of the Snowflake account URL appended with `/scim/v2/`. For example, if your Snowflake account name is `acme` and your Snowflake account is in the `east-us-2` Azure region, the **Tenant URL** value is `https://acme.east-us-2.azure.snowflakecomputing.com/scim/v2`.
 
    Select **Test Connection** to ensure that Azure AD can connect to Snowflake. If the connection fails, ensure that your Snowflake account has admin permissions and try again.
 
- ![Screenshot that shows boxes for tenant URL and secret token, along with the Test Connection button.](common/provisioning-testconnection-tenanturltoken.png)
+    ![Screenshot that shows boxes for tenant URL and secret token, along with the Test Connection button.](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** box, enter the email address of a person or group who should receive the provisioning error notifications. Then select the **Send an email notification when a failure occurs** check box.
+1. In the **Notification Email** box, enter the email address of a person or group who should receive the provisioning error notifications. Then select the **Send an email notification when a failure occurs** check box.
 
- ![Screenshot that shows boxes for notification email.](common/provisioning-notification-email.png)
+    ![Screenshot that shows boxes for notification email.](common/provisioning-notification-email.png)
 
-7. Select **Save**.
+1. Select **Save**.
 
-8. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Snowflake**.
+1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Snowflake**.
 
-9. Review the user attributes that are synchronized from Azure AD to Snowflake in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Snowflake for update operations. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Snowflake in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Snowflake for update operations. Select the **Save** button to commit any changes.
 
    |Attribute|Type|
    |---|---|
@@ -141,33 +143,41 @@ To configure automatic user provisioning for Snowflake in Azure AD:
    |userName|String|
    |name.givenName|String|
    |name.familyName|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:defaultRole|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:defaultWarehouse|String|
+   |externalId|String|
 
-10. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to Snowflake**.
+    >[!NOTE]
+    >Snowflake supported custom extension user attributes during SCIM provisioning:
+    >* DEFAULT_ROLE
+    >* DEFAULT_WAREHOUSE
+    >* DEFAULT_SECONDARY_ROLES
+    >* SNOWFLAKE NAME AND LOGIN_NAME FIELDS TO BE DIFFERENT
 
-11. Review the group attributes that are synchronized from Azure AD to Snowflake in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Snowflake for update operations. Select the **Save** button to commit any changes.
+    > How to set up Snowflake custom extension attributes in Azure AD SCIM user provisioning is explained [here](https://community.snowflake.com/s/article/HowTo-How-to-Set-up-Snowflake-Custom-Attributes-in-Azure-AD-SCIM-for-Default-Roles-and-Default-Warehouses).
+
+1. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to Snowflake**.
+
+1. Review the group attributes that are synchronized from Azure AD to Snowflake in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Snowflake for update operations. Select the **Save** button to commit any changes.
 
     |Attribute|Type|
     |---|---|
     |displayName|String|
     |members|Reference|
 
-12. To configure scoping filters, see the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, see the instructions in the      [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Snowflake, change **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for Snowflake, change **Provisioning Status** to **On** in the **Settings** section.
 
-  ![Screenshot that shows Provisioning Status switched on.](common/provisioning-toggle-on.png)
+    ![Screenshot that shows Provisioning Status switched on.](common/provisioning-toggle-on.png)
 
-14. Define the users and groups that you want to provision to Snowflake by choosing the desired values in **Scope** in the **Settings** section. 
+1. Define the users and groups that you want to provision to Snowflake by choosing the desired values in **Scope** in the **Settings** section. 
 
     If this option is not available, configure the required fields under **Admin Credentials**, select **Save**, and refresh the page. 
 
-  ![Screenshot that shows choices for provisioning scope.](common/provisioning-scope.png)
+    ![Screenshot that shows choices for provisioning scope.](common/provisioning-scope.png)
 
-15. When you're ready to provision, select **Save**.
+1. When you're ready to provision, select **Save**.
 
-  ![Screenshot of the button for saving a provisioning configuration.](common/provisioning-configuration-save.png)
+    ![Screenshot of the button for saving a provisioning configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization of all users and groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs. Subsequent syncs occur about every 40 minutes, as long as the Azure AD provisioning service is running.
 

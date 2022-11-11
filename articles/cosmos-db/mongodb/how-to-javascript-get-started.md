@@ -57,7 +57,7 @@ The most common constructor for **MongoClient** has two parameters:
 
 | Parameter | Example value | Description |
 | --- | --- | --- |
-| ``url`` | ``COSMOS_CONNECTION_STRIN`` environment variable | API for MongoDB connection string to use for all requests |
+| ``url`` | ``COSMOS_CONNECTION_STRING`` environment variable | API for MongoDB connection string to use for all requests |
 | ``options`` | `{ssl: true, tls: true, }` | [MongoDB Options](https://mongodb.github.io/node-mongodb-native/4.5/interfaces/MongoClientOptions.html) for the connection. |
 
 Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection issues.

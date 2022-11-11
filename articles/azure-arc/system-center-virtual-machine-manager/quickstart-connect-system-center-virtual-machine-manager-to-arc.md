@@ -4,7 +4,7 @@ description: In this QuickStart, you will learn how to use the helper script to 
 author: jyothisuri
 ms.author: jsuri
 ms.topic: quickstart
-ms.date: 09/14/2022
+ms.date: 10/19/2022
 ms.custom: references_regions
 ---
 

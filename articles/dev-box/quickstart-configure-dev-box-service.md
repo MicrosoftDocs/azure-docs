@@ -164,16 +164,12 @@ The following steps show you how to create and configure a dev box definition. Y
    |Name|Value|Note|
    |----|----|----|
    |**Name**|Enter a descriptive name for your dev box definition.|
-   |**Image**|Select the base operating system for the dev box. You can select an image from the marketplace or from an Azure Compute Gallery.|To use custom images while creating a dev box definition, you can attach an Azure Compute Gallery that has the custom images. Learn [How to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).|
+   |**Image**|Select the base operating system for the dev box. You can select an image from the Azure Marketplace or from an Azure Compute Gallery. </br> If you're creating a dev box definition for testing purposes, consider using the **Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. |To use custom images while creating a dev box definition, you can attach an Azure Compute Gallery that has the custom images. Learn [How to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).|
    |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes will not be modified when an image version is updated.|
+   |**Compute**|Select the compute combination for your dev box definition.||
+   |**Storage**|Select the amount of storage for your dev box definition.||
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-definition-create.png" alt-text="Screenshot showing the create dev box definition page with suggested images highlighted.":::
-
-   While selecting the gallery image, consider using either of the two images:
-   - Windows 11 Enterprise + Microsoft 365 Apps 21H2
-   - Windows 10 Enterprise + Microsoft 365 Apps 21H2
-      
-   These images are preconfigured with productivity tools like Microsoft Teams and configured for optimal performance.
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-box-definition-page.png" alt-text="Screenshot showing the Create dev box definition page.":::
 
 1. Select **Create**.
 

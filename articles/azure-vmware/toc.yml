@@ -4,7 +4,7 @@
   items:
   - name: About Azure VMware Solution
     href: introduction.md
-  - name: Platform updates
+  - name: What's new
     href: azure-vmware-solution-platform-updates.md
 - name: Get started
   items:

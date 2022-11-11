@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.devlang:
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 02/17/2022
+ms.date: 10/30/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -33,7 +33,9 @@ Your code can use a managed identity to request access tokens for services that 
 
 The following diagram shows how managed service identities work with Azure virtual machines (VMs):
 
-![Managed service identities and Azure VMs](media/how-managed-identities-work-vm/data-flow.png)
+[![Managed service identities and Azure VMs](media/how-managed-identities-work-vm/data-flow.png)](media/how-managed-identities-work-vm/data-flow.png#lightbox)
+
+The following table shows the differences between the system-assigned and user-assigned managed identities:
 
 |  Property    | System-assigned managed identity | User-assigned managed identity |
 |------|----------------------------------|--------------------------------|
@@ -48,7 +50,7 @@ The following diagram shows how managed service identities work with Azure virtu
 
 2. Azure Resource Manager creates a service principal in Azure AD for the identity of the VM. The service principal is created in the Azure AD tenant that's trusted by the subscription.
 
-3. Azure Resource Manager updates the VM identity using the Azure Instance Metadata Service identity endpoint, providing the endpoint with the service principal client ID and certificate.
+3. Azure Resource Manager updates the VM identity using the Azure Instance Metadata Service identity endpoint (for [Windows](/azure/virtual-machines/windows/instance-metadata-service) and [Linux](/azure/virtual-machines/linux/instance-metadata-service)), providing the endpoint with the service principal client ID and certificate.
 
 4. After the VM has an identity, use the service principal information to grant the VM access to Azure resources. To call Azure Resource Manager, use Azure role-based access control (Azure RBAC) to assign the appropriate role to the VM service principal. To call Key Vault, grant your code access to the specific secret or key in Key Vault.
 

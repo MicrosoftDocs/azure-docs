@@ -10,7 +10,7 @@ ms.date: 08/05/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: "it-pro"
+ms.custom: engagement-fy23, "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
@@ -68,8 +68,8 @@ You can configure organization-specific settings by adding an organization and m
 
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
-- Microsoft Azure global cloud and Microsoft Azure Government
-- Microsoft Azure global cloud and Microsoft Azure China 21Vianet
+- Microsoft Azure commercial cloud and Microsoft Azure Government
+- Microsoft Azure commercial cloud and Microsoft Azure China (operated by 21Vianet)
 
 > [!NOTE]
 > Microsoft Azure Government includes the Office GCC-High and DoD clouds.
@@ -78,7 +78,7 @@ To set up B2B collaboration, both organizations configure their Microsoft cloud 
 
 - Use B2B collaboration to invite a user in the partner tenant to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
 - Use B2B collaboration to [share Power BI content to a user in the partner tenant](/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
-- Apply Conditional Access policies to the B2B collaboration user and opt to trust device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
+- Apply Conditional Access policies to the B2B collaboration user and opt to trust multi-factor authentication or device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
 
 > [!NOTE]
 > B2B direct connect is not supported for collaboration with Azure AD tenants in a different Microsoft cloud.

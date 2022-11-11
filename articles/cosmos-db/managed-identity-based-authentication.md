@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 10/20/2022
 ms.author: sidandrews
 ms.reviewer: justipat
 ms.custom: devx-track-csharp, devx-track-azurecli, subject-rbac-steps, ignite-2022
@@ -120,10 +120,10 @@ In this step, you'll query the document endpoint for the API for NoSQL account.
 
 ## Grant access to your Azure Cosmos DB account
 
-In this step, you'll assign a role to the function app's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity. For this solution, you'll use the [Azure Cosmos DB Built-in Data Reader](how-to-setup-rbac.md#built-in-role-definitions) role.
+In this step, you'll assign a role to the function app's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity for control-plane access. For data-plane access, you'll create a new custom role with acess to read metadata.
 
 > [!TIP]
-> When you assign roles, assign only the needed access. If your service requires only reading data, then assign the **Cosmos DB Built-in Data Reader** role to the managed identity. For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
+> For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
 
 1. Use ``az cosmosdb show`` with the **query** parameter set to ``id``. Store the result in a shell variable named ``scope``.
 
@@ -196,7 +196,7 @@ In this step, you'll assign a role to the function app's system-assigned managed
 
 ## Programmatically access the Azure Cosmos DB keys
 
-We now have a function app that has a system-assigned managed identity with the **Cosmos DB Built-in Data Reader** role. The following function app will query the Azure Cosmos DB account for a list of databases.
+We now have a function app that has a system-assigned managed identity with the custom role. The following function app will query the Azure Cosmos DB account for a list of databases.
 
 1. Create a local function project with the ``--dotnet`` parameter in a folder named ``csmsfunc``. Change your shell's directory
 

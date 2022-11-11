@@ -191,10 +191,12 @@ additionalContent:
         # Card
         - title: DDoS protection
           links:
-            - text: What is Azure DDoS Protection Standard?
+            - text: What is Azure DDoS Protection?
+              url: ../ddos-protection/ddos-protection-overview.md
+            - text: Create DDoS Network Protection
               url: ../ddos-protection/manage-ddos-protection.md
-            - text: Manage DDoS Protection
-              url: ../ddos-protection/manage-ddos-protection.md
+            - text: Create DDoS IP Protection
+              url: ../ddos-protection/manage-ddos-protection-powershell-ip.md
             - text: See more
               url: ../ddos-protection/index.yml
 
