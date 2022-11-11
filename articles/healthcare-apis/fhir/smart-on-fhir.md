@@ -151,7 +151,7 @@ These fields are meant to provide guidance to the app, but they don't convey any
 
 Notice that the SMART on FHIR app launcher updates the **Launch URL** information at the bottom of the page. Select **Launch** to start the sample app, and you should see something like this sample:
 
-![SMART on FHIR app](media/tutorial-smart-on-fhir/smart-on-fhir-app.png)
+<!---![SMART on FHIR app](media/tutorial-smart-on-fhir/smart-on-fhir-app.png)--->
 
 Inspect the token response to see how the launch context fields are passed on to the app.
 
