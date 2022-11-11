@@ -1,5 +1,5 @@
 ---
-title: Self-service policies for Azure SQL DB (preview)
+title: Self-service policies for Azure SQL Database (preview)
 description: Step-by-step guide on how self-service policy is created for Azure SQL DB through Microsoft Purview access policies.
 author: bjspeaks
 ms.author: blessonj
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/11/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
-# Self-service policies for Azure SQL DB (preview)
+# Self-service policies for Azure SQL Database (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
