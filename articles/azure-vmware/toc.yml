@@ -214,7 +214,7 @@
       href: enable-sql-azure-hybrid-benefit.md
     - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
       href: enable-vmware-cds-with-azure.md
-    - name: Upgrade the VMware HCX appliance
+    - name: Upgrade HCX on Azure VMware Solution
       href: upgrade-hcx-azure-vmware-solutions.md
 - name: Resources
   items:
