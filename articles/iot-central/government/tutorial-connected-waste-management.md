@@ -12,7 +12,7 @@ services: iot-central
 
 The _connected waste management_ application template helps you kickstart your IoT solution development to enable smart cities to remotely monitor to maximize efficient waste collection.
 
-:::image type="content" source="media/tutorial-connectedwastemanagement/concepts-connected-waste-management-architecture-1.png" alt-text="Diagram showing the architecture of the connected waste management application." border="false":::
+:::image type="content" source="media/tutorial-connected-waste-management/concepts-connected-waste-management-architecture-1.png" alt-text="Diagram showing the architecture of the connected waste management application." border="false":::
 
 ### Devices and connectivity (1,2)
 
@@ -62,7 +62,7 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Government** tab:
 
-    :::image type="content" source="media/tutorial-connectedwastemanagement/iot-central-government-tab-overview.png" alt-text="Screenshot showing the Azure IoT Central build site with the government app templates.":::
+    :::image type="content" source="media/tutorial-connected-waste-management/iot-central-government-tab-overview.png" alt-text="Screenshot showing the Azure IoT Central build site with the government app templates.":::
 
 1. Select **Create app** under **Connected waste management**.
 
@@ -76,7 +76,7 @@ The following sections walk you through the key features of the application:
 
 After you deploy the application template, your default dashboard is **Wide World waste management dashboard**.
 
-:::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-dashboard.png" alt-text="Screenshot of the connected waste management application dashboard." lightbox="media/tutorial-connectedwastemanagement/connected-waste-management-dashboard.png":::
+:::image type="content" source="media/tutorial-connected-waste-management/connected-waste-management-dashboard.png" alt-text="Screenshot of the connected waste management application dashboard." lightbox="media/tutorial-connected-waste-management/connected-waste-management-dashboard.png":::
 
 As a builder, you can create and customize views on the dashboard for operators. First, let's explore the dashboard.
 
@@ -95,7 +95,7 @@ The dashboard consists of different tiles:
 
 * **Fill, odor, weight level bar chart**: You can visualize one or multiple kinds of device telemetry data in a bar chart. You can also expand the bar chart.  
 
-    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-dashboard-bar-chart.png" alt-text="Screenshot of the expanded bar chart on the connected waste management application dashboard." lightbox="media/tutorial-connectedwastemanagement/connected-waste-management-dashboard-bar-chart.png":::
+    :::image type="content" source="media/tutorial-connected-waste-management/connected-waste-management-dashboard-bar-chart.png" alt-text="Screenshot of the expanded bar chart on the connected waste management application dashboard." lightbox="media/tutorial-connected-waste-management/connected-waste-management-dashboard-bar-chart.png":::
 
 * **Field Services**: The dashboard includes a link to how to integrate with Dynamics 365 Field Services from your Azure IoT Central application. For example, you can use Field Services to create tickets for dispatching trash collection services.
 
@@ -103,7 +103,7 @@ The dashboard consists of different tiles:
 
 You can customize the dashboard by selecting the **Edit** menu. Then you can add new tiles or configure existing ones. Here's what the dashboard looks like in editing mode:
 
-:::image type="content" source="media/tutorial-connectedwastemanagement/edit-dashboard.png" alt-text="Screenshot of the connected waste management application dashboard in edit mode." lightbox="media/tutorial-connectedwastemanagement/edit-dashboard.png":::
+:::image type="content" source="media/tutorial-connected-waste-management/edit-dashboard.png" alt-text="Screenshot of the connected waste management application dashboard in edit mode." lightbox="media/tutorial-connected-waste-management/edit-dashboard.png":::
 
 You can also select **+ New** to create a new dashboard and configure from scratch. You can have multiple dashboards, and you can switch between your dashboards from the dashboard menu.
 
@@ -121,7 +121,7 @@ To view the device template:
 
 1. Examine the device template capabilities. You can see that it defines sensors like **Fill level**, **Odor meter**, **Weight**, and **Location**.
 
-    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-device-template-connected-bin.png" alt-text="Screenshot of the connected waste management device template." lightbox="media/tutorial-connectedwastemanagement/connected-waste-management-device-template-connected-bin.png":::
+    :::image type="content" source="media/tutorial-connected-waste-management/connected-waste-management-device-template-connected-bin.png" alt-text="Screenshot of the connected waste management device template." lightbox="media/tutorial-connected-waste-management/connected-waste-management-device-template-connected-bin.png":::
 
 ### Customize the device template
 
@@ -145,7 +145,7 @@ Here's how:
 
 The connected waste bin device template comes with predefined views. Explore the views, and update them if you want to. The views define how operators see the device data and input cloud properties.
 
-:::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-device-template-views.png" alt-text="Screenshot of the connected waste management application device template views." lightbox="media/tutorial-connectedwastemanagement/connected-waste-management-device-template-views.png":::
+:::image type="content" source="media/tutorial-connected-waste-management/connected-waste-management-device-template-views.png" alt-text="Screenshot of the connected waste management application device template views." lightbox="media/tutorial-connected-waste-management/connected-waste-management-device-template-views.png":::
 
 ### Publish
 
@@ -167,7 +167,7 @@ The connected waste management application has two simulated devices associated 
 
 1. Select **Connected Waste Bin** device.  
 
-    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-devices-bin.png" alt-text="Screenshot of the connected waste management application devices page." lightbox="media/tutorial-connectedwastemanagement/connected-waste-management-devices-bin.png":::
+    :::image type="content" source="media/tutorial-connected-waste-management/connected-waste-management-devices-bin.png" alt-text="Screenshot of the connected waste management application devices page." lightbox="media/tutorial-connected-waste-management/connected-waste-management-devices-bin.png":::
 
 Explore the **Device Properties** and **Device Dashboard** tabs.
 
@@ -190,7 +190,7 @@ The connected waste management application has four sample rules.
 
 1. Select **Bin full alert**.
 
-    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-bin-full-alert.png" alt-text="Screenshot of the connected waste management application bin full rule." lightbox="media/tutorial-connectedwastemanagement/connected-waste-management-bin-full-alert.png":::
+    :::image type="content" source="media/tutorial-connected-waste-management/connected-waste-management-bin-full-alert.png" alt-text="Screenshot of the connected waste management application bin full rule." lightbox="media/tutorial-connected-waste-management/connected-waste-management-bin-full-alert.png":::
 
 1. The **Bin full alert** checks the following condition: **Fill level is greater than or equal to Bin full alert threshold**.
 
