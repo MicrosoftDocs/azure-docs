@@ -12,7 +12,7 @@ ms.date: 11/09/2022
 
 Beside building your Stream Analytic jobs in the Azure portal, you can use the [Azure Stream Analytics Tools extension for Visual Studio Code](quick-create-visual-studio-code.md) to write, debug and run your streaming query locally for better development experience. 
 
-This tables shows what features are supported between Azure portal and Visual Studio Code. 
+This table shows what features are supported between Azure portal and Visual Studio Code. 
 
 > [!NOTE]
 > Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.

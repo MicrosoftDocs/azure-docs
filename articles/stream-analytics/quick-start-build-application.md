@@ -10,7 +10,7 @@ ms.topic: quickstart
 
 # Analyze a website clickstream
 
-This quickstart shows how to build a streaming application by running a few commands in PowerShell. It's a easy way to deploy Azure resources with auto-generated data streams. You can choose the following application examples to implement and explore different stream analytic scenarios.
+This quickstart shows how to build a streaming application by running a few commands in PowerShell. It's an easy way to deploy Azure resources with auto-generated data streams. You can choose the following application examples to implement and explore different stream analytic scenarios.
 - Filter clickstream requests
 - Join clickstream with a file
 - Analyze Twitter sentiment (coming soon)
@@ -66,14 +66,14 @@ Follow these steps to deploy resources:
     Connect-AzAccount
     ```
 
-4. Replace `$subscriptionId` with your Azure subscription id and run the following command to deploy Azure resources. This process may take a few minutes to complete.
+4. Replace `$subscriptionId` with your Azure subscription ID and run the following command to deploy Azure resources. This process may take a few minutes to complete.
 
     ```powershell
     .\CreateJob.ps1 -job ClickStream-Filter -eventsPerMinute 11 -subscriptionid $subscriptionId
     ```
 
     * `eventsPerMinute` is the input rate for generated data. In this case, the input source generates 11 events per minute.
-    * You can find your subscription id in **Azure portal > Subscriptions**.
+    * You can find your subscription ID in **Azure portal > Subscriptions**.
 
 5. Once the deployment is completed, it opens your browser automatically, and you can see a resource group named **ClickStream-Filter-rg-\*** in the Azure portal. The resource group contains the following five resources:
 
@@ -128,7 +128,7 @@ If you want to find out the username for the clickstream using a user file in st
 
 Assume you've completed the steps for previous example, run following commands to create a new resource group: 
 
-1. Replace `$subscriptionId` with your Azure subscription id and run the following command to deploy Azure resources. This process may take a few minutes to complete.
+1. Replace `$subscriptionId` with your Azure subscription ID and run the following command to deploy Azure resources. This process may take a few minutes to complete.
 
     ```powershell
     .\CreateJob.ps1 -job ClickStream-RefJoin -eventsPerMinute 11 -subscriptionid $subscriptionId

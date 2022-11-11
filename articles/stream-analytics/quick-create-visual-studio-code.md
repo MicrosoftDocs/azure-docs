@@ -62,7 +62,7 @@ Before defining the Stream Analytics job, you should prepare the input data. The
     
      :::image type="content" source="./media/quick-create-visual-studio-code/iot-management-page.png" alt-text="Screenshot showing the IoT Hub management page.":::
     
-5. Select **Review + create**. Review your IoT hub information and select **Create**. This may take a few minutes to deploy your IoT hub.
+5. Select **Review + create**. Review your IoT hub information and select **Create**. This process may take a few minutes to deploy your IoT hub.
 
 6. After your IoT hub is created, select **Go to resource** to navigate to the **IoT Hub** page. '
 
@@ -155,7 +155,7 @@ Before defining the Stream Analytics job, you should prepare the input data. The
     |Setting|Suggested Value|Description|
     |-------|---------------|-----------|
     |Name|**Input**|This input name is used for **FROM** statement in the query.|
-    |IotHubNamespace|**spiothub** |Name of your IoT hub. The IoT hub names are automatically detected if you click on **Select from your subscription**.|
+    |IotHubNamespace|**spiothub** |Name of your IoT hub. The IoT hub names are automatically detected if you **Select from your subscription**.|
     |SharedAccessPolicyName|**iothubowner**||
 
     :::image type="content" source="./media/quick-create-visual-studio-code/iothub-configuration.png" lightbox="./media/quick-create-visual-studio-code/iothub-configuration.png" alt-text="Screenshot showing the IoT Hub configuration in VS Code."::: 
