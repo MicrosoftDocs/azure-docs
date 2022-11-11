@@ -102,7 +102,21 @@ To ensure that there are always a valid number of recovery points available, the
 - For monthly retention, a minimum of **three** months of retention should be done.
 - For yearly retention, a minimum of **one** year of retention should be done.
 
-## Immutability support
+## Notifications for critical operations
+
+Typically, when a critical operation is performed, the subscription admin is sent an email notification with details about the operation. You can configure additional email recipients for these notifications by using the Azure portal.
+
+The security features mentioned in this article provide defense mechanisms against targeted attacks. More importantly, if an attack happens, these features give you the ability to recover your data.
+
+## Troubleshoot errors
+
+| Operation | Error details | Resolution |
+| --- | --- | --- |
+| Policy change |The backup policy couldn't be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after sometime. If the issue persists, please contact Microsoft support. |**Cause:**<br/>This error appears when security settings are enabled, you try to reduce retention range below the minimum values specified above and you're on an unsupported  version (supported versions are specified in first note of this article). <br/>**Recommended Action:**<br/> In this case, you should set retention period above the minimum retention period specified (seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly) to proceed with policy-related updates. Optionally, a preferred approach would be to update the backup agent, Azure Backup Server and/or DPM UR to leverage all the security updates. |
+| Change Passphrase |Security PIN entered is incorrect. (ID: 100130) Provide the correct Security PIN to complete this operation. |**Cause:**<br/> This error comes when you enter invalid or expired Security PIN while performing critical operation (like change passphrase). <br/>**Recommended Action:**<br/> To complete the operation, you must enter valid Security PIN. To get the PIN, sign in to Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
+| Change Passphrase |Operation failed. ID: 120002 |**Cause:**<br/>This error appears when security settings are enabled, you try to change the passphrase and you're on an unsupported version (valid versions specified in first note of this article).<br/>**Recommended Action:**<br/> To change the passphrase, you must first update the backup agent to minimum version 2.0.9052, Azure Backup Server to minimum update 1, and/or DPM to minimum DPM 2012 R2 UR12 or DPM 2016 UR2 (download links below), then enter a valid Security PIN. To get the PIN, sign in to the Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
+
+## Immutability support (preview)
 
 When [immutability](backup-azure-immutable-vault-concept.md?tabs=recovery-services-vault) for your Recovery Services vault is enabled, operations that reduce the cloud backup retention or remove cloud backup for on-premises data sources are blocked. 
 
@@ -117,20 +131,6 @@ The following table lists the disallowed operations on DPM connected to an immut
 | **Stop protection with delete data** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. | 130001: Microsoft Azure Backup encountered an internal error. |
 | **Reduce online retention period** | 810002: Reduction in retention during Policy/Protection modification isn't allowed because the selected vault is immutable. | 130001: Microsoft Azure Backup encountered an internal error. |
 | **Remove-DPMChildDatasource command** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. <br><br> Use new option *-EnableOnlineRPsPruning* with *-KeepOnlineData* to retain data only up to policy duration. | 130001: Microsoft Azure Backup encountered an internal error. <br><br> Use the *-KeepOnlineData* flag to retain data. |
-
-## Notifications for critical operations
-
-Typically, when a critical operation is performed, the subscription admin is sent an email notification with details about the operation. You can configure additional email recipients for these notifications by using the Azure portal.
-
-The security features mentioned in this article provide defense mechanisms against targeted attacks. More importantly, if an attack happens, these features give you the ability to recover your data.
-
-## Troubleshoot errors
-
-| Operation | Error details | Resolution |
-| --- | --- | --- |
-| Policy change |The backup policy couldn't be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after sometime. If the issue persists, please contact Microsoft support. |**Cause:**<br/>This error appears when security settings are enabled, you try to reduce retention range below the minimum values specified above and you're on an unsupported  version (supported versions are specified in first note of this article). <br/>**Recommended Action:**<br/> In this case, you should set retention period above the minimum retention period specified (seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly) to proceed with policy-related updates. Optionally, a preferred approach would be to update the backup agent, Azure Backup Server and/or DPM UR to leverage all the security updates. |
-| Change Passphrase |Security PIN entered is incorrect. (ID: 100130) Provide the correct Security PIN to complete this operation. |**Cause:**<br/> This error comes when you enter invalid or expired Security PIN while performing critical operation (like change passphrase). <br/>**Recommended Action:**<br/> To complete the operation, you must enter valid Security PIN. To get the PIN, sign in to Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
-| Change Passphrase |Operation failed. ID: 120002 |**Cause:**<br/>This error appears when security settings are enabled, you try to change the passphrase and you're on an unsupported version (valid versions specified in first note of this article).<br/>**Recommended Action:**<br/> To change the passphrase, you must first update the backup agent to minimum version 2.0.9052, Azure Backup Server to minimum update 1, and/or DPM to minimum DPM 2012 R2 UR12 or DPM 2016 UR2 (download links below), then enter a valid Security PIN. To get the PIN, sign in to the Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
 
 ## Next steps
 
