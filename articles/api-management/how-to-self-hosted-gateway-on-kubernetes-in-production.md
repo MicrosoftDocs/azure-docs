@@ -169,7 +169,7 @@ By default, a self-hosted gateway is deployed with a **RollingUpdate** deploymen
 
 ## Performance
 
-We recommend reducing container logs to warnings (`warn`) to improve for performance, learn more in our [self-hosted gateway configuration reference](self-hosted-gateway-settings-reference.md).
+We recommend reducing container logs to warnings (`warn`) to improve for performance. Learn more in our [self-hosted gateway configuration reference](self-hosted-gateway-settings-reference.md).
 
 ## Security
 The self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
