@@ -148,9 +148,9 @@ sections:
 
       - question: How to use Java Spring profiles in App Configuration?
         answer: |
-          Spring profiles can be used to either separate sections of an application or to change execution based on the profile. They are set using the `spring.profiles.active` property.
+          Spring profiles provide a way to separate parts of your application, including configuration, and make it only available in certain environments or when specific libraries are used.
 
-          You are recommended to set the label of your key-values to match your Spring profiles. By default, the App Configuration Spring provider library will load the key-values with the label matching the current active Spring profile(s) (`${spring.profiles.active}`) if the label filter isn't set explicitly. If there is no active Spring profile set, key-values with "no label" will be loaded.
+          You are recommended to set the label of your key-values to match your Spring profiles. By default, the App Configuration Spring provider library will load the key-values with the label(s) matching the current active Spring profile(s) (`${spring.profiles.active}`) if the label filter isn't set explicitly. If there is no active Spring profile set, key-values with "no label" will be loaded.
 
           For example, with profiles `dev` and `prod`, you create key-values accordingly with the following labels.
 
