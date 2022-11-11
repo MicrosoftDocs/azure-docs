@@ -6,7 +6,7 @@ ms.author: blessonj
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 11/11/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Self-service policies for Azure SQL DB (preview)
