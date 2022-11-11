@@ -47,6 +47,14 @@ Azure Private 5G Core provides write-only access to SIM credentials. SIM credent
 
 As these credentials are highly sensitive, Azure Private 5G Core won't allow users of the service read access to the credentials, except as required by law. Sufficiently privileged users may overwrite the credentials, or revoke them.
 
+## Access to local monitoring tools
+
+Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by hypertext transfer protocol secure (HTTPS). The certificates used to secure these web applications can be self-signed or user-provided, with the latter option being recommended for additional security of you deployment.
+
+If you decide to provide your own certificates for local monitoring access, you'll need to add the certificate to your [Azure Key Vault](/azure/key-vault/) and create a [User-assigned identity](/azure/active-directory/managed-identities-azure-resources/overview).
+
+For additional information on configuring user-provided certificates for local monitoring access, see TODO.
+
 ## Next steps
 
 - [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)
