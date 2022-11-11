@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/21/2022
+ms.date: 11/10/2022
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2209** release, which maps to software version **2.2.2088.5593**. This software can be applied to your device if you're running at least **Azure Stack Edge 2207** (2.2.2307.5375).
+This article applies to the **Azure Stack Edge 2209** release, which maps to software version **2.2.2088.5593**. This software can be applied to your device if you're running at least **Azure Stack Edge 2207** (2.2.2038.5916).
 
 > [!IMPORTANT]
 > Azure Stack Edge 2209 update contains critical security fixes. As with any new release, we strongly encourage customers to apply this update at the earliest opportunity.
