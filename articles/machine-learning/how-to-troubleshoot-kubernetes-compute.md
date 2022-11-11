@@ -33,7 +33,7 @@ openssl x509 -in cert.pem -noout -modulus | md5sum
 openssl rsa -in key.pem -noout -modulus | md5sum
 ```
 
-### Kubernetes Compute related errors
+### Kubernetes Compute errors
 
 Below is a list of error types in **compute scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference, please review the causes and troubleshoot the errors according to the guidance below:
 
