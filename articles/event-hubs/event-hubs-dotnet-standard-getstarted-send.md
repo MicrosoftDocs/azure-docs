@@ -189,9 +189,20 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
+3. Authenticate to the blob container
 
+    
+## [Connection String](#tab/connection-string)
+
+    [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
+    
     Note down the connection string and the container name. You'll use them in the receive code. 
+
+## [Passwordless](#tab/passwordless)
+
+    
+
+---
 
 ### Create a project for the receiver
 
