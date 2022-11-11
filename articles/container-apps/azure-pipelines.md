@@ -17,13 +17,13 @@ The pipeline is triggered by commits to a specific branch in your repository. Wh
 
 ## Container Apps Azure Pipelines task
 
-To build and deploy your container app, you add the [`AzureContainerAppsRCV0`](#) Azure Pipelines task to your pipeline. It supports the following scenarios:
+To build and deploy your container app, you add the [`AzureContainerAppsRCV0`](https://marketplace.visualstudio.com/items?itemName=microsoft-oryx.AzureContainerAppsRC) (preview) Azure Pipelines task to your pipeline. It supports the following scenarios:
 
 * Build from a Dockerfile and deploy to Container Apps.
 * Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby.
 * Deploy an existing container image to Container Apps.
 
-Here are some common scenarios for using the action. For more information, see the [task's GitHub Marketplace page](#).
+Here are some common scenarios for using the action. For more information, see the [task's documentation](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureContainerAppsV0/README.md).
 
 ### Build and deploy to Container Apps
 
