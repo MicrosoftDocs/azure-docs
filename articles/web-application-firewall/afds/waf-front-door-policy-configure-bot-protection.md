@@ -50,7 +50,7 @@ $frontDoorWafPolicy = Get-AzFrontDoorWafPolicy `
   -Name 'WafPolicy'
 ```
 
-## Add the bot protecton rule set
+## Add the bot protection rule set
 
 Use the [New-AzFrontDoorWafManagedRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleobject) cmdlet to select the bot protection rule set, including the version of the rule set. Then, add the rule set to the WAF's configuration.
 
