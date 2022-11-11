@@ -37,31 +37,18 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | N/A  |
-| **Steps** | If the application relies on access token issued by Azure AD, the logout event handler should call |
+| **References**              | [Enable your Web app to sign-in users using the Microsoft Identity Platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut) |
+| **Steps** | The ASP.NET Core OpenIdConnect middleware enables your app to intercept the call to the Microsoft identity platform logout endpoint by providing an OpenIdConnect event named `OnRedirectToIdentityProviderForSignOut` |
 
 ### Example
 ```csharp
-HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType)
-```
-
-### Example
-It should also destroy user's session by calling Session.Abandon() method. Following method shows secure implementation of user logout:
-```csharp
-    [HttpPost]
-        [ValidateAntiForgeryToken]
-        public void LogOff()
-        {
-            string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-            AuthenticationContext authContext = new AuthenticationContext(Authority + TenantId, new NaiveSessionCache(userObjectID));
-            authContext.TokenCache.Clear();
-            Session.Clear();
-            Session.Abandon();
-            Response.SetCookie(new HttpCookie("ASP.NET_SessionId", string.Empty));
-            HttpContext.GetOwinContext().Authentication.SignOut(
-                OpenIdConnectAuthenticationDefaults.AuthenticationType,
-                CookieAuthenticationDefaults.AuthenticationType);
-        } 
+services.Configure<OpenIdConnectOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
+{
+    options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
+    {
+        //Your logic here
+    };
+});
 ```
 
 ## <a id="finite-tokens"></a>Use finite lifetimes for generated SaS tokens
