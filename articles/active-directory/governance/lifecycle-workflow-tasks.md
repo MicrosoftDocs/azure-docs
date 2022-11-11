@@ -302,7 +302,7 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
 |displayName     | Run a Custom Task Extension (Customizable by user)        |
 |description     |  Run a Custom Task Extension to call-out to an external system. (Customizable by user)      |
 |taskDefinitionId     |   "d79d1fcc-16be-490c-a865-f4533b1639ee      |
-|argument     |  Argument contains a name parameter that is the "LogicAppURL", and a value parameter that is the Logic App HTTP trigger.     |
+|argument     |  Argument contains a name parameter that is the "customTaskExtensionID", and a value parameter that is the ID of the previously created extension that contains information about the Logic App.    |
 
 
 
@@ -317,7 +317,7 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
             "taskDefinitionId": "d79d1fcc-16be-490c-a865-f4533b1639ee",
             "arguments": [
                 {
-                    "name": "CustomTaskExtensionID",
+                    "name": "customTaskExtensionID",
                     "value": ""<ID of your Custom Task Extension>""
                 }
             ]
