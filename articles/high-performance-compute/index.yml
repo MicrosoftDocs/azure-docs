@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
 title: Azure HPC documentation
-summary: Azure High Performance Computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads. This page offers a range of available services and use case scenarios for you to explore.
+summary: Azure High Performance Computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads.
 brand: azure
 
 metadata:
   title: Azure HPC documentation
-  description: Azure High Performance Computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads. This page offers a range of available services and use case scenarios for you to explore.
+  description: Azure High Performance Computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads.
   imageSrc: ../virtual-machines/media/logos/hpclogo.png
   ms.service: azure-hpc
   ms.topic: hub-page
@@ -60,8 +60,8 @@ productDirectory:
       links:
         - url: ../virtual-machines/overview.md
           text: Linux and Windows VMs on Azure
-        - url: ../virtual-machines/linux/quick-create-cli.md
-          text: What's New?
+        - url: /azure/virtual-machines/whats-new/
+          text: What's New for Azure VMs?
     # Card
     - title: Virtual Desktop Infrastructure (VDI)
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-desktop.svg
@@ -86,7 +86,8 @@ productDirectory:
           text: What is Azure HPC Cache?
         - url: /azure/hpc-cache/hpc-cache-create?tabs=azure-portal/
           text: Create an Azure HPC Cache
-#Additional Content
+
+#Additional Content (No Title)
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
@@ -136,7 +137,7 @@ conceptualContent:
 
 # Super Computing Announcement included
 
-# conceptualContent section (optional)
+# HPC-related Conferences
 additionalContent:
   # Supports up to 4 subsections
   sections:
