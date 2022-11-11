@@ -20,7 +20,9 @@ Every secure request to an Azure Storage account must be authorized. By default,
 
 When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with the account access keys. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
-This article describes how to detect requests sent with Shared Key authorization and how to remediate Shared Key authorization for your storage account.
+The **AllowSharedKeyAccess** property of a storage account is not set by default and does not return a value until you explicitly set it. The storage account permits requests that are authorized with Shared Key when the property value is **null** or when it is **true**.
+
+This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage Shared Key authorization for your storage account.
 
 ## Prerequisites
 
@@ -122,10 +124,9 @@ Follow these steps to assign the built-in policy for the appropriate scope in th
   
 1. On the **Review + create** tab, review the policy assignment then select **Create** to assign the policy definition to the specified scope.
 
-> [!NOTE]
-> The default settings on the remaining tabs are sufficient for the purpose of assigning the policy in audit mode:
+The default settings on the remaining tabs are sufficient for the purpose of assigning the policy in audit mode:
 
-#### Monitor compliance with the Shared Key access policy
+#### Monitor compliance with the policy
 
 To monitor your storage accounts for compliance with the Shared Key access policy, follow these steps:
 
@@ -229,8 +230,6 @@ After you have analyzed how requests to your storage account are being authorize
 
 When you are confident that you can safely reject requests that are authorized with Shared Key, you can set the **AllowSharedKeyAccess** property for the storage account to **false**.
 
-The **AllowSharedKeyAccess** property is not set by default and does not return a value until you explicitly set it. The storage account permits requests that are authorized with Shared Key when the property value is **null** or when it is **true**.
-
 > [!WARNING]
 > If any clients are currently accessing data in your storage account with Shared Key, then Microsoft recommends that you migrate those clients to Azure AD before disallowing Shared Key access to the storage account.
 
@@ -313,9 +312,9 @@ az storage container create \
 
 ## Monitor the Azure Policy for compliance
 
-Continue to [monitor the policy](#monitor-compliance-with-the-shared-key-access-policy) you created earlier for ongoing compliance.
+Continue to [monitor the policy](#monitor-compliance-with-the-policy) you created earlier for ongoing compliance.
 
-## Update the Azure Policy assignment to prevent allowing Shared Key access
+## Update Azure Policy assignment to prevent allowing Shared Key access
 
 To begin enforcing [the Azure Policy assignment you previously created](#configure-the-azure-policy-for-shared-key-access-in-audit-mode) for policy **Storage accounts should prevent shared key access**, change the effect of the policy assignment to deny to allow Shared Key access on storage accounts. To change the effect of the policy, perform the following steps:
 
