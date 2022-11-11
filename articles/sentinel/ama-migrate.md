@@ -32,8 +32,8 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Security Events**     |  [Windows Security Events data connector](data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)     |  [Windows Security Events data connector (Legacy)](data-connectors-reference.md#security-events-via-legacy-agent-windows)       |
 |**Filtering by security event ID**     |   [Windows Security Events data connector (AMA)](data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)    |     -     |
 |**Filtering by event ID**     | Collection only        |   -       |
-|**Windows Event Forwarding**     |  [Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview) (Public Preview)       |     -     |
-|**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors-reference.md#windows-firewall)       |
+|**Windows Event Forwarding**     |  [Windows Forwarded Events](data-connectors/windows-forwarded-events.md) (Public Preview)       |     -     |
+|**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors/windows-firewall.md)       |
 |**Performance counters**     |   Collection only      |  Collection only       |
 |**Windows Event Logs**     |  Collection only       | Collection only        |
 |**Custom logs**     |   Collection only       |    Collection only     |
@@ -41,7 +41,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Multi-homing**     |  Collection only       |   Collection only      |
 |**Application and service logs**     |    -      |    Collection only     |
 |**Sysmon**     |    Collection only      |      Collection only   |
-|**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors-reference.md#windows-dns-server-preview) (Public preview)        |
+|**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors/windows-server-dns-solution-for-sentinel.md) (Public preview)        |
 
 
 ### Linux logs
