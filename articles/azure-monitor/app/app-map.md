@@ -259,14 +259,14 @@ Application Map filters allow the user to reduce the number of nodes and edges s
 
 To create a filter, select the "Add filter" button in the application map's toolbar.
 
-:::image type="content" source="media/app-map/image1.png" alt-text="A screenshot of the Add Filter button":::
+:::image type="content" source="media/app-map/image-1.png" alt-text="A screenshot of the Add Filter button.":::
 
 This pops up a dialog with three sections: 1) Select filter type, 2)
 Choose filter parameters, and 3) Review.
 
-:::image type="content" source="media/app-map/image2.png" alt-text="A screenshot with the Node Filter radio button selected":::
+:::image type="content" source="media/app-map/image-2.png" alt-text="A screenshot with the Node Filter radio button selected.":::
 
-:::image type="content" source="media/app-map/image3.png" alt-text="A screenshot with the Connector Edge Filter radio button selected":::
+:::image type="content" source="media/app-map/image-3.png" alt-text="A screenshot with the Connector Edge Filter radio button selected.":::
 
 The first section has two options:
 
@@ -318,7 +318,7 @@ same screenshot, the user is able to select one of the values found in
 the map or to create an option that isn't an exact match to one found
 in the map.
 
-:::image type="content" source="media/app-map/image4.png" alt-text="A screenshot with the filter configured to select nodes that contain the text west":::
+:::image type="content" source="media/app-map/image-4.png" alt-text="A screenshot with the filter configured to select nodes that contain the text west.":::
 
 #### Connector (edge) filters
 
@@ -371,9 +371,9 @@ Connector filters require three parameters:
 
 The Review section contains textual and visual descriptions of what the filter will do, which should be helpful when learning how filters work:
 
-:::image type="content" source="media/app-map/image5.png" alt-text="A screenshot of the Review section with node in focus":::
+:::image type="content" source="media/app-map/image-5.png" alt-text="A screenshot of the Review section with node in focus.":::
 
-:::image type="content" source="media/app-map/image6.png" alt-text="A screenshot of the Review section depicting an average call duration greater than 42 milliseconds":::
+:::image type="content" source="media/app-map/image-6.png" alt-text="A screenshot of the Review section depicting an average call duration greater than 42 milliseconds.":::
 
 ### Using filters in Application Map
 
@@ -383,11 +383,11 @@ After configuring a filter in the "Add filter" pop-up, select "Apply" to create 
 
 The filters show up as rounded buttons above the application map:
 
-:::image type="content" source="media/app-map/image7.png" alt-text="A screenshot displaying the rounded filter buttons above the application map":::
+:::image type="content" source="media/app-map/image-7.png" alt-text="A screenshot displaying the rounded filter buttons above the application map.":::
 
-Clicking the :::image type="content" source="media/app-map/image8.png" alt-text="A screenshot of a rounded X button"::: on a filter will remove that filter. Clicking elsewhere on the button allows the user to edit the filter's values. As the user changes values in the filter, the new values are applied so that the map is a preview of the change. Clicking "Cancel" restores the filter as it was before editing.
+Clicking the :::image type="content" source="media/app-map/image-8.png" alt-text="A screenshot of a rounded X button."::: on a filter will remove that filter. Clicking elsewhere on the button allows the user to edit the filter's values. As the user changes values in the filter, the new values are applied so that the map is a preview of the change. Clicking "Cancel" restores the filter as it was before editing.
 
-:::image type="content" source="media/app-map/image9.png" alt-text="A screenshot displaying the Configure Connector Filter section with a Cancel button":::
+:::image type="content" source="media/app-map/image-9.png" alt-text="A screenshot displaying the Configure Connector Filter section with a Cancel button.":::
 
 ### Reusing filters
 
@@ -400,30 +400,30 @@ Filters can be reused in two ways:
     later time may be different from the one observed when the link was
     created.
 
--   The dashboard pin :::image type="content" source="media/app-map/image10.png" alt-text="A screenshot displaying the dashboard pin button"::: is located next to the title bar of the Application Map blade. This button pins the map to a dashboard, along with the filters applied to it. This action can be useful for filters that are frequently interesting. As an example, the user can pin a map with "Error connector" filter applied to it, and the dashboard view will only show nodes that have errors in their HTTP calls.
+-   The dashboard pin :::image type="content" source="media/app-map/image-10.png" alt-text="A screenshot displaying the dashboard pin button."::: is located next to the title bar of the Application Map blade. This button pins the map to a dashboard, along with the filters applied to it. This action can be useful for filters that are frequently interesting. As an example, the user can pin a map with "Error connector" filter applied to it, and the dashboard view will only show nodes that have errors in their HTTP calls.
 
 #### Filter usage scenarios
 
 There are many filter combinations. Here are some suggestions that apply to most maps and may be useful to pin on a dashboard:
 
 -   Show only errors that appear significant by using the "Error connector" filter along with "Intelligent view":\
-    :::image type="content" source="media/app-map/image11.png" alt-text="A screenshot displaying the Last 24 hours and Highlighted Errors filters":::
-    :::image type="content" source="media/app-map/image12.png" alt-text="A screenshot displaying the Intelligent Overview toggle":::
+    :::image type="content" source="media/app-map/image-11.png" alt-text="A screenshot displaying the Last 24 hours and Highlighted Errors filters.":::
+    :::image type="content" source="media/app-map/image-12.png" alt-text="A screenshot displaying the Intelligent Overview toggle.":::
 
 -   Hide low-traffic connectors with no errors to quickly focus on issues that have higher impact:
-     :::image type="content" source="media/app-map/image13.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 876, and highlihgted errors filters":::
+     :::image type="content" source="media/app-map/image-13.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 876, and highlihgted errors filters.":::
     
 -   Show high-traffic connectors with high average duration to focus on potential performance issues:
-     :::image type="content" source="media/app-map/image14.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 3057, and average time greater than 467 filters":::
+     :::image type="content" source="media/app-map/image-14.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 3057, and average time greater than 467 filters.":::
     
 -   Show a specific portion of a distributed application (requires suitable roleName naming convention):
-     :::image type="content" source="media/app-map/image15.png" alt-text="A screenshot displaying the Last 24 hours and Connected Contains West filters":::
+     :::image type="content" source="media/app-map/image-15.png" alt-text="A screenshot displaying the Last 24 hours and Connected Contains West filters.":::
 
 -   Hide a dependency type that is too noisy:
-     :::image type="content" source="media/app-map/image16.png" alt-text="A screenshot displaying the Last 24 hours and Nodes Contains Storage Accounts filters":::
+     :::image type="content" source="media/app-map/image-16.png" alt-text="A screenshot displaying the Last 24 hours and Nodes Contains Storage Accounts filters.":::
 
 -   Show only connectors that have higher error rates than a specific
-     :::image type="content" source="media/app-map/image17.png" alt-text="A screenshot displaying the Last 24 hours and Errors greater than 0.01 filters":::  
+     :::image type="content" source="media/app-map/image-17.png" alt-text="A screenshot displaying the Last 24 hours and Errors greater than 0.01 filters.":::  
 
 ---------------------------------------------------------------------------------
 
