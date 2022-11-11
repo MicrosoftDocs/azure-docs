@@ -147,6 +147,7 @@
     - name: View closed captions
       href: view-closed-captions.md
     - name: Customize content models
+      displayName: customizing   
       items:
       - name: Animated characters
         href: animated-characters-recognition-how-to.md
