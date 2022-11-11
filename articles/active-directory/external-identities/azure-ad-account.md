@@ -14,6 +14,7 @@ author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
 ms.custom: engagement-fy23
+# Customer intent: As a tenant administrator, I want to add Azure AD as an identity provider for external guest users.
 ---
 
 # Add Azure Active Directory (Azure AD) as an identity provider for External Identities
