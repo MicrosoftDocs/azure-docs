@@ -42,6 +42,7 @@ The following are well-known ports used by services listed in this article. If a
 | 443 | Secured web traffic (HTTPS) |
 | 445 | SMB traffic used to access file shares in Azure File storage |
 | 8787 | Used when connecting to RStudio on a compute instance |
+| 18881 | Used to connect to the language server to enable IntelliSense for notebooks on a compute instance. |
 
 ## Required public internet access
 
