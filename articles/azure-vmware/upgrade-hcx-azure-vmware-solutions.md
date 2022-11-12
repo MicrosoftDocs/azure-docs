@@ -13,7 +13,7 @@ HCX service updates may include new features, software fixes, or security patche
 
 ## Prerequisites 
 
-For systems requirements, compatibility, and upgrade prerequisites for the version you plan to use, see the [VMware HCX release notes](https://docs.vmware.com/en/VMware-HCX/index.html).  
+For systems requirements, compatibility, and upgrade prerequisites, see the [VMware HCX release notes](https://docs.vmware.com/en/VMware-HCX/index.html).  
 
 For more information about the upgrade path, see the [Product Interoperability Matrix](https://interopmatrix.vmware.com/Upgrade?productId=660) . 
 
@@ -22,11 +22,11 @@ For more information about the upgrade path, see the [Product Interoperability M
 
 ## Upgrade HCX 
 The upgrade process is in two steps: 
-1. Upgrade HCX manager
-1. Upgrade HCX service mesh appliances 
+1. Upgrade HCX Manager
+1. Upgrade HCX Service Mesh appliances 
 
 ### Upgrade HCX manager
-The VMware solution backs up the HCX cloud manager configuration daily. 
+The VMware Solution backs up the HCX cloud manager configuration daily. 
 HCX manager snapshots during upgrades to HCX 4.5, are taken automatically. HCX retains automatic snapshots for 24 hours before deleting them. For any manual snapshot or help with reverting from a snapshot, create a [support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview). 
 
 To follow the HCX Manager upgrade process, see [Upgrading the HCX Manager](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html) 
@@ -49,7 +49,7 @@ To follow the Service Mesh appliances upgrade process, see [Upgrading the HCX Se
 
 **Q3**: How do I roll back HCX upgrade using a snapshot? 
 
-**Answer**: See [Rolling Back an Upgrade Using Snapshots](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-B34728B9-B187-48E5-AE7B-74E92D09B98B.html). On the cloud side, open a [support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to roll back the upgrade. 
+**Answer**: See [Rolling Back an Upgrade Using Snapshots](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-B34728B9-B187-48E5-AE7B-74E92D09B98B.html).  On the cloud side, open a [support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to roll back the upgrade. 
 
 ## Next steps 
 [HCX Service Update Procedures](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-77111C61-EC4C-4C8C-8340-5828CC4D489D.html)   
