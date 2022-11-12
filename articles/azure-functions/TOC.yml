@@ -422,7 +422,7 @@
         - name: Move across regions
           href: functions-move-across-regions.md
         - name: Migrate to a zone-redundant plan
-          href: ../availability-zones/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../reliability/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Work with legacy Functions Proxies
           href: legacy-proxies.md  
     - name: Migrate
@@ -622,6 +622,9 @@
           items:
             - name: Overview
               href: functions-bindings-azure-sql.md
+              displayName: Azure SQL
+            - name: Trigger
+              href: functions-bindings-azure-sql-trigger.md
               displayName: Azure SQL
             - name: Input
               href: functions-bindings-azure-sql-input.md

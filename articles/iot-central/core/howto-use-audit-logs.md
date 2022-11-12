@@ -45,29 +45,29 @@ The log stores data for 30 days, after which it's no longer available.
 
 The following screenshot shows the audit log view with the location of the sorting and filtering controls highlighted:
 
-:::image type="content" source="media/howto-use-audit-logs/audit-log.png" alt-text="Screenshot that shows the audit log. The location of the sort and filter controls is highlighted.":::
+:::image type="content" source="media/howto-use-audit-logs/audit-log.png" alt-text="Screenshot that shows the audit log. The location of the sort and filter controls is highlighted." lightbox="media/howto-use-audit-logs/audit-log.png":::
 
 ## Customize the log
 
 Select **Column options** to customize the audit log view. You can add and remove columns, reorder the columns, and change the column widths:
 
-:::image type="content" source="media/howto-use-audit-logs/audit-logs-column-options.png" alt-text="Screenshot that shows the audit log column options.":::
+:::image type="content" source="media/howto-use-audit-logs/audit-logs-column-options.png" alt-text="Screenshot that shows the audit log column options." lightbox="media/howto-use-audit-logs/audit-logs-column-options.png":::
 
 ## Sort the log
 
 You can sort the log into ascending or descending timestamp order. To sort, select **Timestamp**:
 
-:::image type="content" source="media/howto-use-audit-logs/audit-logs-sorting.png" alt-text="Screenshot that shows how to sort the log into descending timestamp order.":::
+:::image type="content" source="media/howto-use-audit-logs/audit-logs-sorting.png" alt-text="Screenshot that shows how to sort the log into descending timestamp order." lightbox="media/howto-use-audit-logs/audit-logs-sorting.png":::
 
 ## Filter the log
 
 To focus on a specific time, filter the log by time range. Select **Edit time range** and specify the range you're interested in:
 
-:::image type="content" source="media/howto-use-audit-logs/audit-logs-time.png" alt-text="Screenshot that shows how filter the log to show the last hour of entries.":::
+:::image type="content" source="media/howto-use-audit-logs/audit-logs-time.png" alt-text="Screenshot that shows how filter the log to show the last hour of entries." lightbox="media/howto-use-audit-logs/audit-logs-time.png":::
 
 To focus on specific entries, filter by entity type or action. Select **Filter** and use the multi-select drop-downs to specify your filter conditions:
 
-:::image type="content" source="media/howto-use-audit-logs/audit-logs-filter.png" alt-text="Screenshot that shows how filter the log to show only updates to user entities.":::
+:::image type="content" source="media/howto-use-audit-logs/audit-logs-filter.png" alt-text="Screenshot that shows how filter the log to show only updates to user entities." lightbox="media/howto-use-audit-logs/audit-logs-filter.png":::
 
 ## Manage access
 
