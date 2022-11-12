@@ -14,8 +14,6 @@ recommendations: false
 
 # Azure Form Recognizer layout model
 
-The Form Recognizer Layout is an advanced machine-learning based document layout analysis model available in the Form Recognizer cloud API. In the version v2.1, the document layout model extracted text lines, words, tables, and selection marks.
-
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
 ::: moniker-end
@@ -24,9 +22,14 @@ The Form Recognizer Layout is an advanced machine-learning based document layout
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
+Form Recognizer layout model is an advanced machine-learning based document analysis API available in the Form Recognizer cloud. It enables you to take documents in a variety of formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/Bing-Autosuggest/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
+
 ## Document layout analysis
 
-Document structure layout analysis is the process of analyzing a document to extract regions of interest and their inter-relationships. The goal is to extract text and structural elements from the page for building better semantic understanding models. For all extracted text, there are two types of roles that text plays in a document layout.  Text, tables, and selection marks are examples of geometric roles. Titles, headings, and footers are examples of logical roles. For example, a reading system requires differentiating text regions from non-textual ones along with their reading order.
+Document structure layout analysis is the process of analyzing a document to extract regions of interest and their inter-relationships. The goal is to extract text and structural elements from the page to build better semantic understanding models. There are two types of roles that text plays in a document layout:
+
+* **Geometric roles**: Text, tables, and selection marks are examples of geometric roles.
+* **Logical roles**: Titles, headings, and footers are examples of logical roles.
 
 The following illustration shows the typical components in an image of a sample page.
 
@@ -37,41 +40,6 @@ The following illustration shows the typical components in an image of a sample 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
 :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Form Recognizer studio":::
-
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
-**Sample document processed with [Form Recognizer sample labeling tool layout model](https://fott-2-1.azurewebsites.net/layout-analyze)**:
-
-:::image type="content" source="media/layout-tool-example.jpg" alt-text="Screenshot of a document processed with the layout model.":::
-::: moniker-end
-
-## Supported document types
-
-| **Model**   | **Images**   | **PDF**  | **TIFF** |
-| --- | --- | --- | --- |
-| Layout  | ✓  | ✓  | ✓  |
-
-::: moniker range="form-recog-3.0.0"
-
-### Data extraction
-
-**Starting with v3.0 GA**, it extracts paragraphs and more structure information like titles, section headings, page header, page footer, page number, and footnote from the document page. These structural elements are examples of logical roles described in the previous section. This capability is supported for PDF documents and images (JPG, PNG, BMP, TIFF).
-
-| **Model**   | **Text**   | **Selection Marks**   | **Tables**  | **Paragraphs** | **Logical roles** |
-| --- | --- | --- | --- | --- | --- |
-| Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
-
-**Supported logical roles for paragraphs**:
-The paragraph roles are best used with unstructured documents.  Paragraph roles help analyze the structure of the extracted content for better semantic search and analysis.
-
-* title
-* sectionHeading
-* footnote
-* pageHeader
-* pageFooter
-* pageNumber
 
 ## Development options
 
@@ -85,17 +53,25 @@ The following tools are supported by Form Recognizer v3.0:
 
 ::: moniker range="form-recog-2.1.0"
 
-### Data extraction
+**Sample document processed with [Form Recognizer sample labeling tool layout model](https://fott-2-1.azurewebsites.net/layout-analyze)**:
 
-| **Model**   | **Text** | **Tables**  | Selection marks|
-| --- | --- | --- | --- |
-| Layout  | ✓  | ✓| ✓ |
+:::image type="content" source="media/layout-tool-example.jpg" alt-text="Screenshot of a document processed with the layout model.":::
 
-The following tools are supported by Form Recognizer v2.1:
+::: moniker-end
 
-| Feature | Resources |
-|----------|-------------------------|
-|**Layout API**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+## Input requirements
+
+::: moniker range="form-recog-3.0.0"
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+* Supported file formats: JPEG, PNG, PDF, and TIFF
+* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
 
@@ -163,25 +139,53 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 ::: moniker-end
 
-## Input requirements
+## Supported document types
+
+| **Model**   | **Images**   | **PDF**  | **TIFF** |
+| --- | --- | --- | --- |
+| Layout  | ✓  | ✓  | ✓  |
+
+## Supported languages and locales
+
+*See* [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
 
 ::: moniker range="form-recog-3.0.0"
 
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
+### Data extraction
+
+**Starting with v3.0 GA**, it extracts paragraphs and more structure information like titles, section headings, page header, page footer, page number, and footnote from the document page. These structural elements are examples of logical roles described in the previous section. This capability is supported for PDF documents and images (JPG, PNG, BMP, TIFF).
+
+| **Model**   | **Text**   | **Selection Marks**   | **Tables**  | **Paragraphs** | **Logical roles** |
+| --- | --- | --- | --- | --- | --- |
+| Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
+
+**Supported logical roles for paragraphs**:
+The paragraph roles are best used with unstructured documents.  Paragraph roles help analyze the structure of the extracted content for better semantic search and analysis.
+
+* title
+* sectionHeading
+* footnote
+* pageHeader
+* pageFooter
+* pageNumber
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-* Supported file formats: JPEG, PNG, PDF, and TIFF
-* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
-* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+### Data extraction
+
+| **Model**   | **Text** | **Tables**  | Selection marks|
+| --- | --- | --- | --- |
+| Layout  | ✓  | ✓| ✓ |
+
+The following tools are supported by Form Recognizer v2.1:
+
+| Feature | Resources |
+|----------|-------------------------|
+|**Layout API**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
 ::: moniker-end
-
-## Supported languages and locales
-
-*See* [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
 
 ::: moniker range="form-recog-3.0.0"
 
