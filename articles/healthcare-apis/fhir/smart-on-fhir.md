@@ -10,7 +10,7 @@ author: expekesheth
 ms.date: 11/10/2022
 ---
 
-# Overview : SMART on FHIR
+# SMART on FHIR: 
 
 [SMART on FHIR](https://docs.smarthealthit.org/) is a set of open specifications to integrate partner applications with FHIR servers and electronic medical records systems that have Fast Healthcare Interoperability Resources (FHIR&#174;) interfaces. One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for an FHIR server and start an authentication sequence. 
 
@@ -45,27 +45,17 @@ If you do have administrative privileges, complete the following steps to grant 
 To add yourself or another user as owner of an app:
 
 1. In the Azure portal, go to Azure Active Directory.
-1. In the left menu, select **App Registration**.
-1. Search for the app registration you created, and then select it.
-1. In the left menu, under **Manage**, select **Owners**.
-1. Select **Add owners**, and then add yourself or the user you want to have admin consent.
-1. Select **Save**.
+2. In the left menu, select **App Registration**.
+3. Search for the app registration you created, and then select it.
+4. In the left menu, under **Manage**, select **Owners**.
+5. Select **Add owners**, and then add yourself or the user you want to have admin consent.
+6. Select **Save**.
 
 ## Enable the SMART on FHIR proxy
 
-Enable the SMART on FHIR proxy in the **Authentication** settings for your FHIR instance by selecting the **SMART on FHIR proxy** check box:
-
-<!---![Selections for enabling the SMART on FHIR proxy](media/tutorial-smart-on-fhir/enable-smart-on-fhir-proxy.png)--->
-
-## Enable CORS
-
-Because most SMART on FHIR applications are single-page JavaScript apps, you need to [enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md) for the Azure API for FHIR:
-
-<!---![Selections for enabling CORS](media/tutorial-smart-on-fhir/enable-cors.png)--->
-
-## Configure the reply URL
-
-The SMART on FHIR proxy acts as an intermediary between the SMART on FHIR app and Azure AD. The authentication reply (the authentication code) must go to the SMART on FHIR proxy instead of the app itself. The proxy then forwards the reply to the app. 
+Enable the SMART on FHIR proxy in the **Authentication** settings for your FHIR instance by selecting the **SMART on FHIR proxy** check box.
+Enable CORS : Because most SMART on FHIR applications are single-page JavaScript apps, you need to [enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
+Configure the reply URL: The SMART on FHIR proxy acts as an intermediary between the SMART on FHIR app and Azure AD. The authentication reply (the authentication code) must go to the SMART on FHIR proxy instead of the app itself. The proxy then forwards the reply to the app. 
 
 Because of this two-step relay of the authentication code, you need to set the reply URL (callback) for your Azure AD client application to a URL that is a combination of the reply URL for the SMART on FHIR proxy and the reply URL for the SMART on FHIR app. The combined reply URL takes this form:
 
@@ -89,7 +79,7 @@ $encodedText = $encodedText.Replace('+','-');
 $newReplyUrl = $FhirServerUrl.TrimEnd('/') + "/AadSmartOnFhirProxy/callback/" + $encodedText
 ```
 
-Add the reply URL to the public client application that you created earlier for Azure AD:
+Add the reply URL to the public client application that you created earlier for Azure AD
 
 <!---![Reply URL configured for the public client](media/tutorial-smart-on-fhir/configure-reply-url.png)--->
 
@@ -135,7 +125,7 @@ dotnet run
 
 After you start the SMART on FHIR app launcher, you can point your browser to `https://localhost:5001`, where you should see the following screen:
 
-<!---![SMART on FHIR app launcher](media/tutorial-smart-on-fhir/smart-on-fhir-app-launcher.png)--->
+![SMART on FHIR app launcher](media/tutorial-smart-on-fhir/smart-on-fhir-app-launcher.png)
 
 When you enter **Patient**, **Encounter**, or **Practitioner** information, you'll notice that the **Launch context** is updated. When you're using the FHIR service, the launch context is simply a JSON document that contains information about patient, practitioner, and more. This launch context is base64 encoded and passed to the SMART on FHIR app as the `launch` query parameter. According to the SMART on FHIR specification, this variable is opaque to the SMART on FHIR app and passed on to the identity provider. 
 
@@ -151,7 +141,7 @@ These fields are meant to provide guidance to the app, but they don't convey any
 
 Notice that the SMART on FHIR app launcher updates the **Launch URL** information at the bottom of the page. Select **Launch** to start the sample app, and you should see something like this sample:
 
-<!---![SMART on FHIR app](media/tutorial-smart-on-fhir/smart-on-fhir-app.png)--->
+![SMART on FHIR app](media/smart-on-fhir/smart-on-fhir-app.png)
 
 Inspect the token response to see how the launch context fields are passed on to the app.
 
