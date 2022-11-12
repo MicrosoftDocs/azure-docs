@@ -101,8 +101,7 @@ def conversation_transcription_differentiate_speakers():
     transcriber = speechsdk.transcription.ConversationTranscriber(audio_config)
 
     conversation_id = str(uuid.uuid4())
-    conversation = speechsdk.transcription.Conversation(speech_config, conversation_id)    
-
+    conversation = speechsdk.transcription.Conversation(speech_config, conversation_id)
     done = False
 
     def stop_cb(evt: speechsdk.SessionEventArgs):
@@ -110,7 +109,7 @@ def conversation_transcription_differentiate_speakers():
         print('CLOSING {}'.format(evt))
         nonlocal done
         done = True
-    
+        
     transcriber.transcribed.connect(lambda evt: print('TRANSCRIBED: {}'.format(evt)))
     transcriber.session_started.connect(lambda evt: print('SESSION STARTED: {}'.format(evt)))
     transcriber.session_stopped.connect(lambda evt: print('SESSION STOPPED {}'.format(evt)))
