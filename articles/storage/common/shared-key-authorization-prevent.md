@@ -70,7 +70,7 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 
 ### Disallow Shared Key authorization to use Azure AD Conditional Access
 
-To protect an Azure Storage account with Azure AD [Conditional Access](../../active-directory/conditional-access/overview.md) policies, you must disallow Shared Key authorization for the storage account. Follow the steps described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to analyze the potential impact of this change for existing storage accounts before disallowing Shared Key authorization.
+To protect an Azure Storage account with Azure AD [Conditional Access](../../active-directory/conditional-access/overview.md) policies, you must disallow Shared Key authorization for the storage account.
 
 ### Transition Azure Files workloads
 
@@ -119,12 +119,8 @@ Follow these steps to assign the built-in policy for the appropriate scope in th
     :::image type="content" source="media/shared-key-authorization-prevent/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to prevent allowing Shared Key access for your storage accounts" lightbox="media/shared-key-authorization-prevent/policy-definition-select-portal.png":::
     
 1. Select **Review + create**.
-
-    :::image type="content" source="media/shared-key-authorization-prevent/policy-assignment-create-basics.png" alt-text="Screenshot showing the policy assignment basics tab" lightbox="media/shared-key-authorization-prevent/policy-assignment-create-basics.png":::
   
 1. On the **Review + create** tab, review the policy assignment then select **Create** to assign the policy definition to the specified scope.
-
-The default settings on the remaining tabs are sufficient for the purpose of assigning the policy in audit mode:
 
 #### Monitor compliance with the policy
 
@@ -312,7 +308,7 @@ az storage container create \
 
 ## Monitor the Azure Policy for compliance
 
-Continue to [monitor the policy](#monitor-compliance-with-the-policy) you created earlier for ongoing compliance.
+Continue to [monitor the policy you created earlier](#monitor-compliance-with-the-policy) for ongoing compliance.
 
 ## Update the Azure Policy to prevent allowing Shared Key access
 
