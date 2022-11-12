@@ -28,11 +28,11 @@ For more information and an example, see the following video.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mR]
 
 ## Group Managed Service Accounts
-A group Managed Service Account (gMSA) is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, and the ability to delegate the management to other administrators. It also extends this functionality over multiple servers. Azure AD Connect cloud sync supports and recommends the use of a group Managed Service Account for running the agent. For more information on a group Managed Service Account, see [Group Managed Service Accounts](how-to-prerequisites.md#group-managed-service-accounts).
+A Group Managed Service Account (gMSA) is a managed domain account that provides automatic password management, simplified service principal name (SPN) management, and the ability to delegate the management to other administrators. It also extends this functionality over multiple servers. Azure AD Connect cloud sync supports and recommends the use of a Group Managed Service Account for running the agent. For more information on a Group Managed Service Account, see [Group Managed Service Accounts](how-to-prerequisites.md#group-managed-service-accounts).
 
 
 ### Upgrade an existing agent to use the gMSA
-To upgrade an existing agent to use the group Managed Service Account created during installation, update the agent service to the latest version by running AADConnectProvisioningAgent.msi. Now run through the installation wizard again and provide the credentials to create the account when prompted.
+To upgrade an existing agent to use the Group Managed Service Account created during installation, update the agent service to the latest version by running AADConnectProvisioningAgent.msi. Now run through the installation wizard again and provide the credentials to create the account when prompted.
 
 ## Install the agent
 
@@ -56,13 +56,13 @@ To use password writeback and enable the self-service password reset (SSPR) serv
 
 For more information on using password writeback with Azure AD Connect cloud sync, see [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment (preview)](../../active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
 
-## Installing against US govt cloud
+## Installing against US government cloud
 
 By default, the Azure Active Directory (Azure AD) Connect provisioning agent installs against the default Azure cloud environment.  If you're installing the agent for use in the US government, follow these steps:
 
 - In step #7 above, instead of select **Open file**, go to start run and navigate to the **AADConnectProvisioningAgentSetup.exe** file.  In the run box, after the executable, enter **ENVIRONMENTNAME=AzureUSGovernment** and select **Ok**.
 
-    [![Screenshot showing US govt cloud install](media/how-to-install/new-install-12.png)](media/how-to-install/new-install-12.png#lightbox)
+    [![Screenshot showing US government cloud install.](media/how-to-install/new-install-12.png)](media/how-to-install/new-install-12.png#lightbox)
 
 ## Password hash synchronization and FIPS with cloud sync
 
