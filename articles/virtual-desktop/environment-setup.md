@@ -20,7 +20,7 @@ A host pool is a collection of Azure virtual machines that register to Azure Vir
 
 A host pool can be one of two types:
 
-- Personal, where each session host is assigned to an individual user. Personal host pools provide dedicated desktop environments to end-users that optimize environments for performance and data separation. 
+- Personal, where each session host is assigned to an individual user. Personal host pools provide dedicated desktops to end-users that optimize environments for performance and data separation. 
 - Pooled, where user sessions can be load balanced to any session host in the host pool. There can be multiple user sessions on a single session host. Pooled host pools provide a shared remote experience to end-users, which ensures lower costs costs and greater efficiency. 
 
 The following table goes into more detail about the features each type of host pool has:
