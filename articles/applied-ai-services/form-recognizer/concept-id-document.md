@@ -77,7 +77,19 @@ The following tools are supported by Form Recognizer v2.1:
 
 ## Input requirements
 
+::: moniker range="form-recog-3.0.0"
+
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+* Supported file formats: JPEG, PNG, PDF, and TIFF
+* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+
+::: moniker-end
 
 ### Try Form Recognizer
 
@@ -114,11 +126,11 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. On the sample tool home page, select **Use prebuilt model to get data**.
+1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
     :::image type="content" source="media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
 
-1. Select the **Form Type**  to analyze from the dropdown window.
+1. Select the **Form Type**  to analyze from the dropdown menu.
 
 1. Choose a URL for the file you would like to analyze from the below options:
 
@@ -135,7 +147,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown window.":::
+    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown menu.":::
 
 1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 
@@ -154,6 +166,9 @@ Extract data, including name, birth date, and expiration date, from ID documents
 ::: moniker range="form-recog-3.0.0"
 
 ## Supported languages and locales
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|

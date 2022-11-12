@@ -15,8 +15,6 @@ recommendations: false
 
 # Form Recognizer Business Card model
 
-The business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
-
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
 ::: moniker-end
@@ -25,9 +23,11 @@ The business card model combines powerful Optical Character Recognition (OCR) ca
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-## Business card data extraction works
+The business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
 
-Business cards are a great way of representing a business or a professional. The company logo, fonts and background images found in business cards help the company branding and differentiate it from others. Applying OCR and machine-learning based techniques to automate scanning of business cards is a common image processing scenario. Enterprise systems used by sales and marketing teams typically have business card data extraction capability integrated into them for the benefit of their users.
+## Business card data extraction
+
+Business cards are a great way to represent a business or a professional. The company logo, fonts and background images found in business cards help promote the company branding and differentiate it from others. Applying OCR and machine-learning based techniques to automate scanning of business cards is a common image processing scenario. Enterprise systems used by sales and marketing teams typically have business card data extraction capability integration into for the benefit of their users.
 
 ::: moniker range="form-recog-3.0.0"
 ***Sample business card processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***
@@ -68,7 +68,7 @@ The following tools are supported by Form Recognizer v2.1:
 
 ### Try business card data extraction
 
-See how data, including name, job title, address, email, and company name, is extracted from business cards using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
+See how data, including name, job title, address, email, and company name, is extracted from business cards. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -102,11 +102,11 @@ See how data, including name, job title, address, email, and company name, is ex
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. On the sample tool home page, select **Use prebuilt model to get data**.
+1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
     :::image type="content" source="media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
 
-1. Select the **Form Type**  to analyze from the dropdown window.
+1. Select the **Form Type**  to analyze from the dropdown menu.
 
 1. Choose a URL for the file you would like to analyze from the below options:
 
@@ -129,7 +129,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="media/invoice-example-new.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
+    :::image type="content" source="media/business-card-results.png" alt-text="Screenshot of the analyze Results for business card model":::
 
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
@@ -138,7 +138,19 @@ See how data, including name, job title, address, email, and company name, is ex
 
 ## Input requirements
 
+::: moniker range="form-recog-3.0.0"
+
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+* Supported file formats: JPEG, PNG, PDF, and TIFF
+* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+
+::: moniker-end
 
 ::: moniker range="form-recog-3.0.0"
 

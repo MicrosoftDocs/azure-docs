@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Form Recognizer layout model
+# Azure Form Recognizer layout model
 
 The Form Recognizer Layout is an advanced machine-learning based document layout analysis model available in the Form Recognizer cloud API. In the version v2.1, the document layout model extracted text lines, words, tables, and selection marks.
 
@@ -165,7 +165,19 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 ## Input requirements
 
+::: moniker range="form-recog-3.0.0"
+
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+* Supported file formats: JPEG, PNG, PDF, and TIFF
+* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+
+::: moniker-end
 
 ## Supported languages and locales
 
@@ -404,7 +416,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ::: moniker range="form-recog-3.0.0"
 
-* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* [Learn how to process your own forms and documents](quickstarts/try-v3-form-recognizer-studio.md) with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
@@ -412,7 +424,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ::: moniker range="form-recog-2.1.0"
 
-* Try processing your own forms and documents with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
+* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
