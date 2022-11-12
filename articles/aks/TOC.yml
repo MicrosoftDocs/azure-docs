@@ -236,7 +236,7 @@
           items:
             - name: Node pool snapshot
               href: node-pool-snapshot.md
-            - name: Use Dedicated Hosts with AKS (preview)
+            - name: Use Dedicated Hosts with AKS
               href: use-azure-dedicated-hosts.md
             - name: Use multiple node pools
               href: use-multiple-node-pools.md

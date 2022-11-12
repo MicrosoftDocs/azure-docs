@@ -380,6 +380,8 @@ items:
         href: how-tos/calling-sdk/events.md
       - name: Check if user is running supported browser
         href: how-tos/calling-sdk/browser-support.md
+      - name: Verify if an application is active in multiple tabs of a browser
+        href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
   - name: Using the UI Library
     items: 
     - name: Setup Localization
