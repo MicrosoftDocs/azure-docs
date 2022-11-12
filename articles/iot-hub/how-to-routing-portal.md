@@ -1,11 +1,11 @@
 ---
-title: Create message routing and endpoints — Azure portal | Microsoft Docs
+title: Message routing with IoT Hub — Azure portal | Microsoft Docs
 description: A how-to article that creates and deletes routes and endpoints in IoT Hub, using the Azure portal.
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 10/28/2022
+ms.date: 11/11/2022
 ms.author: kgremban
 ---
 
