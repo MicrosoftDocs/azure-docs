@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Azure user roles and permissions for Defender for IoT
 
-Microsoft Defender for IoT uses [Azure Role-Based Access Control (RBAC)](../../role-based-access-control/) to provide access to Enterprise IoT monitoring services and data on the Azure portal.
+Microsoft Defender for IoT uses [Azure Role-Based Access Control (RBAC)](/azure/role-based-access-control/) to provide access to Enterprise IoT monitoring services and data on the Azure portal.
 
 The built-in Azure [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), and [Owner](../../role-based-access-control/built-in-roles.md#owner) roles are relevant for use in Defender for IoT.
 

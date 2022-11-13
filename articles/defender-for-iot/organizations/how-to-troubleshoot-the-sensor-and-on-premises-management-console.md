@@ -183,7 +183,7 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *cyberx*, or *support* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](manage-users-on-premises-management-console.md#recover-a-privileged-user-password).
+    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *cyberx*, or *support* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](manage-users-on-premises-management-console.md#recover-privileged-access-to-an-on-premises-management-console).
 
 ### Investigate a lack of traffic
 
