@@ -154,14 +154,6 @@
       href: onboard-sensors.md
     - name: Activate and set up your sensor
       href: how-to-activate-and-set-up-your-sensor.md
-    - name: Create and manage users
-      items:
-      - name: OT sensor console
-        href: manage-users-sensor.md
-      - name: On-premises management console
-        href: manage-users-on-premises-management-console.md
-      - name: Audit users
-        href: track-user-activity.md
     - name: OT system setup
       items:
       - name: Set up OT network monitoring
@@ -194,6 +186,14 @@
           href: how-to-connect-sensor-by-proxy.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
+      - name: Create and manage users
+        items:
+        - name: OT sensor console
+          href: manage-users-sensor.md
+        - name: On-premises management console
+          href: manage-users-on-premises-management-console.md
+        - name: Audit users
+          href: track-user-activity.md
       - name: Add support for proprietary protocols
         href: resources-manage-proprietary-protocols.md
     - name: Enterprise IoT system setup
