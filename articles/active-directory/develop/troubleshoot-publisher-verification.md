@@ -235,7 +235,7 @@ Most commonly caused when the verification is being performed via Graph API, and
 
 This feature isn't supported for Microsoft consumer accounts. Only applications registered in Azure AD by an Azure AD user are supported.
 
-Occurs when a consumer account (Hotmail, Messenger, OneDrive, MSN, Xbox Live, or Microsoft 365).
+Occurs when a consumer account is used for app registration (Hotmail, Messenger, OneDrive, MSN, Xbox Live, or Microsoft 365).
 
 ### InteractionRequired
 

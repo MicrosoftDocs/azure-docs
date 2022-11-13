@@ -16,6 +16,9 @@ ms.custom: passwordless-java
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java container apps on Azure. At the end of this tutorial, you'll have a [Quarkus](https://quarkus.io) application storing data in a [PostgreSQL](../postgresql/index.yml) database with a managed identity running on [Container Apps](overview.md).
 
+> [!NOTE]  
+> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
+
 What you will learn:
 
 > [!div class="checklist"]
