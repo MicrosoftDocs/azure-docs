@@ -49,7 +49,7 @@ Additionally, the Governance rules (Preview) page presents all of the available 
 Learn more about the [new governance rules at-scale experience](governance-rules.md).
  
 > [!NOTE]
-> As of January 1, 2023, in order to experience the capabilities offered by Governance, you must have the [Defender CSPM plan](concept-cloud-security-posture-management.md) enabled on your subscription.
+> As of January 1, 2023, in order to experience the capabilities offered by Governance, you must have the [Defender CSPM plan](concept-cloud-security-posture-management.md) enabled on your subscription or connector.
 
 ## October 2022
 
