@@ -547,7 +547,7 @@
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference
       href: dns-ama-fields.md
-    - name: Microsoft 365 Defender data types in GCC 
+    - name: Microsoft 365 Defender data types - GCC 
       href: microsoft-365-defender-support-gcc-reference.md
   - name: Detection and analysis references
     items:
