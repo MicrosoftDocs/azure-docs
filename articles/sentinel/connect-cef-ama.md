@@ -202,7 +202,7 @@ Edit the template:
                 "logAnalytics": [
                 {
                     "workspaceResourceId": "/subscriptions/{Your-Subscription-
-Id}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{SentinelWorkspaceName}", "workspaceId": "x123x1x2-1x2x-123x-x123-12xx2xx12xxx",
+Id}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{SentinelWorkspaceName}", "workspaceId": "123x56xx-9123-xx4x-567x-89123xxx45",
 "name": "la-140366483"
                 }
             ]
@@ -344,7 +344,7 @@ This example collects events for:
 ```
 ### Test the connector
 
-1. To validate that the `syslog-ng` daemon is listening on the UDP port and that the AMA is listening, run this command:
+1. To validate that the syslog daemon is running on the UDP port and that the AMA is listening, run this command:
 
     ```
     netstat -lnptv
@@ -358,17 +358,23 @@ This example collects events for:
     tcpdump -I any port 514 -A vv &
     ```
 1. After you complete the validation, we recommend that you stop the `tcpdump`: Type `fg` and then select <kbd>Ctrl</kbd>+<kbd>C</kbd>.
-1. You can send demo messages using the logger. For example, this example writes the message to the `local 4` facility, at severity level `Warning`, to port `514`, on the local host, in the CEF RFC format:
-
-    ```
-    echo -n "<164>CEF:0|Mock-test|MOCK|common=event-format-test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time" | nc -u -w1 localhost 514
-    ```
+1. To send demo messages. 
+    - Use this command. After you run the command, you might need to install an additional package. If you don't want to use this, use the logger.
+    
+        ```
+        echo -n "<164>CEF:0|Mock-test|MOCK|common=event-format-test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time" | nc -u -w0 localhost 514
+        ```
+    - Use the logger. For example, this example writes the message to the `local 4` facility, at severity level `Warning`, to port `514`, on the local host, in the CEF RFC format: 
+    
+        ```
+        logger -p local4.warn -P 514 -n 127.0.0.1 --rfc3164 -t CEF "0|Mock-test|MOCK|common=event-format-test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time"
+        ```    
 
 1. To verify that the connector is installed correctly, run the troubleshooting script with this command:
 
-```
-sudo wget -O cef_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_AMA_troubleshoot.py&&sudo python cef_AMA_troubleshoot.py
-```
+    ```
+    sudo wget -O cef_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_AMA_troubleshoot.py&&sudo python cef_AMA_troubleshoot.py
+    ```
 
 ## Next steps
 
