@@ -277,16 +277,16 @@
         href: appliance-catalog/virtual-management-hyper-v.md
     - name: Legacy appliances
       items:
-      - name: Dell PowerEdge R340 XL (enterprise)
-        href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
-      - name: HPE Edgeline EL300 (SMB rugged)
-        href: appliance-catalog/hpe-edgeline-el300.md
-      - name: Neousys Nuvo-500LP (SMB rugged)
-        href: appliance-catalog/neousys-nuvo-5006lp.md
-      - name: HPE ProLiant DL20 Gen10 (enterprise)
+      - name: HPE ProLiant DL20 Gen10 (E1800)
         href: appliance-catalog/hpe-proliant-dl20-legacy.md
-      - name: HPE ProLiant DL20 Gen10 (SMB)
+      - name: Dell PowerEdge R340 XL (E1800)
+        href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
+      - name: HPE Edgeline EL300 (L500 Rugged)
+        href: appliance-catalog/hpe-edgeline-el300.md
+      - name: HPE ProLiant DL20 Gen10 (L500 Rugged)
         href: appliance-catalog/hpe-proliant-dl20-smb-legacy.md
+      - name: Neousys Nuvo-500LP (L100)
+        href: appliance-catalog/neousys-nuvo-5006lp.md
   - name: Alert reference
     href: alert-engine-messages.md
   - name: API reference

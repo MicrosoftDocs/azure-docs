@@ -9,7 +9,7 @@ ms.topic: reference
 
 This article describes the **HPE ProLiant DL20 Gen10** appliance for OT sensors for monitoring production lines.
 
-Legacy appliances are certified but are not currently offered as preconfigured appliances.
+Legacy appliances are certified but are not currently offered as pre-configured appliances.
 
 | Appliance characteristic |Details |
 |---------|---------|
@@ -74,9 +74,8 @@ Installation includes:
 - Installing Defender for IoT software
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
 >
-
 
 ### Enable remote access and update the password
 

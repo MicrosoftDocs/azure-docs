@@ -5,7 +5,6 @@ ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-
 # HPE ProLiant DL20 Gen10 Plus (4SFF)
 
 This article describes the **HPE ProLiant DL20 Gen10 Plus** appliance for OT sensors in an enterprise deployment.
@@ -17,7 +16,7 @@ The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises managemen
 |**Hardware profile** | E1800 |
 |**Performance** | 	Max bandwidth: 1 Gbp/s <br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: 1U <br> Ports: 8x RJ45 or 6x SFP (OPT)|
-|**Status** | Supported, Available preconfigured |
+|**Status** | Supported, Available pre-configured |
 
 The following image shows a sample of the HPE ProLiant DL20 front panel:
 
@@ -26,8 +25,6 @@ The following image shows a sample of the HPE ProLiant DL20 front panel:
 The following image shows a sample of the HPE ProLiant DL20 back panel:
 
 :::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="Photo of the back panel of the HPE ProLiant DL20." border="false":::
-
-## Specifications
 
 ## Specifications
 
@@ -64,7 +61,7 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 |1|	512485-B21 | HPE iLO Adv 1 Server License 1 year support|
 |1|	P46114-B21 | HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
 
-## Optional Storage Arrays:
+## Optional Storage Arrays
 
 |Quantity|PN|Description|
 |----|---|----|
@@ -83,10 +80,6 @@ Optional modules for port expansion include:
 | PCI Slot 2 (High profile) | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10Gb 2-port SFP+ Adapter for HPE |
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
-
-
-
-
 
 ## HPE ProLiant DL20 Gen10 Plus installation
 

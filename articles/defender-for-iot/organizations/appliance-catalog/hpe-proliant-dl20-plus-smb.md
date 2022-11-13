@@ -5,7 +5,7 @@ ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# HPE ProLiant DL20 Gen10 Plus (NHP 2LFF) 
+# HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
 
 This article describes the **HPE ProLiant DL20 Gen10 Plus** appliance for OT sensors monitoring production lines.
 
@@ -16,7 +16,7 @@ The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises managemen
 |**Hardware profile** | L500|
 |**Performance** | 	Max bandwidth: 200Mbp/s <br>Max devices: 1,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 4x RJ45|
-|**Status** | Supported; Available as pre-configured |
+|**Status** | Supported; Available pre-configured |
 
 The following image shows a sample of the HPE ProLiant DL20 Gen10 front panel:
 
@@ -61,7 +61,7 @@ The following image shows a sample of the HPE ProLiant DL20 Gen10 back panel:
 |1|	512485-B21 | HPE iLO Adv 1 Server License 1 year support|
 |1|	P46114-B21 | HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
 
-## Optional Storage Arrays:
+## Optional Storage Arrays
 
 |Quantity|PN|Description|
 |----|---|----|
@@ -81,7 +81,6 @@ Optional modules for port expansion include:
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
 
-
 ## HPE ProLiant HPE ProLiant DL20 Gen10 Plus installation
 
 This section describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus appliance.
@@ -94,9 +93,8 @@ Installation includes:
 - Installing Defender for IoT software
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
 >
-
 
 ### Enable remote access and update the password
 
