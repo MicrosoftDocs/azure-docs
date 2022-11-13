@@ -12,7 +12,7 @@ ms.author: jyravi
 
 ## Set up the environment
 
-Before you can do anything, install the Speech SDK for Python. You can [install the Speech SDK](../../quickstarts/setup-platform.mdpivots=programming-language-python) from PyPI by running `pip install azure-cognitiveservices-speech`.
+Before you can do anything, install the Speech SDK for Python. You can [install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-python) from PyPI by running `pip install azure-cognitiveservices-speech`.
  
 
 ## Create voice signatures
