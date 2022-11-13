@@ -205,5 +205,5 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
 For more information, see:
 
-- [Create and manage users on an on-premises management console](management-users.md)
+- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
 - [Manage users on the Azure portal](manage-users-portal.md)
