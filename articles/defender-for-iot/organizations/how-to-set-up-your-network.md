@@ -196,7 +196,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
     1. Connect a monitor and a keyboard to the appliance.
 
-    1. Use the **support** user and password to sign in.
+    1. Use the *support* user and password to sign in.
 
     1. Use the command **network list** to see the current IP address.
 
@@ -226,7 +226,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
 1. Connect with a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
 
-2. Use the **support** credentials to sign in.
+2. Use the *support* credentials to sign in.
 
 3. Use the **system sanity** command and check that all processes are running.
 

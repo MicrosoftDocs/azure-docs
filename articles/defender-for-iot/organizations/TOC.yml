@@ -33,6 +33,14 @@
   items:
     - name: System architecture
       href: architecture.md
+    - name: Roles and permissions
+      items:
+      - name: Overview
+        href: manage-users-overview.md
+      - name: Azure roles for OT and Enterprise IoT monitoring
+        href: roles-azure.md
+      - name: On-premises roles for OT monitoring
+        href: roles-on-premises.md
     - name: OT network monitoring best practices
       items:
       - name: Understand your network architecture
@@ -64,11 +72,11 @@
     items:
     - name: Manage device inventory
       items:
-      - name: Manage device inventory from the Azure portal
+      - name: Azure portal
         href: how-to-manage-device-inventory-for-organizations.md
-      - name: Manage device inventory from an OT sensor console
+      - name: OT sensor console
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-      - name: Manage device inventory from an on-premises management console
+      - name: On-premises management console
         href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
@@ -76,9 +84,9 @@
       href: how-to-view-information-per-zone.md
   - name: Manage alerts
     items:
-    - name: Manage alerts from the Azure portal
+    - name: Azure portal
       href: how-to-manage-cloud-alerts.md
-    - name: Manage OT alerts from a sensor console
+    - name: Sensor console
       items:
       - name: View alerts from a sensor console
         href: how-to-view-alerts.md
@@ -88,7 +96,7 @@
         href: how-to-accelerate-alert-incident-response.md
       - name: Forward alert data from a sensor console
         href: how-to-forward-alert-information-to-partners.md
-    - name: Manage OT alerts from an on-premises management console
+    - name: On-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
   - name: Visualize and monitor data
     items:
@@ -146,6 +154,14 @@
       href: onboard-sensors.md
     - name: Activate and set up your sensor
       href: how-to-activate-and-set-up-your-sensor.md
+    - name: Create and manage users
+      items:
+      - name: OT sensor console
+        href: manage-users-sensor.md
+      - name: On-premises management console
+        href: manage-users-on-premises-management-console.md
+      - name: Audit users
+        href: track-user-activity.md
     - name: OT system setup
       items:
       - name: Set up OT network monitoring
@@ -195,32 +211,6 @@
       - name: Update OT monitoring software
         href: update-ot-software.md
         displayName: upgrade
-      - name: Manage OT sensors
-        items:
-        - name: Manage individual sensors
-          href: how-to-manage-individual-sensors.md
-        - name: Control OT traffic monitoring
-          href: how-to-control-what-traffic-is-monitored.md
-        - name: Detect Windows workstations and servers by script
-          href: detect-windows-endpoints-script.md
-        - name: Configure active monitoring
-          items:
-          - name: Planning and prerequisites
-            href: configure-active-monitoring.md
-          - name: Configure Windows Endpoint Monitoring
-            href: configure-windows-endpoint-monitoring.md
-          - name: Configure reverse DNS lookup
-            href: configure-reverse-dns-lookup.md
-        - name: Manage sensors from the on-premises management console
-          href: how-to-manage-sensors-from-the-on-premises-management-console.md
-      - name: Manage OT sensor users
-        items:
-        - name: Create and manage users
-          href: how-to-create-and-manage-users.md
-        - name: Integrate with active directory
-          href: integrate-with-active-directory.md
-        - name: Define global user access control
-          href: how-to-define-global-user-access-control.md
       - name: Enrich device information
         items:
         - name: Work with device notifications

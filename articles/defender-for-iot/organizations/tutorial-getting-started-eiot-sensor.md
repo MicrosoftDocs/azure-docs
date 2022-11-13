@@ -44,7 +44,7 @@ Before starting this tutorial, make sure that you have the following prerequisit
 - Make sure that you've added a Defender for IoT plan for Enterprise IoT networks to your Azure subscription from Microsoft Defender for Endpoint.
 For more information, see [Onboard with Microsoft Defender for IoT](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
-- Make sure that you can access the Azure portal as a **Security admin**, subscription **Contributor**, or subscription **Owner** user. For more information, see [Required permissions](getting-started.md#permissions).
+- Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
 ### Physical appliance or VM requirements
 

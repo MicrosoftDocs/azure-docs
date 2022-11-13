@@ -28,7 +28,7 @@ Before you start, make sure that you have the following:
 
 - Completed [Quickstart: Get started with Defender for IoT](getting-started.md) so that you have an Azure subscription added to Defender for IoT.
 
-- Azure permissions of **Security admin**, **Subscription contributor**, or **Subscription owner** on your subscription
+- Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
 - At least one device to monitor, with the device connected to a SPAN port on a switch.
 
@@ -131,15 +131,17 @@ This procedure describes how to install the sensor software on your VM.
 
 1. The following credentials are automatically generated and presented. Copy the usernames and passwords to a safe place, because they're required to sign-in and manage your sensor. The usernames and passwords won't be presented again.
 
-    - **Support**: The administrative user for user management.
+    - **support**: The administrative user for user management.
 
-    - **CyberX**: The equivalent of root for accessing the appliance.
+    - **cyberx**: The equivalent of root for accessing the appliance.
+
+    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 1. When the appliance restarts, access the sensor via the IP address previously configured: `https://<ip_address>`.
 
 ### Post-installation validation
 
-This procedure describes how to validate your installation using the sensor's own system health checks, and is available to both the **Support** and **CyberX** sensor users.
+This procedure describes how to validate your installation using the sensor's own system health checks, and is available to both the *support* and *cyberx* sensor users.
 
 **To validate your installation**:
 

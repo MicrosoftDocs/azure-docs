@@ -32,22 +32,13 @@ Users can also work with a trial commitment, which supports monitoring a limited
 
 ## Prerequisites
 
-Before you onboard a plan, verify that:
+Before you onboard a plan, verify that you have:
 
-- Your Azure account is set up.
-- You have the required Azure [user permissions](getting-started.md#permissions).
+- An Azure account subscription. If you don't already have an Azure account, you can [create your free Azure account today](https://azure.microsoft.com/free/).
 
-### Azure account subscription requirements
+    If you already have access to an Azure subscription, but it isn't listed when adding a Defender for IoT plan, check your account details and confirm your permissions with the subscription owner. For more information, see https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade.
 
-To get started with Microsoft Defender for IoT, you must have a Microsoft Azure account subscription.
-
-If you don't have a subscription, you can sign up for a free account. For more information, see https://azure.microsoft.com/free/.
-
-If you already have access to an Azure subscription, but it isn't listed when adding a Defender for IoT plan, check your account details and confirm your permissions with the subscription owner. For more information, see https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade.
-
-### User permission requirements
-
-Azure **Security admin**, **Subscription owners** and **Subscription contributors** can onboard, update, and remove Defender for IoT plans. For more information on user permissions, see [Defender for IoT user permissions](getting-started.md#permissions).
+- Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
 ### Defender for IoT committed devices
 
