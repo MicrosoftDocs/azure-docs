@@ -40,7 +40,8 @@ The due date set for the recommendation to be remediated is based on a timeframe
 
 You can also set the owner of the resources that are affected by the specified recommendations. In organizations that use resource tags to associate resources with an owner, you can specify the tag key and the governance rule reads the name of the resource owner from the tag.
 
-The owner is indicated as unspecified when the tag defined in the rule, which determines the owner wasn't found on the resource, the associated resource group, and the associated subscription. 
+The owner is indicated as unspecified when the tag defined in the rule, which determines the owner wasn't found on the resource, the associated resource group, and the associated subscription.
+
 :::image type="content" source="media/governance-rules/unspecified owner.png" alt-text="screenshot showing unspecified owner line." lightbox="media/governance-rules/unspecified owner.png":::
 
 By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If an email for the owner's manager is found in the organizational Azure Active Directory (Azure AD), the owner's manager receives a weekly email showing any overdue recommendations by default.
