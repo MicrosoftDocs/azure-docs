@@ -32,7 +32,7 @@ This diagram outlines the architecture discussed above.
 
 ## How cloud support affects data from Microsoft 365 Defender connectors
 
-Your environment ingests data from multiple connectors. The type of cloud your environment uses affects Microsoft Sentinel's ability to ingest and display data from these connectors, like logs, alerts, device events, and more.
+Your environment ingests data from multiple connectors. The type of cloud you use affects Microsoft Sentinel's ability to ingest and display data from these connectors, like logs, alerts, device events, and more.
 
 We have identified support discrepancies between the different clouds for the data streaming from these connectors:
 
