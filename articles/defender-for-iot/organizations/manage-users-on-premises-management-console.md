@@ -15,13 +15,13 @@ This article describes how to manage on-premises users directly on an on-premise
 
 By default, each on-premises management console is installed with the privileged *cyberx* and *support* users, which have access to advanced tools for troubleshooting and setup.
 
-When setting up a sensor for the first time, sign in with one of these user credentials, create an initial user with an **Administrator** role, and then create extra users for security analysts and read-only users.
+When setting up a sensor for the first time, sign in with one of these user credentials, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
 
 For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Add new on-premises management console users
 
-This procedure describes how to create new users for an on-premises management console, and is available for the *cyberx* and *support* users, and any user with the **Administrator** role.
+This procedure describes how to create new users for an on-premises management console, and is available for the *cyberx* and *support* users, and any user with the **Admin** role.
 
 **To add a user**:
 
@@ -58,7 +58,7 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
 **To control user session timeouts by CLI**:
 
-1. On your on-premises management console, sign in as an **Administrator** user.
+1. On your on-premises management console, sign in as an **Admin** user.
 
 1. Run:
 
@@ -87,11 +87,11 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
 ### Reset a user's password
 
-Users with an **Administrator** role can change passwords for other users. This procedure is not supported for users with **Security analyst** or **Read-only** roles. For more information, see [On-premises user roles](roles-on-premises.md#on-premises-user-roles).
+Users with an **Admin** role can change passwords for other users. This procedure is not supported for users with **Security analyst** or **Read-only** roles. For more information, see [On-premises user roles](roles-on-premises.md#on-premises-user-roles).
 
 **To reset a user's password on the sensor**:
 
-1. Sign into the sensor as a user with the **Administrator** role.
+1. Sign into the sensor as a user with the **Admin** role.
 
 1. Select **Users** from the left, and locate the user whose password needs to be changed.
 
@@ -165,7 +165,7 @@ Before you create access groups, we also recommend that you:
 
   - **Assign local users**: Verify that you've [created local users](#create-and-manage-users-on-an-on-premises-management-console).
 
-    Users with **Administrator** roles have access to all business topology entities by default, and can't be assigned to access groups.
+    Users with **Admin** roles have access to all business topology entities by default, and can't be assigned to access groups.
 
 - Carefully set up your business topology. For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window. For more information, see:
 
@@ -177,7 +177,7 @@ Before you create access groups, we also recommend that you:
 
 <!--validate this procedure, use consistent language for UI elements-->
 
-1. Sign in to the on-premises management console as user with an **Administrator** role.
+1. Sign in to the on-premises management console as user with an **Admin** role.
 
 1. Select **Access Groups** from the left navigation menu, and then select **Add** :::image type="icon" source="media/how-to-define-global-user-access-control/add-icon.png" border="false":::.
 
@@ -227,7 +227,7 @@ For more information, see [Other firewall rules for external services (optional)
 
 **To integrate with Active Directory**:
 
-1. Sign in to your sensor console or on-premises management console as an **Administrator** user.
+1. Sign in to your sensor console or on-premises management console as an **Admin** user.
 
 1. From the left navigation menu, select **System Settings**, and then select one of the following:
 

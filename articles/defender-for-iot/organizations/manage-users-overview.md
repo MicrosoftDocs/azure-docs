@@ -27,6 +27,25 @@ Sign into the OT sensors to [define sensor users](manage-users-sensor.md), and s
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
+### Active Directory support on sensors and on-premises management consoles
+
+You might want to configure an integration between your sensor and Active Directory to allow Active Directory users to sign in to your sensor, or to use Active Directory groups, with collective permissions assigned to all users in the group.
+
+For example, use Active Directory when you have a large number of users that you want to assign **Read Only** access to, and you want to manage those permissions at the group level.
+
+Defender for IoT's integration with Active Directory supports LDAP v3 and the following types of LDAP-based authentication:
+
+- **Full authentication**: User details are retrieved from the LDAP server. Examples are the first name, last name, email, and user permissions.
+
+- **Trusted user**: Only the user password is retrieved. Other user details that are retrieved are based on users defined in the sensor.
+
+For more information, see:
+
+- [Integrate OT sensor users with Active Directory](manage-users-sensor.md#integrate-ot-sensor-users-with-active-directory)
+- [Integrate on-premises management console users with Active Directory](manage-users-on-premises-management-console.md#integrate-users-with-active-directory)
+- [Other firewall rules for external services (optional)](how-to-set-up-your-network.md#other-firewall-rules-for-external-services-optional).
+
+
 ## Next steps
 
 - [Manage Azure subscription users](/azure/role-based-access-control/quickstart-assign-role-user-portal)
