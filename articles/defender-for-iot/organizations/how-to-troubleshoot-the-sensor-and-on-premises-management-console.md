@@ -302,11 +302,13 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 Audit logs record key activity data at the time of occurrence. Use audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
 
-You may also want to export your audit logs to send them to the support team for extra troubleshooting.
-
 > [!NOTE]
 > New audit logs are generated at every 10 MB. One previous log is stored in addition to the current active log file.
->
+> 
+
+For more information, see [View audit log data on the on-premises management console](how-to-create-and-manage-users.md#view-audit-log-data-on-the-on-premises-management-console).
+
+For further troubleshooting, you may want to export your audit logs to send to the support team. 
 
 **To export audit log data**:
 
@@ -322,9 +324,9 @@ You may also want to export your audit logs to send them to the support team for
 
     The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog. Select the link to download the file.
 
-1. Exported audit logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its password. If you're forwarding the audit logs to the support team, make sure to send the password to support separately from the exported logs.
+1. Exported audit logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its password. 
 
-For more information, see [View audit log data on the on-premises management console](how-to-create-and-manage-users.md#view-audit-log-data-on-the-on-premises-management-console).
+Exported audit logs can only be opened together with the support team. Forward the exported logs as well as the generated password to the support team in order to troubleshoot. When forwarding the audit logs to the support team, make sure to send the password to support separately from the exported logs.
 
 ## Next steps
 
