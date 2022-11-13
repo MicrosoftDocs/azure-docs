@@ -151,8 +151,7 @@ Create *user access groups* to establish global access control across Defender f
 
 For example, the following diagram shows how you can allow security analysts from an Active Directory group to access all West European automotive and glass production lines, along with a plastics line in one region:
 
-<!--redo this image-->
-:::image type="content" source="media/how-to-define-global-user-access-control/sa-diagram.png" alt-text="Diagram of the Security Analyst Active Directory group.":::
+:::image type="content" source="media/how-to-define-global-user-access-control/sa-diagram.png" alt-text="Diagram of the Security Analyst Active Directory group." lightbox="media/how-to-define-global-user-access-control/sa-diagram.png":::
 
 **Prerequisites**:
 
