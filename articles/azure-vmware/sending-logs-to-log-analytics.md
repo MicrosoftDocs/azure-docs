@@ -38,29 +38,30 @@ A Log Analytics workspace:
 1. In the Azure portal, go to + Create a resource.
 2. Search for “Log Analytics Workspace” and click Create -> Log Analytics Workspace.
 
-:::image type="content" source="media/log-analytics/Marketplace.png" alt-text="Search for Log Analytics Workspace"
+:::image type="content" source="media/send-logs-to-log-analytics/1-marketplace.png" alt-text="Search for Log Analytics Workspace":::
 
 ### Setup your workspace
 
 1. In the Azure portal, go to + Create a resource.
 2. Search for “Log Analytics Workspace” and click Create -> Log Analytics Workspace.
 
+3. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
 
-1. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
-
-:::image type="content" source="media/log-analytics/create-workspace.png" alt-text="Workspace":::
+:::image type="content" source="media/send-logs-to-log-analytics/2-create-workspace.png" alt-text="Workspace":::
 
 ### Add a diagnostic setting
 
 Next, we’ll want to add a diagnostic setting in your AVS private cloud, so it knows where to send your logs to.
 
-:::image type="content" source="media/log-analytics/add-diagnostics-setting.png" alt-text="Diagnostics Setting":::
-
+:::image type="content" source="media/send-logs-to-log-analytics/3-private-cloud.png" alt-text="Private Cloud":::
+``
 1. Click on your AVS private cloud. Go to Diagnostic settings on the left-hand menu under Monitoring. Select + Add diagnostic setting.
 
 2. Give your diagnostic setting a name. Select the log categories you are interested in sending to your Log Analytics workspace.
 
 3. Make sure to select the checkbox next to Send to Log Analytics workspace. Select the Subscription your Log Analytics workspace lives in and the Log Analytics workspace. Click Save on the top left.
+
+:::image type="content" source="media/send-logs-to-log-analytics/4-diagnostic-setting.png" alt-text="Diagnostics Setting":::
 
 At this point, your Log Analytics workspace has been successfully configured to receive logs from your AVS private cloud.
 
