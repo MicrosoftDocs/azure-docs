@@ -29,29 +29,29 @@ from scipy.io.wavfile import read
 import json
 
 speech_key, service_region = "your-subscription-key", "your-region"
-endpoint="https://signature.{service_region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray"
+endpoint = "https://signature.{service_region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray"
 
 #Enrollment audio for each speaker. In this example, two speaker enrollment audio files are added.
-enrollment_audio_speaker1="enrollment-audio-speaker1.wav"
-enrollment_audio_speaker2="enrollment-audio-speaker2.wav"
+enrollment_audio_speaker1 = "enrollment-audio-speaker1.wav"
+enrollment_audio_speaker2 = "enrollment-audio-speaker2.wav"
 
-def voicedataConverter(enrollment_audio):
-  with open(enrollment_audio, "rb") as wavfile:
-    input_wav = wavfile.read()
+def voice_data_converter(enrollment_audio):
+  with open(enrollment_audio, "rb") as wav_file:
+    input_wav = wav_file.read()
   return input_wav
   
-def voicesignatureCreator(endpoint,speech_key, enrollment_audio):
-  data=voicedataConverter(enrollment_audio)
-  headers={"Ocp-Apim-Subscription-Key":speech_key}
-  r = requests.post(url = endpoint,headers=headers, data = data)
-  voiceSignatureString=json.dumps(r.json()['Signature'])
-  return voiceSignatureString
+def voice_signature_creator(endpoint, speech_key, enrollment_audio):
+  data = voice_data_converter(enrollment_audio)
+  headers = {"Ocp-Apim-Subscription-Key":speech_key}
+  r = requests.post(url = endpoint,headers = headers, data = data)
+  voice_signature_string = json.dumps(r.json()['Signature'])
+  return voice_signature_string
 
-voiceSignatureStringUser1 = voicesignatureCreator(endpoint,speech_key, enrollment_audio_speaker1)
-voiceSignatureStringUser2 = voicesignatureCreator(endpoint,speech_key, enrollment_audio_speaker2)
+voice_signature_user1 = voice_signature_creator(endpoint, speech_key, enrollment_audio_speaker1)
+voice_signature_user2 = voice_signature_creator(endpoint, speech_key, enrollment_audio_speaker2)
 ```
 
-you may use these two voiceSignatureStrings as input to the variables `voiceSignatureStringUser1` and `voiceSignatureStringUser2` below.
+you may use these two voice_signature_string as input to the variables `voice_signature_user1` and `voice_signature_user2` below.
 
 > [!NOTE]
 > Voice signatures can **only** be created using the REST API.
@@ -81,7 +81,7 @@ import time
 import uuid
 from scipy.io import wavfile
 
-speech_key, service_region="Your-Subscription-Key","Your-Region"
+speech_key, service_region="your-subscription-key","your-region"
 conversationfilename= "audio-file-to-transcribe.wav" # 8 channel, 16 bits, 16kHz audio
 
 def conversation_transcription_differentiate_speakers():
@@ -120,8 +120,8 @@ def conversation_transcription_differentiate_speakers():
 
     # Note user voice signatures are not required for speaker differentiation.
     # Use voice signatures when adding participants when more enhanced speaker identification is required.
-    user1 = speechsdk.transcription.Participant("user1@example.com", "en-us", voiceSignatureStringUser1)
-    user2 = speechsdk.transcription.Participant("user2@example.com", "en-us", voiceSignatureStringUser2)
+    user1 = speechsdk.transcription.Participant("user1@example.com", "en-us", voice_signature_user1)
+    user2 = speechsdk.transcription.Participant("user2@example.com", "en-us", voice_signature_user2)
 
     conversation.add_participant_async(user1)
     conversation.add_participant_async(user2)
