@@ -5,13 +5,16 @@ ms.topic: overview
 author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
-ms.date: 11/04/2022
+ms.date: 11/13/2022
 ms.custom: mvc
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (November 2022)
+- Support for providing sudo user account to perform agentless dependency analysis on Linux servers running in VMware, Hyper-V and Physical/other clouds environment.
 
 ## Update (October 2022)
 

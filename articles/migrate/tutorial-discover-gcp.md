@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 04/27/2022
+ms.date: 11/13/2022
 ms.custom: mvc, subject-rbac-steps
 #Customer intent: As a server admin I want to discover my GCP instances.
 ---
@@ -89,7 +89,7 @@ Set up an account that the appliance can use to access servers on  GCP.
         * Performance Monitor Users
         * Performance Log users.
 * For **Linux servers**:
-    * You need a root account on the Linux servers that you want to discover. If you are not able to provide a root account, refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#physical-server-requirements) for an alternative.
+    * You need a root account on the Linux servers that you want to discover. If you are not able to provide a root account, refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#permissions-for-linux-server) for an alternative.
     * Azure Migrate uses password authentication when discovering GCP instances. GCP instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
         1. Sign into each Linux  machine.
         2. Open the sshd_config file: vi /etc/ssh/sshd_config
