@@ -7,7 +7,7 @@ ms.service: azure-vmware
 ms.date: 11/07/2022
 ---
 
-# Sending your Azure VMware Solution logs to Log Analytic
+# Send your Azure VMware Solution logs to Log Analytic
 
 This article shows you how to send Azure VMware Solution logs to Azure Monitor Log Analytics. You can send logs from your AVS private cloud to your Log Analytics workspace, allowing you to take advantage of the Log Analytics feature set, including:
 
@@ -15,7 +15,7 @@ This article shows you how to send Azure VMware Solution logs to Azure Monitor L
 
 • Interactive report-creation capability based on your data, using Workbooks
 
-...Without having to get your logs out of the Microsoft ecosystem!
+...without having to get your logs out of the Microsoft ecosystem!
 
 In the rest of this article, we’ll show you how easy it is to make this happen.
 
@@ -33,7 +33,7 @@ In this section, you’ll:
 
 • Create a diagnostic setting in your private cloud to send your logs to this workspace
 
-### Setup your workspace
+### Create a resource
 
 1. In the Azure portal, go to **Create a resource**.
 2. Search for “Log Analytics Workspace” and click **Create** -> **Log Analytics Workspace**.
@@ -42,7 +42,7 @@ In this section, you’ll:
 
 ### Setup your workspace
 
-1. In the Azure portal, go to + Create a resource.
+1. In the Azure portal, go to **Create a resource**.
 2. Search for “Log Analytics Workspace” and click Create -> Log Analytics Workspace.
 
 3. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
@@ -54,16 +54,15 @@ In this section, you’ll:
 Next, we add a diagnostic setting in your AVS private cloud, so it knows where to send your logs to.
 
 :::image type="content" source="media/send-logs-to-log-analytics/private-cloud.png" alt-text="Private Cloud":::
-``
-1. Click your AVS private cloud. 
-Go to Diagnostic settings on the left-hand menu under Monitoring. 
-Select **Add diagnostic setting**.
 
+1. Click your AVS private cloud.
+Go to Diagnostic settings on the left-hand menu under Monitoring.
+Select **Add diagnostic setting**.
 2. Give your diagnostic setting a name. 
 Select the log categories you are interested in sending to your Log Analytics workspace.
 
-3. Make sure to select the checkbox next to **Send to Log Analytics workspace**. 
-Select the Subscription your Log Analytics workspace lives in and the Log Analytics workspace. 
+3. Make sure to select the checkbox next to **Send to Log Analytics workspace**.
+Select the Subscription your Log Analytics workspace lives in and the Log Analytics workspace.
 Click **Save** on the top left.
 
 :::image type="content" source="media/send-logs-to-log-analytics/diagnostic-setting.png" alt-text="Diagnostics Setting":::
@@ -72,7 +71,7 @@ At this point, your Log Analytics workspace has been successfully configured to 
 
 ## Search and Analyze Logs using Kusto
 
-Now that you’ve successfully configured your logs to go to your Log Analytics workspace, you can use that data to gain meaningful insights with Log Analytics’ search feature. 
+Now that you’ve successfully configured your logs to go to your Log Analytics workspace, you can use that data to gain meaningful insights with Log Analytics’ search feature.
 Log Analytics uses a language called the Kusto Query Language (or Kusto) to search through your logs.
 
 ## Recommended content
