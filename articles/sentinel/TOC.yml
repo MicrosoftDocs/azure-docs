@@ -101,6 +101,8 @@
         href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Other KQL resources
         href: kusto-resources.md
+      - name: Support for data types - GCC environments
+        href: kusto-resources.md
   - name: Normalize data
     items:
     - name: ASIM overview
@@ -545,6 +547,8 @@
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference
       href: dns-ama-fields.md
+    - name: Microsoft 365 Defender data types in GCC 
+      href: microsoft-365-defender-support-gcc-reference.md
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks

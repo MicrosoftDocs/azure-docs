@@ -1,5 +1,5 @@
 ---
-title: Support for Microsoft Sentinel connector data in different GCC environments
+title: Support for Microsoft Sentinel connector data types in Microsoft Sentinel across different GCC environments
 description: This article describes the types of clouds that affect data streaming from the different connectors that Microsoft Sentinel supports.  
 author: limwainstein
 ms.topic: conceptual
@@ -7,9 +7,11 @@ ms.date: 11/14/2022
 ms.author: lwainstein
 ---
 
-# Cloud data in Microsoft Sentinel - Microsoft 365 Commercial, Government Community Cloud, and more
+# Support for data types in Microsoft Sentinel across different GCC environments
 
-Microsoft Sentinel data connectors use data stored in various cloud environments, like the Microsoft 365 Commercial cloud or the Government Community Cloud (GCC). This article describes the types of clouds that affect data streaming from the different connectors that Microsoft Sentinel supports. Specifically, support varies for different Microsoft 365 Defender connector data types in different GCC environments.  
+Microsoft Sentinel data connectors use data stored in various cloud environments, like the Microsoft 365 Commercial cloud or the Government Community Cloud (GCC). 
+
+This article describes the types of clouds that affect the supported data types for the different connectors that Microsoft Sentinel supports. Specifically, support varies for different Microsoft 365 Defender connector data types in different GCC environments.  
 
 ## Microsoft cloud types
 
@@ -42,4 +44,11 @@ We have identified support discrepancies between the different clouds for the da
 - Microsoft Defender for Cloud Apps
 - Azure Active Directory Identity Protection
 
-Read more about [support for different data types in Microsoft Defender 365 connectors for different GCC environments](microsoft-365-defender-support-gcc-reference.md).
+Read more about [support for Microsoft Defender 365 connector data types across different GCC environments](microsoft-365-defender-support-gcc-reference.md).
+
+## Next steps
+
+In this article, you learned about the types of clouds that affect the supported data types for the different connectors that Microsoft Sentinel supports.
+
+- To get started with Microsoft Sentinel, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
+- Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md) and [get visibility into your data and potential threats](get-visibility.md).

@@ -1,6 +1,6 @@
 ---
 title: Support for Microsoft 365 Defender connector data types in Microsoft Sentinel for different GCC environments 
-description: This article describes support for Microsoft 365 Defender connector data types in Microsoft Sentinel for different GCC environments.
+description: This article describes support for different Microsoft 365 Defender connector data types in Microsoft Sentinel across different GCC environments.
 author: limwainstein
 ms.topic: reference
 ms.date: 11/14/2022
@@ -9,9 +9,9 @@ ms.author: lwainstein
 
 # Support for Microsoft 365 Defender connector data types in Microsoft Sentinel for different GCC environments
 
-The type of cloud your environment uses affects Microsoft Sentinel's ability to ingest and display data from these connectors, like logs, alerts, device events, and more. This article describes support for different data tables in Microsoft Sentinel for different cloud types.
+The type of cloud your environment uses affects Microsoft Sentinel's ability to ingest and display data from these connectors, like logs, alerts, device events, and more. This article describes support for different Microsoft 365 Defender connector data types in Microsoft Sentinel across different GCC environments.
 
-Read more about [cloud data support in Microsoft Sentinel](cloud-data-support.md).
+Read more about [cloud data support in Microsoft Sentinel](data-type-support-gcc.md).
 
 ## Microsoft Defender for Endpoint
 
@@ -19,7 +19,7 @@ Option 1:
 
 |Data type  |Microsoft Defender 365 |Microsoft Sentinel |
 |---------|---------|---------|
-|DeviceInfo |GA for all cloud types* |Public Preview for all cloud types* |
+|DeviceInfo |GA for all clouds* |Public Preview for all clouds* |
 
 *Supported on Azure Commercial, GCC, GCC-High, DoD 
 
@@ -75,3 +75,12 @@ Micorosft Defender for Cloud Apps Alerts (standalone connector): 	SecurityAlert 
 |---------|---------|---------|---------|---------|
 |SecurityAlert (IPC) |Public Preview/GA | |Supported |Supported |
 |AlertEvidence |Public Preview |Unsupported |Unsupported |Unsupported |
+
+## Next steps
+
+In this article, you learned which Microsoft 365 Defender connector data types are supported in Microsoft Sentinel for different cloud environments.
+
+- Read more about [cloud data support in Microsoft Sentinel](data-type-support-gcc.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.
