@@ -51,13 +51,6 @@ For more information, see:
 - [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal)
 - [Check access for a user to Azure resources](/azure/role-based-access-control/check-access)
 
-## Audit Azure user activity
-
-Use AAD user auditing resources to audit Azure user activity across Defender for IoT. For more information, see:
-
-- [Audit logs in Azure Active directory](/azure/active-directory/reports-monitoring/concept-audit-logs)
-- [Azure AD audit activity reference](/azure/active-directory/reports-monitoring/reference-audit-activities)
-
 ## Next steps
 
 For more information, see:

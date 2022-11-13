@@ -201,20 +201,6 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
     - **To adjust an inactivity timeout period**, adjust the `= <number>` value to the required time, in seconds.
 
-## Track sensor user activity with the Event Timeline
-
-This procedure describes how to track user activity on a specific sensor, and is available for the *cyberx*, *support*, and *cyberx_host* users, and any user with the **Admin** role.
-
-**To use the sensor's Event Timeline**:
-
-Sign into the sensor console and select **Event Timeline** from the left-hand menu.
-
-On the **Event Timeline** page, make sure that the **User Operations** filter is set to **Show**. Use other filters or search using CTRL+F to find the information of interest to you.
-
-For example:
-
-:::image type="content" source="media/manage-users-sensor/track-user-activity.png" alt-text="Screenshot of the Event Timeline on the sensor showing user activity.":::
-
 ## Next steps
 
 For more information, see:

@@ -1,21 +1,51 @@
 ---
-title: Track on-premises OT monitoring user activity - Microsoft Defender for IoT
-description: Track Microsoft Defender for IoT on-premises user activity on a sensor's event timeline, or by viewing audit logs generated on an on-premises management console.
+title: Audit Microsoft Defender for IoT user activity
+description: Learn how to track and audit user activity across Microsoft Defender for IoT.
 ms.date: 01/26/2022
 ms.topic: article
 ---
 
-# Track on-premises OT monitoring user activity
+# Audit user activity
 
-Track user activity on a sensor's event timeline, or by viewing audit logs generated on an on-premises management console.
+After you've set up your user access for the [Azure portal](manage-users-portal.md), on your [OT network sensors](manage-users-sensor.md) and an [on-premises management consoles](manage-users-on-premises-management-console.md), you'll want to be able to track and audit user activity across all of Microsoft Defender for IoT.
 
-- **The timeline** displays the event or affected device, and the time and date that the user carried out the activity.
+## Audit Azure user activity
 
-- **Audit logs** record key activity data at the time of occurrence. Use audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
+Use Azure Active Directory (AAD) user auditing resources to audit Azure user activity across Defender for IoT. For more information, see:
 
-## View audit log data on the on-premises management console
+- [Audit logs in Azure Active directory](/azure/active-directory/reports-monitoring/concept-audit-logs)
+- [Azure AD audit activity reference](/azure/active-directory/reports-monitoring/reference-audit-activities)
 
-In the on-premises management console, select **System Settings > System Statistics**, and then select **Audit log**.
+## Audit user activity on a OT network sensor
+
+Audit and track user activity on a sensor's **Event timeline**. The **Event timeline** displays events that occurred on the sensor, affected devices for each event, and the time and date that the event occurred.
+
+> [!NOTE]
+> This procedure is supported for users with an **Administrator** role, and the *cyberx*, *support*, and *cyberx_host* users.
+>
+
+**To use the sensor's Event Timeline**:
+
+1. Sign into the sensor console as one of the following users:
+
+    - Any **Administrator** user
+    - The *cyberx*, *support*, or *cyberx_host* user
+
+1. On the sensor, **Event Timeline** from the left-hand menu. Make sure that the filter is set to show **User Operations**.
+
+    For example:
+
+    :::image type="content" source="media/manage-users-sensor/track-user-activity.png" alt-text="Screenshot of the Event Timeline on the sensor showing user activity.":::
+
+1. Use additional filters or search using **CTRL+F** to find the information of interest to you.
+
+## Audit user activity on an on-premises management console
+
+To audit and track user activity on an on-premises management console, use the on-premises management console audit logs, which record key activity data at the time of occurrence. Use on-premises management console audit logs to understand changes that were made on the on-premises management console, when, and by whom.
+
+**To access on-premises management console audit logs**:
+
+Sign in to the on-premises management console and select **System Settings > System Statistics** > **Audit log**.
 
 The dialog displays data from the currently active audit log. For example:
 

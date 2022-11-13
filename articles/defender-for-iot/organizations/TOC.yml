@@ -70,11 +70,11 @@
     items:
     - name: Manage device inventory
       items:
-      - name: Manage device inventory from the Azure portal
+      - name: Azure portal
         href: how-to-manage-device-inventory-for-organizations.md
-      - name: Manage device inventory from an OT sensor console
+      - name: OT sensor console
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-      - name: Manage device inventory from an on-premises management console
+      - name: On-premises management console
         href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
@@ -82,9 +82,9 @@
       href: how-to-view-information-per-zone.md
   - name: Manage alerts
     items:
-    - name: Manage alerts from the Azure portal
+    - name: Azure portal
       href: how-to-manage-cloud-alerts.md
-    - name: Manage OT alerts from a sensor console
+    - name: Sensor console
       items:
       - name: View alerts from a sensor console
         href: how-to-view-alerts.md
@@ -94,7 +94,7 @@
         href: how-to-accelerate-alert-incident-response.md
       - name: Forward alert data from a sensor console
         href: how-to-forward-alert-information-to-partners.md
-    - name: Manage OT alerts from an on-premises management console
+    - name: On-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
   - name: Visualize and monitor data
     items:
@@ -154,14 +154,14 @@
       href: how-to-activate-and-set-up-your-sensor.md
     - name: Create and manage users
       items:
-      - name: Manage user access from the Azure portal
+      - name: Azure portal
         href: manage-users-portal.md
-      - name: Create and manage OT sensor users
+      - name: OT sensor console
         href: manage-users-sensor.md
-      - name: Create and manage users for the on-premises management console
+      - name: On-premises management console
         href: manage-users-on-premises-management-console.md
-      - name: Create and manage on-premises users
-        href: how-to-create-and-manage-users.md
+      - name: Audit users
+        href: track-user-activity.md
     - name: OT system setup
       items:
       - name: Set up OT network monitoring
@@ -211,8 +211,6 @@
       - name: Update OT monitoring software
         href: update-ot-software.md
         displayName: upgrade
-      - name: Track on-premises user activity
-        href: track-user-activity.md
       - name: Enrich device information
         items:
         - name: Work with device notifications
