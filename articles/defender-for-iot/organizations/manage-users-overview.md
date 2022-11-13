@@ -29,3 +29,11 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
 ## Next steps
 
+- [Manage Azure subscription users](/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [Create and manage users on an OT network sensor](manage-users-sensor.md)
+- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
+
+For more information, see:
+
+- [Azure user roles and permissions for Defender for IoT](roles-azure.md)
+- [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
