@@ -37,7 +37,7 @@ This procedure describes how to create new users for an on-premises management c
     |**Last Name**     |   Enter the user's last name.      |
     |**Role**     |  Select a user role. For more information, see [On-premises user roles](roles-on-premises.md#on-premises-user-roles).      |
     |**Remote Sites Access Group**     | Available for the on-premises management console only.   <br><br> Select either **All** to assign the user to all global access groups, or **Specific** to assign them to a specific group only, and then select the group from the drop-down list.   <br><br>For more information, see [Define global access permission for on-premises users](#define-global-access-permission-for-on-premises-users).  |
-    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one numbers<br>- At least one symbol<br><br>Integrating with Active Discovery lets you associate groups of users with specific permission levels. For more information, see [Integrate on-premises users with Active Directory](#integrate-on-premises-users-with-active-directory).|
+    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one numbers<br>- At least one symbol<br><br>Integrating with Active Discovery lets you associate groups of users with specific permission levels. For more information, see [Integrate on-premises users with Active Directory](#integrate-users-with-active-directory).|
 
 1. Select **Save** when you're done.
 
@@ -161,7 +161,7 @@ Before you create access groups, we also recommend that you:
 
 - Plan which users are associated with the access groups that you create. Two options are available for assigning users to access groups:
 
-  - **Assign groups of Active Directory groups**: Verify that you [set up an Active Directory instance](#integrate-on-premises-users-with-active-directory) to integrate with the on-premises management console.
+  - **Assign groups of Active Directory groups**: Verify that you [set up an Active Directory instance](#integrate-users-with-active-directory) to integrate with the on-premises management console.
 
   - **Assign local users**: Verify that you've [created local users](#create-and-manage-users-on-an-on-premises-management-console).
 
@@ -202,7 +202,7 @@ Any rules you create are listed in the **Add Access Group** dialog box, where yo
 
        :::image type="content" source="media/how-to-define-global-user-access-control/add-access-group.png" alt-text="Assign an Active Directory group in the Create Access Group dialog box.":::
 
-       If the option doesn't appear, and you want to include Active Directory groups in access groups, make sure that you've included your Active Directory group in your Active Directory integration. For more information, see [Integrate on-premises users with Active Directory](#integrate-on-premises-users-with-active-directory).
+       If the option doesn't appear, and you want to include Active Directory groups in access groups, make sure that you've included your Active Directory group in your Active Directory integration. For more information, see [Integrate on-premises users with Active Directory](#integrate-users-with-active-directory).
 
     - Add local users by assigning users in the **Users** pane.
 

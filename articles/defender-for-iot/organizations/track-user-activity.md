@@ -7,7 +7,7 @@ ms.topic: article
 
 # Audit user activity
 
-After you've set up your user access for the [Azure portal](manage-users-portal.md), on your [OT network sensors](manage-users-sensor.md) and an [on-premises management consoles](manage-users-on-premises-management-console.md), you'll want to be able to track and audit user activity across all of Microsoft Defender for IoT.
+After you've set up your user access for the [Azure portal](manage-users-overview.md), on your [OT network sensors](manage-users-sensor.md) and an [on-premises management consoles](manage-users-on-premises-management-console.md), you'll want to be able to track and audit user activity across all of Microsoft Defender for IoT.
 
 ## Audit Azure user activity
 
@@ -78,4 +78,10 @@ Audit logs include the following data:
 
 ## Next steps
 
-For more information, see [Create and manage on-premises users for OT monitoring](how-to-create-and-manage-users.md).
+For more information, see:
+
+- [Microsoft Defender for IoT user management](manage-users-overview.md)
+- [Azure user roles and permissions for Defender for IoT](roles-azure.md)
+- [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
+- [Create and manage users on an OT network sensor](manage-users-sensor.md)
+- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)

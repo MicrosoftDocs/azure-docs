@@ -93,7 +93,7 @@ Permissions applied to each role differ between the sensor and the on-premises m
 
 For more information, see:
 
+- [Microsoft Defender for IoT user management](manage-users-overview.md)
 - [Create and manage users on an OT network sensor](manage-users-sensor.md)
 - [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
-- [Manage users on the Azure portal](manage-users-portal.md)
 - [Azure user roles and permissions for Defender for IoT](roles-azure.md)

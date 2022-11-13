@@ -50,5 +50,5 @@ For more information, see [Tutorial: Get started with Enterprise IoT monitoring]
 
 For more information, see:
 
-- [Manage OT monitoring users on the Azure portal](manage-users-portal.md)
+- [Microsoft Defender for IoT user management](manage-users-overview.md)
 - [On-premises user roles for OT monitoring with Defender for IoT](roles-on-premises.md)
