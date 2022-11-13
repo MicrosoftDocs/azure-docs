@@ -61,16 +61,17 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: Dell PowerEdge R340 XL (Enterprise)
-            url: dell-poweredge-r340-xl-legacy.md
-          - text: HPE Edgeline El300 (SMB rugged)
+          - text: HPE ProLiant DL20 Gen10 (E1800)
+            url: hpe-proliant-dl20-legacy.md              
+          - text: Dell PowerEdge R340 XL (E1800)
+            url: dell-poweredge-r340-xl-legacy.md            
+          - text: HPE ProLiant DL20 Gen10 (NHP 2LFF) (L500)
+            url: hpe-proliant-dl20-smb-legacy.md                  
+          - text: HPE Edgeline El300 (L500 Rugged)
             url: hpe-edgeline-el300.md
-          - text: Neousys Nuvo-500LP (SMB rugged)
+          - text: Neousys Nuvo-500LP (L500 Rugged)
             url: neousys-nuvo-5006lp.md
-          - text: HPE ProLiant DL20 Gen10 (Enterprise)
-            url: hpe-proliant-dl20-legacy.md  
-          - text: HPE ProLiant DL20 Gen10 (NHP 2LFF) (SMB)
-            url: hpe-proliant-dl20-smb-legacy.md          
+    
       # - linkListType: reference
       #   links:
       #     - text: Security recommendations for GCP resources
