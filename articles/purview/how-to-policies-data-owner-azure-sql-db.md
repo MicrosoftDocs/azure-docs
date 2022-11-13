@@ -22,6 +22,7 @@ This guide covers how a data owner can delegate authoring policies in Microsoft 
 [!INCLUDE [Access policies Azure SQL Database pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
 
 ## Microsoft Purview configuration
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register the data sources in Microsoft Purview
 The Azure SQL Database data source needs to be registered first with Microsoft Purview before creating access policies. You can follow these guides:
