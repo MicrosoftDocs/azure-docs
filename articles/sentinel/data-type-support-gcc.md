@@ -24,11 +24,11 @@ Microsoft Sentinel data connectors use data stored in various cloud environments
 
 [TBD - paragraph explaining the architecture in the diagram]
 
-Because of this complexity, different types of data streaming into Microsoft Sentinel may or may not be fully supported based on the type of cloud your environment uses.
-
-This diagram outlines the architecture discussed above. 
+Azure Commercial and Azure Government clouds work with different Office 365 clouds. The data that Microsoft Sentinel can ingest is based on whether the workspace is on Azure Commercial or Azure Government.
 
 :::image type="content" source="./media/data-type-support-gcc/cloud-architecture-microsoft-sentinel.png" alt-text="Diagram showing how the Microsoft cloud architecture relates to Microsoft Sentinel data." border="false" lightbox="./media/data-type-support-gcc/cloud-architecture-microsoft-sentinel.png":::
+
+Because of this complexity, different types of data streaming into Microsoft Sentinel may or may not be fully supported.
 
 ## How cloud support affects data from Microsoft 365 Defender connectors
 
