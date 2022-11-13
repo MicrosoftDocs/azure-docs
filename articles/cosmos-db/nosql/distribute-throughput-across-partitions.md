@@ -30,6 +30,8 @@ If you aren't seeing 429 responses and your end to end latency is acceptable, th
 
 To get started using distributed throughput across partitions, enroll in the preview by submitting a request for the **Azure Cosmos DB Throughput Redistribution Across Partitions** feature via the [**Preview Features** page](../../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. You can also select the **Register for preview** button in the eligibility check page to open the **Preview Features** page. 
 
+:::image type="content" source="../media/distribute-throughput-across-partitions/throughput-redistribution-across-partitions-register-feature.png" alt-text="Screenshot of Throughput Redistribution across Partitions feature in Preview Features blade in Subscription page in Azure Portal.":::
+
 Before submitting your request:
 - Ensure that you have at least 1 Azure Cosmos DB account in the subscription. This may be an existing account or a new one you've created to try out the preview feature. If you have no accounts in the subscription when the Azure Cosmos DB team receives your request, it will be declined, as there are no accounts to apply the feature to.
 - Verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria).
@@ -38,9 +40,9 @@ The Azure Cosmos DB team will review your request and contact you via email to c
 
 To check whether an Azure Cosmos DB account is eligible for the preview, you can use the built-in eligibility checker in the Azure portal. From your Azure Cosmos DB account overview page in the Azure portal, navigate to **Diagnose and solve problems** -> **Throughput and Scaling** ->  **Throughput redistribution across partition**. Run the **Check eligibility for throughput redistribution across partitions preview** diagnostic.
 
-:::image type="content" source="../media/distribute-throughput-across-partitions/throughput-and-scaling-category.png" alt-text="Throughput and Scaling topic in Diagnose and solve issues page":::
+:::image type="content" source="../media/distribute-throughput-across-partitions/throughput-and-scaling-category.png" alt-text="Screenshot of Throughput and Scaling topic in Diagnose and solve issues page.":::
 
-:::image type="content" source="../media/distribute-throughput-across-partitions/throughput-redistribution-across-partitions-eligibility-check.png" alt-text="Throughput redistribution across partitions eligibility check with table of all preview eligibility criteria":::
+:::image type="content" source="../media/distribute-throughput-across-partitions/throughput-redistribution-across-partitions-eligibility-check.png" alt-text="Screenshot of Throughput redistribution across partitions eligibility check with table of all preview eligibility criteria.":::
 
 ## Example scenario
 

@@ -173,6 +173,8 @@ You can use the `--order-by` argument to order the groups returned based on aspe
 3. You can also select an individual device within a group to be redirected to the device details page in IoT Hub.
 
    :::image type="content" source="media/create-update-group/device-details.png" alt-text="Screenshot of device details view." lightbox="media/create-update-group/device-details.png":::
+   
+   :::image type="content" source="media/create-update-group/device-details-2.png" alt-text="Screenshot of device details view in IoT hub." lightbox="media/create-update-group/device-details-2.png":::
 
 # [Azure CLI](#tab/cli)
 

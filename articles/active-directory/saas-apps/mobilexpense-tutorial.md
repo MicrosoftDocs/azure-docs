@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2022
+ms.date: 11/08/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Mobile Xpense
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<sub-domain>.mobilexpense.com/<customername>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [Mobile Xpense Client support team](https://www.mobilexpense.net/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [Mobile Xpense Client support team](https://www.mobilexpense.com/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -124,11 +124,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Mobile Xpense SSO
 
-To configure single sign-on on **Mobile Xpense** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Mobile Xpense support team](https://www.mobilexpense.net/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Mobile Xpense** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Mobile Xpense support team](https://www.mobilexpense.com/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Mobile Xpense test user
 
-In this section, you create a user called Britta Simon in Mobile Xpense. Work with [Mobile Xpense support team](https://www.mobilexpense.net/contact) to add the users in the Mobile Xpense platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Mobile Xpense. Work with [Mobile Xpense support team](https://www.mobilexpense.com/contact) to add the users in the Mobile Xpense platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
