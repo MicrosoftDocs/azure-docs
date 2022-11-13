@@ -48,6 +48,9 @@ This procedure describes how to create new users for a specific OT network senso
 
 Your new user is added and is listed on the sensor **Users** page.
 
+To edit a user, select the **Edit** :::image type="icon" source="media/manage-users-on-premises-management-console/icon-edit.png" border="false"::: icon for the user you want to edit, and change any values as needed.
+
+To delete a user, select the **Delete** button for the user you want to delete.
 ## Integrate OT sensor users with Active Directory
 
 Configure an integration between your sensor and Active Directory to:
@@ -56,6 +59,8 @@ Configure an integration between your sensor and Active Directory to:
 - Use Active Directory groups, with collective permissions assigned to all users in the group
 
 For example, use Active Directory when you have a large number of users that you want to assign Read Only access to, and you want to manage those permissions at the group level.
+
+For more information, see [Active Directory support on sensors and on-premises management consoles](manage-users-overview.md#active-directory-support-on-sensors-and-on-premises-management-consoles).
 
 **Prerequisites**: This procedure is available for the *cyberx* and *support* users, and any user with the **Admin** role.
 
@@ -156,14 +161,17 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
 ## Control user session timeouts
 
+<!--validate this procedure, can't sign in as admin user. do we need a privileged user?-->
+
+
 By default, on-premises users are signed out of their sessions after 30 minutes of inactivity.
 
 This procedure describes how to use the [CLI](references-work-with-defender-for-iot-cli-commands.md) to turn this feature on and off or adjust inactivity thresholds.
 
-**Prerequisites**: This procedure is available only for the *cyberx* or *support* users, or any user with the **Admin** role.
-
 > [!NOTE]
 > Any changes made to user session timeouts are reset to defaults when you [update the OT monitoring software](update-ot-software.md).
+
+**Prerequisites**: This procedure is available only for the *cyberx* or *support* users.
 
 **To control sensor user session timeouts**:
 
