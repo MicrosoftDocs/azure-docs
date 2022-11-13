@@ -166,5 +166,6 @@ For more information, see [Azure Monitor alerts overview](../azure-monitor/alert
 ## Next steps
 
 - Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
-- See more information about the [*SentinelHealth* table schema](health-table-reference.md).
+- [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
 - Monitor the health of your [automation rules and playbooks](monitor-automation-health.md).
+- See more information about the [*SentinelHealth* table schema](health-table-reference.md).

@@ -172,5 +172,6 @@ Select a particular run to see the results of the actions in the playbook.
 ## Next steps
 
 - Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
-- See more information about the [*SentinelHealth* table schema](health-table-reference.md).
+- [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
 - Monitor the health of your [data connectors](monitor-data-connector-health.md).
+- See more information about the [*SentinelHealth* table schema](health-table-reference.md).

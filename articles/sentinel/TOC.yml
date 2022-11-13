@@ -499,6 +499,8 @@
       href: /cli/azure/sentinel
     - name: Microsoft Sentinel PowerShell
       href: /powershell/module/az.securityinsights/
+    - name: SentinelHealth table reference 
+      href: health-table-reference.md
     - name: Azure RBAC roles
       items:
       - name: All Azure roles

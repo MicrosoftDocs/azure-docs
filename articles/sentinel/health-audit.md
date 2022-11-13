@@ -53,3 +53,7 @@ To dive into the health and audit data that Microsoft Sentinel generates, you ca
 - Export the data into various destinations, like your Log Analytics workspace, archiving to a storage account, and more. Learn about the [supported destinations](../azure-monitor/essentials/diagnostic-settings.md) for your logs.
 
 ## Next steps
+- [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
+- Monitor the health of your [automation rules and playbooks](monitor-automation-health.md).
+- Monitor the health of your [data connectors](monitor-data-connector-health.md).
+- See more information about the [*SentinelHealth* table schema](health-table-reference.md).

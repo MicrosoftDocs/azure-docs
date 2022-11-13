@@ -63,5 +63,7 @@ SentinelHealth
 
 ## Next steps
 
+- Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
 - [Monitor the health of your Microsoft Sentinel data connectors](monitor-data-connector-health.md).
 - [Monitor the health of your Microsoft Sentinel automation rules](monitor-automation-health.md).
+- See more information about the [*SentinelHealth* table schema](health-table-reference.md).
