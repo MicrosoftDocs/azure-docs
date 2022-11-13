@@ -6,7 +6,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 11/13/2022
 ---
 # Drive your organization to remediate security recommendations with governance
 
@@ -39,6 +39,9 @@ Governance rules can identify resources that require remediation according to sp
 The due date set for the recommendation to be remediated is based on a timeframe of 7, 14, 30, or 90 days from when the recommendation is found by the rule. For example, if the rule identifies the resource on March 1st and the remediation timeframe is 14 days, March 15th is the due date. You can apply a grace period so that the resources that are given a due date don't impact your secure score until they're overdue.
 
 You can also set the owner of the resources that are affected by the specified recommendations. In organizations that use resource tags to associate resources with an owner, you can specify the tag key and the governance rule reads the name of the resource owner from the tag.
+
+The owner is indicated as unspecified when the tag defined in the rule, which determines the owner wasn't found on the resource, the associated resource group, and the associated subscription. 
+:::image type="content" source="media/governance-rules/unspecified owner.png" alt-text="screenshot showing unspecified owner line." lightbox="media/governance-rules/unspecified owner.png":::
 
 By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If an email for the owner's manager is found in the organizational Azure Active Directory (Azure AD), the owner's manager receives a weekly email showing any overdue recommendations by default.
 
