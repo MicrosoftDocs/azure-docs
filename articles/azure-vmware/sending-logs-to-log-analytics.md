@@ -21,24 +21,24 @@ In the rest of this article, we’ll show you how easy it is to make this happen
 
 ## How to Set Up Log Analytics
 
-In this section, you’ll:
-
-• Configure a Log Analytics workspace
-
-• Create a diagnostic setting in your private cloud to send your logs to this workspace
-
 A Log Analytics workspace:
 
 • Contains your AVS private cloud logs.
 
 • Is the workspace from which you can take desired actions, such as querying for logs.
 
+In this section, you’ll:
+
+• Configure a Log Analytics workspace
+
+• Create a diagnostic setting in your private cloud to send your logs to this workspace
+
 ### Setup your workspace
 
-1. In the Azure portal, go to + Create a resource.
-2. Search for “Log Analytics Workspace” and click Create -> Log Analytics Workspace.
+1. In the Azure portal, go to **Create a resource**.
+2. Search for “Log Analytics Workspace” and click **Create** -> **Log Analytics Workspace**.
 
-:::image type="content" source="media/send-logs-to-log-analytics/1-marketplace.png" alt-text="Search for Log Analytics Workspace":::
+:::image type="content" source="media/send-logs-to-log-analytics/marketplace.png" alt-text="Search for Log Analytics Workspace":::
 
 ### Setup your workspace
 
@@ -47,13 +47,13 @@ A Log Analytics workspace:
 
 3. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
 
-:::image type="content" source="media/send-logs-to-log-analytics/2-create-workspace.png" alt-text="Workspace":::
+:::image type="content" source="media/send-logs-to-log-analytics/create-workspace.png" alt-text="Workspace":::
 
 ### Add a diagnostic setting
 
 Next, we’ll want to add a diagnostic setting in your AVS private cloud, so it knows where to send your logs to.
 
-:::image type="content" source="media/send-logs-to-log-analytics/3-private-cloud.png" alt-text="Private Cloud":::
+:::image type="content" source="media/send-logs-to-log-analytics/private-cloud.png" alt-text="Private Cloud":::
 ``
 1. Click on your AVS private cloud. Go to Diagnostic settings on the left-hand menu under Monitoring. Select + Add diagnostic setting.
 
@@ -61,7 +61,7 @@ Next, we’ll want to add a diagnostic setting in your AVS private cloud, so it 
 
 3. Make sure to select the checkbox next to Send to Log Analytics workspace. Select the Subscription your Log Analytics workspace lives in and the Log Analytics workspace. Click Save on the top left.
 
-:::image type="content" source="media/send-logs-to-log-analytics/4-diagnostic-setting.png" alt-text="Diagnostics Setting":::
+:::image type="content" source="media/send-logs-to-log-analytics/diagnostic-setting.png" alt-text="Diagnostics Setting":::
 
 At this point, your Log Analytics workspace has been successfully configured to receive logs from your AVS private cloud.
 
