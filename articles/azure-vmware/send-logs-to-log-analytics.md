@@ -1,5 +1,4 @@
 ---
-author: v-ianwhyte@microsoft.com
 title: Sending your Azure VMware Solution logs to Log Analytics
 description: Learn about sending logs to log analytics.
 ms.topic: how-to
