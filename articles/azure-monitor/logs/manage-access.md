@@ -280,7 +280,7 @@ Grant a user access to log data from their resources and read all Azure AD sign-
 
 To create a [custom role](../../role-based-access-control/custom-roles.md) that lets specific users or groups read data from specific tables in a workspace:
 
-1. Create a custom role that grants users permission to execute queries, based on the built-in Azure Monitor Logs **Reader** role:
+1. Create a custom role that grants users permission to execute queries in the Log Analytics workspace, based on the built-in Azure Monitor Logs **Reader** role:
     
     1. Navigate to your workspace and select **Access control (AIM)** > **Roles**.
     
@@ -290,7 +290,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
       
        This opens the **Create a custom role** screen.
 
-    1. On the **Basics** tab of the screen enter a **Custom role name** value and, optionally, provide a description.
+    1. On the **Basics** tab of the screen, enter a **Custom role name** value and, optionally, provide a description.
 
         :::image type="content" source="media/manage-access/manage-access-create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role screen with the Custom role name and Description fields highlighted." lightbox="media/manage-access/manage-access-create-custom-role.png":::
 
