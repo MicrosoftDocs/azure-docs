@@ -36,7 +36,7 @@ Start planning your migration to Azure managed disks today.
 
 1. [Learn more](windows/migrate-to-managed-disks.md) about migrating your VMs to managed disks. For more information, see [Frequently asked questions about migrating to managed disks](faq-for-disks.yml).
 
-1. For technical questions, issues, and help with adding subscriptions to the allow list, [contact support](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%226f16735c-b0ae-b275-ad3a-03479cfa1396%22,%22supportTopicId%22:%228a82f77d-c3ab-7b08-d915-776b4ff64ff4%22%7D).
+1. For technical questions, issues, and help with adding subscriptions to the allowlist, [contact support](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%226f16735c-b0ae-b275-ad3a-03479cfa1396%22,%22supportTopicId%22:%228a82f77d-c3ab-7b08-d915-776b4ff64ff4%22%7D).
 
 1. Complete the migration as soon as possible to prevent business impact and to take advantage of the improved reliability, scalability, security, and new features of Azure managed disks.
 
