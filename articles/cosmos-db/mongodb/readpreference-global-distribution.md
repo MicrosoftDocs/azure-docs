@@ -81,7 +81,7 @@ Refer to the detailed [MongoDB Read Preference behavior](https://docs.mongodb.co
 
 Based on common scenarios, we recommend using the following settings:
 
-1. If **low latency reads** are required, use the **NEAREST** read preference mode. This setting directs the read operations to the nearest available region. Note that if the nearest region is the WRITE region, then these operations are directed to that region.
+1. If **high availability and low latency reads** are required, use the **NEAREST** read preference mode. This setting directs the read operations to the nearest available region. Note that if the nearest region is the WRITE region, then these operations are directed to that region.
 2. If **high availability and geo distribution of reads** are required (latency is not a constraint), then use the **PRIMARY PREFERRED** or **SECONDARY PREFERRED** read preference mode. This setting directs read operations to an available WRITE or READ region respectively. If the region is not available, then requests are directed to the next available region as per the read preference behavior.
 
 The following snippet from the sample application shows how to configure NEAREST Read Preference in NodeJS:

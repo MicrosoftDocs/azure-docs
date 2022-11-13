@@ -1,8 +1,7 @@
 ---
 title: Create a CI/CD pipeline for a PWA with GatsbyJS and Azure DevOps Starter
 description: Learn to create a NodeJS progressive web app (PWA) using GatsbyJS and the simplified Azure DevOps Starter creation experience.
-ms.prod: devops
-ms.technology: devops-cicd
+ms.service: azure-devops-pipelines
 documentationcenter: vs-devops-build
 author: mijacobs
 ms.author: mijacobs
