@@ -31,7 +31,7 @@ import json
 speech_key, service_region = "your-subscription-key", "your-region"
 endpoint="https://signature.{service_region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray"
 
-#Enrollment audio for each speaker.(As example, two speaker enrollment audio are added)
+#Enrollment audio for each speaker. In this example, two speaker enrollment audio files are added.
 enrollment_audio_speaker1="enrollment-audio-speaker1.wav"
 enrollment_audio_speaker2="enrollment-audio-speaker2.wav"
 
