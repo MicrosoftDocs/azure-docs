@@ -280,7 +280,7 @@ Grant a user access to log data from their resources and read all Azure AD sign-
 
 To create a [custom role](../../role-based-access-control/custom-roles.md) that lets specific users or groups read data from specific tables in a workspace:
 
-1. Create a custom role that grants read access to table data, based on the built-in Azure Monitor Logs **Reader** role:
+1. Create a custom role that grants users permission to execute queries, based on the built-in Azure Monitor Logs **Reader** role:
     
     1. Navigate to your workspace and select **Access control (AIM)** > **Roles**.
     
@@ -299,17 +299,6 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
         :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::    
 
     1. Select **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
-    1. Copy the custom role ID:
-        1. Select **Access control (AIM)** > **Roles**.
-        1. Right-click on your custom role and select **Edit**. 
-          
-           This opens the **Custom Role** screen.
-
-            :::image type="content" source="media/manage-access/manage-access-role-definition-id.png" alt-text="Screenshot that shows the JSON tab of the Custom Role screen with the ID field highlighted." lightbox="media/manage-access/manage-access-role-definition-id.png":::        
-
-        1. Select **JSON** and copy the `id` field.
-             
-            You'll need the `/providers/Microsoft.Authorization/roleDefinitions/<definition_id>` value when you call the `https://management.azure.com/batch?api-version=2020-06-01` POST API.
 
 1. Assign your custom role to the relevant users or groups:
     1. Select **Access control (AIM)** > **Add** > **Add role assignment**.
@@ -339,9 +328,9 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
                 "content": {
                     "Id": "<GUID_1>",
                     "Properties": {
-                        "PrincipalId": "<User_object_ID>",
+                        "PrincipalId": "<user_object_ID>",
                         "PrincipalType": "User",
-                        "RoleDefinitionId": "<custom_role_ID>",
+                        "RoleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
                         "Scope": "/subscriptions/<subscription_ID>/resourceGroups/<resource_group_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/Tables/<table_name>",
                         "Condition": null,
                         "ConditionVersion": null
@@ -360,7 +349,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
     Where:
     - You can generate a GUID for `<GUID 1>` and `<GUID 2>` using any GUID generator.
-    - `<custom_role_ID>` is the `/providers/Microsoft.Authorization/roleDefinitions/<definition_id>` value you copied earlier.
+    - `<user_object_ID>` is the object ID of the user to which you want to grant table read access.
     - `<subscription_ID>` is the ID of the subscription related to the workspace.
     - `<resource_group_name>` is the resource group of the workspace.
     - `<workspace_name>` is the name of the workspace.
