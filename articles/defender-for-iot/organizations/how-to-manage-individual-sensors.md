@@ -400,17 +400,29 @@ Define SMTP mail server settings for the sensor.
 To define:
 
 1. Sign in to the sensor console with administrative credentials.
+
 1. Select **System settings** on the left side of your screen.
+
 1. Select **Integrations** to expand the section and view the gadgets.
+
     :::image type="content" source="media/how-to-manage-individual-sensors/SMTP-mail-server.png" alt-text="Screenshot of how to get to the mail server gadget in the sensor console." lightbox="media/how-to-manage-individual-sensors/SMTP-mail-server.png":::
+
 1. Select  **Mail server** to view the Edit Mail Server Configuration pane.
+
     :::image type="content" source="media/how-to-manage-individual-sensors/SMPT-mail-server-pane.png" alt-text="Screenshot of mail server configuration pane in the sensor console." lightbox="media/how-to-manage-individual-sensors/SMPT-mail-server-pane.png":::
+
 1. Enter an IP address or Domain address in **SMTP Server Address**.
+
 1. Adjust the value in **SMTP Server Port** as needed. The default value is 25.
+
 1. Enter an email address in **Outgoing Mail Account**.
+
 1. Turn on the **SSL** toggle to enable SSL for a secure connection.
+
 1. Turn on the **Authentication** toggle to enter your username and password.
+
 1. Turn on the **Use NTLM** toggle to enable [NLTM](/windows-server/security/kerberos/ntlm-overview).
+
 1. Select **Save**.
 
 ## Clearing sensor data
