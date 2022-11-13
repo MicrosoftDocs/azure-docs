@@ -31,9 +31,9 @@ Because of this complexity, different types of data streaming into Microsoft Sen
 
 This diagram outlines the architecture discussed above. 
 
-:::image type="content" source="./media/cloud-data-support/cloud-architecture-microsoft-sentinel.png" alt-text="Diagram showing how the Microsoft cloud architecture relates to Microsoft Sentinel data. border="false" lightbox="./media/cloud-data-support/cloud-architecture-microsoft-sentinel.png":::
+:::image type="content" source="./media/cloud-data-support/cloud-architecture-microsoft-sentinel.png" alt-text="Diagram showing how the Microsoft cloud architecture relates to Microsoft Sentinel data." border="false" lightbox="./media/cloud-data-support/cloud-architecture-microsoft-sentinel.png":::
 
-## How cloud support affects data from specific connectors
+## How cloud support affects data from Microsoft 365 Defender connectors
 
 Your environment ingests data from multiple connectors. The type of cloud your environment uses affects Microsoft Sentinel's ability to ingest and display data from these connectors, like logs, alerts, device events, and more.
 
