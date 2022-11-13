@@ -51,15 +51,20 @@ In this section, you’ll:
 
 ### Add a diagnostic setting
 
-Next, we’ll want to add a diagnostic setting in your AVS private cloud, so it knows where to send your logs to.
+Next, we add a diagnostic setting in your AVS private cloud, so it knows where to send your logs to.
 
 :::image type="content" source="media/send-logs-to-log-analytics/private-cloud.png" alt-text="Private Cloud":::
 ``
-1. Click on your AVS private cloud. Go to Diagnostic settings on the left-hand menu under Monitoring. Select + Add diagnostic setting.
+1. Click your AVS private cloud. 
+Go to Diagnostic settings on the left-hand menu under Monitoring. 
+Select **Add diagnostic setting**.
 
-2. Give your diagnostic setting a name. Select the log categories you are interested in sending to your Log Analytics workspace.
+2. Give your diagnostic setting a name. 
+Select the log categories you are interested in sending to your Log Analytics workspace.
 
-3. Make sure to select the checkbox next to Send to Log Analytics workspace. Select the Subscription your Log Analytics workspace lives in and the Log Analytics workspace. Click Save on the top left.
+3. Make sure to select the checkbox next to **Send to Log Analytics workspace**. 
+Select the Subscription your Log Analytics workspace lives in and the Log Analytics workspace. 
+Click **Save** on the top left.
 
 :::image type="content" source="media/send-logs-to-log-analytics/diagnostic-setting.png" alt-text="Diagnostics Setting":::
 
