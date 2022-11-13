@@ -24,8 +24,6 @@ This article describes the types of clouds that affect the supported data types 
 
 ## Microsoft clouds and Microsoft Sentinel 
 
-[TBD - paragraph explaining the architecture in the diagram]
-
 Azure Commercial and Azure Government clouds work with different Office 365 clouds. The data that Microsoft Sentinel can ingest is based on whether the workspace is on Azure Commercial or Azure Government.
 
 :::image type="content" source="./media/data-type-support-gcc/cloud-architecture-microsoft-sentinel.png" alt-text="Diagram showing how the Microsoft cloud architecture relates to Microsoft Sentinel data." border="false" lightbox="./media/data-type-support-gcc/cloud-architecture-microsoft-sentinel.png":::

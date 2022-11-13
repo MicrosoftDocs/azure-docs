@@ -102,7 +102,7 @@
       - name: Other KQL resources
         href: kusto-resources.md
       - name: Support for data types - GCC environments
-        href: kusto-resources.md
+        href: data-type-support-gcc.md
   - name: Normalize data
     items:
     - name: ASIM overview
