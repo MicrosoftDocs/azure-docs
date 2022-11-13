@@ -276,7 +276,7 @@ Grant a user access to log data from their resources and read all Azure AD sign-
   - `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`: Required to be able to use Update Management solutions
 - Grant users the following permissions to their resources: `*/read`, assigned to the Reader role, or `Microsoft.Insights/logs/*/read`
 
-## Set table-level read access
+## Set table-level read access (preview)
 
 To create a [custom role](../../role-based-access-control/custom-roles.md) that lets specific users or groups read data from specific tables in a workspace:
 
