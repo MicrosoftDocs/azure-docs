@@ -25,6 +25,19 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## November 2022
+
+### Monitor the health of automation rules and playbooks
+
+To ensure proper functioning and performance of your security orchestration, automation, and response operations in your Microsoft Sentinel service, keep track of the health of your automation rules and playbooks by monitoring their execution logs.
+
+Set up notifications of health events for relevant stakeholders, who can then take action. For example, define and send email or Microsoft Teams messages, create new tickets in your ticketing system, and so on.
+
+- Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
+- [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
+- Monitor the health of your [automation rules and playbooks](monitor-automation-health.md).
+- See more information about the [*SentinelHealth* table schema](health-table-reference.md).
+
 ## October 2022
 
 - [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)

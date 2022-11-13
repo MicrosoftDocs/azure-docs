@@ -63,12 +63,12 @@ For `Data fetch status change` events with a success indicator, the bag contains
 
 | ColumnName               | ColumnType     | Description                                                   |
 | ------------------------ | -------------- | ------------------------------------------------------------- |
-| **ActionsTriggeredSuccessfuly** | Integer | Number of actions the automation rule successfully triggered. |
+| **ActionsTriggeredSuccessfully** | Integer | Number of actions the automation rule successfully triggered. |
 | **IncidentName**         | String         | The resource ID of the Microsoft Sentinel incident on which the rule was triggered.  |
 | **IncidentNumber**       | String         | The sequential number of the Microsoft Sentinel incident as shown in the portal. |
 | **TotalActions**         | Integer        | Number of actions configured in this automation rule.         |
 | **TriggeredOn**          | String         | `Alert` or `Incident`. The object on which the rule was triggered. |
-| **Triggered playbooks**  | Dynamic (json) | A list of playbooks this automation rule triggered successfully.<br><br>Each playbook record in the list contains:<br>- **RunId:** The run ID for this triggering of the Logic Apps workflow<br>- **WorkflowId:** The unique identifier (full ARM resource ID) of the Logic Apps workflow resource. |
+| **TriggeredPlaybooks**  | Dynamic (json) | A list of playbooks this automation rule triggered successfully.<br><br>Each playbook record in the list contains:<br>- **RunId:** The run ID for this triggering of the Logic Apps workflow<br>- **WorkflowId:** The unique identifier (full ARM resource ID) of the Logic Apps workflow resource. |
 | **TriggeredWhen**        | String         | `Created` or `Updated`. Indicates whether the rule was triggered due to the creation or updating of an incident or alert. |
 
 ### Playbooks

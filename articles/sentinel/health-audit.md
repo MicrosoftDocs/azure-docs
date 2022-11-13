@@ -20,13 +20,13 @@ This section describes the function and use cases of the health monitoring compo
 
 ### Data storage
 
-Health data is collected in the *SentinelHealth* table in your Log Analytics workspace.
-
-The prevalent way you'll use this data is by querying the table.
+Health data is collected in the *SentinelHealth* table in your Log Analytics workspace. The prevalent way you'll use this data is by querying the table.
 
 > [!IMPORTANT]
 >
-> The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> 
+> - When monitoring the health of **playbooks**, you'll also need to capture Azure Logic Apps diagnostic events from your playbooks, in addition to the *SentinelHealth* data, in order to get the full picture of your playbook activity.  Azure Logic Apps diagnostic data is collected in the *AzureDiagnostics* table in your workspace.
 
 ### Use cases
 

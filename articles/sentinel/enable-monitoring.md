@@ -20,6 +20,8 @@ The following resource types are currently supported:
 - Data connectors
 - Automation rules
 - Playbooks (Azure Logic Apps workflows)
+    > [!NOTE]
+    > When monitoring playbook health, you'll also need to collect Azure Logic Apps diagnostic events from your playbooks in order to get the full picture of your playbook activity. See [**Monitor the health of your automation rules and playbooks**](monitor-automation-health.md) for more information.
 
 To configure the retention time for your health events, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
 
