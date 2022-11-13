@@ -40,15 +40,15 @@ The prevalent way you'll use this data is by querying the table.
 
 ## How Microsoft Sentinel presents health data
 
-To dive into the health and audit data that Microsoft Sentinel generates, you can:
+To dive into the health data that Microsoft Sentinel generates, you can:
 
 - Run queries on the *SentinelHealth* data table from the Microsoft Sentinel **Logs** blade.
-    - Data connectors
-    - Automation rules and playbooks
+    - [Data connectors](monitor-data-connector-health.md#run-queries-to-detect-health-drifts)
+    - [Automation rules and playbooks](monitor-automation-health.md#get-the-complete-automation-picture) (join query with Azure Logic Apps diagnostics)
 
-- Use the health monitoring workbook (for data connectors).
-    - Data connectors
-    - Automation rules and playbooks
+- Use the health monitoring workbooks provided in Microsoft Sentinel.
+    - [Data connectors](monitor-data-connector-health.md#use-the-health-monitoring-workbook)
+    - [Automation rules and playbooks](monitor-automation-health.md#use-the-health-monitoring-workbook)
 
 - Export the data into various destinations, like your Log Analytics workspace, archiving to a storage account, and more. Learn about the [supported destinations](../azure-monitor/essentials/diagnostic-settings.md) for your logs.
 
