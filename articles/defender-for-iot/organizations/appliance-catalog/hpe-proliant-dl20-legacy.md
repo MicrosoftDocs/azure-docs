@@ -17,7 +17,7 @@ Legacy appliances are certified but aren't currently offered as preconfigured ap
 |**Hardware profile** | E1800 |
 |**Performance** | 	Max bandwidth: 1 Gbp/s <br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: 1U <br> Ports: 8x RJ45 or 6x SFP (OPT)|
-|**Status** | Supported, not available as a preconfigured appliance |
+|**Status** | Supported, not available pre-configured |
 
 The following image shows a sample of the HPE ProLiant DL20 front panel:
 
