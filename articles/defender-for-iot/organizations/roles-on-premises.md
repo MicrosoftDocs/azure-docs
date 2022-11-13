@@ -7,15 +7,18 @@ ms.topic: conceptual
 
 # On-premises users and roles for OT monitoring with Defender for IoT
 
-When working with OT networks, Defender for IoT services and data is available from both the Azure portal and from on-premises OT network sensors and the on-premises sensor management consoles.
+When working with OT networks, Defender for IoT services and data is available from on-premises OT network sensors and the on-premises sensor management consoles, in addition to Azure.
 
-This article provides a description of the default user roles that come with Defender for IoT software installation, and a reference of the actions available for each on-premises user role on OT network sensors and the on-premises management console.
+This article provides:
+
+- A description of the default, privileged users that come with Defender for IoT software installation
+- A reference of the actions available for each on-premises user role, on both OT network sensors and the on-premises management console
 
 ## Default privileged on-premises users
 
-By default, each sensor and on-premises management console is [installed](how-to-install-software.md#install-ot-monitoring-software) with the *cyberx* and *support* privileged users. Sensors are also installed with the *cyberx_host* privileged user.
+By default, each sensor and on-premises management console is [installed](how-to-install-software.md#install-ot-monitoring-software) with the *cyberx* and *support* privileged users. OT sensors are also installed with the *cyberx_host* privileged user.
 
-Privileged users have access to advanced tools for troubleshooting and setup. When first deploying Defender for IoT, sign in with these user credentials, create a first user with an **Administrator** role, and then create more users with **Security Analyst** or **Read-only** roles.
+Privileged users have access to advanced tools for troubleshooting and setup, such as the CLI. When first setting up your sensor or on-premises management console, first sign in with one of the privileged users. Then create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.
 
 The following table describes each default privileged user in detail:
 
