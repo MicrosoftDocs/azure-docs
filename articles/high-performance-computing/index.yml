@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure HPC documentation
   description: Azure high-performance computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads.
-  imageSrc: ../high-performance-compute/media/hpc-logo.png
+  imageSrc: ../high-performance-computing/media/hpc-logo.png
   subject: high-performance-computing
   ms.service: virtual-machines-workloads
   ms.subservice: hpc
@@ -74,7 +74,7 @@ productDirectory:
           text: Getting Started with VDI
     # Card
     - title: Azure Batch
-      imageSrc: ../high-performance-compute/media/azure-batch.svg
+      imageSrc: ../high-performance-computing/media/azure-batch.svg
       links:
         - url: ../batch/batch-technical-overview.md
           text: What is Azure Batch?
@@ -82,7 +82,7 @@ productDirectory:
           text: Getting Started with Batch
     # Card
     - title: HPC Cache
-      imageSrc: ../high-performance-compute/media/azure-hpc-cache.svg
+      imageSrc: ../high-performance-computing/media/azure-hpc-cache.svg
       links:
         - url: /azure/hpc-cache/hpc-cache-overview/
           text: What is Azure HPC Cache?
