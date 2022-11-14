@@ -10,15 +10,11 @@ ms.author: alexwolf
 ms.custom: include file
 ---
 
-
+## Authenticate the app to Azure
 
 ## [Passwordless](#tab/passwordless)
 
-## Authenticate the app to Azure
-
-[!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
-
-[!INCLUDE [passwordless-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
+This quick start shows you two ways of connecting to Azure Service Bus: connection string and passwordless. The first option shows you how to use a connection string to connect to a Service Bus namespace. The second option shows you how to use your security principal in Azure Active Directory and the role-based access control (RBAC) to connect to a Service Bus namespace. You don't need to worry about having hard-coded connection string in your code or in a configuration file or in a secure storage like Azure Key Vault. If you are new to Azure, you may find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](service-bus-authentication-and-authorization.md). You can also read more about passwordless authentication on the [overview page](/azure/sdk/authentication?tabs=command-line).
 
 ### Assign roles to your Azure AD user
 
