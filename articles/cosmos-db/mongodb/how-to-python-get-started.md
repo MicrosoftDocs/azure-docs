@@ -167,10 +167,12 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 
 ## See also
 
-TBD
+- [PyPI Package](https://pypi.org/project/azure-cosmos/)
+- [API reference](https://www.mongodb.com/docs/drivers/python/)
 
 ## Next steps
+
 Now that you've connected to a API for MongoDB account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
-> [Create a database in Azure Cosmos DB for MongoDB using JavaScript](how-to-javascript-manage-databases.md)
+> [Create a database in Azure Cosmos DB for MongoDB using Python](how-to-python-manage-databases.md)
