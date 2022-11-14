@@ -45,7 +45,7 @@ To get started, we need to install the Netherite NuGet package and update the ho
 
 Using the NuGet package manager, install the latest version of the [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) package into your functions project. There is another package with a similar but shorter name, make sure to import the correct one.
 
-For more information about how to install NuGet packages in Visual Studio, see the [documentation](../../../nuget/consume-packages/install-use-packages-visual-studio).
+For more information about how to install NuGet packages in Visual Studio, see the [documentation](articles/nuget/consume-packages/install-use-packages-visual-studio).
 
 ### Update host.json
 
@@ -80,7 +80,7 @@ For example, if using C#, the local.settings.json file may look something like [
 
 Netherite is now ready for local operation: You can start the function app locally to test it.
 While Netherite is running, it publishes load information about each of its partitions that is currently active to a Azure Storage table.
-You can inspect this table in the [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to
+You can inspect this table in the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to
 verify that Netherite has started correctly and is executing normally. You should see something like this:
 
 ![Partition Table](./media/quickstart-netherite/partitiontable.png)
@@ -93,7 +93,7 @@ To run Netherite in a cloud deployment, or if you prefer to not use an emulation
 
 ### Create an Event Hubs namespace
 
-To create an Azure Event Hubs namespace in the Azure Management Portal, you can follow [these steps](../../event-hubs/event-hubs-create#create-an-event-hubs-namespace). When creating the namespace, you may be prompted to
+To create an Azure Event Hubs namespace in the Azure Management Portal, you can follow [these steps](/articles/event-hubs/event-hubs-create#create-an-event-hubs-namespace). When creating the namespace, you may be prompted to
 
 1. choose a *resource group*. A typical choice is to use the same resource group as the function app and storage account, because it makes it easy to delete all resources at once later on.
 2. choose a *plan* and provision *throughput units*. These choices determine the cost incurred. For the purpose of this quick start, using the defaults is fine. The allocated throughput units can be changed at any time; you can raise this setting later if running a workload with heavy communication traffic between clients and partitions.
