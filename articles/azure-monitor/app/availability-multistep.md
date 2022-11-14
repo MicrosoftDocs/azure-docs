@@ -13,10 +13,10 @@ You can monitor a recorded sequence of URLs and interactions with a website via 
 > [!IMPORTANT]
 > [Multistep web tests have been deprecated](https://azure.microsoft.com/updates/retirement-notice-transition-to-custom-availability-tests-in-application-insights/). We recommend using [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) to submit [custom availability tests](availability-azure-functions.md) instead of multistep web tests. With `TrackAvailability()` and custom availability tests, you can run tests on any compute you want and use C# to easily author new tests.
 
+Multistep web tests are categorized as classic tests and can be found under **Add Classic Test** on the **Availability** pane.
+
 > [!NOTE]
 > Multistep web tests *aren't supported* in the [Azure Government](../../azure-government/index.yml) cloud.
-
-Multistep web tests are categorized as classic tests and can be found under **Add Classic Test** on the **Availability** pane.
 
 ## Multistep web test alternative
 
@@ -28,8 +28,8 @@ We recommend using [TrackAvailability](/dotnet/api/microsoft.applicationinsights
 
 You need:
 
-* Visual Studio 2017 Enterprise or greater
-* Visual Studio web performance and load testing tools
+* Visual Studio 2017 Enterprise or greater.
+* Visual Studio web performance and load testing tools.
 
 To locate the testing tools prerequisite, select **Visual Studio Installer** > **Individual components** > **Debugging and testing** > **Web performance and load testing tools**.
 
