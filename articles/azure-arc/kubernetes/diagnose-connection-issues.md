@@ -1,6 +1,6 @@
 ---
 title: "Diagnose connection issues for Azure Arc-enabled Kubernetes clusters"
-ms.date: 11/04/2022
+ms.date: 11/10/2022
 ms.topic: how-to
 description: "Learn how to resolve common issues when connecting Kubernetes clusters to Azure Arc."
 
@@ -17,7 +17,7 @@ If you are experiencing issues connecting a cluster to Azure Arc, it's probably 
 
 Review this flowchart in order to diagnose your issue when attempting to connect a cluster to Azure Arc without a proxy server. More details about each step are provided below.
 
-:::image type="content" source="media/diagnose-connection-issues/no-proxy-flowchart.png" alt-text="Flowchart showing a visual representation of checking for connection issues when not using a proxy.":::
+:::image type="content" source="media/diagnose-connection-issues/no-proxy-flowchart.png" alt-text="Flowchart showing a visual representation of checking for connection issues when not using a proxy." lightbox="media/diagnose-connection-issues/no-proxy-flowchart.png":::
 
 ### Does the Azure identity have sufficient permissions?
 
@@ -76,7 +76,7 @@ When you [create your support request](/azure/azure-portal/supportability/how-to
 
 If you are using a proxy server on at least one machine, complete the first five steps of the non-proxy flowchart (through resource provider registration) for basic troubleshooting steps. Then, if you are still encountering issues, review the next flowchart for additional troubleshooting steps. More details about each step are provided below.
 
-:::image type="content" source="media/diagnose-connection-issues/proxy-flowchart.png" alt-text="Flowchart showing a visual representation of checking for connection issues when using a proxy." :::
+:::image type="content" source="media/diagnose-connection-issues/proxy-flowchart.png" alt-text="Flowchart showing a visual representation of checking for connection issues when using a proxy." lightbox="media/diagnose-connection-issues/proxy-flowchart.png":::
 
 ### Is the machine executing commands behind a proxy server?
 
