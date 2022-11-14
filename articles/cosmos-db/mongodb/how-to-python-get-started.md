@@ -93,6 +93,23 @@ Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection is
 Skip this step and use the information for the portal in the next step.
 
 ---
+## Retrieve your connection string
 
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [Azure CLI - get connection string](<./includes/azure-cli-get-connection-string.md>)]
+
+### [PowerShell](#tab/azure-powershell)
+
+[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
+
+### [Portal](#tab/azure-portal)
+
+> [!TIP]
+> For this guide, we recommend using the resource group name ``msdocs-cosmos``.
+
+[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-sign-in.md>)]
+
+---
 
 
