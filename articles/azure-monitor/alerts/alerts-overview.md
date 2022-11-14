@@ -42,6 +42,7 @@ Once an alert is triggered, the alert is made up of:
 - The **user response** is set by the user and doesn’t change until the user changes it. 
 
 You can see all alert instances in all your Azure resources generated in the last 30 days on the **[Alerts page](alerts-page.md)** in the Azure portal. 
+
 ## Types of alerts
 
 There are four types of alerts. This table provides a brief description of each alert type. 
@@ -53,12 +54,16 @@ See [this article](alerts-types.md) for detailed information about each alert ty
 |[Log alerts](alerts-types.md#log-alerts)|Log alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
 |[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches the defined conditions.|
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
+
 ## Out-of-the-box alert rules (preview)
 
 If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal-preview).
 
 > [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for VMs.
+> The alert rule recommendations feature is currently in preview and is only enabled for:
+> - VMs
+> - unmonitored AKS resources
+> - unmonitored Log Analytics resources
 
 ## Azure role-based access control (Azure RBAC) for alerts
 
