@@ -233,7 +233,7 @@ public class PostToDo {
     public HttpResponseMessage run(
             @HttpTrigger(name = "req", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
             @SQLOutput(
-                name = "sqlOutput",
+                name = "toDoItem",
                 commandText = "dbo.ToDo",
                 connectionStringSetting = "SqlConnectionString")
                 OutputBinding<ToDoItem> output) throws JsonParseException, JsonMappingException, JsonProcessingException {
@@ -315,12 +315,12 @@ public class PostToDoWithLog {
     public HttpResponseMessage run(
             @HttpTrigger(name = "req", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
             @SQLOutput(
-                name = "sqlOutput",
+                name = "toDoItem",
                 commandText = "dbo.ToDo",
                 connectionStringSetting = "SqlConnectionString")
                 OutputBinding<ToDoItem> output,
             @SQLOutput(
-                name = "sqlOutput2",
+                name = "requestLog",
                 commandText = "dbo.RequestLog",
                 connectionStringSetting = "SqlConnectionString")
                 OutputBinding<RequestLog> outputLog,
@@ -836,6 +836,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 |---------|---------|
 | **commandText** | Required.  The name of the table being written to by the binding.  |
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
+|**name** |  Required. The unique name of the function binding. | 
 
 ::: zone-end  
 
