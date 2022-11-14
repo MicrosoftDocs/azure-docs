@@ -46,10 +46,10 @@ Azure Maps Python SDK supports Python version 3.7 or later. Check the [Azure S
 
 Azure Maps JavaScript/TypeScript SDK supports LTS versions of [Node.js][Node.js] including versions in Active status and Maintenance status.
 
-| Service Name  | NPM package             |  Samples     |
+| Service Name  | npm package             |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][js search readme] | [@azure/maps-search][js search package] | [search samples][js search sample] |
-| [Route][js route readme] | [@azure/maps-route][js route package] | [route samples][js route sample] |
+| [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
 
 <!--For more information, see the [JavaScript/TypeScript SDK Developers Guide](how-to-dev-guide-js-sdk.md).-->
 
@@ -104,6 +104,10 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 [js search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search/README.md
 [js search package]: https://www.npmjs.com/package/@azure/maps-search
 [js search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search/samples/v1-beta/javascript
+
+[js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
+[js route package]: https://www.npmjs.com/package/@azure-rest/maps-route
+[js route sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-route-rest/samples/v1-beta
 
 [js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
 [js route package]: https://www.npmjs.com/package/@azure-rest/maps-route
