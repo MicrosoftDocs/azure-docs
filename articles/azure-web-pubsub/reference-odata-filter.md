@@ -48,6 +48,7 @@ An interactive syntax diagram is also available:
 The filter syntax is used to filter out the connections matching the filter expression to send messages to.
 
 Azure Web PubSub supports below identifiers:
+
 | Identifier | Description | Note | Examples
 | --- | --- | -- | --
 | `userId` | The userId of the connection. | Case insensitive. It can be used in [string operations](#supported-operations). | `userId eq 'user1'`
