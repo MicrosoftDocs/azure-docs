@@ -12,7 +12,7 @@ ms.author: mbullwin
 
 # Azure OpenAI encryption of data at rest
 
-Azure OpenAI automatically encrypts your data when it is persisted to the cloud. The encryption protects your data and helps you meet your organizational security and compliance commitments. This article covers how Azure OpenAI handles encryption of data at rest, specificially training data and fine-tuned models. For information on how data provided by you to the service is processed, used, and stored, consult the [Data, privacy, and security article](/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
+Azure OpenAI automatically encrypts your data when it is persisted to the cloud. The encryption protects your data and helps you meet your organizational security and compliance commitments. This article covers how Azure OpenAI handles encryption of data at rest, specificially training data and fine-tuned models. For information on how data provided by you to the service is processed, used, and stored, consult the [data, privacy, and security article](/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
 
 ## About Cognitive Services encryption
 
@@ -139,9 +139,7 @@ The Fine-tunes API allows customers to create their own fine-tuned version of th
 When you disable customer-managed keys, your Cognitive Services resource is then encrypted with Microsoft-managed keys. To disable customer-managed keys, follow these steps:
 
 1. Go to your Cognitive Services resource, and then select **Encryption**.
-1. Clear the checkbox that's next to **Use your own key**.
-
-- [Configure customer-managed keys with Key Vault for Cognitive Services encryption from the Azure portal](../encryption/cognitive-services-encryption-keys-portal.md)
+1. Select **Microsoft Maanged Keys** > **Save**.
 
 When you previously enabled customer managed keys this also enabled a system assigned managed identity, a feature of Azure AD. Once the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory. After being registered, the managed identity will be given access to the Key Vault selected during customer managed key setup. You can learn more about [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
