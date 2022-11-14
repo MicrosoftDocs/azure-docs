@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for direct EA 
 description: This article explains how enterprise administrators of direct Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/10/2022
+ms.date: 11/14/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -127,7 +127,7 @@ The following table lists the terms and descriptions shown on the Invoices page:
 
 ## Updated direct EA billing invoice documents
 
-Azure is enhancing its invoicing experience. The enhanced experience includes an improved invoice PDF file, a summary PDF, and reconciliation (recon) file.
+Azure is enhancing its invoicing experience. The enhanced experience includes an improved invoice PDF file, a summary PDF, and a transactions file.
 
 There are no changes to invoices generated before November 18, 2022.
 
@@ -257,7 +257,7 @@ The following table lists the terms and descriptions shown on the Reservation tr
 | Amount (USD) | Reservation cost |
 
 > [!NOTE]
-> The newly added column Purchase Month will help identify in which month the refunds are updated and helps to reconcile the RI refunds. 
+> The newly added column Purchase Month will help identify in which month the refunds are updated and helps to reconcile reservation refunds.
 
 ## CSV report formatting issues
 

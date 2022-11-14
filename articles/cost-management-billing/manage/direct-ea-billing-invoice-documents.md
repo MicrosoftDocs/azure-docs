@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 11/14/2021
 ms.author: banders
 ---
 
@@ -85,9 +85,9 @@ Here's an example of the last page of the summary invoice file.
 :::image type="content" source="./media/direct-ea-billing-invoice-documents/invoice-summary-page-02.png" alt-text="Example image of the second page of the summary invoice file." lightbox="./media/direct-ea-billing-invoice-documents/invoice-summary-page-02.png" :::
 
 
-## Understand the reconciliation (recon) file
+## Understand the transactions file
 
-The recon file is a CSV file that includes the same information as the invoice in a format that helps you quickly reconcile. It contains the following line-item details:
+The transactions file is a CSV file that includes the same information as the invoice in a format that helps you quickly reconcile charges. It contains the following line-item details:
 
 | Invoice item | Description |
 | --- | --- |
