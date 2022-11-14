@@ -80,6 +80,8 @@ Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection is
 
 ## Get resource name
 
+In the commands below, we show "msdocs-cosmos" as the resource group name. Change as appropriate for your situation.
+
 ### [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [Azure CLI - get resource name](<./includes/azure-cli-get-resource-name.md>)]
@@ -112,4 +114,8 @@ Skip this step and use the information for the portal in the next step.
 
 ---
 
+## Configure environment variables
 
+[!INCLUDE [Multitab - store connection string in environment variable](<./includes/environment-variables-connection-string.md>)]
+
+## Create MongoClient with connection string
