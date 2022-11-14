@@ -35,7 +35,7 @@ Do an audit of your existing policy settings for each authentication method that
 
 Start by documenting which methods are available in the legacy MFA policy. Sign in as a [Global Administrator](../roles/permissions-reference.md#global-administrator), and click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** to view the settings. These settings are tenant-wide, so there's no need for user or group information. 
 
-The following table lists the available methods in the legacy MFA policy and corresponding methods in the Authentication method policy. As you migrate, you might need to adjust settings to account for differences between the policies. For example, the legacy MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH** tokens are managed separately. 
+For each method, note whether or not it's enabled for the tenant. The following table lists methods available in the legacy MFA policy and corresponding methods in the Authentication method policy. 
 
 | Multifactor authentication policy | Authentication method policy |
 |-----------------------------------|------------------------------|
@@ -43,6 +43,10 @@ The following table lists the available methods in the legacy MFA policy and cor
 | Text message to phone             | Microsoft Authenticator<br>SMS      |
 | Notification through mobile app   | Microsoft Authenticator             |
 | Verification code from mobile app or hardware token   | OATH software token<br>OATH hardware token |
+
+Due to different settings between policies, you might need to adjust who can use a method in the Authentication method policy to better reflect your needs. For example, the legacy MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH tokens** are managed separately for better control over who can use each method. 
+
+Similarly, The legacy MFA policy allows **Text message to phone**, where the Authentication methods policy allows separate options to use either **Microsoft Authenticator** or **SMS**. 
 
 ### SSPR policy
 
@@ -55,7 +59,7 @@ To get the authentication methods available in the legacy SSPR policy, click **P
 | Email                       | Email OTP                    |
 | Mobile phone                | Phone call<br>SMS            |
 | Office phone                | Phone call                   |
-| Security questions          | Not yet available; copy questions for later use   |
+| Security questions          | Not yet available; copy questions for later use  |
 
 ### Authentication methods policy
 
@@ -75,7 +79,7 @@ In the legacy SSPR policy, **Mobile phone** enables both voice call and SMS as a
 
 ## Start migration 
 
-After you capture information from each policy, update Authentication methods policy to match your audit. You'll want to review each method one-by-one. If the method is enabled in both legacy policies, then enable it for all users in the Authentication methods policy. If the method is enabled in one policy, but not the other, 
+The next step is to update Authentication methods policy to match your audit. You'll want to review each method one-by-one. If the method is enabled in both legacy policies, then enable it for all users in the Authentication methods policy. If the method is enabled in one policy, but not the other, 
 
 
 At this point, you can also configure parameters for scenarios where you want to control how a certain method can be used. For example, if you enable **Phone calls** as authentication method, you can allow office phone or mobile only. Step through the process to configure each authentication method from your audit. Then enable and configure other methods you want to be available for sign-in.
