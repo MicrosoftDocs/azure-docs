@@ -1,10 +1,10 @@
-﻿---
+---
 title: Add custom functionality to the Azure API Management developer portal
 titleSuffix: Azure API Management
 description: How to customize the managed API Management developer portal with custom functionality such as custom widgets.
 author: dlepow
 ms.author: danlep
-ms.date: 08/29/2022
+ms.date: 11/01/2022
 ms.service: api-management
 ms.topic: how-to
 ---
@@ -216,11 +216,11 @@ It accepts three arguments by default:
 This function returns all data passed to your custom widget from the developer portal. It contains other data that might be useful in debugging or in more advanced scenarios. This API is expected to change with potential breaking changes. It returns a JSON object that contains the following keys: 
 
 * `values` - All the values you've set in the editor, the same object that is returned by  `getEditorData` 
-
+<!-- TEMPORARILY not present
 * `environment` - Current runtime environment for the widget
 
-* `origin` -  Location origin of the developer portal 
-
+* `origin` -  Location origin of the developer portal
+-->
 * `instanceId` - ID of this instance of the widget 
 
 ### Add or remove custom properties
@@ -232,7 +232,7 @@ To add a custom property:
 1. In the file `src/values.ts`,  add to the `Values` type the name of the property and type of the data it will save. 
 1. In the same file, add a default value for it. 
 1. Navigate to the `editor.html` or `editor/index` file (exact location depends on the framework you've chosen) and duplicate an existing input or add one yourself. 
-1. Make sure the input field reports the changed value to the `onChange` function, which you can get from `[buildOnChange`](#azureapi-management-custom-widgets-toolsbuildonchange). 
+1. Make sure the input field reports the changed value to the `onChange` function, which you can get from [`buildOnChange`](#azureapi-management-custom-widgets-toolsbuildonchange). 
 
 ### (Optional) Use another framework 
 

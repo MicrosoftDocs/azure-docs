@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2022
+ms.date: 11/11/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -63,7 +63,7 @@ When a user goes through combined registration to set up the Authenticator app, 
 
 ### AD FS adapter
 
-The AD FS adapter supports number matching after installing an update. Earlier versions of Windows Server don't support number matching. On earlier versions, users will continue to see the **Approve**/**Deny** experience and won't see number matching until you upgrade.
+The AD FS adapter supports number matching after installing an update. Unpatched versions of Windows Server don't support number matching. Users will continue to see the **Approve**/**Deny** experience and won't see number matching unless these updates are applied.
 
 | Version | Update |
 |---------|--------|

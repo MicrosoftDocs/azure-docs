@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell
 > [!NOTE]
 > A new pricing plan is now available for Microsoft Defender for Cloud that charges you according to the number of storage accounts that you protect (per-storage).
 >
-> In the legacy pricing plan, the cost increases according to the number of analyzed transactions in the storage account (per-transaction). The new per-storage plan fixes costs per storage account, but accounts with an exceptionally high transaction volume incur an overage charge.
+> In the legacy pricing plan, the cost increases according to the number of analyzed transactions in the storage account (per-transaction). The new per-storage account plan fixes costs per storage account, but accounts with an exceptionally high transaction volume incur an overage charge.
 >
 > For details about the pricing plans, see [Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
@@ -43,12 +43,12 @@ Learn more about the [benefits, features, and limitations of Defender for Storag
 |Protected storage types:|[Blob Storage](../blobs/storage-blobs-introduction.md)  (Standard/Premium StorageV2, Block Blobs) <br>[Azure Files](../files/storage-files-introduction.md) (over REST API and SMB)<br>[Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) (Standard/Premium accounts with hierarchical namespaces enabled)|
 |Clouds:|:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Azure Government (Only for per-transaction plan)<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
 
-## Set up Microsoft Defender for Storage for the per-storage pricing plan
+## Set up Microsoft Defender for Storage for the per-storage account pricing plan
 
 > [!NOTE]
-> You can only enable the per-storage pricing plan at the subscription level.
+> You can only enable the per-storage account pricing plan at the subscription level.
 
-With the Defender for Storage per-storage pricing plan, you can configure Microsoft Defender for Storage on your subscriptions in several ways. When the plan is enabled at the subscription level, Microsoft Defender for Storage is automatically enabled for all your existing and new storage accounts created under that subscription.
+With the Defender for Storage per-storage account pricing plan, you can configure Microsoft Defender for Storage on your subscriptions in several ways. When the plan is enabled at the subscription level, Microsoft Defender for Storage is automatically enabled for all your existing and new storage accounts created under that subscription.
 
 You can configure Microsoft Defender for Storage on your subscriptions in several ways:
 
@@ -56,13 +56,11 @@ You can configure Microsoft Defender for Storage on your subscriptions in severa
 - [Bicep template](#bicep-template)
 - [ARM template](#arm-template)
 - [Terraform template](#terraform-template)
-- [PowerShell](#powershell)
-- [Azure CLI](#azure-cli)
 - [REST API](#rest-api)
 
 ### Azure portal
 
-To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using the Azure portal:
+To enable Microsoft Defender for Storage at the subscription level with the per-storage account plan using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -84,7 +82,7 @@ To disable the plan, select **Off** for Defender for Storage in the Defender pla
 
 ### Bicep template
 
-To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
+To enable Microsoft Defender for Storage at the subscription level with the per-storage account plan using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
 
 ```bicep
 resource symbolicname 'Microsoft.Security/pricings@2022-03-01' = {
@@ -102,7 +100,7 @@ Learn more about the [Bicep template AzAPI reference](/azure/templates/microsoft
 
 ### ARM template
 
-To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using an ARM template, add this JSON snippet to the resources section of your ARM template:
+To enable Microsoft Defender for Storage at the subscription level with the per-storage account plan using an ARM template, add this JSON snippet to the resources section of your ARM template:
 
 ```json
 {
@@ -122,7 +120,7 @@ Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.s
 
 ### Terraform template
 
-To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using a Terraform template, add this code snippet to your template with your subscription ID as the `parent_id` value:
+To enable Microsoft Defender for Storage at the subscription level with the per-storage account plan using a Terraform template, add this code snippet to your template with your subscription ID as the `parent_id` value:
 
 ```terraform
 resource "azapi_resource" "symbolicname" {
@@ -142,71 +140,16 @@ To disable the plan, set the `pricingTier` property value to `Free` and remove t
 
 Learn more about the [Terraform template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-terraform).
 
-### PowerShell
-
-To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using PowerShell:
-
-1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps.md).
-1. Use the `Connect-AzAccount` cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps.md).
-1. Use these commands to register your subscription to the Microsoft Defender for Cloud Resource Provider:
-
-    ```powershell
-    Set-AzContext -Subscription <subscriptionId>
-    Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'
-    ```
-
-    Replace `<subscriptionId>` with your subscription ID.
-
-1. Enable Microsoft Defender for Storage for your subscription with the `Set-AzSecurityPricing` cmdlet:
-
-    ```powershell
-    Set-AzSecurityPricing -Name "StorageAccounts" -PricingTier "Standard" -subPlan "PerStorageAccount"
-    ```
-
-> [!TIP]
-> You can use the [`GetAzSecurityPricing` (Az_Security)](/powershell/module/az.security/get-azsecuritypricing.md) to see all of the Defender for Cloud plans that are enabled for the subscription.
-
-To disable the plan, set the `-PricingTier` property value to `Free` and remove the `subPlan` parameter.
-
-Learn more about the [using PowerShell with Microsoft Defender for Cloud](../../defender-for-cloud/powershell-onboarding.md).
-
-### Azure CLI
-
-To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using Azure CLI:
-
-1. If you don't have it already, [install the Azure CLI](/cli/azure/install-azure-cli).
-1. Use the `az login` command to sign in to your Azure account. Learn more about [signing in to Azure with Azure CLI](/cli/azure/authenticate-azure-cli).
-1. Use these commands to set the subscription ID and name:
-
-    ```azurecli
-    az account set --subscription "<subscriptionId or name>"
-    ```
-
-    Replace `<subscriptionId>` with your subscription ID.
-
-1. Enable Microsoft Defender for Storage for your subscription with the `az security pricing create` command:
-
-    ```azurecli
-    az security pricing create -n StorageAccounts --tier "standard" --subPlan "PerStorageAccount"
-    ```
-
-> [!TIP]
-> You can use the [`az security pricing show`](/cli/azure/security/pricing#az-security-pricing-show) command to see all of the Defender for Cloud plans that are enabled for the subscription.
-
-To disable the plan, set the `-tier` property value to `free` and remove the `subPlan` parameter.
-
-Learn more about the [az security pricing create](/cli/azure/security/pricing.md#az-security-pricing-create.md) command.
-
 ### REST API
 
-To enable Microsoft Defender for Storage at the subscription level with the per-storage plan using the Microsoft Defender for Cloud REST API, create a PUT request with this endpoint and body:
+To enable Microsoft Defender for Storage at the subscription level with the per-storage account plan using the Microsoft Defender for Cloud REST API, create a PUT request with this endpoint and body:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/StorageAccounts?api-version=2022-03-01
 
 {
   "properties": {
-    "pricingTier": "Standard"
+    "pricingTier": "Standard",
     "subPlan": "PerStorageAccount"
   }
 }
@@ -232,8 +175,8 @@ You can configure Microsoft Defender for Storage on your subscriptions in severa
 - [Bicep template](#bicep-template-1)
 - [ARM template](#arm-template-1)
 - [Terraform template](#terraform-template-1)
-- [PowerShell](#powershell-1)
-- [Azure CLI](#azure-cli-1)
+- [PowerShell](#powershell)
+- [Azure CLI](#azure-cli)
 - [REST API](#rest-api-1)
 
 #### Bicep template
@@ -314,13 +257,13 @@ To enable Microsoft Defender for Storage at the subscription level with the per-
 1. Enable Microsoft Defender for Storage for your subscription with the `Set-AzSecurityPricing` cmdlet:
 
     ```powershell
-    Set-AzSecurityPricing -Name "StorageAccounts" -PricingTier "Standard" -subPlan "PerTransaction"
+    Set-AzSecurityPricing -Name "StorageAccounts" -PricingTier "Standard"
     ```
 
 > [!TIP]
 > You can use the [`GetAzSecurityPricing` (Az_Security)](/powershell/module/az.security/get-azsecuritypricing.md) to see all of the Defender for Cloud plans that are enabled for the subscription.
 
-To disable the plan, set the `-PricingTier` property value to `Free` and remove the `subPlan` parameter.
+To disable the plan, set the `-PricingTier` property value to `Free`.
 
 Learn more about the [using PowerShell with Microsoft Defender for Cloud](../../defender-for-cloud/powershell-onboarding.md).
 
@@ -341,13 +284,13 @@ To enable Microsoft Defender for Storage at the subscription level with the per-
 1. Enable Microsoft Defender for Storage for your subscription with the `az security pricing create` command:
 
     ```azurecli
-    az security pricing create -n StorageAccounts --tier "standard" --subPlan "PerTransaction"
+    az security pricing create -n StorageAccounts --tier "standard"
     ```
 
 > [!TIP]
 > You can use the [`az security pricing show`](/cli/azure/security/pricing#az-security-pricing-show) command to see all of the Defender for Cloud plans that are enabled for the subscription.
 
-To disable the plan, set the `-tier` property value to `free` and remove the `subPlan` parameter.
+To disable the plan, set the `-tier` property value to `free`.
 
 Learn more about the [`az security pricing create`](/cli/azure/security/pricing.md#az-security-pricing-create) command.
 
@@ -360,7 +303,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 {
 "properties": {
-    "pricingTier": "Standard"
+    "pricingTier": "Standard",
     "subPlan": "PerTransaction"
     }
 }
@@ -378,8 +321,8 @@ You can configure Microsoft Defender for Storage on your accounts in several way
 
 - [Azure portal](#azure-portal-1)
 - [ARM template](#arm-template-2)
-- [PowerShell](#powershell-2)
-- [Azure CLI](#azure-cli-2)
+- [PowerShell](#powershell-1)
+- [Azure CLI](#azure-cli-1)
 
 #### Azure portal
 
@@ -460,29 +403,29 @@ Learn more about the [az security atp storage](/cli/azure/security/atp/storage#a
 
 ## FAQ - Microsoft Defender for Storage pricing plans
 
-### Can I switch from an existing per-transaction plan to the per-storage plan?
+### Can I switch from an existing per-transaction plan to the per-storage account plan?
 
-Yes, you can migrate to the per-storage plan from the Azure portal or all the other supported enablement methods. To migrate to the per-storage plan, [enable the per-storage plan at the subscription level](#set-up-microsoft-defender-for-storage-for-the-per-storage-pricing-plan).
+Yes, you can migrate to the per-storage account plan from the Azure portal or all the other supported enablement methods. To migrate to the per-storage account plan, [enable the per-storage account plan at the subscription level](#set-up-microsoft-defender-for-storage-for-the-per-storage-account-pricing-plan).
 
-### Can I return to the per-transaction plan after switching to the per-storage plan?
+### Can I return to the per-transaction plan after switching to the per-storage account plan?
 
-Yes, you can enable the per-transaction to migrate back from the per-storage plan using all enablement methods except for the Azure portal.
+Yes, you can enable the per-transaction to migrate back from the per-storage account plan using all enablement methods except for the Azure portal.
 
 ### Will you continue supporting the per-transaction plan?
 
 Yes, you can [enable the per-transaction plan](#set-up-microsoft-defender-for-storage-for-the-per-transaction-pricing-plan) from all the enablement methods, except for the Azure portal.
 
-### Can I exclude specific storage accounts from protections in the per-storage plan?
+### Can I exclude specific storage accounts from protections in the per-storage account plan?
 
-No, you can only enable the per-storage pricing plan for each subscription. All storage accounts in the subscription are protected.
+No, you can only enable the per-storage account pricing plan for each subscription. All storage accounts in the subscription are protected.
 
-### How long does it take for the per-storage plan to be enabled?
+### How long does it take for the per-storage account plan to be enabled?
 
-When you enable Microsoft Defender for Storage at the subscription level for the per-storage or per-transaction plans, it takes up to 24 hours for the plan to be enabled.
+When you enable Microsoft Defender for Storage at the subscription level for the per-storage account or per-transaction plans, it takes up to 24 hours for the plan to be enabled.
 
-### Is there any difference in the feature set of the per-storage plan compared to the legacy per-transaction plan?
+### Is there any difference in the feature set of the per-storage account plan compared to the legacy per-transaction plan?
 
-No. Both the per-storage and per-transaction plans include the same features. The only difference is the pricing plan.
+No. Both the per-storage account and per-transaction plans include the same features. The only difference is the pricing plan.
 
 ### How can I estimate the cost of the pricing plans?
 
