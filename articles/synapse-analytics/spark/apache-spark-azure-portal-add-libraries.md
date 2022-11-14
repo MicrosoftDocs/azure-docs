@@ -83,7 +83,7 @@ The setup script requires [Synapse-Python38-CPU.yml](https://github.com/Azure-Sa
 ```
 
 - **Step2: Run the following script to identify the required dependencies**
-The below snippet can be used to pass your requirement.txt which has all the packages and version you intent to install in the spark 3.1/spark3.2 spark pool. It will print the names of the *new* wheel files/dependencies needed for your input library requirements. Note this will list out only the dependencies that are not already present in the spark pool by default.
+The below snippet can be used to pass your requirement.txt which has all the packages and version you intend to install in the spark 3.1/spark3.2 spark pool. It will print the names of the *new* wheel files/dependencies needed for your input library requirements. Note this will list out only the dependencies that are not already present in the spark pool by default.
 
  ```python
     # command to list out wheels needed for your input libraries
