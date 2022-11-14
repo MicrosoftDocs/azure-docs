@@ -21,7 +21,10 @@ To create a glossary term, follow these steps:
 
     :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="Screenshot of the data catalog with the button for managing a glossary highlighted." border="true":::
 
-1. On the **Glossary terms** page, select the glossary you would like to create the new term for. **+ New term**.
+1. On the **Business glossary** page, select the glossary you would like to create the new term for, then select **+ New term**. A term can only be added to one glossary at a time.
+
+   > [!NOTE]
+   > For more information about creating and managing glossaries see the [manage glossaries page.](how-to-create-manage-glossary.md)
 
    A pane opens with the **System default** template selected. Choose the template, or templates, that you want to use to create a glossary term, and then select **Continue**.
    Selecting multiple templates will allow you to use the custom attributes from those templates.
@@ -107,9 +110,7 @@ To create a glossary term, follow these steps:
 
 The Microsoft Purview Data Catalog provides a template .CSV file for you to import terms from the catalog into your glossary. Duplicate terms include both spelling and capitalization, because term names are case-sensitive. 
 
-1. On the **Glossary terms** page, select **Import terms**.
-
-   The term template page opens. 
+1. On the **Business glossary** page, select the glossary you want to import terms to, then select **Import terms**.
 
 1. Select the template, or templates, for the terms you want to import, and then select **Continue**.
 
@@ -132,16 +133,14 @@ The Microsoft Purview Data Catalog provides a template .CSV file for you to impo
 
 1. After you finish filling out your .CSV file, select your file to import, and then select **OK**.
 
-The system will upload the file and add all the terms to your glossary.
+The system will upload the file and add all the terms to your selected glossary.
  
 > [!Important]
 > The email address for an expert or steward should be the primary address of the user from the Azure Active Directory (Azure AD) group. Alternate emails, user principal names, and non-Azure AD emails are not yet supported. 
 
-## Export terms from the glossary with custom attributes
+## Export terms from the glossary
 
-You can export terms from the glossary as long as the selected terms belong to same term template.
-
-When you're in the glossary, the **Export terms** button is disabled by default. After you select the terms that you want to export, the **Export terms** button is enabled.
+When you're in any of your glossaries, the **Export terms** button is disabled by default. After you select the terms that you want to export, the **Export terms** button is enabled.
 
 > [!NOTE]
 > Selected terms **don't** need to be from the same term template to be able to export them.
@@ -159,7 +158,9 @@ Select **Export terms** to download the selected terms.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="Screenshot of the data catalog and the button for managing a glossary." border="true":::
 
-1. Select the checkboxes for the terms that you want to delete. You can select a single term or multiple terms for deletion.
+1. Select the glossary that has the terms you want to delete, and select the **Terms** tab.
+
+1. Select checkboxes for the terms that you want to delete. You can select a single term or multiple terms for deletion.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-terms.png" alt-text="Screenshot of the glossary with a few terms selected." border="true":::
 
