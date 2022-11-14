@@ -35,9 +35,9 @@ By default, the workbook is auto-filled with the same settings as the LA workspa
 When you want to share a workbook or template, keep in mind that the person you want to share with must have permissions to access the workbook. They must have an Azure account, and **Azure Sentinel Workbook Reader** permissions.
 To share a workbook or workbook template:
 
-1. In the Azure portal, select the workbook you want to share.
-1. Select the **share** icon from the top toolbar.
-1. The **Share workbook** window opens with a URL to use for sharing the workbook.
+1. In the Azure portal, select the workbook or template you want to share.
+1. Select the **Share** icon from the top toolbar.
+1. The **Share workbook** or **Share template** window opens with a URL to use for sharing the workbook.
 1. Copy the link to share the workbook, or select **Share link via email** to open your default mail app.
 
 :::image type="content" source="media/workbooks-getting-started/workbooks-share.png" alt-text="Screenshot of the steps to share an Azure workbook.":::
