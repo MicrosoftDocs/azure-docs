@@ -13,9 +13,10 @@ ms.author: malev
 ---
 # Quickstart: Create a Python app with the Azure SDK for Python
 
-In this quickstart, you will use the Azure SDK for Python to centralize storage and management of application settings using the [Azure App Configuration client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
+This document describes how to use the Azure SDK for Python to centralize storage and management of application settings using the [Azure App Configuration client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
 
-To use Azure App Configuration with the Python provider instead of the SDK, go to [Python provider](./quickstart-python-provider.md). The Python provider enables loading  configuration settings from an Azure App Configuration store in a managed way.
+>[!TIP]
+> App Configuration also offers a Python provider that helps developers centralize their application configurations. It enables configuration settings to be used like a dictionary. Go to the [Python quickstart](./quickstart-python-provider.md) to learn more.
 
 ## Prerequisites
 
