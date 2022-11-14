@@ -1,21 +1,18 @@
 ---
-title: Mount an Azure Blob Storage container on Linux by using BlobFuse2 (preview)
+title: Use BlobFuse to mount an Azure Blob Storage container on Linux - BlobFuse2 (preview)
 titleSuffix: Azure Blob Storage
-description: Learn how to mount an Azure Blob Storage container on Linux by using BlobFuse2 (preview).
+description: Learn how to use the latest version of BlobFuse, BlobFuse2, to mount an Azure Blob Storage container on Linux.
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 10/31/2022
+ms.custom: engagement-fy23
 ---
 
-# Mount an Azure Blob Storage container on Linux by using BlobFuse2 (preview)
-
-[BlobFuse2 (preview)](blobfuse2-what-is.md) is a virtual file system driver for Azure Blob Storage. BlobFuse2 allows you to access your existing Azure block blob data in your storage account through the Linux file system. For more information, see [What is BlobFuse2?](blobfuse2-what-is.md).
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+# Mount an Azure Blob Storage container on Linux with BlobFuse2 (preview)
 
 This article shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
 
@@ -23,6 +20,8 @@ This article shows you how to install and configure BlobFuse2, mount an Azure bl
 - [Configure BlobFuse2](#configure-blobfuse2)
 - [Mount a blob container](#mount-a-blob-container)
 - [Access data](#access-data)
+
+[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Install BlobFuse2
 

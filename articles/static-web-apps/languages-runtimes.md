@@ -43,7 +43,7 @@ The following versions are supported for managed functions in Static Web Apps. I
 
 ## Deprecations
 
-The following runtimes are deprecated in Azure Static Web Apps. For more information about changing your runtime, see [Specify API language runtime version in Azure Static Web Apps](https://azure.microsoft.com/updates/generally-available-specify-api-language-runtime-version-in-azure-static-web-apps/) and [Azure Functions runtime versions overview](../azure-functions/functions-versions.md?pivots=programming-language-csharp&tabs=azure-powershell%2cin-process%2cv4#upgrade-your-local-project).
+The following runtimes are deprecated in Azure Static Web Apps. For more information about changing your runtime, see [Specify API language runtime version in Azure Static Web Apps](https://azure.microsoft.com/updates/generally-available-specify-api-language-runtime-version-in-azure-static-web-apps/) and [Migrate apps from Azure Functions version 3.x to version 4.x](../azure-functions/migrate-version-3-version-4.md).
 
 - .NET Core 3.1
 - Node.js 12.x

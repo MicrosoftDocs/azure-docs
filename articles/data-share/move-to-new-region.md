@@ -3,7 +3,7 @@ title: Move Azure Data Share Accounts to another Azure region using the Azure po
 description: Use Azure Resource Manager template to move Azure Data Share account from one Azure region to another using the Azure portal.
 ms.service: data-share
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 10/27/2022
 author: sidontha
 ms.author: sidontha
 

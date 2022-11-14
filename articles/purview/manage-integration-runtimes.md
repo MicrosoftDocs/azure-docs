@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 11/03/2022
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -172,6 +172,7 @@ Depending on the sources you want to scan, you also need to allow other domains 
 | `<your_storage_account>.dfs.core.windows.net` | 443 | When scan Azure Data Lake Store Gen 2. |
 | `<your_storage_account>.blob.core.windows.net` | 443            | When scan Azure Blob storage. |
 | `<your_sql_server>.database.windows.net` | 1433           | When scan Azure SQL Database. |
+|  `*.powerbi.com` and `*.analysis.windows.net` | 443            | When scan Power BI tenant. |
 | `<your_ADLS_account>.azuredatalakestore.net` | 443            | When scan Azure Data Lake Store Gen 1. |
 | Various domains | Dependent | Domains and ports for any other sources the SHIR will scan. |
 

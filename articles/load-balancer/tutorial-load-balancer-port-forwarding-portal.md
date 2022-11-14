@@ -6,8 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 10/18/2022
-ms.custom: template-tutorial
+ms.date: 10/28/2022
+ms.custom: template-tutorial, engagement-fy23
 ---
 
 # Tutorial: Create a single virtual machine inbound NAT rule using the Azure portal
