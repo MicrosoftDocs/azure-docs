@@ -111,8 +111,8 @@ Azure".
 
    ![The contents of the index.jade file.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
 
-   Jade is the default view engine used by Express applications. For more
-   information on the Jade view engine, see [http://jade-lang.com][http://jade-lang.com].
+   Jade is the default view engine used by Express applications. 
+   
 2. Modify the last line of text by appending **in Azure**.
 
    ![The index.jade file, the last line reads: p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
