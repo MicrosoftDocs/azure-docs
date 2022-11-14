@@ -15,7 +15,9 @@ Netherite was designed and developed by [Microsoft Research](https://www.microso
 
 ## Compatibility
 
-Netherite provides the same programming model, so it is not necessary to change the code that defines the orchestration, entity, and activity functions. However, the [data representation in storage](durable-functions-task-hubs.md#representation-in-storage) is different. We do not currently support migration of any [task hub contents](durable-functions-task-hubs.md). Your application will need to start with a fresh, empty task hub after changing the provider to Netherite. Similarly, the task hub contents created while running Netherite cannot be preserved when switching to a different provider, such as the Azure Storage provider, or the MSSQL storage provider.
+Netherite provides the same programming model, so it is not necessary to change the code that defines the orchestration, entity, and activity functions
+
+However, the [data representation in storage](durable-functions-task-hubs.md#representation-in-storage) is different. We do not currently support migration of any [task hub contents](durable-functions-task-hubs.md) across storage providers. This means that your application will need to start with a fresh, empty task hub after changing the provider to Netherite. Similarly, the task hub contents created while running Netherite cannot be preserved when switching to a different provider, such as the Azure Storage provider, or the MSSQL storage provider.
 
 ## Prerequisites
 
