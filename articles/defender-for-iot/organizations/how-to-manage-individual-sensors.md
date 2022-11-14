@@ -421,6 +421,9 @@ To define:
 
 1. Turn on the **Authentication** toggle to enter your username and password.
 
+    > [!NOTE]
+    > The **Use NTLM** toggle appears only if the **Authentication** toggle is turned on.
+
 1. Turn on the **Use NTLM** toggle to enable [NLTM](/windows-server/security/kerberos/ntlm-overview).
 
 1. Select **Save**.
