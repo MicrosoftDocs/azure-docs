@@ -9,27 +9,25 @@ ms.reviewer: azfuncdf
 
 # Walkthrough: Switch to Netherite
 
-Azure Functions allows you to choose from several [storage providers](durable-functions-storage-providers.md) with different characteristics.
-By default, new projects are configured to use the Azure Table Storage provider. In this article, we walk through the steps required to configure an existing
-Azure Durable Functions project to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
+Durable Functions allows you to choose from several [storage providers](durable-functions-storage-providers.md) (sometimes called "backends") with different characteristics. By default, new projects are configured to use the Azure Table Storage provider. In this article, we walk through how to configure an existing Durable Functions project to utilize the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
-The Netherite storage provider was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) to distribute task hub partitions over the workers, and [optimizes the storage accesses of each partition using commit logs and checkpointing](https://www.vldb.org/pvldb/vol15/p1591-burckhardt.pdf). This architecture enables [significantly higher throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) for processing orchestrations and entities, compared to other providers. In some [benchmark scenarios](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude when compared to the default Azure Storage provider.
+Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) to distribute task hub partitions over the workers, and [optimizes the storage accesses of each partition using commit logs and checkpointing](https://www.vldb.org/pvldb/vol15/p1591-burckhardt.pdf). Relative to other provides, this architecture enables [significantly higher throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) when processing orchestrations and entities. In some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude when compared to the default Azure Storage provider.
 
 ## Compatibility
 
 Netherite provides the same programming model, so it is not necessary to change the code that defines the orchestration, entity, and activity functions. However, the [data representation in storage](durable-functions-task-hubs.md#representation-in-storage) is different. We do not currently support migration of any [task hub contents](durable-functions-task-hubs.md). Your application will need to start with a fresh, empty task hub after changing the provider to Netherite. Similarly, the task hub contents created while running Netherite cannot be preserved when switching to a different provider, such as the Azure Storage provider, or the MSSQL storage provider.
 
-## Prerequisite
+## Prerequisites
 
 We are assume you are starting with an existing Durable Functions app, and are familiar with how to compile, deploy, and operate it.
 In particular, we expect that you have already
 
-1. Created a function app project on your local machine.
-1. Added some durable functions to your project.
+1. Created a Functions project on your local machine.
+1. Added Durable Functions to your project.
 1. Configured the project for local debugging.
-1. Deployed the local project to a function app that runs in the cloud.
+1. Deployed the local project to a Function app that runs in the cloud.
 
-If this is not the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve each of the steps above:
+If this is not the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
 
 - [Create your first durable function - C#](durable-functions-create-first-csharp.md)
 - [Create your first durable function - JavaScript](quickstart-js-vscode.md)
