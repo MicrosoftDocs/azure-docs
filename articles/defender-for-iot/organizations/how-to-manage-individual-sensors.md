@@ -306,6 +306,27 @@ The console will display restore failures.
 
 - Sign in to an administrative account and enter `$ sudo cyberx-management-system-restore`.
 
+## Configuring SMTP settings
+
+Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other services. For example, you'll need an SMTP mail server configured to configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
+
+**To configure an SMTP server on your sensor**:
+
+1. Sign in to the sensor as an **Admin** user and select **System settings** > **Integrations** > **Mail server**.
+
+1. In the **Edit Mail Server Configuration** pane that appears, define the values for your SMTP server as follows:
+
+|  |  |
+|---|---|
+| **SMTP Server Address** | Enter the IP address or domain address of your SMTP server. |
+| **SMTP Server Port** | Default = 25. Adjust the value as needed. |
+| **Outgoing Mail Account** | Enter an email address to use as the outgoing mail account from your sensor. |
+| **SSL** | Toggle on for secure connections from your sensor. |
+| **Authentication** | Toggle on and then enter a username and password for your email account. |
+| **Use NTLM** | Toggle on to enable [NTLM](/windows-server/security/kerberos/ntlm-overview). This option only appears when you have the **Authentication** option toggled on. |
+
+3. Select **Save** when you're done.
+
 ## Forward sensor failure alerts
 
 You can forward alerts to third parties to provide details about:
@@ -392,35 +413,6 @@ This feature is supported for the following sensor versions:
     :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup & Restore pane showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
 
 1. For a locally managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview).
-
-## Configuring SMTP settings
-
-Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other services. For example, you'll need an SMTP mail server configured to configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
-
-**To configure an SMTP server on your sensor**:
-
-1. Sign in to the sensor as an **Admin** user and select **System settings** > **Integrations** > **Mail server**.
-
-
-
-    :::image type="content" source="media/how-to-manage-individual-sensors/SMTP-mail-server.png" alt-text="Screenshot of how to get to the mail server gadget in the sensor console." lightbox="media/how-to-manage-individual-sensors/SMTP-mail-server.png":::
-
-
-    :::image type="content" source="media/how-to-manage-individual-sensors/SMPT-mail-server-pane.png" alt-text="Screenshot of mail server configuration pane in the sensor console." lightbox="media/how-to-manage-individual-sensors/SMPT-mail-server-pane.png":::
-
-1. Enter an IP address or Domain address in **SMTP Server Address**.
-
-1. Adjust the value in **SMTP Server Port** as needed. The default value is 25.
-
-1. Enter an email address in **Outgoing Mail Account**.
-
-1. Toggle on the **SSL** option to enable SSL for a secure connection.
-
-1. Toggle on the **Authentication** option to enter your username and password. 
-
-1. Toggle on the **Use NTLM** option to enable [NLTM](/windows-server/security/kerberos/ntlm-overview). The **Use NTLM** option appears only when you have the **Authentication** option toggled on.
-
-1. Select **Save**.
 
 ## Clearing sensor data
 

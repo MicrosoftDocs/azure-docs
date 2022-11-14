@@ -56,6 +56,10 @@ The following Forwarding rules allow encryption and certificate validation:
 
 ## Create forwarding rules
 
+**Prerequisites**:
+
+Before you can configure a forwarding rule, you'll need to define SMTP settings on your sensor. For more information, see [Configuring SMTP settings](how-to-manage-individual-sensors.md#configuring-smtp-settings).
+
 **To create a new forwarding rule**:
 
 1. Sign in to the sensor.
@@ -82,10 +86,6 @@ The following Forwarding rules allow encryption and certificate validation:
 ## Forwarding rule actions
 
 You can send alert information to the servers described in this section.
-
-**Prerequisites**:
-
-Before you can configure a forwarding rule, you'll need to define SMTP settings on your sensor. For more information, see [Configuring SMTP settings](how-to-manage-individual-sensors.md#configuring-smtp-settings).
 
 ### Email address action
 
