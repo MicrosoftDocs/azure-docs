@@ -218,7 +218,7 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
     <tr>
         <td><strong>Cost to write (transactions * price of a write operation)</></strong></td>
         <td><strong>$2.00</strong></td>
-        <td><strong>$2.</strong></td>
+        <td><strong>$2.00</strong></td>
         <td><strong>$2.00</strong></td>
         <td><strong>$24.00</strong></td>
     </tr>
@@ -359,7 +359,7 @@ The following table compares the cost of archive storage with the cost of cold s
 </table>
 
 > [!TIP]
-> To view these costs over 12 months, open the **Cool vs Archive** tab of this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx). You can modify the values in that worksheet to estimate your costs. 
+> To view live formula of these costs, open the **Cool vs Archive** tab of this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx). You can modify the values in that worksheet to estimate your costs. 
 
 The following chart shows the impact on monthly spending given various read percentages. This chart assumes a monthly ingest of 1,000,000 files totaling 10,240 GB in size.
 
@@ -386,7 +386,7 @@ This article uses the following fictitious prices.
 | Price of a single read operation (cost / 10,000)      | $0.0005  | $0.000001 |
 | Price of high priority read transactions (per 10,000) | $50.00   | N/A       |
 | Price of data retrieval (per GB)                      | $0.02    | $0.01     |
-| PRice of high priority data retrieval (per GB)        | $0.10    | N/A       |
+| Price of high priority data retrieval (per GB)        | $0.10    | N/A       |
 
 For official prices, see [Azure Blob Storage pricing](/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](/pricing/details/storage/data-lake/). 
 
