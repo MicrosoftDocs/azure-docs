@@ -264,7 +264,7 @@ A Log Analytics workspace is required for the Container Apps environment.  The f
 
 ```azurepowershell
 $WorkspaceArgs = @{
-    Name = $Environment
+    Name = 'my-album-workspace'
     ResourceGroupName = $ResourceGroup
     Location = $Location
     PublicNetworkAccessForIngestion = 'Enabled'
