@@ -20,7 +20,7 @@ This article outlines how to register Azure Arc-enabled SQL Server instances, an
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [1.DevOps policies](how-to-policies-devops-arc-sql-server.md) [2.Data Owner](how-to-policies-data-owner-arc-sql-server.md) | Limited** | No |
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#access-policy) | Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -114,7 +114,7 @@ The account must have access to the **master** database. This is because the `sy
 
 1. Select **Register**
 
-1. Select **SQL server** and then **Continue**
+1. Select **SQL server on Azure Arc-enabled servers** and then **Continue**
 
    :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/set-up-azure-arc-enabled-sql-data-source.png" alt-text="Screenshot that shows how to set up the SQL data source.":::
 
@@ -132,7 +132,7 @@ To create and run a new scan, do the following:
 
 1. Select the **Data Map** tab on the left pane in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
-1. Select the SQL Server source that you registered.
+1. Select the Azure Arc-enabeld SQL Server source that you registered.
 
 1. Select **New scan**
 
@@ -155,6 +155,14 @@ To create and run a new scan, do the following:
 1. Review your scan and select **Save and run**.
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
+
+## Access policy
+
+### Supported policies
+The following types of policies are supported on this data resource from Microsoft Purview:
+* [DevOps policies](how-to-policies-devops-arc-sql-server.md)
+* [Data Owner](how-to-policies-data-owner-arc-sql-server.md)
+
 
 ## Next steps
 

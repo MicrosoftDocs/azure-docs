@@ -172,11 +172,13 @@
       items:
         - name: Responsible AI overview
           displayName: responsible, ml
-          href: concept-responsible-ml.md
+          href: concept-responsible-ai.md
         - name: Implement Responsible AI in Practice
           items:
             - name: Responsible AI dashboard
               href: concept-responsible-ai-dashboard.md
+            - name: Responsible AI scorecard
+              href: concept-responsible-ai-scorecard.md
             - name: Model interpretability
               displayName: explainability, explanations, interpretability
               href: how-to-machine-learning-interpretability.md
@@ -252,8 +254,6 @@
           href: how-to-identity-based-service-authentication.md
         - name: Manage users and roles
           href: how-to-assign-roles.md
-        - name: Use managed identities for access control
-          href: how-to-use-managed-identities.md
     - name: Network security
       items:
         - name: Virtual network overview
@@ -496,6 +496,12 @@
               href: how-to-configure-auto-train.md
             - name: Use automated ML (interface)
               href: how-to-use-automated-ml-for-ml-models.md
+            - name: Use automated ML with Databricks
+              displayName: automl
+              href: how-to-configure-databricks-automl-environment.md
+            - name: Debug jobs and monitor training progress
+              displayName: automl
+              href: how-to-interactive-jobs.md
             - name: Prep image data for computer vision models (Python)
               displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
               href: how-to-prepare-datasets-for-automl-images.md
@@ -667,18 +673,18 @@
           href: how-to-manage-resources-vscode.md
     - name: Implement Responsible AI in Practice
       items:
-        - name: Generate Responsible AI dashboard
+        - name: Generate Responsible AI insights
           items:
-            - name: Responsible AI dashboard (V2)
+            - name: Responsible AI insights (V2)
               displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
-              href: how-to-responsible-ai-dashboard-sdk-cli.md
-            - name: Responsible AI dashboard (UI)
+              href: how-to-responsible-ai-insights-sdk-cli.md
+            - name: Responsible AI insights (UI)
               displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
-              href: how-to-responsible-ai-dashboard-ui.md
+              href: how-to-responsible-ai-insights-ui.md
         - name: Using the Responsible AI dashboard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-dashboard.md
-        - name: Responsible AI dashboard scorecard
+        - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
 - name: Troubleshoot & debug
