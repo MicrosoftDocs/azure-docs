@@ -161,3 +161,4 @@ Non-transactable offers earn benefits based on whether or not a free trial is at
 
 - To choose an offer type, see [Publishing guide by offer type](publisher-guide-by-offer-type.md).
 
+
