@@ -59,7 +59,7 @@ Understandably, some applications may be sensitive to being throttled. In that c
 
 ## Throttling in premium tier
 
-The [Service Bus premium](service-bus-premium-messaging.md) tier allocates dedicated resources, in terms of messaging units, to each namespace setup by the customer. These dedicated resources provide predictable throughput and latency and are recommended for high throughput or sensitive production grade systems. Additionally, the premium tier also enables customers to scale up their throughput capacity when they experience spikes in the workload. For more information, see [Automatically update messaging units of an Azure Service Bus namespace](automate-update-messaging-units).
+The [Service Bus premium](service-bus-premium-messaging.md) tier allocates dedicated resources, in terms of messaging units, to each namespace setup by the customer. These dedicated resources provide predictable throughput and latency and are recommended for high throughput or sensitive production grade systems. Additionally, the premium tier also enables customers to scale up their throughput capacity when they experience spikes in the workload. For more information, see [Automatically update messaging units of an Azure Service Bus namespace](automate-update-messaging-units.md).
 
 ### How does throttling work in Service Bus Premium?
 
@@ -75,7 +75,7 @@ There are various ways to identifying throttling in the Service Bus premium tier
 
 ### How can I avoid being throttled?
 
-As the Service Bus premium namespace already has dedicated resources, you can reduce the possibility of getting throttled by scaling up the number of messaging units allocated to your namespace in the event (or anticipation) of a spike in the workload. For more information, see [Automatically update messaging units of an Azure Service Bus namespace](automate-update-messaging-units).
+As the Service Bus premium namespace already has dedicated resources, you can reduce the possibility of getting throttled by scaling up the number of messaging units allocated to your namespace in the event (or anticipation) of a spike in the workload. For more information, see [Automatically update messaging units of an Azure Service Bus namespace](automate-update-messaging-units.md).
 
 
 ## FAQs
