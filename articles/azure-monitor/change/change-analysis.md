@@ -126,6 +126,8 @@ Currently the following dependencies are supported in **Web App Diagnose and sol
 - **App Services file changes**: File changes take up to 30 minutes to display.
 - **App Services configuration changes**: Due to the snapshot approach to configuration changes, timestamps of configuration changes could take up to 6 hours to display from when the change actually happened.
 - **Web app deployment and configuration changes**: Since these changes are collected by a site extension and stored on disk space owned by your application, data collection and storage is subject to your application's behavior. Check to see if a misbehaving application is affecting the results.
+- **Snapshot retention for all changes**: The Change Analysis data for resources is tracked by the Azure Resource Graphs(ARG). ARG keeps snapshot history of tracked resources only for 14 days.
+
 
 ## Next steps
 
