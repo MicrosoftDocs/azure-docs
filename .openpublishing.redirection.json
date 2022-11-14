@@ -29501,7 +29501,7 @@
         },
         {
             "source_path_from_root": "/articles/aks/managed-cluster-snapshot.md",
-            "redirect_url": "/articles/aks/intro-kubernetes.md",
+            "redirect_url": "/azure/articles/aks/intro-kubernetes",
             "redirect_document_id": "false"
         }
     ]
