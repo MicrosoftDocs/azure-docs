@@ -75,7 +75,7 @@ By default, Azure AD blocks weak passwords such as *Password1*. A global banned 
 
 To increase security, you can define custom password protection policies. These policies can use filters to block any variation of a password containing a name such as *Contoso* or a location like *London*, for example.
 
-For hybrid security, you can integrate Azure AD password protection with an on-premises Active Directory environment. A component installed in the on-prem environment receives the global banned password list and custom password protection policies from Azure AD, and domain controllers use them to process password change events. This hybrid approach makes sure that no matter how or where a user changes their credentials, you enforce the use of strong passwords.
+For hybrid security, you can integrate Azure AD password protection with an on-premises Active Directory environment. A component installed in the on-premises environment receives the global banned password list and custom password protection policies from Azure AD, and domain controllers use them to process password change events. This hybrid approach makes sure that no matter how or where a user changes their credentials, you enforce the use of strong passwords.
 
 ## Passwordless authentication
 
@@ -114,7 +114,7 @@ Persistent session tokens are stored as persistent cookies on the web browser's 
 | clrc | Common | Client-side cookie (set by JavaScript) to control local cached sessions on the client. |
 | CkTst | Common | Client-side cookie (set by JavaScript). No longer in active use. | 
 | wlidperf | Common | Client-side cookie (set by JavaScript) that tracks local time for performance purposes. |
-| x-ms-gateway-slice | Common | Azure AD Gateway cookie used for trackind and load balance purposes. |
+| x-ms-gateway-slice | Common | Azure AD Gateway cookie used for tracking and load balance purposes. |
 | stsservicecookie | Common | Azure AD Gateway cookie also used for tracking purposes. |
 | x-ms-refreshtokencredential | Specific | Available when [Primary Refresh Token (PRT)](/azure/active-directory/devices/concept-primary-refresh-token) is in use. |
 | estsStateTransient | Specific | Applicable to new session information model only. Transient. | 
@@ -130,10 +130,10 @@ Persistent session tokens are stored as persistent cookies on the web browser's 
 | debug | Specific | Cookie used to track if user's browser session is enabled for DebugMode. |
 | MSFPC | Specific | This cookie is not specific to any ESTS flow, but is sometimes present. It applies to all Microsoft Sites (when accepted by users). Identifies unique web browsers visiting Microsoft sites. It's used for advertising, site analytics, and other operational purposes. |
 
-Notes:  
-Cookies identified as client-side cookies are set locally on the client device by JavaScript, hence, will be marked with HttpOnly=false.  
-
-Cookie definitions and respective names are subject to change at any moment in time according to Azure AD service requirements.  
+> [!NOTE] 
+> Cookies identified as client-side cookies are set locally on the client device by JavaScript, hence, will be marked with HttpOnly=false.  
+>
+> Cookie definitions and respective names are subject to change at any moment in time according to Azure AD service requirements.  
 
 ## Next steps
 
