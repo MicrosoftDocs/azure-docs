@@ -127,18 +127,15 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 ---
 
-### Move data to your new account
+### Migrate your data
+
+If you desire, you can migrate your existing data from the free account to the newly created account.
+
+#### [NoSQL](#tab/nosql)
 
 1. Navigate back to the **Upgrade** page from the [Start upgrade](#start-upgrade) section of this guide. Select **Next** to move on to the third step and move your data.
 
     :::image type="content" source="media/try-free/account-creation-options.png" lightbox="media/try-free/account-creation-options.png" alt-text="Screenshot of the sign-in/sign-up experience to upgrade your current account.":::
-
-## Migrate your data
-
-### [NoSQL / MongoDB / Cassandra / Gremlin / Table](#tab/nosql+mongodb+cassandra+gremlin+table)
-
-> [!NOTE]
-> While this example uses API for NoSQL, the steps are similar for the APIs for MongoDB, Cassandra, Gremlin, or Table.
 
 1. Locate your **Primary Connection string** for the Azure Cosmos DB account you created for your data. This information can be found within the **Keys** page of your new account.
 
@@ -150,7 +147,11 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 1. Select **Next** to move the data to your account. Provide your email address to be notified by email once the migration has been completed.
 
-### [PostgreSQL](#tab/postgresql)
+#### [PostgreSQL](#tab/postgresql)
+
+1. Navigate back to the **Upgrade** page from the [Start upgrade](#start-upgrade) section of this guide. Select **Next** to move on to the third step and move your data.
+
+    :::image type="content" source="media/try-free/account-creation-options.png" lightbox="media/try-free/account-creation-options.png" alt-text="Screenshot of the sign-in/sign-up experience to upgrade your current account.":::
 
 1. Locate your **PostgreSQL connection URL** of the Azure Cosmos DB account you created for your data. This information can be found within the **Connection String** page of your new account.
 
@@ -158,9 +159,14 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 1. Select **Next** to move the data to your account.
 
+#### [MongoDB / Cassandra / Gremlin / Table](#tab/mongodb+cassandra+gremlin+table)
+
+> [!IMPORTANT]
+> Data migration is not available for the APIs for MongoDB, Cassandra, Gremlin, or Table.
+
 ---
 
-## Delete your account
+### Delete your original account
 
 There can only be one free Try Azure Cosmos DB account per Microsoft account. You may want to delete your account or to try different APIs, you'll have to create a new account. Here’s how to delete your account.
 
