@@ -15,7 +15,7 @@ ms.custom: language-service-health, ignite-fall-2021
 
 # Language support for Text Analytics for health
 
-Use this article to learn which natural languages are supported by Text Analytics for health and its Docker container. 
+Use this article to learn which natural languages are supported by Text Analytics for health and its Docker container.  
 
 ## Hosted API Service
 
