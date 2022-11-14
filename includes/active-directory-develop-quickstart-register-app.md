@@ -30,7 +30,7 @@ The Microsoft identity platform performs identity and access management (IAM) on
 - The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). Any of the following Azure AD roles include the required permissions:
   - [Application administrator](/azure/active-directory/roles/permissions-reference#application-administrator)
   - [Application developer](/azure/active-directory/roles/permissions-reference#application-developer)
-  - [Cloud application administrator](/azure/active-directory/roles/permissions-reference.md#cloud-application-administrator)
+  - [Cloud application administrator](/azure/active-directory/roles/permissions-reference#cloud-application-administrator)
 - Completion of the [Set up a tenant](/azure/active-directory/develop/quickstart-create-new-tenant) quickstart.
 
 ## Register an application
