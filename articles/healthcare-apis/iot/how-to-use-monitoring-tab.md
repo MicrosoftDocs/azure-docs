@@ -14,7 +14,7 @@ ms.author: jasteppe
 
 In this article, you'll learn how to use the [MedTech service](iot-connector-overview.md) monitoring tab in the Azure portal. The monitoring tab provides access to crucial MedTech service metrics. These metrics can be used in assessing the health and performance of your MedTech service and can be useful seeing patterns and/or trends or assisting with troubleshooting your MedTech service.
 
-## Use the MedTech service monitoring tab
+## Display the MedTech service monitoring tab
 
 1. Within your Azure Health Data Services workspace, select **MedTech service** under **Services**.
 
