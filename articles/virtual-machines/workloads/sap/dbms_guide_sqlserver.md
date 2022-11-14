@@ -8,7 +8,7 @@ keywords: 'Azure, SQL Server, SAP, AlwaysOn, Always On'
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 08/24/2022
+ms.date: 11/14/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
