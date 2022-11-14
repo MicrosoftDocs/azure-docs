@@ -23,7 +23,7 @@ The benefits of smart inventory management include:
 
 This application template focuses on device connectivity, and the configuration and management of RFID and Bluetooth low energy (BLE) reader devices.
 
-:::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-architecture.png" alt-text="smart inventory management." border="false":::
+:::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-architecture.png" alt-text="Diagram showing the smart inventory management application architecture." border="false":::
 
 ### RFID tags (1)
 
@@ -45,7 +45,7 @@ Azure IoT Edge server provides a place to preprocess that data locally before se
 
 ### Device management with IoT Central
 
-Azure IoT Central is a solution development platform that simplifies IoT device connectivity, configuration, and management. The platform significantly reduces the burden and costs of IoT device management, operations, and related developments. Customers and partners can build an end-to-end enterprise solutions to achieve a digital feedback loop in inventory management.
+Azure IoT Central is a solution development platform that simplifies IoT device connectivity, configuration, and management. The platform significantly reduces the burden and costs of IoT device management, operations, and related developments. Customers and partners can build an end-to-end enterprise solution to achieve a digital feedback loop in inventory management.
 
 ### Business insights and actions using data egress (3)
 
@@ -77,7 +77,7 @@ The following sections walk you through the key features of the application:
 
 ### Dashboard
 
-After successfully deploying the application template, your default dashboard is a smart inventory management operator focused portal. Northwind Trader is a fictitious smart inventory provider managing warehouse with Bluetooth low energy (BLE) and retail store with Radio-frequency identification (RFID). In this dashboard, you'll see two different gateways providing telemetry about inventory along with associated commands, jobs, and actions that you can perform.
+After you deploy the application, your default dashboard is a smart inventory management operator focused portal. Northwind Trader is a fictitious smart inventory provider managing warehouse with Bluetooth low energy (BLE) and retail store with Radio-frequency identification (RFID). In this dashboard, you'll see two different gateways providing telemetry about inventory along with associated commands, jobs, and actions that you can perform.
 
 This dashboard is pre-configured to showcase the critical smart inventory management device operations activity.
 The dashboard is logically divided between two different gateway device management operations:
@@ -93,7 +93,7 @@ The dashboard is logically divided between two different gateway device manageme
 
 ### Device Template
 
-Click on the Device templates tab, and you'll see the gateway capability model. A capability model is structured around two different interfaces **Gateway Telemetry and Property** and **Gateway Commands**
+Select the Device templates tab, and you'll see the gateway capability model. A capability model is structured around two different interfaces **Gateway Telemetry and Property** and **Gateway Commands**
 
 **Gateway Telemetry and Property** - This interface represents all the telemetry related to sensors, location, device info, and device twin property capability such as gateway thresholds and update intervals.
 
@@ -117,7 +117,7 @@ Select the rules tab to see two different rules that exist in this application t
 
 ## Next steps
 
-Learn more about :
+Learn more about:
 
 > [!div class="nextstepaction"]
 > [IoT Central data integration](../core/overview-iot-central-solution-builder.md)

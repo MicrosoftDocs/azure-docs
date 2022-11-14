@@ -36,7 +36,7 @@ The "cameras-as-sensors" and edge workloads are managed locally by Azure IoT Edg
 
 ### Device management with IoT Central
 
-Azure IoT Central is a solution development platform that simplifies IoT device and Azure IoT Edge gateway connectivity, configuration, and management. The platform significantly reduces the burden and costs of IoT device management, operations, and related developments. Customers and partners can build an end-to-end enterprise solutions to achieve a digital feedback loop in distribution centers.
+Azure IoT Central is a solution development platform that simplifies IoT device and Azure IoT Edge gateway connectivity, configuration, and management. The platform significantly reduces the burden and costs of IoT device management, operations, and related developments. Customers and partners can build an end-to-end enterprise solution to achieve a digital feedback loop in distribution centers.
 
 ### Business insights and actions using data egress (5,6)
 
@@ -105,7 +105,7 @@ Select the rules tab to see two different rules that exist in this application t
 
 ## Next steps
 
-Learn more about :
+Learn more about:
 
 > [!div class="nextstepaction"]
 > [IoT Central data integration](../core/overview-iot-central-solution-builder.md)

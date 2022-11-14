@@ -71,7 +71,7 @@ The following sections walk you through the key features of the application.
 
 ### Dashboard
 
-After deploying the application template, your default dashboard is a connected logistics operator focused portal. Northwind Trader is a fictitious logistics provider managing a cargo fleet at sea and on land. In this dashboard, you see two different gateways providing telemetry from shipments, along with associated commands, jobs, and actions.
+After you deploy the application, your default dashboard is a connected logistics operator focused portal. Northwind Trader is a fictitious logistics provider managing a cargo fleet at sea and on land. In this dashboard, you see two different gateways providing telemetry from shipments, along with associated commands, jobs, and actions.
 
 This dashboard is pre-configured to show the critical logistics device operations activity.
 
@@ -123,7 +123,7 @@ You can use jobs to do application-wide operations. The jobs in this application
 
 ## Next steps
 
-Learn more about :
+Learn more about:
 
 > [!div class="nextstepaction"]
 > [IoT Central data integration](../core/overview-iot-central-solution-builder.md)

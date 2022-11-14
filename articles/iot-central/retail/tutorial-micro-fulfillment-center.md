@@ -109,7 +109,7 @@ Use the sample rule as inspiration to define rules that are more appropriate for
 
 ## Next steps
 
-Learn more about :
+Learn more about:
 
 > [!div class="nextstepaction"]
 > [IoT Central data integration](../core/overview-iot-central-solution-builder.md)

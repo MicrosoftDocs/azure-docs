@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Azure IoT in-store analytics | Microsoft Docs
-description: This tutorial shows how to deploy and use create an in-store analytics retail application in IoT Central.
+description: This tutorial shows how to deploy and use and create an in-store analytics retail application in IoT Central.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -31,7 +31,7 @@ The application template comes with a set of device templates and uses a set of 
 
 ### Condition monitoring sensors (1)
 
-An IoT solution starts with a set of sensors capturing meaningful signals from within a retail store environment. It is reflected by different kinds of sensors on the far left of the architecture diagram above.
+An IoT solution starts with a set of sensors capturing meaningful signals from within a retail store environment. It's reflected by different kinds of sensors on the far left of the architecture diagram above.
 
 ### Gateway devices (2)
 
@@ -265,7 +265,7 @@ In this tutorial, you learned how to:
 * Connect devices to your application
 * Add rules and actions to monitor conditions
 
-Now that you've created an Azure IoT Central condition monitoring application, here is the suggested next step:
+Now that you've created an Azure IoT Central condition monitoring application, here's the suggested next step:
 
 > [!div class="nextstepaction"]
 > [Customize the dashboard](./tutorial-in-store-analytics-customize-dashboard.md)
