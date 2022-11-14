@@ -12,7 +12,7 @@
       href: whats-new.md
     - name: Azure Virtual Desktop Agent
       href: whats-new-agent.md
-    - name: Azure Monitor for Azure Virtual Desktop
+    - name: Azure Insights
       href: whats-new-azure-monitor.md
     - name: FSLogix
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
@@ -137,11 +137,11 @@
         href: app-attach-glossary.md
       - name: FAQ
         href: app-attach-faq.yml
-  - name: Azure Monitor for Azure Virtual Desktop
+  - name: Azure Insights
     items:
-      - name: Estimate Azure Monitor costs
+      - name: Estimate Azure Insights costs
         href: azure-monitor-costs.md
-      - name: Azure Monitor glossary
+      - name: Azure Insights glossary
         href: azure-monitor-glossary.md
   - name: Data locations
     href: data-locations.md
@@ -329,7 +329,7 @@
       href: windows-11-language-packs.md
   - name: Resolve Azure Advisor recommendations
     href: azure-advisor-recommendations.md
-  - name: Use Azure Monitor for Azure Virtual Desktop
+  - name: Use Azure Insights
     href: azure-monitor.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
@@ -385,7 +385,7 @@
     href: troubleshoot-azure-ad-connections.md
   - name: Device redirections
     href: troubleshoot-device-redirections.md
-  - name: Azure Monitor
+  - name: Azure Insights
     href: troubleshoot-azure-monitor.md
   - name: Azure Files authorization
     href: troubleshoot-authorization.md
