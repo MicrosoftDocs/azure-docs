@@ -309,7 +309,7 @@ az storage container create \
 
 ## Monitor the Azure Policy for compliance
 
-After disallowing Shared Key access on the desired storage accounts, continue to [monitor the policy you created earlier](#monitor-compliance-with-the-policy) for ongoing compliance. Based on the monitoring results, take the appropriate action as needed, including changing the scope of the policy, disallowing Shared Key access on more accounts or allowing it for accounts where need more time is needed for remediation.
+After disallowing Shared Key access on the desired storage accounts, continue to [monitor the policy you created earlier](#monitor-compliance-with-the-policy) for ongoing compliance. Based on the monitoring results, take the appropriate action as needed, including changing the scope of the policy, disallowing Shared Key access on more accounts or allowing it for accounts where more time is needed for remediation.
 
 ## Update the Azure Policy to prevent allowing Shared Key access
 
