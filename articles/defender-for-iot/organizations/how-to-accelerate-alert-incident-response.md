@@ -123,7 +123,9 @@ Use custom alert rule actions to instruct Defender for IT to take specific actio
 
     - **Direction**.  Enter a source and/or destination IP address where you want to detect traffic.
 
-    - **Conditions**. Define one or more conditions that must be met to trigger the alert. Select the **+** sign to create a condition set with multiple conditions that use the **AND** operator. If you select a MAC address or IP address as a variable, you must convert the value from a dotted-decimal address to decimal format. Note that the **+** sign is enabled only after selecting an **Alert protocol** from above. You must add at least one condition in order to create a custom alert rule.
+    - **Conditions**. Define one or more conditions that must be met to trigger the alert. Select the **+** sign to create a condition set with multiple conditions that use the **AND** operator. If you select a MAC address or IP address as a variable, you must convert the value from a dotted-decimal address to decimal format. 
+    Note that the **+** sign is enabled only after selecting an **Alert protocol** from above. 
+    You must add at least one condition in order to create a custom alert rule.
 
     - **Detected**. Define a date and/or time range for the traffic you want to detect.
 
