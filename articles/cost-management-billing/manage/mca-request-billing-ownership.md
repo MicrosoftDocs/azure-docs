@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 11/14/2022
 ms.author: banders
 ---
 
@@ -57,20 +57,13 @@ The product transfer requestor must have one of the following permissions:
 
 For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 
-### Required permission for the subscription transfer recipient 
+### Required permission for the transfer recipient 
 
-The subscription product owner (transfer request recipient) must have one of the following permissions:
-
-- For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
-- For an Enterprise Agreement, the person must be an account owner or EA administrator. 
-- For a Microsoft Online Subscription Agreement, the person must be an Account Administrator.
-
-### Required permission for the reservation or savings plan transfer recipient
-
-The reservation or savings plan product owner (transfer request recipient) must have one of the following permissions:
+The subscription, reservation, or savings plan product owner (transfer request recipient) must have one of the following permissions:
 
 - For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
-- For an Enterprise Agreement, the person must be an EA administrator.
+- For an Enterprise Agreement subscription, the person must be an account owner or EA administrator.
+- For an Enterprise Agreement savings plan or reservation, the person must be an EA administrator
 - For a Microsoft Online Subscription Agreement, the person must be an Account Administrator.
 
 ## Create the product transfer request
@@ -79,7 +72,7 @@ The person creating the transfer request uses the following procedure to create 
 
 When the request is created, an email is sent to the target recipient.
 
-The following procedure has you navigate to **Transfer requests** by selecting a **Billing scope** &gt; **Billing account** &gt; **Billing profile** &gt; **Invoice sections** to **Add a new request**. If you navigate to **Add a new request** from selecting a billing profile, you'll have to select a billing profile and then select an invoice section.
+The following procedure has you navigate to **Transfer requests** by selecting a **Billing scope** > **Billing account** > **Billing profile** > **Invoice sections** to **Add a new request**. If you navigate to **Add a new request** from selecting a billing profile, you'll have to select a billing profile and then select an invoice section.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an invoice section owner or contributor for a billing account for Microsoft Customer Agreement. Use the same credentials that you used to accept your Microsoft Customer Agreement.
 1. Search for **Cost Management + Billing**.  
