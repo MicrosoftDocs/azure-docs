@@ -344,6 +344,10 @@
               href: how-to-javascript-manage-documents.md
             - name: Manage queries
               href: how-to-javascript-manage-queries.md
+        - name: Python
+          items:
+            - name: Get started
+              href: how-to-python-get-started.md
         - name: .NET
           items:
             - name: Get started
