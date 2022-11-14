@@ -28,8 +28,8 @@ We are excited to announce that the 9.1 release of the Service Fabric runtime ha
 
 ### Key announcements
 - Azure Service Fabric will block deployments that do not meet Silver or Gold durability requirements starting on 11/10/2022 (The date is extended from 10/30/2022 to 11/10/2022). Five VMs or more will be enforced with this change for newer clusters created after 11/10/2022 to help avoid data loss from VM-level infrastructure requests for production workloads. VM count requirement is not changing for Bronze durability. Enforcement for existing clusters will be rolled out in the coming months.
-- Azure Service Fabric node types with VMSS durability of Silver or Gold should always have the property "virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates" set to false in the scale set model definition. Setting enableAutomaticUpdates to false will prevent unintended OS restarts due to the Windows updates like patching, which can impact the production workloads.
-Instead, you should enable Automatic OS upgrades through VMSS OS Image updates by setting "enableAutomaticOSUpgrade" to true. With automatic OS image upgrades enabled on your scale set, an extra patching process through Windows Update is not required.
+- Azure Service Fabric node types with Virtual Machine Scale Set durability of Silver or Gold should always have the property "virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates" set to false in the scale set model definition. Setting enableAutomaticUpdates to false will prevent unintended OS restarts due to the Windows updates like patching, which can impact the production workloads.
+Instead, you should enable Automatic OS upgrades through Virtual Machine Scale Set OS Image updates by setting "enableAutomaticOSUpgrade" to true. With automatic OS image upgrades enabled on your scale set, an extra patching process through Windows Update is not required.
 
 ### Service Fabric 9.1 releases
 | Release date | Release | More info |
@@ -62,7 +62,7 @@ We are excited to announce that 9.0 release of the Service Fabric runtime has st
 - Mirantis Container runtime support on Windows for Service Fabric containers
 - The Microsoft Web Platform Installer (WebPI) used for installing Service Fabric SDK and Tools was retired on July 1, 2022.
 - Azure Service Fabric will block deployments that do not meet Silver or Gold durability requirements starting on 9/30/2022. 5 VMs or more will be enforced with this change to help avoid data loss from VM-level    infrastructure requests for production workloads. Enforcement for existing clusters will be rolled out in the coming months.
-- Azure Service Fabric node types with VMSS durability of Silver or Gold should always have Windows update explicitly disabled to avoid unintended OS restarts due to the Windows updates, which can impact the production workloads. This can be done by setting the "enableAutomaticUpdates": false, in the VMSS OSProfile. Consider enabling Automatic VMSS Image upgrades instead. The deployments will start failing from 09/30/2022 for new clusters, if the WindowsUpdates are not disabled on the VMSS. Enforcement for existing clusters will be rolled out in the coming months.
+- Azure Service Fabric node types with Virtual Machine Scale Set durability of Silver or Gold should always have Windows update explicitly disabled to avoid unintended OS restarts due to the Windows updates, which can impact the production workloads. This can be done by setting the "enableAutomaticUpdates": false, in the Virtual Machine Scale Set OSProfile. Consider enabling Automatic Virtual Machine Scale Set Image upgrades instead. The deployments will start failing from 09/30/2022 for new clusters, if the WindowsUpdates are not disabled on the Virtual Machine Scale Set. Enforcement for existing clusters will be rolled out in the coming months.
 
 ### Service Fabric 9.0 releases
 | Release date | Release | More info |
@@ -80,8 +80,8 @@ We are excited to announce that 8.2 release of the Service Fabric runtime has st
 ### Key announcements
 - Expose an API in Cluster Manager to note if upgrade is impactful
 - Azure Service Fabric will block deployments that do not meet Silver or Gold durability requirements starting on 11/10/2022 (The date is extended from 10/30/2022 to 11/10/2022). Five VMs or more will be enforced with this change for newer clusters created after 11/10/2022 to help avoid data loss from VM-level infrastructure requests for production workloads. VM count requirement is not changing for Bronze durability. Enforcement for existing clusters will be rolled out in the coming months.
-- Azure Service Fabric node types with VMSS durability of Silver or Gold should always have the property "virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates" set to false in the scale set model definition. Setting enableAutomaticUpdates to false will prevent unintended OS restarts due to the Windows updates like patching, which can impact the production workloads.
-Instead, you should enable Automatic OS upgrades through VMSS OS Image updates by setting "enableAutomaticOSUpgrade" to true. With automatic OS image upgrades enabled on your scale set, an extra patching process through Windows Update is not required.
+- Azure Service Fabric node types with Virtual Machine Scale Set durability of Silver or Gold should always have the property "virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates" set to false in the scale set model definition. Setting enableAutomaticUpdates to false will prevent unintended OS restarts due to the Windows updates like patching, which can impact the production workloads.
+Instead, you should enable Automatic OS upgrades through Virtual Machine Scale Set OS Image updates by setting "enableAutomaticOSUpgrade" to true. With automatic OS image upgrades enabled on your scale set, an extra patching process through Windows Update is not required.
 
 ### Service Fabric 8.2 releases
 | Release date | Release | More info |
