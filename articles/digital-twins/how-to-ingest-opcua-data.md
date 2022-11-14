@@ -22,7 +22,7 @@ Getting OPC UA data to flow from on-premises systems to Azure Digital Twins in t
 
 ## Architecture
 
-Here are the components that will be included in this solution.
+Here are the components required for this solution:
 
  :::image type="content" source="media/how-to-ingest-opcua-data/opcua-to-adt-diagram-1.png" alt-text="Drawing of the opc ua to Azure Digital Twins architecture" lightbox="media/how-to-ingest-opcua-data/opcua-to-adt-diagram-1.png":::    
 
@@ -45,6 +45,6 @@ After installation completes, you can use Azure Digital Twins Explorer to manual
 
 ## Next steps
 
-In this article, you set up a full data flow for getting OPC UA data into Azure Digital Twins from simulated production lines.
+In this article, you set up a full data flow for getting OPC UA data into Azure Digital Twins from simulated production lines:
 
 Next, use the instructions [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies#replacing-the-production-line-simulation-with-a-real-production-line) to connect your own industrial assets.
