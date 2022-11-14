@@ -35,7 +35,7 @@ In order to begin the deployment and complete this tutorial, you'll need to have
 
 When you've fulfilled these prerequisites, you're ready to use the **Deploy to Azure** button.
 
-## Deploy to Azure button
+## Use the Deploy to Azure button
 
 1. Select the **Deploy to Azure** button below to begin the deployment within the Azure portal.
 
@@ -172,16 +172,16 @@ Now that your deployment has successfully completed, we'll connect to your IoT H
    >
    > To learn more about IotJsonPathContentTemplate mappings usage with the MedTech service device mappings, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md).
 
-## Review test message metrics 
+## Review test message MedTech service metrics 
 
-Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics to verify that the MedTech service transformed and persisted the test message into your FHIR service. To learn more about how display and use the MedTech service metrics, see [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md).
+Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics to verify that the MedTech service received,transformed, and persisted the test message into your FHIR service. To learn more about how display the MedTech service monitoring tab metrics and the different metrics types, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
 
-For your MedTech service metrics, see can see that:
+For your MedTech service metrics, see can see that your MedTech service performed the following steps with the test message:
 
-* **Number of Incoming Messages** - The test message was received.
-* **Number of Normalized Messages** - The test message had five normalized messages.
-* **Number of Measurements** - The test message had five measurements.
-* **Number of FHIR resources** - The test message created five FHIR resources that will be persisted on your FHIR service.
+* **Number of Incoming Messages** - Received the incoming test message from the device message event hub.
+* **Number of Normalized Messages** - Created five normalized messages.
+* **Number of Measurements** - Created five measurements.
+* **Number of FHIR resources** - Created five FHIR resources that will be persisted on your FHIR service.
 
 :::image type="content" source="media\iot-hub-to-iot-connector\iot-metrics-tile-one.png" alt-text="Screenshot of MedTech service first metrics tile showing the test data metrics." lightbox="media\iot-hub-to-iot-connector\iot-metrics-tile-one.png"::: 
 
