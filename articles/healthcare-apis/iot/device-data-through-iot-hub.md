@@ -107,7 +107,7 @@ Once the deployment has competed, the following resources and access roles will 
 > [!TIP]
 > For detailed step-by-step instructions on how to manually deploy the MedTech service, see [How to manually deploy the MedTech service using the Azure portal](deploy-03-new-manual.md).
 
-## Create a device and send a test message
+## Create a device and send a test message 
 
 Now that your deployment has successfully completed, we'll connect to your IoT Hub, create a device, and send a test message to the IoT Hub using **VSCode** with the **Azure IoT Hub extension**. These steps will allow your MedTech service to:
 
@@ -172,11 +172,11 @@ Now that your deployment has successfully completed, we'll connect to your IoT H
    >
    > To learn more about IotJsonPathContentTemplate mappings usage with the MedTech service device mappings, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md).
 
-## Review test message MedTech service metrics 
+## Review metrics from test message 
 
-Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics to verify that the MedTech service received,transformed, and persisted the test message into your FHIR service. To learn more about how display the MedTech service monitoring tab metrics and the different metrics types, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
+Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics to verify that the MedTech service received, transformed, and persisted the test message into your FHIR service. To learn more about how display the MedTech service monitoring tab metrics and the different metrics types, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
 
-For your MedTech service metrics, see can see that your MedTech service performed the following steps with the test message:
+For your MedTech service metrics, you see can see that your MedTech service performed the following steps with the test message:
 
 * **Number of Incoming Messages** - Received the incoming test message from the device message event hub.
 * **Number of Normalized Messages** - Created five normalized messages.
@@ -189,9 +189,9 @@ For your MedTech service metrics, see can see that your MedTech service performe
 
 ## View test data in the FHIR service (Optional)
 
-If you provided your own Azure AD user object ID as the optional Fhir Contributor Principal ID when deploying this tutorial's template, then you have access to query FHIR resources in the FHIR service. 
+If you provided your own Azure AD user object ID as the optional **Fhir Contributor Principal ID** when deploying this tutorial's template, then you have access to query FHIR resources in your FHIR service. 
 
-Use this tutorial, [Access using Postman](/azure/healthcare-apis/fhir/use-postman) to get an Azure AD access token and view FHIR resources in the FHIR service.
+Use this tutorial: [Access using Postman](/azure/healthcare-apis/fhir/use-postman) to get an Azure AD access token and view FHIR resources in your FHIR service.
 
 ## Next steps
 
