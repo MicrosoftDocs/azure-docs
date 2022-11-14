@@ -59,7 +59,7 @@ items:
   - name: Create copies of mappings
     href: how-to-create-mappings-copies.md
   - name: Monitor
-    expanded: true
+    expanded: false
     items:
     - name: Use the monitoring tab metrics
       href: how-to-use-monitoring-tab.md
@@ -68,7 +68,7 @@ items:
     - name: Enable diagnostic settings
       href: how-to-enable-diagnostic-settings.md
   - name: Troubleshoot and problem solve
-    expanded: true
+    expanded: false
     items:
     - name: Errors and conditions
       href: iot-troubleshoot-error-messages-and-conditions.md
