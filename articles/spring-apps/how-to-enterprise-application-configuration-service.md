@@ -21,7 +21,7 @@ This article shows you how to use Application Configuration Service for VMware T
 
 [Application Configuration Service for VMware Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native `ConfigMap` resources that are populated from properties defined in one or more Git repositories.
 
-Application Configuration Service for Tanzu gives you a central place to manage external properties for applications across all environments.
+With Application Configuration Service for Tanzu, you have a central place to manage external properties for applications across all environments. To see differences from Spring Cloud Config Server in Basic/Standard tier, you can refer to [Migrate Standard and Basic to Enterprise](./how-to-migrate-standard-tier-to-enterprise-tier.md#use-application-configuration-service-for-external-configuration).
 
 ## Prerequisites
 

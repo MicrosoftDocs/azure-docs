@@ -132,11 +132,14 @@ The app creation steps are the same as Standard Tier.
 
 ## Use Application Configuration Service for external configuration
 
-In Enterprise tier, Application Configuration Service provides external configuration support for your apps. Managed Spring Cloud Config Server is only available in Basic and Standard tiers and isn't available in Enterprise tier.
+For externalized configuration in a distributed system, managed Spring Cloud Config Server is only available in Basic and Standard tiers. In Enterprise tier, Application Configuration Service for Tanzu (ACS) provides similar functions for your apps. Although there are some differences in usage between OSS config server and ACS.
 
-| Component     | Standard Tier                                                               | Enterprise Tier                                                                                   |
-|---------------|-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| Config Server | OSS config server <br> Auto bound (always injection) <br>Always provisioned | Application Configuration Service for Tanzu <br> Need manual binding to app <br> Enable on demand |
+| Component             | Support tiers  | Enable | Bind to app | Profile |
+|-----------------------|---------------------|------------------------|-----------------|-----------------|
+| Spring Cloud Config Server | Basic/Standard  | Always enabled | Auto bound | Configured in app's source code |
+| Application Configuration Service for Tanzu | Enterprise | Enable on demand | Manual bind | Provided as `config-file-pattern` in ASA deployment |
+
+Unlike the client-server mode in OSS config server, ACS manages configuration by Kubernetes-native `ConfigMap` that are populated from properties defined in backend Git repositories. ACS cannot get the active profile configured in the app's source code to match the right configuration, so explicit configuration `config-file-pattern` should be specified in ASA deployment level.
 
 ## Configure Application Configuration Service for Tanzu settings
 
