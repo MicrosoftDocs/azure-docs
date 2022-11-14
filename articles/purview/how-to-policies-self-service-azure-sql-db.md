@@ -1,24 +1,24 @@
 ---
-title: Self-service policies for Azure SQL DB (preview)
-description: Step-by-step guide on how self-service policy is created for Azure SQL DB through Microsoft Purview access policies.
+title: Self-service policies for Azure SQL Database (preview)
+description: Step-by-step guide on how self-service policy is created for Azure SQL Database through Microsoft Purview access policies.
 author: bjspeaks
 ms.author: blessonj
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 11/11/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
-# Self-service policies for Azure SQL DB (preview)
+# Self-service policies for Azure SQL Database (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 [Self-service policies](concept-self-service-data-access-policy.md) allow you to manage access from Microsoft Purview to data sources that have been registered for **Data Use Management**.
 
-This how-to guide describes how self-service policies get created in Microsoft Purview to enable access to Azure SQL DB. The following actions are currently enabled: *Read Tables*, and *Read Views*. 
+This how-to guide describes how self-service policies get created in Microsoft Purview to enable access to Azure SQL Database. The following actions are currently enabled: *Read Tables*, and *Read Views*. 
 
 > [!CAUTION]
-> *Ownership chaining* must exist for *select* to work on Azure SQL DB *views*. 
+> *Ownership chaining* must exist for *select* to work on Azure SQL Database *views*. 
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
@@ -28,7 +28,7 @@ This how-to guide describes how self-service policies get created in Microsoft P
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register the data sources in Microsoft Purview
-The Azure SQL DB resources need to be registered first with Microsoft Purview to later define access policies. You can follow these guides:
+The Azure SQL Database resources need to be registered first with Microsoft Purview to later define access policies. You can follow these guides:
 
 [Register and scan Azure SQL DB](./register-scan-azure-sql-database.md)
 
@@ -95,7 +95,7 @@ SELECT * FROM sys.dm_server_external_policy_principal_assigned_actions
 
 ### Policy action mapping
 
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure SQL DB.
+This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure SQL Database.
 
 | **Microsoft Purview policy action** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|

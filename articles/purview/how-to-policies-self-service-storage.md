@@ -51,11 +51,11 @@ Once your data source has the  **Data Use Management** toggle **Enabled**, it wi
 >[!Important]
 > - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
 
-## View a self-service Policy
+## View a self-service policy
 
 To view the policies you've created, follow the article to [view the self-service policies](how-to-view-self-service-data-access-policy.md).
 
-## Data Consumption
+## Data consumption
 
 - Data consumer can access the requested dataset using tools such as Power BI or Azure Synapse Analytics workspace.
 
