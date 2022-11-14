@@ -80,7 +80,7 @@ The current IPv6 for Azure virtual network release has the following limitations
 
 ## Pricing
 
-IPv6 Azure resources and bandwidth are charged at the same rates as IPv4. There are no additional or different charges for IPv6. You can find details about pricing for [public IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses/), [network bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/), or [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+Public IPv6 Addressse and Prefixes are not charged.  Associated resources and bandwidth are charged at the same rates as IPv4.  You can find details about pricing for [public IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses/), [network bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/), or [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## Next steps
 
