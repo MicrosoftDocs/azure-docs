@@ -20,7 +20,7 @@ zone_pivot_groups: programming-languages-text-analytics
 
 This article contains Text Analytics for health quickstarts that help with using the supported client libraries, C#, Java, NodeJS, and Python as well as with using the REST API.
 
-[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+[!INCLUDE [Use Language Studio](../includes/use-language-studio.md)]
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](includes/quickstarts/csharp-sdk.md)]
