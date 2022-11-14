@@ -114,7 +114,7 @@ To directly upload your data:
 > [!NOTE]
 > Incremental refresh is available for projects that use tabular (.csv or .tsv) dataset input. However, only new tabular files are added.  Changes to existing tabular files will not be recognized from the refresh.
 
-## Specify label classes
+## Specify label categories
 
 [!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
 
