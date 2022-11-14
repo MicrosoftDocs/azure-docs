@@ -137,7 +137,7 @@ sections:
         answer:  |
           An origin group represents a set of origins that are functionally able to serve the same kinds of requests. You should use a separate origin group for each distinct application or workload.
 
-          Within an origin group, create an origin for each distinct server or service instance that can serve requests. If your origin is itself a load balancer, such as Azure Application Gateway, or if it's hosted on a a platform as a service (PaaS) offering that includes a load balancer, then the origin group might only contain a single origin. Internally, your origin handles failover and load distribution between origins, but this is invisible to Front Door.
+          Within an origin group, create an origin for each distinct server or service instance that can serve requests. If your origin is itself a load balancer, such as Azure Application Gateway, or if it's hosted on a platform as a service (PaaS) offering that includes a load balancer, then the origin group might only contain a single origin. Internally, your origin handles failover and load distribution between origins, but this is invisible to Front Door.
           
           For example, suppose you host an application on Azure App Service. The way that you configure Front Door depends on how many application instances you deploy:
           
