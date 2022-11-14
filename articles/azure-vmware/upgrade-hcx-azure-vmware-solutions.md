@@ -16,15 +16,15 @@ You can update HCX Connector and HCX Cloud systems during separate maintenance w
 
 ## System requirements 
 
-For systems requirements, compatibility, and upgrade prerequisites, see the [VMware HCX release notes](https://docs.vmware.com/en/VMware-HCX/index.html).  
+- For systems requirements, compatibility, and upgrade prerequisites, see the [VMware HCX release notes](https://docs.vmware.com/en/VMware-HCX/index.html).  
 
-For more information about the upgrade path, see the [Product Interoperability Matrix](https://interopmatrix.vmware.com/Upgrade?productId=660). 
+- For more information about the upgrade path, see the [Product Interoperability Matrix](https://interopmatrix.vmware.com/Upgrade?productId=660). 
 
-Ensure HCX manager and site pair configurations are healthy.  
+- Ensure HCX manager and site pair configurations are healthy.  
 
-As part of HCX update planning, and to ensure that HCX components are updated successfully, review the service update considerations and requirements. For planning HCX upgrade, see [Planning for HCX Updates](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-61F5CED2-C347-4A31-8ACB-A4553BFC62E3.html). 
+- As part of HCX update planning, and to ensure that HCX components are updated successfully, review the service update considerations and requirements. For planning HCX upgrade, see [Planning for HCX Updates](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-61F5CED2-C347-4A31-8ACB-A4553BFC62E3.html). 
 
-Ensure that you have a backup and snapshot of HCX connector in on-premises environment, if applicable. 
+- Ensure that you have a backup and snapshot of HCX connector in the on-premises environment, if applicable. 
 
 ### Backup HCX 
 Backup of HCX cloud manager configuration is done by Azure VMware solution on daily basis.  
