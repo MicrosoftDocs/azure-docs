@@ -4,22 +4,18 @@ description: In this quickstart, you learn how to register an application with t
 services: active-directory
 author: cilwerner
 manager: CelesteDG
+ms.author: cwerner
+ms.date: 11/14/2022
+ms.topic: include
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/31/2022
-ms.author: cwerner
-ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4, mode-other
-#Customer intent: As developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
 
 # This include file is currently referenced in the following documentation:
 
 # https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
 # https://learn.microsoft.com/en-us/graph/auth-register-app-v2
 ---
-
-# Quickstart: Register an application with the Microsoft identity platform
 
 Get started with the Microsoft identity platform by registering an application in the Azure portal.
 
