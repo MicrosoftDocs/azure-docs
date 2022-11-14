@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2021
+ms.date: 11/14/2022
 ms.author: jeedes
 ---
 # Tutorial: Implement federated authentication between Azure Active Directory and SharePoint on-premises
