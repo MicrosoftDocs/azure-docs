@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/04/2022
+ms.date: 11/09/2022
 ms.author: alkohli
 ---
 
@@ -19,11 +19,11 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2207** release, which maps to software version number **2.2.2037.5375**. This software can be applied to your device if you're running at least Azure Stack Edge 2106 (2.2.1636.3457) software.
+This article applies to the **Azure Stack Edge 2207** release, which maps to software version number **2.2.2038.5916**. This software can be applied to your device if you're running at least Azure Stack Edge 2106 (2.2.1636.3457) software.
 
 ## What's new
 
-The 2207  release has the following features and enhancements:
+The 2207 release has the following features and enhancements:
 
 - **Kubernetes version update** - This release contains a Kubernetes version update from 1.20.9 to v1.22.6.
 

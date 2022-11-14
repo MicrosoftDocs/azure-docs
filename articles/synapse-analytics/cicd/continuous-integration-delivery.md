@@ -8,6 +8,10 @@ ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: liud 
 ms.reviewer: pimorano
+searchScope: 
+    - Continuous deployment
+    - CICD
+    - Synapse
 ---
 
 # Continuous integration and delivery for an Azure Synapse Analytics workspace
