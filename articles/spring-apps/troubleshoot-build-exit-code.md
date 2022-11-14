@@ -19,13 +19,14 @@ This article will help you solve various problems that can arise when your Azure
 
 ## Build exit codes
 
-Azure Spring Apps Enterprise tier leverage [Tanzu Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html) to transform your application source code into images. 
-When deploying your Azure Spring Apps via [Azure CLI](/cli/azure/install-azure-cli), you will see build log in Azure CLI console. 
+Azure Spring Apps Enterprise tier leverage [Tanzu Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html) to transform your application source code into images.
+When deploying your Azure Spring Apps via [Azure CLI](/cli/azure/install-azure-cli), you will see build log in Azure CLI console.
+
 If the build is failed, exit code and error message is shown in the CLI console.
-The exit code and error message indicates the reason why the buildpack execution is failed during different [phase](https://buildpacks.io/docs/concepts/components/lifecycle/). 
+The exit code and error message indicates the reason why the buildpack execution is failed during different [phase](https://buildpacks.io/docs/concepts/components/lifecycle/).
 The following list describes the most common exit codes:
 
-- **20** - All buildpacks groups have failed to detect. 
+- **20** - All buildpacks groups have failed to detect.
   
   Consider the following possible causes for 20 exit code:
   - The builder you are using doesn't support the language your project used.
@@ -34,12 +35,12 @@ The following list describes the most common exit codes:
 
   - You are running against the wrong path.
   
-    For example, your Maven project's pom.xml file is not in root path. You can set BP_MAVEN_POM_FILE to specify the project's pom.xml file. 
-    
+    For example, your Maven project's pom.xml file is not in root path. You can set BP_MAVEN_POM_FILE to specify the project's pom.xml file.
+
   - There's something wrong with your application.
 
     For example, your jar file doesn't have a /META-INF/MANIFEST.MF file which contains a Main-Class entry.
-    
+
 - **51** - Buildpack build error.
   
   Consider the following possible causes for 51 exit code:
@@ -47,6 +48,7 @@ The following list describes the most common exit codes:
   - Error message "Build failed in stage build with reason OOMKilled" is shown in Azure CLI console.
 
     Build is failed due to insufficient memory, increase memory via setting build environment variable in Azure CLI:
+
     ```azurecli
     az spring app deploy
         --resource-group <your-resource-group-name> \
@@ -58,11 +60,11 @@ The following list describes the most common exit codes:
   - Application source code error:
   
     For example, there's compilation error in your source code. You can check the build log to find out the root cause.
-    
+
   - Download dependency error:
   
-    For example, maven dependency download is failed due to network issue. 
-    
+    For example, maven dependency download is failed due to network issue.
+
 - **62** - Failed to write image to Azure Container Registry.
   
   Consider the following possible causes for 62 exit code:
