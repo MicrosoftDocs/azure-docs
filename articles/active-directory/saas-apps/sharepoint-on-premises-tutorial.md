@@ -347,4 +347,33 @@ $t.Update()
 
 ### Configure the lifetime of the security token
 
-[TODO]
+By default, Azure AD creates a SAML token that is valid for 1 hour.  
+This lifetime cannot be customized in the portal, or from a conditional access policy, but it is possible to create a [custom token lifetime policy](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes) and apply it to the enterprise application created for SharePoint:
+
+1. Using Windows PowerShell 5.1, install the module [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview/):
+
+    ```powershell
+    Install-Module -Name AzureADPreview -Scope CurrentUser
+    ```
+
+1. Then, run `Connect-AzureAD` to sign-in as a tenant administrator.  
+
+1. The sample script below updates the application `SharePoint corporate farm` to apply a token lifetime policy of 6h (value `06:00:00` of property `AccessTokenLifetime`) to it:
+
+    ```powershell
+    $appDisplayName = "SharePoint corporate farm"
+    
+    $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '$appDisplayName'"
+    $oldPolicy = Get-AzureADServicePrincipalPolicy -Id $sp.ObjectId | ?{$_.Type -eq "TokenLifetimePolicy"}
+    if ($null -ne $oldPolicy) {
+        # There can be only 1 TokenLifetimePolicy associated to the service principal (or 0, as by default)
+        Remove-AzureADServicePrincipalPolicy -Id $sp.ObjectId -PolicyId $oldPolicy.Id
+    }
+    
+    # Create a custom TokenLifetimePolicy in Azure AD and add it to the service principal
+    $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"06:00:00"}}') -DisplayName "Custom token lifetime policy" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+    Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+    ```
+
+After the script completed, all users who successfully sign-in will get a SAML 1.1 token valid for 6h in SharePoint.  
+To revert the change, simply delete the custom TokenLifetimePolicy, as done at the beginning of the script.
