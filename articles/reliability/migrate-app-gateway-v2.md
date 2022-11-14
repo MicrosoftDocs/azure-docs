@@ -1,7 +1,7 @@
 ---
 title: Migrate Azure Application Gateway Standard and WAF v2 deployments to availability zone support 
 description: Learn how to migrate your Azure Application Gateway and WAF deployments to availability zone support.
-author: anaharris-ms
+author: jfaurskov
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/28/2022
