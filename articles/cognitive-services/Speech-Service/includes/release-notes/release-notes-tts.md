@@ -207,7 +207,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### Custom Neural Voice
 
-* Enabled to fix data issues online. Learn more on [how to fix data issues online](../../how-to-custom-voice-create-voice.md#fix-data-issues-online).
+* Enabled to fix data issues online. Learn more on [how to resolve data issues in Speech Studio](../../how-to-custom-voice-prepare-data.md#resolve-data-issues-online).
 * Added training recipe version. Learn more on [selecting the training recipe version for your voice model](../../how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
 
 #### Audio Content Creation tool
@@ -265,7 +265,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### Custom Neural Voice
 
-* Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice.md#custom-neural-voice-project-types).
+* Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice-lite.md).
 * Extended language support to 49 locales. See [language support](../../language-support.md?tabs=stt-tts).
 * Supported more regions/datacenters. See [region support](../../regions.md#speech-service).
 

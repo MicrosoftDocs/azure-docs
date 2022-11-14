@@ -18,7 +18,7 @@ ms.devlang: azurecli
 Desired State Configuration (DSC) is a management platform that you can use to manage your IT and development infrastructure with configuration as code.
 
 > [!IMPORTANT]
-> The desired state configuration VM xxtension for Linux will be [retired on **September 30, 2023**](https://aka.ms/dscext4linuxretirement). If you're currently using the desired state configuration VM extension for Linux, you should start planning your migration to the machine configuration feature of Azure Automanage by using the information in this article.
+> The desired state configuration VM extension for Linux will be [retired on **September 30, 2023**](https://aka.ms/dscext4linuxretirement). If you're currently using the desired state configuration VM extension for Linux, you should start planning your migration to the machine configuration feature of Azure Automanage by using the information in this article.
 
 > [!NOTE]
 > The DSC extension for Linux and the [Log Analytics virtual machine extension for Linux](./oms-linux.md) currently present a conflict

@@ -4,6 +4,8 @@ description: Quickly set up disaster recovery to another Azure region for an Azu
 ms.topic: quickstart
 ms.date: 05/02/2022
 ms.custom: mvc, mode-other
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Quickstart: Set up disaster recovery to a secondary Azure region for an Azure VM

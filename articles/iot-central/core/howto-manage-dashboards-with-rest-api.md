@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to manage dashboards in Azure IoT Central
 description: How to use the IoT Central REST API to manage dashboards in an application
-author: v-krishnag
-ms.author: v-krishnag
+author: eross-msft
+ms.author: lizross
 ms.date: 10/06/2022
 ms.topic: how-to
 ms.service: iot-central

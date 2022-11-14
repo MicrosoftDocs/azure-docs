@@ -20,7 +20,7 @@ This article describes the Azure FarmBeats APIs. The Azure FarmBeats APIs provid
 
 ## Application development
 
-The FarmBeats APIs contain Swagger technical documentation. For information on all the APIs and their corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+The FarmBeats APIs contain Swagger technical documentation.
 
 The following table summarizes all the objects and resources in FarmBeats Datahub:
 

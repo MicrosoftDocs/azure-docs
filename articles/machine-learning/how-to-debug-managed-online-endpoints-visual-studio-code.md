@@ -109,7 +109,7 @@ from azure.ai.ml.entities import (
     CodeConfiguration,
     Environment,
 )
-from azure.identity import DefaultAzureCredential, AzureCliCredential
+from azure.identity import DefaultAzureCredential
 ``` 
 
 Set up variables for the workspace and endpoint: 
@@ -164,7 +164,7 @@ Azure Machine Learning local endpoints use Docker and VS Code development contai
 Get a handle to the workspace: 
 
 ```python 
-credential = AzureCliCredential()
+credential = DefaultAzureCredential()
 ml_client = MLClient(
     credential,
     subscription_id=subscription_id,
@@ -175,28 +175,7 @@ ml_client = MLClient(
 
 To debug online endpoints locally in VS Code, set the `vscode-debug` and `local` flags when creating or updating an Azure Machine Learning online deployment. The following code mirrors a deployment example from the examples repo:
 
-```python
-deployment = ManagedOnlineDeployment(
-    name="blue",
-    endpoint_name=endpoint_name,
-    model=Model(path="../model-1/model"),
-    code_configuration=CodeConfiguration(
-        code="../model-1/onlinescoring", scoring_script="score.py"
-    ),
-    environment=Environment(
-        conda_file="../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
-    ),
-    instance_type="Standard_DS2_v2",
-    instance_count=1,
-)
-
-deployment = ml_client.online_deployments.begin_create_or_update(
-    deployment,
-    local=True,
-    vscode_debug=True,
-)
-```
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb?name=launch-container-4)]
 
 > [!IMPORTANT]
 > On Windows Subsystem for Linux (WSL), you'll need to update your PATH environment variable to include the path to the VS Code executable or use WSL interop. For more information, see [Windows interoperability with Linux](/windows/wsl/interop).
@@ -314,7 +293,7 @@ endpoint = ml_client.online_endpoints.get(name=endpoint_name, local=True)
 
 request_file_path = "../model-1/sample-request.json"
 
-endpoint.invoke(endpoint_name, request_file_path, local=True)
+ml_client.online_endpoints.invoke(endpoint_name, request_file_path, local=True)
 ```
 
 In this case, `<REQUEST-FILE>` is a JSON file that contains input data samples for the model to make predictions on similar to the following JSON:
@@ -330,8 +309,7 @@ In this case, `<REQUEST-FILE>` is a JSON file that contains input data samples f
 > The scoring URI is the address where your endpoint listens for requests. The `as_dict` method of endpoint objects returns information similar to `show` in the Azure CLI. The endpoint object can be obtained through `.get`. 
 >
 >    ```python 
->    endpoint = ml_client.online_endpoints.get(endpoint_name, local=True)
->    endpoint.as_dict()
+>    print(endpoint)
 >    ```
 >
 > The output should look similar to the following:
@@ -394,24 +372,7 @@ To apply changes to your code:
 
 For more extensive changes involving updates to your environment and endpoint configuration, use your `MLClient`'s `online_deployments.update` module/method. Doing so will trigger a full image rebuild with your changes.
 
-```python
-new_deployment = ManagedOnlineDeployment(
-    name="green",
-    endpoint_name=endpoint_name,
-    model=Model(path="../model-2/model"),
-    code_configuration=CodeConfiguration(
-        code="../model-2/onlinescoring", scoring_script="score.py"
-    ),
-    environment=Environment(
-        conda_file="../model-2/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
-    ),
-    instance_type="Standard_DS2_v2",
-    instance_count=2,
-)
-
-ml_client.online_deployments.update(new_deployment, local=True, vscode_debug=True)
-```
+[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb?name=edit-endpoint-1)]
 
 Once the updated image is built and your development container launches, use the VS Code debugger to test and troubleshoot your updated endpoint.
 
@@ -421,5 +382,5 @@ Once the updated image is built and your development container launches, use the
 
 ## Next steps
 
-- [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
-- [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Deploy and score a machine learning model by using a managed online endpoint)](how-to-deploy-managed-online-endpoints.md)
+- [Troubleshooting managed online endpoints deployment and scoring)](how-to-troubleshoot-managed-online-endpoints.md)

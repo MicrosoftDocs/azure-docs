@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 10/26/2022
 ---
 # PostgreSQL extensions in Azure Cosmos DB for PostgreSQL
 
@@ -133,7 +133,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** |
 > |---|---|---|---|---|
-> | [PostGIS](https://www.postgis.net/) | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 |
+> | [PostGIS](https://www.postgis.net/) | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |
 > | address\_standardizer | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |
 > | postgis\_sfcgal | PostGIS SFCGAL functions. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |
 > | postgis\_topology | PostGIS topology spatial types and functions. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |

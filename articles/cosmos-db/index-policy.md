@@ -87,22 +87,6 @@ Any indexing policy has to include the root path `/*` as either an included or a
 
 - If the indexing mode is set to **consistent**, the system properties `id` and `_ts` are automatically indexed.
 
-When including and excluding paths, you may encounter the following attributes:
-
-- `kind` can be either `range` or `hash`. Hash index support is limited to equality filters. Range index functionality provides all of the functionality of hash indexes as well as efficient sorting, range filters, system functions. We always recommend using a range index.
-
-- `precision` is a number defined at the index level for included paths. A value of `-1` indicates maximum precision. We recommend always setting this value to `-1`.
-
-- `dataType` can be either `String` or `Number`. This indicates the types of JSON properties that will be indexed.
-
-It's no longer necessary to set these properties. When not specified, these properties will have the following default values:
-
-| **Property Name**     | **Default Value** |
-| ----------------------- | -------------------------------- |
-| `kind`   | `range` |
-| `precision`   | `-1`  |
-| `dataType`    | `String` and `Number` |
-
 See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples for including and excluding paths.
 
 ## Include/exclude precedence
@@ -335,7 +319,7 @@ A container's indexing policy can be updated at any time [by using the Azure por
 > Index transformation is an operation that consumes [Request Units](request-units.md). Request Units consumed by an index transformation aren't currently billed if you are using [serverless](serverless.md) containers. These Request Units will get billed once serverless becomes generally available.
 
 > [!NOTE]
-> You can track the progress of index transformation in the Azure portal or [by using one of the SDKs](how-to-manage-indexing-policy.md).
+> You can track the progress of index transformation in the [Azure portal](how-to-manage-indexing-policy.md#use-the-azure-portal) or by [using one of the SDKs](how-to-manage-indexing-policy.md#dotnet-sdk).
 
 There's no impact to write availability during any index transformations. The index transformation uses your provisioned RUs but at a lower priority than your CRUD operations or queries.
 

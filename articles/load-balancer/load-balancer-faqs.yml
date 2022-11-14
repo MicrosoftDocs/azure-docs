@@ -87,6 +87,11 @@ sections:
           Follow these [instructions](../firewall/integrate-lb.md) to configure your load balancer with an Azure Firewall.
           
       - question: |
+          Can I use my custom IP address prefix (BYOIP) with Azure Load Balancer?
+        answer: |
+          Yes, this scenario is supported. You will need to create a public IP prefix and public IP address from your custom IP address prefix before using it with your load balancer. To learn more, visit [Manage a custom IP address prefix](/azure/virtual-network/ip-services/manage-custom-ip-address-prefix). 
+          
+      - question: |
           How do I configure my load balancer with an Azure SQL Server Always On availability group?
         answer: |
           Follow these [Portal](/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure) or [PowerShell](/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure) instructions to configure your load balancer with an Azure SQL Server Always On availability group.

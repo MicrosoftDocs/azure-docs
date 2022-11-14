@@ -626,7 +626,7 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 ::: zone pivot="programming-language-csharp" 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
 # [Functions 2.x+](#tab/functionsv2/in-process)
 

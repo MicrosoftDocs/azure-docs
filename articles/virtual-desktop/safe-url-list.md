@@ -13,7 +13,7 @@ manager: femila
 In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific URLs that your session host virtual machines (VMs) can access them anytime. Users also need to be able to connect to certain URLs to access their Azure Virtual Desktop resources. This article lists the required URLs you need to allow for your session hosts and users. These URLs could be blocked if you're using [Azure Firewall](../firewall/protect-azure-virtual-desktop.md) or a third-party firewall or [proxy service](proxy-server-support.md). Azure Virtual Desktop doesn't support deployments that block the URLs listed in this article.
 
 >[!IMPORTANT]
->Proxy Services that perform the following are not supported with Azure Virtual Desktop.
+>Proxy Services that perform the following are not recommended with Azure Virtual Desktop. See the above link or Table of Contents regarding Proxy Support Guidelines for further details.  
 >1. SSL Termination (Break and Inspect)
 >2. Require Authentication
 
@@ -126,7 +126,7 @@ Azure Virtual Desktop currently doesn't have a list of IP address ranges that yo
 
 ## Remote Desktop clients
 
-Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) you use to connect to Azure Virtual Desktop must have access to the following URLs. Select the relevant tab based on which cloud you're using. Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality.
+Any [Remote Desktop clients](users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) you use to connect to Azure Virtual Desktop must have access to the following URLs. Select the relevant tab based on which cloud you're using. Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality.
 
 # [Azure cloud](#tab/azure)
 
