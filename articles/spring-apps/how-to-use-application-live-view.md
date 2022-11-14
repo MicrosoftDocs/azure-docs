@@ -1,7 +1,7 @@
 ---
-title: How to use Application Live View for VMware Tanzu with Azure Spring Apps Enterprise Tier
+title: Use Application Live View
 titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to use Application Live View for VMware Tanzu with Azure Spring Apps Enterprise Tier.
+description: How to use Application Live View for VMware Tanzu.
 author: 
 ms.author: yuwzho
 ms.service: spring-apps
@@ -90,10 +90,31 @@ Use the following steps to provision an Azure Spring Apps service instance.
        --enable-application-live-view
    ```
 
-## Configure Dev Tools to access Application Live View
-As one of the Dev Tool components, Application Live View can be accessed through Dev Tool Portal. Dev Tool Portal resource has an Application Live View feature plugin to enable the front end view. This plugin can be enabled or disabled by manage Dev Tool Portal resource.
+## Monitor Application Live View
+Azure Spring Apps runs the Application Live View in connector mode. 
 
-See [Assign a public endpoint for Dev Tool Portal](./how-to-use-dev-tool-portal.md#assign-a-public-endpoint-for-dev-tool-portal) for how to expose Dev Tool Portal to public access.
+| Application Live View Server | Responsibiliy |
+|------------------------------|---------------|
+| Application Live View Server | The central server component that contains a list of registered apps. It is responsible for proxying the request to fetch the actuator information related to the app. |
+| Application Live View Connector | The component responsible for discovering the running app, and registering the instances to the Application Live View Server for it to be observed. The Application Live View Connector is also responsible for proxying the actuator queries to the app. | 
+
+You can obtain the running state, resource consumption or manage Application Live View after provisioning the Azure Spring Apps Enterprise tier. 
+
+#### [Portal](#tab/Portal)
+1. You can view the state of Application Live View in the "Developer Tools (Preview)" blade.
+  ![application-live-view-enabled](./media/how-to-use-application-live-view/application-live-view-enabled.png)
+
+
+#### [CLI](#tab/Azure-CLI)
+1. Run this command to view Application Live View by using Azure CLI
+   ```azurecli
+   az spring application-live-view show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name>
+   ```
+
+## Configure Dev Tools to access Application Live View
+To access application live view, you need centrally configure Dev Tools. Please refer to [Use Dev Tools](./how-to-use-dev-tool-portal.md) to understand more there.
 
 > Azure Spring Apps portal and CLI will help to manage the feature plugin on Dev Tool Portal when operating Application Live View. After the operation, you need to inactivate browser cache by pressing `ctrl+F5` to reload the plugin.
 
@@ -153,10 +174,9 @@ Currently, Application Live View supports to view live metrics for Spring Boot a
        --artifact-path <jar-file-in-target-folder>
    ```
 
-1. After the App successfully deployed, you can obtain it through Application Live View dashboard exposed through Dev Tool Portal. For more detail about the information exposed through dashboard, see [Monitor apps by Application Live View](./monitor-apps-by-application-live-view.md)
+1. After the App gets successfully deployed, you can monitor it through Application Live View dashboard exposed through Dev Tool Portal, see [Monitor apps by Application Live View](./monitor-apps-by-application-live-view.md)
 
 ## Manage Application Live View in existing Enterprise tier instances
-You can obtain the running state, resource consumption or manage Application Live View after provisioning the Azure Spring Apps Enterprise tier. 
 
 This section instructs you how to enable the Application Live View under an existing Azure Spring Apps Enterprise tier instance.
 
@@ -177,3 +197,11 @@ This section instructs you how to enable the Application Live View under an exis
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name>
    ```
+
+  > To access the Application Live View dashboard, Dev Tool Portal should be enabled with public endpoint assigned. Run this command by using Azure CLI if the component is not enabled
+  > ```azurecli
+  > az spring dev-tool create \
+  >    --resource-group <resource-group-name> \
+  >    --service <Azure-Spring-Apps-service-instance-name> \
+  >    --assign-endpoint
+  > ```
