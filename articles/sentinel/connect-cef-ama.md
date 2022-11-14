@@ -1,5 +1,5 @@
 ---
-title: Stream CEF logs with the AMA connector 
+title: Stream CEF logs to Microsoft Sentinel with the AMA connector 
 description: Stream and filter CEF-based logs from on-premises appliances to your Microsoft Sentinel workspace.
 author: limwainstein
 ms.topic: how-to
@@ -152,7 +152,9 @@ Select the machines on which you want to install the AMA. These machines are VMs
     The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.
 
     > [!NOTE] 
-    > To avoid full disk scenarios where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs.
+    > To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
+    > Read more about [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](
+https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
 
 ### Set up the connector with the API
 
@@ -364,7 +366,7 @@ This example collects events for:
         ```
         echo -n "<164>CEF:0|Mock-test|MOCK|common=event-format-test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time" | nc -u -w0 localhost 514
         ```
-    - Use the logger. This example writes the message to the `local 4` facility, at severity level `Warning`, to port `514`, on the local host, in the CEF RFC format. 
+    - Use the logger. This example writes the message to the `local 4` facility, at severity level `Warning`, to port `514`, on the local host, in the CEF RFC format. The `-t` and `--rfc3164` flags are used to comply with the expected RFC format.
     
         ```
         logger -p local4.warn -P 514 -n 127.0.0.1 --rfc3164 -t CEF "0|Mock-test|MOCK|common=event-format-test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time"
