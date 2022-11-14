@@ -92,7 +92,7 @@ The following status messages can be shown for **Dynamic rule processing** statu
 - **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
 
 >[!NOTE]
->In this screen you now may also choose to **Pause processing**. Previously, this option was only available through the modification of the membershipRuleProcessingState property. Global admins, group admins, user admins, and InTune admins can manage this setting and can pause and resume dynamic group processing. Group owners without the correct roles do not have the rights needed to edit this setting.
+>In this screen you now may also choose to **Pause processing**. Previously, this option was only available through the modification of the membershipRuleProcessingState property. Global admins, group admins, user admins, and Intune admins can manage this setting and can pause and resume dynamic group processing. Group owners without the correct roles do not have the rights needed to edit this setting.
 
 The following status messages can be shown for **Last membership change** status:
 
