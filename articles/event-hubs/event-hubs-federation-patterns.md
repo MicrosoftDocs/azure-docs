@@ -341,7 +341,7 @@ select * into dest2Output from inputSource where Info = 2
 The log projection pattern flattens the event stream onto an indexed database,
 with events becoming records in the database. Typically, events are added to the
 same collection or table, and the Event Hub partition key becomes part of the
-the primary key looking for making the record unique.
+primary key looking for making the record unique.
 
 Log projection can produce a time-series historian of your event data or a
 compacted view, whereby only the latest event is retained for each partition
