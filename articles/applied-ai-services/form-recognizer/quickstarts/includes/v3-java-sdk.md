@@ -61,7 +61,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
     ```powershell
     mkdir translator-text-app; cd translator-text-app
-   ```
+    ```
 
 1. Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 

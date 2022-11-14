@@ -95,8 +95,8 @@ To use Application Insights, [create an instance of the Application Insights ser
 > + A logger for all APIs.
 >  
 > Specifying *both*:
-> + if they are different loggers, both of them will be used (multiplexing logs).
-> + if they are the same loggers with different settings, the single API logger (more granular level) will override the one for all APIs.
+> - By default, the single API logger (more granular level) will override the one for all APIs.
+> - If the loggers configured at the two levels are different, and you need both loggers to receive telemetry (multiplexing), please contact Microsoft Support. 
 
 ## What data is added to Application Insights
 

@@ -68,8 +68,8 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 ## Next steps
 
-- To create a custom IP address prefix using the Azure portal, see [Create custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md).
+- To create a custom IP address prefix using the Azure portal, see [Create custom IPv4 address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md).
 
-- To create a custom IP address prefix using PowerShell, see [Create a custom IP address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md).
+- To create a custom IP address prefix using PowerShell, see [Create a custom IPv4 address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md).
 
 - For more information about the management of a custom IP address prefix, see [Manage a custom IP address prefix](create-custom-ip-address-prefix-powershell.md).

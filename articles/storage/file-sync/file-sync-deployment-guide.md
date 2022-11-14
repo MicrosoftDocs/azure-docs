@@ -23,7 +23,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
 1. An **Azure file share** in the same region that you want to deploy Azure File Sync. For more information, see:
     - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
-    - [Create a file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) for a step-by-step description of how to create a file share.
+    - [Create a file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json) for a step-by-step description of how to create a file share.
 2. The following **storage account** settings must be enabled to allow Azure File Sync access to the storage account:  
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
     -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
@@ -37,7 +37,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
 1. An **Azure file share** in the same region that you want to deploy Azure File Sync. For more information, see:
     - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
-    - [Create a file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) for a step-by-step description of how to create a file share.
+    - [Create a file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json) for a step-by-step description of how to create a file share.
 2. The following **storage account** settings must be enabled to allow Azure File Sync access to the storage account:  
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
     -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
@@ -78,7 +78,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
 1. An **Azure file share** in the same region that you want to deploy Azure File Sync. For more information, see:
     - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
-    - [Create a file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) for a step-by-step description of how to create a file share.
+    - [Create a file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json) for a step-by-step description of how to create a file share.
 2. The following **storage account** settings must be enabled to allow Azure File Sync access to the storage account:  
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
     -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
@@ -360,7 +360,7 @@ A sync group defines the sync topology for a set of files. Endpoints within a sy
 A cloud endpoint is a pointer to an Azure file share. All server endpoints will sync with a cloud endpoint, making the cloud endpoint the hub. The storage account for the Azure file share must be located in the same region as the Storage Sync Service. The entirety of the Azure file share will be synced, with one exception: A special folder, comparable to the hidden "System Volume Information" folder on an NTFS volume, will be provisioned. This directory is called ".SystemShareInformation". It contains important sync metadata that will not sync to other endpoints. Do not use or delete it!
 
 > [!IMPORTANT]
-> You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-change-detection).
+> You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-change-detection).
 
 The administrator creating the cloud endpoint must be a member of the management role **Owner** for the storage account that contains the Azure file share the cloud endpoint is pointing to. This can be configured under **Access Control (IAM)** in the Azure portal for the storage account.
 

@@ -13,7 +13,7 @@ The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop 
 
 You can find a list of all the Remote Desktop clients you can use to connect to Azure Virtual Desktop at [Remote Desktop clients overview](remote-desktop-clients-overview.md).
 
-If you want to connect to Remote Desktop Services instead of Azure Virtual Desktop or a local PC, see [Connect to Remote Desktop Services with the Remote Desktop client for Android and Chrome OS](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android).
+If you want to connect to Remote Desktop Services or a remote PC instead of Azure Virtual Desktop, see [Connect to Remote Desktop Services with the Remote Desktop client for Android and Chrome OS](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android).
 
 ## Prerequisites
 

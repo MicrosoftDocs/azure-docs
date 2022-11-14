@@ -81,7 +81,9 @@ items:
       - name: CLI (IPv4)
         href: create-custom-ip-address-prefix-cli.md
       - name: PowerShell (IPv6)
-        href: create-custom-ip-address-prefix-ipv6.md
+        href: create-custom-ip-address-prefix-ipv6-powershell.md
+      - name: CLI (IPv6)
+        href: create-custom-ip-address-prefix-ipv6-cli.md
     - name: Resource management
       items:
       - name: Load balancer

@@ -1,15 +1,14 @@
 ---
-title: Azure Front Door - DDoS protection
+title: DDoS protection on Azure Front Door
 description: This page provides information about how Azure Front Door helps to protect against DDoS attacks
 services: frontdoor
-documentationcenter: ''
-author: johndowns
+author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/28/2020
-ms.author: jodowns
+ms.date: 10/31/2022
+ms.author: duau
 ---
 
 # DDoS protection on Front Door
@@ -26,7 +25,7 @@ Front Door only accepts traffic on the HTTP and HTTPS protocols, and will only p
 
 ## Capacity absorption
 
-Front Door is a massively scaled, globally distributed service. We have many customers, including Microsoft's own large-scale cloud products, that receive hundreds of thousands of requests each second. Front Door is located at the edge of Azure's network, absorbing and geographically isolating large volume attacks. This can prevent malicious traffic from going any further than the edge of the Azure network.
+Front Door is a large scaled, globally distributed service. We have many customers, including Microsoft's own large-scale cloud products that receive hundreds of thousands of requests each second. Front Door is located at the edge of Azure's network, absorbing and geographically isolating large volume attacks. This can prevent malicious traffic from going any further than the edge of the Azure network.
 
 ## Caching
 
@@ -34,9 +33,9 @@ Front Door is a massively scaled, globally distributed service. We have many cus
 
 ## Web Application Firewall (WAF)
 
-[Front Door's Web Application Firewall (WAF)](../web-application-firewall/afds/afds-overview.md) can be used to mitigate a number of different types of attacks:
+[Front Door's Web Application Firewall (WAF)](../web-application-firewall/afds/afds-overview.md) can be used to mitigate many different types of attacks:
 
-* Using the managed rule set provides protection against a number of common attacks.
+* Using the managed rule set provides protection against many common attacks.
 * Traffic from outside a defined geographic region, or within a defined region, can be blocked or redirected to a static webpage. For more information, see [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md).
 * IP addresses and ranges that you identify as malicious can be blocked.
 * Rate limiting can be applied to prevent IP addresses from calling your service too frequently.
@@ -44,10 +43,10 @@ Front Door is a massively scaled, globally distributed service. We have many cus
 
 ## For further protection
 
-If you require further protection, then you can enable [Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md) on the VNet where your back-ends are deployed. DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
+If you require further protection, then you can enable [Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md) on the VNet where your back-ends are deployed. DDoS Protection Standard customers receive extra benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
 
 ## Next steps
 
-- Learn how to configure a [WAF profile on Front Door](front-door-waf.md). 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
-- Learn [how Front Door works](front-door-routing-architecture.md).
+- Learn how to configure a [WAF policy for Azure Front Door](front-door-waf.md). 
+- Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md).
+- Learn [how Azure Front Door works](front-door-routing-architecture.md).

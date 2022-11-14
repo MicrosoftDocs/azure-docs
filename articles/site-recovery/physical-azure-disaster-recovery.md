@@ -4,6 +4,8 @@ description: Learn how to set up disaster recovery to Azure for on-premises Wind
 ms.service: site-recovery
 ms.topic: article
 ms.date: 05/02/2022
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 
 
 ---
