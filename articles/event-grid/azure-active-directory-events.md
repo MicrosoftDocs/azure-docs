@@ -15,9 +15,12 @@ These events are triggered when a [User](/graph/api/resources/user) or [Group](/
  | Event name | Description |
  | ---------- | ----------- |
  | **Microsoft.Graph.UserUpdated** | Triggered when a user in Azure AD is created and updated. |
- | **Microsoft.Graph.UserDeleted** | Triggered when a user in Azure AD is deleted. |
+ | **Microsoft.Graph.UserDeleted** | Triggered when a user in Azure AD is permanently deleted. |
  | **Microsoft.Graph.GroupUpdated** | Triggered when a group in Azure AD is created and updated. |
- | **Microsoft.Graph.GroupDeleted** | Triggered when a group in Azure AD is deleted.  |
+ | **Microsoft.Graph.GroupDeleted** | Triggered when a group in Azure AD is permanently deleted.  |
+
+> [!NOTE]
+> By default, deleting a user or a group is only a soft delete operation, which means that the user or group is marked as deleted but the user or group object still exists. Microsoft Graph sends an updated event when users are soft deleted. To permanently delete a user, navigate to the **Delete users** page in the Azure portal and select **Delete permanently**. Steps to permanently delete a group are similar.  
 
 ## Example event
 When an event is triggered, the Event Grid service sends data about that event to subscribing destinations. This section contains an example of what that data would look like for each Azure AD event.
