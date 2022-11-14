@@ -29,18 +29,13 @@ In this article, you will learn how to change the replication setting(s) for an 
 
 ## Options for changing the replication type
 
-You can change how your storage account is replicated from any type to any other. There are four basic ways to change the settings:
+You can change how your storage account is replicated from any type to any other. There are three ways to change the settings:
 
-- [Use the Azure portal, Azure PowerShell, or the Azure CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)
-- [Initiate a conversion from within the Azure portal](#customer-initiated-conversion)
-- [Request a conversion by creating a support request with Microsoft](#support-requested-conversion)
-- [Perform a manual migration](#manual-migration)
+- [Use the Azure portal, Azure PowerShell, or the Azure CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) to add or remove geo-replication or read access to the secondary region.
+- [Perform a conversion](#perform-a-conversion) to add or remove zone-redundancy.
+- [Perform a manual migration](#manual-migration) in scenarios where the first two options are not supported, or to ensure the change is completed by a specific time.
 
-To add or remove geo-replication or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
-
-To add or remove zone-redundancy requires performing either a [customer-initiated conversion](#customer-initiated-conversion), a [support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration).
-
-If you want to change how data is replicated in the primary region and also configure geo-replication or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
+If you want to change how data is replicated in the primary region and also configure geo-replication or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but the zone-redundancy conversion must be performed separately. It doesn't matter which is done first.
 
 ### Replication change table
 
