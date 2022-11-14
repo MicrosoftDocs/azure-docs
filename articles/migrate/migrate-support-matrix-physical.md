@@ -63,8 +63,8 @@ For Windows servers, use a domain account for domain-joined servers, and a local
 For Linux servers, based on the features you want to perform, you can create a user account in one of two ways:
 
 ### Option 1
-- You need a sudo user account on the servers that you want to discover. This account can be used to pull configuration and performance metadata, perform software inventory (discovery of installed applications) and enable agentless dependency analysis.
-- You need to enable sudo access for the commands listed [here](discovered-metadata.md#linux-server-metadata).
+- You need a sudo user account on the servers that you want to discover. This account can be used to pull configuration and performance metadata, perform software inventory (discovery of installed applications) and enable agentless dependency analysis using SSH connectivity.
+- You need to enable sudo access for the commands listed [here](discovered-metadata.md#linux-server-metadata). In addition to these commands, the user account also needs to have permissions to execute ls and netstat commands to perform agentless dependency analysis.
 - Make sure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
 - The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:
 

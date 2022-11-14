@@ -33,9 +33,6 @@ Type of credentials | Description
 **Non-domain credentials (Windows/Linux)** | You can add **Windows (Non-domain)** or **Linux (Non-domain)** by selecting the required option from the drop-down in the **Add credentials** modal. <br/><br/> You need to specify a friendly name for credentials, username, and password.
 **SQL Server Authentication credentials** | You can add **SQL Server Authentication** credentials by selecting the option from the drop-down in the **Add credentials** modal. <br/><br/> You need to specify a friendly name for credentials, username, and password. <br/><br/> You can add this type of credentials to discover SQL Server instances and databases running in your VMware environment, if you've configured SQL Server authentication mode on your SQL Servers.<br/> [Learn more](/dotnet/framework/data/adonet/sql/authentication-in-sql-server) about the types of authentication modes supported on SQL Servers.<br/><br/> You need to provide at least one successfully validated domain credential or at least one Windows (Non-domain) credential so that the appliance can complete the software inventory to discover SQL installed on the servers before it uses the SQL Server authentication credentials to discover the SQL Server instances and databases.
 
-> [!Note]
-> Currently, the SQL Server authentication credentials can only be provided in appliance used for discovery and assessment of servers running in VMware environment.
-
 Check the permissions required on the Windows/Linux credentials to perform the software inventory, agentless dependency analysis and discover web apps, and SQL Server instances and databases.
 
 ### Required permissions
