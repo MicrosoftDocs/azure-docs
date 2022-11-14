@@ -83,6 +83,10 @@ The following Forwarding rules allow encryption and certificate validation:
 
 You can send alert information to the servers described in this section.
 
+**Prerequisites**:
+
+Before you can configure a forwarding rule, you'll need to define SMTP settings on your sensor. For more information, see [Configuring SMTP settings](how-to-manage-individual-sensors.md#configuring-smtp-settings).
+
 ### Email address action
 
 Send mail that includes the alert information. You can enter one email address per rule.
@@ -94,9 +98,6 @@ Send mail that includes the alert information. You can enter one email address p
 1. Enter the time zone for the time stamp for the alert detection at the SIEM.
 
 1. Select **Save**.
-
->[!NOTE]
->Make sure you also [add an SMTP server](how-to-manage-individual-sensors.md#configuring-smtp-settings) to System Settings -> Integrations -> mail Server in order for the EMAIL forwarding rule to function
 
 ### Syslog server actions
 

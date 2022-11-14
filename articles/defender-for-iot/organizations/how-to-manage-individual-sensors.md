@@ -152,7 +152,7 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 8. In the on-premises management console, in the **Site Management** window, assign the sensor to a site and zone.
 
-Continue with additional configurations, such as adding users, configuring forwarding exclusion rules and more. For example, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md), [About Defender for IoT console users](how-to-create-and-manage-users.md), or [Forward alert information](how-to-forward-alert-information-to-partners.md).
+Continue with additional settings, such as [adding users](how-to-create-and-manage-users.md), [setting up an SMTP server](how-to-manage-individual-sensors.md#configuring-smtp-settings), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), and more. For more information, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md). 
 
 ## Change the name of a sensor
 
@@ -417,14 +417,11 @@ To define:
 
 1. Enter an email address in **Outgoing Mail Account**.
 
-1. Turn on the **SSL** toggle to enable SSL for a secure connection.
+1. Toggle on the **SSL** option to enable SSL for a secure connection.
 
-1. Turn on the **Authentication** toggle to enter your username and password.
+1. Toggle on the **Authentication** option to enter your username and password. 
 
-    > [!NOTE]
-    > The **Use NTLM** toggle appears only if the **Authentication** toggle is turned on.
-
-1. Turn on the **Use NTLM** toggle to enable [NLTM](/windows-server/security/kerberos/ntlm-overview).
+1. Toggle on the **Use NTLM** option to enable [NLTM](/windows-server/security/kerberos/ntlm-overview). The **Use NTLM** option appears only when you have the **Authentication** option toggled on.
 
 1. Select **Save**.
 
