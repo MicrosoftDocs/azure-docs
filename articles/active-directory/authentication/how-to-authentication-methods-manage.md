@@ -39,12 +39,12 @@ For each method, note whether or not it's enabled for the tenant. The following 
 
 | Multifactor authentication policy | Authentication method policy |
 |-----------------------------------|------------------------------|
-| Call to phone                     | Phone call                   |
-| Text message to phone             | Microsoft Authenticator<br>SMS      |
+| Call to phone                     | Phone calls                   |
+| Text message to phone             | SMS<br>Microsoft Authenticator      |
 | Notification through mobile app   | Microsoft Authenticator             |
-| Verification code from mobile app or hardware token   | OATH software token<br>OATH hardware token |
+| Verification code from mobile app or hardware token   | OATH software token<br>OATH hardware token<br>Microsoft Authenticator |
 
-Due to different settings between policies, you might need to adjust who can use a method in the Authentication method policy to better reflect your needs. For example, the legacy MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH tokens** are managed separately for better control over who can use each method. 
+Due to different settings between policies, you might need to adjust who can use a method in the Authentication method policy to better reflect your needs. For example, the legacy MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens**, **Hardware OATH tokens** and **Microsoft Authenticator** are all managed separately for better control over who can use each method. 
 
 Similarly, The legacy MFA policy allows **Text message to phone**, where the Authentication methods policy allows separate options to use either **Microsoft Authenticator** or **SMS**. 
 
@@ -57,8 +57,8 @@ To get the authentication methods available in the legacy SSPR policy, click **P
 | Mobile app notification     | Microsoft Authenticator      |
 | Mobile app code             | Microsoft Authenticator      |
 | Email                       | Email OTP                    |
-| Mobile phone                | Phone call<br>SMS            |
-| Office phone                | Phone call                   |
+| Mobile phone                | Phone calls<br>SMS            |
+| Office phone                | Phone calls                   |
 | Security questions          | Not yet available; copy questions for later use  |
 
 ### Authentication methods policy
@@ -69,24 +69,19 @@ The Authentication methods policy has other methods that aren't available in the
 
 If you've enabled methods in the Authentication methods policy, write down users and groups who can or can't use those methods, and any configuration parameters that govern how the method can be used. For example, you can configure Microsoft Authenticator to provide location in push notifications. Make a record of which users and groups are enabled for similar configuration parameters associated with each method. 
 
-## Add MFA and SSPR policy settings to the Authentication methods policy
-
-This task can be done by an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).  
-
-You might need to adjust some settings to account for differences between the policies. For example, the Contoso MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH** tokens are managed separately. In this case, Contoso needs to adjust the Authentication methods policy accordingly for each method.  
-
-In the legacy SSPR policy, **Mobile phone** enables both voice call and SMS as available options. But in the Authentication methods policy, **SMS** and **Phone call** are separately managed methods. 
-
-## Start migration 
+## Start the migration 
 
 The next step is to update Authentication methods policy to match your audit. You'll want to review each method one-by-one. For each method:
 
-- If the method is enabled in both legacy policies, then enable it for all users in the Authentication methods policy. 
-- If the method is off in both legacy policies, then leave it off for all users in the Authentication methods policy. 
-- If the method is enabled only in one policy, then you need to decide whether or not it should be available in all situations.
+- If the method is enabled in both legacy policies, enable it for all users in the Authentication methods policy. 
+- If the method is off in both legacy policies, leave it off for all users in the Authentication methods policy. 
+- If the method is enabled only in one policy, you'll need to decide whether or not it should be available in all situations.
 
+For example, suppose **Notification through mobile app** is enabled to allow push notifications for MFA. In the legacy SSPR policy, the **Mobile app notification** method isn't enabled. In that case, the legacy policies allow push notifications for MFA but not SSPR. 
 
-At this point, you can also configure parameters for scenarios where you want to control how a certain method can be used. For example, if you enable **Phone calls** as authentication method, you can allow office phone or mobile only. Step through the process to configure each authentication method from your audit. Then enable and configure other methods you want to be available for sign-in.
+In the Authentication methods policy, you'll need to choose whether to enable a method such as **Microsoft Authenticator** for both SSPR and MFA. By default, **Microsoft Authenticator** allows any authentication mode, including push notifications. 
+
+As you update each method the Authentication methods policy, you can also configure parameters for scenarios where you want to control how that method can be used. For example, if you enable **Phone calls** as authentication method, you can allow office phone or mobile only. Step through the process to configure each authentication method from your audit. Then enable and configure other methods you want to be available for sign-in.
 
 Test and validate the changes for each method at a time. You can test excluded users by trying to sign in both as a member of the excluded group and again as a non-member. 
 
@@ -98,7 +93,7 @@ For example, let's suppose SMS is disabled in the Authentication methods policy 
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
 
-## Complete migration 
+## Finish the migration 
 
 After you update the Authentication methods policy, go through the legacy SSPR policy and remove each authentication method one-by-one. Test and validate the changes for each method at a time. 
 
