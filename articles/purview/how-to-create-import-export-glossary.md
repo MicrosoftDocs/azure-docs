@@ -6,7 +6,7 @@ ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/09/2022
+ms.date: 11/14/2022
 ---
 
 # Create, import, export, and delete glossary terms
@@ -21,7 +21,7 @@ To create a glossary term, follow these steps:
 
     :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="Screenshot of the data catalog with the button for managing a glossary highlighted." border="true":::
 
-1. On the **Glossary terms** page, select **+ New term**. 
+1. On the **Glossary terms** page, select the glossary you would like to create the new term for. **+ New term**.
 
    A pane opens with the **System default** template selected. Choose the template, or templates, that you want to use to create a glossary term, and then select **Continue**.
    Selecting multiple templates will allow you to use the custom attributes from those templates.

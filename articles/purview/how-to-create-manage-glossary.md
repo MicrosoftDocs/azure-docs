@@ -23,7 +23,7 @@ To create a glossary term, follow these steps:
 
 1. On the **Business glossary** page, select **+ New glossary**.
 
-   :::image type="content" source="media/how-to-create-manage-glossary/new-term-with-default-template.png" alt-text="Screenshot of the button and pane for creating a new glossary." border="true":::
+   :::image type="content" source="media/how-to-create-manage-glossary/select-new-glossary.png" alt-text="Screenshot of the button and pane for creating a new glossary." border="true":::
 
 1. Give your term a **Name** and a **Description**.
 
@@ -44,14 +44,14 @@ To create a glossary term, follow these steps:
 1. To edit or delete a glossary, hover over the glossary and select the ellipsis button next to the glossary's name.
 
    :::image type="content" source="media/how-to-create-manage-glossary/edit-or-delete-glossary.png" alt-text="Screenshot showing the business glossary page, with a glossary highlighted, showing the ellipsis button selected and the edit and delete options pop up available.":::
-                           
+
 1. If you select **Edit glossary**, you can edit the description and the steward or the expert, but at this time you can't change the glossary name. Select **Save** to save the changes.
 
-   :::image type="content" source="media/how-to-create-manage-glossary/edit-glossary.png" alt-text="Screenshot of the status choices.":::
+   :::image type="content" source="media/how-to-create-manage-glossary/edit-glossary.png" alt-text="Screenshot of edit glossary page, with all values filled and the save button highlighted.":::
 
 1. If you select **Delete glossary**, you'll be asked to confirm the deletion. All terms associated with the glossary will be deleted if you delete the glossary. Select **Delete** again to delete the glossary.
 
-   :::image type="content" source="media/how-to-create-manage-glossary/delete-glossary.png" alt-text="Screenshot of the status choices.":::
+   :::image type="content" source="media/how-to-create-manage-glossary/delete-glossary.png" alt-text="Screenshot of the delete glossary window.":::
 
 ## Next steps
 
