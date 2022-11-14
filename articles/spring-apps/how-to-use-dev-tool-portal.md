@@ -62,7 +62,7 @@ az spring dev-tool update \
     --assign-endpoint
 ```
 
-## Assign a public endpoint for Dev Tool Portal
+## Assign public endpoint
 
 To access Dev Tool Portal, use the following steps to assign a public endpoint:
 
