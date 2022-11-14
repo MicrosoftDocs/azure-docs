@@ -7,7 +7,7 @@ ms.date: 11/9/2022
 
 # Impacted Resources for Azure Outages
 
-[Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health/) helps customers view any health events that impact their Subscriptions and Tenants. The Service Issues blade on Service Health shows any ongoing problems in Azure services that are impacting your resources. You can understand when the issue began, and what services and regions are impacted. Previously, the Potential Impact tab on the Service Issues blade was within the details of an incident. It showed any resources under a customer's Subscriptions or Tenants that may be impacted by an outage, and their resource health signal to help customers evaluate impact.
+[Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health/) helps customers view any health events that impact their Subscriptions and Tenants. The Service Issues blade on Service Health shows any ongoing problems in Azure services that are impacting your resources. You can understand when the issue began, and what services and regions are impacted. Previously, the Potential Impact tab on the Service Issues blade was within the details of an incident. It showed any resources under a customer's Subscriptions that may be impacted by an outage, and their resource health signal to help customers evaluate impact.
 
 **In support of the impacted resource experience, Service Health has enabled a new feature to:**
 
@@ -25,7 +25,7 @@ This article details what is communicated to users and where they can view infor
 
 The impacted resources tab under Azure portal-> Service Health ->Service Issues will display resources that are Confirmed to be impacted by an outage and resources that could Potentially be impacted by an outage. Below is an example of impacted resources tab for an incident on Service Issues with Confirmed and Potential impact resources.
 
-:::image type="content" source="./media/impacted-resource-outage/ir-portal.PNG" alt-text="Screenshot of Azure Service Health impacted resources information.":::
+:::image type="content" source="./media/impacted-resource-outage/ir-portal-crop.PNG" alt-text="Screenshot of Azure Service Health impacted resources information.":::
 
 ##### Service Health provides the below information to users whose resources are impacted by an outage:
 
@@ -61,7 +61,7 @@ The health status listed under **[Resource Health](../service-health/resource-he
 - A health status of available means your resource is healthy but it may have been affected by the service event at a previous point in time.
 - A health status of degraded or unavailable (caused by a customer-initiated action or platform-initiated action) means your resource is impacted but could be now healthy and pending a status update.
 
-:::image type="content" source="./media/impacted-resource-outage/icons.PNG" alt-text="Screenshot of Impacted Resources health status icons and impact type":::
+:::image type="content" source="./media/impacted-resource-outage/rh-cropped.PNG" alt-text="Screenshot of Impacted Resources health status icons and impact type":::
 
 
 >[!Note]
