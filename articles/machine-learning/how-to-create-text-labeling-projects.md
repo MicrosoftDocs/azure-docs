@@ -193,7 +193,7 @@ View and change details of your project.  In this tab you can:
 
 [!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]
 
-## Add new label class to a project
+## Add new labels to a project
 
 [!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
 

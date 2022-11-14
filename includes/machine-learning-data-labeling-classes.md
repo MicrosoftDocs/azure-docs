@@ -6,7 +6,7 @@ ms.date: 09/23/2021
 ms.author: sdgilley
 ---
 
-On the **Label classes** page, specify the set of classes to categorize your data. Your labelers' accuracy and speed are affected by their ability to choose among the classes. For instance, instead of spelling out the full genus and species for plants or animals, use a field code or abbreviate the genus.
+On the **Label categories** page, specify the set of classes to categorize your data. Your labelers' accuracy and speed are affected by their ability to choose among the classes. For instance, instead of spelling out the full genus and species for plants or animals, use a field code or abbreviate the genus.
 
 You can use either a flat list or create groups of labels.  
 
