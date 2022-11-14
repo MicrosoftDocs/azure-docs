@@ -112,9 +112,9 @@ Details about each sensor are listed in the following columns:
 |Column name |Description  |
 |---------|---------|
 |**Sensor name**| Displays the name that you assigned to the sensor during the registration. |
-|**Sensor type**| Displays whether the sensor is locally connected or cloud-connected. |
+|**Sensor type**| Displays whether the sensor is locally connected, cloud-connected, or EIoT. |
 |**Zone**| Displays the zone that contains this sensor.|
-|**Subscription name**| Displays the name of your Microsoft Azure account subscription. |
+|**Subscription name**| Displays the name of the Microsoft Azure account subscription that this sensor belongs to. |
 |**Sensor version**| Displays the software version installed on your sensor. |
 |**Sensor status**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview).|
 |**Last connected (UTC)**| Displays how long ago the sensor was last connected.|
