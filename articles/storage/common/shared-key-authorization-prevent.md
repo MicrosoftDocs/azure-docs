@@ -131,7 +131,7 @@ To monitor your storage accounts for compliance with the Shared Key access polic
 1. Select the **View compliance** tab.
 1. Any storage accounts within the scope of the policy assignment that do not meet the policy requirements appear in the compliance report.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/policy-compliance-report-portal.png" alt-text="Screenshot showing how to view the compliance report for the Shared Key access built-in policy" lightbox="media/shared-key-authorization-prevent/policy-compliance-report-portal.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/policy-compliance-report-portal.png" alt-text="Screenshot showing how to view the compliance report for the Shared Key access built-in policy." lightbox="media/shared-key-authorization-prevent/policy-compliance-report-portal.png":::
 
 To get more information about why a storage account is non-compliant, select **Details** under **Compliance reason**.
 
@@ -152,7 +152,7 @@ Follow these steps to create a metric that tracks requests made with Shared Key 
 1. Navigate to your storage account in the Azure portal. Under the **Monitoring** section, select **Metrics**.
 1. The new metric box should appear:
 
-    :::image type="content" source="media/shared-key-authorization-prevent/metric-new-metric-portal.png" alt-text="Screenshot showing the new metric dialog" lightbox="media/shared-key-authorization-prevent/metric-new-metric-portal.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/metric-new-metric-portal.png" alt-text="Screenshot showing the new metric dialog." lightbox="media/shared-key-authorization-prevent/metric-new-metric-portal.png":::
 
    If it doesn't, select **Add metric**.
 
@@ -164,7 +164,7 @@ Follow these steps to create a metric that tracks requests made with Shared Key 
 
     The new metric will display the sum of the number of transactions against the storage account over a given interval of time. The resulting metric appears as shown in the following image:
 
-    :::image type="content" source="media/shared-key-authorization-prevent/configure-metric-account-transactions.png" alt-text="Screenshot showing how to configure a metric to summarize transactions made with Shared Key or SAS" lightbox="media/shared-key-authorization-prevent/configure-metric-account-transactions.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/configure-metric-account-transactions.png" alt-text="Screenshot showing how to configure a metric to summarize transactions made with Shared Key or SAS." lightbox="media/shared-key-authorization-prevent/configure-metric-account-transactions.png":::
 
 1. Next, select the **Add filter** button to create a filter on the metric for type of authorization.
 1. In the **Filter** dialog, specify the following values:
@@ -175,7 +175,7 @@ Follow these steps to create a metric that tracks requests made with Shared Key 
 
 After you have configured the metric, requests to your storage account will begin to appear on the graph. The following image shows requests that were authorized with Shared Key or made with a SAS token. Requests are aggregated per day over the past thirty days.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot showing aggregated requests authorized with Shared Key" lightbox="media/shared-key-authorization-prevent/metric-shared-key-requests.png":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot showing aggregated requests authorized with Shared Key." lightbox="media/shared-key-authorization-prevent/metric-shared-key-requests.png":::
 
 You can also configure an alert rule to notify you when a certain number of requests that are authorized with Shared Key are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
@@ -200,7 +200,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 1. Under **Category details**, in the **log** section, choose **StorageRead**, **StorageWrite**, and **StorageDelete** to log all data requests to the selected service.
 1. Under **Destination details**, select **Send to Log Analytics**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests" lightbox="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests." lightbox="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png":::
 
 You can create a diagnostic setting for each type of Azure Storage resource in your storage account.
 
@@ -259,7 +259,7 @@ To disallow Shared Key authorization for a storage account in the Azure portal, 
 1. Locate the **Configuration** setting under **Settings**.
 1. Set **Allow storage account key access** to **Disabled**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot showing how to disallow Shared Key access for a storage account" lightbox="media/shared-key-authorization-prevent/shared-key-access-portal.png":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot showing how to disallow Shared Key access for a storage account." lightbox="media/shared-key-authorization-prevent/shared-key-access-portal.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -288,7 +288,7 @@ az storage account update \
 
 ---
 
-After you disallow Shared Key authorization, making a request to the storage account with Shared Key authorization will fail with error code 403 (Forbidden). Azure Storage an returns error indicating that key-based authorization is not permitted on the storage account.
+After you disallow Shared Key authorization, making a request to the storage account with Shared Key authorization will fail with error code 403 (Forbidden). Azure Storage returns an error indicating that key-based authorization is not permitted on the storage account.
 
 The **AllowSharedKeyAccess** property is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).
 
