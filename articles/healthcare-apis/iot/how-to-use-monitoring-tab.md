@@ -37,7 +37,7 @@ In this article, you'll learn how to use the [MedTech service](iot-connector-ove
    >
    > To learn how to customize and save metrics settings to an Azure portal dashboard and tile, see [How to configure the MedTech service metrics](how-to-configure-metrics.md).  
 
-5. **Optional** - Select the **pin icon** to pin the tile to an Azure portal dashboard of your choosing.
+5. **Optional** - Select the **pin icon** to save the metrics tile to an Azure portal dashboard of your choosing.
 
    :::image type="content" source="media\iot-monitoring-tab\pin-metrics-to-dashboard.png" alt-text="Screenshot the MedTech service monitoring tile with red box around the pin icon." lightbox="media\iot-monitoring-tab\pin-metrics-to-dashboard.png":::
    
