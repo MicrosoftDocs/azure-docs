@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: references.regions
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer identity document (ID) model
+# Azure Form Recognizer identity document model
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -26,13 +26,13 @@ ms.custom: references.regions
 
 ::: moniker range="form-recog-3.0.0"
 
-Azure Form Recognizer Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents such as US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident cards and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
+Form Recognizer Identity document (ID) model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from identity documents such as US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident cards and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-Azure Form Recognizer can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 as a cloud service. 
+Azure Form Recognizer can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 as a cloud service. 
 
 ::: moniker-end
 
@@ -169,6 +169,10 @@ Extract data, including name, birth date, and expiration date, from ID documents
     * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
     * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
     * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
+
+> [!NOTE]
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+
 ::: moniker-end
 
 ::: moniker range="form-recog-3.0.0"

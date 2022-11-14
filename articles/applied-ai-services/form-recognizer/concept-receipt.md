@@ -7,16 +7,13 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/10/2022
+ms.date: 11/14/2022
 ms.author: lajanuar
-monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer receipt model
-
-The Form Recognizer receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns structured JSON data.
+# Azure Form Recognizer receipt model
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -26,9 +23,11 @@ The Form Recognizer receipt model combines powerful Optical Character Recognitio
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
+The Form Recognizer receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns structured JSON data.
+
 ## Receipt data extraction
 
-Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. Azure Form Recognizer OCR powered receipt data extraction helps to automate the conversion and save time and effort. The output from the receipt data extraction is used for accounts payable and receivables automation, sales data analytics, and other business scenarios.
+Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. Azure Form Recognizer OCR-powered receipt data extraction helps to automate the conversion and save time and effort. The output from the receipt data extraction is used for accounts payable and receivables automation, sales data analytics, and other business scenarios.
 
 ::: moniker range="form-recog-3.0.0"
 
@@ -67,9 +66,25 @@ The following tools are supported by Form Recognizer v2.1:
 
 ::: moniker-end
 
+## Input requirements
+
+::: moniker range="form-recog-3.0.0"
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+* Supported file formats: JPEG, PNG, PDF, and TIFF
+* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+
+::: moniker-end
+
 ### Try receipt data extraction
 
-See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts using the Form Recognizer Studio. You'll need the following resources:
+See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -134,22 +149,6 @@ See how data, including time and date of transactions, merchant information, and
 
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
-
-::: moniker-end
-
-## Input requirements
-
-::: moniker range="form-recog-3.0.0"
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
-
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
-* Supported file formats: JPEG, PNG, PDF, and TIFF
-* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
-* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
 

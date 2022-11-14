@@ -7,13 +7,13 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/10/2022
+ms.date: 11/14/2022
 ms.author: lajanuar
 recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Form Recognizer invoice model
+# Azure Form Recognizer invoice model
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -23,7 +23,7 @@ recommendations: false
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-The machine-learning-based invoice model combines powerful Optical Character Recognition (OCR) capabilities with invoice understanding models to analyze and extract key fields and line items from sales invoices. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
+The Form Recognizer invoice model combines powerful Optical Character Recognition (OCR) capabilities with invoice understanding models to analyze and extract key fields and line items from sales invoices. Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
 
 ## Automated invoice processing
 
@@ -67,9 +67,25 @@ The following tools are supported by Form Recognizer v2.1:
 
 ::: moniker-end
 
+## Input requirements
+
+::: moniker range="form-recog-3.0.0"
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+* Supported file formats: JPEG, PNG, PDF, and TIFF
+* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+
+::: moniker-end
+
 ## Try invoice data extraction
 
-See how data, including customer information, vendor details, and line items, is extracted from invoices using  the Form Recognizer Studio. You'll need the following resources:
+See how data, including customer information, vendor details, and line items, is extracted from invoices. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -131,22 +147,6 @@ See how data, including customer information, vendor details, and line items, is
 
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
-
-::: moniker-end
-
-## Input requirements
-
-::: moniker range="form-recog-3.0.0"
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
-
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
-* Supported file formats: JPEG, PNG, PDF, and TIFF
-* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
-* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
 

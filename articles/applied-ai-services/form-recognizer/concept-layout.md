@@ -22,7 +22,7 @@ recommendations: false
 [!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 ::: moniker-end
 
-Form Recognizer layout model is an advanced machine-learning based document analysis API available in the Form Recognizer cloud. It enables you to take documents in a variety of formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/Bing-Autosuggest/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
+Form Recognizer layout model is an advanced machine-learning based document analysis API available in the Form Recognizer cloud. It enables you to take documents in a variety of formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
 
 ## Document layout analysis
 

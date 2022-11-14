@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/10/2022
+ms.date: 11/14/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
@@ -20,7 +20,7 @@ recommendations: false
 
 The General document v3.0 model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is only available with the v3.0 API.  For more information on using the v3.0 API, see our [migration guide](v3-migration-guide.md).
 
-### Key-value extraction
+### Key-value pair extraction
 
 The general document API supports most form types and will analyze your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
