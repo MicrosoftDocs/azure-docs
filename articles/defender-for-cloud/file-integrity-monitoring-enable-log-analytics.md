@@ -12,7 +12,7 @@ ms.date: 11/14/2022
 
 To provide [File Integrity Monitoring (FIM)](file-integrity-monitoring-overview.md), the Log Analytics agent uploads data to the Log Analytics workspace. By comparing the current state of these items with the state during the previous scan, FIM notifies you if suspicious modifications have been made.
 
-FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. If you remove the **Change Tracking** resource, you will also disable the File Integrity Monitoring feature in Defender for Cloud. For data collection frequency details, see [Change Tracking data collection details](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
+FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. If you remove the **Change Tracking** resource, you'll also disable the File Integrity Monitoring feature in Defender for Cloud. For data collection frequency details, see [Change Tracking data collection details](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 In this article, you'll learn how to:
 
@@ -32,7 +32,7 @@ In this article, you'll learn how to:
 
 ## Enable File Integrity Monitoring with the Log Analytics agent
 
-FIM is only available from Defender for Cloud's pages in the Azure portal. There is currently no REST API for working with FIM.
+FIM is only available from Defender for Cloud's pages in the Azure portal. There's currently no REST API for working with FIM.
 
 1. From the **Workload protections** dashboard's **Advanced protection** area, select **File integrity monitoring**.
 
@@ -40,7 +40,7 @@ FIM is only available from Defender for Cloud's pages in the Azure portal. There
 
     The following information is provided for each workspace:
 
-    - Total number of changes that occurred in the last week (you may see a dash "-“ if FIM is not enabled on the workspace)
+    - Total number of changes that occurred in the last week (you may see a dash "-“ if FIM isn't enabled on the workspace)
     - Total number of computers and VMs reporting to the workspace
     - Geographic location of the workspace
     - Azure subscription that the workspace is under
@@ -51,7 +51,7 @@ FIM is only available from Defender for Cloud's pages in the Azure portal. There
 
     - ![Upgrade plan icon.][4] Upgrade the workspace to use enhanced security features. This icon indicates that the workspace or subscription isn't protected with Microsoft Defender for Servers. To use the FIM features, your subscription must be protected with this plan. For more information, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
 
-    - ![Enable icon][3] Enable FIM on all machines under the workspace and configure the FIM options. This icon indicates that FIM is not enabled for the workspace. If there's no enable or upgrade button, and the space is blank, it means that FIM is already enabled on the workspace.
+    - ![Enable icon][3] Enable FIM on all machines under the workspace and configure the FIM options. This icon indicates that FIM isn't enabled for the workspace. If there's no enable or upgrade button, and the space is blank, it means that FIM is already enabled on the workspace.
 
         :::image type="content" source="./media/file-integrity-monitoring-overview/workspace-list-fim.png" alt-text="Screenshot of enabling FIM for a specific workspace.":::
 
@@ -61,7 +61,7 @@ FIM is only available from Defender for Cloud's pages in the Azure portal. There
 
    The recommended settings for Windows and Linux are also listed.  Expand **Windows files**, **Registry**, and **Linux files** to see the full list of recommended items.
 
-1. Clear the checkboxes for any recommended entities you do not want to be monitored by FIM.
+1. Clear the checkboxes for any recommended entities you don't want to be monitored by FIM.
 
 1. Select **Apply file integrity monitoring** to enable FIM.
 
@@ -171,7 +171,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 Use wildcards to simplify tracking across directories. The following rules apply when you configure folder monitoring using wildcards:
 -   Wildcards are required for tracking multiple files.
 -   Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/*.conf
--   If an environment variable includes a path that is not valid, validation will succeed but the path will fail when inventory runs.
+-   If an environment variable includes a path that isn't valid, validation will succeed but the path will fail when inventory runs.
 -   When setting the path, avoid general paths such as c:\*.* which will result in too many folders being traversed.
 
 ## Compare baselines using File Integrity Monitoring
@@ -189,7 +189,7 @@ The FIM registry hive defaults provide a convenient way to monitor recursive cha
 
 ### Add a custom registry check
 
-FIM baselines start by identifying characteristics of a known-good state for the operating system and supporting application.  For this example, we will focus on the password policy configurations for Windows Server 2008 and higher.
+FIM baselines start by identifying characteristics of a known-good state for the operating system and supporting application.  For this example, we'll focus on the password policy configurations for Windows Server 2008 and higher.
 
 |Policy Name                 | Registry Setting|
 |----------------------------|-----------------|
@@ -233,7 +233,7 @@ File Integrity Monitoring data resides within the Azure Log Analytics/Configurat
 
  1. Set a time range to retrieve a summary of changes by resource.
 
-    In the following example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
+    In the following example, we're retrieving all changes in the last 14 days in the categories of registry and files:
 
     ```
     ConfigurationChange
