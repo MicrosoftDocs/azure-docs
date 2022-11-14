@@ -18,7 +18,7 @@ File Integrity Monitoring with the Azure Monitor Agent offers:
 - **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](../azure-monitor/agents/azure-monitor-agent-migration.md) so that all VMs point to a single workspace for data collection and maintenance.
 - **Rules management** – Uses [Data Collection Rules](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-public-preview/) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
 
-In this article you will learn how to:
+In this article you'll learn how to:
 
    - [Enable File Integrity Monitoring with AMA](#enable-file-integrity-monitoring-with-ama)
    - [Edit the list of tracked files and registry keys](#edit-the-list-of-tracked-files-and-registry-keys)
@@ -49,15 +49,15 @@ To enable File Integrity Monitoring (FIM), use the FIM recommendation to select 
    1. Select the recommendation [File integrity monitoring should be enabled on machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9b7d740f-c271-4bfd-88fb-515680c33440). Learn more about [Defender for Cloud recommendations](review-security-recommendations.md).
    1. Select the machines that you want to use File Integrity Monitoring on, select **Fix**, and select **Fix X resources**.
 
-    The recommendation fix:
+        The recommendation fix:
 
-    - Installs the `ChangeTracking-Windows` or `ChangeTracking-Linux` extension on the machines.
-    - Generates a data collection rule (DCR) for the subscription, named `Microsoft-ChangeTracking-[subscriptionId]-default-dcr`, that defines what files and registries should be monitored based on default settings. The fix attaches the DCR to all machines in the subscription that have AMA installed and FIM enabled.
-    - Creates a new Log Analytics workspace with the naming convention `defaultWorkspace-[subscriptionId]-fim` and with the default workspace settings.
-
-    You can update the DCR and Log Analytics workspace settings later.
-
-    1. From Defender for Cloud's sidebar, go to **Workload protections** > **File integrity monitoring**, and select the banner to show the results for machines with Azure Monitor Agent.
+        - Installs the `ChangeTracking-Windows` or `ChangeTracking-Linux` extension on the machines.
+        - Generates a data collection rule (DCR) for the subscription, named `Microsoft-ChangeTracking-[subscriptionId]-default-dcr`, that defines what files and registries should be monitored based on default settings. The fix attaches the DCR to all machines in the subscription that have AMA installed and FIM enabled.
+        - Creates a new Log Analytics workspace with the naming convention `defaultWorkspace-[subscriptionId]-fim` and with the default workspace settings.
+   
+You can update the DCR and Log Analytics workspace settings later.
+   
+ 4. From Defender for Cloud's sidebar, go to **Workload protections** > **File integrity monitoring**, and select the banner to show the results for machines with Azure Monitor Agent.
 
     :::image type="content" source="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-banner.png" alt-text="Screenshot of banner in File integrity monitoring to show the results for machines with Azure Monitor Agent.":::
 
@@ -95,7 +95,8 @@ Every machine in the subscription that is attached to the DCR is monitored. You 
 
 To exclude a machine from File Integrity Monitoring:
 
-- In the list of monitored machines in the FIM results, select the menu (**...**) for the machine and select **Detach data collection rule**.
+1.  In the list of monitored machines in the FIM results, select the menu (**...**) for the machine
+1. Select **Detach data collection rule**.
 
 :::image type="content" source="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-detach-rule.png" alt-text="Screenshot of the option to detach a machine from a data collection rule and exclude the machines from File Integrity Monitoring." lightbox="media/file-integrity-monitoring-enable-ama/file-integrity-monitoring-azure-monitoring-agent-detach-rule.png":::
 
