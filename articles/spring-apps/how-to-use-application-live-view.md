@@ -174,7 +174,16 @@ Currently, Application Live View supports to view live metrics for Spring Boot a
        --artifact-path <jar-file-in-target-folder>
    ```
 
-1. After the App gets successfully deployed, you can monitor it through Application Live View dashboard exposed through Dev Tool Portal, see [Monitor apps by Application Live View](./monitor-apps-by-application-live-view.md)
+1. After the App gets successfully deployed, you can monitor it through Application Live View dashboard exposed through Dev Tool Portal, see [Monitor apps by Application Live View](./monitor-apps-by-application-live-view.md).
+
+   If you have Dev Tool Portal already enabled and public endpoint exposed. Use the following command to get the Dev Tool Portal dashboard url.
+   
+   ```azurecli
+   az spring dev-tool show --service <Azure-Spring-Apps-service-instance-name> \
+        --resource-group <resource-group-name> \
+        --query properties.url \
+        --output tsv
+   ```
 
 ## Manage Application Live View in existing Enterprise tier instances
 
