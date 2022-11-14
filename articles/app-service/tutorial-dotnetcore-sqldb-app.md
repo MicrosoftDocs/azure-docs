@@ -203,14 +203,14 @@ Next, update the name of the connection string in `appsettings.json` file to mat
   }
 ```
 
-Next, update the `Startup.cs` file the sample project by updating the existing connection string name `MyDbConnection` to `AZURE_SQL_CONNECTIONSTRING`:
+Next, update the `Startup.cs` file the sample project by updating the existing connection string name `MyDbConnection` to `AZURE_SQL_CONNECTIONSTRING`. This change configures the `DbContext` to use the correct connection string in Azure and locally from the `appsettings.json` file.
 
 ```csharp
 services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
 ```
 
-From a local terminal, run the following commands to install the necessary CLI tools for Entity Framework Core, create an initial database migration file, and apply those changes to update the database. Make sure to pass in the connection string you copied from the Azure SQL database for the `connection` parameter, which will override the `localdb` connection string in the `appsettings.json` file.
+From a local terminal, run the following commands to install the necessary CLI tools for Entity Framework Core, create an initial database migration file, and apply those changes to update the database. Make sure to pass in the connection string value you copied from the Azure SQL database for the `connection` parameter. The `connection` parameter overrides the value of the connection string that is configured for the `DbContext` in the `startup.cs` file. 
 
 ```dotnetcli
 cd <sample-root>\DotNetCoreSqlDb
