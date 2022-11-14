@@ -9,11 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/02/2021
+ms.date: 14/11/2022
 ms.author: jeedes
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with New Relic by Account
+
+> [!NOTE]
+> This document is only relevant if you're using the [Original User Model](https://docs.newrelic.com/docs/accounts/original-accounts-billing/original-users-roles/overview-user-models/) in New Relic. Please refer to [New Relic (By Organization)](new-relic-limited-release-tutorial.md) if you're using New Relic's newer user model.
 
 In this tutorial, you'll learn how to integrate New Relic by Account with Azure Active Directory (Azure AD). When you integrate New Relic by Account with Azure AD, you can:
 
