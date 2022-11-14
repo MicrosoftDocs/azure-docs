@@ -143,3 +143,34 @@ Skip this step and use the information for the portal in the next step.
 
 For more information on different ways to create a ``MongoClient`` instance, see [Making a Connection with MongoClient](https://pymongo.readthedocs.io/en/stable/tutorial.html#making-a-connection-with-mongoclient).
 
+## Close the MongoClient connection
+
+When your application is finished with the connection remember to close it. That `.close()` call should be after all database calls are made. 
+
+```python
+client.close()
+```
+
+## Use MongoDB client classes with Azure Cosmos DB for API for MongoDB
+
+Let's look at the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The API for MongoDB creates resources in the following order:
+
+* [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html) - The first step when working with PyMongo is to create a MongoClient to connect to Azure Cosmos DB's API for MongoDB. The client object is used to configure and execute requests against the service.
+
+* [Database](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html) - Azure Cosmos DB's API for MongoDB can support one or more independent databases.
+
+* [Collection](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html) - A database can contain one or more collections. A collection is a group of documents stored in MongoDB, and can be thought of as roughly the equivalent of a table in a relational database.
+
+* [Document](https://pymongo.readthedocs.io/en/stable/tutorial.html#documents) - A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that documents in the same collection don't need to have the same set of fields or structure. And common fields in a collection's documents may hold different types of data.
+
+To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article.
+
+## See also
+
+TBD
+
+## Next steps
+Now that you've connected to a API for MongoDB account, use the next guide to create and manage databases.
+
+> [!div class="nextstepaction"]
+> [Create a database in Azure Cosmos DB for MongoDB using JavaScript](how-to-javascript-manage-databases.md)
