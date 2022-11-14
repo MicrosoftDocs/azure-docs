@@ -9,13 +9,13 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 11/14/2022
 ms.custom: ignite-fall-2021, references_regions
 ---
 
-# Speech Service release notes
+# Speech service release notes
 
-See below for information about changes to Speech services and resources.
+See below for information about new features and other changes to the Speech service.
 
 ## What's new?
 
