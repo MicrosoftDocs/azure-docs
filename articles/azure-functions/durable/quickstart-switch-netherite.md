@@ -43,7 +43,7 @@ To get started, we need to install the Netherite NuGet package and update the ho
 
 Using the NuGet package manager, install the latest version of the [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) package into your functions project. There is another package with a similar but shorter name, make sure to import the correct one.
 
-For more information about how to install NuGet packages in Visual Studio, see the [documentation](articles/nuget/consume-packages/install-use-packages-visual-studio).
+For more information about how to install NuGet packages in Visual Studio, see the [documentation](/articles/nuget/consume-packages/install-use-packages-visual-studio).
 
 ### Update host.json
 
@@ -78,7 +78,7 @@ For example, if using C#, the local.settings.json file may look something like [
 
 Netherite is now ready for local operation: You can start the function app locally to test it.
 While Netherite is running, it publishes load information about each of its partitions that is currently active to a Azure Storage table.
-You can inspect this table in the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to
+You can inspect this table in the [Azure Storage Explorer](/articles/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to
 verify that Netherite has started correctly and is executing normally. You should see something like this:
 
 ![Partition Table](./media/quickstart-netherite/partitiontable.png)
