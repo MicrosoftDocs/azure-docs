@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.author: jasteppe
 ---
 
@@ -171,6 +171,21 @@ Now that your deployment has successfully completed, we'll connect to your IoT H
    > To avoid device spoofing in device-to-cloud messages, Azure IoT Hub enriches all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](/azure/iot-hub/iot-hub-devguide-messages-construct#anti-spoofing-properties).
    >
    > To learn more about IotJsonPathContentTemplate mappings usage with the MedTech service device mappings, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md).
+
+## Review test message metrics 
+
+Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics. To learn more about how view and use the MedTech service metrics, see [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md).
+
+For your MedTech service metrics, see can see that:
+
+* **Number of Incoming Messages** - The test message was received.
+* **Number of Normalized Messages** - The test message was normalized.
+* **Number of Measurements** - The test message had five measurements.
+* **Number of FHIR resources** - The test message created five FHIR resources that will be persisted on your FHIR service.
+
+:::image type="content" source="media\iot-hub-to-iot-connector\iot-metrics-tile-one.png" alt-text="Screenshot of MedTech service first metrics tile showing the test data metrics." lightbox="media\iot-hub-to-iot-connector\iot-metrics-tile-one.png"::: 
+
+:::image type="content" source="media\iot-hub-to-iot-connector\iot-metrics-tile-two.png" alt-text="Screenshot of MedTech service second metrics tile showing the test data metrics." lightbox="media\iot-hub-to-iot-connector\iot-metrics-tile-two.png"::: 
 
 ## View test data in the FHIR service (Optional)
 
