@@ -539,5 +539,5 @@ This technology is currently available for US driver licenses and the biographic
 
 ::: moniker range="form-recog-2.1.0"
 > [!div class="nextstepaction"]
-> [Try Form Recognizer sample labeling tool](https://aka.ms/fott-2.1-ga)
+> [Try Form Recognizer Sample Labeling tool](https://aka.ms/fott-2.1-ga)
 ::: moniker-end

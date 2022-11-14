@@ -67,7 +67,7 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
-    :::image type="content" source="../media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
+    :::image type="content" source="../media/label-tool/prebuilt-1.jpg" alt-text="Screenshot of the layout model analyze results operation.":::
 
 1. Select the **Form Type**  to analyze from the dropdown menu.
 
@@ -233,7 +233,7 @@ The labeling tool will also show which tables have been automatically extracted.
 
 ##### Apply labels to text
 
-Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze. Note the sample label data set includes already labeled fields; we'll add another field.
+Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze. Note the Sample Label data set includes already labeled fields; we'll add another field.
 
 Use the tags editor pane to create a new tag you'd like to identify:
 

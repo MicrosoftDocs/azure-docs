@@ -33,15 +33,15 @@ Automated invoice processing is the process of extracting key accounts payable f
 
 **Sample invoice processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
 
-:::image type="content" source="media/studio/overview-invoices.png" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
+:::image type="content" source="media/studio/overview-invoices.png" alt-text="Screenshot of a sample invoice analyzed in the Form Recognizer Studio." lightbox="media/overview-invoices-big.jpg":::
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-**Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net)**:
+**Sample invoice processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net)**:
 
-:::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of a processed Contoso invoice."::: 
+:::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of a sample invoice."::: 
 
 ::: moniker-end
 
@@ -112,13 +112,13 @@ See how data, including customer information, vendor details, and line items, is
 
 ::: moniker range="form-recog-2.1.0"
 
-## Form Recognizer sample labeling tool
+## Form Recognizer Sample Labeling tool
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
 1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
-    :::image type="content" source="media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
+    :::image type="content" source="media/label-tool/prebuilt-1.jpg" alt-text="Screenshot of layout model analyze results process.":::
 
 1. Select the **Form Type**  to analyze from the dropdown menu.
 
@@ -143,7 +143,7 @@ See how data, including customer information, vendor details, and line items, is
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="media/invoice-example-new.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
+    :::image type="content" source="media/invoice-example-new.jpg" alt-text="Screenshot of layout model analyze results operation.":::
 
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
@@ -306,7 +306,7 @@ The JSON output has three parts:
 
 ::: moniker range="form-recog-2.1.0"
 
-* Try processing your own forms and documents with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

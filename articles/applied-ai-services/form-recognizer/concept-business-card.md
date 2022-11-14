@@ -13,7 +13,7 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Azure Form Recognizer Business Card model
+# Azure Form Recognizer business card model
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -32,15 +32,15 @@ Business cards are a great way to represent a business or a professional. The co
 ::: moniker range="form-recog-3.0.0"
 ***Sample business card processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***
 
-:::image type="content" source="media/studio/overview-business-card-studio.png" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
+:::image type="content" source="media/studio/overview-business-card-studio.png" alt-text="Screenshot of a sample business card analyzed in the Form Recognizer Studio." lightbox="./media/overview-business-card.jpg":::
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
-***Sample business processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)***
+***Sample business processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***
 
-:::image type="content" source="media/business-card-example.jpg" alt-text="sample business card":::
+:::image type="content" source="media/business-card-example.jpg" alt-text="Screenshot of a sample business card analyzed with the Form Recognizer Sample Labeling tool.":::
 
 ::: moniker-end
 
@@ -98,13 +98,13 @@ See how data, including name, job title, address, email, and company name, is ex
 
 ::: moniker range="form-recog-2.1.0"
 
-## Form Recognizer sample labeling tool
+## Form Recognizer Sample Labeling tool
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
 1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
-    :::image type="content" source="media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
+    :::image type="content" source="media/label-tool/prebuilt-1.jpg" alt-text="Screenshot of the layout model analyze results operation.":::
 
 1. Select the **Form Type**  to analyze from the dropdown menu.
 
@@ -129,7 +129,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="media/business-card-results.png" alt-text="Screenshot of the analyze Results for business card model":::
+    :::image type="content" source="media/business-card-results.png" alt-text="Screenshot of the business card model analyze results operation.":::
 
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
@@ -232,7 +232,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 ::: moniker range="form-recog-2.1.0"
 
-* Try processing your own forms and documents with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

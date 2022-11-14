@@ -130,13 +130,13 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 ::: moniker range="form-recog-2.1.0"
 
-## Form Recognizer sample labeling tool
+## Form Recognizer Sample Labeling tool
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
 1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
-    :::image type="content" source="media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
+    :::image type="content" source="media/label-tool/prebuilt-1.jpg" alt-text="Screenshot of the layout model analyze results operation.":::
 
 1. Select the **Form Type**  to analyze from the dropdown menu.
 
@@ -161,7 +161,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="media/id-example-drivers-license.jpg" alt-text="Analyze Results of Form Recognizer ID model":::
+    :::image type="content" source="media/id-example-drivers-license.jpg" alt-text="Screenshot of the identity model analyze results operation.":::
 
 1. Download the JSON output file to view the detailed results.
 
@@ -367,7 +367,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 
 ::: moniker range="form-recog-2.1.0"
 
-* Try processing your own forms and documents with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

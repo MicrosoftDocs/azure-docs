@@ -39,7 +39,7 @@ The following illustration shows the typical components in an image of a sample 
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Form Recognizer studio":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Form Recognizer Studio.":::
 
 ## Development options
 
@@ -53,7 +53,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ::: moniker range="form-recog-2.1.0"
 
-**Sample document processed with [Form Recognizer sample labeling tool layout model](https://fott-2-1.azurewebsites.net/layout-analyze)**:
+**Sample document processed with [Form Recognizer Sample Labeling tool layout model](https://fott-2-1.azurewebsites.net/layout-analyze)**:
 
 :::image type="content" source="media/layout-tool-example.jpg" alt-text="Screenshot of a document processed with the layout model.":::
 
@@ -111,13 +111,13 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 ::: moniker range="form-recog-2.1.0"
 
-## Form Recognizer sample labeling tool
+## Form Recognizer Sample Labeling tool
 
-1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
+1. Navigate to the [Form Recognizer sample tool](https://fott-2-1.azurewebsites.net/).
 
 1. On the sample tool home page, select **Use Layout to get text, tables and selection marks**.
 
-     :::image type="content" source="media/label-tool/layout-1.jpg" alt-text="Connection settings for Layout Form Recognizer tool.":::
+     :::image type="content" source="media/label-tool/layout-1.jpg" alt-text="Screenshot of connection settings for the Form Recognizer layout process.":::
 
 1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
 
@@ -135,7 +135,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 
-    :::image type="content" source="media/label-tool/layout-3.jpg" alt-text="Connection settings for Form Recognizer tool.":::
+    :::image type="content" source="media/label-tool/layout-3.jpg" alt-text="Screenshot of connection settings for the Form Recognizer Sample Labeling tool.":::
 
 ::: moniker-end
 
@@ -359,13 +359,13 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 You can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
-:::image type="content" source="media/layout-reading-order-example.png" alt-text="Layout Reading order example" lightbox="../../cognitive-services/Computer-vision/Images/ocr-reading-order-example.png":::
+:::image type="content" source="media/layout-reading-order-example.png" alt-text="Screenshot of layout model reading order processing." lightbox="../../cognitive-services/Computer-vision/Images/ocr-reading-order-example.png":::
 
 ### Select page numbers or ranges for text extraction
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
 
-:::image type="content" source="./media/layout-select-pages.png" alt-text="Layout selected pages output":::
+:::image type="content" source="./media/layout-select-pages.png" alt-text="Screen shot of the layout model selected pages output.":::
 
 ## The Get Analyze Layout Result operation
 
@@ -383,7 +383,7 @@ When the **status** field has the `succeeded` value, the JSON response will incl
 
 The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
 
-:::image type="content" source="./media/layout-handwriting-classification.png" alt-text="handwriting classification example":::
+:::image type="content" source="./media/layout-handwriting-classification.png" alt-text="Screenshot of layout model handwriting classification process.":::
 
 ### Sample JSON output
 
@@ -428,7 +428,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ::: moniker range="form-recog-2.1.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)
+* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
