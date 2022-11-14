@@ -113,6 +113,8 @@
         href: ../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
   - name: Move between regions
     href: move-regions.md
+  - name: Diagnose connection issues
+    href: diagnose-connection-issues.md
   - name: Troubleshooting
     href: troubleshooting.md
 - name: Reference

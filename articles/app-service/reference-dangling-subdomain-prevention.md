@@ -23,9 +23,9 @@ Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](/az
 Azure App Service provides [Name Reservation Service](#how-app-service-prevents-subdomain-takeovers) and [domain verification tokens](#how-you-can-prevent-subdomain-takeovers) to prevent subdomain takeovers.
 ## How App Service prevents subdomain takeovers
 
-Upon deletion of an App Service app, the corresponding DNS is reserved. During the reservation period, reuse of the DNS is forbidden except for subscriptions belonging to tenant of the subscription originally owning the DNS.
+Upon deletion of an App Service app or App Service Environment (ASE), the corresponding DNS is reserved. During the reservation period, reuse of the DNS is forbidden except for subscriptions belonging to tenant of the subscription originally owning the DNS.
 
-After the reservation expires, the DNS is free to be claimed by any subscription. By Name Reservation Service, the customer is afforded some time to either clean-up any associations/pointers to said DNS or reclaim the DNS in Azure. The DNS name being reserved can be derived by appending 'azurewebsites.net'. Name Reservation Service is enabled by default on Azure App Service and doesn't require more configuration.
+After the reservation expires, the DNS is free to be claimed by any subscription. By Name Reservation Service, the customer is afforded some time to either clean-up any associations/pointers to said DNS or reclaim the DNS in Azure. The DNS name being reserved for web apps can be derived by appending 'azurewebsites.net' and for ASE can be derived by appending 'appserviceenvironment.net'. Name Reservation Service is enabled by default on Azure App Service and doesn't require more configuration.
 
 #### Example scenario
 

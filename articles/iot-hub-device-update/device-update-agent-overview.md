@@ -1,9 +1,9 @@
 ---
 title: Understand Device Update for Azure IoT Hub Agent| Microsoft Docs
 description: Understand Device Update for Azure IoT Hub Agent.
-author: kgremban
-ms.author: kgremban
-ms.date: 2/12/2021
+author: EshaShah
+ms.author: eshashah
+ms.date: 9/12/2022
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
@@ -19,17 +19,21 @@ The Device Update agent consists of two conceptual layers:
 
 ## The interface layer
 
-The interface layer is made up of the [Device Update core interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device information interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface).
+The interface layer is made up of the [Device Update core interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface), [Device information interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface) and [Diagnostic information interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/diagnostics_component/diagnostics_interface).
 
 These interfaces rely on a configuration file for the device specific values that need to be reported to the Device Update services. For more information, see [Device Update configuration file](device-update-configuration-file.md).
 
 ### Device Update core interface
 
-The *Device Update core interface* is the primary communication channel between the Device Update agent and services. For more information, see [Device Update core interface](device-update-plug-and-play.md#device-update-core-interface).
+The *Device Update interface* is the primary communication channel between the Device Update agent and services. For more information, see [Device Update core interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/iot/deviceupdate-1.json).
 
 ### Device information interface
 
-The *device information interface* is used to implement the `Azure IoT PnP DeviceInformation` interface. For more information, see [Device information interface](device-update-plug-and-play.md#device-information-interface).
+The *device information interface* is used to implement the `Azure IoT PnP DeviceInformation` interface. For more information, see [Device information interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/devicemanagement/deviceinformation-1.json).
+
+### Diagnostic information interface
+
+The *diagnostic information interface* is used to enable [remote log collection](device-update-diagnostics.md#remote-log-collection) for diagnostics. For more information, see [Device information interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
 ## The platform Layer
 
@@ -46,13 +50,11 @@ If you choose to implement with your own downloader in place of Delivery Optimiz
 
 Update handlers are used to invoke installers or commands to do an over-the-air update. You can either use [existing update content handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or [implement a custom content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) that can invoke any installer and execute the over-the-air update needed for your use case.
 
-## Updating to latest Device Update agent
+## Changes to Device Update agent at GA release
 
-We have added many new capabilities to the Device Update agent in the latest public preview refresh agent (version 0.8.0). For more information, see the [list of new capabilities](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/whats-new.md).
+If you are using the Device Update agent versions, please migrate to the latest agent version 1.0.0 which is the GA version. See [GA agent for changes and how to upgrade](migration-public-preview-refresh-to-ga.md)
 
-If you're using the Device Update agent versions 0.6.0 or 0.7.0, please migrate to the latest agent version 0.8.0. For more information, see [Migrate devices and groups to public preview refresh](migration-pp-to-ppr.md).
-
-You can check the installed version of the Device Update agent and the Delivery Optimization agent in the device properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). For more information, see [device properties of the Device Update core interface](device-update-plug-and-play.md#device-properties).
+You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
 
 ## Next Steps
 

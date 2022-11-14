@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 09/25/2022
+ms.date: 11/11/2022
 ms.author: eur
 ---
 
@@ -126,7 +126,7 @@ Prepare an input text file, in either plain text or SSML text, then add the foll
 
 > [!NOTE]
 > `concatenateResult` is an optional parameter. If this parameter isn't set, the audio outputs will be generated per paragraph. You can also concatenate the audios into one output by including the parameter. 
-> `outputFormat` is also optional. By default, the audio output is set to `riff-16khz-16bit-mono-pcm`. For more information about supported audio output formats, see [Audio output formats](#audio-output-formats).
+> `outputFormat` is also optional. By default, the audio output is set to `riff-24khz-16bit-mono-pcm`. For more information about supported audio output formats, see [Audio output formats](#audio-output-formats).
 
 ```python
 def submit_synthesis():
@@ -150,7 +150,7 @@ def submit_synthesis():
         'description': 'sample description',
         'locale': locale,
         'voices': json.dumps(voice_identities),
-        'outputformat': 'riff-16khz-16bit-mono-pcm',
+        'outputformat': 'riff-24khz-16bit-mono-pcm',
         'concatenateresult': True,
     }
 
@@ -228,7 +228,7 @@ response.status_code: 200
     }
   ],
   "properties": {
-    "outputFormat": "riff-16khz-16bit-mono-pcm",
+    "outputFormat": "riff-24khz-16bit-mono-pcm",
     "concatenateResult": false,
     "totalDuration": "PT5M57.252S",
     "billableCharacterCount": 3048
@@ -339,7 +339,7 @@ response.status_code: 200
         }
       ],
       "properties": {
-        "outputFormat": "riff-16khz-16bit-mono-pcm",
+        "outputFormat": "riff-24khz-16bit-mono-pcm",
         "concatenateResult": false,
         "totalDuration": "PT1S",
         "billableCharacterCount": 5
@@ -359,7 +359,7 @@ response.status_code: 200
         }
       ],
       "properties": {
-        "outputFormat": "riff-16khz-16bit-mono-pcm",
+        "outputFormat": "riff-24khz-16bit-mono-pcm",
         "concatenateResult": false,
         "totalDuration": "PT5M57.252S",
         "billableCharacterCount": 3048
@@ -456,7 +456,7 @@ The Long audio API is available in multiple regions with unique endpoints.
 We support flexible audio output formats. You can generate audio outputs per paragraph or concatenate the audio outputs into a single output by setting the `concatenateResult` parameter. The following audio output formats are supported by the Long Audio API:
 
 > [!NOTE]
-> The default audio format is riff-16khz-16bit-mono-pcm.
+> The default audio format is riff-24khz-16bit-mono-pcm.
 > 
 > The sample rate for long audio voices is 24kHz, not 48kHz. Other sample rates can be obtained through upsampling or downsampling when synthesizing.
 

@@ -4,8 +4,8 @@ description: Summarizes the supported components and requirements for Hyper-V VM
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-author: v-pgaddala
-ms.author: v-pgaddala
+author: ankitaduttaMSFT
+ms.author: ankitadutta
 ---
 
 

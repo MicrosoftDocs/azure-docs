@@ -1,8 +1,8 @@
 ---
-title: Connect to and manage multiple Azure sources
+title: Discover and govern multiple Azure sources
 description: This guide describes how to connect to multiple Azure sources in Microsoft Purview at once, and use Microsoft Purview's features to scan and manage your sources.
-author: viseshag
-ms.author: viseshag
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.date: 10/28/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage multiple Azure sources in Microsoft Purview
+# Discover and govern multiple Azure sources in Microsoft Purview
 
 This article outlines how to register multiple Azure sources and how to authenticate and interact with them in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
@@ -186,7 +186,7 @@ To create an access policy on an entire Azure subscription or resource group, fo
 ## Next steps
 
 Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
-- [Data owner policies in Microsoft Purview](concept-policies-data-owner.md)
+- [Devops policies in Microsoft Purview](concept-policies-devops.md)
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

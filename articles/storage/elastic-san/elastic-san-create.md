@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure p
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 11/07/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022

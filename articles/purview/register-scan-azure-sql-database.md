@@ -1,5 +1,5 @@
 ---
-title: 'Register and scan Azure SQL DB'
+title: 'Discover and govern Azure SQL DB'
 description: This article outlines the process to register an Azure SQL database in Microsoft Purview including instructions to authenticate and interact with the Azure SQL DB source
 author: athenads
 ms.author: athenadsouza
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/28/2022
 ms.custom: template-how-to
 ---
-# Connect to Azure SQL Database in Microsoft Purview
+# Discover and govern Azure SQL Database in Microsoft Purview
 
 This article outlines the process to register an Azure SQL data source in Microsoft Purview including instructions to authenticate and interact with the Azure SQL database source
 
@@ -448,7 +448,7 @@ You can [browse data catalog](how-to-browse-catalog.md) or [search data catalog]
 ## Next steps
 
 Follow the below guides to learn more about Microsoft Purview and your data.
-- [Data owner policies in Microsoft Purview](concept-policies-data-owner.md)
+- [DevOps policies in Microsoft Purview](concept-policies-devops.md)
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)
