@@ -34,7 +34,6 @@ For information on all the keys in Yaml syntax, refer to [Yaml syntax](./automl-
 | `primary_metric` | string |  The metric that AutoML will optimize for model selection. |`mean_average_precision` | `mean_average_precision` |
 | `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object that has keys as listed in [Model Specific Hyperparameters](./reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for maskrcnn_* (if you are using maskrcnn_* for instance segmentation), [Model Agnostic Hyperparameters](./reference-automl-images-hyperparameters.md#model-agnostic-hyperparameters) and [Object Detection and Instance Segmentation Task Specific Hyperparameters](./reference-automl-images-hyperparameters.md#object-detection-and-instance-segmentation-task-specific-hyperparameters). Hyperparameters are of two types - discrete and continuous, refer to [Training parameters](./automl-ref-image-classification.md#training-parameters) for a brief introduction. For an example, refer to [Configure your experiment settings](./how-to-auto-train-image-models.md?tabs=cli#configure-your-experiment-settings) section.| | |
 
-
 ## Remarks
 
 The `az ml job` command can be used for managing Azure Machine Learning jobs.
@@ -50,7 +49,6 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 ## YAML: AutoML image instance segmentation pipeline job
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/image-instance-segmentation-task-fridge-items-pipeline/pipeline.yml":::
-
 
 ## Next steps
 

@@ -41,7 +41,6 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Examples relevant to image multi-label classification job are shown below.
 
-
 ## YAML: AutoML image multi-label classification job
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-classification-multilablel-task-fridge-items/cli-automl-image-classification-multilabel-task-fridge-items.yml":::
@@ -49,7 +48,6 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 ## YAML: AutoML image multi-label classification pipeline job
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/image-multilabel-classification-fridge-items-pipeline/pipeline.yml":::
-
 
 ## Next steps
 

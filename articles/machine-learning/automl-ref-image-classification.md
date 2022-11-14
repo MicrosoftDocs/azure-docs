@@ -77,7 +77,6 @@ While many of the hyperparameters exposed are model-agnostic, there are instance
 | `path` | string | **Required.** URI of the location where the model-artifact file(s) are stored. If this URI doesn't have a scheme (for example, http:, azureml: etc.), then it's considered a local reference and the file it points to is uploaded to the default workspace blob-storage as the entity is created. |  |  |
 | `storage_uri` | string | The HTTP URL of the Model. Use this URL with `az storage copy -s THIS_URL -d DESTINATION_PATH --recursive` to download the data.  | | |
 
-
 ## Remarks
 
 The `az ml job` command can be used for managing Azure Machine Learning jobs.
@@ -93,7 +92,6 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 ## YAML: AutoML image classification pipeline job
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/image-multiclass-classification-fridge-items-pipeline/pipeline.yml":::
-
 
 ## Next steps
 
