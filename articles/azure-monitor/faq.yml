@@ -176,7 +176,7 @@ sections:
       - question: |
           How do I retrieve Prometheus metrics data? 
         answer: |
-          All data is retrieved from a Azure Monitor workspace using queries written in Prometheus Query Language (PromQL). You can write your own queries or use open source queries and Grafana dashboards that include PromQL queries. See the [Prometheus project](https://prometheus.io/docs/prometheus/latest/querying/basics/) for more details. 
+          All data is retrieved from an Azure Monitor workspace using queries written in Prometheus Query Language (PromQL). You can write your own queries or use open source queries and Grafana dashboards that include PromQL queries. See the [Prometheus project](https://prometheus.io/docs/prometheus/latest/querying/basics/) for more details. 
       - question: |
           Can I delete Prometheus metrics data from an Azure Monitor workspace? 
         answer: |
@@ -196,11 +196,11 @@ sections:
       - question: |
           What types of resources can send Prometheus metrics to Managed Prometheus? 
         answer: |
-          Our collector can be used on Azure Kubernetes Service clusters. It is installed as a managed add-on and can be configured to collect the data you want and to run as a replica set or as a replica set and on each node in the cluster. You can also configure remote write on Kubernetes clusters running in Azure, another cloud, or on-premise by following our instructions for enabling remote write.  
+          Our collector can be used on Azure Kubernetes Service clusters. It is installed as a managed add-on and can be configured to collect the data you want and to run as a replica set or as a replica set and on each node in the cluster. You can also configure remote write on Kubernetes clusters running in Azure, another cloud, or on-premises by following our instructions for enabling remote write.  
       - question: |
           Does enabling Managed Prometheus on my AKS cluster also enable Container Insights? 
         answer: |
-          You have options for how you can collect your Prometheus metrics. If you use the Azure Portal and enable Prometheus metrics collection and install the AKS add-on from the Azure Monitor workspace UX it won’t enable Container Insights and collection of Log data. When you go to the Insights page on your AKS cluster you will be prompted to enable Container Insights which will collect Log data.<br>If you use the Azure Portal and enable Prometheus metrics collection and install the AKS add-on from the Insights page of your AKS cluster it will enable both Logs collection and Prometheus metrics collection into Managed Prometheus. 
+          You have options for how you can collect your Prometheus metrics. If you use the Azure portal and enable Prometheus metrics collection and install the AKS add-on from the Azure Monitor workspace UX it won’t enable Container Insights and collection of Log data. When you go to the Insights page on your AKS cluster you will be prompted to enable Container Insights which will collect Log data.<br>If you use the Azure portal and enable Prometheus metrics collection and install the AKS add-on from the Insights page of your AKS cluster it will enable both Logs collection and Prometheus metrics collection into Managed Prometheus. 
 
   - name: Change Analysis
     questions:
@@ -561,7 +561,7 @@ sections:
           * HTTP requests
           * [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue.
           * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-2x-collectd.md).
+          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or Virtual Machine Scale Set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-2x-collectd.md).
           * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
           * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
           
