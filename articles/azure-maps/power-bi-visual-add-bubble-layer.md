@@ -1,7 +1,7 @@
 ---
 title: Add a bubble layer to an Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
-description: In this article, you will learn how to use the bubble layer in an Azure Maps Power BI visual.
+description: In this article, you'll learn how to use the bubble layer in an Azure Maps Power BI visual.
 author: stevemunk
 ms.author: v-munksteve
 ms.date: 11/14/2022
@@ -20,16 +20,16 @@ Initially all bubbles have the same fill color. If a field is passed into the **
 
 | Setting               | Description    |
 |-----------------------|----------------|
-| Size                  | The size of each bubble. This option is hidden when a field is passed into the **Size** bucket of the **Fields** pane. Additional options will appear as outlined in the [Bubble size scaling](#bubble-size-scaling) topic further down in this article. |
+| Size                  | The size of each bubble. This option is hidden when a field is passed into the **Size** bucket of the **Fields** pane. More options will appear as outlined in the [Bubble size scaling](#bubble-size-scaling) section further down in this article. |
 | Fill color            | Color of each bubble. This option is hidden when a field is passed into the **Legend** bucket of the **Fields** pane and a separate **Data colors** section will appear in the **Format** pane. |
 | Fill transparency     | Transparency of each bubble. |
 | High-contrast outline | Makes the outline color contrast with the fill color for better accessibility by using a high-contrast variant of the fill color. |
 | Outline color         | Color that outlines the bubble. This option is hidden when the **High-contrast outline** option is enabled. |
 | Outline transparency  | Transparency of the outline. |
 | Outline width         | Width of the outline in pixels. |
-| Blur                  | Amount of blur applied to the outline. A value of 1 blurs the bubbles such that only the center point has no transparency. A value of 0 apply any blur effect. |
+| Blur                  | Amount of blur applied to the outline. A value of one blurs the bubbles such that only the center point has no transparency. A value of 0 apply any blur effect. |
 | Pitch alignment       | Specifies how the bubbles look when the map is pitched. <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Viewport - Bubbles appear on their edge on the map relative to viewport. (default)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Map - Bubbles are rendered flat on the surface of the map. |
-| Zoom scale            | Amount the bubbles should scale relative to the zoom level. A zoom scale of one means no scaling. Large values will make bubbles smaller when zoomed out and larger when zoomed in. This helps to reduce the clutter on the map when zoomed out, yet ensures points stand out more when zoomed in. A value of 1 does not apply any scaling. |
+| Zoom scale            | Amount the bubbles should scale relative to the zoom level. A zoom scale of one means no scaling. Large values will make bubbles smaller when zoomed out and larger when zoomed in. This helps to reduce the clutter on the map when zoomed out, yet ensures points stand out more when zoomed in. A value of 1 doesn't apply any scaling. |
 | Min zoom              | Minimum zoom level tiles are available. |
 | Max zoom              | Maximum zoom level tiles are available. |
 | Layer position        | Specifies the position of the layer relative to other map layers. |
