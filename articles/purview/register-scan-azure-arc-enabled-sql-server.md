@@ -114,7 +114,7 @@ The account must have access to the **master** database. This is because the `sy
 
 1. Select **Register**
 
-1. Select **SQL server** and then **Continue**
+1. Select **SQL server on Azure Arc-enabled servers** and then **Continue**
 
    :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/set-up-azure-arc-enabled-sql-data-source.png" alt-text="Screenshot that shows how to set up the SQL data source.":::
 
@@ -132,7 +132,7 @@ To create and run a new scan, do the following:
 
 1. Select the **Data Map** tab on the left pane in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
-1. Select the SQL Server source that you registered.
+1. Select the Azure Arc-enabeld SQL Server source that you registered.
 
 1. Select **New scan**
 

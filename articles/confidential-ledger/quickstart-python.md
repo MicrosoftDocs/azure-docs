@@ -196,6 +196,7 @@ print(f"Entry (transaction id = {entry['transactionId']}) in collection {entry['
 
 If you just want the latest transaction that was committed to the ledger, you can use the `get_current_ledger_entry` function.
 
+
 ```python
 latest_entry = ledger_client.get_current_ledger_entry()
 print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
