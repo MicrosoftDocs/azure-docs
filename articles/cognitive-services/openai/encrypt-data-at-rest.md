@@ -6,13 +6,13 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.author: mbullwin
 ---
 
 # Azure OpenAI encryption of data at rest
 
-Azure OpenAI automatically encrypts your data when it is persisted to the cloud. The encryption protects your data and helps you meet your organizational security and compliance commitments.
+Azure OpenAI automatically encrypts your data when it is persisted to the cloud. The encryption protects your data and helps you meet your organizational security and compliance commitments. This article covers how Azure OpenAI handles encryption of data at rest, specificially training data and fine-tuned models. For information on how data provided by you to the service is processed, used, and stored, consult the [Data, privacy, and security article](/legal/cognitive-services/openai/data-privacy?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext).
 
 ## About Cognitive Services encryption
 
@@ -24,11 +24,11 @@ By default, your subscription uses Microsoft-managed encryption keys. There is a
 
 ## Customer-managed keys with Azure Key Vault
 
-There is also an option to manage your subscription with your own keys. Customer-managed keys (CMK), also known as Bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
+Customer-managed keys (CMK), also known as Bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
 You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Cognitive Services resource and the key vault must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
-To enable customer-managed keys, you must use an Azure Key Vault to store your keys. You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
+To enable customer-managed keys, you must also enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
 
 Only RSA keys of size 2048 are supported with Cognitive Services encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/general/about-keys-secrets-certificates.md).
 
@@ -102,9 +102,37 @@ You can rotate a customer-managed key in Key Vault according to your compliance 
 
 Rotating the key doesn't trigger re-encryption of data in the resource. No further action is required from the user.
 
-## Revoke access to customer-managed keys
+## Revoke a customer-managed key
 
-To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) or [Azure Key Vault CLI](/cli/azure/keyvault). Revoking access effectively blocks access to all data in the Cognitive Services resource, because the encryption key is inaccessible by Cognitive Services.
+You can revoke a customer-managed encryption key by changing the access policy, by changing the permissions on the key vault, or by deleting the key.
+
+To change the access policy of the managed identity that your registry uses, run the [az-keyvault-delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) command:
+
+```azurecli
+az keyvault delete-policy \
+  --resource-group <resource-group-name> \
+  --name <key-vault-name> \
+  --key_id <key-vault-key-id>
+```
+
+To delete the individual versions of a key, run the [az-keyvault-key-delete](/cli/azure/keyvault/key#az-keyvault-key-delete) command. This operation requires the *keys/delete* permission.
+
+```azurecli
+az keyvault key delete  \
+  --name <key-vault-name> \
+  --object-id $identityPrincipalID \                     
+```
+
+> [!IMPORTANT]
+> Revoking access to an active customer-managed key while CMK is still enabled at the resource level will prevent fine-tuning new models, as well as deploying previously undeployed fine-tuned models. However, previously deployed fine-tuned models will continue to operate and serve traffic unless those deployments are deleted.
+
+### Delete training, validation, and training results data
+
+ The Files API allows customers to upload their training data for the purpose of fine-tuning a model. This data is stored in Azure Storage, encrypted at rest by Microsoft Managed keys, within the same region as the resource and logically isolated with their Azure subscription and API Credentials. Uploaded files can be deleted by the user via the [DELETE API operation](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-python#delete-your-training-files).
+
+### Delete fine-tuned models and deployments
+
+The Fine-tunes API allows customers to create their own fine-tuned version of the OpenAI models based on the training data that you have uploaded to the service via the Files APIs. The trained fine-tuned models are stored in Azure Storage in the same region, encrypted at rest and logically isolated with their Azure subscription and API credentials. Fine-tuned models and deployments can be deleted by the user by calling the [DELETE API operation](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-python#delete-your-model-deployment).
 
 ## Disable customer-managed keys
 
@@ -115,7 +143,7 @@ When you disable customer-managed keys, your Cognitive Services resource is then
 
 - [Configure customer-managed keys with Key Vault for Cognitive Services encryption from the Azure portal](../encryption/cognitive-services-encryption-keys-portal.md)
 
-Enabling customer managed keys will also enable a system assigned managed identity, a feature of Azure AD. Once the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory. After being registered, the managed identity will be given access to the Key Vault selected during customer managed key setup. You can learn more about [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
+When you previously enabled customer managed keys this also enabled a system assigned managed identity, a feature of Azure AD. Once the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory. After being registered, the managed identity will be given access to the Key Vault selected during customer managed key setup. You can learn more about [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
 > If you disable system assigned managed identities, access to the key vault will be removed and any data encrypted with the customer keys will no longer be accessible. Any features depended on this data will stop working.
