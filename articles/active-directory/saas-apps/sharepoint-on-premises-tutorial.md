@@ -348,17 +348,18 @@ $t.Update()
 ### Configure the lifetime of the security token
 
 By default, Azure AD creates a SAML token that is valid for 1 hour.  
-This lifetime cannot be customized in the portal, or from a conditional access policy, but it is possible to create a [custom token lifetime policy](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes) and apply it to the enterprise application created for SharePoint:
+This lifetime cannot be customized in the Azure portal, or using a conditional access policy, but it can be done by creating a [custom token lifetime policy](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes) and apply it to the enterprise application created for SharePoint.  
+To do this, complete the steps below using Windows PowerShell (at the time of this writing, AzureADPreview v2.0.2.149 does not work with PowerShell Core):
 
-1. Using Windows PowerShell 5.1, install the module [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview/):
+1. Install the module [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview/):
 
     ```powershell
     Install-Module -Name AzureADPreview -Scope CurrentUser
     ```
 
-1. Then, run `Connect-AzureAD` to sign-in as a tenant administrator.  
+1. Run `Connect-AzureAD` to sign-in as a tenant administrator.
 
-1. The sample script below updates the application `SharePoint corporate farm` to apply a token lifetime policy of 6h (value `06:00:00` of property `AccessTokenLifetime`) to it:
+1. Run the sample script below to update the application `SharePoint corporate farm` to issue a SAML token valid for 6h (value `06:00:00` of property `AccessTokenLifetime`):
 
     ```powershell
     $appDisplayName = "SharePoint corporate farm"
@@ -375,5 +376,5 @@ This lifetime cannot be customized in the portal, or from a conditional access p
     Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
     ```
 
-After the script completed, all users who successfully sign-in will get a SAML 1.1 token valid for 6h in SharePoint.  
-To revert the change, simply delete the custom TokenLifetimePolicy, as done at the beginning of the script.
+After the script completed, all users who successfully sign-in to the enterprise application will get a SAML 1.1 token valid for 6h in SharePoint.  
+To revert the change, simply remove the custom `TokenLifetimePolicy` object from the service principal, as done at the beginning of the script.
