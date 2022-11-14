@@ -179,7 +179,7 @@ Now that you've successfully sent a test message to your IoT Hub, you can now re
 For your MedTech service metrics, see can see that:
 
 * **Number of Incoming Messages** - The test message was received.
-* **Number of Normalized Messages** - The test message was normalized.
+* **Number of Normalized Messages** - The test message had five normalized messages.
 * **Number of Measurements** - The test message had five measurements.
 * **Number of FHIR resources** - The test message created five FHIR resources that will be persisted on your FHIR service.
 
