@@ -127,7 +127,7 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 ---
 
-### Migrate your data
+### Move data to new account
 
 If you desire, you can migrate your existing data from the free account to the newly created account.
 
@@ -166,7 +166,7 @@ If you desire, you can migrate your existing data from the free account to the n
 
 ---
 
-### Delete your original account
+## Delete your account
 
 There can only be one free Try Azure Cosmos DB account per Microsoft account. You may want to delete your account or to try different APIs, you'll have to create a new account. Here’s how to delete your account.
 
