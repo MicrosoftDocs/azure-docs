@@ -234,7 +234,12 @@ The following table provides a brief description of each built-in role. Click th
 > | [Security Reader](#security-reader) | View permissions for Microsoft Defender for Cloud. Can view recommendations, alerts, a security policy, and security states, but cannot make changes. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
+> | [Lab Assistant](#lab-assistant) | Enables you to view an existing lab, perform actions on the lab VMs and send invitations to the lab. | ce40b423-cede-4313-a93f-9b28290b72e1 |
+> | [Lab Contributor](#lab-contributor) | Applied at lab level, enables you to manage the lab. Applied at a resource group, enables you to create and manage labs. | 5daaa2af-1fe8-407c-9122-bba179798270 |
 > | [Lab Creator](#lab-creator) | Lets you create new labs under your Azure Lab Accounts. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
+> | [Lab Operator](#lab-operator) | Gives you limited ability to manage existing labs. | a36e6959-b6be-4b12-8e9f-ef4b474d304d |
+> | [Lab Services Contributor](#lab-services-contributor) | Enables you to fully control all Lab Services scenarios in the resource group. | f69b8690-cc87-41d6-b77a-a4bc3c0a966f |
+> | [Lab Services Reader](#lab-services-reader) | Enables you to view, but not change, all lab plans and lab resources. | 2a5c394f-5eb7-4d4f-9c8e-e8eae39faebc |
 > | **Monitor** |  |  |
 > | [Application Insights Component Contributor](#application-insights-component-contributor) | Can manage Application Insights components | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Gives user permission to view and download debug snapshots collected with the Application Insights Snapshot Debugger. Note that these permissions are not included in the [Owner](#owner) or [Contributor](#contributor) roles. When giving users the Application Insights Snapshot Debugger role, you must grant the role directly to the user. The role is not recognized when it is added to a custom role. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
@@ -11457,6 +11462,168 @@ Lets you connect, start, restart, and shutdown your virtual machines in your Azu
 }
 ```
 
+### Lab Assistant
+
+Enables you to view an existing lab, perform actions on the lab VMs and send invitations to the lab.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/images/read | Get the properties of an image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/read | Get the properties of a lab plan. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/read | Get the properties of a lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/read | Get the properties of a schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/read | Get the properties of a user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/invite/action | Send email invitation to a user to join the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/read | Get the properties of a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/start | Start a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/stop | Stop and deallocate a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/reimage | Reimage a virtual machine to the last published image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/redeploy | Redeploy a virtual machine to a different compute node. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/locations/usages/read | Get Usage in a location |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/skus/read | Get the properties of a Lab Services SKU. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/ce40b423-cede-4313-a93f-9b28290b72e1",
+    "properties": {
+        "roleName": "Lab Assistant",
+        "description": "The lab assistant role",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.LabServices/labPlans/images/read",
+                    "Microsoft.LabServices/labPlans/read",
+                    "Microsoft.LabServices/labs/read",
+                    "Microsoft.LabServices/labs/schedules/read",
+                    "Microsoft.LabServices/labs/users/read",
+                    "Microsoft.LabServices/labs/users/invite/action",
+                    "Microsoft.LabServices/labs/virtualMachines/read",
+                    "Microsoft.LabServices/labs/virtualMachines/start/action",
+                    "Microsoft.LabServices/labs/virtualMachines/stop/action",
+                    "Microsoft.LabServices/labs/virtualMachines/reimage/action",
+                    "Microsoft.LabServices/labs/virtualMachines/redeploy/action",
+                    "Microsoft.LabServices/locations/usages/read",
+                    "Microsoft.LabServices/skus/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+### Lab Contributor
+
+Applied at lab level, enables you to manage the lab. Applied at a resource group, enables you to create and manage labs.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/images/read | Get the properties of an image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/read | Get the properties of a lab plan. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/saveImage/action | Create an image from a virtual machine in the gallery attached to the lab plan. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/read | Get the properties of a lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/write | Create new or update an existing lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/delete | Delete the lab and all its users, schedules and virtual machines. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/publish/action | Publish a lab by propagating image of the template virtual machine to all virtual machines in the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/syncGroup/action | Updates the list of users from the Active Directory group assigned to the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/read | Get the properties of a schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/write | Create new or update an existing schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/delete | Delete the schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/read | Get the properties of a user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/write | Create new or update an existing user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/delete | Delete the user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/invite/action | Send email invitation to a user to join the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/read | Get the properties of a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/start | Start a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/stop | Stop and deallocate a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/reimage | Reimage a virtual machine to the last published image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/redeploy | Redeploy a virtual machine to a different compute node. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/resetPassword/action | Reset local user's password on a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/locations/usages/read | Get Usage in a location |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/skus/read | Get the properties of a Lab Services SKU. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/createLab/action | Create a new lab from a lab plan. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/5daaa2af-1fe8-407c-9122-bba179798270",
+    "properties": {
+        "roleName": "Lab Contributor",
+        "description": "The lab contributor role",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.LabServices/labPlans/images/read",
+                    "Microsoft.LabServices/labPlans/read",
+                    "Microsoft.LabServices/labPlans/saveImage/action",
+                    "Microsoft.LabServices/labs/read",
+                    "Microsoft.LabServices/labs/write",
+                    "Microsoft.LabServices/labs/delete",
+                    "Microsoft.LabServices/labs/publish/action",
+                    "Microsoft.LabServices/labs/syncGroup/action",
+                    "Microsoft.LabServices/labs/schedules/read",
+                    "Microsoft.LabServices/labs/schedules/write",
+                    "Microsoft.LabServices/labs/schedules/delete",
+                    "Microsoft.LabServices/labs/users/read",
+                    "Microsoft.LabServices/labs/users/write",
+                    "Microsoft.LabServices/labs/users/delete",
+                    "Microsoft.LabServices/labs/users/invite/action",
+                    "Microsoft.LabServices/labs/virtualMachines/read",
+                    "Microsoft.LabServices/labs/virtualMachines/start/action",
+                    "Microsoft.LabServices/labs/virtualMachines/stop/action",
+                    "Microsoft.LabServices/labs/virtualMachines/reimage/action",
+                    "Microsoft.LabServices/labs/virtualMachines/redeploy/action",
+                    "Microsoft.LabServices/labs/virtualMachines/resetPassword/action",
+                    "Microsoft.LabServices/locations/usages/read",
+                    "Microsoft.LabServices/skus/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.LabServices/labPlans/createLab/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
 ### Lab Creator
 
 Lets you create new labs under your Azure Lab Accounts. [Learn more](../lab-services/add-lab-creator.md)
@@ -11529,6 +11696,183 @@ Lets you create new labs under your Azure Lab Accounts. [Learn more](../lab-serv
   "roleName": "Lab Creator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Lab Operator
+
+Gives you limited ability to manage existing labs.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/images/read | Get the properties of an image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/read | Get the properties of a lab plan. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/saveImage/action | Create an image from a virtual machine in the gallery attached to the lab plan. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/publish/action | Publish a lab by propagating image of the template virtual machine to all virtual machines in the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/read | Get the properties of a lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/read | Get the properties of a schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/write | Create new or update an existing schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/delete | Delete the schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/read | Get the properties of a user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/write | Create new or update an existing user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/delete | Delete the user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/invite/action | Send email invitation to a user to join the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/read | Get the properties of a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/start/action | Start a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/stop/action | Stop and deallocate a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/reimage/action | Reimage a virtual machine to the last published image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/redeploy/action | Redeploy a virtual machine to a different compute node. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/resetPassword/action | Reset local user's password on a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/locations/usages/read | Get Usage in a location. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/skus/read | Get the properties of a Lab Services SKU. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* | |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/a36e6959-b6be-4b12-8e9f-ef4b474d304d",
+    "properties": {
+        "roleName": "Lab Operator",
+        "description": "The lab operator role",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.LabServices/labPlans/images/read",
+                    "Microsoft.LabServices/labPlans/read",
+                    "Microsoft.LabServices/labPlans/saveImage/action",
+                    "Microsoft.LabServices/labs/publish/action",
+                    "Microsoft.LabServices/labs/read",
+                    "Microsoft.LabServices/labs/schedules/read",
+                    "Microsoft.LabServices/labs/schedules/write",
+                    "Microsoft.LabServices/labs/schedules/delete",
+                    "Microsoft.LabServices/labs/users/read",
+                    "Microsoft.LabServices/labs/users/write",
+                    "Microsoft.LabServices/labs/users/delete",
+                    "Microsoft.LabServices/labs/users/invite/action",
+                    "Microsoft.LabServices/labs/virtualMachines/read",
+                    "Microsoft.LabServices/labs/virtualMachines/start/action",
+                    "Microsoft.LabServices/labs/virtualMachines/stop/action",
+                    "Microsoft.LabServices/labs/virtualMachines/reimage/action",
+                    "Microsoft.LabServices/labs/virtualMachines/redeploy/action",
+                    "Microsoft.LabServices/labs/virtualMachines/resetPassword/action",
+                    "Microsoft.LabServices/locations/usages/read",
+                    "Microsoft.LabServices/skus/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+### Lab Services Contributor
+
+Enables you to fully control all Lab Services scenarios in the resource group.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/* | Create and manage lab services components. |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/createLab/action | Create a new lab from a lab plan. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/f69b8690-cc87-41d6-b77a-a4bc3c0a966f",
+    "properties": {
+        "roleName": "Lab Services Contributor",
+        "description": "The lab services contributor role",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.LabServices/*",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.LabServices/labPlans/createLab/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+
+### Lab Services Reader
+
+Enables you to view, but not change, all lab plans and lab resources. 
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/*/read | Read lab services properties. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* | |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/2a5c394f-5eb7-4d4f-9c8e-e8eae39faebc",
+    "properties": {
+        "roleName": "Lab Services Reader",
+        "description": "The lab services reader role",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.LabServices/*/read",
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 
