@@ -42,7 +42,6 @@ At this time, App Service Environment migrations to v3 using the migration featu
 - North Europe
 - Norway East
 - Norway West
-- South Africa North
 - South Central US
 - Switzerland North
 - Switzerland West
@@ -53,12 +52,6 @@ At this time, App Service Environment migrations to v3 using the migration featu
 - West Europe
 - West US
 - West US 3
-
-### Azure Government:
-
-- US Gov Arizona
-- US Gov Texas
-- US Gov Virginia
 
 The following App Service Environment configurations can be migrated using the migration feature. The table gives the App Service Environment v3 configuration you'll end up with when using the migration feature based on your existing App Service Environment. All supported App Service Environments can be migrated to a [zone redundant App Service Environment v3](../../availability-zones/migrate-app-service-environment.md) using the migration feature as long as the environment is [in a region that supports zone redundancy](./overview.md#regions). You can [configure zone redundancy](#choose-your-app-service-environment-v3-configurations) during the migration process.
 
