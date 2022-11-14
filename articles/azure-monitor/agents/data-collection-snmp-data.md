@@ -61,7 +61,7 @@ The steps required to configure snmptrapd vary slightly between Linux distributi
   
     There are two ways to send SNMP traps from snmptrapd to Azure Monitor Agent for collection: 
 
-    - Snmptrapd can forward incoming traps to syslog, which Azure Monitor Agent will be collect as long as the [syslog facility is configured for collection](https://azure.microsoft.com/en-us/documentation/articles/log-analytics-data-sources-syslog/). 
+    - snmptrapd can forward incoming traps to syslog, which Azure Monitor Agent will collect as long as the [syslog facility is configured for collection](https://azure.microsoft.com/en-us/documentation/articles/log-analytics-data-sources-syslog/). 
 
     - snmptrapd can write the syslog messages to a file, which can be *tailed* and parsed by Azure Monitor Agent for collection. This option may be preferable, as we can send the SNMP traps as a new datatype rather than sending as syslog events.  
       
@@ -73,9 +73,9 @@ The steps required to configure snmptrapd vary slightly between Linux distributi
       
     The options in this example configuration are:  
     
-      - **-m ALL** Load all MIB files in the default directories
-      - **-Ls2** Output traps to syslog, to the Local2 facility
-      - **-Lf /var/log/snmptrapd** Log traps to the file /var/log/snmptrapd
+      - `-m ALL` - Load all MIB files in the default directory.
+      - `-Ls2` - Output traps to syslog, to the Local2 facility.
+      - `-Lf /var/log/snmptrapd` - Log traps to the `/var/log/snmptrapd` file. 
       
     More on output options can be found [here](https://www.net-snmp.org/docs/man/snmpcmd.html). Description of the formatting options can be found [here](https://www.net-snmp.org/docs/man/snmptrapd.html). Note that snmptrapd logs both traps and daemon messages - for example, service stop and start - to the same log file. In the example, we’ve defined the format to start with the word “snmptrap” to make it easy to filter snmptraps from the log later on.  
   
