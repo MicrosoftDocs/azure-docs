@@ -42,6 +42,9 @@ To provision a new network slice:
 
 1. Navigate to the list of network slices in your private mobile network, as described in [View existing network slices](#view-existing-network-slices).
 2. Select **Create**.
+
+    :::image type="content" source="media/create-manage-network-slices/network-slices-create.png" alt-text="Screenshot of the Azure portal showing the Create slice option." :::
+
 3. Use the information you collected in [Collect the required information for a network slice](collect-required-information-for-private-mobile-network.md#collect-the-required-information-for-a-network-slice) to fill in the fields under **Create Slice**.
 
     :::image type="content" source="media/create-manage-network-slices/create-network-slice.png" alt-text="Screenshot of the Azure portal showing the Create slice screen." :::
@@ -50,6 +53,9 @@ To provision a new network slice:
 5. Wait while the Azure portal deploys the new network slice. You'll see a confirmation screen when the deployment is complete.
 6. Navigate to the list of network slices, as described in [View existing network slices](#view-existing-network-slices).
 7. Select **Refresh**.
+
+    :::image type="content" source="media/create-manage-network-slices/network-slices-refresh.png" alt-text="Screenshot of the Azure portal showing the Refresh slices option." :::
+
 8. Confirm that the new slice exists and shows the expected configuration.
 
 ## Modify a network slice
@@ -69,6 +75,9 @@ To make changes to an existing network slice:
 5. Wait while the Azure portal redeploys the network slice with the new configuration. You'll see a confirmation screen when the deployment is complete.
 6. Navigate to the list of network slices, as described in [View existing network slices](#view-existing-network-slices).
 7. Select **Refresh**.
+
+    :::image type="content" source="media/create-manage-network-slices/network-slices-refresh.png" alt-text="Screenshot of the Azure portal showing the Refresh slices option." :::
+
 8. Confirm that your slice shows the updated configuration.
 
 ## Delete a network slice
@@ -80,6 +89,9 @@ To delete a network slice:
 1. Navigate to the list of network slices in your private mobile network, as described in [View existing network slices](#view-existing-network-slices).
 1. Select the checkbox next to each slice you want to delete.
 1. Select **Delete**.
+
+    :::image type="content" source="media/create-manage-network-slices/delete-network-slice-selection.png" alt-text="Screenshot of the Azure portal showing the Delete slice option." :::
+
 1. Select **Delete** to confirm you want to delete the slice(s).
 
 ## Next steps

@@ -40,7 +40,7 @@ The following Azure resource is defined in the template.
 
 ## Deploy the template
 
-1. Select the following link to sign in to Azure and open a template.
+1. Select the following link to sign in to Azure and open the template.
 
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-slice%2Fazuredeploy.json)
  
