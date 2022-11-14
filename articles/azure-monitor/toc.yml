@@ -948,38 +948,6 @@ items:
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
-    - name: Map dependencies
-      href: vm/vminsights-maps.md
-    - name: Migrate from service map
-      href: vm/vminsights-migrate-from-service-map.md
-    - name: Monitor performance
-      href: vm/vminsights-performance.md
-    - name: Monitor guest health (preview)
-      items:
-      - name: Overview
-        href: vm/vminsights-health-overview.md
-      - name: Migrate
-        href: vm/vminsights-health-migrate.md
-      - name: Enable
-        href: vm/vminsights-health-enable.md
-      - name: Alerts
-        href: vm/vminsights-health-alerts.md
-      - name: Configure monitors in portal
-        href: vm/vminsights-health-configure.md
-      - name: Configure monitors at scale
-        href: vm/vminsights-health-configure-dcr.md
-      - name: Troubleshoot
-        href: vm/vminsights-health-troubleshoot.md
-    - name: Analyze data with log queries
-      href: vm/vminsights-log-query.md
-    - name: Monitor changes
-      href: vm/vminsights-change-analysis.md
-    - name: Visualize data with workbooks
-      href: vm/vminsights-workbooks.md
-    - name: Disable monitoring
-      href: vm/vminsights-optout.md
-    - name: Troubleshoot
-      href: vm/vminsights-troubleshoot.md
   - name: Container insights
     items:
     - name: Overview
