@@ -7,7 +7,7 @@ This feature enables you to remote debugging java applications in Azure Spring A
 * App already deployed.
 
 ## Enable/disable remote debugging
-For security, remote debugging is disabled by default. You can enable/disable remote debugging by cli, portal and ide extensions.
+For security, remote debugging is disabled by default. You should enable remote debugging against the target app. Based on your company policy, you may either be allowed to do it by yourself or ask an admin role to enable it for you if permitted. You can enable/disable remote debugging by cli, portal and ide extensions.
 
 ### [Portal](#tab/portal)
 Go to application page.
@@ -49,9 +49,7 @@ az spring app get-remote-debugging-config -n <app name> -d <deloyment name> --re
 ### Attach Debugger
 
 #### Assign an azure role
-First of first, you should enable remote debugging against the target app. Based on your company policy, you may either be allowed to do it by yourself or ask an admin role to enable it for you if permitted.
-
-You must be granted the role "Azure Spring Apps Remote Debugging Role" because it requires a new Data Action permission `Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action`. It can be achieved by the following command:
+Before you attach debugger, you must be granted the role "Azure Spring Apps Remote Debugging Role" because it requires a new Data Action permission `Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action`. It can be achieved by the following command:
 
 ```azurecli
 az role assignment create --role 'Azure Spring Apps Remote Debugging Role' --scope '<Resource id of your service instance>' --assignee '<your identity>'
@@ -92,9 +90,7 @@ az role assignment create --role 'Azure Spring Apps Remote Debugging Role' --sco
 ### Attach Debugger
 
 #### Assign an azure role
-First of first, you should enable remote debugging against the target app. Based on your company policy, you may either be allowed to do it by yourself or ask an admin role to enable it for you if permitted.
-
-You must be granted the role "Azure Spring Apps Remote Debugging Role" because it requires a new Data Action permission `Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action`. It can be achieved by the following command:
+Before you attach debugger, you must be granted the role "Azure Spring Apps Remote Debugging Role" because it requires a new Data Action permission `Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action`. It can be achieved by the following command:
 
 ```azurecli
 az role assignment create --role 'Azure Spring Apps Remote Debugging Role' --scope '<Resource id of your service instance>' --assignee '<your identity>'
