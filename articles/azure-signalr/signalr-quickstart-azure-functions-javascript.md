@@ -90,7 +90,7 @@ Make sure you have Azure Functions Core Tools installed.
                     body: data
                 }
                 context.done()
-            } catch (error) {
+            } catch (err) {
                 context.log.error(err);
                 context.done(err);
             }
