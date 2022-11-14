@@ -8,7 +8,7 @@ keywords: 'Azure, SQL Server, SAP, AlwaysOn, Always On'
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 08/24/2022
+ms.date: 11/14/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -353,7 +353,7 @@ For Azure M-Series VM, the latency writing into the transaction log can be reduc
 ### Formatting the disks
 For SQL Server, the NTFS block size for disks containing SQL Server data and log files should be 64 KB. There's no need to format the D:\ drive. This drive comes pre-formatted.
 
-To make sure that the restore or creation of databases isn't initializing the data files by zeroing the content of the files, you should make sure that the user context the SQL Server service is running in has a certain permission. Usually users in the Windows Administrator group have these permissions. If the SQL Server service is run in the user context of non-Windows Administrator user, you need to assign that user the User Right **Perform volume maintenance tasks**. For more information, see [Database instant file initialization](/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver16).
+To make sure that the restore or creation of databases isn't initializing the data files by zeroing the content of the files, you should make sure that the user context the SQL Server service is running in has a certain permission. Usually users in the Windows Administrator group have these permissions. If the SQL Server service is run in the user context of non-Windows Administrator user, you need to assign that user the User Right **Perform volume maintenance tasks**. For more information, see [Database instant file initialization](/sql/relational-databases/databases/database-instant-file-initialization).
 
 ### Influence of database compression
 In configurations where I/O bandwidth can become a limiting factor, every measure, which reduces IOPS might help to stretch the workload one can run in an IaaS scenario like Azure. Therefore, if not yet done, applying SQL Server PAGE compression is recommended by both SAP and Microsoft before uploading an existing SAP database to Azure.
