@@ -62,9 +62,6 @@ This article describes how you can create and view permission analytics triggers
     - The **Status** column displays if the authorization system is online or offline
     - The **Controller** column displays if the controller is enabled or disabled.
 
-1. On the **Configuration** tab, to update the **Time Interval**, select **90 Days**, **60 Days**, or **30 Days** from the **Time range** dropdown.
-1. Select **Save**.
-
 ## View permission analytics alert triggers
 
 1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
