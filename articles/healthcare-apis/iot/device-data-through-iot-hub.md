@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 11/10/2022
+ms.date: 11/11/2022
 ms.author: jasteppe
 ---
 
@@ -121,7 +121,7 @@ Now that your deployment has successfully completed, we'll connect to your IoT H
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-iot-hub.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting the deployed IoT Hub for this tutorial " lightbox="media\iot-hub-to-iot-connector\iot-select-iot-hub.png":::
 
-3. To create a device within your IoT Hub to use to send a test message, select **…**, and then select **Create Device**. For this example, we'll be creating a device named **device-001**. You'll create a device name of your own choosing.
+3. To create a device within your IoT Hub to use to send a test message, select **…**, and then select **Create Device**. For this example, we'll be creating a device named **iot-001**. You'll create a device name of your own choosing.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-device.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting Create device for this tutorial." lightbox="media\iot-hub-to-iot-connector\iot-create-device.png":::
 

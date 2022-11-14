@@ -46,9 +46,6 @@ To learn more about how to manage workspace libraries, see the following article
 
 - [Manage workspace packages](./apache-spark-manage-workspace-packages.md)
 
-> [!NOTE]
-> If you enabled [Data exfiltration protection](../security/workspace-data-exfiltration-protection.md), you should upload all your dependencies as workspace libraries.
-
 ## Pool packages
 
 In some cases, you might want to standardize the packages that are used on an Apache Spark pool. This standardization can be useful if the same packages are commonly installed by multiple people on your team.
@@ -63,7 +60,39 @@ To learn more about these capabilities, see [Manage Spark pool packages](./apach
 >
 > - If the package you are installing is large or takes a long time to install, this fact affects the Spark instance start up time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
-> - Installing packages from PyPI is not supported within DEP-enabled workspaces.
+
+### Manage dependencies for DEP-enabled Synapse Spark pools
+
+> [!NOTE]
+>
+> - Installing packages from public repo is not supported within [DEP-enabled workspaces](../security/workspace-data-exfiltration-protection.md), you should upload all your dependencies as workspace libraries and install to your Spark pool.
+>
+Please follow the steps below if you have trouble to identify the required dependencies:
+
+- **Step1: Run the following script to set up a local Python environment same with Synapse Spark environment**
+The setup script requires [Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml) which is the list of libraries shipped in the default python env in Synapse spark.
+
+ ```powershell
+    # one-time synapse python setup
+    wget Synapse-Python38-CPU.yml
+    sudo bash Miniforge3-Linux-x86_64.sh -b -p /usr/lib/miniforge3
+    export PATH="/usr/lib/miniforge3/bin:$PATH"
+    sudo apt-get -yq install gcc g++
+    conda env create -n synapse-env -f Synapse-Python38-CPU.yml 
+    source activate synapse-env
+```
+
+- **Step2: Run the following script to identify the required dependencies**
+The below snippet can be used to pass your requirement.txt which has all the packages and version you intend to install in the spark 3.1/spark3.2 spark pool. It will print the names of the *new* wheel files/dependencies needed for your input library requirements. Note this will list out only the dependencies that are not already present in the spark pool by default.
+
+ ```python
+    # command to list out wheels needed for your input libraries
+    # this command will list out only *new* dependencies that are
+    # not already part of the built-in synapse environment
+    pip install -r <input-user-req.txt> > pip_output.txt
+    cat pip_output.txt | grep "Using cached *"
+```
+
 
 ## Session-scoped packages
 
