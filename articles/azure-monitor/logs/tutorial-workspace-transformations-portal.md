@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Add workspace transformation to Azure Monitor Logs using Azure portal
+title: 'Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal'
 description: Describes how to add a custom transformation to data flowing through Azure Monitor Logs by using the Azure portal.
 ms.topic: tutorial
 ms.date: 07/01/2022
 ---
 
-# Tutorial: Add a transformation in a workspace data collection rule using the Azure portal (preview)
+# Tutorial: Add a transformation in a workspace data collection rule by using the Azure portal (preview)
 This tutorial walks you through configuration of a sample [transformation in a workspace data collection rule (DCR)](../essentials/data-collection-transformations.md) by using the Azure portal. [Transformations](../essentials/data-collection-transformations.md) in Azure Monitor allow you to filter or modify incoming data before it's sent to its destination. Workspace transformations provide support for [ingestion-time transformations](../essentials/data-collection-transformations.md) for workflows that don't yet use the [Azure Monitor data ingestion pipeline](../essentials/data-collection.md).
 
 Workspace transformations are stored together in a single [DCR](../essentials/data-collection-rule-overview.md) for the workspace, which is called the workspace DCR. Each transformation is associated with a particular table. The transformation will be applied to all data sent to this table from any workflow not using a DCR.
