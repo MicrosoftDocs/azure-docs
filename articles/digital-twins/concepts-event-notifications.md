@@ -69,7 +69,6 @@ Below are examples of this message type for each possible [notification schema](
 # [Event Grid with EventGridEvents](#tab/eventgridevents)
 
 ```json
-Body:
 {
     "id": "39d4abb9-e3ee-4ed5-ad17-2243a9784946",
     "subject": "example-twin1",
@@ -98,7 +97,6 @@ Body:
 # [Event Grid with CloudEvents](#tab/cloudevents)
 
 ```json
-Body:
 {
     "specversion": "1.0",
     "id": "39d4abb9-e3ee-4ed5-ad17-2243a9784946",
@@ -123,8 +121,9 @@ Body:
 
 # [Event Hubs and Service Bus](#tab/event-hubs-service-bus)
 
+An example showing the properties in AMQP's *application-properties* section:
+
 ```json
-Headers:
     "cloudEvents:id": "39d4abb9-e3ee-4ed5-ad17-2243a9784946",
     "cloudEvents:source": "my-example-digital-twin.api.sea.digitaltwins.azure.net",
     "cloudEvents:specversion": "1.0",
@@ -132,8 +131,11 @@ Headers:
     "cloudEvents:time": "2021-12-09T20:28:52.9795363Z",
     "cloudEvents:subject": "example-twin1",
     "cloudEvents:traceparent": "00-2aa957558db348f387ef704b37631a1d-e66f14eb07b50d40-01"
+```
 
-Body:
+An example message body, populated in AMQP's *data* section:
+
+```json
 {
     "modelId": "dtmi:examplecom:interfaceName;1",
     "patch": [
@@ -182,7 +184,6 @@ Below are examples of this message type for each possible [notification schema](
 # [Event Grid with EventGridEvents](#tab/eventgridevents)
 
 ```json
-Body:
 {
     "id": "6ccdb1cd-0dc3-450f-8730-ceccda8439be",
     "subject": "example-twin1",
@@ -212,7 +213,6 @@ Body:
 # [Event Grid with CloudEvents](#tab/cloudevents)
 
 ```json
-Body:
 {
     "specversion": "1.0",
     "id": "6ccdb1cd-0dc3-450f-8730-ceccda8439be",
@@ -238,8 +238,9 @@ Body:
 
 # [Event Hubs and Service Bus](#tab/event-hubs-service-bus)
 
-```json
-Headers: 
+An example showing the properties in AMQP's *application-properties* section:
+
+```json 
     "cloudEvents:id": "6ccdb1cd-0dc3-450f-8730-ceccda8439be",
     "cloudEvents:source": "my-example-digital-twin.api.sea.digitaltwins.azure.net",
     "cloudEvents:specversion": "1.0",
@@ -247,8 +248,11 @@ Headers:
     "cloudEvents:time": "2021-12-09T20:28:52.6745538Z",
     "cloudEvents:subject": "example-twin1",
     "cloudEvents:traceparent": "00-2aa957558db348f387ef704b37631a1d-a158c39c72ec1049-01"
+```
 
-Body:
+An example message body, populated in AMQP's *data* section:
+
+```json
 {
     "$dtId": "example-twin1",
     "$etag": "W/\"ecf81d6c-8c1a-4a95-afd8-13bd4cea436f\"",
@@ -293,7 +297,6 @@ Below are examples of this message type for each possible [notification schema](
 # [Event Grid with EventGridEvents](#tab/eventgridevents)
 
 ```json
-Body:
 {
     "id": "4d850574-0a28-4667-a59e-3b382ff0e74e",
     "subject": "example-twin1/relationships/RuntimeEventsScenario_edge",
@@ -322,7 +325,6 @@ Body:
 # [Event Grid with CloudEvents](#tab/cloudevents)
 
 ```json
-Body:
 {
     "specversion": "1.0",
     "id": "4d850574-0a28-4667-a59e-3b382ff0e74e",
@@ -347,8 +349,9 @@ Body:
 
 # [Event Hubs and Service Bus](#tab/event-hubs-service-bus)
 
+An example showing the properties in AMQP's *application-properties* section:
+
 ```json
-Headers:
     "cloudEvents:id": "4d850574-0a28-4667-a59e-3b382ff0e74e",
     "cloudEvents:source": "my-example-digital-twin.api.sea.digitaltwins.azure.net",
     "cloudEvents:specversion": "1.0",
@@ -356,8 +359,11 @@ Headers:
     "cloudEvents:time": "2021-12-09T20:28:53.2016395Z",
     "cloudEvents:subject": "example-twin1/relationships/RuntimeEventsScenario_edge",
     "cloudEvents:traceparent": "00-2aa957558db348f387ef704b37631a1d-6f3805aab2b73e49-01"
+```
 
-Body:
+An example message body, populated in AMQP's *data* section:
+
+```json
 {
     "modelId": "dtmi:examplecom:interfaceName;1",
     "patch": [
@@ -399,7 +405,6 @@ Below are examples of this message type for each possible [notification schema](
 # [Event Grid with EventGridEvents](#tab/eventgridevents)
 
 ```json
-Body:
 {
     "id": "6f6635d8-f1b8-43ec-80fb-bb9453fc611c",
     "subject": "example-twin1",
@@ -422,7 +427,6 @@ Body:
 # [Event Grid with CloudEvents](#tab/cloudevents)
 
 ```json
-Body:
 {
     "specversion": "1.0",
     "id": "622e6818-f042-4be8-96df-1a77ee9caf9b",
@@ -441,16 +445,20 @@ Body:
 
 # [Event Hubs and Service Bus](#tab/event-hubs-service-bus)
 
+An example showing the properties in AMQP's *application-properties* section:
+
 ```json
-Headers:
     "cloudEvents:id": "6f6635d8-f1b8-43ec-80fb-bb9453fc611c",
     "cloudEvents:source": "my-example-digital-twin.api.sea.digitaltwins.azure.net/digitaltwins/example-twin1",
     "cloudEvents:specversion": "1.0",
     "cloudEvents:type": "microsoft.iot.telemetry",
     "cloudEvents:dataschema": "dtmi:examplecom:interfaceName;1",
     "cloudEvents:traceparent": "00-2aa957558db348f387ef704b37631a1d-ce042d67cbbfd948-01"
+```
 
-Body:
+An example message body, populated in AMQP's *data* section:
+
+```json
 {
     "Temperature": 50
 }
