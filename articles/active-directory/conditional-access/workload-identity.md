@@ -124,7 +124,7 @@ Sample JSON for location-based configuration using the Microsoft Graph beta endp
       ],
       "excludeServicePrincipals": [
         "[Service principal Object ID]"
-      ],
+      ]
     },
     "locations": {
       "includeLocations": [

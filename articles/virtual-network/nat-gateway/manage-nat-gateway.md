@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 # Manage NAT gateway
 
-Learn how to create and remove a NAT gateway resource from a virtual network subnet. A NAT gateway enables outbound connectivity for resources in an Azure Virtual Network. You may wish to change the IP address or prefix your resources use for outbound connectivity to the internet. The public and public IP address prefixes associated with the NAT gateway can be changed after deployment.
+Learn how to create and remove a NAT gateway resource from a virtual network subnet. A NAT gateway enables outbound connectivity for resources in an Azure Virtual Network. You may wish to change the IP address or prefix your resources use for outbound connectivity to the internet. The public IP address and public IP address prefixes associated with the NAT gateway can be changed after deployment.
 
 This article explains how to manage the following aspects of NAT gateway:
 
