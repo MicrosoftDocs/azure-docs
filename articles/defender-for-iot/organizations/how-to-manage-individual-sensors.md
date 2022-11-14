@@ -395,7 +395,7 @@ This feature is supported for the following sensor versions:
 
 ## Configuring SMTP settings
 
-Define SMTP mail server settings for the sensor.
+Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other services. For example, you'll need an SMTP mail server configured to configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
 
 To define:
 
