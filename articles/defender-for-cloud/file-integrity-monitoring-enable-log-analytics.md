@@ -8,11 +8,7 @@ ms.date: 11/14/2022
 ---
 # File Integrity Monitoring using the Log Analytics agent
 
-## Overview
-
 To provide [File Integrity Monitoring (FIM)](file-integrity-monitoring-overview.md), the Log Analytics agent uploads data to the Log Analytics workspace. By comparing the current state of these items with the state during the previous scan, FIM notifies you if suspicious modifications have been made.
-
-FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. If you remove the **Change Tracking** resource, you'll also disable the File Integrity Monitoring feature in Defender for Cloud. For data collection frequency details, see [Change Tracking data collection details](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 In this article, you'll learn how to:
 
