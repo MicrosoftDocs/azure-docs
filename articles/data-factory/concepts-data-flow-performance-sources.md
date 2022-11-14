@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 06/20/2022
+ms.date: 10/11/2022
 ---
 
 # Optimizing sources

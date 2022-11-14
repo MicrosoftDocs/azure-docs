@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 10/10/2022
+ms.date: 11/10/2022
 ms.custom: 
 ---
 
@@ -18,6 +18,7 @@ No restrictions, all Microsoft Purview regions are supported
 - East US2
 - South Central US
 - West Central US
+- West US3
 - Canada Central
 - Brazil South
 - West Europe
@@ -26,11 +27,10 @@ No restrictions, all Microsoft Purview regions are supported
 - UK South
 - Central India
 - East Asia
-- South East Asia
 - Australia East
 
 #### Configure the Azure SQL Database for policies from Microsoft Purview
-You need to configure an Azure Active Directory Admin for the Azure SQL Server to honor policies from Microsoft Purview. In Azure portal, navigate to the Azure SQL Server that hosts the Azure SQL Database and then navigate to Azure Active Directory on the side menu. Set an Admin name and then select **Save**. See screenshot:
+You need to configure an Azure Active Directory Admin for the Azure SQL Server to honor policies from Microsoft Purview. In Azure portal, navigate to the Azure SQL Server that hosts the Azure SQL Database and then navigate to Azure Active Directory on the side menu. Set an Admin name to any Azure Active Directory user or group you prefer, and then select **Save**. See screenshot:
 ![Screenshot shows how to assign Active Directory Admin to Azure SQL Server.](../media/how-to-policies-data-owner-sql/assign-active-directory-admin-azure-sql-db.png)
 
 Then navigate to Identity on the side menu. Under System assigned managed identity check status to *On* and then select **Save**. See screenshot:
