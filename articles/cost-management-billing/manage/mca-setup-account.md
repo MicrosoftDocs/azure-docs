@@ -196,7 +196,7 @@ Any Azure reservations and savings plan in your Enterprise Agreement enrollment 
 
 ### Savings plan transfer with a billing currency change
 
-You'll see the following image When your savings plan was purchased in a currency different than your new billing currency.
+You'll see the following image when your savings plan was purchased in a currency different than your new billing currency.
 
 :::image type="content" source="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" alt-text="Screenshot showing the Savings Plan page." lightbox="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" :::
 
