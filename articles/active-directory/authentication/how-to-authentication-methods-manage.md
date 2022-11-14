@@ -85,6 +85,26 @@ In the Authentication methods policy, you'll need to choose whether to enable a 
 
 As you update each method the Authentication methods policy, you can also configure parameters for scenarios where you want to control how that method can be used. For example, if you enable **Phone calls** as authentication method, you can allow office phone or mobile only. Step through the process to configure each authentication method from your audit. Then enable and configure other methods you want to be available for sign-in.
 
+The next sections cover specific migration guidance for each method.
+
+### Email one-time passcode
+
+### Microsoft Authenticator
+
+If **Notification through mobile app** is enabled in the legacy MFA policy, enable **Microsoft Authenticator** for **All users** in the Authentication methods policy. Set the authentication mode to **Any** to allow either push notifications or passwordless authentication. 
+
+If **Verification code from mobile app or hardware token** is enabled in the legacy MFA policy, set **Allow use of Microsoft Authenticator OTP** to **Yes**. 
+
+### SMS
+
+### OATH tokens
+
+### Phone calls
+
+
+
+
+
 Test and validate the changes for each method at a time. You can test excluded users by trying to sign in both as a member of the excluded group and again as a non-member. 
 
 When you determine that authentication and SSPR work as expected, you can change the migration process to **Migration in Progress**. In this mode, Azure AD uses the Authentication methods policy for sign-in and SSPR, but still respects changes made to the legacy MFA and SSPR policies. 
