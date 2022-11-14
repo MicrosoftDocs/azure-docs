@@ -31,29 +31,34 @@ Do an audit of your existing policy settings for each authentication method that
 - SSPR policy
 - Authentication methods policy
 
-In the next sections, we'll walk through an example of the policy migration. We'll review settings in each legacy policy and update the Authentication methods policy. As we proceed, we'll change the migration options to prevent policy misconfiguration and minimize errors during sign-in and SSPR. 
+Start by documenting which methods are available in the legacy MFA policy. Sign in as a [Global Administrator](../roles/permissions-reference.md#global-administrator), and click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** to view the settings. These settings are tenant-wide, so there's no need for user or group information. 
 
-### MFA and SSPR policy settings
+The following table lists the available methods in the legacy MFA policy and corresponding methods in the Authentication method policy. As you migrate, you might need to adjust settings to account for differences between the policies. For example, the legacy MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH** tokens are managed separately. 
 
-Let's say Contoso has the following methods configured for MFA. Document each authentication method that can be used for MFA. These settings are tenant-wide, so there's no need for user or group information.  
+| Multifactor authentication policy | Authentication method policy |
+|-----------------------------------|------------------------------|
+| Call to phone                     | Phone call                   |
+| Text message to phone             | Microsoft Authenticator<br>SMS      |
+| Notification through mobile app   | Microsoft Authenticator             |
+| Verification code from mobile app or hardware token   | OATH software token<br>OATH hardware token |
+
+To get the authentication methods available in the legacy SSPR policy, click **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. Record which users are in scope for SSPR and the authentication methods they can use. While security questions aren't yet available to manage in the Authentication methods policy, make sure you copy them for later use when they become available. 
+
+| SSPR authentication methods | Authentication method policy |
+|-----------------------------|------------------------------|
+| Mobile app notification     | Microsoft Authenticator      |
+| Mobile app code             | Microsoft Authenticator      |
+| Email                       | Email OTP                    |
+| Mobile phone                | Phone call<br>SMS            |
+| Office phone                | Phone call                   |
+| Security questions          | Not yet available; copy questions for later use   |
 
 
-For the next step in the migration, record which users are in scope for SSPR and the authentication methods they can use. While security questions aren't yet available to manage in the Authentication methods policy, make sure you copy them for later use when they become available. 
+To check settings for the Authentication methods policy, sign in as [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator), and click **Security** > **Authentication methods** > **Policies**. A new tenant has all methods **Off** by default, which makes migration easier. 
 
-Let's use Contoso as an example. Contoso has the following methods configured for SSPR.
+The Authentication methods policy has other methods that aren't available in the legacy policies, such as FIDO2 security key, Temporary Access Pass, and Azure AD certificate-based authentication. These methods aren't in scope for migration and you won't need to make any changes to them. 
 
-
-
-### Authentication methods policy settings
-
-In the Authentication methods policy, you'll want to write down which users and groups are included or excluded from the policy for every authentication method. Also write down any configuration parameters that govern how users can authenticate with each method. For example, document if any group is included in the policy for Microsoft Authenticator to receive location in push notifications. 
-
-<!--- Any report they can use?--->
-
-In our example, Contoso has the following groups set for each method.
-
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
-
+If you've enabled methods in the Authentication methods policy, write down users and groups who can or can't use those methods, and any configuration parameters that govern how the method can be used. For example, you can configure Microsoft Authenticator to provide location in push notifications. Make a record of which users and groups are enabled for similar configuration parameters associated with each method. 
 
 ## Add MFA and SSPR policy settings to the Authentication methods policy
 
