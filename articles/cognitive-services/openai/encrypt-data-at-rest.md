@@ -128,7 +128,7 @@ az keyvault key delete  \
 
 ### Delete training, validation, and training results data
 
- The Files API allows customers to upload their training data for the purpose of fine-tuning a model. This data is stored in Azure Storage, encrypted at rest by Microsoft Managed keys, within the same region as the resource and logically isolated with their Azure subscription and API Credentials. Uploaded files can be deleted by the user via the [DELETE API operation](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-python#delete-your-training-files).
+ The Files API allows customers to upload their training data for the purpose of fine-tuning a model. This data is stored in Azure Storage, within the same region as the resource and logically isolated with their Azure subscription and API Credentials. Uploaded files can be deleted by the user via the [DELETE API operation](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-python#delete-your-training-files).
 
 ### Delete fine-tuned models and deployments
 
