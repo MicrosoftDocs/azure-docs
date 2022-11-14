@@ -54,7 +54,7 @@ This update was released in May 2022 and has the following changes:
 
 This update was released in February 2022 and has the following changes:
 
-- We added support for [category groups](../azure-monitor/essentials/diagnostic-settings.md#category-groups) for resource logs.
+- We added support for [category groups](../azure-monitor/essentials/diagnostic-settings.md#resource-logs) for resource logs.
 
 ## Version 1.1.8
 

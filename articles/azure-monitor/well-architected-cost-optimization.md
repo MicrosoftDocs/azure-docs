@@ -107,3 +107,5 @@ After you've configured your environment and data collection for cost optimizati
 
 
 ## Next step
+
+- [Get best practices for a complete deployment of Azure Monitor](best-practices.md).
