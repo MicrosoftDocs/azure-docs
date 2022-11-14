@@ -204,7 +204,7 @@ from about the same position where processing was interrupted.
 
 To realize either scenario and using the event processor of your respective
 Azure SDK,
-[you will create a new checkpoint store](event-processor-balance-partition-load.md#checkpointing)
+[you will create a new checkpoint store](event-processor-balance-partition-load.md#checkpoint)
 and provide an initial partition position, based on the _timestamp_ that you
 want to resume processing from.
 
