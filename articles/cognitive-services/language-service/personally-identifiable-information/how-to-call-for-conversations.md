@@ -63,7 +63,7 @@ When you get results from PII detection, you can stream the results to an applic
     |Language  |Package version  |
     |---------|---------|
     |.NET     | [1.0.0](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0)        |
-    |Python     | [1.0.0](https://pypi.org/project/azure-ai-language-conversations/1.0.0)         |
+    |Python     | [1.0.0](https://pypi.org/project/azure-ai-language-conversations/1.1.0b2)         |
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
