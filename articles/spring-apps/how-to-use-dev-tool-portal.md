@@ -52,7 +52,9 @@ To set up SSO with Azure AD, see [How to set up single sign-on with Azure AD for
 To update SSO configuration and expose to public with Azure CLI, run the following command:
 
 ```azurecli
-az spring update \
+az spring dev-tool update \
+    --resource-group <resource-group-name> \
+    --name <Azure-Spring-Apps-service-instance-name> \
     --client-id "<client-id>" \
     --scopes "scope1,scope2" \
     --client-secret "<client-secret>" \
