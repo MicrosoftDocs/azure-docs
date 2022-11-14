@@ -79,7 +79,11 @@ In the legacy SSPR policy, **Mobile phone** enables both voice call and SMS as a
 
 ## Start migration 
 
-The next step is to update Authentication methods policy to match your audit. You'll want to review each method one-by-one. If the method is enabled in both legacy policies, then enable it for all users in the Authentication methods policy. If the method is enabled in one policy, but not the other, 
+The next step is to update Authentication methods policy to match your audit. You'll want to review each method one-by-one. For each method:
+
+- If the method is enabled in both legacy policies, then enable it for all users in the Authentication methods policy. 
+- If the method is off in both legacy policies, then leave it off for all users in the Authentication methods policy. 
+- If the method is enabled only in one policy, then you need to decide whether or not it should be available in all situations.
 
 
 At this point, you can also configure parameters for scenarios where you want to control how a certain method can be used. For example, if you enable **Phone calls** as authentication method, you can allow office phone or mobile only. Step through the process to configure each authentication method from your audit. Then enable and configure other methods you want to be available for sign-in.
