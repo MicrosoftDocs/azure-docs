@@ -121,8 +121,8 @@ The **Email** tab displays delivery status, email size, and email count:
 [Screenshot displays email count, size and email delivery status level that illustrate email insights]
 
 The **Recording** tab displays data relevant to total recordings, recording format, recording channel types and number of recording per call:
-:::image type="content" source="media\workbooks\azure-communication-services-recording-insights.png" alt-text="Recording tab":::
-[Screenshot displays recording count, duration, recording usage by format and type as well as number of recordings per call]
+:::image type="content" source="media\workbooks\azure-communication-services-recording-insights.png" alt-text="Screenshot displays recording count, duration, recording usage by format and type as well as number of recordings per call":::
+
 
 
 
