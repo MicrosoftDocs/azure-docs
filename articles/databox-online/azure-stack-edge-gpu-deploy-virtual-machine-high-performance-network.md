@@ -20,11 +20,13 @@ You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU 
 
 ## About HPN VMs
 
-HPN VMs are specifically designed for 5G network functions that require low latencies and high throughput network applications.
+HPN VMs are specifically designed for 5G/Multi-access Edge Computing (MEC) network functions that require high packet processing rates, low latency, and low jitter.
 
- (Get context from Jia’s doc). HPN VMs rely on a non-uniform memory access (NUMA) architecture to increase processing speeds. In a NUMA system, CPUs are arranged in smaller systems called nodes. Each node has its own processors and memory. Processors are typically allocated memory that they're close to so that the access is quicker. For more information, see [NUMA Support](/windows/win32/procthread/numa-support).  
+HPN VMs rely on a non-uniform memory access (NUMA) architecture to increase processing speeds. In a NUMA system, CPUs are arranged in smaller systems called nodes. Each node has a dedicated set of logical processors and memory. An HPN VM can use CPU from only one NUMA node.
 
-On your Azure Stack Edge device, logical processors are distributed on NUMA nodes and high speed network interfaces can be attached to these nodes. An HPN VM has a dedicated set of logical processors, but an HPN VM can use CPU from only one NUMA node.
+On your Azure Stack Edge device, logical processors are distributed on NUMA nodes and high speed network interfaces can be attached to these nodes.
+
+To maximize performance, processing, and transmitting on the same NUMA node, processors are allocated memory that they're closest to in order to reduce physical distance. For more information, see [NUMA Support](/windows/win32/procthread/numa-support).
 
 ### [2210 and later](#tab/2210)
 
