@@ -10,20 +10,19 @@ ms.author: argani
 ms.date: 05/28/2021
 ---
 
-# Marketplace Rewards
-
-Marketplace Rewards supports you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the Microsoft commercial marketplace, you unlock new benefits designed to help you convert customers and close deals. For details on the program and benefits, see [Marketplace Rewards](https://aka.ms/marketplacerewards) (PPT). To see what other Microsoft partners are saying about their experiences with Marketplace Rewards, visit Marketplace Rewards testimonials
+# ISV Success program and Marketplace Rewards
+Microsoft continues its strong commitment to the growth and success of ISVs and supporting them throughout the entire journey of building, publishing, and selling apps through the Microsoft commercial marketplace. To further this mission, Marketplace Rewards is now included in the ISV Success program, available—at no cost—to all participants of the program. As you grow through the Microsoft commercial marketplace, you unlock new benefits designed to help you convert customers and close deals. For details on the program and benefits, see [Marketplace Rewards](https://aka.ms/marketplacerewards) (PPT). To see what other Microsoft partners are saying about their experiences with Marketplace Rewards, visit Marketplace [Rewards testimonials](https://aka.ms/MarketplaceRewardsTestimonials)
 The program creates a positive feedback loop: the benefits at each stage of growth help you progress to the next stage, helping you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform.
 
-Your benefits are differentiated based on whether your offer is [Contact Me, Free Trial, or Transact](determine-your-listing-type.md).
+Your benefits are differentiated based on whether your offer is  [List, Trial, Consulting or Transact](/azure/marketplace/determine-your-listing-type).
 
-You will be contacted by a member of the Rewards team when your offer goes live, based on your eligibility.
+Based on your eligibility, you will be contacted by a member of the Rewards team when your offer goes live. 
 
-For Transact partners, as you grow your billed sales through the commercial marketplace platform, you unlock greater benefits per tier.
+List, Trial and Consulting offers receive one-time use benefits. Transact offers are eligible for evergreen benefit engagement. For transacting partners, as you grow your billed sales through the commercial marketplace, you unlock greater benefits per billed sales (or seats sold) tier. 
 
-The minimum requirement to publish in the online stores is an PartnerID, so these benefits are available to all partners regardless of competency status or partner type. Each partner is empowered to grow their business through the commercial marketplace as a platform.
+The minimum requirement to publish in the online stores is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Every partner is empowered to grow your business through the commercial marketplace as a platform. 
 
-You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit" \l "/).
 
 To check your eligibility for the Marketplace Rewards program, see the [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) page in Partner Center.
 
@@ -48,4 +47,5 @@ Your steps to get started are easy:
 >If your offer has been live for more than four weeks and you have not received a message, check in Partner Center to find who in your organization owns the offer. They should have the communication and next steps. If you cannot determine the owner, or if the owner has left your company, open a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
+
 
