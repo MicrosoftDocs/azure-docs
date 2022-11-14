@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer custom neural model
+title: Custom neural document model - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn about custom neural (neural) model type, its features and how you train a model with high accuracy to extract data from structured and unstructured documents.
+description: Use the custom neural document model to train a model to extract data from structured, semistructured, and unstructured documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -14,12 +14,12 @@ monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Form Recognizer custom neural model
+# Custom neural document model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
 
-Custom neural models or neural models are a deep learned model that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
+Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
 
 |Documents | Examples |
 |---|--|

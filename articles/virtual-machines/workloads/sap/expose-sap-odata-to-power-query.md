@@ -38,9 +38,9 @@ Integrations between SAP products and the Microsoft 365 portfolio range from cus
 
 -   [Export from SAP List Viewer (ALV) to Microsoft Excel](https://help.sap.com/docs/ABAP_PLATFORM_NEW/b1c834a22d05483b8a75710743b5ff26/4ec38f8788d22b90e10000000a42189d.html)
 
-The mechanism described in this article uses the standard built-in OData capabilities of Power Query and puts emphasis for SAP landscapes deployed on Azure. Address on-premises landscapes with the Azure API Management [self-hosted Gateway](../../../api-management/self-hosted-gateway-overview.md).
+The mechanism described in this article uses the standard [built-in OData capabilities of Power Query](/power-query/connectors/odatafeed) and puts emphasis for SAP landscapes deployed on Azure. Address on-premises landscapes with the Azure API Management [self-hosted Gateway](../../../api-management/self-hosted-gateway-overview.md).
 
-For more information on which Microsoft products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
+For more information on which Microsoft products support Power Query in general, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
 
 ## Setup considerations
 
@@ -154,7 +154,9 @@ honoring the SAP named user mapping.
 
 ## SAP OData access via other Power Query enabled applications and services
 
-Above example shows the flow for Excel Desktop, but the approach is applicable to **any** Power Query enabled Microsoft product. For more information which products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query). Popular consumers are [Power BI](/power-bi/connect-data/desktop-connect-odata), [Excel for the web](https://www.office.com/launch/excel), [Azure Data Factory](../../../data-factory/control-flow-power-query-activity.md), [Azure Synapse Analytics Pipelines](../../../data-factory/control-flow-power-query-activity.md), [Power Automate](/flow/) and [Dynamics 365](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
+Above example shows the flow for Excel Desktop, but the approach is applicable to **any** Power Query OData enabled Microsoft product. For more information on the OData connector of Power Query and which products support it, see the [Power Query Connectors documentation](/power-query/connectors/odatafeed). For more information which products support Power Query in general, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query). 
+
+Popular consumers are [Power BI](/power-bi/connect-data/desktop-connect-odata), [Excel for the web](https://www.office.com/launch/excel), [Power Apps (Dataflows)](/power-apps/maker/data-platform/create-and-use-dataflows) and [Analysis Service](/analysis-services/analysis-services-overview).
 
 ## Tackle SAP write-back scenarios with Power Automate
 
@@ -171,7 +173,7 @@ The highlighted button triggers a flow that forwards the OData PATCH request to 
 
 ## Next steps
 
-[Learn from where you can use Power Query](/power-query/power-query-what-is-power-query#where-can-you-use-power-query)
+[Learn from where you can use OData with Power Query](/power-query/connectors/odatafeed)
 
 [Work with SAP OData APIs in Azure API Management](../../../api-management/sap-api.md)
 

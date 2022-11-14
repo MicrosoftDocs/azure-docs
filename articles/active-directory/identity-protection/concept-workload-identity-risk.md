@@ -55,6 +55,7 @@ We detect risk on workload identities across sign-in behavior and offline indica
 | Leaked Credentials | Offline | This risk detection indicates that the account's valid credentials have been leaked. This leak can occur when someone checks in the credentials in public code artifact on GitHub, or when the credentials are leaked through a data breach. <br><br> When the Microsoft leaked credentials service acquires credentials from GitHub, the dark web, paste sites, or other sources, they're checked against current valid credentials in Azure AD to find valid matches. |
 | Malicious application | Offline | This detection indicates that Microsoft has disabled an application for violating our terms of service. We recommend [conducting an investigation](https://go.microsoft.com/fwlink/?linkid=2208429) of the application.| 
 | Suspicious application | Offline | This detection indicates that Microsoft has identified an application that may be violating our terms of service, but has not disabled it. We recommend [conducting an investigation](https://go.microsoft.com/fwlink/?linkid=2208429) of the application.| 
+| Anomalous service principal activity | Offline | This risk detection indicates that suspicious patterns of activity have been identified for an authenticated service principal. The post-authentication behavior of service principals is assessed for anomalies. This behavior is based on actions occurring for the account, along with any sign-in risk detected. |
 
 ## Identify risky workload identities
 

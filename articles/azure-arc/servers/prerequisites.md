@@ -67,7 +67,7 @@ The following Azure built-in roles are required for different aspects of managin
 
 * To onboard machines, you must have the [Azure Connected Machine Onboarding](../../role-based-access-control/built-in-roles.md#azure-connected-machine-onboarding) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group in which the machines will be managed.
 * To read, modify, and delete a machine, you must have the [Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) role for the resource group.
-* To select a resource group from the drop-down list when using the **Generate script** method, you must have the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group (or another role which includes **Reader** access).
+* To select a resource group from the drop-down list when using the **Generate script** method, as well as the permissions needed to onboard machines, listed above, you must additionally have the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group (or another role which includes **Reader** access).
 
 ## Azure subscription and service limits
 
