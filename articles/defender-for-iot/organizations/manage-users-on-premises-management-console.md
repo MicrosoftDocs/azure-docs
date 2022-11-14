@@ -134,7 +134,7 @@ For more information, see [Active Directory support on sensors and on-premises m
     |**Domain Controller FQDN**     |  The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`.       |
     |**Domain Controller Port**     |  The port on which your LDAP is configured.       |
     |**Primary Domain**     |  The domain name, such as `subdomain.domain.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**       |
-    |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>When you enter a group name, make sure that you enter the group name as it's defined in your Active Directory configuration on the LDAP server. Then, make sure to use these groups when creating new sensor users from Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.<br><br>        Add groups as **Trusted endpoints** in a separate row from the other Active Directory groups. To add a trusted domain, add the domain name and the connection type of a trusted domain. You can configure trusted endpoints only for users who were defined under users. <!--validate this-->|
+    |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>When you enter a group name, make sure that you enter the group name as it's defined in your Active Directory configuration on the LDAP server. Then, make sure to use these groups when creating new sensor users from Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.<br><br>        Add groups as **Trusted endpoints** in a separate row from the other Active Directory groups. To add a trusted domain, add the domain name and the connection type of a trusted domain. You can configure trusted endpoints only for users who were defined under users. <!--what?-->|
 
     Select **+ Add Server** to add another server and enter its values as needed, and **Save** when you're done.
 
@@ -183,8 +183,6 @@ Before you create access groups, we also recommend that you:
 
 **To create access groups**:
 
-<!--validate this procedure, use consistent language for UI elements-->
-
 1. Sign in to the on-premises management console as user with an **Admin** role.
 
 1. Select **Access Groups** from the left navigation menu, and then select **Add** :::image type="icon" source="media/how-to-define-global-user-access-control/add-icon.png" border="false":::.
@@ -220,48 +218,6 @@ If you later modify a topology entity and the change affects the rule logic, the
 
 If modifications to topology entities affect rule logic so that all rules are deleted, the access group remains but users won't be able to sign in to the on-premises management console. Instead, users are notified to contact their on-premises management console administrator for help signing in. [Update the settings](#add-new-on-premises-management-console-users) for these users so that they're no longer part of the legacy access group.
 
-
-## Control user session timeouts
-
-<!--validate this procedure, can't sign in as admin user. do we need a privileged user?-->
-
-By default, on-premises users are signed out of their sessions after 30 minutes of inactivity.
-
-This procedure describes how to use the [CLI](references-work-with-defender-for-iot-cli-commands.md) to turn this feature on and off or adjust inactivity thresholds.
-
-> [!NOTE]
-> Any changes made to user session timeouts are reset to defaults when you update the [OT monitoring software](update-ot-software.md).
-
-**Prerequisites**: This procedure is available for the *cyberx* and *support* users.
-
-
-**To control user session timeouts by CLI**:
-
-1. On your on-premises management console, sign in as an **Admin** user.
-
-1. Run:
-
-    ```cli
-    sudo nano /var/cyberx/properties/authentication
-    ```
-
-    The `authentication` file appears in the output, for example:
-
-    ```cli
-    infinity_session_expiration = true
-    session_expiration_default_seconds = 0
-    # half an hour in seconds (comment)
-    session_expiration_admin_seconds = 1800
-    # a day in seconds
-    session_expiration_security_analyst_seconds = 1800
-    # a week in seconds
-    session_expiration_read_only_users_seconds = 1800
-    ```
-
-1. Do either of the following:
-
-    - **To turn off user session timeouts entirely**, change `infinity_session_expiration = true` to `infinity_session_expiration = false`. Change it back to turn it back on again.
-    - **To adjust an inactivity timeout period**, adjust the `= <number>` value to the required time, in seconds.
 
 ## Next steps
 

@@ -36,7 +36,7 @@ Roles for management actions are applied to user roles across an entire Azure su
 | **View Azure device inventory**   |  ✔ | ✔ |✔ | ✔|
 | **Manage Azure device inventory (write access)**   | - | ✔ |✔ | ✔ |
 | **View Azure workbooks**  | ✔ | ✔ |✔ | ✔ |
-| **Manage Azure workbooks (write access)**  <!--check w yair--> |  - | ✔ |✔ | ✔ |
+| **Manage Azure workbooks (write access)**  |  - | ✔ |✔ | ✔ |
 
 ## Enterprise IoT security
 

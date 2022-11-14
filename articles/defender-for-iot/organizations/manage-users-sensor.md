@@ -159,46 +159,6 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
 1. Select **Next** again to sign into your sensor with the new password.
 
-## Control user session timeouts
-
-<!--validate this procedure, can't sign in as admin user. do we need a privileged user?-->
-
-
-By default, on-premises users are signed out of their sessions after 30 minutes of inactivity.
-
-This procedure describes how to use the [CLI](references-work-with-defender-for-iot-cli-commands.md) to turn this feature on and off or adjust inactivity thresholds.
-
-> [!NOTE]
-> Any changes made to user session timeouts are reset to defaults when you [update the OT monitoring software](update-ot-software.md).
-
-**Prerequisites**: This procedure is available only for the *cyberx* or *support* users.
-
-**To control sensor user session timeouts**:
-
-1. Sign in to your sensor via a terminal and run:
-
-    ```cli
-    sudo nano /var/cyberx/properties/authentication
-    ```
-
-    The following output appears:
-
-    ```cli
-    infinity_session_expiration = true
-    session_expiration_default_seconds = 0
-    # half an hour in seconds (comment)
-    session_expiration_admin_seconds = 1800
-    # a day in seconds
-    session_expiration_security_analyst_seconds = 1800
-    # a week in seconds
-    session_expiration_read_only_users_seconds = 1800
-    ```
-
-1. Do one of the following:
-
-    - **To turn off user session timeouts entirely**, change `infinity_session_expiration = true` to `infinity_session_expiration = false`. Change it back to turn it back on again.
-
-    - **To adjust an inactivity timeout period**, adjust the `= <number>` value to the required time, in seconds.
 
 ## Next steps
 
