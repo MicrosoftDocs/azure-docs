@@ -97,7 +97,7 @@ The most common scenario for deletions is when administrative units (AU) are del
 
 ## Recover from soft deletion
 
-You can restore soft-deleted items in the administrative portal, or by using Microsoft Graph. Not all object classes can manage soft-delete capabilities in the portal, some are only listed, viewed, hard deleted, or restored using the deletedItems Microsoft Graph API
+You can restore soft-deleted items in the administrative portal, or by using Microsoft Graph. Not all object classes can manage soft-delete capabilities in the portal, some are only listed, viewed, hard deleted, or restored using the deletedItems Microsoft Graph API.
 
 ### Properties maintained with soft delete
 
@@ -105,7 +105,7 @@ You can restore soft-deleted items in the administrative portal, or by using Mic
 | - | -|
 |Users (including external users)|All properties are maintained, including ObjectID, group memberships, roles, licenses, and application assignments|
 |Microsoft 365 Groups|All properties are maintained, including ObjectID, group memberships, licenses, and application assignments|
-|Application registration||All properties are maintained. See more information after this table.|
+|Application registration|All properties are maintained. See more information after this table.|
 |Service principal|All properties maintained|
 |Administrative unit (AU)|All properties maintained|
 
@@ -143,7 +143,7 @@ Currently, service principals can be listed, viewed, hard deleted, or restored v
 
 ### Administrative units
 
-Administrative units can be listed, viewed, hard deleted, or restored via the deletedItems Microsoft Graph API. To restore administrative units using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](/graph/api/directory-deleteditems-restore?tabs=http).
+AUs can be listed, viewed, hard deleted, or restored via the deletedItems Microsoft Graph API. To restore AUs using Microsoft Graph, see [Restore deleted item - Microsoft Graph v1.0.](/graph/api/directory-deleteditems-restore?tabs=http).
 
 ## Hard deletions
 
