@@ -174,7 +174,7 @@ Now that your deployment has successfully completed, we'll connect to your IoT H
 
 ## Review test message metrics 
 
-Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics. To learn more about how view and use the MedTech service metrics, see [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md).
+Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics to verify that the MedTech service transformed and persisted the test message into your FHIR service. To learn more about how display and use the MedTech service metrics, see [How to use the MedTech service monitoring tab](how-to-use-monitoring-tab.md).
 
 For your MedTech service metrics, see can see that:
 
