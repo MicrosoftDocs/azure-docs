@@ -274,7 +274,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         ```
     1. Get the logical processor indexes to reserve for HPN VMs. 
     
-    ```powershell
+        ```powershell
         Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName <Output of hostname command> 
         ```
     
@@ -300,31 +300,31 @@ In addition to the above prerequisites that are used for VM creation, you'll als
 
     1. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
            
-    ```powershell
-    Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated <Logical indexes from the Get-HcsNumaLpMapping cmdlet> -AssignAllCpusToRoot $false
-    ```
+       ```powershell
+       Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated <Logical indexes from the Get-HcsNumaLpMapping cmdlet> -AssignAllCpusToRoot $false
+       ```
 
-    After this command is run, the device restarts automatically. 
+       After this command is run, the device restarts automatically. 
 
-    Here is an example output: 
+       Here is an example output: 
 
-    ```powershell
-    [dbe-1csphq2.microsoftdatabox.com]: PS>Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39" -AssignAllCpusToRoot $false 
+       ```powershell
+       [dbe-1csphq2.microsoftdatabox.com]: PS>Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39" -AssignAllCpusToRoot $false 
 
-    Requested Configuration requires a reboot...
+       Requested Configuration requires a reboot...
 
-    Machine will reboot in some time. Please be patient.
+       Machine will reboot in some time. Please be patient.
 
-    [dbe-1csphq2.microsoftdatabox.com]: PS>
-    ```
+       [dbe-1csphq2.microsoftdatabox.com]: PS>
+       ```
 
-    > [!Note]
-    > - You can choose to reserve all the logical indexes from both NUMA nodes shown in the example or a subset of the indexes. If you choose to reserve a subset of indexes, pick the indexes from the device node that has a Mellanox network interface attached to it, for best performance. For Azure Stack Edge Pro GPU, the NUMA node with Mellanox network interface is #0. 
-    > - The list of logical indexes must contain a paired sequence of an odd number and an even number. For example, ((4,5)(6,7)(10,11)). Attempting to set a list of numbers such as 5,6,7 or pairs such as 4,6 will not work. 
-    > - Using two Set-HcsNuma commands consecutively to assign vCPUs will reset the configuration. Also, do not free the CPUs using the Set-HcsNuma cmdlet if you have deployed an HPN VM.
+       > [!Note]
+       > - You can choose to reserve all the logical indexes from both NUMA nodes shown in the example or a subset of the indexes. If you choose to reserve a subset of indexes, pick the indexes from the device node that has a Mellanox network interface attached to it, for best performance. For Azure Stack Edge Pro GPU, the NUMA node with Mellanox network interface is #0. 
+       > - The list of logical indexes must contain a paired sequence of an odd number and an even number. For example, ((4,5)(6,7)(10,11)). Attempting to set a list of numbers such as 5,6,7 or pairs such as 4,6 will not work. 
+       > - Using two Set-HcsNuma commands consecutively to assign vCPUs will reset the configuration. Also, do not free the CPUs using the Set-HcsNuma cmdlet if you have deployed an HPN VM.
 
-    > [!NOTE] 
-    > Devices that are updated to 2210 from earlier versions will keep their minroot configuration from before upgrade.
+       > [!NOTE] 
+       > Devices that are updated to 2210 from earlier versions will keep their minroot configuration from before upgrade.
         
     8. Wait for the device to finish rebooting. Once the device is running, open a new PowerShell session. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
     
