@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/10/2022
+ms.date: 11/14/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell, engagement-fy23
@@ -38,11 +38,7 @@ You can change how your storage account is replicated from any type to any other
 
 To add or remove geo-replication or read access to the secondary region, you can simply [change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-To add or remove zone-redundancy requires using either [customer-initiated conversion](#customer-initiated-conversion), [support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration).
-
-During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the conversion process and there is no data loss. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
-
-Performing a manual migration involves downtime and requires the most manual effort, but you have more control over the timing of the process.
+To add or remove zone-redundancy requires performing either a [customer-initiated conversion](#customer-initiated-conversion), a [support-requested conversion](#support-requested-conversion), or [a manual migration](#manual-migration).
 
 If you want to change how data is replicated in the primary region and also configure geo-replication or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but zone-redundancy must be changed separately. It doesn't matter which is done first.
 
@@ -116,9 +112,9 @@ az storage account update \
 
 ### Perform a conversion
 
-Converting your storage account to add or remove zone-redundancy makes the change without incurring any down time.
+A redundancy "conversion" is the process of only changing the zone-redundancy aspect of a storage account.
 
-During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the conversion.
+During a conversion, [there is no data loss or application downtime required](#downtime-requirements).
 
 There are two ways to initiate a conversion:
 
@@ -336,7 +332,7 @@ If you performed an [account failover](storage-disaster-recovery-guidance.md) fo
 
 ## Downtime requirements
 
-During a conversion, you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
+During a [conversion](#perform-a-conversion), you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
 If you initiate a conversion from the Azure portal, the migration process could take up to 72 hours to begin, and possibly longer if requested by opening a support request.
 
