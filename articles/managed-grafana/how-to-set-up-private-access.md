@@ -99,7 +99,7 @@ Once you have disabled public access, set up a [private endpoint](../private-lin
 
 1. Select **Next : Tags >** and optionally create tags. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 
-1. Select **Next : Review + create >** to review information about yourAzure Managed Grafana instance, private endpoint, virtual network and DNS. You can also select **Download a template for automation** to reuse JSON data from this form later.
+1. Select **Next : Review + create >** to review information about your Azure Managed Grafana instance, private endpoint, virtual network and DNS. You can also select **Download a template for automation** to reuse JSON data from this form later.
 
 1. Select **Create**.
 
