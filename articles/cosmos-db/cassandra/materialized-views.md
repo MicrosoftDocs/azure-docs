@@ -10,7 +10,7 @@ ms.author: turao
 ---
 
 # Materialized views for Azure Cosmos DB API for Cassandra operations (Preview)
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 > [!IMPORTANT]
 > Materialized Views for Azure Cosmos DB API for Cassandra is currently in preview. You can enable this feature from the portal.
@@ -66,7 +66,7 @@ Install Azure CLI as mentioned at [How to install the Azure CLI | Microsoft Docs
 
 5. Click **Enable** to enable this feature for this account.
 
-:::image type="content" source="./media/materialized-view-cassandra/Enable_mv_on_portal.png" alt-text="Screenshot to enable Materialized view feature on portal Azure Cosmos DB API for Cassandra":::
+:::image type="content" source="./media/materialized-view/Enable_mv_on_portal.png" alt-text="Screenshot to enable Materialized view feature on portal Azure Cosmos DB API for Cassandra":::
 
 
 #### Using AZ CLI
@@ -127,7 +127,7 @@ The compute containers are shared among all MVs within the database account. Eac
 
 5. Configure as required.
 
-:::image type="content" source="./media/materialized-view-cassandra/provision_mv_builder.png" alt-text="Provision Materialized view builder on portal for Azure Cosmos DB API for Cassandra":::
+:::image type="content" source="./media/materialized-view/provision_mv_builder.png" alt-text="Provision Materialized view builder on portal for Azure Cosmos DB API for Cassandra":::
 
 #### Using AZ CLI
 
@@ -297,13 +297,13 @@ TTL from base table rows will be applied on MV as well. Setting table level TTL 
 - Metrics related to RUs consumed on MV for MV build (write cost)
 - Metrics related to resource consumption on MV builders (CPU, memory usage metrics)
 
-:::image type="content" source="./media/materialized-view-cassandra/monitoring1.png" alt-text="Metrics Screenshot for Materialized view feature on portal Azure Cosmos DB API for Cassandra":::
+:::image type="content" source="./media/materialized-view/monitoring1.png" alt-text=" Catchup Metrics Screenshot for Materialized view feature on portal Azure Cosmos DB API for Cassandra":::
 
-:::image type="content" source="./media/materialized-view-cassandra/monitoring2.png" alt-text="Metrics Screenshot for Materialized view feature on portal Azure Cosmos DB API for Cassandra":::
+:::image type="content" source="./media/materialized-view/monitoring2.png" alt-text="CPU Usage Metrics Screenshot for Materialized view feature on portal Azure Cosmos DB API for Cassandra":::
 
-:::image type="content" source="./media/materialized-view-cassandra/monitoring3.png" alt-text="Metrics Screenshot for Materialized view feature on portal Azure Cosmos DB API for Cassandra":::
+:::image type="content" source="./media/materialized-view/monitoring3.png" alt-text="Memory Metrics Screenshot for Materialized view feature on portal Azure Cosmos DB API for Cassandra":::
 
-:::image type="content" source="./media/materialized-view-cassandra/monitoring4.png" alt-text="Metrics Screenshot for Materialized view feature on portal Azure Cosmos DB API for Cassandra":::
+:::image type="content" source="./media/materialized-view/monitoring4.png" alt-text="Max CPU Metrics Screenshot for Materialized view feature on portal Azure Cosmos DB API for Cassandra":::
 
 
 ### What are the restore options available for MVs?
