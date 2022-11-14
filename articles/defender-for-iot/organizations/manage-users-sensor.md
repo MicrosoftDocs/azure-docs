@@ -38,7 +38,7 @@ This procedure describes how to create new users for a specific OT network senso
     |**First Name**     |    Enter the user's first name.     |
     |**Last Name**     |   Enter the user's last name.      |
     |**Role**     |  Select one of the following user roles: **Admin**, **Security Analyst**, or **Read Only**. For more information, see [On-premises user roles](roles-on-premises.md#on-premises-user-roles).      |
-    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one numbers<br>- At least one symbol|
+    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one numbers<br>- At least one symbol<br><br>Local user passwords can only be modified by **Admin** users.|
 
     > [!TIP]
     > Integrating with Active Directory lets you associate groups of users with specific permission levels. If you want to create users using Active Directory, first configure [Active Directory on the sensor](manage-users-sensor.md#integrate-ot-sensor-users-with-active-directory) and then return to this procedure.
@@ -95,7 +95,10 @@ For more information, see [Active Directory support on sensors and on-premises m
 
 ### Change a sensor user's password
 
-This procedure describes how **Admin** users can change passwords for themselves or for other users.
+This procedure describes how **Admin** users can change local user passwords. **Admin** users can change passwords for themselves or for other **Security Analyst** or **Read Only** users. [Privileged users](#default-privileged-users) can change their own passwords, and the passwords for **Admin** users.
+
+> [!TIP]
+> If you need to recover access to a privileged user account, see [Recover privileged access to a sensor](#recover-privileged-access-to-a-sensor).
 
 **Prerequisites**: This procedure is available only for the *cyberx*, *support*, or *cyberx_host* users, or for users with the **Admin** role.
 

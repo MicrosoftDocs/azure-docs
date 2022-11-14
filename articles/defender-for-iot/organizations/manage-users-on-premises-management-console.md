@@ -55,9 +55,12 @@ Your new user is added and is listed on the sensor **Users** page.
 
 ### Change a user's password
 
-This procedure describes how **Admin** users can change passwords for themselves or for other users.
+This procedure describes how **Admin** users can change local user passwords. **Admin** users can change passwords for themselves or for other **Security Analyst** or **Read Only** users. [Privileged users](#default-privileged-users) can change their own passwords, and the passwords for **Admin** users.
 
-**Prerequisites**: This procedure is available only for the *cyberx* or *support*, or for users with the **Admin** role.
+> [!TIP]
+> If you need to recover access to a privileged user account, see [Recover privileged access to an on-premises management console](#recover-privileged-access-to-an-on-premises-management-console).
+
+**Prerequisites**: This procedure is available only for the *cyberx* or *support* users, or for users with the **Admin** role.
 
 **To reset a user's password on the on-premises management console**:
 
