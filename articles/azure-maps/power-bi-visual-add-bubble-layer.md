@@ -70,7 +70,7 @@ When displaying a **bubble layer** map, the **Category labels** settings will be
 
 The **Category labels** settings enable you to customize font setting such as font type, size and color as well as the category labels background color and transparency.
 
-:::image type="content" source="./media/power-bi-visual/category-labels-example.png" alt-text="A screenshot showing the category labels settings in the format visual section of Power BI." lightbox="./media/power-bi-visual/category-labels-example.png":::
+:::image type="content" source="./media/power-bi-visual/category-labels-example.png" alt-text="A screenshot showing the category labels on an Azure Maps map in Power BI." lightbox="./media/power-bi-visual/category-labels-example.png":::
 
 ## Next steps
 
