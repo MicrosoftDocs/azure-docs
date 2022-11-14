@@ -278,18 +278,17 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName <Output of hostname command> 
         ```
     
-    Here is example output:
+       Here is example output:
 
-    ```powershell
-    [dbe-1csphq2.microsoftdatabox.com]: PS>hostname
-    1CSPHQ2
-    [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName
-    [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName 1CSPHQ2
-    { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
-    { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+       ```powershell
+       [dbe-1csphq2.microsoftdatabox.com]: PS>hostname 1CSPHQ2
+       [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName
+       [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName 1CSPHQ2
+        { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
+        { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
 
-    [dbe-1csphq2.microsoftdatabox.com]: PS>
-    ```
+       [dbe-1csphq2.microsoftdatabox.com]: PS>
+       ```
 
     6. Use the following cmdlets to check or customize the CPU set.
 
