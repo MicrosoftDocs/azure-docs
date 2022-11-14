@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot common build issues in Azure Spring Apps
-description: Describes how to troubleshoot common build issues in Azure Spring Apps
+description: Learn how to troubleshoot common build issues in Azure Spring Apps.
 author: yilims
 ms.service: spring-apps
 ms.topic: troubleshooting
@@ -15,63 +15,61 @@ ms.author: yili7
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article will help you solve various problems that can arise when your Azure Spring Apps deployment is failed during build phase.
+This article describes how to troubleshoot build issues with your Azure Spring Apps deployment.
 
 ## Build exit codes
 
-Azure Spring Apps Enterprise tier leverage [Tanzu Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html) to transform your application source code into images.
-When deploying your Azure Spring Apps via [Azure CLI](/cli/azure/install-azure-cli), you will see build log in Azure CLI console.
+Azure Spring Apps Enterprise tier uses Tanzu Buildpacks to transform your application source code into images. For more information, see [Tanzu Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html).
 
-If the build is failed, exit code and error message is shown in the CLI console.
-The exit code and error message indicates the reason why the buildpack execution is failed during different [phase](https://buildpacks.io/docs/concepts/components/lifecycle/).
-The following list describes the most common exit codes:
+When you deploy your app in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli), you'll see a build log in the Azure CLI console. If the build fails, Azure Spring Apps displays an exit code and error message in the CLI console indicating why the buildpack execution failed during different phases of the buildpack [lifecycle](https://buildpacks.io/docs/concepts/components/lifecycle/).
 
-- **20** - All buildpacks groups have failed to detect.
+The following list describes some common exit codes:
+
+- **20** - All buildpack groups have failed to detect.
   
-  Consider the following possible causes for 20 exit code:
-  - The builder you are using doesn't support the language your project used.
-    - If you are using the default builder, check [the language the default builder supports](how-to-enterprise-build-service.md#default-builder-and-tanzu-buildpacks).
-    - If you are using the custom builder, check if your custom builder has the Buildpack supports the language your project used.
+  Consider the following possible causes of an exit code of *20*:
 
-  - You are running against the wrong path.
-  
-    For example, your Maven project's pom.xml file is not in root path. You can set BP_MAVEN_POM_FILE to specify the project's pom.xml file.
+  - The builder you're using doesn't support the language your project used.
 
-  - There's something wrong with your application.
+    If you're using the default builder, check the language the default builder supports. For more information, see the [Default Builder and Tanzu Buildpacks](how-to-enterprise-build-service.md#default-builder-and-tanzu-buildpacks) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
-    For example, your jar file doesn't have a /META-INF/MANIFEST.MF file which contains a Main-Class entry.
+    If you're using the custom builder, check whether your custom builder's buildpack supports the language your project used.
+
+  - You're running against the wrong path; for example, your Maven project's *pom.xml* file isn't in the root path.
+
+    Set `BP_MAVEN_POM_FILE` to specify the project's *pom.xml* file.
+
+  - There's something wrong with your application; for example, your *jar* file doesn't have a */META-INF/MANIFEST.MF* file that contains a *Main-Class* entry.
 
 - **51** - Buildpack build error.
   
-  Consider the following possible causes for 51 exit code:
+  Consider the following possible causes of an exit code of *51*:
 
-  - Error message "Build failed in stage build with reason OOMKilled" is shown in Azure CLI console.
+  - If Azure Spring Apps displays the error message *Build failed in stage build with reason OOMKilled* in the Azure CLI console, the build failed due to insufficient memory.
 
-    Build is failed due to insufficient memory, increase memory via setting build environment variable in Azure CLI:
+    Use the following command to increase memory using the `build-memory` environment variable in Azure CLI:
 
     ```azurecli
-    az spring app deploy
+    az spring app deploy \
         --resource-group <your-resource-group-name> \
         --service <your-Azure-Spring-Apps-name> \
         --name <your-app-name> \
         --build-memory 3Gi
     ```
 
-  - Application source code error:
+  - An application source code error; for example, there's a compilation error in your source code.
   
-    For example, there's compilation error in your source code. You can check the build log to find out the root cause.
+    Check the build log to find the root cause.
 
-  - Download dependency error:
-  
-    For example, maven dependency download is failed due to network issue.
+  - A download dependency error; for example, the Maven dependency download failed due to a network issue.
 
 - **62** - Failed to write image to Azure Container Registry.
   
-  Consider the following possible causes for 62 exit code:
+  Consider the following possible cause of an exit code of *62*:
 
-  - Error message "failed to write image to the following tags" is shown in build log.
-  
-    Failed to write image to Azure Container Registry due to network issue, you can retry to fix the issue.
+  - If Azure Spring Apps displays the error message *Failed to write image to the following tags* in the build log, the build failed because of a network issue.
+
+    Retry to fix the issue.
 
  If your application is a static file or dynamic front-end application served by a web server, see the [Common build and deployment errors](how-to-enterprise-deploy-static-file.md#common-build-and-deployment-errors) section of [Deploy static files in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-static-file.md).
 
