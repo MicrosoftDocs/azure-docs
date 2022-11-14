@@ -37,9 +37,11 @@ If this is not the case, we suggest you start with one of the following articles
 
 ## Part 1: Add Netherite to the project
 
-To get started, we need to install the Netherite NuGet package and update the host.json configuration file as described below.
+### Only for C# users - Install the NuGet package
 
-### Add the NuGet package
+We need to install the Netherite NuGet package and update the host.json configuration file as described below.
+
+>![NOTE] If you are are not a C# user, you can ignore this section as [Extension Bundles](/articles/azure/azure-functions/functions-bindings-register#extension-bundles) removes the need for manual Nuget package installations. If you use Extension Bundles, please skip to the next section on updating your host.json.
 
 Using the NuGet package manager, install the latest version of the [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) package into your functions project. There is another package with a similar but shorter name, make sure to import the correct one.
 
@@ -62,17 +64,17 @@ Edit the storage provider section of the `host.json` file so it sets the `type` 
 }    
 ```
 
-What we show above is a *minimal* configuration, appropriate for this quick start. Later, you may want to configure additional [optional parameters](https://microsoft.github.io/durabletask-netherite/#/settings?id=typical-configuration).
+The above snippet is a *minimal* configuration. Later, you may want to configure additional [optional parameters](https://microsoft.github.io/durabletask-netherite/#/settings?id=typical-configuration) for performance tuning.
 
 ### Update local.settings.json for local testing
 
-To configure Netherite to run locally without requiring an Azure Event Hubs resource, such as during development and testing, add the following line to the `local.settings.json` file:
+To configure Netherite to run locally without requiring an Azure Event Hubs resource (useful during development and testing) add the following setting to your `local.settings.json`:
 
 ```json
     "EventHubsConnection": "SingleHost",
 ```
 
-For example, if using C#, the local.settings.json file may look something like [this](https://github.com/microsoft/durabletask-netherite/blob/main/samples/Hello_Netherite_with_DotNetCore/local.settings.json).
+For example, if using C#, your local.settings.json file may look something like [this](https://github.com/microsoft/durabletask-netherite/blob/main/samples/Hello_Netherite_with_DotNetCore/local.settings.json).
 
 ### Test Netherite locally
 
@@ -87,30 +89,32 @@ Each row corresponds to one Netherite partition, and there are 12 partitions by 
 
 ## Part 2: Event Hubs configuration
 
-To run Netherite in a cloud deployment, or if you prefer to not use an emulation during local testing, you need to configure Netherite so it can use Azure Event Hubs [https://azure.microsoft.com/products/event-hubs/]. Netherite uses this Azure resource to provide communication and placement of partitions among the worker hosts. Netherite automatically creates the required Event Hubs resources inside the Event Hubs namespace, but it does not create the namespace itself. So you have to create a namespace first. Note that an Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Netherite.
+To run Netherite in a cloud deployment, or if you prefer to not use an emulation during local testing, you need to configure Netherite so it can use (Azure Event Hubs)[https://azure.microsoft.com/products/event-hubs/]. Netherite automatically creates the required resources inside the Event Hubs namespace, but it does not create the namespace itself, So you have to create a namespace first.
+
+> ![NOTE] An Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Netherite.
 
 ### Create an Event Hubs namespace
 
 To create an Azure Event Hubs namespace in the Azure Management Portal, you can follow [these steps](/articles/event-hubs/event-hubs-create#create-an-event-hubs-namespace). When creating the namespace, you may be prompted to
 
-1. choose a *resource group*. A typical choice is to use the same resource group as the function app and storage account, because it makes it easy to delete all resources at once later on.
-2. choose a *plan* and provision *throughput units*. These choices determine the cost incurred. For the purpose of this quick start, using the defaults is fine. The allocated throughput units can be changed at any time; you can raise this setting later if running a workload with heavy communication traffic between clients and partitions.
-3. choose the *retention* time. This setting is irrelevant when using Netherite (because all the contents are also stored in storage), so the default setting of one day is appropriate.
+1. choose a *resource group*. A typical choice is to use the same resource group as the Function app and storage account, because it makes it easy to delete all resources at once later on.
+2. choose a *plan* and provision *throughput units*. These choices determine the cost incurred. For the purpose of this quick start, using the defaults is fine. The allocated throughput units can be changed at any time; so you can raise this setting later.
+3. choose the *retention* time. This setting is irrelevant to Netherite because all the contents are also stored in storage, so the default setting of one day is appropriate.
 
-Or, you can use the Azure CLI to quickly create a namespace with all the default settings as follows:
+Alternatively, you can use the Azure CLI to quickly create a namespace with all the default settings as follows:
 
 ```cmd
 az eventhubs namespace create --name $namespaceName --resource-group $groupName 
 ```
 
-### Find the connection string
+### Obtain the connection string
 
-To find the connection string for the Event Hubs namespace, you can access it in the Azure portal:
+To obtain the connection string for the Event Hubs namespace, you can access it in the Azure portal:
 
 ![Select "Shared access policies"](./media/quickstart-netherite/namespace-connection-string-1.png)
 ![Select RootManageSharedAccessKey and Connection string-primary key](./media/quickstart-netherite/namespace-connection-string-2.png)
 
-Or, you can use the Azure CLI to find the connection string as follows:
+Alternatively, you can use the Azure CLI to find the connection string as follows:
 
 ```cmd
 az eventhubs namespace authorization-rule keys list --name RootManageSharedAccessKey --namespace-name $namespaceName --resource-group $groupName 
@@ -118,7 +122,7 @@ az eventhubs namespace authorization-rule keys list --name RootManageSharedAcces
 
 ## Part 3: Configure the Function App
 
-Finally, once you have created the function app in Azure, there are a few more steps required to configure it correctly for running Netherite. For this quick start, you probably only need to do the first one, but we list them all here for future reference.
+Finally, once you have created the Function app in Azure, there are a few more steps required to configure it correctly for running Netherite. For this quick start, you probably only need to do the first one, but we list them all here for future reference.
 
 ### Set the EventHubsConnection
 
@@ -135,32 +139,22 @@ az functionapp config appsettings set -n $functionAppName -g  $groupName --setti
 
 ### (Premium Plans) Enable runtime scaling
 
-If you are running on an Elastic Premium Plan, we recommend that you enable runtime scale monitoring for a better scaling response. In that case, you can turn on
+If you are running on the Elastic Premium Plan, we recommend that you enable runtime scale monitoring for a better scaling response. In that case, you can turn on
 runtime scaling in the Portal here:
 
 ![Enable runtime scale monitoring](./media/quickstart-netherite/runtime-scale-monitoring.png)
 
 ### (Older runtimes) Configure for 64 bit
 
-If you are running a function app with a runtime version prior to 4.x, ensure that it is set to run on 64 bit.
-You can update this setting in the portal as shown below, if you are running on an old runtime. Otherwise, no action is required.
+If you are running a Function app with a runtime version prior to 4.x, ensure that it is set to run on 64 bit.
+You can update this setting in the portal as shown below, but only if you are running on an older runtime. Otherwise, no action is required.
 
 ![Configure runtime to use 64 bit](./media/quickstart-netherite/64bit.png)
 
 ## Part 4: Deploy and enjoy
 
-You can now deploy your code to the function app, and run your tests or workload on it. To get an impression of how you function app is doing, the following can be helpful:
+You can now deploy your code to the cloud, and then run your tests or workload on it. To validate that Netherite is correctly configured, you can do the a review the metrics for Event Hubs in the portal to ensure that there's activity.
 
-- The overview page of the functions app tells you the status of the application, such as whether it is currently running, or if there were problems during startup.
-
-- You can look at the partition table in storage to see the status of each partition. The *Worker* column can give you an indication of scale-out, as it lists all the worker hosts that are currently hosting the Netherite partitions.
-
-- You can look at the metrics for the Event Hubs in the portal to check the level of activity.
-
-- If you have configured application insights to monitor your application, the *Live Metrics* tab shows metrics for all the currently running hosts.
-
-- If you have configured application insights to monitor your application, you can query the trace events generated by Netherite to obtain additional information.
-
-That's it for this walkthrough! We hope it worked out for you.
+And that's it for this walkthrough!
 
 For more information about the Netherite architecture, configuration, and workload behavior, including performance benchmarks, we recommend you take a look at the [Netherite documentation](https://microsoft.github.io/durabletask-netherite/#/).
