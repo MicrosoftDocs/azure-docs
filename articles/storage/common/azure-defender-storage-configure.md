@@ -149,7 +149,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 {
   "properties": {
-    "pricingTier": "Standard"
+    "pricingTier": "Standard",
     "subPlan": "PerStorageAccount"
   }
 }
@@ -303,7 +303,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 {
 "properties": {
-    "pricingTier": "Standard"
+    "pricingTier": "Standard",
     "subPlan": "PerTransaction"
     }
 }

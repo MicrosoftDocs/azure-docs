@@ -25,7 +25,7 @@ This article details what is communicated to users and where they can view infor
 
 The impacted resources tab under Azure portal-> Service Health ->Service Issues will display resources that are Confirmed to be impacted by an outage and resources that could Potentially be impacted by an outage. Below is an example of impacted resources tab for an incident on Service Issues with Confirmed and Potential impact resources.
 
-:::image type="content" source="./media/impacted-resource-outage/ir-portal-cov.PNG" alt-text="Screenshot of Azure Service Health impacted resources information.":::
+:::image type="content" source="./media/impacted-resource-outage/ir-portal-crop.PNG" alt-text="Screenshot of Azure Service Health impacted resources information.":::
 
 ##### Service Health provides the below information to users whose resources are impacted by an outage:
 
