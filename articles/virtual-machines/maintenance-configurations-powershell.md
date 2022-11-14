@@ -102,7 +102,7 @@ Using `$scope = "Host"` ensures that the maintenance configuration is used for c
 
 ### OS Image
 
-In this example, we will create a maintenance configuration named myConfig scoped to **osimage** with a scheduled window of 8 hours every 5 days. It is important to note that the **duration** of the schedule for this scope should be at least 5 hours long. Another key difference to not is that this scope allows a max of 7 days for schedule recurrence.
+In this example, we will create a maintenance configuration named myConfig scoped to **osimage** with a scheduled window of 8 hours every 5 days. It is important to note that the **duration** of the schedule for this scope should be at least 5 hours long. Another key difference to note is that this scope allows a max of 7 days for schedule recurrence.
 
 ```azurepowershell-interactive
 $RGName = "myMaintenanceRG"
@@ -356,7 +356,7 @@ Get-AzApplyUpdate `
   -ResourceName "myVM" `
   -ResourceType "VirtualMachines" `
   -ProviderName "Microsoft.Compute" `
-  -ApplyUpdateName "configName"
+  -ApplyUpdateName "applyUpdateName"
 ```
 
 ### Dedicated host
@@ -371,7 +371,7 @@ Get-AzApplyUpdate `
    -ResourceParentName "myHostGroup" `
    -ResourceParentType "hostGroups" `
    -ProviderName "Microsoft.Compute" `
-   -ApplyUpdateName "configName"
+   -ApplyUpdateName "applyUpdateName"
 ```
 
 ### Virtual Machine Scale Sets
@@ -383,7 +383,7 @@ New-AzApplyUpdate `
    -ResourceName "myVMSS" `
    -ResourceType "VirtualMachineScaleSets" `
    -ProviderName "Microsoft.Compute" `
-   -ApplyUpdateName "configName"
+   -ApplyUpdateName "applyUpdateName"
 ```
 
 ## Delete a maintenance configuration
