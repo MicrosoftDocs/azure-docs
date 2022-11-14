@@ -30,15 +30,15 @@ To maximize performance, processing, and transmitting on the same NUMA node, pro
 
 ### [2210 and later](#tab/2210)
 
-vCPUs are automatically reserved with the maximum number of vCPUs supported on each NUMA node. If the vCPUs were already reserved for HPN VMs in an earlier version, then the existing reservation is carried forth to the 2210 version.
+For this version, vCPUs are automatically reserved with the maximum number of vCPUs supported on each NUMA node. If the vCPUs were already reserved for HPN VMs in an earlier version, then the existing reservation is carried forth to the 2210 version.
 
 You can apply a policy instead of indexes with versions 2210 and higher, or you can apply a customized policy.
 
-You do not need to stop/start the VM before and after running the commands, as is required in versions 2209 and lower.
+You do not need to stop/start the VM before and after running the commands, as is required in versions 2209 and earlier.
 
 ### [2209 and earlier](#tab/2209)
 
-Before you deploy HPN VMs on your device, vCPUs must be reserved on NUMA nodes. We recommend that the vCPU reservation be done on NUMA node 0, as this node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it.
+For versions 2209 and earlier, before you deploy HPN VMs on your device, vCPUs must be reserved on NUMA nodes. We recommend that the vCPU reservation be done on NUMA node 0, as this node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it.
 
 The number of vCPUs reserved determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
 
@@ -68,7 +68,7 @@ The high-level summary of the HPN deployment workflow is as follows:
 
    And create or specify the following resources inline: 
 
-   1. For the VM name, choose a supported HPN VM size, and specify login credentials for the VM.
+   1. For the VM name, choose a supported HPN VM size, and specify sign-in credentials for the VM.
    1. Create new data disks or attach existing data disks. 
    1. Configure static or dynamic IP for the VM. If you're providing a static IP, choose from a free IP in the subnet range of the default virtual network. 
 
@@ -78,7 +78,7 @@ The high-level summary of the HPN deployment workflow is as follows:
 
 Before you begin to create and manage VMs on your device via the Azure portal, make sure that:
 
-### [2210 and higher](#tab/2210)
+### [2210 and later](#tab/2210)
 
 - You've configured and activated your Azure Stack Edge Pro GPU device as described in [Tutorial: Activate Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-activate.md).
 
@@ -239,7 +239,7 @@ Before you begin to create and manage VMs on your device via the Azure portal, m
     
 1. Wait for the device to finish rebooting. Once the device is running, open a new PowerShell session. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-### [2209 and lower](#tab/2209)
+### [2209 and earlier](#tab/2209)
 
 - You've completed the network settings on your Azure Stack Edge Pro GPU device as described in [Step 1: Configure an Azure Stack Edge Pro GPU device](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
 
