@@ -1,9 +1,9 @@
 ---
-title: InsightVM CloudAPI Solution connector for Microsoft Sentinel
-description: Learn how to install the InsightVM CloudAPI Solution connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "InsightVM CloudAPI Solution connector for Microsoft Sentinel"
+description: "Learn how to install the InsightVM CloudAPI Solution connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,14 +16,7 @@ The [Rapid7 Insight VM](https://www.rapid7.com/products/insightvm/) Report data 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Application settings** | <ul>
-<li>InsightVMAPIKey</li>
-<li>InsightVMCloudRegion</li>
-<li>WorkspaceID</li>
-<li>WorkspaceKey</li>
-<li>logAnalyticsUri (optional)</li>
-</ul>
- |
+| **Application settings** | InsightVMAPIKey<br/>InsightVMCloudRegion<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
 | **Log Analytics table(s)** | NexposeInsightVMCloud_assets_CL<br/> NexposeInsightVMCloud_vulnerabilities_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -50,7 +43,7 @@ NexposeInsightVMCloud_vulnerabilities_CL
 
 To integrate with InsightVM CloudAPI Solution make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **REST API Credentials**: **InsightVMAPIKey** is required for REST API. [See the documentation to learn more about API](https://docs.rapid7.com/insight/api-overview/). Check all [requirements and follow  the instructions](https://docs.rapid7.com/insight/managing-platform-api-keys/) for obtaining credentials
 
 
@@ -61,7 +54,7 @@ To integrate with InsightVM CloudAPI Solution make sure you have:
    >  This connector uses Azure Functions to connect to the Insight VM API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]

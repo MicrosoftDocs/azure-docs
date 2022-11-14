@@ -1,9 +1,9 @@
 ---
-title: VMRay Email Threat Defender Connector  connector for Microsoft Sentinel
-description: Learn how to install the VMRay Email Threat Defender Connector  connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "VMRay Email Threat Defender Connector  connector for Microsoft Sentinel"
+description: "Learn how to install the VMRay Email Threat Defender Connector  connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -74,7 +74,7 @@ vmray_emails_CL
 
 To integrate with VMRay Email Threat Defender Connector for Azure Sentinel make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **VMRay Platform Access**: Access to a VMRay Platform 4.3.0 (or later) installation that has ETD enabled. Ensure that the VMRay Platform's REST API is accessible to external clients so that the connector can fetch data through it.
 
 
@@ -85,7 +85,7 @@ To integrate with VMRay Email Threat Defender Connector for Azure Sentinel make 
    >  This connector uses Azure Functions to connect to a VMRay Platform API to pull ETD email data into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store Workspace and API keys in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store Workspace and API keys in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **STEP 1 - Configuration Steps for the VMRay Platform**
@@ -113,7 +113,7 @@ This should return a list of emails that ETD has analyzed.
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-VMRayETD-azuredeploy)
 2. Select the preferred **Subscription**, **Resource group** and **Region**.
 3. Enter the **Workspace ID**, **Workspace Key**, **VMRay Platform URL** and **VMRay API Key**.
->Note: If you are using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to the [Key Vault references documentation](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) for further details.
+>Note: If you are using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to the [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details.
 Adjust the other connector settings as required.
 
 4. Finish the wizard and wait for the deployment to complete.

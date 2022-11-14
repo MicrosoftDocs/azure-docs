@@ -3,8 +3,9 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 11/10/2022
+ms.date: 01/04/2022
 ms.author: cwatson
+ms.custom: ignite-fall-2021
 ---
 
 # Find your Microsoft Sentinel data connector
@@ -33,454 +34,454 @@ Data connectors are available as part of the following offerings:
 
 ## 42Crunch
 
-- [42Crunch Microsoft Sentinel Connector](dataconnectors/42crunch-microsoft-sentinel-connector.md)
+- [42Crunch Microsoft Sentinel Connector](data-connectors/42crunch-microsoft-sentinel-connector.md)
 
 ## Abnormal Security Corporation
 
-- [Abnormal Security Events](dataconnectors/abnormal-security-events.md)
+- [Abnormal Security Events](data-connectors/abnormal-security-events.md)
 
 ## AliCloud
 
-- [Alibaba Cloud (Preview)](dataconnectors/alibaba-cloud-preview.md)
+- [Alibaba Cloud (Preview)](data-connectors/alibaba-cloud-preview.md)
 
 ## Amazon Web Services
 
-- [Amazon Web Services (Preview)](dataconnectors/amazon-web-services-preview.md)
+- [Amazon Web Services (Preview)](data-connectors/amazon-web-services-preview.md)
 
 ## Apache
 
-- [Apache Tomcat](dataconnectors/apache-tomcat.md)
+- [Apache Tomcat](data-connectors/apache-tomcat.md)
 
 ## Apache Software Foundation
 
-- [Apache Http Server](dataconnectors/apache-http-server.md)
+- [Apache Http Server](data-connectors/apache-http-server.md)
 
 ## archTIS
 
-- [NC Protect Data Connector for Microsoft Sentinel](dataconnectors/nc-protect-data-connector-for-microsoft-sentinel.md)
+- [NC Protect Data Connector for Microsoft Sentinel](data-connectors/nc-protect-data-connector-for-microsoft-sentinel.md)
 
 ## ARGOS Cloud Security Pty Ltd
 
-- [ARGOS Cloud Security for Microsoft Sentinel](dataconnectors/argos-cloud-security-for-microsoft-sentinel.md)
+- [ARGOS Cloud Security for Microsoft Sentinel](data-connectors/argos-cloud-security-for-microsoft-sentinel.md)
 
 ## Arista Networks
 
-- [Awake Security (Arista Networks) - Azure Sentinel](dataconnectors/awake-security-arista-networks-azure-sentinel.md)
+- [Awake Security (Arista Networks) - Azure Sentinel](data-connectors/awake-security-arista-networks-azure-sentinel.md)
 
 ## Armorblox
 
-- [Armorblox for Azure Sentinel](dataconnectors/armorblox-for-azure-sentinel.md)
+- [Armorblox for Azure Sentinel](data-connectors/armorblox-for-azure-sentinel.md)
 
 ## Aruba
 
-- [Aruba ClearPass](dataconnectors/aruba-clearpass.md)
+- [Aruba ClearPass](data-connectors/aruba-clearpass.md)
 
 ## Atlassian
 
-- [Atlassian Jira Audit](dataconnectors/atlassian-jira-audit.md)
+- [Atlassian Jira Audit](data-connectors/atlassian-jira-audit.md)
 
 ## Auth0
 
-- [Auth0](dataconnectors/auth0.md)
+- [Auth0](data-connectors/auth0.md)
 
 ## Bitglass
 
-- [Bitglass Solution](dataconnectors/bitglass-solution.md)
+- [Bitglass Solution](data-connectors/bitglass-solution.md)
 
 ## Blackberry
 
-- [Blackberry CylancePROTECT](dataconnectors/blackberry-cylanceprotect.md)
+- [Blackberry CylancePROTECT](data-connectors/blackberry-cylanceprotect.md)
 
 ## Bosch Global Software Technologies Pvt Ltd
 
-- [AIShield - AI Security Monitoring for Microsoft Sentinel](dataconnectors/aishield-ai-security-monitoring-for-microsoft-sentinel.md)
+- [AIShield - AI Security Monitoring for Microsoft Sentinel](data-connectors/aishield-ai-security-monitoring-for-microsoft-sentinel.md)
 
 ## Box
 
-- [Box Solution](dataconnectors/box-solution.md)
+- [Box Solution](data-connectors/box-solution.md)
 
 ## Broadcom
 
-- [Broadcom SymantecDLP](dataconnectors/broadcom-symantecdlp.md)
+- [Broadcom SymantecDLP](data-connectors/broadcom-symantecdlp.md)
 
 ## Cisco
 
-- [Cisco ACI Solution](dataconnectors/cisco-aci-solution.md)
-- [Cisco SEG Solution](dataconnectors/cisco-seg-solution.md)
-- [Cisco Secure Endpoint Solution](dataconnectors/cisco-secure-endpoint-solution.md)
-- [Cisco UCS](dataconnectors/cisco-ucs.md)
-- [Cisco WSA](dataconnectors/cisco-wsa.md)
+- [Cisco ACI Solution](data-connectors/cisco-aci-solution.md)
+- [Cisco SEG Solution](data-connectors/cisco-seg-solution.md)
+- [Cisco Secure Endpoint Solution](data-connectors/cisco-secure-endpoint-solution.md)
+- [Cisco UCS](data-connectors/cisco-ucs.md)
+- [Cisco WSA](data-connectors/cisco-wsa.md)
 
 ## Cisco Systems, Inc.
 
-- [Cisco Firepower eStreamer](dataconnectors/cisco-firepower-estreamer.md)
+- [Cisco Firepower eStreamer](data-connectors/cisco-firepower-estreamer.md)
 
 ## Citrix
 
-- [Citrix ADC](dataconnectors/citrix-adc.md)
-- [Citrix Analytics Application for Microsoft Sentinel](dataconnectors/citrix-analytics-application-for-microsoft-sentinel.md)
+- [Citrix ADC](data-connectors/citrix-adc.md)
+- [Citrix Analytics Application for Microsoft Sentinel](data-connectors/citrix-analytics-application-for-microsoft-sentinel.md)
 
 ## Cloudflare
 
-- [Cloudflare Solution](dataconnectors/cloudflare-solution.md)
+- [Cloudflare Solution](data-connectors/cloudflare-solution.md)
 
 ## Contrast Security
 
-- [Contrast Protect for Microsoft Sentinel](dataconnectors/contrast-protect-for-microsoft-sentinel.md)
+- [Contrast Protect for Microsoft Sentinel](data-connectors/contrast-protect-for-microsoft-sentinel.md)
 
 ## Corelight Inc.
 
-- [Corelight for Microsoft Sentinel](dataconnectors/corelight-for-microsoft-sentinel.md)
+- [Corelight for Microsoft Sentinel](data-connectors/corelight-for-microsoft-sentinel.md)
 
 ## Crowdstrike
 
-- [CrowdStrike Falcon Endpoint Protection](dataconnectors/crowdstrike-falcon-endpoint-protection.md)
+- [CrowdStrike Falcon Endpoint Protection](data-connectors/crowdstrike-falcon-endpoint-protection.md)
 
 ## Cyber Defense Group B.V.
 
-- [ESET PROTECT integration for Azure Sentinel](dataconnectors/eset-protect-integration-for-azure-sentinel.md)
+- [ESET PROTECT integration for Azure Sentinel](data-connectors/eset-protect-integration-for-azure-sentinel.md)
 
 ## CyberArk
 
-- [CyberArk EPM/Sentinel Integration](dataconnectors/cyberark-epm-sentinel-integration.md)
+- [CyberArk EPM/Sentinel Integration](data-connectors/cyberark-epm-sentinel-integration.md)
 
 ## Darktrace
 
-- [AI Analyst Darktrace](dataconnectors/ai-analyst-darktrace.md)
-- [Darktrace for Microsoft Sentinel](dataconnectors/darktrace-for-microsoft-sentinel.md)
+- [AI Analyst Darktrace](data-connectors/ai-analyst-darktrace.md)
+- [Darktrace for Microsoft Sentinel](data-connectors/darktrace-for-microsoft-sentinel.md)
 
 ## Delinea Inc.
 
-- [Delinea Secret Server for Microsoft Sentinel](dataconnectors/delinea-secret-server-for-microsoft-sentinel.md)
+- [Delinea Secret Server for Microsoft Sentinel](data-connectors/delinea-secret-server-for-microsoft-sentinel.md)
 
 ## Derdack
 
-- [SIGNL4 – Mobile Alerting for Microsoft Sentinel](dataconnectors/signl4-mobile-alerting-for-microsoft-sentinel.md)
+- [SIGNL4 – Mobile Alerting for Microsoft Sentinel](data-connectors/signl4-mobile-alerting-for-microsoft-sentinel.md)
 
 ## Digital Shadows
 
-- [Digital Shadows SearchLight for Sentinel](dataconnectors/digital-shadows-searchlight-for-sentinel.md)
+- [Digital Shadows SearchLight for Sentinel](data-connectors/digital-shadows-searchlight-for-sentinel.md)
 
 ## Elastic
 
-- [Elastic Agent Solution (Preview)](dataconnectors/elastic-agent-solution-preview.md)
+- [Elastic Agent Solution (Preview)](data-connectors/elastic-agent-solution-preview.md)
 
 ## Exabeam
 
-- [Exabeam Advanced Analytics](dataconnectors/exabeam-advanced-analytics.md)
+- [Exabeam Advanced Analytics](data-connectors/exabeam-advanced-analytics.md)
 
 ## ExtraHop Networks, Inc.
 
-- [ExtraHop Reveal(x) for Microsoft Sentinel](dataconnectors/extrahop-reveal-x-for-microsoft-sentinel.md)
+- [ExtraHop Reveal(x) for Microsoft Sentinel](data-connectors/extrahop-reveal-x-for-microsoft-sentinel.md)
 
 ## F5 Networks
 
-- [F5 Advanced WAF: Integration with Microsoft Sentinel](dataconnectors/f5-advanced-waf-integration-with-microsoft-sentinel.md)
-- [F5 Adv. WAF Integration via Syslog/CEF for Microsoft Sentinel](dataconnectors/f5-adv-waf-integration-via-syslog-cef-for-microsoft-sentinel.md)
+- [F5 Advanced WAF: Integration with Microsoft Sentinel](data-connectors/f5-advanced-waf-integration-with-microsoft-sentinel.md)
+- [F5 Adv. WAF Integration via Syslog/CEF for Microsoft Sentinel](data-connectors/f5-adv-waf-integration-via-syslog-cef-for-microsoft-sentinel.md)
 
 ## Facebook
 
-- [Workplace from Facebook](dataconnectors/workplace-from-facebook.md)
+- [Workplace from Facebook](data-connectors/workplace-from-facebook.md)
 
 ## Flare Systems
 
-- [Flare for Microsoft Sentinel](dataconnectors/flare-for-microsoft-sentinel.md)
+- [Flare for Microsoft Sentinel](data-connectors/flare-for-microsoft-sentinel.md)
 
 ## GitLab
 
-- [Gitlab](dataconnectors/gitlab.md)
+- [Gitlab](data-connectors/gitlab.md)
 
 ## Google
 
-- [Google Cloud Platform Cloud Monitoring Solution](dataconnectors/google-cloud-platform-cloud-monitoring-solution.md)
-- [Google Cloud Platform DNS Solution](dataconnectors/google-cloud-platform-dns-solution.md)
-- [Google Cloud Platform IAM](dataconnectors/google-cloud-platform-iam.md)
-- [Google Workspace Reports](dataconnectors/google-workspace-reports.md)
+- [Google Cloud Platform Cloud Monitoring Solution](data-connectors/google-cloud-platform-cloud-monitoring-solution.md)
+- [Google Cloud Platform DNS Solution](data-connectors/google-cloud-platform-dns-solution.md)
+- [Google Cloud Platform IAM](data-connectors/google-cloud-platform-iam.md)
+- [Google Workspace Reports](data-connectors/google-workspace-reports.md)
 
 ## H.O.L.M. Security Sweden AB
 
-- [Holm Security for Azure Sentinel](dataconnectors/holm-security-for-azure-sentinel.md)
+- [Holm Security for Azure Sentinel](data-connectors/holm-security-for-azure-sentinel.md)
 
 ## Illumio
 
-- [Illumio Core](dataconnectors/illumio-core.md)
+- [Illumio Core](data-connectors/illumio-core.md)
 
 ## Illusive Networks
 
-- [Illusive Attack Surface Analysis and Incident Logs for Microsoft Sentinel](dataconnectors/illusive-attack-surface-analysis-and-incident-logs-for-microsoft-sentinel.md)
+- [Illusive Attack Surface Analysis and Incident Logs for Microsoft Sentinel](data-connectors/illusive-attack-surface-analysis-and-incident-logs-for-microsoft-sentinel.md)
 
 ## Infoblox Inc.
 
-- [Infoblox Cloud for Microsoft Sentinel](dataconnectors/infoblox-cloud-for-microsoft-sentinel.md)
+- [Infoblox Cloud for Microsoft Sentinel](data-connectors/infoblox-cloud-for-microsoft-sentinel.md)
 
 ## Infosec Global
 
-- [AgileSec Analytics Connector](dataconnectors/agilesec-analytics-connector.md)
+- [AgileSec Analytics Connector](data-connectors/agilesec-analytics-connector.md)
 
 ## Insight VM / Rapid7
 
-- [InsightVM CloudAPI Solution](dataconnectors/insightvm-cloudapi-solution.md)
+- [InsightVM CloudAPI Solution](data-connectors/insightvm-cloudapi-solution.md)
 
 ## Ivanti
 
-- [Ivanti Unified Endpoint Management](dataconnectors/ivanti-unified-endpoint-management.md)
+- [Ivanti Unified Endpoint Management](data-connectors/ivanti-unified-endpoint-management.md)
 
 ## Juniper
 
-- [Juniper IDP Solution](dataconnectors/juniper-idp-solution.md)
-- [Juniper SRX](dataconnectors/juniper-srx.md)
+- [Juniper IDP Solution](data-connectors/juniper-idp-solution.md)
+- [Juniper SRX](data-connectors/juniper-srx.md)
 
 ## Linux
 
-- [Microsoft Sysmon For Linux Solution](dataconnectors/microsoft-sysmon-for-linux-solution.md)
+- [Microsoft Sysmon For Linux Solution](data-connectors/microsoft-sysmon-for-linux-solution.md)
 
 ## Lookout, Inc.
 
-- [Lookout Mobile Threat Defense for Azure Sentinel](dataconnectors/lookout-mobile-threat-defense-for-azure-sentinel.md)
+- [Lookout Mobile Threat Defense for Azure Sentinel](data-connectors/lookout-mobile-threat-defense-for-azure-sentinel.md)
 
 ## MarkLogic
 
-- [MarkLogic Audit](dataconnectors/marklogic-audit.md)
+- [MarkLogic Audit](data-connectors/marklogic-audit.md)
 
 ## McAfee
 
-- [McAfee Network Security Platform Solution](dataconnectors/mcafee-network-security-platform-solution.md)
+- [McAfee Network Security Platform Solution](data-connectors/mcafee-network-security-platform-solution.md)
 
 ## Microsoft
 
-- [Akamai Security](dataconnectors/akamai-security.md)
-- [Atlassian Confluence Audit (Preview)](dataconnectors/atlassian-confluence-audit-preview.md)
-- [Automated Logic WebCTRL](dataconnectors/automated-logic-webctrl.md)
-- [Azure Active Directory solution for Sentinel](dataconnectors/azure-active-directory-solution-for-sentinel.md)
-- [Azure Active Directory Identity Protection](dataconnectors/azure-active-directory-identity-protection.md)
-- [Azure Cognitive Search solution for Sentinel (Preview)](dataconnectors/azure-cognitive-search-solution-for-sentinel-preview.md)
-- [Azure DDoS Protection solution for Sentinel](dataconnectors/azure-ddos-protection-solution-for-sentinel.md)
-- [Azure Event Hubs solution for Sentinel (Preview)](dataconnectors/azure-event-hubs-solution-for-sentinel-preview.md)
-- [Azure Information Protection solution for Sentinel](dataconnectors/azure-information-protection-solution-for-sentinel.md)
-- [Azure Key Vault solution for Sentinel](dataconnectors/azure-key-vault-solution-for-sentinel.md)
-- [Azure Logic Apps solution for Sentinel](dataconnectors/azure-logic-apps-solution-for-sentinel.md)
-- [Azure Service Bus solution for Sentinel (Preview)](dataconnectors/azure-service-bus-solution-for-sentinel-preview.md)
-- [Azure Storage solution for Sentinel](dataconnectors/azure-storage-solution-for-sentinel.md)
-- [Azure Stream Analytics solution for Sentinel (Preview)](dataconnectors/azure-stream-analytics-solution-for-sentinel-preview.md)
-- [Cisco Umbrella](dataconnectors/cisco-umbrella.md)
-- [Common Event Format solution for Sentinel](dataconnectors/common-event-format-solution-for-sentinel.md)
-- [Windows Server DNS solution for Sentinel](dataconnectors/windows-server-dns-solution-for-sentinel.md)
-- [Dynamics 365 solution for Sentinel](dataconnectors/dynamics-365-solution-for-sentinel.md)
-- [Imperva WAF Cloud Solution](dataconnectors/imperva-waf-cloud-solution.md)
-- [McAfee ePolicy Orchestrator Solution](dataconnectors/mcafee-epolicy-orchestrator-solution.md)
-- [Microsoft 365 Defender solution for Sentinel](dataconnectors/microsoft-365-defender-solution-for-sentinel.md)
-- [Microsoft Defender for Cloud solution for Sentinel](dataconnectors/microsoft-defender-for-cloud-solution-for-sentinel.md)
-- [Microsoft Defender for Cloud Apps solution for Sentinel](dataconnectors/microsoft-defender-for-cloud-apps-solution-for-sentinel.md)
-- [Microsoft Defender for Endpoint](dataconnectors/microsoft-defender-for-endpoint.md)
-- [Microsoft Defender for Office 365 solution for Sentinel](dataconnectors/microsoft-defender-for-office-365-solution-for-sentinel.md)
-- [Microsoft PowerBI solution for Sentinel](dataconnectors/microsoft-powerbi-solution-for-sentinel.md)
-- [Microsoft Project solution for Sentinel](dataconnectors/microsoft-project-solution-for-sentinel.md)
-- [Azure Network Security Groups solution for Sentinel](dataconnectors/azure-network-security-groups-solution-for-sentinel.md)
-- [Nginx](dataconnectors/nginx.md)
-- [Oracle Cloud Infrastructure](dataconnectors/oracle-cloud-infrastructure.md)
-- [Windows Security Events](dataconnectors/windows-security-events.md)
-- [SentinelOne](dataconnectors/sentinelone.md)
-- [VMware ESXi](dataconnectors/vmware-esxi.md)
-- [Windows Firewall](dataconnectors/windows-firewall.md)
-- [Windows Forwarded Events](dataconnectors/windows-forwarded-events.md)
+- [Akamai Security](data-connectors/akamai-security.md)
+- [Atlassian Confluence Audit (Preview)](data-connectors/atlassian-confluence-audit-preview.md)
+- [Automated Logic WebCTRL](data-connectors/automated-logic-webctrl.md)
+- [Azure Active Directory solution for Sentinel](data-connectors/azure-active-directory-solution-for-sentinel.md)
+- [Azure Active Directory Identity Protection](data-connectors/azure-active-directory-identity-protection.md)
+- [Azure Cognitive Search solution for Sentinel (Preview)](data-connectors/azure-cognitive-search-solution-for-sentinel-preview.md)
+- [Azure DDoS Protection solution for Sentinel](data-connectors/azure-ddos-protection-solution-for-sentinel.md)
+- [Azure Event Hubs solution for Sentinel (Preview)](data-connectors/azure-event-hubs-solution-for-sentinel-preview.md)
+- [Azure Information Protection solution for Sentinel](data-connectors/azure-information-protection-solution-for-sentinel.md)
+- [Azure Key Vault solution for Sentinel](data-connectors/azure-key-vault-solution-for-sentinel.md)
+- [Azure Logic Apps solution for Sentinel](data-connectors/azure-logic-apps-solution-for-sentinel.md)
+- [Azure Service Bus solution for Sentinel (Preview)](data-connectors/azure-service-bus-solution-for-sentinel-preview.md)
+- [Azure Storage solution for Sentinel](data-connectors/azure-storage-solution-for-sentinel.md)
+- [Azure Stream Analytics solution for Sentinel (Preview)](data-connectors/azure-stream-analytics-solution-for-sentinel-preview.md)
+- [Cisco Umbrella](data-connectors/cisco-umbrella.md)
+- [Common Event Format solution for Sentinel](data-connectors/common-event-format-solution-for-sentinel.md)
+- [Windows Server DNS solution for Sentinel](data-connectors/windows-server-dns-solution-for-sentinel.md)
+- [Dynamics 365 solution for Sentinel](data-connectors/dynamics-365-solution-for-sentinel.md)
+- [Imperva WAF Cloud Solution](data-connectors/imperva-waf-cloud-solution.md)
+- [McAfee ePolicy Orchestrator Solution](data-connectors/mcafee-epolicy-orchestrator-solution.md)
+- [Microsoft 365 Defender solution for Sentinel](data-connectors/microsoft-365-defender-solution-for-sentinel.md)
+- [Microsoft Defender for Cloud solution for Sentinel](data-connectors/microsoft-defender-for-cloud-solution-for-sentinel.md)
+- [Microsoft Defender for Cloud Apps solution for Sentinel](data-connectors/microsoft-defender-for-cloud-apps-solution-for-sentinel.md)
+- [Microsoft Defender for Endpoint](data-connectors/microsoft-defender-for-endpoint.md)
+- [Microsoft Defender for Office 365 solution for Sentinel](data-connectors/microsoft-defender-for-office-365-solution-for-sentinel.md)
+- [Microsoft PowerBI solution for Sentinel](data-connectors/microsoft-powerbi-solution-for-sentinel.md)
+- [Microsoft Project solution for Sentinel](data-connectors/microsoft-project-solution-for-sentinel.md)
+- [Azure Network Security Groups solution for Sentinel](data-connectors/azure-network-security-groups-solution-for-sentinel.md)
+- [Nginx](data-connectors/nginx.md)
+- [Oracle Cloud Infrastructure](data-connectors/oracle-cloud-infrastructure.md)
+- [Windows Security Events](data-connectors/windows-security-events.md)
+- [SentinelOne](data-connectors/sentinelone.md)
+- [VMware ESXi](data-connectors/vmware-esxi.md)
+- [Windows Firewall](data-connectors/windows-firewall.md)
+- [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)
 
 ## Microsoft Corporation
 
-- [Azure Firewall Solution for Sentinel (Preview)](dataconnectors/azure-firewall-solution-for-sentinel-preview.md)
+- [Azure Firewall Solution for Sentinel (Preview)](data-connectors/azure-firewall-solution-for-sentinel-preview.md)
 
 ## Microsoft Corporation - sentinel4github
 
-- [Microsoft Sentinel - Continuous Threat Monitoring for GitHub (Preview)](dataconnectors/microsoft-sentinel-continuous-threat-monitoring-for-github-preview.md)
+- [Microsoft Sentinel - Continuous Threat Monitoring for GitHub (Preview)](data-connectors/microsoft-sentinel-continuous-threat-monitoring-for-github-preview.md)
 
 ## Microsoft Sentinel Community, Microsoft Corporation
 
-- [Forcepoint CASB](dataconnectors/forcepoint-casb.md)
-- [Forcepoint CSG](dataconnectors/forcepoint-csg.md)
-- [Forcepoint DLP](dataconnectors/forcepoint-dlp.md)
-- [Forcepoint NGFW](dataconnectors/forcepoint-ngfw.md)
+- [Forcepoint CASB](data-connectors/forcepoint-casb.md)
+- [Forcepoint CSG](data-connectors/forcepoint-csg.md)
+- [Forcepoint DLP](data-connectors/forcepoint-dlp.md)
+- [Forcepoint NGFW](data-connectors/forcepoint-ngfw.md)
 
 ## MongoDB
 
-- [MongoDB Audit](dataconnectors/mongodb-audit.md)
+- [MongoDB Audit](data-connectors/mongodb-audit.md)
 
 ## MuleSoft
 
-- [Mulesoft](dataconnectors/mulesoft.md)
+- [Mulesoft](data-connectors/mulesoft.md)
 
 ## Netwrix
 
-- [Netwrix Auditor (Preview)](dataconnectors/netwrix-auditor-preview.md)
+- [Netwrix Auditor (Preview)](data-connectors/netwrix-auditor-preview.md)
 
 ## Nozomi Networks
 
-- [Nozomi Networks](dataconnectors/nozomi-networks.md)
+- [Nozomi Networks](data-connectors/nozomi-networks.md)
 
 ## NXLog Ltd.
 
-- [NXLog AIX Audit for Azure Sentinel](dataconnectors/nxlog-aix-audit-for-azure-sentinel.md)
-- [NXLog DNS Logs for Azure Sentinel](dataconnectors/nxlog-dns-logs-for-azure-sentinel.md)
-- [NXLog LinuxAudit for Microsoft Sentinel](dataconnectors/nxlog-linuxaudit-for-microsoft-sentinel.md)
+- [NXLog AIX Audit for Azure Sentinel](data-connectors/nxlog-aix-audit-for-azure-sentinel.md)
+- [NXLog DNS Logs for Azure Sentinel](data-connectors/nxlog-dns-logs-for-azure-sentinel.md)
+- [NXLog LinuxAudit for Microsoft Sentinel](data-connectors/nxlog-linuxaudit-for-microsoft-sentinel.md)
 
 ## Okta
 
-- [Okta Single Sign-On Solution](dataconnectors/okta-single-sign-on-solution.md)
+- [Okta Single Sign-On Solution](data-connectors/okta-single-sign-on-solution.md)
 
 ## OneLogin
 
-- [OneLogin IAM](dataconnectors/onelogin-iam.md)
+- [OneLogin IAM](data-connectors/onelogin-iam.md)
 
 ## OpenVPN
 
-- [OpenVPN](dataconnectors/openvpn.md)
+- [OpenVPN](data-connectors/openvpn.md)
 
 ## Oracle
 
-- [Oracle Database Audit Solution](dataconnectors/oracle-database-audit-solution.md)
-- [Oracle WebLogic Server](dataconnectors/oracle-weblogic-server.md)
+- [Oracle Database Audit Solution](data-connectors/oracle-database-audit-solution.md)
+- [Oracle WebLogic Server](data-connectors/oracle-weblogic-server.md)
 
 ## OSSEC
 
-- [OSSEC](dataconnectors/ossec.md)
+- [OSSEC](data-connectors/ossec.md)
 
 ## Palo Alto Networks
 
-- [Palo Alto Networks Cortex Data Lake Solution](dataconnectors/palo-alto-networks-cortex-data-lake-solution.md)
-- [Palo Alto Prisma Solution](dataconnectors/palo-alto-prisma-solution.md)
+- [Palo Alto Networks Cortex Data Lake Solution](data-connectors/palo-alto-networks-cortex-data-lake-solution.md)
+- [Palo Alto Prisma Solution](data-connectors/palo-alto-prisma-solution.md)
 
 ## Ping Identity
 
-- [PingFederate](dataconnectors/pingfederate.md)
+- [PingFederate](data-connectors/pingfederate.md)
 
 ## PostgreSQL
 
-- [PostgreSQL](dataconnectors/postgresql.md)
+- [PostgreSQL](data-connectors/postgresql.md)
 
 ## Proofpoint
 
-- [Proofpoint TAP Solution](dataconnectors/proofpoint-tap-solution.md)
+- [Proofpoint TAP Solution](data-connectors/proofpoint-tap-solution.md)
 
 ## Pulse Secure
 
-- [Pulse Connect Secure](dataconnectors/pulse-connect-secure.md)
+- [Pulse Connect Secure](data-connectors/pulse-connect-secure.md)
 
 ## Qualys
 
-- [Qualys VM Knowledgebase](dataconnectors/qualys-vm-knowledgebase.md)
-- [Qualys VM Solution](dataconnectors/qualys-vm-solution.md)
+- [Qualys VM Knowledgebase](data-connectors/qualys-vm-knowledgebase.md)
+- [Qualys VM Solution](data-connectors/qualys-vm-solution.md)
 
 ## RedHat
 
-- [Jboss](dataconnectors/jboss.md)
+- [Jboss](data-connectors/jboss.md)
 
 ## Rubrik, Inc.
 
-- [Rubrik Integration with Sentinel for Ransomware Protection](dataconnectors/rubrik-integration-with-sentinel-for-ransomware-protection.md)
+- [Rubrik Integration with Sentinel for Ransomware Protection](data-connectors/rubrik-integration-with-sentinel-for-ransomware-protection.md)
 
 ## SailPoint
 
-- [SailPoint Sentinel Integration](dataconnectors/sailpoint-sentinel-integration.md)
+- [SailPoint Sentinel Integration](data-connectors/sailpoint-sentinel-integration.md)
 
 ## Salesforce
 
-- [Salesforce Service Cloud](dataconnectors/salesforce-service-cloud.md)
+- [Salesforce Service Cloud](data-connectors/salesforce-service-cloud.md)
 
 ## SecurityBridge
 
-- [SecurityBridge App for Microsoft Sentinel](dataconnectors/securitybridge-app-for-microsoft-sentinel.md)
+- [SecurityBridge App for Microsoft Sentinel](data-connectors/securitybridge-app-for-microsoft-sentinel.md)
 
 ## Semperis
 
-- [Semperis Directory Services Protector Solution](dataconnectors/semperis-directory-services-protector-solution.md)
+- [Semperis Directory Services Protector Solution](data-connectors/semperis-directory-services-protector-solution.md)
 
 ## Senserva, LLC
 
-- [Senserva Offer for Microsoft Sentinel](dataconnectors/senserva-offer-for-microsoft-sentinel.md)
+- [Senserva Offer for Microsoft Sentinel](data-connectors/senserva-offer-for-microsoft-sentinel.md)
 
 ## Slack
 
-- [Slack Audit Solution](dataconnectors/slack-audit-solution.md)
+- [Slack Audit Solution](data-connectors/slack-audit-solution.md)
 
 ## Snowflake
 
-- [Snowflake](dataconnectors/snowflake.md)
+- [Snowflake](data-connectors/snowflake.md)
 
 ## SonicWall Inc
 
-- [SonicWall Network Security for Microsoft Sentinel](dataconnectors/sonicwall-network-security-for-microsoft-sentinel.md)
+- [SonicWall Network Security for Microsoft Sentinel](data-connectors/sonicwall-network-security-for-microsoft-sentinel.md)
 
 ## Sonrai Security
 
-- [Sonrai Security for Microsoft Sentinel](dataconnectors/sonrai-security-for-microsoft-sentinel.md)
+- [Sonrai Security for Microsoft Sentinel](data-connectors/sonrai-security-for-microsoft-sentinel.md)
 
 ## Sophos
 
-- [Sophos Endpoint Protection Solution](dataconnectors/sophos-endpoint-protection-solution.md)
-- [Sophos XG Firewall Solution](dataconnectors/sophos-xg-firewall-solution.md)
+- [Sophos Endpoint Protection Solution](data-connectors/sophos-endpoint-protection-solution.md)
+- [Sophos XG Firewall Solution](data-connectors/sophos-xg-firewall-solution.md)
 
 ## Squid
 
-- [SquidProxy](dataconnectors/squidproxy.md)
+- [SquidProxy](data-connectors/squidproxy.md)
 
 ## Symantec
 
-- [Symantec Endpoint Protection Solution](dataconnectors/symantec-endpoint-protection-solution.md)
-- [Symantec Integrated Cyber Defense](dataconnectors/symantec-integrated-cyber-defense.md)
-- [Symantec ProxySG Solution](dataconnectors/symantec-proxysg-solution.md)
-- [Symantec VIP](dataconnectors/symantec-vip.md)
+- [Symantec Endpoint Protection Solution](data-connectors/symantec-endpoint-protection-solution.md)
+- [Symantec Integrated Cyber Defense](data-connectors/symantec-integrated-cyber-defense.md)
+- [Symantec ProxySG Solution](data-connectors/symantec-proxysg-solution.md)
+- [Symantec VIP](data-connectors/symantec-vip.md)
 
 ## Tenable
 
-- [Tenable App for Microsoft Sentinel](dataconnectors/tenable-app-for-microsoft-sentinel.md)
+- [Tenable App for Microsoft Sentinel](data-connectors/tenable-app-for-microsoft-sentinel.md)
 
 ## The Collective Consulting BV
 
-- [Lastpass Enterprise Activity Monitoring](dataconnectors/lastpass-enterprise-activity-monitoring.md)
+- [Lastpass Enterprise Activity Monitoring](data-connectors/lastpass-enterprise-activity-monitoring.md)
 
 ## TheHive
 
-- [TheHive Solution](dataconnectors/thehive-solution.md)
+- [TheHive Solution](data-connectors/thehive-solution.md)
 
 ## TrendMicro
 
-- [Trend Micro Apex One Solution](dataconnectors/trend-micro-apex-one-solution.md)
+- [Trend Micro Apex One Solution](data-connectors/trend-micro-apex-one-solution.md)
 
 ## Ubiquiti
 
-- [Ubiquiti UniFi](dataconnectors/ubiquiti-unifi.md)
+- [Ubiquiti UniFi](data-connectors/ubiquiti-unifi.md)
 
 ## vArmour Networks
 
-- [vArmour Application Controller and Azure Sentinel Solution](dataconnectors/varmour-application-controller-and-azure-sentinel-solution.md)
+- [vArmour Application Controller and Azure Sentinel Solution](data-connectors/varmour-application-controller-and-azure-sentinel-solution.md)
 
 ## Vectra AI, Inc
 
-- [Vectra AI Stream Sentinel Solution](dataconnectors/vectra-ai-stream-sentinel-solution.md)
-- [Vectra Detect for Microsoft Sentinel](dataconnectors/vectra-detect-for-microsoft-sentinel.md)
+- [Vectra AI Stream Sentinel Solution](data-connectors/vectra-ai-stream-sentinel-solution.md)
+- [Vectra Detect for Microsoft Sentinel](data-connectors/vectra-detect-for-microsoft-sentinel.md)
 
 ## VMRay GmbH
 
-- [VMRay Email Threat Defender Connector for Azure Sentinel](dataconnectors/vmray-email-threat-defender-connector-for-azure-sentinel.md)
+- [VMRay Email Threat Defender Connector for Azure Sentinel](data-connectors/vmray-email-threat-defender-connector-for-azure-sentinel.md)
 
 ## VMware
 
-- [VMware vCenter](dataconnectors/vmware-vcenter.md)
+- [VMware vCenter](data-connectors/vmware-vcenter.md)
 
 ## VMWare
 
-- [VMware Carbon Black Cloud](dataconnectors/vmware-carbon-black-cloud.md)
+- [VMware Carbon Black Cloud](data-connectors/vmware-carbon-black-cloud.md)
 
 ## WatchGuard Technologies
 
-- [Azure Sentinel for WatchGuard Firebox](dataconnectors/azure-sentinel-for-watchguard-firebox.md)
+- [Azure Sentinel for WatchGuard Firebox](data-connectors/azure-sentinel-for-watchguard-firebox.md)
 
 ## WireX Systems
 
-- [WireX Network Forensics Platform for Microsoft Sentinel](dataconnectors/wirex-network-forensics-platform-for-microsoft-sentinel.md)
+- [WireX Network Forensics Platform for Microsoft Sentinel](data-connectors/wirex-network-forensics-platform-for-microsoft-sentinel.md)
 
 ## Zscaler
 
-- [Zscaler Internet Access for Microsoft Sentinel](dataconnectors/zscaler-internet-access-for-microsoft-sentinel.md)
-- [Zscaler Private Access](dataconnectors/zscaler-private-access.md)
+- [Zscaler Internet Access for Microsoft Sentinel](data-connectors/zscaler-internet-access-for-microsoft-sentinel.md)
+- [Zscaler Private Access](data-connectors/zscaler-private-access.md)
 
 [comment]: <> (DataConnector includes end)
 

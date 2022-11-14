@@ -1,9 +1,9 @@
 ---
-title: Google Workspace Reports connector for Microsoft Sentinel
-description: Learn how to install the Google Workspace Reports connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "Google Workspace Reports connector for Microsoft Sentinel"
+description: "Learn how to install the Google Workspace Reports connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -87,7 +87,7 @@ GWorkspace_ReportsAPI_user_accounts_CL
 
 To integrate with Google Workspace Reports make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **REST API Credentials/permissions**: **GooglePickleString** is required for REST API. [See the documentation to learn more about API](https://developers.google.com/admin-sdk/reports/v1/reference/activities). Please find the instructions to obtain the credentials in the configuration section below. You can check all [requirements and follow the instructions](https://developers.google.com/admin-sdk/reports/v1/quickstart/python) from here as well.
 
 
@@ -98,7 +98,7 @@ To integrate with Google Workspace Reports make sure you have:
    >  This connector uses Azure Functions to connect to the Google Reports API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
@@ -161,7 +161,7 @@ Use the following step-by-step instructions to deploy the Google Workspace data 
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-GWorkspaceReportsAPI-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

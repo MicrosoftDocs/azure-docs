@@ -1,9 +1,9 @@
 ---
-title: Automated Logic WebCTRL connector for Microsoft Sentinel
-description: Learn how to install the Automated Logic WebCTRL connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "Automated Logic WebCTRL connector for Microsoft Sentinel"
+description: "Learn how to install the Automated Logic WebCTRL connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -37,7 +37,7 @@ Event
 
 1. Install and onboard the Microsoft agent for Windows.
 
-Learn about [agent setup](https://docs.microsoft.com/services-hub/health/mma-setup) and [windows events onboarding](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources-windows-events). 
+Learn about [agent setup](https://learn.microsoft.com/services-hub/health/mma-setup) and [windows events onboarding](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-windows-events). 
 
  You can skip this step if you have already installed the Microsoft agent for Windows
 

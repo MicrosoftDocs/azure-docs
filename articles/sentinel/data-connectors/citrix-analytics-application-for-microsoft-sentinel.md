@@ -1,9 +1,9 @@
 ---
-title: Citrix Analytics Application connector for Microsoft Sentinel
-description: Learn how to install the Citrix Analytics Application connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "Citrix Analytics Application connector for Microsoft Sentinel"
+description: "Learn how to install the Citrix Analytics Application connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

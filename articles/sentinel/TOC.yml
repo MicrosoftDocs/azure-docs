@@ -241,795 +241,321 @@
       - name: Windows security events
         href: data-connectors-reference.md#windows-security-events-via-ama
     - name: All connectors
-      href: 
-      displayName: 
-      monikers: 
       items:
       - name: Abnormal Security Events
-        href: dataconnectors/abnormal-security-events.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/abnormal-security-events.md
       - name: AI Analyst Darktrace
-        href: dataconnectors/ai-analyst-darktrace.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/ai-analyst-darktrace.md
       - name: Vectra AI Stream Sentinel Solution
-        href: dataconnectors/vectra-ai-stream-sentinel-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/vectra-ai-stream-sentinel-solution.md
       - name: AIShield - AI Security Monitoring for Microsoft Sentinel
-        href: dataconnectors/aishield-ai-security-monitoring-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/aishield-ai-security-monitoring-for-microsoft-sentinel.md
       - name: Akamai Security
-        href: dataconnectors/akamai-security.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/akamai-security.md
       - name: Alibaba Cloud (Preview)
-        href: dataconnectors/alibaba-cloud-preview.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/alibaba-cloud-preview.md
       - name: Amazon Web Services (Preview)
-        href: dataconnectors/amazon-web-services-preview.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/amazon-web-services-preview.md
       - name: Apache Http Server
-        href: dataconnectors/apache-http-server.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/apache-http-server.md
       - name: Apache Tomcat
-        href: dataconnectors/apache-tomcat.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/apache-tomcat.md
       - name: 42Crunch Microsoft Sentinel Connector
-        href: dataconnectors/42crunch-microsoft-sentinel-connector.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/42crunch-microsoft-sentinel-connector.md
       - name: ARGOS Cloud Security for Microsoft Sentinel
-        href: dataconnectors/argos-cloud-security-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/argos-cloud-security-for-microsoft-sentinel.md
       - name: Armorblox for Azure Sentinel
-        href: dataconnectors/armorblox-for-azure-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/armorblox-for-azure-sentinel.md
       - name: Aruba ClearPass
-        href: dataconnectors/aruba-clearpass.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/aruba-clearpass.md
       - name: Atlassian Confluence Audit (Preview)
-        href: dataconnectors/atlassian-confluence-audit-preview.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/atlassian-confluence-audit-preview.md
       - name: Atlassian Jira Audit
-        href: dataconnectors/atlassian-jira-audit.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/atlassian-jira-audit.md
       - name: Auth0
-        href: dataconnectors/auth0.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/auth0.md
       - name: Automated Logic WebCTRL
-        href: dataconnectors/automated-logic-webctrl.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/automated-logic-webctrl.md
       - name: Awake Security (Arista Networks) - Azure Sentinel
-        href: dataconnectors/awake-security-arista-networks-azure-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/awake-security-arista-networks-azure-sentinel.md
       - name: Azure Active Directory solution for Sentinel
-        href: dataconnectors/azure-active-directory-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-active-directory-solution-for-sentinel.md
       - name: Azure Active Directory Identity Protection
-        href: dataconnectors/azure-active-directory-identity-protection.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-active-directory-identity-protection.md
       - name: Azure Cognitive Search solution for Sentinel (Preview)
-        href: dataconnectors/azure-cognitive-search-solution-for-sentinel-preview.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-cognitive-search-solution-for-sentinel-preview.md
       - name: Azure DDoS Protection solution for Sentinel
-        href: dataconnectors/azure-ddos-protection-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-ddos-protection-solution-for-sentinel.md
       - name: Azure Event Hubs solution for Sentinel (Preview)
-        href: dataconnectors/azure-event-hubs-solution-for-sentinel-preview.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-event-hubs-solution-for-sentinel-preview.md
       - name: Azure Firewall Solution for Sentinel (Preview)
-        href: dataconnectors/azure-firewall-solution-for-sentinel-preview.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-firewall-solution-for-sentinel-preview.md
       - name: Azure Information Protection solution for Sentinel
-        href: dataconnectors/azure-information-protection-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-information-protection-solution-for-sentinel.md
       - name: Azure Key Vault solution for Sentinel
-        href: dataconnectors/azure-key-vault-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-key-vault-solution-for-sentinel.md
       - name: Azure Logic Apps solution for Sentinel
-        href: dataconnectors/azure-logic-apps-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-logic-apps-solution-for-sentinel.md
       - name: Azure Service Bus solution for Sentinel (Preview)
-        href: dataconnectors/azure-service-bus-solution-for-sentinel-preview.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-service-bus-solution-for-sentinel-preview.md
       - name: Azure Storage solution for Sentinel
-        href: dataconnectors/azure-storage-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-storage-solution-for-sentinel.md
       - name: Azure Stream Analytics solution for Sentinel (Preview)
-        href: dataconnectors/azure-stream-analytics-solution-for-sentinel-preview.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-stream-analytics-solution-for-sentinel-preview.md
       - name: Bitglass Solution
-        href: dataconnectors/bitglass-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/bitglass-solution.md
       - name: Blackberry CylancePROTECT
-        href: dataconnectors/blackberry-cylanceprotect.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/blackberry-cylanceprotect.md
       - name: Box Solution
-        href: dataconnectors/box-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/box-solution.md
       - name: Broadcom SymantecDLP
-        href: dataconnectors/broadcom-symantecdlp.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/broadcom-symantecdlp.md
       - name: Cisco ACI Solution
-        href: dataconnectors/cisco-aci-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/cisco-aci-solution.md
       - name: Cisco Firepower eStreamer
-        href: dataconnectors/cisco-firepower-estreamer.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/cisco-firepower-estreamer.md
       - name: Cisco SEG Solution
-        href: dataconnectors/cisco-seg-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/cisco-seg-solution.md
       - name: Cisco Secure Endpoint Solution
-        href: dataconnectors/cisco-secure-endpoint-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/cisco-secure-endpoint-solution.md
       - name: Cisco UCS
-        href: dataconnectors/cisco-ucs.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/cisco-ucs.md
       - name: Cisco Umbrella
-        href: dataconnectors/cisco-umbrella.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/cisco-umbrella.md
       - name: Cisco WSA
-        href: dataconnectors/cisco-wsa.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/cisco-wsa.md
       - name: Citrix ADC
-        href: dataconnectors/citrix-adc.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/citrix-adc.md
       - name: Citrix Analytics Application for Microsoft Sentinel
-        href: dataconnectors/citrix-analytics-application-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/citrix-analytics-application-for-microsoft-sentinel.md
       - name: Cloudflare Solution
-        href: dataconnectors/cloudflare-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/cloudflare-solution.md
       - name: Common Event Format solution for Sentinel
-        href: dataconnectors/common-event-format-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/common-event-format-solution-for-sentinel.md
       - name: Contrast Protect for Microsoft Sentinel
-        href: dataconnectors/contrast-protect-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/contrast-protect-for-microsoft-sentinel.md
       - name: Corelight for Microsoft Sentinel
-        href: dataconnectors/corelight-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/corelight-for-microsoft-sentinel.md
       - name: CrowdStrike Falcon Endpoint Protection
-        href: dataconnectors/crowdstrike-falcon-endpoint-protection.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/crowdstrike-falcon-endpoint-protection.md
       - name: CyberArk EPM/Sentinel Integration
-        href: dataconnectors/cyberark-epm-sentinel-integration.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/cyberark-epm-sentinel-integration.md
       - name: Darktrace for Microsoft Sentinel
-        href: dataconnectors/darktrace-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/darktrace-for-microsoft-sentinel.md
       - name: Delinea Secret Server for Microsoft Sentinel
-        href: dataconnectors/delinea-secret-server-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/delinea-secret-server-for-microsoft-sentinel.md
       - name: SIGNL4 – Mobile Alerting for Microsoft Sentinel
-        href: dataconnectors/signl4-mobile-alerting-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/signl4-mobile-alerting-for-microsoft-sentinel.md
       - name: Digital Shadows SearchLight for Sentinel
-        href: dataconnectors/digital-shadows-searchlight-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/digital-shadows-searchlight-for-sentinel.md
       - name: Windows Server DNS solution for Sentinel
-        href: dataconnectors/windows-server-dns-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/windows-server-dns-solution-for-sentinel.md
       - name: Dynamics 365 solution for Sentinel
-        href: dataconnectors/dynamics-365-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/dynamics-365-solution-for-sentinel.md
       - name: Elastic Agent Solution (Preview)
-        href: dataconnectors/elastic-agent-solution-preview.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/elastic-agent-solution-preview.md
       - name: ESET PROTECT integration for Azure Sentinel
-        href: dataconnectors/eset-protect-integration-for-azure-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/eset-protect-integration-for-azure-sentinel.md
       - name: Exabeam Advanced Analytics
-        href: dataconnectors/exabeam-advanced-analytics.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/exabeam-advanced-analytics.md
       - name: ExtraHop Reveal(x) for Microsoft Sentinel
-        href: dataconnectors/extrahop-reveal-x-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/extrahop-reveal-x-for-microsoft-sentinel.md
       - name: 'F5 Advanced WAF: Integration with Microsoft Sentinel'
-        href: dataconnectors/f5-advanced-waf-integration-with-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/f5-advanced-waf-integration-with-microsoft-sentinel.md
       - name: F5 Adv. WAF Integration via Syslog/CEF for Microsoft Sentinel
-        href: dataconnectors/f5-adv-waf-integration-via-syslog-cef-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/f5-adv-waf-integration-via-syslog-cef-for-microsoft-sentinel.md
       - name: Flare for Microsoft Sentinel
-        href: dataconnectors/flare-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/flare-for-microsoft-sentinel.md
       - name: Forcepoint CASB
-        href: dataconnectors/forcepoint-casb.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/forcepoint-casb.md
       - name: Forcepoint CSG
-        href: dataconnectors/forcepoint-csg.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/forcepoint-csg.md
       - name: Forcepoint DLP
-        href: dataconnectors/forcepoint-dlp.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/forcepoint-dlp.md
       - name: Forcepoint NGFW
-        href: dataconnectors/forcepoint-ngfw.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/forcepoint-ngfw.md
       - name: Microsoft Sentinel - Continuous Threat Monitoring for GitHub (Preview)
-        href: dataconnectors/microsoft-sentinel-continuous-threat-monitoring-for-github-preview.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/microsoft-sentinel-continuous-threat-monitoring-for-github-preview.md
       - name: Gitlab
-        href: dataconnectors/gitlab.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/gitlab.md
       - name: Google Cloud Platform Cloud Monitoring Solution
-        href: dataconnectors/google-cloud-platform-cloud-monitoring-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/google-cloud-platform-cloud-monitoring-solution.md
       - name: Google Cloud Platform DNS Solution
-        href: dataconnectors/google-cloud-platform-dns-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/google-cloud-platform-dns-solution.md
       - name: Google Cloud Platform IAM
-        href: dataconnectors/google-cloud-platform-iam.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/google-cloud-platform-iam.md
       - name: Google Workspace Reports
-        href: dataconnectors/google-workspace-reports.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/google-workspace-reports.md
       - name: Holm Security for Azure Sentinel
-        href: dataconnectors/holm-security-for-azure-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/holm-security-for-azure-sentinel.md
       - name: Illumio Core
-        href: dataconnectors/illumio-core.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/illumio-core.md
       - name: Illusive Attack Surface Analysis and Incident Logs for Microsoft Sentinel
-        href: dataconnectors/illusive-attack-surface-analysis-and-incident-logs-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/illusive-attack-surface-analysis-and-incident-logs-for-microsoft-sentinel.md
       - name: Imperva WAF Cloud Solution
-        href: dataconnectors/imperva-waf-cloud-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/imperva-waf-cloud-solution.md
       - name: Infoblox Cloud for Microsoft Sentinel
-        href: dataconnectors/infoblox-cloud-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/infoblox-cloud-for-microsoft-sentinel.md
       - name: AgileSec Analytics Connector
-        href: dataconnectors/agilesec-analytics-connector.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/agilesec-analytics-connector.md
       - name: Ivanti Unified Endpoint Management
-        href: dataconnectors/ivanti-unified-endpoint-management.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/ivanti-unified-endpoint-management.md
       - name: Jboss
-        href: dataconnectors/jboss.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/jboss.md
       - name: Juniper IDP Solution
-        href: dataconnectors/juniper-idp-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/juniper-idp-solution.md
       - name: Juniper SRX
-        href: dataconnectors/juniper-srx.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/juniper-srx.md
       - name: Lastpass Enterprise Activity Monitoring
-        href: dataconnectors/lastpass-enterprise-activity-monitoring.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/lastpass-enterprise-activity-monitoring.md
       - name: Lookout Mobile Threat Defense for Azure Sentinel
-        href: dataconnectors/lookout-mobile-threat-defense-for-azure-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/lookout-mobile-threat-defense-for-azure-sentinel.md
       - name: MarkLogic Audit
-        href: dataconnectors/marklogic-audit.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/marklogic-audit.md
       - name: McAfee ePolicy Orchestrator Solution
-        href: dataconnectors/mcafee-epolicy-orchestrator-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/mcafee-epolicy-orchestrator-solution.md
       - name: McAfee Network Security Platform Solution
-        href: dataconnectors/mcafee-network-security-platform-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/mcafee-network-security-platform-solution.md
       - name: Microsoft 365 Defender solution for Sentinel
-        href: dataconnectors/microsoft-365-defender-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/microsoft-365-defender-solution-for-sentinel.md
       - name: Microsoft Defender for Cloud solution for Sentinel
-        href: dataconnectors/microsoft-defender-for-cloud-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/microsoft-defender-for-cloud-solution-for-sentinel.md
       - name: Microsoft Defender for Cloud Apps solution for Sentinel
-        href: dataconnectors/microsoft-defender-for-cloud-apps-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/microsoft-defender-for-cloud-apps-solution-for-sentinel.md
       - name: Microsoft Defender for Endpoint
-        href: dataconnectors/microsoft-defender-for-endpoint.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/microsoft-defender-for-endpoint.md
       - name: Microsoft Defender for Office 365 solution for Sentinel
-        href: dataconnectors/microsoft-defender-for-office-365-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/microsoft-defender-for-office-365-solution-for-sentinel.md
       - name: Microsoft PowerBI solution for Sentinel
-        href: dataconnectors/microsoft-powerbi-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/microsoft-powerbi-solution-for-sentinel.md
       - name: Microsoft Project solution for Sentinel
-        href: dataconnectors/microsoft-project-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/microsoft-project-solution-for-sentinel.md
       - name: Microsoft Sysmon For Linux Solution
-        href: dataconnectors/microsoft-sysmon-for-linux-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/microsoft-sysmon-for-linux-solution.md
       - name: MongoDB Audit
-        href: dataconnectors/mongodb-audit.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/mongodb-audit.md
       - name: Mulesoft
-        href: dataconnectors/mulesoft.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/mulesoft.md
       - name: NC Protect Data Connector for Microsoft Sentinel
-        href: dataconnectors/nc-protect-data-connector-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/nc-protect-data-connector-for-microsoft-sentinel.md
       - name: Azure Network Security Groups solution for Sentinel
-        href: dataconnectors/azure-network-security-groups-solution-for-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-network-security-groups-solution-for-sentinel.md
       - name: Netwrix Auditor (Preview)
-        href: dataconnectors/netwrix-auditor-preview.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/netwrix-auditor-preview.md
       - name: Nginx
-        href: dataconnectors/nginx.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/nginx.md
       - name: Nozomi Networks
-        href: dataconnectors/nozomi-networks.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/nozomi-networks.md
       - name: NXLog AIX Audit for Azure Sentinel
-        href: dataconnectors/nxlog-aix-audit-for-azure-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/nxlog-aix-audit-for-azure-sentinel.md
       - name: NXLog DNS Logs for Azure Sentinel
-        href: dataconnectors/nxlog-dns-logs-for-azure-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/nxlog-dns-logs-for-azure-sentinel.md
       - name: NXLog LinuxAudit for Microsoft Sentinel
-        href: dataconnectors/nxlog-linuxaudit-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/nxlog-linuxaudit-for-microsoft-sentinel.md
       - name: Okta Single Sign-On Solution
-        href: dataconnectors/okta-single-sign-on-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/okta-single-sign-on-solution.md
       - name: OneLogin IAM
-        href: dataconnectors/onelogin-iam.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/onelogin-iam.md
       - name: OpenVPN
-        href: dataconnectors/openvpn.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/openvpn.md
       - name: Oracle Cloud Infrastructure
-        href: dataconnectors/oracle-cloud-infrastructure.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/oracle-cloud-infrastructure.md
       - name: Oracle Database Audit Solution
-        href: dataconnectors/oracle-database-audit-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/oracle-database-audit-solution.md
       - name: Oracle WebLogic Server
-        href: dataconnectors/oracle-weblogic-server.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/oracle-weblogic-server.md
       - name: OSSEC
-        href: dataconnectors/ossec.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/ossec.md
       - name: Palo Alto Networks Cortex Data Lake Solution
-        href: dataconnectors/palo-alto-networks-cortex-data-lake-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/palo-alto-networks-cortex-data-lake-solution.md
       - name: Palo Alto Prisma Solution
-        href: dataconnectors/palo-alto-prisma-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/palo-alto-prisma-solution.md
       - name: PingFederate
-        href: dataconnectors/pingfederate.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/pingfederate.md
       - name: PostgreSQL
-        href: dataconnectors/postgresql.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/postgresql.md
       - name: Proofpoint TAP Solution
-        href: dataconnectors/proofpoint-tap-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/proofpoint-tap-solution.md
       - name: Pulse Connect Secure
-        href: dataconnectors/pulse-connect-secure.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/pulse-connect-secure.md
       - name: Qualys VM Knowledgebase
-        href: dataconnectors/qualys-vm-knowledgebase.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/qualys-vm-knowledgebase.md
       - name: Qualys VM Solution
-        href: dataconnectors/qualys-vm-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/qualys-vm-solution.md
       - name: InsightVM CloudAPI Solution
-        href: dataconnectors/insightvm-cloudapi-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/insightvm-cloudapi-solution.md
       - name: Rubrik Integration with Sentinel for Ransomware Protection
-        href: dataconnectors/rubrik-integration-with-sentinel-for-ransomware-protection.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/rubrik-integration-with-sentinel-for-ransomware-protection.md
       - name: SailPoint Sentinel Integration
-        href: dataconnectors/sailpoint-sentinel-integration.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/sailpoint-sentinel-integration.md
       - name: Salesforce Service Cloud
-        href: dataconnectors/salesforce-service-cloud.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/salesforce-service-cloud.md
       - name: Windows Security Events
-        href: dataconnectors/windows-security-events.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/windows-security-events.md
       - name: SecurityBridge App for Microsoft Sentinel
-        href: dataconnectors/securitybridge-app-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/securitybridge-app-for-microsoft-sentinel.md
       - name: Semperis Directory Services Protector Solution
-        href: dataconnectors/semperis-directory-services-protector-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/semperis-directory-services-protector-solution.md
       - name: Senserva Offer for Microsoft Sentinel
-        href: dataconnectors/senserva-offer-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/senserva-offer-for-microsoft-sentinel.md
       - name: SentinelOne
-        href: dataconnectors/sentinelone.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/sentinelone.md
       - name: Slack Audit Solution
-        href: dataconnectors/slack-audit-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/slack-audit-solution.md
       - name: Snowflake
-        href: dataconnectors/snowflake.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/snowflake.md
       - name: SonicWall Network Security for Microsoft Sentinel
-        href: dataconnectors/sonicwall-network-security-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/sonicwall-network-security-for-microsoft-sentinel.md
       - name: Sonrai Security for Microsoft Sentinel
-        href: dataconnectors/sonrai-security-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/sonrai-security-for-microsoft-sentinel.md
       - name: Sophos Endpoint Protection Solution
-        href: dataconnectors/sophos-endpoint-protection-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/sophos-endpoint-protection-solution.md
       - name: Sophos XG Firewall Solution
-        href: dataconnectors/sophos-xg-firewall-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/sophos-xg-firewall-solution.md
       - name: SquidProxy
-        href: dataconnectors/squidproxy.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/squidproxy.md
       - name: Symantec Endpoint Protection Solution
-        href: dataconnectors/symantec-endpoint-protection-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/symantec-endpoint-protection-solution.md
       - name: Symantec Integrated Cyber Defense
-        href: dataconnectors/symantec-integrated-cyber-defense.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/symantec-integrated-cyber-defense.md
       - name: Symantec ProxySG Solution
-        href: dataconnectors/symantec-proxysg-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/symantec-proxysg-solution.md
       - name: Symantec VIP
-        href: dataconnectors/symantec-vip.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/symantec-vip.md
       - name: Tenable App for Microsoft Sentinel
-        href: dataconnectors/tenable-app-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/tenable-app-for-microsoft-sentinel.md
       - name: TheHive Solution
-        href: dataconnectors/thehive-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/thehive-solution.md
       - name: Trend Micro Apex One Solution
-        href: dataconnectors/trend-micro-apex-one-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/trend-micro-apex-one-solution.md
       - name: Ubiquiti UniFi
-        href: dataconnectors/ubiquiti-unifi.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/ubiquiti-unifi.md
       - name: vArmour Application Controller and Azure Sentinel Solution
-        href: dataconnectors/varmour-application-controller-and-azure-sentinel-solution.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/varmour-application-controller-and-azure-sentinel-solution.md
       - name: Vectra Detect for Microsoft Sentinel
-        href: dataconnectors/vectra-detect-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/vectra-detect-for-microsoft-sentinel.md
       - name: VMRay Email Threat Defender Connector for Azure Sentinel
-        href: dataconnectors/vmray-email-threat-defender-connector-for-azure-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/vmray-email-threat-defender-connector-for-azure-sentinel.md
       - name: VMware Carbon Black Cloud
-        href: dataconnectors/vmware-carbon-black-cloud.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/vmware-carbon-black-cloud.md
       - name: VMware ESXi
-        href: dataconnectors/vmware-esxi.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/vmware-esxi.md
       - name: VMware vCenter
-        href: dataconnectors/vmware-vcenter.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/vmware-vcenter.md
       - name: Azure Sentinel for WatchGuard Firebox
-        href: dataconnectors/azure-sentinel-for-watchguard-firebox.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/azure-sentinel-for-watchguard-firebox.md
       - name: Windows Firewall
-        href: dataconnectors/windows-firewall.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/windows-firewall.md
       - name: Windows Forwarded Events
-        href: dataconnectors/windows-forwarded-events.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/windows-forwarded-events.md
       - name: WireX Network Forensics Platform for Microsoft Sentinel
-        href: dataconnectors/wirex-network-forensics-platform-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/wirex-network-forensics-platform-for-microsoft-sentinel.md
       - name: Workplace from Facebook
-        href: dataconnectors/workplace-from-facebook.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/workplace-from-facebook.md
       - name: Zscaler Internet Access for Microsoft Sentinel
-        href: dataconnectors/zscaler-internet-access-for-microsoft-sentinel.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/zscaler-internet-access-for-microsoft-sentinel.md
       - name: Zscaler Private Access
-        href: dataconnectors/zscaler-private-access.md
-        displayName: 
-        monikers: 
-        items: []
+        href: data-connectors/zscaler-private-access.md
     - name: Connection instructions by type
       items:
       - name: Azure, Windows, and Microsoft connectors

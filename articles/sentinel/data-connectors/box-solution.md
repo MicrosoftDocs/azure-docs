@@ -1,9 +1,9 @@
 ---
-title: Box Solution connector for Microsoft Sentinel
-description: Learn how to install the Box Solution connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "Box Solution connector for Microsoft Sentinel"
+description: "Learn how to install the Box Solution connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,13 +16,7 @@ The Box data connector provides the capability to ingest [Box enterprise's event
 
 | Connector attribute | Description |
 | --- | --- |
-| **Application settings** | <ul>
-<li>AzureSentinelWorkspaceId</li>
-<li>AzureSentinelSharedKey</li>
-<li>BOX_CONFIG_JSON</li>
-<li>logAnalyticsUri (optional)</li>
-</ul>
- |
+| **Application settings** | AzureSentinelWorkspaceId<br/>AzureSentinelSharedKey<br/>BOX_CONFIG_JSON<br/>logAnalyticsUri (optional) |
 | **Azure function app code** | https://aka.ms/sentinel-BoxDataConnector-functionapp |
 | **Log Analytics table(s)** | BoxEvents_CL<br/> |
 | **Data collection rules support** | Not currently supported |
@@ -43,7 +37,7 @@ BoxEvents
 
 To integrate with Box Solution make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Box API Credentials**: Box config JSON file is required for Box REST API JWT authentication. [See the documentation to learn more about JWT authentication](https://developer.box.com/guides/authentication/jwt/).
 
 
@@ -54,7 +48,7 @@ To integrate with Box Solution make sure you have:
    >  This connector uses Azure Functions to connect to the Box REST API to pull logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
@@ -91,7 +85,7 @@ Use the following step-by-step instructions to deploy the Box data connector man
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-BoxDataConnector-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

@@ -1,9 +1,9 @@
 ---
-title: Abnormal Security Events connector for Microsoft Sentinel
-description: Learn how to install the Abnormal Security Events connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "Abnormal Security Events connector for Microsoft Sentinel"
+description: "Learn how to install the Abnormal Security Events connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,15 +16,7 @@ The Abnormal Security data connector provides the capability to ingest threat an
 
 | Connector attribute | Description |
 | --- | --- |
-| **Application settings** | <ul>
-<li>SENTINEL_WORKSPACE_ID</li>
-<li>SENTINEL_SHARED_KEY</li>
-<li>ABNORMAL_SECURITY_REST_API_TOKEN</li>
-<li>logAnalyticsUri (optional)
-(add any other settings required by the Function App)
-Set the <code>uri</code> value to: <code>&lt;add uri value&gt;</code></li>
-</ul>
- |
+| **Application settings** | SENTINEL_WORKSPACE_ID<br/>SENTINEL_SHARED_KEY<br/>ABNORMAL_SECURITY_REST_API_TOKEN<br/>logAnalyticsUri (optional)(add any other settings required by the Function App)Set the <code>uri</code> value to: <code>&lt;add uri value&gt;</code> |
 | **Azure function app code** | https://aka.ms/sentinel-abnormalsecurity-functionapp |
 | **Log Analytics table(s)** | ABNORMAL_THREAT_MESSAGES_CL<br/> ABNORMAL_CASES_CL<br/> |
 | **Data collection rules support** | Not currently supported |
@@ -52,7 +44,7 @@ ABNORMAL_CASES_CL
 
 To integrate with Abnormal Security Events make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Abnormal Security API Token**: An Abnormal Security API Token is required. [See the documentation to learn more about Abnormal Security API](https://app.swaggerhub.com/apis/abnormal-security/abx/). **Note:** An Abnormal Security account is required
 
 
@@ -94,7 +86,7 @@ Use the following step-by-step instructions to deploy the Abnormal Security data
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-abnormalsecurity-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
@@ -131,7 +123,7 @@ If you're already signed in, go to the next step.
 		logAnalyticsUri (optional)
 (add any other settings required by the Function App)
 Set the `uri` value to: `<add uri value>` 
->Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Azure Key Vault references documentation](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) for further details.
+>Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Azure Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details.
  - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us.` 
 4. Once all application settings have been entered, click **Save**.
 

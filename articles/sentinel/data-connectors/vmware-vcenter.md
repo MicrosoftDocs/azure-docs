@@ -1,9 +1,9 @@
 ---
-title: VMware vCenter connector for Microsoft Sentinel
-description: Learn how to install the VMware vCenter connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "VMware vCenter connector for Microsoft Sentinel"
+description: "Learn how to install the VMware vCenter connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -59,7 +59,7 @@ Typically, you should install the agent on a different computer from the one on 
 
 2. Configure the logs to be collected
 
-Follow the configuration steps below to get vCenter server logs into Microsoft Sentinel. Refer to the [Azure Monitor Documentation](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources-json) for more details on these steps.
+Follow the configuration steps below to get vCenter server logs into Microsoft Sentinel. Refer to the [Azure Monitor Documentation](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-json) for more details on these steps.
  For vCenter Server logs, we have issues while parsing the data by OMS agent data using default settings. 
 So we advice to capture the logs into custom table **vCenter_CL** using below instructions. 
 1. Login to the server where you have installed OMS agent.

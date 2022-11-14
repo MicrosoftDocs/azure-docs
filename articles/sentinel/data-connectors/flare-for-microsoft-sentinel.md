@@ -1,9 +1,9 @@
 ---
-title: Flare connector for Microsoft Sentinel
-description: Learn how to install the Flare connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "Flare connector for Microsoft Sentinel"
+description: "Learn how to install the Flare connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -47,7 +47,7 @@ As an organization administrator, authenticate on [Flare](https://app.flare.syst
 
 
 Click on 'Create a new alert channel' and select 'Microsoft Sentinel'. Enter your Shared Key And WorkspaceID. Save the Alert Channel. 
- For more help and details, see our [Azure configuration documentation](https://docs.microsoft.com/azure/sentinel/connect-data-sources).
+ For more help and details, see our [Azure configuration documentation](https://learn.microsoft.com/azure/sentinel/connect-data-sources).
 
 
    {0}

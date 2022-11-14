@@ -1,9 +1,9 @@
 ---
-title: SailPoint Sentinel Integration connector for Microsoft Sentinel
-description: Learn how to install the SailPoint Sentinel Integration connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "SailPoint Sentinel Integration connector for Microsoft Sentinel"
+description: "Learn how to install the SailPoint Sentinel Integration connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,20 +16,7 @@ The [SailPoint](https://www.sailpoint.com/) IdentityNow data connector provides 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Application settings** | <ul>
-<li>TENANT_ID</li>
-<li>SHARED_KEY</li>
-<li>LIMIT</li>
-<li>GRANT_TYPE</li>
-<li>CUSTOMER_ID</li>
-<li>CLIENT_ID</li>
-<li>CLIENT_SECRET</li>
-<li>AZURE_STORAGE_ACCESS_KEY</li>
-<li>AZURE_STORAGE_ACCOUNT_NAME</li>
-<li>AzureWebJobsStorage</li>
-<li>logAnalyticsUri (optional)</li>
-</ul>
- |
+| **Application settings** | TENANT_ID<br/>SHARED_KEY<br/>LIMIT<br/>GRANT_TYPE<br/>CUSTOMER_ID<br/>CLIENT_ID<br/>CLIENT_SECRET<br/>AZURE_STORAGE_ACCESS_KEY<br/>AZURE_STORAGE_ACCOUNT_NAME<br/>AzureWebJobsStorage<br/>logAnalyticsUri (optional) |
 | **Azure function app code** | https://aka.ms/sentinel-sailpointidentitynow-functionapp |
 | **Log Analytics table(s)** | SailPointIDN_Events_CL<br/> SailPointIDN_Triggers_CL<br/> |
 | **Data collection rules support** | Not currently supported |
@@ -57,7 +44,7 @@ SailPointIDN_Triggers_CL
 
 To integrate with SailPoint Sentinel Integration make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **SailPoint IdentityNow API Authentication Credentials**: TENANT_ID, CLIENT_ID and CLIENT_SECRET are required for authentication.
 
 
@@ -68,7 +55,7 @@ To integrate with SailPoint Sentinel Integration make sure you have:
    >  This connector uses Azure Functions to connect to the SailPoint IdentityNow REST API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **STEP 1 - Configuration steps for the SailPoint IdentityNow API**
@@ -103,7 +90,7 @@ Use the following step-by-step instructions to deploy the SailPoint IdentityNow 
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-sailpointidentitynow-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

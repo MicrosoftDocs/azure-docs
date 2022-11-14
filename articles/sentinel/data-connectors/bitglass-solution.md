@@ -1,9 +1,9 @@
 ---
-title: Bitglass Solution connector for Microsoft Sentinel
-description: Learn how to install the Bitglass Solution connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "Bitglass Solution connector for Microsoft Sentinel"
+description: "Learn how to install the Bitglass Solution connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,14 +16,7 @@ The [Bitglass](https://www.bitglass.com/) data connector provides the capability
 
 | Connector attribute | Description |
 | --- | --- |
-| **Application settings** | <ul>
-<li>BitglassToken</li>
-<li>BitglassServiceURL</li>
-<li>WorkspaceID</li>
-<li>WorkspaceKey</li>
-<li>logAnalyticsUri (optional)</li>
-</ul>
- |
+| **Application settings** | BitglassToken<br/>BitglassServiceURL<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
 | **Azure function app code** | https://aka.ms/sentinel-bitglass-functionapp |
 | **Log Analytics table(s)** | BitglassLogs_CL<br/> |
 | **Data collection rules support** | Not currently supported |
@@ -44,7 +37,7 @@ BitglassLogs_CL
 
 To integrate with Bitglass Solution make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **REST API Credentials/permissions**: **BitglassToken** and **BitglassServiceURL** are required for making API calls.
 
 
@@ -55,7 +48,7 @@ To integrate with Bitglass Solution make sure you have:
    >  This connector uses Azure Functions to connect to the Azure Blob Storage API to pull logs into Microsoft Sentinel. This might result in additional costs for data ingestion and for storing data in Azure Blob Storage costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) and [Azure Blob Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
@@ -96,7 +89,7 @@ Use the following step-by-step instructions to deploy the Bitglass data connecto
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-bitglass-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

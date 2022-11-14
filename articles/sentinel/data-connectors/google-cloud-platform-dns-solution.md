@@ -1,9 +1,9 @@
 ---
-title: Google Cloud Platform DNS Solution connector for Microsoft Sentinel
-description: Learn how to install the Google Cloud Platform DNS Solution connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel.
+title: "Google Cloud Platform DNS Solution connector for Microsoft Sentinel"
+description: "Learn how to install the Google Cloud Platform DNS Solution connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -36,7 +36,7 @@ GCP_DNS_CL
 
 To integrate with Google Cloud Platform DNS Solution make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **GCP service account**: GCP service account with permissions to read logs (with "logging.logEntries.list" permission) is required for GCP Logging API. Also json file with service account key is required. See the documentation to learn more about [permissions](https://cloud.google.com/logging/docs/access-control#permissions_and_roles), [creating service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and [creating service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 
 
@@ -47,7 +47,7 @@ To integrate with Google Cloud Platform DNS Solution make sure you have:
    >  This connector uses Azure Functions to connect to the GCP API to pull logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
@@ -88,7 +88,7 @@ Use the following step-by-step instructions to deploy the data connector manuall
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://docs.microsoft.com/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-GCPDNSDataConnector-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
