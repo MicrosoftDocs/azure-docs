@@ -73,5 +73,8 @@ To access Dev Tool Portal, use the following steps to assign a public endpoint:
 You can also use the Azure CLI to assign a public endpoint with the following command:
 
 ```azurecli
-az spring dev-tool update --assign-endpoint
+az spring dev-tool update \
+    --resource-group <resource-group-name> \
+    --name <Azure-Spring-Apps-service-instance-name> \
+    --assign-endpoint
 ```
