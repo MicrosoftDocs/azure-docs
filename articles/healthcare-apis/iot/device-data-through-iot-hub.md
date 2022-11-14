@@ -174,7 +174,7 @@ Now that your deployment has successfully completed, we'll connect to your IoT H
 
 ## Review metrics from test message 
 
-Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics to verify that the MedTech service received, transformed, and persisted the test message into your FHIR service. To learn more about how display the MedTech service monitoring tab metrics and the different metrics types, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
+Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics to verify that your MedTech service received, transformed, and persisted the test message into your FHIR service. To learn more about how display the MedTech service monitoring tab metrics and the different metrics types, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
 
 For your MedTech service metrics, you see can see that your MedTech service performed the following steps with the test message:
 
@@ -195,7 +195,7 @@ Use this tutorial: [Access using Postman](/azure/healthcare-apis/fhir/use-postma
 
 ## Next steps
 
-In this tutorial, you deployed an Azure IoT Hub to route device data to the MedTech service. 
+In this tutorial, you deployed an Azure IoT Hub to message route a device test message to your MedTech service. 
 
 To learn about how to use device mappings, see
 
