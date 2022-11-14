@@ -23,8 +23,8 @@ To create a funnel:
 1. To apply filters to the step, select **Add filters**. This option appears after you choose an item for the top step.
 1. Then choose your **Second Step** and so on.
 
-> [!NOTE]
-> Funnels are limited to a maximum of six steps.
+    > [!NOTE]
+    > Funnels are limited to a maximum of six steps.
 
 1. Select the **View** tab to see your funnel results
 

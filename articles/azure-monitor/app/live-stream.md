@@ -33,20 +33,20 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 
 ## Get started
 
+> [!IMPORTANT]
+> Monitoring ASP.NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) applications requires Application Insights version 2.8.0 or above. To enable Application Insights, ensure that it's activated in the Azure portal and that the Application Insights NuGet package is included. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in Live Metrics.
+
 1. Follow language-specific guidelines to enable Live Metrics:
    * [ASP.NET](./asp-net.md): Live Metrics is enabled by default.
    * [ASP.NET Core](./asp-net-core.md): Live Metrics is enabled by default.
    * [.NET/.NET Core Console/Worker](./worker-service.md): Live Metrics is enabled by default.
-   * [.NET Applications: Enable using code](#enable-live-metrics-using-code-for-any-net-application).
+   * [.NET Applications: Enable using code](#enable-live-metrics-by-using-code-for-any-net-application).
    * [Java](./java-in-process-agent.md): Live Metrics is enabled by default.
    * [Node.js](./nodejs.md#live-metrics)
 
 1. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app. Then open Live Stream.
 
 1. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
-
-> [!IMPORTANT]
-> Monitoring ASP.NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) applications requires Application Insights version 2.8.0 or above. To enable Application Insights, ensure that it's activated in the Azure portal and that the Application Insights NuGet package is included. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in Live Metrics.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -116,11 +116,11 @@ To manually set up Live Metrics:
     }
     ```
 
-The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to auto-collect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the Live Metrics module.
+The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to autocollect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the Live Metrics module.
 
 ## How does Live Metrics differ from metrics explorer and Log Analytics?
 
-| |Live Stream | Metrics explorer and Log Analytics |
+| Capabilities |Live Stream | Metrics explorer and Log Analytics |
 |---|---|---|
 |Latency|Data displayed within one second.|Aggregated over minutes.|
 |No retention|Data persists while it's on the chart and is then discarded.|[Data retained for 90 days.](./data-retention-privacy.md#how-long-is-the-data-kept)|

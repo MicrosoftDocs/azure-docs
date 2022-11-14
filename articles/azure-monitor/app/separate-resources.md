@@ -14,7 +14,7 @@ To avoid confusion, send the telemetry from different development stages to sepa
 
 To make it easier to change the instrumentation key as a version moves from one stage to another, it can be useful to [set the instrumentation key dynamically in code](#dynamic-instrumentation-key) instead of in the configuration file.
 
-If your system is an Azure Cloud Service, there's [another method of setting separate instrumentation keys](../../azure-monitor/app/azure-web-apps-net-core.md).
+If your system is an instance of Azure Cloud Services, there's [another method of setting separate instrumentation keys](../../azure-monitor/app/azure-web-apps-net-core.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -40,7 +40,7 @@ Use a single Application Insights resource:
 > [!NOTE]
 > If you want to consolidate multiple Application Insights resources, you can point your existing application components to a new, consolidated Application Insights resource. The telemetry stored in your old resource won't be transferred to the new resource. Only delete the old resource when you have enough telemetry in the new resource for business continuity.
 
-### Other points to keep in mind
+### Other considerations
 
 Be aware that:
 
@@ -48,7 +48,7 @@ Be aware that:
 - For Azure Service Fabric applications and classic cloud services, the SDK automatically reads from the Azure Role Environment and sets these services. For all other types of apps, you'll likely need to set this explicitly.
 - Live Metrics doesn't support splitting by role name.
 
-## <a name="dynamic-ikey"></a> Dynamic instrumentation key
+## <a name="dynamic-instrumentation-key"></a> Dynamic instrumentation key
 
 To make it easier to change the instrumentation key as the code moves between stages of production, reference the key dynamically in code instead of using a hardcoded or static value.
 

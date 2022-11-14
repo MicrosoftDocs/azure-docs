@@ -26,6 +26,8 @@ We recommend using [TrackAvailability](/dotnet/api/microsoft.applicationinsights
 
 ## Prerequisites
 
+You need:
+
 * Visual Studio 2017 Enterprise or greater
 * Visual Studio web performance and load testing tools
 

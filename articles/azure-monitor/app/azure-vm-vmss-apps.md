@@ -34,15 +34,15 @@ For a complete list of supported auto-instrumentation scenarios, see [Supported 
 
 ### [.NET Framework](#tab/net)
 
-The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency auto-collection](./auto-collect-dependencies.md#net).
+The Application Insights Agent autocollects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency autocollection](./auto-collect-dependencies.md#net).
 
 ### [.NET Core/.NET](#tab/core)
 
-The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency auto-collection](./auto-collect-dependencies.md#net).
+The Application Insights Agent autocollects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency autocollection](./auto-collect-dependencies.md#net).
 
 ### [Java](#tab/Java)
 
-We recommend [Application Insights Java 3.0 agent](./java-in-process-agent.md) for Java. The most popular libraries, frameworks, logs, and dependencies are [auto-collected](./java-in-process-agent.md#autocollected-requests) along with many [other configurations](./java-standalone-config.md).
+We recommend [Application Insights Java 3.0 agent](./java-in-process-agent.md) for Java. The most popular libraries, frameworks, logs, and dependencies are [autocollected](./java-in-process-agent.md#autocollected-requests) along with many [other configurations](./java-standalone-config.md).
 
 ### [Node.js](#tab/nodejs)
 
