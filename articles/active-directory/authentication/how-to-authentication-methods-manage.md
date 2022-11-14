@@ -28,8 +28,10 @@ For more information about how these policies work together during migration, se
 Do an audit of your existing policy settings for each authentication method that's available for users. If you roll back during migration, you'll want a record of the authentication method settings from each of these policies:
 
 - MFA policy
-- SSPR policy
-- Authentication methods policy
+- SSPR policy (if used)
+- Authentication methods policy (if used)
+
+If you aren't using SSPR or the Authentication methods policy, you only need to get settings from the MFA policy. 
 
 ### MFA policy
 
