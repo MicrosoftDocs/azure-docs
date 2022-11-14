@@ -43,13 +43,11 @@ The following table provides an overview of how to switch from each type of repl
 
 > [!NOTE]
 > Manual migration is an option for any scenario in which you want to change the replication setting within the [limitations for changing replication types](#limitations-for-changing-replication-types), so that option has been omitted from the table below to simplify it.
->
-> Also, some changes noted in the table involve a two-step process such as switching from LRS to GRS/RA-GRS first, then converting to GZRS/RA-GZRS. The order of the steps doesn't matter. You could also convert from LRS to ZRS first, then switch to GZRS/RA-GZRS. The switch is listed first in the table because it appears to occur almost instantaneously, while the conversion typically takes much longer. Performing the faster change first allows you to initiate both required changes around the same time and not have to wait for the longer change to complete before proceeding with the other one.
 
 | Switching | …to LRS | …to GRS/RA-GRS <sup>6</sup> | …to ZRS | …to GZRS/RA-GZRS <sup>6</sup> |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| **…from LRS** | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup> | [Customer-initiated conversion](#customer-initiated-conversion)<sup>3,4,5,7</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,4,5,7</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GZRS/RA-GZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion)<sup>3,4,5,7</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,4,5,7</sup> |
-| **…from GRS/RA-GRS** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | **N/A** | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to ZRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion)<sup>3,5,7</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5,7</sup> | [Customer-initiated conversion](#customer-initiated-conversion)<sup>3,5,7</sup><br>**- or -**</br>[Support-requested conversion](#support-requested-conversion)<sup>3,5,7</sup> |
+| **…from LRS** | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup> | [Perform a conversion](#perform-a-conversion)<sup>3,4,5,7</sup> | [Switch to GRS/RA-GRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1,2</sup>, then perform a conversion to GZRS/RA-GZRS using:<br><br>[Perform a conversion](#perform-a-conversion)<sup>3,4,5,7</sup> |
+| **…from GRS/RA-GRS** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) | **N/A** | [Switch to LRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to ZRS using:<br><br>[Perform a conversion](#perform-a-conversion)<sup>3,5,7</sup> | [Perform a conversion](#perform-a-conversion)<sup>3,5,7</sup> |
 | **…from ZRS** | [Customer-initiated conversion](#customer-initiated-conversion)<sup>3</sup> | [Switch to GZRS/RA-GZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)<sup>1</sup>, then perform a conversion to GRS/RA-GRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion)<sup>3</sup> | **N/A** | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) |
 | **…from GZRS/RA-GZRS** | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then perform a conversion to LRS using:<br><br>[Customer-initiated conversion](#customer-initiated-conversion)<sup>3</sup> | [Customer-initiated conversion](#customer-initiated-conversion)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| **N/A** |
 
@@ -125,13 +123,7 @@ Customer-initiated conversion adds a new option for customers to start a convers
 
 Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is available in all public ZRS regions except for the following:
-
-- (Europe) West Europe
-- (Europe) UK South
-- (North America) Canada Central
-- (North America) East US
-- (North America) East US 2
+[Customer-initiated conversion](#customer-initiated-conversion) is [not available in all regions](#region).
 
 ##### Monitoring customer-initiated conversion progress
 
