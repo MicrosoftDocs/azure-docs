@@ -31,6 +31,8 @@ Do an audit of your existing policy settings for each authentication method that
 - SSPR policy
 - Authentication methods policy
 
+### MFA policy
+
 Start by documenting which methods are available in the legacy MFA policy. Sign in as a [Global Administrator](../roles/permissions-reference.md#global-administrator), and click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** to view the settings. These settings are tenant-wide, so there's no need for user or group information. 
 
 The following table lists the available methods in the legacy MFA policy and corresponding methods in the Authentication method policy. As you migrate, you might need to adjust settings to account for differences between the policies. For example, the legacy MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH** tokens are managed separately. 
@@ -41,6 +43,8 @@ The following table lists the available methods in the legacy MFA policy and cor
 | Text message to phone             | Microsoft Authenticator<br>SMS      |
 | Notification through mobile app   | Microsoft Authenticator             |
 | Verification code from mobile app or hardware token   | OATH software token<br>OATH hardware token |
+
+### SSPR policy
 
 To get the authentication methods available in the legacy SSPR policy, click **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. Record which users are in scope for SSPR and the authentication methods they can use. While security questions aren't yet available to manage in the Authentication methods policy, make sure you copy them for later use when they become available. 
 
@@ -53,8 +57,9 @@ To get the authentication methods available in the legacy SSPR policy, click **P
 | Office phone                | Phone call                   |
 | Security questions          | Not yet available; copy questions for later use   |
 
+### Authentication methods policy
 
-To check settings for the Authentication methods policy, sign in as [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator), and click **Security** > **Authentication methods** > **Policies**. A new tenant has all methods **Off** by default, which makes migration easier. 
+To check settings for the Authentication methods policy, sign in as an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) and click **Security** > **Authentication methods** > **Policies**. A new tenant has all methods **Off** by default, which makes migration easier because legacy policy settings don't need to be merged with existing settings. 
 
 The Authentication methods policy has other methods that aren't available in the legacy policies, such as FIDO2 security key, Temporary Access Pass, and Azure AD certificate-based authentication. These methods aren't in scope for migration and you won't need to make any changes to them. 
 
@@ -62,21 +67,20 @@ If you've enabled methods in the Authentication methods policy, write down users
 
 ## Add MFA and SSPR policy settings to the Authentication methods policy
 
-After you capture information from each policy, update Authentication methods policy to match all of the settings from your audit. This task can be done by an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).  
+This task can be done by an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).  
 
 You might need to adjust some settings to account for differences between the policies. For example, the Contoso MFA policy allows **Verification code from mobile app or hardware token**. In the Authentication methods policy, **Software OATH tokens** and **Hardware OATH** tokens are managed separately. In this case, Contoso needs to adjust the Authentication methods policy accordingly for each method.  
 
 In the legacy SSPR policy, **Mobile phone** enables both voice call and SMS as available options. But in the Authentication methods policy, **SMS** and **Phone call** are separately managed methods. 
 
+## Start migration 
+
+After you capture information from each policy, update Authentication methods policy to match your audit. You'll want to review each method one-by-one. If the method is enabled in both legacy policies, then enable it for all users in the Authentication methods policy. If the method is enabled in one policy, but not the other, 
+
+
 At this point, you can also configure parameters for scenarios where you want to control how a certain method can be used. For example, if you enable **Phone calls** as authentication method, you can allow office phone or mobile only. Step through the process to configure each authentication method from your audit. Then enable and configure other methods you want to be available for sign-in.
 
-Let's look at the updated Authentication methods policy for Contoso after legacy MFA policy settings are migrated. 
-
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot of the updated Authentication methods policy.":::
-
-## Migration in progress
-
-Now that you've updated the Authentication methods policy, go through the legacy MFA and SSPR policies and remove each authentication method one-by-one. Test and validate the changes for each method at a time. You can test excluded users by trying to sign in both as a member of the excluded group and again as a non-member. 
+Test and validate the changes for each method at a time. You can test excluded users by trying to sign in both as a member of the excluded group and again as a non-member. 
 
 When you determine that authentication and SSPR work as expected, you can change the migration process to **Migration in Progress**. In this mode, Azure AD uses the Authentication methods policy for sign-in and SSPR, but still respects changes made to the legacy MFA and SSPR policies. 
 
@@ -86,7 +90,7 @@ For example, let's suppose SMS is disabled in the Authentication methods policy 
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
 
-## Migration complete
+## Complete migration 
 
 After you update the Authentication methods policy, go through the legacy SSPR policy and remove each authentication method one-by-one. Test and validate the changes for each method at a time. 
 
