@@ -4,7 +4,7 @@ description: Learn how to use the Bash command line in your browser with Azure C
 manager: mkluck
 ms.author: sewhee
 ms.contributor: jahelmic
-ms.date: 11/04/2022
+ms.date: 11/14/2022
 ms.service: cloud-shell
 ms.tgt_pltfrm: vm-linux
 ms.topic: article

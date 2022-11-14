@@ -4,7 +4,7 @@ description: Troubleshooting Azure Cloud Shell
 manager: mkluck
 ms.author: sewhee
 ms.contributor: jahelmic
-ms.date: 11/04/2022
+ms.date: 11/14/2022
 ms.service: cloud-shell
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
@@ -13,12 +13,7 @@ services: azure
 tags: azure-resource-manager
 title: Azure Cloud Shell troubleshooting
 ---
-
 # Troubleshooting & Limitations of Azure Cloud Shell
-
-Known resolutions for troubleshooting issues in Azure Cloud Shell include:
-
-[!INCLUDE [updated-for-az][03]]
 
 ## General troubleshooting
 
@@ -196,8 +191,6 @@ Cloud Shell service are used to provide defaults for your experience such as you
 shell, preferred font size, preferred font type, and fileshare details that back cloud drive. Should
 you wish to export or delete this data, use the following instructions.
 
-[!INCLUDE [GDPR-related guidance][02]]
-
 <!--
 TODO:
 - Are there cmdlets or CLI to do this now, instead of REST API?
@@ -280,8 +273,6 @@ Azure Cloud Shell in Azure Government is only accessible through the Azure porta
 > Connecting to GCC-High or Government DoD Clouds for Exchange Online is currently not supported.
 
 <!-- link references -->
-[01]: ../../includes/cloud-shell-copy-paste.md
-[02]: ../../includes/gdpr-intro-sentence.md
-[03]: ../../includes/updated-for-az.md
+[01]: includes/cloud-shell-copy-paste.md
 [04]: https://docs.docker.com/machine/overview/
 [05]: persisting-shell-storage.md#mount-a-new-clouddrive

@@ -5,7 +5,7 @@ manager: mkluck
 ms.author: sewhee
 ms.contributor: jahelmic
 ms.custom: devx-track-azurepowershell, ignite-fall-2021
-ms.date: 11/04/2022
+ms.date: 11/14/2022
 ms.service: cloud-shell
 ms.tgt_pltfrm: vm-linux
 ms.topic: article

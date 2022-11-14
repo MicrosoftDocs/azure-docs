@@ -4,7 +4,7 @@ description: Walkthrough of how Azure Cloud Shell persists files.
 manager: mkluck
 ms.author: sewhee
 ms.contributor: jahelmic
-ms.date: 11/04/2022
+ms.date: 11/14/2022
 ms.service: cloud-shell
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
@@ -234,7 +234,7 @@ fileshare in the next session.
 - [Learn about storage tags][02]
 
 <!-- link references -->
-[01]: ../../includes/cloud-shell-persisting-shell-storage-endblock.md
+[01]: includes/cloud-shell-persisting-shell-storage-endblock.md
 [02]: ../azure-resource-manager/management/tag-resources.md
 [03]: ../governance/policy/samples/index.md
 [04]: ../storage/common/storage-redundancy.md

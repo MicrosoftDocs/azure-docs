@@ -4,7 +4,7 @@ description: Overview of how to use the Azure Cloud Shell window.
 manager: mkluck
 ms.author: sewhee
 ms.contributor: jahelmic
-ms.date: 11/04/2022
+ms.date: 11/14/2022
 ms.service: cloud-shell
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
@@ -132,7 +132,7 @@ minutes without interaction.
 - [PowerShell in Cloud Shell Quickstart][12]
 
 <!-- link references -->
-[01]: ../../includes/cloud-shell-copy-paste.md
+[01]: includes/cloud-shell-copy-paste.md
 [02]: media/using-the-shell-window/env-selector.png
 [03]: media/using-the-shell-window/minmax.png
 [04]: media/using-the-shell-window/newsession.png

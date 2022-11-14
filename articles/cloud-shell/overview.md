@@ -4,7 +4,7 @@ description: Overview of the Azure Cloud Shell.
 manager: mkluck
 ms.author: sewhee
 ms.contributor: jahelmic
-ms.date: 11/04/2022
+ms.date: 11/14/2022
 ms.service: cloud-shell
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
@@ -147,7 +147,7 @@ Regular storage costs apply.
 [04]: /powershell/azure
 [05]: /training
 [06]: features.md
-[07]: features.md#tools
+[07]: features.md#pre-installed-tools
 [08]: https://azure.microsoft.com/features/azure-portal/mobile-app/
 [09]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account
 [10]: https://portal.azure.com
