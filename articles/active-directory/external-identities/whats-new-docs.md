@@ -43,7 +43,6 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 - [Azure Active Directory (Azure AD) identity provider for External Identities](azure-ad-account.md)
 - [Add Google as an identity provider for B2B guest users](google-federation.md)
 - [Email one-time passcode authentication](one-time-passcode.md)
-- [Add B2B collaboration guest users without an invitation link or email](add-user-without-invite.md)
 - [Identity Providers for External Identities](identity-providers.md)
 - [Tutorial: Use PowerShell to bulk invite Azure AD B2B collaboration users](bulk-invite-powershell.md)
 - [B2B collaboration user claims mapping in Azure Active Directory](claims-mapping.md)
