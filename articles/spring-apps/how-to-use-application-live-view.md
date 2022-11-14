@@ -86,7 +86,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
 ## Monitor Application Live View
 Azure Spring Apps runs the Application Live View in connector mode. 
 
-| Application Live View Server | Responsibiliy |
+| Component Name | Responsibiliy |
 |------------------------------|---------------|
 | Application Live View Server | The central server component that contains a list of registered apps. It is responsible for proxying the request to fetch the actuator information related to the app. |
 | Application Live View Connector | The component responsible for discovering the running app, and registering the instances to the Application Live View Server for it to be observed. The Application Live View Connector is also responsible for proxying the actuator queries to the app. | 
