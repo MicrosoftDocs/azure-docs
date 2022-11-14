@@ -399,15 +399,12 @@ Define SMTP mail server settings for the sensor so that you configure the sensor
 
 **To configure an SMTP server on your sensor**:
 
-1. Sign in to the sensor console with administrative credentials.
+1. Sign in to the sensor as an **Admin** user and select **System settings** > **Integrations** > **Mail server**.
 
-1. Select **System settings** on the left side of your screen.
 
-1. Select **Integrations** to expand the section and view the gadgets.
 
     :::image type="content" source="media/how-to-manage-individual-sensors/SMTP-mail-server.png" alt-text="Screenshot of how to get to the mail server gadget in the sensor console." lightbox="media/how-to-manage-individual-sensors/SMTP-mail-server.png":::
 
-1. Select  **Mail server** to view the Edit Mail Server Configuration pane.
 
     :::image type="content" source="media/how-to-manage-individual-sensors/SMPT-mail-server-pane.png" alt-text="Screenshot of mail server configuration pane in the sensor console." lightbox="media/how-to-manage-individual-sensors/SMPT-mail-server-pane.png":::
 
