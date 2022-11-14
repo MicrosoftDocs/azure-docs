@@ -7,9 +7,9 @@ ms.date: 11/09/2022
 
 # Upgrade HCX on Azure VMware Solution
 
-In this article, you'll learn how to upgrade Azure VMware Solution for **WHAT? WHY WOULD SOMEONE UPGRADE their HCX?**
+In this article, you'll learn how to upgrade Azure VMware Solution for HCX service updates that may include new features, software fixes, or security patches. 
 
-HCX service updates may include new features, software fixes, or security patches. You can update HCX Connector and HCX Cloud systems during separate maintenance windows, but for optimal compatibility, it's recommended you update both systems together. Apply service updates during a maintenance window where no new HCX operations are queued up. 
+You can update HCX Connector and HCX Cloud systems during separate maintenance windows, but for optimal compatibility, it's recommended you update both systems together. Apply service updates during a maintenance window where no new HCX operations are queued up. 
 
 ## Prerequisites 
 
