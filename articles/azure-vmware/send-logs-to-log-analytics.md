@@ -6,7 +6,7 @@ ms.service: azure-vmware
 ms.date: 11/07/2022
 ---
 
-# Send your Azure VMware Solution logs to Log Analytic
+# Send your Azure VMware Solution logs to Log Analytics
 
 This article shows you how to send Azure VMware Solution logs to Azure Monitor Log Analytics. You can send logs from your AVS private cloud to your Log Analytics workspace, allowing you to take advantage of the Log Analytics feature set, including:
 
@@ -39,12 +39,9 @@ In this section, you’ll:
 
 :::image type="content" source="media/send-logs-to-log-analytics/marketplace.png" alt-text="Search for Log Analytics Workspace":::
 
-### Setup your workspace
+### Set up your workspace
 
-1. In the Azure portal, go to **Create a resource**.
-2. Search for “Log Analytics Workspace” and click Create -> Log Analytics Workspace.
-
-3. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
+1. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. Click Review + Create.
 
 :::image type="content" source="media/send-logs-to-log-analytics/create-workspace.png" alt-text="Workspace":::
 
@@ -76,8 +73,5 @@ Log Analytics uses a language called the Kusto Query Language (or Kusto) to sear
 ## Recommended content
 
 To understand how Kusto works and how you can write your own queries, check out these tutorials:
-
-[Kusto Query Language (KQL) from Scratch | Pluralsight
-Introduction - Training | Microsoft Docs](https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch/table-of-contents)
 
 To see how commonly used SQL queries could translate to Kusto, see [SQL to Kusto query translation - Azure Data Explorer | Microsoft Learn](../data-explorer/kusto/query/sqlcheatsheet.md)
