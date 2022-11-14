@@ -12,18 +12,30 @@ ms.date: 11/10/2022
 
 # SMART on FHIR
 
-[SMART on FHIR](https://docs.smarthealthit.org/) is a set of open specifications to integrate partner applications with FHIR servers and electronic medical records systems that have Fast Healthcare Interoperability Resources (FHIR&#174;) interfaces. One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for an FHIR server and start an authentication sequence. 
+Substitutable Medical Applications and Reusable Technologies [SMART on FHIR](https://docs.smarthealthit.org/) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
+•	Applications have a known method for obtaining authentication/authorization to a FHIR repository
+•	Users accessing a FHIR repository with SMART on FHIR are restricted to resources associated with the user, rather than having access to all data in the repository
+•	Users have the ability to grant applications access to an further limited set of their data by using SMART clinical scopes.
 
-Authentication is based on OAuth2. But because SMART on FHIR uses parameter naming conventions that aren’t immediately compatible with Azure Active Directory (Azure AD), the Azure API for FHIR has a built-in Azure AD SMART on FHIR proxy that enables a subset of the SMART on FHIR launch sequences. Specifically, the proxy enables the [EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence).
+<!---SMART Implementation Guide v1.0.0 is now fully supported by Azure API for FHIR and Azure API Management (APIM). This is our recommended approach, as it enabled Health IT developers to comply with 21st Century Act Criterion §170.315(g)(10) Standardized API for patient and population services.--->
 
-This tutorial describes how to use the proxy to enable SMART on FHIR applications with FHIR Service.
+One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for an FHIR server and start an authentication sequence. Authentication is based on OAuth2. But because SMART on FHIR uses parameter naming conventions that aren’t immediately compatible with Azure Active Directory (Azure AD), the Azure API for FHIR has a built-in Azure AD SMART on FHIR proxy that enables a subset of the SMART on FHIR launch sequences. Specifically, the proxy enables the [EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence).
+
+Below tutorial describes steps to enable SMART on FHIR applications with FHIR Service.
+
+<!--- ## Pre-requisite  
+Below are pre-requisite on enabling the SMART on FHIR:
+<b>Prerequisites</b> 
+    1.  An instance of the Azure API for FHIR
+    2.  Client application registration. Follow the instructions for configuring a [public client application in Azure AD](register-public-azure-ad-client-app.md)
+    3.  Test Data : To test the Azure API for FHIR and the SMART on FHIR, you'll need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.  --->
 
 ## Prerequisites
 
 - An instance of the FHIR Service
 - [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 
-## Configure Azure AD registrations
+##  Configure Azure AD registrations
 
 SMART on FHIR requires that `Audience` has an identifier URI equal to the URI of the FHIR service. The standard configuration of the FHIR service uses an `Audience` value of `https://azurehealthcareapis.com`. However, you can also set a value matching the specific URL of your FHIR service (for example `https://MYFHIRAPI.fhir.azurehealthcareapis.com`). This is required when working with the SMART on FHIR proxy.
 
@@ -51,10 +63,18 @@ To add yourself or another user as owner of an app:
 5. Select **Add owners**, and then add yourself or the user you want to have admin consent.
 6. Select **Save**.
 
+<!--- Tutorial : To enable SMART on FHIR using APIM, follow below steps 
+Step 1 : Set up FHIR SMART user role 
+Follow the steps listed under section [Manage Users: Assign Users to Role](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to this role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
+
+Step 2 : Deploy the necessary components to set up the FHIR server integrated with APIM in production. Follow ReadMe
+Step 3 : Load US Core profiles 
+Step 4 : Create AAD custom policy using this README  ---> 
+
 ## Enable the SMART on FHIR proxy
 
 Enable the SMART on FHIR proxy in the **Authentication** settings for your FHIR instance by selecting the **SMART on FHIR proxy** check box.
-Enable CORS : Because most SMART on FHIR applications are single-page JavaScript apps, you need to [enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
+Enable CORS : Most SMART on FHIR applications are single-page JavaScript apps, you need to [enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
 Configure the reply URL: The SMART on FHIR proxy acts as an intermediary between the SMART on FHIR app and Azure AD. The authentication reply (the authentication code) must go to the SMART on FHIR proxy instead of the app itself. The proxy then forwards the reply to the app. 
 
 Because of this two-step relay of the authentication code, you need to set the reply URL (callback) for your Azure AD client application to a URL that is a combination of the reply URL for the SMART on FHIR proxy and the reply URL for the SMART on FHIR app. The combined reply URL takes this form:
