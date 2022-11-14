@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 11/14/2021
 ms.author: cynthn 
 ms.custom: devx-track-azurepowershell
 
@@ -30,7 +30,7 @@ If your VM uses Premium Storage, make sure that you choose an **s** version of t
 1. Pick a new size from the list of available sizes and then select **Resize**.
 
 
-If the virtual machine is currently running, changing its size will cause it to be restarted. 
+If the virtual machine is currently running, changing its size will cause it to restart. 
 
 If your VM is still running and you don't see the size you want in the list, stopping the virtual machine may reveal more sizes.
 
@@ -61,7 +61,7 @@ To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) inst
     --size Standard_DS3_v2
     ```
    
-    The VM restarts during this process. After the restart, your existing OS and data disks are remapped. Anything on the temporary disk is lost.
+    The VM restarts during this process. After the restart, your existing OS and data disks are kept. Anything on the temporary disk is lost.
 
 3. If the desired VM size is not listed, you need to first deallocate the VM with [az vm deallocate](/cli/azure/vm). This process allows the VM to then be resized to any size available that the region supports and then started. The following steps deallocate, resize, and then start the VM named `myVM` in the resource group named `myResourceGroup`:
    
