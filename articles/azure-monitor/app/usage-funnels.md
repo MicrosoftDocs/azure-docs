@@ -34,7 +34,9 @@ To create a funnel:
 
 ### Funnels features
 
-- If your app is sampled, you'll see a sampling banner. Selecting the banner opens a context pane, explaining how to turn sampling off.
+Funnels have the following features:
+
+- If your app is sampled, you'll see a sampling banner. Selecting the banner opens a context pane that explains how to turn off sampling.
 - Select a step to see more details on the right.
 - The historical conversion graph shows the conversion rates over the last 90 days.
 - Understand your users better by accessing the users tool. You can use filters in each step.

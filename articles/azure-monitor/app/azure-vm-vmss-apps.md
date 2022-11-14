@@ -216,4 +216,4 @@ Added ASP.NET Core auto-instrumentation feature
 ## Next steps
 
 * Learn how to [deploy an application to a virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md).
-* [Set up Availability web tests](monitor-web-app-availability.md) to be alerted if your endpoint is down.
+* [Set up availability web tests](monitor-web-app-availability.md) to be alerted if your endpoint is down.

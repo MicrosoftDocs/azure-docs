@@ -145,7 +145,7 @@ Along with Application Insights telemetry, you can also monitor any Windows perf
 
 Live Metrics are aggregated at two points: locally on each server and then across all servers. You can change the default at either one by selecting other options in the respective dropdown lists.
 
-## Sample telemetry: Custom Live Diagnostic events
+## Sample telemetry: Custom live diagnostic events
 By default, the live feed of events shows samples of failed requests and dependency calls, exceptions, events, and traces. Select the filter icon to see the applied criteria at any point in time.
 
 ![Screenshot that shows the Filter button.](./media/live-stream/filter.png)
@@ -159,7 +159,7 @@ As with metrics, you can specify any arbitrary criteria to any of the Applicatio
 
 To see the details of an item in the live feed, select it. You can pause the feed either by selecting **Pause** or by scrolling down and selecting an item. Live feed resumes after you scroll back to the top, or when you select the counter of items collected while it was paused.
 
-![Screenshot shows the Sample telemetry window with an exception selected and the exception details displayed at the bottom of the window.](./media/live-stream/sample-telemetry.png)
+![Screenshot that shows the Sample telemetry window with an exception selected and the exception details displayed at the bottom of the window.](./media/live-stream/sample-telemetry.png)
 
 ## Filter by server instance
 
@@ -175,7 +175,7 @@ Live Metrics custom filters allow you to control which of your application's tel
 - **Legacy (no longer recommended):** Set up an authenticated channel by configuring a secret API key as explained in the "Legacy option" section.
 
 > [!NOTE]
-> On September 30, 2025, API keys used to stream Live Metrics telemetry into Application Insights will be retired. After that date, applications that use API keys won't be able to send live metrics data to your Application Insights resource. Authenticated telemetry ingestion for live metrics streaming to Application Insights will need to be done with [Azure AD authentication for Application Insights](./azure-ad-authentication.md).
+> On September 30, 2025, API keys used to stream Live Metrics telemetry into Application Insights will be retired. After that date, applications that use API keys won't be able to send Live Metrics data to your Application Insights resource. Authenticated telemetry ingestion for Live Metrics streaming to Application Insights will need to be done with [Azure AD authentication for Application Insights](./azure-ad-authentication.md).
 
 It's possible to try custom filters without having to set up an authenticated channel. Select any of the filter icons and authorize the connected servers. If you choose this option, you'll have to authorize the connected servers once every new session or whenever a new server comes online.
 
@@ -304,7 +304,7 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
 
 ## Next steps
 
-* [Monitoring usage with Application Insights](./usage-overview.md)
-* [Using Diagnostic Search](./diagnostic-search.md)
+* [Monitor usage with Application Insights](./usage-overview.md)
+* [Use Diagnostic Search](./diagnostic-search.md)
 * [Profiler](./profiler.md)
 * [Snapshot Debugger](./snapshot-debugger.md)

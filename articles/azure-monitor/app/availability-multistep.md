@@ -102,7 +102,7 @@ The Web Test Date Time Plug-in provides the way to handle parameter times.
 
 Now, upload your test to the portal. It will use dynamic values on every run of the test.
 
-### Dealing with sign-in
+### Consider sign-in
 
 If your users sign in to your app, you have various options for simulating sign-in so that you can test pages behind the sign-in. The approach you use depends on the type of security provided by the app.
 
