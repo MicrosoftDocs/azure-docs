@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/14/2022
 ms.author: jammart
 ms.reviewer: nachakra 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
@@ -76,7 +76,7 @@ To protect an Azure Storage account with Azure AD [Conditional Access](../../act
 
 Azure Storage supports Azure AD authorization for requests to blob, table and queue storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files that use Shared Key authorization will fail. Because the Azure portal always uses Shared Key authorization to access file data, if you disallow authorization with Shared Key for the storage account, you will not be able to access Azure Files data in the Azure portal.
 
-Microsoft recommends that you either migrate any Azure Files data to a separate storage account before you disallow access to the account via Shared Key, or that you do not apply this setting to storage accounts that support Azure Files workloads.
+Microsoft recommends that you either migrate any Azure Files data to a separate storage account before you disallow access to an account via Shared Key, or do not apply this setting to storage accounts that support Azure Files workloads.
 
 Disallowing Shared Key access for a storage account does not affect SMB connections to Azure Files.
 
@@ -84,8 +84,8 @@ Disallowing Shared Key access for a storage account does not affect SMB connecti
 
 There are two ways to identify storage accounts that allow Shared Key access:
 
-1. [Check the Shared Key access setting for multiple accounts](#check-the-shared-key-access-setting-for-multiple-accounts)
-1. [Configure the Azure Policy for Shared Key access in audit mode](#configure-the-azure-policy-for-shared-key-access-in-audit-mode)
+- [Check the Shared Key access setting for multiple accounts](#check-the-shared-key-access-setting-for-multiple-accounts)
+- [Configure the Azure Policy for Shared Key access in audit mode](#configure-the-azure-policy-for-shared-key-access-in-audit-mode)
 
 ### Check the Shared Key access setting for multiple accounts
 
@@ -102,7 +102,7 @@ resources
 
 ### Configure the Azure Policy for Shared Key access in audit mode
 
-Azure Policy **Storage accounts should prevent shared key access** prevents users with appropriate permissions from configuring new or existing storage accounts to permit Shared Key authorization. Configure this policy in audit mode to identify storage accounts where Shared Key authorization is allowed. After you have changed applications to use Azure AD rather than Shared Key for authorization, you can [change the policy to prevent allowing Shared Key access](#update-the-azure-policy-to-prevent-allowing-shared-key-access).
+Azure Policy **Storage accounts should prevent shared key access** prevents users with appropriate permissions from configuring new or existing storage accounts to permit Shared Key authorization. Configure this policy in audit mode to identify storage accounts where Shared Key authorization is allowed. After you have changed applications to use Azure AD rather than Shared Key for authorization, you can [update the policy to prevent allowing Shared Key access](#update-the-azure-policy-to-prevent-allowing-shared-key-access).
 
 For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
@@ -113,8 +113,8 @@ Follow these steps to assign the built-in policy for the appropriate scope in th
 1. In the Azure portal, search for *Policy* to display the Azure Policy dashboard.
 1. In the **Authoring** section, select **Assignments**.
 1. Choose **Assign policy**.
-1. On the **Basics** tab of the **Assign policy** page, in the **Scope** section, specify the scope for the policy assignment. Select the **More** button to choose the subscription and optional resource group.
-1. For the **Policy definition** field, select the **More** button, and enter *shared key access* in the **Search** field. Select the policy definition named **Storage accounts should prevent shared key access**.
+1. On the **Basics** tab of the **Assign policy** page, in the **Scope** section, specify the scope for the policy assignment. Select the **More** button (**...**) to choose the subscription and optional resource group.
+1. For the **Policy definition** field, select the **More** button (**...**), and enter *shared key access* in the **Search** field. Select the policy definition named **Storage accounts should prevent shared key access**.
 
     :::image type="content" source="media/shared-key-authorization-prevent/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to prevent allowing Shared Key access for your storage accounts" lightbox="media/shared-key-authorization-prevent/policy-definition-select-portal.png":::
     
@@ -126,7 +126,8 @@ Follow these steps to assign the built-in policy for the appropriate scope in th
 
 To monitor your storage accounts for compliance with the Shared Key access policy, follow these steps:
 
-1. On the Azure Policy dashboard, locate and select the policy assignment you created in the previous section.
+1. On the Azure Policy dashboard under **Authoring**, select **Assignments**.
+1. Locate and select the policy assignment you created in the previous section.
 1. Select the **View compliance** tab.
 1. Any storage accounts within the scope of the policy assignment that do not meet the policy requirements appear in the compliance report.
 
@@ -287,7 +288,7 @@ az storage account update \
 
 ---
 
-After you disallow Shared Key authorization, making a request to the storage account with Shared Key authorization will fail with error code 403 (Forbidden). Azure Storage returns error indicating that key-based authorization is not permitted on the storage account.
+After you disallow Shared Key authorization, making a request to the storage account with Shared Key authorization will fail with error code 403 (Forbidden). Azure Storage an returns error indicating that key-based authorization is not permitted on the storage account.
 
 The **AllowSharedKeyAccess** property is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).
 
@@ -308,18 +309,18 @@ az storage container create \
 
 ## Monitor the Azure Policy for compliance
 
-Continue to [monitor the policy you created earlier](#monitor-compliance-with-the-policy) for ongoing compliance.
+After disallowing Shared Key access on the desired storage accounts, continue to [monitor the policy you created earlier](#monitor-compliance-with-the-policy) for ongoing compliance. Based on the monitoring results, take the appropriate action as needed, including changing the scope of the policy, disallowing Shared Key access on more accounts or allowing it for accounts where need more time is needed for remediation.
 
 ## Update the Azure Policy to prevent allowing Shared Key access
 
-To begin enforcing [the Azure Policy assignment you previously created](#configure-the-azure-policy-for-shared-key-access-in-audit-mode) for policy **Storage accounts should prevent shared key access**, change the effect of the policy assignment to deny to allow Shared Key access on storage accounts. To change the effect of the policy, perform the following steps:
+To begin enforcing [the Azure Policy assignment you previously created](#configure-the-azure-policy-for-shared-key-access-in-audit-mode) for policy **Storage accounts should prevent shared key access**, change the **Effect** of the policy assignment to **Deny** to prevent authorized users from allowing Shared Key access on storage accounts. To change the effect of the policy, perform the following steps:
 
 1. On the Azure Policy dashboard, locate and select the policy assignment [you previously created](#configure-the-azure-policy-for-shared-key-access-in-audit-mode).
 
 1. Select **Edit assignment**.
 1. Go to the **Parameters** tab.
 1. Uncheck the **Only show parameters that need input or review** checkbox.
-1. In the **Effect** drop-down change `Audit` to `Deny`, then select **Review + save**.
+1. In the **Effect** drop-down change **Audit** to **Deny**, then select **Review + save**.
 1. On the **Review + save** tab, review your changes, then select **Save**.
 
 > [!NOTE]
