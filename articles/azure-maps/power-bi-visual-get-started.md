@@ -77,6 +77,12 @@ Take the following steps to load the Azure Maps visual:
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-styled.png" alt-text="Azure Maps visual displaying points as bubbles on the map with a custom style.":::
 
+5. You can also show or hide labels in the **Format** pane. The following two images show maps with the **Show labels** setting turned on and off:  
+
+    :::image type="content" source="media/power-bi-visual/show-labels-on.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the show labels setting turned on in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/show-labels-on.png":::
+
+    :::image type="content" source="media/power-bi-visual/show-labels-off.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the show labels setting turned off in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/show-labels-off.png":::
+
 ## Fields pane buckets
 
 The following data buckets are available in the **Fields** pane of the Azure Maps visual.
@@ -91,28 +97,39 @@ The following data buckets are available in the **Fields** pane of the Azure Map
 
 ## Map settings
 
-The **Map settings** section of the Format pane provide options for customizing how the map is displayed and reacts to updates.
+The **Map settings** section of the Format pane provide options for customizing how the map is displayed and reacts to updates. 
 
-| Setting             | Description  |
-|---------------------|--------------|
-| Auto zoom           | Automatically zooms the map into the data loaded through the **Fields** pane of the visual. As the data changes, the map will update its position accordingly. When the slider is in the **Off** position, more map view settings are displayed for the default map view. |
-| World wrap          | Allows the user to pan the map horizontally infinitely. |
-| Style picker        | Adds a button to the map that allows the report readers to change the style of the map. |
-| Navigation controls | Adds buttons to the map as another method to allow the report readers to zoom, rotate, and change the pitch of the map. See this document on [Navigating the map](map-accessibility.md#navigating-the-map) for details on all the different ways users can navigate the map. |
-| Map style           | The style of the map. See the [supported map styles](supported-map-styles.md) document for more information. |
-| Selection control   | Adds a button that allows the user to choose between different modes to select data on the map; circle, rectangle, polygon (lasso), or travel time or distance. When drawing a polygon, to complete the drawing; click on the first point, or double-click the map on the last point, or press the `c` key. |
+The **Map settings** section is divided into three sections: style, view and controls.
 
-### Map view settings
+### Style
 
-If the **Auto zoom** slider is in the **Off** position, the following settings are displayed and allow the user to specify the default map view information.
+| Setting     | Description  |
+|-------------|--------------|
+| Style       | The style of the map. The dropdown list contains [greyscale light][gs-light], [greyscale dark][gs-dark], [night][night], [road shaded relief][RSR], [satellite][satellite] and [satellite road labels][satellite RL]. |
+| Show labels | A toggle switch that enables you to either show or hide map labels. See list item number five in the previous section for more information. |
+
+### View
+
+The following settings are displayed, enabling the user to specify the default map view information, when the **Auto zoom** setting in the **View** section is set to **Off**.
 
 | Setting          | Description   |
 |------------------|---------------|
+| Auto zoom        | Automatically zooms the map into the data loaded through the **Fields** pane of the visual. As the data changes, the map will update its position accordingly. When **Auto zoom** is set to **Off**, more settings for the default map view become active. |
 | Zoom             | The default zoom level of the map. Can be a number between 0 and 22. |
-| Center latitude  | The default latitude at the center of the map. |
-| Center longitude | The default longitude at the center of the map. |
+| Center latitude  | The default latitude of the center of the map. |
+| Center longitude | The default longitude of the center of the map. |
 | Heading          | The default orientation of the map in degrees, where 0 is north, 90 is east, 180 is south, and 270 is west. Can be any number between 0 and 360. |
 | Pitch            | The default tilt of the map in degrees between 0 and 60, where 0 is looking straight down at the map. |
+
+### Controls
+
+| Setting      | Description  |
+|--------------|--------------|
+| World wrap   | Allows the user to pan the map horizontally infinitely. |
+| Style picker | Adds a button to the map that allows the report readers to change the style of the map. |
+| Navigation   | Adds buttons to the map as another method to allow the report readers to zoom, rotate, and change the pitch of the map. See this document on [Navigating the map](map-accessibility.md#navigating-the-map) for details on all the different ways users can navigate the map. |
+| Selection    | Adds a button that allows the user to choose between different modes to select data on the map; circle, rectangle, polygon (lasso), or travel time or distance. When drawing a polygon, to complete the drawing; click on the first point, or double-click the map on the last point, or press the `c` key. |
+<!--| Geocoding culture | The default is **Auto** which is the Western Address System: (address details)(location in city/municipality/ward) (city/municipal/ward)(prefIecture)(postcode){country}.<BR><BR>The other option is JA, the Japanese Address System: (postcode}{prefecture){city/municipality/ward}{location in city/municipality/ward}{address details). |-->
 
 ## Considerations and Limitations
 
@@ -166,3 +183,10 @@ Customize the visual:
 
 > [!div class="nextstepaction"]
 > [Customize visualization titles, backgrounds, and legends](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+
+[gs-light]: supported-map-styles.md#grayscale_light
+[gs-dark]: supported-map-styles.md#grayscale_dark
+[night]:supported-map-styles.md#night
+[RSR]: supported-map-styles.md#road_shaded_relief
+[satellite]: supported-map-styles.md#satellite
+[satellite RL]: supported-map-styles.md#satellite_road_labels
