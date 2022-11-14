@@ -1,7 +1,7 @@
 ---
 title: Continuous integration with Azure Pipelines
 description: Learn how to continuously build, test, and deploy Azure Resource Manager templates (ARM templates).
-ms.date: 11/11/2021
+ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -43,7 +43,7 @@ GitHub is used to store your project source code including Resource Manager temp
 
 ### Create a GitHub repository
 
-If you don't have a GitHub account, see [Prerequisites](#prerequisites). If you don't have a repository, use the following 
+If you don't have a GitHub account, see [Prerequisites](#prerequisites).
 
 1. Sign in to [GitHub](https://github.com).
 1. Select your account image on the upper right corner, and then select **Your repositories**.
