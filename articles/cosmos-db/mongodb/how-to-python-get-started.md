@@ -119,3 +119,31 @@ Skip this step and use the information for the portal in the next step.
 [!INCLUDE [Multitab - store connection string in environment variable](<./includes/environment-variables-connection-string.md>)]
 
 ## Create MongoClient with connection string
+
+1. Add dependencies to reference the MongoDB and DotEnv npm packages.
+
+    ```python
+    import os
+    import sys
+    from random import randint
+    
+    import pymongo
+    from dotenv import load_dotenv
+    ```
+    <!--
+    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/101-quickstart/run.py" id="package_dependencies":::
+    -->
+
+2. Define a new instance of the `MongoClient` class using the constructor and the connection string read from an environment variable with [python-dotenv](https://pypi.org/project/python-dotenv/) to use the connection string.
+
+    ```python
+    load_dotenv()
+    CONNECTION_STRING = os.environ.get("COSMOS_CONNECTION_STRING")
+    client = pymongo.MongoClient(CONNECTION_STRING)
+    ```
+    <!--
+    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/101-quickstart/run.py" id="client_credentials":::
+    -->
+
+For more information on different ways to create a ``MongoClient`` instance, see [Making a Connection with MongoClient](https://pymongo.readthedocs.io/en/stable/tutorial.html#making-a-connection-with-mongoclient).
+
