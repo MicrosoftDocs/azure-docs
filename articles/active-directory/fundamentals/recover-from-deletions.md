@@ -101,8 +101,8 @@ You can restore soft-deleted items in the administrative portal, or by using Mic
 
 ### Properties maintained with soft delete
 
-| Object type | Important properties maintained |
-| - | -|
+|Object type|Important properties maintained|
+|---|---|
 |Users (including external users)|All properties are maintained, including ObjectID, group memberships, roles, licenses, and application assignments|
 |Microsoft 365 Groups|All properties are maintained, including ObjectID, group memberships, licenses, and application assignments|
 |Application registration|All properties are maintained. See more information after this table.|
