@@ -280,7 +280,7 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 >
 ```
 
-Use the `arp -a` command to verify that the MAC recognizes the IP, if a ping command to the gateway IP fails to trigger it. For example:
+Use the `arp -a` command to verify that there is a binding between the MAC address and the IP address of the default gateway. For example:
 
 ```
 <root@xsense:/# arp -a
