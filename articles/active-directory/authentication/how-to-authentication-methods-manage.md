@@ -73,6 +73,11 @@ If you've enabled methods in the Authentication methods policy, write down users
 
 ## Start the migration 
 
+After you capture available authentication methods from the policies you are currently using, you can start the migration. Open the Authentication methods policy, click **Manage migration**, and click **Migration in progress**. You'll want to set this option before you make any changes.   
+
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
+
+
 The next step is to update Authentication methods policy to match your audit. You'll want to review each method one-by-one. For each method:
 
 - If the method is enabled in both legacy policies, enable it for all users in the Authentication methods policy. 
@@ -95,6 +100,8 @@ If **Notification through mobile app** is enabled in the legacy MFA policy, enab
 
 If **Verification code from mobile app or hardware token** is enabled in the legacy MFA policy, set **Allow use of Microsoft Authenticator OTP** to **Yes**. 
 
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/one-time-password.png" alt-text="Screenshot of Microsoft Authenticator OTP.":::
+
 ### SMS
 
 ### OATH tokens
@@ -113,7 +120,6 @@ For example, let's suppose SMS is disabled in the Authentication methods policy 
 
 <!--- what if you change legacy MFA policy while **Migration in Progress** is set and then roll back to Pre-migration?--->
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
 
 ## Finish the migration 
 
