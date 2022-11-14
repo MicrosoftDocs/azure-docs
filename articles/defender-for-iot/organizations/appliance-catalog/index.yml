@@ -69,7 +69,7 @@ landingContent:
             url: hpe-proliant-dl20-smb-legacy.md                  
           - text: HPE Edgeline El300 (L500 Rugged)
             url: hpe-edgeline-el300.md
-          - text: Neousys Nuvo-500LP (L500 Rugged)
+          - text: Neousys Nuvo-500LP (L100 Rugged)
             url: neousys-nuvo-5006lp.md
     
       # - linkListType: reference
