@@ -50,7 +50,7 @@ Group writeback requires enabling both the original and new versions of the feat
    ``` PowerShell 
    Set-ADSyncScheduler -SyncCycleEnabled $true  
    ``` 
-6. Run a full sync cycle if group writeback was previously configured and will not be configured in the ⁠Azure AD Connect wizard
+6. Run a full sync cycle if group writeback was previously configured and will not be configured in the ⁠Azure AD Connect wizard:
    ``` PowerShell 
    Start-ADSyncSyncCycle -PolicyType Initial
    ``` 
