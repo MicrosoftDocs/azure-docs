@@ -18,6 +18,8 @@ items:
     href: device-update-ubuntu-agent.md
   - name: Update device components or connected sensors
     href: device-update-howto-proxy-updates.md
+  - name: Device Update for Azure Real Time Operating System
+    href: device-update-azure-real-time-operating-system.md
 - name: Concepts
   items:
   - name: Account management
@@ -108,8 +110,6 @@ items:
   - name: Configure private endpoints
     href: configure-private-endpoints.md
     displayName: Azure CLI, az iot, az iot du
-  - name: Device Update for Azure Real Time Operating System
-    href: device-update-azure-real-time-operating-system.md
   - name: Use Microsoft Connected Cache
     items:
     - name: Single gateway

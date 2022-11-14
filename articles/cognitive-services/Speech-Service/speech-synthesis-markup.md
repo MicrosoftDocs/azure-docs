@@ -125,7 +125,7 @@ Styles, style degree, and roles are supported for a subset of neural voices. If 
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `style` | Specifies the speaking style. Speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If you're using `mstts:express-as`, the style must be provided. If an invalid value is provided, this element is ignored.       |
+| `style` | Specifies the [prebuilt](language-support.md?tabs=stt-tts#voice-styles-and-roles) or [custom](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) speaking style. Speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If you're using `mstts:express-as`, the style must be provided. If an invalid value is provided, this element is ignored.|
 | `styledegree` | Specifies the intensity of the speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity. | Optional. If you don't set the `style` attribute, the `styledegree` attribute is ignored. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.|
 | `role`| Specifies the speaking role-play. The voice acts as a different age and gender, but the voice name isn't changed. | Optional. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices: `zh-CN-XiaomoNeural`, `zh-CN-XiaoxuanNeural`, `zh-CN-YunxiNeural`, and `zh-CN-YunyeNeural`. |
 
@@ -133,7 +133,9 @@ Styles, style degree, and roles are supported for a subset of neural voices. If 
 
 You use the `mstts:express-as` element to express emotions like cheerfulness, empathy, and calm. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant.
 
-For a list of supported styles per neural voice, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
+For a list of supported styles for prebuilt neural voices, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
+
+To use your [custom style](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model), specify the style name that you entered in Speech Studio.
 
 **Syntax**
 
@@ -928,7 +930,7 @@ All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3
 > [!NOTE]
 > If an element is not recognized, it will be ignored, and the child elements within it will still be processed.
 
-The MathML entities are not supported by XML syntax, so you must use the their corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
+The MathML entities are not supported by XML syntax, so you must use the corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
 
 ## Viseme element
 
