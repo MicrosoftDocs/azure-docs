@@ -182,7 +182,7 @@ You can check if you have successfully created the maintenance configurations by
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-## Assigning the configuration
+## Assign the configuration
 
 After you have created your configuration, you might want to also assign machines to it using powershell. To achieve this we will use [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment).
 
