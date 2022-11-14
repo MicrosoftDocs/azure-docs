@@ -80,7 +80,7 @@ Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection is
 
 ## Get resource name
 
-In the commands below, we show "msdocs-cosmos" as the resource group name. Change as appropriate for your situation.
+In the commands below, we show *msdocs-cosmos* as the resource group name. Change the name as appropriate for your situation.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -107,9 +107,6 @@ Skip this step and use the information for the portal in the next step.
 
 ### [Portal](#tab/azure-portal)
 
-> [!TIP]
-> For this guide, we recommend using the resource group name ``msdocs-cosmos``.
-
 [!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-sign-in.md>)]
 
 ---
@@ -120,12 +117,11 @@ Skip this step and use the information for the portal in the next step.
 
 ## Create MongoClient with connection string
 
-1. Add dependencies to reference the MongoDB and DotEnv npm packages.
+1. Add dependencies to reference the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
 
     ```python
     import os
     import sys
-    from random import randint
     
     import pymongo
     from dotenv import load_dotenv
@@ -134,7 +130,7 @@ Skip this step and use the information for the portal in the next step.
     :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/101-quickstart/run.py" id="package_dependencies":::
     -->
 
-2. Define a new instance of the `MongoClient` class using the constructor and the connection string read from an environment variable with [python-dotenv](https://pypi.org/project/python-dotenv/) to use the connection string.
+2. Define a new instance of the `MongoClient` class using the constructor and the connection string read from an environment variable.
 
     ```python
     load_dotenv()
