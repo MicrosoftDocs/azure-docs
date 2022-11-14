@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 * Completion of the prerequisites and steps in [Tutorial: Register an application](web-app-tutorial-01-register-application.md).
 * Although any integrated development environment (IDE) that supports .NET applications can be used, this tutorial uses Visual Studio 2022. A free version can be downloaded at [Downloads](https://visualstudio.microsoft.com/downloads).
-* Some steps in this tutorial use the .NET CLI. For more information about this tool, see [dotnet command](https://learn.microsoft.com/dotnet/core/tools/dotnet).
+* Some steps in this tutorial use the .NET CLI. For more information about this tool, see [dotnet command](/dotnet/core/tools/dotnet).
 
 ## Create an ASP.NET Core project
 
