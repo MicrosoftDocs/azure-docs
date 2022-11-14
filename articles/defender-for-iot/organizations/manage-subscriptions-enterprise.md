@@ -101,7 +101,7 @@ To edit your plan, such as to edit your commitment level or the number of commit
 
 You'll need to cancel your plan if you want to edit the details of your plan, such as the price plan or the number of committed devices, or if you no longer need the service.
 
-You'd also need to cancel your plan and onboard again if you need to work with a new payment entity or Azure subscription. <!--right? b/c no need to add more committed devices if they're all managed by mde. no b/c it's only endpoints that get removed, not IT / IoT devices.  -->
+You'd also need to cancel your plan and onboard again if you need to work with a new payment entity or Azure subscription.
 
 **To cancel your Enterprise IoT plan**:
 
@@ -118,7 +118,6 @@ The cancellation takes effect one hour after confirming the change.  This change
 If you're canceling your plan as part of an [editing procedure](#edit-your-enterprise-iot-plan), make sure to [onboard a new plan](#onboard-an-enterprise-iot-plan) back with the new details.
 
 > [!IMPORTANT]
-> You can also [cancel a plan](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan) from Defender for IoT in the Azure portal. However, canceling a plan from the Azure portal removes all Defender for IoT services from the subscription, including both OT and Enterprise IOT plans. Do this with care.
 >
 > If you've [registered an Enterprise IoT network sensor](eiot-sensor.md) (Public preview), device data collected by the sensor remains in your Microsoft 365 Defender instance. If you're canceling the Enterprise IoT plan because you no longer need the service, make sure to manually delete data from Microsoft 365 Defender as needed.
 
