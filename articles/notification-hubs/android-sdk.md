@@ -4,7 +4,7 @@ title: Send push notifications to Android using Azure Notification Hubs and Fire
 description: In this tutorial, you learn how to use Azure Notification Hubs and Google Firebase Cloud Messaging to send push notifications to Android devices (version 1.0.0-preview1).
 author: sethmanheim
 ms.author: sethm
-ms.date: 5/28/2020
+ms.date: 11/14/2022
 ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
@@ -82,15 +82,15 @@ The first step is to create a project in Android Studio:
 
 8. Copy and save the **Server key** for later use. You use this value to configure your hub.
 
-9. If you do not see a **Server key** on the firebase Cloud Messaging tab, follow these additional steps.
-    1. Click on the three-dots menu of the "Cloud Messaging API (Legacy) 🚫 Disabled" Heading
-    2. Follow the offered link to "Manage API in Google Cloud Console".
-    3. In google cloud console, press the button to enable the googlecloudmessaging API.
-    3. Wait a few minutes.
-    4. Go back to your firebase console project Cloud Messaging tab, and refresh the page.
-    5. See that the Cloud Messaging API header has changed to "Cloud Messaging API (Legacy) ✅ Enabled" and now shows a Server Key.
-    
-    :::image type="content" source="media/android-sdk/notification-hubs-enable-firebase-cloud-messaging-legacy-api.png" alt-text="Enable Cloud Messaging API (Legacy)":::
+9. If you do not see a **Server key** on the **Firebase Cloud Messaging** tab, follow these steps:
+    1. Select the three-dots menu of the **Cloud Messaging API (Legacy) Disabled** heading.
+    1. Follow the link to **Manage API in Google Cloud Console**.
+    1. In the Google Cloud Console, select the button to enable the Google Cloud Messaging API.
+    1. Wait a few minutes.
+    1. Go back to your Firebase console project **Cloud Messaging** tab, and refresh the page.
+    1. See that the Cloud Messaging API header has changed to **Cloud Messaging API (Legacy) Enabled** and now shows a server key.
+
+    :::image type="content" source="media/android-sdk/notification-hubs-enable-firebase-cloud-messaging-legacy-api.png" alt-text="Portal screenshot showing Enable Cloud Messaging API (Legacy).":::
     
 ## Configure a notification hub
 
@@ -234,7 +234,7 @@ also have the connection strings that are necessary to send notifications to a d
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_main);
       NotificationHub.setListener(new CustomNotificationListener());
-      NotificationHub.start(this.getApplication(), "Hub Name", “Connection-String”);
+      NotificationHub.start(this.getApplication(), "Hub Name", "Connection-String");
 
    }
    ```
