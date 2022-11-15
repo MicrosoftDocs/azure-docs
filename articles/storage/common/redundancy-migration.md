@@ -151,7 +151,7 @@ As the conversion request is evaluated and processed, the status should progress
 
 Customers can still request a conversion by opening a support request with Microsoft.
 
-> [!NOTE]
+> [!TIP]
 > If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Additional details** tab.
 
 Follow these steps to request a conversion from Microsoft:
