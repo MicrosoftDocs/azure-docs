@@ -152,6 +152,40 @@ The following table describes the default resource usage:
 | VMware Spring Cloud Gateway                  | 2              | 1 core            | 2Gi                 |
 | VMware Spring Cloud Gateway operator         | 2              | 1 core            | 2Gi                 |
 
+## Configure Application Performance Monitoring
+
+There are several types of Application Performance Monitoring (APM) Java agents provided by Spring Cloud Gateway to monitor gateway managed by Azure Spring Apps. Use the two configurations to setup APM for Spring Cloud Gateway.
+
+#### [Portal](#tab/Azure-portal)
+
+The following steps are to set up APM using the Azure portal.
+
+1. Open the **Spring Cloud Gateway** page and select **Configuration** tabs.
+
+1. Choose the APM type to monitor gateway in the dropdown list of **APM**.
+
+1. Fill the key-value pairs environment variables of APM in the **Properties** or **Secrets**. You can put variables with sensitive information in **Secrets**.
+
+1. When all configurations provided, select **Save** at the bottom to save your changes.
+
+Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
+
+#### [CLI](#tab/Azure-CLI)
+
+The following steps use the Azure CLI to set up APM.
+
+Run the following command
+
+```azurecli
+az spring gateway update --apm-types <APM_TYPE> --properties <key=value> --secrets <key=value>
+```
+
+The supported APM types are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic` and `ElasticAPM`. You can refer to their public documents about APM Java agent to see full functions provided and which environment variables are exposed. Azure Spring Apps will upgrade APM agents version in the same cadence as those in Buildpacks to keep compatibility of agents between Spring Cloud Gateway and users' applications.
+
+> [!NOTE]
+> By default, Azure Spring Apps prints the logs of the APM Java agent to `STDOUT`, which are mixed with Spring Cloud Gateway logs. You can check the version of APM agent used in logs. These logs can be queried in Log Analystics for troubleshooting.
+> Increase the cpu and memory of Spring Cloud Gateway to make APM agents work correctly.
+
 ## Next steps
 
 - [How to Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md)
