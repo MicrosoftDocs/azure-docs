@@ -21,7 +21,7 @@ This article shows how to use the Microsoft Azure Maps Power BI visual.
 
 The Azure Maps Power BI visual provides a rich set of data visualizations for spatial data on top of a map. It is estimated that over 80% of business data has a location context. The Azure Maps Power BI visual can be used to gain insights into how this location context relates to and influences your business data.
 
-![Power BI desktop with the Azure Maps Power BI visual displaying business data](media/power-bi-visual/azure-maps-visual-hero.png)
+:::image type="content" source="media/power-bi-visual/azure-maps-visual-hero.png" alt-text="Power BI desktop with the Azure Maps Power BI visual displaying business data" lightbox="media/power-bi-visual/azure-maps-visual-hero.png":::
 
 ## What is sent to Azure?
 
@@ -54,28 +54,28 @@ Once the Azure Maps Power BI visual is enabled, select the **Azure Maps** icon f
 
 Power BI creates an empty Azure Maps visual design canvas. While in preview, another disclaimer is displayed.
 
-:::image type="content" source="media/power-bi-visual/visual-initial-load.png" alt-text="Power BI desktop with the Azure Maps visual loaded in its initial state.":::
+:::image type="content" source="media/power-bi-visual/visual-initial-load.png" alt-text="Power BI desktop with the Azure Maps visual loaded in its initial state." lightbox="media/power-bi-visual/visual-initial-load.png":::
 
 Take the following steps to load the Azure Maps visual:
 
 1. In the **Fields** pane, drag data fields that contain latitude and longitude coordinate information into the **Latitude** and/or **Longitude** buckets. This is the minimal data needed to load the Azure Maps visual.
 
-    :::image type="content" source="media/power-bi-visual/bubble-layer.png" alt-text="Azure Maps visual displaying points as bubbles on the map after latitude and longitude fields provided.":::
+    :::image type="content" source="media/power-bi-visual/bubble-layer.png" alt-text="Azure Maps visual displaying points as bubbles on the map after latitude and longitude fields provided." lightbox="media/power-bi-visual/bubble-layer.png":::
 
 2. To color the data based on categorization, drag a categorical field into the **Legend** bucket of the **Fields** pane. In this example, we're using the **AdminDistrict** column (also known as state or province).  
 
-    :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="Azure Maps visual displaying points as colored bubbles on the map after legend field provided.":::
+    :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="Azure Maps visual displaying points as colored bubbles on the map after legend field provided." lightbox="media/power-bi-visual/bubble-layer-with-legend-color.png":::
 
     > [!NOTE]
     > The built-in legend control for Power BI does not currently appear in this preview.
 
 3. To scale the data relatively, drag a measure into the **Size** bucket of the **Fields** pane. In this example, we're using **Sales** column.  
 
-    :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png" alt-text="Azure Maps visual displaying points as colored and scaled bubbles on the map after size field provided.":::
+    :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png" alt-text="Azure Maps visual displaying points as colored and scaled bubbles on the map after size field provided." lightbox="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png":::
 
 4. Use the options in the **Format** pane to customize how data is rendered. The following image is the same map as above, but with the bubble layers fill transparency option set to 50% and the high-contrast outline option enabled.  
 
-    :::image type="content" source="media/power-bi-visual/bubble-layer-styled.png" alt-text="Azure Maps visual displaying points as bubbles on the map with a custom style.":::
+    :::image type="content" source="media/power-bi-visual/bubble-layer-styled.png" alt-text="Azure Maps visual displaying points as bubbles on the map with a custom style." lightbox="media/power-bi-visual/bubble-layer-styled.png":::
 
 5. You can also show or hide labels in the **Format** pane. The following two images show maps with the **Show labels** setting turned on and off:  
 
