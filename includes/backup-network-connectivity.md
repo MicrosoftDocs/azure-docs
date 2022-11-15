@@ -25,7 +25,7 @@ If your machine has limited internet access, ensure that firewall, proxy, and ne
 - `*.windows.net`
 - `*.blob.core.windows.net`
 - `*.queue.core.windows.net`
-- `*.    blob.storage.azure.net`
+- `*.blob.storage.azure.net`
 
 If you are a US Government customer, ensure that you have access to the following URLs:
 
