@@ -4,6 +4,7 @@ description: View the Azure Monitor activity log and send it to Azure Monitor Lo
 author: guywi-ms
 services: azure-monitor
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 07/01/2022
 ms.author: guywild
 ms.reviewer: orens
@@ -22,7 +23,8 @@ For more functionality, create a diagnostic setting to send the activity log to 
 For details on how to create a diagnostic setting, see [Create diagnostic settings to send platform logs and metrics to different destinations](./diagnostic-settings.md).
 
 > [!NOTE]
-> Entries in the activity log are system generated and can't be changed or deleted.
+> * Entries in the Activity Log are system generated and can't be changed or deleted.
+> * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](https://learn.microsoft.com/azure/azure-monitor/essentials/resource-logs)
 
 ## Retention period
 
@@ -100,7 +102,7 @@ Send the activity log to Azure Event Hubs to send entries outside of Azure, for 
 
 The following sample output data is from event hubs for an activity log:
 
-``` JSON
+```json
 {
     "records": [
         {
@@ -172,11 +174,11 @@ For example, a particular blob might have a name similar to:
 insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/y=2020/m=06/d=08/h=18/m=00/PT1H.json
 ```
 
-Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL, for example, h=12. During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00 because resource log events are broken into individual blobs per hour.
+Each PT1H.json blob contains a JSON object with events from log files that were received during the hour specified in the blob URL. During the present hour, events are appended to the PT1H.json file as they are received, regardless of when they were generated. The minute value in the URL, `m=00` is always `00` as blobs are created on a per hour basis.
 
 Each event is stored in the PT1H.json file with the following format. This format uses a common top-level schema but is otherwise unique for each category, as described in [Activity log schema](activity-log-schema.md).
 
-``` JSON
+```json
 { "time": "2020-06-12T13:07:46.766Z", "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MV-VM-01", "correlationId": "0f0cb6b4-804b-4129-b893-70aeeb63997e", "operationName": "Microsoft.Resourcehealth/healthevent/Updated/action", "level": "Information", "resultType": "Updated", "category": "ResourceHealth", "properties": {"eventCategory":"ResourceHealth","eventProperties":{"title":"This virtual machine is starting as requested by an authorized user or process. It will be online shortly.","details":"VirtualMachineStartInitiatedByControlPlane","currentHealthStatus":"Unknown","previousHealthStatus":"Unknown","type":"Downtime","cause":"UserInitiated"}}}
 ```
 
@@ -201,7 +203,7 @@ Log profiles are the legacy method for sending the activity log to storage or ev
 
 #### [PowerShell](#tab/powershell)
 
-If a log profile already exists, you first must remove the existing log profile and then create a new one.
+If a log profile already exists, you first must remove the existing log profile, and then create a new one.
 
 1. Use `Get-AzLogProfile` to identify if a log profile exists. If a log profile exists, note the `Name` property.
 
@@ -251,7 +253,7 @@ This sample PowerShell script creates a log profile that writes the activity log
 
 #### [CLI](#tab/cli)
 
-If a log profile already exists, you first must remove the existing log profile and then create a log profile.
+If a log profile already exists, you first must remove the existing log profile, and then create a log profile.
 
 1. Use `az monitor log-profiles list` to identify if a log profile exists.
 1. Use `az monitor log-profiles delete --name "<log profile name>` to remove the log profile by using the value from the `name` property.

@@ -29,12 +29,12 @@ The security services map organizes services by the resources they protect (colu
 - Detect threats – Services that identify suspicious activities and facilitate mitigating the threat.
 - Investigate and respond – Services that pull logging data so you can assess a suspicious activity and respond.
 
-The diagram includes the Azure Security Benchmark program, a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
+The diagram includes the Microsoft cloud security benchmark, a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
 
 :::image type="content" source="media/end-to-end/security-diagram.svg" alt-text="Diagram showing end-to-end security services in Azure." border="false":::
 
 ## Security controls and baselines
-The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
+The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
 - Security controls - These recommendations are generally applicable across your Azure tenant and Azure services. Each recommendation identifies a list of stakeholders that are typically involved in planning, approval, or implementation of the benchmark.
 - Service baselines - These apply the controls to individual Azure services to provide recommendations on that service’s security configuration.

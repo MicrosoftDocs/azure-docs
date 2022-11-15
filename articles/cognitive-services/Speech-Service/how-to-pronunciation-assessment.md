@@ -27,12 +27,15 @@ You can get pronunciation assessment scores for:
 - Full text
 - Words
 - Syllable groups
-- Phonemes in SAPI or IPA format
+- Phonemes in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) or [IPA](https://en.wikipedia.org/wiki/IPA) format
 
 > [!NOTE]
-> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=stt-tts) and [available regions](regions.md#speech-service).
+> The syllable group, phoneme name, and spoken phoneme of pronunciation assessment are currently only available for the en-US locale.
+> 
+> Usage of pronunciation assessment is charged the same as standard Speech to Text [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
 >
-> The syllable groups, IPA phonemes, and spoken phoneme features of pronunciation assessment are currently only available for the en-US locale.
+> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
+
 
 ## Configuration parameters
 
@@ -142,7 +145,7 @@ To request syllable-level results along with phonemes, set the granularity [conf
 
 ## Phoneme alphabet format
 
-The phoneme name is provided together with the score, to help identity which phonemes were pronounced accurately or inaccurately. For the [supported languages](language-support.md?tabs=stt-tts), you can get the phoneme name in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) format, and for the `en-US` locale, you can also get the phoneme name in [IPA](https://en.wikipedia.org/wiki/IPA) format. 
+For `en-US` locale, the phoneme name is provided together with the score, to help identify which phonemes were pronounced accurately or inaccurately. For other locales, you can only get the phoneme score. 
 
 The following table compares example SAPI phonemes with the corresponding IPA phonemes.
 
@@ -346,7 +349,7 @@ using (var speechRecognizer = new SpeechRecognizer(
 
 ::: zone pivot="programming-language-cpp"
 
-Word, syllable, and phoneme results aren't available via SDK objects with the Speech SDK foc C++. Word, syllable, and phoneme results are only available in the JSON string.
+Word, syllable, and phoneme results aren't available via SDK objects with the Speech SDK for C++. Word, syllable, and phoneme results are only available in the JSON string.
 
 ```cpp
 auto speechRecognizer = SpeechRecognizer::FromConfig(
@@ -367,7 +370,7 @@ auto pronunciationAssessmentResultJson = speechRecognitionResult->Properties.Get
 ::: zone-end 
 
 ::: zone pivot="programming-language-java"
-For Android application development, the word, syllable, and phoneme results are available via SDK objects with the Speech SDK foc Java. The results are also available in the JSON string. For Java Runtime (JRE) application development, the word, syllable, and phoneme results are only available in the JSON string.
+For Android application development, the word, syllable, and phoneme results are available via SDK objects with the Speech SDK for Java. The results are also available in the JSON string. For Java Runtime (JRE) application development, the word, syllable, and phoneme results are only available in the JSON string.
 
 ```Java
 SpeechRecognizer speechRecognizer = new SpeechRecognizer(

@@ -7,6 +7,7 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: article
 ms.workload: infrastructure-services
+ms.custom: ignite-2022
 ms.date: 02/25/2022
 ms.author: allensu
 ---
@@ -43,7 +44,7 @@ Review this section to familiarize yourself with considerations for designing vi
 
 Connecting from your Azure virtual network to Azure PaaS services can be done directly over the Azure backbone and bypass the internet. When you bypass the internet to connect to other Azure PaaS services, you free up SNAT ports and reduce the risk of SNAT port exhaustion. [Private Link](../../private-link/private-link-overview.md) should be used when possible to connect to Azure PaaS services in order to free up SNAT port inventory.
 
-Private Link uses the private IP addresses of your virtual machines or other compute resources from your Azure network to directly connect privately and securely to Azure PaaS services over the Azure backbone. See a list of all [Azure service listed here](../../private-link/availability.md) that are supported by Private Link. 
+Private Link uses the private IP addresses of your virtual machines or other compute resources from your Azure network to directly connect privately and securely to Azure PaaS services over the Azure backbone. See a list of [available Azure services](../../private-link/availability.md) that are supported by Private Link.
 
 ### Connect to the internet with NAT gateway
 
@@ -106,7 +107,7 @@ For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](../../ne
 
 Each NAT gateway can provide up to 50 Gbps of throughput. This data throughput includes data processed both outbound and inbound through a NAT gateway resource. You can split your deployments into multiple subnets and assign each subnet or group of subnets a NAT gateway to scale out.
 
-NAT gateway can support up to 50,000 concurrent connections per public IP address **to the same destination endpoint** over the internet for TCP and UDP. NAT gateway can process 1M packets per second and scale up to 5M packets per second.
+NAT gateway can support up to 50,000 concurrent connections per public IP address **to the same destination endpoint** over the internet for TCP and UDP. The total number of connections that NAT gateway can support at any given time is up to 2 million. NAT gateway can process 1M packets per second and scale up to 5M packets per second.
 
 Review the following section for details and the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
 
@@ -161,7 +162,7 @@ When NAT gateway is configured with public IP address 65.52.1.1, the source IPs 
 
 ### NAT gateway dynamically allocates SNAT ports
 
-NAT gateway dynamically allocates SNAT ports across a subnet's private resources such as virtual machines. SNAT port inventory is made available by attaching public IP addresses to NAT gateway. All available SNAT portscan be used on-demand by any virtual machine in subnets configured with NAT gateway:
+NAT gateway dynamically allocates SNAT ports across a subnet's private resources such as virtual machines. SNAT port inventory is made available by attaching public IP addresses to NAT gateway. All available SNAT ports can be used on-demand by any virtual machine in subnets configured with NAT gateway:
 
 :::image type="content" source="./media/nat-overview/lb-vnnat-chart.png" alt-text="Diagram that depicts the inventory of all available SNAT ports used by any VM on subnets configured with NAT.":::
 

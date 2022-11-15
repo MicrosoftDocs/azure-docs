@@ -50,8 +50,10 @@ Creator services create, store, and use various data types that are defined and 
 - Converted data
 - Dataset
 - Tileset
-- Custom styles
+- style
+- Map configuration
 - Feature stateset
+- Routeset
 
 ## Upload a Drawing package
 
@@ -74,8 +76,9 @@ Azure Maps Creator provides the following services that support map creation:
 - [Dataset service](/rest/api/maps/v2/dataset).
 - [Tileset service](/rest/api/maps/v2/tileset).
 Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
-- Custom styles. Use the [style service][style] or [visual style editor][style editor] to customize the visual elements of an indoor map.
+- [Custom styling service](#custom-styling-preview). Use the [style service][style] or [visual style editor][style editor] to customize the visual elements of an indoor map.
 - [Feature State service](/rest/api/maps/v2/feature-state). Use the Feature State service to support dynamic map styling. Applications can use dynamic map styling to reflect real-time events on spaces provided by the IoT system.
+- [Wayfinding service](#wayfinding-preview). Use the [wayfinding API][wayfind] to generate a path between two points within a facility. Use the [routeset API][routeset] to create the data that the wayfinding service needs to generate paths.
 
 ### Datasets
 
@@ -100,7 +103,7 @@ If a tileset becomes outdated and is no longer useful, you can delete the tilese
 >
 >To reflect changes in a dataset, you must create new tilesets. Similarly, if you delete a tileset, the dataset isn't affected.
 
-### Custom styling (Preview)
+### Custom styling (preview)
 
 A style defines the visual appearance of a map. It defines what data to draw, the order to draw it in, and how to style the data when drawing it. Azure Maps Creator styles support the MapLibre standard for [style layers][style layers] and [sprites][sprites].
 
@@ -222,6 +225,30 @@ An application can use a feature stateset to dynamically render features in a fa
 >[!NOTE]
 >Like tilesets, changing a dataset doesn't affect the existing feature stateset, and deleting a feature stateset doesn't affect the dataset to which it's attached.
 
+### Wayfinding (preview)
+
+The [Wayfinding service][wayfind] enables you to provide your customers with the shortest path between two points within a facility. Once you've imported your indoor map data and created your dataset, you can use that to create a [routeset][routeset]. The routeset provides the data required to generate paths between two points. The wayfinding service takes into account things such as the minimum width of openings and may optionally exclude elevators or stairs when navigating between levels as a result.
+
+Creator wayfinding is powered by [Havok][havok].
+
+#### Wayfinding paths
+
+When a [wayfinding path][wayfinding path] is successfully generated, it finds the shortest path between two points in the specified facility. Each floor in the journey is represented as a separate leg, as are any stairs or elevators used to move between floors.
+
+For example, the first leg of the path might be from the origin to the elevator on that floor. The next leg will be the elevator, and then the final leg will be the path from the elevator to the destination. The estimated travel time is also calculated and returned in the HTTP response JSON.
+
+##### Structure
+
+For wayfinding to work, the facility data must contain a [structure][structures]. The wayfinding service calculates the shortest path between two selected points in a facility. The service creates the path by navigating around structures, such as walls and any other impermeable structures.
+
+##### Vertical penetration
+
+If the selected origin and destination are on different floors, the wayfinding service determines what [vertical penetration][verticalPenetration] objects such as stairs or elevators, are available as possible pathways for navigating vertically between levels. By default, the option that results in the shortest path will be used.
+
+The Wayfinding service includes stairs or elevators in a path based on the value of the vertical penetration's `direction` property. For more information on the direction property, see [verticalPenetration][verticalPenetration] in the Facility Ontology article. See the `avoidFeatures` and `minWidth` properties in the [wayfinding][wayfind] API documentation to learn about other factors that can impact the path selection between floor levels.
+
+For more information, see the [Indoor maps wayfinding service](how-to-creator-wayfinding.md) how-to article.
+
 ## Using indoor maps
 
 ### Render V2-Get Map Tile API
@@ -240,7 +267,7 @@ Creator services such as Conversion, Dataset, Tileset and Feature State return a
 
 ### Indoor Maps module
 
-The [Azure Maps Web SDK](./index.yml) includes the Indoor Maps module. This module offers extended functionalities to the Azure Maps *Map Control* library. The Indoor Maps module renders indoor maps created in Creator. It integrates widgets, such as *floor picker*, that help users to visualize the different floors.
+The [Azure Maps Web SDK](./index.yml) includes the Indoor Maps module. This module offers extended functionalities to the Azure Maps *Map Control* library. The Indoor Maps module renders indoor maps created in Creator. It integrates widgets such as *floor picker* that help users to visualize the different floors.
 
 You can use the Indoor Maps module to create web applications that integrate indoor map data with other [Azure Maps services](./index.yml). The most common application setups include adding knowledge from other maps - such as road, imagery, weather, and transit - to indoor maps.
 
@@ -281,8 +308,14 @@ The following example shows how to update a dataset, create a new tileset, and d
 [basemap]: supported-map-styles.md
 [style]: /rest/api/maps/v20220901preview/style
 [tileset]: /rest/api/maps/v20220901preview/tileset
+[routeset]: /rest/api/maps/v20220901preview/routestset
+[wayfind]: /rest/api/maps/v20220901preview/wayfinding
+[wayfinding path] /rest/api/maps/v20220901preview/wayfinding/path
 [style-picker-control]: choose-map-style.md#add-the-style-picker-control
 [style-how-to]: how-to-create-custom-styles.md
-[map-config-api]: /rest/api/maps/v20220901preview/mapconfiguration
+[map-config-api]: /rest/api/maps/v20220901preview/map-configuration
 [instantiate-indoor-manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
+[verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
+[structures]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
+[havok]: https://www.havok.com/

@@ -110,7 +110,7 @@ See the [object detection sample notebook](https://github.com/Azure/azureml-exam
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+* Learn more about [how and where to deploy a model](../how-to-deploy-managed-online-endpoints.md).
 * For definitions and examples of the performance charts and metrics provided for each job, see [Evaluate automated machine learning experiment results](../how-to-understand-automated-ml.md).
 * [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models-v1.md).
 * See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters-v1.md).

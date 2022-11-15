@@ -1,7 +1,7 @@
 ---
 title: Connect machines at scale using Group Policy with a PowerShell script
 description: In this article, you learn how to create a Group Policy Object to onboard Active Directory-joined Windows machines to Azure Arc-enabled servers.
-ms.date: 07/20/2022
+ms.date: 10/18/2022
 ms.topic: conceptual
 ms.custom: template-how-to
 ---
@@ -27,20 +27,12 @@ The Group Policy Object, which is used to onboard Azure Arc-enabled servers, req
     * Assign the Azure Connected Machine Onboarding role to your service principal and limit the scope of the role to the target Azure landing zone.
     * Make a note of the Service Principal Secret; you'll need this value later.
 
-1. For each of the scripts below, click to go to its GitHub directory and download the raw script to your local share using your browser's **Save as** function:
-    * [`EnableAzureArc.ps1`](https://raw.githubusercontent.com/Azure/ArcEnabledServersGroupPolicy/main/EnableAzureArc.ps1)
-    * [`DeployGPO.ps1`](https://raw.githubusercontent.com/Azure/ArcEnabledServersGroupPolicy/main/DeployGPO.ps1)
-    * [`AzureArcDeployment.psm1`](https://raw.githubusercontent.com/Azure/ArcEnabledServersGroupPolicy/main/AzureArcDeployment.psm1)
+1. Download and unzip the folder **ArcEnabledServersGroupPolicy_v1.0.1** from [https://aka.ms/gp-onboard](https://aka.ms/gp-onboard). This folder contains the ArcGPO project structure with the scripts `EnableAzureArc.ps1`, `DeployGPO.ps1`, and `AzureArcDeployment.psm1`. These assets will be used for onboarding the machine to Azure Arc-enabled servers.
 
-    > [!NOTE]
-    > The ArcGPO folder must be in the same directory as the downloaded script files above. The ArcGPO folder contains the files that define the Group Policy Object that's created when the DeployGPO script is run. When running the DeployGPO script, make sure you're in the same directory as the ps1 files and ArcGPO folder.
-
-1. Modify the script `EnableAzureArc.ps1` by providing the parameter declarations for servicePrincipalClientId, tenantId, subscriptionId, ResourceGroup, Location, Tags, and ReportServerFQDN fields respectively.
-
-1. Execute the deployment script `DeployGPO.ps1`, modifying the run parameters for the DomainFQDN, ReportServerFQDN, ArcRemoteShare, AgentProxy (if applicable), and Service Principal secret:
+1. Execute the deployment script `DeployGPO.ps1`, modifying the run parameters for the DomainFQDN, ReportServerFQDN, ArcRemoteShare, Service Principal secret, Service Principal Client Id, Subscription Id, Resource Group, Region, Tenant, and AgentProxy (if applicable):
 
    ```
-   .\DeployGPO.ps1 -DomainFQDN <INSERT Domain FQDN> -ReportServerFQDN <INSERT Domain FQDN of Network Share> -ArcRemoteShare <INSERT Name of Network Share> -Spsecret <INSERT SPN SECRET> [-AgentProxy $AgentProxy]
+   .\DeployGPO.ps1 -DomainFQDN contoso.com -ReportServerFQDN Server.contoso.com -ArcRemoteShare AzureArcOnBoard -ServicePrincipalSecret $ServicePrincipalSecret -ServicePrincipalClientId $ServicePrincipalClientId -SubscriptionId $SubscriptionId --ResourceGroup $ResourceGroup -Location $Location -TenantId $TenantId [-AgentProxy $AgentProxy]
     ```
 
 1. Download the latest version of the [Azure Connected Machine agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center and save it to the remote share.

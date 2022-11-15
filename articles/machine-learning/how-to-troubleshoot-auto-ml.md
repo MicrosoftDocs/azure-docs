@@ -2,9 +2,9 @@
 title: Troubleshoot automated ML experiments
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot and resolve issues in your automated machine learning experiments.
-author: blackmist
-ms.author: larryfr
-ms.reviewer: nibaccam
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -27,14 +27,14 @@ Expect errors such as:
 
 * Module not found errors such as,
 
-  `No module named 'sklearn.decomposition._truncated_svd`
+  `No module named 'sklearn.decomposition._truncated_svd'`
 
 * Import errors such as,
 
   `ImportError: cannot import name 'RollingOriginValidator'`,
 * Attribute errors such as,
 
-  `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
+  `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator'`
 
 Resolutions depend on your `AutoML` SDK training version:
 

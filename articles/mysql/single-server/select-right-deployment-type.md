@@ -80,7 +80,7 @@ The main differences between these options are listed in the following table:
 | Gtid support for read replicas | Supported | Supported | User Managed |
 | Cross-region support (Geo-replication) | Yes | Not supported | User Managed |
 | Hybrid scenarios | Supported with [Data-in Replication](./concepts-data-in-replication.md)| Supported with [Data-in Replication](../flexible-server/concepts-data-in-replication.md) | User Managed |
-| Gtid support for data-in replication | Supported | Supported | User Managed |
+| Gtid support for data-in replication | Supported | Not Supported | User Managed |
 | Data-out replication | Not Supported | In preview | Supported |
 | [**Backup and Recovery**](../flexible-server/concepts-backup-restore.md) | | | |
 | Automated backups | Yes | Yes | No |

@@ -430,6 +430,10 @@ These properties are client specific, so you can configure `appInsights.defaultC
 | correlationIdRetryIntervalMs    | The time to wait before retrying to retrieve the ID for cross-component correlation. (Default is `30000`.)     |
 | correlationHeaderExcludedDomains| A list of domains to exclude from cross-component correlation header injection. (Default. See [Config.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Config.ts).)|
 
+## Troubleshooting
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
 ## Next steps
 
 * [Monitor your telemetry in the portal](./overview-dashboard.md)
