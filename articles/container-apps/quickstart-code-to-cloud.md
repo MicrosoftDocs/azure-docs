@@ -311,7 +311,7 @@ az containerapp create \
   --registry-server $ACR_NAME.azurecr.io
 ```
 
-# [Azure PowerShell](#tab/azure-powershell
+# [Azure PowerShell](#tab/azure-powershell)
 
 To create the container app, create template objects that you will pass in as arguments to the `New-AzContainerApp` command.
 
