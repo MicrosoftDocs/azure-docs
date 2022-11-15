@@ -47,8 +47,6 @@ The Arc-enabled SQL Server data source needs to be registered first with Microso
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
 
-> [!Note]
-> If you want to create a policy on a resource group or subscription and have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently for *Data use management* to provide their App ID.
 
 ## Create a new DevOps policy
 Follow this link for the steps to [create a new DevOps policy in Microsoft Purview](how-to-policies-devops-authoring-generic.md#create-a-new-devops-policy).
@@ -65,11 +63,11 @@ Follow this link for the steps to [delete a DevOps policies in Microsoft Purview
 >[!Important]
 > DevOps policies are auto-published and changes can take up to **5 minutes** to be enforced by the data source.
 
-### Test the policy
+## Test the policy
 
 The Azure AD Accounts referenced in the access policies should now be able to connect to any database in the server to which the policies are published.
 
-#### Force policy download
+### Force policy download
 It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.
 
 ```sql
@@ -77,7 +75,7 @@ It is possible to force an immediate download of the latest published policies t
 exec sp_external_policy_refresh reload
 ```  
 
-#### Analyze downloaded policy state from SQL
+### Analyze downloaded policy state from SQL
 The following DMVs can be used to analyze which policies have been downloaded and are currently assigned to Azure AD accounts. The minimal permission required to run them is VIEW DATABASE SECURITY STATE - or assigned Action Group *SQL Security Auditor*.
 
 ```sql
