@@ -34,59 +34,43 @@ The following regions and maximum resources are available to container groups wi
 | Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: | :----: |
 | Australia East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| Australia Southeast | 4 | 14 | N/A | N/A | 50 | N/A | N |
-| Brazil South | 4 | 16 | 2 | 8 | 50 | N/A | Y |
 | Australia Southeast | 4 | 14 | 16 | 50 | 50 | N/A | N |
 | Brazil South | 4 | 16 | 2 | 16 | 50 | N/A | Y |
+| Brazil South | 4 | 16 | 2 | 8 | 50 | N/A | Y |
 | Canada Central | 4 | 16 | 4 | 16 | 50 | N/A | N |
-| Canada East | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Canada East | 4 | 16 | 16 | 50 | 50 | N/A | N |
+| Canada East | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | Central India | 4 | 16 | 4 | 4 | 50 | V100 | N |
 | Central US | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | East Asia | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
 | East US 2 | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | France Central | 4 | 16 | 4 | 16 | 50 | N/A | Y|
-| Germany West Central | 4 | 16 | N/A | N/A | 50 | N/A | Y |
 | Germany West Central | 4 | 16 | 16 | 50 | 50 | N/A | Y |
 | Japan East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| Japan West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Jio India West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Korea Central | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 | N |
 | Japan West | 4 | 16 | 16 | 50 | 50 | N/A | N |
 | Jio India West | 4 | 16 | 16 | 50 | 50 | N/A | N |
 | Korea Central | 4 | 16 | 16 | 50 | 50 | N/A | N |
 | North Central US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | N |
 | North Europe | 4 | 16 | 4 | 16 | 50 | K80 | Y |
-| Norway East | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Norway West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| South Africa North | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | Norway East | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | Norway West | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | South Africa North | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | South Central US | 4 | 16 | 4 | 16 | 50 | V100 | Y |
-| Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 | Y |
-| South India | 4 | 16 | N/A | N/A | 50 | K80 | N |
-| Sweden Central | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Sweden South | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| Switzerland North | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | South India | 4 | 16 | 4 | 16 | 50 | K80 | N |
+| Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 | Y |
 | Sweden Central | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | Sweden South | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | Switzerland North | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | Switzerland West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| UK South | 4 | 16 | 4 | 16 | 50 | N/A | Y|
-| UK West | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| UAE North | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| UK West | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | UAE North | 4 | 16 | 4 | 16 | 50 | N/A | N |
+| UK South | 4 | 16 | 4 | 16 | 50 | N/A | Y|
+| UK West | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | West Central US| 4 | 16 | 4 | 16 | 50 | N/A | N |
 | West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
 | West India | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | West US | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
-| West US 3 | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| West US 3 | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | West US 3 | 4 | 16 | 4 | 16 | 50 | N/A | N |
 
 The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
@@ -152,7 +136,7 @@ The following regions and maximum resources are available to container groups wi
 | Central US | 4 | 16 | 20 | Y |
 | East Asia | 4 | 16 | 20 | N |
 | East US | 4 | 16 | 20 | Y |
-| East US 2 | 2 | 3.5 | 20 | Y |
+| East US 2 | 4 | 16 | 20 | Y |
 | France Central | 4 | 16 | 20 | Y |
 | Japan East | 4 | 16 | 20 | Y |
 | Korea Central | 4 | 16 | 20 | N |
@@ -166,6 +150,7 @@ The following regions and maximum resources are available to container groups wi
 | West Europe | 4 | 16 | 20 | Y |
 | West US | 4 | 16 | 20 | N |
 | West US 2 | 4 | 16 | 20 | Y |
+| West US 3| 4 | 16 | 20 | Y |
 
 ## Next steps
 

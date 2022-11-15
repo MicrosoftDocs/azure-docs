@@ -13,7 +13,7 @@ Azure Kubernetes Service (AKS) provides additional, supported functionality for 
 
 ## Add-ons
 
-Add-ons are a fully supported way to provide extra capabilities for your AKS cluster. Add-ons' installation, configuration, and lifecycle is managed by AKS. Use `az aks addon` to install an add-on or manage the add-ons for your cluster.
+Add-ons are a fully supported way to provide extra capabilities for your AKS cluster. Add-ons' installation, configuration, and lifecycle is managed by AKS. Use `az aks enable-addons` to install an add-on or manage the add-ons for your cluster.
 
 The following rules are used by AKS for applying updates to installed add-ons:
 

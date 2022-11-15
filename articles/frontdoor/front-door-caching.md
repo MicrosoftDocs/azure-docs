@@ -169,6 +169,8 @@ Cache-Control response headers that indicate that the response won't be cached s
 The following request headers won't be forwarded to a backend when using caching.
 - Content-Length
 - Transfer-Encoding
+- Accept
+- Accept-Charset
 - Accept-Language
 
 ## Response headers
@@ -187,12 +189,12 @@ Cache behavior and duration can be configured in Rules Engine. Rules Engine cach
 
 * When *caching* is **enabled**, the cache behavior is different based on the cache behavior value selected.
    * **Honor origin**: Azure Front Door will always honor origin response header directive. If the origin directive is missing, Azure Front Door will cache contents anywhere from 1 to 3 days.  
-   * **Override always**: Azure Front Door will always override with the cache duration, meaning that it will cache the contents for the cache duration ignoring the values from origin response directives.
+   * **Override always**: Azure Front Door will always override with the cache duration, meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. This behavior will only be applied if the response is cacheable.
    * **Override if origin missing**: If the origin doesn’t return caching TTL values, Azure Front Door will use the specified cache duration. This behavior will only be applied if the response is cacheable. 
 
 > [!NOTE]
 > * Azure Front Door makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content is not frequently used. Front Door might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your backends are offline.
-> * Origins may specify not to cache specific responses using the Cache-Control header with a value of no-cache, private, or no-store. In these circumstances, Front Door will never cache the content and this action will have no effect.
+> * Origins may specify not to cache specific responses using the Cache-Control header with a value of no-cache, private, or no-store. When used in an HTTP response from the origin server to the Azure Front Door POPs, Azure Front Door supports Cache-control directives and honors caching behaviors for Cache-Control directives in [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://www.rfc-editor.org/rfc/rfc7234#section-5.2.2.8). 
 
 ::: zone-end
 

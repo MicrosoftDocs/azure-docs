@@ -5,6 +5,7 @@ description: Learn which hyperparameters are available for computer vision tasks
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
+ms.custom: ignite-2022
 ms.topic: reference
 ms.reviewer: nibaccam
 author: swatig007
@@ -113,6 +114,6 @@ The following hyperparameters are for object detection and instance segmentation
 
 ## Next steps
 
-* Learn how to [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md).
+* Learn how to [Set up AutoML to train computer vision models with Python](how-to-auto-train-image-models.md).
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).

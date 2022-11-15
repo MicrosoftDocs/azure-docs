@@ -22,6 +22,8 @@ Turning on application monitoring in Azure portal will automatically instrument 
 
 ### Auto-instrumentation through Azure portal
 
+For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+
 You can turn on monitoring for your Node.js apps running in Azure App Service just with one click, no code change required.
 Application Insights for Node.js is integrated with Azure App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps.
 The integration is in public preview. The integration adds Node.js SDK, which is in GA.
@@ -135,6 +137,8 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 ---
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

@@ -2,7 +2,6 @@
 title: Approve activation requests for group members and owners in Privileged Identity Management - Azure AD
 description: Learn how to approve or deny requests for role-assignable groups in Azure AD Privileged Identity Management (PIM).
 services: active-directory
-documentationcenter: ''
 author: amsliu
 manager: amycolannino
 ms.service: active-directory
@@ -10,9 +9,9 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/24/2022
+ms.date: 08/16/2022
 ms.author: amsliu
-ms.reviewer: shaunliu
+ms.reviewer: jgangadhar
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -79,6 +78,7 @@ When you activate a role in Privileged Identity Management, the activation may n
 
 ## Next steps
 
+- [Create an access review of Privileged Access Groups (preview)](../governance/create-access-review-privileged-access-groups.md)
 - [Extend or renew group assignments in Privileged Identity Management](pim-resource-roles-renew-extend.md)
 - [Email notifications in Privileged Identity Management](pim-email-notifications.md)
 - [Approve or deny requests for group assignments in Privileged Identity Management](azure-ad-pim-approval-workflow.md)

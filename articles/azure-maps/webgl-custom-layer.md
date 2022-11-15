@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: How to add a custom WebGL layer to a map using the Azure Maps Web SDK. 
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 09/23/2022
+ms.date: 10/17/2022
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -117,9 +117,9 @@ map.layers.add(new atlas.layer.WebGLLayer("layerId",
 
 This sample renders a triangle on the map using a WebGL layer.
 
-<!--------------------   Insert example here   ----------------------------------->
-
 ![A screenshot showing a triangle rendered on a map, using a WebGL layer.](./media/how-to-webgl-custom-layer/triangle.png)
+
+For a fully functional sample with source code, see [Simple 2D WebGL layer][Simple 2D WebGL layer] in the Azure Maps Samples.
 
 The map's camera matrix is used to project spherical Mercator point to
 gl coordinates. Mercator point \[0, 0\] represents the top left corner
@@ -141,16 +141,15 @@ to load a [glTF][glTF] file and render it on the map using [three.js][threejs].
 You need to add the following script files.
 
 ```html
-<script src="https://unpkg.com/three@0.102.0/build/three.min.js"></script> 
-
-<script src="https://unpkg.com/three@0.102.0/examples/js/loaders/GLTFLoader.js"></script> 
+<script src="https://unpkg.com/three@latest/build/three.min.js"></script>
+<script src="https://unpkg.com/three@latest/examples/js/loaders/GLTFLoader.js"></script>
 ```
 
 This sample renders an animated 3D parrot on the map.
 
-<!--------------------   Insert example here   ----------------------------------->
-
 ![A screenshot showing an an animated 3D parrot on the map.](./media/how-to-webgl-custom-layer/3d-parrot.gif)
+
+For a fully functional sample with source code, see [Three custom WebGL layer][Three custom WebGL layer] in the Azure Maps Samples.
 
 The `onAdd` function loads a `.glb` file into memory and instantiates
 three.js objects such as Camera, Scene, Light, and a `THREE.WebGLRenderer`.
@@ -165,6 +164,27 @@ a single frame by calling `map.triggerRepaint()` in the `render` function.
 > - To enable anti-aliasing simply set `antialias` to `true` as
 one of the style options while creating the map.
 
+## Render a 3D model using babylon.js
+
+[Babylon.js][babylonjs] is one of the world's leading WebGL-based graphics engines. The following example shows how to load a GLTF file and render it on the map using babylon.js.
+
+You need to add the following script files.  
+
+```html
+<script src="https://cdn.babylonjs.com/babylon.js"></script> 
+<script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script> 
+```
+
+This sample renders a satellite tower on the map.
+
+The `onAdd` function instantiates a BABYLON engine and a scene. It then loads a `.gltf` file using BABYLON.SceneLoader.  
+
+The `render` function calculates the projection matrix of the camera and renders the model to the scene.
+
+![A screenshot showing an example of rendering a 3D model using babylon.js.](./media/how-to-webgl-custom-layer/render-3d-model.png)
+
+For a fully functional sample with source code, see [Babylon custom WebGL layer][Babylon custom WebGL layer] in the Azure Maps Samples.
+
 ## Render a deck.gl layer
 
 A WebGL layer can be used to render layers from the [deck.gl][deckgl]
@@ -175,7 +195,7 @@ within a certain time range.
 You need to add the following script file.
 
 ```html
-<script src="https://unpkg.com/deck.gl@8.8.9/dist.min.js"></script> 
+<script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script> 
 ```
 
 Define a layer class that extends `atlas.layer.WebGLLayer`.
@@ -210,9 +230,12 @@ class DeckGLLayer extends atlas.layer.WebGLLayer {
 } 
 ```
 
-This sample renders an arc-layer from the [deck.gl][deckgl] library.
+
+This sample renders an arc-layer google the [deck.gl][deckgl] library.
 
 ![A screenshot showing an arc-layer from the Deck G L library.](./media/how-to-webgl-custom-layer/arc-layer.png)
+
+For a fully functional sample with source code, see [Deck GL custom WebGL layer][Deck GL custom WebGL layer] in the Azure Maps Samples.
 
 ## Next steps
 
@@ -235,7 +258,12 @@ Learn more about the classes and methods used in this article:
 [deckgl]: https://deck.gl/
 [glTF]: https://www.khronos.org/gltf/
 [OpenGL ES]: https://www.khronos.org/opengles/
+[babylonjs]: https://www.babylonjs.com/
 [WebGLLayer]: /javascript/api/azure-maps-control/atlas.layer.webgllayer
 [WebGLLayerOptions]: /javascript/api/azure-maps-control/atlas.webgllayeroptions
 [WebGLRenderer interface]: /javascript/api/azure-maps-control/atlas.webglrenderer
 [MercatorPoint]: /javascript/api/azure-maps-control/atlas.data.mercatorpoint
+[Simple 2D WebGL layer]: https://samples.azuremaps.com/?sample=simple-2d-webgl-layer
+[Deck GL custom WebGL layer]: https://samples.azuremaps.com/?sample=deck-gl-custom-webgl-layer
+[Three custom WebGL layer]: https://samples.azuremaps.com/?sample=three-custom-webgl-layer
+[Babylon custom WebGL layer]: https://samples.azuremaps.com/?sample=babylon-custom-webgl-layer

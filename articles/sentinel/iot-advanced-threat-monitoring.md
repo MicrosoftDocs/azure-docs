@@ -340,4 +340,4 @@ For more information, see:
 - [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
 - [Microsoft Defender for IoT documentation](../defender-for-iot/index.yml)
-- [Microsoft Defender for IoT solution](sentinel-solutions-catalog.md#microsoft)
+- [Microsoft Defender for IoT solution](sentinel-solutions-catalog.md)

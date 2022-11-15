@@ -8,17 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 11/11/2022
 ms.author: eur
 ---
 
 # Synthesize long-form text to speech
 
-The Long Audio API provides asynchronous synthesis of long-form text to speech. For example: audio books, news articles, and documents. There's no need to deploy a custom voice endpoint. Unlike the Text-to-speech API used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes. This makes it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
+The Long Audio API provides asynchronous synthesis of long-form text to speech. Publishers and audio content platforms can create long audio content in a batch. For example: audio books, news articles, and documents. The Long Audio API can create synthesized audio longer than 10 minutes.
+
+> [!TIP]
+> You can also use the [Speech SDK](speech-sdk.md) to create synthesized audio longer than 10 minutes by iterating over the text and synthesizing it in chunks. For a C# example, see [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs).
 
 ## Workflow
 
-The Long Audio API doesn't return synthesized audio in real time. You submit text files to be synthesized, poll for the status, and download the audio output when the status indicates success.
+The Long Audio API is asynchronous and doesn't return synthesized audio in real time. You submit text files to be synthesized, poll for the status, and download the audio output when the status indicates success.
 
 This diagram provides a high-level overview of the workflow.
 
@@ -28,11 +31,10 @@ This diagram provides a high-level overview of the workflow.
 
 When preparing your text file, make sure it:
 
-* Is either plain text (.txt) or SSML text (.txt).
+* Is a single plain text (.txt) or SSML text (.txt). Don't use compressed files such as ZIP.
 * Is encoded as [UTF-8 with Byte Order Mark (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom).
-* Is a single file, not a zip.
 * Contains more than 400 characters for plain text or 400 [billable characters](./text-to-speech.md#pricing-note) for SSML text, and less than 10,000 paragraphs.
-  * For plain text, each paragraph is separated by hitting **Enter/Return**. See [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
+  * For plain text, each paragraph is separated by pressing **Enter/Return**. See [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
   * For SSML text, each SSML piece is considered a paragraph. Separate SSML pieces by different paragraphs. See [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
 
 > [!NOTE]
@@ -124,7 +126,7 @@ Prepare an input text file, in either plain text or SSML text, then add the foll
 
 > [!NOTE]
 > `concatenateResult` is an optional parameter. If this parameter isn't set, the audio outputs will be generated per paragraph. You can also concatenate the audios into one output by including the parameter. 
-> `outputFormat` is also optional. By default, the audio output is set to `riff-16khz-16bit-mono-pcm`. For more information about supported audio output formats, see [Audio output formats](#audio-output-formats).
+> `outputFormat` is also optional. By default, the audio output is set to `riff-24khz-16bit-mono-pcm`. For more information about supported audio output formats, see [Audio output formats](#audio-output-formats).
 
 ```python
 def submit_synthesis():
@@ -148,7 +150,7 @@ def submit_synthesis():
         'description': 'sample description',
         'locale': locale,
         'voices': json.dumps(voice_identities),
-        'outputformat': 'riff-16khz-16bit-mono-pcm',
+        'outputformat': 'riff-24khz-16bit-mono-pcm',
         'concatenateresult': True,
     }
 
@@ -173,7 +175,7 @@ Replace the following values:
 
 Use one of the voices returned by your previous call to the `/voices` endpoint.
 
-* If you are using public neural voice, replace `<voice_name>` with the desired output voice.
+* If you're using public neural voice, replace `<voice_name>` with the desired output voice.
 * To use a custom neural voice, replace `voice_identities` variable with following, and replace `<voice_id>` with the `id` of your custom neural voice.
 ```Python
 voice_identities = [
@@ -226,7 +228,7 @@ response.status_code: 200
     }
   ],
   "properties": {
-    "outputFormat": "riff-16khz-16bit-mono-pcm",
+    "outputFormat": "riff-24khz-16bit-mono-pcm",
     "concatenateResult": false,
     "totalDuration": "PT5M57.252S",
     "billableCharacterCount": 3048
@@ -337,7 +339,7 @@ response.status_code: 200
         }
       ],
       "properties": {
-        "outputFormat": "riff-16khz-16bit-mono-pcm",
+        "outputFormat": "riff-24khz-16bit-mono-pcm",
         "concatenateResult": false,
         "totalDuration": "PT1S",
         "billableCharacterCount": 5
@@ -357,7 +359,7 @@ response.status_code: 200
         }
       ],
       "properties": {
-        "outputFormat": "riff-16khz-16bit-mono-pcm",
+        "outputFormat": "riff-24khz-16bit-mono-pcm",
         "concatenateResult": false,
         "totalDuration": "PT5M57.252S",
         "billableCharacterCount": 3048
@@ -419,21 +421,21 @@ The following table details the HTTP response codes and messages from the REST A
 
 | API | HTTP status code | Description | Solution |
 |-----|------------------|-------------|----------|
-| Create | 400 | The voice synthesis is not enabled in this region. | Change the speech resource key with a supported region. |
+| Create | 400 | The voice synthesis isn't enabled in this region. | Change the speech resource key with a supported region. |
 |        | 400 | Only the **Standard** speech resource for this region is valid. | Change the speech resource key to the "Standard" pricing tier. |
 |        | 400 | Exceed the 20,000 request limit for the Azure account. Remove some requests before submitting new ones. | The server will keep up to 20,000 requests for each Azure account. Delete some requests before submitting new ones. |
-|        | 400 | This model cannot be used in the voice synthesis: {modelID}. | Make sure the {modelID}'s state is correct. |
-|        | 400 | The region for the request does not match the region for the model: {modelID}. | Make sure the {modelID}'s region match with the request's region. |
+|        | 400 | This model can't be used in the voice synthesis: {modelID}. | Make sure the {modelID}'s state is correct. |
+|        | 400 | The region for the request doesn't match the region for the model: {modelID}. | Make sure the {modelID}'s region match with the request's region. |
 |        | 400 | The voice synthesis only supports the text file in the UTF-8 encoding with the byte-order marker. | Make sure the input files are in UTF-8 encoding with the byte-order marker. |
 |        | 400 | Only valid SSML inputs are allowed in the voice synthesis request. | Make sure the input SSML expressions are correct. |
-|        | 400 | The voice name {voiceName} is not found in the input file. | The input SSML voice name is not aligned with the model ID. |
+|        | 400 | The voice name {voiceName} isn't found in the input file. | The input SSML voice name isn't aligned with the model ID. |
 |        | 400 | The number of paragraphs in the input file should be less than 10,000. | Make sure the number of paragraphs in the file is less than 10,000. |
 |        | 400 | The input file should be more than 400 characters. | Make sure your input file exceeds 400 characters. |
-|        | 404 | The model declared in the voice synthesis definition cannot be found: {modelID}. | Make sure the {modelID} is correct. |
+|        | 404 | The model declared in the voice synthesis definition can't be found: {modelID}. | Make sure the {modelID} is correct. |
 |        | 429 | Exceed the active voice synthesis limit. Wait until some requests finish. | The server is allowed to run and queue up to 120 requests for each Azure account. Wait and avoid submitting new requests until some requests are completed. |
-| All       | 429 | There are too many requests. | The client is allowed to submit up to 5 requests to server per second for each Azure account. Reduce the request amount per second. |
+| All       | 429 | There are too many requests. | The client is allowed to submit up to five requests to the server per second for each Azure account. Reduce the request amount per second. |
 | Delete    | 400 | The voice synthesis task is still in use. | You can only delete requests that are **Completed** or **Failed**. |
-| GetByID   | 404 | The specified entity cannot be found. | Make sure the synthesis ID is correct. |
+| GetByID   | 404 | The specified entity can't be found. | Make sure the synthesis ID is correct. |
 
 ## Regions and endpoints
 
@@ -454,7 +456,7 @@ The Long audio API is available in multiple regions with unique endpoints.
 We support flexible audio output formats. You can generate audio outputs per paragraph or concatenate the audio outputs into a single output by setting the `concatenateResult` parameter. The following audio output formats are supported by the Long Audio API:
 
 > [!NOTE]
-> The default audio format is riff-16khz-16bit-mono-pcm.
+> The default audio format is riff-24khz-16bit-mono-pcm.
 > 
 > The sample rate for long audio voices is 24kHz, not 48kHz. Other sample rates can be obtained through upsampling or downsampling when synthesizing.
 

@@ -31,6 +31,7 @@ The following table provides a mapping of the version of the Log Analytics VM ex
 
 | Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
+| 1.14.20 | [1.14.20](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.20-0) |
 | 1.14.19 | [1.14.19](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.19-0) |
 | 1.14.16 | [1.14.16](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.16-0) |
 | 1.14.13 | [1.14.13](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.13-0) |

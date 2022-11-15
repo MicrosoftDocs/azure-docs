@@ -3,7 +3,7 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 07/14/2022
+ms.date: 10/15/2022
 ---
 
 By default, triggers that return an array have a **Split On** setting that's already enabled. With this setting enabled, the trigger automatically *debatches* the array by internally creating a separate workflow instance to process each array item. All the workflow instances run in parallel so that the array items are processed at the same time.

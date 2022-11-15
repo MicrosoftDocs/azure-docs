@@ -18,29 +18,19 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create data factory - User interface (UI)
-    href: quickstart-create-data-factory-portal.md
-  - name: Create data factory - Copy data tool
-    href: quickstart-create-data-factory-copy-data-tool.md
+  - name: Get started with Azure Data Factory
+    href: quickstart-get-started.md
+  - name: Create a data factory
+    href: quickstart-create-data-factory.md
+  - name: Hello World - How to copy data
+    href: quickstart-hello-world-copy-data-tool.md
     displayName: timeout
-  - name: Create data factory - Azure CLI
-    href: quickstart-create-data-factory-azure-cli.md
-  - name: Create data factory - Azure PowerShell
-    href: quickstart-create-data-factory-powershell.md
-  - name: Create data factory - .NET
-    href: quickstart-create-data-factory-dot-net.md
-  - name: Create data factory - Python
-    href: quickstart-create-data-factory-python.md
-  - name: Create data factory - REST
-    href: quickstart-create-data-factory-rest-api.md
-  - name: Create data factory - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: quickstart-create-data-factory-bicep.md
-  - name: Create data factory - ARM template
-    displayName: Resource Manager
-    href: quickstart-create-data-factory-resource-manager-template.md
-  - name: Create data flow
+  - name: Create a data flow
     href: data-flow-create.md
+  - name: Training modules
+    href: quickstart-learn-modules.md
+  - name: Azure Data Factory Studio Learning center
+    href: https://ms-adf.azure.com/learn
 - name: Tutorials
   items:
   - name: List of tutorials
@@ -203,7 +193,9 @@ items:
     href: concepts-pipelines-activities.md
     displayName: retry, timeout
   - name: Pipeline parameters and variables
-    href: concepts-parameters-variables.md 
+    href: concepts-parameters-variables.md
+  - name: Annotations and user properties
+    href: concepts-annotations-user-properties.md 
   - name: Nested activities
     href: concepts-nested-activities.md
     displayName: nested, nesting
@@ -300,14 +292,54 @@ items:
       - name: Supported functions
         href: wrangling-functions.md
         displayName: power
+  - name: Change Data Capture
+    href: concepts-change-data-capture.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Naming rules
     href: naming-rules.md
   - name: Data redundancy
     href: concepts-data-redundancy.md
+- name: SAP knowledge center
+  items:
+  - name: Overview
+    href: industry-sap-overview.md
+  - name: SAP connectors
+    href: industry-sap-connectors.md
+  - name: SAP templates
+    href: industry-sap-templates.md
+  - name: SAP change data capture (CDC) capabilities
+    items:
+    - name: Overview and architecture
+      href: sap-change-data-capture-introduction-architecture.md
+      displayName: SAP, change data capture, CDC
+    - name: Prerequisites and setup
+      href: sap-change-data-capture-prerequisites-configuration.md
+    - name: Set up a self-hosted integration runtime
+      href: sap-change-data-capture-shir-preparation.md
+    - name: Set up a linked service and source dataset
+      href: sap-change-data-capture-prepare-linked-service-source-dataset.md
+    - name: Debug issues with the SAP CDC connector
+      href: sap-change-data-capture-debug-shir-logs.md
+    - name: Manage the SAP CDC process
+      href: sap-change-data-capture-management.md
+      displayName: SAP, change data capture, CDC
 - name: How-to guides 
   items:
+  - name: Create Data Factory Programmatically
+    items:
+    - name: Create data factory - Azure CLI
+      href: quickstart-create-data-factory-azure-cli.md
+    - name: Create data factory - Azure PowerShell
+      href: quickstart-create-data-factory-powershell.md
+    - name: Create data factory - .NET
+      href: quickstart-create-data-factory-dot-net.md
+    - name: Create data factory - Python
+      href: quickstart-create-data-factory-python.md
+    - name: Create data factory - REST
+      href: quickstart-create-data-factory-rest-api.md
+    - name: Create data factory - Bicep
+      href: quickstart-create-data-factory-bicep.md
   - name: Author
     items:
     - name: Visually author data factories
@@ -368,9 +400,9 @@ items:
       displayName: timeout
     - name: Azure Cognitive Search
       href: connector-azure-search.md
-    - name: Azure Cosmos DB SQL API
+    - name: Azure Cosmos DB for NoSQL
       href: connector-azure-cosmos-db.md
-    - name: Azure Cosmos DB's API for MongoDB
+    - name: Azure Cosmos DB for MongoDB
       href: connector-azure-cosmos-db-mongodb-api.md
     - name: Azure Data Explorer
       href: connector-azure-data-explorer.md
@@ -1102,7 +1134,7 @@ items:
       displayName: diu
     - name: Pricing examples     
       items:
-      - name: Overview
+      - name: Pricing overview
         href: pricing-concepts.md
         displayName: diu 
       - name: Copy data from AWS S3 to Azure Blob storage
@@ -1137,12 +1169,12 @@ items:
       - name: Azure Blob Storage
         href: connector-troubleshoot-azure-blob-storage.md
         displayName: troubleshooting
-      - name: Azure Cosmos DB (including SQL API)
+      - name: Azure Cosmos DB (including Azure Cosmos DB for NoSQL)
         href: connector-troubleshoot-azure-cosmos-db.md
         displayName: troubleshooting
       - name: Azure Data Explorer
-        href: connector-troubleshoot-azure-data-explorer.md      
-        displayName: troubleshooting                
+        href: connector-troubleshoot-azure-data-explorer.md
+        displayName: troubleshooting
       - name: Azure Data Lake (Gen1 and Gen2)
         href: connector-troubleshoot-azure-data-lake.md
         displayName: troubleshooting
@@ -1152,7 +1184,7 @@ items:
       - name: Azure files
         href: connector-troubleshoot-azure-files.md
         displayName: troubleshooting
-      - name: Azure Synapse Analytics, Azure SQL Database, and SQL Server
+      - name: Azure Synapse Analytics, Azure SQL Database, SQL Server, Azure SQL Managed Instance, and Amazon RDS for SQL Server
         href: connector-troubleshoot-synapse-sql.md
         displayName: troubleshooting
       - name: Azure Table Storage
@@ -1187,6 +1219,9 @@ items:
         displayName: troubleshooting
       - name: REST
         href: connector-troubleshoot-rest.md
+        displayName: troubleshooting
+      - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
+        href: connector-troubleshoot-sap.md
         displayName: troubleshooting
       - name: SharePoint Online list
         href: connector-troubleshoot-sharepoint-online-list.md
@@ -1273,27 +1308,4 @@ items:
     href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits
-- name: SAP knowledge center
-  items:
-  - name: Overview
-    href: industry-sap-overview.md
-  - name: SAP connectors
-    href: industry-sap-connectors.md
-  - name: SAP templates
-    href: industry-sap-templates.md
-  - name: SAP change data capture (CDC) capabilities (preview)
-    items:
-    - name: Overview and architecture
-      href: sap-change-data-capture-introduction-architecture.md
-      displayName: SAP, change data capture, CDC
-    - name: Prerequisites and setup
-      href: sap-change-data-capture-prerequisites-configuration.md
-    - name: Set up a self-hosted integration runtime
-      href: sap-change-data-capture-shir-preparation.md
-    - name: Set up a linked service and source dataset
-      href: sap-change-data-capture-prepare-linked-service-source-dataset.md
-    - name: Debug the Data Factory copy activity
-      href: sap-change-data-capture-debug-shir-logs.md
-    - name: Manage your solution
-      href: sap-change-data-capture-management.md
-    displayName: SAP, change data capture, CDC
+    

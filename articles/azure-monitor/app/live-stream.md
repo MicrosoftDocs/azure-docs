@@ -174,6 +174,9 @@ Live Metrics custom filters allow you to control which of your application's tel
 - Recommended: Secure Live Metrics channel using [Azure AD authentication](./azure-ad-authentication.md#configuring-and-enabling-azure-ad-based-authentication)
 - Legacy (no longer recommended): Set up an authenticated channel by configuring a secret API key as explained below
 
+> [!NOTE]
+> On 30 September 2025, API keys used to stream live metrics telemetry into application insights will be retired. After that date, applications which use API keys will no longer be able to send live metrics data to your application insights resource. Authenticated telemetry ingestion for live metrics streaming to application insights will need to be done with [Azure AD authentication for application insights](./azure-ad-authentication.md).
+
 It's possible to try custom filters without having to set up an authenticated channel. Simply click on any of the filter icons and authorize the connected servers. Notice that if you choose this option, you'll have to authorize the connected servers once every new session or when a new server comes online.
 
 > [!WARNING]
@@ -238,7 +241,7 @@ Next, add the following line before the call `services.AddApplicationInsightsTel
     services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
-More information on configuring WorkerService applications can be found in our guidance on [configuring telemetry modules in WorkerServices](./worker-service.md#configuring-or-removing-default-telemetrymodules).
+More information on configuring WorkerService applications can be found in our guidance on [configuring telemetry modules in WorkerServices](./worker-service.md#configure-or-remove-default-telemetry-modules).
 
 #### Azure Function Apps
 

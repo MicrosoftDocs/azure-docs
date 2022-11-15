@@ -26,7 +26,7 @@ In this Azure Cognitive Search skillset example, you'll learn how to create a Fo
 
 ## Train your model
 
-You'll need to train a Form Recognizer model with your input forms before you use this skill. Follow the [cURL quickstart](../applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api) to learn how to train a model. You can use the sample forms provided in that quickstart, or you can use your own data. Once the model is trained, copy its ID value to a secure location.
+You'll need to train a Form Recognizer model with your input forms before you use this skill. Follow the [cURL quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api) to learn how to train a model. You can use the sample forms provided in that quickstart, or you can use your own data. Once the model is trained, copy its ID value to a secure location.
 
 ## Set up the custom skill
 

@@ -5,7 +5,7 @@ description: 'Learn how to improve data security with Azure Machine Learning by 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
@@ -127,9 +127,12 @@ Once the workspace has been created, you'll notice that Azure resource group is 
 > [!WARNING]
 > __Don't delete the resource group__ that contains this Azure Cosmos DB instance, or any of the resources automatically created in this group. If you need to delete the resource group or Microsoft-managed services in it, you must delete the Azure Machine Learning workspace that uses it. The resource group resources are deleted when the associated workspace is deleted.
 
-For more information on customer-managed keys with Cosmos DB, see [Configure customer-managed keys for your Azure Cosmos DB account](../cosmos-db/how-to-setup-cmk.md).
+For more information on customer-managed keys with Azure Cosmos DB, see [Configure customer-managed keys for your Azure Cosmos DB account](../cosmos-db/how-to-setup-cmk.md).
 
 ### Azure Container Instance
+
+> [!IMPORTANT]
+> Deploying to Azure Container Instances is not available in SDK or CLI v2. Only through SDK & CL v1.
 
 When __deploying__ a trained model to an Azure Container instance (ACI), you can encrypt the deployed resource using a customer-managed key. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
 
