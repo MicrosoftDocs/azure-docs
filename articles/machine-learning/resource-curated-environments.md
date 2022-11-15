@@ -46,8 +46,8 @@ The following configurations are supported:
 
 | Environment Name | OS | GPU Version| Python Version | PyTorch Version | ORT-training Version | DeepSpeed Version | torch-ort Version | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| AzureML-ACPT-pytorch-1.12-py39-cuda11.6-gpu | Ubuntu 20.04  | cu116 | 3.9 | 1.13.1 | 1.12.1 | 0.7.3 | 1.13.1 |
-| AzureML-ACPT-pytorch-1.12-py38-cuda11.6-gpu | Ubuntu 20.04  | cu116 | 3.8 | 1.12.0 | 1.12.0 | 0.7.3 | 1.12.0 |
+| AzureML-ACPT-pytorch-1.12-py39-cuda11.6-gpu | Ubuntu 20.04  | cu116 | 3.9 | 1.12.1 | 1.13.1 | 0.7.3 | 1.13.1 |
+| AzureML-ACPT-pytorch-1.12-py38-cuda11.6-gpu | Ubuntu 20.04  | cu116 | 3.8 | 1.12.1 | 1.12.0 | 0.7.3 | 1.12.0 |
 | AzureML-ACPT-pytorch-1.11-py38-cuda11.5-gpu | Ubuntu 20.04  | cu115 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 | 
 | AzureML-ACPT-pytorch-1.11-py38-cuda11.3-gpu | Ubuntu 20.04  | cu113 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 |
 
