@@ -15,8 +15,6 @@ Select **Enable incremental refresh at regular intervals** when you want your pr
 Unselect if you don't want new files in the datastore to automatically be added to your project.
 
 > [!IMPORTANT]
-> Don't create a new version for the dataset you want to update.  If you do, the updates will not be seen, as the data labeling project is pinned to the initial version.  Instead, update the data on the blobstore.
-
-To update or add more files to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage.  
+> Don't create a new version for the dataset you want to update.  If you do, the updates will not be seen, as the data labeling project is pinned to the initial version.  Instead, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to modify your data in the appropriate folder in the blob storage.  
 
 After the project is created, use the [**Details**](#details-tab) tab to change **incremental refresh**, view the timestamp for the last refresh, and request an immediate refresh of data.
