@@ -82,7 +82,7 @@ Databases: ['adventureworks']
 
 ## Does database exist?
 
-The PyMongo driver for Python creates the database if it doesn't exist when you access it. However, we recommend that you instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. To create a new database if it doesn't exist, use the [create database extension](/azure/cosmos-db/mongodb/custom-commands#create-database) as shown in the following code snippet.
+The PyMongo driver for Python creates the database if it doesn't exist when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. To create a new database if it doesn't exist, use the [create database extension](/azure/cosmos-db/mongodb/custom-commands#create-database) as shown in the following code snippet.
 
 To see if the database already exists before using it, get the list of current databases with the [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method.
 
