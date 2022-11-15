@@ -15,4 +15,4 @@ To get more accurate labels, use the **Quality control** page to have multiple p
 
 Select **Enable consensus labeling (preview)** to have each item sent to multiple labelers.  Then set the **Minimum labelers** and **Maximum labelers** to specify how many labelers to use.
 
-If a consensus is reached from the minimum number of labelers, the item is labeled.  If a consensus is not reached, the item will be sent to more labelers.  If there is no consensus after the item goes to the maximum number of labelers, its status will be `Needs Review` and the project owner will be responsible for labeling the item.
+If a consensus is reached from the minimum number of labelers, the item is labeled.  If a consensus isn't reached, the item will be sent to more labelers.  If there's no consensus after the item goes to the maximum number of labelers, its status will be `Needs Review`, and the project owner will be responsible for labeling the item.
