@@ -4,7 +4,7 @@ description: This article will cover the fundamental resources used by Lab Servi
 author: emaher
 ms.topic: overview
 ms.date: 05/30/2022
-ms.author: enewman
+ms.service: lab-services
 ms.service: lab-services
 ---
 
