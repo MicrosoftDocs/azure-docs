@@ -200,9 +200,9 @@ Other
 [23]: https://docs.chef.io/
 [24]: https://developer.hashicorp.com/packer/docs
 [25]: https://www.terraform.io/docs/providers/azurerm/
-[26]: media/features-powershell/azure-drive.png
-[27]: media/features-powershell/exchangeonline.png
-[28]: media/features-powershell/exchangeonlinecmdlets.png
+[26]: media/features/azure-drive.png
+[27]: media/features/exchangeonline.png
+[28]: media/features/exchangeonlinecmdlets.png
 [29]: persisting-shell-storage.md
 [30]: quickstart-powershell.md
 [31]: quickstart.md

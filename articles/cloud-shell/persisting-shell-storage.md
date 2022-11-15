@@ -229,14 +229,14 @@ file storage GUI when you refresh the blade.
 
 ### Download files
 
-![Screenshot listing local files in the Azure portal](./media/persisting-shell-storage/download.png)
+![Screenshot listing local files in the Azure portal][13]
 1. In the Azure portal, go to the mounted file share.
 2. Select the target file.
 3. Select the **Download** button.
 
 ### Upload files
 
-![Screenshot showing how to upload files in the Azure portal](./media/persisting-shell-storage/upload.png)
+![Screenshot showing how to upload files in the Azure portal][14]
 1. Go to your mounted file share.
 2. Select the **Upload** button.
 3. Select the file or files that you want to upload.
@@ -250,7 +250,7 @@ You should now see the files that are accessible in your `clouddrive` directory 
 
 ## Next steps
 
-- [Cloud Shell Quickstart][13]
+- [Cloud Shell Quickstart][15]
 - [Learn about Microsoft Azure Files storage][05]
 - [Learn about storage tags][02]
 
@@ -260,11 +260,13 @@ You should now see the files that are accessible in your `clouddrive` directory 
 [03]: ../governance/policy/samples/index.md
 [04]: ../storage/common/storage-redundancy.md
 [05]: ../storage/files/storage-files-introduction.md
-[06]: media/persisting-shell-storage-powershell/dismount-clouddrive.png
-[07]: media/persisting-shell-storage-powershell/get-clouddrive.png
+[06]: media/persisting-shell-storage/dismount-clouddrive.png
+[07]: media/persisting-shell-storage/get-clouddrive.png
 [08]: media/persisting-shell-storage/advanced-storage.png
 [09]: media/persisting-shell-storage/basic-storage.png
 [10]: media/persisting-shell-storage/clouddrive-h.png
 [11]: media/persisting-shell-storage/mount-h.png
 [12]: media/persisting-shell-storage/unmount-h.png
-[13]: quickstart.md
+[13]: media/persisting-shell-storage/download.png
+[14]: media/persisting-shell-storage/upload.png
+[15]: quickstart.md
