@@ -80,7 +80,9 @@ The snippet above is just a *minimal* configuration. You can find further config
 During local development, you may choose to run Netherite without Event Hubs, which minimizes costs. To do this, please set the the value of `EventHubsConnection` in `local.settings.json` to `MemoryF` as shown below:
 
 ```json
-    "EventHubsConnection": "MemoryF", // Or, to use a real Event Hubs resource, set this to an Event Hubs connection string
+// ...
+"EventHubsConnection": "MemoryF", // Or, to use a real Event Hubs resource, set this to an Event Hubs connection string
+}
 ```
 
 For example, if using C#, your local.settings.json file may look something like [this](https://github.com/microsoft/durabletask-netherite/blob/main/samples/Hello_Netherite_with_DotNetCore/local.settings.json).
