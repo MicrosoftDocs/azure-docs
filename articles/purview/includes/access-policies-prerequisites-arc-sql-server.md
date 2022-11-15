@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 #### Region support
 
-Policy enforcement is only available in the following regions for Microsoft Purview:
+Policy enforcement is available in only the following regions for Microsoft Purview:
 
 - East US
 - East US 2
