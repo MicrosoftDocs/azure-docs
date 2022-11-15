@@ -17,7 +17,11 @@ Substitutable Medical Applications and Reusable Technologies [SMART on FHIR](htt
 •	Users accessing a FHIR repository with SMART on FHIR are restricted to resources associated with the user, rather than having access to all data in the repository
 •	Users have the ability to grant applications access to an further limited set of their data by using SMART clinical scopes.
 
-<!---SMART Implementation Guide v1.0.0 is now fully supported by Azure API for FHIR and Azure API Management (APIM). This is our recommended approach, as it enabled Health IT developers to comply with 21st Century Act Criterion §170.315(g)(10) Standardized API for patient and population services.--->
+<!---SMART Implementation Guide v1.0.0 is supported by Azure API for FHIR and Azure API Management (APIM). This is our recommended approach, as it enabled Health IT developers to comply with 21st Century Act Criterion §170.315(g)(10) Standardized API for patient and population services. 
+
+Sample demonstrates and list steps that can be referenced to pass ONC G(10) with Inferno test suite.
+
+--->
 
 One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for an FHIR server and start an authentication sequence. Authentication is based on OAuth2. But because SMART on FHIR uses parameter naming conventions that aren’t immediately compatible with Azure Active Directory (Azure AD), the Azure API for FHIR has a built-in Azure AD SMART on FHIR proxy that enables a subset of the SMART on FHIR launch sequences. Specifically, the proxy enables the [EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence).
 
@@ -33,7 +37,8 @@ Below are pre-requisite on enabling the SMART on FHIR:
 ## Prerequisites
 
 - An instance of the FHIR Service
-- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+- .NET SDK 6.0
+- [Enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
 
 ##  Configure Azure AD registrations
 
@@ -74,7 +79,7 @@ Step 4 : Create AAD custom policy using this README  --->
 ## Enable the SMART on FHIR proxy
 
 Enable the SMART on FHIR proxy in the **Authentication** settings for your FHIR instance by selecting the **SMART on FHIR proxy** check box.
-Enable CORS : Most SMART on FHIR applications are single-page JavaScript apps, you need to [enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
+
 Configure the reply URL: The SMART on FHIR proxy acts as an intermediary between the SMART on FHIR app and Azure AD. The authentication reply (the authentication code) must go to the SMART on FHIR proxy instead of the app itself. The proxy then forwards the reply to the app. 
 
 Because of this two-step relay of the authentication code, you need to set the reply URL (callback) for your Azure AD client application to a URL that is a combination of the reply URL for the SMART on FHIR proxy and the reply URL for the SMART on FHIR app. The combined reply URL takes this form:
