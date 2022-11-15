@@ -40,7 +40,7 @@ If this is not the case, we suggest you start with one of the following articles
 
 ## Add Netherite to the project
 
-### (only apps without Extension Bundles, like C# users) Install the Extension
+### (only apps without Extension Bundles, like C# apps) Install the Extension
 
 >![NOTE] If your app uses [Extension Bundles](/articles/azure/azure-functions/functions-bindings-register#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
