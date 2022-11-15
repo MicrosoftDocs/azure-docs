@@ -80,9 +80,9 @@ For example, if using C#, your local.settings.json file may look something like 
 
 Netherite is now ready for local development: You can start the Function app to test it.
 
-While Netherite is running, it publishes load information about its active partitions to an Azure Storage table. You can inspect this table in the [Azure Storage Explorer](/articles/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to verify that Netherite has started correctly and is executing normally. You should see something like this:
+While Netherite is running, it publishes load information about its active partitions to an Azure Storage table named "DurableTaskPartitions". You can inspect this table using the [Azure Storage Explorer](/articles/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to verify that Netherite has started correctly and is executing normally. It should suffice to see any data on it to guarantee that Netherite is working; for example you may see something like this:
 
-![Partition Table](./media/quickstart-netherite/partitiontable.png)
+![Data on the "DurableTaskPartitions" table in the Azure Storage Explorer.](./media/quickstart-netherite/partitiontable.png)
 
 Each row corresponds to one Netherite partition, and there are 12 partitions by default. The Timestamp shows the last time the row was updated, which happens continuously while a partition is active (or was recently active). For more information on the contents of this table, see the [Partition Table](https://microsoft.github.io/durabletask-netherite/#/ptable) article.
 
