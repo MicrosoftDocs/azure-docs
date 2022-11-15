@@ -35,9 +35,9 @@ If you are a US Government customer, ensure that you have access to the followin
 - `*.microsoftonline.us`
 - `*.windows.net`
 - `*.usgovcloudapi.net`
-- `*blob.core.windows.net`
-- `*queue.core.windows.net`
-- `*blob.storage.azure.net`
+- `*.blob.core.windows.net`
+- `*.queue.core.windows.net`
+- `*.blob.storage.azure.net`
 
 Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 
