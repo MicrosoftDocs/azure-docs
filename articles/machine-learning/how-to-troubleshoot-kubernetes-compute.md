@@ -108,7 +108,7 @@ For AKS cluster:
 1. Please check the if AKS cluster is shutdown. 
     1. If the cluster is not running, you need to start the cluster first.
 1. Please check if the AKS cluster has enabled enabled selected network by using authorized IP ranges. 
-    1. If the AKS cluster has enabled authorized IP ranges, please make sure all the **AzureML control plane IP ranges** have been enabled for the AKS cluster. More information you can see this [document](how-to-deploy-kubernetes-extension#limitations).
+    1. If the AKS cluster has enabled authorized IP ranges, please make sure all the **AzureML control plane IP ranges** have been enabled for the AKS cluster. More information you can see this [document](how-to-deploy-kubernetes-extension.md#limitations).
 
 
 For both AKS cluster and Azure Arc enabled Kubernetes cluster:
