@@ -80,11 +80,11 @@ Follow these configuration steps.
 
 ### Plug time and random numbers into your test
 
-Suppose you're testing a tool that gets time-dependent data, such as stock prices, from an external feed. When you record your web test, you have to use specific times, but you set them as parameters of the test, StartTime, and EndTime.
+Suppose you're testing a tool that gets time-dependent data, such as stock prices, from an external feed. When you record your web test, you have to use specific times, but you set them as parameters of the test, `StartTime` and `EndTime`.
 
 ![Screenshot that shows a stock app.](./media/availability-multistep/app-insights-72webtest-parameters.png)
 
-When you run the test, you want EndTime always to be the present time, and StartTime should be 15 minutes prior.
+When you run the test, you want `EndTime` always to be the present time. `StartTime` should be 15 minutes prior.
 
 The Web Test Date Time Plug-in provides the way to handle parameter times.
 
@@ -117,7 +117,7 @@ Record a web test in the usual way. Delete cookies first.
 
 |Property name| Description|
 |-------------|------------|
-| Audience URI | The audience URI for the SAML token. This URI is for the Access Control Service (ACS) including the ACS namespace and host name. |
+| Audience URI | The audience URI for the SAML token. This URI is for the Access Control service, including the Access Control namespace and host name. |
 | Certificate password | The password for the client certificate, which will grant access to the embedded private key. |
 | Client certificate | The client certificate value with private key in Base64-encoded format. |
 | Name identifier | The name identifier for the token. |
