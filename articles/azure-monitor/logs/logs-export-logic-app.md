@@ -1,5 +1,5 @@
 ---
-title: Export data from a Log Analytics workspace to a Storage account by using Logic Apps
+title: Export data from a Log Analytics workspace to a storage account by using Logic Apps
 description: This article describes a method to use Azure Logic Apps to query data from a Log Analytics workspace and send it to Azure Storage.
 ms.service: azure-monitor
 ms.topic: conceptual
@@ -9,13 +9,13 @@ ms.date: 03/01/2022
 ---
 
 
-# Export data from a Log Analytics workspace to a Storage account by using Logic Apps
-This article describes a method to use [Azure Logic Apps](../../logic-apps/index.yml) to query data from a Log Analytics workspace in Azure Monitor and send it to Azure Storage. Use this process when you need to export your Azure Monitor Log data for auditing and compliance scenarios or to allow another service to retrieve this data.
+# Export data from a Log Analytics workspace to a storage account by using Logic Apps
+This article describes a method to use [Azure Logic Apps](../../logic-apps/index.yml) to query data from a Log Analytics workspace in Azure Monitor and send it to Azure Storage. Use this process when you need to export your Azure Monitor Logs data for auditing and compliance scenarios or to allow another service to retrieve this data.
 
 ## Other export methods
 The method discussed in this article describes a scheduled export from a log query by using a logic app. Other options to export data for particular scenarios include:
 
-- To export data from your Log Analytics workspace to a Storage account or Azure Event Hubs, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor](logs-data-export.md).
+- To export data from your Log Analytics workspace to a storage account or Azure Event Hubs, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor](logs-data-export.md).
 - One-time export by using a logic app. See [Azure Monitor Logs connector for Logic Apps and Power Automate](logicapp-flow-connector.md).
 - One-time export to a local machine by using a PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
@@ -38,7 +38,7 @@ When you export the data on a schedule, use the `ingestion_time()` function in y
 The following prerequisites must be completed before you start this procedure:
 
 - **Log Analytics workspace**: The user who creates the logic app must have at least read permission to the workspace.
-- **Storage account**: The Storage account doesn't have to be in the same subscription as your Log Analytics workspace. The user who creates the logic app must have write permission to the Storage account.
+- **Storage account**: The storage account doesn't have to be in the same subscription as your Log Analytics workspace. The user who creates the logic app must have write permission to the storage account.
 
 ## Connector limits
 Log Analytics workspace and log queries in Azure Monitor are multitenancy services that include limits to protect and isolate customers and maintain quality of service. When you query for a large amount of data, consider the following limits, which can affect how you configure the Logic Apps recurrence and your log query:
@@ -52,13 +52,13 @@ Log Analytics workspace and log queries in Azure Monitor are multitenancy servic
 
 The following sections walk you through the procedure.
 
-### Create a container in the Storage account
+### Create a container in the storage account
 
-Use the procedure in [Create a container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) to add a container to your Storage account to hold the exported data. The name used for the container in this article is **loganalytics-data**, but you can use any name.
+Use the procedure in [Create a container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) to add a container to your storage account to hold the exported data. The name used for the container in this article is **loganalytics-data**, but you can use any name.
 
 ### Create a logic app
 
-1. Go to **Logic Apps** in the Azure portal and select **Add**. Select a **Subscription**, **Resource group**, and **Region** to store the new Logic App. Then give it a unique name. You can turn on the **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). This setting isn't required for using the Azure Monitor Logs connector.
+1. Go to **Logic Apps** in the Azure portal and select **Add**. Select a **Subscription**, **Resource group**, and **Region** to store the new Logic App. Then give it a unique name. You can turn on the **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor Logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). This setting isn't required for using the Azure Monitor Logs connector.
 
    [![Screenshot that shows creating a logic app.](media/logs-export-logic-app/create-logic-app.png "Screenshot that shows creating a Logic Apps resource.")](media/logs-export-logic-app/create-logic-app.png#lightbox)
 
@@ -170,13 +170,13 @@ The **Compose** action takes the parsed JSON output and creates the object that 
 
 ### Add the Create blob action
 
-The Create blob action writes the composed JSON to storage.
+The **Create blob** action writes the composed JSON to storage.
 
 1. Select **+ New step**, and then select **+ Add an action**. Under **Choose an operation**, enter **blob**. Then select the **Create blob** action.
 
    [![Screenshot that shows selecting the Create Blob action.](media/logs-export-logic-app/select-create-blob.png "Screenshot that shows creating a Blob storage action.")](media/logs-export-logic-app/select-create-blob.png#lightbox)
 
-1. Enter a name for the connection to your Storage account in **Connection Name**. Then select the folder icon in the **Folder path** box to select the container in your Storage account. Select the **Blob name** to see a list of values from previous activities. Select **Expression** and enter an expression that matches your time interval. For this query, which is run hourly, the following expression sets the blob name per previous hour:
+1. Enter a name for the connection to your storage account in **Connection Name**. Then select the folder icon in the **Folder path** box to select the container in your storage account. Select **Blob name** to see a list of values from previous activities. Select **Expression** and enter an expression that matches your time interval. For this query, which is run hourly, the following expression sets the blob name per previous hour:
 
      ```json
      subtractFromTime(formatDateTime(utcNow(),'yyyy-MM-ddTHH:00:00'), 1,'Hour')
@@ -196,7 +196,7 @@ To test the workflow, select **Run**. If the workflow has errors, they're indica
 
 ### View logs in storage
 
-Go to the **Storage accounts** menu in the Azure portal and select your Storage account. Select the **Blobs** tile. Then select the container you specified in the Create blob action. Select one of the blobs and then select **Edit blob**.
+Go to the **Storage accounts** menu in the Azure portal and select your storage account. Select the **Blobs** tile. Then select the container you specified in the **Create blob** action. Select one of the blobs and then select **Edit blob**.
 
 [![Screenshot that shows blob data.](media/logs-export-logic-app/blob-data.png "Screenshot that shows sample data exported to a blob.")](media/logs-export-logic-app/blob-data.png#lightbox)
 
