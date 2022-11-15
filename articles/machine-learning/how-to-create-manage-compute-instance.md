@@ -706,7 +706,7 @@ az ml compute show --name "myci"
 
 # [Studio](#tab/azure-studio)
 
-In your workspace in Azure Machine Learning studio, select Compute, then select compute instance on the top. Select a compute instance's compute name to see its properties including the current operating system. When a more recent instance OS version is, use the creation wizard to create a new instance.
+In your workspace in Azure Machine Learning studio, select Compute, then select compute instance on the top. Select a compute instance's compute name to see its properties including the current operating system. When a more recent instance OS version is, use the creation wizard to create a new instance. Enable 'audit and observe compute instance os version' under the previews management panel to see these preview properties.
 
 ---
 
