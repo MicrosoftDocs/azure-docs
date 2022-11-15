@@ -13,9 +13,9 @@ ms.date: 11/10/2022
 # SMART on FHIR
 
 Substitutable Medical Applications and Reusable Technologies [SMART on FHIR](https://docs.smarthealthit.org/) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
-•	Applications have a known method for obtaining authentication/authorization to a FHIR repository
-•	Users accessing a FHIR repository with SMART on FHIR are restricted to resources associated with the user, rather than having access to all data in the repository
-•	Users have the ability to grant applications access to an further limited set of their data by using SMART clinical scopes.
+- Applications have a known method for obtaining authentication/authorization to a FHIR repository
+- Users accessing a FHIR repository with SMART on FHIR are restricted to resources associated with the user, rather than having access to all data in the repository
+- Users have the ability to grant applications access to an further limited set of their data by using SMART clinical scopes.
 
 <!---SMART Implementation Guide v1.0.0 is supported by Azure API for FHIR and Azure API Management (APIM). This is our recommended approach, as it enabled Health IT developers to comply with 21st Century Act Criterion §170.315(g)(10) Standardized API for patient and population services. 
 
@@ -23,7 +23,7 @@ Sample demonstrates and list steps that can be referenced to pass ONC G(10) with
 
 --->
 
-One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for an FHIR server and start an authentication sequence. Authentication is based on OAuth2. But because SMART on FHIR uses parameter naming conventions that aren’t immediately compatible with Azure Active Directory (Azure AD), the Azure API for FHIR has a built-in Azure AD SMART on FHIR proxy that enables a subset of the SMART on FHIR launch sequences. Specifically, the proxy enables the [EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence).
+One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for an FHIR server and start an authentication sequence. SMART on FHIR uses parameter naming conventions that aren’t immediately compatible with Azure Active Directory (Azure AD), the Azure API for FHIR has a built-in Azure AD SMART on FHIR proxy that enables a subset of the SMART on FHIR launch sequences. Specifically, the proxy enables the [EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence).
 
 Below tutorial describes steps to enable SMART on FHIR applications with FHIR Service.
 
