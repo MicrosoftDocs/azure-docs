@@ -39,13 +39,21 @@ If this is not the case, we suggest you start with one of the following articles
 
 ## Add Netherite to the project
 
-### Install the NuGet package (only for C#)
+### (only apps without Extension Bundles, like C# users) Install the NuGet package
 
->![NOTE] If you are are not a C# user, you can ignore this section as [Extension Bundles](/articles/azure/azure-functions/functions-bindings-register#extension-bundles) removes the need for manual Nuget package installations. If you use Extension Bundles, please skip to the next section on updating your host.json.
+>![NOTE] If your app uses [Extension Bundles](/articles/azure/azure-functions/functions-bindings-register#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Nuget package installations.
 
-Using the NuGet package manager, install the latest version of the [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) package into your functions project. There is another package with a similar but shorter name, make sure to import the correct one.
+You will need to install the latest version of the `Microsoft.Azure.DurableTask.Netherite.AzureFunctions` [Extension on Nuget](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) into your app. This usually means including a reference to it in your `.csproj` file.
 
-For more information about how to install NuGet packages in Visual Studio, see the [documentation](/articles/nuget/consume-packages/install-use-packages-visual-studio).
+There are many ways to achieve this, especially for C# users which may leverage [VisualStudio](documentation](/articles/nuget/consume-packages/install-use-packages-visual-studio)), the [Nuget package manager](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs?tabs=in-process#add-bindings) or even the [dotnet CLI](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp#install-binding-extensions).
+
+However, all languages should be able to utilize the [Azure Functions Core Tools CLI](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash#install-the-azure-functions-core-tools) to do this. With it, you may install Netherite using the following command:
+
+```bash
+func extensions install --package Microsoft.Azure.DurableTask.Netherite.AzureFunctions --version <latestVersionOnNuget>
+```
+
+For more information about how installing Azure Functions Extensions via the Core Tools CLI, please read [the documentation](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash#install-extensions).
 
 ### Update host.json
 
@@ -53,7 +61,7 @@ Edit the storage provider section of your `durableTask` config in `host.json` to
 
 ```json
 {
-  ...
+  // ...
   "extensions": {
     "durableTask": {
       "storageProvider": {
@@ -96,7 +104,7 @@ To run Netherite in Azure, or if you prefer to use Event Hubs during local devel
 
 To create an Event Hubs namespace in the Azure Portal, you can follow [these steps](/articles/event-hubs/event-hubs-create#create-an-event-hubs-namespace). When creating the namespace, you may be prompted to:
 
-1. Choose a *resource group*. A typical choice is to use the same resource group as the Function app to facilitate group manamgement operations, like deletion.
+1. Choose a *resource group*. A typical choice is to use the same resource group as the Function app to facilitate group management operations, like deletion.
 2. Choose a *plan* and provision *throughput units*. These choices determine the cost incurred. For the purpose of this guide, using the defaults is fine as this setting can be change later.
 3. Choose the *retention* time. This setting is irrelevant to Netherite (contents are also stored in storage), so the default setting of one day is appropriate.
 
@@ -108,7 +116,7 @@ az eventhubs namespace create --name $namespaceName --resource-group $groupName
 
 ### Obtain the connection string
 
-To obtain the connection string for your Event Hubs namespace, go to  the Azure portal under the setting "Shared access policites", and then select "RootManagedSharedAccessKey" which should reveal a field named "Connection string-primary key". That field's value is the connection string.
+To obtain the connection string for your Event Hubs namespace, go to  the Azure portal under the setting "Shared access policies", and then select "RootManagedSharedAccessKey" which should reveal a field named "Connection string-primary key". That field's value is the connection string.
 
 Below we show a few guiding screenshots on how to find this data in the portal:
 
@@ -129,7 +137,7 @@ Finally, assuming you have target app in Azure for deployment, there are a few m
 
 In Azure, you need to assign the `EventHubsConnection` setting to your Event Hubs connection string.
 
-To do this through the Azure portal, first go to your Function App view. Then, go under "Configuration", select "New application setting" and there you can configure the name "EventHubsConnection" to map to your connection string as its value. Below are some guiding images.
+To do this through the Azure portal, first go to your Function App view. Then go under "Configuration", select "New application setting", and there you can assign "EventHubsConnection" to map to your connection string. Below are some guiding images.
 
 ![In the Function App view, go under "configuration" to select "new application setting."](./media/quickstart-netherite/add-configuration.png)
 ![Enter `EventHubsConnection` as the name, and the connection string as its value.](./media/quickstart-netherite/enter-configuration.png)
