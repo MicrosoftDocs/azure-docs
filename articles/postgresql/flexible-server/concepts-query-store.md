@@ -77,6 +77,7 @@ The following options are available for configuring Query Store parameters.
 | pg_qs.max_plan_size |  Sets the maximum number of bytes that will be saved for query plan text for pg_qs; longer plans will be truncated. | 7500 | 100 - 10k |
 | pg_qs.max_query_text_length | Sets the maximum query length that can be saved. Longer queries will be truncated. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Sets the retention period. | 7 | 1 - 30 |
+| pg_qs.index_generation_interval | Sets the index recommendation generating frequency for all databases when query store enabled. | 15 | 15 - 10080 |
 | pg_qs.track_utility | Sets whether utility commands are tracked | on | on, off |
   
 The following options apply specifically to wait statistics.  
