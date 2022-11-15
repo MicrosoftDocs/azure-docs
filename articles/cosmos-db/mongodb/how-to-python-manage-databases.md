@@ -45,17 +45,38 @@ The following code snippets assume you've already created your [client connectio
 
 ## Get server information
 
-Access the **Admin** class to retrieve server information. You don't need to specify the database name in the `db` method. The information returned is specific to MongoDB and doesn't represent the Azure Cosmos DB platform itself.
+Access server info with the [server_info](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.server_info) method of the MongoClient class. You don't need to specify the database name to get this information. The information returned is specific to MongoDB and doesn't represent the Azure Cosmos DB platform itself.
 
-* [MongoClient.Db.Admin](https://mongodb.github.io/node-mongodb-native/4.7/classes/Admin.html)
+You can also list databases using the [MongoClient.list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method and issue a [MongoDB command](https://www.mongodb.com/docs/manual/reference/command/nav-diagnostic/) to a database with the [MongoClient.db.command](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.command) method.
 
+```python
+# Get server information
+for k, v in client.server_info().items():
+    print("Key: {} , Value: {}".format(k, v))
+
+# Get server status of admin database
+print("Server status {}".format(client.admin.command("serverStatus")))
+
+# List databases
+databases = client.list_database_names()
+print("Databases: {}".format(databases))
+```
 <!--
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/200-admin/index.js" id="server_info":::
+:::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/200-admin/run.py" id="server_info":::
 -->
 
-The preceding code snippet displays the following example console output:
+The preceding code snippet displays output similar to the following example console output:
 
+```python
+Key: version , Value: 3.6.0
+Key: versionArray , Value: [3, 6, 0, 0]
+Key: bits , Value: 64
+Key: maxBsonObjectSize , Value: 16777216
+Key: ok , Value: 1.0
+Server status {'ok': 1.0}
+Databases: ['adventureworks']
+```
 <!-- 
-:::code language="console" source="~/samples-cosmosdb-mongodb-javascript/200-admin/index.js" id="console_result":::
+:::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/200-admin/run.py" id="console_result":::
 -->
 
