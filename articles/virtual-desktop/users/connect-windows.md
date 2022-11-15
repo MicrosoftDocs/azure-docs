@@ -36,8 +36,6 @@ Before you can access your resources, you'll need to meet the prerequisites:
 
 - .NET Framework 4.6.2 or later. You may need to install this on Windows 7, Windows Server 2012 R2, Windows Server 2016, and some versions of Windows 10. To download the latest version, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
-- You cannot sign-in using the built-in Administrator user account.
-
 > [!IMPORTANT]
 > Extended support for using Windows 7 to connect to Azure Virtual Desktop ends on January 10, 2023.
 

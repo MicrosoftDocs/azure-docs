@@ -294,6 +294,9 @@
           href: how-to-manage-workspace-terraform.md
         - name: Use REST
           href: how-to-manage-rest.md
+        - name: Recover workspace after deletion
+          displayName: soft-delete
+          href: concept-soft-delete.md
         - name: How to move a workspace
           href: how-to-move-workspace.md
         - name: Securely integrate Azure Synapse & Azure Machine Learning
