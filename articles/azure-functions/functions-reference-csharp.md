@@ -418,7 +418,7 @@ By default, Core Tools reads the function.json files and adds the required packa
 </Project>
 ```
 > [!NOTE]
-> For CSX script, you must set target framework as `netstandard2.0` since other target frameworks like `net6.0` are not supported.
+> For C# script (.csx), you must set `TargetFramework` to a value of `netstandard2.0`. Other target frameworks, such as `net6.0`, aren't supported.
 
 # [v1.x](#tab/functionsv1)
 
