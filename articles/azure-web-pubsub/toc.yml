@@ -168,6 +168,8 @@
           href: reference-server-sdk-js.md
         - name: Server SDK - Python
           href: reference-server-sdk-python.md
+        - name: OData filter syntax reference
+          href: reference-odata-filter.md
     - name: Control plane
       href: /rest/api/webpubsub/
     - name: Azure CLI
