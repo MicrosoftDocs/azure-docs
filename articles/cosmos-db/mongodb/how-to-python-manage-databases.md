@@ -39,8 +39,23 @@ Once created, the URI for a database is in this format:
 
 ## Get database instance
 
-The database holds the collections and their documents. Use an instance of the **Db** class to access the databases on the server.
+The database holds the collections and their documents. To access a database, use attribute style access or dictionary style access of the MongoClient. For more information, see [Getting a Database](https://pymongo.readthedocs.io/en/stable/tutorial.html#getting-a-database).
 
-* [MongoClient.Db](https://mongodb.github.io/node-mongodb-native/4.7/classes/Db.html)
+The following code snippets assume you've already created your [client connection](how-to-python-get-started.md#create-mongoclient-with-connection-string) and that you [close your client connection](how-to-python-get-started.md#close-the-mongoclient-connection) after these code snippets.
 
-The following code snippets assume you've already created your [client connection](how-to-javascript-get-started.md#create-mongoclient-with-connection-string) and that you [close your client connection](how-to-javascript-get-started.md#close-the-mongoclient-connection) after these code snippets.
+## Get server information
+
+Access the **Admin** class to retrieve server information. You don't need to specify the database name in the `db` method. The information returned is specific to MongoDB and doesn't represent the Azure Cosmos DB platform itself.
+
+* [MongoClient.Db.Admin](https://mongodb.github.io/node-mongodb-native/4.7/classes/Admin.html)
+
+<!--
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/200-admin/index.js" id="server_info":::
+-->
+
+The preceding code snippet displays the following example console output:
+
+<!-- 
+:::code language="console" source="~/samples-cosmosdb-mongodb-javascript/200-admin/index.js" id="console_result":::
+-->
+
