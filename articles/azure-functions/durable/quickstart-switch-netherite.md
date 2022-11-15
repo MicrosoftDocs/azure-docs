@@ -9,13 +9,13 @@ ms.reviewer: azfuncdf
 
 # Switch to the Netherite Backend
 
-Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called "backends" for short, each with their own [design characteristics](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-storage-providers#comparing-storage-providers). By default, new projects are configured to use the Azure Storage provider. In this article, we walk through how to configure an existing Durable Functions app to utilize the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
+Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called "backends" for short, each with their own [design characteristics](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-storage-providers#comparing-storage-providers). By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure an existing Durable Functions app to utilize the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
-Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research). Relative to other backends, Netherite may enable [significantly higher throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios): in some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude when compared to the default Azure Storage provider.
+Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research). Netherite may enable [significantly higher throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) relative to other backends: in some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude when compared to the default Azure Storage provider. To learn more about when Netherite may be good choice, please review our documentation on [storage providers](durable-functions-storage-providers.md).
 
 ## Note on data migration
 
-We do not currently support the migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers. This means that your application will need to start with a fresh, empty Task Hub after changing the provider to Netherite. Similarly, the task hub contents created while running Netherite cannot be preserved when switching to a different backend, such as Azure Storage, or the MSSQL backend.
+We do not currently support the migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers. This means that your application will need to start with a fresh, empty Task Hub after switching to Netherite. Similarly, the Task Hub contents created with Netherite cannot be preserved when switching to a different backend.
 
 > [!NOTE] Changing your storage provider is a kind of breaking change as pre-existing data will not be transferred over. You can review the Durable Functions [versioning docs](durable-functions-versioning.md) for guidance on how to make these changes.
 
@@ -39,11 +39,11 @@ If this is not the case, we suggest you start with one of the following articles
 
 ## Add Netherite to the project
 
-### (only apps without Extension Bundles, like C# users) Install the NuGet package
+### (only apps without Extension Bundles, like C# users) Install the Extension
 
->![NOTE] If your app uses [Extension Bundles](/articles/azure/azure-functions/functions-bindings-register#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Nuget package installations.
+>![NOTE] If your app uses [Extension Bundles](/articles/azure/azure-functions/functions-bindings-register#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
-You will need to install the latest version of the `Microsoft.Azure.DurableTask.Netherite.AzureFunctions` [Extension on Nuget](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) into your app. This usually means including a reference to it in your `.csproj` file.
+You will need to install the latest version of the `Microsoft.Azure.DurableTask.Netherite.AzureFunctions`[Extension on Nuget](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) on your app. This usually means including a reference to it in your `.csproj` file and building the project.
 
 There are many ways to achieve this, especially for C# users which may leverage [VisualStudio](documentation](/articles/nuget/consume-packages/install-use-packages-visual-studio)), the [Nuget package manager](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs?tabs=in-process#add-bindings) or even the [dotnet CLI](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp#install-binding-extensions).
 
@@ -53,11 +53,11 @@ However, all languages should be able to utilize the [Azure Functions Core Tools
 func extensions install --package Microsoft.Azure.DurableTask.Netherite.AzureFunctions --version <latestVersionOnNuget>
 ```
 
-For more information about how installing Azure Functions Extensions via the Core Tools CLI, please read [the documentation](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash#install-extensions).
+For more information on installing Azure Functions Extensions via the Core Tools CLI, please see [this guide](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash#install-extensions).
 
 ### Update host.json
 
-Edit the storage provider section of your `durableTask` config in `host.json` to specify `type` as `Netherite`.
+Edit the `storageProvider` section of your `durableTask` config in `host.json` to specify `type` as `Netherite`.
 
 ```json
 {
@@ -79,7 +79,7 @@ The snippet above is just a *minimal* configuration. You can find further config
 During local development, you may choose to run Netherite without Event Hubs, which minimizes costs. To do this, please set the the value of `EventHubsConnection` in `local.settings.json` to `MemoryF` as shown below:
 
 ```json
-    "EventHubsConnection": "MemoryF",
+    "EventHubsConnection": "MemoryF", // Or, to use a real Event Hubs resource, set this to an Event Hubs connection string
 ```
 
 For example, if using C#, your local.settings.json file may look something like [this](https://github.com/microsoft/durabletask-netherite/blob/main/samples/Hello_Netherite_with_DotNetCore/local.settings.json).
@@ -116,7 +116,7 @@ az eventhubs namespace create --name $namespaceName --resource-group $groupName
 
 ### Obtain the connection string
 
-To obtain the connection string for your Event Hubs namespace, go to  the Azure portal under the setting "Shared access policies", and then select "RootManagedSharedAccessKey" which should reveal a field named "Connection string-primary key". That field's value is the connection string.
+To obtain the connection string for your Event Hubs namespace, go to the Azure portal under the setting "Shared access policies", and then select "RootManagedSharedAccessKey" which should reveal a field named "Connection string-primary key". That field's value is the connection string.
 
 Below we show a few guiding screenshots on how to find this data in the portal:
 
@@ -131,7 +131,7 @@ az eventhubs namespace authorization-rule keys list --name RootManageSharedAcces
 
 ## Part 3: Configure the app in Azure
 
-Finally, assuming you have target app in Azure for deployment, there are a few more steps required to configure it correctly for running Netherite. For this quickstart, you probably only need to do the first one, but we list them all here for reference.
+Assuming that you already have target app in Azure for deployment, there are a few steps required to configure it for Netherite. For this quickstart, you probably only need to do the first one, but we list them all here for future reference.
 
 ### Configure the EventHubsConnection setting
 
