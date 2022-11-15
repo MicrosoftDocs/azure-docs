@@ -195,6 +195,13 @@ Cost insights surface important details about your subscriptions, like potential
 
 **Cost savings insights are available by default for all subscriptions in the cost analysis preview.**
 
+<a name="recommendationsview"></a>
+
+## Recommendations view in the cost analysis preview
+
+View a summary of Azure Advisor cost recommendations that help you optimize your Azure resources in the cost analysis preview.
+
+The Recommendations view can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
 
 <a name="resourceessentials"></a>
 
