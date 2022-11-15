@@ -14,7 +14,7 @@ ms.topic: how-to
 
 This article shows how to create a managed identity for Azure Load Testing Preview. You can use a managed identity to authenticate with and read secrets from Azure Key Vault.
 
-A managed identity from Azure Active Directory (Azure AD) allows your load testing resource to easily access other Azure AD-protected resources, such as Azure Key Vault. The identity is managed by the Azure platform and doesn't require you to manage or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+A managed identity from Azure Active Directory (Azure AD) allows your load testing resource to easily access other Azure AD-protected resources, such as Azure Key Vault. The identity is managed by the Azure platform and doesn't require you to manage or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
 Azure Load Testing supports two types of identities:
 
@@ -28,7 +28,7 @@ Azure Load Testing supports two types of identities:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 - An Azure load testing resource. If you need to create an Azure load testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
-- To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
+- To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
 
 ## Assign a system-assigned identity to a load testing resource
 
@@ -127,7 +127,7 @@ You can now [grant your load testing resource access to your Azure key vault](#g
 
 You can create an Azure load testing resource by using an ARM template and the resource type `Microsoft.LoadTestService/loadtests`. For more information about using ARM templates with Azure Load Testing, see the [Azure Load Testing ARM reference documentation](/azure/templates/microsoft.loadtestservice/allversions).
 
-1. Create a user-assigned managed identity by following the instructions mentioned in [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity-3).
+1. Create a user-assigned managed identity by following the instructions mentioned in [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity-3).
 
     
 1. Specify the user-assigned managed identity in the `identity` section of the resource definition. 
@@ -182,14 +182,14 @@ You can now [grant your load testing resource access to your Azure key vault](#g
 
 ## Grant access to your Azure key vault
 
-Using managed identities for Azure resources, your Azure load testing resource can access tokens that enable authentication to your Azure key vault. Grant the managed identity access by assigning the [appropriate role](../role-based-access-control/built-in-roles.md) to the managed identity.
+Using managed identities for Azure resources, your Azure load testing resource can access tokens that enable authentication to your Azure key vault. Grant the managed identity access by assigning the [appropriate role](/azure/role-based-access-control/built-in-roles) to the managed identity.
 
 To grant your Azure load testing resource permissions to read secrets from your Azure key vault:
 
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Azure key vault resource.
 
-    If you don't have a key vault, follow the instructions in [Azure Key Vault quickstart](../key-vault/secrets/quick-create-cli.md) to create one.
+    If you don't have a key vault, follow the instructions in [Azure Key Vault quickstart](/azure/key-vault/secrets/quick-create-cli) to create one.
 
 1. On the left pane, under **Settings**, select **Access Policies**, and then **Add Access Policy**.
 
@@ -209,4 +209,4 @@ You've now granted access to your Azure load testing resource to read the secret
 
 * Learn how to [Parameterize a load test with secrets](./how-to-parameterize-load-tests.md).
 * Learn how to [Manage users and roles in Azure Load Testing](./how-to-assign-roles.md).
-* [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+* [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
