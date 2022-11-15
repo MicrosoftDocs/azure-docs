@@ -227,7 +227,7 @@ Known issues on Linux:
 | Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. You can install it using the package manager for your Linux distro, </br> APT Command to install stress-ng: *sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng* </br> YUM Command to install stress-ng: *sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng* |
 | Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.0 |
 | Parameters (key, value) |  |
-| workerCount | Number of worker processes to run. Setting this to 0 will generate as many worker processes as there are number of processors. |
+| workerCount | Number of worker processes to run. Setting `workerCount` to 0 will generate as many worker processes as there are number of processors. |
 | fileSizePerWorker | Size of the temporary file a worker will perform I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4m for 4 megabytes, 256g for 256 gigabytes) |
 | blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes (b), kilobytes (k), or megabytes (m) (for example, 512k for 512 kilobytes) |
 | virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
@@ -1006,7 +1006,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | SecurityRule-1.0 |
 | Target type | Microsoft-NetworkSecurityGroup |
-| Description | Enables manipulation or creation of a rule in an existing Azure Network Security Group or set of Azure Network Security Groups (assuming the rule definition is applicable cross security groups). Useful for simulating an outage of a downstream or cross-region dependency/non-dependency, simulating an event that is expected to trigger a logic to force a service failover, simulating an event that is expected to trigger an action from a monitoring or state management service, or as an alternative for blocking, or allowing, network traffic where Chaos Agent cannot be deployed. |
+| Description | Enables manipulation or rule creation in an existing Azure Network Security Group or set of Azure Network Security Groups, assuming the rule definition is applicable cross security groups. Useful for simulating an outage of a downstream or cross-region dependency/non-dependency, simulating an event that's expected to trigger a logic to force a service failover, simulating an event that is expected to trigger an action from a monitoring or state management service, or as an alternative for blocking or allowing network traffic where Chaos Agent cannot be deployed. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:networkSecurityGroup:securityRule/1.0 |
 | Parameters (key, value) |  |
