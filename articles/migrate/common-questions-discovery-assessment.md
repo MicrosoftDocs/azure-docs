@@ -52,7 +52,7 @@ To ensure performance data is collected, check:
 
 - If the SQL Servers are powered on for the duration for which you're creating the assessment.
 - If the connection status of the SQL agent in Azure Migrate is 'Connected', and check the last heartbeat. 
-- If Azure Migrate connection status for all SQL instances is 'Connected' in the discovered SQL instance blade.
+- If Azure Migrate connection status for all SQL instances is 'Connected' in the discovered SQL instance section.
 - If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
 If any of the performance counters are missing, Azure SQL assessment recommends the smallest Azure SQL configuration for that instance/database.
@@ -71,7 +71,7 @@ The confidence rating is calculated for "Performance-based" assessments based on
     - Outbound connections on ports 443 are allowed
     - For Hyper-V Servers, dynamic memory is enabled
     - The connection status of agents in Azure Migrate are 'Connected' and check the last heartbeat
-    - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance blade
+    - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance section.
 
     **Recalculate** the assessment to reflect the latest changes in confidence rating.
 
@@ -90,7 +90,7 @@ There could be two reasons:
 
 ## The number of Azure VM or AVS assessments on the Discovery and assessment tool are incorrect
 
- To remediate this, click the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessment. The discovery and assessment tool will then show the correct count for that assessment type.
+ To remediate this, select the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessment. The discovery and assessment tool will then show the correct count for that assessment type.
 
 ## I want to try out the new Azure SQL assessment
 
@@ -102,7 +102,7 @@ Discovery and assessment of .NET web apps running in your VMware environment is 
 
 ## I can't see some servers when I am creating an Azure SQL assessment
 
-- Azure SQL assessment can only be done on servers running where SQL instances were discovered. If you don't see the servers and SQL instances that you wish to assess, wait for some time for the discovery , and then create the assessment.
+- Azure SQL assessment can only be done on servers running where SQL instances were discovered. If you don't see the servers and SQL instances that you wish to assess, wait for some time for the discovery, and then create the assessment.
 - If you're not able to see a previously created group while creating the assessment, remove any server without a SQL instance from the group.
 - If you're running Azure SQL assessments in Azure Migrate for the first time, it's advisable to create a new group of servers.
 
@@ -134,7 +134,7 @@ The SQL discovery is performed once every 24 hours and you might need to wait up
 This could happen if:
 
 - The discovery is still in progress. We recommend that you wait for some time for the appliance to profile the environment and then recalculate the assessment.
-- There are some discovery issues that you need to fix in the Errors and notifications blade.
+- There are some discovery issues that you need to fix in **Errors and notifications**.
 
 The SQL discovery is performed once every 24 hours and you might need to wait upto a day for the latest configuration changes to reflect.
 
