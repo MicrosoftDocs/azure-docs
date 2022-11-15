@@ -1,3 +1,4 @@
+$schema: "http://json-schema.org/draft-04/schema"
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
