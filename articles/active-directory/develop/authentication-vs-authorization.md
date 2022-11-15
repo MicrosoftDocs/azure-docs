@@ -12,7 +12,8 @@ ms.workload: identity
 ms.date: 11/02/2022
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
+ms.custom: aaddev, identityplatformtop40, microsoft-identity-platform
+scenarios:getting-started
 #Customer intent: As an application developer, I want to understand the basic concepts of authentication and authorization in the Microsoft identity platform.
 ---
 
