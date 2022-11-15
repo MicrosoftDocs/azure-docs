@@ -65,7 +65,7 @@ paths:
   - pattern: ./*.txt
 transformations:
   - read_delimited:
-      delimiter: ,
+      delimiter: ','
       encoding: ascii
       header: all_files_same_headers
   - columns: [Trip_Pickup_DateTime, Trip_Dropoff_DateTime]

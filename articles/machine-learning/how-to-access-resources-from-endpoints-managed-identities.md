@@ -111,9 +111,6 @@ This guide assumes you don't have a managed identity, a storage account or an on
     pip install --pre azure-mgmt-authorization
     ```
 
-
-Install them with the following code:
-
 # [User-assigned (Python)](#tab/user-identity-python)
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.

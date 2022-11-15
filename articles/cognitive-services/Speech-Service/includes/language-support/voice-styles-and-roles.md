@@ -46,7 +46,7 @@ ms.author: eur
 
 <sup>1</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](../../regions.md): East US, West Europe, and Southeast Asia. 
 
-<sup>2</sup> The `Advertisement_upbeat` style for this voice is in preview and only available in three service regions: East US, West Europe, and Southeast Asia.
+<sup>2</sup> The `advertisement_upbeat` style for this voice is in preview and only available in three service regions: East US, West Europe, and Southeast Asia.
 
 <sup>3</sup> The `Sports_commentary` style for this voice is in preview and only available in three service regions: East US, West Europe, and Southeast Asia.
 
