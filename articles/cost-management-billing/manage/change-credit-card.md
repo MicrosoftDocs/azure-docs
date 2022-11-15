@@ -154,12 +154,12 @@ To delete a payment method for a Microsoft Customer Agreement, do the following 
 1. Navigate to **Cost Management + Billing**.
 1. If necessary, select a billing scope.
 1. In the left menu list under **Billing**, select **Billing profiles**.  
-    :::image type="content" source="./media/change-credit-card/billing-profiles.png" alt-text="Example screenshot showing Billing profiles in the Azure portal" lightbox="./media/change-credit-card/billing-profiles.png" :::
+    :::image type="content" source="./media/change-credit-card/billing-profiles.png" alt-text="Example screenshot showing Billing profiles in the Azure portal." lightbox="./media/change-credit-card/billing-profiles.png" :::
 1. In the list of billing profiles, select the one where the payment method is being used.  
-    :::image type="content" source="./media/change-credit-card/select-billing-profile.png" alt-text="Example image showing the list of billing profiles" :::
+    :::image type="content" source="./media/change-credit-card/select-billing-profile.png" alt-text="Example screenshot showing the list of billing profiles." :::
 1. In the left menu list, under **Settings**, select **Payment methods**.
 1. On the payment methods page for your billing profile, a table of payment methods is shown under the **Your credit cards** section. Find the credit card that you want to delete, select the ellipsis (**…**), and then select **Delete**.  
-    :::image type="content" source="./media/change-credit-card/delete-credit-card.png" alt-text="Example showing where to delete a credit card" :::
+    :::image type="content" source="./media/change-credit-card/delete-credit-card.png" alt-text="Example screenshot showing where to delete a credit card." :::
 1. The Delete a payment method page appears. Azure checks if the payment method is in use.
     - When the payment method isn't being used, the **Delete** option is enabled. Select it to delete the credit card information.
     - If the payment method is being used, it must be replaced or detached. Continue reading the following sections. They explain how to **detach** the payment method that's in use by your subscription.
@@ -168,7 +168,7 @@ To delete a payment method for a Microsoft Customer Agreement, do the following 
 
 If your payment method is being used by an MCA billing profile, you'll see a message similar to the following example.
 
-:::image type="content" source="./media/change-credit-card/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Example image showing that a payment method is in use by a Microsoft Customer Agreement" :::
+:::image type="content" source="./media/change-credit-card/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Example screenshot showing that a payment method is in use by a Microsoft Customer Agreement." :::
 
 To detach a payment method, a list of conditions must be met. If any conditions aren't met, instructions appear explaining how to meet the condition. A link also appears that takes you to the location where you can resolve the condition.
 
@@ -182,7 +182,7 @@ When all the conditions are all satisfied, you can detach the payment method fro
 1. In the Delete a payment method area, select the **Detach the current payment method** link.
 1. If all conditions are met, select **Detach**. Otherwise, continue to the next step.
 1. If Detach is unavailable, a list of conditions is shown. Take the actions listed. Select the link shown in the Detach the default payment method area. Here's an example of a corrective action that explains the actions you need to take.  
-    :::image type="content" source="./media/change-credit-card/azure-subscriptions.png" alt-text="Example showing a corrective action needed to detach a payment method for MCA" :::
+    :::image type="content" source="./media/change-credit-card/azure-subscriptions.png" alt-text="Example screenshot showing a corrective action needed to detach a payment method for MCA." :::
 1. When you select the corrective action link, you're redirected to the Azure page where you take action. Take whatever correction action is needed.
 1. If necessary, complete all other corrective actions.
 1. Navigate back to **Cost Management + Billing** > **Billing profiles** > **Payment methods**. Select **Detach**. At the bottom of the Detach the default payment method page, select **Detach**.
@@ -202,10 +202,10 @@ If your payment method is in use by a subscription, do the following steps.
 1. If necessary, select a billing scope.
 1. In the left menu list under **Billing**, select **Payment methods**.
 1. In the Payment methods area, on the row that the payment method is on, select the ellipsis (**...**) symbol and then select **Delete**.
-    :::image type="content" source="./media/change-credit-card/delete-mosp-payment-method.png" alt-text="Example showing a corrective action needed to detach a payment method for MOSP" :::
+    :::image type="content" source="./media/change-credit-card/delete-mosp-payment-method.png" alt-text="Example screenshot showing a corrective action needed to detach a payment method for MOSP." :::
 1. In the Delete a payment method area, select **Delete** if all conditions are met. If Delete is unavailable, continue to the next step.
 1. A list of conditions is shown. Take the actions listed. Select the link shown in the Delete a payment method area.  
-    :::image type="content" source="./media/change-credit-card/payment-method-in-use-mosp.png" alt-text="Example image showing that a payment method is in use by a pay-as-you-go subscription" :::
+    :::image type="content" source="./media/change-credit-card/payment-method-in-use-mosp.png" alt-text="Example screenshot showing that a payment method is in use by a pay-as-you-go subscription." :::
 1. When you select the corrective action link, you're redirected to the Azure page where you take action. Take whatever correction action is needed.
 1. If necessary, complete all other corrective actions.
 1. Navigate back to **Cost Management + Billing** > **Billing profiles** > **Payment methods** and delete the payment method.
