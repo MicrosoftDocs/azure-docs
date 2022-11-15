@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/04/2022
 ms.custom:
 ---
-# Provision access to Arc-enabled SQL Server for DevOps actions (preview)
+# Provision access to system metadata in Arc-enabled SQL Server (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
