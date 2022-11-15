@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Add a bot to your chat app
+title: Add a bot to your chat app
 titleSuffix: A quickstart on how to use Azure Chat SDK with Azure Bot Services 
 description: This quickstart shows you how to build chat experience with a bot using Communication Services Chat SDK and Bot Services. 
 author: tariqzafar
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.custom: mode-other
 ---
 
-# Quickstart: Add a bot to your chat app
+# Add a bot to your chat app
 
 > [!IMPORTANT]
 > This functionality is in public preview.
@@ -38,7 +38,7 @@ You will learn how to:
 
 ## Step 1 - Create and deploy an Azure bot
 
-To use Azure Communication Services chat as a channel in Azure Bot Service, the first step would be to deploy a bot. You can do so by following below steps:
+To use Azure Communication Services chat as a channel in Azure Bot Service, the first step is to deploy a bot. You can do so by following below steps:
 
 ### Provision an Azure bot service resource in Azure
 
@@ -114,7 +114,7 @@ The final step would be to deploy the Web App we created. The Echo bot functiona
 Now that bot is created and deployed, you will need an Azure Communication Services resource, which you can use to configure the Azure Communication Services channel.
 1. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md).
 
-2. Create a Azure Communication Services User and issue a user access token [User Access Token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
+2. Create a Azure Communication Services User and issue a [User Access Token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
 
 ## Step 3 - Enable Azure Communication Services Chat channel
 With the Azure Communication Services resource, you can set up the Azure Communication Services channel in Azure Bot to assign an Azure Communication Services User ID to a bot.
