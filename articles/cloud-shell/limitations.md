@@ -43,7 +43,10 @@ Chrome, Mozilla Firefox, and Apple Safari. Safari in private mode isn't supporte
 
 ### Copy and paste
 
-[!INCLUDE [copy-paste][01]]
+- Windows: <kbd>Ctrl</kbd>-<kbd>C</kbd> to copy is supported but use
+  <kbd>Shift</kbd>-<kbd>Insert</kbd> to paste.
+  - FireFox/IE may not support clipboard permissions properly.
+- Mac OS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
 
 ### Only one shell can be active for a given user
 
@@ -107,7 +110,6 @@ progress bar was previously.
 - [Quickstart for PowerShell][03]
 
 <!-- link references -->
-[01]: includes/cloud-shell-copy-paste.md
 [02]: persisting-shell-storage.md#mount-a-new-clouddrive
 [03]: quickstart-powershell.md
 [04]: quickstart.md

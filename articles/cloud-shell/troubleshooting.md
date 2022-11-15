@@ -151,7 +151,10 @@ Cloud Shell supports the latest versions of following browsers:
 
 ### Copy and paste
 
-[!INCLUDE [copy-paste][01]]
+- Windows: <kbd>Ctrl</kbd>-<kbd>C</kbd> to copy is supported but use
+  <kbd>Shift</kbd>-<kbd>Insert</kbd> to paste.
+  - FireFox/IE may not support clipboard permissions properly.
+- Mac OS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
 
 ### Usage limits
 
@@ -273,6 +276,5 @@ Azure Cloud Shell in Azure Government is only accessible through the Azure porta
 > Connecting to GCC-High or Government DoD Clouds for Exchange Online is currently not supported.
 
 <!-- link references -->
-[01]: includes/cloud-shell-copy-paste.md
 [04]: https://docs.docker.com/machine/overview/
 [05]: persisting-shell-storage.md#mount-a-new-clouddrive

@@ -20,19 +20,6 @@
         ]
       },
       {
-        "src": "articles/cloud-shell",
-        "dest": "./cloud-shell/",
-        "files": [
-          "**/*.md",
-          "**/includes/**",
-          "**/*.yml"
-        ],
-        "exclude": [
-            "**/_themes/**",
-            "**/obj/**"
-        ]
-      },
-      {
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",

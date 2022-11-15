@@ -111,7 +111,10 @@ click restore.
 
 ## Copy and paste
 
-[!INCLUDE [copy-paste][01]]
+- Windows: <kbd>Ctrl</kbd>-<kbd>C</kbd> to copy is supported but use
+  <kbd>Shift</kbd>-<kbd>Insert</kbd> to paste.
+  - FireFox/IE may not support clipboard permissions properly.
+- Mac OS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
 
 ## Resize Cloud Shell window
 
@@ -132,7 +135,6 @@ minutes without interaction.
 - [PowerShell in Cloud Shell Quickstart][12]
 
 <!-- link references -->
-[01]: includes/cloud-shell-copy-paste.md
 [02]: media/using-the-shell-window/env-selector.png
 [03]: media/using-the-shell-window/minmax.png
 [04]: media/using-the-shell-window/newsession.png

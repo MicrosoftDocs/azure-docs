@@ -15,7 +15,15 @@ title: Azure Cloud Shell features
 ---
 # Features & tools for Azure Cloud Shell
 
-[!INCLUDE [features-introblock][01]]
+Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
+
+Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure
+resources without the overhead of installing, versioning, and maintaining a machine yourself.
+
+Cloud Shell provisions machines on a per-request basis and as a result machine state does not
+persist across sessions. Since Cloud Shell is built for interactive sessions, shells automatically
+terminate after 20 minutes of shell inactivity.
+
 <!--
 TODO:
 - need to verify Distro - showing Ubuntu currently
@@ -168,7 +176,6 @@ Other
 - [Learn about Azure PowerShell][07]
 
 <!-- link references -->
-[01]: includes/cloud-shell-features-introblock.md
 [02]: ../key-vault/general/manage-with-cli2.md#prerequisites
 [03]: ../service-fabric/service-fabric-cli.md
 [04]: ../storage/common/storage-use-azcopy-v10.md
