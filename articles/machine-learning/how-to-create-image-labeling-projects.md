@@ -120,7 +120,7 @@ For bounding boxes, important questions include:
 * How to label the object if there is no clear boundary of the object?
 * How to label the object which is not object class of interest but visually similar to an interested object type?
 
->[!NOTE]
+> [!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
 
 ## Quality control (preview)

@@ -6,7 +6,7 @@ ms.date: 10/21/2021
 ms.author: sdgilley
 ---
 
-To get more accurate labels, use the **Quality control** page to have multiple people label each item.
+To get more accurate labels, use the **Quality control** page to send each item to multiple labelers.
 
 > [!IMPORTANT]
 > Consensus labeling is currently in public preview.
