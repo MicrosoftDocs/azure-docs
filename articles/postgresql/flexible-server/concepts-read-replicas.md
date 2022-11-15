@@ -120,6 +120,7 @@ You can stop the replication between a primary and a replica by promoting one or
 - During the create, delete and promote operations of replica, primary server will be in upgrading state.
 - **Power operations**: You can perform power operations (start/stop) on replica but primary server should be stopped before stopping read replicas and primary server should be started before starting the replicas.
 - If server has read replicas then read replicas should be deleted first before deleting the primary server.
+- When creating Geo-Replica in a VNET integrated server, make sure that the virtual network selected is peered to the primary attached virtual network.
 
 When you promote a replica, the replica loses all links to its previous primary and other replicas.
 
