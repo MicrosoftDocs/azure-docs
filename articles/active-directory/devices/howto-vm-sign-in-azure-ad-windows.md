@@ -297,7 +297,7 @@ The AADLoginForWindows extension must be installed successfully for the VM to co
 1. View the device state by running `dsregcmd /status`. The goal is for the device state to show as `AzureAdJoined : YES`.
 
    > [!NOTE]
-   > Azure AD join activity is captured in Event Viewer under the *User Device Registration\Admin* log at *Event Viewer (local)\Applications* and *Services Logs\Windows\Microsoft\User Device Registration\Admin*.
+   > Azure AD join activity is captured in Event Viewer under the *User Device Registration\Admin* log at *Event Viewer (local)\Applications* and *Services Logs\Microsoft\Windows\User Device Registration\Admin*.
 
 If the AADLoginForWindows extension fails with an error code, you can perform the following steps.
 
