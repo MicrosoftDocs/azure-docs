@@ -27,25 +27,17 @@ Scaling is defined by the combination of limits and rules.
     | Minimum number of replicas | 0 | 0 | 30 |
     | Maximum number of replicas | 10 | 1 | 30 |
 
+    To request an increase in maximum replica amounts for your container app, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
+
 - **Rules** are the criteria used by Container Apps to decide when to add or remove replicas.
 
     Rules are implemented as [HTTP](#http), [TCP](#tcp), or [custom](#custom). Custom rules are based on any [KEDA supported scaler](https://keda.sh/docs/latest/scalers/).
 
-> [!NOTE]
-> To request an increase in maximum replica amounts for your container app, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
-
 As you define your scaling rules, keep in mind the following:
 
-- If your container app scales to zero, then you aren't billed usage charges.
-- If you want to ensure that an instance of your application is always running, set the minimum  to 1 or higher.
+- You aren't billed usage charges if your container app scales to zero.
 - Replicas that are not processing, but remain in memory are billed as "idle".
-- Changes to scaling rules are a [revision-scope](revisions.md#revision-scope-changes) change.
-- Container Apps implements the KEDA [ScaledObject](https://keda.sh/docs/concepts/scaling-deployments/#details) and HTTP scaler with these defaults:
-
-    | Defaults | Seconds |
-    |--|--|
-    | Polling interval | 30 |
-    | Cool down period | 300 |
+- If you want to ensure that an instance of your application is always running, set the minimum  number of replicas to 1 or higher.
 
 ## Implement a scale rule
 
@@ -53,7 +45,12 @@ Scaling is driven by various triggers. Azure Container Apps supports two categor
 
 - [HTTP](#http): Based on the number of concurrent HTTP requests to your revision.
 - [TCP](#tcp): Based on the number of concurrent TCP requests to your revision.
-- [Custom](#custom): Based on any [KEDA supported scaler](https://keda.sh/docs/latest/scalers/).
+- [Custom](#custom): Based on any [KEDA supported scaler](https://keda.sh/docs/latest/scalers/) using a KEDA [ScaledObject](https://keda.sh/docs/concepts/scaling-deployments/#details) with these defaults:
+
+    | Defaults | Seconds |
+    |--|--|
+    | Polling interval | 30 |
+    | Cool down period | 300 |
 
 ## HTTP
 
@@ -65,7 +62,7 @@ With an HTTP scaling rule, you have control over the threshold of concurrent HTT
 
 In the following example, the container app scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
 
-### Examples
+### Example
 
 ::: zone pivot="azure-resource-manager"
 
@@ -97,7 +94,7 @@ In the following example, the container app scales out up to five replicas and c
 ```
 
 > [!NOTE]
-> Set the  `properties.configuration.activeRevisionsMode` property of the container app to `single`, when using non-HTTP event scale rules.
+> Set the `properties.configuration.activeRevisionsMode` property of the container app to `single`, when using non-HTTP event scale rules.
 
 ::: zone-end
 
@@ -115,7 +112,11 @@ TODO: create, update, up
 
 1. Select **Edit and deploy**.
 
-1. Select **Scale**.
+1. Select the **Scale** tab.
+
+1. Select the minimum and maximum replica range.
+
+    :::image type="content" source="media/scale-app/azure-container-apps-scale-slide.png" alt-text="Screenshot of Azure Container Apps scale range slider.":::
 
 1. Select **Add**.
 
@@ -137,7 +138,7 @@ With a TCP scaling rule, you have control over the threshold of concurrent TCP r
 
 In the following example, the container app scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
 
-### Examples
+### Example
 
 ::: zone pivot="azure-resource-manager"
 
@@ -184,7 +185,11 @@ TODO
 
 1. Select **Edit and deploy**.
 
-1. Select **Scale**.
+1. Select the **Scale** tab.
+
+1. Select the minimum and maximum replica range.
+
+    :::image type="content" source="media/scale-app/azure-container-apps-scale-slide.png" alt-text="Screenshot of Azure Container Apps scale range slider.":::
 
 1. Select **Add**.
 
@@ -200,19 +205,6 @@ KEDA scalers are implemented as [ScaledObject](https://keda.sh/docs/latest/conce
 
 The structure of a Container Apps scale rule follows this form:
 
-```json
-...
-  "scale": {
-    ...
-    "rules": [{
-        "type": ...,
-        "metadata": {...},
-        "auth": {...} (optional)
-    }]
-  }
-...
-```
-
 - The `type` and `metadata` values carry over verbatim from a `ScaledObject`, while `auth` values are composed from a KEDA `TriggerAuthentication` object.
 - Each `secretTargetRef` from a `TriggerAuthentication` object maps to an object in the Container Apps scale rule `auth` array.
 
@@ -227,53 +219,17 @@ Alternatively, you can use the `connectionFromEnv` metadata parameter to provide
 
 Refer to the [considerations section](#considerations) for more security related information.
 
-### Examples
+The following example demonstrates how to create a custom scale rule.
+
+### Example
 
 This example shows how to convert an [Azure Queue Storage KEDA scaler](https://keda.sh/docs/latest/scalers/azure-storage-blob/) to a Container Apps scale rule, but you use the the same process for any other [KEDA scaler](https://keda.sh/docs/latest/scalers/).
 
-```yml
-triggers:
-- type: azure-blob
-  metadata:
-    blobContainerName: functions-blob
-    blobCount: '5'
-    activationBlobCount: '50'
-    connectionFromEnv: STORAGE_CONNECTIONSTRING_ENV_NAME
-    accountName: storage-account-name
-    blobPrefix: myprefix
-    blobDelimiter: /example
-    cloud: Private
-    endpointSuffix: blob.core.airgap.example
-    recursive: false
-    globPattern: glob-pattern
-```
-
-```yml
-apiVersion: keda.sh/v1alpha1
-kind: ScaledObject
-metadata:
-  name: azure-blob-scaledobject
-  namespace: default
-spec:
-  scaleTargetRef:
-    name: azureblob-function
-  triggers:
-  - type: azure-blob
-    metadata:
-      blobContainerName: functionsblob
-      accountName: storage-account-name
-      connectionFromEnv: STORAGE_CONNECTIONSTRING_ENV_NAME
-      blobCount: "5"
-      blobPrefix: blobsubpath
-      blobDelimiter: "/"
-      cloud: AzureChinaCloud
-    authenticationRef:
-        name: azure-blob-auth
-```
-
 ::: zone pivot="azure-resource-manager"
 
-TODO
+:::code language="json" source="code/secure-app-arm-template.json" highlight="2":::
+
+:::code language="json" source="code/container-apps-azure-queue-scale-rule.json" highlight="19":::
 
 > [!NOTE]
 > KEDA scale rules are defined using Kubernetes YAML, while Azure Container Apps supports ARM templates, Bicep templates and Container Apps specific YAML. The following example uses an ARM template and therefore the rules need to switch property names from [kebab](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) when translating from existing KEDA manifests.
@@ -294,7 +250,11 @@ TODO
 
 1. Select **Edit and deploy**.
 
-1. Select **Scale**.
+1. Select the **Scale** tab.
+
+1. Select the minimum and maximum replica range.
+
+    :::image type="content" source="media/scale-app/azure-container-apps-scale-slide.png" alt-text="Screenshot of Azure Container Apps scale range slider.":::
 
 1. Select **Add**.
 

@@ -1,0 +1,20 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: azure-blob-scaledobject
+  namespace: default
+spec:
+  scaleTargetRef:
+    name: azureblob-function
+  triggers:
+  - type: azure-blob
+    metadata:
+      blobContainerName: functionsblob
+      accountName: storage-account-name
+      connectionFromEnv: STORAGE_CONNECTIONSTRING_ENV_NAME
+      blobCount: "5"
+      blobPrefix: blobsubpath
+      blobDelimiter: "/"
+      cloud: AzureChinaCloud
+    authenticationRef:
+        name: azure-blob-auth
