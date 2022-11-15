@@ -1,5 +1,5 @@
 ---
-title: Set up Azure Active Directory authentication for Azure Database for MySQL flexible server Preview
+title: Set up Azure Active Directory authentication for Azure Database for MySQL flexible server
 description: Learn how to set up Azure Active Directory authentication for Azure Database for MySQL flexible Server
 author: vivgk
 ms.author: vivgk
@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server Preview
+# Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -37,9 +37,6 @@ To create an Azure AD Admin user, please follow the following steps.
     - **Azure Active Directory authentication only** – Only allows authentication with an Azure AD account. Disables mysql_native_password authentication and turns _ON_ the server parameter aad_auth_only 
 
     - **MySQL and Azure Active Directory authentication** – Allows authentication using a native MySQL password or an Azure AD account. Turns _OFF_ the server parameter aad_auth_only 
-
-    > [!NOTE]
-    > The server parameter aad_auth_only stays set to ON when the authentication type is changed to Azure Active Directory authentication only. We recommend disabling it manually when you opt for MySQL authentication only in the future.
 
 - **Select Identity** – Select/Add User assigned managed identity. To allow the UMI to read from Microsoft Graph as the server identity, the following permissions are required. Alternatively, give the UMI the [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) role. 
 
@@ -145,9 +142,6 @@ The access token validity is anywhere between 5 minutes to 60 minutes. We recomm
 **Step 3: Use token as password for logging in with MySQL**
 
 When connecting you need to use the access token as the MySQL user password. When using GUI clients such as MySQLWorkbench, you can use the method described above to retrieve the token. 
-
-> [!NOTE]
-> The newly restored server will also have the server parameter aad_auth_only set to ON if it was ON on the source server during failover. If you wish to use MySQL authentication on the restored server, you must manually disable this server parameter. Otherwise, an Azure AD Admin must be configured.
 
 #### Using MySQL CLI
 When using the CLI, you can use this short-hand to connect: 
