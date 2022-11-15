@@ -74,7 +74,7 @@ The **recommended cluster size** are as follows:
 >
 > Here are some other considerations for reference:
 > 1. For **higher network bandwidth and better disk I/O performance**, we recommend a larger SKU. 
->     1. Take [DV2/DSv2](../virtual-machines/dv2-dsv2-series#dsv2-series.md) as example, using the large SKU can reduce the time of pulling image for better network/storage performance. 
+>     1. Take [DV2/DSv2](../virtual-machines/dv2-dsv2-series#dsv2-series) as example, using the large SKU can reduce the time of pulling image for better network/storage performance. 
 >     1. More information about AKS reservation can be found in [AKS reservation](../aks/concepts-clusters-workloads#resource-reservations).
 > 1. If you are using AKS cluster, you may need to consider about the **size limit on a container image** in AKS, more information you can found in [AKS container image size limit](../aks/faq#what-is-the-size-limit-on-a-container-image-in-aks).
 
