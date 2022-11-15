@@ -316,7 +316,7 @@ If the error message is **Failed to create User**, then check the attributes tha
 
 For more information, change to the **Troubleshooting & Recommendations** tab.
 
-For other errors, see [troubleshooting on-premises application provisioning](../articles/azure/active-directory/app-provisioning/on-premises-ecma-troubleshoot).
+For other errors, see [troubleshooting on-premises application provisioning](../articles/active-directory/app-provisioning/on-premises-ecma-troubleshoot.md).
 
 ## Check that users were successfully provisioned
 After waiting, check your directory to ensure users are being provisioned.  The following instructions illustrate how to check AD LDS.
