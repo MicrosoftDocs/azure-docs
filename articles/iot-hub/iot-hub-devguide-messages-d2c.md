@@ -97,7 +97,7 @@ Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions
 Apart from the built-in-Event Hubs compatible endpoint, you can also route data to custom endpoints of type Event Hubs. 
 
 ## Azure Cosmos DB as a routing endpoint (preview)
-You can send data directly to Cosmos DB from IoT Hub. Azure Cosmos DB is a fully managed hyperscale multi-model database service. It provides very low latency and high availability, making it a great choice for scenarios like connected solutions, manufacturing which require extensive downstream data analysis.
+You can send data directly to Azure Cosmos DB from IoT Hub. Cosmos DB is a fully managed hyperscale multi-model database service. It provides very low latency and high availability, making it a great choice for scenarios like connected solutions and manufacturing which require extensive downstream data analysis.
 
 IoT Hub supports writing to Cosmos DB in the JSON format. In order to set up a route to Cosmos DB, you will have to do the following:
 
