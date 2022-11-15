@@ -79,7 +79,7 @@ items:
       href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Raw media access
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
-  - name: Call Automation library
+  - name: Call Automation
     items:
       - name: Handle an inbound phone call
         href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
