@@ -17,6 +17,7 @@ ms.workload: identity
 
 ms.custom: aaddev
 ---
+
 # Developer guide to Conditional Access authentication context
 
 [Conditional Access](../conditional-access/overview.md) is the Zero Trust control plane that allows you to target policies for access to all your apps – old or new, private, or public, on-premises, or multi-cloud. With [Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context-preview), you can apply different policies within those apps.
@@ -218,44 +219,55 @@ Do not use auth context where the app itself is going to be a target of Conditio
 
 ## Authentication Context [ACRs] in Conditional Access expected behavior
 
-### Explicit Auth Context Satisfaction in Requests
-A client can explicitly ask for a token with an Auth Context (ACR) through the claims in the request's body. If an ACR was asked, Conditional Access will allow issuing the token with the asked ACR if all challenges were completed.
+## Explicit Auth Context Satisfaction in Requests
 
-### Expected Behavior When an Auth Context Is Not Protected by Conditional Access in The Tenant
-Conditional Access will allow an ACR addition to token's claims if there is no Conditional Access policy enforcing it.
-If there is no Conditional Access policy enforcing an ACR, and no ACR was requested, you can expect that no ACR will be issued.
-ACR requested | Policy applied | Control satisfied | ACR added to claims |
+A client can explicitly ask for a token with an Auth Context (ACRS) through the claims in the request's body. If an ACRS was requested, Conditional Access will allow issuing the token with the requested ACRS if all challenges were completed.
+
+## Expected Behavior When an Auth Context Is Not Protected by Conditional Access in The Tenant
+
+Conditional Access may issue an ACRS in a token's claims when all Conditional Access policy assigned to the ACRS value has been satisfied. If no Conditional Access policy is assigned to an ACRS value the claim may still be issued, because all policy requirements have been satisfied.
+
+## Summary table for expected behavior when ACRS are explicitly requested
+
+ACRS requested | Policy applied | Control satisfied | ACRS added to claims |
 |--|--|--|--|--|
-|"c1" | - | - | "c1" |
-| - |  - | - | - |
+|Yes | No | Yes | Yes |
+|Yes | Yes | No | No |
+|Yes | Yes | Yes | Yes |
+|Yes | No policies configured with ACRS | Yes | Yes |
 
-### Implicit Auth Context Satisfaction by Opportunistic Evaluation
-A resource provider may opt-in to the optional 'acrs' claim. Conditional Access will try to add ACRs to the token claims opportunistically in order to avoid round trips to acquire new tokens to AAD. In that evaluation, Conditional Access will check if the policies protecting Auth Context challenges are already satisfied and will add the ACRs to the token claims if so.
+## Implicit Auth Context Satisfaction by Opportunistic Evaluation
+
+A resource provider may opt-in to the optional 'acrs' claim. Conditional Access will try to add ACRS to the token claims opportunistically in order to avoid round trips to acquire new tokens to AAD. In that evaluation, Conditional Access will check if the policies protecting Auth Context challenges are already satisfied and will add the ACRS to the token claims if so.
 _**Note**_ that each token type will need to be individually opted-in (ID token, Access token).
-_**Note**_ that if a resource provider does not opt-in to the optional 'acrs' claim, the only way to get an ACR in the token will be to explicitly ask for it in a token request. It will not get the benefits of the opportunistic evaluation, therefore every time that the required ACR will be missing from the token claims, the resource provider will challenge the client to acquire a new token containing it in the claims.
+_**Note**_ that if a resource provider does not opt-in to the optional 'acrs' claim, the only way to get an ACRS in the token will be to explicitly ask for it in a token request. It will not get the benefits of the opportunistic evaluation, therefore every time that the required ACRS will be missing from the token claims, the resource provider will challenge the client to acquire a new token containing it in the claims.
 
-### Expected Behavior with Auth Context and Session Controls for Implicit ACRs Opportunistic Evaluation
-###Sign-In Frequency by Interval:
-Conditional Access will consider "sign-in frequency by interval" as satisfied for opportunistic ACRs evaluation when all the present authentication factors auth instants are within the sign-in frequency interval. Simply put, in case that the first factor auth instant is stale, or if the second factor (MFA) is present and its auth instant is stale, the sign-in frequency by interval will not be satisfied and the ACR will not be issued in the token opportunistically.
+## Expected Behavior with Auth Context and Session Controls for Implicit ACRS Opportunistic Evaluation
+
+### Sign-In Frequency by Interval
+
+Conditional Access will consider "sign-in frequency by interval" as satisfied for opportunistic ACRS evaluation when all the present authentication factors auth instants are within the sign-in frequency interval. Simply put, in case that the first factor auth instant is stale, or if the second factor (MFA) is present and its auth instant is stale, the sign-in frequency by interval will not be satisfied and the ACRS will not be issued in the token opportunistically.
 
 ### Cloud App Security (CAS)
-Conditional Access will consider CAS session control as satisfied for opportunistic ACRs evaluation, when a CAS session was established during that request. For example, when a request comes in and any Conditional Access policy applied and enforced a CAS session, and in addition there is a Conditional Access policy that also requires a CAS session, since the CAS session will be enforced, that will satisfy the CAS session control for the opportunistic evaluation.
 
-### Expected Behavior When a Tenant Contain Conditional Access Policies Protecting Auth Context
-The table below will show all corner cases where ACRs are added to the token's claims by opportunistic evaluation.
-Policy A: Require MFA from all users, excluding the user "Ariel", when asking for "c1" acr.
-Policy B: Block all users, excluding user "Jay", when asking for "c2", or "c3" acrs.
-| Flow | ACR requested | Policy applied | Control satisfied | ACR added to claims |
+Conditional Access will consider CAS session control as satisfied for opportunistic ACRS evaluation, when a CAS session was established during that request. For example, when a request comes in and any Conditional Access policy applied and enforced a CAS session, and in addition there is a Conditional Access policy that also requires a CAS session, since the CAS session will be enforced, that will satisfy the CAS session control for the opportunistic evaluation.
+
+## Expected Behavior When a Tenant Contain Conditional Access Policies Protecting Auth Context
+
+The table below will show all corner cases where ACRS are added to the token's claims by opportunistic evaluation.
+**Policy A**: Require MFA from all users, excluding the user "Ariel", when asking for "c1" acrs.
+**Policy B**: Block all users, excluding user "Jay", when asking for "c2", or "c3" acrs.
+| Flow | ACRS requested | Policy applied | Control satisfied | ACRS added to claims |
 |--|--|--|--|--|
-| Ariel requests for an access token | "c1" | - | - | "c1" (requested) |
-| Ariel requests for an access token | "c2" | B | Blocked by policy B | - |
-| Ariel requests for an access token | - | - | - | "c1" (opportunistically added from policy A) |
-| Jay requests for an access token (without MFA) | "c1" | A | No | - |
-| Jay requests for an access token (with MFA) | "c1" | A | Yes | "c1" (requested), "c2" (opportunistically added from policy B), "c3" (opportunistically added from policy B)|
-| Jay requests for an access token (without MFA) | "c2" | - | - | "c2" (requested), "c3" (opportunistically added from policy B) |
-| Jay requests for an access token (with MFA)  | "c2" | - | - | "c1" (best effort from A), "c2" (requested), "c3" (opportunistically added from policy B) |
-| Jay requests for an access token (with MFA)  | - | - | - | "c1", "c2", "c3" all opportunistically added |
-| Jay requests for an access token (without MFA)  | - | - | - | "c2", "c3" all opportunistically added |
+| Ariel requests for an access token | "c1" | None | Yes for "c1". No for "c2" and "c3" | "c1" (requested) |
+| Ariel requests for an access token | "c2" | Policy B | Blocked by policy B | None  |
+| Ariel requests for an access token | None  | None | Yes for "c1". No for "c2" and "c3"  | "c1" (opportunistically added from policy A) |
+| Jay requests for an access token (without MFA) | "c1" | Policy A | No | None  |
+| Jay requests for an access token (with MFA) | "c1" | Policy A | Yes | "c1" (requested), "c2" (opportunistically added from policy B), "c3" (opportunistically added from policy B)|
+| Jay requests for an access token (without MFA) | "c2" | None  | Yes for "c2" and "c3". No for "c1" | "c2" (requested), "c3" (opportunistically added from policy B) |
+| Jay requests for an access token (with MFA)  | "c2" | None | Yes for "c1", "c2" and "c3"  | "c1" (best effort from A), "c2" (requested), "c3" (opportunistically added from policy B) |
+| Jay requests for an access token (with MFA)  | None | None | Yes for "c1", "c2" and "c3"  | "c1", "c2", "c3" all opportunistically added |
+| Jay requests for an access token (without MFA)  | None | None | Yes for "c2" and "c3". No for "c1"| "c2", "c3" all opportunistically added |
 
 ## Next steps
 
