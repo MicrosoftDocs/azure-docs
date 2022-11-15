@@ -99,7 +99,7 @@ Learn more about [Redis Cache Server - RedisCacheServerLoadHigh (Improve your Ca
 
 Cache instances perform best when the host machines where client application runs is able to keep up with responses from the cache. If client host machine is running hot on memory, CPU or network bandwidth, the cache responses will not reach your application fast enough and could result in higher latency.
 
-Learn more about [Redis Cache Server - UnresponsiveClient (Cache instances perform best when the host machines where client application runs is able to keep up with responses from the cache.)](../azure-cache-for-redis/cache-troubleshoot-client.md).
+Learn more about [Redis Cache Server - UnresponsiveClient (Cache instances perform best when the host machines where client application runs is able to keep up with responses from the cache.)](/azure/azure-cache-for-redis/cache-troubleshoot-client).
 
 ## CDN
 
@@ -115,7 +115,7 @@ Learn more about [Front Door Profile - UpgradeCDNToLatestSDKLanguage (Upgrade SD
 
 We observed that there have been 1,000 or more 429 throttling errors on this resource in a one day timeframe.  Consider enabling autoscale to better handle higher call volumes and reduce the number of 429 errors.
 
-Learn more about [Cognitive Service - AzureAdvisor429LimitHit (429 Throttling Detected on this resource)](../cognitive-services/autoscale.md?tabs=portal).
+Learn more about [Cognitive Service - AzureAdvisor429LimitHit (429 Throttling Detected on this resource)](/azure/cognitive-services/autoscale?tabs=portal).
 
 ### Upgrade to the latest Cognitive Service Text Analytics API version
 
@@ -197,7 +197,7 @@ Learn more about [Communication service - UpgradeTurnSdk (Use recommended versio
 
 We have identified sdk calls from outdated API for resources under this subscription. We recommend switching to the latest sdk versions. This ensures you receive the latest features and performance improvements.
 
-Learn more about [Virtual machine - UpdateToLatestApi (Update Automanage to the latest API Version)](../automanage/reference-sdk.md).
+Learn more about [Virtual machine - UpdateToLatestApi (Update Automanage to the latest API Version)](/azure/automanage/reference-sdk).
 
 ### Improve user experience and connectivity by deploying VMs closer to user’s location.
 
@@ -659,7 +659,7 @@ Learn more about [HDInsight cluster - FlushQueueCandidate (Consider increasing t
 
 The compaction queue in your region servers is more than 2000 suggesting that more data requires compaction. Slower compactions can impact read performance as the number of files to read are more. More files without compaction can also impact the heap usage related to how files interact with Azure file system.
 
-Learn more about [HDInsight cluster - CompactionQueueCandidate (Consider increasing your compaction threads for compactions to complete faster)](../hdinsight/hbase/apache-hbase-advisor.md).
+Learn more about [HDInsight cluster - CompactionQueueCandidate (Consider increasing your compaction threads for compactions to complete faster)](/azure/hdinsight/hbase/apache-hbase-advisor).
 
 ## Automanage
 
@@ -667,7 +667,7 @@ Learn more about [HDInsight cluster - CompactionQueueCandidate (Consider increas
 
 We have identified sdk calls from outdated API for resources under this subscription. We recommend switching to the latest sdk versions. This ensures you receive the latest features and performance improvements.
 
-Learn more about [Machine - Azure Arc - UpdateToLatestApiHci (Update Automanage to the latest API Version)](../automanage/reference-sdk.md).
+Learn more about [Machine - Azure Arc - UpdateToLatestApiHci (Update Automanage to the latest API Version)](/azure/automanage/reference-sdk).
 
 ## KeyVault
 
@@ -845,7 +845,7 @@ Learn more about [Storage Account - UMDHDDtoPremiumForPerformance (Convert Unman
 
 Improve the performance, privacy, and reliability of your business-critical apps by extending your on-premises networks to Azure with Azure ExpressRoute. Establish private ExpressRoute connections directly from your WAN, through a cloud exchange facility, or through POP and IPVPN connections.
 
-Learn more about [Subscription - AzureExpressRoute (Experience more predictable, consistent latency with a private connection to Azure)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+Learn more about [Subscription - AzureExpressRoute (Experience more predictable, consistent latency with a private connection to Azure)](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager).
 
 ## Synapse
 
@@ -917,7 +917,7 @@ Learn more about [Database Instance - EnableTCPWindowScaling (To improve file sy
 
 Disable IPv6 as per recommendation for SAP on Azure for HANA DB with ANF to improve file system performance
 
-Learn more about [Database Instance - DisableIPv6Protocol (For improved file system performance in HANA DB with ANF, disable IPv6 protocol in OS)](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+Learn more about [Database Instance - DisableIPv6Protocol (For improved file system performance in HANA DB with ANF, disable IPv6 protocol in OS)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
 ### To improve file system performance in HANA DB with ANF, disable parameter for slow start after idle
 
@@ -929,7 +929,7 @@ Learn more about [Database Instance - ParamterSlowStart (To improve file system 
 
 To prevent the kernel from using SYN cookies in a situation where lots of connection requests are sent in a short timeframe and to prevent a warning about a potential SYN flooding attack in the system log, the size of the SYN backlog should be set to a reasonably high value. See SAP note 2382421
 
-Learn more about [Database Instance - TCPMaxSynBacklog (For improved file system performance in HANA DB with ANF optimize tcp_max_syn_backlog OS parameter)](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+Learn more about [Database Instance - TCPMaxSynBacklog (For improved file system performance in HANA DB with ANF optimize tcp_max_syn_backlog OS parameter)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
 ### For improved file system performance in HANA DB with ANF, enable the tcp_sack OS parameter
 
@@ -965,79 +965,79 @@ Learn more about [Database Instance - IPV4LocalPortRange (For improved file syst
 
 Set the parameter sunrpc.tcp_slot_table_entries to 128 as per recommendation  for improved file system performance in HANA DB with ANF in SAP workloads
 
-Learn more about [Database Instance - TCPSlotTableEntries (To improve file system performance in HANA DB with ANF, optimize sunrpc.tcp_slot_table_entries)](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+Learn more about [Database Instance - TCPSlotTableEntries (To improve file system performance in HANA DB with ANF, optimize sunrpc.tcp_slot_table_entries)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
 ### All disks in LVM for /hana/data volume should be of the same type to ensure high performance in HANA DB
 
 If multiple disk types are selected in the /hana/data volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data volume disks are of the same type and are configured as per recommendation for SAP on Azure
 
-Learn more about [Database Instance - HanaDataDiskTypeSame (All disks in LVM for /hana/data volume should be of the same type to ensure high performance in HANA DB)](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#:~:text=Configuration%20for%20SAP%20/hana/data%20volume).
+Learn more about [Database Instance - HanaDataDiskTypeSame (All disks in LVM for /hana/data volume should be of the same type to ensure high performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=Configuration%20for%20SAP%20/hana/data%20volume).
 
 ### Stripe size for /hana/data should be 256 kb for improved performance of HANA DB in SAP workloads
 
 If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. Based on experience with recentLinux versions, Azure recommends using stripe size of 256 kb for /hana/data filesystem for better performance of HANA DB
 
-Learn more about [Database Instance - HanaDataStripeSize (Stripe size for /hana/data should be 256 kb for improved performance of HANA DB in SAP workloads)](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#:~:text=As%20stripe%20sizes%20the%20recommendation%20is%20to%20use).
+Learn more about [Database Instance - HanaDataStripeSize (Stripe size for /hana/data should be 256 kb for improved performance of HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=As%20stripe%20sizes%20the%20recommendation%20is%20to%20use).
 
 ### To improve file system performance in HANA DB with ANF, optimize the parameter vm.swappiness
 
 Set the OS parameter vm.swappiness to 10 as per recommendation for improved file system performance in HANA DB with ANF in SAP workloads
 
-Learn more about [Database Instance - VmSwappiness (To improve file system performance in HANA DB with ANF, optimize the parameter vm.swappiness)](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+Learn more about [Database Instance - VmSwappiness (To improve file system performance in HANA DB with ANF, optimize the parameter vm.swappiness)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
 ### To improve file system performance in HANA DB with ANF, disable net.ipv4.conf.all.rp_filter
 
 Disable the reverse path filter linux OS parameter, net.ipv4.conf.all.rp_filter as per recommendation for improved file system performance in HANA DB with ANF in SAP workloads
 
-Learn more about [Database Instance - DisableIPV4Conf (To improve file system performance in HANA DB with ANF, disable net.ipv4.conf.all.rp_filter)](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+Learn more about [Database Instance - DisableIPV4Conf (To improve file system performance in HANA DB with ANF, disable net.ipv4.conf.all.rp_filter)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
 ### If using Ultradisk, the IOPS for /hana/data volume should be >=7000 for better HANA DB performance
 
 IOPS of at least 7000 in /hana/data volume is recommended for SAP workloads when using Ultradisk. Select the disk type for /hana/data volume as per this requirement to ensure high performance of the DB
 
-Learn more about [Database Instance - HanaDataIOPS (If using Ultradisk, the IOPS for /hana/data volume should be >=7000 for better HANA DB performance)](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#azure-ultra-disk-storage-configuration-for-sap-hana:~:text=1%20x%20P6-,Azure%20Ultra%20disk%20storage%20configuration%20for%20SAP%20HANA,-Another%20Azure%20storage).
+Learn more about [Database Instance - HanaDataIOPS (If using Ultradisk, the IOPS for /hana/data volume should be >=7000 for better HANA DB performance)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#azure-ultra-disk-storage-configuration-for-sap-hana:~:text=1%20x%20P6-,Azure%20Ultra%20disk%20storage%20configuration%20for%20SAP%20HANA,-Another%20Azure%20storage).
 
 ### To improve file system performance in HANA DB with ANF, change parameter tcp_max_slot_table_entries
 
 Set the OS parameter tcp_max_slot_table_entries to 128 as per SAP note: 302436 for improved file transfer performance in HANA DB with ANF in SAP workloads
 
-Learn more about [Database Instance - OptimizeTCPMaxSlotTableEntries (To improve file system performance in HANA DB with ANF, change parameter tcp_max_slot_table_entries)](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+Learn more about [Database Instance - OptimizeTCPMaxSlotTableEntries (To improve file system performance in HANA DB with ANF, change parameter tcp_max_slot_table_entries)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
 
 ### Ensure the read performance of /hana/data volume is >=400 MB/sec for better performance in HANA DB
 
 Read activity of at least 400 MB/sec for /hana/data for 16 MB and 64 MB I/O sizes is recommended for SAP workloads on Azure. Select the disk type for /hana/data as per this requirement to ensure high performance of the DB and to meet minimum storage requirements for SAP HANA
 
-Learn more about [Database Instance - HanaDataVolumePerformance (Ensure the read performance of /hana/data volume is >=400 MB/sec for better performance in HANA DB)](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#:~:text=Read%20activity%20of%20at%20least%20400%20MB/sec%20for%20/hana/data).
+Learn more about [Database Instance - HanaDataVolumePerformance (Ensure the read performance of /hana/data volume is >=400 MB/sec for better performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=Read%20activity%20of%20at%20least%20400%20MB/sec%20for%20/hana/data).
 
 ### Read/write performance of /hana/log volume should be >=250 MB/sec for better performance in HANA DB
 
 Read/Write activity of at least 250 MB/sec for /hana/log for 1 MB I/O size is recommended for SAP workloads on Azure. Select the disk type for /hana/log volume as per this requirement to ensure high performance of the DB and to meet minimum storage requirements for SAP HANA
 
-Learn more about [Database Instance - HanaLogReadWriteVolume (Read/write performance of /hana/log volume should be >=250 MB/sec for better performance in HANA DB)](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#:~:text=Read/write%20on%20/hana/log%20of%20250%20MB/sec%20with%201%20MB%20I/O%20sizes).
+Learn more about [Database Instance - HanaLogReadWriteVolume (Read/write performance of /hana/log volume should be >=250 MB/sec for better performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=Read/write%20on%20/hana/log%20of%20250%20MB/sec%20with%201%20MB%20I/O%20sizes).
 
 ### If using Ultradisk, the IOPS for /hana/log volume should be >=2000 for better performance in HANA DB
 
 IOPS of at least 2000 in /hana/log volume is recommended for SAP workloads when using Ultradisk. Select the disk type for /hana/log volume as per this requirement to ensure high performance of the DB
 
-Learn more about [Database Instance - HanaLogIOPS (If using Ultradisk, the IOPS for /hana/log volume should be >=2000 for better performance in HANA DB)](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#azure-ultra-disk-storage-configuration-for-sap-hana:~:text=1%20x%20P6-,Azure%20Ultra%20disk%20storage%20configuration%20for%20SAP%20HANA,-Another%20Azure%20storage).
+Learn more about [Database Instance - HanaLogIOPS (If using Ultradisk, the IOPS for /hana/log volume should be >=2000 for better performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#azure-ultra-disk-storage-configuration-for-sap-hana:~:text=1%20x%20P6-,Azure%20Ultra%20disk%20storage%20configuration%20for%20SAP%20HANA,-Another%20Azure%20storage).
 
 ### All disks in LVM for /hana/log volume should be of the same type to ensure high performance in HANA DB
 
 If multiple disk types are selected in the /hana/log volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data volume disks are of the same type and are configured as per recommendation for SAP on Azure
 
-Learn more about [Database Instance - HanaDiskLogVolumeSameType (All disks in LVM for /hana/log volume should be of the same type to ensure high performance in HANA DB)](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#:~:text=For%20the%20/hana/log%20volume.%20the%20configuration%20would%20look%20like).
+Learn more about [Database Instance - HanaDiskLogVolumeSameType (All disks in LVM for /hana/log volume should be of the same type to ensure high performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=For%20the%20/hana/log%20volume.%20the%20configuration%20would%20look%20like).
 
 ### Enable Write Accelerator on /hana/log volume with Premium disk for improved write latency in HANA DB
 
 Azure Write Accelerator is a functionality for Azure M-Series VMs. It improves I/O latency of writes against the Azure premium storage. For SAP HANA, Write Accelerator is to be used against the /hana/log volume only.
 
-Learn more about [Database Instance - WriteAcceleratorEnabled (Enable Write Accelerator on /hana/log volume with Premium disk for improved write latency in HANA DB)](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#:~:text=different%20SAP%20applications.-,Solutions%20with%20premium%20storage%20and%20Azure%20Write%20Accelerator%20for%20Azure%20M%2DSeries%20virtual%20machines,-Azure%20Write%20Accelerator).
+Learn more about [Database Instance - WriteAcceleratorEnabled (Enable Write Accelerator on /hana/log volume with Premium disk for improved write latency in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=different%20SAP%20applications.-,Solutions%20with%20premium%20storage%20and%20Azure%20Write%20Accelerator%20for%20Azure%20M%2DSeries%20virtual%20machines,-Azure%20Write%20Accelerator).
 
 ### Stripe size for /hana/log should be 64 kb for improved performance of HANA DB in SAP workloads
 
 If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. To get enough throughput with larger I/O sizes, Azure recommends using stripe size of 64 kb for /hana/log filesystem for better performance of HANA DB
 
-Learn more about [Database Instance - HanaLogStripeSize (Stripe size for /hana/log should be 64 kb for improved performance of HANA DB in SAP workloads)](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#:~:text=As%20stripe%20sizes%20the%20recommendation%20is%20to%20use).
+Learn more about [Database Instance - HanaLogStripeSize (Stripe size for /hana/log should be 64 kb for improved performance of HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=As%20stripe%20sizes%20the%20recommendation%20is%20to%20use).
 
 ## Next steps
 
