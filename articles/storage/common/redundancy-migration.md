@@ -52,7 +52,7 @@ The following table provides an overview of how to switch from each type of repl
 | **…from GZRS/RA-GZRS** | [Switch to ZRS first](#change-the-replication-setting-using-the-portal-powershell-or-the-cli), then [perform a conversion](#perform-a-conversion) to LRS <sup>3</sup> | [Perform a conversion](#perform-a-conversion)<sup>3</sup> | [Use Azure portal, PowerShell, or CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli)| **N/A** |
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
-<sup>2</sup> If your storage account has blobs in the archive tier, review the [access tier limitations](#access-tier) before changing the redundancy type to geo- or zone-redundant.<br />
+<sup>2</sup> If your storage account contains blobs in the archive tier, review the [access tier limitations](#access-tier) before changing the redundancy type to geo- or zone-redundant.<br />
 <sup>3</sup> The type of conversion supported depends on the storage account type. See [the storage account table](#storage-account-type) for more details.<br />
 <sup>4</sup> Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. For more details see [Failover and failback](#failover-and-failback).<br />
 <sup>5</sup> Converting from LRS to ZRS is [not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares](#protocol-support). <br />
@@ -122,7 +122,8 @@ Customer-initiated conversion adds a new option for customers to start a convers
 
 Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
-[Customer-initiated conversion](#customer-initiated-conversion) is [not available in all regions](#region).
+> [!IMPORTANT]
+> Customer-initiated conversion is [not available in all regions](#region).
 
 ##### Monitoring customer-initiated conversion progress
 
@@ -150,7 +151,7 @@ As the conversion request is evaluated and processed, the status should progress
 
 Customers can still request a conversion by opening a support request with Microsoft.
 
-> [!IMPORTANT]
+> [!NOTE]
 > If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Additional details** tab.
 
 Follow these steps to request a conversion from Microsoft:
@@ -218,13 +219,14 @@ Limitations apply to some replication change scenarios depending on:
 
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
-The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is available in all public regions that support ZRS except for the following:
-
-- (Europe) West Europe
-- (Europe) UK South
-- (North America) Canada Central
-- (North America) East US
-- (North America) East US 2
+> [!IMPORTANT]
+> The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is available in all public regions that support ZRS except for the following:
+>
+> - (Europe) West Europe
+> - (Europe) UK South
+> - (North America) Canada Central
+> - (North America) East US
+> - (North America) East US 2
 
 ### Feature conflicts
 
