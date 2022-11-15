@@ -111,24 +111,47 @@ Database exists: adventureworks
 
 ## Get list of databases, collections, and document count
 
-When you manage your MongoDB server programmatically, it's helpful to know what databases and collections are on the server and how many documents in each collection.
+When you manage your MongoDB server programmatically, it's helpful to know what databases and collections are on the server and how many documents in each collection. For more information, see:
 
 * [Getting a database](https://pymongo.readthedocs.io/en/stable/tutorial.html#getting-a-database)
 * [Getting a collection](https://pymongo.readthedocs.io/en/stable/tutorial.html#getting-a-collection)
 * [Counting documents](https://pymongo.readthedocs.io/en/stable/tutorial.html#counting)
 
 ```python
-TBD
+# Get list of databases
+databases = client.list_database_names()
+
+# Loop through databases
+for db in databases:
+    print("Database: {}".format(db))
+
+    # Get list of collections
+    collections = client[db].list_collection_names()
+
+    # Loop through collections
+    for col in collections:
+        print("\tCollection: {}".format(col))
+
+        # Get document count
+        doc_count = client[db][col].count_documents({})
+        print("\tDocument count: {}".format(doc_count))
 ```
 
 <!--
 :::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="database_object":::
 -->
 
-The preceding code snippet displays the following example console output:
+The preceding code snippet displays output similar to the following example console output:
 
 ```python
-TBD
+Database: adventureworks
+        Collection: products_new
+        Document count: 1
+        Collection: products
+        Document count: 3
+Database: testdb
+        Collection: mycoll
+        Document count: 1
 ```
 <!-- 
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="console_result":::
