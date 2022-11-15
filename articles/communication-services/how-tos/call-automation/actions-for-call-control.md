@@ -207,7 +207,7 @@ Response<AddParticipantsResult> addParticipantsResultResponse = callConnectionAs
 To add a Communication Services user, provide a CommunicationUserIdentifier instead of PhoneNumberIdentifier. Source caller ID isn't mandatory in this case. 
 
 AddParticipant will publish a `AddParticipantSucceeded` or `AddParticipantFailed` event, along with a `ParticipantUpdated` providing the latest list of participants in the call.
-  
+
 ![Sequence diagram for adding a participant to the call.](media/add-participant-flow.png)
 
 ## Remove a participant from a call
