@@ -50,27 +50,27 @@ When you deploy the AzureML extension with the configuration of `enableInference
 The [ScoringFE](how-to-kubernetes-inference-routing-azureml-fe.md) which is the front-end component (`azureml-fe`) for real-time inference will be deployed on cluster at AzureML extension deployment time. The following table lists the **resource usage of ScoringFE** in the cluster:
 
 |Type |Deployment |Replica # |CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) |
-|-- |-- |--|--|--|--|--|
-|System  |azureml-fe-v2/envoy  |1 or 3 |500|1200|300|500|
-|System  |azureml-fe-v2/xds  |1 or 3 |100|100|200|200|
-|System  |azureml-fe-v2/clb  |1 or 3 |300|700|300|500|
+|--|--|--|--|--|--|--|
+|System |azureml-fe-v2/envoy |1 or 3 |500|1200|300|500|
+|System |azureml-fe-v2/xds |1 or 3 |100|100|200|200|
+|System |azureml-fe-v2/clb |1 or 3 |300|700|300|500|
 
 Excluding the user deployments/pods, the **minimum system resources requirements** are as follows:
 
-|Cluster usage purpose |CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) |Description |
+|Cluster usage purpose |CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) | Node count |
 |-- |-- |--|--|--|--|
 |For Test |1780 |8300 |2440 | 12296 |1 Node |
 |For Production |3600 |12700|4240|15296|3 Nodes|
 
 The **recommended cluster size** are as follows:
 
-|Cluster usage purpose |Node |Recommended minimum resource details | Corresponding AKS VM size |
+|Cluster usage purpose |Node count|Recommended minimum resource details | Corresponding AKS VM size |
 |-- |-- |--|--|
 |For Test |1 |2 vCPU, 7 GiB Memory, 6400 IOPS, 1500Mbps BW |DS2v2 |
 |For Test |3 |2 vCPU, 7 GiB Memory, 6400 IOPS, 1500Mbps BW |DS2v2 |
 |For Production |3 |4 vCPU, 14 GiB Memory, 12800 IOPS, 1500Mbps BW  |DS3v2 |
 |For Production |3-10 |4 vCPU, 14 GiB Memory, 12800 IOPS, 1500Mbps BW  |DS3v2 or better  |
-|For Production |>10 | -- |TBD |-- |
+|For Production |>10 | -- |TBD |
 
 > [!IMPORTANT]
 >
