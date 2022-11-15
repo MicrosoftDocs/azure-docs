@@ -7,10 +7,9 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/20/2021
+ms.date: 11/14/2022
 ms.author: allensu
+ms.custom: FY23 content-maintenance
 ---
 
 # Create, change, or delete an Azure public IP address
