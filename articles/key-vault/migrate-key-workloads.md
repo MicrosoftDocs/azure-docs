@@ -1,14 +1,13 @@
 ---
-title: Monitor Key Vault with Key Vault insights | Microsoft Docs
-description: This article describes the Key Vault insights. 
+title: How to migrate key workloads between Azure Key Vault and Azure Managed HSM
+description: How to migrate key workloads between Azure Key Vault and Azure Managed HSM
 author: msmbaldwin
 ms.author: mbaldwin
-services: azure-monitor 
+services: key-vault
 ms.topic: conceptual
 ms.service: key-vault
-ms.date: 09/10/2020
-ms.custom: subject-monitoring
-
+ms.subservice: managed-hsm
+ms.date: 11/15/2022
 ---
 
 # How to migrate key workloads between Azure Key Vault and Azure Managed HSM
