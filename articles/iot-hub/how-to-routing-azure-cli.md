@@ -152,6 +152,7 @@ You can choose an Azure Storage resource (account and container).
    ```
 
 For more information, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-cli).
+
 ---
 
 ## Create an endpoint
@@ -243,6 +244,7 @@ References used in the following commands:
    ```
 
    For more parameter options, see [az iot hub routing-endpoint](/cli/azure/iot/hub/routing-endpoint).
+
 ---
 
 ## Create an IoT Hub route
@@ -370,23 +372,24 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
         "source": "DeviceConnectionStateEvents"
       }
    ```
+
 ---
 
 ### Update an IoT Hub route
 
 With an IoT Hub route, no matter the type of endpoint, you can update some properties of the route.
 
-To change a parameter, use the [az iot hub route update](/cli/azure/iot/hub/route#az-iot-hub-route-update) command. For example, you can change `source` from `deviceconnectionstateevents` to `devicejoblifecycleevents`.
+1. To change a parameter, use the [az iot hub route update](/cli/azure/iot/hub/route#az-iot-hub-route-update) command. For example, you can change `source` from `deviceconnectionstateevents` to `devicejoblifecycleevents`.
 
-```azurecli
-az iot hub route update --resource-group my-resource-group --hub-name my-iot-hub --source devicejoblifecycleevents --route-name my-route
-```
+   ```azurecli
+   az iot hub route update --resource-group my-resource-group --hub-name my-iot-hub --source devicejoblifecycleevents --route-name my-route
+   ```
 
-Use the `az iot hub route show` command to confirm the change in your route.
+1. Use the `az iot hub route show` command to confirm the change in your route.
 
-```azurecli
-az iot hub route show --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
-```
+   ```azurecli
+   az iot hub route show --resource-group my-resource-group --hub-name my-iot-hub --route-name my-route
+   ```
 
 ### Delete an endpoint
 
