@@ -44,7 +44,7 @@ Step 3 : Load US Core profiles
 Step 4 : Create AAD custom policy using this README  ---> 
 
 Lets go over individual steps to enable SMART on FHIR 
-### Step 1 : Set admin consent for your client application
+## Step 1 : Set admin consent for your client application
 
 To use SMART on FHIR, you must first authenticate and authorize the app. The first time you use SMART on FHIR, you also must get administrative consent to let the app access your FHIR resources.
 
@@ -62,11 +62,11 @@ To add yourself or another user as owner of an app:
 6. Select **Save**
    
 
-### Step 2 : Configure Azure AD registrations
+## Step 2 : Configure Azure AD registrations
 
 SMART on FHIR requires that `Audience` has an identifier URI equal to the URI of the FHIR service. The standard configuration of the FHIR service uses an `Audience` value of `https://azurehealthcareapis.com`. However, you can also set a value matching the specific URL of your FHIR service (for example `https://MYFHIRAPI.fhir.azurehealthcareapis.com`). This is required when working with the SMART on FHIR proxy.
 
-### Step 3:  Enable the SMART on FHIR proxy
+## Step 3:  Enable the SMART on FHIR proxy
 
 Enable the SMART on FHIR proxy in the **Authentication** settings for your FHIR instance by selecting the **SMART on FHIR proxy** check box.
 
@@ -99,11 +99,11 @@ Add the reply URL to the public client application that you created earlier for 
 <!---![Reply URL configured for the public client](media/tutorial-smart-on-fhir/configure-reply-url.png)--->
 
 
-### Step 4 :  Get a test patient
+## Step 4 :  Get a test patient
 
 To test the FHIR service and the SMART on FHIR proxy, you'll need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.
 
-### Step 5 :  Download the SMART on FHIR app launcher
+## Step 5 :  Download the SMART on FHIR app launcher
 
 The open-source [FHIR Server for Azure repository](https://github.com/Microsoft/fhir-server) includes a simple SMART on FHIR app launcher and a sample SMART on FHIR app. In this tutorial, use this SMART on FHIR launcher locally to test the setup.
 
