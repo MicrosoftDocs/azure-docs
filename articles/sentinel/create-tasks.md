@@ -46,5 +46,5 @@ The Microsoft Sentinel Responder role is required to create automation rules and
 
 ## Next steps
 
-- Learn more about [incident tasks](incident-tasks).
+- Learn more about [incident tasks](incident-tasks.md).
 - Learn more about [automation rules](automate-incident-handling-with-automation-rules.md) and how to [create them](./create-manage-use-automation-rules.md).
