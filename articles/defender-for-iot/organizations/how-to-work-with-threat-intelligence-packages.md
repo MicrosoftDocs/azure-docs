@@ -81,9 +81,11 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 3. Sign in to the sensor console.
 
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-TI-single-sensor.png" alt-text="Upload Threat Intelligence package to a single sensor." lightbox="media/how-to-work-with-threat-intelligence-packages/update-TI-single-sensor.png":::
+
 4. On the side menu, select **System Settings**.
 
-5. Select **Threat Intelligence Data**, and then select **Update**.
+5. Select **Threat Intelligence**, and then select **Upload file**.
 
 6. Upload the new package.
 
@@ -95,13 +97,17 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 3. Sign in to the management console.
 
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png" alt-text="Upload Threat Intelligence package to multiple sensors." lightbox="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png":::
+
 4. On the side menu, select **System Settings**.
 
 5. In the **Sensor Engine Configuration** section, select the sensors that should receive the updated packages.  
 
-6. In the **Select Threat Intelligence Data** section, select the plus sign (**+**).
+6. Select **SAVE CHANGES**.
 
-7. Upload the package.
+7. In the **Select Threat Intelligence Data** section, select the plus sign (**+**).
+
+8. Upload the package.
 
 ## Review package update status on the sensor
 
