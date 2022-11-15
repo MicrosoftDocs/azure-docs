@@ -27,7 +27,7 @@ Primary and secondary keys are generated after the Azure Maps account is created
 Example using the _subscription key_ as a parameter in your URL:
 
 ```http
-https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
+https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 > [!IMPORTANT]
