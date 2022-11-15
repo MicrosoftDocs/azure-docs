@@ -5,7 +5,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
 ms.date: 10/11/2022
-ms.custom: 
+ms.custom: references_regions
 ---
 
 
@@ -13,13 +13,16 @@ ms.custom:
 - Complete the process to onboard that [SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect).
 - Enable [Azure Active Directory authentication in SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup, follow [this article](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
 
-Enforcement of policies for this data source is available only in the following regions for Microsoft Purview:
+#### Region support
+
+Policy enforcement is only available in the following regions for Microsoft Purview:
 
 - East US
 - East US 2
 - South Central US
 - West Central US
 - West US
+- West US2
 - West US3
 - Canada Central
 - Brazil South
@@ -35,14 +38,14 @@ Enforcement of policies for this data source is available only in the following 
 - Japan East
 - Australia East
 
-### Security considerations
+#### Security considerations for SQL Server on Azure Arc-enabled servers
 
 - The server admin can turn off the Microsoft Purview policy enforcement.
 - Azure Arc admin and server admin permissions provide the ability to change the Azure Resource Manager path of the server. Because mappings in Microsoft Purview use Resource Manager paths, this can lead to wrong policy enforcements. 
 - A SQL Server admin (database admin) can gain the power of a server admin and can tamper with the cached policies from Microsoft Purview.
 - The recommended configuration is to create a separate app registration for each SQL server instance. This configuration prevents the second SQL Server instance from reading the policies meant for the first SQL Server instance, in case a rogue admin in the second SQL Server instance tampers with the Resource Manager path.
 
-### SQL Server configuration on Azure Arc
+#### SQL Server configuration on Azure Arc
 
 This section describes the steps to configure SQL Server on Azure Arc to use Microsoft Purview.
 

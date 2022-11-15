@@ -144,6 +144,7 @@ Applications must have the Intune SDK with policy assurance implemented and must
 
 The following client apps are confirmed to support this setting, this list isn't exhaustive and is subject to change:
 
+- iAnnotate for Office 365
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
@@ -158,9 +159,11 @@ The following client apps are confirmed to support this setting, this list isn't
 - Microsoft PowerApps
 - Microsoft PowerPoint
 - Microsoft SharePoint
+- Microsoft Stream Mobile Native 2.0
 - Microsoft Teams
 - Microsoft To Do
 - Microsoft Word
+- Microsoft Whiteboard Services
 - Microsoft Field Service (Dynamics 365)
 - MultiLine for Intune
 - Nine Mail - Email and Calendar

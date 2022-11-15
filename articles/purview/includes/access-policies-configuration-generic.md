@@ -26,23 +26,23 @@ Before a policy can be created in Microsoft Purview for a resource, you must con
 
   ![Screenshot that shows selections for assigning the Data source admin role at the root collection level.](../media/how-to-policies-data-owner-authoring-generic/assign-purview-permissions.png)
 
-#### Configure Microsoft Purview permissions for creating or updating access policies
+#### Configure Microsoft Purview permissions to create, update, or delete access policies
 
 The following permissions are needed in Microsoft Purview at the *root collection level*:
 
 - The *Policy author* role can create, update, and delete DevOps and Data Owner policies.
+- The *Policy authors* role can delete self-service access policies.
 
 For more information about managing Microsoft Purview role assignments, see [Create and manage collections in the Microsoft Purview Data Map](../how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
->[!IMPORTANT]
+>[!NOTE]
 > Currently, Microsoft Purview roles related to creating, updating, and deleting policies must be configured at the root collection level.
-
->[!Note]
+>
 > In addition to the Microsoft Purview *Policy author* role, users might need [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) permission in Azure Active Directory to create a policy. This is a common permission for users in an Azure tenant.
 
 #### Configure Microsoft Purview permissions for publishing Data Owner policies
 
-Data Owner policies allow for checks and balances if you assign the Microsoft Purview *Policy author* and *Data source admin* roles to different people in the organization. Before a data policy takes effect, a second person (*Data source admin*) must review it and explicitly approve it by publishing it. Publishing is automatic after DevOps policies are created or updated, so it doesn't apply to this type of policy.
+Data Owner policies allow for checks and balances if you assign the Microsoft Purview *Policy author* and *Data source admin* roles to different people in the organization. Before a data policy takes effect, a second person (*Data source admin*) must review it and explicitly approve it by publishing it. Publishing is automatic after DevOps or self-service access policies are created or updated, so it doesn't apply to these types of policies.
 
 The following permissions are needed in Microsoft Purview at the *root collection level*:
 
@@ -50,7 +50,7 @@ The following permissions are needed in Microsoft Purview at the *root collectio
 
 For more information about managing Microsoft Purview role assignments, see [Create and manage collections in the Microsoft Purview Data Map](../how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
->[!IMPORTANT]
+>[!NOTE]
 > Currently, Microsoft Purview roles related to publishing Data Owner policies must be configured at the root collection level.
 
 #### Delegation of access provisioning responsibility to roles in Microsoft Purview
