@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 11/15/2022
 ms.author: ludwignick
 ms.reviewer: marsma
-ms.custom: aaddev
+ms.custom: aaddev, engagement-fy23
 ---
 
 # Microsoft identity platform and the OAuth 2.0 device authorization grant flow
@@ -72,7 +72,7 @@ A successful response will be a JSON object containing the required information 
 
 After receiving the `user_code` and `verification_uri`, the client displays these to the user, instructing them to use their mobile phone or PC browser to sign in.
 
-If the user authenticates with a personal account, using `/common` or `/consumers`, they will be asked to sign in again in order to transfer authentication state to the device. This is because the device is not able to access the user's cookies. They will also be asked to consent to the permissions requested by the client. This however does not apply to work or school accounts used to authenticate. 
+If the user authenticates with a personal account, using `/common` or `/consumers`, they'll be asked to sign in again in order to transfer authentication state to the device. This is because the device isn't able to access the user's cookies. They'll also be asked to consent to the permissions requested by the client. This however doesn't apply to work or school accounts used to authenticate. 
 
 While the user is authenticating at the `verification_uri`, the client should be polling the `/token` endpoint for the requested token using the `device_code`.
 
