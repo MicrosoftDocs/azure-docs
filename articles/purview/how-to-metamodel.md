@@ -25,7 +25,7 @@ This article will get you started in building a metamodel for your Microsoft Pur
 - Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).
 - [Data Curator role](catalog-permissions.md#roles) on the collection where the data asset is housed. See the guide on [managing Microsoft Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
 
-## Current Limitations
+## Current limitations
 
 - New relationships will always be association relationships.
 - When a new asset created, you have to refresh the asset to see relationships
