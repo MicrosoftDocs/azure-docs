@@ -37,7 +37,7 @@ The following list describes some common exit codes:
 
   - You're running against the wrong path; for example, your Maven project's *pom.xml* file isn't in the root path.
 
-    Set `BP_MAVEN_POM_FILE` to specify the project's *pom.xml* file.
+    Set `BP_MAVEN_POM_FILE` to specify the location of the project's *pom.xml* file.
 
   - There's something wrong with your application; for example, your *jar* file doesn't have a */META-INF/MANIFEST.MF* file that contains a *Main-Class* entry.
 
@@ -47,7 +47,7 @@ The following list describes some common exit codes:
 
   - If Azure Spring Apps displays the error message *Build failed in stage build with reason OOMKilled* in the Azure CLI console, the build failed due to insufficient memory.
 
-    Use the following command to increase memory using the `build-memory` environment variable in Azure CLI:
+    Use the following command to increase memory using the `build-memory` environment variable:
 
     ```azurecli
     az spring app deploy \
@@ -57,11 +57,11 @@ The following list describes some common exit codes:
         --build-memory 3Gi
     ```
 
-  - An application source code error; for example, there's a compilation error in your source code.
+  - The build failed because of an application source code error; for example, there's a compilation error in your source code.
   
     Check the build log to find the root cause.
 
-  - A download dependency error; for example, the Maven dependency download failed due to a network issue.
+  - The build failed because of a download dependency error; for example, a network issue caused the Maven dependency download to fail.
 
 - **62** - Failed to write image to Azure Container Registry.
   
