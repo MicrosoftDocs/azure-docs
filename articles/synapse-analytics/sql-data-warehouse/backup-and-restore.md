@@ -22,7 +22,8 @@ A *data warehouse snapshot* creates a restore point you can leverage to recover 
 
 A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse snapshot is also a powerful mechanism to create copies of your data warehouse for test or development purposes.
 
-> [!NOTE]Dedicated SQL pool Recovery Time Objective (RTO) rates can vary. Factors that may affect the recovery (restore) time:
+> [!NOTE]
+> Dedicated SQL pool Recovery Time Objective (RTO) rates can vary. Factors that may affect the recovery (restore) time:
 > - The database size
 > - The location of the source and target data warehouse (i.e., geo-restore) 
 
