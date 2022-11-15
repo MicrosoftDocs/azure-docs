@@ -21,7 +21,7 @@ The article explains how you can view your payment history in the Azure portal. 
 
 ## Required permissions
 
-To view payment history for your billing account, you have at least the Invoice section reader role. For more information about administrative roles for a Microsoft Customer Agreement, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
+To view the payment history for your billing account, you must have at least the Invoice section reader role. For more information about administrative roles for a Microsoft Customer Agreement, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
 
 ## View your payment history
 
