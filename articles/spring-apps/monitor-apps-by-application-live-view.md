@@ -1,5 +1,5 @@
 ---
-title: How to monitor apps by Application Live View for VMware Tanzu with Azure Spring Apps Enterprise Tier
+title: Monitor apps by Application Live View
 titleSuffix: Azure Spring Apps Enterprise Tier
 description: How to monitor apps by Application Live View for VMware Tanzu with Azure Spring Apps Enterprise Tier
 author: 
