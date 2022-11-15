@@ -123,6 +123,13 @@ For bounding boxes, important questions include:
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
 
+## Quality control (preview)
+
+[!INCLUDE [describe](../../includes/machine-learning-data-labeling-quality-control.md)]
+
+> [!NOTE]
+> **Instance Segmentation** projects cannot use consensus labeling.  Select Next to go to the next section.
+
 ## Use ML-assisted data labeling
 
 The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. Medical images (".dcm") are not included in assisted labeling.
@@ -130,7 +137,6 @@ The **ML-assisted labeling** page lets you trigger automatic machine learning mo
 At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class.
 
 Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling. If you don't have one in your workspace, a GPU cluster will be created for you and added to your workspace.   The cluster is created with a minimum of 0 nodes, which means it doesn't cost anything when it's not in use.
-
 
 ML-assisted labeling consists of two phases:
 

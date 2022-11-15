@@ -125,6 +125,10 @@ To directly upload your data:
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
 
+## Quality control (preview)
+
+[!INCLUDE [describe](../../includes/machine-learning-data-labeling-quality-control.md)]
+
 ## Use ML-assisted data labeling
 
 The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. ML-assisted labeling is available for both file (.txt) and tabular (.csv) text data inputs.
