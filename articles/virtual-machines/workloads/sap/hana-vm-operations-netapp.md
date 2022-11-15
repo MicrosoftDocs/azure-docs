@@ -125,9 +125,9 @@ Therefore you could consider to deploy similar throughput for the ANF volumes as
 Documentation on how to deploy an SAP HANA scale-out configuration with standby node using NFS v4.1 volumes that are hosted in ANF is published in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
 
 ## Linux Kernel Settings
-To successfully deploy SAP HANA on ANF Linux kernel settings need to be implemented according to SAP note [3024346](https://launchpad.support.sap.com/#/notes/3024346).
+To successfully deploy SAP HANA on ANF, Linux kernel settings need to be implemented according to SAP note [3024346](https://launchpad.support.sap.com/#/notes/3024346).
 
-For systems using High Availability (HA) using pacemaker and Azure Load Balancer following settings need to be implemeneted in file /etc/sysctl.d/91-NetApp-HANA.conf
+For systems using High Availability (HA) using pacemaker and Azure Load Balancer following settings need to be implemented in file /etc/sysctl.d/91-NetApp-HANA.conf
 
 ```
 net.core.rmem_max = 16777216
@@ -143,7 +143,7 @@ net.ipv4.tcp_timestamps = 0
 net.ipv4.tcp_sack = 1
 ```
 
-Systems running with no pacemaker and Azure Load Balancer should implemented these settings in /etc/sysctl.d/91-NetApp-HANA.conf
+Systems running with no pacemaker and Azure Load Balancer should implement these settings in /etc/sysctl.d/91-NetApp-HANA.conf
 
 ```
 net.core.rmem_max = 16777216
@@ -198,7 +198,7 @@ SAP HANA supports:
 
 Creating storage-based snapshot backups is a simple four-step procedure, 
 1. Creating a HANA (internal) database snapshot - an activity you or tools need to perform 
-1. SAP HANA write data to the datafiles to create a consistent state on the storage - HANA performs this step as a result of creating a HANA snapshot
+1. SAP HANA writes data to the datafiles to create a consistent state on the storage - HANA performs this step as a result of creating a HANA snapshot
 1. Create a snapshot on the **/hana/data** volume on the storage - a step you or tools need to perform. There's no need to perform a snapshot on the **/hana/log** volume
 1. Delete the HANA (internal) database snapshot and resume normal operation - a step you or tools need to perform
 
