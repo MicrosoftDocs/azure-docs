@@ -311,27 +311,62 @@ az containerapp create \
   --registry-server $ACR_NAME.azurecr.io
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell
+
+To create the container app, create template objects that you will pass in as arguments to the `New-AzContainerApp` command.
+
+Create a template object to define your container image parameters.
 
 ```azurepowershell
 $ImageParams = @{
     Name = $APIName
-    Image = $ACRName + '.azurecr.io/' + $APIName
+    Image = $ACRName + '.azurecr.io/' + $APIName + ':latest'
 }
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
-$EnvId = (Get-AzContainerAppManagedEnv -EnvName $Environment -ResourceGroup $ResourceGroup).Id
+```
 
+You will need run the following command to get your registry credentials.
+
+```azurepowershell
+$RegistryCredentials = Get-AzContainerRegistryCredential -Name $ACRName -ResourceGroupName $ResourceGroup
+```
+
+Create a registry credential object to define your registry information, and a secret object to define your registry password.  The `PasswordSecretRef` refers to the `Name` in the secret object.  
+
+```azurepowershell
+$RegistryArgs = @{
+    Server = $ACRName + '.azurecr.io'
+    PasswordSecretRef = 'registrysecret'
+    Username = $RegistryCredentials.Username
+}
+$RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
+
+$SecretObj = New-AzContainerAppSecretObject -Name 'registrysecret' -Value $RegistryCredentials.Password
+```
+
+Get your environment ID.
+
+```azurepowershell
+$EnvId = (Get-AzContainerAppManagedEnv -EnvName $Environment -ResourceGroup $ResourceGroup).Id
+```
+
+Create the container app.
+
+```azurepowershell
 $AppArgs = @{
     Name = $APIName
     Location = $Location
     ResourceGroupName = $ResourceGroup
     ManagedEnvironmentId = $EnvId
     TemplateContainer = $TemplateObj
+    ConfigurationRegistry = $RegistryObj
+    ConfigurationSecret = $SecretObj
     IngressTargetPort = 3500
     IngressExternal = $true
-
 }
 $MyApp = New-AzContainerApp @AppArgs
+
+# show the app's fully qualified domain name
 ($MyApp.Configuration.Ingress | Where-Object { $_.Type -eq 'external' }).Fqdn
 ```
 
