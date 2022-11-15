@@ -1,7 +1,7 @@
 ---
 title: Configure Storage Provider - Netherite
 description: Configure a Durable Functions app to use Netherite
-author: sebastianburckhardt, dajusto
+author: sebastianburckhardt
 ms.topic: quickstart
 ms.date: 11/14/2022
 ms.reviewer: azfuncdf
@@ -9,7 +9,7 @@ ms.reviewer: azfuncdf
 
 # Switch to the Netherite Backend
 
-Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called "backends" for short, each with their own [design characteristics](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-storage-providers#comparing-storage-providers). By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure an existing Durable Functions app to utilize the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
+Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called "backends" for short, each with their own [design characteristics](durable-functions-storage-providers.md#comparing-storage-providers). By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure an existing Durable Functions app to utilize the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
 Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research). Netherite may enable [significantly higher throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) relative to other backends: in some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude when compared to the default Azure Storage provider. To learn more about when Netherite may be good choice, please review our documentation on [storage providers](durable-functions-storage-providers.md).
 
@@ -17,7 +17,8 @@ Netherite was designed and developed by [Microsoft Research](https://www.microso
 
 We do not currently support the migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers. This means that your application will need to start with a fresh, empty Task Hub after switching to Netherite. Similarly, the Task Hub contents created with Netherite cannot be preserved when switching to a different backend.
 
-> [!NOTE] Changing your storage provider is a kind of breaking change as pre-existing data will not be transferred over. You can review the Durable Functions [versioning docs](durable-functions-versioning.md) for guidance on how to make these changes.
+> [!NOTE]
+> Changing your storage provider is a kind of breaking change as pre-existing data will not be transferred over. You can review the Durable Functions [versioning docs](durable-functions-versioning.md) for guidance on how to make these changes.
 
 ## Prerequisites
 
@@ -53,7 +54,9 @@ However, all languages should be able to utilize the [Azure Functions Core Tools
 func extensions install --package Microsoft.Azure.DurableTask.Netherite.AzureFunctions --version <latestVersionOnNuget>
 ```
 
-For more information on installing Azure Functions Extensions via the Core Tools CLI, please see [this guide](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash#install-extensions).
+For more information on installing Azure Functions Extensions via the Core Tools CLI, please see [this guide](../functions-run
+  
+  https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local.md?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash#install-extensions).
 
 ### Update host.json
 
@@ -98,7 +101,8 @@ Each row corresponds to one Netherite partition, and there are 12 partitions by 
 
 To run Netherite in Azure, or if you prefer to use Event Hubs during local development, you need to will need to set up an Event Hubs namespace in Azure.
 
-> [!NOTE] An Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Netherite.
+> [!NOTE]
+> An Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Netherite.
 
 ### Create an Event Hubs namespace
 
@@ -159,7 +163,8 @@ If you are running on the Elastic Premium Plan, we recommend that you enable run
 On Function runtime versions older than V4, you need to run on a 64 bit architechture for Netherite to work.
 You can update this setting in the portal: under "Configuration", select "General Settings" and then ensure the "Platform" field is set to "64 Bit".
 
-> [!NOTE] This is only required for runtime versions older than V4. For V4 onwards, no action is required.
+> [!NOTE]
+> This is only required for runtime versions older than V4. For V4 onwards, no action is required.
 
 ![Configure runtime to use 64 bit in the portal.](./media/quickstart-netherite/64bit.png)
 
