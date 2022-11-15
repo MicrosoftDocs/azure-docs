@@ -96,7 +96,7 @@ After the job submission, the **Job view** tab opens to show the job progress.
 * **MetaData Operations** shows all the actions that were taken on the U-SQL catalog.
 * **Data** shows all the inputs and outputs.
 * **State History** shows the timeline and state details.
-* **AU Analysis** shows how many AUs were used in the job and explore simulations of different AU allocation strategies.
+* **AU Analysis** shows how many AUs (analytics units) were used in the job and explore simulations of different AU allocation strategies.
 * **Diagnostics** provides an advanced analysis for job execution and performance optimization.
 
 ![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
@@ -117,7 +117,7 @@ To see the latest job status and refresh the screen, select **Refresh**.
 
 1. In **Data Lake Analytics Explorer**, browse to the job you submitted.
 
-1. Click the **Data** tab in your job.
+1. Select the **Data** tab in your job.
 
 1. In the **Job Outputs** tab, select the `"/data.csv"` file.
 
