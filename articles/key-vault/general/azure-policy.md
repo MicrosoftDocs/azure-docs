@@ -44,7 +44,7 @@ When enforcing a policy, you can determine its effect over the resulting evaluat
 
 Predetermined policies, referred to as 'built-ins', facilitate governance over your Key Vaults so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the Key Vault and its objects before enforcing a deny operation to prevent outages. Current built-ins for Azure Key Vault are categorized in four major groups: key vault, certificates, keys, and secrets management. Within each category, policies are grouped towards driving specific security goals.
 
-### [Key Vault Management](#tab/keyvault)
+### [Key Vault](#tab/keyvault)
 
 
 #### Network Access
