@@ -26,7 +26,7 @@ To create a funnel:
     > [!NOTE]
     > Funnels are limited to a maximum of six steps.
 
-1. Select the **View** tab to see your funnel results
+1. Select the **View** tab to see your funnel results.
 
       :::image type="content" source="./media/usage-funnels/funnel-2.png" alt-text="Screenshot that shows the Funnels View tab that shows results from the top and second steps." lightbox="./media/usage-funnels/funnel-2.png":::
 
