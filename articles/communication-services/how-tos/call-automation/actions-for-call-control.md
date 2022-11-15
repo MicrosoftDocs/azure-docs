@@ -12,7 +12,6 @@ ms.author: askaur
 manager: visho
 ms.custom: public_preview
 services: azure-communication-services
-zone_pivot_groups: acs-csharp-java
 ---
 
 # How to control and steer calls with Call Automation
