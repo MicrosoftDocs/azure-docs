@@ -21,7 +21,7 @@ In this article, you learn how to load test secured applications with Azure Load
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * An Azure Load Testing resource. To create a load testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create-an-azure-load-testing-resource).
-* If you're using client certificates, an Azure key vault. To create a key vault, see the quickstart [Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
+* If you're using client certificates, an Azure key vault. To create a key vault, see the quickstart [Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
 
 ## Authenticate with a shared secret or credentials
 
@@ -135,7 +135,7 @@ The following diagram shows how to use a client certificate to authenticate with
 
 :::image type="content" source="./media/how-to-test-secured-endpoints/load-test-authentication-with-client-certificate.png" alt-text="Diagram that shows how to use client-certificate authentication with Azure Load Testing.":::
 
-1. Follow the steps in [Import a certificate](/azure/key-vault/certificates/tutorial-import-certificate) to store your certificate in Azure Key Vault.
+1. Follow the steps in [Import a certificate](../key-vault/certificates/tutorial-import-certificate.md) to store your certificate in Azure Key Vault.
 
     > [!IMPORTANT]
     > Azure Load Testing only supports PKCS12 certificates. Upload the client certificate in PFX file format.
