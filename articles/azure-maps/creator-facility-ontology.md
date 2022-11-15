@@ -119,7 +119,7 @@ The `unit` feature class defines a physical and non-overlapping area that can be
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is automatically set to the Azure Maps internal ID.<BR>When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined.<BR>Maximum length allowed is 1,000 characters.|
+|`originalId` | string |false | When the dataset is created through the [conversion service][conversion], the original ID is automatically set to the Azure Maps internal ID. When the [dataset][datasetv20220901] is created from a GeoJSON package, the original ID can be user defined. Maximum length allowed is 1,000 characters.|
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`categoryId` | [category.Id](#category) |true | The ID of a [`category`](#category) feature.|
 |`isOpenArea` | boolean (Default value is `null`.) |false | Represents whether the unit is an open area. If set to `true`, [structures](#structure) don't surround the unit boundary, and a navigating agent can enter the `unit` without the need of an [`opening`](#opening). By default, units are surrounded by physical barriers and are open only where an opening feature is placed on the boundary of the unit. If walls are needed in an open area unit, they can be represented as a [`lineElement`](#lineelement) or [`areaElement`](#areaelement) with an `isObstruction` property equal to `true`.|
@@ -208,7 +208,7 @@ The `level` class feature defines an area of a building at a set elevation. For 
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`facilityId` | [facility.Id](#facility) |true | The ID of a [`facility`](#facility) feature.|
 | `ordinal` | integer | true | The level number. Used by the [`verticalPenetration`](#verticalpenetration) feature to determine the relative order of the floors to help with travel direction. The general practice is to start with 0 for the ground floor. Add +1 for every floor upwards, and -1 for every floor going down. It can be modeled with any numbers, as long as the higher physical floors are represented by higher ordinal values. |
-| `abbreviatedName` | string | false | A four-character abbreviated level name, like what would be found on an elevator button.  Maximum length allowed is 1,000 characters.|
+| `abbreviatedName` | string | false | A four-character abbreviated level name, like what would be found on an elevator button. |
 | `heightAboveFacilityAnchor` | double | false | Vertical distance of the level's floor above [`facility.anchorHeightAboveSeaLevel`](#facility), in meters. |
 | `verticalExtent` | double | false | Vertical extent of the level, in meters. If not provided, defaults to [`facility.defaultLevelVerticalExtent`](#facility).|
 |`name` | string | false | Name of the feature in local language.  Maximum length allowed is 1,000 characters.|
@@ -226,7 +226,7 @@ The `level` class feature defines an area of a building at a set elevation. For 
 |`externalId` | string |false | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1,000 characters.|
 |`facilityId` | [facility.Id](#facility) |true | The ID of a [`facility`](#facility) feature.|
 | `ordinal` | integer | true | The level number. Used by the [`verticalPenetration`](#verticalpenetration) feature to determine the relative order of the floors to help with travel direction. The general practice is to start with 0 for the ground floor. Add +1 for every floor upwards, and -1 for every floor going down. It can be modeled with any numbers, as long as the higher physical floors are represented by higher ordinal values. |
-| `abbreviatedName` | string | false | A four-character abbreviated level name, like what would be found on an elevator button.  Maximum length allowed is 1,000 characters.|
+| `abbreviatedName` | string | false | A four-character abbreviated level name, like what would be found on an elevator button.|
 | `heightAboveFacilityAnchor` | double | false | Vertical distance of the level's floor above [`facility.anchorHeightAboveSeaLevel`](#facility), in meters. |
 | `verticalExtent` | double | false | Vertical extent of the level, in meters. If not provided, defaults to [`facility.defaultLevelVerticalExtent`](#facility).|
 |`name` | string | false | Name of the feature in local language.  Maximum length allowed is 1,000 characters.|

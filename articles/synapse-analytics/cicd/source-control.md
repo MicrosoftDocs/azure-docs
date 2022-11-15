@@ -8,6 +8,10 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud 
 ms.reviewer: pimorano
+searchScope: 
+    - Git integration
+    - CICD
+    - Synapse
 ---
 
 # Source control in Synapse Studio
