@@ -248,6 +248,8 @@
         href: ama-migrate.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
+      - name: CEF via AMA
+        href: connect-cef-ama.md
       - name: DNS via AMA
         href: connect-dns-ama.md
       - name: Syslog (raw) sources

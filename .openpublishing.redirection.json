@@ -5964,11 +5964,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/index.md",
-            "redirect_url": "/azure/partner-solutions/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-nodes.md",
             "redirect_url": "/azure/fxt-edge-filer/add-nodes",
             "redirect_document_id": false
@@ -6356,6 +6351,11 @@
         {
             "source_path_from_root": "/articles/azure-cache-for-redis/scripts/show-cache.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+            "redirect_document_id": false
+        },
+        { 
+            "source_path_from_root": "/articles/storage/blobs/anonymous-read-access-client.md",
+            "redirect_url": "/azure/storage/blobs/anonymous-read-access-prevent",
             "redirect_document_id": false
         },
         { 
@@ -29356,12 +29356,12 @@
         },
         {
             "source_path_from_root": "/articles/availability-zones/az-overview.md",
-            "redirect_url": "/azure/reliablity/availability-zones-overview.md",
+            "redirect_url": "/azure/reliability/availability-zones-overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/availability-zones/index.md",
-            "redirect_url": "/azure/reliablity/index.md",
+            "source_path_from_root": "/articles/availability-zones/index.yml",
+            "redirect_url": "/azure/reliability/index",
             "redirect_document_id": false
         },
         {
@@ -29498,6 +29498,11 @@
             "source_path_from_root": "/articles/cloud-shell/example-terraform-bash.md",
             "redirect_url": "/azure/developer/terraform/quickstart-configure",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/managed-cluster-snapshot.md",
+            "redirect_url": "/azure/aks/intro-kubernetes",
+            "redirect_document_id": "false"
         }
     ]
 }
