@@ -125,7 +125,7 @@ Now that your deployment has successfully completed, we'll connect to your IoT H
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-device.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting Create device for this tutorial." lightbox="media\iot-hub-to-iot-connector\iot-create-device.png":::
 
-4. To send a test message from the newly created device to your IoT Hub, right-click the device and select the **Send D2C Message to IoT Hub** option. For this example, we'll be using a device named **device-001**. You'll use the device you created as part of the previous step.
+4. To send a test message from the newly created device to your IoT Hub, right-click the device and select the **Send D2C Message to IoT Hub** option. For this example, we'll be using a device named **iot-001**. You'll use the device you created as part of the previous step.
 
    > [!NOTE]
    > **D2C** stands for Device-to-Cloud. In this example, cloud is the IoT Hub that will be receiving the device message. IoT Hub allows two-way communications, which is why there's also the option to **Send C2D Message to Device Cloud** (C2D stands for Cloud-to-Device).
@@ -174,7 +174,7 @@ Now that your deployment has successfully completed, we'll connect to your IoT H
 
 ## Review metrics from test message 
 
-Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics to verify that your MedTech service received, transformed, and persisted the test message into your FHIR service. To learn more about how display the MedTech service monitoring tab metrics and the different metrics types, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
+Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics to verify that your MedTech service received, transformed, and persisted the test message into your FHIR service. To learn more about how to display the MedTech service monitoring tab metrics and the different metrics types, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
 
 For your MedTech service metrics, you see can see that your MedTech service performed the following steps with the test message:
 
@@ -187,7 +187,7 @@ For your MedTech service metrics, you see can see that your MedTech service perf
 
 :::image type="content" source="media\iot-hub-to-iot-connector\iot-metrics-tile-two.png" alt-text="Screenshot of MedTech service second metrics tile showing the test data metrics." lightbox="media\iot-hub-to-iot-connector\iot-metrics-tile-two.png"::: 
 
-## View test data in the FHIR service (Optional)
+## View test data in the FHIR service 
 
 If you provided your own Azure AD user object ID as the optional **Fhir Contributor Principal ID** when deploying this tutorial's template, then you have access to query FHIR resources in your FHIR service. 
 
@@ -195,7 +195,7 @@ Use this tutorial: [Access using Postman](/azure/healthcare-apis/fhir/use-postma
 
 ## Next steps
 
-In this tutorial, you deployed an Azure IoT Hub to message route a device test message to your MedTech service. 
+In this tutorial, you deployed a Quickstart ARM template in the Azure portal, connected to your Azure IoT Hub, created a device, and sent a test message to your MedTech service.
 
 To learn about how to use device mappings, see
 
