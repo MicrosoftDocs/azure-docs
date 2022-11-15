@@ -2,7 +2,7 @@
 title: Migrate machines as physical server to Azure with Azure Migrate.
 description: This article describes how to migrate physical machines to Azure with Azure Migrate.
 author: vijain
-ms.author: jain.vishal
+ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.date: 08/18/2022
