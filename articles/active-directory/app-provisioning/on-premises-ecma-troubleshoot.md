@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 # Troubleshoot on-premises application provisioning
 
 ## Troubleshoot test connection issues
-After you configure the provisioning agent and ECMA host, it's time to test connectivity from the Azure Active Directory (Azure AD) provisioning service to the provisioning agent, the ECMA host, and the application. To perform this end-to-end test, select **Test connection** in the application in the Azure portal. Be sure to wait 10 to 20 minutes after assigning an initial agent or changing the agent. If after this time the test connection fails, try the following troubleshooting steps:
+After you configure the provisioning agent and ECMA host, it's time to test connectivity from the Azure Active Directory (Azure AD) provisioning service to the provisioning agent, the ECMA host, and the application. To perform this end-to-end test, select **Test connection** in the application in the Azure portal. Be sure to wait 10 to 20 minutes after assigning an initial agent or changing the agent before testing the connection. If after this time the test connection fails, try the following troubleshooting steps:
 
  1. Check that the agent and ECMA host are running:
      1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
