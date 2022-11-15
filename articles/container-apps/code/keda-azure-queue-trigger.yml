@@ -1,4 +1,4 @@
-$schema: "http://json-schema.org/draft-04/schema"
+$schema: "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json"
 triggers:
 - type: azure-blob
   metadata:
