@@ -8,7 +8,7 @@ author: timwarner-msft
 ---
 # What is applicability in Azure Policy?
 
-When a policy definition is assigned to a scope, Azure Policy determines which resources in that scope should be considered for compliance evaluation. A resource will only be assessed for compliance if it is considered **applicable** to the given policy assignment. 
+When a policy definition is assigned to a scope, Azure Policy determines which resources in that scope should be considered for compliance evaluation. A resource will only be assessed for compliance if it's considered **applicable** to the given policy assignment. 
 
 Applicability is determined by several factors:
 - **Conditions** in the `if` block of the [policy rule](../concepts/definition-structure.md#policy-rule).
@@ -21,7 +21,7 @@ Condition(s) in the `if` block of the policy rule are evaluated for applicabilit
 > [!NOTE]
 > Applicability is different from compliance, and the logic used to determine each is different. If a resource is **applicable** that means it is relevant to the policy. If a resource is **compliant** that means it adheres to the policy. Sometimes only certain conditions from the policy rule impact applicability, while all conditions of the policy rule impact compliance state.
 
-## Applicability logic for resource manager modes
+## Applicability logic for Resource Manager modes
 
 ### Append, Audit, Manual, Modify and Deny policy effects
 
@@ -31,21 +31,21 @@ Following are special cases to the previously described applicability logic:
 
 |Scenario  |Result  |
 |---------|---------|
-|Any invalid aliases in the `if` conditions     |The policy is not applicable |
+|Any invalid aliases in the `if` conditions     |The policy isn't applicable |
 |When the `if` conditions consist of only `kind` conditions     |The policy is applicable to all resources |
 |When the `if` conditions consist of only `name` conditions     |The policy is applicable to all resources |
 |When the `if` conditions consist of only `type` and `kind` or `type` and `name` conditions     |Only type conditions are considered when deciding applicability |
-|When any conditions (including deployment parameters) include a `location` condition     |Will not be applicable to subscriptions |
+|When any conditions (including deployment parameters) include a `location` condition     |Won't be applicable to subscriptions |
 
 ### AuditIfNotExists and DeployIfNotExists policy effects
 
-The applicability of `AuditIfNotExists` and `DeployIfNotExists` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy is not applicable.
+The applicability of `AuditIfNotExists` and `DeployIfNotExists` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy isn't applicable.
 
 ## Applicability logic for resource provider modes
 
 ### Microsoft.Kubernetes.Data
 
-The applicability of `Microsoft.Kubernetes.Data` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy is not applicable.
+The applicability of `Microsoft.Kubernetes.Data` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy isn't applicable.
 
 ### Microsoft.KeyVault.Data
 
