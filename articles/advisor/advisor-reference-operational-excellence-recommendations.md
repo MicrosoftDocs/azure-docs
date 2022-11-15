@@ -174,7 +174,7 @@ Learn more about [Kubernetes service - DeprecatedKubernetesAPIIn116IsFound (Depr
 
 This cluster has not enabled AKS Cluster Autoscaler, and it will not adapt to changing load conditions unless you have other ways to autoscale your cluster
 
-Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Cluster Autoscaler)](../aks/cluster-autoscaler.md).
+Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Cluster Autoscaler)](/azure/aks/cluster-autoscaler).
 
 ### The AKS node pool subnet is full
 
@@ -376,13 +376,13 @@ Learn more about [App service - AzureAppService-StagingEnv (Set up staging envir
 
 We have identified API calls from outdated Service Connector API for resources under this subscription. We recommend switching to the latest Service Connector API version. You need to update your existing code or tools to use the latest API version.
 
-Learn more about [App service - UpgradeServiceConnectorAPI (Update Service Connector API Version)](../service-connector/index.yml).
+Learn more about [App service - UpgradeServiceConnectorAPI (Update Service Connector API Version)](/azure/service-connector).
 
 ### Update Service Connector SDK to the latest version
 
 We have identified API calls from an outdated Service Connector SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [App service - UpgradeServiceConnectorSDK (Update Service Connector SDK to the latest version)](../service-connector/index.yml).
+Learn more about [App service - UpgradeServiceConnectorSDK (Update Service Connector SDK to the latest version)](/azure/service-connector).
 
 ## Azure Center for SAP
 
@@ -426,7 +426,7 @@ Learn more about [Database Instance - VM_0001_DB (Azure Center for SAP recommend
 
 Azure Center for SAP recommendation: Ensure all NICs for a system should be attached to the same VNET.
 
-Learn more about [App Server Instance - AllVmsHaveSameVnetApp (Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET)](../virtual-machines/workloads/sap/sap-deployment-checklist.md#:~:text=this%20article.-,Networking,-.).
+Learn more about [App Server Instance - AllVmsHaveSameVnetApp (Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET)](/azure/virtual-machines/workloads/sap/sap-deployment-checklist#:~:text=this%20article.-,Networking,-.).
 
 ### Azure Center for SAP recommendation: Swap space on HANA systems should be 2GB
 
@@ -438,13 +438,13 @@ Learn more about [Database Instance - SwapSpaceForSap (Azure Center for SAP reco
 
 Azure Center for SAP recommendation: Ensure all NICs for a system should be attached to the same VNET.
 
-Learn more about [Central Server Instance - AllVmsHaveSameVnetAscs (Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET)](../virtual-machines/workloads/sap/sap-deployment-checklist.md#:~:text=this%20article.-,Networking,-.).
+Learn more about [Central Server Instance - AllVmsHaveSameVnetAscs (Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET)](/azure/virtual-machines/workloads/sap/sap-deployment-checklist#:~:text=this%20article.-,Networking,-.).
 
 ### Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET
 
 Azure Center for SAP recommendation: Ensure all NICs for a system should be attached to the same VNET.
 
-Learn more about [Database Instance - AllVmsHaveSameVnetDb (Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET)](../virtual-machines/workloads/sap/sap-deployment-checklist.md#:~:text=this%20article.-,Networking,-.).
+Learn more about [Database Instance - AllVmsHaveSameVnetDb (Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET)](/azure/virtual-machines/workloads/sap/sap-deployment-checklist#:~:text=this%20article.-,Networking,-.).
 
 ### Azure Center for SAP recommendation: Ensure network configuration is optimized for HANA and OS
 
