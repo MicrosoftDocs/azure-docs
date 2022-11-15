@@ -27,8 +27,12 @@ You can update HCX Connector and HCX Cloud systems during separate maintenance w
 - Ensure that you have a backup and snapshot of HCX connector in the on-premises environment, if applicable. 
 
 ### Backup HCX 
-Backup of HCX cloud manager configuration is done by Azure VMware solution on daily basis.  
-HCX cloud manager snapshots are taken automatically during upgrades to HCX 4.5 or later. HCX retains automatic snapshots for 24 hours before deleting them. For taking any manual snapshot on HCX cloud manager or help with reverting from a snapshot, [create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview). 
+- Azure VMware Solution backs up HCX Cloud Manager configuration daily.
+
+
+- Use the appliance management interface to create backup of HCX in on-premises, see [Backing Up HCX Manager](https://docs.vmware.com/en/VMware-HCX/4.4/hcx-user-guide/GUID-6A9D1451-3EF3-4E49-B23E-A9A781E5214A.html). You can use the configuration backup to restore the appliance to its state before the backup. The contents of the backup file supersede configuration changes made before restoring the appliance. 
+ 
+- HCX cloud manager snapshots are taken automatically during upgrades to HCX 4.5 or later. HCX retains automatic snapshots for 24 hours before deleting them. To take a manual snapshot on HCX Cloud Manager or help with reverting from a snapshot, [create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview). 
 
 ## Upgrade HCX 
 The upgrade process is in two steps: 
@@ -43,11 +47,11 @@ The HCX update is first applied to the HCX Manager systems.
 **What to expect**
 - HCX manager is rebooted as part of the upgrade process.  
 - HCX vCenter Plugins will be updated.  
-- There is no data-plane outage during this procedure.
+- There's no data-plane outage during this procedure.
 
 **Prerequisites**
 - Verify the HCX Manager system reports healthy connections to the connected (vCenter Server, NSX Manager (if applicable). 
-- Verify the HCX Manager system reports healthy connections to the HCX Interconnect service components. (Ensure HCX is not in an out of sync state)
+- Verify the HCX Manager system reports healthy connections to the HCX Interconnect service components. (Ensure HCX isn't in an out of sync state)
 - Verify that Site Pair configurations are healthy. 
 - No VM migrations should be in progress during this upgrade.
 
