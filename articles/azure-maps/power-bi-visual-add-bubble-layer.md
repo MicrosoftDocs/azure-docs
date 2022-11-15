@@ -42,7 +42,7 @@ If a field is passed into the **Size** bucket of the **Fields** pane, the bubble
 |---------------------|--------------|
 | Min size            | Minimum bubble size when scaling the data.|
 | Max size            | Maximum bubble size when scaling the data.|
-| Size scaling method | Scaling algorithm used to determine relative bubble size.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Linear - Range of input data linearly mapped to the min and max size. (default)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Log - Range of input data logarithmically mapped to the min and max size.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier - Specify X1, Y1, X2, Y2 values of a Cubic-Bezier curve to create a custom scaling method. |
+| Size scaling method | Scaling algorithm used to determine relative bubble size.<br/><br/>&nbsp;• Linear: Range of input data linearly mapped to the min and max size. (default)<br/>&nbsp;• Log: Range of input data logarithmically mapped to the min and max size.<br/>&nbsp;• Cubic-Bezier: Specify X1, Y1, X2, Y2 values of a Cubic-Bezier curve to create a custom scaling method. |
 
 When the **Size scaling method** is set to **Log**, the following options will be made available.
 
