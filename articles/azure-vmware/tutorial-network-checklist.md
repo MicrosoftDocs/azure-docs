@@ -73,22 +73,29 @@ The subnets:
 
 | Source | Destination | Protocol | Port | Description  | 
 | ------ | ----------- | :------: | :---:| ------------ | 
-| Private Cloud DNS server (cloud) | On-Premises DNS Server (local)| UDP | 53 | DNS Client - Forward requests from PC vCenter for any on-premises DNS queries (check DNS section below) |  
-| On-premises DNS Server (local)   | Private Cloud DNS server (cloud) | UDP | 53 | DNS Client - Forward requests from on-premises services to Private Cloud DNS servers (check DNS section below) |  
-| On-premises network (local)  | Private Cloud vCenter server (cloud) | TCP(HTTP)  | 80 | vCenter Server requires port 80 for direct HTTP connections. Port 80 redirects requests to HTTPS port 443. This redirection helps if you use `http://server` instead of `https://server`.  |  
-| Private Cloud management network (cloud) | On-premises Active Directory (local) | TCP  | 389/636 | These ports are open to allow communications for Azure VMware Solutions vCenter to communicate to any on-premises Active Directory/LDAP server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 636 is recommended for security purposes. |  
-| Private Cloud management network (cloud) | On-premises Active Directory Global Catalog (local)  | TCP  | 3268/3269 | These ports are open to allow communications for Azure VMware Solutions vCenter to communicate to any on-premises Active Directory/LDAP global catalog server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 3269 is recommended for security purposes. |  
-| On-premises network (local)  | Private Cloud vCenter server (cloud) | TCP(HTTPS)  | 443 | This port allows you to access vCenter from an on-premises network. The default port that the vCenter Server system uses to listen for connections from the vSphere Client. To enable the vCenter Server system to receive data from the vSphere Client, open port 443 in the firewall. The vCenter Server system also uses port 443 to monitor data transfer from SDK clients. |  
-| Admin Network (local)  | HCX Connector (local)  | TCP(HTTPS) | 9443 | Hybrid Cloud Manager Virtual Appliance Management Interface for Hybrid Cloud Manager system configuration. |
-| Admin Network (local)  | HCX Connector (local) | SSH | 22 | Administrator SSH access to Hybrid Cloud Manager. |
-| HCX Manager | Cloud  Gateway | TCP(HTTPS) | 8123 | Send host-based replication service instructions to the Hybrid Cloud Gateway. |
+| Private Cloud DNS server (cloud) | On-Premises DNS Server (on-site)| UDP | 53 | DNS Client - Forward requests from PC vCenter for any on-premises DNS queries (check DNS section below) |  
+| On-premises DNS Server (on-site)   | Private Cloud DNS server (cloud) | UDP | 53 | DNS Client - Forward requests from on-premises services to Private Cloud DNS servers (check DNS section below) |  
+| On-premises network (on-site)  | Private Cloud vCenter server (cloud) | TCP(HTTP)  | 80 | vCenter Server requires port 80 for direct HTTP connections. Port 80 redirects requests to HTTPS port 443. This redirection helps if you use `http://server` instead of `https://server`.  |  
+| Private Cloud management network (cloud) | On-premises Active Directory (on-site or cloud) | TCP  | 389/636 | These ports are open to allow communications for Azure VMware Solutions vCenter to communicate to any on-premises Active Directory/LDAP server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 636 is recommended for security purposes. |  
+| Private Cloud management network (cloud) | On-premises Active Directory Global Catalog (on-site)  | TCP  | 3268/3269 | These ports are open to allow communications for Azure VMware Solutions vCenter to communicate to any on-premises Active Directory/LDAP global catalog server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 3269 is recommended for security purposes. |  
+| On-premises network (on-site)  | Private Cloud vCenter server (cloud) | TCP(HTTPS)  | 443 | This port allows you to access vCenter from an on-premises network. The default port that the vCenter Server system uses to listen for connections from the vSphere Client. To enable the vCenter Server system to receive data from the vSphere Client, open port 443 in the firewall. The vCenter Server system also uses port 443 to monitor data transfer from SDK clients. |  
+| Admin Network (on-site)  | HCX Connector (on-site)  | TCP(HTTPS) | 9443 | Hybrid Cloud Manager Virtual Appliance Management Interface for Hybrid Cloud Manager system configuration. |
+| Admin Network (on-site)  | HCX Connector (on-site) | SSH | 22 | Administrator SSH access to Hybrid Cloud Manager. Allows capability to troubleshoot and test connectivity to cloud with ping and other tools |
+| HCX Connector | Interconnect (HCX-IX) | TCP(HTTPS) | 8123 | Send host-based replication service instructions to the Hybrid Cloud Gateway. |
 | HCX Manager | Cloud  Gateway | HTTP  TCP(HTTPS) | 9443 | Send management instructions to the local Hybrid Cloud Gateway using the REST API. |
 | Cloud Gateway | L2C | TCP(HTTPS) | 443 | Send management instructions from Cloud Gateway to L2C when L2C uses the same path as the Hybrid Cloud Gateway. |
 | HCX Connector (on-prem) | ESXi Hosts (on-prem) | TCP | 80,902 | Management and OVF deployment. |
-| Interconnect and Network Extension (local)| Interconnect and Network Extenion (cloud) | UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Network Address Translation-Traversal (NAT-T) is also supported. |
-| Cloud Gateway (local) | Cloud Gateway (cloud)  | UDP | 500 | Required for IPSEC<br> Internet key exchange (ISAKMP) for the bidirectional tunnel. |
+| Interconnect and Network Extension (on-site)| Interconnect and Network Extenion (cloud) | UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Network Address Translation-Traversal (NAT-T) is also supported. |
+| Cloud Gateway (on-site) | Cloud Gateway (cloud)  | UDP | 500 | Required for IPSEC<br> Internet key exchange (ISAKMP) for the bidirectional tunnel. |
 | On-premises vCenter network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter to Private Cloud vCenter using "Cross vCenter vMotion."  This is outside of HCX vMotions. |    
-| HCX Connector (local) | connect.hcx.vmware.com and hybridity-depot.vmware.com | TCP | 443 |  connect.hcx.vmware.com is needed to validate Hybrid Cloud Manager license key.  Hybridity-depot is used for updates.   |    
+| HCX Connector (on-site) | connect.hcx.vmware.com and hybridity-depot.vmware.com | TCP | 443 |  connect.hcx.vmware.com is needed to validate Hybrid Cloud Manager license key.  Hybridity-depot is used for updates.   |    
+
+There can be more items to consider when it comes to firewalls between on-prem and AVS, this is intended to give common rules for common scanerios.  For a detailed list of HCX ports for different features, please refer to the following links
+
+https://hybridityguru.files.wordpress.com/2020/02/hcx-network-ports.pdf
+
+https://ports.esp.vmware.com/home/VMware-HCX
+
 
 ## DHCP and DNS resolution considerations
 
