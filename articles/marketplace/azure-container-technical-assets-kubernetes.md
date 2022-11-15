@@ -57,9 +57,14 @@ In addition to your solution domain, your engineering team should have knowledge
 
 ## Publishing overview
 
-The first step to publish your Kubernetes app-based Container offer on the Azure Marketplace is to package your application as a [Cloud Native Application Bundle (CNAB)][cnab]. This CNAB, comprised of your application’s artifacts, will be first published to your private Azure Container Registry (ACR) and later pushed to an Azure Marketplace-specific public ACR and will be used as the single artifact you reference in Partner Center.
+The first step to publish your Kubernetes app-based Container offer on the Azure Marketplace is to package your application as a [Cloud Native Application Bundle (CNAB)][cnab]. This CNAB, comprised of your application’s artifacts, will be first published to your private Azure Container Registry (ACR) and later pushed to a Microsoft-owned ACR and will be used as the single artifact you reference in Partner Center.
+
+From there, vulnerability scanning is performed to ensure images are secure. Finally, the Kubernetes application is registered as an extension type for an Azure Kubernetes Service (AKS) cluster.
 
 Once your offer is published, your application will leverage the [cluster extensions for AKS][cluster-extensions] feature to manage your application lifecycle inside an AKS cluster.
+
+:::image type="content" source="./media/azure-container/bundle-processing.png" alt-text="A diagram showing the three stages of bundle processing, flowing from 'Copy the bundle to a Microsoft-owned registry' to 'Vulnerability scanning' to 'Extension type registration'.":::
+
 
 ## Grant access to your Azure Container Registry
 
@@ -289,6 +294,8 @@ The following Docker command pulls the latest packaging tool image and also moun
 Assuming `~\<path-to-content>` is a directory containing the contents to be packaged, the following docker command will mount `~/<path-to-content>` to `/data` in the container. Be sure to replace `~/<path-to-content>` with your own app's location.
 
 ```bash
+docker pull mcr.microsoft.com/container-package-app:latest
+
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v ~/<path-to-content>:/data --entrypoint "/bin/bash" mcr.microsoft.com/container-package-app:latest 
 ```
 
@@ -297,6 +304,8 @@ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v ~/<path-to-conten
 Assuming `D:\<path-to-content>` is a directory containing the contents to be packaged, the following docker command will mount `d:/<path-to-content>` to `/data` in the container. Be sure to replace `d:/<path-to-content>` with your own app's location.
 
 ```bash
+docker pull mcr.microsoft.com/container-package-app:latest
+
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v d:/<path-to-content>:/data --entrypoint "/bin/bash" mcr.microsoft.com/container-package-app:latest 
 ```
 
