@@ -316,7 +316,7 @@ Define SMTP mail server settings for the sensor so that you configure the sensor
 
 1. In the **Edit Mail Server Configuration** pane that appears, define the values for your SMTP server as follows:
 
-|  |  |
+| Parameter | Description |
 |---|---|
 | **SMTP Server Address** | Enter the IP address or domain address of your SMTP server. |
 | **SMTP Server Port** | Default = 25. Adjust the value as needed. |
