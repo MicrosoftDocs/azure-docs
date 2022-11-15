@@ -121,7 +121,6 @@ Skip this step and use the information for the portal in the next step.
 
     ```python
     import os
-    import sys
     
     import pymongo
     from dotenv import load_dotenv
@@ -136,6 +135,9 @@ Skip this step and use the information for the portal in the next step.
     load_dotenv()
     CONNECTION_STRING = os.environ.get("COSMOS_CONNECTION_STRING")
     client = pymongo.MongoClient(CONNECTION_STRING)
+
+    for prop, value in vars(client.options).items():
+        print("Property: {}: Value: {} ".format(prop, value))
     ```
     <!--
     :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/101-quickstart/run.py" id="client_credentials":::
