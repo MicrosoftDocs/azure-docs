@@ -43,8 +43,8 @@ Before you create the VM, [create a network interface](virtual-network-network-i
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm create](/cli/azure/vm#az-vm-create). [Example](../virtual-machines/linux/multiple-nics.md#create-a-vm-and-attach-the-nics)|
-|PowerShell|[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) and [New-AzVM](/powershell/module/az.compute/new-azvm). [Example](../virtual-machines/windows/multiple-nics.md#create-a-vm-with-multiple-nics)|
+|CLI|[az vm create](/cli/azure/vm#az-vm-create). See [example](../virtual-machines/linux/multiple-nics.md#create-a-vm-and-attach-the-nics)|
+|PowerShell|[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) and [New-AzVM](/powershell/module/az.compute/new-azvm). See [example](../virtual-machines/windows/multiple-nics.md#create-a-vm-with-multiple-nics)|
 
 ## Add a network interface to an existing VM
 
@@ -75,8 +75,8 @@ Now you can configure the VM operating system to use multiple network interfaces
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm nic add](/cli/azure/vm/nic#az-vm-nic-add). [Example](../virtual-machines/linux/multiple-nics.md#add-a-nic-to-a-vm)|
-|PowerShell|[Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface). [Example](../virtual-machines/windows/multiple-nics.md#add-a-nic-to-an-existing-vm)|
+|CLI|[az vm nic add](/cli/azure/vm/nic#az-vm-nic-add). See [example](../virtual-machines/linux/multiple-nics.md#add-a-nic-to-a-vm)|
+|PowerShell|[Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface). See [example](../virtual-machines/windows/multiple-nics.md#add-a-nic-to-an-existing-vm)|
 
 ## View network interfaces for a VM
 
@@ -123,8 +123,8 @@ To learn about network interface settings and how to change them, see [Manage ne
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm nic remove](/cli/azure/vm/nic#az-vm-nic-remove). [Example](../virtual-machines/linux/multiple-nics.md#remove-a-nic-from-a-vm)|
-|PowerShell|[Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface). [Example](../virtual-machines/windows/multiple-nics.md#remove-a-nic-from-an-existing-vm)|
+|CLI|[az vm nic remove](/cli/azure/vm/nic#az-vm-nic-remove). See [example](../virtual-machines/linux/multiple-nics.md#remove-a-nic-from-a-vm)|
+|PowerShell|[Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface). See [example](../virtual-machines/windows/multiple-nics.md#remove-a-nic-from-an-existing-vm)|
 
 ## Constraints
 
