@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
 
-If you're experiencing issues with your deployment, reinstalling packet core may help return it to a good state. In this how-to guide, you'll learn how to reinstall a packet core instance using the Azure portal.
+If you're experiencing issues with your deployment, reinstalling the packet core may help return it to a good state. In this how-to guide, you'll learn how to reinstall a packet core instance using the Azure portal.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Before reinstalling, follow this step to check the packet core instance's instal
 
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
-6. Under the **Essentials** heading, make sure the **Installation status** field contains **Installed**. If the packet core instance is running a different process, wait for it to finish before attempting a reinstall.
+6. Under the **Essentials** heading, make sure the **Installation status** field contains **Installed**. If the **Installation status** field shows the packet core instance is running a process, wait for it to finish before attempting a reinstall.
 <!-- TODO: add image -->
 
 ## Back up deployment information
@@ -42,7 +42,7 @@ The following list contains data that will get lost over a packet core reinstall
 
 1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
 2. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.
-3. Any customizations made to the packet core dashboards won't be carried over the reinstall. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
+3. Any customizations made to the packet core dashboards won't be carried over the reinstall. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a copy of your dashboards.
 4. Most UEs will automatically re-register and recreate any sessions after the reinstall completes. If you have any special devices that require manual operations to recover from a packet core outage, gather a list of these UEs and their recovery steps.
 
 ## Reinstall the packet core instance
