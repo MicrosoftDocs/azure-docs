@@ -16,7 +16,7 @@ recommendations: false
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
-Form Recognizer uses advanced machine learning technology to detect and extract information from forms and documents and returns the extracted data in a structured JSON output. With Form Recognizer, you can use pre-built or pre-trained models or you can train standalone custom models. Custom models extract and analyze distinct data and use cases from forms and documents specific to your business. Standalone custom models can be combined to create [composed models](concept-composed-models.md).
+Form Recognizer uses advanced machine learning technology to detect and extract information from forms and documents and returns the extracted data in a structured JSON output. With Form Recognizer, you can use prebuilt or pre-trained models or you can train standalone custom models. Custom models extract and analyze distinct data and use cases from forms and documents specific to your business. Standalone custom models can be combined to create [composed models](concept-composed-models.md).
 
 To create a custom model, you label a dataset of documents with the values you want extracted and train the model on the labeled dataset. You only need five examples of the same form or document type to get started.
 
@@ -161,6 +161,9 @@ The following table describes the features available with the associated tools a
 The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) doesn't support the BMP file format. This limitation relates to the tool, not the Form Recognizer service.
 
 ## Supported languages and locales
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
  The Form Recognizer v3.0 version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
 
