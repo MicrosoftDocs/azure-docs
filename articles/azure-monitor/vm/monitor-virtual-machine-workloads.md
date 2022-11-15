@@ -43,8 +43,8 @@ The following table lists the different data sources on a VM and how to filter t
 
 | Target | Description | Filtering method |
 |:---|:---|:---|
-| Azure tables | Collect data from standard sources such as Windows events, Syslog, and performance data and send to Azure tables in Log Analytics workspace. | Use XPath in the data collection rule (DCR) to collect specific data from client machines. | Use transformations to further filter specific events or remove unnecessary columns. |
-| Custom tables	Create a data collection rule to collect file-base text logs from the agent. | Add a transformation to the data collection rule. |
+| Azure tables | Collect data from standard sources such as Windows events, Syslog, and performance data and send to Azure tables in Log Analytics workspace. | Use XPath in the data collection rule (DCR) to collect specific data from client machines.<br><br>Use transformations to further filter specific events or remove unnecessary columns. |
+| Custom tables | Create a data collection rule to collect file-base text logs from the agent. | Add a transformation to the data collection rule. |
 
 ### Log Analytics agent
 | Target | Description | Filtering method |
