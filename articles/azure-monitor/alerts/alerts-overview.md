@@ -60,10 +60,10 @@ See [this article](alerts-types.md) for detailed information about each alert ty
 If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal-preview).
 
 > [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for:
-> - VMs
-> - unmonitored AKS resources
-> - unmonitored Log Analytics resources
+> The alert rule recommendations feature is currently in preview and is only enabled for unmonitored:
+> - Virtual machines
+> - AKS resources
+> - Log Analytics resources
 
 ## Azure role-based access control (Azure RBAC) for alerts
 
