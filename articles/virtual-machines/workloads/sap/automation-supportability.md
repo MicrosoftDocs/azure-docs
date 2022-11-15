@@ -1,6 +1,6 @@
 ---
-title: Supportability matrix for the SAP deployment automation framework
-description: Supported platforms, topologies, and capabilities for the SAP deployment automation framework on Azure.
+title: Supportability matrix for the SAP on Azure Deployment Automation Framework
+description: Supported platforms, topologies, and capabilities for the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Supportability matrix for the SAP Automation Framework
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) supports deployment of all the supported SAP on Azure topologies.
+The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) supports deployment of all the supported SAP on Azure topologies.
 
 ## Supported operating systems
 

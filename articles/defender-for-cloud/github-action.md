@@ -69,25 +69,25 @@ Security DevOps uses the following Open Source tools:
         # macos-latest supporting coming soon
         runs-on: windows-latest
 
-      steps:
-      - uses: actions/checkout@v2
+        steps:
+        - uses: actions/checkout@v2
 
-      - uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: |
-            5.0.x
-            6.0.x
+        - uses: actions/setup-dotnet@v1
+          with:
+            dotnet-version: |
+              5.0.x
+              6.0.x
 
         # Run analyzers
         - name: Run Microsoft Security DevOps Analysis
           uses: microsoft/security-devops-action@preview
           id: msdo
 
-      # Upload alerts to the Security tab
-      - name: Upload alerts to Security tab
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+        # Upload alerts to the Security tab
+        - name: Upload alerts to Security tab
+          uses: github/codeql-action/upload-sarif@v1
+          with:
+            sarif_file: ${{ steps.msdo.outputs.sarifFile }}
     ```
         
     For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)                

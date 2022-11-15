@@ -17,6 +17,9 @@ items:
     - name: Bicep
       displayName: Resource Manager,ARM,template
       href: quick-setup-auto-provision-bicep.md
+    - name: Terraform
+      displayName: Resource Manager, ARM, template 
+      href: quick-setup-auto-provision-terraform.md
     - name: ARM template
       displayName: Resource Manager
       href: quick-setup-auto-provision-rm.md
@@ -88,6 +91,12 @@ items:
       href: quick-enroll-device-tpm.md
     - name: Communicate with your DPS using MQTT protocol
       href: iot-dps-mqtt-support.md
+    - name: Provision devices using HTTPS protocol
+      items:
+      - name: Use HTTPS protocol with symmetric keys
+        href: iot-dps-https-sym-key-support.md
+      - name: Use HTTPS protocol with X.509 certificates
+        href: iot-dps-https-x509-support.md
   - name: Manage
     items:
     - name: Manage enrollments - Portal
