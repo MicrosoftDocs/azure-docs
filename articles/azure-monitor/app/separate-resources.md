@@ -66,12 +66,12 @@ protected void Application_Start()
 
 In this example, the instrumentation keys for the different resources are placed in different versions of the web configuration file. Swapping the web configuration file, which you can do as part of the release script, will swap the target resource.
 
-### Web pages
-The instrumentation key is also used in your app's web pages, in the [script that you got from the quickstart pane](../../azure-monitor/app/javascript.md). Instead of coding it literally into the script, generate it from the server state. For example, in an ASP.NET app:
+### Webpages
+The instrumentation key is also used in your app's webpages, in the [script that you got from the quickstart pane](../../azure-monitor/app/javascript.md). Instead of coding it literally into the script, generate it from the server state. For example, in an ASP.NET app:
 
 ```javascript
 <script type="text/javascript">
-// Standard Application Insights web page script:
+// Standard Application Insights webpage script:
 var appInsights = window.appInsights || function(config){ ...
 // Modify this part:
 }({instrumentationKey:  
