@@ -1,24 +1,25 @@
 ---
-title: Planning Defender for Servers deployment
-description: Get an overview of Defender for Servers deployoment
-ms.topic: how-to
-ms.custom: ignite-2022
-ms.date: 10/03/2022
+title: Plan Defender for Servers deployment
+description: Design your Defender for Servers deployment
+ms.topic: conceptual
+ms.date: 11/06/2022
 ---
-# Get started
+# Plan Defender for Servers deployment
 
-This article helps you to understand how to design and plan an effective Microsoft Defender for Servers deployment.
+This guide helps you to design and plan an effective Microsoft Defender for Servers deployment.
 
-Defender for Servers protects your Windows and Linux machines running in the Azure, AWS, and GCP cloud, as well as on-premises. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). 
+Defender for Servers protects your Windows and Linux machines in the cloud and on-premises. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). 
 
-## What should I get from this guide?
+## About this guide
 
-This guide can be used by cloud solution and infrastructure architects, security architects and analysts, and anyone else involved in protecting servers and workloads across Azure, hybrid, and other clouds. It should help you answer these questions:
+This guide can be used by cloud solution and infrastructure architects, security architects and analysts, and anyone else involved in protecting cloud/hybrid servers and workloads. The guide helps you to answer these questions:
 
-- Which Defender for Servers plan is right for my organization?
-- Where's my data stored?
-- What agents do I need to deploy?
-- How do I deploy Defender for Servers at scale?
+- How can Defender for Servers help my organization.
+- Which Defender for Servers plan should we select?
+- Where will my server data be stored?
+- What agents must be deployed?
+- What permissions are needed?
+- How do I deploy at scale?
 
 ## Before you begin
 
@@ -26,21 +27,42 @@ This guide can be used by cloud solution and infrastructure architects, security
 - Watch a [Defender for Servers introduction](episode-five.md) in our Defender for Cloud in the Field series.
 - Get pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
+## Overview
+
+Defender for Servers provides extended detection and response (XDR) capabilities with asset visibility, and threat detection, prevention, and response across Azure, AWS, and GCP clouds, as well as on-premises. Capabilities and integrations include:
+
+- Comprehensive server discovery, and a single security view of your multicloud and on-premises servers.
+- Integration with Microsoft Defender for Endpoint to provide attack surface reductions, next-generation antivirus protection, endpoint detection and response (EDR) capabilities, and vulnerability assessment.
+- Advanced protection and detection capabilities, including
+    - [Adaptive application controls](adaptive-application-controls.md) to define allow lists of safe apps for machines.
+    - [Just in time VM access](just-in-time-access-overview.md) to lock down inbound traffic to machine ports.
+    - [File integrity monitoring](file-integrity-monitoring-overview.md) to examine operating system files, Windows registries, app software, and Linux system files for changes that might indicate an attack.
+    - [Adaptive network hardening](adaptive-network-hardening.md) to further harden network security group (NSG) rules, based on actual traffic patterns.
+    - [Docker host hardening](harden-docker-hosts.md) for unmanaged containers running on Linux VMs.
+    - [Vulnerability assessment](deploy-vulnerability-assessment-vm.md) with Defender for Cloud and Qualys.
+- Integration with Defender for Cloud free, foundational cloud security posture management (CSPM)protection that [integrates with Microsoft cloud security benchmark](apply-security-baseline.md), assesses security configurations, and provides recommendations.
+- [Integration with the Microsoft Defender CSPM plan](concept-cloud-security-posture-management#defender-cspm-plan-options.md), providing features such as assessment against compliance standards, cloud security graph to inventory hybrid and multicloud resources, and connections between then, and attack path analysis to expose exploitable paths and prevention recommendations.
+
 
 ## Select a Defender for Servers plan
 
-Defender for Servers provides two plans you can choose from. Plan 1 is entry-level as provides security posture management, vulnerability assessment, and antimalware protection. Plan 2 offers additional security capabilities.
+Defender for Servers provides two plans you can choose from.
 
-In addition, servers connected to Defender for Cloud benefit from Defender for Cloud's free [foundational cloud security posture management](concept-cloud-security-posture-management.md#defender-cspm-plan-options), including continuous assessment of your security configuration, security recommendations, and secure score.
+- Entry-level Plan 1 provides Defender for Cloud's free [foundational cloud security posture management](concept-cloud-security-posture-management.md#defender-cspm-plan-options), and with [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2) antimalware protection, vulnerability assessment, fileless attack detection, and threat detection.
+- Plan 2 provides all Plan 1 capabilities, and additional security capabilities.
+
 
 | Feature | Details | Plan 1 | Plan 2 |
 |:---|:---|:---:|:---:|
-| **Defender for Endpoint integration** | Defender for Servers integrates with [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2) to provide a full endpoint detection and response (EDR) solution. Defender for Endpoint features include [reducing the attack surface](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction) for machines, providing [antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection) capabilities, and threat management, including [hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview), [detection](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response), [analytics](/microsoft-365/security/defender-endpoint/threat-analytics), and [automated investigation and response](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Defender for Endpoint provisioning** | Defender for Servers automatically provisions the Defender for Endpoint sensor on every supported machine that's connected to Defender for Cloud.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Defender for Endpoint integration** | Defender for Servers integrates with Defender for Endpoint Plan 2.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Licensing** | Defender for Server charges Defender for Endpoint licenses per hour instead of per seat, lowering costs by protecting virtual machines only when they're in use.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Unified view** | Defender for Endpoint alerts display in the Defender for Cloud portal. You can drill down into the Defender for Endpoint portal for more information.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Vulnerability assessment with [Microsoft Defender vulnerability management](https://learn.microsoft.com/en-us/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management?view=o365-worldwide)** | This is a module included in Defender for Endpoint Plan 2. Discover device vulnerabilities and misconfigurations, leveraging Microsoft threat intelligene, and with no need for agents or periodic scans. [Learn more](deploy-vulnerability-assessment-tvm.md). | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Fileless attack detection** | Fileless attack detection in Defender for Servers and Microsoft Defender for Endpoint (MDE) generate detailed security alerts that accelerate alert triage, correlation, and downstream response time. | :::image type="icon" source="./media/icons/yes-icon.png"::: <br>(Provided by MDE) | :::image type="icon" source="./media/icons/yes-icon.png"::: <br>(Provided by MDE & Defender for Servers) |
+| **Defender for Endpoint provisioning** | Defender for Servers automatically provisions the Defender for Endpoint sensor on every supported machine that's connected to Defender for Cloud.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | 
+| **Reduce attack surface | Defender for Endpoint provides [capabilities](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction) that include attack surface reduction rules, ransomware mitigation with controlled folder access, device controls, web and network protection. | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Next generation protection** | Defender for Endpoint provides [next-generation protection](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/next-generation-protection?view=o365-worldwide) to reinforce the security perimeter of your network. Features include real-time scanning and protection, and [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection).| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Threat detection** | Defender for Endpoint Plan 2 provides threat management capabilities, including [threat analytics](/microsoft-365/security/defender-endpoint/threat-analytics), [automated investigation and response](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/automated-investigations?view=o365-worldwide), [advanced hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview), [endpoint detection and response](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response), and [Microsoft Defender Experts](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-threat-experts?view=o365-worldwide).<br/><br/> Defender for Servers add | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Vulnerability management** | Defender for Endpoint plan 2 includes [Defender Vulnerability Management](https://learn.microsoft.com/en-us/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide)<br/><br/> capabilities to identify, assess, and remediate vulnerabilities across critical assets | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+
 | **Threat detection** | Defender for Servers and Microsoft Defender for Endpoint (MDE) detect threats at the OS and network levels, including VM behavioral detections.<br>/<br/>  | :::image type="icon" source="./media/icons/yes-icon.png"::: <br>(Provided by MDE) | :::image type="icon" source="./media/icons/yes-icon.png"::: <br>(Provided by MDE & Defender for Servers) |
 | **Integrated vulnerability assessment** | Use the Qualys scanner for real-time identification of vulnerabilities in Azure and hybrid VMs. Everything's handled by Defender for Cloud. You don't need a Qualys license or even a Qualys account. [Learn more](deploy-vulnerability-assessment-vm.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Log Analytics 500 MB free data ingestion** | Defender for Cloud leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
@@ -66,7 +88,6 @@ Want to learn more? Watch an overview of enhanced workload protection features i
 Before deployment, verify that your [operating systems are supported](/microsoft-365/security/defender-endpoint/minimum-requirements) by Defender for Endpoint.
 
 
-
 ## Consider data residency requirements
 
 When designing business solutions, data residency (the physical or geographic location of an organization’s data) is often top of mind due to compliance requirements. For example, the European Union’s General Data Protection Regulation (GDPR) requires all data collected on citizens to be stored in the EU, for it to be subject to European privacy laws. Before you begin your Defender for Servers deployment, learn more about [general Azure data residency considerations](https://azure.microsoft.com/blog/making-your-data-residency-choices-easier-with-azure/).
@@ -81,17 +102,14 @@ Anything in the EU is stored in the EU region. Anything else is stored in the US
 When you create connectors to protect multicloud resources, the connector resource is hosted in an Azure resource group that you choose when you set up the connector. Select this resource group in accordance with your data residency requirements.
 When data is retrieved from AWS/GCP, it’s stored in either GDPR-EU, or US:
 
-- 
-- 
-- 
-- 
+
 ## Plan Log Analytics integration
 
 When you enable Defender for Servers or Defender for Containers, Defender for Cloud leverages Azure Monitor Log Analytics.
-Data collection agents (Log Analytics Agent or Azure Monitor Agent) collect security information from VMs, and stored the data in a Log Analytics workspace. When you enabel autoprovisioning for agent, you can specify that you want to use the default workspace created by Defender for Cloud, or a custom workspace.
+Data collection agents (Log Analytics Agent or Azure Monitor Agent) collect security information from VMs, and stored the data in a Log Analytics workspace. When you enable auto-provisioning for agents, you can specify that you want to use the default workspace created by Defender for Cloud, or a custom workspace.
 
 - **Custom workspace**: 
-    - A custom workspace you select must be associated with the Azure subscription on which you're enabling Defender for Cloud.
+    - A custom workspace must be associated with the Azure subscription on which you're enabling Defender for Cloud.
     - You need at minimum read permissions for the workspace.
     - You need to manually enable Defender for Cloud's security posture management feature, and the Defender for Server plan on the custom workspace. 
 - **Default workspace**:
