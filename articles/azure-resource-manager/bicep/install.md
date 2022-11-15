@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 11/03/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -13,6 +13,7 @@ Let's make sure your environment is set up for working with Bicep files. To auth
 | Tasks | Options | Bicep CLI installation |
 | ------ | ------- | ----------- |
 | Author | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
+|  | [Visual Studio and Bicep extension](#visual-studio-and-bicep-extension) | automatic |
 | Deploy | [Azure CLI](#azure-cli) | automatic |
 |  | [Azure PowerShell](#azure-powershell) | [manual](#install-manually) |
 |  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
@@ -38,6 +39,15 @@ To verify you've installed the extension, open any file with the `.bicep` file e
 If you get an error during installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).
 
 You can deploy your Bicep files directly from the VS Code editor. For more information, see [Deploy Bicep files from Visual Studio Code](deploy-vscode.md).
+
+## Visual Studio and Bicep extension
+
+To author Bicep file from Visual Studio, you need:
+
+- **Visual Studio** - If you don't already have Visual Studio, [install it](https://visualstudio.microsoft.com/).
+- **Bicep extension for Visual Studio**.  Visual Studio with the Bicep extension provides language support and resource autocompletion. The extension helps you create and validate Bicep files. Install the extension from [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
+
+To walk through a tutorial, see [Quickstart: Create Bicep files with Visual Studio](./quickstart-create-bicep-use-visual-studio.md).
 
 ## Azure CLI
 

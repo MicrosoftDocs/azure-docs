@@ -88,6 +88,7 @@ You can deploy Azure Arc-enabled data services on various types of Kubernetes cl
 - Google Kubernetes Engine (GKE)
 - Open source, upstream Kubernetes (typically deployed by using kubeadm)
 - OpenShift Container Platform (OCP)
+- Additional [partner-validated Kubernetes distributions](./validation-program.md)
 
 > [!IMPORTANT]
 > * The minimum supported version of Kubernetes is v1.21. For more information, see the "Known issues" section of [Release notes&nbsp;- Azure Arc-enabled data services](./release-notes.md#known-issues).

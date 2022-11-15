@@ -1,11 +1,11 @@
 ---
 title: About the Mobility service for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
 description: Learn about the Mobility service agent for disaster recovery of VMware VMs and physical servers to Azure using the Azure Site Recovery service.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ms.date: 09/21/2022
 ---
 
@@ -182,7 +182,7 @@ Setting | Details
 --- | ---
 Syntax | `cd /usr/local/ASR/Vx/bin`</br> `UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
 `-i` | Mandatory parameter. `<CSIP>` specifies the configuration server's IP address. Use any valid IP address.
-`-P` |  Mandatory. Full file path of the file in which the passphrase is saved. [Learn more](/azure/site-recovery/vmware-azure-manage-configuration-server#generate-configuration-server-passphrase).
+`-P` |  Mandatory. Full file path of the file in which the passphrase is saved. [Learn more](./vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).
 
 ## Azure Virtual Machine agent
 

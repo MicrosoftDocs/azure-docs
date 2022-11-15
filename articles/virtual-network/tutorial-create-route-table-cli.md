@@ -3,7 +3,7 @@ title: Route network traffic - Azure CLI | Microsoft Docs
 description: In this article, learn how to route network traffic with a route table using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: mbender-ms
+author: asudbring
 manager: mtillman
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 04/20/2022
-ms.author: mbender
+ms.author: allensu
 ms.custom: devx-track-azurecli
 ---
 

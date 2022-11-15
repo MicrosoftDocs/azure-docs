@@ -6,10 +6,10 @@ manager: joannapea
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 09/26/2022
+ms.date: 10/07/2022
 ms.author: stevehow
 ms.reviewer: joanpo
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, engagement-fy23
 ---
 
 # Restore an existing dedicated SQL pool

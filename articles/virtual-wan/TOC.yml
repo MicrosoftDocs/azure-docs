@@ -27,6 +27,8 @@
     href: virtual-wan-expressroute-portal.md
 - name: Concepts
   items:
+  - name: What's new?
+    href: whats-new.md
   - name: Work remotely
     items:
     - name: Support for working remotely
@@ -99,12 +101,8 @@
       href: about-client-address-pools.md
     - name: P2S global and hub profiles
       href: global-hub-profile.md
-    - name: P2S client address pools
-      items:
-      - name: About address pools
-        href: about-client-address-pools.md
-      - name: User groups - assign client-specific addresses
-        href: user-groups-about.md
+    - name: User groups - assign client-specific addresses 
+      href: user-groups-about.md
   - name: Virtual hub settings
     href: hub-settings.md
   - name: Gateway settings
@@ -226,9 +224,17 @@
   - name: Routing
     items:
     - name: Configure virtual hub routing
-      href: how-to-virtual-hub-routing.md
+      items:
+      - name: Azure portal
+        href: how-to-virtual-hub-routing.md
+      - name: Azure PowerShell
+        href: how-to-virtual-hub-routing-powershell.md
     - name: Configure virtual hub routing preference
-      href: howto-virtual-hub-routing-preference.md
+      items:
+      - name: Azure portal
+        href: howto-virtual-hub-routing-preference.md
+      - name: Azure PowerShell
+        href: how-to-virtual-hub-routing-preference-powershell.md
     - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
     - name: How to configure routing intent and policies

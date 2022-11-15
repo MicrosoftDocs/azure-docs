@@ -119,8 +119,6 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 1. **Sign in to the newly created machine** with a user with sudo privileges.
 
-1. **Create and configure a data disk** to be mounted at the Docker root directory.
-
 1. **download and run the deployment Kickstart script**:
     For public cloud, the command is:
     ```bash

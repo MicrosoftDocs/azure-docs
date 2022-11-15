@@ -46,7 +46,7 @@ You can integrate Azure Load Testing in your CI/CD pipeline at meaningful points
 
 Get started with [adding load testing to your CI/CD workflow](./tutorial-identify-performance-regression-with-cicd.md) to quickly identify performance degradation of your application under load.
 
-In the test configuration, you [specify pass/fail rules](./how-to-define-test-criteria.md) to catch performance regressions early in the development cycle. For example, when the average response time exceeds a threshold, the test should fail.
+In the test configuration, [specify test fail criteria](./how-to-define-test-criteria.md) to catch application performance or stability regressions early in the development cycle. For example, get alerted when the average response time or the number of errors exceed a specific threshold.
 
 Azure Load Testing will automatically stop an automated load test in response to specific error conditions. You can also use the AutoStop listener in your Apache JMeter script. Automatically stopping safeguards you against failing tests further incurring costs, for example, because of an incorrectly configured endpoint URL.
 

@@ -46,6 +46,8 @@ items:
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
 - name: How-to
   items:
+  - name: Manage NAT gateway
+    href: manage-nat-gateway.md
   - name: Move across regions
     items:
     - name: Create and configure NAT gateway after region move

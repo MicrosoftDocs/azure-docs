@@ -2,8 +2,8 @@
 title: Configure Hybrid Kubernetes clusters with Container insights | Microsoft Docs
 description: This article describes how you can configure Container insights to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
-ms.date: 08/29/2022
-ms.reviewer: viviandiec
+ms.date: 06/30/2020
+ms.reviewer: aul
 ---
 
 # Configure hybrid Kubernetes clusters with Container insights
@@ -246,7 +246,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
 
 ## Install the HELM chart
 
-In this section you install the containerized agent for Container insights. Before proceeding, you need to identify the workspace ID required for the `omsagent.secret.wsid` parameter, and primary key required for the `omsagent.secret.key` parameter. You can identify this information by performing the following steps, and then run the commands to install the agent using the HELM chart.
+In this section you install the containerized agent for Container insights. Before proceeding, you need to identify the workspace ID required for the `amalogsagent.secret.wsid` parameter, and primary key required for the `amalogsagent.secret.key` parameter. You can identify this information by performing the following steps, and then run the commands to install the agent using the HELM chart.
 
 1. Run the following command to identify the workspace ID:
 
@@ -264,7 +264,7 @@ In this section you install the containerized agent for Container insights. Befo
 >The following commands are applicable only for Helm version 2. Use of the `--name` parameter is not applicable with Helm version 3. 
 
 >[!NOTE]
->If your Kubernetes cluster communicates through a proxy server, configure the parameter `omsagent.proxy` with the URL of the proxy server. If the cluster does not communicate through a proxy server, then you don't need to specify this parameter. For more information, see [Configure proxy endpoint](#configure-proxy-endpoint) later in this article.
+>If your Kubernetes cluster communicates through a proxy server, configure the parameter `amalogsagent.proxy` with the URL of the proxy server. If the cluster does not communicate through a proxy server, then you don't need to specify this parameter. For more information, see [Configure proxy endpoint](#configure-proxy-endpoint) later in this article.
 
 3. Add the Azure charts repository to your local list by running the following command:
 
@@ -276,21 +276,21 @@ In this section you install the containerized agent for Container insights. Befo
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> microsoft/azuremonitor-containers
+    --set amalogsagent.secret.wsid=<logAnalyticsWorkspaceId>,amalogsagent.secret.key=<logAnalyticsWorkspaceKey>,amalogsagent.env.clusterName=<my_prod_cluster> microsoft/azuremonitor-containers
     ```
 
     If the Log Analytics workspace is in Azure China 21Vianet, run the following command:
 
     ```
     $ helm install --name myrelease-1 \
-     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+     --set amalogsagent.domain=opinsights.azure.cn,amalogsagent.secret.wsid=<logAnalyticsWorkspaceId>,amalogsagent.secret.key=<logAnalyticsWorkspaceKey>,amalogsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
 
     If the Log Analytics workspace is in Azure US Government, run the following command:
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+    --set amalogsagent.domain=opinsights.azure.us,amalogsagent.secret.wsid=<logAnalyticsWorkspaceId>,amalogsagent.secret.key=<logAnalyticsWorkspaceKey>,amalogsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
 
 ### Enable the Helm chart using the API Model
@@ -326,7 +326,7 @@ After you have successfully deployed the chart, you can review the data for your
 
 ## Configure proxy endpoint
 
-Starting with chart version 2.7.1, chart will support specifying the proxy endpoint with the `omsagent.proxy` chart parameter. This allows it to communicate through your proxy server. Communication between the Container insights agent and Azure Monitor can be an HTTP or HTTPS proxy server, and both anonymous and basic authentication (username/password) are supported.
+Starting with chart version 2.7.1, chart will support specifying the proxy endpoint with the `amalogsagent.proxy` chart parameter. This allows it to communicate through your proxy server. Communication between the Container insights agent and Azure Monitor can be an HTTP or HTTPS proxy server, and both anonymous and basic authentication (username/password) are supported.
 
 The proxy configuration value has the following syntax: `[protocol://][user:password@]proxyhost[:port]`
 
@@ -341,7 +341,7 @@ The proxy configuration value has the following syntax: `[protocol://][user:pass
 |proxyhost | Address or FQDN of the proxy server |
 |port | Optional port number for the proxy server |
 
-For example: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
+For example: `amalogsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
 If you specify the protocol as **http**, the HTTP requests are created using SSL/TLS secure connection. Your proxy server must support SSL/TLS protocols.
 
@@ -351,9 +351,9 @@ If you encounter an error while attempting to enable monitoring for your hybrid 
 
 - The specified Log Analytics workspace is valid
 - The Log Analytics workspace is configured with the Container insights solution. If not, configure the workspace.
-- OmsAgent replicaset pods are running
-- OmsAgent daemonset pods are running
-- OmsAgent Health service is running
+- Azure Monitor Agent replicaset pods are running
+- Azure Monitor Agent daemonset pods are running
+- Azure Monitor Agent Health service is running
 - The Log Analytics workspace ID and key configured on the containerized agent match with the workspace the Insight is configured with.
 - Validate all the Linux worker nodes have `kubernetes.io/role=agent` label to schedule rs pod. If it doesn't exist, add it.
 - Validate `cAdvisor secure port:10250` or `unsecure port: 10255` is opened on all nodes in the cluster.

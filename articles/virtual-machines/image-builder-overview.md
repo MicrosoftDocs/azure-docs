@@ -94,6 +94,7 @@ The VM Image Builder service is available in the following regions:
 - East Asia
 - Korea Central
 - South Africa North
+- Qatar Central
 - USGov Arizona (public preview)
 - USGov Virginia (public preview)
 

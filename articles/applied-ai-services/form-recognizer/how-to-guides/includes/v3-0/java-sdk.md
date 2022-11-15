@@ -71,12 +71,12 @@ ms.custom: devx-track-csharp
 
 1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **form-recognizer-app**, and navigate to it.
 
-    ```console
-    mkdir form-recognizer-app && form-recognizer-app
-    ```
+   ```console
+   mkdir form-recognizer-app && form-recognizer-app
+   ```
 
-    ```powershell
-    mkdir translator-text-app; cd translator-text-app
+   ```powershell
+   mkdir translator-text-app; cd translator-text-app
    ```
 
 1. Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.

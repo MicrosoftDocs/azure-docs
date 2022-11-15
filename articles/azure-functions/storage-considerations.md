@@ -45,7 +45,7 @@ The storage account connection string must be updated when you regenerate storag
 
 ### Shared storage accounts
 
-It's possible for multiple function apps to share the same storage account without any issues. For example, in Visual Studio you can develop multiple apps using the Azure Storage Emulator. In this case, the emulator acts like a single storage account. The same storage account used by your function app can also be used to store your application data. However, this approach isn't always a good idea in a production environment.
+It's possible for multiple function apps to share the same storage account without any issues. For example, in Visual Studio you can develop multiple apps using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator). In this case, the emulator acts like a single storage account. The same storage account used by your function app can also be used to store your application data. However, this approach isn't always a good idea in a production environment.
 
 You may need to use separate store accounts to [avoid host ID collisions](#avoiding-host-id-collisions).
 
@@ -89,7 +89,7 @@ You can use the following strategies to avoid host ID collisions:
 
 ### Override the host ID
 
-You can explicitly set a specific host ID for your function app in the application settings by using the `AzureFunctionsWebHost__hostId` setting. For more information, see [AzureFunctionsWebHost__hostId](functions-app-settings.md#azurefunctionswebhost__hostid). 
+You can explicitly set a specific host ID for your function app in the application settings by using the `AzureFunctionsWebHost__hostid` setting. For more information, see [AzureFunctionsWebHost__hostid](functions-app-settings.md#azurefunctionswebhost__hostid). 
 
 When the collision occurs between slots, you may need to mark this setting as a slot setting. To learn how to create app settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 

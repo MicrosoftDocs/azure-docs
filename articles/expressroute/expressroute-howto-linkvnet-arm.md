@@ -232,10 +232,6 @@ To enroll in the preview, send an email to **exrpm@microsoft.com**, providing th
 
 **FastPath support for virtual network peering and UDRs is only available for ExpressRoute Direct connections**.
 
-> [!NOTE]
-> * Virtual network peering and UDR support is enabled by default for all new FastPath connections 
-> * To enable virtual network peering and UDR support for FastPath connections configured before 9/19/2022, disable and enable FastPath on the target connection.
-
 ### FastPath and Private Link for 10 Gbps ExpressRoute Direct
 
 With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. This preview supports connections associated to 10 Gbps ExpressRoute Direct circuits. This preview doesn't support ExpressRoute circuits managed by an ExpressRoute partner.

@@ -2,7 +2,7 @@
 title: What is Azure Analysis Services?
 description: Learn about Azure Analysis Services, a fully managed platform as a service (PaaS) that provides enterprise-grade data models in the cloud.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: overview
 ms.date: 02/15/2022
 ms.author: owend
@@ -19,7 +19,7 @@ Azure Analysis Services is a fully managed platform as a service (PaaS) that pro
 
 ![Data sources](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Video:** Check out [Azure Analysis Services Overview](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4)  to learn how Azure Analysis Services fits in with Microsoft's overall BI capabilities.
+**Video:** Check out [Azure Analysis Services Overview](https://www.youtube.com/watch?v=m1jnG1zIvTo&t=31s) to learn how Azure Analysis Services fits in with Microsoft's overall BI capabilities.
 
 ## Get up and running quickly
 

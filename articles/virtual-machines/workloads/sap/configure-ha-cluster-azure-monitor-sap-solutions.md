@@ -1,11 +1,11 @@
 ---
 title: Create a High Availability Pacemaker cluster provider for Azure Monitor for SAP solutions (preview)
-description: Learn how to configure High Availability (HA) Pacemaker cluster providers for Azure Monitor for SAP solutions (AMS).
+description: Learn how to configure High Availability (HA) Pacemaker cluster providers for Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 10/19/2022
 ms.author: sujaj
 #Customer intent: As a developer, I want to create a High Availability Pacemaker cluster so I can use the resource with Azure Monitor for SAP solutions.
 ---
@@ -14,14 +14,14 @@ ms.author: sujaj
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-In this how-to guide, you'll learn to create a High Availability (HA) Pacemaker cluster provider for Azure Monitor for SAP solutions (AMS). You'll install the HA agent, then create the provider for AMS. 
+In this how-to guide, you'll learn to create a High Availability (HA) Pacemaker cluster provider for Azure Monitor for SAP solutions. You'll install the HA agent, then create the provider for Azure Monitor for SAP solutions. 
 
-This content applies to both AMS and AMS (classic) versions.
+This content applies to both Azure Monitor for SAP solutions and Azure Monitor for SAP solutions (classic) versions.
 
 ## Prerequisites
 
 - An Azure subscription. 
-- An existing AMS resource. To create an AMS resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
+- An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
 
 ## Install HA agent
 
@@ -34,11 +34,11 @@ For RHEL-based clusters, install **performance co-pilot (PCP)** and the **pcp-pm
 For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.com/articles/6139852) in each node.
 
 
-## Create provider for AMS
+## Create provider for Azure Monitor for SAP solutions
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to the AMS service. 
-1. Open your AMS resource.
+1. Go to the Azure Monitor for SAP solutions service. 
+1. Open your Azure Monitor for SAP solutions resource.
 1. In the resource's menu, under **Settings**, select **Providers**.
 1. Select **Add** to add a new provider.
 
@@ -70,4 +70,4 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about AMS provider types](azure-monitor-providers.md)
+> [Learn about Azure Monitor for SAP solutions provider types](azure-monitor-providers.md)

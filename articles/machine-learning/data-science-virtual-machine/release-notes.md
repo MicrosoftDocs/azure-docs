@@ -385,7 +385,7 @@ Selected version updates are:
 - CUDA 11.3, cuDNN 8, NCCL2
 - Python 3.8
 - R 4.0.5
-- Spark 3.1 incl. mmlspark, connectors to Blob Storage, Data Lake, Cosmos DB
+- Spark 3.1 incl. mmlspark, connectors to Blob Storage, Data Lake, Azure Cosmos DB
 - Java 11 (OpenJDK)
 - Jupyter Lab 3.0.14
 - PyTorch 1.8.1 incl. torchaudio torchtext torchvision, torch-tb-profiler

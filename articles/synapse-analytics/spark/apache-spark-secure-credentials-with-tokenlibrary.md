@@ -9,7 +9,7 @@ ms.subservice: spark
 ms.date: 09/26/2022
 ms.author: martinle
 ms.reviewer: nirav
-zone_pivot_groups: programming-languages-spark-all-minus-sql
+zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
 
@@ -17,9 +17,9 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql
 
 Accessing data from external sources is a common pattern. Unless the external data source allows anonymous access, chances are you need to secure your connection with a credential, secret, or connection string.  
 
-Synapse uses Azure Active Directory (AAD) passthrough by default for authentication between resources.  If you need to connect to a resource using other credentials, use the TokenLibrary directly.  The TokenLibrary simplifies the process of retrieving SAS tokens, AAD tokens, connection strings, and secrets stored in a linked service or from an Azure Key Vault.
+Synapse uses Azure Active Directory (Azure AD) passthrough by default for authentication between resources.  If you need to connect to a resource using other credentials, use the TokenLibrary directly.  The TokenLibrary simplifies the process of retrieving SAS tokens, Azure AD tokens, connection strings, and secrets stored in a linked service or from an Azure Key Vault.
 
-AAD passthrough uses permissions assigned to you as a user in AAD, rather than permissions assigned to Synapse or a separate service principal.  For example, if you want to use AAD passthrough to access a blob in a storage account, then you should go to that storage account and assign blob contributor role to yourself.
+Azure AD passthrough uses permissions assigned to you as a user in Azure AD, rather than permissions assigned to Synapse or a separate service principal.  For example, if you want to use Azure AD passthrough to access a blob in a storage account, then you should go to that storage account and assign blob contributor role to yourself.
 
 When retrieving secrets from Azure Key Vault, we recommend creating a linked service to your Azure Key Vault.  Ensure that the Synapse workspace managed service identity (MSI) has Secret Get privileges on your Azure Key Vault.  Synapse will authenticate to Azure Key Vault using the Synapse workspace managed service identity. If you connect directly to Azure Key Vault without a linked service, you will authenticate using your user Azure Active Directory credential.
 
@@ -318,7 +318,7 @@ print(accountKey)
 
 #### GetSecret()
 
-To retrieve a secret stored from Azure Key Vault, we recommend that you create a linked service to Azure Key Vault within the Synapse workspace. The Synapse workspace managed service identity will need to be granted **GET** Secrets permission to the Azure Key Vault.  The linked service will use the managed service identity to connect to Azure Key Vault service to retrieve the secret.  Otherwise, connecting directly to Azure Key Vault will use the user's Azure Active Directory (AAD) credential.  In this case, the user will need to be granted the Get Secret permissions in Azure Key Vault.
+To retrieve a secret stored from Azure Key Vault, we recommend that you create a linked service to Azure Key Vault within the Synapse workspace. The Synapse workspace managed service identity will need to be granted **GET** Secrets permission to the Azure Key Vault.  The linked service will use the managed service identity to connect to Azure Key Vault service to retrieve the secret.  Otherwise, connecting directly to Azure Key Vault will use the user's Azure Active Directory (Azure AD) credential.  In this case, the user will need to be granted the Get Secret permissions in Azure Key Vault.
 
 `TokenLibrary.GetSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>" [, <LINKED SERVICE NAME>])`
 

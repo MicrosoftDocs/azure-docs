@@ -127,6 +127,7 @@ There are some limitations to Defender for Cloud's identity and access protectio
 - Identity recommendations aren't available for subscriptions with more than 6,000 accounts. In these cases, these types of subscriptions will be listed under Not applicable tab.
 - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
 - Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
+- Identity recommendations don't support Azure AD conditional access policies with included Directory Roles instead of users and groups.
 
 
 ## Next steps

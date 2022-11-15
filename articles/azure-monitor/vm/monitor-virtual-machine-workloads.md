@@ -187,7 +187,7 @@ Azure Monitor has no ability to monitor the status of a service or daemon. There
 > [!NOTE]
 > The Change Tracking and Analysis solution is different from the [Change Analysis](vminsights-change-analysis.md) feature in VM insights. This feature is in public preview and not yet included in this scenario.
 
-For different options to enable the Change Tracking solution on your virtual machines, see [Enable Change Tracking and Inventory](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory). This solution includes methods to configure virtual machines at scale. You'll have to [create an Azure Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal) to support the solution.
+For different options to enable the Change Tracking solution on your virtual machines, see [Enable Change Tracking and Inventory](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory). This solution includes methods to configure virtual machines at scale. You'll have to [create an Azure Automation account](../../automation/quickstarts/create-azure-automation-account-portal.md) to support the solution.
 
 When you enable Change Tracking and Inventory, two new tables are created in your Log Analytics workspace. Use these tables for log query alert rules.
 

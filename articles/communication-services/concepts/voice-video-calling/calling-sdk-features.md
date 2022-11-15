@@ -61,7 +61,7 @@ The following list presents the set of features that are currently available in 
 |                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Support for early media                                                                                             | ❌   | ✔️       | ✔️              | ✔️                 |
+|                   | Support for early media                                                                                             | ✔️   | ✔️       | ✔️              | ✔️                 |
 | General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Get camera list                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -114,7 +114,7 @@ The following table represents the set of supported browsers which are currently
 | ------------ | ------ | ------ | --------------   |
 | Android      | ✔️      | ❌      | ❌           | 
 | iOS          | ❌      | ✔️      | ❌           |
-| macOS        | ✔️      | ✔️      | ❌           | 
+| macOS        | ✔️      | ✔️      | ✔️           | 
 | Windows      | ✔️      | ❌      | ✔️           |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 

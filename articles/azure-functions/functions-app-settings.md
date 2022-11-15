@@ -87,7 +87,7 @@ In version 2.x and later versions of the Functions runtime, configures app behav
 
 In version 2.x and later versions of the Functions runtime, application settings can override [host.json](functions-host-json.md) settings in the current environment. These overrides are expressed as application settings named `AzureFunctionsJobHost__path__to__setting`. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
 
-## AzureFunctionsWebHost__hostId
+## AzureFunctionsWebHost__hostid
 
 Sets the host ID for a given function app, which should be a unique ID. This setting overrides the automatically generated host ID value for your app. Use this setting only when you need to prevent host ID collisions between function apps that share the same storage account. 
 
@@ -95,7 +95,7 @@ A host ID must be between 1 and 32 characters, contain only lowercase letters, n
 
 |Key|Sample value|
 |---|------------|
-|AzureFunctionsWebHost__hostId|`myuniquefunctionappname123456789`|
+|AzureFunctionsWebHost__hostid|`myuniquefunctionappname123456789`|
 
 For more information, see [Host ID considerations](storage-considerations.md#host-id-considerations).
 
@@ -278,7 +278,7 @@ The following major runtime version values are supported:
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
-This setting enables your function app to run in a version 2.x compatible mode on the version 3.x runtime. Use this setting only if encountering issues when [upgrading your function app from version 2.x to 3.x of the runtime](functions-versions.md#migrating-from-2x-to-3x).
+This setting enables your function app to run in a version 2.x compatible mode on the version 3.x runtime. Use this setting only if encountering issues after upgrading your function app from version 2.x to 3.x of the runtime.
 
 >[!IMPORTANT]
 > This setting is intended only as a short-term workaround while you update your app to run correctly on version 3.x. This setting is supported as long as the [2.x runtime is supported](functions-versions.md). If you encounter issues that prevent your app from running on version 3.x without using this setting, please [report your issue](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
@@ -310,7 +310,7 @@ Valid values:
 | Value | Language |
 |---|---|
 | `dotnet` | [C# (class library)](functions-dotnet-class-library.md)<br/>[C# (script)](functions-reference-csharp.md) |
-| `dotnet-isolated` | [C# (isolated process)](dotnet-isolated-process-guide.md) |
+| `dotnet-isolated` | [C# (isolated worker process)](dotnet-isolated-process-guide.md) |
 | `java` | [Java](functions-reference-java.md) |
 | `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
@@ -518,7 +518,7 @@ Sets the version of Node.js to use when running your function app on Windows. Yo
 
 ## WEBSITE\_OVERRIDE\_STICKY\_EXTENSION\_VERSIONS
 
-By default, the version settings for function apps are specific to each slot. This setting is used when upgrading functions by using [deployment slots](functions-deployment-slots.md). This prevents unanticipated behavior due to changing versions after a swap. Set to `0` in production and in the slot to make sure that all version settings are also swapped. For more information, see [Migrate using slots](functions-versions.md#migrate-using-slots). 
+By default, the version settings for function apps are specific to each slot. This setting is used when upgrading functions by using [deployment slots](functions-deployment-slots.md). This prevents unanticipated behavior due to changing versions after a swap. Set to `0` in production and in the slot to make sure that all version settings are also swapped. For more information, see [Upgrade using slots](migrate-version-3-version-4.md#upgrade-using-slots). 
 
 |Key|Sample value|
 |---|------------|
@@ -543,6 +543,14 @@ The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnecti
 |WEBSITE_SKIP_CONTENTSHARE_VALIDATION|`1`|
 
 If validation is skipped and either the connection string or content share are not valid, the app will be unable to start properly and will only serve HTTP 500 errors.
+
+## WEBSITE\_SLOT\_NAME
+
+Read-only. Name of the current deployment slot. The name of the production slot is `Production`.
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_SLOT_NAME|`Production`|
 
 ## WEBSITE\_TIME\_ZONE
 
@@ -599,7 +607,7 @@ For more information, see [Create a function on Linux using a custom container](
 
 ### netFrameworkVersion
 
-Sets the specific version of .NET for C# functions. For more information, see [Migrating from 3.x to 4.x](functions-versions.md#migrating-from-3x-to-4x). 
+Sets the specific version of .NET for C# functions. For more information, see [Upgrade your function app in Azure](migrate-version-3-version-4.md?pivots=programming-language-csharp#upgrade-your-function-app-in-azure). 
 
 ### powerShellVersion 
 

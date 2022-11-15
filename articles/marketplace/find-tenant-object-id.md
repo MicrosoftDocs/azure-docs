@@ -97,4 +97,4 @@ This section describes how to find tenant, object, and PartnerID (formerly MPN I
 
 ## Next steps
 
-- [Supported countries and regions](sell-from-countries.md)
+- [Supported countries and regions](supported-countries-regions.md)

@@ -17,7 +17,7 @@ ms.custom: contperf-fy21q2
 
 # Manage app consent policies
 
-With [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true), you can view and manage app consent policies.
+With [Microsoft Graph](/graph/overview) and [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true), you can view and manage app consent policies.
 
 An app consent policy consists of one or more "include" condition sets and zero or more "exclude" condition sets. For an event to be considered in an app consent policy, it must match *at least* one "include" condition set, and must not match *any* "exclude" condition set.
 
@@ -136,6 +136,7 @@ The following table provides the list of supported conditions for app consent po
 
 To learn more:
 
+* [Manage app consent policies using Microsoft Graph](/graph/api/resources/permissiongrantpolicy)
 * [Configure user consent settings](configure-user-consent.md)
 * [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 * [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)

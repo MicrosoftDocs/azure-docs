@@ -7,8 +7,7 @@ author: batamig
 manager: rkarlin
 editor: ''
 
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -93,7 +92,7 @@ Implementing new updates will help identify any prior campaigns and prevent futu
 
 Therefore, we recommend also taking the following actions:
 
-- Make sure that you've applied the [Azure security benchmark documentation](/security/benchmark/azure/), and are monitoring compliance via [Microsoft Defender for Cloud](../../security-center/index.yml).
+- Make sure that you've applied the [Microsoft cloud security benchmark](/security/benchmark/azure), and are monitoring compliance via [Microsoft Defender for Cloud](../../security-center/index.yml).
 
 - Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft Purview Data Connectors in [Microsoft Sentinel](../../sentinel/understand-threat-intelligence.md).
 
