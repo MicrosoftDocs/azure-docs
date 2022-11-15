@@ -58,7 +58,7 @@ The choices between these two options are based on your customer’s needs and y
 
 * **Azure role-based access control (Azure RBAC)** – Azure RBAC is based on Azure Active Directory.  For more information on Azure RBAC, see [here](../role-based-access-control/role-assignments-portal.md).
 * **Networking** – Covers the various topics of networking in Microsoft Azure.
-* **Azure Active Directory (Azure AD)** – Azure AD provides the identity management for Microsoft Azure and third-party SaaS applications. For more information about Azure AD, see [here](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Azure Active Directory (Azure AD)** – Azure AD provides the identity management for Microsoft Azure and third-party SaaS applications. For more information about Azure AD, see [here](../active-directory/index.yml).  
 
 ## Network speeds
 ExpressRoute supports network speeds from 50 Mb/s to 10 Gb/s. This allows customers to purchase the amount of network bandwidth needed for their unique environment.

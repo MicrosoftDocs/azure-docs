@@ -4,7 +4,7 @@ description: Learn how to use the PowerShell in your browser with Azure Cloud Sh
 author: maertendmsft
 ms.author: damaerte
 tags: azure-resource-manager
-ms.service: azure
+ms.service: cloud-shell
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article

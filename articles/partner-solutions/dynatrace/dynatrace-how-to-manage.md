@@ -1,16 +1,17 @@
 ---
-title: Manage your Dynatrace for Azure (preview) integration - Azure partner solutions
+title: Manage your Dynatrace for Azure integration
 description: This article describes how to manage Dynatrace on the Azure portal. 
-ms.topic: conceptual
 author: flang-msft
+
+ms.topic: conceptual
 ms.author: franlanglois
-ms.date: 06/07/2022
+ms.date: 10/12/2022
 
 ---
 
 # Manage the Dynatrace integration with Azure
 
-This article describes how to manage the settings for your Dynatrace for Azure (preview).
+This article describes how to manage the settings for Dynatrace for Azure.
 
 ## Resource overview
 
@@ -33,7 +34,7 @@ At the bottom, you see two tabs:
 - **Get started tab** also provides links to Dynatrace dashboards, logs and Smartscape Topology.
 - **Monitoring tab** provides a summary of the resources sending logs to Dynatrace.
 
-If you select the **Monitoring** pane, you see a table with information about the Dynatrace resource.
+If you select the **Monitoring** pane, you see a table with information about the Azure resources sending logs to Dynatrace.
 
 :::image type="content" source="media/dynatrace-how-to-manage/dynatrace-monitoring.png" alt-text="Screenshot of overview working pane showing monitoring.":::
 
@@ -61,8 +62,8 @@ You can filter the list of resources by resource type, resource group name, regi
 
 The column **Logs to Dynatrace** indicates whether the resource is sending logs to Dynatrace. If the resource isn't sending logs, this field indicates why logs aren't being sent. The reasons could be:
 
-- _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
-- _Limit of five diagnostic settings reached_ - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
+- _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
+- _Limit of five diagnostic settings reached_ - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/cli/azure/monitor/diagnostic-settings).
 - _Error_ - The resource is configured to send logs to Dynatrace, but is blocked by an error.
 - _Logs not configured_ - Only Azure resources that have the appropriate resource tags are configured to send logs to Dynatrace.
 - _Agent not configured_ - Virtual machines without the Dynatrace OneAgent installed don't emit logs to Dynatrace.
@@ -77,14 +78,14 @@ For each virtual machine, the following info is displayed:
 |------------|------------|
 | **Resource Name** | Virtual machine name |
 | **Resource Status** | Indicates whether the virtual machine is stopped or running. Dynatrace OneAgent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Dynatrace OneAgent will be disabled. |
-| **Agent status** | Whether the Dynatrace OneAgent is running on the virtual machine |
-| **Agent version** | The Dynatrace OneAgent version number |
+| **OneAgent status** | Whether the Dynatrace OneAgent is running on the virtual machine |
+| **OneAgent version** | The Dynatrace OneAgent version number |
 | **Auto-update** | Whether auto-update has been enabled for the OneAgent |
-| **Log analytics** | Whether log monitoring option was selected when OneAgent was installed |
+| **Log monitoring** | Whether log monitoring option was selected when OneAgent was installed |
 | **Monitoring mode** | Whether the Dynatrace OneAgent is monitoring hosts in [full-stack monitoring mode or infrastructure monitoring mode](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring) |
 
 > [!NOTE]
-> If a virtual machine shows that an agent has been configured, but the options to manage the agent through extension are disabled, it means that the agent has been configured through a different Dynatrace resource in the same Azure subscription.
+> If a virtual machine shows that an OneAgent is installed, but the option Uninstall extension is disabled, then the agent was configured through a different Dynatrace resource in the same Azure subscription. To make any changes, please go to the other Dynatrace resource in the Azure subscription.
 
 ## Monitor App Services using Dynatrace OneAgent
 
@@ -97,8 +98,8 @@ For each app service, the following information is displayed:
 | **Resource name** | App service name |
 | **Resource status** | Indicates whether the App service is running or stopped. Dynatrace OneAgent can only be installed on app services that are running. |
 | **App Service plan** | The plan configured for the app service |
-| **Agent version** | The Dynatrace OneAgent version |
-| **Agent status** | status of the agent |
+| **OneAgent version** | The Dynatrace OneAgent version |
+| **OneAgent status** | status of the agent |
 
 To install the Dynatrace OneAgent, select the app service and select **Install Extension.** The application settings for the selected app service are updated and the app service is restarted to complete the configuration of the Dynatrace OneAgent.
 
@@ -124,7 +125,7 @@ Select **Overview** in Resource menu. Then, select **Delete**. Confirm that you 
 
 If only one Dynatrace resource is mapped to a Dynatrace environment, logs are no longer sent to Dynatrace. All billing through Azure Marketplace stops for Dynatrace.
 
-If more than one Dynatrace resource is mapped to the Dynatrace environment using the link Azure subscription option, deleting the Dynatrace resource only stops sending logs for that Dynatrace resource. However, since other Dynatrace environment may be linked to other Dynatrace resources, billing continues through the Azure Marketplace.
+If more than one Dynatrace resource is mapped to the Dynatrace environment using the link Azure subscription option, deleting the Dynatrace resource only stops sending logs for Azure resources associated to that Dynatrace resource. However, since this one Dynatrace environment might still be linked to other Dynatrace resources, billing continues through the Azure Marketplace.
 
 ## Next steps
 

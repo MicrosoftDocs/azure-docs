@@ -14,7 +14,7 @@ ms.author: damendo
 
 # Introduction to Network Configuration Diagnostics in Azure Network Watcher
 
-The Network Configuration Diagnostic tool helps customers understand which traffic flows will be allowed or denied in your Azure Virtual Network along with detailed information for debugging. It can help your in understanding if your NSG rules are configured correctly. 
+The Network Configuration Diagnostic tool helps customers understand which traffic flows will be allowed or denied in your Azure Virtual Network along with detailed information for debugging. It can help you in understanding if your NSG rules are configured correctly. 
 
 ## Pre-requisites
 For using Network Configuration Diagnostics, Network Watcher must be enabled in your subscription. See [Create an Azure Network Watcher instance](./network-watcher-create.md) to enable.

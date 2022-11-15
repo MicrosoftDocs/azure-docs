@@ -1,23 +1,23 @@
 ---
-title: Quickstart - Create a virtual machine scale set in the Azure portal
+title: Quickstart - Create a Virtual Machine Scale Set in the Azure portal
 description: Get started with your deployments by learning how to quickly create a virtual machine scale the Azure portal.
 author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
-ms.date: 06/30/2020
+ms.date: 11/01/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, mode-ui
 ---
 
-# Quickstart: Create a virtual machine scale set in the Azure portal
+# Quickstart: Create a Virtual Machine Scale Set in the Azure portal
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 > [!NOTE]
-> The following article is for Uniform virtual machine scale sets. We recommend using Flexible virtual machine scale sets for new workloads. Learn more about this new orchestration mode in our [Flexible virtual machine scale sets overview](flexible-virtual-machine-scale-sets.md).
+> The following article is for Uniform Virtual Machine Scale Sets. We recommend using Flexible Virtual Machine Scale Sets for new workloads. Learn more about this new orchestration mode in our [Flexible Virtual Machine Scale Sets overview](flexible-virtual-machine-scale-sets.md).
 
-A virtual machine scale set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set in the Azure portal.
+A Virtual Machine Scale Set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a Virtual Machine Scale Set in the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -52,10 +52,10 @@ First, create a public Standard Load Balancer by using the portal. The name and 
 
 ![Create a load balancer](./media/virtual-machine-scale-sets-create-portal/load-balancer.png)
 
-## Create virtual machine scale set
+## Create Virtual Machine Scale Set
 You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
 
-1. Type **Scale set** in the search box. In the results, under **Marketplace**, select **Virtual machine scale sets**. Select **Create** on the **Virtual machine scale sets** page, which will open the **Create a virtual machine scale set** page. 
+1. Type **Scale set** in the search box. In the results, under **Marketplace**, select **Virtual Machine Scale Sets**. Select **Create** on the **Virtual Machine Scale Sets** page, which will open the **Create a Virtual Machine Scale Set** page. 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and select *myVMSSResourceGroup* from resource group list. 
 1. Type *myScaleSet* as the name for your scale set.
 1. In **Region**, select a region that is close to your area.
@@ -82,7 +82,7 @@ When no longer needed, delete the resource group, scale set, and all related res
 
 
 ## Next steps
-In this quickstart, you created a basic scale set in the Azure portal. To learn more, continue to the tutorial for how to create and manage Azure virtual machine scale sets.
+In this quickstart, you created a basic scale set in the Azure portal. To learn more, continue to the tutorial for how to create and manage Azure Virtual Machine Scale Sets.
 
 > [!div class="nextstepaction"]
-> [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-powershell.md)
+> [Create and manage Azure Virtual Machine Scale Sets](tutorial-create-and-manage-powershell.md)

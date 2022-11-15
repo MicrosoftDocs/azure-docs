@@ -4,9 +4,10 @@ titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 10/12/2022
 ms.author: helohr
 ms.service: virtual-desktop
+ms.custom: ignite-2022
 manager: femila
 ---
 # Security best practices
@@ -28,7 +29,7 @@ Here are the security needs you're responsible for in your Azure Virtual Desktop
 |Identity|Yes|
 |User devices (mobile and PC)|Yes|
 |App security|Yes|
-|Session host OS|Yes|
+|Session host operating system (OS)|Yes|
 |Deployment configuration|Yes|
 |Network controls|Yes|
 |Virtualization control plane|No|
@@ -82,11 +83,15 @@ Enabling audit log collection lets you view user and admin activity related to A
 
 ### Use RemoteApps
 
-When choosing a deployment model, you can either provide remote users access to entire virtual desktops or only select applications. Remote applications, or RemoteApps, provide a seamless experience as the user works with apps on their virtual desktop. RemoteApps reduce risk by only letting the user work with with a subset of the remote machine exposed by the application.
+When choosing a deployment model, you can either provide remote users access to entire virtual desktops or only select applications. Remote applications, or RemoteApps, provide a seamless experience as the user works with apps on their virtual desktop. RemoteApps reduce risk by only letting the user work with a subset of the remote machine exposed by the application.
 
 ### Monitor usage with Azure Monitor
 
 Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.
+
+### Encrypt your VM
+
+Encrypt your VM with [managed disk encryption options](../virtual-machines/disk-encryption-overview.md) to protect stored data from unauthorized access. 
 
 ## Session host security best practices
 
@@ -148,8 +153,13 @@ By restricting operating system capabilities, you can strengthen the security of
 
 Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 
->[!NOTE]
->Bring your own custom image for Trusted Launch VM is not yet supported. When deploying an AVD Host Pool, you will be limited to the list of pre-canned OS images listed in the dropdown "Image" combo box. 
+## Azure Confidential Computing virtual machines (preview)
+
+> [!IMPORTANT]
+> Azure Virtual Desktop support for Azure Confidential virtual machines is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Azure Virtual Desktop support for Azure Confidential Computing virtual machines (preview) ensures a user’s virtual desktop is encrypted in memory, protected in use, and backed by hardware root of trust. Deploying confidential VMs with Azure Virtual Desktop gives users access to Microsoft 365 and other applications on session hosts that use hardware-based isolation, which hardens isolation from other virtual machines, the hypervisor, and the host OS. These virtual desktops are powered by the latest Third-generation (Gen 3) Advanced Micro Devices (AMD) EPYC™ processor with Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP) technology. Memory encryption keys are generated and safeguarded by a dedicated secure processor inside the AMD CPU that can't be read from software. For more information, see the [Azure Confidential Computing overview](../confidential-computing/overview.md).
 
 ### Secure Boot
 
@@ -163,7 +173,7 @@ Remote attestation is a great way to check the health of your VMs. Remote attest
 
 A vTPM is a virtualized version of a hardware Trusted Platform Module (TPM), with a virtual instance of a TPM per VM. vTPM enables remote attestation by performing integrity measurement of the entire boot chain of the VM (UEFI, OS, system, and drivers). 
 
-We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enabled, you can also enable BitLocker functionality, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the Azure Virtual Desktop service in a pooled scenario, users can be redirected to any VM in the host pool. Depending on how the feature is designed this may have an impact.
+We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enabled, you can also enable BitLocker functionality with Azure Disk Encryption, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the Azure Virtual Desktop service in a pooled scenario, users can be redirected to any VM in the host pool. Depending on how the feature is designed this may have an impact.
 
 >[!NOTE]
 >BitLocker should not be used to encrypt the specific disk where you're storing your FSLogix profile data.
@@ -189,7 +199,8 @@ The following operating systems support running nested virtualization on Azure V
 - Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
-- Windows 11
+- Windows 11 Enterprise
+- Windows 11 Enterprise multi-session
 
 ## Windows Defender Application Control
 
@@ -200,7 +211,8 @@ The following operating systems support using Windows Defender Application Contr
 - Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
-- Windows 11
+- Windows 11 Enterprise
+- Windows 11 Enterprise multi-session
 
 >[!NOTE]
 >When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.

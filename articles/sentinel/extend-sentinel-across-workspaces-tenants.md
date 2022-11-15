@@ -80,7 +80,7 @@ You can use saved [functions](../azure-monitor/logs/functions.md) to simplify cr
 
 A function can also simplify a commonly used union. For example, you can save the following expression as a function called `unionSecurityEvent`:
 
-`union workspace(“hard-to-remember-workspace-name-1”).SecurityEvent, workspace(“hard-to-remember-workspace-name-2”).SecurityEvent`
+`union workspace("hard-to-remember-workspace-name-1").SecurityEvent, workspace("hard-to-remember-workspace-name-2").SecurityEvent`
 
 You can then write a query across both workspaces by beginning with `unionSecurityEvent | where ...` .
 
@@ -99,7 +99,8 @@ Alerts and incidents created by cross-workspace analytics rules contain all the 
 
 #### Cross-workspace workbooks<a name="using-cross-workspace-workbooks"></a>
 <!-- Bookmark added for backward compatibility with old heading -->
-[Workbooks](./overview.md#workbooks) provide dashboards and apps to Microsoft Sentinel. When working with multiple workspaces, workbooks provide monitoring and actions across workspaces.
+
+Workbooks provide dashboards and apps to Microsoft Sentinel. When working with multiple workspaces, workbooks provide monitoring and actions across workspaces.
 
 Workbooks can provide cross-workspace queries in one of three methods, suitable for different levels of end-user expertise:
 

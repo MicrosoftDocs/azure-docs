@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 01/18/2022
-ms.custom: sdkv2, event-tier1-build-2022
+ms.custom: sdkv1, event-tier1-build-2022, ignite-2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
@@ -42,7 +42,7 @@ Automated ML supports model training for computer vision tasks like image classi
     To install the SDK you can either, 
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
 
-    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
     
     > [!NOTE]
     > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
@@ -75,7 +75,7 @@ In order to generate computer vision models, you need to bring labeled image dat
 If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the sample notebooks to convert the data to JSONL. Learn more about how to [prepare data for computer vision tasks with automated ML](../how-to-prepare-datasets-for-automl-images.md). 
 
 > [!Warning]
-> Creation of TabularDatasets is only supported using the SDK to create datasets from data in JSONL format for this capability. Creating the dataset via UI is not supported at this time.
+> Creation of TabularDatasets from data in JSONL format is supported using the SDK only, for this capability. Creating the dataset via UI is not supported at this time. As of now, the UI doesn't recognize the StreamInfo datatype, which is the datatype used for image URLs in JSONL format.
 
 > [!Note]
 > The training dataset needs to have at least 10 images in order to be able to submit an AutoML run. 
@@ -187,6 +187,9 @@ automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 
 Provide a [compute target](../v1/concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU leverages multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
 
+> [!NOTE]
+> If you are using a [compute instance](../concept-compute-instance.md) as your compute target, please make sure that multiple AutoML jobs are not run at the same time. Also, please make sure that `max_concurrent_iterations` is set to 1 in your [experiment resources](#resources-for-the-sweep).
+
 The compute target is a required parameter and is passed in using the `compute_target` parameter of the `AutoMLImageConfig`. For example:
 
 ```python
@@ -280,7 +283,7 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 * [Bayesian sampling](../how-to-tune-hyperparameters.md#bayesian-sampling) 
     
 > [!NOTE]
-> Currently only random sampling supports conditional hyperparameter spaces.
+> Currently only random and grid sampling support conditional hyperparameter spaces.
 
 ### Early termination policies
 
@@ -393,7 +396,7 @@ automl_image_run = experiment.submit(automl_image_config)
 The automated ML training runs generates output model files, evaluation metrics, logs and deployment artifacts like the scoring file and the environment file which can be viewed from the outputs and logs and metrics tab of the child runs.
 
 > [!TIP]
-> Check how to navigate to the run results from the  [View run results](../how-to-understand-automated-ml.md#view-run-results) section.
+> Check how to navigate to the job results from the  [View run results](../how-to-understand-automated-ml.md#view-job-results) section.
 
 For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](../how-to-understand-automated-ml.md#metrics-for-image-models-preview)
 
@@ -512,11 +515,11 @@ For a detailed description on task specific hyperparameters, please refer to [Hy
 If you want to use tiling, and want to control tiling behavior, the following parameters are available: `tile_grid_size`, `tile_overlap_ratio` and `tile_predictions_nms_thresh`. For more details on these parameters please check [Train a small object detection model using AutoML](../how-to-use-automl-small-object-detect.md).
 
 ## Example notebooks
-Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml). Please check the folders with 'image-' prefix for samples specific to building computer vision models.
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml). Please check the folders with 'image-' prefix for samples specific to building computer vision models.
 
 
 ## Next steps
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](../tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](../tutorial-auto-train-image-models.md).
 * [Make predictions with ONNX on computer vision models from AutoML](../how-to-inference-onnx-automl-image-models.md) 
 * [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md).

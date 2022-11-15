@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 08/01/2022
 ms.author: mathapli
 ---
 
@@ -26,11 +26,7 @@ This section provides list of RHEL images available in Azure. Unless otherwise s
 
 Offer| SKU | Partitioning | Provisioning | Notes
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | RAW    | Linux Agent | Extended Lifecycle Support available. [More details here.](redhat-extended-lifecycle-support.md)
-|             | 6.8      | RAW    | Linux Agent | Extended Lifecycle Support available. [More details here.](redhat-extended-lifecycle-support.md)
-|             | 6.9      | RAW    | Linux Agent | Extended Lifecycle Support available. [More details here.](redhat-extended-lifecycle-support.md)
-|             | 6.10     | RAW    | Linux Agent | Extended Lifecycle Support available. [More details here.](redhat-extended-lifecycle-support.md)
-|             | 7-RAW    | RAW    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS).
+RHEL          | 7-RAW    | RAW    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS).
 |             | 7-LVM    | LVM    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you're looking for a standard RHEL image to deploy, use this set of images and/or its Generation 2 counterpart.
 |             | 7lvm-gen2| LVM    | Linux Agent | Generation 2, RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you're looking for a standard RHEL image to deploy, use this set of images and/or its Generation 1 counterpart.
 |             | 7-RAW-CI | RAW-CI | cloud-init  | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS).
@@ -135,6 +131,8 @@ RHEL-HA (out of support)       | 7.4       | LVM    | Linux Agent | RHEL 7.4 wit
 
 > [!NOTE]
 > The RHEL-SAP-HANA product offering is considered end of life by Red Hat. Existing deployments will continue to work normally, but Red Hat recommends that customers migrate from the RHEL-SAP-HANA images to the RHEL-SAP-HA images which includes the SAP HANA repositories and the HA add-on. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
+>
+> RHEL 6.7, 6.8, 6.9, and 6.10 have [Extended Lifecycle Support](redhat-extended-lifecycle-support.md) available.
 
 ### RHEL ARM64 architecture images
 

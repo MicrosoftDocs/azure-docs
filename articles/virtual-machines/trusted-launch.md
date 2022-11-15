@@ -6,8 +6,8 @@ ms.author: dejv
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 05/31/2022
-ms.reviewer: cynthn
+ms.date: 09/22/2022
+ms.reviewer: mattmcinnes
 ms.custom: template-concept; references_regions
 ---
 
@@ -34,6 +34,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 **VM size support**:
 - B-series
 - DCsv2-series
+- DCsv3-series, DCdsv3-series
 - Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series
 - Dav4-series, Dasv4-series
 - Ddv4-series, Ddsv4-series
@@ -49,16 +50,18 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - Edv4-series, Edsv4-series
 - Fsv2-series
 - Lsv2-series
+- NCasT4_v3-series
+- NVadsA10 v5-series
 
 **OS support**:
-- Redhat Enterprise Linux 8.3, 8.4, 8.5 LVM
+- Redhat Enterprise Linux 8.3, 8.4, 8.5, 8.6, 9.0 LVM
 - SUSE Enterprise Linux 15 SP3
 - Ubuntu Server 22.04 LTS
 - Ubuntu Server 20.04 LTS
 - Ubuntu Server 18.04 LTS
 - Debian 11
 - CentOS 8.3, 8.4
-- Oracle Linux 8.3 LVM
+- Oracle Linux 8.3, 8.4, 8.5, 8.6, 9.0 LVM
 - CBL-Mariner
 - Windows Server 2022
 - Windows Server 2019
@@ -81,7 +84,6 @@ No additional cost to existing VM pricing.
 - Shared disk
 - Ultra disk
 - Managed image
-- Azure Dedicated Host
 - Nested Virtualization
 
 ## Secure boot

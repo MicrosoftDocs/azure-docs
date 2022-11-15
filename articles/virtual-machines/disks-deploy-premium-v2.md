@@ -1,18 +1,18 @@
 ---
-title: Deploy a Premium SSD v2 (preview) managed disk
-description: Learn how to deploy a Premium SSD v2 (preview).
+title: Deploy a Premium SSD v2 managed disk
+description: Learn how to deploy a Premium SSD v2.
 author: roygara
 ms.author: rogarana
-ms.date: 07/18/2022
+ms.date: 11/08/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 ---
 
-# Deploy a Premium SSD v2 (preview)
+# Deploy a Premium SSD v2
 
-Azure Premium SSD v2 (preview) is designed for IO-intense enterprise workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers. For conceptual information on Premium SSD v2, see [Premium SSD v2 (preview)](disks-types.md#premium-ssd-v2-preview).
+Azure Premium SSD v2 is designed for IO-intense enterprise workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers. For conceptual information on Premium SSD v2, see [Premium SSD v2](disks-types.md#premium-ssd-v2).
 
 ## Limitations
 
@@ -24,7 +24,7 @@ Azure Premium SSD v2 (preview) is designed for IO-intense enterprise workloads t
 
 ## Prerequisites
 
-- [Sign-up](https://aka.ms/PremiumSSDv2PreviewForm) for the public preview.
+- [Sign up](https://aka.ms/PremiumSSDv2AccessRequest) for access to Premium SSD v2.
 - Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-az-ps). 
 
 ## Determine region availability programmatically
@@ -172,9 +172,9 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 
     :::image type="content" source="media/disks-deploy-premium-v2/premv2-create-data-disk.png" alt-text="Screenshot highlighting create and attach a new disk on the disk page." lightbox="media/disks-deploy-premium-v2/premv2-create-data-disk.png":::
 
-1. Select the **Disk SKU** and select **Premium SSD v2 (Preview)**.
+1. Select the **Disk SKU** and select **Premium SSD v2**.
 
-    :::image type="content" source="media/disks-deploy-premium-v2/premv2-select.png" alt-text="Screenshot selecting Premium SSD v2 (preview) SKU." lightbox="media/disks-deploy-premium-v2/premv2-select.png":::
+    :::image type="content" source="media/disks-deploy-premium-v2/premv2-select.png" alt-text="Screenshot selecting Premium SSD v2 SKU." lightbox="media/disks-deploy-premium-v2/premv2-select.png":::
 
 1. Proceed through the rest of the VM deployment, making any choices that you desire.
 
@@ -191,12 +191,7 @@ Unlike other managed disks, the performance of a Premium SSD v2 can be configure
 The following command changes the performance of your disk, update the values as you like, then run the command:
 
 ```azurecli
-az disk update `
---subscription $subscription `
---resource-group $rgname `
---name $diskName `
---set diskIopsReadWrite=5000 `
---set diskMbpsReadWrite=200
+az disk update --subscription $subscription --resource-group $rgname --name $diskName --disk-iops-read-write=5000 --disk-mbps-read-write=200
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -210,11 +205,7 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 # [Azure portal](#tab/portal)
 
-1. Navigate to your disk and select **Size + Performance**.
-1. Change the values to your desire.
-1. Select **Resize**.
-
-    :::image type="content" source="media/disks-deploy-premium-v2/premv2-performance.png" alt-text="Screenshot showing the Size+performance page of a premium v2 SSD." lightbox="media/disks-deploy-premium-v2/premv2-performance.png":::
+Currently, adjusting disk performance is only supported with Azure CLI or the Azure PowerShell module.
 
 ---
 

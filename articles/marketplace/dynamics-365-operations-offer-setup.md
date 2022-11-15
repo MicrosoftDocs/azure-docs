@@ -4,9 +4,9 @@ description: Create a Dynamics 365 Operations Apps offer on Microsoft AppSource 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
-ms.date: 06/29/2022
+author: trkeya
+ms.author: trkeya
+ms.date: 07/20/2022
 ---
 
 # Create a Dynamics 365 Operations Apps offer
@@ -16,6 +16,8 @@ This article describes how to create a [Dynamics 365 Operations Apps](https://dy
 Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
 ## Before you begin
+
+Before you can publish a Dynamics 365 Operations Apps offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 

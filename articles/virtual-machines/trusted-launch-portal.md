@@ -3,7 +3,7 @@ title: Deploy a trusted launch VM
 description: Deploy a VM that uses trusted launch.
 author: lakmeedee
 ms.author: dejv
-ms.reviewer: cynthn
+ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
@@ -203,7 +203,7 @@ Sign in to Azure using `az login`.
 az login 
 ```
 
-Create an image definition with TrustedLaunch security type 
+Create an image definition with `TrustedLaunch` security type 
 
 ```azurecli-interactive
 az sig image-definition create --resource-group MyResourceGroup --location eastus \ 
@@ -341,7 +341,7 @@ For VMs created with trusted launch enabled, you can view the trusted launch con
 
 :::image type="content" source="media/trusted-launch/overview-properties.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
-To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the Trusted LaunchSecurity type section. Select Save at the top of the page when you are done. 
+To change the trusted launch configuration, in the left menu, under the **Settings** section, select **Configuration**. You can enable or disable Secure Boot and vTPM from the **Security type** section. Select **Save** at the top of the page when you are done.
 
 :::image type="content" source="media/trusted-launch/update.png" alt-text="Screenshot showing check boxes to change the Trusted Launch settings.":::
 

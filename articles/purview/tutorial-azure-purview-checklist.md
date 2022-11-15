@@ -12,7 +12,11 @@ ms.date: 04/22/2022
 
 # Microsoft Purview (formerly Azure Purview) deployment checklist
 
-This article lists prerequisites that help you get started quickly on planning and deployment for your Microsoft Purview (formerly Azure Purview) account
+This article lists prerequisites that help you get started quickly on planning and deployment for your Microsoft Purview (formerly Azure Purview) account.
+
+If you are creating a plan to deploy Microsoft Purview, and also want to consider best practices as you develop your deployment strategy, then use [our deployment best practices guide](deployment-best-practices.md) to get started.
+
+If you are looking for a strictly technical deployment guide, this deployment checklist is for you.
 
 |No.  |Prerequisite / Action  |Required permission  |More guidance and recommendations  |
 |:---------|:---------|:---------|:---------|
@@ -50,7 +54,7 @@ This article lists prerequisites that help you get started quickly on planning a
 |32     |Verify if you have at least one **Microsoft 365 required license** in your Azure Active Directory tenant to use sensitivity labels in Microsoft Purview.         |Azure Active Directory *Global Reader*         |Perform this step if you're planning to extend **sensitivity labels to Microsoft Purview Data Map** <br>  For more information, see [licensing requirements to use sensitivity labels on files and database columns in Microsoft Purview](sensitivity-labels-frequently-asked-questions.yml)       |
 |33     |Consent "**Extend labeling to assets in Microsoft Purview Data Map**"         |Compliance Administrator <br> Azure Information Protection Administrator          |Use this step if you're interested in extending sensitivity labels to your data in the data map. <br> For more information, see [Labeling in the Microsoft Purview Data Map](create-sensitivity-label.md).         |
 |34     |Create new collections and assign roles in Microsoft Purview         |*Collection admin*         | [Create a collection and assign permissions in Microsoft Purview](./quickstart-create-collection.md).       |
-|36     |Register and scan Data Sources in Microsoft Purview          |*Data Source admin* <br> *Data Reader* or *Data Curator*         | For more information, see [supported data sources and file types](azure-purview-connector-overview.md)        |
+|36     |Govern Data Sources in Microsoft Purview          |*Data Source admin* <br> *Data Reader* or *Data Curator*         | For more information, see [supported data sources and file types](azure-purview-connector-overview.md)        |
 |35     |Grant access to data roles in the organization          |*Collection admin*          |Provide access to other teams to use Microsoft Purview: <ul><li> Data curator</li><li>Data reader</li><li>Collection admin</li><li>Data source admin</li><li>Policy Author</li><li>Workflow admin</li></ul> <br> For more information, see [Access control in Microsoft Purview](catalog-permissions.md).      |
 
 ## Next steps

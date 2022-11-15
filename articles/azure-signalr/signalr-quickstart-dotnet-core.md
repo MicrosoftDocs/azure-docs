@@ -5,20 +5,19 @@ author: vicancy
 ms.service: signalr
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mode-other
-ms.date: 09/28/2020
+ms.date: 08/03/2022
 ms.author: lianwei
 ---
 
 # Quickstart: Create a chat room by using SignalR Service
 
-Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features. This service was originally based on [SignalR for ASP.NET Core 2.1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), but now supports later versions.
+Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features.
 
-This article shows you how to get started with the Azure SignalR Service. In this quickstart, you'll create a chat application by using an ASP.NET Core MVC web app. This app will make a connection with your Azure SignalR Service resource to enable real-time content updates. You'll host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients. 
+This article shows you how to get started with the Azure SignalR Service. In this quickstart, you'll create a chat application by using an ASP.NET Core MVC web app. This app will make a connection with your Azure SignalR Service resource to enable real-time content updates. You'll host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients.
 
 You can use any code editor to complete the steps in this quickstart. One option is [Visual Studio Code](https://code.visualstudio.com/), which is available on the Windows, macOS, and Linux platforms.
 
-The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom). Also, you can create the Azure resources used in this quickstart by following [Create a SignalR Service script](scripts/signalr-cli-create-service.md).
+The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom). You can create the Azure resources used in this quickstart by following [Create a SignalR Service script](scripts/signalr-cli-create-service.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note-dotnet.md)]
 
@@ -33,19 +32,17 @@ Ready to start?
 ## Prerequisites
 
 * Install the [.NET Core SDK](https://dotnet.microsoft.com/download).
-* Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository. 
+* Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository.
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
 
 ## Create an Azure SignalR resource
 
-[!INCLUDE [azure-signalr-create](../../includes/signalr-create.md)]
-
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
+[!INCLUDE [azure-signalr-create](./includes/signalr-quickstart-create-instance.md)]
 
 ## Create an ASP.NET Core web app
 
-In this section, you use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to create an ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms. 
+In this section, you use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to create an ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.
 
 1. Create a folder for your project. This quickstart uses the *E:\Testing\chattest* folder.
 
@@ -55,13 +52,11 @@ In this section, you use the [.NET Core command-line interface (CLI)](/dotnet/co
     dotnet new mvc
     ```
 
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
-
 ## Add Secret Manager to the project
 
 In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside your project tree. This approach helps prevent the accidental sharing of app secrets in source code.
 
-1. Open your *.csproj* file. Add a `DotNetCliToolReference` element to include *Microsoft.Extensions.SecretManager.Tools*. Also add a `UserSecretsId` element as shown in the following code for *chattest.csproj*, and save the file.
+1. Open your *csproj* file. Add a `DotNetCliToolReference` element to include *Microsoft.Extensions.SecretManager.Tools*. Also add a `UserSecretsId` element as shown in the following code for *chattest.csproj*, and save the file.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -79,8 +74,6 @@ In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-
     </Project>
     ```
 
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
-
 ## Add Azure SignalR to the web app
 
 1. Add a reference to the `Microsoft.Azure.SignalR` NuGet package by running the following command:
@@ -89,17 +82,23 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     dotnet add package Microsoft.Azure.SignalR
     ```
 
-2. Run the following command to restore packages for your project:
+1. Run the following command to restore packages for your project:
 
     ```dotnetcli
     dotnet restore
     ```
 
-3. Add a secret named *Azure:SignalR:ConnectionString* to Secret Manager. 
+1. Prepare the Secret Manager for use with this project.
+
+    ````dotnetcli
+    dotnet user-secrets init
+    ````
+
+1. Add a secret named *Azure:SignalR:ConnectionString* to Secret Manager.
 
     This secret will contain the connection string to access your SignalR Service resource. *Azure:SignalR:ConnectionString* is the default configuration key that SignalR looks for to establish a connection. Replace the value in the following command with the connection string for your SignalR Service resource.
 
-    You must run this command in the same directory as the *.csproj* file.
+    You must run this command in the same directory as the `csproj` file.
 
     ```dotnetcli
     dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"
@@ -109,8 +108,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
     This secret is accessed with the Configuration API. A colon (:) works in the configuration name with the Configuration API on all supported platforms. See [Configuration by environment](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
-
-4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `AddSignalR()` and `AddAzureSignalR()` methods:
+1. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `AddSignalR()` and `AddAzureSignalR()` methods:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -120,9 +118,9 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     }
     ```
 
-    By not passing a parameter to `AddAzureSignalR()`, this code uses the default configuration key for the SignalR Service resource connection string. The default configuration key is *Azure:SignalR:ConnectionString*.
+    Not passing a parameter to `AddAzureSignalR()` causes this code to use the default configuration key for the SignalR Service resource connection string. The default configuration key is *Azure:SignalR:ConnectionString*.
 
-5. In *Startup.cs*, update the `Configure` method by replacing it with the following code.
+1. In *Startup.cs*, update the `Configure` method by replacing it with the following code.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -138,7 +136,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ### Add a hub class
 
-In SignalR, a hub is a core component that exposes a set of methods that can be called from the client. In this section, you define a hub class with two methods:
+In SignalR, a *hub* is a core component that exposes a set of methods that can be called by the client. In this section, you define a hub class with two methods:
 
 * `Broadcast`: This method broadcasts a message to all clients.
 * `Echo`: This method sends a message back to the caller.
@@ -175,9 +173,7 @@ The client user interface for this chat room app will consist of HTML and JavaSc
 
 Copy the *css/site.css* file from the *wwwroot* folder of the [samples repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot). Replace your project's *css/site.css* with the one you copied.
 
-Here's the main code of *index.html*:
-
-Create a new file in the *wwwroot* directory named *index.html*, copy, and paste the following HTML into the newly created file:
+Create a new file in the *wwwroot* directory named *index.html*, copy, and paste the following HTML into the newly created file.
 
 ```html
 <!DOCTYPE html>
@@ -350,8 +346,6 @@ In this section, you'll add a development runtime environment for ASP.NET Core. 
     }
     ```
 
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
-
 ## Build and run the app locally
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
@@ -385,8 +379,6 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
     ![Example of an Azure SignalR group chat](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
-Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
-
 ## Clean up resources
 
 If you'll continue to the next tutorial, you can keep the resources created in this quickstart and reuse them.
@@ -394,7 +386,7 @@ If you'll continue to the next tutorial, you can keep the resources created in t
 If you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible and includes all the resources in that group. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample in an existing resource group that contains resources you want to keep, you can delete each resource individually from its blade instead of deleting the resource group.
+> Deleting a resource group is irreversible and includes all the resources in that group. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the resources this sample in an existing resource group that contains resources you want to keep, you can delete each resource individually from its blade instead of deleting the resource group.
 
 Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
 

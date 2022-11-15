@@ -3,6 +3,7 @@ title: Plan your migration to Microsoft Sentinel | Microsoft Docs
 description: Discover the reasons for migrating from a legacy SIEM, and learn how to plan out the different phases of your migration.
 author: limwainstein
 ms.author: lwainstein
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 05/03/2022
 ---
@@ -16,6 +17,9 @@ This article discusses the reasons for migrating from a legacy SIEM, and describ
 ## Migration steps
 
 In this guide, you learn how to migrate your legacy SIEM to Microsoft Sentinel. Follow your migration process through this series of articles, in which you'll learn how to navigate different steps in the process.
+
+> [!NOTE]
+> For a guided migration process, join the Microsoft Sentinel Migration and Modernization Program. The program allows you to simplify and accelerate the migration, including best practice guidance, resources, and expert help at every stage. To learn more, reach out to your account team.
 
 |Step  |Article  |
 |---------|---------|

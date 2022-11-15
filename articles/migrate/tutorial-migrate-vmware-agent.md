@@ -1,23 +1,23 @@
 ---
-title: Migrate VMware VMs with agent-based Azure Migrate Server Migration
-description: Learn how to run an agent-based migration of VMware VMs with Azure Migrate.
-author: rahulg1190
-ms.author: rahugup
-ms.manager: bsiva
+title: Migrate VMware vSphere VMs with agent-based Azure Migrate Server Migration
+description: Learn how to run an agent-based migration of VMware vSphere VMs with Azure Migrate.
+author: vijain
+ms.author: vijain
+ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 06/20/2022
+ms.date: 10/04/2022
 ms.custom: MVC
 ---
 
-# Migrate VMware VMs to Azure (agent-based)
+# Migrate VMware vSphere VMs to Azure (agent-based)
 
-This article shows you how to migrate on-premises VMware VMs to Azure, using the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agent-based migration.  You can also migrate VMware VMs using agentless migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
 
 
  In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Prepare Azure to work with Azure Migrate.
-> * Prepare for agent-based migration. Set up a VMware account so that Azure Migrate can discover machines for migration. Set up an account so that the Mobility service agent can install on machines you want to migrate, and prepare a machine to act as the replication appliance.
+> * Prepare for agent-based migration. Set up a VMware vCenter Server account so that Azure Migrate can discover machines for migration. Set up an account so that the Mobility service agent can install on machines you want to migrate, and prepare a machine to act as the replication appliance.
 > * Add the Azure Migrate: Server Migration tool
 > * Set up the replication appliance.
 > * Replicate VMs.
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-Before you begin this tutorial, [review](./agent-based-migration-architecture.md) the VMware agent-based migration architecture.
+Before you begin this tutorial, [review](./agent-based-migration-architecture.md) the VMware vSphere agent-based migration architecture.
 
 ## Prepare Azure
 
@@ -64,6 +64,13 @@ Assign the Virtual Machine Contributor role to the account, so that you have per
 - Write to an Azure managed disk.
 
 
+### Assign permissions to register the Replication Appliance in Azure AD
+
+If you are following the least privilege principle, assign the **Application Developer** Azure AD role to the user registering the Replication Appliance. Follow the [Assign administrator and non-administrator roles to users with Azure Active Directory](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) guide to do so.
+
+> [!IMPORTANT]
+> If the user registering the Replication Appliance is an Azure AD Global administrator, that user already has the required permissions.
+
 ### Set up an Azure network
 
 [Set up an Azure network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
@@ -74,19 +81,19 @@ Verify support requirements  and permissions, and prepare to deploy a replicatio
 
 ### Prepare an account to discover VMs
 
-Azure Migrate: Server Migration needs access to VMware servers to discover VMs you want to migrate. Create the account as follows:
+Azure Migrate: Server Migration needs access to VMware vSphere to discover VMs you want to migrate. Create the account as follows:
 
-1. To use a dedicated account, create a role at the vCenter level. Give the role a name such as
+1. To use a dedicated account, create a role at the vCenter Server level. Give the role a name such as
    **Azure_Migrate**.
 2. Assign the role the permissions summarized in the table below.
-3. Create a user on the vCenter server or vSphere host. Assign the role to the user.
+3. Create a user on the vCenter Server or vSphere host. Assign the role to the user.
 
-#### VMware account permissions
+#### VMware vSphere account permissions
 
 **Task** | **Role/Permissions** | **Details**
 --- | --- | ---
 **VM discovery** | At least a read-only user<br/><br/> Data Center object –> Propagate to Child Object, role=Read-only | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
-**Replication** |  Create a role (Azure Site Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure Site Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
+**Replication** |  Create a role (Azure Site Recovery) with the required permissions, and then assign the role to a VMware vSphere user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure Site Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
 
 ### Prepare an account for Mobility service installation
 
@@ -105,25 +112,25 @@ Prepare the account as follows:
 
 ### Prepare a machine for the replication appliance
 
-The appliance is used to replication machines to Azure. The appliance is single, highly available, on-premises VMware VM that hosts these components:
+The appliance is used to replication machines to Azure. The appliance is single, highly available, on-premises VMware vSphere VM that hosts these components:
 
 - **Configuration server**: The configuration server coordinates communications between on-premises and Azure, and manages data replication.
 - **Process server**: The process server acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption, and sends it to a cache storage account in Azure. The process server also installs the Mobility Service agent on VMs you want to replicate, and performs automatic discovery of on-premises VMware VMs.
 
 Prepare for the appliance as follows:
 
-- [Review appliance requirements](migrate-replication-appliance.md#appliance-requirements). Generally, you set up the replication appliance a VMware VM using a downloaded OVA file. The template creates an appliance that complies with all requirements.
+- [Review appliance requirements](migrate-replication-appliance.md#appliance-requirements). Generally, you set up the replication appliance a VMware vSphere VM using a downloaded OVA file. The template creates an appliance that complies with all requirements.
 - MySQL must be installed on the appliance. [Review](migrate-replication-appliance.md#mysql-installation) installation methods.
 - Review the [public cloud URLs](migrate-replication-appliance.md#url-access), and [Azure Government URLs](migrate-replication-appliance.md#azure-government-url-access) that the appliance machine needs to access.
 - [Review the ports](migrate-replication-appliance.md#port-access) that the replication appliance machine needs to access.
 
 
 
-### Check VMware requirements
+### Check VMware vSphere requirements
 
-Make sure VMware servers and VMs comply with requirements for migration to Azure.
+Make sure VMware vSphere VMs comply with requirements for migration to Azure.
 
-1. [Verify](migrate-support-matrix-vmware-migration.md#vmware-requirements-agent-based) VMware server requirements.
+1. [Verify](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agent-based) VMware vSphere VM requirements.
 2. [Verify](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) VM requirements for migration.
 3. Verify Azure settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 4. There are some changes needed on VMs before you migrate them to Azure.
@@ -164,11 +171,11 @@ Download the template as follows:
 10. Note the name of the resource group and the Recovery Services vault. You need these during appliance deployment.
 
 
-### Import the template in VMware
+### Import the template into VMware vSphere
 
-After downloading the OVF template, you import it into VMware to create the replication application on a VMware VM running Windows Server 2016.
+After downloading the OVF template, you import it into VMware vSphere to create the replication application on a VMware vSphere VM running Windows Server 2016.
 
-1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMware vSphere Client.
+1. Sign in to the VMware vCenter Server or vSphere ESXi host with the VMware vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the **Deploy OVF Template Wizard**.
 3. In **Select source**, enter the location of the downloaded OVF.
 4. In **Review details**, select **Next**.
@@ -197,11 +204,19 @@ Finish setting up and registering the replication appliance.
 1. In appliance setup, select **Setup connectivity**.
 2. Select the NIC (by default there's only one NIC) that the replication appliance uses for VM discovery, and to do a push installation of the Mobility service on source machines.
 3. Select the NIC that the replication appliance uses for connectivity with Azure. Then select **Save**. You cannot change this setting after it's configured.
+
+   > [!TIP]
+   > If for some reason you need to change the NIC selection and you have not clicked the **Finalize configuration** button in step 12, you can do so by clearing your browser cookies and restarting the **Configuration Server Management Wizard**.
+  
 4. If the appliance is located behind a proxy server, you need to specify proxy settings.
     - Specify the proxy name as **http://ip-address**, or **http://FQDN**. HTTPS proxy servers aren't supported.
 5. When prompted for the subscription, resource groups, and vault details, add the details that you noted when you downloaded the appliance template.
 6. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server.
 7. Select **Install VMware PowerCLI**. Make sure all browser windows are closed before you do this. Then select **Continue**.
+   
+   > [!NOTE]
+   > In newer versions of the Replication Appliance the **VMware PowerCLI** installation is not required.
+   
 8. In **Validate appliance configuration**, prerequisites are verified before you continue.
 9. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, where the VMs you want to replicate are located. Enter the port on which the server is listening. Enter a friendly name to be used for the VMware server in the vault.
 10. Enter the credentials for the account you [created](#prepare-an-account-to-discover-vms) for VMware discovery. Select **Add** > **Continue**.
@@ -282,9 +297,10 @@ Select VMs for migration.
 
 17. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.
-    - If you exclude disks, won't be present on the Azure VM after migration.
+    - If you exclude disks, they won't be present on the Azure VM after migration.
 
     :::image type="content" source="./media/tutorial-migrate-vmware-agent/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware-agent/disks-expanded.png":::
+    - You can exclude disks if the mobility agent is already installed on that server. [Learn more](../site-recovery/exclude-disks-replication.md#exclude-limitations).
 
 18. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
 
@@ -392,7 +408,7 @@ After you've verified that the test migration works as expected, you can migrate
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
     - Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

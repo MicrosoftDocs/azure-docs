@@ -2,12 +2,13 @@
 title: Azure Health Data Services monthly releases
 description: This article provides details about the Azure Health Data Services monthly features and enhancements.
 services: healthcare-apis
-author: mcevoy-building7
+author: judegnan
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/16/2022
-ms.author: v-smcevoy
+ms.date: 08/09/2022
+ms.author: mikaelw
+ms.custom: references_regions
 ---
 
 # Release notes: Azure Health Data Services
@@ -19,22 +20,156 @@ ms.author: v-smcevoy
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
-## May 2022
+## September 2022
+
+### Azure Health Data Services 
+
+#### **Bug Fixes**
+
+| Bug Fix |Related information |
+| :------------------- | :--------------- |
+| Querying with :not operator was returning more results than expected | The issue is now fixed and querying with :not operator should provide correct results. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2785). |
+
+#### **Known Issues**
+
+| Known Issue | Description |
+| :------------------------ | :------------------------------- |
+| Using [token type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.hl7.org%2Ffhir%2Fsearch.html%23token&data=05%7C01%7CKetki.Sheth%40microsoft.com%7C7ec4c7dad9b940b74a8508da60395511%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637928096596122743%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=VmAG2iHUyxtNZI88HqKeSSwFV28zFSs2qgkAQRPnZ%2Bw%3D&reserved=0) fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations  | No workaround. |
+
+### FHIR Service 
+
+#### **Bug Fixes**
+
+| Bug Fix |Related information |
+| :------------------- | :--------------- |
+| Error message is provided for failure in export resulting from long time span  |  With failure in export job due to a long time span, customer will see `RequestEntityTooLarge` HTTP status code. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2790).|
+|In a query sort, functionality throws an error when chained search is performed with same field value.  | Sort functionality returns a response. For more information, see [#2794](https://github.com/microsoft/fhir-server/pull/2794). 
+| Server doesn't indicate `_text` not supported | When passed as URL parameter,`_text` returns an error in response when using the `Prefer` heading with `value handling=strict`. For more information, see [#2779](https://github.com/microsoft/fhir-server/pull/2779). |
+| Verbose error message is not provided for invalid resource type  | Verbose error message is added when resource type is invalid or empty for `_include` and `_revinclude` searches. For more information, see [#2776](https://github.com/microsoft/fhir-server/pull/2776).
+
+### DICOM service
+
+#### **Features**
+
+| Enhancements/Improvements | Related information |
+| :------------------------ | :------------------------------- |
+| Export is GA |The export feature for the DICOM service is now generally available. Export enables a user-supplied list of studies, series, and/or instances to be exported in bulk to an Azure Storage account. Learn more about the [export feature](dicom/export-dicom-files.md).  |
+|Improved deployment performance  |Performance improvements have cut the time to deploy new instances of the DICOM service by more than 55% at the 50th percentile.    |
+| Reduced strictness when validating STOW requests |Some customers have run into issues storing DICOM files that do not perfectly conform to the specification.  To enable those files to be stored in the DICOM service, we have reduced the strictness of the validation performed on STOW. <p>The service will now accept the following: <p><ul><li>DICOM UIDs that contain trailing whitespace <li>IS, DS, SV, and UV VRs that are not valid numbers<li>Invalid private creator tags |
+
+### Toolkit and Samples Open Source
+
+#### **Features**
+
+| Enhancements/Improvements | Related information |
+| :------------------------ | :------------------------------- |
+| Azure Health Data Services Toolkit  | The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit) is now in the public preview. The toolkit is open-source and allows to easily customize and extend the functionality of their Azure Health Data Services implementations.  |
+
+## August 2022
 
 ### FHIR service
 
-### **Enhancement**
+#### **Features**
 
-|Enhancement |Related information |
+| Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+| Azure Health Data services availability expands to new regions | Azure Health Data services is now available in the following regions:  Central India, Korea Central, and Sweden Central.   
+| `$import` is generally available. | `$import` API is now generally available in Azure Health Data Services API version 2022-06-01. See [Executing the import](./../healthcare-apis/fhir/import-data.md) by invoking the `$import` operation on FHIR service in Azure Health Data Services.
+| `$convert-data` updated by adding STU3-R4 support. |`$convert-data` added support for FHIR STU3-R4 conversion. See [Data conversion for Azure API for FHIR](./../healthcare-apis/azure-api-for-fhir/convert-data.md). |  
+| Analytics pipeline now supports data filtering. | Data filtering is now supported in FHIR to data lake pipeline. See [FHIR-Analytics-Pipelines_Filter FHIR data](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Filter%20FHIR%20data%20in%20pipeline.md) microsoft/FHIR-Analytics-Pipelines github.com. |
+| Analytics pipeline now supports FHIR extensions. | Analytics pipeline can process FHIR extensions to generate parquet data. See [FHIR-Analytics-Pipelines_Process](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Process%20FHIR%20extensions.md) in pipeline.md at main.
+
+#### **Bug fixes**
+
+|Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
-|FHIR service does not create a new version of the resource if the resource content has not changed. |If a user updates an existing resource and only meta.versionId or meta.lastUpdated have changed then we return OK with existing resource information without updating VersionId and lastUpdated. For more information, see [#2519](https://github.com/microsoft/fhir-server/pull/2519). |
+| History bundles were sorted with the oldest version first |We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per FHIR specification, the sorting of versions defaults to the oldest version last. <br><br>This bug fix, addresses FHIR server behavior for sorting history bundle. <br><br>We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP GET command utilized for retrieving history. <br><br>For example: `<server URL>/_history?_sort=_lastUpdated` <br><br>For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689).  |
+| Queries not providing consistent result count after appended with `_sort` operator. | Issue is now fixed and queries should provide consistent result count, with and without sort operator. 
+
+#### **Known issues**
+
+| Known Issue | Description |
+| :------------------------ | :------------------------------- |
+| Using [token type fields](https://www.hl7.org/fhir/search.html#token) of more than 128 characters in length can result in undesired behavior on `create`, `search`, `update`, and `delete` operations.  | Currently, no workaround available. |
+
+For more information about the currently known issues with the FHIR service, see [Known issues: FHIR service](known-issues.md).
+
+### MedTech service
+
+#### **Features and enhancements**
+
+|Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|New Metric Chart  |Customers can now see predefined metrics graphs in the MedTech landing page, complete with alerts to ease customers' burden of monitoring their MedTech service.  |
+|Availability of Diagnostic Logs  |There are now pre-defined queries with relevant logs for common issues so that customers can easily debug and diagnose issues in their MedTech service.   |
+
+### DICOM service
+
+#### **Features and enhancements**
+
+|Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|Modality worklists (UPS-RS) is GA.   |The modality worklists (UPS-RS) service is now generally available. Learn more about the [worklists service](./../healthcare-apis/dicom/dicom-services-conformance-statement.md).  |
+
+## July 2022
+
+### FHIR service
+
+#### **Bug fixes**
+
+|Bug fixes |Related information |
+| :----------------------------------- | :--------------- |
+| (Open Source) History bundles were sorted with the oldest version first.   | We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
+
+#### **Known issues**
+
+| Known Issue | Description |
+| :------------------------ | :------------------------------- |
+| Using [token type fields](https://www.hl7.org/fhir/search.html#token) of more than 128 characters in length can result in undesired behavior on `create`, `search`, `update`, and `delete` operations.  | Currently, no workaround available. |
+| Queries not providing consistent result count after appended with `_sort` operator. For more information, see [#2680](https://github.com/microsoft/fhir-server/pull/2680). | Currently, no workaround available.|
+
+For more information about the currently known issues with the FHIR service, see [Known issues: FHIR service](known-issues.md).
+
+### MedTech service 
+
+#### **Improvements**
+
+|Azure Health Data Services  |Related information |
+| :----------------------------------- | :--------------- |
+|Improvements to documentations for Events and MedTech and availability zones.  |Tested and enhanced usability and functionality. Added new documents to enable customers to better take advantage of the new improvements. See [Consume Events with Logic Apps](./../healthcare-apis/events/events-deploy-portal.md) and [Deploy Events Using the Azure portal](./../healthcare-apis/events/events-deploy-portal.md). | 
+|One touch launch Azure MedTech deploy. |[Deploy the MedTech Service in the Azure portal](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md)|
+
+### DICOM service
+
+#### **Features**
+
+|Enhancements | Related information |
+| :------------------------ | :------------------------------- |
+|DICOM Service availability expands to new regions.   | The DICOM Service is now available in the following [regions](https://azure.microsoft.com/global-infrastructure/services/): Southeast Asia, Central India, Korea Central, and Switzerland North. |
+|Fast retrieval of individual DICOM frames    | For DICOM images containing multiple frames, performance improvements have been made to enable fast retrieval of individual frames (60 KB frames as fast as 60 MS). These improved performance characteristics enable workflows such as [viewing digital pathology images](https://microsofthealth.visualstudio.com/DefaultCollection/Health/_git/marketing-azure-docs?version=GBmain&path=%2Fimaging%2Fdigital-pathology%2FDigital%20Pathology%20using%20Azure%20DICOM%20service.md&_a=preview), which require rapid retrieval of individual frames.    |
+
+## June 2022
+
+### FHIR service
+
+#### **Bug fixes**
+
+|Bug fixes |Related information |
+| :----------------------------------- | :--------------- |
+|Export Job not being queued for execution.  |Fixes issue with export job not being queued due to duplicate job definition caused due to reference to container URL. For more information, see [#2648](https://github.com/microsoft/fhir-server/pull/2648). |
+|Queries not providing consistent result count after appended with the `_sort` operator.   |Fixes the issue with the help of distinct operator to resolve inconsistency and record duplication in response.  For more information, see [#2680](https://github.com/microsoft/fhir-server/pull/2680). |
+
+
+## May 2022
+
+### FHIR service
 
 #### **Bug fixes**
 
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
 |Removes SQL retry on upsert  |Removes retry on SQL command for upsert. The error still occurs, but data is saved correctly in success cases. For more information, see [#2571](https://github.com/microsoft/fhir-server/pull/2571). |
-|Added handling for SqlTruncate errors  |Added a check for SqlTruncate exceptions and tests. In particular, this will catch SqlTruncate exceptions for Decimal type based on the specified precision and scale. For more information, see [#2553](https://github.com/microsoft/fhir-server/pull/2553). |
+|Added handling for SqlTruncate errors  |Added a check for SqlTruncate exceptions and tests. In particular, exceptions and tests will catch SqlTruncate exceptions for Decimal type based on the specified precision and scale. For more information, see [#2553](https://github.com/microsoft/fhir-server/pull/2553). |
 
 ### DICOM service
 
@@ -45,7 +180,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 |DICOM service supports cross-origin resource sharing (CORS)  |DICOM service now supports [CORS](./../healthcare-apis/dicom/configure-cross-origin-resource-sharing.md). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request. |
 |DICOMcast supports Private Link   |DICOMcast has been updated to support Azure Health Data Services workspaces that have been configured to use [Private Link](./../healthcare-apis/healthcare-apis-configure-private-link.md). |
 |UPS-RS supports Change and Retrieve work item  |Modality worklist (UPS-RS) endpoints have been added to support Change and Retrieve operations for work items. |
-|API version is now required as part of the URI  |All REST API requests to the DICOM service must now include the API version in the URI.  For more details, see [API versioning for DICOM service](./../healthcare-apis/dicom/api-versioning-dicom-service.md). |
+|API version is now required as part of the URI  |All REST API requests to the DICOM service must now include the API version in the URI. For more information, see [API versioning for DICOM service](./../healthcare-apis/dicom/api-versioning-dicom-service.md). |
 
 #### **Bug fixes**
 
@@ -118,7 +253,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|Events |The Events feature within Health Data Services is now generally available (GA). The Events feature allows customers to receive notifications and triggers when FHIR observations are created, updated, or deleted. For more information, see [Events message structure](events/events-message-structure.md) and [What are events?](events/events-overview.md). |
+|Events |The Events feature within Health Data Services is now generally available (GA). The Events feature allows customers to receive notifications and triggers when FHIR observations are created, updated, or deleted. For more information, see [Events message structure](./../healthcare-apis/events/events-message-structure.md) and [What are events?](./../healthcare-apis/events/events-overview.md). |
 |Events documentation for Azure Health Data Services  |Updated docs to allow for better understanding, knowledge, and help for Events as it went GA. Updated troubleshooting for ease of use for the customer.  |
 |One touch deploy button for MedTech service launch in the portal |Enables easier deployment and use of MedTech service for customers without the need to go back and forth between pages or interfaces.  |
 
@@ -137,7 +272,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|Customers can define their own query tags using the Extended Query Tags feature |With Extended Query Tags feature, customers now efficiently query non-DICOM metadata for capabilities like multitenancy and cohorts. It's available for all customers in Azure Health Data Services.  |
+|Customers can define their own query tags using the Extended Query Tags feature |With Extended Query Tags feature, customers now efficiently query non-DICOM metadata for capabilities like multi-tenancy and cohorts. It's available for all customers in Azure Health Data Services.  |
 
 ## December 2021
 
@@ -149,7 +284,7 @@ For more information about the currently known issues with the FHIR service, see
 | :------------------- | :--------------- |
 |Quota details for support requests  |We've updated the quota details for customer support requests with the latest information. |
 |Local RBAC  |We've updated the local RBAC documentation to clarify the use of the secondary tenant and the steps to disable it. |
-|Deploy and configure Azure Health Data Services using scripts  |We've started the process of providing PowerShell, CLI scripts, and ARM templates to configure app registration and role assignments. Note that scripts for deploying Azure Health Data Services will be available after GA. |
+|Deploy and configure Azure Health Data Services using scripts  |We've started the process of providing PowerShell, CLI scripts, and ARM templates to configure app registration and role assignments. Scripts for deploying Azure Health Data Services will be available after GA. |
 
 ### FHIR service
 
@@ -157,8 +292,8 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|Added Publisher to `CapabiilityStatement.name` |You can now find the publisher in the capability statement at `CapabilityStatement.name`. [#2319](https://github.com/microsoft/fhir-server/pull/2319) |
-|Log `FhirOperation` linked to anonymous calls to Request metrics |We weren’t logging operations that didn’t require authentication. We extended the ability to get `FhirOperation` type in `RequestMetrics` for anonymous calls. [#2295](https://github.com/microsoft/fhir-server/pull/2295) |
+|Added Publisher to `CapabilityStatement.name` |You can now find the publisher in the capability statement at `CapabilityStatement.name`. [#2319](https://github.com/microsoft/fhir-server/pull/2319) |
+|Log `FhirOperation` linked to anonymous calls to Request metrics |We weren't logging operations that didn’t require authentication. We extended the ability to get `FhirOperation` type in `RequestMetrics` for anonymous calls. [#2295](https://github.com/microsoft/fhir-server/pull/2295) |
 
 #### **Bug fixes**
 
@@ -179,14 +314,14 @@ For more information about the currently known issues with the FHIR service, see
 |Process Patient-everything links  |We've expanded the Patient-everything capabilities to process patient links [#2305](https://github.com/microsoft/fhir-server/pull/2305). For more information, see [Patient-everything in FHIR](./../healthcare-apis/fhir/patient-everything.md#processing-patient-links) documentation. |
 |Added software name and version to capability statement. |In the capability statement, the software name now distinguishes if you're using Azure API for FHIR or Azure Health Data Services. The software version will now specify which open-source [release package](https://github.com/microsoft/fhir-server/releases) is live in the managed service [#2294](https://github.com/microsoft/fhir-server/pull/2294). Addresses: [#1778](https://github.com/microsoft/fhir-server/issues/1778) and [#2241](https://github.com/microsoft/fhir-server/issues/2241) |
 |Compress continuation tokens |In certain instances, the continuation token was too long to be able to follow the [next link](./../healthcare-apis/fhir/overview-of-search.md#pagination) in searches and would result in a 404. To resolve this, we compressed the continuation token to ensure it stays below the size limit [#2279](https://github.com/microsoft/fhir-server/pull/2279). Addresses issue [#2250](https://github.com/microsoft/fhir-server/issues/2250). |
-|FHIR service autoscale |The [FHIR service autoscale](./fhir/fhir-service-autoscale.md) is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time. It's available in all regions where the FHIR service is supported. |
+|FHIR service autoscale |The [FHIR service autoscale](./fhir/fhir-service-autoscale.md) is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time. It's available in all [regions](https://azure.microsoft.com/global-infrastructure/services/) where the FHIR service is supported. |
 
 #### **Bug fixes**
 
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
-|Resolved 500 error when the date was passed with a time zone. |This fixes a 500 error when a date with a time zone was passed into a datetime field [#2270](https://github.com/microsoft/fhir-server/pull/2270). |
-|Resolved issue when posting a bundle with incorrect Media Type returned a 500 error. |Previously when posting a search with a key that contains certain characters, a 500 error is returned. This fixes this issue [#2264](https://github.com/microsoft/fhir-server/pull/2264), and it addresses [#2148](https://github.com/microsoft/fhir-server/issues/2148). |
+|Resolved 500 error when the date was passed with a time zone. |This fix addresses a 500 error when a date with a time zone was passed into a datetime field [#2270](https://github.com/microsoft/fhir-server/pull/2270). |
+|Resolved issue when posting a bundle with incorrect Media Type returned a 500 error. |Previously when posting a search with a key that contains certain characters, a 500 error is returned. This fixes issue [#2264](https://github.com/microsoft/fhir-server/pull/2264) and addresses [#2148](https://github.com/microsoft/fhir-server/issues/2148). |
 
 ### DICOM service
 
@@ -194,7 +329,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|Content-Type header now includes transfer-syntax. |This enables the user to know which transfer syntax is used in case multiple accept headers are being supplied. |
+|Content-Type header now includes transfer-syntax. |This enhancement enables the user to know which transfer syntax is used in case multiple accept headers are being supplied. |
 
 ## October 2021
 
@@ -204,7 +339,7 @@ For more information about the currently known issues with the FHIR service, see
 
 | Enhancements  | Related information           |
 | :------------- | :----------------------------- |
-|Test Data Generator tool |We've updated Azure Health Data Services GitHub samples repo to include a [Test Data Generator tool](https://github.com/microsoft/healthcare-apis-samples/blob/main/docs/HowToRunPerformanceTest.md) using Synthea data. This tool is an improvement to the open source [public test projects](https://github.com/ShadowPic/PublicTestProjects), based on Apache JMeter, that can be deployed to Azure AKS for performance tests. |
+|Test Data Generator tool |We've updated Azure Health Data Services GitHub samples repo to include a [Test Data Generator tool](https://github.com/microsoft/healthcare-apis-samples/blob/main/docs/HowToRunPerformanceTest.md) using Synthea data. This tool is an improvement to the open source [public test projects](https://github.com/ShadowPic/PublicTestProjects), based on Apache JMeter that can be deployed to Azure AKS for performance tests. |
 
 ### FHIR service
 
@@ -225,7 +360,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Added support | Related information |
 | :------------------------ | :------------------------------- |
-|Regions | South Brazil and Central Canada. For more information about Azure regions and availability zones, see [Azure services that support availability zones](./../availability-zones/az-region.md). |
+|Regions | South Brazil and Central Canada. For more information about Azure regions and availability zones, see [Azure services that support availability zones](https://azure.microsoft.com/global-infrastructure/services/). |
 |Extended Query tags |DateTime (DT) and Time (TM) Value Representation (VR) types |
 
 |Bug fixes | Related information |
@@ -250,7 +385,7 @@ For more information about the currently known issues with the FHIR service, see
 |Enabled JSON patch in bundles using Binary resources. |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
 |Added new audit event [OperationName subtypes](./././azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
-| Running a reindex job | [Reindex improvements](./././fhir/how-to-run-a-reindex.md)|
+| Running a reindex job | [Re-index improvements](./././fhir/how-to-run-a-reindex.md)|
 | :------------------- | :-------------------------------|
 |Added [boundaries for reindex](./././azure-api-for-fhir/how-to-run-a-reindex.md#performance-considerations) parameters. |[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
 |Updated error message for reindex parameter boundaries. |[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
@@ -294,11 +429,11 @@ For more information about the currently known issues with the FHIR service, see
 
 |Bug fixes | Related information |
 | :------------------- | :------------------------------- |
-| MedTech service normalized improvements with calculations to support and enhance health data standardization. | See: [Use Device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [Calculated Functions](./../healthcare-apis/iot/how-to-use-calculated-functions-mappings.md)  |
+| MedTech service normalized improvements with calculations to support and enhance health data standardization. | See [Use Device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [Calculated Functions](./../healthcare-apis/iot/how-to-use-calculated-functions-mappings.md)  |
 
 ## Next steps
 
-In this article, you learned about the features and enhancements made to Azure Health Data Services. For more information about the known issues with Azure Health Data Services, See
+In this article, you learned about the features and enhancements made to Azure Health Data Services. For more information about the known issues with Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
 >[Known issues: Azure Health Data Services](known-issues.md)

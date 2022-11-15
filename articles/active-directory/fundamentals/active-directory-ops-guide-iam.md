@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: fundamentals
-ms.date: 10/31/2019
+ms.date: 08/17/2022
 ms.author: martinco
 ---
 

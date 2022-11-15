@@ -4,7 +4,7 @@ description: This article provides troubleshooting information for Web Applicati
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 06/09/2022
+ms.date: 09/21/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -153,6 +153,8 @@ Occasionally, there are cases where specific parameters get passed into the WAF 
 In this example, you want to exclude the **Request attribute name** that equals *text1*. This is apparent because you can see the attribute name in the firewall logs: **data: Matched Data: 1=1 found within ARGS:text1: 1=1**. The attribute is **text1**. You can also find this attribute name a few other ways, see [Finding request attribute names](#finding-request-attribute-names).
 
 ![WAF exclusion lists](../media/web-application-firewall-troubleshoot/waf-config.png)
+
+You can create exclusions for WAF in Application Gateway at different scope levels. For more information, see [Web Application Firewall exclusion lists](application-gateway-waf-configuration.md#exclusion-scopes).
 
 ### Disabling rules
 

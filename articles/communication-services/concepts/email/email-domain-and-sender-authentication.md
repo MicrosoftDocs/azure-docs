@@ -53,5 +53,5 @@ Email Communication Service resources are designed to enable domain validation s
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [Email client library](../email/sdk-features.md)
-- How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
-- How to send emails with Azure Managed Domains?[Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
+- How to send emails with custom verified domains? [Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
+- How to send emails with Azure Managed Domains? [Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)

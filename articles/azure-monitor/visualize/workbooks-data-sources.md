@@ -1,6 +1,6 @@
 ---
 title: Azure Workbooks data sources | Microsoft docs
-description: Simplify complex reporting with prebuilt and custom parameterized Azure Workbooks built from multiple data sources.
+description: Simplify complex reporting with prebuilt and custom parameterized workbooks built from multiple data sources.
 services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
@@ -25,40 +25,41 @@ Workbooks can extract data from these data sources:
  - [Azure resource health](#azure-resource-health)
  - [Azure RBAC](#azure-rbac)
  - [Change Analysis (preview)](#change-analysis-preview)
+
 ## Logs
 
-Workbooks allow querying logs from the following sources:
+With workbooks, you can query logs from the following sources:
 
-* Azure Monitor Logs (Application Insights Resources and Log Analytics Workspaces.)
-* Resource-centric data (Activity logs)
+* Azure Monitor Logs (Application Insights resources and Log Analytics workspaces)
+* Resource-centric data (activity logs)
 
-Workbook authors can use KQL queries that transform the underlying resource data to select a result set that can visualized as text, charts, or grids.
+You can use Kusto query language (KQL) queries that transform the underlying resource data to select a result set that can be visualized as text, charts, or grids.
 
-![Screenshot of workbooks logs report interface.](./media/workbooks-data-sources/logs.png)
+![Screenshot that shows a workbook logs report interface.](./media/workbooks-data-sources/logs.png)
 
-Workbook authors can easily query across multiple resources creating a truly unified rich reporting experience.
+You can easily query across multiple resources to create a unified rich reporting experience.
 
 ## Metrics
 
-Azure resources emit [metrics](../essentials/data-platform-metrics.md) that can be accessed via workbooks. Metrics can be accessed in workbooks through a specialized control that allows you to specify the target resources, the desired metrics, and their aggregation. This data can then be plotted in charts or grids.
+Azure resources emit [metrics](../essentials/data-platform-metrics.md) that can be accessed via workbooks. Metrics can be accessed in workbooks through a specialized control that allows you to specify the target resources, the desired metrics, and their aggregation. You can then plot this data in charts or grids.
 
-![Screenshot of workbook metrics charts of cpu utilization.](./media/workbooks-data-sources/metrics-graph.png)
+![Screenshot that shows workbook metrics charts of CPU utilization.](./media/workbooks-data-sources/metrics-graph.png)
 
-![Screenshot of workbook metrics interface.](./media/workbooks-data-sources/metrics.png)
+![Screenshot that shows a workbook metrics interface.](./media/workbooks-data-sources/metrics.png)
 
 ## Azure Resource Graph
 
-Workbooks support querying for resources and their metadata using Azure Resource Graph (ARG). This functionality is primarily used to build custom query scopes for reports. The resource scope is expressed via a KQL-subset that ARG supports – which is often sufficient for common use cases.
+Workbooks support querying for resources and their metadata by using Azure Resource Graph. This functionality is primarily used to build custom query scopes for reports. The resource scope is expressed via a KQL subset that Resource Graph supports, which is often sufficient for common use cases.
 
-To make a query control use this data source, use the Query type drop-down to choose Azure Resource Graph and select the subscriptions to target. Use the Query control to add the ARG KQL-subset that selects an interesting resource subset.
+To make a query control that uses this data source, use the **Query type** dropdown and select **Azure Resource Graph**. Then select the subscriptions to target. Use **Query control** to add the Resource Graph KQL subset that selects an interesting resource subset.
 
-![Screenshot of Azure Resource Graph KQL query.](./media/workbooks-data-sources/azure-resource-graph.png)
+![Screenshot that shows an Azure Resource Graph KQL query.](./media/workbooks-data-sources/azure-resource-graph.png)
 
 ## Azure Resource Manager
 
-Workbook supports Azure Resource Manager REST operations. This allows the ability to query management.azure.com endpoint without the need to provide your own authorization header token.
+Azure Workbooks supports Azure Resource Manager REST operations so that you can query the management.azure.com endpoint without providing your own authorization header token.
 
-To make a query control use this data source, use the Data source drop-down to choose Azure Resource Manager. Provide the appropriate parameters such as Http method, url path, headers, url parameters and/or body.
+To make a query control that uses this data source, use the **Data source** dropdown and select **Azure Resource Manager**. Provide the appropriate parameters, such as **Http method**, **url path**, **headers**, **url parameters**, and **body**.
 
 > [!NOTE]
 > Only GET, POST, and HEAD operations are currently supported.
@@ -66,34 +67,34 @@ To make a query control use this data source, use the Data source drop-down to c
 ## Azure Data Explorer
 
 Workbooks now have support for querying from [Azure Data Explorer](/azure/data-explorer/) clusters with the powerful [Kusto](/azure/kusto/query/index) query language.
-For the **Cluster Name** field, you should add the region name following the cluster name. For example: *mycluster.westeurope*.
+For the **Cluster Name** field, add the region name following the cluster name. An example is *mycluster.westeurope*.
 
-![Screenshot of Kusto query window.](./media/workbooks-data-sources/data-explorer.png)
+![Screenshot that shows Kusto query window.](./media/workbooks-data-sources/data-explorer.png)
 
 ## JSON
 
-The JSON provider allows you to create a query result from static JSON content. It is most commonly used in Parameters to create dropdown parameters of static values. Simple JSON arrays or objects will automatically be converted into grid rows and columns.  For more specific behaviors, you can use the Results tab and JSONPath settings to configure columns.
+The JSON provider allows you to create a query result from static JSON content. It's most commonly used in parameters to create dropdown parameters of static values. Simple JSON arrays or objects will automatically be converted into grid rows and columns. For more specific behaviors, you can use the **Results** tab and JSONPath settings to configure columns.
 
 > [!NOTE]
-> Do not include any sensitive information in any fields (headers, parameters, body, url), since they will be visible to all of the Workbook users.
+> Do *not* include sensitive information in fields like headers, parameters, body, and URL, because they'll be visible to all the workbook users.
 
 This provider supports [JSONPath](workbooks-jsonpath.md).
 
 ## Merge
 
-Merging data from different sources can enhance the insights experience. An example is augmenting active alert information with related metric data. This allows users to see not just the effect (an active alert), but also potential causes (for example, high CPU usage). The monitoring domain has numerous such correlatable data sources that are often critical to the triage and diagnostic workflow.
+Merging data from different sources can enhance the insights experience. An example is augmenting active alert information with related metric data. Merging data allows users to see not just the effect (an active alert) but also potential causes, for example, high CPU usage. The monitoring domain has numerous such correlatable data sources that are often critical to the triage and diagnostic workflow.
 
-Workbooks allow not just the querying of different data sources, but also provides simple controls that allow you to merge or join the data to provide rich insights. The **merge** control is the way to achieve it.
+With workbooks, you can query different data sources. Workbooks also provide simple controls that you can use to merge or join data to provide rich insights. The *merge* control is the way to achieve it.
 
-### Combining alerting data with Log Analytics VM performance data
+### Combine alerting data with Log Analytics VM performance data
 
-The example below combines alerting data with Log Analytics VM performance data to get a rich insights grid.
+The following example combines alerting data with Log Analytics VM performance data to get a rich insights grid.
 
-![Screenshot of a workbook with a merge control that combines alert and log analytics data.](./media/workbooks-data-sources/merge-control.png)
+![Screenshot that shows a workbook with a merge control that combines alert and Log Analytics data.](./media/workbooks-data-sources/merge-control.png)
 
-### Using merge control to combine Azure Resource Graph and Log Analytics data
+### Use merge control to combine Resource Graph and Log Analytics data
 
-Here is a tutorial on using the merge control to combine Azure Resource Graph and Log Analytics data:
+Watch this tutorial on using the merge control to combine Resource Graph and Log Analytics data:
 
 [![Combining data from different sources in workbooks](https://img.youtube.com/vi/7nWP_YRzxHg/0.jpg)](https://www.youtube.com/watch?v=7nWP_YRzxHg "Video showing how to combine data from different sources in workbooks.")
 
@@ -113,31 +114,35 @@ Workbooks support these merges:
 
 ## Custom endpoint
 
-Workbooks support getting data from any external source. If your data lives outside Azure you can bring it to Workbooks by using this data source type.
+Workbooks support getting data from any external source. If your data lives outside Azure, you can bring it to workbooks by using this data source type.
 
-To make a query control use this data source, use the **Data source** drop-down to choose **Custom Endpoint**. Provide the appropriate parameters such as **Http method**, **url**, **headers**, **url parameters**, and/or **body**. Make sure your data source supports [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) otherwise the request will fail.
+To make a query control that uses this data source, use the **Data source** dropdown and select **Custom Endpoint**. Provide the appropriate parameters, such as **Http method**, **url**, **headers**, **url parameters**, and **body**. Make sure your data source supports [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). Otherwise, the request will fail.
 
-To avoid automatically making calls to untrusted hosts when using templates, the user needs to mark the used hosts as trusted. This can be done by either selecting the **Add as trusted** button, or by adding it as a trusted host in Workbook settings. These settings will be saved in [browsers that support IndexDb with web workers](https://caniuse.com/#feat=indexeddb).
+To avoid automatically making calls to untrusted hosts when you use templates, you need to mark the used hosts as trusted. You can either select **Add as trusted** or add it as a trusted host in workbook settings. These settings will be saved in [browsers that support IndexDb with web workers](https://caniuse.com/#feat=indexeddb).
 
 This provider supports [JSONPath](workbooks-jsonpath.md).
+
 ## Workload health
 
-Azure Monitor has functionality that proactively monitors the availability and performance of Windows or Linux guest operating systems. Azure Monitor models key components and their relationships, criteria for how to measure the health of those components, and which components alert you when an unhealthy condition is detected. Workbooks allow users to use this information to create rich interactive reports.
+Azure Monitor has functionality that proactively monitors the availability and performance of Windows or Linux guest operating systems. Azure Monitor models key components and their relationships, criteria for how to measure the health of those components, and which components alert you when an unhealthy condition is detected. With workbooks, you can use this information to create rich interactive reports.
 
-To make a query control use this data source, use the **Query type** drop-down to choose Workload Health and select subscription, resource group or VM resources to target. Use the health filter drop downs to select an interesting subset of health incidents for your analytic needs.
+To make a query control that uses this data source, use the **Query type** dropdown to select **Workload Health**. Then select subscription, resource group, or VM resources to target. Use the health filter dropdowns to select an interesting subset of health incidents for your analytic needs.
 
-![Screenshot of alerts query.](./media/workbooks-data-sources/workload-health.png)
+![Screenshot that shows an alerts query.](./media/workbooks-data-sources/workload-health.png)
 
 ## Azure resource health
 
-Workbooks support getting Azure resource health and combining it with other data sources to create rich, interactive health reports
+Workbooks support getting Azure resource health and combining it with other data sources to create rich, interactive health reports.
 
-To make a query control use this data source, use the **Query type** drop-down to choose Azure health and select the resources to target. Use the health filter drop downs to select an interesting subset of resource issues for your analytic needs.
+To make a query control that uses this data source, use the **Query type** dropdown and select **Azure health**. Then select the resources to target. Use the health filter dropdowns to select an interesting subset of resource issues for your analytic needs.
 
-![Screenshot of alerts query that shows the health filter lists.](./media/workbooks-data-sources/resource-health.png)
+![Screenshot that shows an alerts query that shows the health filter lists.](./media/workbooks-data-sources/resource-health.png)
 
 ## Azure RBAC
-The Azure RBAC provider allows you to check permissions on resources. It is most commonly used in parameter to check if the correct RBAC are set up. A use case would be to create a parameter to check deployment permission and then notify the user if they don't have deployment permission. Simple JSON arrays or objects will automatically be converted into grid rows and columns or text with a 'hasPermission' column with either true or false. The permission is checked on each resource and then either 'or' or 'and' to get the result. The [operations or actions](../../role-based-access-control/resource-provider-operations.md) can be a string or an array.
+
+The Azure role-based access control (RBAC) provider allows you to check permissions on resources. It's most commonly used in parameters to check if the correct RBACs are set up. A use case would be to create a parameter to check deployment permission and then notify the user if they don't have deployment permission.
+
+Simple JSON arrays or objects will automatically be converted into grid rows and columns or text with a `hasPermission` column with either true or false. The permission is checked on each resource and then either `or` or `and` to get the result. The [operations or actions](../../role-based-access-control/resource-provider-operations.md) can be a string or an array.
 
   **String:**
    ```
@@ -151,12 +156,12 @@ The Azure RBAC provider allows you to check permissions on resources. It is most
 
 ## Change Analysis (preview)
 
-To make a query control using [Application Change Analysis](../app/change-analysis.md) as the data source, use the **Data source** drop-down and choose *Change Analysis (preview)* and select a single resource. Changes for up to the last 14 days can be shown. The *Level* drop-down can be used to filter between "Important", "Normal", and "Noisy" changes, and this drop down supports workbook parameters of type [drop down](workbooks-dropdowns.md).
+To make a query control that uses [Application Change Analysis](../app/change-analysis.md) as the data source, use the **Data source** dropdown and select **Change Analysis (preview)**. Then select a single resource. Changes for up to the last 14 days can be shown. Use the **Level** dropdown to filter between **Important**, **Normal**, and **Noisy** changes. This dropdown supports workbook parameters of the type [drop down](workbooks-dropdowns.md).
 
 > [!div class="mx-imgBorder"]
-> ![A screenshot of a workbook with Change Analysis.](./media/workbooks-data-sources/change-analysis-data-source.png)
+> ![A screenshot that shows a workbook with Change Analysis.](./media/workbooks-data-sources/change-analysis-data-source.png)
 
 ## Next steps
 
- - [Getting started with Azure Workbooks](workbooks-getting-started.md)
- - [Create an Azure Workbook](workbooks-create-workbook.md).
+ - [Get started with Azure Workbooks](workbooks-getting-started.md)
+ - [Create an Azure workbook](workbooks-create-workbook.md)

@@ -11,7 +11,7 @@ ms.custom: devx-track-python
 ---
 
 
-Run `az webpp ssh` to open an SSH session for the web app in the browser:
+Run `az webapp ssh` to open an SSH session for the web app in the browser:
 
 #### [bash](#tab/terminal-bash)
 

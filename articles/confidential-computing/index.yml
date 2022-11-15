@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure confidential computing documentation
+title: Azure confidential computing
 summary: Azure confidential computing offers solutions to enable the isolation your sensitive data while it's being processed in the cloud. Learn how to create and deploy applications based on confidential computing infrastructure by reading concepts, completing tutorials, and working with code samples. Use Microsoft products built on confidential computing to keep your workloads as secure as possible. 
 
 metadata:
@@ -8,11 +8,11 @@ metadata:
   description: Learn about how Azure confidential computing protects data in use and learn ways to build confidential workloads in the cloud. 
   ms.service: virtual-machines
   ms.subservice: confidential-computing
+  ms.custom: ignite-2022
   ms.topic: landing-page
-  author: stempesta 
+  author: stempesta # ananyagarg 
   ms.author: stempesta
-  ms.date: 09/22/2020 
-
+  ms.date: 09/22/2020, 07/13/2022
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -21,140 +21,140 @@ landingContent:
 ##ROW 1
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure confidential computing
+  - title: Azure confidential computing
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure confidential computing?
+          - text: What is confidential computing?
             url: overview.md
-          - text: Scenarios
+          - text: What is Azure confidential computing?
+            url: overview-azure-products.md
+          - text: Choose your confidential computing offering
             url: use-cases-scenarios.md 
-      - linkListType: concept
-        links:
-          - text: Build with application enclaves 
-            url: confidential-computing-enclaves.md
-          - text: Container computing on AKS
-            url: confidential-containers.md
-          - text: Application Development
-            url: application-development.md
-          - text: Attestation
-            url: attestation.md 
-      - linkListType: reference
-        links:
-          - text: DCsv2-series Virtual Machines
-            url: ../virtual-machines/dcv2-series.md
-          - text: DCsv3 and DCdsv3-series Virtual Machines
-            url: ../virtual-machines/dcv3-series.md
-          - text: DCasv5 and DCadsv5-series Virtual Machines
-            url: ../virtual-machines/dcasv5-dcadsv5-series.md
-          - text: ECasv5 and ECadsv5-series Virtual Machines
-            url: ../virtual-machines/ecasv5-ecadsv5-series.md
-          
-
-  # Card (optional)
-  - title: Virtual machines
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Intel SGX virtual machines
-            url: confidential-computing-enclaves.md
-          - text: Virtual Machines based on AMD processors with SEV-SNP technology
-            url: confidential-vm-overview.md
-      - linkListType: concept
-        links:
-          - text: Solutions on SGX virtual machines
-            url: virtual-machine-solutions-sgx.md
-          - text: Azure Confidential VM options on AMD
-            url: virtual-machine-solutions-amd.md
       - linkListType: quickstart
         links:
-          - text: Create Intel SGX VM in the Azure Portal
-            url: quick-create-portal.md
-          - text: Create Intel SGX VM in the Azure Marketplace
-            url: quick-create-marketplace.md
-          - text: Create an AMD confidential VM in the Azure portal
-            url: quick-create-confidential-vm-portal-amd.md
-          - text: Create an AMD confidential VM with ARM template
-            url: quick-create-confidential-vm-arm-amd.md
-      - linkListType: reference
-        links:
-          - text: Confidential computing enclaves FAQ 
-            url: faq-application-enclaves.yml
-          - text: AMD confidential VMs FAQ 
-            url: confidential-vm-faq-amd.yml
-          - text: Pricing
-            url: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
-          - text: Availability
-            url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
-
-  # Card
-  - title: Container compute
-    linkLists:
-      - linkListType: get-started
-        links: 
-          - text: Confidential computing nodes on AKS (Azure Kubernetes Service)
-            url: confidential-nodes-aks-overview.md
+          - text: Building confidential computing solutions
+            url: confidential-computing-solutions.md
+          - text: Deploying confidential computing solutions
+            url: confidential-computing-deployment-models.md
       - linkListType: concept
-        links:
-         -  text: Confidential containers
-            url: confidential-containers.md
-         -  text: Enclave-aware containers
-            url: enclave-aware-containers.md
-         -  text: Out of proc attestation
-            url: confidential-nodes-aks-addon.md
-      - linkListType: quickstart
-        links:
-          - text: CLI based provisioning with a simple enclave container app on AKS
-            url: confidential-enclave-nodes-aks-get-started.md
-      - linkListType: sample
-        links:
-          - text: Confidential container samples (unmodified containers on SGX)
-            url: https://github.com/Azure-Samples/confidential-container-samples
-          - text: Enclave Aware Container Samples
-            url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
-      - linkListType: reference
-        links:
-          - text: Confidential nodes on AKS FAQ 
-            url: confidential-nodes-aks-faq.yml
-          - text: About Azure Kubernetes Service (AKS) 
-            url: ../aks/intro-kubernetes.md
-
-##ROW 2
-  # Card
-  # Card
-  - title: Confidential cloud services
-    linkLists:
-      - linkListType: reference
         links:
           - text: Microsoft Azure Attestation
             url: ../attestation/overview.md
-          - text: Confidential Inferencing ONNX Runtime
-            url: https://aka.ms/confidentialinference
-          - text: Always Encrypted with secure enclaves in Azure SQL Database
-            url: /azure/azure-sql/database/always-encrypted-with-secure-enclaves-landing
           - text: Azure Confidential Ledger
             url: ../confidential-ledger/overview.md
           - text: Trusted launch
             url: ../virtual-machines/trusted-launch.md
-          - text: Azure IoT Edge
-            url: ../iot-edge/deploy-confidential-applications.md
           - text: Azure Key Vault Managed HSM
             url: ../key-vault/managed-hsm/index.yml
-           
-     
-
-# Card
-  - title: Build with confidential computing
-    linkLists:
-      - linkListType: tutorial
+          - text: Azure IoT Edge
+            url: ../iot-edge/deploy-confidential-applications.md
+      - linkListType: whats-new
         links:
-          - text: Confidential big-data analytics with Confidential containers 
-            url: /azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql
-          - text: Confidential healthcare demo on AKS 
-            url: /azure/architecture/example-scenario/confidential/healthcare-inference
-          - text: Attested Mutual TLS with Open Enclave on AKS
-            url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
+          - text: What's new?
+            url: https://techcommunity.microsoft.com/t5/azure-confidential-computing/bg-p/AzureConfidentialComputingBlog
+  # Card (optional)
+  - title: Confidential Virtual Machines
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Confidential VM options on AMD
+            url: confidential-vm-overview.md
+          - text: Virtual Machines based on AMD processors with SEV-SNP technology
+            url: virtual-machine-solutions-amd.md
+      - linkListType: concept
+        links:
+          - text: Guest attestation for confidential VMs
+            url: guest-attestation-confidential-vms.md
+          - text: Microsoft Defender for Cloud integration
+            url: guest-attestation-defender-for-cloud.md
+      - linkListType: quickstart
+        links:
+          - text: Create an AMD confidential VM in the Azure portal
+            url: quick-create-confidential-vm-portal-amd.md
+          - text: Create an AMD confidential VM with ARM template
+            url: quick-create-confidential-vm-arm-amd.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use sample app for guest attestation
+            url: guest-attestation-example.md
       - linkListType: reference
         links:
-          - text: Open Enclave (OE) SDK
-            url: https://aka.ms/oesdkGitHubRepo
+          - text: AMD confidential VMs FAQ 
+            url: confidential-vm-faq-amd.yml
+          - text: DCasv5 and DCadsv5-series virtual machines
+            url: ../virtual-machines/dcasv5-dcadsv5-series.md
+          - text: ECasv5 and ECadsv5-series virtual machines
+            url: ../virtual-machines/ecasv5-ecadsv5-series.md
+          - text: Availability
+            url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
+      - linkListType: whats-new
+        links:
+          - text: AMD SEV-SNP Confidential VM's with customizable firmware - Private preview 
+            url: https://aka.ms/dlbcvm
+
+  # Card
+  - title: Container compute
+    linkLists:
+      - linkListType: overview
+        links: 
+        - text: Confidential containers on Azure
+          url: confidential-containers.md
+        - text: App enclave nodes in AKS
+          url: confidential-nodes-aks-overview.md
+        - text: Confidential VM node pool in AKS
+          url: confidential-node-pool-aks.md
+      - linkListType: quickstart
+        links:
+          - text: CLI based provisioning with a hello from enclave container app on AKS
+            url: confidential-enclave-nodes-aks-get-started.md
+          - text: Confidential containers with Intel SGX quickstart
+            url: confidential-containers-enclaves.md
+          - text: App enclave aware container samples
+            url: enclave-aware-containers.md
+          - text: Confidential node pools on AKS
+            url: confidential-nodes-aks-addon.md
+      - linkListType: reference
+        links:
+          - text: Azure architecture center confidential container scenarios
+            url: /search/?terms=confidential%20containers&scope=Azure%20Architecture%20Center
+          - text: About Azure Kubernetes Service (AKS) 
+            url: ..\aks\intro-kubernetes.md
+          - text: App enclave nodes on AKS FAQ 
+            url: confidential-nodes-aks-faq.yml
+      - linkListType: video
+        links:
+          - text: Overview of confidential computing Intel SGX nodes on AKS
+            url: https://www.youtube.com/watch?v=FYZxtHI_Or0
+          - text: Python hello world demo with Intel SGX based confidential containers on AKS 
+            url: https://www.youtube.com/watch?v=PiYCQmOh0EI
+          - text: Confidential big data analytics with Apache Spark in enclaves
+            url: https://www.youtube.com/watch?v=em6ovuznAf8          
+      - linkListType: whats-new
+        links:
+          - text: AMD SEV-SNP based confidential containers with Azure Container Instances (ACI) - Private preview 
+            url: https://aka.ms/ccaci
+          - text: Confidential VM AMD SEV-SNP node pools on AKS
+            url: https://aka.ms/Ignite2022-CVM-Node-Pools-on-AKS-GA
+## Row 2
+# Card
+  - title: Virtual machines with app enclaves
+    linkLists:
+      - linkListType: overview
+        links: 
+          - text: App enclave development
+            url: application-development.md
+          - text: Intel SGX app enclaves
+            url: confidential-computing-enclaves.md
+      - linkListType: quickstart
+        links:
+          - text: Create Intel SGX VM in the Azure portal
+            url: quick-create-portal.md
+          - text: Create Intel SGX VM in the Azure Marketplace
+            url: quick-create-marketplace.md
+      - linkListType: reference
+        links:
+          - text: DCsv2-series virtual machines
+            url: ../virtual-machines/dcv2-series.md
+          - text: DCsv3 and DCdsv3-series virtual machines
+            url: ../virtual-machines/dcv3-series.md

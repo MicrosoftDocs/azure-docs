@@ -10,7 +10,7 @@ ms.date: 06/24/2021
 ms.author: tamram
 ms.subservice: tables
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 # Table design patterns
 
@@ -638,19 +638,14 @@ As discussed in the section Design for querying, the most efficient query is a p
 The easiest way to execute a point query is to use the **GetEntityAsync** method as shown in the following C# code snippet that retrieves an entity with a **PartitionKey** of value "Sales" and a **RowKey** of value "212":  
 
 ```csharp
-var retrieveResult = employeeTable.GetEntityAsync<EmployeeEntity>("Sales", "212");
-if (retrieveResult.Result != null)
-{
-    EmployeeEntity employee = (EmployeeEntity)queryResult.Result;
-    ...
-}  
+EmployeeEntity employee = await employeeTable.GetEntityAsync<EmployeeEntity>("Sales", "212");
 ```
 
 Notice how this example expects the entity it retrieves to be of type **EmployeeEntity**.  
 
 ### Retrieving multiple entities using LINQ
 
-You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos Table Standard Library.
+You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos DB Table Standard Library.
 
 ```azurecli
 dotnet add package Microsoft.Azure.Cosmos.Table

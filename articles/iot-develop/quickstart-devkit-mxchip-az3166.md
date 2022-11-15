@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/02/2021
-ms.custom: mode-other
+ms.date: 10/21/2022
+ms.custom: mode-other, engagement-fy23
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central
@@ -34,6 +34,7 @@ You'll complete the following tasks:
     * The [MXCHIP AZ3166 IoT DevKit](https://www.seeedstudio.com/AZ3166-IOT-Developer-Kit.html) (MXCHIP DevKit)
     * Wi-Fi 2.4 GHz
     * USB 2.0 A male to Micro USB male cable
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 

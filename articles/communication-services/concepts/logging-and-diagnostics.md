@@ -2,11 +2,11 @@
 title: Communication Services Logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging in Azure Communication Services
-author: probableprime
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -102,6 +102,7 @@ Communication Services offers the following types of logs that you can enable:
 | SdkType | The SDK type used in the request. |
 | PlatformType | The platform type used in the request. |
 | Method | The method used in the request. |
+|NumberType| The type of number, the SMS message is being sent from. It can be either **LongCodeNumber** or **ShortCodeNumber** |
 
 ### Authentication operational logs
 
@@ -120,7 +121,7 @@ Communication Services offers the following types of logs that you can enable:
 | URI | The URI of the request. |
 | SdkType | The SDK type used in the request. |
 | PlatformType | The platform type used in the request. |
-| Identity | The Communication Services identity related to the operation. |
+| Identity | The identity of Azure Communication Services or Teams user related to the operation. |
 | Scopes | The Communication Services scopes present in the access token. |
 
 ### Network Traversal operational logs

@@ -4,7 +4,7 @@ description: This topic describes the built-in scheduler feature in Azure AD Con
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf

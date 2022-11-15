@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 10/21/2022
 ms.author: cherylmc
 # Customer intent: I want to manage my VM experience using Azure Bastion.
 

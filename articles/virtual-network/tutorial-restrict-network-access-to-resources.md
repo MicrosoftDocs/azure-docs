@@ -2,8 +2,8 @@
 title: 'Tutorial: Restrict access to PaaS resources with service endpoints - Azure portal'
 description: In this tutorial, you learn how to limit and restrict network access to Azure resources, such as an Azure Storage, with virtual network service endpoints using the Azure portal.
 documentationcenter: virtual-network
-author: mbender-ms
-ms.author: mbender
+author: asudbring
+ms.author: allensu
 manager: kumudD
 tags: azure-resource-manager
 services: virtual-network
@@ -317,7 +317,7 @@ To test network access to a storage account, deploy a VM to each subnet.
 
 ### Create the second virtual machine
 
-1. Repeat steps 1-5 to create a second virtual machine. In step 3, name the virtual machine *myVmPrivate* and set *NIC network security group* to **None**. In step 4, select the **Private** subnet.
+1. Repeat steps 1-5 to create a second virtual machine. In step 3, name the virtual machine *myVmPrivate*. In step 4, select the **Private** subnet and set *NIC network security group* to **None**.
 
    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/virtual-machine-2-networking.png" alt-text="Screenshot of create private virtual machine network settings." lightbox="./media/tutorial-restrict-network-access-to-resources/virtual-machine-2-networking-expanded.png":::
 

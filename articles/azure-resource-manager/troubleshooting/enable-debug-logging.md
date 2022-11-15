@@ -3,7 +3,7 @@ title: Enable debug logging
 description: Describes how to enable debug logging to troubleshoot Azure resources deployed with Bicep files or Azure Resource Manager templates (ARM templates).
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 06/20/2022
+ms.date: 09/14/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -47,7 +47,7 @@ The `DeploymentDebugLogLevel` parameter is available for other deployment scopes
 
 # [Azure CLI](#tab/azure-cli)
 
-You can't enable debug logging with Azure CLI but you can get debug logging data using the `request` and `response` properties.
+You can't enable debug logging with Azure CLI but you can get the debug log's data using the `request` and `response` properties.
 
 
 ---

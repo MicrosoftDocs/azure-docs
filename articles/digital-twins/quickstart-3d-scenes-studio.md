@@ -61,12 +61,12 @@ In this section, you'll use the *Azure Digital Twins data simulator* tool to gen
 
 This sample scenario represents a package distribution center that contains six robotic arms. Each arm has a digital twin with properties to track how many boxes the arm fails to pick up, along with the IDs of the missed boxes.
 
-1. Navigate to the [data simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher). 
+1. Navigate to the [data simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher) in your web browser. 
 1. In the **Instance URL** space, enter the *host name* of your Azure Digital Twins instance from the [previous section](#collect-host-name). Set the **Simulation Type** to *Robot Arms*.
 1. Use the **Generate environment** button to create a sample environment with models and twins. (If you already have models and twins in your instance, this will not delete them, it will just add more.)
 
     :::image type="content"  source="media/quickstart-3d-scenes-studio/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator. The Generate environment button is highlighted." lightbox="media/quickstart-3d-scenes-studio/data-simulator.png":::
-1. Select **Start simulation** to start sending simulated data to your Azure Digital Twins instance. The simulation will only run while this window is open and the **Start simulation** option is active.
+1. Scroll down and select **Start simulation** to start sending simulated data to your Azure Digital Twins instance. The simulation will only run while this window is open and the **Start simulation** option is active.
 
 You can view the models and graph that have been created by using the Azure Digital Twins Explorer **Graph** tool. To switch to that tool, select the **Graph** icon from the left menu.
 
@@ -145,7 +145,9 @@ Now that all your resources are set up, you can use them to create an environmen
 
     1. For the **Azure Digital Twins instance URL**, fill the *host name* of your instance from the [Collect host name](#collect-host-name) step into this URL: `https://<your-instance-host-name>`.
     
-    1. For the **Azure Storage container URL**, fill the names of your storage account and container from the [Create storage resources](#create-storage-resources) step into this URL: `https://<your-storage-account>.blob.core.windows.net/<your-container>`.
+    1. For the **Azure Storage account URL**, fill the name of your storage account from the [Create storage resources](#create-storage-resources) step into this URL: `https://<your-storage-account>.blob.core.windows.net`.
+
+    1. For the **Azure Storage container name**, enter the name of your storage container from the [Create storage resources](#create-storage-resources) step.
     
     1. Select **Save**.
     

@@ -4,7 +4,7 @@ description: Get information on how to configure group claims for use with Azure
 services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
-manager: karenhoran
+manager: amycolannino
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,11 @@ author: billmath
 
 # Configure group claims for applications by using Azure Active Directory
 
-Azure Active Directory (Azure AD) can provide a user's group membership information in tokens for use within applications. This feature supports two main patterns:
+Azure Active Directory (Azure AD) can provide a user's group membership information in tokens for use within applications. This feature supports three main patterns:
 
 - Groups identified by their Azure AD object identifier (OID) attribute
 - Groups identified by the `sAMAccountName` or `GroupSID` attribute for Active Directory-synchronized groups and users
+- Groups identified by their Display Name attribute for cloud-only groups (Preview)
 
 > [!IMPORTANT]
 > The number of groups emitted in a token is limited to 150 for SAML assertions and 200 for JWT, including nested groups. In larger organizations, the number of groups where a user is a member might exceed the limit that Azure AD will add to a token. Exceeding a limit can lead to unpredictable results. For workarounds to these limits, read more in [Important caveats for this functionality](#important-caveats-for-this-functionality).
@@ -27,7 +28,7 @@ Azure Active Directory (Azure AD) can provide a user's group membership informat
 ## Important caveats for this functionality
 
 - Support for use of `sAMAccountName` and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from Active Directory Federation Services (AD FS) and other identity providers. Groups managed in Azure AD don't contain the attributes necessary to emit these claims.
-- In order to avoid the number of groups limit if your users have large numbers of group memberships, you can restrict the groups emitted in claims to the relevant groups for the application. Read more about emitting groups assigned to the application for [JWT tokens](..\develop\active-directory-optional-claims.md#configuring-groups-optional-claims) and [SAML tokens](#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). If assigning groups to your applications is not possible, you can also configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. Group filtering applies to tokens emitted for apps where group claims and filtering was configured in the **Enterprise apps** blade in the portal.
+- In order to avoid the number of groups limit if your users have large numbers of group memberships, you can restrict the groups emitted in claims to the relevant groups for the application. Read more about emitting groups assigned to the application for [JWT tokens](..\develop\active-directory-optional-claims.md#configuring-groups-optional-claims) and [SAML tokens](#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). If assigning groups to your applications is not possible, you can also configure a [group filter](#group-filtering) to reduce the number of groups emitted in the claim. Group filtering applies to tokens emitted for apps where group claims and filtering were configured in the **Enterprise apps** blade in the portal.
 - Group claims have a five-group limit if the token is issued through the implicit flow. Tokens requested via the implicit flow will have a `"hasgroups":true` claim only if the user is in more than five groups.
 - We recommend basing in-app authorization on application roles rather than groups when:
 
@@ -87,11 +88,11 @@ To configure group claims for a gallery or non-gallery SAML application via sing
 
 1. Open **Enterprise Applications**, select the application in the list, select **Single Sign On configuration**, and then select **User Attributes & Claims**.
 
-1. Select **Add a group claim**.
+2. Select **Add a group claim**.
 
    ![Screenshot that shows the page for user attributes and claims, with the button for adding a group claim selected.](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
-1. Use the options to select which groups should be included in the token.
+3. Use the options to select which groups should be included in the token.
 
    ![Screenshot that shows the Group Claims window with group options.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
@@ -119,6 +120,27 @@ To configure group claims for a gallery or non-gallery SAML application via sing
      To change the groups assigned to the application, select the application from the **Enterprise Applications** list. Then select **Users and Groups** from the application's left menu.
 
      For more information about managing group assignment to applications, see [Assign a user or group to an enterprise app](../../active-directory/manage-apps/assign-user-or-group-access-portal.md).
+
+## Emit cloud-only group display name in token (Preview)
+
+You can configure group claim to include the group display name for the cloud-only groups.
+
+1. Open **Enterprise Applications**, select the application in the list, select **Single Sign On configuration**, and then select **User Attributes & Claims**.
+
+2. If you already have group claims configured, select it from the **Additional claims** section. Otherwise, you can add the group claim as described in the previous steps.
+
+3. For the group type emitted in the token select **Groups assigned to the application**:
+   
+   ![Screenshot that shows the Group Claims window, with the option for groups assigned to the application selected.](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+
+4. To emit group display name just for cloud groups, in the **Source attribute** dropdown select the **Cloud-only group display names (Preview)**:
+
+   ![Screenshot that shows the Group Claims source attribute dropdown, with the option for configuring cloud only group names selected.](media/how-to-connect-fed-group-claims/group-claims-ui-8.png)
+
+5. For a hybrid setup, to emit on-premises group attribute for synced groups and display name for cloud groups, you can select the desired on-premises sources attribute and check the checkbox **Emit group name for cloud-only groups (Preview)**:
+
+   ![Screenshot that shows the configuration to emit on-premises group attribute for synced groups and display name for cloud groups.](media/how-to-connect-fed-group-claims/group-claims-ui-9.png)
+
 
 ### Set advanced options
 
@@ -163,7 +185,9 @@ For more information about regex replace and capture groups, see [The Regular Ex
 >[!NOTE]
 > As described in the Azure AD documentation, you can't modify a restricted claim by using a policy. The data source can't be changed, and no transformation is applied when you're generating these claims. The group claim is still a restricted claim, so you need to customize the groups by changing the name. If you select a restricted name for the name of your custom group claim, the claim will be ignored at runtime. 
 >
-> You can also use the regex transform feature as a filter, because any groups that don't match the regex pattern will not be emitted in the resulting claim. 
+> You can also use the regex transform feature as a filter, because any groups that don't match the regex pattern will not be emitted in the resulting claim.
+>
+>If the transform applied to the original groups claim results in a new custom claim, then the original groups claim will be omitted from the token. However, if the configured regex doesn't match any value in the original list, then the custom claim will not be present and the original groups claim will be included in the token.
 
 ### Edit the group claim configuration
 
@@ -197,7 +221,7 @@ You can also configure group claims in the [optional claims](../../active-direct
 
    By default, group `ObjectID` attributes will be emitted in the group claim value. To modify the claim value to contain on-premises group attributes, or to change the claim type to a role, use the `optionalClaims` configuration described in the next step.
 
-3. Set optional clams for group name configuration.
+3. Set optional claims for group name configuration.
 
    If you want the groups in the token to contain the on-premises Active Directory group attributes, specify which token-type optional claim should be applied in the `optionalClaims` section. You can list multiple token types:
 
@@ -224,11 +248,13 @@ You can also configure group claims in the [optional claims](../../active-direct
    | `name` | Must be `"groups"`. |
    | `source` | Not used. Omit or specify `null`. |
    | `essential` | Not used. Omit or specify `false`. |
-   | `additionalProperties` | List of additional properties. Valid options are `"sam_account_name"`, `"dns_domain_and_sam_account_name"`, `"netbios_domain_and_sam_account_name"`, and `"emit_as_roles"`. |
+   | `additionalProperties` | List of additional properties. Valid options are `"sam_account_name"`, `"dns_domain_and_sam_account_name"`, `"netbios_domain_and_sam_account_name"`, `"cloud_displayname"`, and `"emit_as_roles"`. |
 
    In `additionalProperties`, only one of `"sam_account_name"`, `"dns_domain_and_sam_account_name"`, or `"netbios_domain_and_sam_account_name"` is required. If more than one is present, the first is used and any others are ignored.
 
    Some applications require group information about the user in the role claim. To change the claim type to from a group claim to a role claim, add `"emit_as_roles"` to additional properties. The group values will be emitted in the role claim.
+
+   To emit group display name for cloud-only groups, you can add `"cloud_displayname"` to `additional properties`. This option will work only when `“groupMembershipClaims”` is set to `ApplicationGroup`
 
    > [!NOTE]
    > If you use `"emit_as_roles"`, any configured application roles that the user is assigned to will not appear in the role claim.

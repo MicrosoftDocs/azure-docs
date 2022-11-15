@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/25/2020
+ms.date: 11/08/2022
 ms.author: thwimmer
 ---
 
@@ -35,7 +35,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* An [InVision Enterprise account](https://www.invisionapp.com/enterprise) with SSO enabled.
+* An [InVision Enterprise account](https://www.invisionapp.com/) with SSO enabled.
 * A user account in InVision with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment
@@ -45,7 +45,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure InVision to support provisioning with Azure AD
 
-1. Sign in to your [InVision Enterprise account](https://www.invisionapp.com/enterprise) as an Admin or Owner. Open the **Team Settings** drawer on the bottom left and select **Settings**.
+1. Sign in to your [InVision Enterprise account](https://www.invisionapp.com/) as an Admin or Owner. Open the **Team Settings** drawer on the bottom left and select **Settings**.
 
    ![SCIM setup configuration](./media/invision-provisioning-tutorial/invision-scim-settings.png)
 

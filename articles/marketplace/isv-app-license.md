@@ -1,16 +1,15 @@
 ---
-title: ISV app license management - Microsoft AppSource and Azure Marketplace
-description: Learn about managing ISV app licenses through Microsoft.
+title: ISV app license management for Dynamics 365 apps on Dataverse and Power Apps - Microsoft AppSource and Azure Marketplace
+description: Learn about managing ISV app licenses through Microsoft for Dynamics 365 apps on Dataverse and Power Apps.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers 
 ms.date: 06/23/2022
 ---
 
-# ISV app license management
+# ISV app license management for Dynamics 365 apps on Dataverse and Power Apps
 
 Applies to the following offer type:
 
@@ -30,7 +29,7 @@ ISV app license management currently supports:
 
 To manage your ISV app licenses, you need to comply with the following pre-requisites.
 
-1. Have a valid [Microsoft Partner Network account](/partner-center/mpn-create-a-partner-center-account).
+1. Have a valid [Microsoft Cloud Partner Program account](/partner-center/mpn-create-a-partner-center-account).
 1. Be signed up for commercial marketplace program. For more information, see [Create a commercial marketplace account in Partner Center](create-account.md).
 1. Be signed up for the [ISV Connect program](https://partner.microsoft.com/solutions/business-applications/isv-overview). For more information, see [Microsoft Business Applications Independent Software Vendor (ISV) Connect Program onboarding guide](business-applications-isv-program.md).
 1. Your developer team has the development environments and tools required to create Dataverse solutions. Your Dataverse solution must include model-driven applications (currently these are the only type of solution components that are supported through the license management feature).
@@ -77,7 +76,7 @@ When a user within the customer’s organization tries to run an application, Mi
 ### Step 7: View reports
 
 ISVs can view information on:
-- Orders purchased, renewed, or cancelled over time and by geography.
+- Orders purchased, renewed, or canceled over time and by geography.
 
 - Provisioned and assigned licenses over a period of time and by geography.
 

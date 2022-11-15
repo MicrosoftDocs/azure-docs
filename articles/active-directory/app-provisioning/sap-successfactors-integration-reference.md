@@ -3,12 +3,12 @@ title: Azure Active Directory and SAP SuccessFactors integration reference
 description: Technical deep dive into SAP SuccessFactors-HR driven provisioning for Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/11/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -79,12 +79,12 @@ Based on the attribute-mapping, during full sync Azure AD provisioning service s
 >| OData API Host | Appends https to the *Tenant URL*. Example: `https://api4.successfactors.com` |
 >| OData API Endpoint | `/odata/v2/PerPerson` |
 >| OData $format query parameter | `json` |
->| OData $filter query parameter | `(personEmpTerminationInfoNav/activeEmploymentsCount ge 1) and (lastModifiedDateTime le <CurrentExecutionTime>)` |
+>| OData $filter query parameter | `(personEmpTerminationInfoNav/activeEmploymentsCount ne null) and (lastModifiedDateTime le <CurrentExecutionTime>)` |
 >| OData $expand query parameter | This parameter value depends on the attributes mapped. Example: `employmentNav/userNav,employmentNav/jobInfoNav,personalInfoNav,personEmpTerminationInfoNav,phoneNav,emailNav,employmentNav/jobInfoNav/companyNav/countryOfRegistrationNav,employmentNav/jobInfoNav/divisionNav,employmentNav/jobInfoNav/departmentNav` |
 >| OData customPageSize query parameter | `100` |
 
 > [!NOTE]
-> During the first initial full sync, Azure AD provisioning service does not pull inactive/terminated worker data.
+> During the full initial sync, both active and terminated workers from SAP SuccessFactors will be fetched.
 
 For each SuccessFactors user, the provisioning service looks for an account in the target (Azure AD/on-premises Active Directory) using the matching attribute defined in the mapping. For example: if *personIdExternal* maps to *employeeId* and is set as the matching attribute, then the provisioning service uses the *personIdExternal* value to search for the user with *employeeId* filter. If a user match is found, then it updates the target attributes. If no match is found, then it creates a new entry in the target. 
 
@@ -216,7 +216,7 @@ Extending this scenario:
 
 ### Mapping employment status to account status
 
-By default, the Azure AD SuccessFactors connector uses the `activeEmploymentsCount` field of the `PersonEmpTerminationInfo` object to set account status. There is a known SAP SuccessFactors issue documented in [knowledge base article 3047486](https://userapps.support.sap.com/sap/support/knowledge/en/3047486) that at times this may disable the account of a terminated worker one day prior to the termination on the last day of work. 
+By default, the Azure AD SuccessFactors connector uses the `activeEmploymentsCount` field of the `PersonEmpTerminationInfo` object to set account status. There is a known SAP SuccessFactors issue documented in [knowledge base article 3047486](https://launchpad.support.sap.com/#/notes/3047486) that at times this may disable the account of a terminated worker one day prior to the termination on the last day of work. 
 
 If you are running into this issue or prefer mapping employment status to  account status, you can update the mapping to expand the `emplStatus` field and use the employment status code present in the field `emplStatus.externalCode`. Based on [SAP support note 2505526](https://launchpad.support.sap.com/#/notes/2505526), here is a list of employment status codes that you can retrieve in the provisioning app. 
 * A = Active 

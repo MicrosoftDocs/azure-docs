@@ -3,7 +3,7 @@ title: Set up Start VM on Connect for Azure Virtual Desktop
 description: How to set up the Start VM on Connect feature for Azure Virtual Desktop to turn on session host virtual machines only when they're needed.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/13/2022
+ms.date: 10/18/2022
 ms.author: helohr
 manager: femila
 ms.custom: subject-rbac-steps
@@ -23,88 +23,25 @@ The time it takes for a user to connect to a session host VM that is powered off
 
 ## Prerequisites
 
-You can only configure Start VM on Connect on existing host pools. You can't enable it at the same time you create a new host pool.
+To use Start VM on Connect, make sure you follow these guidelines:
 
-The following Remote Desktop clients support Start VM on Connect:
+- You can only configure Start VM on Connect on existing host pools. You can't enable it at the same time you create a new host pool.
+- The following Remote Desktop clients support Start VM on Connect:
+    - The [Windows client](./users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 1.2.2061 or later)
+    - The [Web client](./users/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+    - The [macOS client](./users/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.6.4 or later)
+    - The [iOS and iPadOS client](./users/connect-ios-ipados.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.2.5 or later)
+    - The [Android and Chrome OS client](./users/connect-android-chrome-os.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.0.10 or later)
+    - The [Microsoft Store client](./users/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.2.2005.0 or later)
+    - Thin clients listed in [Thin client support](./users/connect-thin-clients.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- If you want to configure Start VM on Connect using PowerShell, you'll need to have [the Az.DesktopVirtualization PowerShell module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization) (version 2.1.0 or later) installed on the device you use to run the commands.
+- You must grant Azure Virtual Desktop access to power on session host VMs, check their status, and report diagnostic information. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
 
-- The [web client](./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
-- The [Windows client](./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 1.2.2061 or later)
-- The [Android client](./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.0.10 or later)
-- The [macOS client](./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.6.4 or later)
-- The [iOS client](./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.2.5 or later)
-- The [Microsoft Store client](./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.2.2005.0 or later)
-- Thin clients listed in [Thin client support](./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+## Assign the Desktop Virtualization Power On Contributor role with the Azure portal
 
-If you want to configure Start VM on Connect using PowerShell, you'll need to have [the Az.DesktopVirtualization PowerShell module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization) (version 2.1.0 or later) installed on the device you use to run the commands.
+Before you can configure Start VM on Connect, you'll need to assign the *Desktop Virtualization Power On Contributor* role-based access control (RBAC) role with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent Start VM on Connect from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with Start VM on Connect. This role and assignment will allow Azure Virtual Desktop to power on VMs, check their status, and report diagnostic information in those subscriptions.
 
-You must grant Azure Virtual Desktop access to power on session host VMs, check their status, and report diagnostic information.
-
-## Create a custom RBAC role in the Azure portal
-
-Before you can configure Start VM on Connect, you'll need to create a custom role-based access control (RBAC) role with your Azure subscription as the assignable scope. Assigning this custom role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent Start VM on Connect from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with Start VM on Connect. This custom role and assignment will allow Azure Virtual Desktop to power on VMs, check their status, and report diagnostic information in those subscriptions. For more information about creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
-
-> [!IMPORTANT]
-> You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to create and assign the custom role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
-
-To create the custom role with the Azure portal:
-
-1. Open the Azure portal and go to **Subscriptions** and select a subscription that contains a host pool and session host VMs you want to use with Start VM on Connect.
-
-1. Select **Access control (IAM)**.
-
-1. Select the **+ Add** button, then select **Add custom role** from the drop-down menu.
-
-1. Next, on the **Basics** tab, enter a custom role name and add a description. We recommend you name the role *Azure Virtual Desktop Start VM on Connect* with the description *Turns on session host VMs when users connect to them*.
-
-1. For baseline permissions, select **Start from scratch** and select **Next**.
-
-1. On the **Permissions** tab, select Next. You'll add the permissions later on the JSON tab.
-
-1. On the **Assignable scopes** tab, your subscription will be listed. If you also want to assign this custom role to other subscriptions containing host pools and session host VMs, select **Add assignable scopes** and add the relevant subscriptions.
-
-1. On the **JSON** tab, select **Edit** and add the following permissions to the `"actions": []` array. These entries must be enclosed within the square brackets.
-
-    ```json
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/read",
-    "Microsoft.Compute/virtualMachines/instanceView/read"
-    ```
-
-   The completed JSON should look like this, with the subscription ID for each subscription included as assignable scopes:
-
-    ```json
-    {
-        "properties": {
-            "roleName": "Azure Virtual Desktop Start VM on Connect",
-            "description": "Turns on session host VMs when users connect to them",
-            "assignableScopes": [
-                "/subscriptions/00000000-0000-0000-0000-000000000000"
-            ],
-            "permissions": [
-                {
-                    "actions": [
-                        "Microsoft.Compute/virtualMachines/start/action",
-                        "Microsoft.Compute/virtualMachines/read",
-                        "Microsoft.Compute/virtualMachines/instanceView/read"
-                    ],
-                    "notActions": [],
-                    "dataActions": [],
-                    "notDataActions": []
-                }
-            ]
-        }
-    }
-    ```
-
-1. Select **Save**, then select **Next**.
-
-1. Review the configuration and select **Create**. Once the role has been successfully created, select **OK**. Note that it may take a few minutes to display everywhere.
-
-After you've created the custom role, you'll need to assign it to the Azure Virtual Desktop service principal and grant access to each subscription.
-
-## Assign the custom role with the Azure portal
-
-To assign the custom role with the Azure portal to the Azure Virtual Desktop service principal on the subscription your host pool is deployed to:
+To assign the *Desktop Virtualization Power On Contributor* role with the Azure portal to the Azure Virtual Desktop service principal on the subscription your host pool is deployed to:
 
 1. Open the Azure portal and go to **Subscriptions**. Select a subscription that contains a host pool and session host VMs you want to use with Start VM on Connect.
 
@@ -112,7 +49,7 @@ To assign the custom role with the Azure portal to the Azure Virtual Desktop ser
 
 1. Select the **+ Add** button, then select **Add role assignment** from the drop-down menu.
 
-1. Select the role you just created, for example **Azure Virtual Desktop Start VM on Connect** and select **Next**.
+1. Select the **Desktop Virtualization Power On Contributor** role and select **Next**.
 
 1. On the **Members** tab, select **User, group, or service principal**, then select **+Select members**. In the search bar, enter and select either **Azure Virtual Desktop** or **Windows Virtual Desktop**. Which value you have depends on when the *Microsoft.DesktopVirtualization* resource provider was first registered in your Azure tenant. If you see two entries titled Windows Virtual Desktop, please see the tip below.
 
@@ -123,7 +60,7 @@ To assign the custom role with the Azure portal to the Azure Virtual Desktop ser
 >
 > If you have an Azure Virtual Desktop (classic) deployment and an Azure Virtual Desktop (Azure Resource Manager) deployment where the *Microsoft.DesktopVirtualization* resource provider was registered before the display name changed, you will see two apps with the same name of *Windows Virtual Desktop*. To add the role assignment to the correct service principal, [you can use PowerShell](../role-based-access-control/role-assignments-powershell.md) which enables you to specify the application ID:
 >
-> To assign the custom role with PowerShell to the Azure Virtual Desktop service principal on the subscription your host pool is deployed to:
+> To assign the *Desktop Virtualization Power On Contributor* role with PowerShell to the Azure Virtual Desktop service principal on the subscription your host pool is deployed to:
 >
 > 1. Open [Azure Cloud Shell](../cloud-shell/overview.md) with PowerShell as the shell type.
 >
@@ -145,15 +82,15 @@ To assign the custom role with the Azure portal to the Azure Virtual Desktop ser
 >    $subId = (Get-AzSubscription -SubscriptionName "Microsoft Azure Enterprise").Id
 >    ```
 >
-> 1. Add the role assignment, where `-RoleDefinitionName` is the name of the custom role you created earlier:
+> 1. Add the role assignment:
 >
 >    ```powershell
->    New-AzRoleAssignment -RoleDefinitionName "Azure Virtual Desktop Start VM on Connect" -ObjectId $objId -Scope /subscriptions/$subId
+>    New-AzRoleAssignment -RoleDefinitionName "Desktop Virtualization Power On Contributor" -ObjectId $objId -Scope /subscriptions/$subId
 >    ```
 
 ## Enable or disable Start VM on Connect
 
-Now that you've assigned the custom role to the service principal on your subscriptions, you can configure Start VM on Connect using the Azure portal or PowerShell.
+Now that you've assigned the *Desktop Virtualization Power On Contributor* role to the service principal on your subscriptions, you can configure Start VM on Connect using the Azure portal or PowerShell.
 
 # [Portal](#tab/azure-portal)
 
@@ -161,7 +98,7 @@ To configure Start VM on Connect using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
 1. Select **Host pools**, then select the name of the host pool where you want to enable the setting.
 
@@ -169,7 +106,7 @@ To configure Start VM on Connect using the Azure portal:
 
 1. In the configuration section, you'll see **Start VM on connect**. Select **Yes** to enable it, or **No** to disable it.
 
-1. Select **Save**. The new setting is applied.
+2. Select **Save** to apply the settings.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -206,6 +143,9 @@ You need to make sure you have the names of the resource group and host pool you
       ```
 
 ---
+
+>[!NOTE]
+>In pooled host pools, Start VM on Connect will start a VM every five minutes at most. If other users try to sign in during this five-minute period while there aren't any available resources, Start VM on Connect won't start a new VM. Instead, the users trying to sign in will receive an error message that says, "No resources available."
 
 ## Troubleshooting
 

@@ -42,7 +42,7 @@ npm init -y
 Use the `npm install` command to install the Azure Communication Services Identity SDK for JavaScript.
 
 ```console
-npm install @azure/communication-identity --save
+npm install @azure/communication-identity@latest --save
 ```
 
 The `--save` option lists the library as a dependency in your *package.json* file.
@@ -117,34 +117,41 @@ Store the received identity with mapping to your application's users (for exampl
 
 ## Issue access tokens
 
-Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md). You can also construct a new instance of a `communicationUser` based on a string representation of the Azure Communication Service identity.
+Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of a `communicationUser` based on a string representation of the Azure Communication Service identity.
 
 ```javascript
-// Issue an access token with the "voip" scope for an identity
+// Issue an access token with a validity of 24 hours and the "voip" scope for an identity
 let tokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 
 // Get the token and its expiration date from the response
 const { token, expiresOn } = tokenResponse;
-
-// Print the expiration date and token to the screen
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
 ```
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expiresOn` property indicates the lifetime of the access token.
 
+## Set a custom token expiration time
+
+The default token expiration time is 24 hours (1440 minutes), but you can configure it by providing a value between 60 minutes and 1440 minutes to the optional parameter `tokenExpiresInMinutes`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
+
+```javascript
+// Issue an access token with a validity of an hour and the "voip" scope for an identity
+const tokenOptions: GetTokenOptions = { tokenExpiresInMinutes: 60 };
+let tokenResponse = await identityClient.getToken
+(identityResponse, ["voip"], tokenOptions);
+```
+
 ## Create an identity and issue a token in one method call
 
 You can use the `createUserAndToken` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. Again, you create it with the `voip` scope.
 
 ```javascript
-// Issue an identity and an access token with the "voip" scope for the new identity
+// Issue an identity and an access token with a validity of 24 hours and the "voip" scope for the new identity
 let identityTokenResponse = await identityClient.createUserAndToken(["voip"]);
 
 // Get the token, its expiration date, and the user from the response
 const { token, expiresOn, user } = identityTokenResponse;
-
-// print these details to the screen
 console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
@@ -195,13 +202,13 @@ Azure Communication Services - Access Tokens Quickstart
 
 Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
-<token signature here>
+Issued an access token with 'voip' scope that expires at 2022-10-11T07:34:29.9028648+00:00:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNiIsIng1dCI6Im9QMWFxQnlfR3hZU3pSaXhuQ25zdE5PU2p2cyIsInR5cCI6IkpXVCJ9.eyJza3lwZWlkIjoiYWNzOjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMF8wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJzY3AiOjE3OTIsImNzaSI6IjE2NjUzODcyNjkiLCJleHAiOjE2NjUzOTA4NjksImFjc1Njb3BlIjoidm9pcCIsInJlc291cmNlSWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJyZXNvdXJjZUxvY2F0aW9uIjoidW5pdGVkc3RhdGVzIiwiaWF0IjoxNjY1Mzg3MjY5fQ.kTXpQQtY7w6O82kByljZXrKtBvNNOleDE5m06LapzLeoWfRZCCpJQcDzBoLRA146mOhNzLZ0b5WMNTa5tD-0hWCiicDwgKLMASEGY9g0EvNQOidPff47g2hh6yqi9PKiDPp-t5siBMYqA6Nh6CQ-Oeh-35vcRW09VfcqFN38IgSSzJ7QkqBiY_QtfXz-iaj81Td0287KO4U1y2LJIGiyJLWC567F7A_p1sl6NmPKUmvmwM47tyCcQ1r_lfkRdeyDmcrGgY6yyI3XJZQbpxyt2DZqOTSVPB4PuRl7iyXxvppEa4Uo_y_BdMOOWFe6YTRB5O5lhI8m7Tf0LifisxX2sw
 
 Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
 
-Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
-<token signature here>
+Issued an access token with 'voip' scope that expires at 2022-10-11T07:34:29.9028648+00:00:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNiIsIng1dCI6Im9QMWFxQnlfR3hZU3pSaXhuQ25zdE5PU2p2cyIsInR5cCI6IkpXVCJ9.eyJza3lwZWlkIjoiYWNzOjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMF8wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJzY3AiOjE3OTIsImNzaSI6IjE2NjUzODcyNjkiLCJleHAiOjE2NjUzOTA4NjksImFjc1Njb3BlIjoidm9pcCIsInJlc291cmNlSWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJyZXNvdXJjZUxvY2F0aW9uIjoidW5pdGVkc3RhdGVzIiwiaWF0IjoxNjY1Mzg3MjY5fQ.kTXpQQtY7w6O82kByljZXrKtBvNNOleDE5m06LapzLeoWfRZCCpJQcDzBoLRA146mOhNzLZ0b5WMNTa5tD-0hWCiicDwgKLMASEGY9g0EvNQOidPff47g2hh6yqi9PKiDPp-t5siBMYqA6Nh6CQ-Oeh-35vcRW09VfcqFN38IgSSzJ7QkqBiY_QtfXz-iaj81Td0287KO4U1y2LJIGiyJLWC567F7A_p1sl6NmPKUmvmwM47tyCcQ1r_lfkRdeyDmcrGgY6yyI3XJZQbpxyt2DZqOTSVPB4PuRl7iyXxvppEa4Uo_y_BdMOOWFe6YTRB5O5lhI8m7Tf0LifisxX2sw
 
 Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 

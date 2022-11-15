@@ -2,6 +2,7 @@
 title: Operational excellence recommendations
 description: Operational excellence recommendations
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 02/02/2022
 ---
 
@@ -23,17 +24,17 @@ You can get these recommendations on the **Operational Excellence** tab of the A
 
 ## Spring Cloud
 
-### Update your outdated Azure Spring Cloud SDK to the latest version
+### Update your outdated Azure Spring Apps SDK to the latest version
 
-We have identified API calls from an outdated Azure Spring Cloud SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+We have identified API calls from an outdated Azure Spring Apps SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update your outdated Azure Spring Cloud SDK to the latest version)](../spring-cloud/index.yml).
+Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update your outdated Azure Spring Apps SDK to the latest version)](../spring-apps/index.yml).
 
-### Update Azure Spring Cloud API Version
+### Update Azure Spring Apps API Version
 
-We have identified API calls from outdated Azure Spring Cloud API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
+We have identified API calls from outdated Azure Spring Apps API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
 
-Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Cloud API Version)](../spring-cloud/index.yml).
+Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Apps API Version)](../spring-apps/index.yml).
 
 ## Automation
 
@@ -233,19 +234,19 @@ We have determined that too many of your host pools have Validation Environment 
 
 Learn more about [Host Pool - ProductionEnvHostPools (Not enough production environments enabled)](../virtual-desktop/create-host-pools-powershell.md).
 
-## Cosmos DB
+## Azure Cosmos DB
 
 ### Migrate Azure Cosmos DB attachments to Azure Blob Storage
 
-We noticed that your Azure Cosmos collection is using the legacy attachments feature. We recommend migrating attachments to Azure Blob Storage to improve the resiliency and scalability of your blob data.
+We noticed that your Azure Cosmos DB collection is using the legacy attachments feature. We recommend migrating attachments to Azure Blob Storage to improve the resiliency and scalability of your blob data.
 
-Learn more about [Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](../cosmos-db/attachments.md#migrating-attachments-to-azure-blob-storage).
+Learn more about [Azure Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](../cosmos-db/attachments.md#migrating-attachments-to-azure-blob-storage).
 
 ### Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup
 
 Your Azure Cosmos DB accounts are configured with periodic backup. Continuous backup with point-in-time restore is now available on these accounts. With continuous backup, you can restore your data to any point in time within the past 30 days. Continuous backup may also be more cost-effective as a single copy of your data is retained.
 
-Learn more about [Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](../cosmos-db/continuous-backup-restore-introduction.md).
+Learn more about [Azure Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](../cosmos-db/continuous-backup-restore-introduction.md).
 
 ## Monitor
 

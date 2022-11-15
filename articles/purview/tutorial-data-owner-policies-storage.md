@@ -13,7 +13,7 @@ ms.date: 04/08/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Policies](concept-data-owner-policies.md) in Microsoft Purview allow you to enable access to data sources that have been registered to a collection. This tutorial describes how a data owner can use Microsoft Purview to enable access to datasets in Azure Storage through Microsoft Purview.
+[Policies](concept-policies-data-owner.md) in Microsoft Purview allow you to enable access to data sources that have been registered to a collection. This tutorial describes how a data owner can use Microsoft Purview to enable access to datasets in Azure Storage through Microsoft Purview.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -61,7 +61,7 @@ To register your resource and enable Data Use Management, follow these steps:
 
 1. If you have a firewall enabled on your Storage account, follow these steps as well:
     1. Go into your Azure Storage account in [Azure portal](https://portal.azure.com).
-    1. Navigate to **Security + networking > Networking**.NET
+    1. Navigate to **Security + networking > Networking**.
     1. Choose **Selected Networks** under **Allow access from**.
     1. In the **Exceptions** section, select **Allow trusted Microsoft services to access this storage account** and select **Save**.
 
@@ -111,13 +111,13 @@ To register your resource and enable Data Use Management, follow these steps:
 
 1. Select the **New Policy** button in the policy page.
 
-    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-1.png" alt-text="Data owner can access the Policy functionality in Microsoft Purview when it wants to create policies.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/policy-onboard-guide-1.png" alt-text="Data owner can access the Policy functionality in Microsoft Purview when it wants to create policies.":::
 
 1. The new policy page will appear. Enter the policy **Name** and **Description**.
 
 1. To add policy statements to the new policy, select the **New policy statement** button. This will bring up the policy statement builder.
 
-    :::image type="content" source="./media/access-policies-common/create-new-policy.png" alt-text="Data owner can create a new policy statement.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/create-new-policy.png" alt-text="Data owner can create a new policy statement.":::
 
 1. Select the **Effect** button and choose *Allow* from the drop-down list.
 
@@ -129,15 +129,15 @@ To register your resource and enable Data Use Management, follow these steps:
     - To create a broad policy statement that covers an entire data source, resource group, or subscription that was previously registered, use the **Data sources** box and select its **Type**.
     - To create a fine-grained policy, use the **Assets** box instead. Enter the **Data Source Type** and the **Name** of a previously registered and scanned data source. See example in the image.
 
-    :::image type="content" source="./media/access-policies-common/select-data-source-type.png" alt-text="Screenshot showing the policy editor, with Data Resources selected, and Data source Type highlighted in the data resources menu.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-data-source-type.png" alt-text="Screenshot showing the policy editor, with Data Resources selected, and Data source Type highlighted in the data resources menu.":::
 
-1. Select the **Continue** button and transverse the hierarchy to select and underlying data-object (for example: folder, file, etc.).  Select **Recursive** to apply the policy from that point in the hierarchy down to any child data-objects. Then select the **Add** button. This will take you back to the policy editor.
+1. Select the **Continue** button and traverse the hierarchy to select and underlying data-object (for example: folder, file, etc.).  Select **Recursive** to apply the policy from that point in the hierarchy down to any child data-objects. Then select the **Add** button. This will take you back to the policy editor.
 
-    :::image type="content" source="./media/access-policies-common/select-asset.png" alt-text="Screenshot showing the Select asset menu, and the Add button highlighted.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-asset.png" alt-text="Screenshot showing the Select asset menu, and the Add button highlighted.":::
 
 1. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will take you back to the policy editor
 
-    :::image type="content" source="./media/access-policies-common/select-subject.png" alt-text="Screenshot showing the Subject menu, with a subject select from the search and the OK button highlighted at the bottom.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-subject.png" alt-text="Screenshot showing the Subject menu, with a subject select from the search and the OK button highlighted at the bottom.":::
 
 1. Repeat the steps #5 to #11 to enter any more policy statements.
 
@@ -151,15 +151,15 @@ To register your resource and enable Data Use Management, follow these steps:
 
 1. Navigate to the **Data policy** feature using the left side panel. Then select **Data policies**.
 
-    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-2.png" alt-text="Screenshot showing the Microsoft Purview governance portal with the leftmost menu open, Policy Management highlighted, and Data Policies selected on the next page.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/policy-onboard-guide-2.png" alt-text="Screenshot showing the Microsoft Purview governance portal with the leftmost menu open, Policy Management highlighted, and Data Policies selected on the next page.":::
 
 1. The Policy portal will present the list of existing policies in Microsoft Purview. Locate the policy that needs to be published. Select the **Publish** button on the right top corner of the page.
 
-    :::image type="content" source="./media/access-policies-common/publish-policy.png" alt-text="Screenshot showing the policy editing menu with the Publish button highlighted in the top right of the page.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/publish-policy.png" alt-text="Screenshot showing the policy editing menu with the Publish button highlighted in the top right of the page.":::
 
 1. A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button.
 
-    :::image type="content" source="./media/access-policies-common/select-data-sources-publish-policy.png" alt-text="Screenshot showing with Policy publish menu with a data resource selected and the publish button highlighted.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-data-sources-publish-policy.png" alt-text="Screenshot showing with Policy publish menu with a data resource selected and the publish button highlighted.":::
 
 >[!Important]
 > - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in Storage account(s).
@@ -172,13 +172,13 @@ To delete a policy in Microsoft Purview, follow these steps:
 
 1. Navigate to the **Data policy** feature using the left side panel. Then select **Data policies**.
 
-    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-2.png" alt-text="Screenshot showing the leftmost menu open, Policy Management highlighted, and Data Policies selected on the next page.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/policy-onboard-guide-2.png" alt-text="Screenshot showing the leftmost menu open, Policy Management highlighted, and Data Policies selected on the next page.":::
 
 1. The Policy portal will present the list of existing policies in Microsoft Purview. Select the policy that needs to be updated.
 
 1. The policy details page will appear, including Edit and Delete options. Select the **Edit** button, which brings up the policy statement builder. Now, any parts of the statements in this policy can be updated. To delete the policy, use the **Delete** button.
 
-    :::image type="content" source="./media/access-policies-common/edit-policy.png" alt-text="Screenshot showing an open policy with the Edit button highlighted in the top menu on the page.":::
+    :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/edit-policy.png" alt-text="Screenshot showing an open policy with the Edit button highlighted in the top menu on the page.":::
 
 
 ## Next steps
@@ -187,5 +187,5 @@ Check our demo and related tutorials:
 
 > [!div class="nextstepaction"]
 > [Demo of access policy for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)
-> [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
-> [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
+> [Concepts for Microsoft Purview data owner policies](./concept-policies-data-owner.md)
+> [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md)

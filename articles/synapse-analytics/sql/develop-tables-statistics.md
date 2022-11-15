@@ -6,7 +6,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/13/2022
+ms.date: 10/11/2022
 ms.author: fipopovi
 ms.reviewer: sngun, wiassaf
 ms.custom: 
@@ -518,7 +518,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 For example:
 
 ```sql
-DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
+DBCC SHOW_STATISTICS ('dbo.table1', 'stats_col1');
 ```
 
 #### Show one or more parts of DBCC SHOW_STATISTICS()
@@ -533,7 +533,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 For example:
 
 ```sql
-DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
+DBCC SHOW_STATISTICS ('dbo.table1', 'stats_col1')
     WITH histogram, density_vector
 ```
 
@@ -563,7 +563,7 @@ The more serverless SQL pool knows about your data, the faster it can execute qu
 
 The serverless SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
 
-For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will pick a different plan.
 
 ### Automatic creation of statistics
 
@@ -572,13 +572,13 @@ Serverless SQL pool analyzes incoming user queries for missing statistics. If st
 The SELECT statement will trigger automatic creation of statistics.
 
 > [!NOTE]
-> Automatic creation of statistics is turned on for Parquet files. For CSV files,  you need to create statistics manually until automatic creation of CSV files statistics is supported.
+> Automatic creation of statistics is turned on for Parquet files. For CSV files, statistics will be automatically created if you use OPENROWSET. You need to create statistics manually you use CSV external tables.
 
 Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the files targeted.
 
 ### Manual creation of statistics
 
-Serverless SQL pool lets you create statistics manually. For CSV files, you have to create statistics manually because automatic creation of statistics isn't turned on for CSV files. 
+Serverless SQL pool lets you create statistics manually. For CSV external tables, you have to create statistics manually because automatic creation of statistics isn't turned on for CSV external tables.
 
 See the following examples for instructions on how to manually create statistics.
 
@@ -593,7 +593,7 @@ When statistics are stale, new ones will be created. The algorithm goes through 
 Manual stats are never declared stale.
 
 > [!NOTE]
-> Automatic recreation of statistics is turned on for Parquet files. For CSV files, you need to drop and create statistics manually until automatic creation of CSV files statistics is supported. Check the examples below on how to drop and create statistics.
+> Automatic recreation of statistics is turned on for Parquet files. For CSV files, statistics will be recreated if you use OPENROWSET. You need to drop and create statistics manually for CSV external tables. Check the examples below on how to drop and create statistics.
 
 One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
 
@@ -647,34 +647,19 @@ To create statistics on a column, provide a query that returns the column for wh
 
 By default, if you don't specify otherwise, serverless SQL pool uses 100% of the data provided in the dataset when it creates statistics.
 
-For example, to create statistics with default options (FULLSCAN) for a year column of the dataset based on the population.csv file:
+For example, to create statistics with default options (FULLSCAN) for a population column of the dataset based on the us_population.csv file:
 
 ```sql
-/* make sure you have credentials for storage account access created
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-GO
 
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = ''
-GO
-*/
-
-EXEC sys.sp_create_openrowset_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT 
+    population
 FROM OPENROWSET(
-        BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
-        FORMAT = ''CSV'',
-        FIELDTERMINATOR ='','',
-        ROWTERMINATOR = ''\n''
-    )
-WITH (
-    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-    [year] smallint,
-    [population] bigint
-) AS [r]
-'
+    BULK ''Https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/raw_us_population_county/us_population.csv'',
+    FORMAT = ''CSV'',
+    PARSER_VERSION = ''2.0'',
+    HEADER_ROW = TRUE)
+AS [r]'
+
 ```
 
 #### Create single-column statistics by specifying the sample size

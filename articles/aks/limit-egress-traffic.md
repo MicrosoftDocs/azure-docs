@@ -4,7 +4,7 @@ description: Learn what ports and addresses are required to control egress traff
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/27/2022
+ms.date: 07/26/2022
 author: palma21
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
@@ -248,6 +248,11 @@ The following FQDN / application rules are required for using cluster extensions
 | **`<region>.dp.kubernetesconfiguration.azure.us`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service. |
 | **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
 
+
+
+> [!NOTE]
+> If any addon does not explicitly stated here, that means the core requirements are covering it.
+
 ## Restrict egress traffic using Azure firewall
 
 Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) FQDN Tag to simplify this configuration.
@@ -458,19 +463,92 @@ You'll define the outbound type to use the UDR that already exists on the subnet
 >
 > The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
 
+#### Create an AKS cluster with system-assigned identities
+
+> [!NOTE]
+> AKS will create a system-assigned kubelet identity in the Node resource group if you do not [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
+> 
+> For user defined routing (UDR), system-assigned identity only supports CNI network plugin. Because for kubelet network plugin, AKS cluster needs permission on route table as kubernetes cloud-provider manages rules. 
+
+You can create an AKS cluster using a system-assigned managed identity with CNI network plugin by running the following CLI command.
+
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
   --node-count 3 \
-  --network-plugin $PLUGIN \
+  --network-plugin azure \
   --outbound-type userDefinedRouting \
   --vnet-subnet-id $SUBNETID \
   --api-server-authorized-ip-ranges $FWPUBLIC_IP
 ```
 
+#### Create an AKS cluster with user-assigned identities
+
+##### Create user-assigned managed identities
+
+If you don't have a control plane managed identity, you can create by running the following [az identity create][az-identity-create] command:
+
+```azurecli-interactive
+az identity create --name myIdentity --resource-group myResourceGroup
+```
+
+The output should resemble the following:
+
+```output
+{                                  
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principal-id>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+If you don't have a kubelet managed identity, you can create one by running the following [az identity create][az-identity-create] command:
+
+```azurecli-interactive
+az identity create --name myKubeletIdentity --resource-group myResourceGroup
+```
+
+The output should resemble the following:
+
+```output
+{
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
+  "location": "westus2",
+  "name": "myKubeletIdentity",
+  "principalId": "<principal-id>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
 > [!NOTE]
 > For creating and using your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment.][add role to identity]
-> 
-> If you are not using the CLI but using your own VNet or route table which are outside of the worker node resource group, it's recommended to use [user-assigned control plane identity][Bring your own control plane managed identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+
+##### Create an AKS cluster with user-assigned identities
+
+Now you can use the following command to create your AKS cluster with your existing identities in the subnet. Provide the control plane identity resource ID via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
+
+```azurecli
+az aks create -g $RG -n $AKSNAME -l $LOC \
+  --node-count 3 \
+  --network-plugin kubenet \
+  --outbound-type userDefinedRouting \
+  --vnet-subnet-id $SUBNETID \
+  --api-server-authorized-ip-ranges $FWPUBLIC_IP
+  --enable-managed-identity \
+  --assign-identity <identity-resource-id> \
+  --assign-kubelet-identity <kubelet-identity-resource-id>
+```
 
 
 ### Enable developer access to the API server
@@ -796,4 +874,7 @@ If you want to restrict how pods communicate between themselves and East-West tr
 [aks-faq]: faq.md
 [aks-private-clusters]: private-clusters.md
 [add role to identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
-[Bring your own control plane managed identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity
+[Create an AKS cluster with user-assigned identities]: limit-egress-traffic.md#create-an-aks-cluster-with-user-assigned-identities
+[Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials

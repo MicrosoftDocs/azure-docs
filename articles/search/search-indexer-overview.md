@@ -7,8 +7,9 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 07/27/2022
 ---
 
 # Indexers in Azure Cognitive Search
@@ -37,22 +38,18 @@ You can use an indexer as the sole means for data ingestion, or in combination w
 
 Indexers crawl data stores on Azure and outside of Azure.
 
-+ [Amazon Redshift](search-how-to-index-power-query-data-sources.md) (in preview)
 + [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
-+ [Azure MySQL](search-howto-index-mysql.md) (in preview)
 + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Azure Table Storage](search-howto-indexing-azure-tables.md)
-+ [Elasticsearch](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [PostgreSQL](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Salesforce Objects](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Salesforce Reports](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Smartsheet](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [Snowflake](search-how-to-index-power-query-data-sources.md) (in preview)
 + [Azure SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 + [Azure Files](search-file-storage-integration.md) (in preview)
++ [Azure MySQL](search-howto-index-mysql.md) (in preview)
++ [SharePoint in Microsoft 365](search-howto-index-sharepoint-online.md) (in preview)
++ [Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md) (in preview)
++ [Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md) (in preview)
 
 Indexers accept flattened row sets, such as a table or view, or items in a container or folder. In most cases, it creates one search document per row, record, or item.
 
@@ -60,7 +57,7 @@ Indexer connections to remote data sources can be made using standard Internet c
 
 ## Stages of indexing
 
-On an initial run, when the index is empty, an indexer will read in all of the data provided in the table or container. On subsequent runs, the indexer can usually detect and retrieve just the data that has changed. For blob data, change detection is automatic. For other data sources like Azure SQL or Cosmos DB, change detection must be enabled.
+On an initial run, when the index is empty, an indexer will read in all of the data provided in the table or container. On subsequent runs, the indexer can usually detect and retrieve just the data that has changed. For blob data, change detection is automatic. For other data sources like Azure SQL or Azure Cosmos DB, change detection must be enabled.
 
 For each document it receives, an indexer implements or coordinates multiple steps, from document retrieval to a final search engine "handoff" for indexing. Optionally, an indexer also drives [skillset execution and outputs](cognitive-search-concept-intro.md), assuming a skillset is defined.
 
@@ -78,7 +75,7 @@ Depending on the data source, the indexer will try different operations to extra
 
 + When the document is a record in [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), the indexer will extract non-binary content from each field in each record.
 
-+ When the document is a record in [Cosmos DB](search-howto-index-cosmosdb.md), the indexer will extract non-binary content from fields and subfields from the Cosmos DB document.
++ When the document is a record in [Azure Cosmos DB](search-howto-index-cosmosdb.md), the indexer will extract non-binary content from fields and subfields from the Azure Cosmos DB document.
 
 ### Stage 2: Field mappings 
 

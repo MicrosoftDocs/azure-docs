@@ -4,7 +4,7 @@ description: Troubleshoot an object that is not syncing with Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid:

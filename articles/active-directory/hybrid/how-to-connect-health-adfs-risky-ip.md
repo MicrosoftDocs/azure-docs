@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
@@ -18,12 +18,12 @@ ms.collection: M365-identity-device-management
 ---
 
 # Risky IP report (public preview)
-AD FS customers may expose password authentication endpoints to the internet to provide authentication services for end users to access SaaS applications such as Microsoft 365. In this case, it is possible for a bad actor to attempt logins against your AD FS system to guess an end user’s password and get access to application resources. AD FS provides the extranet account lockout functionality to prevent these types of attacks since AD FS in Windows Server 2012 R2. If you are on a lower version, we strongly recommend that you upgrade your AD FS system to Windows Server 2016. <br />
+AD FS customers may expose password authentication endpoints to the internet to provide authentication services for end users to access SaaS applications such as Microsoft 365. It is possible for a bad actor to attempt logins against your AD FS system to guess an end user’s password and get access to application resources. AD FS provides the extranet account lockout functionality to prevent these types of attacks since AD FS in Windows Server 2012 R2. If you are on a lower version, we strongly recommend that you upgrade your AD FS system to Windows Server 2016. <br />
 
-Additionally, it is possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user may be under the threshold for account lockout protection in AD FS. Azure AD Connect Health now provides the “Risky IP report” that detects this condition and notifies administrators when this occurs. The following are the key benefits for this report: 
+Additionally, it is possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user may be under the threshold for account lockout protection in AD FS. Azure AD Connect Health now provides the “Risky IP report” that detects this condition and notifies administrators. The following are the key benefits for this report: 
 - Detection of IP addresses that exceed a threshold of failed password-based logins
 - Supports failed logins due to bad password or due to extranet lockout state
-- Email notification to alert administrators as soon as this occurs with customizable email settings
+- Email notification to alert administrators with customizable email settings
 - Customizable threshold settings that match with the security policy of an organization
 - Downloadable reports for offline analysis and integration with other systems via automation
 
@@ -33,17 +33,17 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 >
 
 ## What is in the report?
-The failed sign in activity client IP addresses are aggregated through Web Application Proxy servers. Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities which exceed designated threshold. It provides the following information:
+The failed sign in activity client IP addresses are aggregated through Web Application Proxy servers. Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities that have exceeded the designated threshold. It provides the following information:
 ![Screenshot that shows a Risky IP report with column headers highlighted.](./media/how-to-connect-health-adfs/report4a.png)
 
 | Report Item | Description |
 | ------- | ----------- |
 | Time Stamp | Shows the time stamp based on Azure portal local time when the detection time window starts.<br /> All daily events are generated at mid-night UTC time. <br />Hourly events have the timestamp rounded to the beginning of the hour. You can find first activity start time from “firstAuditTimestamp” in the exported file. |
-| Trigger Type | Shows the type of detection time window. The aggregation trigger types are per hour or per day. This is helpful to detect versus a high frequency brute force attack versus a slow attack where the number of attempts is distributed throughout the day. |
-| IP Address | The single risky IP address that had either bad password or extranet lockout sign-in activities. This could be an IPv4 or an IPv6 address. |
+| Trigger Type | Shows the type of detection time window. The aggregation trigger types are per hour or per day. Helpful in determing between a high frequency brute force attack versus a slow attack where the number of attempts is distributed throughout the day. |
+| IP Address | The single risky IP address that had either bad password or extranet lockout sign-in activities. It can be either IPv4 or an IPv6 address. |
 | Bad Password Error Count | The count of Bad Password error occurred from the IP address during the detection time window. The Bad Password errors can happen multiple times to certain users. Notice this does not include failed attempts due to expired passwords. |
-| Extranet Lock Out Error Count | The count of Extranet Lockout error occurred from the IP address during the detection time window. The Extranet Lockout errors can happen multiple times to certain users. This will only be seen if Extranet Lockout is configured in AD FS (versions 2012R2 or higher). <b>Note</b> We strongly recommend turning this feature on if you allow extranet logins using passwords. |
-| Unique Users Attempted | The count of unique user accounts attempted from the IP address during the detection time window. This provides a mechanism to differentiate a single user attack pattern versus multi-user attack pattern.  |
+| Extranet Lock Out Error Count | The count of Extranet Lockout error occurred from the IP address during the detection time window. The Extranet Lockout errors can happen multiple times to certain users. This will only be seen if Extranet Lockout is configured in AD FS (versions 2012R2 or higher). <b>Note</b> We strongly recommend enabling this feature if you allow extranet logins using passwords. |
+| Unique Users Attempted | The count of unique user accounts attempted from the IP address during the detection time window. Differentiates between a single user attack pattern versus multi-user attack pattern.  |
 
 For example, the below report item indicates from the 6pm to 7pm hour window on 02/28/2018, IP address <i>104.2XX.2XX.9</i> had no bad password errors and 284 extranet lockout errors. 14 unique users were impacted within the criteria. The activity event exceeded the designated report hourly threshold. 
 
@@ -58,7 +58,7 @@ For example, the below report item indicates from the 6pm to 7pm hour window on 
 ![Screenshot that shows the Risky IP report with the "Download", "Notification Settings", and "Threshold Settings" highlighted.](./media/how-to-connect-health-adfs/report4c.png)
 
 ## Load balancer IP addresses in the list
-Load balancer aggregate failed sign-in activities and hit the alert threshold. If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
+Load balancer aggregate failed sign-in activities and hit the alert threshold. If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Configure your load balancer correctly to pass forward client IP address. 
 
 ## Download risky IP report 
 Using the **Download** functionality, the whole risky IP address list in the past 30 days can be exported from the Connect Health Portal
@@ -74,7 +74,7 @@ Besides the highlighted aggregations in the portal, the export result also shows
 
 ## Configure notification settings
 Admin contacts of the report can be updated through the **Notification Settings**. By default, the risky IP alert email notification is in off state. You can enable the notification by toggle the button under “Get email notifications for IP addresses exceeding failed activity threshold report”
-Like generic alert notification settings in Connect Health, it allows you to customize designated notification recipient list about risky IP report from here. You can also notify all global admins while making the change. 
+Like generic alert notification settings in Connect Health, it allows you to customize designated notification recipient list about risky IP report from here. You can also notify all Hybrid Identity Administrators while making the change. 
 
 ## Configure threshold settings
 Alerting threshold can be updated through Threshold Settings. To start with, system has threshold set by default. The default values are given below. There are four categories in the risk IP report threshold settings:
@@ -100,7 +100,7 @@ Alerting threshold can be updated through Threshold Settings. To start with, sys
 Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP addresses are filtered and marked as True in the IP approved list. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.
 
 **Why am I seeing load balancer IP addresses in the report?**  <br />
-If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
+If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Configure your load balancer correctly to pass forward client IP address. 
 
 **What do I do to block the IP address?**  <br />
 You should add identified malicious IP address to the firewall or block in Exchange.   <br />
@@ -111,7 +111,7 @@ You should add identified malicious IP address to the firewall or block in Excha
 - Audits is not enabled in AD FS farms.
 
 **Why am I seeing no access to the report?**  <br />
-Global Admin or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permission is required. Please contact your global admin to get access.
+Global Admin or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permission is required. Contact your global admin to get access.
 
 
 ## Next steps

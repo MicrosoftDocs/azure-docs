@@ -72,7 +72,7 @@ Azure Private 5G Core is able to leverage this low latency with the security and
 
 Azure Private 5G Core instantiates a single private mobile network distributed across one or more enterprise sites across the world. Each site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). A packet core instance authenticates end devices and aggregates their data traffic over 5G Standalone wireless and access technologies. Each packet core instance includes the following components:
 
-- A high performance and highly programmable 5G User Plane Function (UPF).
+- A high performance (25 Gbps rated load) and highly programmable 5G User Plane Function (UPF).
 - Core control plane functions including policy and subscriber management.
 - A portfolio of service-based architecture elements.
 - Management components for network monitoring.
@@ -82,7 +82,7 @@ You can also deploy packet core instances in 4G mode to support Private Long-Ter
 The following diagram shows the network functions supported by a packet core instance. It also shows the interfaces these network functions use to interoperate with third-party components.
 
 :::image type="complex" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Diagram of the packet core architecture displaying each of the supported network functions and their interfaces.":::
-   Diagram displaying the packet core architecture. The packet core includes the following 5G network functions: the A M F, the S M F, the U P F, the U D R, the N R F, the P C F, the U D M, and the A U S F. The A M F communicates with 5G user equipment over the N1 interface. A G Node B provided by a Microsoft partner communicates with the A M F over the N2 interface and the U P F over the N3 interface. The U P F communicates with the data network over the N6 interface. When operating in 4G mode, the packet core includes M M E Proxy and M M E network functions. The M M E Proxy communicates with the M M E over the S 11 interface. An E Node B provided by a Microsoft partner communicates with the M M E over the S 1 M M E interface. 
+   Diagram displaying the packet core architecture. The packet core includes the following 5G network functions: the AMF, the SMF, the UPF, the UDR, the PCF, the UDM, and the AUSF. The AMF communicates with 5G user equipment over the N1 interface. A g NodeB provided by a Microsoft partner communicates with the AMF over the N2 interface and the UPF over the N3 interface. The UPF communicates with the data network over the N6 interface. When operating in 4G mode, the packet core includes MME Proxy and MME network functions. The MME Proxy communicates with the MME over the S11 interface. An e NodeB provided by a Microsoft partner communicates with the MME over the S1-MME interface. 
 :::image-end:::
 
 Each packet core instance is connected to the local RAN network to provide coverage for cellular wireless devices. You can choose to limit these devices to local connectivity. Alternatively, you can provide multiple routes to the cloud, internet, or other enterprise data centers running IoT and automation applications.
@@ -98,7 +98,6 @@ Each packet core instance is connected to the local RAN network to provide cover
 - Authentication Server Function (AUSF)
 - Unified Data Management (UDM)
 - Unified Data Repository (UDR)
-- Network Repository Function (NRF)
 
 ### Supported 4G network functions
 
@@ -133,9 +132,21 @@ Azure Private 5G Core supports the following algorithms for ciphering and integr
 - 128-bit Snow3G
 - 128-bit Advanced Encryption System (AES) encryption
 
+### UE-to-UE traffic
+
+Azure Private 5G Core supports traffic flow from UE to UE through the user plane, allowing machine-to-machine (M2M) communication between 5G devices for a range of applications including robot control.
+
+An external router is responsible for hairpinning traffic from UE to UE over the N6 interface. This means that traffic leaving the UPF destined to a UE IP address will be routed back to the UPF’s N6 IP address.
+
 ### Index to RAT/Frequency Selection Priority (RFSP)
 
 The packet core instance can provide a RAN with an RFSP Index. The RAN can match the RFSP Index to its local configuration to apply specific radio resource management (RRM) policies, such as cell reselection or frequency layer redirection.
+
+### Multi-Operator Core Network (MOCN)
+
+Multi-operator Core Network (MOCN) aims to maximize resource usage by sharing a RAN between multiple core networks. Azure Private 5G Core supports MOCN, allowing multiple public land mobile networks (PLMNs) to be shared by a gNodeB (for 5G deployments) or eNodeB (for 4G deployments).
+
+In the context of private mobile networks, a single RAN can connect to both a private and a standard macro network, with traffic automatically routed to the appropriate core network based on the PLMN ID.
 
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 
@@ -175,4 +186,5 @@ Azure Private 5G Core is integrated with Log Analytics in Azure Monitor, as desc
 ## Next steps
 
 - [Learn more about the key components of a private mobile network](key-components-of-a-private-mobile-network.md)
+- [Learn more about the design requirements for deploying a private mobile network](private-mobile-network-design-requirements.md)
 - [Learn more about the prerequisites for deploying a private mobile network](complete-private-mobile-network-prerequisites.md)

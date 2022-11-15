@@ -2,19 +2,14 @@
 title: Analyze activity logs using Azure Monitor logs | Microsoft Docs
 description: Learn how to analyze Azure Active Directory activity logs using Azure Monitor logs
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/19/2021
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
@@ -35,7 +30,7 @@ To follow along, you need:
 * A [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md) in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 * First, complete the steps to [route the Azure AD activity logs to your Log Analytics workspace](howto-integrate-activity-logs-with-log-analytics.md).
 *  [Access](../../azure-monitor/logs/manage-access.md#azure-rbac) to the log analytics workspace
-* The following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)
+* The following roles in Azure Active Directory (if you're accessing Log Analytics through Azure Active Directory portal)
     - Security Admin
     - Security Reader
     - Report Reader
@@ -93,15 +88,15 @@ You can also set up alerts on your query. For example, to configure an alert whe
 
 4. Select the **Action Group** that will be alerted when the signal occurs. You can choose to notify your team via email or text message, or you could automate the action using webhooks, Azure functions or logic apps. Learn more about [creating and managing alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md).
 
-5. Once you have configured the alert, select **Create alert** to enable it. 
+5. Once you've configured the alert, select **Create alert** to enable it. 
 
 ## Use pre-built workbooks for Azure AD activity logs
 
 The workbooks provide several reports related to common scenarios involving audit, sign-in, and provisioning events. You can also alert on any of the data provided in the reports, using the steps described in the previous section.
 
-* **Provisioning analysis**: This [workbook](../app-provisioning/application-provisioning-log-analytics.md) shows reports related to auditing provisioning activity, such as the number of new users provisioned and provisioning failures, number of users updated and update failures and the number of users de-provisioned and corresponding failures.    
-* **Sign-ins Events**: This workbook shows the most relevant reports related to monitoring sign-in activity, such as sign-ins by application, user, device, as well as a summary view tracking the number of sign-ins over time.
-* **Conditional access insights**: The Conditional Access insights and reporting [workbook](../conditional-access/howto-conditional-access-insights-reporting.md) enables you to understand the impact of Conditional Access policies in your organization over time. 
+* **Provisioning analysis**: This [workbook](../app-provisioning/application-provisioning-log-analytics.md) shows reports related to auditing provisioning activity. Activities can include the number of new users provisioned, provisioning failures, number of users updated, update failures, the number of users de-provisioned, and corresponding failures.    
+* **Sign-ins Events**: This workbook shows the most relevant reports related to monitoring sign-in activity, such as sign-ins by application, user, device, and a summary view tracking the number of sign-ins over time.
+* **Conditional access insights**: The Conditional Access insights and reporting [workbook](../conditional-access/howto-conditional-access-insights-reporting.md) enables you to understand the effect of Conditional Access policies in your organization over time. 
 
 ## Next steps
 
