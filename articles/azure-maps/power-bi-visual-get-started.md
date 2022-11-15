@@ -97,11 +97,13 @@ The following data buckets are available in the **Fields** pane of the Azure Map
 
 ## Map settings
 
-The **Map settings** section of the Format pane provide options for customizing how the map is displayed and reacts to updates. 
+The **Map settings** section of the **Format** pane provide options for customizing how the map is displayed and reacts to updates.
 
-The **Map settings** section is divided into three sections: style, view and controls.
+The **Map settings** section is divided into three sub-sections: [style](#style), [view](#view) and [controls](#controls).
 
 ### Style
+
+The following settings are available in the **Style** section:
 
 | Setting     | Description  |
 |-------------|--------------|
@@ -110,11 +112,11 @@ The **Map settings** section is divided into three sections: style, view and con
 
 ### View
 
-The following settings are displayed, enabling the user to specify the default map view information, when the **Auto zoom** setting in the **View** section is set to **Off**.
+The following settings available in the **View** section enable the user to specify the default map view information when the **Auto zoom** setting is set to **Off**.
 
 | Setting          | Description   |
 |------------------|---------------|
-| Auto zoom        | Automatically zooms the map into the data loaded through the **Fields** pane of the visual. As the data changes, the map will update its position accordingly. When **Auto zoom** is set to **Off**, more settings for the default map view become active. |
+| Auto zoom        | Automatically zooms the map into the data loaded through the **Fields** pane of the visual. As the data changes, the map will update its position accordingly. When **Auto zoom** is set to **Off**, the remaining settings in this section become active that enable to user to define the default map view. |
 | Zoom             | The default zoom level of the map. Can be a number between 0 and 22. |
 | Center latitude  | The default latitude of the center of the map. |
 | Center longitude | The default longitude of the center of the map. |
@@ -123,13 +125,15 @@ The following settings are displayed, enabling the user to specify the default m
 
 ### Controls
 
+The following settings are available in the **Controls** section:
+
 | Setting      | Description  |
 |--------------|--------------|
 | World wrap   | Allows the user to pan the map horizontally infinitely. |
 | Style picker | Adds a button to the map that allows the report readers to change the style of the map. |
 | Navigation   | Adds buttons to the map as another method to allow the report readers to zoom, rotate, and change the pitch of the map. See this document on [Navigating the map](map-accessibility.md#navigating-the-map) for details on all the different ways users can navigate the map. |
 | Selection    | Adds a button that allows the user to choose between different modes to select data on the map; circle, rectangle, polygon (lasso), or travel time or distance. When drawing a polygon, to complete the drawing; click on the first point, or double-click the map on the last point, or press the `c` key. |
-<!--| Geocoding culture | The default is **Auto** which is the Western Address System: (address details)(location in city/municipality/ward) (city/municipal/ward)(prefIecture)(postcode){country}.<BR><BR>The other option is JA, the Japanese Address System: (postcode}{prefecture){city/municipality/ward}{location in city/municipality/ward}{address details). |-->
+<!--| Geocoding culture | The default, **Auto**, refers to the Western Address System. The only other option, **JA**, refers to the Japanese address system. In the western address system, you begin with the address details and then proceed to the larger categories such as city, state and postal code. In the Japanese address system, the larger categories are listed first and finish with the address details. |-->
 
 ## Considerations and Limitations
 
