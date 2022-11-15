@@ -31,6 +31,7 @@ items:
     - name: .NET data sharing
       href: quickstart-data-share-dotnet.md
   - name: Data Policy
+    items:
     - name: Create a simple DevOps policy
       href: how-to-policies-devops-azure-sql-db.md
 - name: Tutorials
