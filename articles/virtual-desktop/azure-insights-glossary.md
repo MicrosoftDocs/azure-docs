@@ -235,9 +235,9 @@ To learn more about Windows Event Logs, see [Windows Event records properties](.
 
 ## Next steps
 
-- To get started, see [Use Azure Insights to monitor your deployment](azure-monitor.md).
-- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-monitor-costs.md).
-- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-monitor.md) for help and known issues.
+- To get started, see [Use Azure Insights to monitor your deployment](azure-insights.md).
+- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-insights-costs.md).
+- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-insights.md) for help and known issues.
 
 
 You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Introduction to Azure Advisor](../advisor/advisor-overview.md).
