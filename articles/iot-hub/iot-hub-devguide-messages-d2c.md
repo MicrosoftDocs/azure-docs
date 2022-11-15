@@ -102,7 +102,7 @@ IoT Hub supports writing to Cosmos DB in JSON (if specified in the message conte
 
 From your provisioned IoT Hub, go to the Hub settings and click on message routing. Go to the Custom endpoints tab, click on Add and select Cosmos DB. The following image shows the endpoint addition:
 
-![Add a Cosmos DB endpoint](media/iot-hub-devguide-messages-d2c/add-cosmos-db-endpoint.png)
+![Screenshot that shows how to add a Cosmos DB endpoint.](media/iot-hub-devguide-messages-d2c/add-cosmos-db-endpoint.png)
 
 Enter your endpoint name. You should be able to choose from a list of Cosmos DB accounts available for selection, along with the Database and collection.
 
