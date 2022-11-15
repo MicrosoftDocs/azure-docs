@@ -70,8 +70,5 @@ At this point, your Log Analytics workspace has been successfully configured to 
 Now that you’ve successfully configured your logs to go to your Log Analytics workspace, you can use that data to gain meaningful insights with Log Analytics’ search feature.
 Log Analytics uses a language called the Kusto Query Language (or Kusto) to search through your logs.
 
-Use these resources to learn more about Kusto:
-
-* [Data analysis in Azure Data Explorer with Kusto Query Language](/training/paths/data-analysis-data-explorer-kusto-query-language/)
-
-* [SQL to Kusto query translation - Azure Data Explorer | Microsoft Learn](../data-explorer/kusto/query/sqlcheatsheet.md)
+For more information, see
+[Data analysis in Azure Data Explorer with Kusto Query Language](/training/paths/data-analysis-data-explorer-kusto-query-language/).
