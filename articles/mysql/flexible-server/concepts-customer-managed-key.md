@@ -1,5 +1,5 @@
 ---
-title: Data encryption with customer managed keys – Azure Database for MySQL – Flexible Server Preview
+title: Data encryption with customer managed keys – Azure Database for MySQL – Flexible Server
 description: Learn how data encryption with customer-managed keys for Azure Database for MySQL flexible server enables you to bring your own key (BYOK) for data protection at rest
 author: vivgk
 ms.author: vivgk
@@ -10,14 +10,11 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Customer managed keys data encryption – Azure Database for MySQL – Flexible Server Preview
+# Customer managed keys data encryption – Azure Database for MySQL – Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 With data encryption with customer-managed keys for Azure Database for MySQL - Flexible Server Preview, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data. With customer managed keys (CMKs), the customer is responsible for and in a full control of key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys. 
-
-> [!Note]
-> In the Public Preview, we can't enable geo redundancy on a flexible server that has CMK enabled, nor can we enable geo redundancy on a flexible server that has CMK enabled. 
 
 ## Benefits
 
@@ -117,11 +114,11 @@ To monitor the database state, and to enable alerting for the loss of transparen
 
 ## Replica with a customer managed key in Key Vault
 
-Once Azure Database for MySQL flexible server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. When trying to encrypt Azure Database for MySQL flexible server with a customer managed key that already has a replica(s), we recommend configuring the replica(s) as well by adding the managed identity and key.
+Once Azure Database for MySQL flexible server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. When trying to encrypt Azure Database for MySQL flexible server with a customer managed key that already has a replica(s), we recommend configuring the replica(s) as well by adding the managed identity and key. If the flexible server is configured with geo-redundancy backup, the replica must be configured with the managed identity and key to which the identity has access and which resides in the server's geo-paired region.
 
 ## Restore with a customer managed key in Key Vault
 
-When attempting to restore an Azure Database for MySQL flexible server, you're given the option to select the User managed identity, and Key to encrypt the restore server.
+When attempting to restore an Azure Database for MySQL flexible server, you're given the option to select the User managed identity, and Key to encrypt the restore server. If the flexible server is configured with geo-redundancy backup, the restore server must be configured with the managed identity and key to which the identity has access and which resides in the server's geo-paired region.
 
 To avoid issues while setting up customer-managed data encryption during restore or read replica creation, it's important to follow these steps on the source and restored/replica servers:
 
