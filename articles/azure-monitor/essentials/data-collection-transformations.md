@@ -25,7 +25,7 @@ The following table describes the different goals that transformations can be us
 ## Supported tables
 Transformations may be applied to the following tables in a Log Analytics workspace. 
 
-- Any Azure table listed in [Tables that support time transformations in Azure Monitor Logs (preview)](../logs/tables-feature-support.md)
+- Any Azure table listed in [Tables that support transformations in Azure Monitor Logs (preview)](../logs/tables-feature-support.md)
 - Any custom table
 
 

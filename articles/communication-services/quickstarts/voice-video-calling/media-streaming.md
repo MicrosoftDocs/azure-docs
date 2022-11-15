@@ -94,6 +94,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 - Learn more about [Media Streaming](../../concepts/voice-video-calling/media-streaming.md).
-- Learn more about [Call Automation](../../concepts/voice-video-calling/call-automation.md) and its features. 
-- Learn more about [Play action](../../concepts/voice-video-calling/play-action.md).
-- Learn more about [Recognize action](../../concepts/voice-video-calling/recognize-action.md).
+- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features. 
+- Learn more about [Play action](../../concepts/call-automation/play-action.md).
+- Learn more about [Recognize action](../../concepts/call-automation/recognize-action.md).
