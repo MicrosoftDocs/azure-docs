@@ -8,13 +8,13 @@ ms.date: 11/15/2022
 
 # Azure Kubernetes Service Diagnostics (preview) overview
 
-Troubleshooting Azure Kubernetes Service (AKS) cluster issues plays an important role in maintaining your cluster, especially if your cluster is running mission-critical workloads. AKS Diagnostics is an intelligent, self-diagnostic experience that:
+Troubleshooting Azure Kubernetes Service (AKS) cluster issues plays an important role in maintaining your cluster, especially if your cluster is running mission-critical workloads. AKS Diagnostics (preview) is an intelligent, self-diagnostic experience that:
 
 * Helps you identify and resolve problems in your cluster.
 * Is cloud-native.
 * Requires no extra configuration or billing cost.
 
-This feature is now in public preview.
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Open AKS Diagnostics
 
