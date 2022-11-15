@@ -222,9 +222,9 @@ To install Hybrid worker extension on an existing agent based hybrid worker, fol
 1. Select the checkbox next to the existing Agent based (V1) Hybrid worker.
 1. Select **Add** to append the machine to the group.
 
-   The Platform column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. After you're confident of the extension based Hybrid Worker experience and use, you can remove the agent based Worker. 
+The Platform column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. After you're confident of the extension based Hybrid Worker experience and use, you can remove the agent based Worker. 
    
-   For at-scale migration of multiple Agent based Hybrid Workers, you can also use other [channels](#manage-hybrid-worker-extension-using-bicep--arm-templates-rest-api-azure-cli-and-powershell) such as - Bicep, ARM templates, PowerShell cmdlets, REST API, and Azure CLI.
+For at-scale migration of multiple Agent based Hybrid Workers, you can also use other [channels](#manage-hybrid-worker-extension-using-bicep--arm-templates-rest-api-azure-cli-and-powershell) such as - Bicep, ARM templates, PowerShell cmdlets, REST API, and Azure CLI.
 
 
 ## Delete a Hybrid Runbook Worker
