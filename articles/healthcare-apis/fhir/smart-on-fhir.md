@@ -27,31 +27,24 @@ One of the main purposes of the specifications is to describe how an application
 
 Below tutorial describes steps to enable SMART on FHIR applications with FHIR Service.
 
-<!--- ## Pre-requisite  
-Below are pre-requisite on enabling the SMART on FHIR:
-<b>Prerequisites</b> 
-    1.  An instance of the Azure API for FHIR
-    2.  Client application registration. Follow the instructions for configuring a [public client application in Azure AD](register-public-azure-ad-client-app.md)
-    3.  Test Data : To test the Azure API for FHIR and the SMART on FHIR, you'll need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.  --->
-
 ## Prerequisites
 
 - An instance of the FHIR Service
 - .NET SDK 6.0
 - [Enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
+- [Register public client application in AAD ](/register-public-azure-ad-client-app.md)
+     - After registering the application, make note of the applicationId for client application.
+     
+<!--- Tutorial : To enable SMART on FHIR using APIM, follow below steps 
+Step 1 : Set up FHIR SMART user role 
+Follow the steps listed under section [Manage Users: Assign Users to Role](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to this role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
 
-##  Configure Azure AD registrations
+Step 2 : Deploy the necessary components to set up the FHIR server integrated with APIM in production. Follow ReadMe
+Step 3 : Load US Core profiles 
+Step 4 : Create AAD custom policy using this README  ---> 
 
-SMART on FHIR requires that `Audience` has an identifier URI equal to the URI of the FHIR service. The standard configuration of the FHIR service uses an `Audience` value of `https://azurehealthcareapis.com`. However, you can also set a value matching the specific URL of your FHIR service (for example `https://MYFHIRAPI.fhir.azurehealthcareapis.com`). This is required when working with the SMART on FHIR proxy.
-
-You'll also need a client application registration. Most SMART on FHIR applications are single-page JavaScript applications. So you should follow the instructions for configuring a [public client application in Azure AD](register-public-azure-ad-client-app.md).
-
-After you complete these steps, you should have:
-
-- A FHIR server with the audience set to `https://MYFHIRAPI.fhir.azurehealthcareapis.com`, where `MYFHIRAPI` is the name of your FHIR service instance.
-- A public client application registration. Make a note of the application ID for this client application.
-
-### Set admin consent for your app
+Lets go over individual steps to enable SMART on FHIR 
+### Step 1 : Set admin consent for your client application
 
 To use SMART on FHIR, you must first authenticate and authorize the app. The first time you use SMART on FHIR, you also must get administrative consent to let the app access your FHIR resources.
 
@@ -66,21 +59,18 @@ To add yourself or another user as owner of an app:
 3. Search for the app registration you created, and then select it.
 4. In the left menu, under **Manage**, select **Owners**.
 5. Select **Add owners**, and then add yourself or the user you want to have admin consent.
-6. Select **Save**.
+6. Select **Save**
+   
 
-<!--- Tutorial : To enable SMART on FHIR using APIM, follow below steps 
-Step 1 : Set up FHIR SMART user role 
-Follow the steps listed under section [Manage Users: Assign Users to Role](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to this role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
+### Step 2 : Configure Azure AD registrations
 
-Step 2 : Deploy the necessary components to set up the FHIR server integrated with APIM in production. Follow ReadMe
-Step 3 : Load US Core profiles 
-Step 4 : Create AAD custom policy using this README  ---> 
+SMART on FHIR requires that `Audience` has an identifier URI equal to the URI of the FHIR service. The standard configuration of the FHIR service uses an `Audience` value of `https://azurehealthcareapis.com`. However, you can also set a value matching the specific URL of your FHIR service (for example `https://MYFHIRAPI.fhir.azurehealthcareapis.com`). This is required when working with the SMART on FHIR proxy.
 
-## Enable the SMART on FHIR proxy
+### Step 3:  Enable the SMART on FHIR proxy
 
 Enable the SMART on FHIR proxy in the **Authentication** settings for your FHIR instance by selecting the **SMART on FHIR proxy** check box.
 
-Configure the reply URL: The SMART on FHIR proxy acts as an intermediary between the SMART on FHIR app and Azure AD. The authentication reply (the authentication code) must go to the SMART on FHIR proxy instead of the app itself. The proxy then forwards the reply to the app. 
+The SMART on FHIR proxy acts as an intermediary between the SMART on FHIR app and Azure AD. The authentication reply (the authentication code) must go to the SMART on FHIR proxy instead of the app itself. The proxy then forwards the reply to the app. 
 
 Because of this two-step relay of the authentication code, you need to set the reply URL (callback) for your Azure AD client application to a URL that is a combination of the reply URL for the SMART on FHIR proxy and the reply URL for the SMART on FHIR app. The combined reply URL takes this form:
 
@@ -108,11 +98,12 @@ Add the reply URL to the public client application that you created earlier for 
 
 <!---![Reply URL configured for the public client](media/tutorial-smart-on-fhir/configure-reply-url.png)--->
 
-## Get a test patient
+
+### Step 4 :  Get a test patient
 
 To test the FHIR service and the SMART on FHIR proxy, you'll need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.
 
-## Download the SMART on FHIR app launcher
+### Step 5 :  Download the SMART on FHIR app launcher
 
 The open-source [FHIR Server for Azure repository](https://github.com/Microsoft/fhir-server) includes a simple SMART on FHIR app launcher and a sample SMART on FHIR app. In this tutorial, use this SMART on FHIR launcher locally to test the setup.
 
@@ -146,7 +137,7 @@ Use this command to run the application:
 dotnet run
 ```
 
-## Test the SMART on FHIR proxy
+## Step 6 : Test the SMART on FHIR proxy
 
 After you start the SMART on FHIR app launcher, you can point your browser to `https://localhost:5001`, where you should see the following screen:
 
