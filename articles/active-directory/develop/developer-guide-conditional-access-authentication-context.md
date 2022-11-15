@@ -239,8 +239,11 @@ ACRS requested | Policy applied | Control satisfied | ACRS added to claims |
 ## Implicit auth context satisfaction by opportunistic evaluation
 
 A resource provider may opt in to the optional 'acrs' claim. Conditional Access will try to add ACRS to the token claims opportunistically in order to avoid round trips to acquire new tokens to Azure AD. In that evaluation, Conditional Access will check if the policies protecting Auth Context challenges are already satisfied and will add the ACRS to the token claims if so.
-_**Note**_ that each token type will need to be individually opted-in (ID token, Access token).
-_**Note**_ that if a resource provider doesn't opt in to the optional 'acrs' claim, the only way to get an ACRS in the token will be to explicitly ask for it in a token request. It will not get the benefits of the opportunistic evaluation, therefore every time that the required ACRS will be missing from the token claims, the resource provider will challenge the client to acquire a new token containing it in the claims.
+
+> [!NOTE]
+> Each token type will need to be individually opted-in (ID token, Access token).
+>
+> If a resource provider doesn't opt in to the optional 'acrs' claim, the only way to get an ACRS in the token will be to explicitly ask for it in a token request. It will not get the benefits of the opportunistic evaluation, therefore every time that the required ACRS will be missing from the token claims, the resource provider will challenge the client to acquire a new token containing it in the claims.
 
 ## Expected behavior with auth context and session controls for implicit ACRS opportunistic evaluation
 
