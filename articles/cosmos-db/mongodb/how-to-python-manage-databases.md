@@ -82,9 +82,9 @@ Databases: ['adventureworks']
 
 ## Does database exist?
 
-The native MongoDB driver for JavaScript creates the database if it doesn't exist when you access it. If you would prefer to know if the database already exists before using it, get the list of current databases and filter for the name:
+The PyMongo driver for Python creates the database if it doesn't exist when you access it. However, we recommend that you instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. To create a new database if it doesn't exist, use the [create database extension](/azure/cosmos-db/mongodb/custom-commands#create-database) as shown in the following code snippet.
 
-* [MongoClient.list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names)
+To see if the database already exists before using it, get the list of current databases with the [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method.
 
 ```python
 # Get list of databases
@@ -106,5 +106,30 @@ The preceding code snippet displays output similar to the following example cons
 Database exists: adventureworks
 ```
 <!--
-:::code language="console" source="~/samples-cosmosdb-mongodb-javascript/201-does-database-exist/index.js" id="console_result":::
+:::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="console_result":::
+-->
+
+## Get list of databases, collections, and document count
+
+When you manage your MongoDB server programmatically, it's helpful to know what databases and collections are on the server and how many documents in each collection.
+
+* [Getting a database](https://pymongo.readthedocs.io/en/stable/tutorial.html#getting-a-database)
+* [Getting a collection](https://pymongo.readthedocs.io/en/stable/tutorial.html#getting-a-collection)
+* [Counting documents](https://pymongo.readthedocs.io/en/stable/tutorial.html#counting)
+
+```python
+TBD
+```
+
+<!--
+:::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="database_object":::
+-->
+
+The preceding code snippet displays the following example console output:
+
+```python
+TBD
+```
+<!-- 
+:::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="console_result":::
 -->
