@@ -206,7 +206,7 @@
       - name: Azure Monitor
         href: ../azure-monitor/logs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Network Watcher
-        href: /azure/network-watcher/frequently-asked-questions?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy
+        href: ../network-watcher/frequently-asked-questions.yml?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json#service-availability-and-redundancy
       - name: Azure Notification Hubs
         href: ../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Private Link
@@ -255,4 +255,3 @@
     href: https://azure.microsoft.com/explore/reliability/#overview
   - name: Reliability terminology
     href: glossary.md
-  
