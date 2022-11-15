@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the CLI
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 11/15/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q2 
@@ -46,7 +46,7 @@ Use these values in the following [az dt command](/cli/azure/dt) to create the i
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
 ```
 
-There are several optional parameters that can be added to the command to specify additional things about your resource during creation, including creating a [system managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for the instance or enabling/disabling public network access. For a full list of supported parameters, see the [az dt create](/cli/azure/dt#az-dt-create) reference documentation.
+There are several optional parameters that can be added to the command to specify additional things about your resource during creation, including creating a [system-assigned or user-assigned identity](concepts-security.md#managed-identity-for-accessing-other-resources) for the instance or enabling/disabling public network access. For a full list of supported parameters, see the [az dt create](/cli/azure/dt#az-dt-create) reference documentation.
 
 ### Verify success and collect important values
 

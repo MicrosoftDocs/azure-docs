@@ -81,7 +81,7 @@ To create a new endpoint, go to your instance's page in the [Azure portal](https
 1. Enter a **Name** for your endpoint and choose the **Endpoint type**.
 
 1. Complete the other details that are required for your endpoint type, including your subscription and the endpoint resources described [above](#prerequisite-create-endpoint-resources).
-    1. For Event Hubs and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or identity-based authentication if you'll be using the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for your Azure Digital Twins instance. 
+    1. For Event Hubs and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or select the option for a [system-assigned or user-assigned managed identity](concepts-security.md#managed-identity-for-accessing-other-resources).
 
     :::row:::
         :::column:::
@@ -136,19 +136,9 @@ After successfully running these commands, the event grid, event hub, or Service
 
 #### Create an endpoint with identity-based authentication
 
-You can also create an endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hubs and Service Bus-type endpoints (it's not supported for Event Grid).
+You can use optional command parameters to create an endpoint that has identity-based authentication, to use the endpoint with a [system-assigned or user-assigned managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hubs and Service Bus-type endpoints (it's not supported for Event Grid).
 
-The CLI command to create this type of endpoint is below. You'll need the following values to plug into the placeholders in the command:
-* The Azure resource ID of your Azure Digital Twins instance
-* An endpoint name
-* An endpoint type
-* The endpoint resource's namespace
-* The name of the event hub or Service Bus topic
-* The location of your Azure Digital Twins instance
-
-```azurecli-interactive
-az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\"}, \"location\":\"<instance-location>\" }' --is-full-object
-```
+For instructions on how to do this, see [Create an endpoint with identity-based authentication](how-to-route-with-managed-identity.md#create-an-endpoint-with-identity-based-authentication).
 
 ---
 
@@ -241,7 +231,7 @@ You can also create dead letter endpoints using the [Azure Digital Twins control
 
 You can also create a dead-lettering endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hubs and Service Bus-type endpoints (it's not supported for Event Grid).
 
-To create this type of endpoint, use the same CLI command from earlier to [create an endpoint with identity-based authentication](#create-an-endpoint-with-identity-based-authentication), with an extra field in the JSON payload for a `deadLetterUri`.
+To create this type of endpoint, use the following CLI command. There's an extra field in the JSON payload for a `deadLetterUri`.
 
 Here are the values you'll need to plug into the placeholders in the command:
 * The Azure resource ID of your Azure Digital Twins instance
