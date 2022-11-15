@@ -23,9 +23,10 @@ This article assumes that you're familiar with auto scale. [Get started here to 
 
 Scale your resource based on metrics produce by the resource itself or any other resource.
 For example:
-* Scale your Virtual Machine Scale Set based on CPU usage of the virtual machine.
+* Scale your Virtual Machine Scale Set based on the CPU usage of the virtual machine.
 * Ensure a minimum number of instances.
-* Set a maximum limit on the number of instances.
+* Set a maximum limit on the number of instances.  
+
 The image below shows a default scale condition for a Virtual Machine Scale Set
  * The **Scale rule** tab shows that the metric source is the scale set itself and the metric used is Percentage CPU.
  * The minimum number of instances running is set to 2.
