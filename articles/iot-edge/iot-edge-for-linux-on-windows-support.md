@@ -49,6 +49,7 @@ Azure IoT Edge for Linux on Windows supports the following architectures:
 | ---------------- | ----- |  ----- |
 | EFLOW 1.1 LTS | ![AMD64](./media/support/green-check.png) | |
 | EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
+| EFLOW 1.4 LTS | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
 
 For more information about Windows ARM64 supported processors, see [Windows Processor Requirements](/windows-hardware/design/minimum/windows-processor-requirements).
 
@@ -74,8 +75,9 @@ The following table lists the components included in each release. Each release 
 
 | Release | IoT Edge | CBL-Mariner | Defender for IoT |
 | ------- | -------- | ----------- | ---------------- |
-| **1.1 LTS** | 1.1 | 1.0 | - |
-| **Continuous Release** | 1.2 | 1.0 | 3.12.3 | 
+| **1.1 LTS** | 1.1 | 2.0 | - |
+| **Continuous Release** | 1.3 | 2.0 | 3.12.3 | 
+| **1.4 LTS** | 1.4 | 2.0 | - |
 
 
 ## Minimum system requirements

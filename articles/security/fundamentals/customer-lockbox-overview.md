@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
 manager: rkarlin
-ms.date: 05/12/2021
+ms.date: 11/14/2022
 ---
 
 # Customer Lockbox for Microsoft Azure

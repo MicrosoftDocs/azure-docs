@@ -66,7 +66,7 @@ Using loops in Bicep has these limitations:
 - Bicep loops only work with values that can be determined at the start of deployment.
 - Loop iterations can't be a negative number or exceed 800 iterations.
 - Can't loop a resource with nested child resources. Change the child resources to top-level resources.  See [Iteration for a child resource](#iteration-for-a-child-resource).
-- To loop on multiple levels of properties, use [lambda map function](./bicep-functions-lambda.md#map).
+- To loop on multiple levels of properties, use the [lambda map function](./bicep-functions-lambda.md#map).
 
 ## Integer index
 
