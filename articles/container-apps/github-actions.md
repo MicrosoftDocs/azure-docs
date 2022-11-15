@@ -21,13 +21,13 @@ This article shows you how to create your own workflow that you can fully custom
 
 ## Azure Container Apps GitHub action
 
-To build and deploy your container app, you add the [`azure/container-apps-deploy-action`](https://github.com/marketplace/actions/oryx-builder-github-action) action to your GitHub Actions workflow. It supports the following scenarios:
+To build and deploy your container app, you add the [`azure/container-apps-deploy-action`](https://github.com/marketplace/actions/azure-container-apps-build-and-deploy) action to your GitHub Actions workflow. It supports the following scenarios:
 
 * Build from a Dockerfile and deploy to Container Apps.
 * Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby.
 * Deploy an existing container image to Container Apps.
 
-Here are some common scenarios for using the action. For more information, see the [action's GitHub Marketplace page](https://github.com/marketplace/actions/oryx-builder-github-action).
+Here are some common scenarios for using the action. For more information, see the [action's GitHub Marketplace page](https://github.com/marketplace/actions/azure-container-apps-build-and-deploy).
 
 ### Build and deploy to Container Apps
 

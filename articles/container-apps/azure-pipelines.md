@@ -23,7 +23,7 @@ To build and deploy your container app, you add the [`AzureContainerAppsRC`](htt
 * Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby.
 * Deploy an existing container image to Container Apps.
 
-Here are some common scenarios for using the action. For more information, see the [task's documentation](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureContainerAppsV0/README.md).
+Here are some common scenarios for using the action. For more information, see the [task's documentation](https://github.com/Azure/container-apps-deploy-pipelines-task/blob/main/README.md).
 
 ### Build and deploy to Container Apps
 
