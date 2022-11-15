@@ -134,7 +134,7 @@ Follow these steps to find them:
 
 ### Disable SSL certificate validation
 
-If you can't find any self-signed certificates by following these steps, contact us through the feedback tool. You can also open Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When opened with this flag, Storage Explorer ignores certificate errors. *This flag is not recommended.*
+If you can't find any self-signed certificates by following these steps, contact us through the feedback tool. You can also open Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When opened with this flag, Storage Explorer ignores certificate errors. *This flag isn't recommended.*
 
 ## Sign-in issues
 
@@ -170,7 +170,7 @@ If you can't do any of those options, you can also [change where sign-in happens
 
 ### Unable to acquire token, tenant is filtered out
 
-If you see an error message that says a token can't be acquired because a tenant is filtered out, you're trying to access a resource that's in a tenant you filtered out. To unfilter the tenant, go to the **Account Panel**. Make sure the checkbox for the tenant specified in the error is selected. For more information on filtering tenants in Storage Explorer, see [Managing accounts](./storage-explorer-sign-in.md#managing-accounts).
+Sometimes you may see an error message that says a token can't be acquired because a tenant is filtered out. This means you're trying to access a resource that's in a tenant you filtered out. To include the tenant, go to the **Account Panel**. Make sure the checkbox for the tenant specified in the error is selected. For more information on filtering tenants in Storage Explorer, see [Managing accounts](./storage-explorer-sign-in.md#managing-accounts).
 
 ### Authentication library failed to start properly
 
@@ -178,9 +178,9 @@ If on startup you see an error message that says Storage Explorer's authenticati
 
 If you believe that your installation environment meets all prerequisites, [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues/new). When you open your issue, make sure to include:
 
-- Your OS.
-- What version of Storage Explorer you're trying to use.
-- If you checked the prerequisites.
+- Your OS
+- What version of Storage Explorer you're trying to use
+- Whether you checked the prerequisites
 - [Authentication logs](#authentication-logs) from an unsuccessful launch of Storage Explorer. Verbose authentication logging is automatically enabled after this type of error occurs.
 
 ### Blank window when you use integrated sign-in
@@ -241,7 +241,7 @@ If you can't retrieve your subscriptions after you successfully sign in, try the
 - Verify that your account has access to the subscriptions you expect. You can verify your access by signing in to the portal for the Azure environment you're trying to use.
 - Make sure you've signed in through the correct Azure environment like Azure, Azure China 21Vianet, Azure Germany, Azure US Government, or Custom Environment.
 - If you're behind a proxy server, make sure you configured the Storage Explorer proxy correctly.
-- Try removing and re-adding the account.
+- Try removing and adding back the account.
 - If there's a "More information" or "Error details" link, check which error messages are being reported for the tenants that are failing. If you aren't sure how to respond to the error messages, [open an issue in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## Problem interacting with your OS credential store during an AzCopy transfer
@@ -251,9 +251,9 @@ If you see this message on Windows, most likely the Windows Credential Manager i
 1. Close Storage Explorer
 1. On the **Start** menu, search for **Credential Manager** and open it.
 1. Go to **Windows Credentials**.
-1. Under **Generic Credentials**, look for entries associated with programs you no longer use and delete them. You can also look for entries like `azcopy/aadtoken/<some number>` and delete those.
+1. Under **Generic Credentials**, look for entries associated with programs you no longer use and delete them. You can also look for entries like `azcopy/aadtoken/<some number>` and delete those entries.
 
-If the message continues to appear after completing the above steps, or if you encounter this message on platforms other than Windows, then please [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+If the message continues to appear after completing the above steps, or if you encounter this message on platforms other than Windows, you can [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## Can't remove an attached storage account or resource
 
@@ -328,13 +328,13 @@ If the owner of a subscription or account has granted you access to a resource, 
 
 ## Connection string doesn't have complete configuration settings
 
-If you receive this error message, it's possible that you don't have the necessary permissions to obtain the keys for your storage account. To confirm that this is the case, go to the portal and locate your storage account. Right-click the node for your storage account and select **Open in Portal**. Then, go to the **Access Keys** pane. If you don't have permissions to view keys, you'll see a "You don't have access" message. To work around this issue, you can either obtain the account key from someone else and attach through the name and key or you can ask someone for a shared access signature to the storage account and use it to attach the storage account.
+If you receive this error message, it's possible that you don't have the necessary permissions to obtain the keys for your storage account. To confirm, go to the portal and locate your storage account. Right-click the node for your storage account and select **Open in Portal**. Then, go to the **Access Keys** pane. If you don't have permissions to view keys, you'll see a "You don't have access" message. To work around this issue, you can obtain either an account name and key or an account shared access signature and use it to attach the storage account.
 
 If you do see the account keys, file an issue in GitHub so that we can help you resolve the issue.
 
 ## "Error occurred while adding new connection: TypeError: Cannot read property 'version' of undefined"
 
-If you receive this error message when you try to add a custom connection, the connection data that's stored in the local credential manager might be corrupted. To work around this issue, try deleting your corrupted local connections, and then re-add them:
+If you receive this error message when you try to add a custom connection, the connection data that's stored in the local credential manager might be corrupted. To work around this issue, try deleting and adding back your corrupted local connections:
 
 1. Start Storage Explorer. From the menu, go to **Help** > **Toggle Developer Tools**.
 1. In the opened window, on the **Application** tab, go to **Local Storage** > **file://** on the left side.
@@ -356,52 +356,51 @@ If you receive this error message when you try to add a custom connection, the c
 
 To preserve the connections that aren't corrupted, use the following steps to locate the corrupted connections. If you don't mind losing all existing connections, skip these steps and follow the platform-specific instructions to clear your connection data.
 
-1. From a text editor, re-add each connection name to **Developer Tools**. Then check whether the connection is still working.
-1. If a connection is working correctly, it's not corrupted and you can safely leave it there. If a connection isn't working, remove its value from **Developer Tools**, and record it so that you can add it back later.
+1. From a text editor, add back each connection name to **Developer Tools**. Then check whether the connection is still working.
+1. If a connection is working correctly, it's not corrupted; you can safely leave it there. If a connection isn't working, remove its value from **Developer Tools**, and record it so that you can add it back later.
 1. Repeat until you've examined all your connections.
 
-After you go through all your connections, for all connection names that aren't added back, you must clear their corrupted data, if there is any. Then add them back by using the standard steps in Storage Explorer.
+After removing connection names, you must clear their corrupted data. Then you can add the connections back by using the standard connect steps in Storage Explorer.
 
 # [Windows](#tab/Windows)
 
 1. On the **Start** menu, search for **Credential Manager** and open it.
 1. Go to **Windows Credentials**.
 1. Under **Generic Credentials**, look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key. An example is `StorageExplorer_CustomConnections_Accounts_v1/account1`.
-1. Delete these entries and re-add the connections.
+1. Delete and add back these connections.
 
 # [macOS](#tab/macOS)
 
 1. Open Spotlight by selecting **Command+Space** and search for **Keychain access**.
 1. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key. An example is `StorageExplorer_CustomConnections_Accounts_v1/account1`.
-1. Delete these entries and re-add the connections.
-
+1. Delete and add back these connections.
 
 # [Linux](#tab/linux-ubuntu)
 
-Local credential management varies depending on your system configuration. If your system does not have a tool for local credential management installed, you may install a third-party tool to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
+Local credential management varies depending on your system configuration. If your system doesn't have a tool for local credential management installed, you may install a third-party tool to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
 
 1. Open your local credential management tool. Find your saved credentials.
-1. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key (e.g. `StorageExplorer_CustomConnections_Accounts_v1/account1`)
-1. Delete these entries and re-add the connections.
+1. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key (for example `StorageExplorer_CustomConnections_Accounts_v1/account1`)
+1. Delete and add back these connections.
 
 # [Red Hat Enterprise Linux](#tab/linux-rhel)
 
-Local credential management varies depending on your system configuration. If your system does not have a tool for local credential management installed, you may install a third-party tool to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
+Local credential management varies depending on your system configuration. If your system doesn't have a tool for local credential management installed, you may install a third-party tool to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
 
 1. Open your local credential management tool. Find your saved credentials.
-1. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key (e.g. `StorageExplorer_CustomConnections_Accounts_v1/account1`)
-1. Delete these entries and re-add the connections.
+1. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key (for example `StorageExplorer_CustomConnections_Accounts_v1/account1`)
+1. Delete and add back these connections.
 
 # [SUSE Linux Enterprise Server](#tab/linux-sles)
 
 > [!NOTE]
 > Storage Explorer has not been tested for SLES. You may try using Storage Explorer on your system, but we cannot guarantee that Storage Explorer will work as expected.
 
-Local credential management varies depending on your system configuration. If your system does not have a tool for local credential management installed, you may install a third-party tool to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
+Local credential management varies depending on your system configuration. If your system doesn't have a tool for local credential management installed, you may install a third-party tool to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
 
 1. Open your local credential management tool. Find your saved credentials.
-1. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key (e.g. `StorageExplorer_CustomConnections_Accounts_v1/account1`)
-1. Delete these entries and re-add the connections.
+1. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key (for example `StorageExplorer_CustomConnections_Accounts_v1/account1`)
+1. Delete and add back these connections.
 
 ---
 
@@ -419,7 +418,7 @@ If you accidentally attached by using an invalid shared access signature URL and
 
 1. When you're running Storage Explorer, select **F12** to open the **Developer Tools** window.
 1. On the **Application** tab, select **Local Storage** > **file://** on the left side.
-1. Find the key associated with the service type of the problematic shared access signature URI. For example, if the bad shared access signature URI is for a blob container, look for the key named `StorageExplorer_AddStorageServiceSAS_v1_blob`.
+1. Find the key associated with the service type of the shared access signature URI. For example, if the bad shared access signature URI is for a blob container, look for the key named `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 1. The value of the key should be a JSON array. Find the object associated with the bad URI, and delete it.
 1. Select **Ctrl+R** to reload Storage Explorer.
 
@@ -583,7 +582,7 @@ When you report an issue to GitHub, you might be asked to gather certain logs to
 
 ### Storage Explorer logs
 
-Storage Explorer logs various things to its own application logs. You can easily get to these logs by selecting **Help** > **Open Logs Directory**. By default, Storage Explorer logs at a low level of verbosity. To change the verbosity level, go to **Settings** (the **gear** symbol on the left) > **Application** > **Logging** > **Log Level**. You can then set the log level as needed. For troubleshooting, it is recommended to use the `debug` log level.
+Storage Explorer logs various things to its own application logs. You can easily get to these logs by selecting **Help** > **Open Logs Directory**. By default, Storage Explorer logs at a low level of verbosity. To change the verbosity level, go to **Settings** (the **gear** symbol on the left) > **Application** > **Logging** > **Log Level**. You can then set the log level as needed. For troubleshooting, the `debug` log level is recommended.
 
 Logs are split into folders for each session of Storage Explorer that you run. For whatever log files you need to share, place them in a zip archive, with files from different sessions in different folders.
 
@@ -597,7 +596,7 @@ For issues related to sign-in or Storage Explorer's authentication library, you'
 
 Generally, you can follow these steps to gather the logs:
 
-1. Go to **Settings** (the **gear** symbol on the left) > **Application** > **Sign-in**. Select **Verbose Authentication Logging**. If Storage Explorer fails to start because of an issue with its authentication library, this will be done for you.
+1. Go to **Settings** (the **gear** symbol on the left) > **Application** > **Sign-in**. Select **Verbose Authentication Logging**. If Storage Explorer fails to start because of an issue with its authentication library, this step will be done for you.
 1. Close Storage Explorer.
 1. Optional/recommended: Clear out existing logs from the *logs* folder. This step reduces the amount of information you have to send us.
 1. Open Storage Explorer and reproduce your issue.
@@ -617,7 +616,7 @@ If you're having trouble transferring data, you might need to get the AzCopy log
 
 ### Network logs
 
-For some issues, you'll need to provide logs of the network calls made by Storage Explorer. On Windows, you can do this by using Fiddler.
+For some issues, you'll need to provide logs of the network calls made by Storage Explorer. On Windows, you can get network logs by using Fiddler.
 
 > [!NOTE]
 > Fiddler traces might contain passwords you entered or sent in your browser during the gathering of the trace. Make sure to read the instructions on how to sanitize a Fiddler trace. Don't upload Fiddler traces to GitHub. You'll be told where you can securely send your Fiddler trace.

@@ -59,7 +59,7 @@ For more help installing Storage Explorer on Ubuntu, see [Storage Explorer depen
 
 Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
 
-To run snaps, you will need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
+To run snaps, you'll need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
 
 Storage Explorer requires the use of a password manager. You can connect Storage Explorer to your system's password manager by running the following command:
 
@@ -76,7 +76,7 @@ For more help installing Storage Explorer on RHEL, see [Storage Explorer depende
 
 Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
 
-To run snaps, you will need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
+To run snaps, you'll need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
 
 Storage Explorer requires the use of a password manager. You can connect Storage Explorer to your system's password manager by running the following command:
 
