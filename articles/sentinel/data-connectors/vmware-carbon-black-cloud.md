@@ -1,9 +1,9 @@
 ---
 title: "VMware Carbon Black Cloud connector for Microsoft Sentinel"
-description: "Learn how to install the VMware Carbon Black Cloud connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
+description: "Learn how to install the connector VMware Carbon Black Cloud to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 11/15/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

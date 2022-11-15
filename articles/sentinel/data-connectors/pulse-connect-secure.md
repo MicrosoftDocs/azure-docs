@@ -1,9 +1,9 @@
 ---
 title: "Pulse Connect Secure connector for Microsoft Sentinel"
-description: "Learn how to install the Pulse Connect Secure connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
+description: "Learn how to install the connector Pulse Connect Secure to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 11/15/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

@@ -1,9 +1,9 @@
 ---
 title: "Rubrik Integration with Sentinel for Ransomware Protection connector for Microsoft Sentinel"
-description: "Learn how to install the Rubrik Integration with Sentinel for Ransomware Protection connector for Microsoft Sentinel connector to connect your data source to Microsoft Sentinel."
+description: "Learn how to install the connector Rubrik Integration with Sentinel for Ransomware Protection to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 11/15/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
