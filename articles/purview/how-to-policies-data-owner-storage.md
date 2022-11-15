@@ -25,6 +25,7 @@ This guide covers how a data owner can delegate in Microsoft Purview management 
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
 ## Microsoft Purview configuration
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register the data sources in Microsoft Purview for Data Use Management
 The Azure Storage resources need to be registered first with Microsoft Purview to later define access policies.
@@ -48,6 +49,13 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 
 >[!Important]
 > - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
+
+
+## Unpublish a data owner policy
+Follow this link for the steps to [unpublish a data owner policy in Microsoft Purview](how-to-policies-data-owner-authoring-generic.md#unpublish-a-policy).
+
+## Update or delete a data owner policy
+Follow this link for the steps to [update or delete a data owner policy in Microsoft Purview](how-to-policies-data-owner-authoring-generic.md#update-or-delete-a-policy).
 
 ## Data Consumption
 - Data consumer can access the requested dataset using tools such as Power BI or Azure Synapse Analytics workspace.

@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision 
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 06/13/2022
+ms.date: 11/03/2022
 ms.author: pafarley
 keywords: computer vision, computer vision applications, computer vision service
 ---
@@ -99,16 +99,11 @@ Use domain models to detect and identify domain-specific content in an image, su
 
 Analyze color usage within an image. Computer Vision can determine whether an image is black & white or color and, for color images, identify the dominant and accent colors. [Detect the color scheme](concept-detecting-color-schemes.md)
 
-### Generate a thumbnail
+### Get the area of interest / smart crop
 
-Analyze the contents of an image to generate an appropriate thumbnail for that image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the *area of interest*. Computer Vision then crops the image to fit the requirements of the area of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs. [Generate a thumbnail](concept-generating-thumbnails.md)
+Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. [Generate a thumbnail](concept-generating-thumbnails.md)
 
 :::image type="content" source="Images/thumbnail-demo.png" alt-text="An image of a person on a mountain, with cropped versions to the right":::
-
-
-### Get the area of interest
-
-Analyze the contents of an image to return the coordinates of the *area of interest*. Instead of cropping the image and generating a thumbnail, Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. [Get the area of interest](concept-generating-thumbnails.md#area-of-interest)
 
 ### Moderate content in images
 

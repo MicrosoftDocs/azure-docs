@@ -47,7 +47,7 @@ Once you have your update files, create an import manifest to describe the updat
 > [!TIP]
 > Try the [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md), or [proxy update](device-update-howto-proxy-updates.md) tutorials if you haven't already done so. You can also just view sample import manifest files from those tutorials for reference.
 
-The [az iot du init v5](/cli/azure/iot/device-update/update/init#az-iot-device-update-update-init-v5) command takes the following arguments:
+The [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-du-update-init-v5) command takes the following arguments:
 
 * `--update-provider`, `--update-name`, and `--update-version`: These three parameters define the **updateId** object that is a unique identifier for each update.
 * `--compat`: The **compatibility** object is a set of name-value pairs that describe the properties of a device that this update is compatible with.
@@ -81,7 +81,7 @@ az iot du update init v5 \
 
 For handler properties, you may need to escape certain characters in your JSON. For example, use `'\'` to escape double-quotes if you're running the Azure CLI in PowerShell.
 
-The `init` command supports advanced scenarios, including the [related files feature](related-files.md) that allows you to define the relationship between different update files. For more examples and a complete list of optional parameters, see [az iot du init v5](/cli/azure/iot/device-update/update/init#az-iot-device-update-update-init-v5).
+The `init` command supports advanced scenarios, including the [related files feature](related-files.md) that allows you to define the relationship between different update files. For more examples and a complete list of optional parameters, see [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-du-update-init-v5).
 
 Once you've created your import manifest and saved it as a JSON file, if you're ready to [import your update](import-update.md).
 

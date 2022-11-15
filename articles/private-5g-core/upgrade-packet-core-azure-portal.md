@@ -34,7 +34,7 @@ To check which version your packet core instance is currently running, and wheth
 1. Select the site containing the packet core instance you're interested in.
 1. Under the **Network function** heading, select the name of the **Packet Core Control Plane** resource shown next to **Packet Core**.
 
-    :::image type="content" source="media/upgrade-packet-core-azure-portal/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
+    :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
 1. Check the **Version** field under the **Configuration** heading to view the current software version. If there's a warning that you're running an unsupported version, we advise that you upgrade your packet core instance to a version that Microsoft currently supports.
 

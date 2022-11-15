@@ -1,11 +1,11 @@
 ---
 title: Deploy the MedTech service with a QuickStart template - Azure Health Data Services
-description: In this article, you'll learn how to deploy the MedTech service in the Azure portal using a QuickStart template.
+description: In this article, you'll learn how to deploy the MedTech service in the Azure portal using a Quickstart template.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/28/2022
+ms.date: 11/01/2022
 ms.author: jasteppe
 ---
 

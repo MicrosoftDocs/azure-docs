@@ -1,8 +1,8 @@
 ---
 title: Managed attributes in the Microsoft Purview Data Catalog
 description: Apply business context to assets using managed attributes
-author: djpmsft
-ms.author: daperlov
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
