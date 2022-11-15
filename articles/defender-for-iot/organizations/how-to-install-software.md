@@ -271,7 +271,7 @@ After installing OT monitoring software, make sure to run the following tests:
 
 Use the `route` command to show the gateway's IP address. For example:
 
-```
+``` CLI
 <root@xsense:/# route -n
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
@@ -282,7 +282,7 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 
 Use the `arp -a` command to verify that there is a binding between the MAC address and the IP address of the default gateway. For example:
 
-```
+``` CLI
 <root@xsense:/# arp -a
 cusalvtecca101-gi0-02-2851.network.microsoft.com (172.18.0.1) at 02:42:b0:3a:e8:b5 [ether] on eth0
 mariadb_22.2.6.27-r-c64cbca.iot_network_22.2.6.27-r-c64cbca (172.18.0.5) at 02:42:ac:12:00:05 [ether] on eth0
@@ -293,7 +293,7 @@ redis_22.2.6.27-r-c64cbca.iot_network_22.2.6.27-r-c64cbca (172.18.0.3) at 02:42:
 #### DNS checks
 
 Use the `cat /etc/resolv.conf` command to find the IP address that's configured for DNS traffic. For example:
-```
+``` CLI
 <root@xsense:/# cat /etc/resolv.conf
 search reddog.microsoft.com
 nameserver 127.0.0.11
@@ -303,7 +303,7 @@ options ndots:0
 
 Use the `host` command to resolve an FQDN. For example:
 
-```
+``` CLI
 <root@xsense:/# host www.apple.com
 www.apple.com is an alias for www.apple.com.edgekey.net.
 www.apple.com.edgekey.net is an alias for www.apple.com.edgekey.net.globalredir.akadns.net.
@@ -318,7 +318,7 @@ e6858.dscx.akamaiedge.net has IPv6 address 2a02:26f0:5700:182::1aca
 
 Use the `wget` command to verify that port 443 is open for communication. For example:
 
-```
+``` CLI
 <root@xsense:/# wget https://www.apple.com
 --2022-11-09 11:21:15--  https://www.apple.com/
 Resolving www.apple.com (www.apple.com)... 72.246.148.202, 2a02:26f0:5700:1b4::1aca, 2a02:26f0:5700:182::1aca
