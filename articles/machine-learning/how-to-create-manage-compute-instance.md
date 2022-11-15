@@ -675,7 +675,7 @@ To create a compute instance, you'll need permissions for the following actions:
 
 ### Audit and observe compute instance version (preview)
 
-Once a compute instance is deployed, it does not get actively updated. Microsoft [releases](azure-machine-learning-ci-image-release-notes.md) new VM images on a monthly basis. To understand options for keeping recent with the latest version, see [vulnerability management](concept-vulnerability-management.md#compute-instance). 
+Once a compute instance is deployed, it does not get automatically updated. Microsoft [releases](azure-machine-learning-ci-image-release-notes.md) new VM images on a monthly basis. To understand options for keeping recent with the latest version, see [vulnerability management](concept-vulnerability-management.md#compute-instance). 
 
 To keep track of whether a compute instance's operating system version is current, you could query an instance's version using the Studio UI, CLI and SDK.
 
