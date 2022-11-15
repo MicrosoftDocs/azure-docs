@@ -23,7 +23,7 @@ The Pre-Call API enables developers to programmatically validate a client’s re
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 - An active Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../quickstarts/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token. (Need to grab connection string from the resource through Azure Portal.)
+- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../quickstarts/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token. (Need to grab connection string from the resource through Azure portal.)
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
