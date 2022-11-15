@@ -39,13 +39,13 @@ The following list describes some common exit codes:
 
     Set `BP_MAVEN_POM_FILE` to specify the location of the project's *pom.xml* file.
 
-  - There's something wrong with your application; for example, your *jar* file doesn't have a */META-INF/MANIFEST.MF* file that contains a *Main-Class* entry.
+  - There's something wrong with your application; for example, your *.jar* file doesn't have a */META-INF/MANIFEST.MF* file that contains a `Main-Class` entry.
 
 - **51** - Buildpack build error.
   
   Consider the following possible causes of an exit code of *51*:
 
-  - If Azure Spring Apps displays the error message *Build failed in stage build with reason OOMKilled* in the Azure CLI console, the build failed due to insufficient memory.
+  - If Azure Spring Apps displays the error message `Build failed in stage build with reason OOMKilled` in the Azure CLI console, the build failed due to insufficient memory.
 
     Use the following command to increase memory using the `build-memory` environment variable:
 
@@ -67,7 +67,7 @@ The following list describes some common exit codes:
   
   Consider the following possible cause of an exit code of *62*:
 
-  - If Azure Spring Apps displays the error message *Failed to write image to the following tags* in the build log, the build failed because of a network issue.
+  - If Azure Spring Apps displays the error message `Failed to write image to the following tags` in the build log, the build failed because of a network issue.
 
     Retry to fix the issue.
 
