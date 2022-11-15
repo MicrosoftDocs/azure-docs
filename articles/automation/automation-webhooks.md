@@ -90,7 +90,7 @@ Consider the following strategies:
 ## Create a webhook
 
 > [!NOTE]
-> When you use the webhook with PowerShell 7 runbook, it auto-converts the webhook input parameter to an invalid JSON. For more information, see [Known issues - 7.1 (preview)](./automation-runbook-types.md#known-issues---71-preview). We recommend that you use the webhook with PowerShell 5 runbook.
+> When you use the webhook with PowerShell 7 runbook, it auto-converts the webhook input parameter to an invalid JSON. For more information, see [Known issues - PowerShell 7.1 (preview)](./automation-runbook-types.md#limitations-and-known-issues). We recommend that you use the webhook with PowerShell 5 runbook.
 
 1. Create PowerShell runbook with the following code:
 

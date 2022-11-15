@@ -2,7 +2,7 @@
 title: Monitor performance on Azure VMs - Azure Application Insights
 description: Application performance monitoring for Azure VM and Azure virtual machine scale sets. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/19/2022
+ms.date: 10/31/2022
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-azurepowershell
 ms.reviewer: abinetabate
@@ -14,7 +14,7 @@ Enabling monitoring for your .NET or Java based web applications running on [Azu
 
 This article walks you through enabling Application Insights monitoring using the Application Insights Agent and provides preliminary guidance for automating the process for large-scale deployments.
 > [!IMPORTANT]
-> **Java** based applications running on Azure VMs and VMSS are monitored with **[Application Insights Java 3.0 agent](./java-in-process-agent.md)**, which is generally available.
+> **Java** based applications running on Azure VMs and VMSS are monitored with the **[Application Insights Java 3.0 agent](./java-in-process-agent.md)**, which is generally available.
 
 > [!IMPORTANT]
 > Azure Application Insights Agent for ASP.NET and ASP.NET Core applications running on **Azure VMs and VMSS** is currently in public preview. For monitoring your ASP.NET  applications running **on-premises**, use the [Azure Application Insights Agent for on-premises servers](./status-monitor-v2-overview.md), which is generally available and fully supported.
@@ -30,9 +30,13 @@ For a complete list of supported auto-instrumentation scenarios, see [Supported 
 > [!NOTE]
 > Auto-instrumentation is available for ASP.NET, ASP.NET Core IIS-hosted applications and Java. Use an SDK to instrument Node.js and Python applications hosted on an Azure virtual machines and virtual machine scale sets.
 
-### [.NET](#tab/net)
+### [.NET Framework](#tab/net)
 
-The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](./auto-collect-dependencies.md#net) to learn more.
+The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the SDK. See [Dependency auto-collection](./auto-collect-dependencies.md#net) to learn more.
+
+### [.NET Core / .NET](#tab/core)
+
+The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the SDK. See [Dependency auto-collection](./auto-collect-dependencies.md#net) to learn more.
 
 ### [Java](#tab/Java)
 
@@ -173,7 +177,7 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 Find troubleshooting tips for Application Insights Monitoring Agent Extension for .NET applications running on Azure virtual machines and virtual machine scale sets.
 
 > [!NOTE]
-> .NET Core, Node.js, and Python applications are only supported on Azure virtual machines and Azure virtual machine scale sets via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
+> The steps below do not apply to Node.js and Python applications, which require SDK instrumentation.
 
 Extension execution output is logged to files found in the following directories:
 ```Windows

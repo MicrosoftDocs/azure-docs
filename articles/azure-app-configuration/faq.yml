@@ -106,7 +106,7 @@ sections:
         answer: |
           Azure App Configuration supports [geo-replication](./concept-geo-replication.md) for enhanced resiliency to regional outages.
 
-          Azure App Configuration supports Azure availability zones to protect your application and data from single datacenter failures. All availability zone enabled regions consist of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled availability zone support. For more information, see [Regions and Availability Zones in Azure.](../availability-zones/az-overview.md)
+          Azure App Configuration supports Azure availability zones to protect your application and data from single datacenter failures. All availability zone enabled regions consist of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled availability zone support. For more information, see [Regions and Availability Zones in Azure.](../reliability/availability-zones-service-support.md)
           
           [!INCLUDE [Azure App Configuration availability zones table](../../includes/azure-app-configuration-availability-zones.md)]
           
@@ -145,7 +145,30 @@ sections:
           Yes. While you can manage feature flags and Key Vault references in App Configuration through the Azure portal or CLI, you can also create and update them programmatically using App Configuration SDKs. Therefore, you can write your customized management portal or manage them in your CI/CD programmatically. The feature flag and Key Vault reference APIs are available in SDKs of all supported languages. Check out the [sample links](https://github.com/Azure/AppConfiguration#sdks) for examples in each supported language.
 
           Evaluating and consuming feature flags in your application requires the App Configuration provider and feature management libraries, which are available in .NET and Java Spring. Check out the _Feature management_ section under _Quickstarts_ and _Tutorials_ for more information.
+
+      - question: How to use Java Spring profiles in App Configuration?
+        answer: |
+          Spring profiles provide a way to separate parts of your application, including configuration, and make it only available in certain environments or when specific libraries are used.
+
+          You are recommended to set the label of your key-values to match your Spring profiles. By default, the App Configuration Spring provider library will load the key-values with the label(s) matching the current active Spring profile(s) (`${spring.profiles.active}`) if the label filter isn't set explicitly. If there is no active Spring profile set, key-values with "no label" will be loaded.
+
+          For example, with profiles `dev` and `prod`, you create key-values accordingly with the following labels.
+
+          | Key | Label | Value |
+          | --- | ----- | ----- |
+          | /application/config.message | dev | Hello from dev |
+          | /application/config.message | prod | Hello from prod |
+
+          When the Spring profile is set to `dev`, the value of `config.message` will be `Hello from dev`. When the Spring profile is set to `prod`, the value of `config.message` will be `Hello from prod`.
+
+          This default behavior can be overridden by setting the label filter in your bootstrap file. The Spring provider library will load key-values with the specified label(s) regardless of the active Spring profile.
+
+          ```yaml
+          spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter: my-label
+          ```
           
+          To select other labels and your Spring profile(s), you can use selects like `',${spring.profiles.active}'` which will select all keys without a label and the ones matching your Spring profiles. The rightmost label(s) take priority when duplicate keys are found.
+
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |
           Subscribe to our [GitHub announcements repo](https://github.com/Azure/AppConfiguration-Announcements).

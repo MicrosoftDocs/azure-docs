@@ -50,13 +50,12 @@ ms.reviewer: harelbr
 1. Select **Done**. 
 1. You can edit the rule **Description**, and **Severity**. These details are used in all alert actions. Additionally, you can choose to not activate the alert rule on creation by selecting **Enable rule upon creation**.
 1. Use the [**Suppress Alerts**](./alerts-unified-log.md#state-and-resolving-alerts) option if you want to suppress rule actions for a specified time after an alert is fired. The rule will still run and create alerts but actions won't be triggered to prevent noise. Mute actions value must be greater than the frequency of alert to be effective.
+1. To make alerts stateful, select **Automatically resolve alerts (preview)**.
 
    ![Suppress Alerts for Log Alerts](media/alerts-log/AlertsPreviewSuppress.png)
 1. Specify if the alert rule should trigger one or more [**Action Groups**](./action-groups.md#webhook) when alert condition is met.
     > [!NOTE]
     > Refer to the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) for limits on the actions that can be performed.  
-    > [!NOTE]
-    > Log alert rules are currently [stateless and do not resolve](./alerts-unified-log.md#state-and-resolving-alerts).
 1. (Optional) Customize actions in log alert rules:
     - **Custom Email Subject**: Overrides the *e-mail subject* of email actions. You can't modify the body of the mail and this field **isn't for email addresses**.
     - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups assuming the action group contains a webhook action. Learn more about [webhook action for Log Alerts](./alerts-log-webhook.md).
