@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common build issues in Azure Spring Apps
 description: Learn how to troubleshoot common build issues in Azure Spring Apps.
-author: yilims
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: troubleshooting
 ms.date: 10/24/2022
