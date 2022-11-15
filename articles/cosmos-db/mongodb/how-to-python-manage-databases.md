@@ -82,7 +82,7 @@ Databases: ['adventureworks']
 
 ## Does database exist?
 
-The PyMongo driver for Python creates the database if it doesn't exist when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. To create a new database if it doesn't exist, use the [create database extension](/azure/cosmos-db/mongodb/custom-commands#create-database) as shown in the following code snippet.
+The PyMongo driver for Python creates a database if it doesn't exist when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. To create a new database if it doesn't exist, use the [create database extension](/azure/cosmos-db/mongodb/custom-commands#create-database) as shown in the following code snippet.
 
 To see if the database already exists before using it, get the list of current databases with the [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method.
 
@@ -93,9 +93,12 @@ if not databases:
     print("No databases found")
 
 # Does database exist?
-DB_NAME_TO_FIND = "adventureworks"
-if DB_NAME_TO_FIND in client.list_database_names():
-    print("Database exists: {}".format(DB_NAME_TO_FIND))
+DB_NAME = "adventureworks"
+if DB_NAME in client.list_database_names():
+    print("Database exists: {}".format(DB_NAME))
+else:
+    client[DB_NAME].command({"customAction": "CreateDatabase", "offerThroughput": 400})
+    print("Created db '{}' with shared throughput.\n".format(DB_NAME))
 ```
 <!--
 :::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="does_database_exist":::
@@ -108,6 +111,26 @@ Database exists: adventureworks
 <!--
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="console_result":::
 -->
+
+## Does collection exist?
+
+The PyMongo driver for Python creates a collection if it doesn't exist when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. To create a new collection if it doesn't exist, use the [create collection extension](/azure/cosmos-db/mongodb/custom-commands#create-collection) as shown in the following code snippet.
+
+To see if the database already exists before using it, get the list of current databases with the [list_collection_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method.
+
+```python
+COLL_NAME = "products"
+if COLL_NAME in client[DB_NAME].list_collection_names():
+    print("Collection exists: {}".format(COLL_NAME))
+else:
+    client[DB_NAME].command({"customAction": "CreateCollection", "collection": COLL_NAME})
+    print("Created collection '{}'.\n".format(COLL_NAME))
+```
+
+<!--
+:::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="does_collection_exist":::
+-->
+
 
 ## Get list of databases, collections, and document count
 
@@ -159,7 +182,13 @@ Database: testdb
 
 ## Get database object instance
 
-TBD
+If a database or collection doesn't exist, the PyMongo driver for Python creates it when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. To create a new database if it doesn't exist, use the [create database extension](/azure/cosmos-db/mongodb/custom-commands#create-database). Similarly, to create a new collection if it doesn't exist, use the [create collection extension](/azure/cosmos-db/mongodb/custom-commands#create-collection). Both are shown in the following code snippet.
+
+
+```python
+
+```
+
 
 ## Drop a database
 
