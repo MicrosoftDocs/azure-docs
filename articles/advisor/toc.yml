@@ -33,7 +33,7 @@
     - name: Reliability
       href: advisor-reference-reliability-recommendations.md    
     - name: Security
-      href: ../defender-for-cloud/recommendations-reference.md
+      href: /azure/defender-for-cloud/recommendations-reference
     - name: Sovereign clouds
       href: advisor-sovereign-clouds.md
 - name: Samples 
@@ -97,4 +97,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=azure+advisor
   - name: Code samples
-    href: /samples/browse/?products=azure
+    href: /samples/browse/?products=azure   
