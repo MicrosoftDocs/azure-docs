@@ -3,14 +3,14 @@ title: Kubernetes on Azure tutorial - Upgrade a cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to upgrade an existing AKS cluster to the latest available Kubernetes version.
 services: container-service
 ms.topic: tutorial
-ms.date: 11/10/2022
+ms.date: 11/15/2022
 ms.custom: mvc, devx-track-azurepowershell, event-tier1-build-2022
 #Customer intent: As a developer or IT pro, I want to learn how to upgrade an Azure Kubernetes Service (AKS) cluster so that I can use the latest version of Kubernetes and features.
 ---
 
 # Tutorial: Upgrade Kubernetes in Azure Kubernetes Service (AKS)
 
-As part of the application and cluster lifecycle, you may wish to upgrade to the latest available version of Kubernetes and use new features. An Azure Kubernetes Service (AKS) cluster can be upgraded using the Azure CLI, Azure PowerShell, or the Azure portal.
+As part of the application and cluster lifecycle, you may wish to upgrade to the latest available version of Kubernetes. You can upgrade your Azure Kubernetes Service (AKS) cluster by using the Azure CLI, Azure PowerShell, or the Azure portal.
 
 In this tutorial, part seven of seven, you learn how to:
 
@@ -22,17 +22,11 @@ In this tutorial, part seven of seven, you learn how to:
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into a container image. This container image was uploaded to Azure Container Registry (ACR), and you created an AKS cluster. The application was then deployed to the AKS cluster. If you have not done these steps and would like to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
+In previous tutorials, an application was packaged into a container image, and this container image was uploaded to Azure Container Registry (ACR). You also created an AKS cluster. The application was then deployed to the AKS cluster. If you have not done these steps and would like to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
-### [Azure CLI](#tab/azure-cli)
-
-This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-This tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
-
----
+* If you're using Azure CLI, this article requires that you're running Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+* If you're using Azure PowerShell, this tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Get available cluster versions
 
@@ -41,12 +35,12 @@ This tutorial requires that you're running Azure PowerShell version 5.9.0 or lat
 Before you upgrade a cluster, use the [az aks get-upgrades][] command to check which Kubernetes releases are available.
 
 ```azurecli
-az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-In the following example, the current version is *1.18.10*, and the available versions are shown under *upgrades*.
+In the following example output, the current version is *1.18.10*, and the available versions are shown under *upgrades*.
 
-```json
+```output
 {
   "agentPoolProfiles": null,
   "controlPlaneProfile": {
@@ -69,22 +63,22 @@ In the following example, the current version is *1.18.10*, and the available ve
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Before you upgrade a cluster, use the [Get-AzAksCluster][get-azakscluster] cmdlet to determine which Kubernetes version you're running and what region it resides in:
+Before you upgrade a cluster, use the [Get-AzAksCluster][get-azakscluster] cmdlet to check which Kubernetes version you're running and the region in which it resides.
 
 ```azurepowershell
 Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster |
   Select-Object -Property Name, KubernetesVersion, Location
 ```
 
-In the following example, the current version is *1.19.9*:
+In the following example output, the current version is *1.19.9*.
 
 ```output
-Name         KubernetesVersion Location
-----         ----------------- --------
-myAKSCluster 1.19.9            eastus
+Name            KubernetesVersion       Location
+----            -----------------       --------
+myAKSCluster    1.19.9                  eastus
 ```
 
-Use the [Get-AzAksVersion][get-azaksversion] cmdlet to determine which Kubernetes upgrade releases are available in the region where your AKS cluster resides:
+Use the [Get-AzAksVersion][get-azaksversion] cmdlet to check which Kubernetes upgrade releases are available in the region where your AKS cluster resides.
 
 ```azurepowershell
 Get-AzAksVersion -Location eastus | Where-Object OrchestratorVersion -gt 1.19.9
@@ -93,24 +87,17 @@ Get-AzAksVersion -Location eastus | Where-Object OrchestratorVersion -gt 1.19.9
 The available versions are shown under *OrchestratorVersion*.
 
 ```output
-OrchestratorType    : Kubernetes
-OrchestratorVersion : 1.20.2
-DefaultProperty     :
-IsPreview           :
-Upgrades            : {Microsoft.Azure.Commands.Aks.Models.PSOrchestratorProfile}
-
-OrchestratorType    : Kubernetes
-OrchestratorVersion : 1.20.5
-DefaultProperty     :
-IsPreview           :
-Upgrades            : {}
+Default     IsPreview     OrchestratorType     OrchestratorVersion
+-------     ---------     ----------------     -------------------
+                          Kubernetes           1.20.2
+                          Kubernetes           1.20.5
 ```
 
 ---
 
 ## Upgrade a cluster
 
-To minimize disruption to running applications, AKS nodes are carefully cordoned and drained. In this process, the following steps are performed:
+AKS nodes are carefully cordoned and drained to minimize any potential disruptions to running applications. The following steps are performed during this process:
 
 1. The Kubernetes scheduler prevents additional pods from being scheduled on a node that is to be upgraded.
 1. Running pods on the node are scheduled on other nodes in the cluster.
@@ -122,7 +109,7 @@ To minimize disruption to running applications, AKS nodes are carefully cordoned
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az aks upgrade][] command to upgrade the AKS cluster.
+Use the [az aks upgrade][] command to upgrade your AKS cluster.
 
 ```azurecli
 az aks upgrade \
@@ -132,9 +119,9 @@ az aks upgrade \
 ```
 
 > [!NOTE]
-> You can only upgrade one minor version at a time. For example, you can upgrade from *1.14.x* to *1.15.x*, but cannot upgrade from *1.14.x* to *1.16.x* directly. To upgrade from *1.14.x* to *1.16.x*, first upgrade from *1.14.x* to *1.15.x*, then perform another upgrade from *1.15.x* to *1.16.x*.
+> You can only upgrade one minor version at a time. For example, you can upgrade from *1.14.x* to *1.15.x*, but you cannot upgrade from *1.14.x* to *1.16.x* directly. To upgrade from *1.14.x* to *1.16.x*, you must first upgrade from *1.14.x* to *1.15.x*, then perform another upgrade from *1.15.x* to *1.16.x*.
 
-The following condensed example output shows the result of upgrading to *1.19.1*. Notice the *kubernetesVersion* now reports *1.19.1*:
+The following example output shows the result of upgrading to *1.19.1*. Notice the *KubernetesVersion* now reports *1.19.1*.
 
 ```json
 {
@@ -161,16 +148,16 @@ The following condensed example output shows the result of upgrading to *1.19.1*
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Use the [Set-AzAksCluster][set-azakscluster] cmdlet to upgrade the AKS cluster.
+Use the [Set-AzAksCluster][set-azakscluster] cmdlet to upgrade your AKS cluster.
 
 ```azurepowershell
 Set-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -KubernetesVersion <KUBERNETES_VERSION>
 ```
 
 > [!NOTE]
-> You can only upgrade one minor version at a time. For example, you can upgrade from *1.14.x* to *1.15.x*, but cannot upgrade from *1.14.x* to *1.16.x* directly. To upgrade from *1.14.x* to *1.16.x*, first upgrade from *1.14.x* to *1.15.x*, then perform another upgrade from *1.15.x* to *1.16.x*.
+> You can only upgrade one minor version at a time. For example, you can upgrade from *1.14.x* to *1.15.x*, but you cannot upgrade from *1.14.x* to *1.16.x* directly. To upgrade from *1.14.x* to *1.16.x*, first upgrade from *1.14.x* to *1.15.x*, then perform another upgrade from *1.15.x* to *1.16.x*.
 
-The following condensed example output shows the result of upgrading to *1.19.9*. Notice the *kubernetesVersion* now reports *1.20.2*:
+The following example output shows the result of upgrading to *1.19.9*. Notice the *KubernetesVersion* now reports *1.20.2*.
 
 ```output
 ProvisioningState       : Succeeded
