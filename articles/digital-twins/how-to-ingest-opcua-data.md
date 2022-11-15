@@ -16,7 +16,7 @@ ms.service: digital-twins
 
 # Ingesting OPC UA data with Azure Digital Twins
 
-The [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a platform independent, service-oriented architecture for industrial verticals. It's used for machine to machine communication and more recently also for field-level communication and cloud communication. It comes with best-in-class security and a rich data modeling capabilities. Microsoft has been a member of the OPC Foundation, OPC UA's non-profit governing body since its foundation. Microsoft has been integrating OPC UA into its products since 2015 and has been instrumental in defining the use of OPC UA in the cloud.
+The [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a platform independent, service-oriented architecture for industrial verticals. It's used for machine to machine communication, machine to SCADA system or Manufacturing Execution System communication and more recently also for field-level communication and cloud communication. It comes with best-in-class security and rich data modeling capabilities. Microsoft has been a member of the OPC Foundation, OPC UA's non-profit governing body since its foundation. Microsoft has been integrating OPC UA into its products since 2015 and has been instrumental in defining the use of OPC UA in the cloud.
 
 Getting OPC UA data to flow from on-premises systems to Azure Digital Twins in the cloud requires two applications and a message broker service to be deployed. This article shows how to configure these apps and services.
 
