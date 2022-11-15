@@ -53,8 +53,8 @@ The following table provides an overview of how to switch from each type of repl
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
 <sup>2</sup> Switching to geo-redundancy is not supported if the storage account contains blobs in the archive tier. Before switching, either [rehydrate the archived blobs or perform a manual migration](#access-tier).<br />
-<sup>3</sup> [The type of conversion supported depends on the storage account type](#storage-account-type).<br />
-<sup>4</sup> If you performed an account failover of a (RA-)GRS or (RA-)GZRS account, the account is locally redundant (LRS) in the new primary region after the failover. Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of failback operations. For more details see [Failover and failback](#failover-and-failback).<br />
+<sup>3</sup> The type of conversion supported depends on the storage account type. See [the storage account table](#storage-account-type) for more details.<br />
+<sup>4</sup> Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. For more details see [Failover and failback](#failover-and-failback).<br />
 <sup>5</sup> Converting from LRS to ZRS is [not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares](#protocol-support). <br />
 <sup>6</sup> Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region cannot be initiated until data synchronization between the two regions has completed.<br />
 <sup>7</sup> ZRS, GZRS and RA-GZRS storage accounts do not support blobs in the archive tier. Before converting an account to one that supports zone-redundancy, consider [moving them to an LRS, GRS or RA-GRS storage account](#access-tier).<br />
