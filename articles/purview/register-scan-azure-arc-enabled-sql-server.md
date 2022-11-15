@@ -137,7 +137,7 @@ To create and run a new scan:
 
 1. In the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), select the **Data Map** tab on the left pane.
 
-1. Select the Azure Arc-enabeld SQL Server source that you registered.
+1. Select the Azure Arc-enabled SQL Server source that you registered.
 
 1. Select **New scan**.
 
