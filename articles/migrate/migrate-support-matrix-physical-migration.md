@@ -1,8 +1,8 @@
 ---
 title: Support for physical server migration in Azure Migrate
 description: Learn about support for physical server migration in Azure Migrate.
-author: rahulg1190
-ms.author: rahugup
+author: jyothisuri
+ms.author: jsuri
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020

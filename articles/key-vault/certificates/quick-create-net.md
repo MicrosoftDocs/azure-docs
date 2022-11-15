@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault certificates client library for .NET (versio
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the .NET client library (version 4)
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/23/2020
+ms.date: 11/14/2022
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
