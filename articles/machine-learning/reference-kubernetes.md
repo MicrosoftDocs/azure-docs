@@ -27,6 +27,56 @@ This article contains reference information that may be useful when [configuring
 - AzureML extension region availability: 
   - AzureML extension can be deployed to AKS or Azure Arc-enabled Kubernetes in supported regions listed in [Azure Arc enabled Kubernetes region support](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all).
 
+## Recommended resource planing
+### For clusters only enabling inference in AzureML extension
+When you deploy the AzureML extension with the configuration of `enableInference= true`, some inference related services will be deployed to your Kubernetes cluster for Azure Machine Learning. The following table lists the **Inference Services and their resource usage** in the cluster. 
+
+|Type |Deploy/Daemonset |Replica # |CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) |
+|-- |-- |--|--|--|--|--|
+|System  |gateway |1 |50 |500|256|2048|
+|System  |inference-operator-controller-manager |1 |100|1000|128|1024|
+|System  |amlarc-identity-controller |1 |200|1000|200|1024|
+|System  |amlarc-identity-proxy |1 |200|1000|200|1024|
+|System  |azureml-ingress-nginx-controller  |1 |100|1000|64|512|
+|System  |metrics-controller-manager  |1 |10|100|20|300|
+|System  |prometheus-operator  |1 |100|400|128|512|
+|System  |prometheus |1 |100|1000|512|4096|
+|System  |kube-state-metrics  |1 |10|100|32|256|
+|System  |azureml-fe-v2  |**1** (for Test purpose) <br>or <br>**3** (for Production purpose) |900|2000|800|1200|
+|User  |online-deployment |1 per Deployment |\<user-define> |\<user-define> |\<user-define> |\<user-define> |
+|System  |online-deployment/identity-sidecar |1 per Deployment |10|50|100|100|
+|System  |fluent-bit  |1 per Node |10|200|100|300|
+
+ScoringFE usage 
+|Type |Deployment |Replica # |CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) |
+|-- |-- |--|--|--|--|--|
+|System  |azureml-fe-v2/envoy  |1 or 3 |500|1200|300|500|
+|System  |azureml-fe-v2/xds  |1 or 3 |100|100|200|200|
+|System  |azureml-fe-v2/clb  |1 or 3 |300|700|300|500|
+
+Exclude the user deployments/pods, the **minimum system resources requirements** are as follows:
+|Cluster usage purpose |CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) |Description |
+|-- |-- |--|--|--|--|
+|For Test |1780 |8300 |2440 | 12296 |1 Node |
+|For Production |3600 |12700|4240|15296|3 Nodes|
+
+The **recommended cluster size** are as follows:
+|Cluster usage purpose |Node |Recommended minimum resource details | Corresponding AKS VM size |
+|-- |-- |--|--|
+|For Test |1 |2 vCPU, 7 GiB Memory, 6400 IOPS, 1500Mbps BW |DS2v2 |
+|For Test |3 |2 vCPU, 7 GiB Memory, 6400 IOPS, 1500Mbps BW |DS2v2 |
+|For Production |3 |4 vCPU, 14 GiB Memory, 12800 IOPS, 1500Mbps BW  |DS3v2 |
+|For Production |3-10 |4 vCPU, 14 GiB Memory, 12800 IOPS, 1500Mbps BW  |DS3v2 or better  |
+|For Production |>10 | -- |TBD |-- |
+
+> [!NOTE]
+>
+> Here are some other considerations for reference:
+> 1. For **higher network bandwidth and better disk I/O performance**, we recommend a larger SKU. 
+>     1. Take [DV2/DSv2](../virtual-machines/dv2-dsv2-series#dsv2-series.md) as example, using the large SKU can reduce the time of pulling image for better network/storage performance. 
+>     1. More information about AKS reservation can be found in [AKS reservation](../aks/concepts-clusters-workloads#resource-reservations).
+> 1. If you are using AKS cluster, you may need to consider about the **size limit on a container image** in AKS, more information you can found in [AKS container image size limit](../aks/faq#what-is-the-size-limit-on-a-container-image-in-aks).
+
 ## Prerequisites for ARO or OCP clusters
 ### Disable Security Enhanced Linux (SELinux) 
 

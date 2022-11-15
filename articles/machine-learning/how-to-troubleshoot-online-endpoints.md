@@ -466,7 +466,7 @@ Below is a list of reasons you might run into this error when using Kubernetes o
 
 Below is a list of reasons you might run into this error when using Kubernetes online endpoint:
 
-* Role assignment has not yet been completed. In this case, please try again later. 
+* Role assignment has not yet been completed. In this case, please wait for a serval seconds and try again later. 
 * The Azure ARC (For Azure Arc Kubernetes cluster) or AMLArc extension (For AKS) is not properly installed or configured. Please try to check the Azure ARC or AMLArc extension configuration and status. 
 * The Kubernetes cluster has improper network configuration, please check the proxy, network policy or certificate. 
 

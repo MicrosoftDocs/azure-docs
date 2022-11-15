@@ -89,6 +89,14 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
    
 ---
 
+## Assign Managed Identity to the compute target
+
+A common challenge for developers is the management of secrets and credentials used to secure communication between different components making up a solution. Managed Identity eliminate the need for developers to manage credentials.
+
+To access Azure Container Registry (ACR) for Docker image, and Storage Account for trainig data, attach AMLArc compute with system-assigned or user-assigned managed identity enabled.
+
+### Assign Managed Identity
+
 ## Next steps
 
 - [Create and manage instance types](./how-to-manage-kubernetes-instance-types.md)
