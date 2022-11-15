@@ -710,7 +710,7 @@ In your workspace in Azure Machine Learning studio, select Compute, then select 
 
 ---
 
-Administrators can use [Azure Policy](./../governance/policy/overview.md) definitions to audit instances that are running on outdated operating system versions. The following is a sample policy:
+Administrators can use [Azure Policy](./../governance/policy/overview.md) definitions to audit instances that are running on outdated operating system versions across workspaces and subscriptions. The following is a sample policy:
 
 ```json
 {
