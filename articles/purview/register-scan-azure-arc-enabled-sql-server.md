@@ -195,7 +195,7 @@ Once your data source has the **Data Use Management** toggle *Enabled*, it will 
 ### Create a policy
 To create an access policy for Arc-enabled SQL Server, follow these guides:
 * [DevOps policy on a single Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md#create-a-new-devops-policy)
-* [Data owner policy on a single Arc-enabled SQL Server](./how-to-policies-data-owner-arc-sql-server.mdmd#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on a single Arc-enabled SQL Server in your subscription.
+* [Data owner policy on a single Arc-enabled SQL Server](./how-to-policies-data-owner-arc-sql-server.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on a single Arc-enabled SQL Server in your subscription.
 * [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md) - This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled.
 
 
