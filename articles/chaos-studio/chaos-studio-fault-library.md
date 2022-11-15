@@ -53,7 +53,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
 | Parameters (key, value)  |
 | pressureLevel | An integer between 1 and 99 that indicates how much CPU pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
 ```json
@@ -98,7 +98,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:physicalMemoryPressure/1.0 |
 | Parameters (key, value) |  |
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
 
@@ -173,7 +173,7 @@ Known issues on Linux:
 | Capability Name | DiskIOPressure-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows |
-| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to the primary storage of the VM where it is injected during the fault action. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
+| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to the primary storage of the VM where it's injected during the fault action. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:diskIOPressure/1.0 |
 | Parameters (key, value) |  |
@@ -316,7 +316,7 @@ Known issues on Linux:
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:stopService/1.0 |
 | Parameters (key, value) |  |
-| serviceName | The name of the Windows service you want to stop. You can run `sc.exe query` in command prompt to explore service names, Windows service friendly names are not supported. |
+| serviceName | The name of the Windows service you want to stop. You can run `sc.exe query` in command prompt to explore service names, Windows service friendly names aren't supported. |
 | virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
@@ -356,7 +356,7 @@ Known issues on Linux:
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:timeChange/1.0 |
 | Parameters (key, value) |  |
-| dateTime | A DateTime string in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If YYYY-MM-DD values are missing, they are defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (YY), it is converted to a 4-digit year (YYYY) based on the current century. If \<Z\> is missing, it is defaulted to the offset of the local timezone. \<Z\> must always include a sign symbol (negative or positive). |
+| dateTime | A DateTime string in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If YYYY-MM-DD values are missing, they're defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (YY), it's converted to a 4-digit year (YYYY) based on the current century. If \<Z\> is missing, it's defaulted to the offset of the local timezone. \<Z\> must always include a sign symbol (negative or positive). |
 | virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
@@ -441,7 +441,7 @@ Known issues on Linux:
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:dnsFailure/1.0 |
 | Parameters (key, value) |  |
-| hosts | Delimited JSON array of host names to fail DNS lookup request for.<br><br>This property accepts wildcards (`*`), but only for the first subdomain in an address and only applies to the subdomain for which they're specified. For example:<ul><li>\*.microsoft.com is supported</li><li>subdomain.\*.microsoft is not supported</li><li>\*.microsoft.com will not account for multiple subdomains in an address such as subdomain1.subdomain2.microsoft.com.</li></ul>   |
+| hosts | Delimited JSON array of host names to fail DNS lookup request for.<br><br>This property accepts wildcards (`*`), but only for the first subdomain in an address and only applies to the subdomain for which they're specified. For example:<ul><li>\*.microsoft.com is supported</li><li>subdomain.\*.microsoft isn't supported</li><li>\*.microsoft.com won't account for multiple subdomains in an address such as subdomain1.subdomain2.microsoft.com.</li></ul>   |
 | dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more details on DNS return codes, visit [the IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6) |
 | virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
 
@@ -488,7 +488,7 @@ Known issues on Linux:
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows |
 | Description | Increases network latency for a specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it is run as administrator by default. |
+| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkLatency/1.0 |
 | Parameters (key, value) |  |
 | latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
@@ -537,7 +537,7 @@ Known issues on Linux:
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows |
 | Description | Blocks outbound network traffic for specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it is run as administrator by default. |
+| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnect/1.0 |
 | Parameters (key, value) |  |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 16. |
@@ -584,7 +584,7 @@ Known issues on Linux:
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows |
 | Description | Applies a Windows firewall rule to block outbound traffic for specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it is run as administrator by default. |
+| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0 |
 | Parameters (key, value) |  |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 3. |
@@ -1006,7 +1006,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | SecurityRule-1.0 |
 | Target type | Microsoft-NetworkSecurityGroup |
-| Description | Enables manipulation or rule creation in an existing Azure Network Security Group or set of Azure Network Security Groups, assuming the rule definition is applicable cross security groups. Useful for simulating an outage of a downstream or cross-region dependency/non-dependency, simulating an event that's expected to trigger a logic to force a service failover, simulating an event that is expected to trigger an action from a monitoring or state management service, or as an alternative for blocking or allowing network traffic where Chaos Agent cannot be deployed. |
+| Description | Enables manipulation or rule creation in an existing Azure Network Security Group or set of Azure Network Security Groups, assuming the rule definition is applicable cross security groups. Useful for simulating an outage of a downstream or cross-region dependency/non-dependency, simulating an event that's expected to trigger a logic to force a service failover, simulating an event that is expected to trigger an action from a monitoring or state management service, or as an alternative for blocking or allowing network traffic where Chaos Agent can't be deployed. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:networkSecurityGroup:securityRule/1.0 |
 | Parameters (key, value) |  |
@@ -1078,9 +1078,9 @@ Known issues on Linux:
 ### Limitations
 
 * The fault can only be applied to an existing Network Security Group.
-* When an NSG rule that is intended to deny traffic is applied existing connections will not be broken until they have been **idle** for 4 minutes. One workaround is to add another branch in the same step that uses a fault that would cause existing connections to break when the NSG fault is applied. For example, killing the process, temporarily stopping the service, or restarting the VM would cause connections to reset.
+* When an NSG rule that is intended to deny traffic is applied existing connections won't be broken until they've been **idle** for 4 minutes. One workaround is to add another branch in the same step that uses a fault that would cause existing connections to break when the NSG fault is applied. For example, killing the process, temporarily stopping the service, or restarting the VM would cause connections to reset.
 * Rules are applied at the start of the action. Any external changes to the rule during the duration of the action will cause the experiment to fail.
-* Creating or modifying Application Security Group rules is not supported.
+* Creating or modifying Application Security Group rules isn't supported.
 * Priority values must be unique on each NSG targeted. Attempting to create a new rule that has the same priority value as another will cause the experiment to fail.
 
 ## Azure Cache for Redis reboot
@@ -1090,7 +1090,7 @@ Known issues on Linux:
 | Capability Name | Reboot-1.0 |
 | Target type | Microsoft-AzureClusteredCacheForRedis |
 | Description | Causes a forced reboot operation to occur on the target to simulate a brief outage. |
-| Prerequisites | The target Azure Cache for Redis resource must be a Redis Cluster, which requires that the cache must be a Premium Tier cache. Standard and Basic Tiers are not supported. |
+| Prerequisites | The target Azure Cache for Redis resource must be a Redis Cluster, which requires that the cache must be a Premium Tier cache. Standard and Basic Tiers aren't supported. |
 | Urn | urn:csci:microsoft:azureClusteredCacheForRedis:reboot/1.0 |
 | Fault type | Discrete |
 | Parameters (key, value) |  |
@@ -1125,7 +1125,7 @@ Known issues on Linux:
 ### Limitations
 
 * The reboot fault causes a forced reboot to better simulate an outage event, which means there is the potential for data loss to occur.
-* The reboot fault is a **discrete** fault type. Unlike continuous faults, it is a one-time action and therefore has no duration.
+* The reboot fault is a **discrete** fault type. Unlike continuous faults, it's a one-time action and therefore has no duration.
 
 
 ## Cloud Services (Classic) shutdown
@@ -1163,7 +1163,7 @@ Known issues on Linux:
 | Capability Name | DenyAccess-1.0 |
 | Target type | Microsoft-KeyVault |
 | Description | Blocks all network access to a Key Vault by temporarily modifying the Key Vault network rules, preventing an application dependent on the Key Vault from accessing secrets, keys, and/or certificates. If the Key Vault allows access to all networks, this is changed to only allow access from selected networks with no virtual networks in the allowed list at the start of the fault and returned to allowing access to all networks at the end of the fault duration. If they Key Vault is set to only allow access from selected networks, any virtual networks in the allowed list are removed at the start of the fault and restored at the end of the fault duration. |
-| Prerequisites | The target Key Vault cannot have any firewall rules and must not be set to allow Azure services to bypass the firewall. If the target Key Vault is set to only allow access from selected networks, there must be at least one virtual network rule. The Key Vault cannot be in recover mode. |
+| Prerequisites | The target Key Vault can't have any firewall rules and must not be set to allow Azure services to bypass the firewall. If the target Key Vault is set to only allow access from selected networks, there must be at least one virtual network rule. The Key Vault can't be in recover mode. |
 | Urn | urn:csci:microsoft:keyVault:denyAccess/1.0 |
 | Fault type | Continuous |
 | Parameters (key, value) | None. |
