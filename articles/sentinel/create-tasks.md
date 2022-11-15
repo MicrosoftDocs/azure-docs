@@ -16,6 +16,8 @@ ms.date: 11/14/2022
 The Microsoft Sentinel Responder role is required to create automation rules and to view and edit incidents, both of which are necessary to add, view, and edit tasks.
 
 
+## View automation rules with incident task actions
+
 ## Add tasks to incidents with automation rules
 
 1. In the **Automation** page, select **+ Create** and select **Automation rule**.
@@ -38,4 +40,11 @@ The Microsoft Sentinel Responder role is required to create automation rules and
 
 1. For each task, enter a **Task title**. 
 
-1. You can add description for tasks (optional), including images, links and text formatting.
+1. (Optional) Select **+ Add description** to open a field in which you can add a free-form description for the task, including images, links and rich-text formatting.
+
+## View and follow incident tasks
+
+## Next steps
+
+- Learn more about [incident tasks](incident-tasks).
+- Learn more about [automation rules](automate-incident-handling-with-automation-rules.md) and how to [create them](./create-manage-use-automation-rules.md).

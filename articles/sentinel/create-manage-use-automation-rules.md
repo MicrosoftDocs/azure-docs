@@ -27,6 +27,7 @@ The first step in designing and defining your automation rule is figuring out wh
 
 You also want to determine your use case. What are you trying to accomplish with this automation? Consider the following options:
 
+- (**Preview**) Create tasks for your analysts to follow in triaging, investigating, and remediating incidents.
 - Suppress noisy incidents (see [this article on handling false positives](false-positives.md#add-exceptions-by-using-automation-rules) instead)
 - Triage new incidents by changing their status from New to Active and assigning an owner.
 - Tag incidents to classify them.
@@ -208,5 +209,6 @@ In this document, you learned how to use automation rules to centrally manage re
 - To learn how to add advanced conditions with `OR` operators to automation rules, see [Add advanced conditions to Microsoft Sentinel automation rules](add-advanced-conditions-to-automation-rules.md).
 - To learn more about automation rules, see [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
 - To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
+- To learn how to use automation rules to add tasks to incidents, see [Create tasks to manage incidents in Microsoft Sentinel](create-tasks.md).
 - To migrate alert-trigger playbooks to be invoked by automation rules, see [Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules](migrate-playbooks-to-automation-rules.md)
 - For help in implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
