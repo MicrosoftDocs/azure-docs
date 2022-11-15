@@ -50,6 +50,9 @@ Although the **capacity metric** is designed to surface problems with your API M
 
 ## Capacity metric behavior
 
+> [!IMPORTANT]
+> The **Max** aggregation of the capacity metric is only supported in the Premium tier of API Management.
+
 Because of its construction, in real life **capacity** can be impacted by many variables, for example:
 
 + connection patterns (new connection on a request versus reusing the existing connection)
