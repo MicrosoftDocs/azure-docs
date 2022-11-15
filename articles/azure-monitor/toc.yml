@@ -342,10 +342,12 @@ items:
     - name: Structure
       displayName: Transformations
       href: essentials/data-collection-transformations-structure.md
-    - name: Workspace transformations in the Azure portal
-      href: logs/tutorial-workspace-transformations-portal.md
-    - name: Workspace transformations using ARM templates
-      href: logs/tutorial-workspace-transformations-api.md
+    - name:
+      items:
+      - name: Workspace transformations in the Azure portal
+        href: logs/tutorial-workspace-transformations-portal.md
+      - name: Workspace transformations using ARM templates
+        href: logs/tutorial-workspace-transformations-api.md
   - name: Data collection endpoints
     href: essentials/data-collection-endpoint-overview.md
   - name: Private Link networking
@@ -441,10 +443,12 @@ items:
         href: logs/logs-ingestion-api-overview.md
       - name: Migrate from Data Collector API
         href: logs/custom-logs-migrate.md
-      - name: Send data to Azure Monitor Logs using REST API
-        href: logs/tutorial-logs-ingestion-portal.md
-      - name: Send data to Azure Monitor Logs with ARM templates
-        href: logs/tutorial-logs-ingestion-api.md        
+      - name: Tutorials
+        items:
+        - name: Send data to Azure Monitor Logs using REST API
+          href: logs/tutorial-logs-ingestion-portal.md
+        - name: Send data to Azure Monitor Logs with ARM templates
+          href: logs/tutorial-logs-ingestion-api.md        
       - name: Data collector API
         items:
         - name: Overview
