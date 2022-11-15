@@ -80,3 +80,31 @@ Databases: ['adventureworks']
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/200-admin/run.py" id="console_result":::
 -->
 
+## Does database exist?
+
+The native MongoDB driver for JavaScript creates the database if it doesn't exist when you access it. If you would prefer to know if the database already exists before using it, get the list of current databases and filter for the name:
+
+* [MongoClient.list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names)
+
+```python
+# Get list of databases
+databases = client.list_database_names()
+if not databases:
+    print("No databases found")
+
+# Does database exist?
+DB_NAME_TO_FIND = "adventureworks"
+if DB_NAME_TO_FIND in client.list_database_names():
+    print("Database exists: {}".format(DB_NAME_TO_FIND))
+```
+<!--
+:::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="does_database_exist":::
+-->
+The preceding code snippet displays output similar to the following example console output:
+
+```python
+Database exists: adventureworks
+```
+<!--
+:::code language="console" source="~/samples-cosmosdb-mongodb-javascript/201-does-database-exist/index.js" id="console_result":::
+-->
