@@ -72,8 +72,5 @@ Log Analytics uses a language called the Kusto Query Language (or Kusto) to sear
 
 ## Recommended content
 
-To understand how Kusto works and how you can write your own queries:
-
 [Data analysis in Azure Data Explorer with Kusto Query Language](/training/paths/data-analysis-data-explorer-kusto-query-language/)
-
-To see how commonly used SQL queries could translate to Kusto, see [SQL to Kusto query translation - Azure Data Explorer | Microsoft Learn](../data-explorer/kusto/query/sqlcheatsheet.md)
+[SQL to Kusto query translation - Azure Data Explorer | Microsoft Learn](../data-explorer/kusto/query/sqlcheatsheet.md)
