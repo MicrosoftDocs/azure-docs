@@ -90,8 +90,6 @@
               href: cis-ubuntu.md
     - name: Access and identity
       href: concepts-identity.md
-    - name: AKS Diagnostics
-      href: concepts-diagnostics.md
     - name: Networking
       href: concepts-network.md
     - name: Storage
@@ -188,6 +186,8 @@
           href: cluster-configuration.md
         - name: Custom node configuration
           href: custom-node-configuration.md
+        - name: Configure AKS Diagnostics
+          href: aks-diagnostics.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
         - name: Use Vertical Pod Autoscaler (preview)

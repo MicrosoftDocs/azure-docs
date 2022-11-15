@@ -82,7 +82,7 @@ CRUD Operations checks for any CRUD operations that cause issues in your cluster
 
 ### Identity and security management
 
-Identity and Security Management detects authentication and authorization errors that prevent communication to your cluster.
+Identity and Security Management detects authentication and authorization errors that prevent communication to your cluster. Specifically,
 
 - Node authorization failures
 - 401 errors
