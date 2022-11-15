@@ -12,21 +12,21 @@ ms.topic: conceptual
 
 # Azure Synapse Analytics Known Issues
 
-This page lists the  known issues in [Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/overview-what-is), as well as their resolution date or possible workaround. 
+This page lists the  known issues in [Azure Synapse Analytics](https://learn.microsoft.com/azure/synapse-analytics/overview-what-is), as well as their resolution date or possible workaround. 
 Before submitting a Support request, please review this list to see if the issue that you are experiencing is already known and being addressed.
 
-To learn more about Azure Synapse Analytics, see the [overview](https://learn.microsoft.com/en-us/azure/synapse-analytics/), and [what's new](https://learn.microsoft.com/en-us/azure/synapse-analytics/overview-what-is). 
+To learn more about Azure Synapse Analytics, see the [overview](https://learn.microsoft.com/azure/synapse-analytics/), and [what's new](https://learn.microsoft.com/azure/synapse-analytics/overview-what-is). 
 
 ## Active Known issues
 
 |Issue  |Date discovered  |Status  |Synapse Component|
 |---------|---------|---------|---------|
-|[Queries using AAD authentication fails after 1 hour](#Queries-using-AAD-authentication-fails-after-1-hour)|January 2021|Has Workaround|Azure Synapse Serverless SQL Pool|
-|[Query failures from Serverless SQL to Cosmos DB Analytical Store](#Query-failures-from-Serverless-SQL-to-Cosmos-DB-Analytical-Store)|June 2022|Has Workaround|Azure Synapse Serverless SQL Pool|
-|[Query failures while reading Cosmos Data using OPENROWSET](#Queries-failing-with-Data-Exfiltration-Error)|September 2022|Has Workaround|Azure Synapse Serverless SQL Pool|
+|[Queries using AAD authentication fails after 1 hour](#queries-using-aad-authentication-fails-after-1-hour)|January 2021|Has Workaround|Azure Synapse Serverless SQL Pool|
+|[Query failures from Serverless SQL to Cosmos DB Analytical Store](#query-failures-from-serverless-sql-to-cosmos-db-analytical-store)|June 2022|Has Workaround|Azure Synapse Serverless SQL Pool|
+|[Query failures while reading Cosmos Data using OPENROWSET](#query-failures-while-reading-cosmos-data-using-openrowset)|September 2022|Has Workaround|Azure Synapse Serverless SQL Pool|
 |[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|October 2022|Has Workaround|Azure Synapse Workspace|
 |[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|October 2022|Has Workaround|Azure Synapse Workspace|
-|[Unable to find data in Synapse Snapshots](#Unable-to-find-data-in-Synapse-Snapshots)|October 2022|Has Workaround|Azure Synapse Workspace|
+|[Unable to find data in Synapse Snapshots](#unable-to-find-data-in-synapse-snapshots)|October 2022|Has Workaround|Azure Synapse Workspace|
 |[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|November 2022|Has Workaround|Azure Synapse Workspace|
 
 
@@ -59,7 +59,7 @@ The following conditions must be true to confirm this issue:
 1) Retry the failed query. It will automatically refresh the expired token. 
 2) Disable the private endpoint. Before applying this change, confirm with your security team that it meets your company security policies.
 
-### Failed to delete Synapse workspace & Unable to delete virtual network
+### Query failures while reading Cosmos Data using OPENROWSET
 
 Starting from September 29th, 2022, The customers may face following error while reading Cosmos data using Synapse Serverless OPENROWSET command.
 
