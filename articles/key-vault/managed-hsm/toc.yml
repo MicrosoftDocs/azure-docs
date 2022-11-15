@@ -39,6 +39,8 @@ items:
     href: backup-restore.md
   - name: Recovery management with soft-delete and purge protection
     href: recovery.md
+  - name: Enable Multi-Region Replication on Managed HSM (Preview)
+    href: multi-region-replication.md 
 
 
 - name: Concepts 
