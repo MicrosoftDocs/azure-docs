@@ -4,6 +4,8 @@ ms.service: azure
 ms.topic: include
 ms.date: 11/14/2022
 ms.author: sewhee
+description: Features
+title: Features
 ---
 Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
 
