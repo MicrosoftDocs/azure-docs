@@ -213,9 +213,10 @@ You can also add machines to an existing hybrid worker group.
 
 ## Migrate an existing Agent based to Extension based Hybrid Workers
 
-To utilize on the benefits of extension based Hybrid Workers, you must migrate all existing agent based User Hybrid Workers to extension based Workers. A hybrid worker machine can co-exist on both **Agent based (V1)** and **Extension based (V2)** platforms. The extension based installation doesn't affect the installation or management of an agent based Worker.
+To utilize the benefits of extension based Hybrid Workers, you must migrate all existing agent based User Hybrid Workers to extension based Workers. A hybrid worker machine can co-exist on both **Agent based (V1)** and **Extension based (V2)** platforms. The extension based installation doesn't affect the installation or management of an agent based Worker.
 
 To install Hybrid worker extension on an existing agent based hybrid worker, follow these steps:
+
 1. Under **Process Automation**, select **Hybrid worker groups**, and then select your existing hybrid worker group to go to the **Hybrid worker group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers** > **+ Add** to go to the **Add machines as hybrid worker** page.
 1. Select the checkbox next to the existing Agent based (V1) Hybrid worker.
