@@ -61,7 +61,7 @@ Watch the following video to understand the capabilities of Backup center:
 
 > [!VIDEO https://www.youtube.com/embed/pFRMBSXZcUk?t=497]
 
-Follow the [next steps](#next-steps) to understand the different capabilities that Backup center provides, and how you can use these capabilities to manage your backup estate efficiently.
+See the [next steps](#next-steps) to understand the different capabilities that Backup center provides, and how you can use these capabilities to manage your backup estate efficiently.
 
 ## Access community resources on Community Hub
 
