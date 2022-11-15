@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the JavaScript SDK Developers Guide.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 11/07/2021
+ms.date: 11/15/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -48,16 +48,16 @@ mapsDemo
 +-- search.js
 ```
 
-### Azure Maps search service
+### Azure Maps services
 
-| Service Name  | NPM package             |  Samples     |
+| Service Name  | npm packages            |  Samples     |
 |---------------|-------------------------|--------------|
-| [Search][search readme] | [Azure.Maps.Search][search package] | [search samples][search sample] |
+| [Search][search readme] | [@azure/maps-search][search package] | [search samples][search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
 
 ## Create a Node.js project
 
-The example below creates a new directory then a Node.js program named _mapsDemo_ using NPM:
+The example below creates a new directory then a Node.js program named _mapsDemo_ using npm:
 
 ```powershell
 mkdir mapsDemo
