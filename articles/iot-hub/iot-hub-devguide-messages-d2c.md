@@ -102,14 +102,16 @@ IoT Hub supports writing to Cosmos DB in JSON (if specified in the message conte
 
 From your provisioned IoT Hub, go to the Hub settings and click on message routing. Go to the Custom endpoints tab, click on Add and select Cosmos DB. The following image shows the endpoint addition:
 
-![CosmosDBEndpoint2](media/iot-hub-devguide-messages-d2c/cosmosdbendpoint2.png)Enter your endpoint name. You should be able to choose from a list of Cosmos DB accounts available for selection, along with the Database and collection.
+![User's image](media/iot-hub-devguide-messages-d2c/image.png)
+
+Enter your endpoint name. You should be able to choose from a list of Cosmos DB accounts available for selection, along with the Database and collection.
 
 As Cosmos DB is a hyperscale datastore, all data/documents written to it must contain a field that represents a logical partition. The partition key property name is defined at the Container level and cannot be changed once it has been set. Each logical partition has a maximum size of 20GB. To effectively support high-scale scenarios, you can enable [Synthetic Partition Keys](/azure/cosmos-db/nosql/synthetic-partition-keys) for the Cosmos DB endpoint and configure them based on based on your estimated data volume. For example, in manufacturing scenarios, your logical partition might be expected to approach its max limit of 20 GB within a month. In that case, you can define a Synthetic Partition Key which is a combination of the device id and the month. This key will be automatically added to the partition key field for each new Cosmos DB record, ensuring logical partitions are created each month for each device.
 
  You can choose any of the supported authentication types for accessing the database, based on your system setup.
 
 > [!Caution]
-> If you are using the System managed identity for authenticating to CosmosDB, you will need to have a “Cosmos DB Built in Data Contributor” Role assigned via CLI. The role setup is not supported from the portal today. For more details on the various roles, see [here](/azure/cosmos-db/how-to-setup-rbac). To understand assigning roles via CLI, see [here](/cli/azure/cosmosdb/sql/role?view=azure-cli-latest)
+> If you are using the System managed identity for authenticating to CosmosDB, you will need to have a “Cosmos DB Built in Data Contributor” Role assigned via CLI. The role setup is not supported from the portal today. For more details on the various roles, see [Configure role-based access for Azure Cosmos DB](/azure/cosmos-db/how-to-setup-rbac). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
 
 Once you have selected all the details, click on create and complete the setup of the custom endpoint.
 
