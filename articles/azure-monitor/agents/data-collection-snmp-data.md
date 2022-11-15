@@ -7,28 +7,32 @@ ms.reviewer: shseth
 
 ---
 
-# Collect SNMP data with Azure Monitor Agent
+# Collect SNMP traps with Azure Monitor Agent
   
-The Simple Network Management Protocol (SNMP) is a widely-deployed management protocol for monitoring and configuring devices. While higher-level management protocols and daemons are typically used for servers, SNMP is often a viable option for monitoring devices and appliances.  
+The Simple Network Management Protocol (SNMP) is a widely-deployed management protocol for monitoring and configuring Linux devices and appliances.  
   
 You can collect SNMP data in two ways: 
 
-- With “polls” - where a managing system probes an SNMP agent to gather values for specific properties
-- With “traps” – where an SNMP agent forwards events or notifications to a managing system. 
+- With **polls**, where a managing system probes an SNMP agent to gather values for specific properties.
+- With **traps**, where an SNMP agent forwards events or notifications to a managing system. 
 
-Traps are most often used as event notifications, while polls are more appropriate for stateful health detection or collecting performance metrics.  
+Traps are most often used as event notifications, while polls are more appropriate for stateful health detection and collecting performance metrics.  
   
-SNMP properties are identified with an Object Identifier (OID) value. OIDs are defined and described in vendor-provided Management Information Base (MIB) files.  
-  
-This article describes how to send SNMP data from traps or polls to Azure Monitor Logs using Azure Monitor Agent for Linux.
+This article explains how to collect event notifications from SNMP traps using Azure Monitor Agent.
+
 
 ## Collect SNMP traps with Azure Monitor Agent
   
-Most Linux distributions provide a very good SNMP trap receiver, called **snmptrapd** from the [Net-SNMP](https://www.net-snmp.org/) agent. It's important that an SNMP trap receiver can load MIB files for your environment, so that the properties in the SNMP trap message are described with their name, instead of an OID.  
-  
+In this tutorial, we'll use an SNMP trap receiver called **snmptrapd** from the [Net-SNMP](https://www.net-snmp.org/) agent, which most Linux distributions provide. 
+However, there are many other SNMP trap receiver services available.
+
+SNMP identifies monitored properties using Object Identifier (OID) values, which are defined and described in vendor-provided Management Information Base (MIB) files.  
+
+It's important that the SNMP trap receiver you use can load MIB files for your environment, so that the properties in the SNMP trap message are described with their name, instead of an OID.  
+ 
 ### Install snmptrapd
 
-To install and enable snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 server use the following commands: 
+To install and enable snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 server, use the following commands: 
 
 ```bash
 #Install the SNMP agent
@@ -40,9 +44,12 @@ sudo firewall-cmd --zone=public --add-port=162/udp --permanent
 ```
 
 ### Configure snmptrapd
-  
-The steps required to configure snmptrapd vary slightly between Linux distributions. The examples below apply specifically to Red Hat Enterprise Linux, CentOS, or Oracle Linux. For more information on snmptrapd configuration, including guidance on configuring for SNMP v3 authentication, see the [Net-SNMP documentation](https://www.net-snmp.org/docs/man/snmptrapd.conf.html).  
-  
+ 
+The snmptrapd configuration procedure can vary slightly between Linux distributions.  For more information on snmptrapd configuration, including guidance on configuring for SNMP v3 authentication, see the [Net-SNMP documentation](https://www.net-snmp.org/docs/man/snmptrapd.conf.html).  
+
+
+To configure snmptrapd on Red Hat Enterprise Linux, CentOS, or Oracle Linux:
+ 
 1. Authorize community strings (SNMP v1 & v2 authentication strings): 
   
     1. Edit `snmptrapd.conf`: 
@@ -59,23 +66,44 @@ The steps required to configure snmptrapd vary slightly between Linux distributi
 
 1. Configure snmptrapd output:
   
-    There are two ways to send SNMP traps from snmptrapd to Azure Monitor Agent for collection: 
+    There are two ways to send SNMP traps from snmptrapd to Azure Monitor Agent: 
 
-    - snmptrapd can forward incoming traps to syslog, which Azure Monitor Agent will collect as long as the [syslog facility is configured for collection](https://azure.microsoft.com/en-us/documentation/articles/log-analytics-data-sources-syslog/). 
+    - snmptrapd can forward incoming traps to syslog, which Azure Monitor Agent collects if you [create a data collection rule to collect syslog data](../../sentinel/forward-syslog-monitor-agent.md). 
 
-    - snmptrapd can write the syslog messages to a file, which can be *tailed* and parsed by Azure Monitor Agent for collection. This option may be preferable, as we can send the SNMP traps as a new datatype rather than sending as syslog events.  
+    - snmptrapd can write the syslog messages to a file, which can be *tailed* and parsed by Azure Monitor Agent for collection. This option may be preferable, as you can send the SNMP traps as a new datatype rather than sending as syslog events.  
       
-    On Red Hat, CentOS, and Oracle Linux, the output behavior of snmptrapd is configured in `/etc/sysconfig/snmptrapd` (`sudo vi /etc/sysconfig/snmptrapd`).  
+    To edit the output behavior configuration of snmptrapd on Red Hat, CentOS, and Oracle Linux: 
+
+    1. Open the run `/etc/snmp/snmptrapd.conf` file: 
       
-    Here’s an example configuration:  
-      
-    `# snmptrapd command line options# '-f' is implicitly added by snmptrapd systemd unit file# OPTIONS="-Lsd"OPTIONS="-m ALL -Ls2 -Lf /var/log/snmptrapd"`  
-      
-    The options in this example configuration are:  
     
-      - `-m ALL` - Load all MIB files in the default directory.
-      - `-Ls2` - Output traps to syslog, to the Local2 facility.
-      - `-Lf /var/log/snmptrapd` - Log traps to the `/var/log/snmptrapd` file. 
-      
-    More on output options can be found [here](https://www.net-snmp.org/docs/man/snmpcmd.html). Description of the formatting options can be found [here](https://www.net-snmp.org/docs/man/snmptrapd.html). Note that snmptrapd logs both traps and daemon messages - for example, service stop and start - to the same log file. In the example, we’ve defined the format to start with the word “snmptrap” to make it easy to filter snmptraps from the log later on.  
+        ```bash
+        sudo vi /etc/sysconfig/snmptrapd
+        ```    
+    1. Add this line to the `LOGGING` section of the file to format the logs for collection by Azure Monitor Agent:
+     
+        ```bash
+        format2 snmptrap %a %B %y/%m/%l %h:%j:%k %N %W %q %T %W %v \n
+        ```
+        
+        > [!NOTE]
+        > snmptrapd logs both traps and daemon messages - for example, service stop and start - to the same log file. In the example above, we’ve defined the log format to start with the word “snmptrap” to make it easy to filter snmptraps from the log later on.  
   
+    1. Run the command line,     
+    
+        Here’s an example configuration:  
+          
+        `# snmptrapd command line options# '-f' is implicitly added by snmptrapd systemd unit file# OPTIONS="-Lsd"OPTIONS="-m ALL -Ls2 -Lf /var/log/snmptrapd"`  
+          
+        The options in this example configuration are:  
+        
+          - `-m ALL` - Load all MIB files in the default directory.
+          - `-Ls2` - Output traps to syslog, to the Local2 facility.
+          - `-Lf /var/log/snmptrapd` - Log traps to the `/var/log/snmptrapd` file. 
+    
+    
+  
+    For more information, see: 
+    - https://www.net-snmp.org/docs/man/snmpcmd.html for how to set output options. 
+    - https://www.net-snmp.org/docs/man/snmptrapd.html for how to set formatting options. 
+    
