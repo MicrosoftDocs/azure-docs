@@ -56,12 +56,14 @@ The [ScoringFE](how-to-kubernetes-inference-routing-azureml-fe.md) which is the 
 |System  |azureml-fe-v2/clb  |1 or 3 |300|700|300|500|
 
 Excluding the user deployments/pods, the **minimum system resources requirements** are as follows:
+
 |Cluster usage purpose |CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) |Description |
 |-- |-- |--|--|--|--|
 |For Test |1780 |8300 |2440 | 12296 |1 Node |
 |For Production |3600 |12700|4240|15296|3 Nodes|
 
 The **recommended cluster size** are as follows:
+
 |Cluster usage purpose |Node |Recommended minimum resource details | Corresponding AKS VM size |
 |-- |-- |--|--|
 |For Test |1 |2 vCPU, 7 GiB Memory, 6400 IOPS, 1500Mbps BW |DS2v2 |
