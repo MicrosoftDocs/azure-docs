@@ -38,9 +38,7 @@ If this is not the case, we suggest you start with one of the following articles
 - [Create your first durable function - PowerShell](quickstart-powershell-vscode.md)
 - [Create your first durable function - Java](quickstart-java.md)
 
-## Add Netherite to the project
-
-### (only apps without Extension Bundles, like C# apps) Install the Extension
+## Ensure the Extension is installed
 
 > [!NOTE]
 > If your app uses [Extension Bundles](/articles/azure/azure-functions/functions-bindings-register#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
@@ -51,13 +49,13 @@ There are many ways to achieve this, especially for C# users who may leverage [V
 
 However, all languages should be able to utilize the [Azure Functions Core Tools CLI](../functions-run-local.md?tabs=v4,windows,csharp,portal,bash#install-the-azure-functions-core-tools) to do this. With it, you may install Netherite using the following command:
 
-```bash
+```cmd
 func extensions install --package Microsoft.Azure.DurableTask.Netherite.AzureFunctions --version <latestVersionOnNuget>
 ```
 
 For more information on installing Azure Functions Extensions via the Core Tools CLI, please see [this guide](../functions-run-local.md?tabs=v4,windows,csharp,portal,bash#install-extensions).
 
-### Update host.json
+## Update host.json
 
 Edit the `storageProvider` section of your `durableTask` config in `host.json` to specify `type` as `Netherite`.
 
@@ -76,7 +74,7 @@ Edit the `storageProvider` section of your `durableTask` config in `host.json` t
 
 The snippet above is just a *minimal* configuration. You can find further configuration options in the Netherite [external docs](https://microsoft.github.io/durabletask-netherite/#/settings?id=typical-configuration).
 
-### Configure local.settings.json for local development
+## Configure local.settings.json for local development
 
 During local development, you may choose to run Netherite without Event Hubs, which minimizes costs. To do this, please set the the value of `EventHubsConnection` in `local.settings.json` to `MemoryF` as shown below:
 
@@ -88,7 +86,7 @@ During local development, you may choose to run Netherite without Event Hubs, wh
 
 For example, if using C#, your local.settings.json file may look something like [this](https://github.com/microsoft/durabletask-netherite/blob/main/samples/Hello_Netherite_with_DotNetCore/local.settings.json).
 
-### Test Netherite locally
+## Test locally
 
 Netherite is now ready for local development: You can start the Function app to test it.
 
@@ -98,9 +96,9 @@ While Netherite is running, it publishes load information about its active parti
 
 Each row corresponds to one Netherite partition, and there are 12 partitions by default. The `Timestamp` column shows the last time the row was updated, which happens continuously while a partition is active (or was recently active). For more information on the contents of this table, see the [Partition Table](https://microsoft.github.io/durabletask-netherite/#/ptable) article.
 
-## Part 2: Set up Event Hubs
+## Set up Event Hubs
 
-To run Netherite in Azure, or if you prefer to use Event Hubs during local development, you need to will need to set up an Event Hubs namespace in Azure.
+To run Netherite in Azure, or if you prefer to use Event Hubs during local development, you will need to set up an Event Hubs namespace in Azure.
 
 > [!NOTE]
 > An Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Netherite.
@@ -110,7 +108,7 @@ To run Netherite in Azure, or if you prefer to use Event Hubs during local devel
 To create an Event Hubs namespace in the Azure Portal, you can follow [these steps](/articles/event-hubs/event-hubs-create#create-an-event-hubs-namespace). When creating the namespace, you may be prompted to:
 
 1. Choose a *resource group*. A typical choice is to use the same resource group as the Function app to facilitate group management operations, like deletion.
-2. Choose a *plan* and provision *throughput units*. These choices determine the cost incurred. For the purpose of this guide, using the defaults is fine as this setting can be change later.
+2. Choose a *plan* and provision *throughput units*. These choices determine the cost incurred. For the purpose of this guide, using the defaults is fine as this setting can be changed later.
 3. Choose the *retention* time. This setting is irrelevant to Netherite (contents are also stored in storage), so the default setting of one day is appropriate.
 
 Alternatively, you can use the Azure CLI to quickly create a namespace with all the default settings as follows:
@@ -134,7 +132,7 @@ Alternatively, you can use the Azure CLI to obtain the connection string as foll
 az eventhubs namespace authorization-rule keys list --name RootManageSharedAccessKey --namespace-name $namespaceName --resource-group $groupName 
 ```
 
-## Part 3: Configure the app in Azure
+## Configure the app in Azure
 
 Assuming that you already have target app in Azure for deployment, there are a few steps required to configure it for Netherite. For this quickstart, you probably only need to do the first one, but we list them all here for future reference.
 
