@@ -30,6 +30,10 @@ items:
       href: quickstart-data-share.md
     - name: .NET data sharing
       href: quickstart-data-share-dotnet.md
+  - name: Data Policy
+    items:
+    - name: Create a simple DevOps policy
+      href: how-to-policies-devops-azure-sql-db.md
 - name: Tutorials
   items:
   - name: Deployment checklist
@@ -355,6 +359,8 @@ items:
         href: how-to-policies-devops-azure-sql-db.md
       - name: DevOps policies - Azure Arc enabled SQL Servers
         href: how-to-policies-devops-arc-sql-server.md
+      - name: DevOps policies - Resource groups or Subscriptions
+        href: how-to-policies-devops-resource-group.md
     - name: Data owner policies
       items:
       - name: Data owner policies - Author and publish policies
