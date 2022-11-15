@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance ASP.NET | Microsoft Docs
 description: Application performance monitoring for Azure app services using ASP.NET. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 11/14/2022
 ms.devlang: javascript
 ms.custom: devx-track-dotnet
 ms.reviewer: abinetabate
