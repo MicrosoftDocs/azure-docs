@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 11/15/2022
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: kkrishna
+author: kalyankrishna1
 manager: CelesteDG
 ms.reviewer: kkrishna
 
@@ -255,8 +255,10 @@ Conditional Access will consider CAS session control as satisfied for opportunis
 ## Expected Behavior When a Tenant Contain Conditional Access Policies Protecting Auth Context
 
 The table below will show all corner cases where ACRS are added to the token's claims by opportunistic evaluation.
+
 **Policy A**: Require MFA from all users, excluding the user "Ariel", when asking for "c1" acrs.
 **Policy B**: Block all users, excluding user "Jay", when asking for "c2", or "c3" acrs.
+
 | Flow | ACRS requested | Policy applied | Control satisfied | ACRS added to claims |
 |--|--|--|--|--|
 | Ariel requests for an access token | "c1" | None | Yes for "c1". No for "c2" and "c3" | "c1" (requested) |
