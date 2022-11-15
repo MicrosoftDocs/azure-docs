@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: quickstart 
 ms.date: 11/11/2022
-ms.custom: template-quickstart
+ms.custom: template-quickstart, FY23 content-maintenance
 ---
 
 # Quickstart: Create a NAT gateway using the Azure portal
