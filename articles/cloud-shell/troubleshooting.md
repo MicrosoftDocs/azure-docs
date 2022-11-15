@@ -8,8 +8,7 @@ manager: hemantm
 tags: azure-resource-manager
  
 ms.assetid: 
-ms.service: azure-resource-manager
-ms.subservice: troubleshooting
+ms.service: cloud-shell
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
@@ -37,7 +36,7 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 ### Disabling Cloud Shell in a locked down network environment
 
-- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell utilizes access to the `ux.console.azure.com` domain, which can be denied, stopping any access to Cloud Shell's entrypoints including `portal.azure.com`, `shell.azure.com`, Visual Studio Code Azure Account extension, and `docs.microsoft.com`. In the US Government cloud, the entrypoint is `ux.console.azure.us`; there is no corresponding `shell.azure.us`.
+- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell utilizes access to the `ux.console.azure.com` domain, which can be denied, stopping any access to Cloud Shell's entrypoints including `portal.azure.com`, `shell.azure.com`, Visual Studio Code Azure Account extension, and `learn.microsoft.com`. In the US Government cloud, the entrypoint is `ux.console.azure.us`; there is no corresponding `shell.azure.us`.
 - **Resolution**: Restrict access to `ux.console.azure.com` or `ux.console.azure.us` via network settings to your environment. The Cloud Shell icon will still exist in the Azure portal, but will not successfully connect to the service.
 
 ### Storage Dialog - Error: 403 RequestDisallowedByPolicy
@@ -161,8 +160,8 @@ In order to **export** the user settings Cloud Shell saves for you such as prefe
 Bash:
 
   ```
-  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
-  curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
+  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".accessToken")"
+  curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $token" -s | jq
   ```
 
 PowerShell:
@@ -185,7 +184,7 @@ In order to **delete** your user settings Cloud Shell saves for you such as pref
 Bash:
 
   ```
-  token=(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
+  token="Bearer $(az account get-access-token --resource "https://management.azure.com/" | jq -r ".accessToken")"
   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
   ```
 

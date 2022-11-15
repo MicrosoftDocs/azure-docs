@@ -17,7 +17,7 @@ The following example shows you how to add a Content-Security-Policy header to a
 
 ## Prerequisites
 
-* Before you can configure configure security headers, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door](create-front-door-portal.md).
+* Before you can configure security headers, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door](create-front-door-portal.md).
 * Review how to [Set up a Rule Set](how-to-configure-rule-set.md) if you haven't used the Rule Set feature before.
 
 ## Add a Content-Security-Policy header in Azure portal

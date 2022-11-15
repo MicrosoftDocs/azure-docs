@@ -6,6 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
+ms.custom: ignite-2022
 ms.topic: include
 ms.date: 03/29/2021
 ms.author: pafarley

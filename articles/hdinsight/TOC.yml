@@ -8,6 +8,8 @@ items:
     items:
     - name: What is Azure HDInsight?
       href: ./hdinsight-overview.md
+    - name: Before you start
+      href: ./hdinsight-overview-before-you-start.md
   - name: Tutorials
     expanded: true
     items:
@@ -51,20 +53,14 @@ items:
           href: ./hdinsight-50-component-versioning.md
         - name: HDInsight version 4.0
           href: ./hdinsight-40-component-versioning.md
-        - name: HDInsight version 3.6
-          href: ./hdinsight-36-component-versioning.md
         - name: Retired HDInsight versions
           href: ./hdinsight-retired-versions.md
     - name: Enterprise Security Package
       href: ./enterprise-security-package.md
-    - name: Hortonworks release notes
-      href: ./hortonworks-release-notes.md
     - name: High availability components
       href: ./hdinsight-high-availability-components.md   
     - name: Apache Ambari in Azure HDInsight
       href: ./apache-ambari-usage.md  
-    - name: Machine learning in HDInsight
-      href: ./hdinsight-machine-learning-overview.md
     - name: Streaming at scale in HDInsight
       href: ./hdinsight-streaming-at-scale-overview.md  
     - name: Apache Hadoop architecture in HDInsight
@@ -389,10 +385,6 @@ items:
           href: ./spark/optimize-memory-usage.md
         - name: Optimize cluster configuration
           href: ./spark/optimize-cluster-configuration.md
-      - name: Migrate to Spark 2.3 or 2.4
-        href: ./spark/migrate-versions.md
-      - name: Update .NET for Apache Spark to 1.0
-        href: ./spark/spark-dotnet-version-update.md
   - name: How-to guides
     items:
     - name: Use tools
@@ -703,6 +695,8 @@ items:
         href: ./kafka/apache-kafka-mirroring.md
       - name: Analyze Apache Kafka logs
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
+      - name: Secure Spark and Kafka streaming integration scenario
+        href: ./kafka/secure-spark-kafka-streaming-integration-scenario.md
       - name: SSL Encryption and Authentication
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
       - name: Kafka MirrorMaker 2.0 guide
@@ -875,6 +869,8 @@ items:
         href: ./interactive-query/hive-workload-management.md
     - name: Manage
       items:
+      - name: Significant version changes in HDInsight 4.0 and advantages
+        href: ./benefits-of-migrating-to-hdinsight-40.md
       - name: Copy Hive tables across Storage Accounts
         href: ./interactive-query/hive-migration-across-storage-accounts.md
       - name: Migrate default Hive metastore to external metastore on Azure HDInsight

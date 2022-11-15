@@ -26,7 +26,7 @@ You can review and download the sample code for this quick start on [GitHub](htt
 
 ## Setting up
 
-### Create a new python application
+### Create a new Python application
 
 In a terminal or console window, create a new folder for your application and navigate to it.
 
@@ -53,6 +53,8 @@ if __name__ == '__main__':
 ```
 
 ### Install the packages
+
+You'll need to use the Azure Communication Rooms client library for Python [version 1.0.0b2](https://pypi.org/project/azure-communication-rooms/) or above. 
 
 From a console prompt, navigate to the directory containing the rooms.py file, then execute the following command:
 

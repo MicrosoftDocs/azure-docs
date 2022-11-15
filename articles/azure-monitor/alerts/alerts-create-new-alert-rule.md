@@ -4,6 +4,7 @@ description: Learn how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 08/23/2022
 ms.reviewer: harelbr
 ---
@@ -90,8 +91,8 @@ And then defining these elements for the resulting alert actions using:
         |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic. |
         |Unit|If the selected metric signal supports different units,such as bytes, KB, MB, and GB, and if you selected a **static** threshold, enter the unit for the condition logic.|
         |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern is required to trigger an alert. |
-        |Aggregation granularity| Select the interval over which data points are grouped using the aggregation type function.|
-        |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.  |
+        |Aggregation granularity| Select the interval that is used to group the data points using the aggregation type function. Choose an **Aggregation granularity** (Period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
+        |Frequency of evaluation|Select how often the alert rule is be run. Select a frequency that is smaller than the aggregation granularity to generate a sliding window for the evaluation.|
 
     1. Select **Done**.
     ### [Log alert](#tab/log)
@@ -200,12 +201,14 @@ And then defining these elements for the resulting alert actions using:
 1. In the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
     - Select the **Resource group**.
-    - (Optional) If you want to make sure that the data processing for the alert rule takes place within a specific region, and you're creating a metric alert rule that monitors a custom metric, you can select to process the alert rule in one of these regions. 
+    - (Optional) If you're creating a metric alert rule that monitors a custom metric with the scope defined as one of the regions below, and you want to make sure that the data processing for the alert rule takes place within that region, you can select to process the alert rule in one of these regions: 
         - North Europe
         - West Europe
         - Sweden Central
         - Germany West Central 
- 
+  
+    > [!NOTE]
+    > We are continually adding more regions for regional data processing.
 1. Define the **Alert rule details**.
 
     ### [Metric alert](#tab/metric)
@@ -218,7 +221,7 @@ And then defining these elements for the resulting alert actions using:
         |Field |Description |
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
+        |Automatically resolve alerts (preview) |Select to make the alert stateful. The alert is resolved when the condition isn't met anymore.|
     1. (Optional) If you have configured action groups for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
          
 
@@ -234,7 +237,7 @@ And then defining these elements for the resulting alert actions using:
         |Field |Description |
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
+        |Automatically resolve alerts (preview) |Select to make the alert stateful. The alert is resolved when the condition isn't met anymore.|
         |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
@@ -279,6 +282,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     ### [Log alert](#tab/log)
 
     To create a log alert rule that monitors count of system event errors:
+
     ```azurecli
     az monitor scheduled-query create -g {ResourceGroup} -n {nameofthealert} --scopes {vm_id} --condition "count \'union Event, Syslog | where TimeGenerated > a(1h) | where EventLevelName == \"Error\" or SeverityLevel== \"err\"\' > 2" --description {descriptionofthealert}
     ```
@@ -296,10 +300,10 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
      - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
 
     ---
-
 ## Create a new alert rule using PowerShell
 
 - To create a metric alert rule using PowerShell, use this cmdlet: [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2)
+- To create a log alert rule using PowerShell, use this cmdlet: [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule)
 - To create an  activity log alert rule using PowerShell, use this cmdlet: [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert)
 
 ## Create an activity log alert rule from the Activity log pane
@@ -447,7 +451,7 @@ The *sampleActivityLogAlert.parameters.json* file contains the values provided f
 
 ## Changes to log alert rule creation experience
 
-If you're creating a new log alert rule, please note that current alert rule wizard is a little different from the earlier experience:
+If you're creating a new log alert rule, note that current alert rule wizard is a little different from the earlier experience:
 
 - Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
     - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.

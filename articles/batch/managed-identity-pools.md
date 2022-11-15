@@ -20,6 +20,9 @@ This topic explains how to enable user-assigned managed identities on Batch pool
 
 First, [create your user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) in the same tenant as your Batch account. You can create the identity using the Azure portal, the Azure Command-Line Interface (Azure CLI), PowerShell, Azure Resource Manager, or the Azure REST API. This managed identity does not need to be in the same resource group or even in the same subscription.
 
+> [!IMPORTANT]
+> Identities must be configured as user-assigned managed identities. The system-assigned managed identity is available for retrieving [customer-managed keys from Azure KeyVault](batch-customer-managed-key.md), but these are not supported in batch pools.
+
 ## Create a Batch pool with user-assigned managed identities
 
 After you've created one or more user-assigned managed identities, you can create a Batch pool with that identity or those identities. You can:

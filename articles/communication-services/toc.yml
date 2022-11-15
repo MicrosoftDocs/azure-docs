@@ -46,7 +46,7 @@ items:
       - name: Send an Email
         href: quickstarts/email/send-email.md
       - name: Send an Email in Azure Logic Apps
-        href: quickstarts/email/logic-app.md        
+        href: quickstarts/email/logic-app.md            
   - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
@@ -73,14 +73,20 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Use the call automation APIs
-      href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
-      href: quickstarts/voice-video-calling/call-recording-sample.md
+      href: quickstarts/voice-video-calling/get-started-call-recording.md
     - name: Handle calling events
       href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Raw media access
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
+  - name: Call Automation
+    items:
+      - name: Handle an inbound phone call
+        href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
+      - name: Build a workflow for customer interactions 
+        href: quickstarts/call-automation/callflows-for-customer-interactions.md
+      - name: Record calls
+        href: quickstarts/voice-video-calling/get-started-call-recording.md
   - name: Rooms
     items:
       - name: Create and manage a room resource
@@ -120,7 +126,7 @@ items:
     href: tutorials/events-playbook.md
   - name: Use Postman to send SMS messages
     href: tutorials/postman-tutorial.md
-  - name: Sign an HTTP request with HMAC using C#
+  - name: Sign an HTTP request with HMAC
     href: tutorials/hmac-header-tutorial.md  
   - name: Build an authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
@@ -145,6 +151,8 @@ items:
       href: concepts/identity-model.md
     - name: Authenticating services
       href: concepts/authentication.md
+    - name: Understand identifiers
+      href: concepts/identifiers.md
     - name: Credentials best practices
       href: concepts/credentials-best-practices.md
   - name: Chat
@@ -183,6 +191,8 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Inbound telephony calling capabilities
         href: concepts/telephony/inbound-calling-capabilities.md
+      - name: Known limitations
+        href: concepts/telephony/known-limitations-acs-telephony.md
   - name: SMS
     items:
       - name: SMS SDK overview
@@ -201,8 +211,6 @@ items:
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video terminology
         href: concepts/voice-video-calling/about-call-types.md
-      - name: Call automation
-        href: concepts/voice-video-calling/call-automation-apis.md
       - name: Call recording
         href: concepts/voice-video-calling/call-recording.md
       - name: Network recommendations
@@ -221,6 +229,18 @@ items:
         href: concepts/known-issues.md
       - name: Media access
         href: concepts/voice-video-calling/media-access.md
+  - name: Call Automation
+    items:
+      - name: Overview
+        href: concepts/call-automation/call-automation.md
+      - name: Learn about inbound calls
+        href: concepts/call-automation/incoming-call-notification.md
+      - name: Play audio in call
+        href: concepts/call-automation/play-action.md
+      - name: Gathering user input 
+        href: concepts/call-automation/recognize-action.md
+      - name: Call recording
+        href: concepts/voice-video-calling/call-recording.md
   - name: Rooms
     items:
       - name: Rooms overview
@@ -243,6 +263,8 @@ items:
         href: concepts/analytics/insights.md
       - name: Logging and diagnostics
         href: concepts/logging-and-diagnostics.md
+      - name: Recording Logs
+        href: concepts/analytics/recording-logs.md
       - name: Metrics
         href: concepts/metrics.md
   - name: Service Events (Event Grid)
@@ -278,6 +300,8 @@ items:
             href: concepts/interop/guest/teams-administration.md
           - name: User privacy
             href: concepts/interop/guest/privacy.md
+          - name: Government clouds
+            href: concepts/interop/guest/government-cloud.md
           - name: Known issues
             href: concepts/interop/guest/limitations.md            
       - name: Communication as Teams user
@@ -302,6 +326,8 @@ items:
             href: concepts/interop/teams-user/azure-ad-api-permissions.md
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
+          - name: Government clouds
+            href: concepts/interop/teams-user/government-cloud.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
   - name: Data residency and user privacy
@@ -354,6 +380,8 @@ items:
         href: how-tos/calling-sdk/events.md
       - name: Check if user is running supported browser
         href: how-tos/calling-sdk/browser-support.md
+      - name: Verify if an application is active in multiple tabs of a browser
+        href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
   - name: Using the UI Library
     items: 
     - name: Setup Localization
@@ -362,6 +390,14 @@ items:
       href: how-tos/ui-library-sdk/theming.md
     - name: Participant View Data Injection
       href: how-tos/ui-library-sdk/data-model.md
+  - name: Using the Call Automation library
+    items: 
+    - name: Control and steer calls
+      href: how-tos/call-automation/actions-for-call-control.md
+    - name: Customize voice prompts to users with Play action 
+      href: how-tos/call-automation/play-action.md
+    - name: Gather user input with Recognize action 
+      href: how-tos/call-automation/recognize-action.md
 - name: Samples
   items:
   - name: Overview
@@ -414,6 +450,16 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms
     - name: SMS (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms
+  - name: Email libraries
+    items:
+    - name: Email (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-email
+    - name: Email (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-email
+    - name: Email (Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-email
+    - name: Email (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-email
   - name: Identity libraries
     items:
     - name: Identity (JavaScript)
@@ -441,8 +487,7 @@ items:
     - name: UI Library (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUICalling/index.html
     - name: UI Library (Android)
-      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html
-   
+      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html   
 - name: Resources
   items:
   - name: Release notes

@@ -70,7 +70,8 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**Defender for IoT data connector**     |  Displays Defender for IoT data in Microsoft Sentinel, supporting end-to-end SOC investigations for Defender for IoT alerts.   |    - OT and Enterprise IoT networks <br>- Cloud-connected sensors       |    Microsoft       | [Integrate Microsoft Sentinel and Microsoft Defender for IoT](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended)  |
+|**Defender for IoT data connector in Sentinel**     |  Displays Defender for IoT data in Microsoft Sentinel, supporting end-to-end SOC investigations for Defender for IoT alerts.   |    - OT and Enterprise IoT networks <br>- Cloud-connected sensors       |    Microsoft       | [Integrate Microsoft Sentinel and Microsoft Defender for IoT](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)  |
+|**Microsoft Sentinel**     |  Send Defender for IoT alerts to Microsoft Sentinel.   |    - OT networks <br>- Locally managed sensors and on-premises management consoles       |  Microsoft       |  |
 
 
 ## Palo Alto

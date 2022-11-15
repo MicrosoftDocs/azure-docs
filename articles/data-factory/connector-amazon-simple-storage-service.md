@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/29/2022
+ms.date: 09/26/2022
 ---
 
 # Copy and transform data in Amazon Simple Storage Service using Azure Data Factory or Azure Synapse Analytics
@@ -295,14 +295,11 @@ When you're transforming data in mapping data flows, you can read files from Ama
 
 Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md).
 
-> [!NOTE]
-> The Amazon S3 source transformation is only supported in the **Azure Synapse Analytics** workspace now.
-
 ### Source transformation
 
 In source transformation, you can read from a container, folder, or individual file in Amazon S3. Use the **Source options** tab to manage how the files are read. 
 
-:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Screenshot of Source options.":::
+:::image type="content" source="media/data-flow/source-options-1.png" alt-text="Screenshot of Source options.":::
 
 **Wildcard paths:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the plus sign that appears when you hover over your existing wildcard pattern.
 
@@ -324,7 +321,7 @@ Wildcard examples:
 
 First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you want to read.
 
-:::image type="content" source="media/data-flow/partfile2.png" alt-text="Screenshot of partition source file settings.":::
+:::image type="content" source="media/data-flow/part-file-2.png" alt-text="Screenshot of partition source file settings.":::
 
 Use the **Partition root path** setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service will add the resolved partitions found in each of your folder levels.
 

@@ -237,7 +237,7 @@ Once it's provisioned, let's start with its overall configuration.
 
 The Function needs permissions to start and stop the ASA job. We'll assign these permissions via a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
-The first step is to enable a **system-assigned managed identity** for the Function, following that [procedure](../app-service/overview-managed-identity.md?tabs=ps%2cportal&toc=%2fazure%2fazure-functions%2ftoc.json).
+The first step is to enable a **system-assigned managed identity** for the Function, following that [procedure](../app-service/overview-managed-identity.md?tabs=ps%2cportal&toc=/azure/azure-functions/toc.json).
 
 Now we can grant the right permissions to that identity on the ASA job we want to auto-pause. For that, in the Portal for the **ASA job** (not the Function one), in **Access control (IAM)**, add a **role assignment** to the role *Contributor* for a member of type *Managed Identity*, selecting the name of the Function above.
 
@@ -360,7 +360,7 @@ To check that the alert was set up properly, we can add `throw "Testing the aler
 
 First we'll need a new **Automation Account**. An Automation Account is similar to a solution that can host multiple runbooks.
 
-The procedure is [here](../automation/quickstarts/create-account-portal.md). Here we can select to use a system-assigned managed identity directly in the `advanced` tab.
+The procedure is [here](../automation/quickstarts/create-azure-automation-account-portal.md). Here we can select to use a system-assigned managed identity directly in the `advanced` tab.
 
 For reference, the Automation team has a [good tutorial](../automation/learn/powershell-runbook-managed-identity.md) to get started on PowerShell runbooks.
 

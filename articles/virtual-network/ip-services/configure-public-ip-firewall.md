@@ -67,7 +67,7 @@ In this section, you'll create an Azure Firewall. You'll select the IP address y
 
 ## Change public IP address
 
-In this section, you'll change the public IP address associated with the firewall. A firewall must have at least one public IP address associated with its configuration. 
+In this section, you'll change the public IP address associated with the firewall. A firewall must have at least one public IP address associated with its configuration.  Note that the firewall's existing IP must not have any DNAT rules associated with it or the IP cannot be updated.
 
 1. In the search box at the top of the portal, enter **Firewall**.
 

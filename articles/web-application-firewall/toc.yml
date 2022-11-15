@@ -88,6 +88,8 @@
       href: ./afds/waf-front-door-exclusion.md
     - name: Policy settings
       href: ./afds/waf-front-door-policy-settings.md
+    - name: Rate limiting
+      href: ./afds/waf-front-door-rate-limit.md
     - name: Geo-filtering
       href: ./afds/waf-front-door-geo-filtering.md
     - name: Best practices
@@ -144,12 +146,14 @@
       href: ./afds/waf-front-door-custom-rules-powershell.md
     - name: Configure bot protection
       href: ./afds/waf-front-door-policy-configure-bot-protection.md
+    - name: Configure exclusion lists
+      href: ./afds/waf-front-door-exclusion-configure.md
     - name: Configure custom response code
       href: ./afds/waf-front-door-configure-custom-response-code.md
     - name: Configure IP restrictions
       href: ./afds/waf-front-door-configure-ip-restriction.md
-    - name: Configure rate limit - PowerShell
-      href: ./afds/waf-front-door-rate-limit-powershell.md
+    - name: Configure rate limit
+      href: ./afds/waf-front-door-rate-limit-configure.md
     - name: Configure a geo-filtering WAF policy
       href: ./afds/waf-front-door-tutorial-geo-filtering.md
     - name: Monitoring and logging

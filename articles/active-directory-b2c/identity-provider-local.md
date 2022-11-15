@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 09/02/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -33,6 +33,11 @@ To learn more about these methods, see [Sign-in options](sign-in-options.md).
 To configure settings for social or enterprise identities, where the identity of a user is managed by a federated identity provider like Facebook or Google, see [Add an identity provider](add-identity-provider.md).
 
 ::: zone pivot="b2c-user-flow"
+
+## Prerequisites
+
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
 
 ## Configure local account identity provider settings
 

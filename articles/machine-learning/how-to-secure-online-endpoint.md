@@ -6,14 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-author: dem108
-ms.author: sehan
-ms.date: 06/06/2022
+ms.reviewer: mopeakande
+author: jhirono
+ms.author: jhirono
+ms.date: 10/04/2022
 ms.custom: event-tier1-build-2022
 ---
 
 # Use network isolation with managed online endpoints (preview)
+
+[!INCLUDE [SDK/CLI v2](../../includes/machine-learning-dev-v2.md)]
 
 When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md). Using a private endpoint with online endpoints is currently a preview feature.
 
@@ -29,7 +31,10 @@ The following diagram shows how communications flow through private endpoints to
 
 * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
+* You must install and configure the Azure CLI and ML extension or the AzureML Python SDK v2. For more information, see the following articles:
+
+    * [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
+    * [Install the Python SDK v2](https://aka.ms/sdk-v2-install).
 
 * You must have an Azure Resource Group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
 
@@ -72,11 +77,28 @@ The following diagram shows how communications flow through private endpoints to
 
 To secure scoring requests to the online endpoint to your virtual network, set the `public_network_access` flag for the endpoint to `disabled`:
 
+# [Azure CLI](#tab/cli)
+
 ```azurecli
 az ml online-endpoint create -f endpoint.yml --set public_network_access=disabled
 ```
 
-When `public_network_access` is `disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
+# [Python SDK](#tab/python)
+
+```python
+from azure.ai.ml.entities import ManagedOnlineEndpoint
+
+endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',  
+                         description='this is a sample online endpoint', 
+                         tags={'foo': 'bar'}, 
+                         auth_mode="key", 
+                         public_network_access="disabled" 
+                         # public_network_access="enabled" 
+)
+```
+
+---
+When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
 
 ## Outbound (resource access)
 
@@ -90,9 +112,31 @@ The following are the resources that the deployment communicates with over the p
 
 When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints that are used to communicate with the workspace, blob, and container registry.
 
+# [Azure CLI](#tab/cli)
+
 ```azurecli
 az ml online-deployment create -f deployment.yml --set egress_public_network_access=disabled
 ```
+
+# [Python SDK](#tab/python)
+
+```python
+blue_deployment = ManagedOnlineDeployment(name='blue', 
+                                          endpoint_name='my-online-endpoint', 
+                                          model=model, 
+                                          code_configuration=CodeConfiguration(code_local_path='./model-1/onlinescoring/',
+                                                                               scoring_script='score.py'),
+                                          environment=env, 
+                                          instance_type='Standard_DS2_v2', 
+                                          instance_count=1, 
+                                          egress_public_network_access="disabled"
+                                          # egress_public_network_access="enabled" 
+) 
+                              
+ml_client.begin_create_or_update(blue_deployment) 
+```
+
+---
 
 ## Scenarios
 
@@ -140,9 +184,9 @@ The following diagram shows the overall architecture of this example:
 
 To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_SUFFIX>` with a unique suffix for the resources that are created.
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="managed_vnet_workspace_suffix":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_suffix":::
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="managed_vnet_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_create":::
 
 ### Create the virtual machine jump box
 

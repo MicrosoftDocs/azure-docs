@@ -101,7 +101,7 @@ The following four attestation types are currently available to be configured in
 
 * **ID token hint**: The sample App and Tutorial use the ID token Hint. When this option is configured, the relying party app will need to provide claims that should be included in the verifiable credential in the Request Service API issuance request. Where the relying party app gets the claims from is up to the app, but it can come from the current sign-in session, from backend CRM systems or even from self asserted user input. To configure this option, please see this [how to guide](how-to-use-quickstart.md)
 
-* **Verifiable credentials**: The end result of an issuance flow is to produce a verifiable credential but you may also ask the user to Present a verifiable credential in order to issue one. The rules definition is able to take specific claims from the presented verifiable credential and include those claims in the newly issued verifiable credential from your organization. 
+* **Verifiable credentials**: The end result of an issuance flow is to produce a verifiable credential but you may also ask the user to Present a verifiable credential in order to issue one. The rules definition is able to take specific claims from the presented verifiable credential and include those claims in the newly issued verifiable credential from your organization.  To configure this option, please see this [how to guide](how-to-use-quickstart-presentation.md)
 
 * **Self-attested claims**: When this option is selected, the user can type information directly into Authenticator. At this time, strings are the only supported input for self attested claims. To configure this option, please see this [how to guide](how-to-use-quickstart-selfissued.md)
 

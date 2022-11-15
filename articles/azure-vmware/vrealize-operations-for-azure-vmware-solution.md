@@ -3,18 +3,18 @@ title: Configure vRealize Operations for Azure VMware Solution
 description: Learn how to set up vRealize Operations for your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 04/11/2022
+ms.date: 10/18/2022
 ---
 
 # Configure vRealize Operations for Azure VMware Solution
 
-
 vRealize Operations is an operations management platform that allows VMware infrastructure administrators to monitor system resources. These system resources could be application-level or infrastructure level (both physical and virtual) objects. Most VMware administrators have used vRealize Operations to monitor and manage the VMware private cloud components – vCenter Server, ESXi, NSX-T Data Center, vSAN, and VMware HCX. Each provisioned Azure VMware Solution private cloud includes a dedicated vCenter Server, NSX-T Data Center, vSAN, and HCX deployment.
 
-Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first. Then, we'll walk you through the two typical deployment topologies:
+Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first. Then, we'll walk you through the three typical deployment topologies:
 
 > [!div class="checklist"]
 > * [On-premises vRealize Operations managing Azure VMware Solution deployment](#on-premises-vrealize-operations-managing-azure-vmware-solution-deployment)
+> * [vRealize Operations Cloud managing Azure VMware Solution deployment](#vrealize-operations-cloud-managing-azure-vmware-solution-deployment)
 > * [vRealize Operations running on Azure VMware Solution deployment](#vrealize-operations-running-on-azure-vmware-solution-deployment)
 
 ## Before you begin
@@ -22,13 +22,10 @@ Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#pre
 * Review the basic Azure VMware Solution Software-Defined Datacenter (SDDC) [tutorial series](tutorial-network-checklist.md).
 * Optionally, review the [vRealize Operations Remote Controller](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-263F9219-E801-4383-8A59-E84F3D01ED6B.html) product documentation for the on-premises vRealize Operations managing Azure VMware Solution deployment option.
 
-
 ## Prerequisites
 * [vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) installed.
 * A VPN or an Azure ExpressRoute configured between on-premises and Azure VMware Solution SDDC.
 * An Azure VMware Solution private cloud has been deployed in Azure.
-
-
 
 ## On-premises vRealize Operations managing Azure VMware Solution deployment
 Most customers have an existing on-premises deployment of vRealize Operations to manage one or more on-premises vCenter Server domains. When they provision an Azure VMware Solution private cloud, they connect their on-premises environment with their private cloud using an Azure ExpressRoute or a Layer 3 VPN solution.
@@ -40,7 +37,11 @@ To extend the vRealize Operations capabilities to the Azure VMware Solution priv
 > [!TIP]
 > Refer to the [VMware documentation](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) for step-by-step guide for installing vRealize Operations Manager.
 
+## vRealize Operations Cloud managing Azure VMware Solution deployment
+VMware vRealize Operations Cloud supports the Azure VMware Solution, including the vCenter Server, vSAN and NSX-T Data Center adapters.
 
+> [!IMPORTANT]
+> Refer to the [VMware documentation](https://docs.vmware.com/en/vRealize-Operations/Cloud/com.vmware.vcom.config.doc/GUID-6CDFEDDC-A72C-4AB4-B8E8-84542CC6CE27.html) for step-by-step guide for connecting vRealize Operations Cloud to Azure VMware Solution.
 
 ## vRealize Operations running on Azure VMware Solution deployment
 
@@ -53,8 +54,6 @@ Another option is to deploy an instance of vRealize Operations Manager on a vSph
 
 Once the instance has been deployed, you can configure vRealize Operations to collect data from vCenter Server, ESXi, NSX-T Data Center, vSAN, and HCX.
 
-
-
 ## Known limitations
 
 - The **cloudadmin@vsphere.local** user in Azure VMware Solution has [limited privileges](concepts-identity.md).  Virtual machines (VMs) on Azure VMware Solution doesn't support in-guest memory collection using VMware tools.  Active and consumed memory utilization continues to work in this case.
@@ -63,7 +62,7 @@ Once the instance has been deployed, you can configure vRealize Operations to co
 - You can't sign in to vRealize Operations Manager using your Azure VMware Solution vCenter Server credentials.
 - Azure VMware Solution doesn't support the vRealize Operations Manager plugin.
 
-When you connect the Azure VMware Solution vCenter to vRealize Operations Manager using a vCenter Server Cloud Account, you'll see a warning:
+When you connect the Azure VMware Solution vCenter Server to vRealize Operations Manager using a vCenter Server Cloud Account, you'll see a warning:
 
 :::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Screenshot showing a Warning message that states the adapter instance was created successfully.":::
 
@@ -75,9 +74,4 @@ For more information, see [Privileges Required for Configuring a vCenter Server 
 
 <!-- LINKS - external -->
 
-
 <!-- LINKS - internal -->
-
-
-
-

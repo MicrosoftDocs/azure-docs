@@ -19,7 +19,7 @@ Global access control is established through the creation of user access groups.
 
 For example, allow security analysts from an Active Directory group to access all West European automotive and glass production lines, along with a plastics line in one region.
 
-:::image type="content" source="media/how-to-define-global-user-access-control/sa-diagram.png" alt-text="Diagram of the Security Analyst Active Directory group.":::
+:::image type="content" source="media/how-to-define-global-user-access-control/sa-diagram.png" alt-text="Diagram of the Security Analyst Active Directory group." lightbox="media/how-to-define-global-user-access-control/sa-diagram.png":::
 
 Before you create access groups, we recommend that you:
 

@@ -2,9 +2,9 @@
 title: Monitoring cost for Container insights | Microsoft Docs
 description: This article describes the monitoring cost for metrics & inventory data collected by Container insights to help customers manage their usage and associated costs. 
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.reviewer: aul
-
+ms.custom: ignite-2022
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 ---
 # Understand monitoring costs for Container insights
 
@@ -79,7 +79,7 @@ The following list is the eight metrics per container collected:
 
 The following list is the cluster inventory data collected by default:
 
-- KubePodInventory – 1 per minute per container
+- KubePodInventory – 1 per pod per minute
 - KubeNodeInventory – 1 per node per minute
 - KubeServices – 1 per service per minute
 - ContainerInventory – 1 per container per minute
@@ -176,17 +176,23 @@ The following are examples of what changes you can apply to your cluster by modi
       ttlSecondsAfterFinished: 100
     ```
 
-After applying one or more of these changes to your ConfigMaps, see [Apply updated ConfigMap](container-insights-prometheus-integration.md#apply-updated-configmap) to apply it to your cluster.
+After applying one or more of these changes to your ConfigMaps, apply it to your cluster withe the command `kubectl apply -f <config3. map_yaml_file.yaml>`. For example, run the command `kubectl apply -f container-azm-ms-agentconfig.yaml` to open the file in your default editor to modify and then save it.
 
 ### Prometheus metrics scraping
 
-If you are utilizing [Prometheus metric scraping](container-insights-prometheus-integration.md), ensure you consider the following to limit the number of metrics that you collect from your cluster:
+If you are utilizing [Prometheus metric scraping](container-insights-prometheus.md), ensure you consider the following to limit the number of metrics that you collect from your cluster:
 
 - Ensure scraping frequency is set optimally (the default is 60 seconds). While you can increase the frequency to 15 seconds, you need to ensure that the metrics you are scraping are published at that frequency. Otherwise there will be many duplicate metrics scraped and sent to your Log Analytics workspace at intervals adding to data ingestion and retention costs, but are of less value. 
 
 - Container insights supports exclusion & inclusion lists by metric name. For example, if you are scraping **kubedns** metrics in your cluster, there might be hundreds of them that gets scraped by default, but you are most likely only interested in a subset. Confirm you specified a list of metrics to scrape, or exclude others except a few to save on data ingestion volume. It is easy to enable scraping and not use many of those metrics, which will only add additional charges to your Log Analytics bill.
 
 - When scraping through pod annotations, ensure you filter by namespace so that you exclude scraping of pod metrics from namespaces that you don't use (for example, **dev-test** namespace).
+ 
+### Configure Basic Logs
+
+You can save on data ingestion costs by configuring certain tables in your Log Analytics workspace that you primarily use for debugging, troubleshooting, and auditing as Basic Logs. For more information, including the limitations of Basic Logs, see [Configure Basic Logs (preview)](../best-practices-cost.md#configure-basic-logs-preview). ContainerLogV2 is the configured version of Basic Logs that Container Insights uses. ContainerLogV2 includes verbose text-based log records.
+
+You must be on the ContainerLogV2 schema to configure Basic Logs. For more information, see [Enable the ContainerLogV2 schema (preview)](container-insights-logging-v2.md).
 
 ## Next steps
 

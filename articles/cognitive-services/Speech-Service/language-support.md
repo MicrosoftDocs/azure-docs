@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 09/16/2022
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -42,7 +42,7 @@ Each prebuilt neural voice supports a specific language and dialect, identified 
 > [!IMPORTANT]
 > Pricing varies for Prebuilt Neural Voice (see *Neural* on the pricing page) and Custom Neural Voice (see *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
-Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
+Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. Other sample rates can be obtained through upsampling or downsampling when synthesizing.
 
 Please note that the following neural voices are retired.
 
@@ -89,7 +89,9 @@ To set the translation target language, with few exceptions you only specify the
 
 # [Language identification](#tab/language-identification)
 
-The table in this section summarizes the locales supported for Language identification. With language identification, the Speech service compares speech at the language level, such as English and German. If you include multiple locales of the same language, for example, `en-IN` English (India) and `en-US` English (United States), we'll only compare `en` (English) with the other candidate languages.
+The table in this section summarizes the locales supported for [Language identification](language-identification.md).
+> [!NOTE]
+> Language Identification compares speech at the language level, such as English and German. Do not include multiple locales of the same language in your candidate list.
 
 [!INCLUDE [Language support include](includes/language-support/language-identification.md)]
 
