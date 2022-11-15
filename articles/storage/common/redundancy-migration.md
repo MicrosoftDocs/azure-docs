@@ -29,7 +29,9 @@ In this article, you will learn how to change the replication setting(s) for an 
 
 ## Options for changing the replication type
 
-You can change how your storage account is replicated from any type to any other. There are three ways to change the settings:
+You can change how your storage account is replicated from any redundancy configuration to any other with some limitations. Before making any changes, review those [limitations](#limitations-for-changing-replication-types) along with the [downtime requirements](#downtime-requirements) to ensure you have a plan that will produce the best end result within a time frame that suits your needs, and that satisfies your uptime requirements.
+
+There are three ways to change the replication settings:
 
 - [Use the Azure portal, Azure PowerShell, or the Azure CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) to add or remove geo-replication or read access to the secondary region.
 - [Perform a conversion](#perform-a-conversion) to add or remove zone-redundancy.
