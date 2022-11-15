@@ -13,7 +13,7 @@ ms.reviewer: bwren
 To understand how [Azure Monitor](overview.md) supports cost optimization, start by understanding the different ways that Azure Monitor charges and how to view your monthly bill. See [Azure Monitor cost and usage](usage-estimated-costs.md) for a complete description of how Azure Monitor is billed and the different tools available to analyze your charges.
 
 > [!NOTE]
-> This article is part of the [Azure Well-Architected Framework](/azure/architecture/framework/), which is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architectural excellence:
+> This article desribes **Opreational Excellence** for Azure Monitor as part of the [Azure Well-Architected Framework](/azure/architecture/framework/). This is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architectural excellence:
 > 
 > - Reliability
 > - Security
@@ -23,7 +23,7 @@ To understand how [Azure Monitor](overview.md) supports cost optimization, start
 
 ## Design considerations
 
-Azure Monitor includes the following design considerations:
+Azure Monitor includes the following design considerations related to cost:
 
 - Log Analytics workspace architecture<br><br>You can start using Azure Monitor with a single Log Analytics workspace by using default options. As your monitoring environment grows, you'll need to make decisions about whether to have multiple services share a single workspace or create multiple workspaces. There can be cost implications with your workspace design, most notably when you combine different services such as operational data from Azure Monitor and security data from Microsoft Sentinel. This may include trade-offs between functionality and cost depending on your particular priorities.<br><br>See [Design a Log Analytics workspace architecture](logs/workspace-design.md) for a list of criteria to consider when designing a workspace architecture.
 
@@ -42,7 +42,7 @@ Azure Monitor includes the following design considerations:
 > [!div class="checklist"]
 > - Use diagnostic settings and transformations to collect only critical resource log data from Azure resources.
 > - Configure VM agents to collect only critical events.
-> - Use transformations to filter resource logs and events.
+> - Use transformations to filter resource logs.
 > - Ensure that VMs aren't sending data to multiple workspaces.
 
 **Monitor usage**
