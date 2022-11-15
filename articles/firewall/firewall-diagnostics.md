@@ -70,9 +70,8 @@ To enable diagnostic logging with PowerShell, use the following steps:
       Name = 'toLogAnalytics'
       ResourceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
       WorkspaceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
-      Enabled = $true
       }
-   Set-AzDiagnosticSetting  @diagSettings 
+   New-AzDiagnosticSetting  @diagSettings 
    ```
 
 ## Enable diagnostic logging by using the Azure CLI
