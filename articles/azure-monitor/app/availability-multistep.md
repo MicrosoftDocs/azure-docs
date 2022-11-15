@@ -41,7 +41,7 @@ To locate the testing tools prerequisite, select **Visual Studio Installer** > *
 ## Record a multistep web test
 
 > [!WARNING]
-> We no longer recommend using the multistep recorder. The recorder was developed for static HTML pages with basic interactions. It doesn't provide a functional experience for modern web pages.
+> We no longer recommend using the multistep recorder. The recorder was developed for static HTML pages with basic interactions. It doesn't provide a functional experience for modern webpages.
 
 For guidance on how to create Visual Studio web tests, see the [official Visual Studio 2019 documentation](/visualstudio/test/how-to-create-a-web-service-test).
 
@@ -64,7 +64,7 @@ For guidance on how to create Visual Studio web tests, see the [official Visual 
 |Setting| Description|
 |-------|------------|
 | Test timeout |Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site haven't been received within this period. If you selected **Parse dependent requests**, all the images, style files, scripts, and other dependent resources must have been received within this period.|
-| HTTP response | The returned status code that's counted as a success. The code 200 indicates that a normal web page has been returned.|
+| HTTP response | The returned status code that's counted as a success. The code 200 indicates that a normal webpage has been returned.|
 | Content match | A string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes, you might have to update it. *Only English characters are supported with content match.* |
 
 ### Alerts
