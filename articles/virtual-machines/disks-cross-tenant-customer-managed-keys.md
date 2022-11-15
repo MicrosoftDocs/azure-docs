@@ -4,7 +4,7 @@ description: Learn how to use customer-managed keys with your Azure disks in dif
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 11/16/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -43,11 +43,11 @@ To use the Azure portal, sign in to the portal and follow these steps.
 
 1. Select the **Region** in which to create the disk encryption set.
 1. For **Encryption type**, select **Encryption at-rest with a customer-managed key**.
-1. Under **Encryption key**, select the **Enter key from URI** radio button, and then enter the Key URI.
+1. Under **Encryption key**, select the **Enter key from URI** radio button, and then enter the Key URI of the key created in the customer's tenant.
 1. Under **User-assigned identity**, select **Select an identity**.
-1. Select the appropriate user-assigned managed identity, and then select **Add**.
+1. Select the user-assigned managed identity that you created previously in the ISV's tenant, and then select **Add**.
 1. Under **Multi-tenant application**, select **Select an application**.
-1. Select an application and click **Select**.
+1. Select the multi-tenant registered application that you created previously in the ISV's tenant, and click **Select**.
 1. Select **Review + create**.
 
 # [PowerShell](#tab/azure-powershell)
