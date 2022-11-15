@@ -21,9 +21,9 @@ We do not currently support the migration of [Task Hub data](durable-functions-t
 
 ## Prerequisites
 
-We are assume you are starting with an existing Durable Functions app, and are familiar with how to compile, deploy, and operate it.
-In particular, we expect that you have already
+We assume that you are starting with an existing Durable Functions app, and are familiar with how to operate it. 
 
+In particular, we expect that you have already:
 1. Created a Functions project on your local machine.
 1. Added Durable Functions to your project.
 1. Configured the project for local debugging.
@@ -80,15 +80,15 @@ For example, if using C#, your local.settings.json file may look something like 
 
 Netherite is now ready for local development: You can start the Function app to test it.
 
-While Netherite is running, it publishes load information about its active partitions to an Azure Storage table named "DurableTaskPartitions". You can inspect this table using the [Azure Storage Explorer](/articles/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to verify that Netherite has started correctly and is executing normally. It should suffice to see any data on it to guarantee that Netherite is working; for example you may see something like this:
+While Netherite is running, it publishes load information about its active partitions to an Azure Storage table named "DurableTaskPartitions". You can inspect this table using the [Azure Storage Explorer](/articles/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to verify that Netherite is working correctly. For a quick sanity check, it suffices just to see any data on this table; for example you may see something like this:
 
 ![Data on the "DurableTaskPartitions" table in the Azure Storage Explorer.](./media/quickstart-netherite/partitiontable.png)
 
-Each row corresponds to one Netherite partition, and there are 12 partitions by default. The Timestamp shows the last time the row was updated, which happens continuously while a partition is active (or was recently active). For more information on the contents of this table, see the [Partition Table](https://microsoft.github.io/durabletask-netherite/#/ptable) article.
+Each row corresponds to one Netherite partition, and there are 12 partitions by default. The `Timestamp` column shows the last time the row was updated, which happens continuously while a partition is active (or was recently active). For more information on the contents of this table, see the [Partition Table](https://microsoft.github.io/durabletask-netherite/#/ptable) article.
 
 ## Part 2: Set up Event Hubs
 
-To run Netherite in Azure, or if you prefer to use Event Hubs during local development, you need to will need to set up an Event Hubs namespace set up in Azure.
+To run Netherite in Azure, or if you prefer to use Event Hubs during local development, you need to will need to set up an Event Hubs namespace in Azure.
 
 > [!NOTE] An Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Netherite.
 
@@ -108,7 +108,7 @@ az eventhubs namespace create --name $namespaceName --resource-group $groupName
 
 ### Obtain the connection string
 
-To obtain the connection string for the Event Hubs namespace, you can access it in the Azure portal under the setting "Shared access policites", and then selecting "RootManagedSharedAccessKey" which should reveal a field named "Connection string-primary key". That field's value is the connection string.
+To obtain the connection string for your Event Hubs namespace, go to  the Azure portal under the setting "Shared access policites", and then select "RootManagedSharedAccessKey" which should reveal a field named "Connection string-primary key". That field's value is the connection string.
 
 Below we show a few guiding screenshots on how to find this data in the portal:
 
@@ -127,9 +127,9 @@ Finally, assuming you have target app in Azure for deployment, there are a few m
 
 ### Configure the EventHubsConnection setting
 
-You need to assign the `EventHubsConnection` setting to the Event Hubs connection string.
+In Azure, you need to assign the `EventHubsConnection` setting to your Event Hubs connection string.
 
-To do this via the Azure portal, first go to your Function App view. Then, you can go under Configuration, then select "New application setting" and finally enter the name "EventHubsConnection" to map to your connection string. Below are some guiding images.
+To do this through the Azure portal, first go to your Function App view. Then, go under "Configuration", select "New application setting" and there you can configure the name "EventHubsConnection" to map to your connection string as its value. Below are some guiding images.
 
 ![In the Function App view, go under "configuration" to select "new application setting."](./media/quickstart-netherite/add-configuration.png)
 ![Enter `EventHubsConnection` as the name, and the connection string as its value.](./media/quickstart-netherite/enter-configuration.png)
