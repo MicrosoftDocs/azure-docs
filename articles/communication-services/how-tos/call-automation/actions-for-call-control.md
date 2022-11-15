@@ -181,6 +181,7 @@ Response<TransferCallResult> transferResponse = callConnectionAsync.transferToPa
 ```
 -----
 The below sequence diagram shows the expected flow when your application places an outbound 1:1 call and then transfers it to another endpoint. 
+
 ![Sequence diagram for placing a 1:1 call and then transferring it.](media/transfer-flow.png)
 
 ## Add a participant to a call 
@@ -203,7 +204,7 @@ AddParticipantsOptions addParticipantsOptions = new AddParticipantsOptions(targe
 Response<AddParticipantsResult> addParticipantsResultResponse = callConnectionAsync.addParticipantsWithResponse(addParticipantsOptions).block();
 ```
 -----
-To add a Communication Services user, provide a CommunicationUserIdentifier instead of PhoneNumberIdentifier. Source caller ID isn't mandatory in this case. 
+To add a Communication Services user, provide a CommunicationUserIdentifier instead of PhoneNumberIdentifier. Source caller ID isn't mandatory in this case.
 
 AddParticipant will publish a `AddParticipantSucceeded` or `AddParticipantFailed` event, along with a `ParticipantUpdated` providing the latest list of participants in the call.
 
