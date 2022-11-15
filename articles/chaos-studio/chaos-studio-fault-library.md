@@ -437,7 +437,7 @@ Known issues on Linux:
 | Capability Name | DnsFailure-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows |
-| Description | Substitutes DNS lookup request responses with a specified error code. DNS lookup requests that will be substitued must:<ul><li>Originate from the VM</li><li>Match the defined fault parameters</li></ul>**Note**: DNS lookups that aren't made by the Windows DNS client won't be affected by this fault. |
+| Description | Substitutes DNS lookup request responses with a specified error code. DNS lookup requests that will be substituted must:<ul><li>Originate from the VM</li><li>Match the defined fault parameters</li></ul>**Note**: DNS lookups that aren't made by the Windows DNS client won't be affected by this fault. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:dnsFailure/1.0 |
 | Parameters (key, value) |  |
