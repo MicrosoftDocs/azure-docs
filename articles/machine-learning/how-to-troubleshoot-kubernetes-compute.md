@@ -109,8 +109,7 @@ For AKS cluster:
     1. If the cluster is not running, you need to start the cluster first.
 1. Please check if the AKS cluster has enabled enabled selected network by using authorized IP ranges. 
     1. If the AKS cluster has enabled authorized IP ranges, please make sure all the **AzureML control plane IP ranges** have been enabled for the AKS cluster. More information you can see this [document](how-to-deploy-kubernetes-extension?tabs=deploy-extension-with-cli.md#limitations).
-1. Please check if the AKS cluster has enabled Azure Policy built-in definitions. 
-    1. If the AKS cluster has enabled Azure policy built-in definitions, please make sure the AKS cluster has been assigned MSI. 
+
 
 For both AKS cluster and Azure Arc enabled Kubernetes cluster:
 1. Please check if the Kubernetes API server is accessible by running `kubectl` command in cluster. 
@@ -152,7 +151,7 @@ Please check whether you have `enableTraining=True` set when doing the AzureML e
 
 If you need to access Azure Container Registry (ACR) for Docker image, and Storage Account for training data, this should happen when the compute is not specified with a managed identity, because the credential less machine learning workspace default storage account is not supported right now for training jobs. 
 
-To mitigate this issue, you can You can assign Managed Identity to the compute in compute attach step, or you can assign Managed Identity to the compute after it is attached. More details could be found at [Attach compute to workspace](how-to-attach-kubernetes-to-workspace.md).
+To mitigate this issue, you can You can assign Managed Identity to the compute in compute attach step, or you can assign Managed Identity to the compute after it is attached. More details could be found at [Assign Managed Identity to the compute target](how-to-attach-kubernetes-to-workspace.md#assign-managed-identity-to-the-compute-target).
 
 #### Unable to upload project files to working directory in AzureBlob because the authorization failed
 

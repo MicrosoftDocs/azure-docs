@@ -77,7 +77,7 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
     * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified Kubernetes namespace in the cluster. Compute attach won't create the Kubernetes namespace automatically or validate whether the kubernetes namespace exists. You need to verify that the specified namespace exists in your cluster, otherwise, any AzureML workloads submitted to this compute will fail.  
 
-    * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) .
+    * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) . More guidance on how to assign managed identities to Kubernetes compute target you can follow [here](#assign-managed-identity-to-the-compute-target).
 
     :::image type="content" source="media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png" alt-text="Screenshot of settings for developer configuration of Kubernetes cluster.":::
 
@@ -91,11 +91,31 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 ## Assign Managed Identity to the compute target
 
-A common challenge for developers is the management of secrets and credentials used to secure communication between different components making up a solution. Managed Identity eliminate the need for developers to manage credentials.
+A common challenge for developers is the management of secrets and credentials used to secure communication between different components making up a solution. [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) eliminate the need for developers to manage credentials.
 
-To access Azure Container Registry (ACR) for Docker image, and Storage Account for trainig data, attach AMLArc compute with system-assigned or user-assigned managed identity enabled.
+To access Azure Container Registry (ACR) for Docker image, and Storage Account for training data, attach AMLArc compute with system-assigned or user-assigned managed identity enabled.
 
 ### Assign Managed Identity
+- You can assign Managed Identity to the compute in compute attach step.
+- If the compute has been attached, you can update the settings of Managed Identity in Machine Learning Studio.
+    - Go to Azure Machine Learning Studio - Compute - Attached compute, select your attached compute.
+    - Edit Managed Identity.
+
+### Assign Azure roles to Managed Identity
+Azure offers a couple of ways to assign roles to Managed Identity.
+- [Use Azure Portal to assign roles](../role-based-access-control/role-assignments-portal.md)
+- [Use CLI to assign roles](../role-based-access-control/role-assignments-cli.md)
+- [Use PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md)
+
+If you use Portal to assign roles, and you have system-assigned managed identity, select User, group, or service principal. Click Select members, find and search the identity name formatted as `<workspace name>/computes/<compute target name>`.
+
+If you have user-assigned managed identity, select **Managed identity** to find the target identity.
+
+You can use Managed Identity to pull image from Azure Container Registry, and "AcrPull" role should be granted to the compute Managed Identity.
+
+You can use Managed Identity to access Azure Blob:
+- For read-only purpose, Storage Blob Data Reader role should be granted to the compute Managed Identity.
+- For read-write purpose, Storage Blob Data Contributor role should be granted to the compute Managed Identity.
 
 ## Next steps
 

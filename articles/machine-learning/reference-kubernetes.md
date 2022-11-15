@@ -29,7 +29,7 @@ This article contains reference information that may be useful when [configuring
 
 ## Recommended resource planing
 ### For clusters only enabling inference in AzureML extension
-When you deploy the AzureML extension with the configuration of `enableInference= true`, some inference related services will be deployed to your Kubernetes cluster for Azure Machine Learning. The following table lists the **Inference Services and their resource usage** in the cluster. 
+When you deploy the AzureML extension with the configuration of `enableInference= true`, some inference related services will be deployed to your Kubernetes cluster for Azure Machine Learning. The following table lists the **Inference Services and their resource usage** in the cluster:
 
 |Type |Deploy/Daemonset |Replica # |CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) |
 |-- |-- |--|--|--|--|--|
@@ -47,14 +47,15 @@ When you deploy the AzureML extension with the configuration of `enableInference
 |System  |online-deployment/identity-sidecar |1 per Deployment |10|50|100|100|
 |System  |fluent-bit  |1 per Node |10|200|100|300|
 
-ScoringFE usage 
+The [ScoringFE](how-to-kubernetes-inference-routing-azureml-fe.md) which is the front-end component (`azureml-fe`) for real-time inference will be deployed on cluster at AzureML extension deployment time. The following table lists the **resource usage of ScoringFE** in the cluster:
+
 |Type |Deployment |Replica # |CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) |
 |-- |-- |--|--|--|--|--|
 |System  |azureml-fe-v2/envoy  |1 or 3 |500|1200|300|500|
 |System  |azureml-fe-v2/xds  |1 or 3 |100|100|200|200|
 |System  |azureml-fe-v2/clb  |1 or 3 |300|700|300|500|
 
-Exclude the user deployments/pods, the **minimum system resources requirements** are as follows:
+Excluding the user deployments/pods, the **minimum system resources requirements** are as follows:
 |Cluster usage purpose |CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) |Description |
 |-- |-- |--|--|--|--|
 |For Test |1780 |8300 |2440 | 12296 |1 Node |
