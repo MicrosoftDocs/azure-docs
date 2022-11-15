@@ -45,6 +45,6 @@ First, the contents of the Cloud Native Application Bundle (CNAB) are copied fro
 You may also encounter errors due to vulnerabilities in your images. For more information on vulnerability scanning and how to mitigate issues, see [Container certification troubleshooting][container-certification-troubleshooting].
 
 <!-- LINKS -->
-[container-certification-troubleshooting]: ./azure-container-certification-faq.md
+[container-certification-troubleshooting]: ./azure-container-certification-faq.yml
 [cluster-extension]: /azure/aks/integrations#extensions/
 [grant-access]: ./azure-container-technical-assets-kubernetes.md#grant-access-to-your-azure-container-registry
