@@ -85,6 +85,9 @@ Policy resources are global, which means that any change will take effect on all
 ### Assignment scoping
 If you're following management group best practices using [Azure management groups](../governance/management-groups/overview.md), it's likely you already have your resources organized in a hierarchy structure. Using assignments, you can assign the same definition to multiple distinct scopes within your hierarchy, allowing you to have higher granularity control of which resources are eligible for your network group
 
+### Deleting an Azure Policy definition associated with a network group
+If customer is done with that definition (either NG is deleted, or definition is dangling for some reason) then to delete, need to delete the Policy association object and then delete the Policy definition. Then, the definition cannot be reused or re-referenced by name when associating a new definition to a network group.
+
 ## Next steps
 
 - Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance.
