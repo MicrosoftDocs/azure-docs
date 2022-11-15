@@ -1,13 +1,26 @@
 ---
-title: Get started and create an Azure Lab Services lab within Teams
-description: Learn how to get started and create an Azure Lab Services lab within Teams. 
+title: Manage and access labs in Microsoft Teams
+titleSuffix: Azure Lab Services
+description: Learn how to access and manage Azure Lab Services labs within Microsoft Teams.
 ms.topic: how-to
-ms.date: 02/05/2022
+ms.date: 11/15/2022
+author: ntrogh
+ms.author: nicktrog
+ms.custom: engagement-fy23
 ---
 
-# Get started and create a Lab Services lab within Teams
+# Manage Azure Lab Services labs within Teams
 
-This article shows how to add the **Azure Lab Services** app to a Team and then how to create a lab within MS Teams environment.
+Learn how to access and manage Azure Lab Services labs within Microsoft Teams. Add the Azure Lab Services Teams app to a team and let educators create and manage labs from within Teams. Students can connect to their lab without navigating to the Azure Lab Services portal. Learn more about the [benefits of using Azure Lab Services within Teams](./lab-services-within-teams-overview.md).
+
+This article describes how to:
+
+- Add a lab plan to a Teams channel.
+- Manage lab user lists.
+- Manage a lab virtual machine (VM) pool.
+- Delete labs.
+- Configure lab schedules and settings.
+- Access a lab VM as a student.
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
@@ -15,6 +28,7 @@ This article shows how to add the **Azure Lab Services** app to a Team and then 
 
 In this tutorial, you set up a lab with virtual machines for your team. To set up a lab, you must be an Owner, Lab Creator, or Contributor on the lab plan. The user account that you used to create a lab plan can create a lab.
 
+## User workflow 
 Here's the typical workflow when using Azure Lab Services within Teams
 
 1. Create a lab plan in the Azure portal.  For information, see [Tutorial: Set up a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
