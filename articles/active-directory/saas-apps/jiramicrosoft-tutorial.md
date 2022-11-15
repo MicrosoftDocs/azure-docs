@@ -102,17 +102,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<domain:port>/plugins/servlet/saml/auth`
-
-    b. In the **Identifier** box, type a URL using the following pattern:
+    a. In the **Identifier** box, type a URL using the following pattern:
     `https://<domain:port>/`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<domain:port>/plugins/servlet/saml/auth`
+
+	a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<domain:port>/plugins/servlet/saml/auth`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Port is optional in case it’s a named URL. These values are received during the configuration of Jira plugin, which is explained later in the tutorial.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-on URL. Port is optional in case it’s a named URL. These values are received during the configuration of Jira plugin, which is explained later in the tutorial.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -120,43 +120,36 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. The Name ID attribute in Azure AD can be mapped to any desired user attribute by editing the Attributes & Claims section.
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot showing how to edit Attributes and Claims.](common/edit-attribute.png)
+   ![Screenshot showing how to edit Attributes and Claims.](common/edit-attribute.png)
 	
     a. After clicking on Edit, any desired user attribute can be mapped by clicking on Unique User Identifier (Name ID).
     
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot showing the NameID in Attributes and Claims.](common/attribute-nameID.png)
+   ![Screenshot showing the NameID in Attributes and Claims.](common/attribute-nameID.png)
 	
     b. On the next screen, the desired attribute name like user.userprincipalname can be selected as an option from the Source Attribute dropdown menu.
     
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot showing how to select Attributes and Claims.](common/attribute-select.png)
+   ![Screenshot showing how to select Attributes and Claims.](common/attribute-select.png)
 	
     c. The selection can then be saved by clicking on the Save button at the top.
     
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot showing how to save Attributes and Claims.](common/attribute-save.png)
+   ![Screenshot showing how to save Attributes and Claims.](common/attribute-save.png)
 	
     d. Now, the user.userprincipalname attribute source in Azure AD is mapped to the Name ID attribute name in Azure AD which will be compared with the username attribute in Atlassian by the SSO plugin.
     
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot showing how to review Attributes and Claims.](common/attribute-review.png)
+   ![Screenshot showing how to review Attributes and Claims.](common/attribute-review.png)
 	
 	> [!NOTE]
 	> The SSO service provided by Microsoft Azure supports SAML authentication which is able to perform user identification using different attributes such as givenname (first name), surname (last name), email (email address), and user principal name (username). We recommend not to use email as an authentication attribute as email addresses are not always verified by Azure AD. The plugin compares the values of Atlassian username attribute with the NameID attribute in Azure AD in order to determine the valid user authentication.
 
 1. If your Azure tenant has **guest users** then follow the below configuration steps:
  
-	a. Click on **Edit/pencil** icon to go to the Attributes & Claims section.
+	a. Click on **pencil** icon to go to the Attributes & Claims section.
 
-	> [!div class="mx-imgBorder"]
-    > ![Screenshot showing how to edit Attributes and Claims.](common/edit-attribute.png)
+	![Screenshot showing how to edit Attributes and Claims.](common/edit-attribute.png)
 
 	b. Click on **NameID** on Attributes & Claims section.
 
-	> [!div class="mx-imgBorder"]
-    > ![Screenshot showing the NameID in Attributes and Claims.](common/attribute-nameID.png)
+	![Screenshot showing the NameID in Attributes and Claims.](common/attribute-nameID.png)
 
 	c. Setup the claim conditions based on the User Type.
 
