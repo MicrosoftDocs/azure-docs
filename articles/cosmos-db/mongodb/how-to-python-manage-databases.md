@@ -133,3 +133,15 @@ TBD
 <!-- 
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="console_result":::
 -->
+
+## Get database object instance
+
+TBD
+
+## Drop a database
+
+TBD
+
+## See also
+
+- [Get started with Azure Cosmos DB for MongoDB and Python](how-to-python-get-started.md)
