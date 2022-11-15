@@ -17,7 +17,7 @@ Netherite was designed and developed by [Microsoft Research](https://www.microso
 
 We do not currently support the migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers. This means that your application will need to start with a fresh, empty Task Hub after changing the provider to Netherite. Similarly, the task hub contents created while running Netherite cannot be preserved when switching to a different backend, such as Azure Storage, or the MSSQL backend.
 
-> [!NOTE] This means that you should be careful when switching a Durable Functions app with pending work to a new backend as it is a kind of breaking change. Please review our [versioning docs](durable-functions-versioning.md) for guidance on verisioning DF apps to make such changes.
+> [!NOTE] Changing your storage provider is a kind of breaking change as pre-existing data will not be transferred over. You can review the Durable Functions [versioning docs](durable-functions-versioning.md) for guidance on how to make these changes.
 
 ## Prerequisites
 
