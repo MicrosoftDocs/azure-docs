@@ -44,11 +44,9 @@ Register each data source with Microsoft Purview to later define access policies
 
 1. Select **Register** or **Apply** at the bottom
 
-Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
+Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture.
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
 
-> [!Note]
-> - If you want to create a policy on a resource group or subscription and have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently for *Data Use Management* to provide their App ID. See this document on how to create policies at resource group or subscription level: [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-policies-data-owner-resource-group.md).
 
 ## Create and publish a data owner policy
 
