@@ -57,9 +57,9 @@ ping -S 10.0.0.7 outlook.com
 <details>
   <summary>Expand</summary>
  
-SUSE-based distributions use the <code>cloud-netconfig</code> plugin from the <code>cloud-netconfig-azure</code> package to manage additional IP addresses.  No manual configuration is required on the part of the administrator.   The first IP address of an interface set on the platform is assigned via DHCP.  The cloud-netconfig plugin then probes the Azure Instance Metadata Service API continuously (once per minute) for additional IP addresses assigned to the interface and adds/removes them as secondary IP addresses automatically.
+SUSE-based distributions use the <code>cloud-netconfig</code> plugin from the <code>cloud-netconfig-azure</code> package to manage additional IP addresses. No manual configuration is required on the part of the administrator. The first IP address of an interface set on the platform is assigned via DHCP. The cloud-netconfig plugin then probes the Azure Instance Metadata Service API continuously (once per minute) for additional IP addresses assigned to the interface and adds/removes them as secondary IP addresses automatically.
 
-This plugin should be installed and enabled on new images by default.  Configuration steps for old workloads can be found here: https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/
+This plugin should be installed and enabled on new images by default.  Configuration steps for old workloads can be found here: https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/.
 
 </details>
 
