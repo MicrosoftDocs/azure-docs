@@ -90,6 +90,8 @@
               href: cis-ubuntu.md
     - name: Access and identity
       href: concepts-identity.md
+    - name: AKS Diagnostics
+      href: concepts-diagnostics.md
     - name: Networking
       href: concepts-network.md
     - name: Storage
