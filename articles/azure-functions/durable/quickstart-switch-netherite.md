@@ -45,7 +45,7 @@ If this is not the case, we suggest you start with one of the following articles
 
 You will need to install the latest version of the `Microsoft.Azure.DurableTask.Netherite.AzureFunctions`[Extension on Nuget](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) on your app. This usually means including a reference to it in your `.csproj` file and building the project.
 
-There are many ways to achieve this, especially for C# users which may leverage [VisualStudio package management tools](/articles/nuget/consume-packages/install-use-packages-visual-studio), the [Nuget package manager](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs?tabs=in-process#add-bindings) or even the [dotnet CLI](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp#install-binding-extensions).
+There are many ways to achieve this, especially for C# users who may leverage [VisualStudio package management tools](/articles/nuget/consume-packages/install-use-packages-visual-studio), the [Nuget package manager](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs?tabs=in-process#add-bindings) or even the [dotnet CLI](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp#install-binding-extensions).
 
 However, all languages should be able to utilize the [Azure Functions Core Tools CLI](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash#install-the-azure-functions-core-tools) to do this. With it, you may install Netherite using the following command:
 
