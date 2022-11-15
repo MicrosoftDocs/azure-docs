@@ -15,7 +15,7 @@ Multi-region replication allows you to extend a Managed HSM instance from one re
 
 ## Architecture
 
-:::image type="content" source="../../media/multi-region-replication" alt-text="Architecture diagram of Managed HSM Multi-Region Replication":::
+:::image type="content" source="../../media/multi-region-replication.png" alt-text="Architecture diagram of Managed HSM Multi-Region Replication":::
 
 When you enable multi-region replication on Managed HSM, a second Managed HSM instance with three load-balanced HSM partitions will be created in the secondary region. Similar to the primary region, these partitions will be spread across two availability zones where possible. When requests are issues to the global DNS endpoint `<hsm-name>.managedhsm.azure.net` the closest available region will receive and fulfill the request. While each region individually maintains regional high-availability due to the distribution of HSMs across availability zones, the global traffic manager ensures that even if all partitions of a Managed HSM in one region are unavailable due to a catastrophe, requests can still be served by the secondary instance.
 
