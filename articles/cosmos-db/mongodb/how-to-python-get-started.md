@@ -147,7 +147,7 @@ For more information on different ways to create a ``MongoClient`` instance, see
 
 ## Close the MongoClient connection
 
-When your application is finished with the connection remember to close it. That `.close()` call should be after all database calls are made. 
+When your application is finished with the connection, remember to close it. That `.close()` call should be after all database calls are made. 
 
 ```python
 client.close()
@@ -174,7 +174,7 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 
 ## Next steps
 
-Now that you've connected to a API for MongoDB account, use the next guide to create and manage databases.
+Now that you've connected to an API for MongoDB account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
 > [Create a database in Azure Cosmos DB for MongoDB using Python](how-to-python-manage-databases.md)
