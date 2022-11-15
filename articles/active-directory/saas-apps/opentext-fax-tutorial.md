@@ -156,7 +156,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create OpenText XM Fax and XM SendSecure test user
 
-In this section, you create a user called Britta Simon at OpenText XM Fax and XM SendSecure. Users must be created and activated before you use single sign-on. Make sure the email is set to "B.Simon@contoso.com".
+Create a user called Britta Simon at OpenText XM Fax and XM SendSecure. Make sure the email is set to "B.Simon@contoso.com".
+
+> [!NOTE]
+> Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
