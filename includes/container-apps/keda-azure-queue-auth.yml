@@ -1,4 +1,3 @@
-$schema: "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json"
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
