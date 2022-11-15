@@ -1,15 +1,15 @@
 ---
 title: FHIR destination mappings in the MedTech service - Azure Health Data Services
-description: This article describes how to configure and use the FHIR destination mappings in Azure Health Data Services MedTech service. 
+description: This article describes how to configure FHIR destination mappings in Azure Health Data Services MedTech service. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 11/15/2022
 ms.author: jasteppe
 ---
 
-# How to use the FHIR destination mappings
+# How to configure FHIR destination mappings
 
 This article describes how to configure the MedTech service using the Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings.
 
@@ -266,9 +266,9 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 
 ## Next steps
 
-In this article, you learned how to use FHIR destination mappings. To learn how to use device mappings, see
+In this article, you learned how to configure FHIR destination mappings. To learn how to configure device mappings, see
 
 > [!div class="nextstepaction"]
-> [How to use device mappings](how-to-use-device-mappings.md)
+> [How to configure device mappings](how-to-use-device-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
