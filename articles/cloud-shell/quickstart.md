@@ -10,9 +10,8 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.workload: infrastructure-services
 tags: azure-resource-manager
-title: Azure Cloud Shell Quickstart - Bash
+title: Quickstart for Bash in Azure Cloud Shell
 ---
-
 # Quickstart for Bash in Azure Cloud Shell
 
 This document details how to use Bash in Azure Cloud Shell in the [Azure portal][03].
@@ -83,7 +82,7 @@ Your username on this VM will be your username used in Cloud Shell ($User@Azure:
 ### SSH into your Linux VM
 
 1. Search for your VM name in the Azure portal search bar.
-1. Click "Connect" to get your VM name and public IP address.
+1. Select **Connect** to get your VM name and public IP address.
 
    ![Screenshot showing how to connect to a Linux VM using SSH.][06]
 

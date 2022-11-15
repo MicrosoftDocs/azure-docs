@@ -20,7 +20,7 @@ Azure Cloud Shell is a browser-based shell experience to manage and develop Azur
 Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure
 resources without the overhead of installing, versioning, and maintaining a machine yourself.
 
-Cloud Shell provisions machines on a per-request basis and as a result machine state does not
+Cloud Shell allocates machines on a per-request basis and as a result machine state doesn't
 persist across sessions. Since Cloud Shell is built for interactive sessions, shells automatically
 terminate after 20 minutes of shell inactivity.
 
@@ -35,8 +35,8 @@ distribution for cloud-infrastructure-edge products and services.
 Microsoft internally compiles all the packages included in the **CBL-Mariner** repository to help
 guard against supply chain attacks. Tooling has been updated to reflect the new base image
 CBL-Mariner. You can get a full list of installed package versions using the following command:
-`tdnf list installed`. If these changes affected your Cloud Shell environment, please contact
-Azuresupport or create an issue in the [Cloud Shell repository][12].
+`tdnf list installed`. If these changes affected your Cloud Shell environment, contact Azure Support
+or create an issue in the [Cloud Shell repository][12].
 
 ## Features
 
@@ -51,8 +51,8 @@ To persist files across sessions, Cloud Shell walks you through attaching an Azu
 first launch. Once completed, Cloud Shell will automatically attach your storage (mounted as
 `$HOME\clouddrive`) for all future sessions. Additionally, your `$HOME` directory is persisted as an
 .img in your Azure File share. Files outside of `$HOME` and machine state aren't persisted across
-sessions. Use best practices when storing secrets such as SSH keys. Services like
-[Azure Key Vault have tutorials for setup][02].
+sessions. Use best practices when storing secrets such as SSH keys. Services, like
+Azure Key Vault, have [tutorials for setup][02].
 
 [Learn more about persisting files in Cloud Shell.][29]
 

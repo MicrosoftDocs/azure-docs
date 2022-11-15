@@ -16,29 +16,34 @@ title: Embed Azure Cloud Shell
 # Embed Azure Cloud Shell
 
 Embedding Cloud Shell enables developers and content writers to directly open Cloud Shell from a
-dedicated URL, `shell.azure.com`. This immediately brings the full power of Cloud Shell's
-authentication, tooling, and up-to-date Azure CLI and Azure PowerShell tools to your users.
+dedicated URL, `shell.azure.com`. This link brings the full power of Cloud Shell's authentication,
+tooling, and up-to-date Azure CLI and Azure PowerShell tools to your users.
 
-[![Regular launch](media/embed-cloud-shell/LaunchCloudShell.png "Launch Azure Cloud Shell")][01]
+You can use the following images in your own webpages and app as buttons to start a Cloud Shell
+session.
+
+Regular sized button
+
+![Regular launch](media/embed-cloud-shell/launch-cloud-shell-1.png "Launch Azure Cloud Shell")
 
 Large sized button
 
-[![Large launch](media/embed-cloud-shell/LaunchCloudShell2x.png "Launch Azure Cloud Shell")][01]
+![Large launch](media/embed-cloud-shell/launch-cloud-shell-2.png "Launch Azure Cloud Shell")
 
 ## How-to
 
-Integrate Cloud Shell's launch button into markdown files by copying the following:
+To integrate Cloud Shell's launch button into markdown files by copying the following code:
 
 Regular sized button
 
 ```markdown
-[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloudshell/launchcloudshell.png](https://shell.azure.com)
+[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-1.png](https://shell.azure.com)
 ```
 
 Large sized button
 
 ```markdown
-[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloudshelllaunchcloudshell@2x.png](https://shell.azure.com)
+[![Launch Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/media/embed-cloud-shell/launch-cloud-shell-2.png](https://shell.azure.com)
 ```
 
 The location of these image files is subject to change. We recommend that you download the files for
@@ -48,11 +53,11 @@ use in your applications.
 
 Set a specific shell experience by augmenting your URL.
 
-|        Experience        |             URL              |
-| ------------------------ | ---------------------------- |
-| Most recently used shell | `shell.azure.com`            |
-| Bash                     | `shell.azure.com/bash`       |
-| PowerShell               | `shell.azure.com/powershell` |
+|        Experience        |                 URL                  |
+| ------------------------ | ------------------------------------ |
+| Most recently used shell | `https://shell.azure.com`            |
+| Bash                     | `https://shell.azure.com/bash`       |
+| PowerShell               | `https://shell.azure.com/powershell` |
 
 ## Next steps
 

@@ -50,7 +50,7 @@ You can access Cloud Shell in three ways:
 ### Browser-based shell experience
 
 Cloud Shell enables access to a browser-based command-line experience built with Azure management
-tasks in mind. Leverage Cloud Shell to work untethered from a local machine in a way only the cloud
+tasks in mind. Use Cloud Shell to work untethered from a local machine in a way only the cloud
 can provide.
 
 ### Choice of preferred shell experience
@@ -102,8 +102,8 @@ Cloud Shell is a flexible tool that can be used from:
 Cloud Shell machines are temporary, but your files are persisted in two ways: through a disk image,
 and through a mounted file share named `clouddrive`. On first launch, Cloud Shell prompts to create
 a resource group, storage account, and Azure Files share on your behalf. This is a one-time step and
-the resource created are automatically attached for all sessions. A single file share can be mapped
-and is used by both Bash and PowerShell in Cloud Shell.
+the resources created are automatically attached for all future sessions. A single file share can be
+mapped and is used by both Bash and PowerShell in Cloud Shell.
 
 Read more to learn how to mount a [new or existing storage account][16] or to learn about the
 [persistence mechanisms used in Cloud Shell][17].

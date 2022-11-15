@@ -27,7 +27,7 @@ environments.
 
 ## Restart Cloud Shell
 
-Click the restart icon in the Cloud Shell toolbar to reset machine state.
+Select the restart icon in the Cloud Shell toolbar to reset machine state.
 
 ![Restart Cloud Shell][08]
 
@@ -37,21 +37,21 @@ Click the restart icon in the Cloud Shell toolbar to reset machine state.
 
 ## Change the text size
 
-Click the settings icon on the top left of the window, then hover over the **Text size** option and
+Select the settings icon on the top left of the window, then hover over the **Text size** option and
 select your desired text size. Your selection is persisted across sessions.
 
 ![Text size][10]
 
 ## Change the font
 
-Click the settings icon on the top left of the window, then hover over the **Font** option and select
+Select the settings icon on the top left of the window, then hover over the **Font** option and select
 your desired font. Your selection is persisted across sessions.
 
 ![Font][09]
 
 ## Upload and download files
 
-Click the upload/download files icon on the top left of the window, then select **Upload** or
+Select the upload/download files icon on the top left of the window, then select **Upload** or
 **Download**.
 
 ![Upload/download files][11]
@@ -71,7 +71,7 @@ Click the upload/download files icon on the top left of the window, then select 
 
 Cloud Shell enables multiple concurrent sessions across browser tabs by allowing each session to
 exist as a separate process. If exiting a session, be sure to exit from each session window as each
-process runs independently although they run on the same machine. Click the open new session icon on
+process runs independently although they run on the same machine. Select the open new session icon on
 the top left of the window. A new tab opens with another session connected to the existing
 container.
 
@@ -83,7 +83,7 @@ Refer to the [Using the Azure Cloud Shell editor][14] page.
 
 ## Web preview
 
-Click the web preview icon on the top left of the window, select **Configure**, specify the desired
+Select the web preview icon on the top left of the window, select **Configure**, specify the desired
 port to open.
 
 ![Web preview][07]
@@ -93,19 +93,19 @@ port and preview the port in a new tab.
 
 ![Configure port][05]
 
-To preview an open port in a new tab, click the web preview icon on the top left of the window then
+To preview an open port in a new tab, select the web preview icon on the top left of the window then
 select **Preview port**.
 
-To close the open port, click the web preview icon on the top left of the window the select
+To close the open port, select the web preview icon on the top left of the window the select
 **Close port**.
 
 ![Preview/close port][06]
 
 ## Minimize & maximize Cloud Shell window
 
-Click the minimize icon on the top right of the window to hide it. Click the Cloud Shell icon again
-to unhide. Click the maximize icon to set window to max height. To restore window to previous size,
-click restore.
+Select the minimize icon on the top right of the window to hide it. Select the Cloud Shell icon again
+to unhide. Select the maximize icon to set window to max height. To restore window to previous size,
+select restore.
 
 ![Minimize or maximize the window][03]
 
@@ -114,11 +114,11 @@ click restore.
 - Windows: <kbd>Ctrl</kbd>-<kbd>C</kbd> to copy is supported but use
   <kbd>Shift</kbd>-<kbd>Insert</kbd> to paste.
   - FireFox/IE may not support clipboard permissions properly.
-- Mac OS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
+- macOS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
 
 ## Resize Cloud Shell window
 
-Click and drag the top edge of the toolbar up or down to resize the Cloud Shell window.
+Drag the top edge of the toolbar up or down to resize the Cloud Shell window.
 
 ## Scrolling text display
 

@@ -12,16 +12,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 services: Azure
 tags: azure-resource-manager
-title: Cloud Shell in an Azure Virtual Network
+title: Cloud Shell in an Azure virtual network
 ---
 
 # Deploy Cloud Shell into an Azure virtual network
 
 A regular Cloud Shell session runs in a container in a Microsoft network separate from your
-resources. This means that commands running inside the container can't access resources that can
-only be accessed from a specific virtual network. For example, you can't use SSH to connect from
-Cloud Shell to a virtual machine that only has a private IP address, or use `kubectl` to connect to
-a Kubernetes cluster that has locked down access.
+resources. Commands running inside the container can't access resources that can only be accessed
+from a specific virtual network. For example, you can't use SSH to connect from Cloud Shell to a
+virtual machine that only has a private IP address, or use `kubectl` to connect to a Kubernetes
+cluster that has locked down access.
 
 This optional feature addresses these limitations and allows you to deploy Cloud Shell into an Azure
 virtual network that you control. From there, the container is able to interact with resources
@@ -44,9 +44,9 @@ resources. This article shows how to set up the required resources using an ARM 
 
 A virtual network defines the address space in which one or more subnets are created.
 
-You need to identify the virtual network to be used for Cloud Shell. Usually, this is an existing
-virtual network that contains resources you want to manage or a network that peers with networks
-that contain your resources.
+You need to identify the virtual network to be used for Cloud Shell. Usually, you want to use an
+existing virtual network that contains resources you want to manage or a network that peers with
+networks that contain your resources.
 
 ### Subnet
 
@@ -85,12 +85,11 @@ accessible from the virtual network that's used by Cloud Shell.
 
 ## Virtual network deployment limitations
 
-- Due to the additional networking resources involved, starting Cloud Shell in a virtual network is
-  typically slower than a standard Cloud Shell session.
+- Starting Cloud Shell in a virtual network is typically slower than a standard Cloud Shell session.
 - All Cloud Shell primary regions, except Central India, are supported.
-- [Azure Relay][01] is a paid service. Please view the [pricing][04]. In the Cloud Shell scenario,
-  one hybrid connection is used for each administrator while they're using Cloud Shell. The
-  connection is automatically shut down after the Cloud Shell session is ended.
+- [Azure Relay][01] is a paid service. See the [pricing][04] guide. In the Cloud Shell scenario, one
+  hybrid connection is used for each administrator while they're using Cloud Shell. The connection
+  is automatically shut down after the Cloud Shell session is ended.
 
 ## Register the resource provider
 
@@ -144,7 +143,7 @@ be used each time you want to connect to an isolated Cloud Shell experience.
 > If Cloud Shell has been used in the past, the existing clouddrive must be unmounted. To do this
 > run `clouddrive unmount` from an active Cloud Shell session, refresh your page.
 
-Connect to Cloud Shell. You will be prompted with the first run experience. Select your preferred
+Connect to Cloud Shell. You'll be prompted with the first run experience. Select your preferred
 shell experience, select **Show advanced settings** and select the **Show VNET isolation settings**
 box. Fill in the fields in the form. Most fields will be autofilled to the available resources that
 can be associated with Cloud Shell in a virtual network. You must provide a name for the fileshare.

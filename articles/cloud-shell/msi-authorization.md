@@ -56,14 +56,14 @@ curl https://management.azure.com/subscriptions/{subscriptionId}/providers/Micro
 
 ## Handling token expiration
 
-The local authentication endpoint caches tokens. You can call it as often as you like, and an
-authentication call to Azure Active Directory only occurs if there's no token stored in the cache,
-or the token has expired.
+The local authentication endpoint caches tokens. You can call it as often as you like. Cloud Shell
+only calls Azure Active Directory only occurs when there's no token stored in the cache or the token
+has expired.
 
 ## Limitations
 
-- There's an allowlist of resources that Cloud Shell tokens can be provided for. You may see a
-  message similar to the following:
+- There's an allowlist of resources that Cloud Shell tokens can be provided for. When you try to use
+  a token with a service that is not listed, you may see the following error message:
 
   ```
   "error":{"code":"AudienceNotSupported","message":"Audience https://newservice.azure.com/
@@ -72,7 +72,7 @@ or the token has expired.
 
   You can open an issue on [GitHub][02] to request for the service to be added to the allowlist.
 
-- If you log in explicitly using the `az login` command, any Conditional Access rules your company
+- If you sign in explicitly using the `az login` command, any Conditional Access rules your company
   may have in place are evaluated based on the Cloud Shell container rather than the machine where
   your browser runs. The Cloud Shell container doesn't count as a managed device for these policies
   so rights may be limited by the policy.

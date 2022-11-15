@@ -11,9 +11,8 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.workload: infrastructure-services
 tags: azure-resource-manager
-title: Azure Cloud Shell Quickstart - PowerShell
+title: Quickstart for PowerShell in Azure Cloud Shell
 ---
-
 # Quickstart for PowerShell in Azure Cloud Shell
 
 This document details how to use the PowerShell in Cloud Shell in the [Azure portal][06].
@@ -22,20 +21,19 @@ The PowerShell experience in Azure Cloud Shell now runs [PowerShell 7.2][02] in 
 There are differences in the PowerShell experience in Cloud Shell compared Windows PowerShell.
 
 The filesystem in Linux is case-sensitive. Windows considers `file.txt` and `FILE.txt` to be the
-same file. In Linux they're considered to be different files. Proper casing must be used while
+same file. In Linux, they're considered to be different files. Proper casing must be used while
 tab-completing in the filesystem. PowerShell specific experiences, such as tab-completing cmdlet
 names, parameters, and values, aren't case-sensitive.
 
- For a
-detailed list of differences, see [PowerShell differences on non-Windows platforms][01].
+For a detailed list of differences, see [PowerShell differences on non-Windows platforms][01].
 
 ## Start Cloud Shell
 
-1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal
+1. Select on **Cloud Shell** button from the top navigation bar of the Azure portal
 
    ![Screenshot showing how to start Azure Cloud Shell from the Azure portal.][09]
 
-1. Select the PowerShell environment from the drop-down and you will be in Azure drive `(Azure:)`
+1. Select the PowerShell environment from the drop-down and you'll be in Azure drive `(Azure:)`
 
    ![Screenshot showing how to select the PowerShell environment for the Azure Cloud Shell.][08]
 
@@ -122,7 +120,7 @@ WindowsRegisteredOrganization                           :
 ...
 ```
 
-#### Interactively log on to a remote VM
+#### Interactively sign-in to a remote VM
 
 You can use `Enter-AzVM` to interactively log into a VM running in Azure.
 
@@ -284,6 +282,7 @@ git clone https://<your-access-token>@github.com/username/repo.git
 Type `exit` to terminate the session.
 
 <!-- link references -->
+[01]: /powershell/scripting/whats-new/unix-support
 [02]: /powershell/scripting/whats-new/what-s-new-in-powershell-72
 [03]: ../virtual-machines/linux/quick-create-powershell.md
 [04]: /powershell/module/microsoft.powershell.core/about/about_profiles

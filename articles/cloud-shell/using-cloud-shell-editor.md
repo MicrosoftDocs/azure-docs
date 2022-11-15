@@ -30,8 +30,8 @@ terminal. This action opens the editor with your active working directory set in
 To directly open a file for quick editing, run `code <filename>` to open the editor without the file
 explorer.
 
-To open the editor via UI button, click the `{}` editor icon from the toolbar. This will open the
-editor and default the file explorer to the `/home/<user>` directory.
+Select the `{}` icon from the toolbar to open the editor and default the file explorer to the
+`/home/<user>` directory.
 
 ## Closing the editor
 

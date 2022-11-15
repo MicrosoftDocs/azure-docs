@@ -46,7 +46,7 @@ Chrome, Mozilla Firefox, and Apple Safari. Safari in private mode isn't supporte
 - Windows: <kbd>Ctrl</kbd>-<kbd>C</kbd> to copy is supported but use
   <kbd>Shift</kbd>-<kbd>Insert</kbd> to paste.
   - FireFox/IE may not support clipboard permissions properly.
-- Mac OS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
+- macOS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
 
 ### Only one shell can be active for a given user
 
@@ -83,19 +83,18 @@ functionality.
 The `SqlServer` module included in Cloud Shell has only prerelease support for PowerShell Core. In
 particular, `Invoke-SqlCmd` isn't available yet.
 
-### Default file location when created from Azure drive:
+### Default file location when created from Azure drive
 
-Using PowerShell cmdlets, users can not create files under the Azure: drive. When users create new
-files using other tools, such as vim or nano, the files are saved to the `$HOME` by default.
+You can't create files under the `Azure:` drive. When users create new files using other tools, such
+as vim or nano, the files are saved to the `$HOME` by default.
 
 ### GUI applications aren't supported
 
-If the user runs a command that would create a Windows dialog box, one sees an error message such
+If the user runs a command that would create a dialog box, one sees an error message such
 as:
 
-```
-Unable to load DLL 'IEFRAME.dll': The specified module couldn't be found. (Exception from HRESULT: 0x8007007E)
-```
+> Unable to load DLL 'IEFRAME.dll': The specified module couldn't be found.
+
 
 ### Large Gap after displaying progress bar
 
