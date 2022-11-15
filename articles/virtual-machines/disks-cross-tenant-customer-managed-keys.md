@@ -29,7 +29,7 @@ If you have questions about cross-tenant customer-managed keys with managed disk
 
 ## Create a disk encryption set
 
-Now that you've created your Azure Key Vault and performed the required Azure AD configurations, deploy a disk encryption set configured to work across tenants and associate it with a key in the key vault. You can do this using the Azure Portal, Azure PowerShell, or Azure CLI. You can also use an [ARM template](#arm) or [REST API](#rest-api).
+Now that you've created your Azure Key Vault and performed the required Azure AD configurations, deploy a disk encryption set configured to work across tenants and associate it with a key in the key vault. You can do this using the Azure Portal, Azure PowerShell, or Azure CLI. You can also use an [ARM template](#use-an-arm-template) or [REST API](#use-rest-api).
 
 # [Portal](#tab/azure-portal)
 
@@ -82,7 +82,9 @@ In the command below, `myAssignedId` should be the resource ID of the user-assig
 az disk-encryption-set create --resource-group MyResourceGroup --name MyDiskEncryptionSet --key-url MyKey --mi-user-assigned myAssignedId --federated-client-id myFederatedClientId --location westcentralus
 ```
 
-# [ARM](#tab/arm)
+---
+
+### Use an ARM template
 
 ```json
 {
@@ -139,7 +141,7 @@ az disk-encryption-set create --resource-group MyResourceGroup --name MyDiskEncr
 }
 ```
 
-# [REST API](#tab/rest)
+### Use REST API
 
 Use bearer token as authorization header and application/JSON as content type in BODY. (Network tab, filter to management.azure while performing any ARM request on portal.)
 
@@ -169,10 +171,6 @@ Content-Type: application/json
   }
 }
 ```
-
----
-
-
 
 ## Next steps
 
