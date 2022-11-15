@@ -128,7 +128,7 @@ For bounding boxes, important questions include:
 [!INCLUDE [describe](../../includes/machine-learning-data-labeling-quality-control.md)]
 
 > [!NOTE]
-> **Instance Segmentation** projects cannot use consensus labeling.  Select Next to go to the next section.
+> **Instance Segmentation** projects cannot use consensus labeling.
 
 ## Use ML-assisted data labeling
 
