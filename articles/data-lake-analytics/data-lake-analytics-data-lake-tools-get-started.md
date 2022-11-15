@@ -105,7 +105,7 @@ To see the latest job status and refresh the screen, select **Refresh**.
 
 ## Check job status
 
-1. In **Server Explorer**, select **Azure** > **Data Lake Analytics**.
+1. In **Data Lake Analytics Explorer**, select **Data Lake Analytics**.
 
 1. Expand the Data Lake Analytics account name.
 
@@ -115,9 +115,9 @@ To see the latest job status and refresh the screen, select **Refresh**.
 
 ## See the job output
 
-1. In **Server Explorer**, browse to the job you submitted.
+1. In **Data Lake Analytics Explorer**, browse to the job you submitted.
 
-1. Click the **Data** tab.
+1. Click the **Data** tab in your job.
 
 1. In the **Job Outputs** tab, select the `"/data.csv"` file.
 
