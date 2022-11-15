@@ -790,7 +790,7 @@
         },
         {
             "source_path_from_root": "/articles/aks/concepts-diagnostics.md",
-            "redirect_url": "/azure/aks/aks-diagnostics.md",
+            "redirect_url": "/azure/aks/aks-diagnostics",
             "redirect_document_id": false
         },
         {
