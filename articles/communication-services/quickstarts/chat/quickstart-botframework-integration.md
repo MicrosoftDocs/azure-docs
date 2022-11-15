@@ -27,7 +27,7 @@ You will learn how to:
 - [Get an Azure Communication Services resource](#step-2---get-an-azure-communication-services-resource)
 - [Enable Communication Services Chat channel for the bot](#step-3---enable-azure-communication-services-chat-channel)
 - [Create a chat app and add bot as a participant](#step-4---create-a-chat-app-and-add-bot-as-a-participant)
-- [Explore additional features available for bot](#more-things-you-can-do-with-bot)
+- [Explore additional features available for bot](#more-things-you-can-do-with-a-bot)
 
 ## Prerequisites
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -42,18 +42,18 @@ To use Azure Communication Services chat as a channel in Azure Bot Service, the 
 
 ### Provision an Azure bot service resource in Azure
 
-   Please refer to the Azure Bot Service documention on how to [create a bot](https://learn.microsoft.com/en-us/azure/bot-service/abs-quickstart?view=azure-bot-service-4.0&tabs=userassigned).
+   Please refer to the Azure Bot Service documention on how to [create a bot](https://learn.microsoft.com/azure/bot-service/abs-quickstart?view=azure-bot-service-4.0&tabs=userassigned).
 
    For this example, we have selected a multitenant bot but if you wish to use single tenant or managed identity bots refer to [confiugring single tenant and managed identity bots](#support-for-single-tenant-and-managed-identity-bots).
    
 
 ### Get Bot's MicrosoftAppId and MicrosoftAppPassword
 
-   Fetch your Azure bot's [Microsoft App Id and secret](https://learn.microsoft.com/en-us/azure/bot-service/abs-quickstart?view=azure-bot-service-4.0&tabs=userassigned#to-get-your-app-or-tenant-id) as you will need those for configurations.
+   Fetch your Azure bot's [Microsoft App Id and secret](https://learn.microsoft.com/azure/bot-service/abs-quickstart?view=azure-bot-service-4.0&tabs=userassigned#to-get-your-app-or-tenant-id) as you will need those for configurations.
 
 ### Create a Web App where the bot logic resides
 
- You can check out some samples at [Bot Builder Samples](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use [Bot Builder SDK](/composer/introduction) to create one. One of the simplest samples is [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Azure Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages`, which handles all the messages reaching the bot. To create the bot application, you can either use Azure CLI to [provision an App Service](https://learn.microsoft.com/en-us/azure/bot-service/provision-app-service?view=azure-bot-service-4.0&tabs=singletenant%2Cexistingplan) or provision from the portal using below steps.
+ You can check out some samples at [Bot Builder Samples](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use [Bot Builder SDK](/composer/introduction) to create one. One of the simplest samples is [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Azure Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages`, which handles all the messages reaching the bot. To create the bot application, you can either use Azure CLI to [provision an App Service](https://learn.microsoft.com/azure/bot-service/provision-app-service?view=azure-bot-service-4.0&tabs=singletenant%2Cexistingplan) or provision from the portal using below steps.
 
    1. Select `Create a resource` and in the search box, search for web app and select `Web App`. 
    
@@ -94,7 +94,7 @@ The final step would be to deploy the Web App we created. The Echo bot functiona
         "MicrosoftAppPassword": "<App-password>"
       }
       ```
-   For deploying the bot you can either use command line to [deploy an Azure bot](https://learn.microsoft.com/en-us/azure/bot-service/provision-and-publish-a-bot?view=azure-bot-service-4.0&tabs=userassigned%2Ccsharp) or use Visual studio for C# bots as described below.
+   For deploying the bot you can either use command line to [deploy an Azure bot](https://learn.microsoft.com/azure/bot-service/provision-and-publish-a-bot?view=azure-bot-service-4.0&tabs=userassigned%2Ccsharp) or use Visual studio for C# bots as described below.
 
    1. Select the project to publish the Web App code to Azure. Choose the publish option in Visual Studio. 
 
@@ -461,17 +461,17 @@ Event payload comprises all json fields in the message content except name field
 
 ## Support for single tenant and managed identity bots
 
-ACS Chat channel supports single tenant and managed identity bots as well. Please refer to [bot identity information](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-authentication?view=azure-bot-service-4.0&tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information) to set up your bot web app.
+ACS Chat channel supports single tenant and managed identity bots as well. Please refer to [bot identity information](https://learn.microsoft.com/azure/bot-service/bot-builder-authentication?view=azure-bot-service-4.0&tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information) to set up your bot web app.
 
-For managed identity bots, additionally, you might have to [update bot service identity](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-authentication?view=azure-bot-service-4.0&tabs=userassigned%2Caadv2%2Ccsharp#to-update-your-app-service).
+For managed identity bots, additionally, you might have to [update bot service identity](https://learn.microsoft.com/azure/bot-service/bot-builder-authentication?view=azure-bot-service-4.0&tabs=userassigned%2Caadv2%2Ccsharp#to-update-your-app-service).
 
 ## Bot handoff patterns
 
-Sometimes it will be necessary to handoff the chat thread from a bot to a human agent if the bot couldn't understand or answer a question or if the customer requests to be connected to a human agent. In such cases, it may be necessary to [transition conversation from bot to human](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-design-pattern-handoff-human?view=azure-bot-service-4.0).
+Sometimes it will be necessary to handoff the chat thread from a bot to a human agent if the bot couldn't understand or answer a question or if the customer requests to be connected to a human agent. In such cases, it may be necessary to [transition conversation from bot to human](https://learn.microsoft.com/azure/bot-service/bot-service-design-pattern-handoff-human?view=azure-bot-service-4.0).
 
 ## Handling bot to bot communication
 
- There may be certain usecases where two bots need to be added to the same thread. If this occurs then the bots may start replying to each other's messages. If this is not handled properly, the bots' automated interaction between themselves may result in an infinite loop of messages. This scenario is handled by Azure Communication Services Chat by throttling the requests which will result in the bot not being able to send and receive the messages. You can learn more about the [throttle limits](https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits#chat).
+ There may be certain usecases where two bots need to be added to the same thread. If this occurs then the bots may start replying to each other's messages. If this is not handled properly, the bots' automated interaction between themselves may result in an infinite loop of messages. This scenario is handled by Azure Communication Services Chat by throttling the requests which will result in the bot not being able to send and receive the messages. You can learn more about the [throttle limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits#chat).
 
 ## Troubleshooting
 
