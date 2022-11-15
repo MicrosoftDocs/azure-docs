@@ -162,11 +162,11 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 Replace `{subscriptionId}` with your subscription ID.
 
 > [!TIP]
-> You can use the [Get](/rest/api/defenderforcloud/pricings/get.md) and [List](/rest/api/defenderforcloud/pricings/list.md) API requests to see all of the Defender for Cloud plans that are enabled for the subscription.
+> You can use the [Get](/rest/api/defenderforcloud/pricings/get) and [List](/rest/api/defenderforcloud/pricings/list) API requests to see all of the Defender for Cloud plans that are enabled for the subscription.
 
 To disable the plan, set the `-pricingTier` property value to `Free` and remove the `subPlan` parameter.
 
-Learn more about the [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update.md) in HTTP, Java, Go and JavaScript.
+Learn more about the [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update) in HTTP, Java, Go and JavaScript.
 
 ## [Per-transaction pricing](#tab/per-transaction/)
 
@@ -317,7 +317,7 @@ Replace `{subscriptionId}` with your subscription ID.
 
 To disable the plan, set the `-pricingTier` property value to `Free` and remove the `subPlan` parameter.
 
-Learn more about the [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update.md) in HTTP, Java, Go and JavaScript.
+Learn more about the [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update) in HTTP, Java, Go and JavaScript.
 
 ### Set up per-transaction pricing for an account
 

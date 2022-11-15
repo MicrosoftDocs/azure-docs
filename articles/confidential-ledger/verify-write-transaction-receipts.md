@@ -48,7 +48,7 @@ The third step is to verify that the cryptographic signature produced over the r
 
 1. Decode the base64 string `signature` into an array of bytes.
 2. Extract the ECDSA public key from the signing node certificate `cert`.
-3. Verify that the signature over the root of the Merkle Tree (computed using the instructions in the previous subsection) is authentic using the extracted public key from the previous step. This step effectively corresponds to a standard [digital signature](https://wikipedia.org/wiki/Digital_signature) verification process using ECDSA. There are many libraries in the most popular programming languages that allow verifying an ECDSA signature using a public key certificate over some data (for example, [ecdsa](https://pypi.org/project/ecdsa/) for Python).
+3. Verify that the signature over the root of the Merkle Tree (computed using the instructions in the previous subsection) is authentic using the extracted public key from the previous step. This step effectively corresponds to a standard [digital signature](https://wikipedia.org/wiki/Digital_signature) verification process using ECDSA. There are many libraries in the most popular programming languages that allow verifying an ECDSA signature using a public key certificate over some data (for example, the [cryptography library](https://cryptography.io/en/latest/) for Python).
 
 ### Verify signing node certificate endorsement
 
