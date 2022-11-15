@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 11/15/2022
 ms.author: jammart
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell, engagement-fy23
@@ -35,14 +35,14 @@ You can change how your storage account is replicated from any type to any other
 - [Perform a conversion](#perform-a-conversion) to add or remove zone-redundancy.
 - [Perform a manual migration](#manual-migration) in scenarios where the first two options are not supported, or to ensure the change is completed by a specific time.
 
-If you want to change how data is replicated in the primary region and also configure geo-replication or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but the zone-redundancy conversion must be performed separately. It doesn't matter which is done first.
+If you want to change both zone-redundancy and either geo-replication or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but the zone-redundancy conversion must be performed separately. It doesn't matter which is done first.
 
 ### Replication change table
 
 The following table provides an overview of how to switch from each type of replication to another.
 
 > [!NOTE]
-> Manual migration is an option for any scenario in which you want to change the replication setting within the [limitations for changing replication types](#limitations-for-changing-replication-types), so that option has been omitted from the table below to simplify it.
+> Manual migration is an option for any scenario in which you want to change the replication setting within the [limitations for changing replication types](#limitations-for-changing-replication-types). That option has been omitted from the table below to simplify it.
 
 | Switching | …to LRS | …to GRS/RA-GRS <sup>6</sup> | …to ZRS | …to GZRS/RA-GZRS <sup>6</sup> |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
@@ -53,9 +53,9 @@ The following table provides an overview of how to switch from each type of repl
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
 <sup>2</sup> Switching to geo-redundancy is not supported if the storage account contains blobs in the archive tier. Before switching, either [rehydrate the archived blobs or perform a manual migration](#access-tier).<br />
-<sup>3</sup> Customer-initiated conversion is only supported for standard general-purpose v2 storage accounts. Support-requested conversion is supported for standard general-purpose v2 and premium file share storage accounts. Premium block blob and page blob storage accounts don't support either type of conversion.<br />
+<sup>3</sup> [The type of conversion supported depends on the storage account type](#storage-account-type).<br />
 <sup>4</sup> If you performed an account failover of a (RA-)GRS or (RA-)GZRS account, the account is locally redundant (LRS) in the new primary region after the failover. Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of failback operations. For more details see [Failover and failback](#failover-and-failback).<br />
-<sup>5</sup> Converting from LRS to ZRS is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares. <br />
+<sup>5</sup> Converting from LRS to ZRS is [not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares](#protocol-support). <br />
 <sup>6</sup> Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region cannot be initiated until data synchronization between the two regions has completed.<br />
 <sup>7</sup> ZRS, GZRS and RA-GZRS storage accounts do not support blobs in the archive tier. Before converting an account to one that supports zone-redundancy, consider [moving them to an LRS, GRS or RA-GRS storage account](#access-tier).<br />
 
@@ -105,7 +105,7 @@ az storage account update \
 
 ### Perform a conversion
 
-A redundancy "conversion" is the process of only changing the zone-redundancy aspect of a storage account.
+A redundancy "conversion" is the process of changing the zone-redundancy aspect of a storage account.
 
 During a conversion, [there is no data loss or application downtime required](#downtime-requirements).
 
@@ -219,7 +219,7 @@ Limitations apply to some replication change scenarios depending on:
 
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you are converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
-The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is available in all public ZRS regions except for the following:
+The [customer-initiated conversion](#customer-initiated-conversion) to ZRS is available in all public regions that support ZRS except for the following:
 
 - (Europe) West Europe
 - (Europe) UK South
