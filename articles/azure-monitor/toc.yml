@@ -342,7 +342,7 @@ items:
     - name: Structure
       displayName: Transformations
       href: essentials/data-collection-transformations-structure.md
-    - name:
+    - name: Tutorials
       items:
       - name: Workspace transformations in the Azure portal
         href: logs/tutorial-workspace-transformations-portal.md
