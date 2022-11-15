@@ -60,7 +60,7 @@ Learn more about [Redis Cache Server - RedisCacheMemoryFragmentation (Availabili
 
 We recommend configuring the Azure Front Door customer certificate secret to ‘Latest’ for the AFD to refer to the latest secret version in Azure Key Vault, so that the secret can be automatically rotated.
 
-Learn more about [Front Door Profile - SwitchVersionBYOC (Switch Secret version to ‘Latest’ for the Azure Front Door customer certificate)](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#certificate-renewal-and-changing-certificate-types).
+Learn more about [Front Door Profile - SwitchVersionBYOC (Switch Secret version to ‘Latest’ for the Azure Front Door customer certificate)](../frontdoor/standard-premium/how-to-configure-https-custom-domain.md#certificate-renewal-and-changing-certificate-types).
 ## Compute
 
 ### Enable Backups on your Virtual Machines
@@ -177,7 +177,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBSingleRegionProdAccounts (Ad
 
 We observed your account is throwing a TooManyRequests error with the 16500 error code. Enabling Server Side Retry (SSR) can help mitigate this issue for you.
 
-Learn more about [Azure Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB for MongoDB account)](/azure/cosmos-db/cassandra/prevent-rate-limiting-errors).
+Learn more about [Azure Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB for MongoDB account)](../cosmos-db/cassandra/prevent-rate-limiting-errors.md).
 
 ### Migrate your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
@@ -372,7 +372,7 @@ Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (Additi
 
 Prevent risk of connectivity failures due to SNAT port exhaustion by using NAT gateway for outbound traffic from your virtual networks. NAT gateway scales dynamically and provides secure connections for traffic headed to the internet.
 
-Learn more about [Virtual network - natGateway (Use NAT gateway for outbound connectivity)](/azure/load-balancer/load-balancer-outbound-connections#2-associate-a-nat-gateway-to-the-subnet).
+Learn more about [Virtual network - natGateway (Use NAT gateway for outbound connectivity)](../load-balancer/load-balancer-outbound-connections.md#2-associate-a-nat-gateway-to-the-subnet).
 
 ### Enable Active-Active gateways for redundancy
 

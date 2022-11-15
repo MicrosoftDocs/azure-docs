@@ -376,7 +376,7 @@ main().catch((err) => {
 [authentication]: azure-maps-authentication.md
 [Identity library]: /javascript/api/overview/azure/identity-readme
 
-[Host daemon]: /azure/azure-maps/how-to-secure-daemon-app#host-a-daemon-on-non-azure-resources
+[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [dotenv]: https://github.com/motdotla/dotenv#readme
 
 [search package]: https://www.npmjs.com/package/@azure/maps-search

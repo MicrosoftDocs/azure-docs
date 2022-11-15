@@ -47,4 +47,4 @@ You can now get Advisor recommendations and scores scoped to a workload, environ
 
 To learn more about tagging, see: 
 - [Define your tagging strategy - Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
-- [Tag resources, resource groups, and subscriptions for logical organization - Azure Resource Manager](/azure/azure-resource-manager/management/tag-resources?tabs=json)
+- [Tag resources, resource groups, and subscriptions for logical organization - Azure Resource Manager](../azure-resource-manager/management/tag-resources.md?tabs=json)

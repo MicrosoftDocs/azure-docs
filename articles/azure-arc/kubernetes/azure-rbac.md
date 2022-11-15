@@ -72,7 +72,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     }
     ```
 
-1.  Update the application's group membership claims. Run the commands in the same directory as `oauth2-permissions.json` file. RBAC for Azure Arc-enabled Kubernetes requires [`signInAudience` to be set to **AzureADMyOrg**](/azure/active-directory/develop/supported-accounts-validation):
+1.  Update the application's group membership claims. Run the commands in the same directory as `oauth2-permissions.json` file. RBAC for Azure Arc-enabled Kubernetes requires [`signInAudience` to be set to **AzureADMyOrg**](../../active-directory/develop/supported-accounts-validation.md):
     
     ```azurecli 
         az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
@@ -125,7 +125,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
         az ad app show --id "${SERVER_APP_ID}" --query "api.oauth2PermissionScopes[0].id" -o tsv
     ```
 
-4. Grant the required permissions for the client application. RBAC for Azure Arc-enabled Kubernetes requires [`signInAudience` to be set to **AzureADMyOrg**](/azure/active-directory/develop/supported-accounts-validation):
+4. Grant the required permissions for the client application. RBAC for Azure Arc-enabled Kubernetes requires [`signInAudience` to be set to **AzureADMyOrg**](../../active-directory/develop/supported-accounts-validation.md):
 
     ```azurecli
         az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
