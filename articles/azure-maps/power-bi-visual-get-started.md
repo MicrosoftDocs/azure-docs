@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
-description: In this article, you will learn how to use Azure Maps Power BI visual.
+description: In this article, you'll learn how to use Azure Maps Power BI visual.
 author: stevemunk
 ms.author: v-munksteve
 ms.date: 11/29/2021
@@ -19,7 +19,7 @@ This article shows how to use the Microsoft Azure Maps Power BI visual.
 > [!NOTE]
 > This visual can be created and viewed in both Power BI Desktop and the Power BI service. The steps and illustrations in this article are from Power BI Desktop.
 
-The Azure Maps Power BI visual provides a rich set of data visualizations for spatial data on top of a map. It is estimated that over 80% of business data has a location context. The Azure Maps Power BI visual can be used to gain insights into how this location context relates to and influences your business data.
+The Azure Maps Power BI visual provides a rich set of data visualizations for spatial data on top of a map. It's estimated that over 80% of business data has a location context. The Azure Maps Power BI visual can be used to gain insights into how this location context relates to and influences your business data.
 
 :::image type="content" source="media/power-bi-visual/azure-maps-visual-hero.png" alt-text="Power BI desktop with the Azure Maps Power BI visual displaying business data" lightbox="media/power-bi-visual/azure-maps-visual-hero.png":::
 
@@ -43,7 +43,7 @@ To learn more, about privacy and terms of use related to the Azure Maps Power BI
 
 There are a few considerations and requirements for the Azure Maps Power BI visual:
 
-- The Azure Maps Power BI visual must be enabled in Power BI Desktop. To enable Azure Maps Power BI visual, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual is not available after enabling this setting, it's likely that a tenant admin switch in the Admin Portal needs to be enabled.
+- The Azure Maps Power BI visual must be enabled in Power BI Desktop. To enable Azure Maps Power BI visual, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual isn't available after enabling this setting, it's likely that a tenant admin switch in the Admin Portal needs to be enabled.
 - The data set must have fields that contain **latitude** and **longitude** information.
 
 ## Use the Azure Maps Power BI visual
@@ -99,7 +99,7 @@ The following data buckets are available in the **Fields** pane of the Azure Map
 
 The **Map settings** section of the **Format** pane provide options for customizing how the map is displayed and reacts to updates.
 
-The **Map settings** section is divided into three sub-sections: [style](#style), [view](#view) and [controls](#controls).
+The **Map settings** section is divided into three subsections: [style](#style), [view](#view) and [controls](#controls).
 
 ### Style
 
@@ -108,7 +108,7 @@ The following settings are available in the **Style** section:
 | Setting     | Description  |
 |-------------|--------------|
 | Style       | The style of the map. The dropdown list contains [greyscale light][gs-light], [greyscale dark][gs-dark], [night][night], [road shaded relief][RSR], [satellite][satellite] and [satellite road labels][satellite RL]. |
-| Show labels | A toggle switch that enables you to either show or hide map labels. See list item number five in the previous section for more information. |
+| Show labels | A toggle switch that enables you to either show or hide map labels. For more information, see list item number five in the previous section. |
 
 ### View
 
@@ -132,7 +132,7 @@ The following settings are available in the **Controls** section:
 | World wrap   | Allows the user to pan the map horizontally infinitely. |
 | Style picker | Adds a button to the map that allows the report readers to change the style of the map. |
 | Navigation   | Adds buttons to the map as another method to allow the report readers to zoom, rotate, and change the pitch of the map. See this document on [Navigating the map](map-accessibility.md#navigating-the-map) for details on all the different ways users can navigate the map. |
-| Selection    | Adds a button that allows the user to choose between different modes to select data on the map; circle, rectangle, polygon (lasso), or travel time or distance. When drawing a polygon, to complete the drawing; click on the first point, or double-click the map on the last point, or press the `c` key. |
+| Selection    | Adds a button that allows the user to choose between different modes to select data on the map; circle, rectangle, polygon (lasso), or travel time or distance. To complete drawing a polygon; select the first point, or double-click on the last point on the map, or press the `c` key. |
 | Geocoding culture | The default, **Auto**, refers to the Western Address System. The only other option, **JA**, refers to the Japanese address system. In the western address system, you begin with the address details and then proceed to the larger categories such as city, state and postal code. In the Japanese address system, the larger categories are listed first and finish with the address details. |
 
 ## Considerations and Limitations
@@ -150,7 +150,7 @@ The Azure Maps Power BI visual is available in the following services and applic
 
 **Where is Azure Maps available?**
 
-At this time, Azure Maps is currently available in all countries and regions except the following:
+At this time, Azure Maps is currently available in all countries and regions except:
 
 - China
 - South Korea
