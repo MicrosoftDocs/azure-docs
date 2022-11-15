@@ -11,6 +11,8 @@ items:
     href: observability-data.md    
   - name: What's new?
     href: whats-new.md
+  - name: Cost optimization
+    href: best-practices-cost-optimization.md     
   - name: Partner integrations
     href: partners.md
   - name: Security
@@ -130,10 +132,6 @@ items:
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
     href: azure-cli-metrics-alert-sample.md
-- name: Well-Architected Framework
-  items:
-  - name: Cost optimization
-    href: well-architected-cost-optimization.md      
 - name: Scenarios
   items:
   - name: End to end deployment
