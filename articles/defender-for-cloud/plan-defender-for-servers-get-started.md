@@ -1,5 +1,5 @@
 ---
-title: Plan Defender for Servers deployment
+title: Plan your Defender for Servers deployment
 description: Design your Defender for Servers deployment
 ms.topic: conceptual
 ms.date: 11/06/2022
@@ -12,71 +12,60 @@ Defender for Servers protects your Windows and Linux machines in the cloud and o
 
 ## About this guide
 
-This guide can be used by cloud solution and infrastructure architects, security architects and analysts, and anyone else involved in protecting cloud/hybrid servers and workloads. The guide helps you to answer these questions:
+This planning guide can be used by cloud solution and infrastructure architects, security architects and analysts, and anyone else involved in protecting cloud/hybrid servers and workloads. The guide aims to answer these questions:
 
-- How can Defender for Servers help my organization.
-- Which Defender for Servers plan should we select?
-- Where will my server data be stored?
+- What can Defender for Servers do for my organization?
+- Which Defender for Servers plan is right for me?
+- Where is my data stored?
 - What agents must be deployed?
 - What permissions are needed?
 - How do I deploy at scale?
 
 ## Before you begin
 
-- Make sure you have a basic understanding of Azure, Defender for Cloud, and the organizational servers and workloads you want to protect.
-- Watch a [Defender for Servers introduction](episode-five.md) in our Defender for Cloud in the Field series.
+- You should have a basic understanding of [Defender for Cloud](defender-for-cloud-introduction.md), and the servers you want to protect. For a quick video, watch a [Defender for Servers introduction](episode-five.md) in our Defender for Cloud in the Field series.
 - Get pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ## Overview
 
-Defender for Servers provides extended detection and response (XDR) capabilities with asset visibility, and threat detection, prevention, and response across Azure, AWS, and GCP clouds, as well as on-premises. Capabilities and integrations include:
+Defender for Servers 
 
-- Comprehensive server discovery, and a single security view of your multicloud and on-premises servers.
-- Integration with Microsoft Defender for Endpoint to provide attack surface reductions, next-generation antivirus protection, endpoint detection and response (EDR) capabilities, and vulnerability assessment.
-- Advanced protection and detection capabilities, including
-    - [Adaptive application controls](adaptive-application-controls.md) to define allow lists of safe apps for machines.
-    - [Just in time VM access](just-in-time-access-overview.md) to lock down inbound traffic to machine ports.
-    - [File integrity monitoring](file-integrity-monitoring-overview.md) to examine operating system files, Windows registries, app software, and Linux system files for changes that might indicate an attack.
-    - [Adaptive network hardening](adaptive-network-hardening.md) to further harden network security group (NSG) rules, based on actual traffic patterns.
-    - [Docker host hardening](harden-docker-hosts.md) for unmanaged containers running on Linux VMs.
-    - [Vulnerability assessment](deploy-vulnerability-assessment-vm.md) with Defender for Cloud and Qualys.
-- Integration with Defender for Cloud free, foundational cloud security posture management (CSPM)protection that [integrates with Microsoft cloud security benchmark](apply-security-baseline.md), assesses security configurations, and provides recommendations.
-- [Integration with the Microsoft Defender CSPM plan](concept-cloud-security-posture-management#defender-cspm-plan-options.md), providing features such as assessment against compliance standards, cloud security graph to inventory hybrid and multicloud resources, and connections between then, and attack path analysis to expose exploitable paths and prevention recommendations.
+Defender for Servers provides asset-level server protection.
 
+- Defender for Servers protects servers in Azure, AWS, and GCP clouds, and on-premises.
+- Defender for Servers integrates with Microsoft Defender for Endpoint's [endpoint detection and response (EDR) capabilities](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response), to provide extended detection and response (XDR) for multicloud servers.
+- In addition to the EDR features provided by the Defender for Endpoint integration, Defender for Server add cloud security controls to protect servers, apps, and networks.
 
 ## Select a Defender for Servers plan
 
 Defender for Servers provides two plans you can choose from.
 
-- Entry-level Plan 1 provides Defender for Cloud's free [foundational cloud security posture management](concept-cloud-security-posture-management.md#defender-cspm-plan-options), and with [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2) antimalware protection, vulnerability assessment, fileless attack detection, and threat detection.
-- Plan 2 provides all Plan 1 capabilities, and additional security capabilities.
+- **Defender for Servers Plan 1** is entry-level and provides:
+    -  Defender for Cloud's free [foundational cloud security posture management](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+    - EDR features provided by [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2)
+- **Defender for Servers Plan 2** provides:
+    - All the functionality included in Defender for Servers Plan 1.
+    - Additional XDR capabilities.
 
+In addition to plan features, Defender for Servers leverages Defender for Cloud's  free[foundational cloud security posture management (CSPM)] (concept-cloud-security-posture-management#defender-cspm-plan-options) capabilities, to continually, assess, score, and remediate your security posture.
+
+### Plan features
 
 | Feature | Details | Plan 1 | Plan 2 |
 |:---|:---|:---:|:---:|
-| **Defender for Endpoint integration** | Defender for Servers integrates with Defender for Endpoint Plan 2.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Defender for Endpoint integration** | Defender for Servers integrates with Defender for Endpoint Plan 2 and protects servers with all the Plan 2 features, including:<br/><br/>- [Attack surface reduction](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction) to lower the risk of attack.<br/>- [Next-generation protection](/microsoft-365/security/defender-endpoint/next-generation-protection?view=o365-worldwide), including real-time scanning/protection and [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection).<br> - EDR including [threat analytics](/microsoft-365/security/defender-endpoint/threat-analytics), [automated investigation and response](/microsoft-365/security/defender-endpoint/automated-investigations), [advanced hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview), and [Microsoft Defender Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts).<br/>- Vulnerability assessment/mitigation with [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Licensing** | Defender for Server charges Defender for Endpoint licenses per hour instead of per seat, lowering costs by protecting virtual machines only when they're in use.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Unified view** | Defender for Endpoint alerts display in the Defender for Cloud portal. You can drill down into the Defender for Endpoint portal for more information.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Defender for Endpoint provisioning** | Defender for Servers automatically provisions the Defender for Endpoint sensor on every supported machine that's connected to Defender for Cloud.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | 
-| **Reduce attack surface | Defender for Endpoint provides [capabilities](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction) that include attack surface reduction rules, ransomware mitigation with controlled folder access, device controls, web and network protection. | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Next generation protection** | Defender for Endpoint provides [next-generation protection](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/next-generation-protection?view=o365-worldwide) to reinforce the security perimeter of your network. Features include real-time scanning and protection, and [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection).| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Threat detection** | Defender for Endpoint Plan 2 provides threat management capabilities, including [threat analytics](/microsoft-365/security/defender-endpoint/threat-analytics), [automated investigation and response](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/automated-investigations?view=o365-worldwide), [advanced hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview), [endpoint detection and response](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response), and [Microsoft Defender Experts](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-threat-experts?view=o365-worldwide).<br/><br/> Defender for Servers add | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Vulnerability management** | Defender for Endpoint plan 2 includes [Defender Vulnerability Management](https://learn.microsoft.com/en-us/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide)<br/><br/> capabilities to identify, assess, and remediate vulnerabilities across critical assets | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-
-| **Threat detection** | Defender for Servers and Microsoft Defender for Endpoint (MDE) detect threats at the OS and network levels, including VM behavioral detections.<br>/<br/>  | :::image type="icon" source="./media/icons/yes-icon.png"::: <br>(Provided by MDE) | :::image type="icon" source="./media/icons/yes-icon.png"::: <br>(Provided by MDE & Defender for Servers) |
-| **Integrated vulnerability assessment** | Use the Qualys scanner for real-time identification of vulnerabilities in Azure and hybrid VMs. Everything's handled by Defender for Cloud. You don't need a Qualys license or even a Qualys account. [Learn more](deploy-vulnerability-assessment-vm.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Unified view** | Defender for Endpoint alerts display in the Defender for Cloud portal. You can drill down into the Defender for Endpoint portal for more information.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Integrated vulnerability assessment** | In addition to vulnerability management provided by Defender for Endpoint, you can use the Qualys scanner to identify vulnerabilities in real-time. It's integrated with Defender for Cloud, you don't need a Qualys license or account. [Learn more](deploy-vulnerability-assessment-vm.md). | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+**Adaptive application controls (AAC)** | [AACs](adaptive-application-controls.md) in Defender for Cloud define allowlists of known safe applications for machines. Defender for Cloud must be enabled on a subscription to use this feature. | |:::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Log Analytics 500 MB free data ingestion** | Defender for Cloud leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Threat detection for the control plane** | Defender for Servers detects threats directed at the control plane, including network-based detections. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
- **Adaptive application controls (AAC)** | [AACs](adaptive-application-controls.md) in Defender for Cloud define allowlists of known safe applications for machines. Defender for Cloud must be enabled at the subscription level to use this feature. | |:::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Just-in-time VM access** | Defender for Cloud provides [JIT access](just-in-time-access-overview.md), locking down machine ports to reduce the machine's attack surface. Defender for Cloud must be enabled on a subscription to use this feature. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Adaptive network hardening** | Filtering traffic to and from resources with network security groups (NSG) improves your network security posture. You can further improve security by [hardening the NSG rules](adaptive-network-hardening.md) based on actual traffic patterns. Defender for Cloud must be enabled on a subscription to use this feature. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **File Integrity Monitoring (FIM)** | [FIM](file-integrity-monitoring-overview.md) (change monitoring) examines files and registries for changes that might indicate an attack. A comparison method is used to determine whether suspicious modifications have been made to files. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Policy and compliance** | Customize a security policy for your subscription and also compare the configuration of your resources with requirements in industry standards, regulations, and benchmarks. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Just-in-time VM access** | Defender for Cloud provides [JIT access](just-in-time-access-overview.md), locking down machine ports to reduce the machine's attack surface. To use this feature, Defender for Cloud must be enabled at the subscription level to use this feature. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Adaptive network hardening** | Filtering traffic to and from resources with network security groups (NSG) improves your network security posture. You can further improve security by [hardening the NSG rules](adaptive-network-hardening.md) based on actual traffic patterns. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Docker host hardening** | Defender for Cloud assesses containers hosted on Linux machines running Docker containers, and compares them with the Center for Internet Security (CIS) Docker Benchmark. [Learn more](harden-docker-hosts.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-<!-- 
- [Learn more](fileless-attack-detection.md).
-| Future – TVM P2 | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Future – disk scanning insights | | :::image type="icon" source="./media/icons/yes-icon.png"::: | -->
+
+
 
 > [!NOTE]
 > If you only enable Defender for Cloud at the workspace level, Defender for Cloud won't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources.
