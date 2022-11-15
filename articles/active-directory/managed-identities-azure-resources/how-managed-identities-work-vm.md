@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.devlang:
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 10/30/2022
+ms.date: 11/15/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
