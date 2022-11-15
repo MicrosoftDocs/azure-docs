@@ -56,6 +56,11 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 > - Publish is a background operation. For example, Azure Storage accounts can take up to **2 hours** to reflect the changes.
 > - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull.
 
+## Unpublish a data owner policy
+Follow this link for the steps to [unpublish a data owner policy in Microsoft Purview](how-to-policies-data-owner-authoring-generic.md#unpublish-a-policy).
+
+## Update or delete a data owner policy
+Follow this link for the steps to [update or delete a data owner policy in Microsoft Purview](how-to-policies-data-owner-authoring-generic.md#update-or-delete-a-policy).
 
 ## Additional information
 - Creating a policy at subscription or resource group level will enable the Subjects to access Azure Storage system containers,  for example, *$logs*. If this is undesired, first scan the data source and then create finer-grained policies for each (that is, at container or sub-container level).
