@@ -47,7 +47,7 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 ## NCONNECT mount option
 Nconnect is a mount option for NFS volumes hosted on ANF that allows the NFS client to open multiple sessions against a single NFS volume. Using nconnect with a value of larger than 1 also triggers the NFS client to use more than one RPC endpoint on the client side (in the guest OS) to handle the traffic between the guest OS and the mounted NFS volumes. The usage of multiple sessions handling traffic of one NFS volume, but also the usage of multiple RPC sessions can address performance and throughput scenarios like:
 
-- Mounting of multiple ANF hosted NFS volumes with different [service levels](../../../azure-netapp-files/azure-netapp-files-service-levels.md#supported-service-level) in one VM
+- Mounting of multiple ANF hosted NFS volumes with different [service levels](../../../azure-netapp-files/azure-netapp-files-service-levels.md#supported-service-levels) in one VM
 - The maximum write throughput for a volume and a single Linux session is between 1.2 and 1.4 GB/s. Having multiple sessions against one ANF hosted NFS volume can increase the throughput 
 
 For Linux OS releases that support nconnect as a mount option and some important configuration considerations of nconnect, especially with different NFS server endpoints, read the document [Linux NFS mount options best practices for Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md). 
