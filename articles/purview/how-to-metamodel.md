@@ -25,6 +25,13 @@ This article will get you started in building a metamodel for your Microsoft Pur
 - Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).
 - [Data Curator role](catalog-permissions.md#roles) on the collection where the data asset is housed. See the guide on [managing Microsoft Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
 
+## Current Limitations
+
+- New relationships will always be association relationships.
+- When a new asset created, you have to refresh the asset to see relationships
+- You can't set relationships between two data assets in the Microsoft Purview governance portal
+- The related tab only shows a "business lineage" view for business assets, not data assets
+
 ## Create and modify asset types
 
 1. To get started, open the data map and select **Asset types**. You’ll see a list of available asset types. [Predefined asset types](#predefined-asset-types) will have unique icons. All custom assets are designated with a puzzle piece icon.
