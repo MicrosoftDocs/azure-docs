@@ -324,9 +324,9 @@ For further troubleshooting, you may want to export your audit logs to send to t
 
     The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog. Select the link to download the file.
 
-1. Exported audit logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its password. 
+1. Exported audit logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its one-time password. 
 
-Exported audit logs can only be opened together with the support team. Forward the exported logs and the generated password to the support team in order to troubleshoot. Make sure to send the password to support separately from the exported logs.
+Exported audit logs can only be opened together with the support team. Forward the exported logs and the one-time password to the support team in order to troubleshoot. Make sure to send the password to support separately from the exported logs.
 
 ## Next steps
 
