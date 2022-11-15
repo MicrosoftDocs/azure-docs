@@ -8,7 +8,7 @@ ms.date: 02/04/2022
 
 # Cost recommendations
 
-Azure Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
+Azure Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
 
 1. Sign in to the [**Azure portal**](https://portal.azure.com).
 
@@ -152,7 +152,7 @@ Learn more about [Recovery Services vault - Optimize costs of database backup (U
 
 Large classic log data is detected on your storage accounts. You are billed on capacity of data stored in storage accounts including classic logs. You are recommended to check the retention policy of classic logs and update with necessary period to retain less log data. This would reduce unnecessary classic log data and save your billing cost from less capacity.
 
-Learn more about [Storage Account - XstoreLargeClassicLog (Revisit retention policy for classic log data in storage accounts)](../storage/common/manage-storage-analytics-logs.md#modify-retention-policy).
+Learn more about [Storage Account - XstoreLargeClassicLog (Revisit retention policy for classic log data in storage accounts)](/azure/storage/common/manage-storage-analytics-logs#modify-retention-policy).
 
 ## Reserved Instances
 
