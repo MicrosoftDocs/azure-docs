@@ -126,6 +126,8 @@
       href: scenes-shots-keyframes.md
     - name: View and update transcriptions
       href: edit-transcript-lines-portal.md     
+    - name: Edit speakers
+      href: edit-speakers.md   
     - name: Identify and transcribe multi-language content
       href: multi-language-identification-transcription.md
     - name: Use editor to create projects
