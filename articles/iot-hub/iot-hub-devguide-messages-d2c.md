@@ -36,11 +36,10 @@ If your custom endpoint has firewall configurations, consider using the [Microso
 IoT Hub currently supports the following endpoints:
 
  - Built-in endpoint
- - Azure Storage
+ - Storage containers
  - Service Bus Queues and Service Bus Topics
-- Event Hubs
-   
-- Azure Cosmos DB (preview)
+ - Event Hubs 
+ - Cosmos DB (preview)
    
 ## Built-in endpoint as a routing endpoint
 
@@ -99,13 +98,13 @@ Apart from the built-in-Event Hubs compatible endpoint, you can also route data 
 ## Azure Cosmos DB as a routing endpoint (preview)
 You can send data directly to Azure Cosmos DB from IoT Hub. Cosmos DB is a fully managed hyperscale multi-model database service. It provides very low latency and high availability, making it a great choice for scenarios like connected solutions and manufacturing which require extensive downstream data analysis.
 
-IoT Hub supports writing to Cosmos DB in the JSON format. In order to set up a route to Cosmos DB, you will have to do the following:
+IoT Hub supports writing to Cosmos DB in JSON (if specified in the message content-type) or as Base64 encoded binary. In order to set up a route to Cosmos DB, you will have to do the following:
 
 From your provisioned IoT Hub, go to the Hub settings and click on message routing. Go to the Custom endpoints tab, click on Add and select Cosmos DB. The following image shows the endpoint addition:
 
 ![CosmosDBEndpoint2](media/iot-hub-devguide-messages-d2c/cosmosdbendpoint2.png)Enter your endpoint name. You should be able to choose from a list of Cosmos DB accounts available for selection, along with the Database and collection.
 
-As Cosmos DB is a hyperscale datastore, all data/documents written to it must contain a field that represents a logical partition. The partition key property name is defined at the Container level and cannot be changed once it has been set. Each logical partition has a maximum size of 20GB. To best enable high-scale scenarios, you can enable [synthetic partition keys](/azure/cosmos-db/nosql/synthetic-partition-keys) for the CosmosDB endpoint and configure them based on based on your estimated data volume. For example, in manufacturing scenarios, your logical partition might be expected to approach its max limit of 20 GB within a month. In that case, you can define a synthetic partition key which is a combination of the device id and the month. This key will be automatically added to the partition key field for each new Cosmos DB record, ensuring logical partitions are created each month for each device.
+As Cosmos DB is a hyperscale datastore, all data/documents written to it must contain a field that represents a logical partition. The partition key property name is defined at the Container level and cannot be changed once it has been set. Each logical partition has a maximum size of 20GB. To effectively support high-scale scenarios, you can enable [Synthetic Partition Keys](/azure/cosmos-db/nosql/synthetic-partition-keys) for the Cosmos DB endpoint and configure them based on based on your estimated data volume. For example, in manufacturing scenarios, your logical partition might be expected to approach its max limit of 20 GB within a month. In that case, you can define a Synthetic Partition Key which is a combination of the device id and the month. This key will be automatically added to the partition key field for each new Cosmos DB record, ensuring logical partitions are created each month for each device.
 
  You can choose any of the supported authentication types for accessing the database, based on your system setup.
 
@@ -139,16 +138,6 @@ You can enable/disable the fallback route in the Azure portal->Message Routing b
 ## Non-telemetry events
 
 In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, digital twin change events, and device connection state events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device or module was deleted or created. For more information about device lifecycle events, see [Device and module lifecycle notifications](./iot-hub-devguide-identity-registry.md#device-and-module-lifecycle-notifications). When using [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin property is set or changed, a digital twin is replaced, or when a change event happens for the underlying device twin. Finally, if a route is created with data source set to **device connection state events**, IoT Hub sends a message indicating whether the device was connected or disconnected.
-
-
-
-
-
-
-
-
-
-
 
 [IoT Hub also integrates with Azure Event Grid](iot-hub-event-grid.md) to publish device events to support real-time integrations and automation of workflows based on these events. See key [differences between message routing and Event Grid](iot-hub-event-grid-routing-comparison.md) to learn which works best for your scenario.
 
