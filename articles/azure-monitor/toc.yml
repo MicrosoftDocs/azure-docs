@@ -12,7 +12,7 @@ items:
   - name: What's new?
     href: whats-new.md
   - name: Cost optimization
-    href: best-practices-cost-optimization.md     
+    href: best-practices-cost.md     
   - name: Partner integrations
     href: partners.md
   - name: Security
