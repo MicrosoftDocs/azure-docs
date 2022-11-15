@@ -72,7 +72,7 @@ The **recommended cluster size** are as follows:
 |For Production |3-10 |4 vCPU, 14 GiB Memory, 12800 IOPS, 1500Mbps BW  |DS3v2 or better  |
 |For Production |>10 | -- |TBD |-- |
 
-> [!NOTE]
+> [!IMPORTANT]
 >
 > Here are some other considerations for reference:
 > 1. For **higher network bandwidth and better disk I/O performance**, we recommend a larger SKU. 
