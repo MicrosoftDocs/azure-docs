@@ -63,7 +63,7 @@ If you don't have alert rules defined for the selected resource, you can [enable
 > The alert rule recommendations feature is currently in preview and is only enabled for unmonitored:
 > - Virtual machines
 > - AKS resources
-> - Log Analytics resources
+> - Log Analytics workspaces
 
 ## Azure role-based access control (Azure RBAC) for alerts
 

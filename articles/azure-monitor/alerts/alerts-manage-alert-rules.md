@@ -31,7 +31,7 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 > The alert rule recommendations feature is currently in preview and is only enabled for unmonitored:
 > - Virtual machines
 > - AKS resources
-> - Log Analytics resources
+> - Log Analytics workspaces
 
 If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or enable recommended out-of-the-box alert rules in the Azure portal.
 
