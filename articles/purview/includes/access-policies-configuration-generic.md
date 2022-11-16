@@ -8,9 +8,9 @@ ms.date: 10/28/2022
 ms.custom:
 ---
 
-#### Configure permissions to enable Data Use Management on the data source
+#### Configure permissions to enable Data use management on the data source
 
-Before a policy can be created in Microsoft Purview for a resource, you must configure permissions. To enable the **Data Use Management** toggle for a data source, resource group, or subscription, the *same user* must have *both* specific identity and access management (IAM) privileges on the resource and specific Microsoft Purview privileges: 
+Before a policy can be created in Microsoft Purview for a resource, you must configure permissions. To enable the **Data use management** toggle for a data source, resource group, or subscription, the *same user* must have *both* specific identity and access management (IAM) privileges on the resource and specific Microsoft Purview privileges: 
 
 - The user must have *either one* of the following IAM role combinations on the resource's Azure Resource Manager path or any parent of it (that is, using IAM permission inheritance):
    - IAM Owner
@@ -55,7 +55,7 @@ For more information about managing Microsoft Purview role assignments, see [Cre
 
 #### Delegation of access provisioning responsibility to roles in Microsoft Purview
 
-After a resource has been enabled for **Data Use Management**, any Microsoft Purview user with the *Policy author* role at the root collection level can provision access to that data source from Microsoft Purview.
+After a resource has been enabled for **Data use management**, any Microsoft Purview user with the *Policy author* role at the root collection level can provision access to that data source from Microsoft Purview.
 
 The IAM Owner role for a data resource can be inherited from a parent resource group, a subscription, or a subscription management group. Check which Azure AD users, groups, and service principals hold or are inheriting the IAM Owner role for the resource.
 

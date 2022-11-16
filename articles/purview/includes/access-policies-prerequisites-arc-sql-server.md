@@ -63,7 +63,7 @@ This section describes the steps to configure SQL Server on Azure Arc to use Mic
 
    Optionally, you can confirm the endpoint by going to the Microsoft Purview account. Go to the **Properties** section on the left menu and scroll down until you see **Scan endpoint**. The full endpoint path is the one listed without "/Scan" at the end.
 
-1. Make a note of the **App registration ID** value. You'll need it when you register and enable this data source for **Data Use Management** in Microsoft Purview.
+1. Make a note of the **App registration ID** value. You'll need it when you register and enable this data source for **Data use management** in Microsoft Purview.
 
    ![Screenshot that shows selections for configuring a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
    
