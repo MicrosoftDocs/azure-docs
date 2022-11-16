@@ -117,9 +117,9 @@ The full list of configurable fields and descriptions is available in the [Autos
 
 For code examples, see
 
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](../../virtual-machine-scale-sets/tutorial-autoscale-template.md)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 ## Horizontal vs vertical scaling
 
 Autoscale scales horizontally, which is an increase, or decrease of the number of resource instances. For example, in a Virtual Machine Scale Set, scaling out means adding more virtual machines Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation as it allows you to run a large number of VMs to handle load.
@@ -130,18 +130,18 @@ In contrast, vertical scaling, keeps the same number of resources constant, but 
 
 The following services are supported by autoscale:
 
-| Service | Schema & Documentation |
-| --- | --- |
-| Azure Virtual machines scale sets |[Overview of autoscale with Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md) |
-| Web apps |[Scaling Web Apps](autoscale-get-started.md) |
-| Azure API Management service|[Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)
-| Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Azure Stream Analytics | [Autoscale streaming units (Preview)](../../stream-analytics/stream-analytics-autoscale.md) |
-| Azure Machine Learning Workspace | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md) |
- Spring Cloud |[Set up autoscale for microservice applications](../../spring-apps/how-to-setup-autoscale.md)|
-| Media Services | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling) |
-| Service Bus |[Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)|
-| Logic Apps - Integration Service Environment(ISE) | [Add ISE capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity) |
+| Service                                           | Schema & Documentation                                                                                                                           |
+|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Virtual machines scale sets                 | [Overview of autoscale with Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md) |
+| Web apps                                          | [Scaling Web Apps](autoscale-get-started.md)                                                                                                     |
+| Azure API Management service                      | [Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)                                   |
+| Azure Data Explorer Clusters                      | [Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)             |
+| Azure Stream Analytics                            | [Autoscale streaming units (Preview)](../../stream-analytics/stream-analytics-autoscale.md)                                                      |
+| Azure Machine Learning Workspace                  | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md)                                                             |
+| Azure Spring Apps                                 | [Set up autoscale for applications](../../spring-apps/how-to-setup-autoscale.md)                                                                 |
+| Media Services                                    | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling)                                                          |
+| Service Bus                                       | [Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)         |
+| Logic Apps - Integration Service Environment(ISE) | [Add ISE capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)                                              |
 
 ## Next steps
 
@@ -149,10 +149,10 @@ To learn more about autoscale, see the following resources:
 
 * [Azure Monitor autoscale common metrics](autoscale-common-metrics.md)
 * [Use autoscale actions to send email and webhook alert notifications](autoscale-webhook-email.md)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with Azure PowerShell](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
-* [Autoscale CLI reference](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
-* [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings)
-* [PowerShell Az.Monitor Reference](https://learn.microsoft.com/powershell/module/az.monitor/#monitor)
-* [REST API reference. Autoscale Settings](https://learn.microsoft.com/rest/api/monitor/autoscale-settings).
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](../../virtual-machine-scale-sets/tutorial-autoscale-template.md)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with Azure PowerShell](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
+* [Autoscale CLI reference](/cli/azure/monitor/autoscale)
+* [ARM template resource definition](/azure/templates/microsoft.insights/autoscalesettings)
+* [PowerShell Az.Monitor Reference](/powershell/module/az.monitor/#monitor)
+* [REST API reference. Autoscale Settings](/rest/api/monitor/autoscale-settings).

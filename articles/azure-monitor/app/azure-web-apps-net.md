@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance ASP.NET | Microsoft Docs
 description: Application performance monitoring for Azure app services using ASP.NET. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 11/14/2022
 ms.devlang: javascript
 ms.custom: devx-track-dotnet
 ms.reviewer: abinetabate
@@ -185,7 +185,7 @@ The table below provides a more detailed explanation of what these values mean, 
 
 ### System.IO.FileNotFoundException after 2.8.44 upgrade
 
-2.8.44 version of auto instrumentation upgrades Application Insights SDK to 2.20.0. Application Insights SDK has an indirect reference to `System.Runtime.CompilerServices.Unsafe.dll` through `System.Diagnostics.DiagnosticSource.dll`. If application has [binding redirect](https://learn.microsoft.com/dotnet/framework/configure-apps/file-schema/runtime/bindingredirect-element) for `System.Runtime.CompilerServices.Unsafe.dll` and if this library is not present in application folder it may throw `System.IO.FileNotFoundException`.
+2.8.44 version of auto instrumentation upgrades Application Insights SDK to 2.20.0. Application Insights SDK has an indirect reference to `System.Runtime.CompilerServices.Unsafe.dll` through `System.Diagnostics.DiagnosticSource.dll`. If application has [binding redirect](/dotnet/framework/configure-apps/file-schema/runtime/bindingredirect-element) for `System.Runtime.CompilerServices.Unsafe.dll` and if this library is not present in application folder it may throw `System.IO.FileNotFoundException`.
 
 To resolve this issue, remove the binding redirect entry for `System.Runtime.CompilerServices.Unsafe.dll` from web.config file. If the application wanted to use `System.Runtime.CompilerServices.Unsafe.dll` then set the binding redirect as below.
 
