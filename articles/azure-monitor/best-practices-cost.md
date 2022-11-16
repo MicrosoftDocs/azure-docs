@@ -50,7 +50,7 @@ Your retention requirement might be for compliance reasons or for occasional inv
 
 You can configure retention and archiving for all tables in a workspace or configure each table separately. The options allow you to optimize your costs by setting only the retention you require for each data type.
 
-### Configure Basic Logs (preview)
+### Configure Basic Logs
 
 You can save on data ingestion costs by configuring [certain tables](logs/basic-logs-configure.md#which-tables-support-basic-logs) in your Log Analytics workspace that you primarily use for debugging, troubleshooting, and auditing as [Basic Logs](logs/basic-logs-configure.md). 
 
