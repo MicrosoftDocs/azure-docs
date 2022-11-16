@@ -33,7 +33,7 @@ To learn more about action groups, see [Create and manage action groups](../azur
 For information on how to configure resource health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](./resource-health-alert-arm-template-guide.md).
 Resource Health Alert using Azure portal
 
-## Create a Resource Health alert rule in the Azure Portal
+## Create a Resource Health alert rule in the Azure portal
 
 1. In the Azure [portal](https://portal.azure.com/), select **Service Health**.
 
