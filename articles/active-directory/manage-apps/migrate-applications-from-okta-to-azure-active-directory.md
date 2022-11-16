@@ -14,7 +14,7 @@ ms.author: gasinh
 ms.subservice: app-mgmt
 ---
 
-# Tutorial: Migrate your applications from Okta to Azure Active Directory
+# Tutorial: Migrate your applications from Okta to Azure Active Directory 
 
 In this tutorial, you'll learn how to migrate your applications from Okta to Azure Active Directory (Azure AD).
 
