@@ -153,30 +153,95 @@ The following sections presents the libraries included in Azure Synapse Runtime 
 
 ### Python libraries (Normal VMs)
 
-#### Part of the runtime and supported
-
 | Library | Version | Library | Version |
 |---------|---------|---------|---------|
 |         |         |         |         |
 |         |         |         |         |
 |         |         |         |         |
 
-#### Part of the runtime
-
-| Library | Version | Library | Version | Library | Version |
-|---------|---------|---------|---------|---------|---------|
-|         |         |         |         |         |         |
-|         |         |         |         |         |         |
-|         |         |         |         |         |         |
 
 ### R libraries (Preview)
 
-| Library | Version | Library | Version | Library | Version |
-|---------|---------|---------|---------|---------|---------|
-|         |         |         |         |         |         |
-|         |         |         |         |         |         |
-|         |         |         |         |         |         |
-
+| **Library**    | **Version** | **Library**   | **Version**      | **Library**   | **Version** |
+|:--------------:|:-----------:|:-------------:|:----------------:|:-------------:|:-----------:|
+| abind          | 1.4-5       | gtools        | 3.8.2            | RColorBrewer  | 1.1-3       |
+| anomalize      | 0.2.2       | hardhat       | 0.2.0            | Rcpp          | 1.0.8.3     |
+| anytime        | 0.3.9       | haven         | 2.5.0            | RcppArmadillo | 0.11.0.0.0  |
+| arrow          | 7.0.0       | highr         | 0.9              | RcppEigen     | 0.3.3.9.2   |
+| askpass        | 1.1         | hms           | 1.1.1            | RcppParallel  | 5.1.5       |
+| assertthat     | 0.2.1       | htmltools     | 0.5.2            | RcppRoll      | 0.3.0       |
+| backports      | 1.4.1       | htmlwidgets   | 1.5.4            | readr         | 2.1.2       |
+| base64enc      | 0.1-3       | httr          | 1.4.3            | readxl        | 1.4.0       |
+| BH             | 1.78.0-0    | hwriter       | 1.3.2.1          | recipes       | 0.2.0       |
+| bit            | 4.0.4       | ids           | 1.0.1            | rematch       | 1.0.1       |
+| bit64          | 4.0.5       | ini           | 0.3.1            | rematch2      | 2.1.2       |
+| blob           | 1.2.3       | inline        | 0.3.19           | remotes       | 2.4.2       |
+| brew           | 1.0-7       | ipred         | 0.9-12           | reprex        | 2.0.1       |
+| brio           | 1.1.3       | isoband       | 0.2.5            | reshape2      | 1.4.3       |
+| broom          | 0.8.0       | iterators     | 1.0.14           | reticulate    | 1.18        |
+| bslib          | 0.3.1       | jquerylib     | 0.1.4            | rex           | 1.2.1       |
+| cachem         | 1.0.6       | jsonlite      | 1.7.2            | rlang         | 1.0.2       |
+| callr          | 3.7.0       | knitr         | 1.39             | rmarkdown     | 2.14        |
+| car            | 3.0-13      | labeling      | 0.4.2            | RODBC         | 1.3-19      |
+| carData        | 3.0-5       | lambda.r      | 1.2.4            | roxygen2      | 7.1.2       |
+| caret          | 6.0-86      | later         | 1.3.0            | rprojroot     | 2.0.3       |
+| cellranger     | 1.1.0       | lava          | 1.6.10           | rsample       | 0.1.1       |
+| checkmate      | 2.1.0       | lazyeval      | 0.2.2            | RSQLite       | 2.2.13      |
+| chron          | 2.3-56      | lifecycle     | 1.0.1            | rstan         | 2.21.5      |
+| cli            | 3.3.0       | listenv       | 0.8.0            | rstantools    | 2.2.0       |
+| clipr          | 0.8.0       | lme4          | 1.1-29           | rstatix       | 0.7.0       |
+| colorspace     | 2.0-3       | lmtest        | 0.9-40           | rstudioapi    | 0.13        |
+| commonmark     | 1.8.0       | loo           | 2.5.1            | rversions     | 2.1.1       |
+| config         | 0.3.1       | lubridate     | 1.8.0            | rvest         | 1.0.2       |
+| corrplot       | 0.92        | magrittr      | 2.0.3            | sass          | 0.4.1       |
+| covr           | 3.5.1       | maptools      | 1.1-4            | scales        | 1.2.0       |
+| cpp11          | 0.4.2       | markdown      | 1.1              | selectr       | 0.4-2       |
+| crayon         | 1.5.1       | MatrixModels  | 0.5-0            | sessioninfo   | 1.2.2       |
+| credentials    | 1.3.2       | matrixStats   | 0.62.0           | shape         | 1.4.6       |
+| crosstalk      | 1.2.0       | memoise       | 2.0.1            | slider        | 0.2.2       |
+| curl           | 4.3.2       | mime          | 0.12             | sourcetools   | 0.1.7       |
+| data.table     | 1.14.2      | minqa         | 1.2.4            | sp            | 1.4-7       |
+| DBI            | 1.1.2       | ModelMetrics  | 1.2.2.2          | sparklyr      | 1.5.2       |
+| dbplyr         | 2.1.1       | modelr        | 0.1.8            | SparseM       | 1.81        |
+| desc           | 1.4.1       | munsell       | 0.5.0            | sqldf         | 0.4-11      |
+| devtools       | 2.3.2       | nloptr        | 2.0.1            | SQUAREM       | 2021.1      |
+| diffobj        | 0.3.5       | notebookutils | 3.1.2-20220721.3 | StanHeaders   | 2.21.0-7    |
+| digest         | 0.6.29      | numDeriv      | 2016.8-1.1       | stringi       | 1.7.6       |
+| dplyr          | 1.0.9       | openssl       | 2.0.0            | stringr       | 1.4.0       |
+| DT             | 0.22        | padr          | 0.6.0            | sweep         | 0.2.3       |
+| dtplyr         | 1.2.1       | parallelly    | 1.31.1           | sys           | 3.4         |
+| dygraphs       | 1.1.1.6     | pbkrtest      | 0.5.1            | testthat      | 3.1.4       |
+| ellipsis       | 0.3.2       | pillar        | 1.7.0            | tibble        | 3.1.7       |
+| evaluate       | 0.15        | pkgbuild      | 1.3.1            | tibbletime    | 0.1.6       |
+| extraDistr     | 1.9.1       | pkgconfig     | 2.0.3            | tidyr         | 1.2.0       |
+| fansi          | 1.0.3       | pkgload       | 1.2.4            | tidyselect    | 1.1.2       |
+| farver         | 2.1.0       | plogr         | 0.2.0            | tidyverse     | 1.3.1       |
+| fastmap        | 1.1.0       | plotly        | 4.10.0           | timeDate      | 3043.102    |
+| forcats        | 0.5.1       | plotrix       | 3.8-1            | timetk        | 2.8.0       |
+| foreach        | 1.5.2       | plyr          | 1.8.7            | tinytex       | 0.38        |
+| forecast       | 8.13        | praise        | 1.0.0            | tseries       | 0.10-51     |
+| forge          | 0.2.0       | prettyunits   | 1.1.1            | tsfeatures    | 1.0.2       |
+| formatR        | 1.12        | pROC          | 1.18.0           | TTR           | 0.24.3      |
+| fracdiff       | 1.5-1       | processx      | 3.5.3            | tzdb          | 0.3.0       |
+| fs             | 1.5.2       | prodlim       | 2019.11.13       | urca          | 1.3-0       |
+| furrr          | 0.3.0       | progress      | 1.2.2            | usethis       | 2.1.5       |
+| futile.logger  | 1.4.3       | progressr     | 0.10.0           | utf8          | 1.2.2       |
+| futile.options | 1.0.1       | promises      | 1.2.0.1          | uuid          | 1.1-0       |
+| future         | 1.25.0      | prophet       | 0.6.1            | vctrs         | 0.4.1       |
+| future.apply   | 1.9.0       | proto         | 1.0.0            | viridisLite   | 0.4.0       |
+| gargle         | 1.2.0       | ps            | 1.7.0            | vroom         | 1.5.7       |
+| generics       | 0.1.2       | purrr         | 0.3.4            | waldo         | 0.4.0       |
+| gert           | 1.6.0       | quadprog      | 1.5-8            | warp          | 0.2.0       |
+| ggplot2        | 3.3.6       | quantmod      | 0.4.20           | whisker       | 0.4         |
+| gh             | 1.3.0       | quantreg      | 5.93             | withr         | 2.5.0       |
+| gitcreds       | 0.1.1       | R.methodsS3   | 1.8.1            | xfun          | 0.30        |
+| glmnet         | 4.1-4       | R.oo          | 1.24.0           | xml2          | 1.3.3       |
+| globals        | 0.14.0      | R.utils       | 2.12.0           | xopen         | 1.0.0       |
+| glue           | 1.6.2       | r2d3          | 0.2.6            | xtable        | 1.8-4       |
+| gower          | 1.0.0       | R6            | 2.5.1            | xts           | 0.12.1      |
+| gridExtra      | 2.3         | randomForest  | 4.7-1            | yaml          | 2.3.5       |
+| gsubfn         | 0.7         | rappdirs      | 0.3.3            | zip           | 2.2.0       |
+| gtable         | 0.3.0       | rcmdcheck     | 1.4.0            | zoo           | 1.8-10      |
 
 ## Next steps
 - [Manage libraries for Apache Spark pools in Azure Synapse Analytics](apache-spark-manage-pool-packages.md)
