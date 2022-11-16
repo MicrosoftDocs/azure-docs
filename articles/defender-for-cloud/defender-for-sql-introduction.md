@@ -8,11 +8,11 @@ ms.custom: references_regions
 
 # Overview of Microsoft Defender for Azure SQL
 
-Microsoft Defender for Azure SQL helps you discover and mitigate potential [database vulnerabilities](defender-for-sql-azure-vulnerability-assessment-overview.md) and alerts you to [anomalous activities](#what-kind-of-alerts-does-microsoft-defender-for-azure-sql-provide) that may be an indication of a threat to your databases.
+Microsoft Defender for Azure SQL helps you discover and mitigate potential [database vulnerabilities](defender-for-sql-azure-vulnerability-assessment-overview.md) and alerts you to [anomalous activities](#advanced-threat-protection) that may be an indication of a threat to your databases.
 
 - [Vulnerability assessment](#discover-and-mitigate-vulnerabilities): Scan databases to discover, track, and remediate vulnerabilities. Learn more about [vulnerability assessment](defender-for-sql-azure-vulnerability-assessment-overview.md).
 - [Threat protection](#advanced-threat-protection): Receive detailed security alerts and recommended actions based on SQL Advanced Threat Protection to provide to mitigate threats. Learn more about [SQL Advanced Threat Protection](/azure/azure-sql/database/threat-detection-overview).
-- Identify sensitive information: Create a custom policy to label and classify sensitive information stored in your databases. Learn more about [SQL information protection](defender-for-sql-azure-sensitive-information-classification.md).
+- Identify sensitive information: Create a custom policy to label and classify sensitive information stored in your databases. Learn more about [SQL information protection](sql-information-protection-policy.md).
 
 When you enable **Microsoft Defender for Azure SQL**, all supported resources that exist within the subscription are protected. Future resources created on the same subscription will also be protected.
 
@@ -49,6 +49,6 @@ Alerts include details of the incident that triggered them, as well as recommend
 
 In this article, you learned about Microsoft Defender for Azure SQL. Now you can:
 
-- [Enable Microsoft Defender for Azure SQL](defender-for-sql-azure-enable.md)
+- [Enable Microsoft Defender for Azure SQL](quickstart-enable-database-protections.md)
 - [How Microsoft Defender for Azure SQL can protect SQL servers anywhere](https://www.youtube.com/watch?v=V7RdB6RSVpc).
 - [Set up email notifications for security alerts](configure-email-notifications.md)

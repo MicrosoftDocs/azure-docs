@@ -376,7 +376,7 @@
       - name: Find and remediate threats
         href: defender-for-sql-azure-vulnerability-assessment-find.md
       - name: Investigate threats
-        href: ../azure-sql/database/threat-detection-overview.md?toc=/azure/defender-for-cloud/toc.json
+        href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/defender-for-cloud/toc.json
       - name: Review sensitive data
         href: sql-information-protection-policy.md
     - name: Defender for SQL servers on machines
