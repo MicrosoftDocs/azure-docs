@@ -82,7 +82,7 @@ Use the following steps in the Azure portal to put a custom IP prefix into this 
 
 1. Select your custom IP prefix from the list of resources.
 
-1. In **Overview** for your custom IP prefix, select the **Commission** dropdown menu, and choose **<Resource_Region> only** or **Globally**.
+1. In **Overview** for your custom IP prefix, select the **Commission** dropdown menu, and choose **<Resource_Region> only**.
 
 The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in the **Commissioning** status.
 
