@@ -5,7 +5,7 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 11/16/2022
 
 ---
 
@@ -81,6 +81,22 @@ The confidence rating is calculated for "Performance-based" assessments based on
 ## Why is my RAM utilization greater than 100%?
 
 By design, in Hyper-V if maximum memory provisioned is less than what is required by the VM, Assessment will show memory utilization to be more than 100%.
+
+## I see a banner on my assessment that the assessment now also considers processor parameters. What will be the impact of recalculating the assessment?
+
+The assessment now considers processor parameters such as number of operational cores, sockets, etc and calculating it optimal performance over a period in a simulated environment. This is done to benchmark all processors based available processor information. Please re-calculate your assessments to see the updated recommendations.
+
+The processor benchmark numbers are now considered along with the resource utilization to ensure, we match the processor performance of your on-prem VMware environment and recommend the target Azure SKU sizes accordingly. This is a way to further improve the assessment recommendations to match your performance needs more closely.
+
+Due to this, the targe Azure VM cost can differ from your earlier assessments of the same target. Also, the number of cores allocated in the target Azure SKU could also vary if the processor performance of target is a match for your on-prem VMware environment.
+
+## For scenarios where customers choose "as-on-prem", is there any impact due to processor benchmarking?
+
+No, there will be no impact as we do not not consider it for as-on-prem scenario.
+
+## I see an increase in my monthly costs after I re-calculate my assessments? Is this the most optimized cost for me?
+
+If you have selected all available options for your “VM Series” in your assessment settings, you will get the most optimized cost recommendation for your VMs. However, if you limit this to certain selected VM series only, the recommendation might skip the next succeeding set of available VM series while assigning you a Azure VM SKU while matching your processor performance numbers since you did not select this.
 
 ## Why can't I see all Azure VM families in the Azure VM assessment properties?
 
