@@ -42,7 +42,7 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 > [!NOTE]
 > When you upgrade a supported AKS cluster, Kubernetes minor versions can't be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* is not allowed.
 >
-> Skipping multiple versions can only be done when upgrading from an _unsupported version_ back to a _supported version_. For example, an upgrade from an unsupported *1.10.x* -> a supported *1.15.x* can be completed if available.
+> Skipping multiple versions can only be done when upgrading from an _unsupported version_ back to a _supported version_. For example, an upgrade from an unsupported *1.10.x* -> a supported *1.15.x* can be completed if available. When performing an upgrade from an _unsupported version_ that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty. If your version is significantly out of date, it's recommended to re-create the cluster.
 
 The following example output shows that the cluster can be upgraded to versions *1.19.1* and *1.19.3*:
 
@@ -83,7 +83,7 @@ To check which Kubernetes releases are available for your cluster, use the [Get-
 > [!NOTE]
 > When you upgrade a supported AKS cluster, Kubernetes minor versions can't be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* is not allowed.
 >
-> Skipping multiple versions can only be done when upgrading from an _unsupported version_ back to a _supported version_. For example, an upgrade from an unsupported *1.10.x* -> a supported *1.15.x* can be completed if available.
+> Skipping multiple versions can only be done when upgrading from an _unsupported version_ back to a _supported version_. For example, an upgrade from an unsupported *1.10.x* -> a supported *1.15.x* can be completed if available. When performing an upgrade from an _unsupported version_ that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty. If your version is significantly out of date, it's recommended to re-create the cluster.
 
 The following example output shows that the cluster can be upgraded to versions *1.19.1* and *1.19.3*:
 
