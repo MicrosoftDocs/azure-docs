@@ -17,11 +17,11 @@ Public IP addresses allow Internet resources to communicate inbound to Azure res
 
 In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) address is a resource that has its own properties. 
 
-Some of the resources you can associate a public IP address resource with are the following:
+The following resources can be associated with a public IP address:
 
 * Virtual machine network interfaces
 
-* Virtual machine scale sets
+* Virtual Machine Scale Sets
 
 * Public Load Balancers
 
@@ -41,16 +41,16 @@ For Virtual Machine Scale Sets, use [Public IP Prefixes](public-ip-address-prefi
 
 ## At-a-glance
 
-The following table shows the property a public IP can be associated to a resource and the allocation methods. Note that public IPv6 support isn't available for all resource types at this time.
+The following table shows the property a public IP can be associated to a resource and the allocation methods. Public IPv6 support isn't available for all resource types at this time.
 
 | Top-level resource | IP Address association | Dynamic IPv4 | Static IPv4 | Dynamic IPv6 | Static IPv6 |
 | --- | --- | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes | Yes | Yes | Yes |
-| Public Load balancer |Front-end configuration |Yes | Yes | Yes |Yes |
-| Virtual Network gateway (VPN) |Gateway IP configuration |Yes (non-AZ only) |Yes | No |No |
-| Virtual Network gateway (ER) |Gateway IP configuration |Yes | No | Yes (preview) |No |
+| Public Load Balancer |Front-end configuration |Yes | Yes | Yes |Yes |
+| Virtual Network Gateway (VPN) |Gateway IP configuration |Yes (non-AZ only) |Yes | No |No |
+| Virtual Network Gateway (ER) |Gateway IP configuration |Yes | No | Yes (preview) |No |
 | NAT gateway |Gateway IP configuration |No |Yes | No |No |
-| Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) | No | No |
+| Application Gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) | No | No |
 | Azure Firewall | Front-end configuration | No | Yes | No | No |
 | Bastion Host | Public IP configuration | No | Yes | No | No |
 | Route Server | Front-end configuration | No | Yes | No | No |
@@ -99,7 +99,7 @@ Public IPs have two types of assignments:
 > [!NOTE]
 > Even when you set the allocation method to **static**, you cannot specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.
 
-**Basic public IP addresses** are commonly used for when there is no dependency on the IP address. 
+**Basic public IP addresses** are commonly used for when there's no dependency on the IP address. 
 
 For example, a public IP resource is released from a resource named **Resource A**. **Resource A** receives a different IP on start-up if the public IP resource is reassigned. Any associated IP address is released if the allocation method is changed from **static** to **dynamic**. Any associated IP address is unchanged if the allocation method is changed from **dynamic** to **static**. Set the allocation method to **static** to ensure the IP address remains the same.
 
@@ -131,14 +131,14 @@ If a custom domain is desired for services that use a public IP, you can use [Az
 
 Public IP addresses with a standard SKU can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). 
 
-A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "non-zonal" public IP addresses is placed into a zone for you by Azure and does not give a guarantee of redundancy.
+A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "non-zonal" public IP addresses are placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
 
 In regions without availability zones, all public IP addresses are created as non-zonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.
 
 > [!NOTE]
 > All basic SKU public IP addresses are created as non-zonal.  Any IP that is upgraded from a basic SKU to standard SKU remains non-zonal.
 
-## Additional public IP address features
+## Other public IP address features
 
 There are other attributes that can be used for a public IP address.  
 
@@ -166,7 +166,7 @@ To learn more about IP address pricing in Azure, review the [IP address pricing]
 
 ## Limitations for IPv6
 
-* VPN gateways cannot be used in a virtual network with IPv6 enabled, either directly or peered with "UseRemoteGateway".
+* VPN gateways can't be used in a virtual network with IPv6 enabled, either directly or peered with "UseRemoteGateway".
 
 * Public IPv6 addresses are locked at an idle timeout of 4 minutes.
 
@@ -174,11 +174,11 @@ To learn more about IP address pricing in Azure, review the [IP address pricing]
 
 * Use of IPv6-only virtual machines or virtual machines scale sets aren't supported. Each NIC must include at least one IPv4 IP configuration (dual-stack).
 
-* When adding IPv6 to existing IPv4 deployments, IPv6 ranges can't be added to a virtual network with existing resource navigation links.
+* IPv6 ranges can't be added to a virtual network with existing resource navigation links when adding IPv6 to existing IPv4 deployments.
 
 * Forward DNS for IPv6 is supported for Azure public DNS. Reverse DNS isn't supported.
 
-* Routing Preference and cross-region load-balancing isn't supported.
+* Routing Preference and cross-region load balancer aren't supported.
 
 For more information on IPv6 in Azure, see [here](ipv6-overview.md).
 
