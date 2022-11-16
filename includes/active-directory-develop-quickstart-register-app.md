@@ -109,7 +109,7 @@ Credentials are used by [confidential client applications](../articles/active-di
 
 You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
 
-:::image type="content" source="/azure/articles/active-directory/develop/media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot of the Azure portal, showing the Certificates and secrets pane in an app registration.":::
+:::image type="content" source="/azure/active-directory/develop/media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot of the Azure portal, showing the Certificates and secrets pane in an app registration.":::
 
 ### Add a certificate
 
