@@ -1,6 +1,6 @@
 ---
-title: 'Register and scan Azure Data Lake Storage (ADLS) Gen2'
-description: This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
+title: 'Discover and govern Azure Data Lake Storage (ADLS) Gen2'
+description: This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source.
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
@@ -10,7 +10,7 @@ ms.custom: template-how-to, ignite-fall-2021, references_regions
 ---
 # Connect to Azure Data Lake Storage in Microsoft Purview
 
-This article outlines the process to register an Azure Data Lake Storage (ADLS Gen2) data source in Microsoft Purview including instructions to authenticate and interact with the ADLS Gen2 source.
+This article outlines the process to register and govern an Azure Data Lake Storage (ADLS Gen2) data source in Microsoft Purview including instructions to authenticate and interact with the ADLS Gen2 source.
 
 ## Supported capabilities
 
@@ -335,9 +335,10 @@ Once your data source has the  **Data Use Management** option set to **Enabled**
 ![Screenshot shows how to register a data source for policy with the option Data use management set to enable](./media/how-to-policies-data-owner-storage/register-data-source-for-policy-storage.png)
 
 ### Create a policy
-To create an access policy for Azure Data Lake Storage Gen2, follow these guides:
-* [Data owner policy on a single storage account](./how-to-policies-data-owner-storage.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on a single Azure Storage account in your subscription.
-* [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md) - This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled. 
+To create an access policy for Azure Data Lake Storage Gen2, follow this guide:
+* [Data owner policy on a single storage account](./how-to-policies-data-owner-storage.md#create-and-publish-a-data-owner-policy)
+
+To create policies that cover all data sources inside a resource group or Azure subscription you can refer to [this section](register-scan-azure-multiple-sources.md#access-policy).
 
 ## Next steps
 Follow the below guides to learn more about Microsoft Purview and your data.

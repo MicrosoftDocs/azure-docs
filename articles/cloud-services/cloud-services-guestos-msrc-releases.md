@@ -3499,7 +3499,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4038779]: https://support.microsoft.com/kb/4038779
 [4038786]: https://support.microsoft.com/kb/4038786
 [4038793]: https://support.microsoft.com/kb/4038793
-[4040966]: https://support.microsoft.com/kb/4040966
+[4040966]: https://support.microsoft.com/topic/description-of-the-security-only-update-for-the-net-framework-3-5-1-for-windows-7-sp1-and-windows-server-2008-r2-sp1-september-12-2017-bd775b30-8761-a576-7c43-19ce534267f0
 [4040960]: https://support.microsoft.com/kb/4040960
 [4040965]: https://support.microsoft.com/kb/4040965
 [4040959]: https://support.microsoft.com/kb/4040959
