@@ -180,19 +180,44 @@ Database: testdb
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="console_result":::
 -->
 
-## Get database object instance
+## Work with a collection instance
 
-If a database or collection doesn't exist, the PyMongo driver for Python creates it when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. To create a new database if it doesn't exist, use the [create database extension](/azure/cosmos-db/mongodb/custom-commands#create-database). Similarly, to create a new collection if it doesn't exist, use the [create collection extension](/azure/cosmos-db/mongodb/custom-commands#create-collection). Both are shown in the following code snippet.
+If a database or collection doesn't exist, the PyMongo driver for Python creates it when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. These patterns are shown above in the sections [Does database exist?](#does-database-exist) and [Does collection exist?](#does-collection-exist).
 
+One you have a collection instance, you can get work with the documents in the collection as shown below.
 
 ```python
-
+doc_id = collection.insert_one(DOCUMENT).inserted_id
 ```
+
+For a overview of working with documents using the PyMongo driver, see [Documents tutorial](https://pymongo.readthedocs.io/en/stable/tutorial.html#documents).
 
 
 ## Drop a database
 
-TBD
+A database is removed from the server using the [drop_database](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.drop_database) method of the MongoClient.
+
+```python
+DB_NAME = input("Enter database name to drop: ")
+if DB_NAME in client.list_database_names():
+    print("Dropping database: {}".format(DB_NAME))
+    client.drop_database(DB_NAME)
+else:
+    print("Didn't find database: {}".format(DB_NAME))
+```
+
+<!-- 
+:::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/300-drop-database/run.py" id="drop_database":::
+-->
+The preceding code snippet displays output similar to the following example console output:
+
+```python
+Enter database name to drop: adventureworks
+Dropping database: adventureworks
+```
+<!-- 
+:::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/300-drop-database/run.py" id="console_result":::
+-->
 
 ## See also
 
