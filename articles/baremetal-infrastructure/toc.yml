@@ -87,7 +87,7 @@
     - name: How to
       items:
       - name: HA Setup with STONITH
-        href: ../virtual-machines/workloads/sap/ha-setup-with-stonith.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        href: ../virtual-machines/workloads/sap/ha-setup-with-fencing-device.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: OS Backup
         href: ../virtual-machines/workloads/sap/large-instance-os-backup.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Enable Kdump for HANA Large Instances
@@ -98,10 +98,7 @@
         href: ../virtual-machines/workloads/sap/hana-setup-smt.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Buy an SAP HANA Large Instances reservation
         href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
-  - name: Oracle
-    items:
-    href: ./workloads/oracle/toc.yml
-  - name: NC2 on Azure Public Preview
+  - name: Nutanix Cloud Clusters on Azure
     items: 
-    href: ./workloads/nc2-public-preview/toc.yml
+    href: ./workloads/nc2-on-azure/toc.yml
   

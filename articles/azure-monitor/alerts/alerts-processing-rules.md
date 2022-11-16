@@ -59,7 +59,7 @@ You can also define filters to narrow down which specific subset of alerts are a
 
 | Filter | Description|
 |:---|:---|
-Alert context (payload)  |  The rule applies only to alerts that contain any of the filter's strings within the [alert context](./alerts-common-schema-definitions.md#alert-context) section of the alert. This section includes fields specific to each alert type. |
+Alert context (payload)  |  The rule applies only to alerts that contain any of the filter's strings within the [alert context](./alerts-common-schema-definitions.md#alert-context) section of the alert. This section includes fields specific to each alert type. This filter does not apply to log alert search results. |
 Alert rule ID |  The rule applies only to alerts from a specific alert rule. The value should be the full resource ID, for example, `/subscriptions/SUB1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/MY-API-LATENCY`.  To locate the alert rule ID, open a specific alert rule in the portal, select **Properties**, and copy the **Resource ID** value. You can also locate it by listing your alert rules from PowerShell or the Azure CLI. |
 Alert rule name |  The rule applies only to alerts with this alert rule name. It can also be useful with a **Contains** operator. |
 Description |  The rule applies only to alerts that contain the specified string within the alert rule description field. |

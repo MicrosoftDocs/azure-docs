@@ -38,7 +38,7 @@ For more information about Azure Key Vault, see [What is Azure Key Vault?](../ke
 
 When you use encryption with customer-managed keys for an Automation account, Azure Automation wraps the account encryption key with the customer-managed key in the associated key vault. Enabling customer-managed keys doesn't impact performance, and the account is encrypted with the new key immediately, without any delay.
 
-A new Automation account is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the account is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the Automation account. The managed identity is available only after the storage account is created.
+A new Automation account is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the account is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the Automation account. The managed identity is available only after the automation account is created.
 
 When you modify the key being used for Azure Automation secure asset encryption, by enabling or disabling customer-managed keys, updating the key version, or specifying a different key, the encryption of the account encryption key changes but the secure assets in your Azure Automation account don't need to be re-encrypted.
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/23/2022
+ms.date: 11/07/2022
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -20,7 +20,7 @@ Watch the [How to schedule exports to storage with Cost Management](https://www.
 
 >[!VIDEO https://www.youtube.com/embed/rWa_xI1aRzo]
 
-The examples in this tutorial walk you though exporting your cost management data and then verify that the data was successfully exported.
+The examples in this tutorial walk you through exporting your cost management data and then verify that the data was successfully exported.
 
 In this tutorial, you learn how to:
 
@@ -75,7 +75,7 @@ To create or view a data export or to schedule an export, choose a scope in the 
     :::image type="content" source="./media/tutorial-export-acm-data/basics_exports.png" alt-text="New export example" lightbox="./media/tutorial-export-acm-data/basics_exports.png":::
 1. Review your export details and select **Create**.
 
-Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, select any item in the list and then select either **Disable** or **Delete**.
+Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, select any item in the list, and then select either **Disable** or **Delete**.
 
 Initially, it can take 12-24 hours before the export runs. However, it can take up longer before data is shown in exported files.
 
@@ -120,7 +120,7 @@ Start by preparing your environment for the Azure CLI:
    --schedule-status Active --storage-directory demodirectory
    ```
 
-   For the **--type** parameter, you can choose `ActualCost`, `AmortizedCost`, or `Usage`.
+   For the `--type` parameter, you can choose `ActualCost`, `AmortizedCost`, or `Usage`.
 
    This example uses `MonthToDate`. The export creates an export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports this month.
 
@@ -241,20 +241,20 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 
 ### Export schedule
 
-Scheduled exports are affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For example, for a daily export of month-to-date costs export set at a daily frequency, the export runs daily. Similarly for a weekly export, the export runs every week on the same day as it is scheduled. The exact delivery time of the export isn't guaranteed and the exported data is available within four hours of run time.
+Scheduled exports are affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For example, for a daily export of month-to-date costs export set at a daily frequency, the export runs during once each UTC day. Similarly for a weekly export, the export runs every week on the same UTC day as it is scheduled. Individual export runs can occur at different times throughout the day. So, avoid taking a firm dependency on the exact time of the export runs. Run timing depends on the active load present in Azure during a given UTC day. When an export run begins, your data should be available within 4 hours.
 
 Exports are scheduled using Coordinated Universal Time (UTC). The Exports API always uses and displays UTC.
 
 - When you create an export using the [Exports API](/rest/api/cost-management/exports/create-or-update?tabs=HTTP), specify the `recurrencePeriod` in UTC time. The API doesn’t convert your local time to UTC.
     - Example - A weekly export is scheduled on Friday, August 19 with `recurrencePeriod` set to 2:00 PM. The API receives the input as 2:00 PM UTC, Friday, August 19. The weekly export will be scheduled to run every Friday.
 - When you create an export in the Azure portal, its start date time is automatically converted to the equivalent UTC time.
-    - Example - A weekly export is scheduled on Friday, August 19 with the local time of 2:00 AM IST (UTC+5:30) from the Azure portal. The API receives the input as 8:30 PM, Thursday, August 18th. The weekly export will be scheduled to run every Thursday.
+    - Example - A weekly export is scheduled on Friday, August 19 with the local time of 2:00 AM IST (UTC+5:30) from the Azure portal. The API receives the input as 8:30 PM, Thursday, August 18. The weekly export will be scheduled to run every Thursday.
 
 Each export creates a new file, so older exports aren't overwritten.
 
 #### Create an export for multiple subscriptions
 
-If you have an Enterprise Agreement, then you can use a management group to aggregate subscription cost information in a single container. Then you can export cost management data for the management group. Exports for management groups only support actual costs.
+If you have an Enterprise Agreement, then you can use a management group to aggregate subscription cost information in a single container. Then you can export cost management data for the management group. When you create an export in the Azure portal, select the **Actual Costs** option. When you create a management group export using the API, create a *usage export*. Currently, exports at the management group scope only support usage charges. Purchases including reservations and savings plans aren't present in your exports file.
 
 Exports for management groups of other subscription types aren't supported.
 
@@ -271,6 +271,8 @@ If you have a Microsoft Customer Agreement, Microsoft Partner Agreement, or Ente
 :::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="Screenshot showing File Partitioning option." lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
 
 If you don't have a Microsoft Customer Agreement, Microsoft Partner Agreement, or Enterprise Agreement, then you won't see the **File Partitioning** option.
+
+Partitioning isn't currently supported for resource groups or management group scopes.
 
 #### Update existing exports to use file partitioning
 
@@ -308,7 +310,6 @@ Here's a _manifest.json example manifest file.
 When you create a scheduled export in the Azure portal or with the API, it always runs on the exports version used at creation time. Azure keeps your previously created exports on the same version, unless you update it. Doing so prevents changes in the charges and to CSV fields if the export version is changed. As the export functionality changes over time, field names are sometimes changed and new fields are added.
 
 If you want to use the latest data and fields available, we recommend that you create a new export in the Azure portal. To update an existing export to the latest version, update it in the Azure portal or with the latest Export API version. Updating an existing export might cause you to see minor differences in the fields and charges in files that are produced afterward.
-
 
 ## Verify that data is collected
 
@@ -352,7 +353,6 @@ Select an export to view its run history.
 ### Export runs twice a day for the first five days of the month
 
 If you've created a daily export, you'll have two runs per day for the first five days of each month. One run executes and creates a file with the current month’s cost data. It's the run that's available for you to see in the run history. A second run also executes to create a file with all the costs from the prior month. The second run isn't currently visible in the run history. Azure executes the second run to ensure that your latest file for the past month contains all charges exactly as seen on your invoice. It runs because there are cases where latent usage and charges are included in the invoice up to 72 hours after the calendar month has closed. To learn more about Cost Management usage data updates, see [Cost and usage data updates and retention](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). 
-
 
 ## Access exported data from other systems
 

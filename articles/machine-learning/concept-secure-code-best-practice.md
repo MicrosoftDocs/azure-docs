@@ -6,9 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: larryfr
-author: blackmist
-ms.date: 10/21/2021
+ms.author: deeikele
+author: deeikele 
+ms.reviewer: larryfr
+ms.date: 11/04/2022
 ---
 
 # Secure code best practices with Azure Machine Learning

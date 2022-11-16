@@ -23,7 +23,7 @@ sections:
       - question: |
           Are there any costs to use built-in Azure Monitor alerts for Azure Backup?
         answer: |
-          With [built-in Azure Monitor alerts](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview), _alerts_ for critical operations/failures generate by default (that you can view in the portal or via non-portal interfaces) at no additional cost. However, to route these alerts to a notification channel (such as email), it incurs a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+          With [built-in Azure Monitor alerts](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup), *alerts* for critical operations/failures generate by default (that you can view in the portal or via non-portal interfaces) at no additional cost. However, to route these alerts to a notification channel (such as email), it incurs a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
       - question: |
           Are there any costs for using metric alerts for Azure Backup?

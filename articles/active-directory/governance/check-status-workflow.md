@@ -69,90 +69,31 @@ To get further information than just the runs summary for a workflow, you're als
 
 To view a status list of users processed by a workflow, which are UserProcessingResults, you'd make the following API call:
 
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults
-```
-
-By default **userProcessingResults** returns only information from the last 7 days. To get information as far back as 30 days, you would run the following API call:
-
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults?$filter=<Date range for processing results>
-```
-
-by default **userProcessingResults** returns only information from the last 7 days. To filter information as far back as 30 days, you would run the following API call:
-
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id>/userProcessingResults?$filter=<Date range for processing results>
-```
-
-An example of a call to get **userProcessingResults** for a month would be as follows:
-
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults?$filter=< startedDateTime ge 2022-05-23T00:00:00Z and startedDateTime le 2022-06-22T00:00:00Z
-```
+To view a list of user processing results using API via Microsoft Graph, see: [List userProcessingResults](/graph/api/identitygovernance-workflow-list-userprocessingresults)
 
 ### User processing results using Microsoft Graph
 
-When multiple user events are processed by a workflow, running the **userProcessingResults** may give incomprehensible information. To get a summary of information such as total users and tasks, and failed users and tasks, Lifecycle Workflows provides a call to get count totals.
+To view a summary of user processing results via API using Microsoft Graph, see: [userProcessingResult: summary](/graph/api/identitygovernance-userprocessingresult-summary)
 
-To view a summary in count form, you would run the following API call:
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults/summary(<Date Range>)
-```
 
-An example to get the summary between May 1, and May 30, you would run the following call:
-
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=2022-05-30T00:00:00Z)
-```
-
-### List task processing results of a given user processing result
-
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/userProcessingResults/<userProcessingResultId>/taskProcessingResults/
-```
 
 ## Run workflow history via Microsoft Graph
 
 ### List runs using Microsoft Graph
 
-With Microsoft Graph, you're able to get full details of workflow and user processing run information.
+To view runs of a workflow via API using Microsoft Graph, see: [runs](/graph/api/resources/identitygovernance-run)
 
-To view a list of runs, you'd make the following API call:
-
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/runs
-```
 
 ### Get a summary of runs using Microsoft Graph
 
-To get a summary of runs for a workflow, which includes detailed information for counts of failed runs and tasks, along with successful runs and tasks for a time range, you'd make the following API call:
-
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/runs/summary(startDateTime=<time>,endDateTime=<time>)
-```
-An example to get a summary of runs of a workflow through the time interval of May 2022 would be as follows:
-
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/runs/summary(startDateTime=2022-05-01T00:00:00Z,endDateTime=202205-31T00:00:00Z)
-```
+To view run summary via API using Microsoft Graph, see: [run summary of a lifecycle workflow](/graph/api/identitygovernance-run-summary)
 
 ### List user and task processing results of a given run using Microsoft Graph
 
-With Lifecycle Workflows, you're able to check the status of each user and task who had a workflow processed for them as part of a run.
+To get user processing result for a run of a lifecycle workflow via API using Microsoft Graph, see: [Get userProcessingResult (for a run of a lifecycle workflow)](/graph/api/identitygovernance-userprocessingresult-get)
 
- 
-You're also able to use **userProcessingResults** with the run call to get users processed for a run by making the following API call:
+To list task processing results for a user processing result via API using Microsoft Graph, see: [List taskProcessingResults (for a userProcessingResult)](/graph/api/identitygovernance-userprocessingresult-list-taskprocessingresults)
 
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId>/runs/<runId>/userProcessingResults
-```
-
-This API call will also return a **userProcessingResults ID** value, which can be used to retrieve task processing information in the following call:
-
-```http
-GET https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<workflowId> /runs/<runId>/userProcessingResults/<userProcessingResultId>/taskProcessingResults
-```
 
 > [!NOTE]
 > A workflow must have activity in the past 7 days to get **userProcessingResults ID**. If there has not been any activity in that time-frame, the **userProcessingResults** call will not return a value.

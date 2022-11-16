@@ -7,12 +7,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/31/2022
+ms.date: 10/12/2022
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -51,10 +50,11 @@ To add B2B collaboration users to the directory, follow these steps:
    > Group email addresses aren’t supported; enter the email address for an individual. Also, some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
 6. Select **Invite** to automatically send the invitation to the guest user. 
  
-After you send the invitation, the user account is automatically added to the directory as a guest.
+After you send the invitation, the user account is automatically added to the directory as a guest. 
 
  ![Screenshot showing the user list including the new Guest user.](media/add-users-administrator//guest-user-type.png)
 
+The user is added to your directory with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*, for example, *john_contoso.com#EXT#\@fabrikam.onmicrosoft.com*, where fabrikam.onmicrosoft.com is the organization from which you sent the invitations. ([Learn more about B2B collaboration user properties](user-properties.md).)
 ## Add guest users to a group
 If you need to manually add B2B collaboration users to a group, follow these steps:
 

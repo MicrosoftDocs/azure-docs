@@ -49,6 +49,8 @@ The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge
 Use the **GetModuleLogs** direct method to retrieve the logs of an IoT Edge module.
 
 >[!TIP]
+>Use the `since` and `until` filter options to limit the range of logs retrieved. Calling this direct method without bounds retrieves all the logs which may be large, time consuming, or costly.
+>
 >The IoT Edge troubleshooting page in the Azure portal provides a simplified experience for viewing module logs. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 This method accepts a JSON payload with the following schema:
@@ -155,6 +157,8 @@ Use the **UploadModuleLogs** direct method to send the requested logs to a speci
 ::: moniker range=">=iotedge-2020-11"
 
 > [!NOTE]
+> Use the `since` and `until` filter options to limit the range of logs retrieved. Calling this direct method without bounds retrieves all the logs which may be large, time consuming, or costly.
+>
 > If you wish to upload logs from a device behind a gateway device, you will need to have the [API proxy and blob storage modules](how-to-configure-api-proxy-module.md) configured on the top layer device. These modules route the logs from your lower layer device through your gateway device to your storage in the cloud.
 
 ::: moniker-end

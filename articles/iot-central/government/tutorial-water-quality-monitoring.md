@@ -7,7 +7,6 @@ ms.date: 06/15/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: abjork
 ---
 
 
@@ -17,7 +16,7 @@ Traditional water quality monitoring relies on manual sampling techniques and fi
 
 The _water quality monitoring_ application template helps you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities.
 
-![Water quality monitoring architecture](./media/tutorial-waterqualitymonitoring/concepts-water-quality-monitoring-architecture1.png)
+:::image type="content" source="media/tutorial-waterqualitymonitoring/concepts-water-quality-monitoring-architecture1.png" alt-text="Diagram showing the architecture of the water quality monitoring application." border="false":::
 
 ### Devices and connectivity (1,2)
 
@@ -76,7 +75,7 @@ The following sections walk you through the key features of the application:
 
 After you create the application, the **Wide World water quality dashboard** pane opens.
 
-:::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-dashboard1.png" alt-text="The water quality monitoring dashboard.":::
+:::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-dashboard.png" alt-text="Screenshot showing the water quality monitoring dashboard." lightbox="media/tutorial-waterqualitymonitoring/water-quality-monitoring-dashboard.png":::
 
 As a builder, you can create and customize views on the dashboard for use by operators. But before you try to customize, first explore the dashboard.
 
@@ -119,7 +118,7 @@ To view the device template:
 1. Select **Device templates** on the leftmost pane of your application in Azure IoT Central.
 1. From the list of device templates, select **Water Quality Monitor** to open that device template.
 
-:::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-device-template.png" alt-text="The device template.":::
+:::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-device-template.png" alt-text="Screenshot showing the water quality monitoring device template." lightbox="media/tutorial-waterqualitymonitoring/water-quality-monitoring-device-template.png":::
 
 ### Customize the device template
 
@@ -142,8 +141,6 @@ Practice customizing the following device template settings:
 
 The water quality monitoring device template comes with predefined views. The views define how operators see the device data and set cloud properties. Explore the views and practice making changes.
 
-:::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-device-template-views.png" alt-text="Device template views.":::
-
 ### Publish the device template
 
 If you make any changes, be sure to select **Publish** to publish the device template.
@@ -161,9 +158,9 @@ The water quality monitoring application you created from the application templa
 
 1. Select **Devices** on the leftmost pane of your application.
 
-1. Select one simulated device.
+1. Select a simulated device.
 
-    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitor-device1.png" alt-text="Select device 1":::
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitor-device.png" alt-text="Screenshot showing a water quality monitoring device." lightbox="media/tutorial-waterqualitymonitoring/water-quality-monitor-device.png":::
 
 1. On the **Cloud Properties** tab, change the **Acidity (pH) threshold** value to **9** and select **Save**.
 1. Explore the **Device Properties** tab and the **Device Dashboard** tab.
@@ -191,7 +188,7 @@ The water quality monitoring application you created has two preconfigured rules
 
 1. Select **High pH alert**, which is one of the preconfigured rules in the application.
 
-    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-high-ph-alert.png" alt-text="The high pH alert rule.":::
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-high-ph-alert.png" alt-text="Screenshot showing the water quality monitoring dashboard high pH alert rule." lightbox="media/tutorial-waterqualitymonitoring/water-quality-monitoring-high-ph-alert.png":::
 
    The **High pH alert** rule is configured to check the condition of acidity (pH) being greater than 8.
 
@@ -220,26 +217,9 @@ With Azure IoT Central jobs, you can trigger updates to device or cloud properti
 
 ## Customize your application
 
-As a builder, you can change several settings to customize the user experience in your application.
-
-1. Select **Application** > **Management**.
-1. Under **Masthead logo**, select **Change** to choose the image to upload as the logo.
-1. Under **Browser icon**, select **Change** to choose the image that appears on browser tabs.
-1. Under **Browser colors**, you can replace the default values with HTML hexadecimal color codes.
-
-    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-customize-your-application1.png" alt-text="Customize your application":::
-
-### Update the application image
-
-1. Select **Application** > **Management**.
-
-1. Select **Change** to choose an image to upload as the application image.
+[!INCLUDE [iot-central-customize-appearance](../../../includes/iot-central-customize-appearance.md)]
 
 ## Clean up resources
 
-If you're not going to continue to use your application, delete the application with the following steps:
+[!INCLUDE [iot-central-clean-up-resources-industry](../../../includes/iot-central-clean-up-resources-industry.md)]
 
-1. Open the **Application** > **Management** tab on the leftmost pane of your application.
-1. Select **Your application** and select the **Delete** button.
-
-    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-application-settings-delete-app1.png" alt-text="Delete your application.":::

@@ -49,7 +49,7 @@ For more information on the concepts involved in the machine learning deployment
 - A model. The examples in this article use a pre-trained model.
 - A machine that can run Docker, such as a [compute instance](../how-to-create-manage-compute-instance.md).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 - An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
 - A model. The examples in this article use a pre-trained model.
@@ -71,7 +71,7 @@ az account set -s <subscription>
 az ml workspace list --resource-group=<resource-group>
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -132,13 +132,13 @@ The `--asset-path` parameter refers to the cloud location of the model. In this 
 
 For more information on `az ml model register`, see the [reference documentation](/cli/azure/ml(v1)/model).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ### Register a model from a local file
 
 You can register a model by providing the local path of the model. You can provide the path of either a folder or a single file on your local machine.
 <!-- pyhton nb call -->
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=register-model-from-local-file-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=register-model-from-local-file-code)]
 
 
 To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files.
@@ -194,7 +194,7 @@ The two things you need to accomplish in your entry script are:
 
 For your initial deployment, use a dummy entry script that prints the data it receives.
 
-:::code language="python" source="~/azureml-examples-main/python-sdk/tutorials/deploy-local/source_dir/echo_score.py":::
+:::code language="python" source="~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/source_dir/echo_score.py":::
 
 Save this file as `echo_score.py` inside of a directory called `source_dir`. This dummy script returns the data you send to it, so it doesn't use the model. But it is useful for testing that the scoring script is running.
 
@@ -215,18 +215,18 @@ You can use any [Azure Machine Learning inference curated environments](../conce
 
 A minimal inference configuration can be written as:
 
-:::code language="json" source="~/azureml-examples-main/python-sdk/tutorials/deploy-local/dummyinferenceconfig.json":::
+:::code language="json" source="~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/dummyinferenceconfig.json":::
 
 Save this file with the name `dummyinferenceconfig.json`.
 
 
 [See this article](reference-azure-machine-learning-cli.md#inference-configuration-schema) for a more thorough discussion of inference configurations. 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 The following example demonstrates how to create a minimal environment with no pip dependencies, using the dummy scoring script you defined above.
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=inference-configuration-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=inference-configuration-code)]
 
 For more information on environments, see [Create and manage environments for training and deployment](../how-to-use-environments.md).
 
@@ -249,11 +249,11 @@ The options available for a deployment configuration differ depending on the com
 
 For more information, see the [deployment schema](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 The following Python demonstrates how to create a local deployment configuration: 
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=deployment-configuration-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=deployment-configuration-code)]
 
 ---
 
@@ -277,12 +277,12 @@ az ml model deploy -n myservice \
     -w <workspace-name>
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=deploy-model-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=deploy-model-code)]
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=deploy-model-print-logs)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=deploy-model-print-logs)]
 
 For more information, see the documentation for [Model.deploy()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) and [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice).
 
@@ -303,9 +303,9 @@ curl -v -X POST -H "content-type:application/json" \
     http://localhost:32267/score
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 <!-- python nb call -->
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=call-into-model-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=call-into-model-code)]
 
 ---
 
@@ -314,7 +314,7 @@ curl -v -X POST -H "content-type:application/json" \
 Now it's time to actually load your model. First, modify your entry script:
 
 
-:::code language="python" source="~/azureml-examples-main/python-sdk/tutorials/deploy-local/source_dir/score.py":::
+:::code language="python" source="~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/source_dir/score.py":::
 
 Save this file as `score.py` inside of `source_dir`.
 
@@ -324,11 +324,11 @@ Notice the use of the `AZUREML_MODEL_DIR` environment variable to locate your re
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-:::code language="json" source="~/azureml-examples-main/python-sdk/tutorials/deploy-local/inferenceconfig.json":::
+:::code language="json" source="~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/inferenceconfig.json":::
 
 Save this file as `inferenceconfig.json` 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -365,11 +365,11 @@ az ml model deploy -n myservice \
     -w <workspace-name>
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-model-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-model-code)]
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-model-print-logs)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-model-print-logs)]
 
 For more information, see the documentation for [Model.deploy()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) and [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice).
 
@@ -386,9 +386,9 @@ curl -v -X POST -H "content-type:application/json" \
     http://localhost:32267/score
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=send-post-request-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=send-post-request-code)]
 
 ---
 
@@ -408,15 +408,15 @@ Change your deploy configuration to correspond to the compute target you've chos
 
 The options available for a deployment configuration differ depending on the compute target you choose.
 
-:::code language="json" source="~/azureml-examples-main/python-sdk/tutorials/deploy-local/re-deploymentconfig.json":::
+:::code language="json" source="~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/re-deploymentconfig.json":::
 
 Save this file as `re-deploymentconfig.json`.
 
 For more information, see [this reference](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=deploy-model-on-cloud-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=deploy-model-on-cloud-code)]
 
 ---
 
@@ -447,12 +447,12 @@ az ml service get-logs -n myservice \
     -w <workspace-name>
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-service-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-service-code)]
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-service-print-logs)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=re-deploy-service-print-logs)]
 
 For more information, see the documentation for [Model.deploy()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) and [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice).
 
@@ -463,9 +463,9 @@ For more information, see the documentation for [Model.deploy()](/python/api/azu
 
 When you deploy remotely, you may have key authentication enabled. The example below shows how to get your service key with Python in order to make an inference request.
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=call-remote-web-service-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=call-remote-web-service-code)]
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=call-remote-webservice-print-logs)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=call-remote-webservice-print-logs)]
 
 
 
@@ -505,7 +505,7 @@ The following table describes the different service states:
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/2.deploy-local-cli.ipynb?name=delete-resource-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/2.deploy-local-cli.ipynb?name=delete-resource-code)]
 
 ```azurecli-interactive
 az ml service delete -n myservice
@@ -519,9 +519,9 @@ To delete a registered model from your workspace, use `az ml model delete <model
 
 Read more about [deleting a webservice](/cli/azure/ml(v1)/computetarget/create#az-ml-service-delete) and [deleting a model](/cli/azure/ml/model#az-ml-model-delete).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
-[!Notebook-python[] (~/azureml-examples-main/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=delete-resource-code)]
+[!Notebook-python[] (~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=delete-resource-code)]
 
 To delete a deployed web service, use `service.delete()`.
 To delete a registered model, use `model.delete()`.

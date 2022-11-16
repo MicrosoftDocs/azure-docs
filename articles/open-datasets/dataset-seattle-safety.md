@@ -171,7 +171,7 @@ Sample not available for this platform/package combination.
 
 ```
 # This is a package in preview.
-# You need to pip install azureml-opendatasets in Databricks cluster. https://docs.microsoft.com/en-us/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
+# You need to pip install azureml-opendatasets in Databricks cluster. https://learn.microsoft.com/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
 from azureml.opendatasets import SeattleSafety
 
 from datetime import datetime

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 09/20/2022
 ms.author: normesta
 ---
 
@@ -45,7 +45,6 @@ The following table describes whether a feature is supported in a standard gener
 | [Access tier - archive](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Access tier - cool](access-tiers-overview.md)	| &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Access tier - hot](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Anonymous public access](anonymous-read-access-configure.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
@@ -58,24 +57,26 @@ The following table describes whether a feature is supported in a standard gener
 | [Blobfuse](storage-how-to-mount-container-linux.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Change feed](storage-blob-change-feed.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Custom domains](storage-custom-domain-name.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
-| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Customer-managed keys (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Customer-managed keys in a single-tenant scenario (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Customer-managed keys in a multi-tenant scenario (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x1F7E6; | &#x1F7E6; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
-| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24;  | &nbsp;&#x2B24; |
+| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
+| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2B24;  | &nbsp;&#x2B24; |
 | [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705;  | &nbsp;&#x2B24; | &#x1F7E6; |
-| [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705;  | &nbsp;&#x2B24; | &#x2705; |
+| [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Prevent anonymous public access](anonymous-read-access-prevent.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Soft delete for blobs](./soft-delete-blob-overview.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705; |
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | &#x1F7E6; | &#x2705; |
-| [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705;   | &nbsp;&#x2B24; | &#x2705; |
-| [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705;   | &nbsp;&#x2B24; | &#x2705; |
+| [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
 <sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Azure Active Directory (AD) security.
 
@@ -93,7 +94,6 @@ The following table describes whether a feature is supported in a premium block 
 | [Access tier - archive](access-tiers-overview.md)  | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Access tier - cool](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Access tier - hot](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Anonymous public access](anonymous-read-access-configure.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup> |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob index tags](storage-manage-find-blobs.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
@@ -106,24 +106,26 @@ The following table describes whether a feature is supported in a premium block 
 | [Blobfuse](storage-how-to-mount-container-linux.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Change feed](storage-blob-change-feed.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Custom domains](storage-custom-domain-name.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
-| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Customer-managed keys (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json)  | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Customer-managed keys in a single-tenant scenario (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Customer-managed keys in a multi-tenant scenario (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x1F7E6; | &#x1F7E6; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
-| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
+| [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705; | &nbsp;&#x2B24; | &#x1F7E6; |
-| [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
+| [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
+| [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Prevent anonymous public access](anonymous-read-access-prevent.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Soft delete for blobs](./soft-delete-blob-overview.md)	| &#x2705; | &#x2705;  | &#x2705; | &#x2705; |
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | &#x1F7E6; | &#x2705; |
-| [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x1F7E6;   | &nbsp;&#x2B24;| &#x2705; |
-| [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x1F7E6;   | &nbsp;&#x2B24;| &#x2705; |
+| [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
 <sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Azure Active Directory (AD) security.
 
@@ -135,4 +137,4 @@ The following table describes whether a feature is supported in a premium block 
 
 - [Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-known-issues.md)
 
-- [Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)](secure-file-transfer-protocol-known-issues.md)
+- [Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)

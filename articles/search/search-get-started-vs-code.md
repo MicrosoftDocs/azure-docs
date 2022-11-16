@@ -1,45 +1,31 @@
 ---
-title: 'Quickstart: Use Visual Studio Code with Search'
+title: 'Use Visual Studio Code with Search'
 titleSuffix: Azure Cognitive Search
-description: Learn how to install and use the Visual Studio Code extension for Azure Cognitive Search.
-author: dereklegenzoff
-ms.author: delegenz
+description: This article provides documentation for the Visual Studio Code extension for Azure Cognitive Search.
+author: heidisteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 08/19/2022
+ms.date: 10/31/2022
 ms.custom: mode-ui
 ---
 
-# Get started with Azure Cognitive Search using Visual Studio Code
-
-This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch). With the [Visual Studio code extension for Azure Cognitive Search (preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) and these instructions, you can send requests and view responses before writing any code.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+# Work with Azure Cognitive Search using the Visual Studio Code extension (preview - retired)
 
 > [!IMPORTANT] 
-> This extension is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> The Visual Studio Code Extension for Azure Cognitive Search was introduced as a **public preview feature** under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's now discontinued.
+
+If you have an existing installation of Visual Studio Code Extension for Azure Cognitive Search, you can continue to use it, but it will no longer be updated, and it isn't guaranteed to work with future versions of Azure Cognitive Search.
+
+This article is for current users of the extension.
 
 ## Prerequisites
 
-The following services and tools are required for this quickstart. 
-
 + [Visual Studio Code](https://code.visualstudio.com/download)
 
-+ [Azure Cognitive Search for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
++ Although the extension is no longer available in the Visual Studio Code Marketplace, the code is open sourced at [https://github.com/microsoft/vscode-azurecognitivesearch](https://github.com/microsoft/vscode-azurecognitivesearch). You can clone and modify the tool for your own use.
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
-
-## Install the extension
-
-Start [Visual Studio Code](https://code.visualstudio.com). Select the **Extensions** tab on the activity bar, then search for *Azure Cognitive Search*. Find the extension in the search results, and select **Install**.
-
-![VS Code extension pane](media/search-get-started-rest/download-extension.png "Downloading the VS Code extension")
-
-Alternatively, you can install the [Azure Cognitive Search extension](https://aka.ms/vscode-search) from the Visual Studio Code marketplace in a web browser.
-
-You should see a new Azure tab appear on the activity bar if you don't already have it.
-
-![VS Code Azure pane](media/search-get-started-rest/azure-pane.png "Azure pane in VS Code")
++ [Azure Cognitive Search service](search-create-service-portal.md)
 
 ## Connect to your subscription
 

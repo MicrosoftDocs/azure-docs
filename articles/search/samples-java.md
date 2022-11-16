@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 09/09/2022
 ---
 
 # Java code samples for Azure Cognitive Search
@@ -42,16 +42,16 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 
 | Samples | Article | 
 |---------|-------------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/quickstart) | Source code for [Quickstart: Create a search index in Java and REST](search-get-started-java.md). This sample has not been updated for the Java SDK. It calls the REST APIs. |
+| [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/quickstart) | Source code for [Quickstart: Create a search index in Java and REST](search-get-started-java.md). This sample hasn't been updated for the Java SDK. It calls the REST APIs. |
 
 > [!Tip]
 > Try the [Samples browser](/samples/browse/?languages=java&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
 
 ## Other samples
 
-The following samples are also published by the Cognitive Search team, but are not referenced in documentation. Associated readme files provide usage instructions.
+The following samples are also published by the Cognitive Search team, but aren't referenced in documentation. Associated readme files provide usage instructions.
 
 | Samples | Description |
 |---------|-------------|
 | [search-java-getting-started](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-getting-started) | Uses the Java SDK client library to create, load, and query a search index. This sample is currently standalone. |
-| [search-java-indexer-demo](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/search-java-indexer-demo) | Demonstrates an Azure Cosmos DB indexer in Java. This sample has not been updated for the Java SDK. It calls the REST APIs.|
+| [search-java-indexer-demo](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/search-java-indexer-demo) | Demonstrates an Azure Cosmos DB indexer in Java. This sample hasn't been updated for the Java SDK. It calls the REST APIs.|

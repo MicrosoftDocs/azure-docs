@@ -5,12 +5,27 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/20/2022
+ms.date: 11/04/2022
 ---
 
 # Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+> [!IMPORTANT]
+>
+> On August 31, 2024, the ISE resource will retire, due to its dependency on Azure Cloud Services (classic), 
+> which retires at the same time. Before the retirement date, export any logic apps from your ISE to Standard 
+> logic apps so that you can avoid service disruption. Standard logic app workflows run in single-tenant Azure 
+> Logic Apps and provide the same capabilities plus more.
+>
+> Starting November 1, 2022, you can no longer create new ISE resources. However, ISE resources existing 
+> before this date are supported through August 31, 2024. For more information, see the following resources:
+>
+> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
+> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+> - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+> - [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
+> - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
+> - [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
 
 Sometimes, your logic app workflows need access to protected resources, such as virtual machines (VMs) and other systems or services, that are inside or connected to an Azure virtual network. To directly access these resources from workflows that usually run in multi-tenant Azure Logic Apps, you can create and run your logic apps in an *integration service environment* (ISE) instead. An ISE is actually an instance of Azure Logic Apps that runs separately on dedicated resources, apart from the global multi-tenant Azure environment, and doesn't [store, process, or replicate data outside the region where you deploy the ISE](https://azure.microsoft.com/global-infrastructure/data-residency#select-geography).
 

@@ -380,9 +380,7 @@
           - name: Enable Arc on Kubernetes cluster
             href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
           - name: Deploy stateless app via GitOps
-            href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md   
-          - name: Deploy Azure Arc Data Controller
-            href: azure-stack-edge-gpu-deploy-arc-data-controller.md 
+            href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
       - name: How to
         items:
         - name: Configure MetalLB
@@ -459,6 +457,8 @@
     items:         
     - name: Check network readiness 
       href: azure-stack-edge-deploy-check-network-readiness.md
+    - name: Deploy via config file
+      href: azure-stack-edge-zero-touch-provisioning.md
     - name: Manage Edge compute 
       href: azure-stack-edge-gpu-manage-compute.md
     - name: Manage Edge container registry
@@ -509,7 +509,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2207 - Current
+    - name: 2209 - Current
+      href: azure-stack-edge-gpu-2209-release-notes.md
+    - name: 2207
       href: azure-stack-edge-gpu-2207-release-notes.md
     - name: 2205 
       href: azure-stack-edge-gpu-2205-release-notes.md
@@ -536,7 +538,7 @@
   - name: Shared reference
     items:
     - name: Azure PowerShell
-      href: /powershell/module/az.stackedge/#stack_edge
+      href: https://azure.microsoft.com/products/azure-stack/edge/
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
@@ -643,5 +645,5 @@
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-  - name: Azure Stack Edge hardware additional terms
+  - name: Azure Stack Edge Hardware Additional Terms
     href: azure-stack-edge-add-hardware-terms.md

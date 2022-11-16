@@ -8,7 +8,7 @@ ms.date: 09/01/2022
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: overview
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ---
 
 # Troubleshoot serverless SQL pool in Azure Synapse Analytics
@@ -175,6 +175,14 @@ The error "Invalid object name 'table name'" indicates that you're using an obje
 
     - The table has some column types that can't be represented in serverless SQL pool.
     - The table has a format that isn't supported in serverless SQL pool. Examples are Avro or ORC.
+
+### String or binary data would be truncated
+
+This error happens if the length of your string or binary column type (for example `VARCHAR`, `VARBINARY`, or `NVARCHAR`) is shorter than the actual size of data that you are reading. You can fix this error by increasing the length of the column type:
+- If your string column is defined as the `VARCHAR(32)` type and the text is 60 characters, use the `VARCHAR(60)` type (or longer) in your column schema.
+- If you are using the schema inference (withtout the `WITH` schema), all string columns are automatically defined as the `VARCHAR(8000)` type. If you are getting this error, explicitly define the schema in a `WITH` clause with the larger `VARCHAR(MAX)` column type to resolve this error.
+- If your table is in the Lake database, try to increase the string column size in the Spark pool.
+- Try to `SET ANSI_WARNINGS OFF` to enable serverless SQL pool to automatically truncate the VARCHAR values, if this will not impact your functionalities.
 
 ### Unclosed quotation mark after the character string
 
@@ -673,7 +681,7 @@ If the issue persists, create a support ticket.
 
 The error "Incorrect syntax near 'NOT'" indicates there are some external tables with columns that contain the NOT NULL constraint in the column definition. Update the table to remove NOT NULL from the column definition. This error can sometimes also occur transiently with tables created from a CETAS statement. If the problem doesn't resolve, you can try dropping and re-creating the external table.
 
-### Partitione column returns NULL values
+### Partition column returns NULL values
 
 If your query returns NULL values instead of partitioning columns or can't find the partition columns, you have a few possible troubleshooting steps:
 
@@ -771,16 +779,6 @@ Here's the solution:
         WITH ( FORMAT_TYPE = PARQUET)
         ```
 
-### Operation isn't allowed for a replicated database
-
-If you're trying to create SQL objects, users, or change permissions in a database, you might get errors like "Operation is not allowed for a replicated database." This error might be returned when you try to modify a Lake database that's [shared with Spark pool](../metadata/database.md). The Lake databases that are replicated from the Apache Spark pool are managed by Synapse and you cannot create objects like in SQL Databases by using T-SQL.  
-Only the following operations are allowed in the Lake databases:
-- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the schemas other than `dbo`. If you are creating a SQL object in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
-- Creating and dropping the database users from Azure Active Directory.
-- Adding or removing database users from `db_datareader` schema.
-
-Other operations are not allowed in Lake databases.
-
 ### Can't create Azure AD sign-in or user
 
 If you get an error while you're trying to create a new Azure AD sign-in or user in a database, check the sign-in you used to connect to your database. The sign-in that's trying to create a new Azure AD user must have permission to access the Azure AD domain and check if the user exists. Be aware that:
@@ -831,7 +829,7 @@ The error "Column `column name` of the type `type name` is not compatible with t
 
 ### <a id="resolving-azure-cosmos-db-path-has-failed-with-error"></a>Resolve: Azure Cosmos DB path has failed with error
 
-If you get the error "Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation'," check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
+If you get the error "Resolving Azure Cosmos DB path has failed with error 'This request is not authorized to perform this operation'," check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
 
 ### Azure Cosmos DB performance issues
 
@@ -854,8 +852,12 @@ There are some limitations and known issues that you might see in Delta Lake sup
 - Serverless SQL pools don't support time travel queries. Use Apache Spark pools in Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools don't support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Synapse Analytics to [update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
   - You can't [store query results to storage in Delta Lake format](create-external-table-as-select.md) by using the CETAS command. The CETAS command supports only Parquet and CSV as the output formats.
-- Serverless SQL pools in Synapse Analytics don't support the datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters). The serverless SQL pool ignores the BLOOM filters.
+- Serverless SQL pools in Synapse Analytics don't support the datasets with the [BLOOM filter](/azure/databricks/optimizations/bloom-filters). The serverless SQL pool ignores the BLOOM filters.
 - Delta Lake support isn't available in dedicated SQL pools. Make sure that you use serverless SQL pools to query Delta Lake files.
+
+### Column rename in Delta table is not supported
+
+The serverless SQL pool does not support querying Delta Lake tables with the [renamed columns](https://docs.delta.io/latest/delta-batch.html#rename-columns). Serverless SQL pool cannot read data from the renamed column.
 
 ### JSON text isn't properly formatted
 
@@ -893,6 +895,44 @@ There are two options available to circumvent this error:
 
 Our engineering team is currently working on a full support for Spark 3.3.
 
+## Lake database
+
+The Lake database tables that are created using Spark or Synapse designer are automatically available in serverless SQL pool for querying. You can use serverless SQL pool to query the Parquet, CSV, and Delta Lake tables that are created using Spark pool, and add additional schemas, views, procedures, table-value functions, and Azure AD users in `db_datareader` role to your Lake database. Possible issues are listed in this section.
+
+### A table created in Spark is not available in serverless pool
+
+Tables that are created might not be immediately available in serverless SQL pool.
+- The tables will be available in serverless pools with some delay. You might need to wait 5-10 minutes after creation of a table in Spark to see it in serverless SQL pool.
+- Only the tables that reference Parquet, CSV, and Delta formats are available in serverless SQL pool. Other table types are not available.
+- A table that contains some [unsupported column types](../metadata/table.md#share-spark-tables) will not be available in serverless SQL pool.
+- Accessing Delta Lake tables in Lake databases is in **public preview**. Check other issues listed in this section or in the Delta Lake section.
+
+### Operation isn't allowed for a replicated database
+
+This error is returned if you are trying to modify a Lake database, create external tables, external data sources, database scoped credentials or other objects in your [Lake database](../metadata/database.md). These objects can be created only on SQL databases.
+
+The Lake databases are replicated from the Apache Spark pool and managed by Apache Spark. Therefore, you cannot create objects like in SQL Databases by using T-SQL language.  
+
+Only the following operations are allowed in the Lake databases:
+- Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the **schemas other than `dbo`**. 
+- Creating and dropping the database users from Azure Active Directory.
+- Adding or removing database users from `db_datareader` schema.
+
+Other operations are not allowed in Lake databases.
+
+> [!NOTE]
+> If you are creating a view, procedure, or function in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
+
+### Dataverse real-time snapshot tables are not available in serverless SQL pool
+
+If you are exporting your [Dataverse table to Azure Data Lake storage](/power-apps/maker/data-platform/azure-synapse-link-data-lake#manage-table-data-to-the-data-lake) to Data Lake, and you don't see the [snapshot data](/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data) (the tables with the `_partitioned` suffix) in your Lake database, make sure that your workspace Managed Identity has read-access on the ADLS storage that contains exported data. The serverless SQL pool reads the schema of the exported data using Managed Identity access to create the table schema.
+
+### Delta tables in Lake databases are not available in serverless SQL pool
+
+Make sure that your workspace Managed Identity has read access on the ADLS storage that contains Delta folder. The serverless SQL pool reads the Delta Lake table schema from the Delta log that are placed in ADLS and use the workspace Managed Identity to access the Delta transaction logs.
+
+Try to setup a data source in some SQL Database that references your Azure Data Lake storage using Managed Identity credential, and try to [create external table on top of data source with Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#access-a-data-source-using-credentials) to confirm that a table with the Managed Identity can access your storage.
+
 ### Delta tables in Lake databases do not have identical schema in Spark and serverless pools
 
 Serverless SQL pools enable you to access Parquet, CSV, and Delta tables that are created in Lake database using Spark or Synapse designer. Accessing the Delta tables is still in public preview, and currently serverless will synchronize a Delta table with Spark at the time of creation but will not update the schema if the columns are added later using the `ALTER TABLE` statement in Spark.
@@ -922,7 +962,7 @@ Check the following issues if you experience slow query execution:
 - Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause additional latency and slow streaming of result set.
 - Make sure that you don't have networking issues that can cause the slow streaming of result set
 - Make sure that the client application has enough resources (for example, not using 100% CPU).
-- Make sure that the storage account or Cosmos DB analytical storage is placed in the same region as your serverless SQL endpoint.
+- Make sure that the storage account or Azure Cosmos DB analytical storage is placed in the same region as your serverless SQL endpoint.
 
 See best practices for [collocating the resources](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
 

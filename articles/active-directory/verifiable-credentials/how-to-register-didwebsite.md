@@ -17,6 +17,7 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
+
 ## Prerequisites
 
 - Complete verifiable credentials onboarding with Web as the selected trust system.
@@ -49,7 +50,10 @@ The DID document in the `did.json` file needs to be republished if you changed t
 
 ## How can I verify that the registration is working?
 
-The portal verifies that the `did.json` is reachable and correct when you click the [**Refresh registration status** button](#how-do-i-register-my-website-id). You should also consider verifying that you can request that URL in a browser to avoid errors like not using https, a bad SSL certificate or the URL not being public. If the `did.json` file cannot be requested anonymously in a browser, without warnings or errors, the portal will not be able to complete the **Refresh registration status** step either. 
+The portal verifies that the `did.json` is reachable and correct when you click the [**Refresh registration status** button](#how-do-i-register-my-website-id). You should also consider verifying that you can request that URL in a browser to avoid errors like not using https, a bad SSL certificate or the URL not being public. If the `did.json` file cannot be requested anonymously in a browser or via tools such as `curl`, without warnings or errors, the portal will not be able to complete the **Refresh registration status** step either. 
+
+>[!NOTE]
+> If you are experiencing problems refreshing your registration status, you can troubleshoot it via running `curl -Iv https://yourdomain.com/.well-known/did.json` on an machine with Ubuntu OS. Windows Subsystem for Linux with Ubuntu will work too. If curl fails, refreshing the registration status will not work.
 
 ## Next steps
 

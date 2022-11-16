@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Connect an app to Cosmos DB'
-description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to connect an app to MongoDB (Cosmos DB).
+title: 'CLI: Connect an app to Azure Cosmos DB'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to connect an app to Azure Cosmos DB.
 author: msangapu-msft
 tags: azure-service-management
 
@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/21/2022
 ms.author: msangapu
-ms.custom: mvc, seodec18, devx-track-azurecli
+ms.custom: mvc, seodec18, devx-track-azurecli, ignite-2022
 ---
 
-# Connect an App Service app to Cosmos DB using CLI
+# Connect an App Service app to Azure Cosmos DB via the Azure CLI
 
-This sample script creates an Azure Cosmos DB account using the Azure Cosmos DB's API for MongoDB and an App Service app. It then links a MongoDB connection string to the web app using app settings.
+This sample script creates an Azure Cosmos DB account using Azure Cosmos DB for MongoDB and an App Service app. It then links a MongoDB connection string to the web app using app settings.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,15 +38,15 @@ az group delete --name $resourceGroup
 
 ## Sample reference
 
-This script uses the following commands to create a resource group, App Service app, Cosmos DB, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, App Service app, Azure Cosmos DB, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an App Service plan. |
 | [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Creates an App Service app. |
-| [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates a Cosmos DB account. |
-| [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings) | Lists connection strings for the specified Cosmos DB account. |
+| [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
+| [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings) | Lists connection strings for the specified Azure Cosmos DB account. |
 | [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Creates or updates an app setting for an App Service app. App settings are exposed as environment variables for your app (see [Environment variables and app settings reference](../reference-app-settings.md)). |
 
 ## Next steps

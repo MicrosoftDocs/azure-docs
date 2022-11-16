@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/27/2021
+ms.date: 11/12/2022
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: ardhanap, jesakowi
+ms.reviewer: xurobert, brianokoyo, ardhanap
 ---
 
 # Mark your app as publisher verified
@@ -30,7 +30,6 @@ If you are already enrolled in the Microsoft Partner Network (MPN) and have met 
 1. Enter your MPN ID and click **Verify and save**.
 
 For more details on specific benefits, requirements, and frequently asked questions see the [overview](publisher-verification-overview.md).
-
 
 ## Mark your app as publisher verified
 Make sure you have met the [pre-requisites](publisher-verification-overview.md#requirements), then follow these steps to mark your app(s) as Publisher Verified.  

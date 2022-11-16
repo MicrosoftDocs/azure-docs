@@ -40,7 +40,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 [!INCLUDE [resource group definition](../../includes/resource-group.md)]
 
-The following steps show how to use the Azure portal to [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal).  For simplicity, we'll put all resources for this tutorial in the same resource group.  
+The following steps show how to use the Azure portal to [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).  For simplicity, we'll put all resources for this tutorial in the same resource group.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Resource groups**.
@@ -75,7 +75,7 @@ The following steps show how to use the Azure portal to create a virtual network
 1. One the **IP Addresses** tab, create a subnet that will be used by the labs.
     1. Select **+ Add subnet**
     1. For **Subnet name**, enter **labservices-subnet**.
-    1. For **Subnet address range**, enter range in CIDR notation. For example, 10.0.1.0/24 will have enough IP addresses for 251 lab VMs.  (Five IP addresses are reserved by Azure for every subnet.)  To create a subnet with more available IP addresses for VMs, use a different CIDR prefix length. For example, 10.0.0.0/20 would have room for over 4000 IP addresses for lab VMs.  For more information about adding subnets, see [Add a subnet](/azure/virtual-network/virtual-network-manage-subnet).
+    1. For **Subnet address range**, enter range in CIDR notation. For example, 10.0.1.0/24 will have enough IP addresses for 251 lab VMs.  (Five IP addresses are reserved by Azure for every subnet.)  To create a subnet with more available IP addresses for VMs, use a different CIDR prefix length. For example, 10.0.0.0/20 would have room for over 4000 IP addresses for lab VMs.  For more information about adding subnets, see [Add a subnet](../virtual-network/virtual-network-manage-subnet.md).
     1. Select **OK**.
 1. Select **Review + Create**.
 
@@ -85,7 +85,7 @@ The following steps show how to use the Azure portal to create a virtual network
 
 ## Delegate subnet to Azure Lab Services
 
-In this section, we'll configure the subnet to be used with Azure Lab Services.  To tell Azure Lab Services that a subnet may be used, the subnet must be [delegated to the service](/azure/virtual-network/manage-subnet-delegation).
+In this section, we'll configure the subnet to be used with Azure Lab Services.  To tell Azure Lab Services that a subnet may be used, the subnet must be [delegated to the service](../virtual-network/manage-subnet-delegation.md).
 
 1. Open the **MyVirtualNetwork** resource.
 1. Select the **Subnets** item on the left menu.

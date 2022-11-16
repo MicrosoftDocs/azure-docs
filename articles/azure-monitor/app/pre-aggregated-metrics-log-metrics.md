@@ -55,7 +55,7 @@ It is worth mentioning that the collection endpoint pre-aggregates events before
 | Java                    | Not Supported            | Not Supported                             | [Supported](java-in-process-agent.md#metrics) |
 | Node.js                 | Not Supported            | Not Supported                             | Not Supported                           |
 
-1. ASP.NET codeless attach on App Service only emits metrics in "full" monitoring mode. ASP.NET codeless attach on App Service, VM/VMSS, and On-Premises emits standard metrics without dimensions. SDK is required for all dimensions.
+1. ASP.NET codeless attach on VM/VMSS, and On-Premises emits standard metrics without dimensions. The same is true for App Service, but the collection level must be set to recommended. The SDK is required for all dimensions.
 2. ASP.NET Core codeless attach on App Service emits standard metrics without dimensions. SDK is required for all dimensions.
 
 ## Using pre-aggregation with Application Insights custom metrics

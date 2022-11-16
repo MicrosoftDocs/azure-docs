@@ -61,19 +61,19 @@
     - name: Connect to Azure Virtual Desktop resources
       items:
         - name: Connect with the Windows Desktop client
-          href: ../user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          href: ../users/connect-windows.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Connect with the web client
-          href: ../user-documentation/connect-web.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          href: ../users/connect-web.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Connect with the Android client
-          href: ../user-documentation/connect-android.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          href: ../users/connect-android-chrome-os.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Connect with the macOS client
-          href: ../user-documentation/connect-macos.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          href: ../users/connect-macos.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Connect with the iOS client
-          href: ../user-documentation/connect-ios.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          href: ../users/connect-ios-ipados.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Connect with the Microsoft Store client
-          href: ../user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          href: ../users/connect-microsoft-store.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Connect with thin clients
-          href: ../user-documentation/linux-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          href: ../users/connect-thin-clients.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Create a host pool and session hosts
       items:
         - name: PowerShell
@@ -253,7 +253,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning path
-    href: /learn/paths/m365-wvd/
+    href: /training/paths/m365-wvd/
   - name: How-to videos
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Tech Community support group

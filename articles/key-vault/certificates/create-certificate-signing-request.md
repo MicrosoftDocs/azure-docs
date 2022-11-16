@@ -108,7 +108,7 @@ If you want to add more information when creating the CSR, define it in **Subjec
 Example
 
    ```azure-powershell
-   SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+   SubjectName="CN = learn.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
    ```
 
 > [!NOTE]

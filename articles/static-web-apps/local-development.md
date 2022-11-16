@@ -41,7 +41,7 @@ The following chart shows how requests are handled locally.
 :::image type="content" source="media/local-development/cli-conceptual.png" alt-text="Azure Static Web App CLI request and response flow":::
 
 > [!IMPORTANT]
-> Navigate to `http://localhost:4280` to access the application served by the CLI.
+> Go to `http://localhost:4280` to access the application served by the CLI.
 
 - **Requests** made to port `4280` are forwarded to the appropriate server depending on the type of request.
 
@@ -97,7 +97,7 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
     swa start
     ```
 
-1. Navigate to `http://localhost:4280` to view the app in the browser.
+1. Go to `http://localhost:4280` to view the app in the browser.
 
 ### Other ways to start the CLI
 
@@ -112,7 +112,7 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
 The Static Web Apps CLI emulates the [security flow](./authentication-authorization.md) implemented in Azure. When a user logs in, you can define a fake identity profile returned to the app.
 
-For instance, when you try to navigate to `/.auth/login/github`, a page is returned that allows you to define an identity profile.
+For instance, when you try to go to `/.auth/login/github`, a page is returned that allows you to define an identity profile.
 
 > [!NOTE]
 > The emulator works with any security provider, not just GitHub.

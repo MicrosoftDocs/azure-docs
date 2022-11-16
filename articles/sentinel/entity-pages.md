@@ -76,6 +76,7 @@ Microsoft Sentinel currently offers the following entity pages:
     > The **IP address entity page** (now in preview) contains **geolocation data** supplied by the **Microsoft Threat Intelligence service**. This service combines geolocation data from Microsoft solutions and third-party vendors and partners. The data is then available for analysis and investigation in the context of a security incident. For more information, see also [Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md).
 
 - Azure resource (**Preview**)
+- IoT device (**Preview**)
 
 ## Next steps
 
