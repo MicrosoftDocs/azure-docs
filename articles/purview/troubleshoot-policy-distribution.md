@@ -17,7 +17,7 @@ In this tutorial, you learn how to programmatically fetch access policies that w
 
 For more information about Microsoft Purview policies, see the concept guides listed in the ["Next steps"](#next-steps) section.
 
-This guide use examples from Azure SQL Server as data sources.
+This guide uses examples from Azure SQL Server as data sources.
 
 ## Prerequisites
 
@@ -61,8 +61,8 @@ where the path `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 |401|Unauthenticated|Error|No bearer token was passed in the request, or invalid token|Error data|
 |403|Forbidden|Error|Other authentication errors|Error data|
 |404|Not found|Error|The request path is invalid or not registered|Error data|
-|500|Internal server error|Error|Back-end service is unavailable|Error data|
-|503|Backend service unavailable|Error|Back-end service is unavailable|Error data|
+|500|Internal server error|Error|The back-end service is unavailable|Error data|
+|503|Backend service unavailable|Error|The back-end service is unavailable|Error data|
 
 ### Example for Azure SQL Server (Azure SQL Database)
 
@@ -240,15 +240,15 @@ Policy specifies the decision that the data source must enforce (*permit* or *de
 - `attributeValueExcludedIn`: An array of literal values that should *not* match the request context attribute values.
 
 #### CNFCondition
-An array of `AttributePredicates` that have to be satisfied with the semantic of ANDofORs.
+An array of `AttributePredicates` that have to be satisfied with the semantics of ANDofORs.
 
 #### DNFCondition
-An array of `AttributePredicates` that have to be satisfied with the semantic of ORofANDs.
+An array of `AttributePredicates` that have to be satisfied with the semantics of ORofANDs.
 
 #### PreConditionRule
 - A `PreConditionRule` can specify at most one each of `CNFCondition`, `DNFCondition`, or `Condition`.
 - All of the specified `CNFCondition`, `DNFCondition`, and `Condition` should evaluate to `true` for `PreConditionRule` to be satisfied for the current request.
-- If any of the precondition rules is not satisfied, `PolicySet` or `Policy` is considered not applicable for the current request and skipped.
+- If any of the precondition rules isn't satisfied, `PolicySet` or `Policy` is considered not applicable for the current request and skipped.
 
 #### Condition
 - `condition` allows you to specify a complex condition of predicates that can nest functions from a library of functions.
