@@ -184,7 +184,7 @@ Service Health alerts are a type of activity alert. [Service Health](../../servi
 
 The best way to use Service Health is to set up Service Health alerts to notify you using your preferred communication channels when service issues, planned maintenance, or other changes may affect the Azure services and regions you use.
 
-### Resource Health Alerts
+### Resource Health alerts
 
 Resource Health alerts are a type of activity alert. [Resource Health overview](../../service-health/resource-health-overview.md) helps you diagnose and get support for service problems that affect your Azure resources. It reports on the current and past health of your resources. Resource Health relies on signals from different Azure services to assess whether a resource is healthy. If a resource is unhealthy, Resource Health analyzes additional information to determine the source of the problem. It also reports on actions that Microsoft is taking to fix the problem and identifies things that you can do to address it.
 
