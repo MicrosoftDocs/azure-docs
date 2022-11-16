@@ -87,15 +87,16 @@ cat ~/.ssh/id_rsa.pub
 > * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
 > * FireFox/IE may not support clipboard permissions properly.
 
-2) Select and copy the key output in the clipboard.
+2) Select and copy the SSH key output to your clipboard.
+3) Next, follow the steps to add the SSH key to your preferred account type:
 
 + [GitHub](https://docs.github.com/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
-+ [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
++ [GitLab](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account)
 
 + [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate#step-2--add-the-public-key-to-azure-devops-servicestfs)  Start at **Step 2**.
 
-+ [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Start at **Step 4**.
++ [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Follow **Step 4**.
 
 ### Clone the Git repository with SSH
 

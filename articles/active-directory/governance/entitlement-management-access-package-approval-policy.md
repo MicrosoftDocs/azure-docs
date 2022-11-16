@@ -202,6 +202,7 @@ In order to make sure users are getting access to the right access packages, you
 
 1. If you would like to include a syntax check for text answers to questions, you can also specify a custom regex pattern.  
     :::image type="content" source="media/entitlement-management-access-package-approval-policy/add-regex-localization.png" alt-text="Screenshot of the add regex localization policy." lightbox="media/entitlement-management-access-package-approval-policy/add-regex-localization.png":::
+ If you would like to include a syntax check for text answers to questions, you can also specify a custom regex pattern.
 1. To require requestors to answer this question when requesting access to an access package, select the check box under **Required**.
 
 1. Fill out the remaining tabs (for example, Lifecycle) based on your needs.

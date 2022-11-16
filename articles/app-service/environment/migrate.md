@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 10/26/2022
+ms.date: 11/11/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -19,6 +19,8 @@ App Service can now automate migration of your App Service Environment v1 and v2
 
 At this time, App Service Environment migrations to v3 using the migration feature are supported in the following regions:
 
+### Azure Public:
+
 - Australia East
 - Australia Central
 - Australia Southeast
@@ -31,14 +33,18 @@ At this time, App Service Environment migrations to v3 using the migration featu
 - East US
 - East US 2
 - France Central
+- Germany North
 - Germany West Central
 - Japan East
 - Korea Central
+- Korea South
 - North Central US
 - North Europe
 - Norway East
+- Norway West
 - South Central US
 - Switzerland North
+- Switzerland West
 - UAE North
 - UK South
 - UK West
