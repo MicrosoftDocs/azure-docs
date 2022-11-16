@@ -32,10 +32,10 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Python | 3.8          |
 | R (Preview) | 4.2.2        | 
 
-# Libraries
+## Libraries
 The following sections presents the libraries included in Azure Synapse Runtime for Apache Spark 3.3.
 
-## Scala and Java libraries
+### Scala and Java libraries
 | **Library**                                 | **Version**                      | **Library**                         | **Version**                     | **Library**                                    | **Version**                     |
 |:-------------------------------------------:|:--------------------------------:|:-----------------------------------:|:-------------------------------:|:----------------------------------------------:|:-------------------------------:|
 | activation                                  | 1.1.1                         | httpclient5                         | 5.1.3                        | opentracing-api                                | 0.33.0                       |
@@ -151,9 +151,9 @@ The following sections presents the libraries included in Azure Synapse Runtime 
 
 
 
-## Python libraries (Normal VMs)
+### Python libraries (Normal VMs)
 
-### Part of the runtime and supported
+#### Part of the runtime and supported
 
 | Library | Version | Library | Version |
 |---------|---------|---------|---------|
@@ -161,7 +161,7 @@ The following sections presents the libraries included in Azure Synapse Runtime 
 |         |         |         |         |
 |         |         |         |         |
 
-### Part of the runtime
+#### Part of the runtime
 
 | Library | Version | Library | Version | Library | Version |
 |---------|---------|---------|---------|---------|---------|
@@ -169,7 +169,7 @@ The following sections presents the libraries included in Azure Synapse Runtime 
 |         |         |         |         |         |         |
 |         |         |         |         |         |         |
 
-## R libraries (Preview)
+### R libraries (Preview)
 
 | Library | Version | Library | Version | Library | Version |
 |---------|---------|---------|---------|---------|---------|
