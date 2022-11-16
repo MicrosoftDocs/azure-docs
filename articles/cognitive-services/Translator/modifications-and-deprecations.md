@@ -27,7 +27,7 @@ Learn about Translator service changes, modification, and deprecations.
 
 |Deprecated metric| Current metric(s) | Description|
 |---|---|---|
-|Characters Translated (Deprecated)|**&bullet; Text Characters Translated**</br></br><hr>**&bullet;Text Custom Characters Translated**| &bullet; Number of characters in incoming **text** translation request.</br></br><hr> &bullet; Number of characters in incoming **custom** translation request.  |
+|Characters Translated (Deprecated)</br></br></br></br>|**&bullet; Text Characters Translated**</br></br>**&bullet;Text Custom Characters Translated**| &bullet; Number of characters in incoming **text** translation request.</br></br> &bullet; Number of characters in incoming **custom** translation request.  |
 |Characters Trained (Deprecated) | **&bullet; Text Trained Characters** | &bullet; Number of characters **trained** using text translation service.|
 
 ## October 2022
