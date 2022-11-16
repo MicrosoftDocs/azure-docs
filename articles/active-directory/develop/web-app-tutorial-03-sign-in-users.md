@@ -46,7 +46,7 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-In progress.
+The same steps can be implemented in Visual Studio for Windows.
 
 ---
 
