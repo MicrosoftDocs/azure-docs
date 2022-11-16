@@ -1,4 +1,4 @@
-This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into an LDAP directory. The document includes a sample for how you can provision users into AD LDS, but you can provision into any of the supported LDAP directories mentioned below. Provisioning users into Active Directory Domain Services through this solution is not supported.
+This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into an LDAP directory. The document illustrates how you can provision users into AD LDS as an example LDAP directory, but you can provision into any of the supported LDAP directories mentioned below. Provisioning users into Active Directory Domain Services through this solution is not supported.
  
 For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md). The following video provides an overview of on-premises provisioning.
 
@@ -9,7 +9,7 @@ For important details on what this service does, how it works, and frequently as
 
 ### On-premises prerequisites
 
- - A target directory, such as Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted. This directory instance should not be a directory that is also used to provision users into Azure AD, because having both scenarios may create a loop with Azure AD Connect.
+ - A target directory, other than Active Directory Domain Services, in which users can be created, updated, and deleted. For example, Active Directory Lightweight Services (AD LDS).  This directory instance should not be a directory that is also used to provision users into Azure AD, because having both scenarios may create a loop with Azure AD Connect.
  - A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target directory, and with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
  - The .NET Framework 4.7.2 needs to be installed.
  - Optional:  Although it is not required, it is recommended to download [Microsoft Edge for Windows Server](https://www.microsoft.com/en-us/edge?r=1) and use it in-place of Internet Explorer.
@@ -51,87 +51,8 @@ The following bullet points are more recommendations and limitations.
 
 ## Prepare the LDAP directory
 
-If you do not already have a directory server, the following information is provided to help create a test AD LDS environment.  This setup uses PowerShell and the ADAMInstall.exe with an answers file.  This document does not cover in-depth information on AD LDS.  For more information, see [Active Directory Lightweight Directory Services](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)).
+If you do not already have a directory server, and wish to try out this feature, then [Prepare Active Directory Lightweight Directory Services for provisioning from Azure AD](../articles/active-directory/app-provisioning/on-premises-ldap-connector-prepare-directory.md) shows how to create a test AD LDS environment.   If you already have  another directory server deployed, you can skip that article, and continue installing and configuring the ECMA connector host.
 
-If you already have AD LDS or another directory server set up in a test environment, you can skip the following sections, for installing and configuring the ECMA connector host.
-
-### Create an SSL certificate, a test directory and install AD LDS.
-Use the PowerShell script from [Appendix A](#appendix-a---install-ad-lds-powershell-script).  The script performs the following actions:
-  - Creates a self-signed certificate that will be used by the LDAP connector
-  - Creates a directory for the feature install log
-  - Exports the certificate in the personal store to the directory
-  - Imports the certificate to the trusted root of the local machine
-  - Installs the AD LDS role on our virtual machine 
-
-On the Windows Server virtual machine where you are using to test the LDAP connector, edit the script to match your computer name, and then run the script using Windows PowerShell with administrative privileges.
-
-### Create an instance of AD LDS
-Now that the role has been installed, you need to create an instance of AD LDS.  To create an instance, you can use the answer file provided below.  This file will install the instance quietly without using the UI.
-
-Copy the contents of [Appendix B](#appendix-b---answer-file) in to notepad and save it as **answer.txt** in **"C:\Windows\ADAM"**.
-
-Now open a cmd prompt with administrative privileges and run the following executable:
-
-```
-C:\Windows\ADAM> ADAMInstall.exe /answer:answer.txt
-```
-
-### Create containers and a service account for AD LDS
-The use the PowerShell script from [Appendix C](#appendix-c---populate-ad-lds-powershell-script).  The script performs the following actions:
-  - Creates a container for the service account that will be used with the LDAP connector
-  - Creates a container for the cloud users, where users will be provisioned to
-  - Creates the serve account in AD LDS
-  - Enables the service account
-  - Adds the service account to the AD LDS Administrators role
-
-On the Windows Server virtual machine, you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
-
-### Grant the NETWORK SERVICE read permissions to the SSL certificate
-In order to enable SSL to work, you need to grant the NETWORK SERVICE read permissions to our newly created certificate.  To grant permissions, use the following steps.
-
- 1. Navigate to **C:\Program Data\Microsoft\Crypto\Keys**.
- 2. Right-click on the system file located here.  It will be a guid.  This container is storing our certificate.
-    - Select properties.
-    - At the top, select the **Security** tab.
-    - Select **Edit**.
-    - Click **Add**.
-    - In the box, enter **Network Service** and select **Check Names**.
-    - Select **NETWORK SERVICE** from the list and click **OK**.
-    - Click **Ok**.
-    - Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
-
-### Verify SSL connectivity with AD LDS
-Now that we have configured the certificate and granted the network service account permissions, test the connectivity to verify that it is working.
- 1. Open Server Manager and select AD LDS on the left
- 2. Right-click your instance of AD LDS and select ldp.exe from the pop-up.
-   [![Ldp tool location](media/active-directory-app-provisioning-ldap/ldp-1.png)](media/active-directory-app-provisioning-ldap/ldp-1.png#lightbox)</br>
- 3. At the top of ldp.exe, select **Connection** and **Connect**.
- 4. Enter the following information and click **OK**.
-    - Server:  APP3
-    - Port: 636
-    - Place a check in the SSL box
-   [![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)](media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
- 5.  You should see a response similar to the screenshot below.
-   [![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)](media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
- 6.  At the top, under **Connection** select **Bind**.
- 7. Leave the defaults and click **OK**.
-   [![Ldp bind](media/active-directory-app-provisioning-ldap/ldp-4.png)](media/active-directory-app-provisioning-ldap/ldp-4.png#lightbox)</br>
- 8. You should now, successfully bind to the instance.
-   [![ldp bind success](media/active-directory-app-provisioning-ldap/ldp-5.png)](media/active-directory-app-provisioning-ldap/ldp-5.png#lightbox)</br>
-
-### Disable the local password policy
-Currently, the LDAP connector provisions users with a blank password.  This provisioning will not satisfy the local password policy on our server so we are going to disable it for testing purposes.  To disable password complexity, on a non-domain-joined server, use the following steps.
-
->[!IMPORTANT]
->Because on-going password sync is not a feature of on-premises LDAP provisioning, Microsoft recommends that AD LDS is used specifically with federated applications, when used in conjunction with AD DS, or when updating existing users in an instance of AD LDS.
-
- 1. On the server, click **Start**, **Run**, and then **gpedit.msc**
- 2. On the **Local Group Policy editor**, navigate to Computer Configuration > Windows Settings > Security Settings > Account Policies > Password Policy
- 3. On the right, double-click **Password must meet complexity requirements** and select **Disabled**.
-  [![Screenshot complexity requirements.](.\media\active-directory-app-provisioning-ldap\local-1.png)](.\media\active-directory-app-provisioning-ldap\local-1.png#lightbox)</br>
- 5. Click **Apply** and **Ok**
- 6. Close the Local Group Policy editor
- 
 
 ## Download, install, and configure the Azure AD Connect Provisioning Agent Package
 
@@ -337,121 +258,3 @@ After waiting, check your directory to ensure users are being provisioned.  The 
  9. On the left, expand the DN and click on **CN=CloudUsers,CN=App,DC=contoso,DC=lab**.  You should see your users who were provisioned from Azure AD.
   [![Ldp binding for users](media/active-directory-app-provisioning-ldap/test-3.png)](media/active-directory-app-provisioning-ldap/test-3.png#lightbox)</br>
 
-## Appendix A - Install AD LDS PowerShell script
-The following PowerShell script can be used to automate the installation of Active Directory Lightweight Directory Services. You'll need to edit the script to match your environment; in particular, change `APP3` to the hostname of your computer.
-
-
-
-```powershell
-# Filename:    1_SetupADLDS.ps1
-# Description: Creates a certificate that will be used for SSL and installs Active Directory Lighetweight Directory Services.
-#
-# DISCLAIMER:
-# Copyright (c) Microsoft Corporation. All rights reserved. This 
-# script is made available to you without any express, implied or 
-# statutory warranty, not even the implied warranty of 
-# merchantability or fitness for a particular purpose, or the 
-# warranty of title or non-infringement. The entire risk of the 
-# use or the results from the use of this script remains with you.
-#
-#
-#
-#
-#Declare variables
-$DNSName = 'APP3'
-$CertLocation = 'cert:\LocalMachine\MY'
-$logpath = "c:\" 
-$dirname = "test"
-$dirtype = "directory"
-$featureLogPath = "c:\test\featurelog.txt" 
-
-#Create a new self-signed certificate
-New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation $CertLocation
-
-#Create directory
-New-Item -Path $logpath -Name $dirname -ItemType $dirtype
-
-#Export the certifcate from the local machine personal store
-Get-ChildItem -Path cert:\LocalMachine\my | Export-Certificate -FilePath c:\test\allcerts.sst -Type SST
-
-#Import the certificate in to the trusted root
-Import-Certificate -FilePath "C:\test\allcerts.sst" -CertStoreLocation cert:\LocalMachine\Root
-
-
-#Install AD LDS
-start-job -Name addFeature -ScriptBlock { 
-Add-WindowsFeature -Name "ADLDS" -IncludeAllSubFeature -IncludeManagementTools 
- } 
-Wait-Job -Name addFeature 
-Get-WindowsFeature | Where installed >>$featureLogPath
-
-
- ```
-
-## Appendix B - Answer file
-This file is used to automate and create an instance of AD LDS.  You will edit this file to match your environment; in particular, change `APP3` to the hostname of your server.
-
->[!IMPORTANT]
-> This script uses the local administrator for the AD LDS service account and has its password hard-coded in the answers.  This action is for **testing only** and should never be used in a production environment.
->
-> If you are installing AD LDS on a domain controller and not a member or standalone server, you will need to change the LocalLDAPPortToListenOn and LocalSSLPortToListonOn to something other than the well-known ports for LDAP and LDAP over SSL.  For example, LocalLDAPPortToListenOn=51300 and LocalSSLPortToListenOn=51301.
-
-```
- [ADAMInstall]
- InstallType=Unique
- InstanceName=AD-APP-LDAP
- LocalLDAPPortToListenOn=389
- LocalSSLPortToListenOn=636
- NewApplicationPartitionToCreate=CN=App,DC=contoso,DC=lab
- DataFilesPath=C:\Program Files\Microsoft ADAM\AD-APP-LDAP\data
- LogFilesPath=C:\Program Files\Microsoft ADAM\AD-APP-LDAP\data
- ServiceAccount=APP3\Administrator
- ServicePassword=Pa$$Word1
- AddPermissionsToServiceAccount=Yes
- Administrator=APP3\Administrator
- ImportLDIFFiles="MS-User.LDF"
- SourceUserName=APP3\Administrator
- SourcePassword=Pa$$Word1
- ```
-## Appendix C - Populate AD LDS PowerShell script
-PowerShell script to populate AD LDS with containers and a service account.
-
-
-
-```powershell
-# Filename:    2_PopulateADLDS.ps1
-# Description: Populates our AD LDS environment with 2 containers and a service account
-
-# DISCLAIMER:
-# Copyright (c) Microsoft Corporation. All rights reserved. This 
-# script is made available to you without any express, implied or 
-# statutory warranty, not even the implied warranty of 
-# merchantability or fitness for a particular purpose, or the 
-# warranty of title or non-infringement. The entire risk of the 
-# use or the results from the use of this script remains with you.
-#
-#
-#
-#
-# Create service accounts container
-New-ADObject -Name "ServiceAccounts" -Type "container" -Path "CN=App,DC=contoso,DC=lab" -Server "APP3:389"
-Write-Output "Creating ServiceAccounts container"
-
-# Create cloud users container
-New-ADObject -Name "CloudUsers" -Type "container" -Path "CN=App,DC=contoso,DC=lab" -Server "APP3:389"
-Write-Output "Creating CloudUsers container"
-
-# Create a new service account
-New-ADUser -name "svcAccountLDAP" -accountpassword  (ConvertTo-SecureString -AsPlainText 'Pa$$1Word' -Force) -Displayname "LDAP Service Account" -server 'APP3:389' -path "CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
-Write-Output "Creating service account"
-
-# Enable the new service account
-Enable-ADAccount -Identity "CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab" -Server "APP3:389"
-Write-Output "Enabling service account"
-
-# Add the service account to the Administrators role
-Get-ADGroup -Server "APP3:389" -SearchBase "CN=Administrators,CN=Roles,CN=App,DC=contoso,DC=lab" -Filter "name -like 'Administrators'" | Add-ADGroupMember -Members "CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
-Write-Output "Adding service accounnt to Administrators role"
-
-
- ```
