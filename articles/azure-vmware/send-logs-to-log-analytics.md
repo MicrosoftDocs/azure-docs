@@ -3,7 +3,7 @@ title: Send your Azure VMware Solution logs to Log Analytics
 description: Learn about sending logs to log analytics.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/07/2022
+ms.date: 11/15/2022
 ---
 
 # Send your Azure VMware Solution logs to Log Analytics
