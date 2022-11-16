@@ -57,8 +57,6 @@ This section describes the steps to configure SQL Server on Azure Arc to use Mic
 
 1. Verify that Azure Active Directory authentication is configured with an admin login, a SQL Server service certificate, and a SQL Server app registration.
 
-   ![Screenshot that shows selections for configuring a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
-
 1. Scroll down to set **External Policy Based Authorization** to **Enabled**.
 
 1. For **Microsoft Purview Endpoint**, enter an endpoint in the format *https://\<purview-account-name\>.purview.azure.com*. You can see the names of Microsoft Purview accounts in your tenant through [this link](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Purview%2FAccounts). 
@@ -66,5 +64,7 @@ This section describes the steps to configure SQL Server on Azure Arc to use Mic
    Optionally, you can confirm the endpoint by going to the Microsoft Purview account. Go to the **Properties** section on the left menu and scroll down until you see **Scan endpoint**. The full endpoint path is the one listed without "/Scan" at the end.
 
 1. Make a note of the **App registration ID** value. You'll need it when you register and enable this data source for **Data Use Management** in Microsoft Purview.
+
+   ![Screenshot that shows selections for configuring a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
    
 1. Select the **Save** button to save the configuration.

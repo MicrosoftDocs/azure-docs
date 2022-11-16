@@ -232,8 +232,8 @@
     href: /cli/azure/desktopvirtualization
   - name: Estimate Azure Monitor costs
     href: ../azure-monitor-costs.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-  - name: Supported RDP file settings
-    href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
+  - name: Supported RDP properties
+    href: ../rdp-properties.md
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Azure CLI

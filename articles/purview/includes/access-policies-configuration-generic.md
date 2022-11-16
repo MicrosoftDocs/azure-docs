@@ -31,7 +31,7 @@ Before a policy can be created in Microsoft Purview for a resource, you must con
 The following permissions are needed in Microsoft Purview at the *root collection level*:
 
 - The *Policy author* role can create, update, and delete DevOps and Data Owner policies.
-- The *Policy authors* role can delete self-service access policies.
+- The *Policy author* role can delete self-service access policies.
 
 For more information about managing Microsoft Purview role assignments, see [Create and manage collections in the Microsoft Purview Data Map](../how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
