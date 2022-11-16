@@ -62,7 +62,7 @@ If everything is working correctly, your pods should all be in the `Running` sta
 
 ### Still having problems?
 
-The steps above will resolve many common connection issues, but if you're still unable to connect successfully, generate a troubleshooting log file and then [open a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) so we can investigate the problem further.
+The steps above will resolve many common connection issues, but if you're still unable to connect successfully, generate a troubleshooting log file and then [open a support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) so we can investigate the problem further.
 
 To generate the troubleshooting log file, run the following command:
 
@@ -70,7 +70,7 @@ To generate the troubleshooting log file, run the following command:
 az connectedk8s troubleshoot -g <myResourceGroup> -n <myK8sCluster>
 ```
 
-When you [create your support request](/azure/azure-portal/supportability/how-to-create-azure-support-request), in the **Additional details** section, use the **File upload** option to upload the generated log file.
+When you [create your support request](../../azure-portal/supportability/how-to-create-azure-support-request.md), in the **Additional details** section, use the **File upload** option to upload the generated log file.
 
 ## Connections with a proxy server
 
@@ -118,7 +118,7 @@ If everything is working correctly, your pods should all be in the `Running` sta
 
 ### Still having problems?
 
-The steps above will resolve many common connection issues, but if you're still unable to connect successfully, generate a troubleshooting log file and then [open a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) so we can investigate the problem further.
+The steps above will resolve many common connection issues, but if you're still unable to connect successfully, generate a troubleshooting log file and then [open a support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) so we can investigate the problem further.
 
 To generate the troubleshooting log file, run the following command:
 
@@ -126,7 +126,7 @@ To generate the troubleshooting log file, run the following command:
 az connectedk8s troubleshoot -g <myResourceGroup> -n <myK8sCluster>
 ```
 
-When you [create your support request](/azure/azure-portal/supportability/how-to-create-azure-support-request), in the **Additional details** section, use the **File upload** option to upload the generated log file.
+When you [create your support request](../../azure-portal/supportability/how-to-create-azure-support-request.md), in the **Additional details** section, use the **File upload** option to upload the generated log file.
 
 
 ## Next steps

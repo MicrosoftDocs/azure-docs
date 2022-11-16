@@ -9,7 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 11/04/2022
+ms.date: 11/15/2022
 ---
 
 # Azure savings plan recommendations
@@ -45,7 +45,7 @@ The minimum value doesn't necessarily represent the hourly commitment necessary 
 
 1. Download your price list.
 2. For each reservation order you're returning, find the product in the price sheet and determine its unit price under either a 1-year or 3-year savings plan (filter by term and price type).
-3. Multiple the rate by the number of instances that are being returned.
+3. Multiply the rate by the number of instances that are being returned.
 4. Repeat for each reservation order to be returned.
 5. Sum the values and enter it as the hourly commitment.
 

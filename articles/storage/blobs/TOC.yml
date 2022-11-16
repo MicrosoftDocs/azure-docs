@@ -214,18 +214,12 @@ items:
         href: lifecycle-management-overview.md
     - name: Object replication
       href: object-replication-overview.md
-    - name: Performance, scaling, and cost optimization
+    - name: Performance and scalability
       items:
       - name: Performance and scalability checklist
         href: storage-performance-checklist.md
       - name: Latency in Blob storage
         href: storage-blobs-latency.md
-      - name: Azure Storage reserved capacity
-        href: storage-blob-reserved-capacity.md
-      - name: Plan and manage costs
-        href: ../common/storage-plan-manage-costs.md
-      - name: Estimate the cost to archive data
-        href: archive-cost-estimation.md
       - name: Scalability and performance targets
         items:
         - name: Blob storage
@@ -238,6 +232,14 @@ items:
           href: scalability-targets-premium-page-blobs.md
         - name: Storage resource provider
           href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/blobs/toc.json
+    - name: Cost planning and optimization 
+      items:
+      - name: Plan and manage costs
+        href: ../common/storage-plan-manage-costs.md
+      - name: Azure Storage reserved capacity
+        href: storage-blob-reserved-capacity.md
+      - name: Estimate the cost to archive data
+        href: archive-cost-estimation.md
     - name: Find, search, and understand blob data
       items:
       - name: Blob inventory
