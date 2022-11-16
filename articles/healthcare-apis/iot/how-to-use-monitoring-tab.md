@@ -1,20 +1,20 @@
 ---
-title: How to use MedTech service metrics tab - Azure Health Data Services
-description: This article explains how to use MedTech service metrics tab.
+title: How to display the MedTech service monitoring tab metrics - Azure Health Data Services
+description: This article explains how to display the MedTech service monitoring tab metrics.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 11/14/2022
 ms.author: jasteppe
 ---
 
-# How to use the MedTech service monitoring tab
+# How to display the MedTech service monitoring tab metrics
 
-In this article, you'll learn how to use the [MedTech service](iot-connector-overview.md) monitoring tab in the Azure portal. The monitoring tab provides access to crucial MedTech service metrics. These metrics can be used in assessing the health and performance of your MedTech service and can be useful with troubleshooting and seeing patterns and/or trends with your MedTech service.
+In this article, you'll learn how to use the [MedTech service](iot-connector-overview.md) monitoring tab in the Azure portal. The monitoring tab provides access to crucial MedTech service metrics. These metrics can be used in assessing the health and performance of your MedTech service and can be useful seeing patterns and/or trends or assisting with troubleshooting your MedTech service.
 
-## Use the MedTech service monitoring tab
+## Display the MedTech service monitoring tab metrics
 
 1. Within your Azure Health Data Services workspace, select **MedTech service** under **Services**.
 
@@ -32,15 +32,15 @@ In this article, you'll learn how to use the [MedTech service](iot-connector-ove
 
    :::image type="content" source="media\iot-monitoring-tab\display-metrics-tile.png" alt-text="Screenshot the MedTech service monitoring tab with drop-down menus." lightbox="media\iot-monitoring-tab\display-metrics-tile.png":::
 
-5. Select the pin icon to pin the tile to an Azure portal dashboard of your choosing.
-
-   :::image type="content" source="media\iot-monitoring-tab\pin-metrics-to-dashboard.png" alt-text="Screenshot the MedTech service monitoring tile with red box around the pin icon." lightbox="media\iot-monitoring-tab\pin-metrics-to-dashboard.png":::
-
    > [!IMPORTANT]
    > If you leave the MedTech service monitoring tab, any customized settings you have made to the monitoring settings are lost and will have to be recreated. If you would like to save your customizations for future viewing, you can pin them to an Azure portal dashboard as a tile. 
    >
-   > To learn how to customize and save metrics settings to an Azure portal dashboard and tile, see [How to configure the MedTech service metrics](how-to-configure-metrics.md).   
+   > To learn how to customize and save metrics settings to an Azure portal dashboard and tile, see [How to configure the MedTech service metrics](how-to-configure-metrics.md).  
 
+5. **Optional** - Select the **pin icon** to save the metrics tile to an Azure portal dashboard of your choosing.
+
+   :::image type="content" source="media\iot-monitoring-tab\pin-metrics-to-dashboard.png" alt-text="Screenshot the MedTech service monitoring tile with red box around the pin icon." lightbox="media\iot-monitoring-tab\pin-metrics-to-dashboard.png":::
+   
    > [!TIP]
    > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](/azure/azure/azure/azure-monitor/essentials/metrics-getting-started)
 
@@ -67,7 +67,7 @@ To learn how to configure the MedTech service metrics, see
 > [!div class="nextstepaction"]
 > [How to configure the MedTech service metrics](how-to-configure-metrics.md)
 
-To learn how to configure the MedTech service diagnostic settings to export logs to another location (for example: an Azure storage account) for audit, backup, or troubleshooting, see
+To learn how to enable the MedTech service diagnostic settings to export logs to another location (for example: an Azure storage account) for audit, backup, or troubleshooting, see
 
 > [!div class="nextstepaction"]
 > [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)

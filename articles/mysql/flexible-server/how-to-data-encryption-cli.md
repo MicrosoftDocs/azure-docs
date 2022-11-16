@@ -1,5 +1,5 @@
 ---
-title: Set data encryption for Azure Database for MySQL flexible server by using the Azure CLI Preview
+title: Set data encryption for Azure Database for MySQL flexible server by using the Azure CLI
 description: Learn how to set up and manage data encryption for your Azure Database for MySQL flexible server using Azure CLI.
 author: vivgk
 ms.author: vivgk
@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Data encryption for Azure Database for MySQL - Flexible Server with Azure CLI Preview
+# Data encryption for Azure Database for MySQL - Flexible Server with Azure CLI
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -79,9 +79,6 @@ You can verify the above attributes of the key by using the following command:
 az keyvault key show --vault-name \<key\_vault\_name\> -n \<key\_name\>
 ```
 
-> [!Note]
-> In the Public Preview, we can't enable geo redundancy on a flexible server that has CMK enabled, nor can we enable geo redundancy on a flexible server that has CMK enabled. 
-
 ## Update an existing MySQL flexible server with data encryption
 
 Set or change key and identity for data encryption:
@@ -90,16 +87,25 @@ Set or change key and identity for data encryption:
 az mysql flexible-server update --resource-group testGroup --name testserver \\ --key \<key identifier of newKey\> --identity newIdentity
 ```
 
-Set or change key, identity, backup key and backup identity for data encryption with geo redundant backup:
-
-```azurecli-interactive
-az mysql flexible-server update --resource-group testGroup --name testserver \\ --key \<key identifier of newKey\> --identity newIdentity \\  --backup-key \<key identifier of newBackupKey\> --backup-identity newBackupIdentity
-```
-
 Disable data encryption for flexible server:
 
 ```azurecli-interactive
 az mysql flexible-server update --resource-group testGroup --name testserver --disable-data-encryption
+```
+
+## Create flexible server with geo redundant backup and data encryption enabled
+
+```azurecli-interactive      
+az mysql flexible-server create -g testGroup -n testServer --location testLocation \\
+--geo-redundant-backup Enabled \\
+--key <key identifier of testKey> --identity testIdentity \\
+--backup-key <key identifier of testBackupKey> --backup-identity testBackupIdentity
+```
+
+Set or change key, identity, backup key and backup identity for data encryption with geo redundant backup:
+
+```azurecli-interactive
+az mysql flexible-server update --resource-group testGroup --name testserver \\ --key \<key identifier of newKey\> --identity newIdentity \\  --backup-key \<key identifier of newBackupKey\> --backup-identity newBackupIdentity
 ```
 
 ## Use an Azure Resource Manager template to enable data encryption

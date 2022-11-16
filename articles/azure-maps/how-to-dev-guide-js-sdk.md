@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the JavaScript SDK Developers Guide.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 11/07/2021
+ms.date: 11/15/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -30,6 +30,16 @@ The Azure Maps JavaScript/TypeScript REST SDK (JavaScript SDK) supports searchin
 > az maps account create --kind "Gen2" --account-name "myMapAccountName" --resource-group "<resource group>" --sku "G2"
 > ```
 
+## Create a Node.js project
+
+The example below creates a new directory then a Node.js program named _mapsDemo_ using npm:
+
+```powershell
+mkdir mapsDemo
+cd mapsDemo
+npm init
+```
+
 ## Install the search package
 
 To use Azure Maps JavaScript SDK, you'll need to install the search package. Each of the Azure Maps services including search, routing, rendering and geolocation are each in their own package.
@@ -48,22 +58,12 @@ mapsDemo
 +-- search.js
 ```
 
-### Azure Maps search service
+### Azure Maps services
 
-| Service Name  | NPM package             |  Samples     |
+| Service Name  | npm packages            |  Samples     |
 |---------------|-------------------------|--------------|
-| [Search][search readme] | [Azure.Maps.Search][search package] | [search samples][search sample] |
+| [Search][search readme] | [@azure/maps-search][search package] | [search samples][search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
-
-## Create a Node.js project
-
-The example below creates a new directory then a Node.js program named _mapsDemo_ using NPM:
-
-```powershell
-mkdir mapsDemo
-cd mapsDemo
-npm init
-```
 
 ## Create and authenticate a MapsSearchClient
 
@@ -376,7 +376,7 @@ main().catch((err) => {
 [authentication]: azure-maps-authentication.md
 [Identity library]: /javascript/api/overview/azure/identity-readme
 
-[Host daemon]: /azure/azure-maps/how-to-secure-daemon-app#host-a-daemon-on-non-azure-resources
+[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [dotenv]: https://github.com/motdotla/dotenv#readme
 
 [search package]: https://www.npmjs.com/package/@azure/maps-search

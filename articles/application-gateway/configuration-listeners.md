@@ -38,7 +38,7 @@ Choose the frontend IP address that you plan to associate with this listener. Th
 
 ## Frontend port
 
-Choose the frontend port. Select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable. A port can be used for public-facing listeners or private-facing listeners.
+Choose the front-end port. Select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable. A port can be used for public-facing listeners or private-facing listeners, however the same port cannot be used for both at the same time.
 
 ## Protocol
 

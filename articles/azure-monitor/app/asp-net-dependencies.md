@@ -2,7 +2,7 @@
 title: Dependency tracking in Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Azure web application with Application Insights.
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 11/15/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.reviewer: casocha
