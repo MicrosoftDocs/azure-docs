@@ -698,6 +698,8 @@
         href: drtrack-tutorial.md  
       - name: Druva
         href: druva-tutorial.md
+      - name: DX NetOps Portal
+        href: dx-netops-portal-tutorial.md
       - name: Dynamic Signal
         href: dynamicsignal-tutorial.md
       - name: Dynatrace
@@ -1121,8 +1123,6 @@
         href: ibmopenpages-tutorial.md
       - name: ice Contact Center
         href: ice-contact-center-tutorial.md
-      - name: Icertis Contract Management Platform
-        href: icertisicm-tutorial.md
       - name: ICIMS
         href: icims-tutorial.md
       - name: IDC
@@ -2401,6 +2401,8 @@
         href: mindflash-tutorial.md
       - name: TransPerfect GlobalLink Dashboard
         href: transperfect-globallink-dashboard-tutorial.md
+      - name: Tranxfer
+        href: tranxfer-tutorial.md
       - name: TravelPerk
         href: travelperk-tutorial.md  
       - name: Trelica
