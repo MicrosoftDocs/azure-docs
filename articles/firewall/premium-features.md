@@ -151,7 +151,7 @@ You can identify what category a given FQDN or URL is by using the **Web Categor
 
 ### Category change
 
-Under the **Web Categories** tab in **Firewall Policy Settings**, you can request a categorization change if you: 
+Under the **Web Categories** tab in **Firewall Policy Settings**, you can request a category change if you: 
 
 - think an FQDN or URL should be under a different category 
 
