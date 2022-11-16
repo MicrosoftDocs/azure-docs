@@ -1,5 +1,5 @@
 ---
-title: Create Resource Health Alerts Using Azure Portal
+title: Create Resource Health Alerts using Azure portal
 description: Create alert using Azure portal that notify you when your Azure resources become unavailable.
 ms.topic: conceptual
 ms.date: 6/23/2020
