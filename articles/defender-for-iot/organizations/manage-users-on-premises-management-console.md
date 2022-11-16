@@ -221,6 +221,49 @@ If you later modify a topology entity and the change affects the rule logic, the
 
 If modifications to topology entities affect rule logic so that all rules are deleted, the access group remains but users won't be able to sign in to the on-premises management console. Instead, users are notified to contact their on-premises management console administrator for help signing in. [Update the settings](#add-new-on-premises-management-console-users) for these users so that they're no longer part of the legacy access group.
 
+## Control user session timeouts
+
+By default, on-premises users are signed out of their sessions after 30 minutes of inactivity. Admin users can use the local CLI to either turn this feature on or off, or to adjust the inactivity thresholds.
+For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+
+> [!NOTE]
+> Any changes made to user session timeouts are reset to defaults when you [update the OT monitoring software](update-ot-software.md).
+
+**Prerequisites**: This procedure is available for the *cyberx* and *support* users only.
+
+**To control sensor user session timeouts**:
+
+1. Sign in to your sensor via a terminal and run:
+
+    ```cli
+    sudo nano /var/cyberx/properties/authentication.properties
+    ```
+
+    The following output appears:
+
+    ```cli
+    infinity_session_expiration = true
+    session_expiration_default_seconds = 0
+    # half an hour in seconds
+    session_expiration_admin_seconds = 1800
+    session_expiration_security_analyst_seconds = 1800
+    session_expiration_read_only_users_seconds = 1800
+    certifcate_validation = true
+    CRL_timeout_secounds = 3
+    CRL_retries = 1
+
+    ```
+
+1. Do one of the following:
+
+    - **To turn off user session timeouts entirely**, change `infinity_session_expiration = true` to `infinity_session_expiration = false`. Change it back to turn it back on again.
+
+    - **To adjust an inactivity timeout period**, adjust one of the following values to the required time, in seconds:
+
+        - `session_expiration_default_seconds` for all users
+        - `session_expiration_admin_seconds` for *Admin* users only
+        - `session_expiration_security_analyst_seconds` for *Security Analyst* users only
+        - `session_expiration_read_only_users_seconds` for *Read Only* users only
 
 ## Next steps
 
