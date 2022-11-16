@@ -100,6 +100,7 @@ Database: testdb
         Document count: 1
 ```
 
+
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="console_result":::
 
 ## Get database object instance
