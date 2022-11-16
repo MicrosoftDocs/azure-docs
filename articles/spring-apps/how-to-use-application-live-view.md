@@ -183,7 +183,7 @@ Currently, Application Live View supports to view live metrics for Spring Boot a
 ## Manage Application Live View in existing Enterprise tier instances
 
 This section instructs you how to enable the Application Live View under an existing Azure Spring Apps Enterprise tier instance.
-Note: if Dev tools public endpoint has already been exposed, then after enabling Application Live View here, please use Ctrl+F5 to inactivate browser cache in order to see it on the Dev Tool Portal.
+> If Dev tools public endpoint has already been exposed, then after enabling Application Live View here, please use Ctrl+F5 to inactivate browser cache in order to see it on the Dev Tool Portal.
 #### [Portal](#tab/Portal)
 1. Navigate to your Service resource. Click "Developer Tools (Preview)".
 1. Click "Manage tools".
