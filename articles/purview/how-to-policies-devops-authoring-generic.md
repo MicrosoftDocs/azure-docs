@@ -1,5 +1,5 @@
 ---
-title: Create, list, update and delete Microsoft Purview DevOps policies (preview)
+title: Create, list, update and delete Microsoft Purview DevOps policies
 description: Step-by-step guide on provisioning access through Microsoft Purview DevOps policies
 author: inward-eye
 ms.author: vlrodrig
