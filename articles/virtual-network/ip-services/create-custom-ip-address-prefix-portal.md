@@ -197,6 +197,7 @@ When you create a prefix, you must create static IP addresses from the prefix. I
 When the custom IP prefix is in **Provisioned** state, update the prefix to begin the process of advertising the range from Azure.
 
 1. In the search box at the top of the portal, enter **Custom IP** and select **Custom IP Prefixes**.
+1. Verify, and wait if necessary, for **myCustomIPPrefix** to be is listed in a **Provisioned** state.
 
 1. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
 

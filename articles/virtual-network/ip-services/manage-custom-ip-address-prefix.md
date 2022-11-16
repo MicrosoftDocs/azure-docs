@@ -71,9 +71,20 @@ If the provisioned range is being advertised to the Internet by another network,
 
 * Alternatively, the ranges can be commissioned first and then changed. This process won't work for all resource types with public IPs. In those cases, a new resource with the provisioned public IP must be created.
 
-### Use the regional commissioning feature (PowerShell only)
+### Use the regional commissioning feature
 
 When a custom IP prefix transitions to a fully **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network.  If the range is currently being advertised to the Internet from a location other than Microsoft at the same time, there is the potential for BGP routing instability or traffic loss.  In order to ease the transition for a range that is currently "live" outside of Azure, you can utilize a *regional commissioning* feature, which will put an onboarded range into a **CommissionedNoInternetAdvertise** state where it is only advertised from within a single Azure region.  This allows for testing of all the attached infrastructure from within this region before advertising this range to the Internet, and fits well with Method 1 in the section above.
+
+Use the following steps in the Azure portal to put a custom IP prefix into this state:
+
+1. In the search box at the top of the Azure portal, enter **Custom IP** and select **Custom IP Prefixes**.
+1. In **Custom IP Prefixes**, verify your custom IP prefix is listed in a **Provisioned** state. Refresh the status if needed until state is correct.
+
+1. Select your custom IP prefix from the list of resources.
+
+1. In **Overview** for your custom IP prefix, select the **Commission** dropdown menu, and choose **<Resource_Region> only** or **Globally**.
+
+The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. The status which will initially show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in the **Commissioning** status.
 
 Use the following example PowerShell to put a custom IP prefix range into this state.
 
