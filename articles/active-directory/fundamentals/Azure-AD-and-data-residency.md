@@ -5,9 +5,9 @@ services: active-directory
 author: janicericketts
 manager: martinco
 ms.service: active-directory
-ms.workload: 
+ms.workload: identity
 ms.subservice: fundamentals
-ms.topic:
+ms.topic: how-to
 ms.date: 11/15/2022
 ms.author: jricketts
 ms.reviewer: jricketts
