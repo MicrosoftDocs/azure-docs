@@ -24,43 +24,58 @@ We use an example that uses an IoT Edge running on an Ubuntu VM on Azure Stack E
 
 The high-level migration workflow is as follows:
 
-1. From IoT Hub, create a new IoT Edge device to connect with a new IoT Edge device running on a VM. For detailed steps, see [](). 
+1. From IoT Hub, create a new IoT Edge device to connect with a new IoT Edge device running on a VM. 
 
-1. Deploy a Linux VM and install IoT Edge runtime on it. Connect the newly deployed IoT Edge runtime (from step 2) with the newly created IoT Edge device (from step 1). Refer here for details. 
+1. Deploy a Linux VM and install IoT Edge runtime on it. Connect the newly deployed IoT Edge runtime with the newly created IoT Edge device from the previous step.
 
-1. From IoT Hub, re-deploy modules onto the new IoT Edge device. Refer here for details. 
+1. From IoT Hub, re-deploy modules onto the new IoT Edge device. 
 
-1. Once your solution is running on IoT Edge on a Linux VM, you can remove the modules running on the native/managed IoT Edge on Azure Stack Edge. From IoT Hub, delete the IoT Edge device to remove the modules running on Azure Stack Edge. Refer here for details. 
+1. Once your solution is running on IoT Edge on a Linux VM, you can remove the modules running on the native/managed IoT Edge on Azure Stack Edge. From IoT Hub, delete the IoT Edge device to remove the modules running on Azure Stack Edge. 
 
-1. Optional: if you are not using the Kubernetes cluster on Azure Stack Edge, you can delete the whole Kubernetes cluster. From Azure Stack Edge resource on Azure portal under the Azure IoT Edge service, there is a “Remove” button to remove the Kubernetes cluster. Refer here for details  
+1. Optional: If you are not using the Kubernetes cluster on Azure Stack Edge, you can delete the whole Kubernetes cluster.  
 
-1. Optional: If have leaf IoT devices communicating IoT Edge on K8s, changes will be needed to communicate with the IoT Edge on VM. Refer here for details. 
+1. Optional: If you have leaf IoT devices communicating with IoT Edge on Kubernetes, this step documents how to make changes to communicate with the IoT Edge on a VM. 
 
 ## Prerequisites
 
-## Create an IoT Edge device on Linux using symmetric Keys
+[[Are there prerequisites..??<br>
+Else, remove this section.>>
+
+## Step 1. Create an IoT Edge device on Linux using symmetric Keys
 
 Create and provision an IoT Edge device on Linux using symmetric keys. For detailed steps, see [Create and provision an IoT Edge device on Linux using symmetric keys](../iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-1.4&tabs=azure-portal%2Cubuntu). 
 
-## Install and provision an IoT Edge on a Linux VM
+## Step 2. Install and provision an IoT Edge on a Linux VM
 
 Follow the steps at [Deploy IoT Edge runtime](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md#deploy-iot-edge-runtime). To deploy other Linux VMs, see [Linux containers](../iot-edge/support?view=iotedge-1.4#linux-containers). 
 
-## Deploy Azure IoT Edge modules from the Azure portal
+## Step 3. Deploy Azure IoT Edge modules from the Azure portal
 
 Deploy Azure IoT modules modules to the new IoT Edge. For detailed steps, see [Deploy Azure IoT Edge modules from the Azure portal](../iot-edge/how-to-deploy-modules-portal?view=iotedge-1.4). 
 
- -Deploy modules from Azure portal - Azure IoT Edge | Microsoft Learn. With the latest IoT Edge version, you can deploy your IoT Edge modules at scale. For more information see here - Deploy modules at scale in Azure portal - Azure IoT Edge | Microsoft Learn. 
+ With the latest IoT Edge version, you can deploy your IoT Edge modules at scale. For more information see [Deploy IoT Edge modules at scale using the Azure portal](../iot-edge/how-to-deploy-at-scale?view=iotedge-1.4). 
 
-## Remove Azure IoT Edge modules from the Azure portal 
+## Step 4. Remove Azure IoT Edge modules
 
-## Remove the IoT Edge service
+Once your modules are successfully running on the new IoT Edge instance running on VM, you can delete the whole IoT Edge device associated with that IoT Edge instance. From IoT Hub on the Azure portal, delete the IoT Edge device connected to the IoT Edge, as shown below.
 
-## Configure IoT Edge device as a transparent gateway
+![Screenshot showing delete IoT Edge device from IoT Edge instance in Azure portal UI](media/azure-stack-edge-migrate-to-self-service-iot-edge/azure-stack-edge-delete-iot-edge-device.png)
+
+## Step 5. Optional: Remove the IoT Edge service
+
+If you are not using the Kubernetes cluster on Azure Stack Edge, use the following steps to [remove the IoT Edge service](azure-stack-edge-gpu-manage-compute.md#remove-iot-edge-service). This will remove modules running on the IoT Edge device, the IoT Edge runtime, and the Kubernetes cluster that hosts the IoT Edge runtime.
+
+From the Azure Stack Edge resource on Azure portal, under the Azure IoT Edge service, there is a **Remove** button to remove the Kubernetes cluster. [[Screenshot of the UI here?]]
+
+> [!IMPORTANT]
+> Once the Kubernetes cluster is removed, there is no way to recover information from the Kubernetes cluster, IoT Edge-related or not.   
+
+## Step 6. Optional: Configure an IoT Edge device as a transparent gateway
+
+If your IoT Edge device on Azure Stack Edge was configured as a gateway for downstream IoT devices, you must configure the IoT Edge running on the Linux VM as a transparent gateway. For more information, see [Configure and IoT Edge device as a transparent gateway](../iot-edge/how-to-create-transparent-gateway?view=iotedge-1.4&tabs=iotedge).
+
+For more information about configuring downstream IoT devices to reference a newly deployed IoT Edge running on a Linux VM, see [Connect a downstream device to an Azure IoT Edge gateway](../iot-edge/how-to-connect-downstream-device?view=iotedge-1.4).
 
 ## Next steps
 
 [Deploy VMs on your Azure Stack Edge Pro GPU device via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
-
-
-
