@@ -2,7 +2,7 @@
 title: Configure Linux Python apps
 description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI.
 ms.topic: quickstart
-ms.date: 06/11/2021
+ms.date: 11/16/2022
 ms.reviewer: astay; kraigb
 ms.devlang: python
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli, mode-other
@@ -27,7 +27,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
   - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
 
 > [!NOTE]
-> Linux is currently the recommended option for running Python apps in App Service. For information on the Windows option, see [Python on the Windows flavor of App Service](/visualstudio/python/managing-python-on-azure-app-service).
+> Linux is the only operating system option for running Python apps in App Service. Python on Windows is no longer supported. You can however build your own custom Windows container image and run that in App Service. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-windows).
 
 ## Configure Python version
 
@@ -74,7 +74,7 @@ App Service's build system, called Oryx, performs the following steps when you d
 
 By default, the `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`, and `DISABLE_COLLECTSTATIC` settings are empty.
 
-- To disable running collectstatic when building Django apps, set the `DISABLE_COLLECTSTATIC` setting to true.
+- To disable running collectstatic when building Django apps, set the `DISABLE_COLLECTSTATIC` setting to `true`.
 
 - To run pre-build commands, set the `PRE_BUILD_COMMAND` setting to contain either a command, such as `echo Pre-build command`, or a path to a script file relative to your project root, such as `scripts/prebuild.sh`. All commands must use relative paths to the project root folder.
 
@@ -99,7 +99,7 @@ For more information on how App Service runs and builds Python apps in Linux, se
 Existing web applications can be redeployed to Azure as follows:
 
 1. **Source repository**: Maintain your source code in a suitable repository like GitHub, which enables you to set up continuous deployment later in this process.
-    1. Your *requirements.txt* file must be at the root of your repository for App Service to automatically install the necessary packages.
+    - Your *requirements.txt* file must be at the root of your repository for App Service to automatically install the necessary packages.
 
 1. **Database**: If your app depends on a database, create the necessary resources on Azure as well. 
 
