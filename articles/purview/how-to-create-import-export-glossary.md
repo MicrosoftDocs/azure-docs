@@ -149,7 +149,7 @@ Select **Export terms** to download the selected terms.
 :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot of the button to export terms on the glossary terms page.":::
 
 > [!Important]
-> If the terms in a hierarchy belong to different term templates, you need to split them into different .CSV files for import. Also, the import process currently doesn't support updating the parent of a term.
+> The import process currently doesn't support updating the parent of a term.
 
 ## Delete terms
 
