@@ -48,7 +48,9 @@ To set up snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 se
     ```
 1. To enable logging SNMP trap fields with their names, instead of by OIDs, place all MIB files in `/usr/share/snmp/mibs`, which is the default directory for MIB files. 
 
-    Copy all MIB files to this directory for each device that sends SNMP traps. MIB files are typically provided by the device vendor, but third-party websites like [www.mibdepot.com](https://www.mibdepot.com/) and [www.oidview.com](https://www.oidview.com/) provide MIBs to download for many vendors. Some vendors, like APC, maintain a single MIB for all devices, while others, like Cisco, have many [hundreds of MIB files](https://tools.cisco.com/ITDIT/MIBS/servlet/index). For snmptrapd to correctly load an MIB file, all dependent MIBs must also be loaded. Be sure to check the snmptrapd log file after loading MIBs to ensure that there are no missing dependencies in parsing your MIB files.  
+    Copy all MIB files to this directory for each device that sends SNMP traps. 
+
+    > [!NOTE] Some vendors, maintain a single MIB for all devices, while others, have many hundreds of MIB files. For snmptrapd to load an MIB file correctly, it must load all dependent MIBs. Be sure to check the snmptrapd log file after loading MIBs to ensure that there are no missing dependencies in parsing your MIB files.  
 
 1. Authorize community strings (SNMP v1 & v2 authentication strings): 
   
