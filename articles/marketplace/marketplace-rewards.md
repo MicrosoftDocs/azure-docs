@@ -33,9 +33,9 @@ Your steps to get started are easy:
 1. To activate sales and marketing benefit, you must first assign a company marketing contact. This contact will receive follow-up communications about your Marketplace Rewards.
 1. To add or update your marketing contact information, go to the top of the Sales and Marketing benefits tab on Marketplace Rewards page, then select **Add, update, or change**.  Next, do the following:
 
-    1- Select a user from the list. If the user you want to assign isn't in the list, you can add new users in **Account settings**.
+    1. Select a user from the list. If the user you want to assign isn't in the list, you can add new users in **Account settings**.
    
-    1- Provide an email address for the user that's different from the email address associated with your company's Partner Center account. W'll email instructions for using your Marketplace Rewards benefit to your designated marketing contact's email address.
+    1. Provide an email address for the user that's different from the email address associated with your company's Partner Center account. W'll email instructions for using your Marketplace Rewards benefit to your designated marketing contact's email address.
    
     1. Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
     1. After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
