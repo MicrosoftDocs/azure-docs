@@ -1,20 +1,19 @@
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
-  name: azure-blob-scaledobject
+  name: azure-queue-scaledobject
   namespace: default
 spec:
   scaleTargetRef:
-    name: azureblob-function
+    name: azurequeue-function
   triggers:
-  - type: azure-blob
+  - type: azure-queue
     metadata:
-      blobContainerName: functionsblob
+      queueName: functionsqueue
       accountName: storage-account-name
       connectionFromEnv: STORAGE_CONNECTIONSTRING_ENV_NAME
-      blobCount: "5"
-      blobPrefix: blobsubpath
-      blobDelimiter: "/"
-      cloud: AzureChinaCloud
+      queueLength: "5"
+      cloud: Private
+      endpointSuffix: queue.local.azurestack.external
     authenticationRef:
-        name: azure-blob-auth
+        name: azure-queue-auth

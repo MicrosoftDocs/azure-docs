@@ -5,8 +5,8 @@
       "properties": {
         "configuration": {
           "secrets": [{
-            "name": "<YOUR_CONNECTION_STRING_NAME>",
-            "value": "<YOUR-CONNECTION-STRING>"
+            "name": "<MY_CONNECTION_STRING_NAME>",
+            "value": "<MY_CONNECTION_STRING>"
           }],
         },
         "template": {
@@ -18,11 +18,17 @@
             {
               "name": "azure-queue-rule",
               "custom": {
-                "type": "azure-blob",
+                "type": "azure-queue",
                 "metadata": {
+                  "queueName": "<MY_QUEUE_NAME>",
+                  "queueLength": "5",
+                  "activationQueueLength": "50",
+                  "connectionFromEnv": "<MY_STORAGE_CONNECTION_STRING_ENV_NAME>",
+                  "accountName": "<MY_STORAGE_ACCOUNT_NAME>",
+                  "cloud": "AzureUSGovernmentCloud"
                 },
                 "auth": [{
-                  "secretRef": "<YOUR_CONNECTION_STRING_NAME>",
+                  "secretRef": "<MY_CONNECTION_STRING_NAME>",
                   "triggerParameter": "<TRIGGER_PARAMETER>"
                 }]
           }

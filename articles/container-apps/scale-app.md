@@ -33,10 +33,10 @@ Scaling is defined by the combination of limits and rules.
 
     Rules are implemented as [HTTP](#http), [TCP](#tcp), or [custom](#custom). Custom rules are based on any [KEDA supported scaler](https://keda.sh/docs/latest/scalers/).
 
-As you define your scaling rules, keep in mind the following:
+As you define your scaling rules, keep in mind the following items:
 
 - You aren't billed usage charges if your container app scales to zero.
-- Replicas that are not processing, but remain in memory are billed as "idle".
+- Replicas that aren't processing, but remain in memory are billed as "idle".
 - If you want to ensure that an instance of your application is always running, set the minimum  number of replicas to 1 or higher.
 
 ## Implement a scale rule
@@ -205,7 +205,8 @@ KEDA scalers are implemented as [ScaledObject](https://keda.sh/docs/latest/conce
 
 The structure of a Container Apps scale rule follows this form:
 
-- The `type` and `metadata` values carry over verbatim from a `ScaledObject`, while `auth` values are composed from a KEDA `TriggerAuthentication` object.
+- The `type` and `metadata` values carry over from a `ScaledObject`, while `auth` values are composed from a KEDA `TriggerAuthentication` object.
+
 - Each `secretTargetRef` from a `TriggerAuthentication` object maps to an object in the Container Apps scale rule `auth` array.
 
 This table shows the mapping between KEDA and Container Apps.
@@ -223,20 +224,28 @@ The following example demonstrates how to create a custom scale rule.
 
 ### Example
 
-This example shows how to convert an [Azure Queue Storage KEDA scaler](https://keda.sh/docs/latest/scalers/azure-storage-blob/) to a Container Apps scale rule, but you use the the same process for any other [KEDA scaler](https://keda.sh/docs/latest/scalers/).
+This example shows how to convert an [Azure Queue Storage KEDA scaler](https://keda.sh/docs/latest/scalers/azure-storage-blob/) to a Container Apps scale rule, but you use the same process for any other [KEDA scaler](https://keda.sh/docs/latest/scalers/).
 
 ::: zone pivot="azure-resource-manager"
 
-1. Copy the `type` value from the KEDA scaler.
+> [!NOTE]
+> KEDA scale rules are defined using Kubernetes YAML, while Azure Container Apps supports ARM templates, Bicep templates and Container Apps-specific YAML. The following example uses an ARM template and therefore the rules need to switch property names from [kebab](https://wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) when translating from existing KEDA manifests.
+
+1. Find the `type` value from the KEDA scaler.
 
     :::code language="yml" source="../../includes/container-apps/keda-azure-queue-trigger.yml" highlight="2":::
 
-1. Paste this value into the `custom.type` property of a scale rule.
+1. Set this value into the `custom.type` property of the scale rule.
 
     :::code language="json" source="../../includes/container-apps/container-apps-queue-scale-rule.json" highlight="21":::
 
-> [!NOTE]
-> KEDA scale rules are defined using Kubernetes YAML, while Azure Container Apps supports ARM templates, Bicep templates and Container Apps specific YAML. The following example uses an ARM template and therefore the rules need to switch property names from [kebab](https://wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) when translating from existing KEDA manifests.
+1. Find the `metadata` values from the KEDA scaler.
+
+    :::code language="yml" source="../../includes/container-apps/keda-azure-queue-trigger.yml" highlight="4,5,6,7,8,9":::
+
+1. Add them in to the `custom.metadata` section of the scale rule.
+
+    :::code language="json" source="../../includes/container-apps/container-apps-queue-scale-rule.json" highlight="23,24,25,26,27,28":::
 
 ::: zone-end
 
