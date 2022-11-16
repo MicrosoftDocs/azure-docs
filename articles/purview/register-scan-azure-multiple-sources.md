@@ -178,9 +178,9 @@ Once your data source has the  **Data Use Management** option set to **Enabled**
 ![Screenshot shows how to register a data source for policy with the option Data use management set to enable.](./media/how-to-policies-data-owner-resource-group/register-resource-group-for-policy.png)
 
 ### Create a policy
-To create an access policy on an entire Azure subscription or resource group, follow these guide:
-* [DevOps policy covering all sources in a subscription or resource group](./how-to-policies-devops-authoring-generic.md#create-a-new-devops-policy)
-* [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled. 
+To create an access policy on an entire Azure subscription or resource group, follow these guides:
+* [DevOps policy covering all sources in a subscription or resource group](./how-to-policies-devops-resource-group.md#create-a-new-devops-policy)
+* [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md#create-and-publish-a-data-owner-policy) 
 
 
 ## Next steps
