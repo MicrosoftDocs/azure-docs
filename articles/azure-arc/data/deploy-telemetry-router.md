@@ -9,23 +9,27 @@ ms.date: 09/07/2022
 ms.custom: template-how-to
 ---
 
-# Deploy the Azure Arc Telemetry Router
+# Deploy the Azure Arc telemetry Router
 
 > [!NOTE]
 >
-> - The telemetry router is currently in Public Preview and you should only deploy it for **testing purposes only**.
-> - While the telemetry router is in Public Preview, be advised that future preview releases could include schema changes.
-> - In-place upgrades of a data controller deployed with the Arc telemetry router enabled are not currently available in the current preview. In order to install a data controller in a future release, you will need to uninstall the data controller and then re-install.
+> - The telemetry router is in Public Preview and should be deployed for **testing purposes only**.
+> - While the telemetry router is in Public Preview, be advised that future preview releases could include changes to CRD specs, CLI commands, and/or telemetry router messages.
+> - The current preview does not support in-place upgrades of a data controller deployed with the Arc telemetry router enabled. In order to install a data controller in a future release, you will need to uninstall the data controller and then re-install.
 
-**What is the Arc Telemetry Router?**
+## What is the Azure Arc Telemetry Router?
 
-The Arc telemetry router enables exporting the collected monitoring telemetry data to other monitoring solutions. For this Public Preview, we only support exporting log data to either Kafka or Elasticsearch and metric data to Kafka.
+The Azure Arc telemetry router enables exporting the collected monitoring telemetry data to other monitoring solutions. For this Public Preview, we only support exporting log data to either Kafka or Elasticsearch and metric data to Kafka.
 
 This document specifies how to deploy the telemetry router and configure it to work with the supported exporters.
 
-## **Configuration**
+## Prerequisites
 
-When deployed, the Arc telemetry router custom resource manages a hierarchy of resources. All configurations are specified through the telemetry router's custom resource specification. For the Public Preview, it initially targets the configuration of exporters and pipelines.
+Deploy an [Arc-enabled Kubernetes cluster in indirectly connected mode](/create-complete-managed-instance-indirectly-connected.md). 
+
+## Configurations
+
+All configurations are specified through the telemetry router's custom resource specification. For the Public Preview, it initially targets the configuration of exporters and pipelines.
 
 ### Exporters
 
@@ -36,15 +40,14 @@ For the Public Preview, Exporters are partially configurable and support the fol
 
 The following properties are currently configurable during the Public Preview:
 
-General Exporter Settings
+**General Exporter Settings**
 
 |  Setting     | Description |
 |--------------|-----------|
-| endpoint       | Endpoint of the monitoring solution to export to |
 | certificateName     | The client certificate in order to export to the monitoring solution  | 
 | caCertificateName      | The cluster's Certificate Authority or customer-provided certificate for the Exporter  |
 
-Kafka Exporter Settings
+**Kafka Exporter Settings**
 
 |  Setting     | Description |
 |--------------|-----------|
@@ -52,7 +55,7 @@ Kafka Exporter Settings
 | brokers      | Broker service endpoint  | 
 | encoding      | Encoding for the telemetry: otlp_json or otlp_proto  |
 
-Elasticsearch Exporter Settings
+**Elasticsearch Exporter Settings**
 
 |  Setting     | Description |
 |--------------|-----------|
@@ -64,7 +67,7 @@ During the Public Preview, only logs and metrics pipelines are supported. These 
 
 Logs pipelines may export to Kafka or Elasticsearch. Metrics pipelines may only export to Kafka.
 
-Pipeline Settings
+**Pipeline Settings**
 
 |  Setting     | Description |
 |--------------|-----------|
@@ -74,7 +77,7 @@ Pipeline Settings
 
 ### Credentials
 
-Credentials Settings
+**Credentials Settings**
 
 |  Setting     | Description |
 |--------------|-----------|
@@ -82,7 +85,7 @@ Credentials Settings
 | secretName       | Name of the secret provided through Kubernetes      |
 | secretNamespace       | Namespace with secret provided through Kubernetes      |
 
-### Example TelemetryRouter Specification:
+## Example TelemetryRouter Specification:
 
 ```yaml
 apiVersion: arcdata.microsoft.com/v1beta3
@@ -152,21 +155,20 @@ spec:
         secretNamespace: <namespace_with_secret>
 ```
 
-## **Deployment**
+## Deployment
 
 > [!NOTE]
-> The telemetry router currently supports indirect mode only.
+> 
+> The telemetry router currently supports indirectly connected mode only.
 
-After setting up your cluster and Azure CLI, to deploy the telemetry router you must first create the *DataController* custom resource. Then, set the `enableOpenTelemetry` flag on its spec to `true`.  This flag is a temporary feature flag that must be enabled.
-
-To set the feature flag, follow the [normal configuration profile instructions](create-custom-configuration-template.md). After you've created your configuration profile, add the monitoring property with the `enableOpenTelemetry` flag set to `true`. You can do set the feature flag by running the following commands in the az CLI:
+After setting up your Kubernetes cluster, you'll need to enable a temporary feature flag to deploy the telemetry router when the data controller is created. To set the feature flag, follow the [normal configuration profile instructions](create-custom-configuration-template.md). After you've created your configuration profile, add the `monitoring` property with the `enableOpenTelemetry` flag set to `true`. You can set the feature flag by running the following commands in the az CLI:
 
 ```bash
 az arcdata dc config add --path ./output/control.json --json-values ".spec.monitoring={}"
 az arcdata dc config add --path ./output/control.json --json-values ".spec.monitoring.enableOpenTelemetry=true"
 ```
 
-To confirm the flag was set correctly, you can open the control.json file and confirm the `monitoring` object was added to the `spec` object, as shown below.
+To confirm the flag was set correctly, open the control.json file and confirm the `monitoring` object was added to the `spec` object and `enableOpenTelemetry` is set to `true`, as shown below.
 
 ```yaml
 spec:
@@ -174,7 +176,7 @@ spec:
         enableOpenTelemetry: true
 ```
 
-Then deploy the data controller as normal in the [Deployment Instructions](create-data-controller-indirect-cli.md?tabs=linux)
+Then deploy the data controller as normal in the [deployment instructions](create-data-controller-indirect-cli.md?tabs=linux).
 
 When the data controller is deployed, it also deploys a default TelemetryRouter custom resource as part of the data controller creation. The controller pod will only be marked ready when both custom resources have finished deploying. Use the following command to verify that the TelemetryRouter exists:
 
@@ -205,22 +207,16 @@ apiVersion: arcdata.microsoft.com/v1beta3
       - certificateName: cluster-ca-certificate
 ```
 
-We're exporting logs to our deployment of Elasticsearch in the Arc cluster. When you deploy the telemetry router, two OtelCollector custom resources are created. You can see the index, service endpoint, and certificates it's using to do so.  This telemetry router is provided as an example of the deployment, so you can see how to export to your own monitoring solutions.
+We're exporting logs to our deployment of Elasticsearch in the Arc cluster.  You can see the index, service endpoint, and certificates it's using to do so.  This example shows the Elasticsearch pipeline, exporter, and credential in the spec, so you can see how to export to your own monitoring solutions.
 
-You can run the following commands to see the detailed deployment of the child collectors that are receiving logs and exporting to Elasticsearch:
-
-<!-- 
-TODO: 
-  Check to make sure these commands are correct. Update, if needed.
-  Update the corresponding yaml files.
--->
+When you deploy the telemetry router, two TelemetryCollector custom resources are also created. You can run the following commands to see detailed configuration of the wrapped TelemetryCollector resources and their deployment status:
 
 ```bash
 kubectl describe TelemetryCollector collector-inbound -n <namespace>
 kubectl describe TelemetryCollector collector-outbound -n <namespace>
 ```
 
-The first of the two TelemetryCollector custom resources is the inbound collector, dedicated to the inbound telemetry layer. The inbound collector receives the logs and metrics, then exports them to a Kafka custom resource.
+The first of the two TelemetryCollector custom resources is the inbound collector, which receives the logs and metrics, then exports them to a Kafka custom resource.
 
 ```yaml
 Name:         collector-inbound
@@ -302,7 +298,7 @@ Events:             <none>
 
 ```
 
-The second of the two OtelCollector custom resources is the outbound collector, dedicated to the outbound telemetry layer. The outbound collector receives the logs and metrics data from the Kafka custom resource. Those logs and metrics can then be exported to the customer's monitoring solutions, such as Kafka or Elasticsearch.
+The second of the two TelemetryCollector custom resources is the outbound collector, which receives the logs and metrics data from the Kafka custom resource. Those logs and metrics can then be exported to the customer's monitoring solutions, such as Kafka or Elasticsearch.
 
 ```yaml
 Name:         collector-outbound
@@ -386,7 +382,7 @@ Events:             <none>
 
 ```
 
-After you deploy the Telemetry Router, both TelemetryCollector custom resources should be in a *Ready* state.  For modification, all updates should go through its parent resource, the TelemetryRouter custom resource.
+After you deploy the TelemetryRouter, both TelemetryCollector custom resources should be in a *Ready* state. These resources are system managed and editing them isn't supported.
 
 If you look at the pods, you should see the two collector pods - `arctc-collector-inbound-0` and `arctc-collector-outbound-0`. You should also see the `kakfa-server-0` pod.
 
@@ -413,5 +409,4 @@ metricsui-psnvg               2/2     Running     0          19h
 
 ## Next steps
 
-- [Add exporters to your telemetry router](/adding-exporters.md)
-- [Add pipelines to your telemetry router](/adding-pipelines.md)
+- [Add exporters and pipelines to your telemetry router](/adding-exporters-and-pipelines.md)
