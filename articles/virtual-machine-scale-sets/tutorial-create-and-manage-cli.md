@@ -24,7 +24,7 @@ A virtual machine scale set allows you to deploy and manage a set of virtual mac
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
+This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 
 ## Create a resource group
@@ -66,13 +66,13 @@ The following example output shows two VM instances in the scale set:
 ```output
 Name                 ResourceGroup    Location    Zones
 -------------------  ---------------  ----------  -------
-myScaleSet_5331da35  myResourceGroup  eastus
-myScaleSet_5522d515  myResourceGroup  eastus
+myScaleSet_instance1  myResourceGroup  eastus
+myScaleSet_instance2  myResourceGroup  eastus
 ```
 To see additional information about each individual instance, use [az vm show](/cli/azure/vm) and specify the VM name.
 
 ```azurecli-interactive
-az vm show --resource-group myResourceGroup --name myScaleSet_5331da35
+az vm show --resource-group myResourceGroup --name myScaleSet_instance1
 ```
 
 ```output
@@ -97,7 +97,7 @@ az vm show --resource-group myResourceGroup --name myScaleSet_5331da35
   "instanceView": null,
   "licenseType": null,
   "location": "eastus",
-  "name": "myScaleSet_5331da35",
+  "name": "myScaleSet_instance1",
   "networkProfile": {
     "networkApiVersion": null,
     "networkInterfaceConfigurations": null,
@@ -232,9 +232,9 @@ az vm list --resource-group myResourceGroup \
 ```output
 Name                 ResourceGroup    Location    Zones
 -------------------  ---------------  ----------  -------
-myScaleSet_1121fd3c  myResourceGroup  eastus
-myScaleSet_5331da35  myResourceGroup  eastus
-myScaleSet_5522d515  myResourceGroup  eastus
+myScaleSet_instance1  myResourceGroup  eastus
+myScaleSet_instance2  myResourceGroup  eastus
+myScaleSet_instance3  myResourceGroup  eastus
 ```
 
 ## Stop and deallocate VM instances in a scale set
@@ -251,7 +251,7 @@ To stop individual VM instances in a scale set, use [az vm stop](/cli/azure/vm) 
 ```azurecli-interactive
 az vm stop \ 
   --resource-group myResourceGroup \
-  --name myScaleSet_1121fd3c
+  --name myScaleSet_instance1
 ```
 
 Stopped VM instances remain allocated and continue to incur compute charges. If you instead wish the VM instances to be deallocated and only incur storage charges, use [az vmss deallocate](/cli/azure/vmss) to deallocate all the instance in your scale set.
@@ -267,7 +267,7 @@ To deallocate individual VM instances in a scale set, use [az vm deallocate](/cl
 ```azurecli-interactive
 az vm deallocate \
   --resource-group myResourceGroup
-  --name myScaleSet_1121fd3c
+  --name myScaleSet_instance1
 ```
 
 ## Start VM instances in a scale set
@@ -284,7 +284,7 @@ To start individual VM instances in a scale set, use [az vm start](/cli/azure/vm
 ```azurecli-interactive
 az vm start \
   --resource-group myResourceGroup
-  --name myScaleSet_1121fd3c
+  --name myScaleSet_instance1
 ```
 
 ## Restart VM instances in a scale set
@@ -301,7 +301,7 @@ To restart individual VM instances in a scale set, use [az vm restart](/cli/azur
 ```azurecli-interactive
 az vm restart \
   --resource-group myResourceGroup
-  --name myScaleSet_1121fd3c
+  --name myScaleSet_instance1
 ```
 
 ## Clean up resources
@@ -316,13 +316,12 @@ az group delete --name myResourceGroup --no-wait --yes
 In this tutorial, you learned how to perform some basic scale set creation and management tasks with the Azure CLI:
 
 > [!div class="checklist"]
-> * Create and connect to a virtual machine scale set
-> * Select and use VM images
+> * Create a resource group and a scale set
 > * View and use specific VM sizes
 > * Manually scale a scale set
-> * Perform common scale set management tasks
+> * Perform common scale set management tasks such as stopping, starting and restarting your scale set
 
-Advance to the next tutorial to learn about scale set disks.
+Advance to the next tutorial to learn about scale set and how to connect to individual instances.
 
 > [!div class="nextstepaction"]
 > [Use data disks with scale sets](tutorial-use-disks-cli.md)
