@@ -22,7 +22,7 @@ In this article, you'll learn how to integrate Drawboard Projects with Azure Act
 * Enable your users to be automatically signed-in to Drawboard Projects with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for Drawboard Projects in a test environment. Drawboard Projects supports both **SP** initiated single sign-on and **Just In Time** user provisioning..
+You'll configure and test Azure AD single sign-on for Drawboard Projects in a test environment. Drawboard Projects supports both **SP** initiated single sign-on and **Just In Time** user provisioning.
 
 ## Prerequisites
 
@@ -95,7 +95,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Drawboard Projects Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Drawboard Projects tile in the My Apps, this will redirect to Drawboard Projects Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you select the Drawboard Projects tile in the My Apps, this will redirect to Drawboard Projects Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
