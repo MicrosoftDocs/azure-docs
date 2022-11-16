@@ -111,7 +111,7 @@ You can obtain the running state, resource consumption or manage Application Liv
 ## Configure Dev Tools to access Application Live View
 To access application live view, you need centrally configure Dev Tools. Please refer to [Use Dev Tools](./how-to-use-dev-tool-portal.md) to understand more there.
 
-> Azure Spring Apps portal and CLI will help to manage the feature plugin on Dev Tool Portal when operating Application Live View. After the operation, you need to inactivate browser cache by pressing `ctrl+F5` to reload the plugin.
+>
 
 ## Use Application Live View to monitor your apps
 
@@ -171,7 +171,7 @@ Currently, Application Live View supports to view live metrics for Spring Boot a
 
 1. After the App gets successfully deployed, you can monitor it through Application Live View dashboard exposed through Dev Tool Portal, see [Monitor apps by Application Live View](./monitor-apps-by-application-live-view.md).
 
-   If you have Dev Tool Portal already enabled and public endpoint exposed. Use the following command to get the Dev Tool Portal dashboard url.
+   If you have Dev Tool Portal already enabled and public endpoint exposed. Use the following command to get the Dev Tool Portal dashboard url and then add suffix "/app-live-view" to compose the endpoint to access Application Live View.
    
    ```azurecli
    az spring dev-tool show --service <Azure-Spring-Apps-service-instance-name> \
