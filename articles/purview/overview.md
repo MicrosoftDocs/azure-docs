@@ -63,7 +63,7 @@ Microsoft Purview Data Policy is a set of central, cloud-based experiences that 
 - Introduces a new data-plane permission model that is external to data sources
 - Seamless integration with Microsoft Purview Data Map and Catalog:
     - Search for data assets and grant access only to what is required via fine-grained policies.
-    - Path to support SaaS, on-premises and multi-cloud data sources
+    - Path to support SaaS, on-premises, and multicloud data sources
     - Path to leverage all associated metadata for policies
 - Based on role definitions that are simple and abstracted (for example: Read, Modify)
 
