@@ -90,11 +90,11 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
 
 Once the deployment has competed, the following resources and access roles will be created as part of the template deployment: 
 
-- An Azure Event Hubs Namespace and device message Azure event hub. In this example, the event hub is named **devicedata**.
+- An Azure Event Hubs Namespace and device message Azure event hub. In this deployment, the event hub is named **devicedata**.
 
-- An Azure event hub consumer group. In this example, the consumer group is named **$Default**.
+- An Azure event hub consumer group. In this deployment, the consumer group is named **$Default**.
 
-- An Azure event hub sender role. In this example, the sender role is named **devicedatasender**.
+- An Azure event hub sender role. In this deployment, the sender role is named **devicedatasender**. For the purposes of this tutorial, this role won't be used. To learn more about the role and its use, see [Review of deployed resources and access permissions](deploy-02-new-button.md#required-post-deployment-tasks).
 
 - An Azure IoT Hub with [messaging routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to send device messages to the device message event hub.
 
