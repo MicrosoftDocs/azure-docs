@@ -8,10 +8,10 @@ author: mbender-ms
 ms.service: load-balancer
 # Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.topic: overview
-ms.custom: seodec18
+ms.custom: FY23 Content-Maintenance
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/25/2021
+ms.date: 11/16/2022
 ms.author: mbender
 
 ---
@@ -20,7 +20,7 @@ ms.author: mbender
 
 *Load balancing* refers to evenly distributing load (incoming network traffic) across a group of backend resources or servers. 
 
-Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances. These flows are according to configured load-balancing rules and health probes. The backend pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
+Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances. These flows are according to configured load-balancing rules and health probes. The backend pool instances can be Azure Virtual Machines or instances in a Virtual Machine Scale Set.
 
 A **[public load balancer](./components.md#frontend-ip-configurations)** can provide outbound connections for virtual machines (VMs) inside your virtual network. These connections are accomplished by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balance internet traffic to your VMs.
 
