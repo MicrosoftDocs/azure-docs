@@ -96,7 +96,7 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
  1. On the server, click **Start**, **Run**, and then **gpedit.msc**
  2. On the **Local Group Policy editor**, navigate to Computer Configuration > Windows Settings > Security Settings > Account Policies > Password Policy
  3. On the right, double-click **Password must meet complexity requirements** and select **Disabled**.
-  [![Screenshot complexity requirements.](../../../includes/media/active-directory-app-provisioning-ldaplocal-1.png)](../../../includes/media/active-directory-app-provisioning-ldap/local-1.png#lightbox)</br>
+  [![Screenshot complexity requirements.](../../../includes/media/active-directory-app-provisioning-ldap/local-1.png)](../../../includes/media/active-directory-app-provisioning-ldap/local-1.png#lightbox)</br>
  5. Click **Apply** and **Ok**
  6. Close the Local Group Policy editor
  
