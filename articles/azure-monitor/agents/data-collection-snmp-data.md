@@ -9,7 +9,7 @@ ms.reviewer: shseth
 
 # Send SNMP traps to Azure Monitor Logs using Azure Monitor Agent
   
-The Simple Network Management Protocol (SNMP) is a widely-deployed management protocol for monitoring and configuring Linux devices and appliances.  
+Simple Network Management Protocol (SNMP) is a widely-deployed management protocol for monitoring and configuring Linux devices and appliances.  
   
 There are two ways to collect SNMP data: 
 
@@ -18,7 +18,7 @@ There are two ways to collect SNMP data:
 
 Traps are most often used as event notifications, while polls are more appropriate for stateful health detection and collecting performance metrics.  
   
-This article explains how to collect events from SNMP traps using Azure Monitor Agent and send the data as syslog events or SNMP events to Azure Monitor Logs.
+This article explains how to send SNMP traps to Azure Monitor Logs as syslog events or SNMP events using Azure Monitor Agent.
 
 
 ## Overview
