@@ -53,7 +53,7 @@ az aks update -n myAKSCluster -g myResourceGroup --disable-disk-driver --disable
 
 To enable CSI storage drivers on a new cluster, include one of the following parameters depending on the storage system:
 
-* `--enable-disk-driver` allows you enable the [Azure Disks CSI driver][azure-disk-csi].
+* `--enable-disk-driver` allows you to enable the [Azure Disks CSI driver][azure-disk-csi].
 * `--enable-file-driver` allows you to enable the [Azure Files CSI driver][azure-files-csi].
 * `--enable-blob-driver` allows you to enable the [Azure Blob storage CSI driver][azure-blob-csi].
 * `--enable-snapshot-controller` allows you to enable the [snapshot controller][snapshot-controller].
