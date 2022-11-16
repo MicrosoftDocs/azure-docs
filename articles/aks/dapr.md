@@ -159,12 +159,12 @@ You have the option of allowing Dapr to auto-update its minor version by specify
 --auto-upgrade-minor-version true
 ```
 
-When a new Dapr version is released, you can be added to a `--release-train` option. Specify one of the two release train values:
+When configuring the extension, you can choose to install Dapr from a particular `--release-train`. Specify one of the two release train values:
 
 | Value    | Description                               |
 | -------- | ----------------------------------------- |
 | `stable` | Default.                                  |
-| `dev`    | For testing. Not suitable for production. |
+| `dev`    | Early releases, can contain experimental features. Not suitable for production. |
 
 For example:
 
@@ -260,10 +260,10 @@ az k8s-extension create --cluster-type managedClusters \
 
 ## Set automatic CRD updates
 
-Starting from Dapr version 1.9.2, you can add an `applyCrds` configuration setting to automatically update the Dapr CRDs.
+Starting from Dapr version 1.9.2, you can add an `applyCrds` configuration setting to automatically update the Dapr CRDs. While this setting is `true` by default, you can disable it using an `applyCrds=false` flag. 
 
 ```azurecli
-az k8s-extension create --cluster-type managedClusters \
+az k8s-extension upgrade --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
 --name dapr \
@@ -278,7 +278,7 @@ az k8s-extension create --cluster-type managedClusters \
 
 ## Configure the Dapr release namespace
 
-As of Dapr version 1.9.2, you can configure the release namespace. Include the cluster `--scope` to redefine the namespace. 
+You can configure the release namespace. The Dapr extension gets installed in the `dapr-system` namespace by default. To override it, use `--release-namespace`. Include the cluster `--scope` to redefine the namespace.
 
 ```azurecli
 az k8s-extension create \
