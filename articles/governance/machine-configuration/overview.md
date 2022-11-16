@@ -168,7 +168,7 @@ Azure Arc-enabled machines connect using the on-premises network infrastructure 
 Azure services and report compliance status.
 
 Following is a list of the Azure Storage endpoints required for Azure and Azure Arc-enabled
-virtual machines to communicate with Automanage:
+virtual machines to communicate with the machine configuration resource provider in Azure:
 
 - oaasguestconfigac2s1.blob.core.windows.net
 - oaasguestconfigacs1.blob.core.windows.net
