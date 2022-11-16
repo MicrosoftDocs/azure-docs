@@ -227,10 +227,16 @@ This example shows how to convert an [Azure Queue Storage KEDA scaler](https://k
 
 ::: zone pivot="azure-resource-manager"
 
-:::code language="json" source="../../includes/container-apps/keda-azure-queue-trigger.yml" highlight="2":::
+1. Copy the `type` value from the KEDA scaler.
+
+    :::code language="json" source="../../includes/container-apps/keda-azure-queue-trigger.yml" highlight="2":::
+
+1. Paste this value into the `custom.type` property of a scale rule.
+
+    :::code language="json" source="../../includes/container-apps/keda-azure-queue-trigger.yml" highlight="21":::
 
 > [!NOTE]
-> KEDA scale rules are defined using Kubernetes YAML, while Azure Container Apps supports ARM templates, Bicep templates and Container Apps specific YAML. The following example uses an ARM template and therefore the rules need to switch property names from [kebab](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) when translating from existing KEDA manifests.
+> KEDA scale rules are defined using Kubernetes YAML, while Azure Container Apps supports ARM templates, Bicep templates and Container Apps specific YAML. The following example uses an ARM template and therefore the rules need to switch property names from [kebab](https://wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) when translating from existing KEDA manifests.
 
 ::: zone-end
 

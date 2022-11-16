@@ -1,0 +1,30 @@
+{
+    ...
+    "resources": {
+      ...
+      "properties": {
+        "configuration": {
+          "secrets": [{
+            "name": "<YOUR_CONNECTION_STRING_NAME>",
+            "value": "<YOUR-CONNECTION-STRING>"
+          }],
+        },
+        "template": {
+          ...
+          "scale": {
+            "minReplicas": "0",
+            "maxReplicas": "30",
+            "rules": [
+            {
+              "name": "azure-queue-rule",
+              "custom": {
+                "type": "azure-blob",
+                "metadata": {
+                },
+                "auth": [{
+                  "secretRef": "<YOUR_CONNECTION_STRING_NAME>",
+                  "triggerParameter": "<TRIGGER_PARAMETER>"
+                }]
+          }
+      }]
+  }
