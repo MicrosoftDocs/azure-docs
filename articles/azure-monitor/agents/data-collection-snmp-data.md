@@ -74,9 +74,8 @@ There are two ways snmptrapd can send SNMP traps to Azure Monitor Agent:
     
 To edit the output behavior configuration of snmptrapd on Red Hat, CentOS, and Oracle Linux: 
 
-    1. Open the run `/etc/snmp/snmptrapd.conf` file: 
-      
-    
+    1. Open the `/etc/snmp/snmptrapd.conf` file: 
+        
         ```bash
         sudo vi /etc/sysconfig/snmptrapd
         ```    
