@@ -34,7 +34,7 @@ A record with a type of `Update` is created that represents updates available an
 | Computer | Fully-qualified domain name of reporting machine. |
 | UpdateState | The current state of the update. |
 | Product | The products for which the update is applicable. |
-| OSType | |
+| OSType |Type of operating system. Values are Windows or Linux. |
 | ProductVersion| |
 | Product Arch| |
 | CVENumbers| |
@@ -42,9 +42,9 @@ A record with a type of `Update` is created that represents updates available an
 | BulletinID | Bulletin ID number. |
 | PackageRepository | |
 | PackageSeverity | |
-| OSName | |
-| OSVersion | |
-| OSFullName | |
+| OSName | Type of operating system. Values are Windows or Linux.|
+| OSVersion | The version of the operating system. |
+| OSFullName | Name of operating system. |
 | SubscriptionId | Unique identifier for the Azure subscription. |
 | ResourceGroup | Name of the resource group to which the resource belongs. |
 | ResourceProvider | The resource provider. |
@@ -76,10 +76,10 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 
 | Property | Description |
 |----------|-------------|
-| TenantId | |
+| TenantId | Unique identifier representing your organization's instance of Azure Active Directory.|
 | SourceSystem | Source system for the record. The value is `OperationsManager`. |
 | TimeGenerated | Date and time of record creation. |
-| MG | |
+| MG | Unique identifier for the management group or Log Analytics workspace. |
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | SourceComputerId | Unique identifier representing the source computer. |
 | KBID | Knowledge base article ID for the Windows update. |
@@ -97,7 +97,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | EndTime (UTC) | The time when the synchronization process ended. *This property is currently not used. See TimeGenerated.* |
 | CorrelationId | Unique identifier of the runbook job run for the update. |
 | SubscriptionId | Unique identifier for the Azure subscription. |
-| ResourceGroup| 
+| ResourceGroup| Name of the resource group to which the resource belongs.|
 | ResourceProvider | The resource provider. | 
 | Resource | Name of the resource. |
 | ResourceId | Unique identifier for the resource associated with the record. |
@@ -105,7 +105,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | ComputerEnvironment | Environment. Values are Azure or Non-Azure. |
 | VMUUID | Unique identifier for the virtual machine. |
 | Type | The type of update. The value is `UpdateRunProgress`. |
-| ResourceId | Unique identifier for the resource associated with the record. |
+| _ResourceId | Unique identifier for the resource associated with the record. |
 
 ### Query Update Summary record
 
@@ -116,7 +116,7 @@ A record with a type of `UpdateSummary` is created that provides update summary 
 | TenantId| |
 | SourceSystem | Source system for the record. The value is `OpsManager`. |
 | TimeGenerated | Date and time of record creation. |
-| MG | |
+| MG | Unique identifier for the management group or Log Analytics workspace. |
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | SourceComputerId | Unique identifier for the virtual machine. |
 | LastUpdateApplied (UTC)| |
