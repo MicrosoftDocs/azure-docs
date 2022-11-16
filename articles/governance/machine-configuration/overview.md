@@ -2,7 +2,7 @@
 title: Understand the machine configuration feature of Azure Policy
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
 author: timwarner-msft
-ms.date: 07/25/2022
+ms.date: 11/16/2022
 ms.topic: conceptual
 ms.author: timwarner
 ms.service: machine-configuration
@@ -161,11 +161,66 @@ definitions as long as they're one of the operating systems in the table above.
 
 ## Network requirements
 
-Virtual machines in Azure can use either their local network adapter or a
-private link to communicate with the machine configuration service.
+Azure virtual machines can use either their local virtual network adapter (vNIC)
+or Azure Private Link to communicate with the machine configuration service.
 
-Azure Arc machines connect using the on-premises network infrastructure to reach
+Azure Arc-enabled machines connect using the on-premises network infrastructure to reach
 Azure services and report compliance status.
+
+Following is a list of the Azure Storage endpoints required for Azure and Azure Arc-enabled
+virtual machines to communicate with the machine configuration resource provider in Azure:
+
+- oaasguestconfigac2s1.blob.core.windows.net
+- oaasguestconfigacs1.blob.core.windows.net
+- oaasguestconfigaes1.blob.core.windows.net
+- oaasguestconfigases1.blob.core.windows.net
+- oaasguestconfigbrses1.blob.core.windows.net
+- oaasguestconfigbrss1.blob.core.windows.net
+- oaasguestconfigccs1.blob.core.windows.net
+- oaasguestconfigces1.blob.core.windows.net
+- oaasguestconfigcids1.blob.core.windows.net
+- oaasguestconfigcuss1.blob.core.windows.net
+- oaasguestconfigeaps1.blob.core.windows.net
+- oaasguestconfigeas1.blob.core.windows.net
+- oaasguestconfigeus2s1.blob.core.windows.net
+- oaasguestconfigeuss1.blob.core.windows.net
+- oaasguestconfigfcs1.blob.core.windows.net
+- oaasguestconfigfss1.blob.core.windows.net
+- oaasguestconfiggewcs1.blob.core.windows.net
+- oaasguestconfiggns1.blob.core.windows.net
+- oaasguestconfiggwcs1.blob.core.windows.net
+- oaasguestconfigjiws1.blob.core.windows.net
+- oaasguestconfigjpes1.blob.core.windows.net
+- oaasguestconfigjpws1.blob.core.windows.net
+- oaasguestconfigkcs1.blob.core.windows.net
+- oaasguestconfigkss1.blob.core.windows.net
+- oaasguestconfigncuss1.blob.core.windows.net
+- oaasguestconfignes1.blob.core.windows.net
+- oaasguestconfignres1.blob.core.windows.net
+- oaasguestconfignrws1.blob.core.windows.net
+- oaasguestconfigqacs1.blob.core.windows.net
+- oaasguestconfigsans1.blob.core.windows.net
+- oaasguestconfigscuss1.blob.core.windows.net
+- oaasguestconfigseas1.blob.core.windows.net
+- oaasguestconfigsecs1.blob.core.windows.net
+- oaasguestconfigsfns1.blob.core.windows.net
+- oaasguestconfigsfws1.blob.core.windows.net
+- oaasguestconfigsids1.blob.core.windows.net
+- oaasguestconfigstzns1.blob.core.windows.net
+- oaasguestconfigswcs1.blob.core.windows.net
+- oaasguestconfigswns1.blob.core.windows.net
+- oaasguestconfigswss1.blob.core.windows.net
+- oaasguestconfigswws1.blob.core.windows.net
+- oaasguestconfiguaecs1.blob.core.windows.net
+- oaasguestconfiguaens1.blob.core.windows.net
+- oaasguestconfigukss1.blob.core.windows.net
+- oaasguestconfigukws1.blob.core.windows.net
+- oaasguestconfigwcuss1.blob.core.windows.net
+- oaasguestconfigwes1.blob.core.windows.net
+- oaasguestconfigwids1.blob.core.windows.net
+- oaasguestconfigwus2s1.blob.core.windows.net
+- oaasguestconfigwus3s1.blob.core.windows.net
+- oaasguestconfigwuss1.blob.core.windows.net
 
 ### Communicate over virtual networks in Azure
 
@@ -272,7 +327,7 @@ For more information about troubleshooting machine configuration, see
 
 Guest Configuration policy definitions now support assigning the same
 guest assignment to more than once per machine when the policy assignment uses different
-parameters. 
+parameters.
 
 ### Assignments to Azure Management Groups
 
