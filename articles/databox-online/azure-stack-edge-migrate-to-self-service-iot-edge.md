@@ -46,17 +46,17 @@ Else, remove this section.>>
 
 ## Step 1. Create an IoT Edge device on Linux using symmetric Keys
 
-Create and provision an IoT Edge device on Linux using symmetric keys. For detailed steps, see [Create and provision an IoT Edge device on Linux using symmetric keys](../iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-1.4&tabs=azure-portal%2Cubuntu).
+Create and provision an IoT Edge device on Linux using symmetric keys. For detailed steps, see [Create and provision an IoT Edge device on Linux using symmetric keys](../iot-edge/how-to-provision-single-device-linux-symmetric).
 
 ## Step 2. Install and provision an IoT Edge on a Linux VM
 
-Follow the steps at [Deploy IoT Edge runtime](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md#deploy-iot-edge-runtime). To deploy other Linux VMs, see [Linux containers](../iot-edge/support?view=iotedge-1.4#linux-containers). 
+Follow the steps at [Deploy IoT Edge runtime](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md#deploy-iot-edge-runtime). To deploy other Linux VMs, see [Linux containers](../iot-edge/support). 
 
 ## Step 3. Deploy Azure IoT Edge modules from the Azure portal
 
-Deploy Azure IoT modules modules to the new IoT Edge. For detailed steps, see [Deploy Azure IoT Edge modules from the Azure portal](../iot-edge/how-to-deploy-modules-portal?view=iotedge-1.4). 
+Deploy Azure IoT modules modules to the new IoT Edge. For detailed steps, see [Deploy Azure IoT Edge modules from the Azure portal](../iot-edge/how-to-deploy-modules-portal). 
 
- With the latest IoT Edge version, you can deploy your IoT Edge modules at scale. For more information see [Deploy IoT Edge modules at scale using the Azure portal](../iot-edge/how-to-deploy-at-scale?view=iotedge-1.4). 
+ With the latest IoT Edge version, you can deploy your IoT Edge modules at scale. For more information see [Deploy IoT Edge modules at scale using the Azure portal](../iot-edge/how-to-deploy-at-scale). 
 
 ## Step 4. Remove Azure IoT Edge modules
 
@@ -75,9 +75,9 @@ From the Azure Stack Edge resource on Azure portal, under the Azure IoT Edge ser
 
 ## Step 6. Optional: Configure an IoT Edge device as a transparent gateway
 
-If your IoT Edge device on Azure Stack Edge was configured as a gateway for downstream IoT devices, you must configure the IoT Edge running on the Linux VM as a transparent gateway. For more information, see [Configure and IoT Edge device as a transparent gateway](../iot-edge/how-to-create-transparent-gateway?view=iotedge-1.4&tabs=iotedge).
+If your IoT Edge device on Azure Stack Edge was configured as a gateway for downstream IoT devices, you must configure the IoT Edge running on the Linux VM as a transparent gateway. For more information, see [Configure and IoT Edge device as a transparent gateway](../iot-edge/how-to-create-transparent-gateway).
 
-For more information about configuring downstream IoT devices to reference a newly deployed IoT Edge running on a Linux VM, see [Connect a downstream device to an Azure IoT Edge gateway](../iot-edge/how-to-connect-downstream-device?view=iotedge-1.4).
+For more information about configuring downstream IoT devices to reference a newly deployed IoT Edge running on a Linux VM, see [Connect a downstream device to an Azure IoT Edge gateway](../iot-edge/how-to-connect-downstream-device).
 
 ## Next steps
 
