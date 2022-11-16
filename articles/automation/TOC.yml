@@ -276,8 +276,8 @@
                   href: troubleshoot/change-tracking.md
         - name: Using Azure Monitoring Agent
           items:
-          - name: Overview
-            href: change-tracking/overview.md
+                - name: Overview
+                  href: change-tracking/overview.md
     - name: Start/Stop VMs during off-hours
       items:
         - name: Overview
