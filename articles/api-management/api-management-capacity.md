@@ -31,7 +31,7 @@ To follow the steps in this article, you must have:
 
 + An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [availability-capacity.md](../../includes/api-management-availability-capacity.md)]
 
 ## What is capacity
 
@@ -49,9 +49,6 @@ Total **capacity** is an average of its own values from every [unit](upgrade-and
 Although the **capacity metric** is designed to surface problems with your API Management instance, there are cases when problems won't be reflected in changes in the **capacity metric**.
 
 ## Capacity metric behavior
-
-> [!IMPORTANT]
-> The **Max** aggregation of the capacity metric is only supported in the Premium tier of API Management.
 
 Because of its construction, in real life **capacity** can be impacted by many variables, for example:
 
