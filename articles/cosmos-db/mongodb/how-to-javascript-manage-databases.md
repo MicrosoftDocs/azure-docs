@@ -114,4 +114,4 @@ The preceding code snippet displays the following example console output:
 ## See also
 
 - [Get started with Azure Cosmos DB for MongoDB and JavaScript](how-to-javascript-get-started.md)
-- Work with a collection](how-to-javascript-manage-collections.md)
+- [Work with a collection](how-to-javascript-manage-collections.md)

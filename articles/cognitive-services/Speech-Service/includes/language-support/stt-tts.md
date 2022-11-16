@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 08/22/2022
+ms.date: 11/16/2022
 ms.topic: include
 ms.author: eur
 ---
@@ -65,7 +65,7 @@ ms.author: eur
 | `es-CU` | Spanish (Cuba) | `es-CU` | Plain text<br/><br/>Pronunciation | `es-CU-BelkysNeural`<sup>4,5,6</sup> (Female)<br/>`es-CU-ManuelNeural`<sup>4,5,6</sup> (Male) | Not supported | 
 | `es-DO` | Spanish (Dominican Republic) | `es-DO` | Plain text<br/><br/>Pronunciation | `es-DO-EmilioNeural`<sup>4,5,6</sup> (Male)<br/>`es-DO-RamonaNeural`<sup>4,5,6</sup> (Female) | Not supported | 
 | `es-EC` | Spanish (Ecuador) | `es-EC` | Plain text<br/><br/>Pronunciation | `es-EC-AndreaNeural`<sup>4,5,6</sup> (Female)<br/>`es-EC-LuisNeural`<sup>4,5,6</sup> (Male) | Not supported | 
-| `es-ES` | Spanish (Spain) | `es-ES` | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list | `es-ES-AbrilNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-AlvaroNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-ArnauNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-DarioNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-EliasNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-ElviraNeural`<sup>4,5,6</sup> (Female)<br/>`es-ES-EstrellaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-IreneNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-LaiaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-LiaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-NilNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-SaulNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-TeoNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-TrianaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-VeraNeural`<sup>1,4,5,6</sup> (Female) | Custom Neural Voice Pro<br/><br/>Cross-lingual voice (Preview) | 
+| `es-ES` | Spanish (Spain) | `es-ES` | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list | `es-ES-AbrilNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-AlvaroNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-ArnauNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-DarioNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-EliasNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-ElviraNeural`<sup>4,5,6</sup> (Female)<br/>`es-ES-EstrellaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-IreneNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-LaiaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-LiaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-NilNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-SaulNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-TeoNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-TrianaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-VeraNeural`<sup>1,4,5,6</sup> (Female) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice (Preview) | 
 | `es-GQ` | Spanish (Equatorial Guinea) | `es-GQ` | Plain text | `es-GQ-JavierNeural`<sup>4,5,6</sup> (Male)<br/>`es-GQ-TeresaNeural`<sup>4,5,6</sup> (Female) | Not supported | 
 | `es-GT` | Spanish (Guatemala) | `es-GT` | Plain text<br/><br/>Pronunciation | `es-GT-AndresNeural`<sup>4,5,6</sup> (Male)<br/>`es-GT-MartaNeural`<sup>4,5,6</sup> (Female) | Not supported | 
 | `es-HN` | Spanish (Honduras) | `es-HN` | Plain text<br/><br/>Pronunciation | `es-HN-CarlosNeural`<sup>4,5,6</sup> (Male)<br/>`es-HN-KarlaNeural`<sup>4,5,6</sup> (Female) | Not supported | 
