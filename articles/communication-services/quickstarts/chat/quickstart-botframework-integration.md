@@ -40,7 +40,7 @@ You will learn how to:
 
 To use Azure Communication Services chat as a channel in Azure Bot Service, the first step is to deploy a bot. You can do so by following below steps:
 
-### Provision an Azure bot service resource in Azure
+### Create an Azure bot service resource in Azure
 
    Refer to the Azure Bot Service documentation on how to [create a bot](/azure/bot-service/abs-quickstart?tabs=userassigned).
 
@@ -49,11 +49,11 @@ To use Azure Communication Services chat as a channel in Azure Bot Service, the 
 
 ### Get Bot's MicrosoftAppId and MicrosoftAppPassword
 
-   Fetch your Azure bot's [Microsoft App Id and secret](/azure/bot-service/abs-quickstart?tabs=userassigned#to-get-your-app-or-tenant-id) as you will need those values for configurations.
+   Fetch your Azure bot's [Microsoft App ID and secret](/azure/bot-service/abs-quickstart?tabs=userassigned#to-get-your-app-or-tenant-id) as you will need those values for configurations.
 
 ### Create a Web App where the bot logic resides
 
- You can check out some samples at [Bot Builder Samples](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use [Bot Builder SDK](/composer/introduction) to create one. One of the simplest samples is [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Azure Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages`, which handles all the messages reaching the bot. To create the bot application, you can either use Azure CLI to [provision an App Service](/azure/bot-service/provision-app-service?tabs=singletenant%2Cexistingplan) or provision from the portal using below steps.
+ You can check out some samples at [Bot Builder Samples](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use [Bot Builder SDK](/composer/introduction) to create one. One of the simplest samples is [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Azure Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages`, which handles all the messages reaching the bot. To create the bot application, you can either use Azure CLI to [create an App Service](/azure/bot-service/provision-app-service?tabs=singletenant%2Cexistingplan) or directly create from the portal using below steps.
 
    1. Select `Create a resource` and in the search box, search for web app and select `Web App`. 
    
@@ -64,7 +64,7 @@ To use Azure Communication Services chat as a channel in Azure Bot Service, the 
    
    :::image type="content" source="./media/web-app-create-options.png" alt-text="Web App Create Options":::
 
-   3. Review your options and create the Web App and  once it has been provisioned, copy the hostname URL exposed by the Web App.
+   3. Review your options and create the Web App and  once it has been created, copy the hostname URL exposed by the Web App.
    
    :::image type="content" source="./media/web-app-endpoint.png" alt-text="Web App endpoint":::
 
@@ -106,7 +106,7 @@ The final step would be to deploy the Web App we created. The Echo bot functiona
    
    :::image type="content" source="./media/select-app-service.png" alt-text="Select App Service":::
 
-   3. Lastly, the above option opens the deployment config. Choose the Web App we had provisioned from the list of options it comes up with after signing into your Azure account. Once ready select `Finish` to complete the profile, and then select `Publish` to start the deployment.
+   3. Lastly, the above option opens the deployment config. Choose the Web App we had created from the list of options it comes up with after signing into your Azure account. Once ready select `Finish` to complete the profile, and then select `Publish` to start the deployment.
    
    :::image type="content" source="./media/smaller-deployment-config.png" alt-text="Deployment config" lightbox="./media/deployment-config.png":::
 
@@ -119,12 +119,12 @@ Now that bot is created and deployed, you will need an Azure Communication Servi
 ## Step 3 - Enable Azure Communication Services Chat channel
 With the Azure Communication Services resource, you can set up the Azure Communication Services channel in Azure Bot to assign an Azure Communication Services User ID to a bot.
 
-1. Go to your Bot Services resource on Azure portal. Navigate to `Channels` blade and select `Azure Communications Services - Chat` channel from the list provided. 
+1. Go to your Bot Services resource on Azure portal. Navigate to `Channels` configuration on the left pane and select `Azure Communications Services - Chat` channel from the list provided. 
  
    :::image type="content" source="./media/smaller-demoapp-launch-acs-chat.png" alt-text="DemoApp Launch Acs Chat" lightbox="./media/demoapp-launch-acs-chat.png":::
 
    
-2. Click the connect button to see a list of ACS resources available under your subscriptions.
+2. Select the connect button to see a list of ACS resources available under your subscriptions.
 
    :::image type="content" source="./media/smaller-bot-connect-acs-chat-channel.png" alt-text="DemoApp Connect Acs Resource" lightbox="./media/bot-connect-acs-chat-channel.png":::
 
@@ -259,7 +259,7 @@ chatClient.DeleteChatThread(threadId);
 ### Deploy the C# chat application
 Follow these steps to deploy the chat application:
 1. Open the chat project in Visual Studio.
-2. Select the ChatQuickstart project and from the right click menu, select Publish
+2. Select the ChatQuickstart project and from the right-click menu, select Publish
 
    :::image type="content" source="./media/deploy-chat-application.png" alt-text="Deploy Chat Application":::
 
@@ -276,7 +276,7 @@ In addition to sending a plain text message, a bot is also able to receive many 
 
 Below are some samples to illustrate these features:
 
-* ### Send a welcome message when a new user is added to the thread
+### Send a welcome message when a new user is added to the thread
  The current Echo Bot logic accepts input from the user and echoes it back. If you would like to add extra logic such as responding to a participant added Azure Communication Services event, copy the following code snippets and paste into the source file: [EchoBot.cs](https://github.com/microsoft/BotBuilder-Samples/blob/main/samples/csharp_dotnetcore/02.echo-bot/Bots/EchoBot.cs)
 
 ```csharp
@@ -313,7 +313,7 @@ namespace Microsoft.BotBuilderSamples.Bots
     }
 }
 ```
-* ### Send an adaptive card
+### Send an adaptive card
 
 Sending adaptive cards to the chat thread can help you increase engagement and efficiency and communicate with users in a variety of ways. You can send adaptive cards from a bot by adding them as bot activity attachments.
 
@@ -432,7 +432,7 @@ Event payload comprises all json fields in the message content except name field
 #### Activities and fields
 
 - Message activity
-  - `Id` (ACS Chat message Id)
+  - `Id` (ACS Chat message ID)
   - `TimeStamp`
   - `Text`
   - `Attachments`
@@ -441,11 +441,11 @@ Event payload comprises all json fields in the message content except name field
     - `MembersRemoved`
     - `TopicName`
 - Message update activity
-    - `Id` (Updated ACS Chat message Id)
+    - `Id` (Updated ACS Chat message ID)
     - `Text`
     - `Attachments`
 - Message delete activity
-    - `Id` (Deleted ACS Chat message Id)
+    - `Id` (Deleted ACS Chat message ID)
 - Event activity
     - `Name`
     - `Value`
@@ -453,9 +453,9 @@ Event payload comprises all json fields in the message content except name field
 
 #### Other common fields
 
-- `Recipient.Id` and `Recipeint.Name` (ACS Chat user id and display name)
-- `From.Id` and `From.Name` (ACS Chat user id and display name)
-- `Conversation.Id` (ACS Chat thread id)
+- `Recipient.Id` and `Recipeint.Name` (ACS Chat user ID and display name)
+- `From.Id` and `From.Name` (ACS Chat user ID and display name)
+- `Conversation.Id` (ACS Chat thread ID)
 - `ChannelId` (AcsChat if empty)
 - `ChannelData` (ACS Chat message metadata)
 
@@ -481,11 +481,11 @@ Sometimes the bot wouldn't be able to understand or answer a question or a custo
 
 ### Bot gets a forbidden exception while replying to a message
 
-- Verify that bot's Microsoft app id and secret are saved correctly in the bot configuration file uploaded to the webapp.
+- Verify that bot's Microsoft App ID and secret are saved correctly in the bot configuration file uploaded to the webapp.
 
 ### Bot is not able to be added as a participant
 
-- Verify that bot's ACS Id is being used correctly while sending a request to add bot to a chat thread.
+- Verify that bot's ACS ID is being used correctly while sending a request to add bot to a chat thread.
 
 ## Next steps
 
