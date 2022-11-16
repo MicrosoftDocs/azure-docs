@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.date: 11/10/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -54,8 +54,8 @@ We detect risk on workload identities across sign-in behavior and offline indica
 | Admin confirmed account compromised | Offline | This detection indicates an admin has selected 'Confirm compromised' in the Risky Workload Identities UI or using riskyServicePrincipals API. To see which admin has confirmed this account compromised, check the account’s risk history (via UI or API). |
 | Leaked Credentials | Offline | This risk detection indicates that the account's valid credentials have been leaked. This leak can occur when someone checks in the credentials in public code artifact on GitHub, or when the credentials are leaked through a data breach. <br><br> When the Microsoft leaked credentials service acquires credentials from GitHub, the dark web, paste sites, or other sources, they're checked against current valid credentials in Azure AD to find valid matches. |
 | Malicious application | Offline | This detection indicates that Microsoft has disabled an application for violating our terms of service. We recommend [conducting an investigation](https://go.microsoft.com/fwlink/?linkid=2208429) of the application.| 
-| Suspicious application | Offline | This detection indicates that Microsoft has identified an application that may be violating our terms of service, but has not disabled it. We recommend [conducting an investigation](https://go.microsoft.com/fwlink/?linkid=2208429) of the application.| 
-| Anomalous service principal activity | Offline | This risk detection indicates that suspicious patterns of activity have been identified for an authenticated service principal. The post-authentication behavior of service principals is assessed for anomalies. This behavior is based on actions occurring for the account, along with any sign-in risk detected. |
+| Suspicious application | Offline | This detection indicates that Microsoft has identified an application that may be violating our terms of service, but hasn't disabled it. We recommend [conducting an investigation](https://go.microsoft.com/fwlink/?linkid=2208429) of the application.| 
+| Anomalous service principal activity | Offline | This risk detection baselines normal administrative service principal behavior in Azure AD, and spots anomalous patterns of behavior like suspicious changes to the directory. The detection is triggered against the administrative service principal making the change or the object that was changed. |
 
 ## Identify risky workload identities
 
