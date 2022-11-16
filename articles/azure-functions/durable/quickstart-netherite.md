@@ -43,7 +43,7 @@ If this is not the case, we suggest you start with one of the following articles
 > [!NOTE]
 > If your app uses [Extension Bundles](/articles/azure/azure-functions/functions-bindings-register#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
-You will need to install the latest version of the `Microsoft.Azure.DurableTask.Netherite.AzureFunctions`[Extension on Nuget](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) on your app. This usually means including a reference to it in your `.csproj` file and building the project.
+You will need to install the latest version of the `Microsoft.Azure.DurableTask.Netherite.AzureFunctions` [Extension on Nuget](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) on your app. This usually means including a reference to it in your `.csproj` file and building the project.
 
 There are many ways to achieve this, especially for C# users who may leverage [VisualStudio package management tools](/articles/nuget/consume-packages/install-use-packages-visual-studio), the [Nuget package manager](../functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or even the [dotnet CLI](../functions-develop-vs-code.md?tabs=csharp#install-binding-extensions).
 
