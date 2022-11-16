@@ -236,46 +236,48 @@
                   href: automation-dsc-config-from-server.md
                 - name: Convert configurations to composite resources
                   href: automation-dsc-create-composite.md
-    - name: Change tracking and inventory - Log Analytics
+    - name: Change tracking and inventory 
       items:
-        - name: Overview
-          href: change-tracking/overview.md
-        - name: Support regions for linked Log Analytics workspace
-          href: how-to/region-mappings.md
-        - name: Enable
+        - name: Using Log Analytics
           items:
-            - name: Enable from the Azure portal
-              href: change-tracking/enable-from-portal.md
-            - name: Enable from an Azure VM
-              href: change-tracking/enable-from-vm.md
-            - name: Enable from an Automation account
-              href: change-tracking/enable-from-automation-account.md
-            - name: Enable from a runbook
-              href: change-tracking/enable-from-runbook.md
-        - name: Manage change tracking and inventory
-          href: change-tracking/manage-change-tracking.md
-        - name: Manage inventory collection from VMs
-          href: change-tracking/manage-inventory-vms.md
-        - name: Work with scope configurations
-          href: change-tracking/manage-scope-configurations.md
-        - name: Configure alerts
-          href: change-tracking/configure-alerts.md
-        - name: Disable
+            - name: Overview
+              href: change-tracking/overview.md
+            - name: Support regions for linked Log Analytics workspace
+              href: how-to/region-mappings.md
+            - name: Enable
+              items:
+                - name: Enable from the Azure portal
+                  href: change-tracking/enable-from-portal.md
+                - name: Enable from an Azure VM
+                  href: change-tracking/enable-from-vm.md
+                - name: Enable from an Automation account
+                  href: change-tracking/enable-from-automation-account.md
+                - name: Enable from a runbook
+                  href: change-tracking/enable-from-runbook.md
+            - name: Manage change tracking and inventory
+              href: change-tracking/manage-change-tracking.md
+            - name: Manage inventory collection from VMs
+              href: change-tracking/manage-inventory-vms.md
+            - name: Work with scope configurations
+              href: change-tracking/manage-scope-configurations.md
+            - name: Configure alerts
+              href: change-tracking/configure-alerts.md
+          - name: Disable
+            items:
+                - name: Remove Change Tracking and Inventory
+                  href: change-tracking/remove-feature.md
+                - name: Remove machines
+                  href: change-tracking/remove-vms-from-change-tracking.md
+          - name: Troubleshoot
+            items:
+                - name: Troubleshoot feature deployment issues
+                  href: troubleshoot/onboarding.md
+                - name: Troubleshoot Change Tracking and Inventory issues
+                  href: troubleshoot/change-tracking.md
+        - name: Using Azure Monitoring Agent
           items:
-            - name: Remove Change Tracking and Inventory
-              href: change-tracking/remove-feature.md
-            - name: Remove machines
-              href: change-tracking/remove-vms-from-change-tracking.md
-        - name: Troubleshoot
-          items:
-            - name: Troubleshoot feature deployment issues
-              href: troubleshoot/onboarding.md
-            - name: Troubleshoot Change Tracking and Inventory issues
-              href: troubleshoot/change-tracking.md
-    - name: Change tracking and inventory - Azure Monitoring Agent
-      items:
-        - name: Overview
-        - href: change-tracking/overview.md
+          - name: Overview
+            href: change-tracking/overview.md
     - name: Start/Stop VMs during off-hours
       items:
         - name: Overview
