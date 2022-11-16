@@ -6,12 +6,12 @@ ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/09/2022
+ms.date: 11/14/2022
 ---
 
 # Create, import, export, and delete glossary terms
 
-This article describes how to work with the business glossary in Microsoft Purview. It provides steps to create a business glossary term in the Microsoft Purview data catalog. It also shows you how to import and export glossary terms by using .CSV files, and how to delete terms that you no longer need.
+This article describes how to work with the business glossary in Microsoft Purview. It provides steps to create a business glossary term in the Microsoft Purview Data Catalog. It also shows you how to import and export glossary terms by using .CSV files, and how to delete terms that you no longer need.
 
 ## Create a term
 
@@ -21,18 +21,21 @@ To create a glossary term, follow these steps:
 
     :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="Screenshot of the data catalog with the button for managing a glossary highlighted." border="true":::
 
-2. On the **Glossary terms** page, select **+ New term**. 
+1. On the **Glossary terms** page, select **+ New term**. 
 
-   A pane opens with the **System default** template selected. Choose the template that you want to use to create a glossary term, and then select **Continue**.
+   A pane opens with the **System default** template selected. Choose the template, or templates, that you want to use to create a glossary term, and then select **Continue**.
+   Selecting multiple templates will allow you to use the custom attributes from those templates.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/new-term-with-default-template.png" alt-text="Screenshot of the button and pane for creating a new term." border="true":::
 
-3. Give your new term a name, which must be unique in the catalog. 
+1. If you selected multiple templates, you can select and deselect templates from the **Term template** dropdown at the top of the page.
+
+1. Give your new term a name, which must be unique in the catalog. 
 
    > [!NOTE]
    > Term names are case-sensitive. For example, **Sample** and **sample** could both exist in the same glossary.
 
-4. For **Definition**, add a definition for the term.
+1. For **Definition**, add a definition for the term.
 
    Microsoft Purview enables you to add rich formatting to term definitions. For example, you can add bold, underline, or italic formatting to text. You can also create tables, bulleted lists, or hyperlinks to external resources.
 
@@ -71,7 +74,7 @@ To create a glossary term, follow these steps:
    >    }
    >```
                              
-5. For **Status**, select the status for the term. New terms default to **Draft**.
+1. For **Status**, select the status for the term. New terms default to **Draft**.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/overview-tab.png" alt-text="Screenshot of the status choices.":::
 
@@ -85,15 +88,15 @@ To create a glossary term, follow these steps:
     > [!Important]
     > If an approval workflow is enabled on the term hierarchy, a new term will go through the approval process when it's created. The term is stored in the catalog only when it's approved. To learn about how to manage approval workflows for a business glossary, see [Approval workflow for business terms](how-to-workflow-business-terms-approval.md).
                                                                           
-6. Add **Resources** and **Acronym** information. If the term is part of a hierarchy, you can add parent terms at **Parent** on the **Overview** tab.
+1. Add **Resources** and **Acronym** information. If the term is part of a hierarchy, you can add parent terms at **Parent** on the **Overview** tab.
 
-7. Add **Synonyms** and **Related terms** information on the **Related** tab, and then select **Apply**.
+1. Add **Synonyms** and **Related terms** information on the **Related** tab, and then select **Apply**.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/related-tab.png" alt-text="Screenshot of tab for related terms and the box for adding synonyms." border="true":::
 
-8. Optionally, select the **Contacts** tab to add experts and stewards to your term.
+1. Optionally, select the **Contacts** tab to add experts and stewards to your term.
 
-9. Select **Create** to create your term.
+1. Select **Create** to create your term.
 
     > [!Important]
     > If an approval workflow is enabled on the term's hierarchy path, you'll see **Submit for approval** instead of the **Create** button. Selecting **Submit for approval** will trigger the approval workflow for this term.
@@ -102,17 +105,19 @@ To create a glossary term, follow these steps:
 
 ## Import terms into the glossary
 
-The Microsoft Purview data catalog provides a template .CSV file for you to import terms from the catalog into your glossary. Duplicate terms include both spelling and capitalization, because term names are case-sensitive. 
+The Microsoft Purview Data Catalog provides a template .CSV file for you to import terms from the catalog into your glossary. Duplicate terms include both spelling and capitalization, because term names are case-sensitive. 
 
 1. On the **Glossary terms** page, select **Import terms**.
 
    The term template page opens. 
 
-2. Match the term template to the kind of .CSV file that you want to import, and then select **Continue**.
+1. Select the template, or templates, for the terms you want to import, and then select **Continue**.
+
+   You can select multiple templates and import terms for different templates from a single .csv file.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-import.png" alt-text="Screenshot of the template list for importing a term, with the system default template highlighted.":::
 
-3. Download the .csv template and use it to enter the terms that you want to add. 
+1. Download the .csv template and use it to enter the terms that you want to add. 
 
    Give your template file a name that starts with a letter and includes only letters, numbers, spaces, an underscore (_), or other non-ASCII Unicode characters. Special characters in the file name will create an error.
 
@@ -125,7 +130,7 @@ The Microsoft Purview data catalog provides a template .CSV file for you to impo
 
    :::image type="content" source="media/how-to-create-import-export-glossary/select-file-for-import.png" alt-text="Screenshot of the button for downloading a sample template file.":::
 
-4. After you finish filling out your .CSV file, select your file to import, and then select **OK**.
+1. After you finish filling out your .CSV file, select your file to import, and then select **OK**.
 
 The system will upload the file and add all the terms to your glossary.
  
@@ -134,16 +139,17 @@ The system will upload the file and add all the terms to your glossary.
 
 ## Export terms from the glossary with custom attributes
 
-You can export terms from the glossary as long as the selected terms belong to same term template.
+When you're in the glossary, the **Export terms** button is disabled by default. After you select the terms that you want to export, the **Export terms** button is enabled.
 
-When you're in the glossary, the **Export terms** button is disabled by default. After you select the terms that you want to export, the **Export terms** button is enabled if the selected terms belong to same template.
+> [!NOTE]
+> Selected terms **don't** need to be from the same term template to be able to export them.
 
 Select **Export terms** to download the selected terms.
 
 :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot of the button to export terms on the glossary terms page.":::
 
 > [!Important]
-> If the terms in a hierarchy belong to different term templates, you need to split them into different .CSV files for import. Also, the import process currently doesn't support updating the parent of a term.
+> The import process currently doesn't support updating the parent of a term.
 
 ## Delete terms
 

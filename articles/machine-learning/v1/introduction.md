@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: reference
 
 ms.reviewer: larryfr
-ms.author: larryfr
-author: BlackMist
+ms.author: balapv
+author: balapv
 ms.date: 05/10/2022
 ms.custom: cliv1, event-tier1-build-2022, ignite-2022
 ---

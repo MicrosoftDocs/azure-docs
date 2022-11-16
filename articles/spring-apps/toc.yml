@@ -282,10 +282,14 @@ items:
       href: troubleshoot.md
     - name: Troubleshoot common exit code issues
       href: troubleshoot-exit-code.md
+    - name: Troubleshoot common build issues in Azure Spring Apps
+      href: troubleshoot-build-exit-code.md
     - name: Capture heap/thread dump and use JFR
       href: how-to-capture-dumps.md
     - name: Use JVM options for troubleshooting
       href: how-to-dump-jvm-options.md
+    - name: Connect to an app instance for troubleshooting
+      href: how-to-connect-to-app-instance-for-troubleshooting.md
   - name: Migrate
     items:
     - name: Migrate Standard and Basic to Enterprise

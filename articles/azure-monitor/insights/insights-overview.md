@@ -17,7 +17,7 @@ Some visualizations are considered part of Azure Monitor and follow the support 
 
 ## Insights and curated visualizations
 
-The following table lists the available curated visualizations and information about them. **Most** of the list below can be found in the [Insights hub in the Azure portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/more). The table uses the same grouping as portal.
+The following table lists the available curated visualizations and information about them. **Most** of the list below can be found in the [Insights hub in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/more). The table uses the same grouping as portal.
 
 >[!NOTE]
 > Another type of older visualization called *monitoring solutions* is no longer in active development. The replacement technology is the Azure Monitor Insights, as mentioned here. We suggest you use the Insights and not deploy new instances of solutions. For more information on the solutions, see [Monitoring solutions in Azure Monitor](solutions.md).

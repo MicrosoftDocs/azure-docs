@@ -244,7 +244,7 @@ conceptualContent:
             url: azure-sentinel.md
             itemType: how-to-guide             
           - text: Regulations
-            url: https://docs.microsoft.com/azure/compliance/
+            url: ../compliance/index.yml
             itemType: concept 
           #- text: 'Manage user access: Minors and parental consent'
            #  url: manage-user-access.md

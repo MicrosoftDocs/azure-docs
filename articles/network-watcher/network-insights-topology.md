@@ -95,4 +95,4 @@ Follow these steps to find the next hop.
 
 ## Next steps
 
-[Learn more](/azure/network-watcher/connection-monitor-overview) about connectivity related metrics. 
+[Learn more](./connection-monitor-overview.md) about connectivity related metrics.
