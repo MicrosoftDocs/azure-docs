@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/19/2022
+ms.date: 11/16/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -30,7 +30,7 @@ For this scenario, you'll configure a line-of-business application for Kerberos 
 
 To integrate the application with Azure AD requires support from a federation-based protocol, such as Security Assertion Markup Language (SAML). Because modernizing the application introduces the risk of potential downtime, there are other options. 
 
-While you're using Kerberos Constrained Delegation (KCD) for SSO, you can use [Azure AD Application Proxy](../app-proxy/application-proxy.md) to access the application remotely. You can achieve the protocol transitioning to bridge the legacy application to the modern identity control plane. 
+While you're using Kerberos Constrained Delegation (KCD) for SSO, you can use [Azure AD Application Proxy](../app-proxy/application-proxy.md) to access the application remotely. You can achieve the protocol transition to bridge the legacy application to the modern, identity control plane. 
 
 Another approach is to use an F5 BIG-IP Application Delivery Controller. This approach enables overlay of the application with Azure AD pre-authentication and KCD SSO. It improves the overall Zero Trust posture of the application.
 
@@ -44,7 +44,7 @@ The SHA solution for this scenario has the following elements:
 
 - **Azure AD**: Identity provider (IdP) that verifies user credentials, Azure AD Conditional Access, and SSO to the BIG-IP APM through SAML
 
-- **KDC**: Key Distribution Center role on a domain controller (DC). It issues Kerberos tickets.
+- **KDC**: Key Distribution Center role on a domain controller (DC) that issues Kerberos tickets
 
 The following image illustrates the SAML SP-initiated flow for this scenario, but IdP-initiated flow is also supported.
 
@@ -52,19 +52,19 @@ The following image illustrates the SAML SP-initiated flow for this scenario, bu
 
 ## User flow
 
-1. User connects to the application endpoint (BIG-IP).
-2. BIG-IP access policy redirects the user to Azure AD (SAML IdP).
-3. Azure AD pre-authenticates the user and applies any enforced Conditional Access policies.
-4. User is redirected to BIG-IP (SAML SP), and SSO is performed via the issued SAML token. 
-5. BIG-IP authenticates the user and requests a Kerberos ticket from KDC.
-6. BIG-IP sends the request to the back-end application, along with the Kerberos ticket for SSO. 
-7. Application authorizes the request and returns the payload. 
+1. User connects to the application endpoint (BIG-IP)
+2. BIG-IP access policy redirects the user to Azure AD (SAML IdP)
+3. Azure AD pre-authenticates the user and applies enforced Conditional Access policies
+4. User is redirected to BIG-IP (SAML SP), and SSO is performed via the issued SAML token
+5. BIG-IP authenticates the user and requests a Kerberos ticket from KDC
+6. BIG-IP sends the request to the back-end application with the Kerberos ticket for SSO
+7. Application authorizes the request and returns the payload
 
  ## Prerequisites
 
 Prior BIG-IP experience isn't necessary. You need:
 
-* An [Azure AD free](https://azure.microsoft.com/free/active-directory/) or higher-tier subscription
+* An [Azure AD free](https://azure.microsoft.com/free/active-directory/) or a higher-tier subscription
 
 * A BIG-IP, or [deploy BIG-IP Virtual Edition in Azure](../manage-apps/f5-bigip-deployment-guide.md)
 
@@ -74,7 +74,7 @@ Prior BIG-IP experience isn't necessary. You need:
 
   * F5 BIG-IP APM standalone license
 
-  * F5 BIG-IP APM add-on license on a BIG-IP Local Traffic Manager
+  * F5 BIG-IP APM add-on license on a BIG-IP Local Traffic Manager (LTM)
 
   * 90-day BIG-IP [Free Trial](https://www.f5.com/trial/big-ip-trial.php) license
 
@@ -88,7 +88,7 @@ Prior BIG-IP experience isn't necessary. You need:
 
 ## BIG-IP configuration methods
 
-This article covers the advanced configuration, which has a more flexible way of implementing SHA by creating BIG-IP configuration objects. You can use this approach for scenarios the Guided Configuration templates don't cover.
+This article covers the advanced configuration, a flexible SHA implementing that creates BIG-IP configuration objects. You can use this approach for scenarios the Guided Configuration templates don't cover.
 
 >[!NOTE]
 > Replace all example strings or values in this article with those for your actual environment.
@@ -99,19 +99,19 @@ Before BIG-IP can hand off pre-authentication to Azure AD, register it in your t
 
 1. Sign in to the [Azure AD portal](https://portal.azure.com) with Application Administrator permissions.
 2. From the left pane, select the **Azure Active Directory** service.
-3. On the left menu, select **Enterprise applications**. The **All applications** pane opens with a list of the applications in your Azure AD tenant.
+3. On the left menu, select **Enterprise applications**. The **All applications** pane appears with a list of the applications in your Azure AD tenant.
 4. On the **Enterprise applications** pane, select **New application**.
-5. The **Browse Azure AD Gallery** pane opens with tiles for cloud platforms, on-premises applications, and featured applications. Applications in the **Featured applications** section have icons that indicate whether they support federated SSO and provisioning. 
-6. Search for **F5** in the Azure gallery, and select **F5 BIG-IP APM Azure AD integration**.
-7. Enter a name for the new application to recognize the instance of the application. 
+5. The **Browse Azure AD Gallery** pane appears with tiles for cloud platforms, on-premises applications, and featured applications. Applications in the **Featured applications** section have icons that indicate whether they support federated SSO and provisioning. 
+6. In the Azure gallery, search for **F5**, and select **F5 BIG-IP APM Azure AD integration**.
+7. Enter a name for the new application to recognize the application instance. 
 8. Select **Add/Create** to add it to your tenant.
 
 ## Enable SSO to F5 BIG-IP
 
-Next, configure the BIG-IP registration to fulfill SAML tokens that the BIG-IP APM requests:
+Configure the BIG-IP registration to fulfill SAML tokens that the BIG-IP APM requests.
 
 1. In the **Manage** section of the left menu, select **Single sign-on**. The **Single sign-on** pane appears.
-2. On the **Select a single sign-on method** page, select **SAML** followed by **No, I'll save later** to skip the prompt.
+2. On the **Select a single sign-on method** page, select **SAML**. Select **No, I'll save later** to skip the prompt.
 3. On the **Set up single sign-on with SAML** pane, select the **pen** icon to edit **Basic SAML Configuration**. 
 4. Replace the predefined **Identifier** value with the full URL for the BIG-IP published application.
 5. Replace the **Reply URL** value, but retain the path for the application's SAML SP endpoint. 
@@ -119,15 +119,15 @@ Next, configure the BIG-IP registration to fulfill SAML tokens that the BIG-IP A
 > [!NOTE]
 > In this configuration, the SAML flow operates in IdP-initiated mode. Azure AD issues a SAML assertion before the user is redirected to the BIG-IP endpoint for the application. 
 
-6. To use SP-initiated mode, populate **Sign on URL** with the application URL.
-7. For **Logout Url**, enter the BIG-IP APM single logout (SLO) endpoint prepended by the host header of the service being published. This ensures the user's BIG-IP APM session ends after the user signs out of Azure AD. 
+6. To use SP-initiated mode, enter the application URL in **Sign on URL**.
+7. For **Logout Url**, enter the BIG-IP APM single logout (SLO) endpoint prepended by the host header of the service being published. This ensures the user BIG-IP APM session ends after the user signs out of Azure AD. 
 
     ![Screenshot for editing basic SAML configuration.](./media/f5-big-ip-kerberos-advanced/edit-basic-saml-configuration.png)
 
 > [!NOTE]
-> From TMOS v16, the SAML SLO endpoint has changed to **/saml/sp/profile/redirect/slo**.
+> From BIG-IP traffic management operating system (TMOS) v16, the SAML SLO endpoint has changed to **/saml/sp/profile/redirect/slo**.
 
-8. Before closing SAML configuration, select **Save**.
+8. Before you close the SAML configuration, select **Save**.
 9. Skip the SSO test prompt.
 10. Note the properties of the **User Attributes & Claims** section. Azure AD issues properties to users for BIG-IP APM authentication and for SSO to the back-end application.
 11. On the **SAML Signing Certificate** pane, select **Download** to save the Federation Metadata XML file to your computer.
