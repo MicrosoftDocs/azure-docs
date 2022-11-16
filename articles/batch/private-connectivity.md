@@ -2,7 +2,7 @@
 title: Use private endpoints with Azure Batch accounts
 description: Learn how to connect privately to an Azure Batch account by using private endpoints.
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 12/16/2022
 ms.custom: references_regions
 ---
 
@@ -22,11 +22,7 @@ Batch account resource has two endpoints supported to access with private endpoi
 
 - Account endpoint (sub-resource: **batchAccount**): this endpoint is used for accessing [Batch Service REST API](/rest/api/batchservice/) (data plane), for example managing pools, compute nodes, jobs, tasks, etc.
 
-- Node management endpoint (sub-resource: **nodeManagement**): used by Batch pool nodes to access Batch node management service. This endpoint is only applicable when using [simplified compute node communication](simplified-compute-node-communication.md). This feature is in preview.
-
-> [!IMPORTANT]
-> - This preview sub-resource is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+- Node management endpoint (sub-resource: **nodeManagement**): used by Batch pool nodes to access Batch node management service. This endpoint is only applicable when using [simplified compute node communication](simplified-compute-node-communication.md).
 
 :::image type="content" source="media/private-connectivity/private-endpoint-sub-resources.png" alt-text="Diagram that shows sub-resources for Batch private endpoints.":::
 
