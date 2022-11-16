@@ -79,7 +79,7 @@ For `Data fetch status change` events with a success indicator, the bag contains
 | **IncidentNumber**       | String         | The sequential number of the Microsoft Sentinel incident as shown in the portal. |
 | **RunId**                | String         | The run ID for this triggering of the Logic Apps workflow.    |
 | **TriggeredByName**      | Dynamic (json) | Information on the identity (user or application) that triggered the playbook. |
-| **TriggeredOn**          | String         | `Alert` or `Incident`. The object on which the playbook was triggered. |
+| **TriggeredOn**          | String         | `Incident`. The object on which the playbook was triggered.<br>(Playbooks using the alert trigger are logged only if they're called by automation rules, so those playbook runs will appear in the **TriggeredPlaybooks** extended property under automation rule events.) |
 
 
 ## Next steps

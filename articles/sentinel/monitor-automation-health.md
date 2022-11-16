@@ -28,8 +28,8 @@ Automation health monitoring in Microsoft Sentinel has two parts:
 
 - **Microsoft Sentinel automation health logs:**
 
-    - This log captures events that record the running of automation rules, and the end result of these runnings - if they succeeded or failed, and if they failed, why. The log records the collective success or failure of the launch of the actions in the rule.
-    - The log also captures events that record the on-demand triggering of playbooks, including the **identities that triggered them**, whether they succeeded or failed, and if they failed, why.
+    - This log captures events that record the running of automation rules, and the end result of these runnings - if they succeeded or failed, and if they failed, why. The log records the collective success or failure of the launch of the actions in the rule, and it also lists the playbooks called by the rule.
+    - The log also captures events that record the on-demand (manual or API-based) triggering of playbooks, including the **identities that triggered them**, whether they succeeded or failed, and if they failed, why.
     - This log *does not include* a record of the execution of the contents of a playbook, only of the success or failure of the launching of the playbook. For a log of the actions taken within a playbook, see the next list below.
     - These logs are collected in the *SentinelHealth* table in Log Analytics.
     
@@ -53,14 +53,14 @@ Once the health feature is turned on, the *SentinelHealth* data table is created
 
 The following types of automation health events are logged in the *SentinelHealth* table:
 
-- **Automation rule run**. Logged whenever an automation rule's conditions are met, causing it to run. The following sample query will display these events:
+- **Automation rule run**. Logged whenever an automation rule's conditions are met, causing it to run. Besides the fields in the basic *SentinelHealth* table, these events will include [extended properties unique to the running of automation rules](health-table-reference.md#automation-rules), including a list of the playbooks called by the rule. The following sample query will display these events:
 
     ```kusto
     SentinelHealth
     | where OperationName == "Automation rule run"
     ```
 
-- **Playbook was triggered**. Logged whenever a playbook is triggered on an incident manually from the portal, through the API, or by an automation rule. The following sample query will display these events:
+- **Playbook was triggered**. Logged whenever a playbook is triggered on an incident manually from the portal or through the API. Besides the fields in the basic *SentinelHealth* table, these events will include [extended properties unique to the manual triggering of playbooks](health-table-reference.md#playbooks). The following sample query will display these events:
 
     ```kusto
     SentinelHealth
