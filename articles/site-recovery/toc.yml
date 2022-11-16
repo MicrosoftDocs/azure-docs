@@ -133,8 +133,6 @@
     href: ../availability-zones/migrate-recovery-services-vault.md
   - name: About VMware VM disaster recovery
     items:
-    - name: Deprecation of classic experience 
-      href: vmware-physical-azure-classic-deprecation.md
     - name: VMware disaster recovery overview
       href: vmware-azure-about-disaster-recovery.md
     - name: Common questions
@@ -173,8 +171,6 @@
       href: exclude-disks-replication.md
   - name: About physical server disaster recovery
     items:
-    - name: Deprecation of classic experience 
-      href: vmware-physical-azure-classic-deprecation.md
     - name: VMware/physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
     - name: Physical server to Azure architecture
@@ -279,8 +275,6 @@
         href: unregister-vmm-server-script.md
   - name: VMware to Azure disaster recovery
     items:
-    - name: Deprecation of classic experience 
-      href: vmware-physical-azure-classic-deprecation.md
     - name: Set up disaster recovery at scale
       href: vmware-physical-large-deployment.md
     - name: Set up networking
@@ -373,8 +367,6 @@
         href: delete-vault.md
   - name: Physical to Azure disaster recovery
     items:
-    - name: Deprecation of classic experience 
-      href: vmware-physical-azure-classic-deprecation.md
     - name: Set up disaster recovery at scale
       href: vmware-physical-large-deployment.md
     - name: Set up networking

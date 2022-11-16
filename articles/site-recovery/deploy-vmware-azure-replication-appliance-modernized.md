@@ -72,9 +72,6 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
 
 Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity, when enabling replication to a government cloud:
 
-
-
-
   | **URL for Fairfax**                  | **URL for Mooncake**                             | **Details**                             |
   | ------------------------- | -------------------------------------------| -------------------------------------------|
   | `login.microsoftonline.us/*` <br> `graph.microsoftazure.us` | `login.chinacloudapi.cn/*` <br> `graph.chinacloudapi.cn` | To sign-in to your Azure subscription.  |
@@ -83,30 +80,6 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   | `*.hypervrecoverymanager.windowsazure.us` <br> `*.migration.windowsazure.us` <br> `*.backup.windowsazure.us` | `*.hypervrecoverymanager.windowsazure.cn` <br> `*.migration.windowsazure.cn` <br> `*.backup.windowsazure.cn` | Connect to Azure Site Recovery micro-service URLs. |
   |`*.vault.usgovcloudapi.net`| `*.vault.azure.cn` |Manage secrets in the Azure Key Vault. Note: Ensure that the machines which need to be replicated have access to this. |
 
-
-Mooncake
-  =========
-https://portal.azure.cn/
-https://management.chinacloudapi.cn//.default
-https://login.chinacloudapi.cn
-https://login.chinacloudapi.cn/<tenantid>/oauth2/deviceauth
-https://graph.chinacloudapi.cn
-https://management.chinacloudapi.cn
-https://login.chinacloudapi.cn/login.srf
-https://portal.partner.microsoftonline.cn/#
-https://portal.partner.microsoftonline.cn/login?IdentityProvider=aad&ru=%2Fdefault.aspx
-https://login.chinacloudapi.cn/common
-
-  FAIRFAX
-  =======
-
-https://login.microsoftonline.us/<tenantid>/oauth2/deviceauth
-https://management.usgovcloudapi.net//.default
-https://login.microsoftonline.us/
-https://graph.microsoftazure.us
-https://management.usgovcloudapi.net
-https://login.microsoftonline.us/login.srf
-https://portal.azure.us/#
 
 ### Folder exclusions from Antivirus program
 
@@ -130,7 +103,7 @@ C:\Program Files\Microsoft Azure VMware Discovery Service <br>
 C:\Program Files\Microsoft On-Premise to Azure Replication agent <br>
 E:\ <br>
 
-#### If Antivirus software is active on Source machine
+#### If Antivirus software is active on source machine
 
 If source machine has an Antivirus software active, installation folder should be excluded. So, exclude folder C:\ProgramData\ASR\agent for smooth replication.
 
