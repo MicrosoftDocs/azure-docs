@@ -266,8 +266,8 @@
               href: change-tracking/remove-feature.md
             - name: Remove machines
               href: change-tracking/remove-vms-from-change-tracking.md
-          - name: Troubleshoot
-            items:
+        - name: Troubleshoot
+          items:
             - name: Troubleshoot feature deployment issues
               href: troubleshoot/onboarding.md
             - name: Troubleshoot Change Tracking and Inventory issues
