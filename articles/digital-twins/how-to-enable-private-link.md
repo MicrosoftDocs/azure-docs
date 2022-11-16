@@ -58,7 +58,7 @@ The Private Link options are located in the **Networking** tab of instance setup
 
 1. In the **Create private endpoint** page that opens, enter the details of a new private endpoint.
 
-    :::image type="content" source="media/how-to-enable-private-link/create-private-endpoint-full.png" alt-text="Screenshot of the Azure portal showing the Create private endpoint page. It contains the fields described below.":::
+    :::image type="content" source="media/how-to-enable-private-link/create-private-endpoint-full.png" alt-text="Screenshot of the Azure portal showing the Create private endpoint page. It contains the fields described below." lightbox="media/how-to-enable-private-link/create-private-endpoint-full.png":::
 
     1. Fill in selections for your **Subscription** and **Resource group**. Set the **Location** to the same location as the VNet you'll be using. Choose a **Name** for the endpoint, and for **Target sub-resources** select *API*.
 

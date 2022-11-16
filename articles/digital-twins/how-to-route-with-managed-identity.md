@@ -81,7 +81,7 @@ Start by opening the [Azure portal](https://portal.azure.com) in a browser.
 
 1. Select the **Save** button, and **Yes** to confirm.
 
-    :::image type="content" source="media/how-to-route-with-managed-identity/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity page for an Azure Digital Twins instance.":::
+   :::image type="content" source="media/how-to-route-with-managed-identity/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity page for an Azure Digital Twins instance." lightbox="media/how-to-route-with-managed-identity/identity-digital-twins.png":::
 
 After the change is saved, more fields will appear on this page for the new identity's **Object ID** and **Permissions**.
 
@@ -148,7 +148,7 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
     | Assign access to | Under **System assigned managed identity**, select **Digital Twins**. |
     | Members | Select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so choose the name of your Azure Digital Twins instance. |
     
-    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the 'Add role assignment' page for an Azure Digital Twins instance." lightbox="../../includes/role-based-access-control/media/add-role-assignment-page.png":::
 
 # [CLI](#tab/cli)
 

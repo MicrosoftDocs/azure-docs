@@ -34,7 +34,7 @@ You can find these details in the [Azure portal](https://portal.azure.com) after
 
 Select your instance from the results to see these details in the Overview for your instance:
 
-:::image type="content" source="media/how-to-manage-routes/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted.":::
+:::image type="content" source="media/how-to-manage-routes/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted." lightbox="media/how-to-manage-routes/instance-details.png":::
 
 Follow the instructions below if you intend to use the Azure CLI while following this guide.
 
