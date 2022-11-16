@@ -1,3 +1,10 @@
+---
+author: dknappettmsft
+ms.author: daknappe
+ms.topic: include
+ms.date: 11/15/2022
+---
+
 ## Connection information
 
 | Display name | RDP property | Azure Virtual Desktop | Remote Desktop Services | Description | Values | Default value |
