@@ -236,7 +236,7 @@
                   href: automation-dsc-config-from-server.md
                 - name: Convert configurations to composite resources
                   href: automation-dsc-create-composite.md
-    - name: Change tracking and inventory
+    - name: Change tracking and inventory - Log Analytics
       items:
         - name: Overview
           href: change-tracking/overview.md
@@ -272,6 +272,10 @@
               href: troubleshoot/onboarding.md
             - name: Troubleshoot Change Tracking and Inventory issues
               href: troubleshoot/change-tracking.md
+    - name: Change tracking and inventory - Azure Monitoring Agent
+      items:
+        - name: Overview
+        - href: change-tracking/overview.md
     - name: Start/Stop VMs during off-hours
       items:
         - name: Overview
