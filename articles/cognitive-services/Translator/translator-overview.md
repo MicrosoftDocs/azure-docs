@@ -10,8 +10,6 @@ ms.topic: overview
 ms.subservice: translator-text
 ms.date: 07/11/2022
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020
-keywords: translator, text translation, machine translation, translation service, custom translator
 ---
 
 # What is Azure Cognitive Services Translator?

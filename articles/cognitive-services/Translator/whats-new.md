@@ -17,7 +17,7 @@ ms.author: lajanuar
 
 # What's new in Azure Cognitive Services Translator?
 
-Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+Bookmark this page to stay up to date with release notes, feature enhancements, and newest documentation.
 
 Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
 
