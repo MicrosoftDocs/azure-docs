@@ -26,6 +26,9 @@ Batch account resource has two endpoints supported to access with private endpoi
 
 :::image type="content" source="media/private-connectivity/private-endpoint-sub-resources.png" alt-text="Diagram that shows sub-resources for Batch private endpoints.":::
 
+> [!TIP]
+> You can create private endpoint for one of them or both within your virtual network, depending on the actual usage for your Batch account. For example, if you run Batch pool within the virtual network, but call Batch service REST API from somewhere else, you will only need to create the **nodeManagement** private endpoint in the virtual network.
+
 ## Azure portal
 
 Use the following steps to create a private endpoint with your Batch account using the Azure portal:
