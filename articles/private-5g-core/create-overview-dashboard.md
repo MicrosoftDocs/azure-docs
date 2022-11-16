@@ -28,6 +28,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
   - The name of the **Kubernetes - Azure Arc** resource that represents the Kubernetes cluster on which your packet core instance is running.
   - The name of the resource group containing the **Kubernetes - Azure Arc** resource.
+  - The Azure region in which you deployed your private mobile network.
 
 ## Review the template
 
@@ -45,7 +46,7 @@ The template defines one [**Microsoft.Portal/dashboards**](/azure/templates/micr
 
     - **Subscription:** set this to the Azure subscription you used to create your private mobile network.
     - **Resource group:** set this to the resource group in which you want to create the dashboard. You can use an existing resource group or create a new one.
-    - **Region:** select **East US**.
+    - **Region:** select the region in which you deployed the private mobile network.
     - **Connected Cluster Name:** enter the name of the **Kubernetes - Azure Arc** resource that represents the Kubernetes cluster on which your packet core instance is running.
     - **Connected Cluster Resource Group:** enter the name of the resource group containing the **Kubernetes - Azure Arc** resource.
     - **Dashboard Display Name:** enter the name you want to use for the dashboard.
