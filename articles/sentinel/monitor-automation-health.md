@@ -83,7 +83,7 @@ For **Playbook was triggered**, you may see the following statuses:
 - Failure: playbook could not be triggered. 
     > [!NOTE]
     > 
-    > "Success" means only that a playbook run ended. It doesn't tell you the results of the actions in the playbook, or the final result of the playbook. To find this information, query the Logic Apps diagnostics logs (see the instructions later in this article).
+    > "Success" means only that the automation rule successfully triggered a playbook. It doesn't tell you when the playbook started or ended, the results of the actions in the playbook, or the final result of the playbook. To find this information, query the Logic Apps diagnostics logs (see the instructions later in this article).
 
 #### Error descriptions and suggested actions
 
