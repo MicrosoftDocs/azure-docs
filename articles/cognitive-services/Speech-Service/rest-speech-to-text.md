@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: reference
-ms.date: 09/10/2022
+ms.date: 11/11/2022
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -22,7 +22,7 @@ Speech-to-text REST API is used for [Batch transcription](batch-transcription.md
 > Speech-to-text REST API v3.1 is generally available. Version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be retired. For more information, see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide.
 
 > [!div class="nextstepaction"]
-> [See the Speech to Text API v3.1 preview reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)
+> [See the Speech to Text API v3.1 reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)
 
 > [!div class="nextstepaction"]
 > [See the Speech to Text API v3.0 reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/)
