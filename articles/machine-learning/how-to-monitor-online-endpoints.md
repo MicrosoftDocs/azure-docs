@@ -47,7 +47,7 @@ You can also access metrics from the **Details** tab of an endpoint's page in th
 1. Go to the [Azure Machine Learning Studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Endpoints** page.
 1. Select an endpoint by clicking its name.
-1. Click **View metrics** in the **Attributes** section of the endpoint to open up the endpoint's metrics page in the Azure portal
+1. Click **View metrics** in the **Attributes** section of the endpoint to open up the endpoint's metrics page in the Azure portal.
 1. Click **View metrics** in the section for each available deployment to open up the deployment's metrics page in the Azure portal.
 
     :::image type="content" source="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png" alt-text="A screenshot showing how to access the metrics of an endpoint and deployment from the studio UI" lightbox="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png":::
