@@ -16,7 +16,7 @@ ms.author: lajanuar
 Learn about Translator service changes, modification, and deprecations.
 
 > [!NOTE]
-> Looking for updates and preview announcements? Visit our [What's new](whats-new.md) page to stay up to date with release notes, feature enhancements, and newest documentation.
+> Looking for updates and preview announcements? Visit our [What's new](whats-new.md) page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
 ## November 2022
 
@@ -29,7 +29,7 @@ Learn about Translator service changes, modification, and deprecations.
 
 |Deprecated metric| Current metric(s) | Description|
 |---|---|---|
-|Characters Translated (Deprecated)|**&bullet; Text Characters Translated**</br></br>**&bullet;Text Custom Characters Translated**| &bullet; Number of characters in incoming **text** translation request.</br></br> &bullet; Number of characters in incoming **custom** translation request.  |
+|Characters Translated (Deprecated)|**&bullet; Text Characters Translated**</br></br><hr>**&bullet;Text Custom Characters Translated**| &bullet; Number of characters in incoming **text** translation request.</br></br><hr> &bullet; Number of characters in incoming **custom** translation request.  |
 |Characters Trained (Deprecated) | **&bullet; Text Trained Characters** | &bullet; Number of characters **trained** using text translation service.|
 
 ## October 2022
