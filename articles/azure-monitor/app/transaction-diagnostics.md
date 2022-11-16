@@ -2,7 +2,7 @@
 title: Application Insights transaction diagnostics | Microsoft Docs
 description: This article explains Application Insights end-to-end transaction diagnostics.
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 11/15/2022
 ms.reviewer: sdash
 ---
 

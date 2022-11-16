@@ -79,7 +79,7 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 
 - **Cause**: Azure Storage firewall isn't configured to allow access to Azure SQL target.
 
-- **Recommendation**: See [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security) for more information on Azure Storage firewall setup.  
+- **Recommendation**: See [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md) for more information on Azure Storage firewall setup.  
 
 - **Message**: `Migration for Database <Database Name> failed with error 'There are backups from multiple databases in the container folder. Please make sure the container folder has backups from a single database.`
 

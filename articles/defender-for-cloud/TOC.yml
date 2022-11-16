@@ -405,7 +405,7 @@
       href: defender-for-storage-introduction.md
     - name: Enable Defender for Storage
       href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
-    - name: Exclude a storage account
+    - name: Exclude a storage account (per-transaction)
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
       href: defender-for-storage-exclude.md
   - name: Defender for Key Vault
