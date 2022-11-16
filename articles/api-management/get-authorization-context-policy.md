@@ -36,7 +36,7 @@ If `identity-type=jwt` is configured, a JWT token is required to be validated. T
 
 ## Attributes
 
-| Name | Description | Required | Default |
+| Attribute | Description | Required | Default |
 |---|---|---|---|
 | provider-id | The authorization provider resource identifier. | Yes |   |
 | authorization-id | The authorization resource identifier. | Yes |   |
