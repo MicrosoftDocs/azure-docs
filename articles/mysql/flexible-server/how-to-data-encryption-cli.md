@@ -79,9 +79,6 @@ You can verify the above attributes of the key by using the following command:
 az keyvault key show --vault-name \<key\_vault\_name\> -n \<key\_name\>
 ```
 
-> [!Note]
-> In the Public Preview, we can't enable geo redundancy on a flexible server that has CMK enabled, nor can we enable geo redundancy on a flexible server that has CMK enabled. 
-
 ## Update an existing MySQL flexible server with data encryption
 
 Set or change key and identity for data encryption:
