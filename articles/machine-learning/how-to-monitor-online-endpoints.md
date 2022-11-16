@@ -42,7 +42,7 @@ To access metrics directly from the Azure portal:
 
 1. In the left-hand column, select **Metrics**.
 
-You can also access metrics from the **Details** tab of an endpoint's page in the studio. This is an easy way to go directly to the exact metrics page in the Azure portal for the endpoint or deployment.
+You can also access metrics from the **Details** tab of an endpoint's page in the Studio. This is an easy way to go directly to the exact metrics page in the Azure portal for the endpoint or deployment.
 
 1. Go to the [Azure Machine Learning Studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Endpoints** page.
