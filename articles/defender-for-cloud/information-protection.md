@@ -37,7 +37,7 @@ Defender for Cloud includes two mechanisms to help prioritize recommendations an
 
 However, where possible, you'd want to focus the security team's efforts on risks to the organization's **data**. If two recommendations have equal impact on your secure score, but one relates to a resource with sensitive data, ideally you'd include that knowledge when determining prioritization.
 
-Microsoft Purview's data sensitivity classifications and data sensitivity labels provide that knowledge. 
+Microsoft Purview's data sensitivity classifications and data sensitivity labels provide that knowledge.
 
 ## Discover resources with sensitive data
 To provide information about discovered sensitive data and help ensure you have that information when you need it, Defender for Cloud displays information from Microsoft Purview in multiple locations.
