@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: billmath
 manager: amycolannino
-editor: curtand
 
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory

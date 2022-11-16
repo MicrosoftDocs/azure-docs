@@ -113,7 +113,18 @@ ping -S 10.1.0.5 outlook.com
 
 </details>
 
-### Linux (Ubuntu 14/16)
+### SUSE Linux Enterprise and openSUSE
+ 
+<details>
+  <summary>Expand</summary>
+ 
+SUSE-based distributions use the <code>cloud-netconfig</code> plugin from the <code>cloud-netconfig-azure</code> package to manage additional IP addresses. No manual configuration is required on the part of the administrator. The first IP address of an interface set on the platform is assigned via DHCP. The cloud-netconfig plugin then probes the Azure Instance Metadata Service API continuously (once per minute) for additional IP addresses assigned to the interface and adds/removes them as secondary IP addresses automatically.
+
+This plugin should be installed and enabled on new images by default.  Configuration steps for old workloads can be found here: https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/.
+
+</details>
+
+### Ubuntu 14/16
 
 <details>
   <summary>Expand</summary>
@@ -234,7 +245,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
 
 </details>
 
-### Linux (Ubuntu 18.04+)
+### Ubuntu 18.04+
 
 <details>
   <summary>Expand</summary>
@@ -349,7 +360,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
 
 </details>
 
-### Linux (Red Hat, CentOS, and others)
+### Red Hat Enterprise Linux, CentOS, and others
 
 <details>
   <summary>Expand</summary>
