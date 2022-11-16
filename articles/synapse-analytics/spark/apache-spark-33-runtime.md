@@ -8,7 +8,7 @@ ms.subservice: spark
 ms.date: 11/17/2022 
 ms.author: eskot
 ms.custom: has-adal-ref, ignite-2022
-ms.reviewer: martinle
+ms.reviewer: ekote
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.3 (Preview)
@@ -25,10 +25,10 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Operating System | Ubuntu 18.04 |
 | Java | 1.8.0_282    |
 | Scala | 2.12.15      |
-| Hadoop | 3.3.1        |
+| Hadoop | 3.3.3        |
 | .NET Core | 3.1          |
 | .NET | 2.0.0        |
-| Delta Lake | 2.1          |
+| Delta Lake | 2.1.1        |
 | Python | 3.8          |
 | R (Preview) | 4.2.2        | 
 

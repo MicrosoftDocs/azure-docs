@@ -7,7 +7,7 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 11/17/2022
 ms.author: eskot 
-ms.reviewer: martinle
+ms.reviewer: eskot
 ---
 
 # Azure Synapse runtimes
