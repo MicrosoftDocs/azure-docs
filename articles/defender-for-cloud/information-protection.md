@@ -42,11 +42,13 @@ Microsoft Purview's data sensitivity classifications and data sensitivity labels
 ## Discover resources with sensitive data
 To provide information about discovered sensitive data and help ensure you have that information when you need it, Defender for Cloud displays information from Microsoft Purview in multiple locations.
 
-> [!TIP]
-> If a resource is scanned by multiple Microsoft Purview accounts, the information shown in Defender for Cloud relates to the most recent scan.
+Purview scans produce insights into the nature of the sensitive information so you can take action to protect that information:
+
+- If a resource is scanned by multiple Microsoft Purview accounts, the information shown in Defender for Cloud relates to the most recent scan.
+- Classifications and labels are shown for resources that were scanned within the last 3 months.
 
 ### Alerts and recommendations pages
-When you're reviewing a recommendation or investigating an alert, the information about any potentially sensitive data involved is included on the page. You can also filter the list of alerts by **Data sensitivity classifications** and **Data sensitivity labels** to help you focus on the alerts that relate to sensitive data. Classifications and labels are shown for resources that were scanned within the last 3 months.
+When you're reviewing a recommendation or investigating an alert, the information about any potentially sensitive data involved is included on the page. You can also filter the list of alerts by **Data sensitivity classifications** and **Data sensitivity labels** to help you focus on the alerts that relate to sensitive data.
 
 This vital layer of metadata helps solve the triage challenge and ensures your security team can focus its attention on the threats to sensitive data.
 
