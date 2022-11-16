@@ -8,11 +8,12 @@ ms.author: juliako
 
 # Edit speakers with the Azure Video Indexer website
 
-Azure Video Indexer identifies each speaker in a video and attributes each transcribed line to a speaker. The speakers are given a unique identity such as `Speaker #1` and `Speaker #2`. To provide clarity and enrich the transcript quality, you may want to replace the assigned identity with each speaker`s actual name. To edit speakers' names, use the edit actions as described below. 
-
-The addition or editing of a speaker name is applied throughout the transcript of the video but is not applied to other videos in your Azure Video Indexer account.
+Azure Video Indexer identifies each speaker in a video and attributes each transcribed line to a speaker. The speakers are given a unique identity such as `Speaker #1` and `Speaker #2`. To provide clarity and enrich the transcript quality, you may want to replace the assigned identity with each speaker`s actual name. To edit speakers' names, use the edit actions as described in the artifle. 
 
 The article demonstrates how to edit speakers with the [Azure Video Indexer website](https://www.videoindexer.ai/). The same editing operations are possible with an API. To use API, call [update video index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index).
+
+> [!NOTE]
+> The addition or editing of a speaker name is applied throughout the transcript of the video but is not applied to other videos in your Azure Video Indexer account.
 
 ## Start editing
 
