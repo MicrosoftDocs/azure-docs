@@ -6,7 +6,7 @@ ms.date: 6/23/2020
 
 ---
 
-# Configure resource health alerts in the Azure portal
+# Configure Resource Health alerts in the Azure portal
 
 This article shows you how to set up activity log alerts for resource health notifications in the Azure portal.
 
