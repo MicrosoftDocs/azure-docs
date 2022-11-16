@@ -165,8 +165,8 @@ If you created node management private endpoint in the virtual network for your 
 - Check if the private endpoint is created in the right virtual network, in provisioning **Succeeded** state, and also in **Approved** status.
 - Check if the DNS configuration is set up correctly for the node management endpoint of your Batch account:
   - If your private endpoint is created with automatic private DNS zone integration, check the DNS A record is configured correctly in the private DNS zone `privatelink.batch.azure.com`, and the zone is linked to your virtual network.
-  - If you are using your own DNS solution, make sure the DNS record for your Batch node management endpoint is configured correctly and point to the private endpoint IP address.
-- Sanity check DNS resolution for [Batch node management endpoint](batch-account-create-portal.md#view-batch-account-properties) of your account. You can confirm it by running `nslookup <nodeManagementEndpoint>` from within your virtual network, and the DNS name should be resolved to the private endpoint IP address.
+  - If you're using your own DNS solution, make sure the DNS record for your Batch node management endpoint is configured correctly and point to the private endpoint IP address.
+- Check the DNS resolution for [Batch node management endpoint](batch-account-create-portal.md#view-batch-account-properties) of your account. You can confirm it by running `nslookup <nodeManagementEndpoint>` from within your virtual network, and the DNS name should be resolved to the private endpoint IP address.
 - Run TCP ping with the node management endpoint using default HTTPS port (443). This probe can tell if the private link connection is working as expected.
 
 ```
