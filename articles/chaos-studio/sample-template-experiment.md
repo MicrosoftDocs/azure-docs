@@ -119,7 +119,7 @@ In this sample, we create a chaos experiment with a single target resource and a
         "value": "eastus"
       },
       "chaosTargetResourceId": {
-        "value": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.DocumentDB/databaseAccounts/<account-name>"
+        "value": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.DocumentDB/databaseAccounts/<account-name>/providers/Microsoft.Chaos/targets/microsoft-cosmosdb"
       }
   }
 }
