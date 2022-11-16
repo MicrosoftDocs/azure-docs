@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: heidilohr
 manager: femila
 ms.author: helohr
-ms.date: 11/03/2022
+ms.date: 11/16/2022
 ---
 # What's new in the Remote Desktop client for Windows
 
@@ -17,14 +17,14 @@ The client can be configured to enable Windows Insider releases. The following t
 
 | Release | Latest version | Minimum supported version |
 |---------|----------------|---------------------------|
-| Public  | 1.2.3577       | 1.2.1672                  |
+| Public  | 1.2.3667       | 1.2.1672                  |
 | Insider | 1.2.3667       | 1.2.1672                  |
 
-## Updates for version 1.2.3667 (Insider)
+## Updates for version 1.2.3667
 
-*Date published: 10/25/2022*
+*Date published: 11/16/2022*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 - Added User Datagram Protocol (UDP) support to the client's ARM64 platform.
 - Fixed an issue where the tooltip didn't disappear when the user moved the mouse cursor away from the tooltip area.
@@ -37,15 +37,13 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 
 *Date published: 10/10/2022*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58R78), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE591Lx), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58R77)
 
 Fixed a bug related to tracing that was blocking reconnections.
 
 ## Updates for version 1.2.3576
 
 *Date published: 10/6/2022*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58YFH), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE59ekJ), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58YFG)
 
 Fixed a bug that affected users of some third-party plugins.
 
@@ -63,8 +61,8 @@ Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios
 - Added page to installer warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to multimedia redirection (MMR) for Azure Virtual Desktop, including the following:
-   - MMR now works on remote app browser and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](/azure/virtual-desktop/multimedia-redirection-intro).
-   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop (preview)](/azure/virtual-desktop/multimedia-redirection).
+   - MMR now works on remote app browser and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](./multimedia-redirection-intro.md).
+   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop (preview)](./multimedia-redirection.md).
 
 ## Updates for version 1.2.3497
 
@@ -150,7 +148,7 @@ Fixed an issue that caused unexpected disconnects in certain RemoteApp scenarios
 - Updated the error message that appears when users are unable to subscribe to their feed.
 - Updated the disconnect dialog boxes that appear when the user locks their remote session or puts their local computer in sleep mode to be only informational.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- [Multimedia redirection for Azure Virtual Desktop (preview)](/azure/virtual-desktop/multimedia-redirection) now has an update that gives it more site and media control compatibility.
+- [Multimedia redirection for Azure Virtual Desktop (preview)](./multimedia-redirection.md) now has an update that gives it more site and media control compatibility.
 - Improved connection reliability for Teams on Azure Virtual Desktop.
 
 ## Updates for version 1.2.2927
@@ -267,7 +265,7 @@ Fixed an issue where the number pad didn't work on initial focus.
 - Added updates to Teams on Azure Virtual Desktop, including:
   - Fixed an issue that caused the screen to turn black when Direct X wasn't available for hardware decoding.
   - Fixed a software decoding and camera preview issue that happened when falling back to software decode.
-- [Multimedia redirection for Azure Virtual Desktop](/azure/virtual-desktop/multimedia-redirection) is now in public preview.
+- [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md) is now in public preview.
 
 ## Updates for version 1.2.2223
 
@@ -352,7 +350,7 @@ Fixed an issue where the number pad didn't work on initial focus.
 
 *Date published: 01/26/2021*
 
-- Added support for the screen capture protection feature for Windows 10 endpoints. To learn more, see [Session host security best practices](/azure/virtual-desktop/security-guide#session-host-security-best-practices).
+- Added support for the screen capture protection feature for Windows 10 endpoints. To learn more, see [Session host security best practices](./security-guide.md#session-host-security-best-practices).
 - Added support for proxies that require authentication for feed subscription.
 - The client now shows a notification with an option to retry if an update didn't successfully download.
 - Addressed some accessibility issues with keyboard focus and high-contrast mode.

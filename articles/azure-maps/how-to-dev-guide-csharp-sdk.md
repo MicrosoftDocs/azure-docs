@@ -378,6 +378,7 @@ The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 [Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
 
 [authentication]: azure-maps-authentication.md
+[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [.NET standard]: /dotnet/standard/net-standard?tabs=net-standard-2-0
 [Rest API]: /rest/api/maps/
 [.NET Standard versions]: https://dotnet.microsoft.com/platform/dotnet-standard#versions

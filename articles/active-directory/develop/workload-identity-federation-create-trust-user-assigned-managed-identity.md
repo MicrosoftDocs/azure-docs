@@ -274,14 +274,14 @@ az identity federated-credential delete --name $ficId --identity-name $uaId --re
 ::: zone pivot="identity-wif-mi-methods-powershell"
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](/azure/active-directory/managed-identities-azure-resources/overview). Be sure to review the [difference between a system-assigned and user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](../managed-identities-azure-resources/overview.md). Be sure to review the [difference between a system-assigned and user-assigned managed identity](../managed-identities-azure-resources/overview.md#managed-identity-types).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 - Get the information for your external IdP and software workload, which you need in the following steps.
-- To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+- To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 - To run the example scripts, you have two options:
   - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
   - Run scripts locally with Azure PowerShell, as described in the next section.
-- [Create a user-assigned manged identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell#list-user-assigned-managed-identities-2) 
+- [Create a user-assigned manged identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-powershell#list-user-assigned-managed-identities-2) 
 - Find the object ID of the user-assigned managed identity, which you need in the following steps.
 
 ### Configure Azure PowerShell locally
