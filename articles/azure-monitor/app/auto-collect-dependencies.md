@@ -4,7 +4,7 @@ description: Application Insights automatically collect and visualize dependenci
 ms.topic: reference
 ms.devlang: csharp, java, javascript
 ms.custom: devx-track-dotnet
-ms.date: 08/22/2022
+ms.date: 11/15/2022
 ms.reviewer: mmcc
 ---
 
