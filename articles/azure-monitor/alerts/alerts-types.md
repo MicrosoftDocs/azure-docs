@@ -21,6 +21,7 @@ There are four types of alerts:
     - [Resource Health alerts](#resource-health-alerts)
 - [Smart detection alerts](#smart-detection-alerts)
 - [Prometheus alerts](#prometheus-alerts-preview) (preview)
+
 ## Choosing the right alert type
 
 This table can help you decide when to use what type of alert. For more detailed information about pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
