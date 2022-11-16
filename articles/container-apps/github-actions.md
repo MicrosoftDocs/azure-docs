@@ -27,9 +27,11 @@ To build and deploy your container app, you add the [`azure/container-apps-deplo
 * Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby.
 * Deploy an existing container image to Container Apps.
 
+### Usage examples
+
 Here are some common scenarios for using the action. For more information, see the [action's GitHub Marketplace page](https://github.com/marketplace/actions/azure-container-apps-build-and-deploy).
 
-### Build and deploy to Container Apps
+#### Build and deploy to Container Apps
 
 The following snippet shows how to build a container image and deploy it to Container Apps.
 
@@ -52,7 +54,7 @@ steps:
 
 The action uses the Dockerfile in `appSourcePath` to build the container image. If no Dockerfile is found, the action attempts to build the container image from source code in `appSourcePath`.
 
-### Deploy an existing container image to Container Apps
+#### Deploy an existing container image to Container Apps
 
 The following snippet shows how to deploy an existing container image to Container Apps.
 
