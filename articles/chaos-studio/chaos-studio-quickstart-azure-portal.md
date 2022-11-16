@@ -2,7 +2,7 @@
 title: Create and run a chaos experiment using Azure Chaos Studio
 description: Understand the steps to create and run a Chaos Studio experiment in 10mins
 services: chaos-studio
-author: prashabora
+author: prasha-microsoft
 ms.topic: quickstart
 ms.date: 11/10/2021
 ms.author: prashabora
