@@ -17,43 +17,37 @@ ms.collection: M365-identity-device-management
 
 You can route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. This feature allows you to:
 
-* Archive Azure AD activity logs to an Azure storage account, to retain the data for a long time.
+* Archive Azure AD activity logs to an Azure storage account.
 * Stream Azure AD activity logs to an Azure event hub for analytics, using popular Security Information and Event Management (SIEM) tools such as Splunk, QRadar, and Microsoft Sentinel.
 * Integrate Azure AD activity logs with your own custom log solutions by streaming them to an event hub.
-* Send Azure AD activity logs to Azure Monitor logs to enable rich visualizations, monitoring and alerting on the connected data.
+* Send Azure AD activity logs to Azure Monitor to enable rich visualizations, monitoring, and alerting on the connected data.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## Supported reports
 
-You can route Azure AD audit logs and sign-in logs to your Azure Storage account, event hub, Azure Monitor logs, or custom solution by using this feature.
+You can route Azure AD audit logs and sign-in logs to your Azure Storage account, an event hub, Azure Monitor, or a custom solution.
 
-* **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to information about changes applied to your tenant, such as users and group management, or updates applied to your tenant’s resources.
-* **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
-
-## Supported reports
-You can route audit activity logs and sign-in activity logs to Azure Monitor logs for further analysis. 
 * **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
 * **Provisioning logs**: With the [provisioning logs](../app-provisioning/application-provisioning-log-analytics.md), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
-* **Risky users logs (public preview)**: With the [risky users logs](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users), you can monitor changes in user risk level and remediation activity. 
-* **Risk detections logs (public preview)**: With the [risk detections logs](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
+* **Risky users logs**: With the [risky users logs](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users), you can monitor changes in user risk level and remediation activity. 
+* **Risk detections logs**: With the [risk detections logs](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
 
 ## Prerequisites
 
 To use this feature, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
-* Azure AD Free, Basic, Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), to access the Azure AD audit logs in the Azure portal. 
-* An Azure AD tenant.
-* A user who's a **Global Administrator** or **Security Administrator** for the Azure AD tenant.
+* Azure AD Free, Basic, Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). You can find the license type of your tenant on the [Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page in Azure AD.
+* **Global Administrator** or **Security Administrator** access for the Azure AD tenant.
 * Azure AD Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), to access the Azure AD sign-in logs in the Azure portal. 
 
-Depending on where you want to route the audit log data, you need one of the following endpoints:
+Depending on where you want to route the audit log data, you also need one of the following endpoints:
 
-* An Azure storage account that you have *ListKeys* permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
-* An Azure Event Hubs namespace to integrate with third-party solutions.
-* An Azure Log Analytics workspace to send logs to Azure Monitor logs.
+* An Azure storage account that you have `ListKeys` permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
+* An [Azure Event Hubs namespace](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md) to integrate with third-party solutions.
+* An [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md) to send logs to Azure Monitor logs.
 
 ## Cost considerations
 

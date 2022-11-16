@@ -26,9 +26,12 @@ Use the integration of Azure AD activity logs and Azure Monitor to perform the f
   
  * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.
 
- * Analyze Identity Protection risky users and risk detections logs to detect threats in your environment
+ * Analyze the Identity Protection risky users and risk detections logs to detect threats in your environment.
  
- * Identify sign-ins from applications that use the Active Directory Authentication Library (ADAL) for authentication. [ADAL is nearing end-of-support](../develop/msal-migration.md).
+ * Identify sign-ins from applications still using the Active Directory Authentication Library (ADAL) for authentication. [Learn about the ADAL end-of-support plan.](../develop/msal-migration.md)
+
+> [!NOTE]
+> Integrating Azure Active Directory logs with Azure Monitor will automatically enable the Azure Active Directory data connector within Microsoft Sentinel.
 
 This Microsoft Ignite 2018 session video shows the benefits of integrating Azure AD logs and Azure Monitor in practical scenarios:
 
@@ -39,7 +42,7 @@ This Microsoft Ignite 2018 session video shows the benefits of integrating Azure
 To use this feature, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
-* An Azure AD Premium P1 or P2 tenant. You can find the license type of your tenant on the **[Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)** page in Azure AD.
+* An Azure AD Premium P1 or P2 tenant. You can find the license type of your tenant on the [Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page in Azure AD.
 * **Global Administrator** or **Security Administrator** access for the Azure AD tenant.
 * A **Log Analytics workspace** in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 
@@ -79,11 +82,12 @@ To use this feature, you need:
 
 1. Select **Save** to save the setting.
 
-    ![Diagnostics settings](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
+    ![Screenshot of the Diagnostics settings with some destination details shown.](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
 
 If you do not see logs appearing in the selected destination after 15 minutes, sign out and back into Azure to refresh the logs.
 
 ## Next steps
 
 * [Analyze Azure AD activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md)
-* [Install and use the log analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Learn about the data sources you can analyze with Azure Monitor](../../azure-monitor/data-sources.md)
+* [Automate creating diagnostic settings with Azure Policy](../../azure-monitor/essentials/diagnostic-settings-policy.md)
