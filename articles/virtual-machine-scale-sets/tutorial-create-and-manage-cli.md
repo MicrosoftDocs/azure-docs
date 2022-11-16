@@ -73,61 +73,42 @@ To see additional information about each individual instance, use [az vm show](/
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myScaleSet_instance1
 ```
+Below is a simplified output from running the [az vm show](/cli/azure/vm) command: 
 
 ```output
 {
-  "additionalCapabilities": null,
-  "applicationProfile": null,
-  "availabilitySet": null,
-  "billingProfile": null,
-  "capacityReservation": null,
-  "diagnosticsProfile": null,
-  "evictionPolicy": null,
-  "extendedLocation": null,
-  "extensionsTimeBudget": null,
   "hardwareProfile": {
     "vmSize": "Standard_DS1_v2",
-    "vmSizeProperties": null
   },
-  "host": null,
-  "hostGroup": null,
-  "id": "/subscriptions/XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myScaleSet_5331da35",
-  "identity": null,
-  "instanceView": null,
-  "licenseType": null,
+  "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myScaleSet_instance1",
   "location": "eastus",
   "name": "myScaleSet_instance1",
   "networkProfile": {
-    "networkApiVersion": null,
-    "networkInterfaceConfigurations": null,
     "networkInterfaces": [
       {
         "deleteOption": "Delete",
-        "id": "/subscriptions/XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/mysca2215Nic-0396c71c",
+        "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/mysca2215Nic-0396c71c",
         "primary": true,
         "resourceGroup": "myResourceGroup"
       }
     ]
   },
   "osProfile": {
-    "adminPassword": null,
     "adminUsername": "azureuser",
     "allowExtensionOperations": true,
     "computerName": "myScaleSN30BP1",
-    "customData": null,
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
       "enableVmAgentPlatformUpdates": false,
       "patchSettings": {
         "assessmentMode": "ImageDefault",
-        "automaticByPlatformSettings": null,
         "patchMode": "ImageDefault"
       },
       "provisionVmAgent": true,
       "ssh": {
         "publicKeys": [
           {
-            "keyData": "ssh-rsa XXXX-XXXX-XXXX-XXXX",
+            "keyData": "ssh-rsa",
             "path": "/home/azureuser/.ssh/authorized_keys"
           }
         ]
@@ -135,27 +116,15 @@ az vm show --resource-group myResourceGroup --name myScaleSet_instance1
     },
     "requireGuestProvisionSignal": true,
     "secrets": [],
-    "windowsConfiguration": null
   },
-  "plan": null,
-  "platformFaultDomain": null,
-  "priority": null,
   "provisioningState": "Succeeded",
-  "proximityPlacementGroup": null,
   "resourceGroup": "myResourceGroup",
-  "resources": null,
-  "scheduledEventsProfile": null,
-  "securityProfile": null,
   "storageProfile": {
     "dataDisks": [],
-    "diskControllerType": null,
     "imageReference": {
-      "communityGalleryImageId": null,
       "exactVersion": "18.04.202210180",
-      "id": null,
       "offer": "UbuntuServer",
       "publisher": "Canonical",
-      "sharedGalleryImageId": null,
       "sku": "18.04-LTS",
       "version": "latest"
     },
@@ -163,33 +132,23 @@ az vm show --resource-group myResourceGroup --name myScaleSet_instance1
       "caching": "ReadWrite",
       "createOption": "FromImage",
       "deleteOption": "Delete",
-      "diffDiskSettings": null,
       "diskSizeGb": 30,
-      "encryptionSettings": null,
-      "image": null,
       "managedDisk": {
-        "diskEncryptionSet": null,
-        "id": "/subscriptions/XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myScaleSet_5331da35_disk1_b2c5e9e123084e738f9f7f9b927d850e",
+        "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myScaleSet_instance1_disk1",
         "resourceGroup": "myResourceGroup",
-        "securityProfile": null,
         "storageAccountType": "Premium_LRS"
       },
-      "name": "myScaleSet_5331da35_disk1_b2c5e9e123084e738f9f7f9b927d850e",
+      "name": "myScaleSet_instance1_disk1",
       "osType": "Linux",
-      "vhd": null,
-      "writeAcceleratorEnabled": null
     }
   },
   "tags": {},
   "timeCreated": "2022-11-16T20:32:15.024581+00:00",
   "type": "Microsoft.Compute/virtualMachines",
-  "userData": null,
   "virtualMachineScaleSet": {
-    "id": "/subscriptions/XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+    "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
     "resourceGroup": "myResourceGroup"
   },
-  "vmId": "95121620-5d19-4133-89a0-731b5b448e40",
-  "zones": null
 }
 ```
 
@@ -200,7 +159,7 @@ When you created a scale set at the start of the tutorial, a default VM SKU of *
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
-  --name myScaleSetF1Sku \
+  --name myScaleSet \
   --image UbuntuLTS \
   --orchestration-mode flexible \
   --vm-sku Standard_F1 \
