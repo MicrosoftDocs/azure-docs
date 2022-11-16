@@ -15,7 +15,6 @@ As part of the application and cluster lifecycle, you may want to upgrade to the
 In this tutorial, part seven of seven, you learn how to:
 
 > [!div class="checklist"]
-
 > * Identify current and available Kubernetes versions.
 > * Upgrade your Kubernetes nodes.
 > * Validate a successful upgrade.
@@ -302,7 +301,6 @@ To delete your AKS cluster:
 In this tutorial, you upgraded Kubernetes in an AKS cluster. You learned how to:
 
 > [!div class="checklist"]
-
 > * Identify current and available Kubernetes versions.
 > * Upgrade your Kubernetes nodes.
 > * Validate a successful upgrade.
