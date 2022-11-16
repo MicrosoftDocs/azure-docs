@@ -74,9 +74,7 @@ Azure Backup offers two ways to modify protection for a data-source:
 
 In both scenarios, the new policy is applied to all older recovery points, which are in standard tier and archive tier. So, older recovery points might get deleted if there's a policy change.
 
-When you move recovery points to archive, they're subjected to an early deletion period of 180 days. The charges are prorated. If a recovery point that hasn’t stayed in archive for 180 days is deleted, it incurs cost equivalent to 180 minus the number of days it has spent in archive tier.
-
-If you delete a recovery point that hasn't stayed in archive for 180 days, then you're charged for the remaining retention period selected at archive tier price.
+When you move recovery points to archive, they're subjected to an early deletion period of 180 days. The charges are prorated. If you delete a recovery point that hasn't stayed in vault-archive for 180 days, then you're charged for the remaining retention period selected at vault-archive tier price.
 
 ## Stop protection and delete data
 
