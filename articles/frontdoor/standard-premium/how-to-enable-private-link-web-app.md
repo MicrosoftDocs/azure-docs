@@ -17,7 +17,6 @@ This article will guide you through how to configure Azure Front Door Premium ti
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Create a [Private Link](../../private-link/create-private-link-service-portal.md) service for your origin web servers.
 
 > [!NOTE]
 > Private endpoints requires your App Service plan or function hosting plan to meet some requirements. For more information, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).

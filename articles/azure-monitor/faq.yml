@@ -184,7 +184,7 @@ sections:
       - question: |
           Can I view my Prometheus metrics in Azure Monitor Metrics explorer? 
         answer: |
-          Metrics explorer in Azure Monitor does not currently support visualizing Prometheus metric data. Please look at using [Azure Managed Grafana](/azure/managed-grafana/) to visualize your metrics in Azure Monitor managed service for Prometheus. 
+          Metrics explorer in Azure Monitor does not currently support visualizing Prometheus metric data. Please look at using [Azure Managed Grafana](../managed-grafana/index.yml) to visualize your metrics in Azure Monitor managed service for Prometheus. 
       - question: |
           Can I use Azure Managed Grafana in a different region than my Azure Monitor workspace and Managed Prometheus? 
         answer: |

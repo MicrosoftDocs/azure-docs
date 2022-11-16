@@ -45,6 +45,8 @@ items:
         href: quickstarts/email/connect-email-communication-resource.md
       - name: Send an Email
         href: quickstarts/email/send-email.md
+      - name: Handle Email events
+        href: quickstarts/email/handle-email-events.md
       - name: Send an Email in Azure Logic Apps
         href: quickstarts/email/logic-app.md            
   - name: Telephony and phone numbers
@@ -79,7 +81,7 @@ items:
       href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Raw media access
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
-  - name: Call Automation library
+  - name: Call Automation
     items:
       - name: Handle an inbound phone call
         href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
@@ -428,6 +430,12 @@ items:
       href: /java/api/com.azure.android.communication.calling
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
+  - name: Call Automation libraries
+    items:
+    - name: Call Automation (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/callautomation.html
+    - name: Call Automation (Java)
+      href: https://azure.github.io/azure-sdk-for-java/callautomation.html
   - name: Chat libraries
     items:
     - name: Chat (JavaScript)
