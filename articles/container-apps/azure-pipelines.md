@@ -17,11 +17,13 @@ The pipeline is triggered by commits to a specific branch in your repository. Wh
 
 ## Container Apps Azure Pipelines task
 
-To build and deploy your container app, add the [`AzureContainerAppsRC`](https://marketplace.visualstudio.com/items?itemName=microsoft-oryx.AzureContainerAppsRC) (preview) Azure Pipelines task to your pipeline. The task supports the following scenarios:
+To build and deploy your container app, add the [`AzureContainerAppsRC`](https://marketplace.visualstudio.com/items?itemName=microsoft-oryx.AzureContainerAppsRC) (preview) Azure Pipelines task to your pipeline.
 
-* Build from a Dockerfile and deploy to Container Apps.
-* Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby.
-* Deploy an existing container image to Container Apps.
+The task supports the following scenarios:
+
+* Build from a Dockerfile and deploy to Container Apps
+* Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby
+* Deploy an existing container image to Container Apps
 
 ### Usage examples
 
@@ -68,11 +70,11 @@ The Azure Container Apps task needs to authenticate with your Azure Container Re
 
 To push images, the task automatically authenticates with the container registry specified in `acrName` using the service connection provided in `azureSubscription`.
 
-To pull images, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the container app the task is deploying to must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the task's `acrUsername` and `acrPassword` inputs.
+To pull images, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the target container app for the task must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the task's `acrUsername` and `acrPassword` inputs.
 
 ## Configuration
 
-You take the following steps to configure an Azure DevOps pipeline to deploy to Azure Container Apps.
+Take the following steps to configure an Azure DevOps pipeline to deploy to Azure Container Apps.
 
 > [!div class="checklist"]
 > * Create an Azure DevOps repository for your app
@@ -120,7 +122,7 @@ Before creating a pipeline, the source code for your app must be in a repository
     
 ### Create a container app and configure managed identity
 
-Create your container app using the `az containerapp up` command in the following steps. This command will create Azure resources, build the container image, store the image in a registry, and deploy to a container app.
+Create your container app using the `az containerapp up` command with the following steps. This command creates Azure resources, builds the container image, stores the image in a registry, and deploys to a container app.
 
 After your app is created, you can add a managed identity to your app and assign the identity the `AcrPull` role to allow the identity to pull images from the registry. 
 
@@ -128,7 +130,7 @@ After your app is created, you can add a managed identity to your app and assign
 
 ### Install the Azure Container Apps task
 
-The Azure Container Apps Azure Pipelines task is currently in preview. Before you use it, you must install it from the Azure DevOps Marketplace.
+The Azure Container Apps Azure Pipelines task is currently in preview. Before you use the task, you must install it from the Azure DevOps Marketplace.
 
 1. Open the [Azure Container Apps task](https://marketplace.visualstudio.com/items?itemName=microsoft-oryx.AzureContainerAppsRC) in the Azure DevOps Marketplace.
 
@@ -197,6 +199,6 @@ To learn more about service connections, see [Connect to Microsoft Azure](/azure
 
 1. Select **Save and run**.
 
-An Azure Pipelines run should start to build and deploy your container app. To check its progress, navigate to *Pipelines* and select the run. During the first pipeline run, you may be prompted to authorize the pipeline to use your service connection.
+An Azure Pipelines run starts to build and deploy your container app. To check its progress, navigate to *Pipelines* and select the run. During the first pipeline run, you may be prompted to authorize the pipeline to use your service connection.
 
 To deploy a new revision of your app, push a new commit to the *main* branch.

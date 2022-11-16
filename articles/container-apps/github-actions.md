@@ -15,17 +15,19 @@ Azure Container Apps allows you to use GitHub Actions to publish [revisions](rev
 
 :::image type="content" source="media/github-actions/azure-container-apps-github-actions.png" alt-text="Changes to a GitHub repo trigger an action to create a new revision.":::
 
-The GitHub Actions workflow is triggered by commits to a specific branch in your repository. When creating the workflow, you decide which branch triggers it.
+The GitHub Actions workflow is triggered by commits to a specific branch in your repository. When creating the workflow, you decide which branch triggers the workflow.
 
-This article shows you how to create your own workflow that you can fully customize. To generate a starter GitHub Actions workflow with Azure CLI, see [Generate GitHub Actions workflow with Azure CLI](github-actions-cli.md).
+This article shows you how to create a fully customizable workflow. To generate a starter GitHub Actions workflow with Azure CLI, see [Generate GitHub Actions workflow with Azure CLI](github-actions-cli.md).
 
 ## Azure Container Apps GitHub action
 
-To build and deploy your container app, you add the [`azure/container-apps-deploy-action`](https://github.com/marketplace/actions/azure-container-apps-build-and-deploy) action to your GitHub Actions workflow. The action supports the following scenarios:
+To build and deploy your container app, you add the [`azure/container-apps-deploy-action`](https://github.com/marketplace/actions/azure-container-apps-build-and-deploy) action to your GitHub Actions workflow.
 
-* Build from a Dockerfile and deploy to Container Apps.
-* Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby.
-* Deploy an existing container image to Container Apps.
+The action supports the following scenarios:
+
+* Build from a Dockerfile and deploy to Container Apps
+* Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby
+* Deploy an existing container image to Container Apps
 
 ### Usage examples
 
