@@ -1,14 +1,14 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 3.3
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.3.
-author: ekote
+author: eskot
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/17/2022 
 ms.author: eskot
 ms.custom: has-adal-ref, ignite-2022
-ms.reviewer: ekote
+ms.reviewer: eskot
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.3 (Preview)
