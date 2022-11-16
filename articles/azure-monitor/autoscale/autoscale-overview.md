@@ -117,9 +117,9 @@ The full list of configurable fields and descriptions is available in the [Autos
 
 For code examples, see
 
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](../../virtual-machine-scale-sets/tutorial-autoscale-template.md)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 ## Horizontal vs vertical scaling
 
 Autoscale scales horizontally, which is an increase, or decrease of the number of resource instances. For example, in a Virtual Machine Scale Set, scaling out means adding more virtual machines Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation as it allows you to run a large number of VMs to handle load.
@@ -149,10 +149,10 @@ To learn more about autoscale, see the following resources:
 
 * [Azure Monitor autoscale common metrics](autoscale-common-metrics.md)
 * [Use autoscale actions to send email and webhook alert notifications](autoscale-webhook-email.md)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with Azure PowerShell](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
-* [Autoscale CLI reference](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
-* [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings)
-* [PowerShell Az.Monitor Reference](https://learn.microsoft.com/powershell/module/az.monitor/#monitor)
-* [REST API reference. Autoscale Settings](https://learn.microsoft.com/rest/api/monitor/autoscale-settings).
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](../../virtual-machine-scale-sets/tutorial-autoscale-template.md)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with Azure PowerShell](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
+* [Autoscale CLI reference](/cli/azure/monitor/autoscale)
+* [ARM template resource definition](/azure/templates/microsoft.insights/autoscalesettings)
+* [PowerShell Az.Monitor Reference](/powershell/module/az.monitor/#monitor)
+* [REST API reference. Autoscale Settings](/rest/api/monitor/autoscale-settings).
