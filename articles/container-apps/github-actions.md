@@ -21,7 +21,7 @@ This article shows you how to create your own workflow that you can fully custom
 
 ## Azure Container Apps GitHub action
 
-To build and deploy your container app, you add the [`azure/container-apps-deploy-action`](https://github.com/marketplace/actions/azure-container-apps-build-and-deploy) action to your GitHub Actions workflow. It supports the following scenarios:
+To build and deploy your container app, you add the [`azure/container-apps-deploy-action`](https://github.com/marketplace/actions/azure-container-apps-build-and-deploy) action to your GitHub Actions workflow. The action supports the following scenarios:
 
 * Build from a Dockerfile and deploy to Container Apps.
 * Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby.
@@ -81,11 +81,11 @@ The Azure Container Apps action needs to authenticate with your Azure Container 
 
 To push images, the action automatically authenticates with the container registry specified in `acrName` using the credentials provided to the `azure/login` action.
 
-To pull images, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the container app the action is deploying to must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the action's `acrUsername` and `acrPassword` inputs.
+To pull images, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the container app the action is deploying must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the action's `acrUsername` and `acrPassword` inputs.
 
 ## Configuration
 
-To configure a GitHub Actions workflow to deploy to Azure Container Apps, you take the following steps.
+You take the following steps to configure a GitHub Actions workflow to deploy to Azure Container Apps.
 
 > [!div class="checklist"]
 > * Create a GitHub repository for your app
