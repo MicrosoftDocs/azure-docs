@@ -124,8 +124,9 @@ The **Recording** tab displays data relevant to total recordings, recording form
 :::image type="content" source="media\workbooks\azure-communication-services-recording-insights.png" alt-text="Screenshot displays recording count, duration, recording usage by format and type as well as number of recordings per call":::
 
 
-The **Call Automation** tab displays data relevant to total call counts, call duration, call by operation names, and operation results details:
+The **Call Automation** tab displays data relevant to total active call counts, call duration, call by operation names, and operation results details:
 :::image type="content" source="media\workbooks\azure-communication-services-call-automation-insights.png" alt-text="Screenshot displays total call count, duration, and operation results details":::
+
 
 ## Editing dashboards
 
