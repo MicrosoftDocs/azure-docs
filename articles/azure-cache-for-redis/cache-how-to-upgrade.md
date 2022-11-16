@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 11/16/2022
 ms.custom: template-how-to 
 ---
 
@@ -29,7 +29,7 @@ For more details on how to export, see [Import and Export data in Azure Cache fo
 
 ### Limitations
 
-- Upgrading a Basic tier cache results in brief unavailability and data loss.
+- When you upgrade a cache in the Basic tier, it is unavailable for several minutes and results in data loss.
 - Upgrading on geo-replicated cache isn't supported. You must manually unlink the cache instances before upgrading.
 - Upgrading a cache with a dependency on Cloud Services isn't supported. You should migrate your cache instance to virtual machine scale set before upgrading. For more information, see [Caches with a dependency on Cloud Services (classic)](./cache-faq.yml) for details on cloud services hosted caches.
 
