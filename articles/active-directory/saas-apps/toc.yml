@@ -698,6 +698,8 @@
         href: drtrack-tutorial.md  
       - name: Druva
         href: druva-tutorial.md
+      - name: DX NetOps Portal
+        href: dx-netops-portal-tutorial.md
       - name: Dynamic Signal
         href: dynamicsignal-tutorial.md
       - name: Dynatrace
