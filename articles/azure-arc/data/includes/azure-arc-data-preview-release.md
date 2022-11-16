@@ -6,10 +6,11 @@ ms.topic: include
 ms.date: 08/02/2022
 ---
 
+<!---
 
 At this time, a test or preview build is not available for the next release.
 
-<!---
+--->
 
 |Component|Value|
 |-----------|-----------|
@@ -35,4 +36,3 @@ New for this release:
 
 - `arcdata` Azure CLI extension
   - CLI support for automated backups: Setting the `--storage-class-backups` parameter for the create command will enable automated backups
--->
