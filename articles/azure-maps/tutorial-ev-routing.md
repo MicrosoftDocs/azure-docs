@@ -119,7 +119,7 @@ constantSpeedConsumptionInkWhPerHundredkm="50,8.2:130,21.3"
 
 
 # Get boundaries for the electric vehicle's reachable range.
-routeRangeResponse = await (await session.get("https://atlas.microsoft.com/route/range/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&query={}&travelMode={}&vehicleEngineType={}&currentChargeInkWh={}&maxChargeInkWh={}&timeBudgetInSec={}&routeType={}&constantSpeedConsumptionInkWhPerHundredkm={}"
+routeRangeResponse = await (await session.get("https://atlas.microsoft.com/route/range/json?subscription-key={}&api-version=1.0&query={}&travelMode={}&vehicleEngineType={}&currentChargeInkWh={}&maxChargeInkWh={}&timeBudgetInSec={}&routeType={}&constantSpeedConsumptionInkWhPerHundredkm={}"
                                               .format(subscriptionKey,str(currentLocation[0])+","+str(currentLocation[1]),travelMode, vehicleEngineType, currentChargeInkWh, maxChargeInkWh, timeBudgetInSec, routeType, constantSpeedConsumptionInkWhPerHundredkm))).json()
 
 polyBounds = routeRangeResponse["reachableRange"]["boundary"]
@@ -153,7 +153,7 @@ To search for electric vehicle charging stations within the reachable range, run
 
 ```python
 # Search for electric vehicle stations within reachable range.
-searchPolyResponse = await (await session.post(url = "https://atlas.microsoft.com/search/geometry/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&query=electric vehicle station&idxSet=POI&limit=50".format(subscriptionKey), json = boundsData)).json() 
+searchPolyResponse = await (await session.post(url = "https://atlas.microsoft.com/search/geometry/json?subscription-key={}&api-version=1.0&query=electric vehicle station&idxSet=POI&limit=50".format(subscriptionKey), json = boundsData)).json() 
 
 reachableLocations = []
 for loc in range(len(searchPolyResponse["results"])):
@@ -186,9 +186,9 @@ rangeData = {
 }
 
 # Upload the range data to Azure Maps Data service.
-uploadRangeResponse = await session.post("https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
+uploadRangeResponse = await session.post("https://us.atlas.microsoft.com/mapData?subscription-key={}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
 
-rangeUdidRequest = uploadRangeResponse.headers["Location"]+"&subscription-key={Your-Azure-Maps-Subscription-key}".format(subscriptionKey)
+rangeUdidRequest = uploadRangeResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
 
 while True:
     getRangeUdid = await (await session.get(rangeUdidRequest)).json()
@@ -215,9 +215,9 @@ poiData = {
 }
 
 # Upload the electric vehicle charging station data to Azure Maps Data service.
-uploadPOIsResponse = await session.post("https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = poiData)
+uploadPOIsResponse = await session.post("https://us.atlas.microsoft.com/mapData?subscription-key={}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = poiData)
 
-poiUdidRequest = uploadPOIsResponse.headers["Location"]+"&subscription-key={Your-Azure-Maps-Subscription-key}".format(subscriptionKey)
+poiUdidRequest = uploadPOIsResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
 
 while True:
     getPoiUdid = await (await session.get(poiUdidRequest)).json()
@@ -260,7 +260,7 @@ pins = "custom|an15 53||udid-{}||https://raw.githubusercontent.com/Azure-Samples
 encodedPins = urllib.parse.quote(pins, safe='')
 
 # Render the range and electric vehicle charging points on the map.
-staticMapResponse =  await session.get("https://atlas.microsoft.com/map/static/png?api-version=1.0&subscription-key={Your-Azure-Maps-Subscription-key}&pins={}&path={}&bbox={}&zoom=12".format(subscriptionKey,encodedPins,path,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
+staticMapResponse =  await session.get("https://atlas.microsoft.com/map/static/png?api-version=1.0&subscription-key={}&pins={}&path={}&bbox={}&zoom=12".format(subscriptionKey,encodedPins,path,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
 
 poiRangeMap = await staticMapResponse.content.read()
 
@@ -290,7 +290,7 @@ locationData = {
          }
 
 # Get the travel time and distance to each specified charging station.
-searchPolyRes = await (await session.post(url = "https://atlas.microsoft.com/route/matrix/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&routeType=shortest&waitForResults=true".format(subscriptionKey), json = locationData)).json()
+searchPolyRes = await (await session.post(url = "https://atlas.microsoft.com/route/matrix/json?subscription-key={}&api-version=1.0&routeType=shortest&waitForResults=true".format(subscriptionKey), json = locationData)).json()
 
 distances = []
 for dist in range(len(reachableLocations)):
@@ -310,7 +310,7 @@ To get the route to the charging station and to parse the response to create a g
 
 ```python
 # Get the route from the electric vehicle's current location to the closest charging station. 
-routeResponse = await (await session.get("https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&query={}:{}".format(subscriptionKey, str(currentLocation[0])+","+str(currentLocation[1]), closestChargeLoc))).json()
+routeResponse = await (await session.get("https://atlas.microsoft.com/route/directions/json?subscription-key={}&api-version=1.0&query={}:{}".format(subscriptionKey, str(currentLocation[0])+","+str(currentLocation[1]), closestChargeLoc))).json()
 
 route = []
 for loc in range(len(routeResponse["routes"][0]["legs"][0]["points"])):
@@ -332,9 +332,9 @@ To get an image for the rendered route on the map, run the following script:
 
 ```python
 # Upload the route data to Azure Maps Data service .
-routeUploadRequest = await session.post("https://atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = routeData)
+routeUploadRequest = await session.post("https://atlas.microsoft.com/mapData?subscription-key={}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = routeData)
 
-udidRequestURI = routeUploadRequest.headers["Location"]+"&subscription-key={Your-Azure-Maps-Subscription-key}".format(subscriptionKey)
+udidRequestURI = routeUploadRequest.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
 
 while True:
     udidRequest = await (await session.get(udidRequestURI)).json()
@@ -367,7 +367,7 @@ minLat -= latBuffer
 maxLat += latBuffer
 
 # Render the route on the map.
-staticMapResponse = await session.get("https://atlas.microsoft.com/map/static/png?api-version=1.0&subscription-key={Your-Azure-Maps-Subscription-key}&&path={}&pins={}&bbox={}&zoom=16".format(subscriptionKey,path,pins,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
+staticMapResponse = await session.get("https://atlas.microsoft.com/map/static/png?api-version=1.0&subscription-key={}&&path={}&pins={}&bbox={}&zoom=16".format(subscriptionKey,path,pins,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
 
 staticMapImage = await staticMapResponse.content.read()
 
