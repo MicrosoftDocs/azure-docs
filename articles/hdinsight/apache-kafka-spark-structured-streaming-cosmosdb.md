@@ -68,7 +68,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     |Ssh User Name|The SSH user to create for the Spark and Kafka clusters.|
     |Ssh Password|The password for the SSH user for the Spark and Kafka clusters.|
 
-    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png" alt-text="HDInsight custom deployment values":::
+    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters-40.png" alt-text="HDInsight version 4.0 custom deployment values":::
 
 1. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
