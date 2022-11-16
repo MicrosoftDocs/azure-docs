@@ -201,7 +201,7 @@ When the custom IP prefix is in **Provisioned** state, update the prefix to begi
 
 1. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
 
-1. In **Overview** of **myCustomIPPrefix**, select the **Commission** dropdown menu, and choose **Westus2 only** or **Globally**.
+1. In **Overview** of **myCustomIPPrefix**, select the **Commission** dropdown menu and choose **Globally**.
 
 The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. The status which will initially show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in the **Commissioning** status.
 
