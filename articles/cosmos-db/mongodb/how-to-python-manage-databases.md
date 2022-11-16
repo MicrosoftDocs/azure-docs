@@ -17,7 +17,7 @@ ms.custom: devx-track-js, ignite-2022
 
 Your MongoDB server in Azure Cosmos DB is available from the common Python packages for MongoDB such as:
 
-* [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) for synchronous Python applications.
+* [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) for synchronous Python applications and used in this article.
 * [Motor](https://www.mongodb.com/docs/drivers/motor/) for asynchronous Python applications.
 
 > [!NOTE]
