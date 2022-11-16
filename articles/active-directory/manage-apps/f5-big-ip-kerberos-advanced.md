@@ -257,7 +257,7 @@ A SAML IdP connector defines the settings for the BIG-IP APM to trust Azure AD a
 
    ![Screenshot that shows example values for the federation metadata X M L file and the identity provider name.](./media/f5-big-ip-kerberos-advanced/browse-federation-metadata-xml.png)
 
-4. Select **Add New Row** to choose the new **SAML IdP Connector** value, and then select **Update**.
+4. Select **Add New Row** to choose the new **SAML IdP Connectors** value, and then select **Update**.
 
    ![Screenshot that shows selections for choosing a new identity provider connector.](./media/f5-big-ip-kerberos-advanced/choose-new-saml-idp-connector.png)
 
@@ -301,11 +301,11 @@ An access profile binds APM elements that manage access to BIG-IP virtual server
 
    * **Name**: For example, enter MyExpenses
 
-   * **Profile Type:** Select **All**
+   * **Profile Type**: Select **All**
 
-   * **SSO Configuration:** Select the KCD SSO configuration object you created
+   * **SSO Configuration**: Select the KCD SSO configuration object you created
 
-   * **Accepted Language:** Add at least one language
+   * **Accepted Languages**: Add at least one language
 
    ![Screenshot that shows selections for creating an access profile.](./media/f5-big-ip-kerberos-advanced/create-new-access-profile.png)
 
