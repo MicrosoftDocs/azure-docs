@@ -193,7 +193,7 @@ And then defining these elements for the resulting alert actions using:
         |Event status| Select the statuses of Resource Health events. Values are: **Active**, **In Progress**, **Resolved**, and **Updated**.|
         |Current resource status|Select the current resource status. Values are: **Available**, **Degraded**, and **Unavailable**.|
         |Previous resource status|Select the previous resource status. Values are: **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
-        |Reason type|Select the the cause(s) of the Resource Health events. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.|  
+        |Reason type|Select the cause(s) of the Resource Health events. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.|  
     ### [Service Health alert](#tab/service-health)
 
      1. In the **Conditions** pane, select values for each of these fields:
