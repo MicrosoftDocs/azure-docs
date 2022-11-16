@@ -36,7 +36,7 @@ Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/
 
 Follow these steps to create a new console application.
 
-1. Open a command prompt where you want the new project, and create a new file named `speech-synthesis.py`.
+1. Open a command prompt where you want the new project, and create a new file named `speech_synthesis.py`.
 1. Run this command to install the Speech SDK:  
     ```console
     pip install azure-cognitiveservices-speech
@@ -95,7 +95,7 @@ I'm excited to try text to speech
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
 
 > [!WARNING]
-> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](/azure/cognitive-services/speech-service/troubleshooting#connection-closed-or-timeout).
+> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](../../../troubleshooting.md#connection-closed-or-timeout).
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:

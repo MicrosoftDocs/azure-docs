@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for direct EA 
 description: This article explains how enterprise administrators of direct Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/29/2022
+ms.date: 11/14/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -97,17 +97,19 @@ Your invoice displays Azure usage charges with costs associated to them first, f
 
 ### Download your Azure invoices (.pdf)
 
-For most subscriptions, you can download your invoice in the Azure portal.
+For EA enrollments, you can download your invoice in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing** and select it.
 1. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.
 1. In the navigation menu, select **Invoices**. The Invoices page shows all the invoices and credit memos generated for the last 12 months.  
     :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/invoices-page.png" alt-text="Screenshot showing the Invoices page." lightbox="./media/direct-ea-azure-usage-charges-invoices/invoices-page.png" :::
-    
-1. On the invoice page, find the row of the invoice that you want to download. To the right of the row, select the ellipsis (**…**) symbol.
+1. On the Invoices page, find the row of the invoice that you want to download. To the right of the row, select the ellipsis (**…**) symbol.
 1. In the context menu, select **Download**.  
     :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/download-context-menu.png" alt-text="Screenshot showing the Download context menu."  :::
+1. Select **Prepare document** to prepare the document that you want to download.  
+    :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/prepare-document.png" alt-text="Screenshot showing the Prepare document page when you prepare the invoice." lightbox="./media/direct-ea-azure-usage-charges-invoices/prepare-document.png" :::
+1. When the document is prepared, select **Download**.
 
 You can select a Timespan to view up to the last three years of invoice details.
 
@@ -122,6 +124,18 @@ The following table lists the terms and descriptions shown on the Invoices page:
 | Billing Period | Billing period that the invoice or credit memo. |
 | PO number | PO number for the invoice or credit memo. |
 | Total Amount | Total amount of the invoice or credit. |
+
+## Updated direct EA billing invoice documents
+
+Azure is enhancing its invoicing experience. The enhanced experience includes an improved invoice PDF file, a summary PDF, and a transactions file.
+
+There are no changes to invoices generated before November 18, 2022.
+
+The invoice notification email address is changing from `msftinv@microsoft.com` to `no-reply@microsoft.com` for customers and partners under the enhanced invoicing experience.
+
+We recommend that you add the new email address to your address book or safe sender list to ensure that you receive the emails.
+
+For more information about invoice documents, see [Direct EA billing invoice documents](direct-ea-billing-invoice-documents.md).
 
 ## Update a PO number for an upcoming overage invoice
 
@@ -146,7 +160,7 @@ To update the PO number for a billing account:
 1. Select  **Update PO number**.
 1. Enter a PO number and then select  **Update**.
 
-Or you can update the PO number from Invoice blade for the upcoming invoice:
+Or you can update the PO number in the Invoice area for the upcoming invoice:
 
 1. Sign in to the  [Azure portal](https://portal.azure.com).
 1. Search for  **Cost Management + Billing** and then select  **Billing scopes**.
@@ -243,7 +257,7 @@ The following table lists the terms and descriptions shown on the Reservation tr
 | Amount (USD) | Reservation cost |
 
 > [!NOTE]
-> The newly added column Purchase Month will help identify in which month the refunds are updated and helps to reconcile the RI refunds. 
+> The newly added column Purchase Month will help identify in which month the refunds are updated and helps to reconcile reservation refunds.
 
 ## CSV report formatting issues
 
