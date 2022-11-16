@@ -80,16 +80,19 @@ If you are using a proxy server on at least one machine, complete the first five
 
 ### Is the machine executing commands behind a proxy server?
 
-Be sure you have set all of the necessary environment variables. For more information, see [Connect using an outbound proxy server](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
-
+If the machine is executing commands behind a proxy server, you'll need to set any necessary environment variables, [explained below](#set-environment-variables).
 
 ### Set environment variables
 
+Be sure you have set all of the necessary environment variables. For more information, see [Connect using an outbound proxy server](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
+
 For example:
 
-- export HTTP_PROXY=“http://<proxyIP>:<proxyPort>”
-- export HTTPS_PROXY=“https://<proxyIP>:<proxyPort>”
-- export NO_PROXY=“<service CIDR>,Kubernetes.default.svc,.svc.cluster.local,.svc”
+```bash
+export HTTP_PROXY=“http://<proxyIP>:<proxyPort>”
+export HTTPS_PROXY=“https://<proxyIP>:<proxyPort>”
+export NO_PROXY=“<service CIDR>,Kubernetes.default.svc,.svc.cluster.local,.svc”
+```
 
 ### Does the proxy server only accept trusted certificates?
 
