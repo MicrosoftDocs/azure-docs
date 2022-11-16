@@ -161,7 +161,7 @@ To create and run a new scan, do the following:
 ### Supported policies
 The following types of policies are supported on this data resource from Microsoft Purview:
 - [DevOps policies](concept-policies-devops.md)
-- [Data owner policies](concept-policies-data-owner.md)
+- [Data owner policies](concept-policies-data-owner.md)(preview)
 
 ### Access policy pre-requisites on Arc enabled SQL Server
 [!INCLUDE [Access policies Arc enabled SQL Server pre-requisites](./includes/access-policies-prerequisites-arc-sql-server.md)]
