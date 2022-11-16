@@ -83,7 +83,7 @@ System-assigned managed identity is the default authentication method provided t
 
 1. Under **Grafana administrator role**, the box **Include myself** is checked by default. Optionally select **Add** to grant the Grafana administrator role to more members.
 
-:::image type="content" source="media/authentication/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. Permission.":::
+    :::image type="content" source="media/authentication/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. Permission.":::
 
 ##### With managed identity disabled
 

@@ -54,7 +54,9 @@ additionalContent:
               url: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
             # Card
             - text: Quotas and limits
-              url: /azure/cognitive-services/openai/quotas-limits?branch=release-azure-openai-preview
+              url: ./quotas-limits.md?branch=release-azure-openai-preview
+            - text: Apply for access to Azure OpenAI
+              url: https://aka.ms/oaiapply
         - title: Video
           links:
             - text: Combining OpenAI models with the power of Azure

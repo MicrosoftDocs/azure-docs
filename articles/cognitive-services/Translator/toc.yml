@@ -5,23 +5,31 @@ items:
   expanded: true
   items:
   - name: What is Translator Service?
+    displayName: features,develop,development,free
     href: translator-overview.md
   - name: Language Support
+    displayName: iso,language code,translation,transliteration,detection,detect,pdf,document
     href: language-support.md
   - name: Pricing
+    displayName: cost,free,standard,custom,tier,S1,S2,S3,S4,C2,C3,C4,D3,hosting
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
   - name: What's new?
+    displayName: release,ga,update,support
     href: whats-new.md
   - name: Translator Service FAQ
+    displayName: character,count,usage,attribution
     href: translator-faq.md
 - name: Text Translation
   expanded: true
   items:
   - name: What is Text Translation?
+    displayName: deploy, deployment
     href: text-translation-overview.md
   - name: Create a Translator resource
-    href: how-to-create-translator-resource.md  
+    displayName: endpoint,key,portal,azure,authentication,delete,resource
+    href: how-to-create-translator-resource.md
   - name: Quickstart
+    displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,set up
     href: quickstart-translator.md
   - name: Samples
     items:
@@ -50,78 +58,98 @@ items:
   - name: How-to guides
     items:
     - name: Use the Text Translator APIs
+      displayName: detection,detect,translation,transliteration,identification,length,sentence length,alternate,usage,headers,set up,status,401
       href: translator-text-apis.md
     - name: Migrate to V3 Text API
+      displayName: speech,error,version,endpoint,compatibility,json,authentication,pricing
       href: migrate-to-v3.md
     - name: Add profanity filtering
+      displayName: profanityMarker,marker,profanityAction,action
       href: profanity-filtering.md
     - name: Receive word alignment information
+      displayName: restrictions
       href: word-alignment.md
     - name: Prevent translation of content
+      displayName: textType,text type,noTranslate,no translate,dynamic dictionary,custom,tag
       href: prevent-translation.md
     - name: Use the dynamic dictionary feature
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
+      displayName: domain,IP,filtering,tag,endpoints,CognitiveServicesManagement
       href: firewalls.md
     - name: Use the Translator container
       items:
       - name: Install and run containers
+        displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/translator-how-to-install-container.md
       - name: Configure containers
+        displayName: docker,docker-run,billing,settings,key,logging,EULA,telemetry,proxy
         href: containers/translator-container-configuration.md
       - name: Use containers in disconnected environments
+        displayName: text,docker,pull,mcr,registry,commitment,parameters
         href: ../containers/disconnected-containers.md
       - name: "Container: Translate"
+        displayName: textType,text type,preview,POST,parameters,request,
         href: containers/translator-container-supported-parameters.md
   - name: Tutorials
     items:
     - name: Use managed identities to access Azure storage
-      href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fcognitive-services%2ftranslator%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftranslator%2ftoc.json
+      href: ../../app-service/scenario-secure-app-access-storage.md?bc=/azure/cognitive-services/translator/breadcrumb/toc.json&toc=/azure/cognitive-services/translator/toc.json
     - name: Create a Translator workflow
       href: /ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Translate text with Translator
-      href: /learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
+      href: /training/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Build a Translator app with Flask and Python
-      href: /learn/modules/python-flask-build-ai-web-app?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
+      href: /training/modules/python-flask-build-ai-web-app?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
   - name: Reference
     items:
     - name: v3 Translator reference
+      displayName: 401000,405000,400000
       href: reference/v3-0-reference.md
     - name: Text Translator REST APIs
       href:  reference/rest-api-guide.md
     - name: Languages
       href: reference/v3-0-languages.md
     - name: Translate
+      displayName: detection,detect
       href: reference/v3-0-translate.md
     - name: Transliterate
       href: reference/v3-0-transliterate.md
     - name: Detect
       href: reference/v3-0-detect.md
     - name: BreakSentence
+      displayName: detection,detect
       href: reference/v3-0-break-sentence.md
     - name: Dictionary Lookup
       href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
       href: reference/v3-0-dictionary-examples.md
     - name: Request limits
+      displayName: detection,detect,region,
       href: request-limits.md
 - name: Document Translation
   items:
     - name: What is Document Translation?
+      displayName: ocr,batch,features,development,formats,file types
       href: document-translation/overview.md
     - name: Client-library SDKs
+      displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
       href: document-translation/client-sdks.md
     - name: Quickstart
+      displayName: get started,batch,sdk,c#,.net,dotnet,python,javascript,java,go,source,target,blob,set up,storage,domain,custom domain
       href: document-translation/get-started-with-document-translation.md
     - name: How-to guides
       items:
       - name: Create SAS tokens for storage containers
+        displayName: user,delegation,shared access,tokens,storage explorer,azure,portal,blob,url
         href: document-translation/create-sas-tokens.md
       - name: Create and use managed identities
+        displayName: batch,azure active directory,azure ad,azure role-based access control,azure RBAC,sas,assignment,role,owner,user access administrator,contributor
         href: document-translation/managed-identity.md
     - name: Reference
       items:
       - name: Document Translation REST APIs
+        displayName: get,post,cancel,delete
         href: document-translation/reference/rest-api-guide.md
       - name: Get supported document formats
         href: document-translation/reference/get-supported-document-formats.md
@@ -149,74 +177,62 @@ items:
     href: custom-translator/overview.md
   - name: Key terms
     href: custom-translator/key-terms.md
-  - name: Custom Translation | Preview
+  - name: Custom Translator for beginners
+    displayName: use case,usage,train,training,bleu,tuning,tune
+    href: custom-translator/beginners-guide.md
+  - name: Quickstart
+    displayName: workspace,project,parallel,train,upload,publish,
+    href: custom-translator/quickstart.md
+  - name: How-to guides
     items:
-    - name: Custom Translator for beginners
-      href: custom-translator/v2-preview/beginners-guide.md
-    - name: Quickstart
-      href: custom-translator/v2-preview/quickstart.md
-    - name: How-to guides
-      items:
-      - name: Create and manage a workspace
-        href: custom-translator/v2-preview/how-to/create-manage-workspace.md
-      - name: Create and manage a project
-        href: custom-translator/v2-preview/how-to/create-manage-project.md
-      - name: Create and manage training documents
-        href: custom-translator/v2-preview/how-to/create-manage-training-documents.md
-      - name: Train a custom model
-        href: custom-translator/v2-preview/how-to/train-custom-model.md
-      - name: View the model details and test translation
-        href: custom-translator/v2-preview/how-to/view-model-test-translation.md
-      - name: Publish a custom model
-        href: custom-translator/v2-preview/how-to/publish-model.md
-      - name: Translate text with a custom model
-        href: custom-translator/v2-preview/how-to/translate-with-custom-model.md
-  - name: Custom Translator | Legacy
+    - name: Create and manage a workspace
+      displayName: share
+      href: custom-translator/how-to/create-manage-workspace.md
+    - name: Create and manage a project
+      displayName: models,pairs,label,edit,delete
+      href: custom-translator/how-to/create-manage-project.md
+    - name: Create and manage training documents
+      displayName: parallel,document sets,tuning,phrase,sentence,upload
+      href: custom-translator/how-to/create-manage-training-documents.md
+    - name: Train a custom model
+      displayName: full,dictionary,duplicate
+      href: custom-translator/how-to/train-custom-model.md
+    - name: Test your model
+      displayName: bleu,baseline
+      href: custom-translator/how-to/test-your-model.md
+    - name: Publish a custom model
+      displayName: replace
+      href: custom-translator/how-to/publish-model.md
+    - name: Translate text with a custom model
+      displayName: category,ID,category ID,
+      href: custom-translator/how-to/translate-with-custom-model.md
+  - name: Concepts
     items:
-    - name: Quickstart
-      href: custom-translator/quickstart-build-deploy-custom-model.md
-    - name: How-to guides
-      items:
-      - name: Create a project
-        href: custom-translator/how-to-create-project.md
-      - name: Manage projects
-        href: custom-translator/how-to-search-edit-delete-projects.md
-      - name: Upload a document
-        href: custom-translator/how-to-upload-document.md
-      - name: View document details
-        href: custom-translator/how-to-view-document-details.md
-      - name: Train a model
-        href: custom-translator/how-to-train-model.md
-      - name: View the model details
-        href: custom-translator/how-to-view-model-details.md
-      - name: View system test results
-        href: custom-translator/how-to-view-system-test-results.md
-      - name: Manage settings
-        href: custom-translator/how-to-manage-settings.md
-      - name: Unsupported language deployments
-        href: custom-translator/unsupported-language-deployments.md
-    - name: Concepts
-      items:
-      - name: Customize and improve text translation
-        href: customization.md
-      - name: Workspaces and projects
-        href: custom-translator/workspace-and-project.md
-      - name: Parallel documents
-        href: custom-translator/what-are-parallel-documents.md
-      - name: Dictionary
-        href: custom-translator/what-is-dictionary.md
-      - name: Document formats
-        href: custom-translator/document-formats-naming-convention.md
-      - name: Sentence alignment
-        href: custom-translator/sentence-alignment.md
-      - name: Data filtering
-        href: custom-translator/data-filtering.md
-      - name: Training and modeling
-        href: custom-translator/training-and-model.md
-      - name: BLEU score
-        href: custom-translator/what-is-bleu-score.md
-      - name: Customer-managed keys
-        href: encrypt-data-at-rest.md
+    - name: Customization
+      displayName: speech
+      href: custom-translator/concepts/customization.md
+    - name: Workspaces and projects
+      href: custom-translator/concepts/workspace-and-project.md
+    - name: Parallel documents
+      href: custom-translator/concepts/parallel-documents.md
+    - name: Dictionaries
+      displayName: phrase,sentence,recommendations
+      href: custom-translator/concepts/dictionaries.md
+    - name: Document formats
+      href: custom-translator/concepts/document-formats-naming-convention.md
+    - name: Sentence alignment
+      href: custom-translator/concepts/sentence-alignment.md
+    - name: Data filtering
+      displayName: deduplication,white space,punctuation,tags,invalid
+      href: custom-translator/concepts/data-filtering.md
+    - name: Model training
+      displayName: tuning
+      href: custom-translator/concepts/model-training.md
+    - name: BLEU score
+      href: custom-translator/concepts/bleu-score.md
+    - name: Encrypt data at rest
+      displayName: encryption,key vault,revoke
+      href: encrypt-data-at-rest.md
   - name: Reference
     items:
     - name: Release notes
@@ -226,7 +242,7 @@ items:
 - name: Resources
   items:
   - name: Translator in sovereign clouds
-    displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
+    displayName: fairfax,compliant,secret,compliance,government,government cloud,dod,china,batch,region
     href: sovereign-clouds.md
   - name: Compliance and certification
     href: https://www.microsoft.com/translator/business/notrace/

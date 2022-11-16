@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 02/15/2022
+ms.date: 10/19/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -34,7 +34,7 @@ To use the Azure portal to create a storage account with infrastructure encrypti
 
 1. In the Azure portal, navigate to the **Storage accounts** page.
 1. Choose the **Add** button to add a new general-purpose v2 or premium block blob storage account.
-1. On the **Advanced** tab, locate **Infrastructure** encryption, and select **Enabled**.
+1. On the **Encryption** tab, locate **Enable infrastructure encryption**, and select **Enabled**.
 1. Select **Review + create** to finish creating the storage account.
 
     :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Screenshot showing how to enable infrastructure encryption when creating account":::

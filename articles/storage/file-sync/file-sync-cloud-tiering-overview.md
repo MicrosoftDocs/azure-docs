@@ -87,6 +87,46 @@ It's also possible for a file to be partially tiered (or partially recalled). In
 > [!NOTE]
 > Size represents the logical size of the file. Size on disk represents the physical size of the file stream that's stored on the disk.
 
+## Low disk space mode
+Disks with server endpoints can run out of space for several reasons, even with cloud tiering enabled. This could result in Azure File Sync not working as expected and even unusable. While it is not possible and not in control of Azure File Sync to prevent these occurrences completely, low disk space mode (new for Azure File Sync agent version 15.1) is designed to avoid a server endpoint reaching this situation.
+
+For server endpoints with cloud tiering enabled and volume free space policy set, if the free space on the volume reaches below the calculated threshold, then the volume is in low disk space mode. 
+ 
+In low disk space mode, the Azure File Sync agent does two things differently:
+
+- Proactive Tiering: In this mode the File Sync agent tiers files proactively to the cloud . Sync agent checks for files to be tiered every minute instead of the normal frequency of every 1 hour. Volume free space policy tiering typically does not happen during initial upload sync until the full upload is complete, but in low disk space mode, tiering is enabled during the initial upload sync and files will be considered for tiering once the individual file has been uploaded to the Azure file share.
+
+- Non-Persistent Recalls: When a user opens a tiered file, files recalled from the Azure File Share directly will not be persisted to the disk. Note that recalls initiated by the cmdlet Invoke-StorageSyncFileRecall are an exemption from this rule and will be persisted to disk.
+
+When the volume free space reaches above the threshold, Azure File Sync reverts to the normal state automatically. Note that low disk space mode only applies to servers with cloud tiering enabled and will always respect the volume free space policy.
+
+If a volume has two server endpoints, one with tiering-enabled and one without tiering, low disk space mode will only apply to the server endpoint where tiering is enabled.
+
+### How is the threshold for low disk space mode calculated?
+The threshold is calculated by taking the minimum of the following three numbers:
+- 10% of volume free space in GB 
+-	Volume Free Space Policy in GB
+-	20 GB of volume free space
+
+The following table includes some examples of how the threshold is calculated and when the volume will be in low disk space mode.
+
+| Volume Size                               | Volume Free Space Policy | Current Volume Free Space | Threshold \= Min (10%, Volume Free Space Policy, 20GB)                 | Is Low Disk Space Mode? | Reason                         |
+| ----------------------------------------- | ------------------------ | ------------------------- | ----------------------------- | ----------------------- | ------------------------------ |
+| 100GB                                     | 7% (7GB)                 | 9% (9GB)                  | 7GB = Min (10GB, 7GB, 20GB)   | No                      | Current Volume Free Space > Threshold |
+| 100GB                                     | 7% (7GB)                 | 5% (5GB)                  | 7GB = Min (10GB, 7GB, 20GB)   | Yes                     | Current Volume Free Space < Threshold |
+| 300GB                                     | 8% (24GB)                | 7% (21GB)                 | 20GB = Min (30GB, 24GB, 20GB) | No                      | Current Volume Free Space > Threshold |
+| 300GB                                     | 8% (24GB)                | 6% (18GB)                 | 20GB = Min (30GB, 24GB, 20GB) | Yes                     | Current Volume Free Space < Threshold |
+
+
+### How does low disk space mode work with volume free space policy?
+Low disk space mode always respects the volume free space policy. The threshold calculation is designed to make sure volume free space policy set by the user is respected.
+
+### How to get out of low disk space mode?
+Low disk space mode is designed to revert to normal behavior when volume free space is above the threshold. You can help speed up the process by looking for any recently created files outside the server endpoint location and moving them to a different disk if possible.
+
+### How to check if a server is in Low Disk Space mode?
+Event ID 19000 is logged to the Telemetry event log every minute for each server endpoint. Use this event to determine if the server endpoint is in low disk mode (IsLowDiskMode = true). The Telemetry event log is located in Event Viewer under Applications and Services\Microsoft\FileSync\Agent.
+
 ## Next steps
 
 - [Choose Azure File Sync cloud tiering policies](file-sync-choose-cloud-tiering-policies.md)

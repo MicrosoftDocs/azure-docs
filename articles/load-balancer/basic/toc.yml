@@ -59,8 +59,8 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

@@ -18,11 +18,11 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
 In this tutorial, you'll learn the configuration required in your API Management service to integrate with Azure Active Directory B2C. As noted later in this article, if you are using the deprecated legacy developer portal, some steps will differ.
 
+For an overview of options to secure the developer portal, see [Authentication and authorization in API Management](authentication-authorization-overview.md#developer-portal-user-plane).
+
 > [!IMPORTANT]
 > * This article has been updated with steps to configure an Azure AD B2C app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)). 
 > * If you previously configured an Azure AD B2C app for user sign-in using the Azure AD Authentication Library (ADAL), we recommend that you [migrate to MSAL](#migrate-to-msal).
-
-For information about enabling access to the developer portal by using classic Azure Active Directory, see [How to authorize developer accounts using Azure Active Directory](api-management-howto-aad.md).
 
 ## Prerequisites
 
@@ -42,9 +42,10 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
     1. Enter a unique name for the user flow.
     1. In **Identity providers**, select **Email signup**.
     1. In **User attributes and token claims**, select the attributes and claims needed for the API Management developer portal (not needed for the legacy developer portal).
-         ![Application claims](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
         * **Attributes**: Given Name, Surname
-        * **Claims**: Email Addresses, Given Name, Surname, User’s ObjectID
+        * **Claims**: Given Name, Surname, Email Addresses, User’s ObjectID
+
+             ![Application claims](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
 1. Select **Create**.
 
 ## Configure identity provider for developer portal

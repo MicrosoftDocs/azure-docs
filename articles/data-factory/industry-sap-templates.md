@@ -5,7 +5,7 @@ description: Overview of the SAP templates
 author: joshuha-msft
 ms.author: joowen
 ms.service: data-factory
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
 ms.date: 08/11/2022
 ---
@@ -20,11 +20,10 @@ See [pipeline templates](solution-templates-introduction.md) for an overview of 
 
 ## SAP templates summary
 
-The following table
+The following table shows the templates related to SAP connectors that can be found in the Azure Data Factory template gallery: 
 
 | SAP Data Store | Scenario | Description |
 | -- | -- | -- |
 | SAP BW via Open Hub | [Incremental copy to Azure Data Lake Storage Gen 2](load-sap-bw-data.md) | Use this template to incrementally copy SAP BW data via LastRequestID watermark to ADLS Gen 2 |
-| SAP ECC | Dynamically copy tables to Azure Data Lake Storage Gen 2 | Use this template to do a full copy of list of tables from SAP ECC to ADLS Gen 2 |
 | SAP HANA | Dynamically copy tables to Azure Data Lake Storage Gen 2 | Use this template to do a full copy of list of tables from SAP HANA to ADLS Gen 2 |
 | SAP Table | Incremental copy to Azure Blob Storage | Use this template to incrementally copy SAP Table data via a date timestamp watermark to Azure Blob Storage |

@@ -38,7 +38,7 @@ This article makes the following assumptions:
 - You've validated the design and migration plan.
 - Plan for disaster recovery VM along with the primary site.  You can't use the HLI as the DR node for the primary site running on VMs after the migration.
 - You copied the required backup files to target VMs, based on business recoverability and compliance requirements. With VM accessible backups, it allows for point-in-time recovery during the transition period.
-- For SAP HANA system replication (HSR) high availability (HA), you need to set up and configure the STONITH device per SAP HANA HA guides for [SLES](./high-availability-guide-suse-pacemaker.md) and [RHEL](./high-availability-guide-rhel-pacemaker.md).  It’s not preconfigured like the HLI case.
+- For SAP HANA system replication (HSR) high availability (HA), you need to set up and configure the fencing device per SAP HANA HA guides for [SLES](./high-availability-guide-suse-pacemaker.md) and [RHEL](./high-availability-guide-rhel-pacemaker.md).  It’s not preconfigured like the HLI case.
 - This migration approach doesn't cover the HLI SKUs with Optane configuration.
 
 ## Deployment scenarios
@@ -50,7 +50,7 @@ You can migrate to Azure VMs for all HLI scenarios. Common deployment models for
 | 2 | [Single node with Multiple Components in One System (MCOS)](./hana-supported-scenario.md#single-node-mcos) | Yes | - |
 | 3 | [Single node with DR using storage replication](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | No | Storage replication isn't available with Azure virtual platform; change current DR solution to either HSR or backup/restore. |
 | 4 | [Single node with DR (multipurpose) using storage replication](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | No | Storage replication isn't available with Azure virtual platform; change current DR solution to either HSR or backup/restore. |
-| 5 | [HSR with STONITH for high availability](./hana-supported-scenario.md#hsr-with-stonith-for-high-availability) | Yes | No preconfigured SBD for target VMs.  Select and deploy a STONITH solution.  Possible options: Azure Fencing Agent (supported for both [RHEL](./high-availability-guide-rhel-pacemaker.md), [SLES](./high-availability-guide-suse-pacemaker.md)), and STONITH block device (SBD). |
+| 5 | [HSR with fencing for high availability](./hana-supported-scenario.md#hsr-with-fencing-for-high-availability) | Yes | No preconfigured SBD for target VMs.  Select and deploy a fencing solution.  Possible options: Azure Fencing Agent (supported for both [RHEL](./high-availability-guide-rhel-pacemaker.md), [SLES](./high-availability-guide-suse-pacemaker.md)), and SBD. |
 | 6 | [HA with HSR, DR with storage replication](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | No | Replace storage replication for DR needs with either HSR or backup/restore. |
 | 7 | [Host auto failover (1+1)](./hana-supported-scenario.md#host-auto-failover-11) | Yes | Use Azure NetApp Files (ANF) for shared storage with Azure VMs. |
 | 8 | [Scale-out with standby](./hana-supported-scenario.md#scale-out-with-standby) | Yes | BW/4HANA with M128s, M416s, M416ms VMs using ANF for storage only. |

@@ -5,7 +5,7 @@ ms.topic: overview
 author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
-ms.date: 08/04/2021
+ms.date: 11/04/2022
 ms.custom: mvc
 ---
 
@@ -13,9 +13,21 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (October 2022)
+
+- Support for export of errors and notifications from the portal for software inventory and agentless dependency.
+- Private preview : Plan replication. This is a new feature added to the Migration and Modernization tool of Azure Migrate. It helps to estimate the time and resources required for replication and migration of the discovered servers. This feature will help in planning the replication and migration schedule. Currently, the feature is available for VMware agentless migrations.  To enroll for private preview, please fill this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2QMeqnlmM1An_w4S8FpvJ5UNEQ1VEgzNUpEUE0xODBHVUdVVUxGMUdVNS4u).
+
+## Update (September 2022)
+
+- Support for pausing and resuming ongoing replications without having to do a complete replication again. You can also retry VM migrations without the need to do a full initial replication again. 
+- Enhanced notifications for test migration and migration completion status. 
+- Java web apps discovery on Apache Tomcat running on Linux servers hosted in VMware environment. 
+- Enhanced discovery data collection including detection of database connecting strings, application directories, and authentication mechanisms for ASP.NET web apps. 
+
 ## Update (August 2022)
 
-- SQL discovery and assessment for Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
+- SQL discovery and assessment for Microsoft Hyper-V and Physical/Bare-metal environments as well as IaaS services of other public clouds. 
 
 ## Update (June 2022)
 

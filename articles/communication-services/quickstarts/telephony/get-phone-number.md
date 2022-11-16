@@ -59,6 +59,7 @@ In this quickstart you learned how to:
 > * Purchase a phone number
 > * Manage your phone number
 > * Release a phone number
+> * Submit toll-free verification application [(see if required)](../../concepts/sms/sms-faq.md#toll-free-verification)
 
 > [!div class="nextstepaction"]
 > [Send an SMS](../sms/send.md)

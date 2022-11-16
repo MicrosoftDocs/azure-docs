@@ -41,7 +41,8 @@ The primary use case for Durable Functions is simplifying complex, stateful coor
 
 ### <a name="chaining"></a>Pattern #1: Function chaining
 
-In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function.
+In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function. The use of queues between each function ensures that the system stays durable and scalable, even though there is a flow of control from one function to the next.
+
 
 ![A diagram of the function chaining pattern](./media/durable-functions-concepts/function-chaining.png)
 
@@ -802,9 +803,6 @@ module.exports = df.entity(function(context) {
 # [Python](#tab/python)
 
 ```python
-import logging
-import json
-
 import azure.functions as func
 import azure.durable_functions as df
 
@@ -932,11 +930,11 @@ Durable Functions is developed in collaboration with Microsoft Research. As a re
 
 The following video highlights the benefits of Durable Functions:
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
 
 For a more in-depth discussion of Durable Functions and the underlying technology, see the following video (it's focused on .NET, but the concepts also apply to other supported languages):
 
-> [!VIDEO https://docs.microsoft.com/Events/dotnetConf/2018/S204/player]
+> [!VIDEO https://learn.microsoft.com/Events/dotnetConf/2018/S204/player]
 
 Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 

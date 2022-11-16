@@ -28,8 +28,8 @@ landingContent:
             url: overview.md
       - linkListType: learn
         links:
-          - text: Microsoft Learn
-            url: /learn/modules/intro-to-content-moderator/
+          - text: Microsoft Learn training
+            url: /training/modules/intro-to-content-moderator/
       - linkListType: video
         links:
           - text: Video moderation with Content Moderator

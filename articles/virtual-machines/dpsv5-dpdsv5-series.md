@@ -27,11 +27,11 @@ Dpsv5-series virtual machines feature the Ampere® Altra® Arm-based processor o
 - [Memory Preserving Updates](maintenance-and-updates.md): Supported 
 - [VM Generation Support](generation-2.md): Generation 2 
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
-- [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+- [Ephemeral OS Disks](ephemeral-os-disks.md): Not supported
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max NICs | Max network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|
 | Standard_D2ps_v5	| 2	| 8	| Remote Storage Only	| 4	| 3750/85	| 10000/1200 | 2 | 12500 |
 | Standard_D4ps_v5	| 4	| 16	| Remote Storage Only	| 8	| 6400/145	| 20000/1200 | 2 | 12500 |
 | Standard_D8ps_v5	| 8	| 32	| Remote Storage Only	| 16	| 12800/290	| 20000/1200 | 4 | 12500 |
@@ -57,7 +57,7 @@ Dpdsv5-series virtual machines feature the Ampere® Altra® Arm-based processor 
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max NICs | Max network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|---|
 | Standard_D2pds_v5    | 2  | 8  | 75   | 4  | 9375/125     | 3750/85  | 10000/1200 | 2 | 12500 |
 | Standard_D4pds_v5 | 4 | 16 | 150 | 8 | 19000/250 | 6400/145 | 20000/1200 | 2 | 12500 |
 | Standard_D8pds_v5 | 8 | 32 | 300 | 16 | 38000/500 | 12800/290 | 20000/1200 | 4 | 12500 |

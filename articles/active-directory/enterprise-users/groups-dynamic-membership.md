@@ -104,7 +104,7 @@ dirSyncEnabled |true false |user.dirSyncEnabled -eq true
 | memberOf | Any string value (valid group object ID) | user.memberof -any (group.objectId -in ['value']) |
 | mobile |Any string value or *null* | user.mobile -eq "value" |
 | objectId |GUID of the user object | user.objectId -eq "11111111-1111-1111-1111-111111111111" |
-| onPremisesDistinguishedName (preview)| Any string value or *null* | user.onPremisesDistinguishedName -eq "value" |
+| onPremisesDistinguishedName | Any string value or *null* | user.onPremisesDistinguishedName -eq "value" |
 | onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. | user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111" |
 | passwordPolicies |None<br>DisableStrongPassword<br>DisablePasswordExpiration<br>DisablePasswordExpiration, DisableStrongPassword | user.passwordPolicies -eq "DisableStrongPassword" |
 | physicalDeliveryOfficeName |Any string value or *null* | user.physicalDeliveryOfficeName -eq "value" |
@@ -346,7 +346,7 @@ device.objectId -ne null
 
 ## Extension properties and custom extension properties
 
-Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) can be synced from on-premises Window Server Active Directory or updated using Microsoft Graph and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
+Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) can be synced from on-premises Window Server Active Directory or updated using Microsoft Graph and take the format of "ExtensionAttributeX", where X equals 1 - 15. Multi-value extension properties are not supported in dynamic membership rules. Here's an example of a rule that uses an extension attribute as a property:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
@@ -396,7 +396,7 @@ The following device attributes can be used.
  deviceOSVersion | any string value | device.deviceOSVersion -eq "9.1"<br>device.deviceOSVersion -startsWith "10.0.1"
  deviceOwnership | Personal, Company, Unknown | device.deviceOwnership -eq "Company"
  devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | device.devicePhysicalIDs -any _ -contains "[ZTDId]"<br>(device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881"<br>(device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342"
- deviceTrustType | AzureAD, ServerAD, Workplace | device.deviceOwnership -eq "AzureAD"
+ deviceTrustType | AzureAD, ServerAD, Workplace | device.deviceTrustType -eq "AzureAD"
  enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | device.enrollmentProfileName -eq "DEP iPhones"
  extensionAttribute1 | any string value | device.extensionAttribute1 -eq "some string value"
  extensionAttribute2 | any string value | device.extensionAttribute2 -eq "some string value"

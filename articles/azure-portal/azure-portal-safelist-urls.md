@@ -1,7 +1,7 @@
 ---
 title: Allow the Azure portal URLs on your firewall or proxy server
 description: To optimize connectivity between your network and the Azure portal and its services, we recommend you add these URLs to your allowlist.
-ms.date: 06/29/2022
+ms.date: 10/12/2022
 ms.topic: conceptual
 ---
 
@@ -64,10 +64,12 @@ aka.ms (Microsoft short URL)
 *.aad.azure.com (Azure AD)
 *.aadconnecthealth.azure.com (Azure AD)
 ad.azure.com (Azure AD)
+adf.azure.com (Azure Data Factory)
 api.aadrm.com (Azure AD)
 api.loganalytics.io (Log Analytics Service)
 *.applicationinsights.azure.com (Application Insights Service)
 appservice.azure.com (Azure App Services)
+*.arc.azure.net (Azure Arc)
 asazure.windows.net (Analysis Services)
 bastion.azure.com (Azure Bastion Service)
 batch.azure.com (Azure Batch Service)
@@ -81,7 +83,7 @@ datalake.azure.net (Azure Data Lake Service)
 dev.azure.com (Azure DevOps)
 dev.azuresynapse.net (Azure Synapse)
 digitaltwins.azure.net (Azure Digital Twins)
-docs.microsoft.com (Azure documentation)
+learn.microsoft.com (Azure documentation)
 elm.iga.azure.com  (Azure AD)
 eventhubs.azure.net (Azure Event Hubs)
 functions.azure.com (Azure Functions)
@@ -129,7 +131,7 @@ vault.azure.net (Azure Key Vault Service)
 graph.microsoftazure.us
 ```
 
-### [China Government Cloud](#tab/china-government-cloud)
+### [Azure China Cloud](#tab/azure-china-cloud)
 
 ```
 aadcdn.msauth.cn

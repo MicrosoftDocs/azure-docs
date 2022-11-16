@@ -41,4 +41,4 @@ You can also select **Browse our full Azure catalog** to see all Azure learning 
 ## Next steps
 
 * Learn more about Azure setup and migration in the [Microsoft Cloud Adoption Framework for Azure](/azure/architecture/cloud-adoption/).
-* Unlock your cloud skills with more [Learn modules]](/learn/azure/).
+* Unlock your cloud skills with more [Learn modules]](/training/azure/).

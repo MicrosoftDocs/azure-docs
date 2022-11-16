@@ -1,8 +1,8 @@
 ---
 title: Metadata and lineage from Azure Synapse Analytics 
 description: This article describes how to connect Azure Synapse Analytics and Microsoft Purview to track data lineage.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to

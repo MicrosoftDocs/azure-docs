@@ -152,12 +152,12 @@ The `RequestCredential` provides information about the requested credentials the
 
 ### Configuration.Validation type
 
-The `Configuration.Validation` provides information about the presented credentials should be validated. It contains the following properties:
+The `Configuration.Validation` provides information about how the presented credentials should be validated. It contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
 | `allowRevoked` |  Boolean | Determines if a revoked credential should be accepted. Default is `false` (it shouldn't be accepted). |
-| `validateLinkedDomain` |  Boolean | Determines if the linked domain should be validated. Default is `false`. Setting this flag to `false` means you as a Relying Party application accept credentials from unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
+| `validateLinkedDomain` |  Boolean | Determines if the linked domain should be validated. Default is `false`. Setting this flag to `false` means you as a Relying Party application accept credentials from an unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
 
 ## Successful response
 
@@ -218,8 +218,9 @@ The following example demonstrates a callback payload after the verifiable crede
   "requestStatus": "presentation_verified",
   "state": "92d076dd-450a-4247-aa5b-d2e75a1a5d58",
   "subject": "did:ion:EiAlrenrtD3Lsw0GlbzS1O2YFdy3Xtu8yo35W<SNIP>…",
-  "issuers": [
+  "verifiedCredentialsData": [
     {
+      "issuer": "did:ion:issuer",
       "type": [
         "VerifiableCredential",
         "VerifiedCredentialExpert"
@@ -228,15 +229,20 @@ The following example demonstrates a callback payload after the verifiable crede
         "firstName": "Megan",
         "lastName": "Bowen"
       },
-      "domain": "https://contoso.com/",
-      "verified": "DNS",
-      "authority": "did:ion:….."
+      "credentialState": {
+        "revocationStatus": "VALID"
+      },
+      "domainValidation": {
+        "url": "https://contoso.com/"
+      }
     }
   ],
   "receipt": {
-    "id_token": "eyJraWQiOiJkaWQ6aW<SNIP>"
+    "id_token": "eyJraWQiOiJkaWQ6aW<SNIP>",
+    "vp_token": "...",
+    "state": "..."
   }
-} 
+}
 ```
 
 ## Next steps

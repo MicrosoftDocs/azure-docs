@@ -3,13 +3,13 @@ title: What is the Personally Identifying Information (PII) detection feature in
 titleSuffix: Azure Cognitive Services
 description: An overview of the PII detection feature in Azure Cognitive Services, which helps you extract entities and sensitive information (PII) in text.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
 ms.date: 08/02/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-pii, ignite-fall-2021
 ---
 

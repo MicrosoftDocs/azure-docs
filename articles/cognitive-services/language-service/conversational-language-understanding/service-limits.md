@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/12/2022
+ms.date: 10/12/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021, references_regions
 ---
@@ -23,7 +23,7 @@ Use this article to learn about the data and service limits when using conversat
 
   |Tier|Description|Limit|
   |--|--|--|
-  |F0|Free tier|You are only allowed **One** Language resource **per subscription**.|
+  |F0|Free tier|You are only allowed **one** F0 Language resource **per subscription**.|
   |S |Paid tier|You can have up to 100 Language resources in the S tier per region.| 
 
 
@@ -35,17 +35,34 @@ See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/lan
 
 ### Regional availability
 
-Conversational language understanding is only available in some Azure regions. To use conversational language understanding, you must choose a Language resource in one of following regions:
-* West US 2
-* East US 
-* East US 2
-* West US 3
-* South Central US
-* West Europe
-* North Europe
-* UK south
-* Australia East
+Conversational language understanding is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](../concepts/custom-features/multi-region-deployment.md).
 
+| Region             | Authoring | Prediction  |
+|--------------------|-----------|-------------|
+| Australia East     | ✓         | ✓           |
+| Brazil South       |           | ✓           |
+| Canada Central     |           | ✓           |
+| Central India      | ✓         | ✓           |
+| Central US         |           | ✓           |
+| East Asia          |           | ✓           |
+| East US            | ✓         | ✓           |
+| East US 2          | ✓         | ✓           |
+| France Central     |           | ✓           |
+| Japan East         |           | ✓           |
+| Japan West         |           | ✓           |
+| Jio India West     |           | ✓           |
+| Korea Central      |           | ✓           |
+| North Central US   |           | ✓           |
+| North Europe       | ✓         | ✓           |
+| Norway East        |           | ✓           |
+| South Africa North |           | ✓           |
+| South Central US   | ✓         | ✓           |
+| Southeast Asia     |           | ✓           |
+| Sweden Central     |           | ✓           |
+| Switzerland North  | ✓         | ✓           |
+| UAE North          |           | ✓           |
+| UK South           | ✓         | ✓           |
+| West Central US    |           | ✓           |
 
 ## API limits
 
@@ -70,7 +87,7 @@ The following limits are observed for the conversational language understanding.
 
 |Item|Lower Limit| Upper Limit |
 | --- | --- | --- |
-|Count of utterances per project | 1 | 15,000|
+|Count of utterances per project | 1 | 25,000|
 |Utterance length in characters | 1 | 500 |
 |Count of intents per project | 1 | 500|
 |Count of entities per project | 1 | 500|
@@ -83,7 +100,7 @@ The following limits are observed for the conversational language understanding.
 
 | Item | Limits |
 |--|--|
-| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` ,symbols  `_ . -`,with no spaces. Maximum allowed length is 50 characters. |
+| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` , symbols  `_ . -`, with no spaces. Maximum allowed length is 50 characters. |
 | Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
 | Deployment name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
 | Intent name| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and all symbols except ":", `$ & %  * (  ) + ~ # / ?`. Maximum allowed length is 50 characters.|

@@ -1,15 +1,15 @@
 ---
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
 ms.date: 07/11/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) 
+[Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) 
 
 Use this quickstart to create a Named Entity Recognition (NER) application with the client library for .NET. In the following example, you will create a C# application that can identify [recognized entities](../../concepts/named-entity-categories.md) in text.
 
@@ -33,7 +33,7 @@ Use this quickstart to create a Named Entity Recognition (NER) application with 
 
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: *program.cs*.
 
-Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.1.0`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.2.0`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Named-entity-recognition&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
@@ -92,10 +92,10 @@ namespace Example
 ```console
 Named Entities:
         Text: trip,     Category: Event,        Sub-Category:
-                Score: 0.61,    Length: 4,      Offset: 18
+                Score: 0.74,    Length: 4,      Offset: 18
 
         Text: Seattle,  Category: Location,     Sub-Category: GPE
-                Score: 0.82,    Length: 7,      Offset: 26
+                Score: 1.00,    Length: 7,      Offset: 26
 
         Text: last week,        Category: DateTime,     Sub-Category: DateRange
                 Score: 0.80,    Length: 9,      Offset: 34

@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 04/28/2022
+ms.date: 10/21/2022
 ms.author: mbaldwin
 
 ---
@@ -65,17 +65,14 @@ Here are some ways to detect if your application was impacted:
     - **Android**: Check the documentation for your device and version of Android.
     - **Other hardware devices, especially IoT**: Contact the device manufacturer.
 
-- If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations, you'll need to allow the following CRL and OCSP URLs:
+- If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations, you'll need to allow the following CRL and OCSP URLs. For a complete list of CRL and OCSP URLs used in Azure, see the [Azure CA details article](azure-CA-details.md#certificate-downloads-and-revocation-lists).
 
     - http://crl3&#46;digicert&#46;com
     - http://crl4&#46;digicert&#46;com
     - http://ocsp&#46;digicert&#46;com
-    - http://www&#46;d-trust&#46;net
-    - http://root-c3-ca2-2009&#46;ocsp&#46;d-trust&#46;net
     - http://crl&#46;microsoft&#46;com
     - http://oneocsp&#46;microsoft&#46;com
     - http://ocsp&#46;msocsp&#46;com
-    - http://www&#46;microsoft&#46;com/pkiops
 
 ## Next steps
 

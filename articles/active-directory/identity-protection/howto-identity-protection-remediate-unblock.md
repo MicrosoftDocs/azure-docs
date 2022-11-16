@@ -47,7 +47,7 @@ For more information about what happens when confirming compromise, see the sect
 
 ### Self-remediation with risk policy
 
-If you allow users to self-remediate, with Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR) in your risk policies, they can unblock themselves when risk is detected. These detections are then considered closed. Users must have previously registered for Azure AD MFA and SSPR for use when risk is detected.
+If you allow users to self-remediate, with Azure AD multifactor authentication (MFA) and self-service password reset (SSPR) in your risk policies, they can unblock themselves when risk is detected. These detections are then considered closed. Users must have previously registered for Azure AD MFA and SSPR for use when risk is detected.
 
 Some detections may not raise risk to the level where a user self-remediation would be required but administrators should still evaluate these detections. Administrators may determine that extra measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
 

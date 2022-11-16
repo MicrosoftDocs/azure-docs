@@ -42,18 +42,18 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 
 * A registered model that uses a GPU.
 
-    * To learn how to register models, see [Deploy Models](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+    * To learn how to register models, see [Deploy Models](../how-to-deploy-managed-online-endpoints.md).
 
     * To create and register the Tensorflow model used to create this document, see [How to Train a TensorFlow Model](../how-to-train-tensorflow.md).
 
-* A general understanding of [How and where to deploy models](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+* A general understanding of [How and where to deploy models](../how-to-deploy-managed-online-endpoints.md).
 
 ## Connect to your workspace
 
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment-v1.md).
 
 ```python
 from azureml.core import Workspace
@@ -136,7 +136,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-This file is named `score.py`. For more information on entry scripts, see [How and where to deploy](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+This file is named `score.py`. For more information on entry scripts, see [How and where to deploy](../how-to-deploy-managed-online-endpoints.md).
 
 ## Define the conda environment
 

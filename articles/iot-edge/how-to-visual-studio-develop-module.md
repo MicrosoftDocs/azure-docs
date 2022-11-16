@@ -48,7 +48,7 @@ This article assumes that you use a machine running Windows as your development 
     
       After the update is complete, select **Close** and restart Visual Studio.
 
-* Download and install [Docker Community Edition](https://docs.docker.com/install/) on your development machine to build and run your module images. Set Docker CE to run in either Linux container mode or Windows container mode, depending on the type of modules you are developing.
+* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. Set the container engine to run in either Linux container mode or Windows container mode, depending on the type of modules you are developing.
 
 * Set up your local development environment to debug, run, and test your IoT Edge solution by installing the [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/). Install [Python (3.5/3.6/3.7/3.8) and Pip](https://www.python.org/) and then install the **iotedgehubdev** package by running the following command in your terminal.
 
@@ -82,13 +82,11 @@ This article assumes that you use a machine running Windows as your development 
 
 * To test your module on a device, you'll need an active IoT Hub with at least one IoT Edge device. To create an IoT Edge device for testing you can create one in the Azure portal or with the CLI:
 
-    * Creating one in the [Azure portal](https://portal.azure.com/) is the quickest. From the Azure portal, go to your IoT Hub resource. Select **IoT Edge** from the menu on the left and then select **Add IoT Edge Device**.
+    * Creating one in the [Azure portal](https://portal.azure.com/) is the quickest. From the Azure portal, go to your IoT Hub resource. Select **Devices** under the **Device management** menu and then select **Add Device**.
 
-        :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-iot-edge-device.png" alt-text="Screenshot of how to add a new I o T Edge device":::
+       In **Create a device**,name your device using **Device ID**, check **IoT Edge Device**, then select **Save** in the lower left. 
     
-       A new popup called **Create a device** will appear. Add a name to your device (known as the Device ID), then select **Save** in the lower left. 
-    
-        Finally, confirm that your new device exists in your IoT Hub, from the **Device management > IoT Edge** menu. For more information on creating an IoT Edge device through the Azure portal, read [Create and provision an IoT Edge device on Linux using symmetric keys](how-to-provision-single-device-linux-symmetric.md).
+        Finally, confirm that your new device exists in your IoT Hub, from the **Device management > Devices** menu. For more information on creating an IoT Edge device through the Azure portal, read [Create and provision an IoT Edge device on Linux using symmetric keys](how-to-provision-single-device-linux-symmetric.md).
 
     * To create an IoT Edge device with the CLI follow the steps in the quickstart for [Linux](quickstart-linux.md#register-an-iot-edge-device) or [Windows](quickstart.md#register-an-iot-edge-device). In the process of registering an IoT Edge device, you create an IoT Edge device.
 
@@ -204,12 +202,17 @@ Typically, you'll want to test and debug each module before running it within an
    * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
-1. Test the module by sending a message by running the following command in a **Git Bash** or **WSL Bash** shell. (You cannot run the `curl` command from a PowerShell or command prompt.)
+1. Test the module by sending a message by running the following command in a **Git Bash** or **WSL Bash** shell. You cannot run the `curl` command from a PowerShell or command prompt.
 
-    ```bash
-    curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
-    ```
-
+   ```bash
+   curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
+   ```
+   If you get the error *unmatched close brace/bracket in URL*, try the following command instead:
+   
+   ```bash
+   curl --header "Content-Type: application/json" --request POST --data "{\"inputName\": \"input1\", \"data\", \"hello world\"}"  http://localhost:53000/api/v1/messages
+   ```
+  
    :::image type="content" source="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png" alt-text="Screenshot of the output console, Visual Studio project, and Bash window." lightbox="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png":::
 
    The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window, found when the debugger is running. Go to Debug > Windows > Locals. 
@@ -345,7 +348,7 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
         cd config
     ```
 
-1. From your **config** folder, execute the following deployment command. Replace the `[device id]`, `[hub name]`, and `[file path]` with your values. 
+1. Deploy the manifest for your IoT Edge device to IoT Hub. The command configures the device to use modules developed in your solution. The deployment manifest was created in the previous step and stored in the **config** folder. From your **config** folder, execute the following deployment command. Replace the `[device id]`, `[hub name]`, and `[file path]` with your values. If the IoT Edge device ID does not exist in the IoT Hub, it must be created.
 
     ```cmd
         az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
