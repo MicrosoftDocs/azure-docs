@@ -6,7 +6,7 @@ ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/09/2022
+ms.date: 11/14/2022
 ---
 
 # Create, import, export, and delete glossary terms
@@ -138,8 +138,6 @@ The system will upload the file and add all the terms to your glossary.
 > The email address for an expert or steward should be the primary address of the user from the Azure Active Directory (Azure AD) group. Alternate emails, user principal names, and non-Azure AD emails are not yet supported. 
 
 ## Export terms from the glossary with custom attributes
-
-You can export terms from the glossary as long as the selected terms belong to same term template.
 
 When you're in the glossary, the **Export terms** button is disabled by default. After you select the terms that you want to export, the **Export terms** button is enabled.
 
