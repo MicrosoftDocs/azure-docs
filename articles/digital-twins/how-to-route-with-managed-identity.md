@@ -181,13 +181,7 @@ Start following the [instructions to create an Azure Digital Twins endpoint](how
 
 When you get to the step of completing the details required for your endpoint type, make sure to select **Identity-based** for the Authentication type.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
 
 Finish setting up your endpoint and select **Save**.
 

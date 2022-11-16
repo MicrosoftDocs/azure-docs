@@ -195,13 +195,7 @@ To disable or enable public network access in the [Azure portal](https://portal.
 
 1. In the **Public access** tab, set **Allow public network access to** either **Disabled** or **All networks**.
 
-    :::row:::
-        :::column:::
-            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Screenshot of the Azure portal showing the Networking page for an Azure Digital Twins instance, highlighting how to toggle public access." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
-        :::column-end:::
-        :::column:::
-        :::column-end:::
-    :::row-end:::
+   :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Screenshot of the Azure portal showing the Networking page for an Azure Digital Twins instance, highlighting how to toggle public access." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
 
     Select **Save**.
 

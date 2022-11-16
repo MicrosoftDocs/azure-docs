@@ -40,13 +40,7 @@ Before you can set up a relationship with Time Series Insights, you'll need to s
 
 You'll be attaching Time Series Insights to Azure Digital Twins through the following path.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="Diagram of Azure services in an end-to-end scenario, highlighting Time Series Insights." lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="Diagram of Azure services in an end-to-end scenario, highlighting Time Series Insights." lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
 
 ## Create Event Hubs namespace
 
