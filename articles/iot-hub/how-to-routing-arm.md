@@ -54,13 +54,13 @@ Let's export a Resource Manager template from your IoT hub, then we'll add a rou
 
 1. Go to your IoT hub in the Azure portal and select **Export template** at the bottom of the menu under **Automation**.
  
-   :::image type="content" source="media/iot-hub-how-to-routing-arm/export-menu-option.jpg" alt-text="Screenshot that shows location of the export template option in the menu of the IoT Hub.":::
+   :::image type="content" source="media/how-to-routing-arm/export-menu-option.jpg" alt-text="Screenshot that shows location of the export template option in the menu of the IoT Hub.":::
 
 1. You see a JSON file generated for your IoT hub. Uncheck the **Include parameters** box. 
 
    Select **Download** to download a local copy of this file.
 
-   :::image type="content" source="media/iot-hub-how-to-routing-arm/download-template.jpg" alt-text="Screenshot that shows location of the download button on the Export template page.":::
+   :::image type="content" source="media/how-to-routing-arm/download-template.jpg" alt-text="Screenshot that shows location of the download button on the Export template page.":::
 
    There are several placeholders for information in this template in case you want to add features or services to your IoT hub in the future. But for this article, we only need to add something to the `routes` property.
 
@@ -303,7 +303,7 @@ New-AzResourceGroupDeployment `
 
 Since [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) is run from a browser, you can [upload](/azure/cloud-shell/using-the-shell-window#upload-and-download-files) the template file before running the deployment command. With the file uploaded, you only need the template file name (instead of the entire filepath) for the `template-file` parameter.
 
-:::image type="content" source="media/iot-hub-how-to-routing-arm/upload-cloud-shell.jpg" alt-text="Screenshot that shows location of the button in the Azure Cloud Shell that uploads a file.":::
+:::image type="content" source="media/how-to-routing-arm/upload-cloud-shell.jpg" alt-text="Screenshot that shows location of the button in the Azure Cloud Shell that uploads a file.":::
 
 # [Azure CLI](#tab/cli)
 
@@ -334,4 +334,4 @@ To view your new route in the [Azure portal](https://portal.azure.com/), go to y
 
 To confirm your template deployed successfully to Azure, check in your resource group resource on the **Deployments** page of the **Settings** menu in the Azure portal.
 
-:::image type="content" source="media/iot-hub-how-to-routing-arm/confirm-template-deployment.jpg" alt-text="Screenshot that shows location of a deployment log in a resource group on the Deployments page of the Azure portal.":::
+:::image type="content" source="media/how-to-routing-arm/confirm-template-deployment.jpg" alt-text="Screenshot that shows location of a deployment log in a resource group on the Deployments page of the Azure portal.":::
