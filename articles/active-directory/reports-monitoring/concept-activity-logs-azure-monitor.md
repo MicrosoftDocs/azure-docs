@@ -31,6 +31,14 @@ You can route Azure AD audit logs and sign-in logs to your Azure Storage account
 * **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to information about changes applied to your tenant, such as users and group management, or updates applied to your tenant’s resources.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
 
+## Supported reports
+You can route audit activity logs and sign-in activity logs to Azure Monitor logs for further analysis. 
+* **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
+* **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
+* **Provisioning logs**: With the [provisioning logs](../app-provisioning/application-provisioning-log-analytics.md), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
+* **Risky users logs (public preview)**: With the [risky users logs](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users), you can monitor changes in user risk level and remediation activity. 
+* **Risk detections logs (public preview)**: With the [risk detections logs](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
+
 ## Prerequisites
 
 To use this feature, you need:
@@ -66,6 +74,11 @@ The following table contains a cost estimate of, depending on the size of the te
 | Sign-ins | 1,000 | 34,800 | 4 GB | $0.13 | $1.56 |
 | Sign-ins | 100,000 | 15&nbsp;million | 1.7 TB | $35.41 | $424.92 |
  
+
+If you want to know for how long the activity data is stored in a Premium tenant, see: [How long does Azure AD store the data?](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
+
+
+
 
 ### Event Hubs messages for activity logs
 
