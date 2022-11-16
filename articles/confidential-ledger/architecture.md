@@ -5,7 +5,7 @@ services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
 ms.topic: overview
-ms.date: 04/15/2021
+ms.date: 11/14/2022
 ms.author: mbaldwin
 
 ---
@@ -25,3 +25,4 @@ This image provides an architectural overview of Azure confidential ledger, and 
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)
 - [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)
+- [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md)
