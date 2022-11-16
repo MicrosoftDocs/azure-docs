@@ -516,13 +516,15 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
 ## Test the solution
 
-1. Access the application using the External URL specified in the Akamai EAA.
+1. Navigate to the application URL, using the external URL specified in the Akamai EAA.
 
-2. Unauthenticated users will be redirected to the Azure AD B2C sign-in page.
+2. Unauthenticated user is redirected to the Azure AD B2C sign-in page.
+
+3. Select the IdP from the list on the page.
 
 3. Sign-in as an end user using credentials linked to Azure AD B2C.
 
-4. After successful authentication, the end user will be redirected back to the application and signed into the Application as the end user.
+4. After successful authentication, the end user will be redirected back to the application and signed into the application as the end user.
 
 ::: zone-end
 
