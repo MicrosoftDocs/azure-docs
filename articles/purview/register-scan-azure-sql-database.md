@@ -386,7 +386,7 @@ To create an access policy for Azure SQL Database, follow these guides:
 * [DevOps policy on a single Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#create-a-new-devops-policy)
 * [Data owner policy on a single Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy)
 
-To create policies that cover all data sources inside a resource group or Azure subscription you can refer to [this section](register-scan-azure-multiple-sources#access-policy).
+To create policies that cover all data sources inside a resource group or Azure subscription you can refer to [this section](register-scan-azure-multiple-sources.md#access-policy).
 
 ## Lineage (Preview) 
 <a id="lineagepreview"></a>
