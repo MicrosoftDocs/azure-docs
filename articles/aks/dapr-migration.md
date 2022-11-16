@@ -14,8 +14,8 @@ ms.custom: devx-track-azurecli
 
 You've installed and configured Dapr OSS on your Kubernetes cluster and want to migrate to the Dapr extension on AKS. In this guide, you will learn how Dapr moves your managed clusters from using Dapr OSS to the Dapr extension by either:
 
-- A built-in check for an existing Dapr installation via CLI prompts (interactive flow), or
-- Installing the Dapr extension with configuration settings using the Helm release name and namespace of the existing installation (non-interactive flow). 
+- **Interactive flow**: A built-in check for an existing Dapr installation via CLI prompts, or
+- **Non-interactive flow**: Installing the Dapr extension with configuration settings using the Helm release name and namespace of the existing installation. 
 
 This check allows the Dapr extension to reuse the already existing Kubernetes resources from your previous installation and start managing them. To get the details of your current Dapr installation, you can use the Helm CLI:
 
