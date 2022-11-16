@@ -62,7 +62,7 @@ databases = client.list_database_names()
 print("Databases: {}".format(databases))
 ```
 <!--
-:::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/200-admin/run.py" id="server_info":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/200-admin/run.py" id="server_info":::
 -->
 
 The preceding code snippet displays output similar to the following example console output:
@@ -101,7 +101,7 @@ else:
     print("Created db '{}' with shared throughput.\n".format(DB_NAME))
 ```
 <!--
-:::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="does_database_exist":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="does_database_exist":::
 -->
 The preceding code snippet displays output similar to the following example console output:
 
@@ -141,7 +141,7 @@ for db in databases:
 ```
 
 <!--
-:::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="database_object":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="database_object":::
 -->
 
 The preceding code snippet displays output similar to the following example console output:
@@ -187,7 +187,7 @@ else:
 ```
 
 <!-- 
-:::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/300-drop-database/run.py" id="drop_database":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/300-drop-database/run.py" id="drop_database":::
 -->
 The preceding code snippet displays output similar to the following example console output:
 
