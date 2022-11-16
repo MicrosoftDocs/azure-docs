@@ -130,18 +130,18 @@ In contrast, vertical scaling, keeps the same number of resources constant, but 
 
 The following services are supported by autoscale:
 
-| Service | Schema & Documentation |
-| --- | --- |
-| Azure Virtual machines scale sets |[Overview of autoscale with Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md) |
-| Web apps |[Scaling Web Apps](autoscale-get-started.md) |
-| Azure API Management service|[Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)
-| Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Azure Stream Analytics | [Autoscale streaming units (Preview)](../../stream-analytics/stream-analytics-autoscale.md) |
-| Azure Machine Learning Workspace | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md) |
- Spring Cloud |[Set up autoscale for microservice applications](../../spring-apps/how-to-setup-autoscale.md)|
-| Media Services | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling) |
-| Service Bus |[Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)|
-| Logic Apps - Integration Service Environment(ISE) | [Add ISE capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity) |
+| Service                                           | Schema & Documentation                                                                                                                           |
+|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Virtual machines scale sets                 | [Overview of autoscale with Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md) |
+| Web apps                                          | [Scaling Web Apps](autoscale-get-started.md)                                                                                                     |
+| Azure API Management service                      | [Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)                                   |
+| Azure Data Explorer Clusters                      | [Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)             |
+| Azure Stream Analytics                            | [Autoscale streaming units (Preview)](../../stream-analytics/stream-analytics-autoscale.md)                                                      |
+| Azure Machine Learning Workspace                  | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md)                                                             |
+| Azure Spring Apps                                 | [Set up autoscale for applications](../../spring-apps/how-to-setup-autoscale.md)                                                                 |
+| Media Services                                    | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling)                                                          |
+| Service Bus                                       | [Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)         |
+| Logic Apps - Integration Service Environment(ISE) | [Add ISE capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)                                              |
 
 ## Next steps
 
