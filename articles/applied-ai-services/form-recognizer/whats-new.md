@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 11/16/2022
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -31,13 +31,13 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ### Form Recognizer versioned content
 
-Form Recognizer documentation has been updated to present a versioned experience. Now, you can choose to view viewing content targeting the v3.0 GA experience or the v2.1 GA experience. The v3.0 experience is the default.
+Form Recognizer documentation has been updated to present a versioned experience. Now, you can choose to view content targeting the v3.0 GA experience or the v2.1 GA experience. The v3.0 experience is the default.
 
 :::image type="content" source="media/versioning-and-monikers.png" alt-text="{alt-text}":::
 
 ### Form Recognizer Studio Sample Code
 
-Sample code for the [Form Recognizer Studio labeling experience](https://github.com/microsoft/Form-Recognizer-Toolkit/tree/main/SampleCode/LabelingUX) is now available on github. Customers can develop and integrate Form Recognizer into their own UX or build their own new UX using the Form Recognizer Studio sample code.
+Sample code for the [Form Recognizer Studio labeling experience](https://github.com/microsoft/Form-Recognizer-Toolkit/tree/main/SampleCode/LabelingUX) is now available on GitHub. Customers can develop and integrate Form Recognizer into their own UX or build their own new UX using the Form Recognizer Studio sample code.
 
 ### Language expansion
 
@@ -47,7 +47,7 @@ Use the REST API parameter `api-version=2022-06-30-preview` when using the API o
 
 ### New Prebuilt Contract model
 
-A new prebuilt that extracts information from contracts such as parties, title, contract ID, execution date and more. Contracts is currently in preview, please request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQTRDQUdHMTBWUDRBQ01QUVNWNlNYMVFDViQlQCN0PWcu_).  
+A new prebuilt that extracts information from contracts such as parties, title, contract ID, execution date and more. the contracts model is currently in preview, request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQTRDQUdHMTBWUDRBQ01QUVNWNlNYMVFDViQlQCN0PWcu_).  
 
 ### Region expansion for training custom neural models 
 
