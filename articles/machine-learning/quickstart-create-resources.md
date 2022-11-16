@@ -42,7 +42,8 @@ If you don't yet have a workspace, create one now:
    Region | Select the Azure region closest to your users and the data resources to create your workspace.
 1. Select **Create** to create the workspace
 
-> Note: A workspace will be created with required resources, in the scenario you would like to reuse resources such as: Storage Account, Azure Container Registry, Azure KeyVault or Application Insights, use the azure [portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) for that.
+> [!NOTE]
+> This creates a workspace along with all required resources. If you would like to reuse resources such as: Storage Account, Azure Container Registry, Azure KeyVault or Application Insights, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.
 
 ## Create compute instance
 
