@@ -57,8 +57,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 To view a list of VM instances in a scale set, use [az vm list](/cli/azure/vm) as follows:
 
 ```azurecli-interactive
-az vm list --resource-group myResourceGroup \
-  --output table
+az vm list --resource-group myResourceGroup --output table
 ```
 
 The following example output shows two VM instances in the scale set:
@@ -225,8 +224,7 @@ az vmss scale \
 It takes a few minutes to update the capacity of your scale set. To see the number of instances you now have in the scale set, use [az vm list](/cli/azure/vmss) and query on *sku.capacity*:
 
 ```azurecli-interactive
-az vm list --resource-group myResourceGroup \
-  --output table
+az vm list --resource-group myResourceGroup --output table
 ```
 
 ```output
