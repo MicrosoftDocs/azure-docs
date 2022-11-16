@@ -6,14 +6,14 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: dademath
-ms.date: 03/29/2022
+ms.date: 11/16/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
 # Network Diagnostics Tool
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
 The **Network Diagnostics Tool** enables Azure Communication Services developers to ensure that their device and network conditions are optimal for connecting to the service to ensure a great call experience. The tool can be found at [aka.ms/acsdiagnostics](https://azurecommdiagnostics.net/). Users can quickly run a test, by pressing the start test button. The tool performs diagnostics on the network, devices, and call quality. The results of the diagnostics are directly provided through the tools UI. No sign-in required to use the tool. After the test, a GUID is presented which can be provided to our support team for further help.
 
@@ -31,7 +31,6 @@ If you are looking to build your own Network Diagnostic Tool or to perform deepe
   |-----------------------------------|------------------------------------------|
   | Browser Diagnostic                |  Checks for browser compatibility. Azure Communication Services supports specific browsers for [calling](../voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser) and [chat](../chat/sdk-features.md#javascript-chat-sdk-support-by-os-and-browser). | 
   | Media Device Diagnostic           | Checks for availability of device (camera, microphone and speaker) and enabled permissions for those devices on the browser. |
-  | Service Connectivity              | Checks whether it can connect to Azure Communication Services |
   | Audio Test                        | Performs an echo bot call. Here the user can talk to echo bot and hear themselves back. The test records media quality statistics for audio including jitter, bitrate, packet loss and RTT with thresholds for optimal conditions. |
   | Video Test                        | Performs a loop back video test, where video captured by the camera is sent back and forth to check for network quality conditions. The test records media quality statistics for video including jitter, bitrate, packet loss and RTT with thresholds for optimal conditions. |
   
