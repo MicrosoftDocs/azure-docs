@@ -390,7 +390,7 @@ To see all jobs currently scheduled with pg_cron
 ```
 SELECT * FROM cron.job;
 ```
-To run vaccuum every day at 10:00 am (GMT) in database 'testcron' under pg_admin role account
+To run vaccuum every day at 10:00 am (GMT) in database 'testcron' under azure_pg_admin role account
 ```
 SELECT cron.schedule_in_database('VACUUM','0 10 * * * ','VACUUM','testcron',null,TRUE)
 ```
