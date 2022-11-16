@@ -1,17 +1,17 @@
 ---
-title: Group costs using tag inheritance
+title: Group and allocate costs using tag inheritance
 titleSuffix: Microsoft Cost Management
 description: This article explains how to group costs using tag inheritance.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/11/2022
+ms.date: 11/16/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: sadoulta
 ---
 
-# Group costs using tag inheritance
+# Group and allocate costs using tag inheritance
 
 Azure tags are widely used to group costs to align with different business units, engineering environments, and cost departments. Tags provide the visibility needed for businesses to manage and allocate costs across the different groups.
 
@@ -33,7 +33,7 @@ Tag inheritance is available for customers with an Enterprise Account (EA) or a 
 
 ## Enable tag inheritance
 
-You can enable the tag inheritance setting in the Azure portal and the [Settings API](/rest/api/cost-management/settings). You apply the setting at the EA billing account, MCA billing profile, and subscription scopes. After the setting is enabled, all resource group and subscription tags are automatically applied to child resource usage records.
+You can enable the tag inheritance setting in the Azure portal. You apply the setting at the EA billing account, MCA billing profile, and subscription scopes. After the setting is enabled, all resource group and subscription tags are automatically applied to child resource usage records.
 
 To enable tag inheritance in the Azure portal:
 
@@ -45,27 +45,11 @@ To enable tag inheritance in the Azure portal:
 5. In the Tag inheritance (Preview) window, select **Automatically apply subscription and resource group tags to new data**.  
     :::image type="content" source="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data.png" alt-text="Screenshot showing the Automatically apply subscription and resource group tags to new data option." lightbox="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data.png" :::
 
-You can also enable tag inheritance using the Settings API.
-
-
-Here's a sample request:
-
-```http
-PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/settings/taginheritance?api-version=2022-10-01-preview
-
-{
-  "kind": "taginheritance",
-  "properties": {
-    "preferContainerTags": true
-  }
-}
-```
-
 Here's an example diagram showing how a tag is inherited.
 
 :::image type="content" source="./media/enable-tag-inheritance/tag-example-01.svg" alt-text="Example diagram showing how a tag is inherited." border="false" lightbox="./media/enable-tag-inheritance/tag-example-01.svg":::
 
-## Override resource tag behavior
+## Choose between resource and inherited tags
 
 When a resource tag matches the resource group or subscription tag being applied, the resource tag is applied to its usage record by default. You can change the default behavior to have the subscription or resource group tag override the resource tag.
 
@@ -92,6 +76,21 @@ Similarly, if the tag inheritance setting is disabled, the inherited tags will b
 > [!NOTE]
 > If there are purchases or resources that don’t emit usage at a subscription scope, they will not have the subscription tags applied even if the setting is enabled.
 
+## View costs grouped by tags
+
+You can use cost analysis to view the costs grouped by tags.
+
+1. In the Azure portal, navigate to **Cost Management**.
+1. In the left menu, select **Cost Analysis**.
+1. Select a scope.
+1. In the **Group by** list, select the tag you want to view costs for.
+
+Here's an example showing costs for the *org* tag.
+
+:::image type="content" source="./media/enable-tag-inheritance/cost-analysis-view-tag.png" alt-text="Screenshot showing costs for the org example tag." lightbox="./media/enable-tag-inheritance/cost-analysis-view-tag.png" :::
+
+You can also view the inherited tags by downloading your Azure usage. For more information, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md).
+
 ## Next steps
 
-- Learn about [cost allocation](allocate-costs.md).
+- Learn how to [split shared costs](allocate-costs.md).
