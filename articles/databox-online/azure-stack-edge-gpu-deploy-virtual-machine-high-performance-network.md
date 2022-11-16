@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 11/15/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -20,7 +20,7 @@ You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU 
 
 ## About HPN VMs
 
-HPN VMs are specifically designed for 5G/Multi-access Edge Computing (MEC) network functions that require high packet processing rates, low latency, and low jitter.
+HPN VMs are specifically designed for 5G and Multi-access Edge Computing (MEC) network functions that require high packet processing rates, low latency, and low jitter.
 
 HPN VMs rely on a non-uniform memory access (NUMA) architecture to increase processing speeds. In a NUMA system, CPUs are arranged in smaller systems called nodes. Each node has a dedicated set of logical processors and memory. An HPN VM can use CPU from only one NUMA node.
 
@@ -28,37 +28,25 @@ On your Azure Stack Edge device, logical processors are distributed on NUMA node
 
 To maximize performance, processing, and transmitting on the same NUMA node, processors are allocated memory that they're closest to in order to reduce physical distance. For more information, see [NUMA Support](/windows/win32/procthread/numa-support).
 
-### [2210 and later](#tab/2210)
+### vCPU reservation for Azure Stack Edge
 
-For this version, vCPUs are automatically reserved with the maximum number of vCPUs supported on each NUMA node. If the vCPUs were already reserved for HPN VMs in an earlier version, then the existing reservation is carried forth to the 2210 version.
+To deploy HPN VMs on Azure Stack Edge, you must reserve vCPUs on NUMA nodes. The number of vCPUs reserved determines the available vCPUs that can be assigned to the HPN VMs. 
 
-You can apply a policy instead of indexes with versions 2210 and higher, or you can apply a customized policy.
+For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
 
-You do not need to stop/start the VM before and after running the commands, as is required in versions 2209 and earlier.
+In version 2210, vCPUs are automatically reserved with the maximum number of vCPUs supported on each NUMA node. If the vCPUs were already reserved for HPN VMs in an earlier version, the existing reservation is carried forth to the 2210 version. If vCPUs were not reserved for HPN VMs in an earlier version, upgrading to 2210 will still carry forth the existing configuration.
 
-### [2209 and earlier](#tab/2209)
-
-For versions 2209 and earlier, before you deploy HPN VMs on your device, vCPUs must be reserved on NUMA nodes. We recommend that the vCPU reservation be done on NUMA node 0, as this node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it.
-
-The number of vCPUs reserved determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
-
-You can choose to reserve all the logical indexes from both NUMA nodes shown in the example or a subset of the indexes. If you choose to reserve a subset of indexes, pick the indexes from the device node that has a Mellanox network interface attached to it, for best performance. For Azure Stack Edge Pro GPU, the NUMA node with Mellanox network interface is #0.
-
-The list of logical indexes must contain a paired sequence of an odd number and an even number. For example, ((4,5)(6,7)(10,11)). Attempting to set a list of numbers such as 5,6,7 or pairs such as 4,6 will not work.
-
-Using two Set-HcsNuma commands consecutively to assign vCPUs will reset the configuration. Also, do not free the CPUs using the Set-HcsNuma cmdlet if you have deployed an HPN VM. 
-
----
+For versions 2209 and earlier, you must reserve vCPUs on NUMA nodes before you deploy HPN VMs on your device. We recommend that the vCPU reservation be done on NUMA node 0, as this node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it.
 
 ## HPN VM deployment workflow
 
 The high-level summary of the HPN deployment workflow is as follows:
 
-1. While configuring the network settings on your device, make sure that there is a virtual switch associated with a network interface on your device that can be used for the VM resources and VMs. We will use the default virtual network created with the vswitch for this article. You have the option of creating and using another virtual network, if needed. 
+1. While configuring the network settings on your device, make sure that there is a virtual switch associated with a network interface on your device that can be used for the VM resources and VMs. We will use the default virtual network created with the vswitch for this article. You have the option of creating and using a different virtual network, if needed. 
 
 2. Enable cloud management of VMs from the Azure portal. Download a VHD onto your device, and create a VM image from the VHD.
 
-3. Reserve vCPUs on the device for HPN VMs with versions 2209 and earlier. For versions 2210 and later, the vCPUs are automatically reserved.
+3. Reserve vCPUs on the device for HPN VMs with versions 2209 and earlier. For version 2210, the vCPUs are automatically reserved.
 
 4. Use the resources created in the previous steps:
 
@@ -68,7 +56,7 @@ The high-level summary of the HPN deployment workflow is as follows:
 
    And create or specify the following resources inline: 
 
-   1. For the VM name, choose a supported HPN VM size, and specify sign-in credentials for the VM.
+   1. Specify a VM name, choose a supported HPN VM size, and specify sign-in credentials for the VM.
    1. Create new data disks or attach existing data disks. 
    1. Configure static or dynamic IP for the VM. If you're providing a static IP, choose from a free IP in the subnet range of the default virtual network. 
 
@@ -78,7 +66,7 @@ The high-level summary of the HPN deployment workflow is as follows:
 
 Before you begin to create and manage VMs on your device via the Azure portal, make sure that:
 
-### [2210 and later](#tab/2210)
+### [2210](#tab/2210)
 
 - You've configured and activated your Azure Stack Edge Pro GPU device as described in [Tutorial: Activate Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-activate.md).
 
@@ -97,14 +85,6 @@ Before you begin to create and manage VMs on your device via the Azure portal, m
   To customize the configuration, use the steps provided for 2209.  
 
   If you were using a custom configuration and need to switch to the default configuration, use the Set-HcsNumaLpMapping -UseSkuPolicy cmdlet. Note that changing the Skupolicy configuration will result in a device reboot. 
-
-  The following cmdlets show or customize the vCPU set.
-
-    | Cmdlet | Description |
-    |-------|----------|
-    |Get-HcsNumaPolicy |Shows the available NUMA policies on your device. |
-    |Set-HcsNumaLpMapping |Set a NUMA logical processor policy. You can use the ```-UseSkuPolicy``` parameter instead of specifying arrays of indexes. You also have the option to specify a custom logical processor set. This cmdlet also stops VMs for you.|
-    |Get-HcsNumaLpMapping |Confirm that a vCPU reservation has been applied to your device. |
 
 - Use the following steps to get information about the SkuPolicy settings on your device:
 
@@ -134,12 +114,12 @@ Before you begin to create and manage VMs on your device via the Azure portal, m
      [DBE-BNVGF33.microsoftdatabox.com]: PS>
      ```
 
-  3a. Run the following command to get the vCPU reservation information on your device when a Skupolicy is in effect:
+  1. Run the following command to get the vCPU reservation information on your device when a Skupolicy is in effect:
 
      This cmdlet will output:
-    1. The Azure Stack Edge hardware NUMA logical processor information.
-    2. The NUMA logical processors for HPN VMs.
-    3. The NUMA logical processors used by HPN VMs and NUMA logical processors available for new HPN VM deployments on each NUMA node in the cluster.
+     1. The Azure Stack Edge hardware NUMA logical processor information.
+     2. The NUMA logical processors for HPN VMs.
+     3. The NUMA logical processors used by HPN VMs and NUMA logical processors available for new HPN VM deployments on each NUMA node in the cluster.
 
        ```powershell
        Get-HcsNumaLpMapping
@@ -167,77 +147,23 @@ Before you begin to create and manage VMs on your device via the Azure portal, m
         { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
         ```
 
-  3b. Run the following command to get the vCPU reservation information from your device when the ALLROOT policy is used:
+  1. Run the following command to set a NUMA logical processor mapping on your device. You can use the `-UseSkuPolicy` parameter instead of specifying arrays of indexes. You also have the option to specify a custom logical processor set. This cmdlet also stops VMs for you.
 
-    ```powershell
-    Get-HcsNumaLpMapping
-    ```
+     ```powershell
+     Set-HcsNumaLpMapping -UseSkuPolicy
+     ```
 
-    Here's an example output:
+     Here's an example output:
 
-    ```powershell
-    [DBE-BNVGF33.microsoftdatabox.com]: PS>Get-HcsNumaLpMapping
-    Hardware:
-      { Numa Node #0 : CPUs [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
-      { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
+     ```powershell
+     [DBE-BNVGF33.microsoftdatabox.com]: Set-HcsNumaLpMapping -UseSkuPolicy
+     Requested Config already exists. No action needed.
 
-    HpnCapableLpMapping:
-      { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
-      { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
-
-    BNVGF33:
-    HpnLpMapping:
-      { Numa Node #0 : CPUs [] }
-      { Numa Node #1 : CPUs [] }
-    HpnLpAvailable:
-      { Numa Node #0 : CPUs [] }
-      { Numa Node #1 : CPUs [] }
-
-    DBE-BNVGF33.microsoftdatabox.com]: PS>
-    ```
-
-4. Run the following command to set a NUMA logical processor mapping on your device. 
-
-   ```powershell
-   Set-HcsNumaLpMapping -UseSkuPolicy
-   ```
-
-   Here's an example output:
-
-   ```powershell
-   [DBE-BNVGF33.microsoftdatabox.com]: Set-HcsNumaLpMapping -UseSkuPolicy
-   Requested Config already exists. No action needed.
-
-   [DBE-BNVGF33.microsoftdatabox.com]: PS> Set-HcsNumaLpMapping -UseAllRoot
-   Requested Configuration requires a reboot...
-   Machine will reboot in some time. Please be patient.
-   [DBE-BNVGF33.microsoftdatabox.com]: PS>
-   ```
-
-1. Validate the vCPU reservation. You don't have to specify type or hostname.
-
-   ```powershell
-   Get-HcsNumaLpMapping
-   ```
-   The output should not show the indexes you set. If you see the indexes you set in the output, the Set command did not complete successfully. In this case, retry the command and, if the problem persists, contact Microsoft Support. 
-
-   Here's an example output:
-
-   ```powershell
-   [dbe-1csphq2.microsoftdatabox.com]: PS>hostname 1CSPHQ2
-   [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName 1CSPHQ2
-     { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
-     { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
-        
-   [dbe-1csphq2.microsoftdatabox.com]:PS>
-      ```
-1. Restart the VMs that you had stopped in the earlier step. 
-
-    ```powershell
-    start-vm
-    ```
-    
-1. Wait for the device to finish rebooting. Once the device is running, open a new PowerShell session. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
+     [DBE-BNVGF33.microsoftdatabox.com]: PS> Set-HcsNumaLpMapping -UseAllRoot
+     Requested Configuration requires a reboot...
+     Machine will reboot in some time. Please be patient.
+     [DBE-BNVGF33.microsoftdatabox.com]: PS>
+     ```
 
 ### [2209 and earlier](#tab/2209)
 
@@ -290,13 +216,6 @@ In addition to the above prerequisites that are used for VM creation, you'll als
        [dbe-1csphq2.microsoftdatabox.com]: PS>
        ```
 
-    6. Use the following cmdlets to check or customize the CPU set.
-
-       | Cmdlet | Description |
-       |-------|----------|
-       |Set-HcsNumaLpMapping |Set a policy. You also have the option to specify a custom logical processor set.|
-       |Get-HcsNumaLpMapping |Confirm that a setting has been applied. |
-
     1. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
            
        ```powershell
@@ -319,8 +238,8 @@ In addition to the above prerequisites that are used for VM creation, you'll als
 
        > [!Note]
        > - You can choose to reserve all the logical indexes from both NUMA nodes shown in the example or a subset of the indexes. If you choose to reserve a subset of indexes, pick the indexes from the device node that has a Mellanox network interface attached to it, for best performance. For Azure Stack Edge Pro GPU, the NUMA node with Mellanox network interface is #0. 
-       > - The list of logical indexes must contain a paired sequence of an odd number and an even number. For example, ((4,5)(6,7)(10,11)). Attempting to set a list of numbers such as 5,6,7 or pairs such as 4,6 will not work. 
-       > - Using two Set-HcsNuma commands consecutively to assign vCPUs will reset the configuration. Also, do not free the CPUs using the Set-HcsNuma cmdlet if you have deployed an HPN VM.
+       > - The list of logical indexes must contain a paired sequence of an odd number and an even number. For example, ((4,5)(6,7)(10,11)). Attempting to set a list of numbers such as `5,6,7` or pairs such as `4,6` will not work. 
+       > - Using two `Set-HcsNuma` commands consecutively to assign vCPUs will reset the configuration. Also, do not free the CPUs using the Set-HcsNuma cmdlet if you have deployed an HPN VM.
 
        > [!NOTE] 
        > Devices that are updated to 2210 from earlier versions will keep their minroot configuration from before upgrade.
@@ -333,7 +252,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
       Get-HcsNumaLpMapping
       ```
 
-      The output should not show the indexes you set. If you see the indexes you set in the output, the Set command did not complete successfully. Retry the command and if the problem persists, contact Microsoft Support. 
+      The output should not show the indexes you set. If you see the indexes you set in the output, the `Set` command did not complete successfully. Retry the command and if the problem persists, contact Microsoft Support. 
 
       Here is an example output. 
 
@@ -384,6 +303,9 @@ Follow these steps to create an HPN VM on your device.
     ![Screenshot that shows the Details tab on the Overview pane for a virtual machine in Azure Stack Edge. The VM size and the IP Address in Networking are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network/add-high-performance-network-virtual-machine-4.png)
 
     You'll use the IP address for the network interface to connect to the VM.
+
+   > [!NOTE]
+   > If the vCPUs are not reserved for HPN VMs prior to the deployment, the deployment will fail with FabricVmPlacementErrorInsufficientNumaNodeCapacity error.
 
 ## Next steps
 
