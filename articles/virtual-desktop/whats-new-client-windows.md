@@ -24,7 +24,7 @@ The client can be configured to enable Windows Insider releases. The following t
 
 *Date published: 11/16/2022*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 - Added User Datagram Protocol (UDP) support to the client's ARM64 platform.
 - Fixed an issue where the tooltip didn't disappear when the user moved the mouse cursor away from the tooltip area.
