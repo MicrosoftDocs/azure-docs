@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 11/16/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to migrate an Azure Stack Edge device from managed to self-service IoT Edge Linux VM, so that I can efficiently manage my VMs. 
 ---
@@ -18,7 +18,10 @@ ms.author: alkohli
 
 This article provides general guidance on how to move your native/managed IoT Edge workloads to the IoT Edge running on a Linux VM on Azure Stack Edge. 
 
-We use an example that uses an IoT Edge running on an Ubuntu VM on Azure Stack Edge. We recommend that you deploy the latest IoT Edge version in a Linux VM to run IoT Edge workloads on Azure Stack Edge. The native/managed IoT Edge on Azure Stack Edge uses an older version of IoT Edge runtime (IoT Edge version 1.1) that doesn’t have the latest features and updates. For more information, see [IoT Edge v1.1 EoL: What does that mean for me?](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137). 
+> [!NOTE]
+> We use an example in this article that uses an IoT Edge running on an Ubuntu VM on Azure Stack Edge. We recommend that you deploy the latest IoT Edge version in a Linux VM to run IoT Edge workloads on Azure Stack Edge.
+<br>
+> The native/managed IoT Edge on Azure Stack Edge uses an older version of IoT Edge runtime (IoT Edge version 1.1) that doesn’t have the latest features and updates. For more information, see [IoT Edge v1.1 EoL: What does that mean for me?](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137). 
 
 ## IoT migration workflow
 
@@ -43,7 +46,7 @@ Else, remove this section.>>
 
 ## Step 1. Create an IoT Edge device on Linux using symmetric Keys
 
-Create and provision an IoT Edge device on Linux using symmetric keys. For detailed steps, see [Create and provision an IoT Edge device on Linux using symmetric keys](../iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-1.4&tabs=azure-portal%2Cubuntu). 
+Create and provision an IoT Edge device on Linux using symmetric keys. For detailed steps, see [Create and provision an IoT Edge device on Linux using symmetric keys](../iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-1.4&tabs=azure-portal%2Cubuntu).
 
 ## Step 2. Install and provision an IoT Edge on a Linux VM
 
