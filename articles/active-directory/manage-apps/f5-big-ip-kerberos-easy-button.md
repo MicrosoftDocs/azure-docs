@@ -154,7 +154,7 @@ Some settings are global, which can be reused for publishing more applications, 
 4. Confirm the BIG-IP connects to your tenant.
 5. Select **Next**.
 
-### Service Provider settings
+### Service Provider
 
 The Service Provider settings are the properties for the SAML SP instance of the application protected through SHA.
 
@@ -192,7 +192,7 @@ For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add.**
 #### Azure Configuration
 
 1. Enter a **Display Name** for the app that BIG-IP creates in your Azure AD tenant, and the icon in [MyApps portal](https://myapplications.microsoft.com/).
-2. Leave the **Sign On URL (optional)** blank to enable IdP initiated sign-on.
+2. Leave the **Sign On URL** (optional) blank to enable IdP initiated sign-on.
 
    ![Screenshot for Azure configuration add display info](./media/f5-big-ip-kerberos-easy-button/azure-config-display-name.png)
 
