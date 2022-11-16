@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 author: samuel100
 ms.author: samkemp
-ms.date: 05/11/2022
+ms.date: 11/04/2022
 ms.custom: devx-track-python, data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
 ---
@@ -23,7 +23,7 @@ ms.custom: devx-track-python, data4ml, event-tier1-build-2022
 Azure Machine Learning lets you bring data from a local machine or an existing cloud-based storage. In this article you will learn the main data concepts in Azure Machine Learning, including:
 
 > [!div class="checklist"]
-> - [**URIs**](#uris) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it very easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`. If you want to consume a file as an input of a job, You can define this job input by providing `type` as `uri_file`, `path` as where the file is.
+> - [**URIs**](#uris) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it very easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`. If you want to consume a file as an input of a job, you can define this job input by providing `type` as `uri_file`, `path` as where the file is.
 > - [**MLTable**](#mltable) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in python you could use `uri_file`, `uri_folder`.
 > - [**Data asset**](#data-asset) - If you plan to share your data (URIs or MLTables) in your workspace to team members, or you want to track data versions, or track lineage, you can create data assets from URIs or MLTables you have. But if you didn't create data asset, you can still consume the data in jobs without lineange tracking, version management, etc.
 > - [**Datastore**](#datastore) - Azure Machine Learning Datastores securely keep the connection information(storage container name, credentials) to your data storage on Azure, so you don't have to code it in your scripts. You can use AzureML datastore uri and relative path to your data to point to your data. You can also register files/folders in your AzureML datastore into data assets.
@@ -342,6 +342,8 @@ df = tbl.to_pandas_dataframe()
 If the schema of the data changes, then it can be updated in a single place (the MLTable file) rather than having to make code changes in multiple places.
 
 Just like `uri_file` and `uri_folder`, you can create a data asset with `mltable` types.
+
+For more information about the MLTable YAML schema, see [CLI (v2) mltable YAML schema](./reference-yaml-mltable.md).
 
 ## Next steps 
 

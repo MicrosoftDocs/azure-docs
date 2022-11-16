@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 09/22/2022
+ms.date: 10/26/2022
 ms.author: radeltch
 
 ---
@@ -582,7 +582,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    vm.dirty_background_bytes = 314572800
    </code></pre>
    
-    c. Make sure vm.swappiness is set to 10 to avoid [hang issues with backups/compression on NetAPP filesystem] (https://me.sap.com/notes/2080199) as well as to reduce swap usage and favor memory.
+    c. Make sure vm.swappiness is set to 10 to reduce swap usage and favor memory.
 
    <pre><code>sudo vi /etc/sysctl.conf
    # Change/set the following setting

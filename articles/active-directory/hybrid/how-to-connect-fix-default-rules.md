@@ -4,7 +4,6 @@ description: Learn how to fix modified default rules that come with Azure AD Con
 services: active-directory
 author: billmath
 manager: amycolannino
-editor: curtand
 ms.reviewer: darora10
 ms.service: active-directory
 ms.workload: identity

@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 10/27/2022
 ms.author: victorh
 ---
 
@@ -66,6 +66,8 @@ Based on the Azure Virtual Desktop (AVD) [reference article](../virtual-desktop/
 | Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | wvdportalstorageblob.blob.core.usgovcloudapi.net |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | IP Address       | 169.254.169.254, 168.63.129.16    |
 | Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | FQDN             | ocsp.msocsp.com |
+
+---
 
 > [!NOTE]
 > Some deployments might not need DNS rules. For example, Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.

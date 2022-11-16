@@ -1,5 +1,5 @@
 ---
-title: 'Register and scan Azure Blob Storage'
+title: 'Discover and govern Azure Blob Storage'
 description: This article outlines the process to register an Azure Blob Storage data source in Microsoft Purview including instructions to authenticate and interact with the Azure Blob Storage Gen2 source
 author: athenads
 ms.author: athenadsouza
@@ -11,7 +11,7 @@ ms.custom: template-how-to, ignite-fall-2021, references_regions
 
 # Connect to Azure Blob storage in Microsoft Purview
 
-This article outlines the process to register an Azure Blob Storage account in Microsoft Purview including instructions to authenticate and interact with the Azure Blob Storage source
+This article outlines the process to register and govern Azure Blob Storage accounts in Microsoft Purview including instructions to authenticate and interact with the Azure Blob Storage source
 
 ## Supported capabilities
 

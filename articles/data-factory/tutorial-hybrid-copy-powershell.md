@@ -325,8 +325,9 @@ In this step, you link your Azure storage account to the data factory.
     ```
 
 1. In PowerShell, switch to the *C:\ADFv2Tutorial* folder.
+
    ```powershell
-   Set-Location 'C:\ADFv2Tutorial'    
+   Set-Location 'C:\ADFv2Tutorial'
    ```
 
 1. To create the linked service, AzureStorageLinkedService, run the following `Set-AzDataFactoryV2LinkedService` cmdlet:
@@ -429,7 +430,8 @@ In this step, you create input and output datasets. They represent input and out
 ### Create a dataset for the source SQL Server database
 In this step, you define a dataset that represents data in the SQL Server database instance. The dataset is of type SqlServerTable. It refers to the SQL Server linked service that you created in the preceding step. The linked service has the connection information that the Data Factory service uses to connect to your SQL Server instance at runtime. This dataset specifies the SQL table in the database that contains the data. In this tutorial, the **emp** table contains the source data.
 
-1. Create a JSON file named *SqlServerDataset.json* in the *C:\ADFv2Tutorial* folder, with the following code:  
+1. Create a JSON file named *SqlServerDataset.json* in the *C:\ADFv2Tutorial* folder, with the following code:
+
     ```json
     {  
         "name":"SqlServerDataset",
