@@ -1,22 +1,22 @@
 --- 
-title: Quickstart for using Azure App Configuration with Python apps using the Azure SDK for Python | Microsoft Docs
-description: In this quickstart, create a Python app with the Azure SDK for Python to centralize storage and management of application settings separate from your code.
+title: Using Azure App Configuration with Python apps with the Azure SDK for Python | Microsoft Docs
+description: This document shows examples of how to use the Azure SDK for Python to access your data in Azure App Configuration.
 services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: python
-ms.topic: quickstart
-ms.custom: devx-track-python, mode-other, engagement-fy23
-ms.date: 10/21/2022
+ms.topic: sample
+ms.custom: devx-track-python, mode-other
+ms.date: 11/16/2022
 ms.author: malev
-#Customer intent: As a Python developer, I want to manage all my app settings in one place.
+#Customer intent: As a Python developer, I want to use the Azure SDK for Python to access my data in Azure App Configuration.
 ---
-# Quickstart: Create a Python app with the Azure SDK for Python
+# Create a Python app with the Azure SDK for Python
 
-This document describes how to use the Azure SDK for Python to centralize storage and management of application settings using the [Azure App Configuration client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
+This document shows examples of how to use the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration) to access your data in Azure App Configuration.
 
 >[!TIP]
-> App Configuration also offers a convenient Python provider library that helps developers centralize their application configurations. The Python provider library is built on top of the Python SDK and is designed to be easier to use. It enables configuration settings to be used like a dictionary, and offers other features like configuration composition from multiple labels, key name trimming, and automatic resolution of Key Vault references. Go to the [Python quickstart](./quickstart-python-provider.md) to learn more.
+> App Configuration offers a Python provider library that is built on top of the Python SDK and is designed to be easier to use with richer features. It enables configuration settings to be used like a dictionary, and offers other features like configuration composition from multiple labels, key name trimming, and automatic resolution of Key Vault references. Go to the [Python quickstart](./quickstart-python-provider.md) to learn more.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ This document describes how to use the Azure SDK for Python to centralize storag
 
 ## Setting up the Python app
 
-1. In this tutorial, you'll create a new directory for the project named *app-configuration-quickstart*.
+1. Create a new directory for the project named *app-configuration-quickstart*.
 
     ```console
     mkdir app-configuration-quickstart
