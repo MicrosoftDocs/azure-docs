@@ -5,7 +5,7 @@ author: v-ksreedevan
 ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 11/16/2022
 ---
 
 # Azure Migrate: Common questions
