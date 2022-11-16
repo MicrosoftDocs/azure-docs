@@ -74,33 +74,35 @@ There are two ways snmptrapd can send SNMP traps to Azure Monitor Agent:
     
 To edit the output behavior configuration of snmptrapd on Red Hat, CentOS, and Oracle Linux: 
 
-    1. Open the `/etc/snmp/snmptrapd.conf` file: 
-        
-        ```bash
-        sudo vi /etc/sysconfig/snmptrapd
-        ```    
-    1. Add this line to the `LOGGING` section of the file to format the logs for collection by Azure Monitor Agent:
-     
-        ```bash
-        format2 snmptrap %a %B %y/%m/%l %h:%j:%k %N %W %q %T %W %v \n
-        ```
-        
-        > [!NOTE]
-        > snmptrapd logs both traps and daemon messages - for example, service stop and start - to the same log file. In the example above, we’ve defined the log format to start with the word “snmptrap” to make it easy to filter snmptraps from the log later on.  
-  
-    1. Run the command line,     
+1. Open the `/etc/snmp/snmptrapd.conf` file: 
     
-        Here’s an example configuration:  
-          
-        `# snmptrapd command line options# '-f' is implicitly added by snmptrapd systemd unit file# OPTIONS="-Lsd"OPTIONS="-m ALL -Ls2 -Lf /var/log/snmptrapd"`  
-          
-        The options in this example configuration are:  
+    ```bash
+    sudo vi /etc/sysconfig/snmptrapd
+    ```    
+1. Add this line to the `LOGGING` section of the file to format the logs for collection by Azure Monitor Agent:
+    
+    ```bash
+    format2 snmptrap %a %B %y/%m/%l %h:%j:%k %N %W %q %T %W %v \n
+    ```
+    
+    > [!NOTE]
+    > snmptrapd logs both traps and daemon messages - for example, service stop and start - to the same log file. In the example above, we’ve defined the log format to start with the word “snmptrap” to make it easy to filter snmptraps from the log later on.  
+
+1. Run the command line,     
+
+    Here’s an example configuration:  
+
+    ```bash        
+    # snmptrapd command line options# '-f' is implicitly added by snmptrapd systemd unit file# OPTIONS="-Lsd"OPTIONS="-m ALL -Ls2 -Lf /var/log/snmptrapd"
+    ```  
         
-          - `-m ALL` - Load all MIB files in the default directory.
-          - `-Ls2` - Output traps to syslog, to the Local2 facility.
-          - `-Lf /var/log/snmptrapd` - Log traps to the `/var/log/snmptrapd` file. 
-         
-    For more information, see: 
-    - https://www.net-snmp.org/docs/man/snmpcmd.html for how to set output options. 
-    - https://www.net-snmp.org/docs/man/snmptrapd.html for how to set formatting options. 
+    The options in this example configuration are:  
+    
+        - `-m ALL` - Load all MIB files in the default directory.
+        - `-Ls2` - Output traps to syslog, to the Local2 facility.
+        - `-Lf /var/log/snmptrapd` - Log traps to the `/var/log/snmptrapd` file. 
+        
+For more information, see: 
+- https://www.net-snmp.org/docs/man/snmpcmd.html for how to set output options. 
+- https://www.net-snmp.org/docs/man/snmptrapd.html for how to set formatting options. 
     
