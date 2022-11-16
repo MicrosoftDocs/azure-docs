@@ -95,17 +95,11 @@ To update the monthly or yearly price of a SaaS or Azure app offer:
     1. Export the prices using **Export pricing data**.
     2. Update the prices for each market in the downloaded spreadsheet and save it.
     3. Import the spreadsheet using **Import pricing data**.
-7. To change prices across all markets, edit the desired **billing term price** box.
+1. 7. To change prices across all markets, edit the desired **billing term price** box.
 
-1. 
-1. 
-1. 
-    
-1. 
-    
-1. > [!NOTE]
-    > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-    
+    ```
+    If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
+    ```
 8. Select **Save draft**.
 9. Confirm you understand the effects of changing the price by entering the **ID of the plan**.
 10. Verify the current and new prices on the **Compare** page, which is accessible from the top of the pricing and availability page.
@@ -134,15 +128,9 @@ To update the per user monthly or yearly fee of a SaaS offer:
     1. Export the prices using **Export pricing data**.
     2. Update the prices for each market in the downloaded spreadsheet and save it.
     3. Import the spreadsheet using **Import pricing data**.
-7. To change prices across all markets, edit the desired **billing term price** box.
+1. 7. To change prices across all markets, edit the desired **billing term price** box.
 
-1. 
-1. 
-1. 
-    
-1. 
-    
-1. > [!NOTE]
+    > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
     
 8. Select **Save draft**.
@@ -176,14 +164,7 @@ To update the price per unit of a meter dimension of a SaaS or Azure app offer:
     4. Import the spreadsheet using **Import pricing data**.
 1. To change prices across all markets:
     1. Locate the dimension to update.
-    1. Edit the **Price per unit in USD** box.
-
-1. 
-1. 
-1. 
-    
-1. 
-    
+    1- Edit the **Price per unit in USD** box.
 1. > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
     
@@ -222,15 +203,9 @@ To update the price per core or per core size of a VM offer.
     2. Update the market and core size prices in the downloaded spreadsheet and save it.
     3. Import the spreadsheet using **Import pricing data**.
 
-7. To change prices across all markets:
+1. 7. To change prices across all markets:
 
-1. 
-1. 
-1. 
-    
-1. 
-    
-1. > [!NOTE]
+    > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
     
 1. **Per core**: Edit the price per core in the **USD/hour** box.
@@ -257,6 +232,7 @@ After the price change is canceled, follow the steps in the appropriate part of 
 ## Next steps
 
 - Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+
 
 
 
