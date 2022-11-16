@@ -207,8 +207,8 @@ You can modify the downloaded profile XML file and add the **\<excluderoutes>\<r
 ```
 
 > [!NOTE]
-> 1. The default status for clientconfig tag is <clientconfig i:nil="true" />, which can be modified based on the requirement.
-> 2. Duplicate clientconfig tag is not supported on Mac OS, hence make sure the clientconfig tag is not duplicated in the XML file.
+> - The default status for clientconfig tag is <clientconfig i:nil="true" />, which can be modified based on the requirement.
+> - Duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
 >
 
 ## Next steps
