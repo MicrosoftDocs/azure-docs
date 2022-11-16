@@ -2,7 +2,7 @@
 title: Application Insights funnels
 description: Learn how you can use funnels to discover how customers are interacting with your application.
 ms.topic: conceptual
-ms.date: 10/24/2022
+ms.date: 11/15/2022
 ms.reviewer: mmcc
 ---
 
