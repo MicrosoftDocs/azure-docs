@@ -32,8 +32,8 @@ Currently, the following dynamic content options are available for a workflow co
 | |Asset.Classification	|The display names of classifications of the asset |
 | |Asset.Certified	|The indicator of whether the asset meets your organization's quality standards and can be regarded as reliable  |
 |Start and wait for an approval |Approval.Outcome |The outcome of the approval  |
-| |Approval.Assigned To  |The ids of the approvers |
-| |Approval.Comments |The ids of the approvers |
+| |Approval.Assigned To  |The IDs of the approvers |
+| |Approval.Comments |The IDs of the approvers |
 |Check data source registration for data use governance |DataUseGovernance |The result of the data use governance check|
 |When term creation request is submitted  |Workflow.Requestor |The requestor of the workflow  |
 | |Term.Name |The name of the term |
