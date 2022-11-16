@@ -34,7 +34,7 @@ For information on how to configure service health notification alerts by using 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
-## Create Service Health alert using Azure portal
+## Create a Service Health alert using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Service Health**.
 
     ![The "Service Health" service](media/alerts-activity-log-service-notifications/home-servicehealth.png)
