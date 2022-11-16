@@ -2,7 +2,7 @@
 title: Create a simplified node communication pool without public IP addresses (preview)
 description: Learn how to create an Azure Batch simplified node communication pool without public IP addresses.
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 11/14/2022
 ms.custom: references_regions
 ---
 
@@ -85,7 +85,7 @@ The example below shows how to use the [Batch Service REST API](/rest/api/batchs
 ### REST API URI
 
 ```http
-POST {batchURL}/pools?api-version=2020-03-01.11.0
+POST {batchURL}/pools?api-version=2022-10-01.16.0
 client-request-id: 00000000-0000-0000-0000-000000000000
 ```
 
@@ -93,15 +93,15 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 
 ```json
 "pool": {
-     "id": "pool2",
-     "vmSize": "standard_a1",
+     "id": "pool-npip",
+     "vmSize": "standard_d2s_v3",
      "virtualMachineConfiguration": {
           "imageReference": {
                "publisher": "Canonical",
-               "offer": "UbuntuServer",
-               "sku": "18.04-lts"
+               "offer": "0001-com-ubuntu-server-jammy",
+               "sku": "22_04-lts"
           },
-          "nodeAgentSKUId": "batch.node.ubuntu 18.04"
+          "nodeAgentSKUId": "batch.node.ubuntu 22.04"
      }
      "networkConfiguration": {
           "subnetId": "/subscriptions/<your_subscription_id>/resourceGroups/<your_resource_group>/providers/Microsoft.Network/virtualNetworks/<your_vnet_name>/subnets/<your_subnet_name>",
@@ -110,20 +110,15 @@ client-request-id: 00000000-0000-0000-0000-000000000000
           }
      },
      "resizeTimeout": "PT15M",
-     "targetDedicatedNodes": 5,
+     "targetDedicatedNodes": 2,
      "targetLowPriorityNodes": 0,
-     "taskSlotsPerNode": 3,
+     "taskSlotsPerNode": 1,
      "taskSchedulingPolicy": {
           "nodeFillType": "spread"
      },
      "enableAutoScale": false,
-     "enableInterNodeCommunication": true,
-     "metadata": [
-          {
-               "name": "myproperty",
-               "value": "myvalue"
-          }
-     ]
+     "enableInterNodeCommunication": false,
+     "targetNodeCommunicationMode": "simplified"
 }
 ```
 

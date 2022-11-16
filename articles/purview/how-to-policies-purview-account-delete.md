@@ -6,12 +6,10 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 11/16/2022
 ms.custom:
 ---
 # Impact of deleting Microsoft Purview account on access policies
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Important considerations 
 Deleting a Microsoft Purview account that has active (that is, published) policies will remove those policies. This means that the access to data sources or datasets that was previously provisioned via those policies will also be removed. This can lead to outages, that is, users or groups in your organization not able to access critical data. Review the decision to delete the Microsoft Purview account with the people in Policy Author role at root collection level before proceeding. To find out who holds that role in the Microsoft Purview account, review the section on managing role assignments in this [guide](./how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).

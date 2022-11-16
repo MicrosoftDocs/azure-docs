@@ -1,7 +1,7 @@
 ---
 title: Manage sensors with Defender for IoT in the Azure portal
 description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
-ms.date: 09/08/2022
+ms.date: 11/13/2022
 ms.topic: how-to
 ---
 
@@ -15,6 +15,27 @@ Before you can use the procedures in this article, you'll need to have network s
 
 - [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
 - [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
+
+## View your sensors
+
+All of your currently cloud-connected sensors, including both OT and Enterprise IoT sensors, are listed in the **Sites and sensors** page. For example:
+
+:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sites-and-sensors-page.png" alt-text="Screenshot showing the Sites and sensors page." lightbox="media/how-to-manage-sensors-on-the-cloud/sites-and-sensors-page.png":::
+
+Details about each sensor are listed in the following columns:
+
+|Column name |Description  |
+|---------|---------|
+|**Sensor name**| Displays the name that you assigned to the sensor during the registration. |
+|**Sensor type**| Displays whether the sensor is locally connected, cloud-connected, or EIoT. |
+|**Zone**| Displays the zone that contains this sensor.|
+|**Subscription name**| Displays the name of the Microsoft Azure account subscription that this sensor belongs to. |
+|**Sensor version**| Displays the software version installed on your sensor. |
+|**Sensor status**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview).|
+|**Last connected (UTC)**| Displays how long ago the sensor was last connected.|
+|**Threat Intelligence version**| Displays the [Threat Intelligence version](how-to-work-with-threat-intelligence-packages.md) installed on the sensor. The name of the version is based on the day the package was built by Defender for IoT. |
+|**Threat Intelligence mode**| Displays whether the Threat Intelligence mode is manual or automatic. If it's manual, that means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages will be automatically installed on the cloud connected sensors. |
+|**Threat Intelligence update status**| Displays the update status of the Threat Intelligence package. The status can be either **Failed**, **In Progress**, **Update Available**, or **Ok**.|
 
 ## Site management options from the Azure portal
 
