@@ -48,7 +48,7 @@ To create a new file in a different folder:
 
 ## Manage files with Git
 
-[Use a compute instance terminal](how-to-access-terminal.md#git) to clone and manage Git repositories.
+[Use a compute instance terminal](how-to-access-terminal.md#git) to clone and manage Git repositories. To integrate Git with your Azure Machine Learning workspace, see  [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## Clone samples
 
