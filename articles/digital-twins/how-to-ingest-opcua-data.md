@@ -16,9 +16,17 @@ ms.service: digital-twins
 
 # Ingesting OPC UA data with Azure Digital Twins
 
-The [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a platform independent, service-oriented architecture for industrial verticals. It's used for machine to machine communication, machine to SCADA system or Manufacturing Execution System communication and more recently also for field-level communication and cloud communication. It comes with best-in-class security and rich data modeling capabilities. Microsoft has been a member of the OPC Foundation, OPC UA's non-profit governing body since its foundation. Microsoft has been integrating OPC UA into its products since 2015 and has been instrumental in defining the use of OPC UA in the cloud.
+The [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a platform independent, service-oriented architecture for industrial verticals. It's used for machine to machine communication, machine to SCADA system or Manufacturing Execution System communication and more recently also for field-level communication and cloud communication. It comes with best-in-class security and rich data modeling capabilities and represents the standard bar none for modelling and communicating with industrial assets. Microsoft has been a member of the OPC Foundation, OPC UA's non-profit governing body since its foundation. Microsoft has been integrating OPC UA into its products since 2015 and has been instrumental in defining the use of OPC UA in the cloud.
 
-Getting OPC UA data to flow from on-premises systems to Azure Digital Twins in the cloud requires two applications and a message broker service to be deployed. This article shows how to configure these apps and services.
+Leveraging the solution outlined below has several advantages over traditional mechanisms:
+
+1. Open: By leveraging open standards like OPC UA and the ISA95 ontology, you are not locked into a solution architecture you will never be able to leave again.
+
+2. Cost optimized: By leveraging OPC UA and ISA95 data models you should already be familiar with, you can save money and effort and simply use what you already have.
+
+3. Time optimized: Since the ingestion happens completely automatically, it eliminates the need for you to create a digital twin ontology from scratch.
+
+Learn more about the [manufacturing ontologies](https://github.com/digitaltwinconsortium/ManufacturingOntologies) leveraged in this solution.
 
 ## Architecture
 
@@ -55,7 +63,7 @@ Once the deployment is complete in the Azure portal, follow these steps to confi
 
 6. Open the URL of the deployed Azure Web App service in a browser and fill in the two fields under Settings and click Apply. The Azure Event Hubs connection string can be read for Azure IoT Hub under "Built-in Endpoints" -> "Event Hub-compatible endpoint" in the Azure portal.
 
-You can use Azure Digital Twins Explorer to monitor twin property updates.
+You can use Azure Digital Twins Explorer to monitor twin property updates and add aditional relationships to the digital twins created, for example the order of machines in your production lines.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/adt-explorer-2.png" alt-text="Screenshot of using azure digital twins explorer to monitor twin property updates":::
 
