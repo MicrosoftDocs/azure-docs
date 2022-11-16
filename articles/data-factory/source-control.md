@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/26/2022
+ms.date: 11/16/2022
 ---
 
 # Source control in Azure Data Factory
