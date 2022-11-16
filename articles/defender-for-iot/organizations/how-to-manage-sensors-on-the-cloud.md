@@ -34,7 +34,7 @@ Details about each sensor are listed in the following columns:
 |**Sensor status**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview).|
 |**Last connected (UTC)**| Displays how long ago the sensor was last connected.|
 |**Threat Intelligence version**| Displays the [Threat Intelligence version](how-to-work-with-threat-intelligence-packages.md) installed on the sensor. The name of the version is based on the day the package was built by Defender for IoT. |
-|**Threat Intelligence mode**| Displays whether the Threat Intelligence mode is manual or automatic. If it's manual, that means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages will be automatically installed on the cloud connected sensors. |
+|**Threat Intelligence mode**| Displays whether the Threat Intelligence mode is manual or automatic. If it's manual that means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages will be automatically installed on the cloud connected sensors. |
 |**Threat Intelligence update status**| Displays the update status of the Threat Intelligence package. The status can be either **Failed**, **In Progress**, **Update Available**, or **Ok**.|
 
 ## Site management options from the Azure portal
@@ -69,7 +69,7 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-export.png" border="false"::: **Export sensor data**     |  Available from the **Sites and sensors** toolbar only, to download a CSV file with details about all the sensors listed.       |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-export.png" border="false"::: **Download an activation file**     |   Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page.      |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false"::: **Edit a sensor zone**     |    For individual sensors only, from the **...** options menu or a sensor details page.  <br><br>Select **Edit**, and then select a new zone from the **Zone** menu or select **Create new zone**. Select **Submit** to save your changes.    |
-|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false":::  **Create an activation command**     | Individual, Enterprise IoT sensors only. <br><br>Available from the **...** options menu or a sensor details page.  Select **Edit** and   then select **Create activation command**. <br><br>For more information, see [Install sensor software](eiot-sensor.md#install-sensor-software).        |
+|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false":::  **Create an activation command**     | Individual, Enterprise IoT sensors only. <br><br>Available from the **...** options menu or a sensor details page.  Select **Edit** and   then select **Create activation command**. <br><br>For more information, see [Install Enterprise IoT sensor software](eiot-sensor.md#install-enterprise-iot-sensor-software).        |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false":::  **Edit automatic threat intelligence updates**     | Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page.  <br><br>Select **Edit** and then toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes. |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-delete.png" border="false"::: **Delete a sensor**    |   For individual sensors only, from the **...** options menu or a sensor details page.      |
 | :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support (Public preview)](#upload-a-diagnostics-log-for-support-public-preview).|
@@ -85,9 +85,9 @@ You may need to reactivate an OT sensor because you want to:
 
 - **Work in locally managed mode instead of cloud-connected mode**: After reactivation, sensor detection information is displayed only in the sensor console.
 
-- **Associate the sensor to a new site**:  To do this, re-register the sensor with new site definitions and use the new activation file to activate.
+- **Associate the sensor to a new site**:  Re-register the sensor with new site definitions and use the new activation file to activate.
 
-In such cases, do the following:
+In such cases, do the following steps:
 
 1. [Delete your existing sensor](#sensor-management-options-from-the-azure-portal).
 1. [Onboard the sensor again](onboard-sensors.md#onboard-ot-sensors), registering it with any new settings.
@@ -154,7 +154,7 @@ If you need to open a support ticket for a locally managed sensor, upload a diag
 
 1. Make sure you have the diagnostics report available for upload. For more information, see [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support).
 
-1. In Defender for IoT in the Azure portal, go to the **Sites and sensors** page and select the locally-managed sensor that's related to your support ticket.
+1. In Defender for IoT in the Azure portal, go to the **Sites and sensors** page and select the locally managed sensor that's related to your support ticket.
 
 1. For your selected sensor, select the **...** options menu on the right > **Send diagnostic files to support (Preview)**. For example:
 

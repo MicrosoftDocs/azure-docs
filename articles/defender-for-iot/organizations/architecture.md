@@ -44,11 +44,11 @@ When you have a cloud connected sensor:
 
 - The sensor name defined during onboarding is the name displayed in the sensor, and is read-only from the sensor console.
 
-In contrast, when working with locally-managed sensors:
+In contrast, when working with locally managed sensors:
 
 - View any data for a specific sensor from the sensor console. For a unified view of all information detected by several sensors, use an on-premises management console. For more information, see [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md).
 
-- You must manually upload any threat intelligence packages to locally-managed sensors.
+- You must manually upload any threat intelligence packages to locally managed sensors.
 
 - Sensor names can be updated in the sensor console.
 

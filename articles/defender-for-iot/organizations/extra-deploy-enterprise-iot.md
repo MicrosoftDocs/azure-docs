@@ -1,6 +1,6 @@
 ---
 title: Extra deployment steps and samples for Enterprise IoT deployment - Microsoft Defender for IoT
-description: Describes additional deployment and validation procedures to use when deploying an Enterprise IoT network sensor.
+description: Describes extra deployment and validation procedures to use when deploying an Enterprise IoT network sensor.
 ms.topic: how-to
 ms.date: 08/08/2022
 ---
@@ -41,7 +41,7 @@ If you've jumped to this procedure from the tutorial procedure for [Prepare a ph
 
 ## Validate your Enterprise IoT sensor setup
 
-If, after completing the Enterprise IoT sensor installation and setup, you don't see your sensor showing on the **Sites and sensors** page in the Azure portal, this procedure can help validate your installation directly on the sensor.
+If after completing the Enterprise IoT sensor installation and setup, you don't see your sensor showing on the **Sites and sensors** page in the Azure portal, this procedure can help validate your installation directly on the sensor.
 
 Wait 1 minute after your sensor installation has completed before starting this procedure.
 

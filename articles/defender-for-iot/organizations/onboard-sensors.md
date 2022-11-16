@@ -15,11 +15,11 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 
 1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **Sensor**.
 
-1. Do one of the following:
+1. Do one of the following steps:
 
     - **To buy a pre-configured appliance**, select **Contact** under **Buy preconfigured appliance**.
 
-        This opens an email to [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com) with a template request for Defender for IoT appliances. For more information, see [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md).
+        This link opens an email to [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com) with a template request for Defender for IoT appliances. For more information, see [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md).
 
     - **To install software on your own appliances**, do the following:
 
@@ -51,7 +51,7 @@ Onboard an OT sensor by registering it with Microsoft Defender for IoT and downl
 
 1. In **Step 3: Register this sensor with Microsoft Defender for IoT** enter or select the following values for your sensor:
 
-    1. In the **Sensor name** field, enter a meaningful name for your sensor.  We recommend including your sensor's IP address as part of the name, or using another easily identifiable name, that can help you keep track between the registration name in the Azure portal and the IP address of the sensor shown in the sensor console.
+    1. In the **Sensor name** field, enter a meaningful name for your sensor.  We recommend including your sensor's IP address as part of the name, or using another easily identifiable name, to help you keep track between the registration name in the Azure portal and the IP address of the sensor shown in the sensor console.
 
     1. In the **Subscription** field, select your Azure subscription.
 

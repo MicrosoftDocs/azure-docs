@@ -24,7 +24,7 @@ Before performing the procedures in this article, make sure that you have:
 
 ## Calculate committed devices for OT monitoring
 
-If you're adding a plan with a monthly or annual commitment, you'll be asked to enter the number of [committed devices](billing.md#defender-for-iot-committed-devices), which are are the approximate number of devices that will be monitored in your enterprise.
+If you're adding a plan with a monthly or annual commitment, you'll be asked to enter the number of [committed devices](billing.md#defender-for-iot-committed-devices), which are the approximate number of devices that will be monitored in your enterprise.
 
 We recommend that you make an initial estimate of your committed devices when onboarding your Defender for IoT plan. You can skip this procedure if you're adding a trial plan.
 
@@ -101,10 +101,10 @@ If the actual number of devices exceeds the number of committed devices on your 
 
 1. Select the **I accept the terms** option, and then select **Save**.
 
-Changes to your plan will take effect one hour after confirming the change.  This change will appear on your next monthly statement, and you will be charged based on the length of time each plan was in effect.
+Changes to your plan will take effect one hour after confirming the change.  This change will appear on your next monthly statement, and you'll be charged based on the length of time each plan was in effect.
 
 > [!NOTE]
-> **For an on-premises management console:** After any changes are made, you will need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. For more information, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
+> **For an on-premises management console:** After any changes are made, you'll need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. For more information, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
 
 ## Cancel a Defender for IoT plan
 
@@ -127,7 +127,7 @@ You may need to cancel a Defender for IoT plan from your Azure subscription, for
 
 1. In the plan cancellation dialog, confirm that you've removed all associated sensors, and then select **Confirm cancellation**.
 
-Your changes take effect one hour after confirmation. This change will be reflected in your upcoming monthly statement, and you will only be charged for the time that the subscription was active.
+Your changes take effect one hour after confirmation. This change will be reflected in your upcoming monthly statement, and you'll only be charged for the time that the subscription was active.
 
 ## Move existing sensors to a different subscription
 
@@ -137,7 +137,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 - Devices will be synchronized from the sensor to the new subscription automatically.
 
-- Manual edits made in the portal will not be migrated.
+- Manual edits made in the portal won't be migrated.
 
 - New alerts created by the sensor will be created under the new subscription, and existing alerts in the old subscription can be closed in bulk.
 
@@ -159,7 +159,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 
 > [!NOTE]
-> If the previous subscription was connected to Microsoft Sentinel, you will need to connect the new subscription to Microsoft Sentinel and remove the old subscription. For more information, see [Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md).
+> If the previous subscription was connected to Microsoft Sentinel, you'll need to connect the new subscription to Microsoft Sentinel and remove the old subscription. For more information, see [Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md).
 
 ## Next steps
 
