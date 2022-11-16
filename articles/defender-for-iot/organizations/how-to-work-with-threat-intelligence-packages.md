@@ -75,39 +75,35 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 **To upload to a single sensor:**
 
-1. Go to the Microsoft Defender for IoT **Updates** page.
+1. In Defender for IoT on the Azure portal, go to the **Get started** > **Updates** tab.
 
-2. Download and save the **Threat Intelligence** package.
+1. In the **Sensor threat intelligence update** box, select **Download file** to download the latest threat intelligence package.
 
-3. Sign in to the sensor console.
+1. Sign in to the sensor console, and then select **System settings** > **Threat intelligence**. 
+
+1. In the **Threat intelligence** pane, select **Upload file**. For example:
 
     :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-TI-single-sensor.png" alt-text="Upload Threat Intelligence package to a single sensor." lightbox="media/how-to-work-with-threat-intelligence-packages/update-TI-single-sensor.png":::
 
-4. On the side menu, select **System Settings**.
-
-5. Select **Threat Intelligence**, and then select **Upload file**.
-
-6. Upload the new package.
+1. Browse to and select the package you'd downloaded from the Azure portal and upload it to the sensor.
 
 **To upload to multiple sensors simultaneously:**
 
-1. Go to the Microsoft Defender for IoT **Updates** page.
+1. In Defender for IoT on the Azure portal, go to the **Get started** > **Updates** tab.
 
-2. Download and save the **Threat Intelligence** package.
+1. In the **Sensor threat intelligence update** box, select **Download file** to download the latest threat intelligence package.
 
-3. Sign in to the management console.
+1. Sign in to the management console and select **System settings**. 
+
+1. In the **Sensor Engine Configuration** area, select the sensors that you want to recieve the upated packages. For example: <!--this image should have only the System settings and Sensor Engine Configuration section highlighted, not save changes. Also, have the Sensor Engine Configuration box stretch over the contoso-hotels sensor area to show what the user is actually selecting.-->
 
     :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png" alt-text="Upload Threat Intelligence package to multiple sensors." lightbox="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png":::
 
-4. On the side menu, select **System Settings**.
+1. In the **Sensor Threat Intelligence Data** section, select the plus sign (**+**). 
 
-5. In the **Sensor Engine Configuration** section, select the sensors that should receive the updated packages.  
+1. In the **Upload File** dialog, select **BROWSE FILE...** to browse to and select the update package. For example: <!--do this and show a screenshot, with the Sensor Threat Intelligence section highlighted-->
 
-6. Select **SAVE CHANGES**.
-
-7. In the **Select Threat Intelligence Data** section, select the plus sign (**+**).
-
-8. Upload the package.
+1. Select **CLOSE** and then **SAVE CHANGES** to push the threat intelligence update to all selected sensors.
 
 ## Review package update status on the sensor
 
