@@ -18,11 +18,11 @@ ms.collection: M365-identity-device-management
  
 # Using multi-stage reviews to meet your attestation and certification needs in Azure AD 
 
-Azure AD Access Reviews support up to three review stages, in which multiple types of reviewers engage in determining who still needs access to company resources. This could be membership in groups or teams, access to applications, assignments to privileged roles, or access package assignments. When review administrators configure the review for automatic application of decisions, at the end of the review period, access is revoked for denied users.
+Azure AD Access Reviews support up to three review stages, in which multiple types of reviewers engage in determining who still needs access to company resources. These reviews could be for membership in groups or teams, access to applications, assignments to privileged roles, or access package assignments. When review administrators configure the review for automatic application of decisions, at the end of the review period, access is revoked for denied users.
 
 ## Use cases for multi-stage reviews
 
-Multi-stage access reviews allow you and your organization to enable complex workflows to meet recertification and audit requirements calling for multiple reviewers to attest to access for users in a particular sequence. It also helps you design more efficient reviews for your resource owners and auditors by reducing the number of decisions each reviewer is accountable for. This allows for combining otherwise disjoint, separate reviews for the same resource, to be combined in one access review.
+Multi-stage access reviews allow you and your organization to enable complex workflows to meet recertification and audit requirements calling for multiple reviewers to attest to access for users in a particular sequence. It also helps you design more efficient reviews for your resource owners and auditors by reducing the number of decisions each reviewer is accountable for. This approach allows for combining otherwise disjoint, separate reviews for the same resource, to be combined in one access review.
 
 :::image type="content" source="media/using-multi-stage-reviews/new-access-reviews.png" alt-text="Screenshot of new access reviews." lightbox="media/using-multi-stage-reviews/new-access-reviews.png":::
 
@@ -30,13 +30,14 @@ Here are some scenarios you may want to consider:
 
 - **Reach consensus across multiple sets of reviewers:** Let two audiences of reviewers independently review access to a resource. You can configure reviews such that both stages of reviewers must agree on *Approved* without seeing each other’s decisions.
 - **Assign alternate reviewers to weigh in on unreviewed decisions:** Let the resource owner attest to access to their resource in stage 1. Then, users for which no decision has been recorded go to a second stage reviewer, such as the user’s manager or an auditing team, who review the undecided requests. 
-- **Reduce burden on later-stage reviewers:** Reviews can be configured such that earlier-stage-denied users will not be reviewed by later stages, allowing for later stage reviewers to see a filtered-down list.     
+- **Reduce burden on later-stage reviewers:** Reviews can be configured such that earlier-stage-denied users won't be reviewed by later stages, allowing for later stage reviewers to see a filtered-down list.     
 
 ## Reach consensus across multiple sets of reviewers  
 
-Reaching quorum on the right access for users could be difficult.  Especially for resources that a lot of users have access to, or for a diverse group or users that need to be reviewed, it is hard for any single reviewer to make the right choices for all reviewees. Reaching consensus by giving three different reviewer groups the opportunity to record decisions and by showing what the earlier reviewer audiences said helps drive consensus on who should have access to the resource. 
+Reaching quorum on the right access for users could be difficult. For resources that many users have access to, or for a diverse group or users that need to be reviewed, it's especially hard for any single reviewer to make the right choices for all reviewees. Reaching consensus by giving three different reviewer groups the opportunity to record decisions and by showing what the earlier reviewer audiences said helps drive consensus on who should have access to the resource. 
 
-An example for this would be a review that consists of three stages that determines group membership to a group which governs access to a resource. In the review settings, the administrator chooses to not show decisions of earlier stage reviewers. This allows for every review audience, for example the user’s manager, the group owner and a security officer to review access independently. The three stages are lined up with increased importance of reviewer audience weight, with decisions from the last reviewer audience potentially overwriting earlier-stage reviewer’s decisions.
+An example would be a review that consists of three stages that determines group membership to a group that governs access to a resource. In the review settings, the administrator chooses to not show decisions of earlier stage reviewers. This configuration allows for every review audience, for example the user’s manager, the group owner and a security officer to review access independently. The three stages are lined up with increased importance of reviewer audience weight, with decisions from the last reviewer audience potentially overwriting earlier-stage reviewer’s decisions.
+
 The configuration for this scenario would look like this:
 
  | Attribute | Configuration |
@@ -49,11 +50,11 @@ The configuration for this scenario would look like this:
  |Reviewees going to the next stage|Select all|
  |If reviewers don’t respond|Remove access|
 
-## Assign alternate reviewers to weigh in on un-reviewed decisions 
+## Assign alternate reviewers to weigh in on unreviewed decisions 
 
-For scenarios that you need decisions recorded and need to make sure that access is preserved for the right people, multi-stage reviews let you progress a subset of reviewees to the next stage, that potentially need a second reviewer audience for double-checking or decision making. Customers can use this pattern to ensure that there are fewer un-reviewed users or users marked as **Don’t know**, by progressing these reviewees to another stage, and having another group of reviewers take decisions.
+For scenarios that you need decisions recorded and need to make sure that access is preserved for the right people, multi-stage reviews let you progress a subset of reviewees to the next stage, that potentially needs a second reviewer audience for double-checking or decision making. Customers can use this pattern to ensure that there are fewer unreviewed users or users marked as **Don’t know**, by progressing these reviewees to another stage, and having another group of reviewers take decisions.
 
-An example for this would be review that contains of two stages, that determines access to an application. In the review settings, the review administrator chooses to **Show previous stage(s) decisions to later stage reviewers**. For **Reviewees going to the next stage**, the decisions that need confirmation would be added: to ensure all reviewees have a decision, select **reviewees marked as ‘Don’t know’** and **Not reviewed reviewees**, so that later-stage reviewers only see the undecided or unsure reviewees to retain the right access.
+An example for this would be review that contains of two stages that determines access to an application. In the review settings, the review administrator chooses to **Show previous stage(s) decisions to later stage reviewers**. For **Reviewees going to the next stage**, the decisions that need confirmation would be added: to ensure all reviewees have a decision, select **reviewees marked as ‘Don’t know’** and **Not reviewed reviewees**, so that later-stage reviewers only see the undecided or unsure reviewees to retain the right access.
 
  | Attribute | Configuration |
  |:--- |:---:|
@@ -66,7 +67,7 @@ An example for this would be review that contains of two stages, that determines
 
 ## Reduce burden on later stage reviewers 
 
-For reviews that may contain many reviewees, or users to be reviewed and attested, you may want to require all end users to self-attest before they are reviewed by a resource owner or their manager in a later stage. This model allows for filtering reviewees from stage to stage, progressing reviewees that have self-approved, only. 
+For reviews that may contain many reviewees, or users to be reviewed and attested, you may require all end users to self-attest before they're reviewed by a resource owner or their manager in a later stage. This model allows for filtering reviewees from stage to stage, progressing reviewees that have self-approved, only. 
 
 Later stage reviewers, such as user’s managers, or the resource owner, only see the reduced list of reviewees – those that approved previously. The number of reviewees per stage decreases stage by stage. Only the users that have been approved through all three stages preserve access.
 
@@ -82,15 +83,15 @@ An example of this would be a review of a group that grants an IT exception, tha
  |Reviewees going to the next stage|Select **Approved reviewees**|
  |If reviewers don’t respond|Remove Access|
 
-:::image type="content" source="media/using-multi-stage-reviews/multi-stage-reviews.png" alt-text="Screenshot of new access reviews." lightbox="media/using-multi-stage-reviews/multi-stage-reviews.png":::
+:::image type="content" source="media/using-multi-stage-reviews/multi-stage-reviews.png" alt-text="Screenshot of multi-stage reviews." lightbox="media/using-multi-stage-reviews/multi-stage-reviews.png":::
 
 ## Guest user reviews
 
-Guest user reviews include organizations that leverage Azure AD B2B for collaboration, invite users from another company into their tenant, creating guest user accounts for assigning, and tracking and reviewing access to resources. These guest users’ access should be reviewed regularly to check on whether collaboration is still desired in order to facilitate a clean up of guest user accounts that are no longer needed.
+Guest user reviews include organizations that use Azure AD B2B for collaboration, users invited from another company into their tenant, guest user accounts created for assigning, and resources for tracking and reviewing access. These guest users’ access should be reviewed regularly to check on whether collaboration is still desired in order to facilitate a cleanup of guest user accounts that are no longer needed.
 
-This scenario can be configured with multi-stage reviews similarly to how the reduce reviewee list by filtering works, by asking guest users to self-review and attest their continued interest and need for collaboration, and only then letting an internal employee approve or deny continued access or collaboration.
+This scenario can be configured with multi-stage reviews similarly to how the reduce reviewee list by filtering works. First, ask guest users to self-review and attest their continued interest and need for collaboration, and only then letting an internal employee approve or deny continued access or collaboration.
 
-For guest user review scenarios, Access Reviews supports an additional configuration option: **Action to apply on denied guest users**, that can result in either:
+For guest user review scenarios, Access Reviews supports an extra configuration option: **Action to apply on denied guest users**, that can result in either:
 
 - Remove user’s membership from the resource
 - Block user from signing-in for 30 days, then remove user from the tenant
@@ -114,7 +115,7 @@ Depending on your review needs, guest users that aren’t responding to the revi
 
 Review administrators define the duration of every review stage and therefore, how much time reviewers in their stage have to record their decisions. Each stage can be configured to have its own duration, to cater for availability and expectation of reviewers.
 
-:::image type="content" source="media/using-multi-stage-reviews/using-multi-stage-reviews.png" alt-text="Screenshot of new access reviews." lightbox="media/using-multi-stage-reviews/using-multi-stage-reviews.png":::
+:::image type="content" source="media/using-multi-stage-reviews/using-multi-stage-reviews.png" alt-text="Screenshot of using multi-stage reviews." lightbox="media/using-multi-stage-reviews/using-multi-stage-reviews.png":::
 
 Each review stage will stay open for reviewers to add decisions for the length of the duration. Review administrators can stop a running stage and automatically progress the overall review to the next review stage on the reviewer overview page, by selecting **Stop current stage**.
 
@@ -126,7 +127,7 @@ Decisions are collected by reviewers for every stage. The setting **Reviewees go
 
 For all decisions, the last decision recorded for a reviewee is applied at the end of the review. Decisions that were made for Jane in the first stage of the review, can in stage two and stage three be overwritten by later-stage reviewers.
 
-If the **Reviewees going to the next stage** setting is set such that only a subset of reviewees progress to later stages, it may be that decisions made in the first stage are applied at the end of the review. If the review administrator configured a three-stage review, and wants only **Denied** and **Not reviewed** reviewees to progress to the next stages, if Jane was approved in the first stage, she will not progress to the later stages and her **Approve** decision is recorded and at the end of the review, applied.
+If the **Reviewees going to the next stage** setting is set such that only a subset of reviewees progress to later stages, it may be that decisions made in the first stage are applied at the end of the review. If the review administrator configured a three-stage review, and wants only **Denied** and **Not reviewed** reviewees to progress to the next stages, if Jane was approved in the first stage, she won't progress to the later stages and her **Approve** decision is recorded and at the end of the review, applied.
 
 ## Next steps
 - [What are Azure AD access reviews](access-reviews-overview.md)
