@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 You need to establish an authentication mechanism when using [Azure Container Registry (ACR)][acr-intro] with Azure Kubernetes Service (AKS). This operation is implemented as part of the Azure CLI, Azure PowerShell, and Azure portal experiences by granting the required permissions to your ACR. This article provides examples for configuring authentication between these Azure services.
 
-You can set up the AKS to ACR integration in a few steps using the Azure CLI, Azure PowerShell, or Azure portal. The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Azure Active Directory (AAD) **managed identity**][aad-identity] associated with your AKS cluster.
+You can set up the AKS to ACR integration in a few steps using the Azure CLI, Azure PowerShell, or Azure portal. The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Azure Active Directory (Azure AD) **managed identity**][aad-identity] associated with your AKS cluster.
 
 > [!NOTE]
 > This article covers automatic authentication between AKS and ACR. If you need to pull an image from a private external registry, use an [image pull secret][image-pull-secret].
@@ -26,7 +26,7 @@ You can set up the AKS to ACR integration in a few steps using the Azure CLI, Az
 
 ## Create a new AKS cluster with ACR integration
 
-You can set up AKS and ACR integration during the creation of your AKS cluster. To allow an AKS cluster to interact with ACR, an AAD managed identity is used.
+You can set up AKS and ACR integration during the creation of your AKS cluster. To allow an AKS cluster to interact with ACR, an Azure AD managed identity is used.
 
 ### Create an ACR
 
@@ -56,7 +56,7 @@ New-AzContainerRegistry -Name $MYACR -ResourceGroupName myContainerRegistryResou
 
 ### Create a new AKS cluster and integrate with an existing ACR
 
-If you have already have an ACR, use the following command to create a new AKS cluster with ACR integration. This command allows you to authorize an existing ACR in your subscription and configures the appropriate **AcrPull** role for the managed identity. Supply valid values for your parameters below.
+If you already have an ACR, use the following command to create a new AKS cluster with ACR integration. This command allows you to authorize an existing ACR in your subscription and configures the appropriate **AcrPull** role for the managed identity. Supply valid values for your parameters below.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -239,7 +239,7 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 
 ### Troubleshooting
 
-* Run the [az aks check-acr](/cli/azure/aks#az-aks-check-acr) command to validate that the registry is accessible from the AKS cluster.
+* Run the [`az aks check-acr`](/cli/azure/aks#az-aks-check-acr) command to validate that the registry is accessible from the AKS cluster.
 * Learn more about [ACR monitoring](../container-registry/monitor-service.md).
 * Learn more about [ACR health](../container-registry/container-registry-check-health.md).
 
@@ -247,13 +247,13 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 
 [image-pull-secret]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 [summary-msi]: use-managed-identity.md#summary-of-managed-identities
-[acr-pull]: ../role-based-access-control/built-in-roles#acrpull
+[acr-pull]: ../role-based-access-control/built-in-roles.md#acrpull
 [azure-cli-install]: /cli/azure/install-azure-cli
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [acr-intro]: ../container-registry/container-registry-intro.md
 [aad-identity]: ../active-directory/managed-identities-azure-resources/overview.md
-[rbac-owner]: ../role-based-access-control/built-in-roles#owner
-[rbac-classic]: ../role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles
+[rbac-owner]: ../role-based-access-control/built-in-roles.md#owner
+[rbac-classic]: ../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles
 [kubelet]: https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/
 [ps-detach]: /powershell/module/az.aks/set-azakscluster#-acrnametodetach
 [cli-param]: /cli/azure/aks#az-aks-update-optional-parameters
