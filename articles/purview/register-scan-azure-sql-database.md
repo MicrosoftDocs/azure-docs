@@ -1,5 +1,5 @@
 ---
-title: 'Register and scan Azure SQL DB'
+title: 'Discover and govern Azure SQL DB'
 description: This article outlines the process to register an Azure SQL database in Microsoft Purview including instructions to authenticate and interact with the Azure SQL DB source
 author: athenads
 ms.author: athenadsouza
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/28/2022
 ms.custom: template-how-to
 ---
-# Connect to Azure SQL Database in Microsoft Purview
+# Discover and govern Azure SQL Database in Microsoft Purview
 
 This article outlines the process to register an Azure SQL data source in Microsoft Purview including instructions to authenticate and interact with the Azure SQL database source
 
@@ -384,8 +384,9 @@ Once your data source has the **Data Use Management** option *Enabled*, it will 
 ### Create a policy
 To create an access policy for Azure SQL Database, follow these guides:
 * [DevOps policy on a single Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#create-a-new-devops-policy)
-* [Data owner policy on a single Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on a single Azure SQL Database account in your subscription.
-* [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md) - This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled. 
+* [Data owner policy on a single Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy)
+
+To create policies that cover all data sources inside a resource group or Azure subscription you can refer to [this section](register-scan-azure-multiple-sources.md#access-policy).
 
 ## Lineage (Preview) 
 <a id="lineagepreview"></a>

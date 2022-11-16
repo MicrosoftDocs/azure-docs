@@ -890,6 +890,8 @@ items:
         href: ./synapse-link/connect-synapse-link-sql-database.md
       - name: Configure Synapse Link with managed virtual network
         href: ./synapse-link/connect-synapse-link-sql-database-vnet.md
+      - name: Monitor Synapse Link
+        href: ./synapse-link/how-to-monitor-synapse-link-sql-database.md
       - name: Known limitations and issues
         href: ./synapse-link/synapse-link-for-sql-known-issues.md
       - name: Troubleshoot
@@ -904,6 +906,8 @@ items:
         href: ./synapse-link/connect-synapse-link-sql-server-2022.md
       - name: Configure Synapse Link with managed virtual network
         href: ./synapse-link/connect-synapse-link-sql-server-2022-vnet.md
+      - name: Monitor Synapse Link
+        href: ./synapse-link/how-to-monitor-synapse-link-sql-server-2022.md
       - name: Known limitations and issues
         href: ./synapse-link/synapse-link-for-sql-known-issues.md
     - name: Dataverse

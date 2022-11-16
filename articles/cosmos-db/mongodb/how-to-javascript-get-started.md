@@ -108,7 +108,7 @@ Skip this step and use the information for the portal in the next step.
 
     :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/101-client-connection-string/index.js" id="package_dependencies":::
 
-2. Define a new instance of the ``MongoClient,`` class using the constructor, and [``process.env.``](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env) to use the connection string.
+2. Define a new instance of the ``MongoClient`` class using the constructor, and [``process.env.``](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env) to use the connection string.
 
     :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/101-client-connection-string/index.js" id="client_credentials":::
 
