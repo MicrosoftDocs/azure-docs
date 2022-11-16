@@ -29,7 +29,7 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 --- | ---
 CPU cores | 8
 RAM | 32 GB
-Number of disks | 3, including the OS disk - 80 GB, data disk 1 - 620 GB, data disk 2 - 620 GB
+Number of disks | 2, including the OS disk - 80 GB and a data disk - 620 GB
 
 ### Software requirements
 
@@ -63,13 +63,50 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   |`*.microsoftonline.com `|Create Azure Active  Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
   |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
   |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
-  |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure machines to replicate have access to this. |
+  |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure that the machines which need to be replicated have access to this. |
   |aka.ms |Allow access to also known as links. Used for Azure Site Recovery appliance updates. |
   |download.microsoft.com/download |Allow downloads from Microsoft download. |
   |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
   |`*.discoverysrv.windowsazure.com `<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Connect to Azure Site Recovery micro-service URLs.
   |`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks. |
 
+Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity, when enabling replication to a government cloud:
+
+
+
+
+  | **URL for Fairfax**                  | **URL for Mooncake**                             | **Details**                             |
+  | ------------------------- | -------------------------------------------| -------------------------------------------|
+  | `login.microsoftonline.us/*` <br> `graph.microsoftazure.us` | `login.chinacloudapi.cn/*` <br> `graph.chinacloudapi.cn` | To sign-in to your Azure subscription.  |
+  | `portal.azure.us`          |    `portal.azure.cn`           |Navigate to the Azure portal. | 
+  | `*.microsoftonline.us/*` <br> `management.usgovcloudapi.net` | `*.microsoftonline.cn/*` <br> `management.chinacloudapi.cn/*` | Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
+  | `*.hypervrecoverymanager.windowsazure.us` <br> `*.migration.windowsazure.us` <br> `*.backup.windowsazure.us` | `*.hypervrecoverymanager.windowsazure.cn` <br> `*.migration.windowsazure.cn` <br> `*.backup.windowsazure.cn` | Connect to Azure Site Recovery micro-service URLs. |
+  |`*.vault.usgovcloudapi.net`| `*.vault.azure.cn` |Manage secrets in the Azure Key Vault. Note: Ensure that the machines which need to be replicated have access to this. |
+
+
+Mooncake
+  =========
+https://portal.azure.cn/
+https://management.chinacloudapi.cn//.default
+https://login.chinacloudapi.cn
+https://login.chinacloudapi.cn/<tenantid>/oauth2/deviceauth
+https://graph.chinacloudapi.cn
+https://management.chinacloudapi.cn
+https://login.chinacloudapi.cn/login.srf
+https://portal.partner.microsoftonline.cn/#
+https://portal.partner.microsoftonline.cn/login?IdentityProvider=aad&ru=%2Fdefault.aspx
+https://login.chinacloudapi.cn/common
+
+  FAIRFAX
+  =======
+
+https://login.microsoftonline.us/<tenantid>/oauth2/deviceauth
+https://management.usgovcloudapi.net//.default
+https://login.microsoftonline.us/
+https://graph.microsoftazure.us
+https://management.usgovcloudapi.net
+https://login.microsoftonline.us/login.srf
+https://portal.azure.us/#
 
 ### Folder exclusions from Antivirus program
 
