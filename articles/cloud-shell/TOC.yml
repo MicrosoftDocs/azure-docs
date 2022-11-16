@@ -18,8 +18,8 @@
       href: /azure/developer/ansible/dynamic-inventory-configure?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
   - name: Terraform
     items:
-    - name: Create an execution plan
-      href: example-terraform-bash.md
+    - name: Install and configure Terraform
+      href: /azure/developer/terraform/quickstart-configure?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
 - name: Concepts
   items:
   - name: Security

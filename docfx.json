@@ -365,7 +365,7 @@
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-fabric/*.md": "sukanyamsft",
         "articles/service-health/*.md": "rboucher",
-        "articles/site-recovery/*.md": "jsuri",
+        "articles/site-recovery/*.md": "ankitaduttaMSFT",
         "articles/stream-analytics/*.md": "sidramadoss",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/virtual-machines/*.md": "cynthn",
@@ -1175,6 +1175,8 @@
         "articles/virtual-machines/windows/sql/**/*.yml": "SQL Server on Azure VM",
         "articles/virtual-machines/workloads/**/*.md": "Azure Virtual Machines",
         "articles/virtual-machines/workloads/**/*.yml": "Azure Virtual Machines",
+        "articles/cost-management-billing/**/*.md": "Microsoft Cost Management",
+        "articles/cost-management-billing/**/*.yml": "Microsoft Cost Management",
         "articles/azure-center-sap-solutions/*.md": "Azure Center for SAP solutions",
         "articles/azure-center-sap-solutions/*.yml": "Azure Center for SAP solutions"
       }

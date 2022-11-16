@@ -1,12 +1,12 @@
 ---
 title: Enable Zone to Zone Disaster Recovery for Azure Virtual Machines
 description: This article describes when and how to use Zone to Zone Disaster Recovery for Azure virtual machines.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: aravindang
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/23/2022
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ms.custom: references_regions
 ---
 

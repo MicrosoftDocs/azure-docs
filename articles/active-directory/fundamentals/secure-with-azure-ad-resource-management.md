@@ -66,7 +66,7 @@ Subscriptions that enable [delegated resource management](../../lighthouse/conce
 
 It's worth noting that Azure Lighthouse itself is modeled as an Azure resource provider, which means that aspects of the delegation across a tenant can be targeted through Azure Policies.
 
-**Microsoft 365 Lighthouse** - [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide) is an admin portal that helps Managed Service Providers (MSPs) secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
+**Microsoft 365 Lighthouse** - [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide&preserve-view=true) is an admin portal that helps Managed Service Providers (MSPs) secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
 
 ## Azure resource management with Azure AD
 
@@ -115,7 +115,7 @@ In a Microsoft Customer Agreement, billing roles come from a single Azure AD ten
 
 ## RBAC and role assignments in Azure
 
-In the Azure AD Fundamentals section, you learned Azure RBAC is the authorization system that provides fine-grained access management to Azure resources, and includes many [built-in roles]../../role-based-access-control/built-in-roles.md). You can create [custom roles](../../role-based-access-control/custom-roles.md), and assign roles at different scopes. Permissions are enforced by assigning RBAC roles to objects requesting access to Azure resources.
+In the Azure AD Fundamentals section, you learned Azure RBAC is the authorization system that provides fine-grained access management to Azure resources, and includes many [built-in roles](../../role-based-access-control/built-in-roles.md). You can create [custom roles](../../role-based-access-control/custom-roles.md), and assign roles at different scopes. Permissions are enforced by assigning RBAC roles to objects requesting access to Azure resources.
 
 Azure AD roles operate on concepts like [Azure role-based access control](../../role-based-access-control/overview.md). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is that Azure RBAC uses Azure Resource Management to control access to Azure resources such as virtual machines or storage, and Azure AD roles control access to Azure AD, applications, and Microsoft services such as Office 365.
 
@@ -260,7 +260,7 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 * Consider a location that is geographically closed to the servers and applications that require Azure AD DS services.
 
-* Consider regions that provide Availability Zones capabilities for high availability requirements. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).
+* Consider regions that provide Availability Zones capabilities for high availability requirements. For more information, see [Regions and Availability Zones in Azure](../../reliability/availability-zones-service-support.md).
 
 **Object provisioning** - Azure AD DS synchronizes identities from the Azure AD that is associated with the subscription that Azure AD DS is deployed into. It's also worth noting that if the associated Azure AD has synchronization set up with Azure AD Connect (user forest scenario) then the life cycle of these identities can also be reflected in Azure AD DS. This service has two modes that can be used for provisioning user and group objects from Azure AD.
 

@@ -4,7 +4,7 @@ description: Learn how to use alerts to receive notifications. Also learn how to
 ms.topic: how-to
 ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 07/23/2021
+ms.date: 10/26/2022
 ---
 
 # Configure Azure Alerts in Azure VMware Solution 

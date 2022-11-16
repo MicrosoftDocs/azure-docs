@@ -67,7 +67,7 @@ The following features are currently in gated public preview. After working with
 |---|---|---|---|---|
 |1|Virtual hub router upgrade: Compatibility with NVA in a hub.|For deployments with an NVA provisioned in the hub, the virtual hub router can't be upgraded to VMSS.| July 2022|The Virtual WAN team is working on a fix that will allow Virtual hub routers to be upgraded to VMSS, even if an NVA is provisioned in the hub. After upgrading, users will have to re-peer the NVA with the hub router’s new IP addresses (instead of having to delete the NVA).|
 |2|Virtual hub router upgrade: Compatibility with NVA in a spoke VNet.|For deployments with an NVA provisioned in a spoke VNet, the customer will have to delete and recreate the BGP peering with the spoke NVA.|March 2022|The Virtual WAN team is working on a fix to remove the need for users to delete and recreate the BGP peering with a spoke NVA after upgrading.|
-|3|Virtual hub router upgrade: More than 100 Spoke VNets connected to the Virtual hub.|If there are more than 100 spoke VNets connected to the virtual hub, then the virtual hub router can't be upgraded.|September 2022|The Virtual WAN team is working on removing this limitation of 100 spoke VNets connected to the virtual hub during the router upgrade.|
+
 
 ## Next steps
 

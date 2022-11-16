@@ -133,7 +133,7 @@ items:
     - name: Authoring API
       items:
       - name: REST API
-      href: https://aka.ms/ct-authoring-apis
+        href: https://aka.ms/ct-authoring-apis
     - name: Runtime prediction API
       items:
       - name: REST API
@@ -225,7 +225,7 @@ items:
     - name: Authoring API
       items:
       - name: REST API
-      href: https://aka.ms/ct-authoring-apis
+        href: https://aka.ms/ct-authoring-apis
     - name: Runtime prediction API
       items:
       - name: REST API

@@ -27,7 +27,7 @@ In this article, you learn how to create a data asset in Azure Machine Learning.
 
 The benefits of creating data assets are:
 
-* You can **share and reuse data** with other members of the team such that they do not need to remember file locations.
+* You can **share and reuse data** with other members of the team such that they don't need to remember file locations.
 
 * You can **seamlessly access data** during model training (on any supported compute type) without worrying about connection strings or data paths.
 
@@ -63,13 +63,13 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 
 
 ## Data asset types
- - [**URIs**](#Create a `uri_folder` data asset) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it very easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`.
+ - [**URIs**](#Create a `uri_folder` data asset) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`.
 
- - [**MLTable**](#Create a `mltable` data asset) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be leveraged in automl. If you just want to create an data asset for a job or you want to write your own parsing logic in python you could use `uri_file`, `uri_folder`.
+ - [**MLTable**](#Create a `mltable` data asset) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be used in AutoML. If you just want to create a data asset for a job or you want to write your own parsing logic in python you could use `uri_file`, `uri_folder`.
 
  The ideal scenarios to use `mltable` are:
  - The schema of your data is complex and/or changes frequently.
- - You only need a subset of data (for example: a sample of rows or files, specific columns, etc).
+ - You only need a subset of data (for example: a sample of rows or files, specific columns, etc.)
  - AutoML jobs requiring tabular data.
  
 If your scenario does not fit the above then it is likely that URIs are a more suitable type.
@@ -223,9 +223,9 @@ To create a File data asset in the Azure Machine Learning studio, use the follow
 - JSON Lines
 - Delta Lake 
 
-Please find more details about what are the abilities we provide via `mltable` in [reference-yaml-mltable](reference-yaml-mltable.md).
+Find more details about what are the abilities we provide via `mltable` in [reference-yaml-mltable](reference-yaml-mltable.md).
 
-In this section, we show you how to create a data asset when the type is an `mltable`.
+In this section, we show you how to create a data asset when the type is a `mltable`.
 
 ### The MLTable file
 
@@ -234,7 +234,7 @@ The MLTable file is a file that provides the specification of the data's schema 
 > [!NOTE]
 > This file needs to be named exactly as `MLTable`.
 
-An *example* MLTable file is provided below:
+An *example* MLTable file for delimited files is provided below:
 
 ```yml
 type: mltable
@@ -243,10 +243,28 @@ paths:
   - pattern: ./*.txt
 transformations:
   - read_delimited:
-      delimiter: ,
+      delimiter: ','
       encoding: ascii
       header: all_files_same_headers
 ```
+
+An *example* MLTable file for Delta Lake is provided below:
+```yml
+type: mltable
+
+paths:
+  - abfss://my_delta_files
+
+transformations:
+  - read_delta_lake:
+      timestamp_as_of: '2022-08-26T00:00:00Z'
+#timestamp_as_of: Timestamp to be specified for time-travel on the specific Delta Lake data.
+#version_as_of: Version to be specified for time-travel on the specific Delta Lake data.
+```
+
+For more transformations available in `mltable`, please look into [reference-yaml-mltable](reference-yaml-mltable.md). 
+
+
 > [!IMPORTANT]
 > We recommend co-locating the MLTable file with the underlying data in storage. For example:
 > 
@@ -260,6 +278,21 @@ transformations:
 > │   ├── file_n.txt
 > ```
 > Co-locating the MLTable with the data ensures a **self-contained *artifact*** where all that is needed is stored in that one folder (`my_data`); regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You should **not** specify *absolute paths* in the MLTable file.
+
+
+### Create an MLTable artifact via Python SDK: from_*
+If you would like to create an MLTable object in memory via Python SDK, you could use from_* methods. 
+The from_* methods does not materialize the data, but rather stores is as a transformation in the MLTable definition.
+
+For example you can use from_delta_lake() to create an in-memory MLTable artifact to read delta lake data from the path `delta_table_path`. 
+```python
+import mltable as mlt
+mltable = from_delta_lake(delta_table_path, timestamp_as_of="2021-01-01T00:00:00Z")
+df = mltable.to_pandas_dataframe()
+print(df.to_string())
+```
+Please find more details about [MLTable Python functions here](/python/api/mltable/mltable).
+
 
 In your Python code, you materialize the MLTable artifact into a Pandas dataframe using:
 
@@ -275,7 +308,7 @@ The `uri` parameter in `mltable.load()` should be a valid path to a local or clo
 > [!NOTE]
 > You will need the `mltable` library installed in your Environment (`pip install mltable`).
 
-Below shows you how to create an `mltable` data asset. The `path` can be any of the supported path formats outlined above.
+Below shows you how to create a `mltable` data asset. The `path` can be any of the supported path formats outlined above.
 
 
 # [Azure CLI](#tab/cli)
