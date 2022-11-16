@@ -61,9 +61,8 @@ print("Server status {}".format(client.admin.command("serverStatus")))
 databases = client.list_database_names()
 print("Databases: {}".format(databases))
 ```
-<!--
+
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/200-admin/run.py" id="server_info":::
--->
 
 The preceding code snippet displays output similar to the following example console output:
 
@@ -76,9 +75,8 @@ Key: ok , Value: 1.0
 Server status {'ok': 1.0}
 Databases: ['adventureworks']
 ```
-<!-- 
+
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/200-admin/run.py" id="console_result":::
--->
 
 ## Does database exist?
 
@@ -100,17 +98,16 @@ else:
     client[DB_NAME].command({"customAction": "CreateDatabase", "offerThroughput": 400})
     print("Created db '{}' with shared throughput.\n".format(DB_NAME))
 ```
-<!--
+
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="does_database_exist":::
--->
+
 The preceding code snippet displays output similar to the following example console output:
 
 ```python
 Database exists: adventureworks
 ```
-<!--
+
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="console_result":::
--->
 
 ## Get list of databases, collections, and document count
 
@@ -140,9 +137,7 @@ for db in databases:
         print("\tDocument count: {}".format(doc_count))
 ```
 
-<!--
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="database_object":::
--->
 
 The preceding code snippet displays output similar to the following example console output:
 
@@ -156,9 +151,8 @@ Database: testdb
         Collection: mycoll
         Document count: 1
 ```
-<!-- 
+
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="console_result":::
--->
 
 ## Get database object instance
 
@@ -186,18 +180,16 @@ else:
     print("Didn't find database: {}".format(DB_NAME))
 ```
 
-<!-- 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/300-drop-database/run.py" id="drop_database":::
--->
+
 The preceding code snippet displays output similar to the following example console output:
 
 ```python
 Enter database name to drop: adventureworks
 Dropping database: adventureworks
 ```
-<!-- 
+
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/300-drop-database/run.py" id="console_result":::
--->
 
 ## See also
 
