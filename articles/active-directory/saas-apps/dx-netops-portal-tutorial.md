@@ -57,7 +57,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
    ![Screenshot shows to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, perform the following steps:-
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** textbox, type a value using the following pattern:
     `<DX NetOps Portal hostname>`
