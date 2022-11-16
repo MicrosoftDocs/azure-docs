@@ -12,22 +12,22 @@ ms.custom: ignite-fall-2021
 
 This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
 
-This page lists new features released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
-
 > [!IMPORTANT]
 > Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+This page lists new features released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
-> [!TIP]
-> Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Microsoft Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
->
-> You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## November 2022
 
-A [new version of the Logstash plugin](connect-logstash-dcr.md) can forward logs from external data sources into custom and standard tables using the DCR based API. The new plugin allows full control over the output schema, including the configuration of the column names and types. 
+A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-dcr.md) leverages the new Azure Monitor Data Collection Rules (DCR) based Logs Ingestion API. The new plugin: 
+
+- Provides data transformation capabilities like filtering, masking, and enrichment. 
+- Allows full control over the output schema, including configuration of the column names and types. 
+- Can forward logs from external data sources into both custom tables and standard tables. 
+- Provides performance improvements, compression, and better telemetry and error handling.
 
 ## October 2022
 
