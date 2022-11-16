@@ -224,6 +224,11 @@
         "source_path_from_root": "/articles/purview/reference-azure-purview-glossary.md",
         "redirect_url": "/azure/purview/reference-microsoft-purview-glossary",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-create-import-export-glossary.md",
+        "redirect_url": "/azure/purview/how-to-create-manage-glossary-term",
+        "redirect_document_id": true
       }
 ]
 }

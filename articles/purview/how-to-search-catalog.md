@@ -87,5 +87,6 @@ The following table contains the operators that can be used to compose a search 
 
 ## Next steps
 
-- [How to create, import, and export glossary terms](how-to-create-import-export-glossary.md)
+- [How to create and manage glossary terms](how-to-create-manage-glossary-term.md)
+- [How to import and export glossary terms](how-to-import-export-glossary.md)
 - [How to manage term templates for business glossary](how-to-manage-term-templates.md)

@@ -325,7 +325,7 @@ To complete the asset migration, you must remap the relationships. There are thr
 > Before migrating terms, you need to migrate the term templates. This step should be already covered in the custom `typedef` migration.
 
 #### Using the Microsoft Purview governance portal
-The quickest way to migrate glossary terms is to [export terms to a .csv file](how-to-create-import-export-glossary.md). You can do this using the Microsoft Purview governance portal.
+The quickest way to migrate glossary terms is to [export terms to a .csv file](how-to-import-export-glossary.md). You can do this using the Microsoft Purview governance portal.
 
 #### Using Microsoft Purview API
 To automate glossary migration, you first need to get the glossary `guid` (`glossaryGuid`) via [List Glossaries API](/rest/api/purview/catalogdataplane/glossary/list-glossaries). The `glossaryGuid` is the top/root level glossary `guid`.

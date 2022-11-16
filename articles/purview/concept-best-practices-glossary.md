@@ -72,7 +72,7 @@ When building new term templates in Microsoft Purview, review the following cons
 - Before importing terms, test the import in a lab environment to ensure that no unexpected results occur, such as duplicate terms. 
 - The email address for Stewards and Experts should be the primary address of the user from the Azure Active Directory group. Alternate email, user principal name and non-Azure Active Directory emails are not yet supported.
 - Glossary terms provide fours status: Draft, Approved, Expired, Alert. Draft is not officially implemented, Approved is official/stand/approved for production, Expired means should no longer be used, Alert need to pay more attention.
-For more information, see [Create, import, and export glossary terms](./how-to-create-import-export-glossary.md)
+For more information, see [the import and export glossary terms article.](./how-to-import-export-glossary.md)
 
 ## Recommendations for exporting glossary terms 
 
@@ -92,4 +92,5 @@ Exporting terms may be useful in Microsoft Purview account to account, Backup, o
 - Other bulk edit operations can be performed by using the Atlas API. An example would be using the API to add descriptions or other custom properties to assets in bulk programmatically.
 
 ## Next steps
--  [Create, import, and export glossary terms](./how-to-create-import-export-glossary.md)
+-  [Import and export glossary terms](./how-to-import-export-glossary.md)
+-  [Create and manage glossary terms](./how-to-create-manage-glossary-term.md)
