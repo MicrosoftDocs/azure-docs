@@ -53,7 +53,7 @@ For the storage account to successfully connect to your private link, it must:
 
 * Be located on your virtual network or a peered network and connected to your virtual network over a private link.
 * Be located on the same region as the workspace it's linked to.
-* Allow Azure Monitor to access the storage account. If you chose to allow only select networks to access your storage account, select the exception **Allow trusted Microsoft services to access this storage account.**
+* Allow Azure Monitor to access the storage account. If you chose to allow only select networks to access your storage account, select the exception **Allow trusted Microsoft services to access this storage account**.
 
   ![Screenshot that shows Storage account trust Microsoft services.](./media/private-storage/storage-trust.png)
 
@@ -62,24 +62,24 @@ If your workspace handles traffic from other networks, configure the storage acc
 Coordinate the TLS version between the agents and the storage account. We recommend that you send data to Log Analytics by using TLS 1.2 or higher. Review the [platform-specific guidance](./data-security.md#sending-data-securely-using-tls-12). If required, [configure your agents to use TLS 1.2](../agents/agent-windows.md#configure-agent-to-use-tls-12). If that's not possible, configure the storage account to accept TLS 1.0.
 
 ### Use a customer-managed storage account for CMK data encryption
-Azure Storage encrypts all data at rest in a storage account. By default, it uses Microsoft-managed keys (MMK) to encrypt the data. However, Azure Storage also allows you to use CMK from Azure Key Vault to encrypt your storage data. You can either import your own keys into Key Vault or use the Key Vault APIs to generate keys.
+Azure Storage encrypts all data at rest in a storage account. By default, it uses Microsoft-managed keys (MMKs) to encrypt the data. However, Azure Storage also allows you to use CMKs from Azure Key Vault to encrypt your storage data. You can either import your own keys into Key Vault or use the Key Vault APIs to generate keys.
 
 #### CMK scenarios that require a customer-managed storage account
 
 A customer-managed storage account is required for:
 
-* Encrypting log-alert queries with CMK.
-* Encrypting saved queries with CMK.
+* Encrypting log-alert queries with CMKs.
+* Encrypting saved queries with CMKs.
 
-#### Apply CMK to customer-managed storage accounts
+#### Apply CMKs to customer-managed storage accounts
 
-Follow this guidance to apply CMK to customer-managed storage accounts.
+Follow this guidance to apply CMKs to customer-managed storage accounts.
 
 ##### Storage account requirements
 The storage account and the key vault must be in the same region, but they also can be in different subscriptions. For more information about Azure Storage encryption and key management, see [Azure Storage encryption for data at rest](../../storage/common/storage-service-encryption.md).
 
-##### Apply CMK to your storage accounts
-To configure your Azure Storage account to use CMK with Key Vault, use the [Azure portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), or the [Azure CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
+##### Apply CMKs to your storage accounts
+To configure your Azure Storage account to use CMKs with Key Vault, use the [Azure portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), or the [Azure CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ## Link storage accounts to your Log Analytics workspace
 
@@ -92,7 +92,7 @@ To configure your Azure Storage account to use CMK with Key Vault, use the [Azur
 > - One storage account for saved log alert queries.
 
 ### Use the Azure portal
-On the Azure portal, open your workspace menu and select **Linked storage accounts**. A pane shows the linked storage accounts by the use cases previously mentioned (ingestion over Private Link, applying CMK to saved queries or to alerts).
+On the Azure portal, open your workspace menu and select **Linked storage accounts**. A pane shows the linked storage accounts by the use cases previously mentioned (ingestion over Private Link, applying CMKs to saved queries or to alerts).
 
 ![Screenshot that shows the Linked storage accounts pane.](./media/private-storage/all-linked-storage-accounts.png)
 
@@ -106,9 +106,9 @@ You can also link a storage account to your workspace via the [Azure CLI](/cli/a
 
 The applicable `dataSourceType` values are:
 
-* `CustomLogs`: To use the storage account for custom logs and IIS logs ingestion
-* `Query`: To use the storage account to store saved queries (required for CMK encryption)
-* `Alerts`: To use the storage account to store log-based alerts (required for CMK encryption)
+* `CustomLogs`: To use the storage account for custom logs and IIS logs ingestion.
+* `Query`: To use the storage account to store saved queries (required for CMK encryption).
+* `Alerts`: To use the storage account to store log-based alerts (required for CMK encryption).
 
 ## Manage linked storage accounts
 
@@ -126,8 +126,8 @@ To stop using a storage account, unlink the storage from the workspace. Unlinkin
 ### Replace a storage account
 To replace a storage account used for ingestion:
 
-1. **Create a link to a new storage account.** The logging agents will get the updated configuration and start sending data to the new storage. The process could take a few minutes.
-2. **Unlink the old storage account so agents will stop writing to the removed account.** The ingestion process keeps reading data from this account until it's all ingested. Don't delete the storage account until you see that all logs were ingested.
+1. **Create a link to a new storage account**. The logging agents will get the updated configuration and start sending data to the new storage. The process could take a few minutes.
+2. **Unlink the old storage account so agents will stop writing to the removed account**. The ingestion process keeps reading data from this account until it's all ingested. Don't delete the storage account until you see that all logs were ingested.
 
 ### Maintain storage accounts
 
