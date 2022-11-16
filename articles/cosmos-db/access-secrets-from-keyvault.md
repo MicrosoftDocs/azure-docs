@@ -22,7 +22,7 @@ ms.date: 11/07/2022
 
 If you're using Azure Cosmos DB as your database, you connect to databases, container, and items by using an SDK, the API endpoint, and either the primary or secondary key.
 
-It's not a good practice to store the endpoint URI and sensitive read-write keys directly within application code or configuration file. Ideally, this data is read from environment variables within the host. In Azure App Service, [app settings](/azure/app-service/configure-common#configure-app-settings) allow you to inject runtime credentials for your Azure Cosmos DB account without the need for developers to store these credentials in an insecure clear text manner.
+It's not a good practice to store the endpoint URI and sensitive read-write keys directly within application code or configuration file. Ideally, this data is read from environment variables within the host. In Azure App Service, [app settings](../app-service/configure-common.md#configure-app-settings) allow you to inject runtime credentials for your Azure Cosmos DB account without the need for developers to store these credentials in an insecure clear text manner.
 
 Azure Key Vault iterates on this best practice further by allowing you to store these credentials securely while giving services like Azure App Service managed access to the credentials. Azure App Service will securely read your credentials from Azure Key Vault and inject those credentials into your running application.
 
