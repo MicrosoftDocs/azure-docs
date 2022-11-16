@@ -231,7 +231,7 @@ The output of the app should be similar to this example:
 
 ## Clean up resources
 
-When you no longer need the Azure Cosmos DB for NoSQL account, you can delete the corresponding resource group.
+When you no longer need the Azure Cosmos DB for MongoDB account, you can delete the corresponding resource group.
 
 ### [Azure CLI](#tab/azure-cli)
 

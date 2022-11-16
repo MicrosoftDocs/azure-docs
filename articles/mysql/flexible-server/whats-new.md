@@ -22,6 +22,22 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > [!NOTE]
 > This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## November 2022
+
+- **Azure Active Directory authentication for Azure Database for MySQL – Flexible Server (General Availability)**
+
+  You can now authenticate to Azure Database for MySQL - Flexible server using Microsoft Azure Active Directory (Azure AD) using identities. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management. [Learn More](concepts-azure-ad-authentication.md)
+
+- **Customer managed keys data encryption – Azure Database for MySQL – Flexible Server (General Availability)**
+
+    With data encryption with customer-managed keys (CMKs) for Azure Database for MySQL - Flexible Server Preview, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data. Data encryption with CMKs is set at the server level. For a given server, a CMK, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. With customer managed keys (CMKs), the customer is responsible for and in a full control of key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys. [Learn More](concepts-customer-managed-key.md)
+
+- **General availability in Azure US Government regions**
+    The Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
+    - USGov Virginia
+    - USGov Arizona
+    - USGov Texas
+
 ## October 2022
 
 - **AMD compute SKUs for General Purpose and Business Critical tiers in in Azure Database for MySQL - Flexible Server**
