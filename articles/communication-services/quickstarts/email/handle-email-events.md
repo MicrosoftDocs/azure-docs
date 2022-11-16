@@ -80,7 +80,7 @@ You can subscribe to specific events to provide Event Grid with information abou
 
 1. Select **Confirm Selection**.
 
-   :::image type="content" source="./media/handle-email-events/select-events-create-selectwebhook-epadd.png" alt-text="Screenshot that shows the Select Web Hook dialog. The Subscriber Endpoint box contains a U R L, and a Confirm Selection button is visible.":::
+   :::image type="content" source="./media/handle-email-events/select-events-create-selectwebhook-epadd.png" alt-text="Screenshot that shows the Select Web Hook dialog. The Subscriber Endpoint box contains a URL, and a Confirm Selection button is visible.":::
 
 ## View Email events
 
