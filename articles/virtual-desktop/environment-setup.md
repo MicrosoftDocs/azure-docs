@@ -16,25 +16,23 @@ Azure Virtual Desktop is a service that gives users easy and secure access to th
 
 ## Host pools
 
-A host pool is a collection of Azure virtual machines that register to Azure Virtual Desktop as session hosts when you run the Azure Virtual Desktop agent. All session host virtual machines in a host pool should be sourced from the same image for a consistent user experience.
+A host pool is a collection of Azure virtual machines that register to Azure Virtual Desktop as session hosts when you run the Azure Virtual Desktop agent. All session host virtual machines in a host pool should be sourced from the same image for a consistent user experience. You control the resources published to users through app groups.
 
 A host pool can be one of two types:
 
 - Personal, where each session host is assigned to an individual user. Personal host pools provide dedicated desktops to end-users that optimize environments for performance and data separation. 
-- Pooled, where user sessions can be load balanced to any session host in the host pool. There can be multiple user sessions on a single session host. Pooled host pools provide a shared remote experience to end-users, which ensures lower costs costs and greater efficiency. 
+- Pooled, where user sessions can be load balanced to any session host in the host pool. There can be multiple different users on a single session host at the same time. Pooled host pools provide a shared remote experience to end-users, which ensures lower costs costs and greater efficiency. 
 
 The following table goes into more detail about the features each type of host pool has:
 
 |Feature|Personal host pools|Pooled host pools|
 |---|---|---|
 |Load balancing| User sessions are always load balanced to the session host the user is assigned to. If the user isn't currently assigned to a session host, the user session is load balanced to the next available session host in the host pool. | User sessions are load balanced to session hosts in the host pool based on user session count. You can choose which [load balancing algorithm](host-pool-load-balancing.md) to use: breadth-first or depth-first. |
-|Maximum session limit| One. | As many as the user wants. |
-|User assignment process| Customers can either directly assign users to session hosts or choose to have users automatically assigned to the first available session host. Users always have sessions on the session hosts they are assigned to. | Users aren't assigned to session hosts. After a user signs out and signs back in, their user session might get load balanced to a different session host. |
+|Maximum session limit| One. | As configured by the **Max session limit** value of the properties of a host pool. |
+|User assignment process| Users can either be directly assigned to session hosts or be automatically assigned to the first available session host. Users always have sessions on the session hosts they are assigned to. | Users aren't assigned to session hosts. After a user signs out and signs back in, their user session might get load balanced to a different session host. |
 |Scaling|None. | [Autoscale](autoscale-scaling-plan.md) for pooled host pools turns VMs on and off based on the capacity thresholds and schedules the customer defines. |
-|Updates|Updated with Windows Updates, [System Center Configuration Manager (SCCM)](configure-automatic-updates.md), or other software distribution configuration tools.|Updated by redeploying session hosts from updated images instead of traditional updates.|
-|User data| Each user only ever uses one session host, so they can store their user profile data in drive C on the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in FSLogix. |
-
-You can set additional properties on the host pool to change its load-balancing behavior, how many sessions each session host can take, and what the user can do to session hosts in the host pool while signed in to their Azure Virtual Desktop sessions. You control the resources published to users through app groups.
+|Windows Updates|Updated with Windows Updates, [System Center Configuration Manager (SCCM)](configure-automatic-updates.md), or other software distribution configuration tools.|Updated by redeploying session hosts from updated images instead of traditional updates.|
+|User data| Each user only ever uses one session host, so they can store their user profile data on the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in [FSLogix](/fslogix/configure-profile-container-tutorial). |
 
 ## App groups
 
