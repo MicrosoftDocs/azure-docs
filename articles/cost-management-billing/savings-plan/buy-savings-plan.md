@@ -34,7 +34,6 @@ If your current agreement type isn't supported by a savings plan, you might be a
 - [Product transfer support](../manage/subscription-transfer.md#product-transfer-support)
 - [From MOSA to the Microsoft Customer Agreement](https://www.microsoft.com/licensing/news/from-mosa-to-microsoft-customer-agreement)
 
-
 ### Enterprise Agreement customers
 
 -	EA admins with write permissions can directly purchase savings plans from **Cost Management + Billing** > **Savings plan**. No specific permission for a subscription is needed.
