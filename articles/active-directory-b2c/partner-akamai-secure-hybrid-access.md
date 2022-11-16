@@ -312,7 +312,7 @@ For Azure AD B2C to trust Akamai EAA, create an Azure AD B2C application registr
 
 For SAML, you need to configure several properties in the application registration's manifest.
 
-1. In the [Azure portal](https://portal.azure.com), go to the application registration that you created in [**Step 3**](#step-3--create-a-sign-up-or-sign-in-policy-configured-for-saml).
+1. In the [Azure portal](https://portal.azure.com), go to the application registration that you created in [**Step 3**](#step-3---create-a-sign-up-or-sign-in-policy-configured-for-saml).
 
 2. Under **Manage**, select **Manifest** to open the manifest editor. Then modify the properties described in the following section.
 
@@ -418,7 +418,7 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
    [ ![Screenshot shows the akamai oidc app settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_authentication.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_authentication.png#lightbox)
 
-6. In the **Claims** section, define the claims that Akamai will issue for the OIDC application, mapping their values to the SAML attributes provided by Azure AD B2C in the SAML response upon a successful authentication. These claims have to map what you defined in the previous step when [configuring the OIDC to SAML bridging in the Azure AD B2C SAML IdP](#option-2:-openid-connect).
+6. In the **Claims** section, define the claims that Akamai will issue for the OIDC application, mapping their values to the SAML attributes provided by Azure AD B2C in the SAML response upon a successful authentication. These claims have to map what you defined in the previous step when [configuring the OIDC to SAML bridging in the Azure AD B2C SAML IdP](#option-2-openid-connect).
 
    [ ![Screenshot shows the akamai oidc app claim settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_claims_settings.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_claims_settings.png#lightbox)
 
@@ -496,7 +496,7 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
 8. In the `web.config` file add the Metadata address, replace clientId, clientsecret, authority,redirectUri and PostLogoutRedirectUri with the values from the Akamai application in `appSettings`.
 
-   You can find these values in [step 5](#step-5) in the  OpenID tab for the HTTP Akamai Application, you created `Discovery URL=MetadataAddress`. `redirectUri` is the local address for the Akamai connector to resolve to the local OIDC application. `Authority` is the authorization_endpoint you can find from your `.well-known/openid-configuration` [document](https://learn.microsoft.com/azure/active-directory/develop/v2-protocols-oidc).
+   You can find these values in the previous step 5 in the  OpenID tab for the HTTP Akamai Application, where you created `Discovery URL=MetadataAddress`. `redirectUri` is the local address for the Akamai connector to resolve to the local OIDC application. `Authority` is the authorization_endpoint you can find from your `.well-known/openid-configuration` [document](https://learn.microsoft.com/azure/active-directory/develop/v2-protocols-oidc).
 
    Discovery URL: `https://fabrikam.login.go.akamai-access.com/.well-known/openid-configuration`
 
