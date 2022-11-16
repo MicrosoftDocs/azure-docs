@@ -51,7 +51,7 @@ For example:
 - Added together, the total is *1679* devices.
 - Rounded up to a multiple of 100 is **1700**.
 
-Use **1600** as the estimated number of committed devices.
+Use **1700** as the estimated number of committed devices.
 
 For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
