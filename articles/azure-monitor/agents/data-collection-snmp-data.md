@@ -23,14 +23,14 @@ This article explains how to send SNMP traps to Azure Monitor Logs as syslog eve
 
 ## Overview
   
-There are many SNMP trap receiver services available. In this article, we describe how to set up an SNMP trap receiver that called most Linux distributions provide, called **snmptrapd**, from the [Net-SNMP](https://www.net-snmp.org/) agent. 
+- In this article, we describe how to set up an SNMP trap receiver that called most Linux distributions provide, called **snmptrapd**, from the [Net-SNMP](https://www.net-snmp.org/) agent. However, there are many SNMP trap receiver services you can use.
 
-SNMP identifies monitored properties using Object Identifier (OID) values, which are defined and described in vendor-provided Management Information Base (MIB) files.  
+    The snmptrapd configuration procedure can vary slightly among Linux distributions.  For more information on snmptrapd configuration, including guidance on configuring for SNMP v3 authentication, see the [Net-SNMP documentation](https://www.net-snmp.org/docs/man/snmptrapd.conf.html).  
 
-It's important that the SNMP trap receiver you use can load MIB files for your environment, so that the properties in the SNMP trap message have meaningful names instead of OIDs.  
 
-The snmptrapd configuration procedure can vary slightly among Linux distributions.  For more information on snmptrapd configuration, including guidance on configuring for SNMP v3 authentication, see the [Net-SNMP documentation](https://www.net-snmp.org/docs/man/snmptrapd.conf.html).  
+- SNMP identifies monitored properties using Object Identifier (OID) values, which are defined and described in vendor-provided Management Information Base (MIB) files.  
 
+    It's important that the SNMP trap receiver you use can load MIB files for your environment, so that the properties in the SNMP trap message have meaningful names instead of OIDs.  
  
 ## Set up snmptrapd
 
@@ -66,7 +66,7 @@ To set up snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 se
         authCommunity log,execute,net public
         ```
 
-### Configure snmptrapd to send traps to Azure Monitor Agent
+## Configure snmptrapd to send SNMP traps to Azure Monitor Agent
 
 There are two ways snmptrapd can send SNMP traps to Azure Monitor Agent: 
 
@@ -108,3 +108,15 @@ For more information, see:
 - https://www.net-snmp.org/docs/man/snmpcmd.html for how to set output options. 
 - https://www.net-snmp.org/docs/man/snmptrapd.html for how to set formatting options. 
     
+## Collect SNMP traps using Azure Monitor Agent
+
+If you configured snmptrapd to send events to syslog, follow the steps described in [Collect events and performance counters with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md). Make sure to select **Linux syslog** as the data source when you define the data collection rule for Azure Monitor Agent.
+
+If you configured snmptrapd to write events to a file, follow the steps described in [Collect text and IIS logs with Azure Monitor agent](../agents/data-collection-text-log.md).
+
+## Next steps
+
+Learn more about: 
+- [Best practices for cost management in Azure Monitor](../best-practices-cost.md).
+- [Azure Monitor agent](azure-monitor-agent-overview.md).
+- [Data collection rules](../essentials/data-collection-rule-overview.md).
