@@ -377,7 +377,7 @@ To delete old data on Saturday at 3:30am (GMT)
 ```
 SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
 ```
-To run vacuum every day at 10:00am (GMT)
+To run vacuum every day at 10:00am (GMT) in default database 'postgres'
 ```
 SELECT cron.schedule('0 10 * * *', 'VACUUM');
 ```
@@ -386,8 +386,17 @@ To unschedule all tasks from pg_cron
 ```
 SELECT cron.unschedule(jobid) FROM cron.job;
 ```
+To see all jobs currently scheduled with pg_cron
+```
+SELECT * FROM cron.job;
+```
+To run vaccuum every day at 10:00 am (GMT) in database 'testcron' under azure_pg_admin role account
+```
+SELECT cron.schedule_in_database('VACUUM','0 10 * * * ','VACUUM','testcron',null,TRUE)
+```
+
 > [!NOTE]
-> pg_cron extension is preloaded in every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security.
+> pg_cron extension is preloaded in Shared_Preload_Libraries for every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security. However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions) pg_cron extension and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
 
 ## pg_stat_statements
 

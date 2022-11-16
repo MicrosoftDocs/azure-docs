@@ -45,6 +45,19 @@ You can also use this flow to request a token to `https://api.loganalytics.io`. 
     &client_secret=YOUR_CLIENT_SECRET
 ```
 
+##### Microsoft identity platform v2.0
+
+```
+    POST /YOUR_AAD_TENANT/oauth2/v2.0/token HTTP/1.1
+    Host: https://login.microsoftonline.com
+    Content-Type: application/x-www-form-urlencoded
+    
+    grant_type=client_credentials
+    &client_id=YOUR_CLIENT_ID
+    &scope=https://management.azure.com/.default
+    &client_secret=YOUR_CLIENT_SECRET
+```
+
 A successful request receives an access token:
 
 ```
