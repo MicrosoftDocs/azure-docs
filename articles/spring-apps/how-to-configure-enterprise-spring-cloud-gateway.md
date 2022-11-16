@@ -180,7 +180,8 @@ Run the following command
 az spring gateway update --apm-types <APM_TYPE> --properties <key=value> --secrets <key=value>
 ```
 
-The supported APM types are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic` and `ElasticAPM`. You can refer to their public documents about APM Java agent to see full functions provided and which environment variables are exposed. Azure Spring Apps will upgrade APM agents version in the same cadence as those in Buildpacks to keep compatibility of agents between Spring Cloud Gateway and users' applications.
+
+The supported APM types are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic` and `ElasticAPM`. You can refer to their public documents about APM Java agent to see full functions provided and which environment variables are exposed. Azure Spring Apps will upgrade APM agent in the same cadence as deployed apps to keep compatibility of agents between Spring Cloud Gateway and apps.
 
 > [!NOTE]
 > By default, Azure Spring Apps prints the logs of the APM Java agent to `STDOUT`, which are mixed with Spring Cloud Gateway logs. You can check the version of APM agent used in logs. These logs can be queried in Log Analystics for troubleshooting.
