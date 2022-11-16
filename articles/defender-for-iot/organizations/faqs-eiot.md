@@ -39,7 +39,7 @@ To get started, Microsoft 365 P2 customers need to [add a Defender for IoT plan 
 
 **Public Preview**: Defender for Endpoint customers can also install a network sensor to gain more visibility into additional IoT segments of the corporate network that weren't previously covered by Defender for Endpoint. Deploying a network sensor is not a prerequisite for onboarding Enterprise IoT. For more information, see [Enhance device discovery with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 
-If you’re a Defender for Endpoint customer, when adding your Defender for IoT plan, take care to exclude any devices already managed by Defender for Endpoint from your count of committed devices.
+If you’re a Defender for Endpoint customer, when adding your Defender for IoT plan, take care to exclude any devices already [managed by Defender for Endpoint](/microsoft-365/security/defender-endpoint/device-discovery) from your count of committed devices.
 
 ## How can I use the Enterprise IoT network sensor?
 

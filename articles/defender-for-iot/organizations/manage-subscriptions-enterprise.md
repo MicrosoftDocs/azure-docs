@@ -35,23 +35,17 @@ We recommend that you make an initial estimate of your committed devices when on
 
 **To calculate committed devices:**:
 
-1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Devices**. <!--need to validate this-->
+1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Assets** \> **Devices** to open the **Device inventory** page.
 
-1. Add the total number of devices listed on both the **network devices** and **IoT devices** tabs.
+1. Add the total number of devices listed on both the **Network devices** and **IoT devices** tabs.
 
-    For example: <!--replace this screenshot-->
+    For example:
 
-    :::image type="content" source="media/how-to-manage-subscriptions/eiot-calculate-devices.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint.":::
+    :::image type="content" source="media/how-to-manage-subscriptions/eiot-calculate-devices.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint." lightbox="media/how-to-manage-subscriptions/eiot-calculate-devices.png":::
 
     For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
-1. Remove any of the following devices, which are *not* considered as committed devices by Defender for IoT:
-
-    - **Public internet IP addresses**
-    - **Multi-cast groups**
-    - **Broadcast groups**
-    - **Inactive devices**: Devices that have no network activity detected for more than 30 days
-    - **Endpoints managed by Defender for Endpoint**
+1. Remove any endpoints that have an MDE agent and are therefore already managed by MDE. Devices managed by MDE are not considered as committed devices for Defender for IoT.
 
 1. Round up your total to a multiple of 100.
 
