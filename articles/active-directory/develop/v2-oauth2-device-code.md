@@ -19,7 +19,7 @@ ms.custom: aaddev, engagement-fy23
 
 The Microsoft identity platform supports the [device authorization grant](https://tools.ietf.org/html/rfc8628), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or a printer. To enable this flow, the device has the user visit a webpage in a browser on another device to sign in. Once the user signs in, the device is able to get access tokens and refresh tokens as needed.
 
-This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). Also refer to [sample apps that use MSAL](sample-v2-code.md) for examples.
+This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). You can refer to [sample apps that use MSAL](sample-v2-code.md) for examples.
 
 [!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
