@@ -10912,6 +10912,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-install-use-log-analytics-views.md",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-groups-create-azure-portal.md",
       "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-groups",
       "redirect_document_id": false
