@@ -1,10 +1,11 @@
 ---
 title: Update threat intelligence data
 description: The threat intelligence data package is provided with each new Defender for IoT version, or if needed between releases.
-ms.date: 06/02/2022
+ms.date: 11/16/2022
 ms.topic: how-to
 ---
 # Threat intelligence research and packages
+
 ## Overview
 
 Security teams at Microsoft carry out proprietary ICS threat intelligence and vulnerability research. These teams include MSTIC (Microsoft Threat Intelligence Center), DART (Microsoft Detection and Response Team), DCU (Digital Crimes Unit), and Section 52 (IoT/OT/ICS domain experts that track ICS-specific zero-days, reverse-engineering malware, campaigns, and adversaries)
@@ -72,14 +73,13 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-
 **To upload to a single sensor:**
 
 1. In Defender for IoT on the Azure portal, go to the **Get started** > **Updates** tab.
 
 1. In the **Sensor threat intelligence update** box, select **Download file** to download the latest threat intelligence package.
 
-1. Sign in to the sensor console, and then select **System settings** > **Threat intelligence**. 
+1. Sign in to the sensor console, and then select **System settings** > **Threat intelligence**.
 
 1. In the **Threat intelligence** pane, select **Upload file**. For example:
 
@@ -93,15 +93,17 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 1. In the **Sensor threat intelligence update** box, select **Download file** to download the latest threat intelligence package.
 
-1. Sign in to the management console and select **System settings**. 
+1. Sign in to the management console and select **System settings**.
 
-1. In the **Sensor Engine Configuration** area, select the sensors that you want to recieve the upated packages. For example: <!--this image should have only the System settings and Sensor Engine Configuration section highlighted, not save changes. Also, have the Sensor Engine Configuration box stretch over the contoso-hotels sensor area to show what the user is actually selecting.-->
+1. In the **Sensor Engine Configuration** area, select the sensors that you want to receive the updated packages. For example:
 
     :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png" alt-text="Upload Threat Intelligence package to multiple sensors." lightbox="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png":::
 
-1. In the **Sensor Threat Intelligence Data** section, select the plus sign (**+**). 
+1. In the **Sensor Threat Intelligence Data** section, select the plus sign (**+**).
 
-1. In the **Upload File** dialog, select **BROWSE FILE...** to browse to and select the update package. For example: <!--do this and show a screenshot, with the Sensor Threat Intelligence section highlighted-->
+1. In the **Upload File** dialog, select **BROWSE FILE...** to browse to and select the update package. For example:
+
+:::image type="content" source="media/how-to-work-with-threat-intelligence-packages/upload-TI-to-management-console.png" alt-text="Upload Threat Intelligence package to multiple sensors." lightbox="media/how-to-work-with-threat-intelligence-packages/upload-TI-to-management-console.png":::
 
 1. Select **CLOSE** and then **SAVE CHANGES** to push the threat intelligence update to all selected sensors.
 
@@ -123,7 +125,7 @@ Review the following information about threat intelligence packages for your clo
 
 1. Review the **Threat Intelligence version** installed on each sensor. Version naming is based on the day the package was built by Defender for IoT.
 
-1. Review the **Threat Intelligence mode** . *Automatic* indicates that newly available  packages will be automatically installed on sensors as they're released by Defender for IoT. 
+1. Review the **Threat Intelligence mode** . *Automatic* indicates that newly available  packages will be automatically installed on sensors as they're released by Defender for IoT.
 
     *Manual* indicates that you can push newly available packages directly to sensors as needed.
 
@@ -134,7 +136,7 @@ Review the following information about threat intelligence packages for your clo
     - Update Available
     - Ok
 
-If cloud connected threat intelligence updates fail, review  connection  information in the **Sensor status** and **Last connected UTC** columns in the **Sites and Sensors** page. 
+If cloud connected threat intelligence updates fail, review  connection  information in the **Sensor status** and **Last connected UTC** columns in the **Sites and Sensors** page.
 
 ## Next steps
 
