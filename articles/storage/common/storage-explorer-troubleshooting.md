@@ -377,7 +377,7 @@ After removing connection names, you must clear their corrupted data. Then you c
 
 # [Linux](#tab/linux-ubuntu)
 
-Local credential management varies depending on your system configuration. If your system doesn't have a tool for local credential management installed, you may install a third-party tool to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
+Local credential management varies depending on your system configuration. If your system doesn't have a tool for local credential management installed, you may install a third-party tool compatible with `libsecret` to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
 
 1. Open your local credential management tool. Find your saved credentials.
 1. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key (for example `StorageExplorer_CustomConnections_Accounts_v1/account1`)
@@ -385,7 +385,7 @@ Local credential management varies depending on your system configuration. If yo
 
 # [Red Hat Enterprise Linux](#tab/linux-rhel)
 
-Local credential management varies depending on your system configuration. If your system doesn't have a tool for local credential management installed, you may install a third-party tool to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
+Local credential management varies depending on your system configuration. If your system doesn't have a tool for local credential management installed, you may install a third-party tool compatible with `libsecret` to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
 
 1. Open your local credential management tool. Find your saved credentials.
 1. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key (for example `StorageExplorer_CustomConnections_Accounts_v1/account1`)
@@ -396,7 +396,7 @@ Local credential management varies depending on your system configuration. If yo
 > [!NOTE]
 > Storage Explorer has not been tested for SLES. You may try using Storage Explorer on your system, but we cannot guarantee that Storage Explorer will work as expected.
 
-Local credential management varies depending on your system configuration. If your system doesn't have a tool for local credential management installed, you may install a third-party tool to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
+Local credential management varies depending on your system configuration. If your system doesn't have a tool for local credential management installed, you may install a third-party tool compatible with `libsecret` to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
 
 1. Open your local credential management tool. Find your saved credentials.
 1. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key (for example `StorageExplorer_CustomConnections_Accounts_v1/account1`)
@@ -525,9 +525,6 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
 ### .tar.gz file
-
-> [!NOTE]
-> Storage Explorer as provided in the *.tar.gz* download is supported for Ubuntu only. Storage Explorer might work on SLES, but it is not officially supported.
 
 You can also download the application as a *.tar.gz* file, but you'll have to install dependencies manually.
 
