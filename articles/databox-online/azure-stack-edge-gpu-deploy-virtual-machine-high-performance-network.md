@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 11/16/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -16,7 +16,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device by using the Azure portal, templates, and Azure PowerShell cmdlets, and via the Azure CLI or Python scripts. This article describes how to create and manage a high-performance network (HPN) VM on your Azure Stack Edge Pro GPU device. 
+You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device by using the Azure portal, templates, and Azure PowerShell cmdlets, and via the Azure CLI or Python scripts. This article describes how to create and manage a high performance network (HPN) VM on your Azure Stack Edge Pro GPU device. 
 
 ## About HPN VMs
 
@@ -76,15 +76,11 @@ Before you begin to create and manage VMs on your device via the Azure portal, m
 
 - In addition to the above prerequisites for VM creation, you'll also need to check the vCPU reservation of HPN VMs.
 
-  The default vCPU reservation uses the SkuPolicy. Four logical processors per NUMA node are reserved for root processes and the remaining logical processors are made available for HPN VMs.  
+  - The default vCPU reservation uses the SkuPolicy. Four logical processors per NUMA node are reserved for root processes and the remaining logical processors are made available for HPN VMs.  
 
-  If the vCPUs were already reserved for HPN VMs in an earlier version - for example, version 2009 or earlier, then the existing reservation is carried forth to the 2210 version. 
+  - If the vCPUs were already reserved for HPN VMs in an earlier version - for example, version 2009 or earlier, then the existing reservation is carried forth to the 2210 version. 
 
-  For most use cases, we recommend that you use the default configuration. If needed, you can also customize the NUMA configuration for HPN VMs. 
-
-  To customize the configuration, use the steps provided for 2209.  
-
-  If you were using a custom configuration and need to switch to the default configuration, use the Set-HcsNumaLpMapping -UseSkuPolicy cmdlet. Note that changing the Skupolicy configuration will result in a device reboot. 
+  - For most use cases, we recommend that you use the default configuration. If needed, you can also customize the NUMA configuration for HPN VMs. To customize the configuration, use the steps provided for 2209.  
 
 - Use the following steps to get information about the SkuPolicy settings on your device:
 
@@ -221,8 +217,8 @@ In addition to the above prerequisites that are used for VM creation, you'll als
        ```powershell
        Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated <Logical indexes from the Get-HcsNumaLpMapping cmdlet> -AssignAllCpusToRoot $false
        ```
-
-       After this command is run, the device restarts automatically. 
+       
+       If you were using a custom configuration and need to switch to the default configuration, use the Set-HcsNumaLpMapping -UseSkuPolicy cmdlet. Note that changing the Skupolicy configuration will result in a device reboot; the device restarts automatically. 
 
        Here is an example output: 
 
@@ -305,7 +301,7 @@ Follow these steps to create an HPN VM on your device.
     You'll use the IP address for the network interface to connect to the VM.
 
    > [!NOTE]
-   > If the vCPUs are not reserved for HPN VMs prior to the deployment, the deployment will fail with FabricVmPlacementErrorInsufficientNumaNodeCapacity error.
+   > If the vCPUs are not reserved for HPN VMs prior to the deployment, the deployment will fail with a *FabricVmPlacementErrorInsufficientNumaNodeCapacity* error.
 
 ## Next steps
 
