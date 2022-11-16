@@ -37,7 +37,7 @@ Below tutorial describes steps to enable SMART on FHIR applications with FHIR Se
      
 <!--- Tutorial : To enable SMART on FHIR using APIM, follow below steps 
 Step 1 : Set up FHIR SMART user role 
-Follow the steps listed under section [Manage Users: Assign Users to Role](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to this role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
+Follow the steps listed under section [Manage Users: Assign Users to Role](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to this role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
 
 Step 2 : Deploy the necessary components to set up the FHIR server integrated with APIM in production. Follow ReadMe
 Step 3 : Load US Core profiles 
