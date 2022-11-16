@@ -85,37 +85,52 @@ Once you have submitted the short code program brief application in the Azure po
 ### What is toll free verification?
 The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks.
 
-This verification is **required** for TFNs sending messages to **Canada recipients** and is **not required** for TFNs sending [low throughput messages](#sms-to-us-phone-numbers) to **US recipients**. Verifying TFNs is free of cost.
+This verification is **required** for best SMS delivery experience.
 
 ### What happens if I don't verify my toll-free numbers?
 What happens to the unverified toll-free number depends on the destination of SMS traffic.
 #### SMS to US phone numbers
-Effective **October 1, 2022**, unverified toll-free numbers sending messages to US phone numbers will be subjected to stricter filtering and the following thresholds for messaging:
+Effective **October 1, 2022**, unverified toll-free numbers sending messages to US phone numbers will be subjected to the following: 
 
+1. **Stricter filtering** - SMS messages will more likely get caught in spam filtering, hindering message delivery  
+2. **SMS volume thresholds**:
 - **Daily Limit:** 2,000 messages
 - **Weekly limit:** 12,000 messages
 - **Monthly limit:** 25,000 messages
 
-This does not apply to TFNs in a pending or verified status.
+This would not apply to TFNs in a pending or verified status.
 
 #### SMS to Canadian phone numbers
 Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To be unblocked, TFNs have to be in pending or verified status.
 
-### What is a pending status? What can I do in a pending status?
-After submission of the toll-free verification application, we will process your application and send it to the toll-free messaging aggregator. This process usually takes in 4-6 business days. Once the application reaches the toll-free messaging aggregator the application status changes to pending until verified or rejected.
-
-Once in pending state, you can start sending SMS to US numbers without the thresholds mentioned above and be unblocked from sending SMS to Canadian destinations. TFNs in pending state are subject to reduced likelihood of filtering.
+### What does the different application status (verified, pending and unverified) mean? 
+- **Verified:** Verified numbers have gone through the toll-free verification process and were approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content will be blocked but the number will not be automatically blocked.
+- **Pending**: Pending numbers have submitted a toll-free verification application, and are currently awaiting a response from the aggregator. They can send at a lower throughput than verified numbers, but higher than unverified numbers. Blocking can be applied to individual content or there can be an automatic block of all traffic from the number. These numbers will remain in this pending state until a decision has been made on verification status.
+- **Unverified:** Unverified numbers have either 1) not submitted a verification application or 2) have had their application denied. These numbers are subject to the highest amount of filtering, and numbers in this state will automatically get shut off if any spam or unwanted traffic is detected.
 
 ### What happens after I submit the toll-free verification form?
-Updates for changes and the status of your applications will be communicated via the email you provide in the application. Results from the application can be: approved, denied or further clarification needed. For more questions about your submitted application, please email acstnrequest@microsoft.com.
+After submission of the form, we will coordinate with our downstream peer to get the application verified by the toll-free messagining aggregator. While we are reviewing your application, we may reach out to you for more information.
+- From Submitted to Pending = **1-2 weeks** (depends on the [quality] **link to bottom** of application) 
+- From Pending to Verdict(Verfied/Rejected/More information needed) = **4-5 weeks**
 
-The whole toll-free verification process takes about **5-6 weeks** but is subject to change depending on the volume of applications to the toll-free messaging aggregator and how detailed the application is.
+The whole toll-free verification process takes about **5-6 weeks** but is subject to change depending on the volume of applications to the toll-free messaging aggregator and the quality of your application.
+
+Updates for changes and the status of your applications will be communicated via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
 ### How do I submit a toll-free verification?
 To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.
 
 ### How is my data being used?
 Toll-free verification (TFV) involves an integration between Microsoft and the Toll-Free messaging aggregator. The toll-free messaging aggregator is the final reviewer and approver of the TFV application. Microsoft must share the TFV application information with the toll-free messaging aggregator for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a TFV form, you agree that Microsoft may share the TFV application details as necessary for provisioning the toll-free number.
+
+### What is considered a high quality toll-free verification application? 
+The higher the quality of the application the XXXX 
+
+- Toll-free number(s)
+- All required fields completed
+- The use case is not listed on our Ineligible Use Case list (reword) 
+- Opt-in process is documented/detailed (Screenshots and/or URLs are required for marketing use cases) 
+- CTIA guidelines are being followed
 
 ### What are common reasons for toll-free verification delays? 
 Your application wait time increases when your application has missing or unclear information. 
