@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Deploy to Azure Container Apps with GitHub Actions (preview)
 
-Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a GitHub Actions workflow is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
+Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a workflow is triggered which updates the container image in the container registry. Azure Container Apps creates a new revision based on the updated container image.
 
 :::image type="content" source="media/github-actions/azure-container-apps-github-actions.png" alt-text="Changes to a GitHub repo trigger an action to create a new revision.":::
 
@@ -128,7 +128,6 @@ Before creating a workflow, the source code for your app must be in a GitHub rep
     ```bash
     git clone https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-container-app.git
     ```
-
 [!INCLUDE [container-apps-github-devops-setup.md](../../includes/container-apps-github-devops-setup.md)]
 
 ### Configure secrets in your GitHub repository

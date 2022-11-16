@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 11/09/2022
 ms.author: cshoe
 ---
-
 1. Change into the *src* folder of the cloned repository.
 
     ```bash

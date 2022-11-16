@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Deploy to Azure Container Apps from Azure Pipelines (preview)
 
-Azure Container Apps allows you to use Azure Pipelines to publish [revisions](revisions.md) to your container app. As commits are pushed to your Azure DevOps repository, a pipeline is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
+Azure Container Apps allows you to use Azure Pipelines to publish [revisions](revisions.md) to your container app. As commits are pushed to your Azure DevOps repository, a pipeline is triggered which updates the container image in the container registry. Azure Container Apps creates a new revision based on the updated container image.
 
 The pipeline is triggered by commits to a specific branch in your repository. When creating the pipeline, you decide which branch is the trigger.
 
@@ -114,7 +114,6 @@ Before creating a pipeline, the source code for your app must be in a repository
     ```
 
     Replace `<REPOSITORY_URL>` with the URL you copied.
-
 [!INCLUDE [container-apps-github-devops-setup.md](../../includes/container-apps-github-devops-setup.md)]
 
 ### Install the Azure Container Apps task
