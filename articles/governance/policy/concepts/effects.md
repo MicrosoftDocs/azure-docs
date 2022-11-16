@@ -26,8 +26,8 @@ These effects are currently supported in a policy definition:
 
 The following effects are _deprecated_:
 
-- [EnforceOPAConstraint](#enforceopaconstraint)
-- [EnforceRegoPolicy](#enforceregopolicy)
+- `EnforceOPAConstraint`
+- `EnforceRegoPolicy`
 
 > [!IMPORTANT]
 > In place of the **EnforceOPAConstraint** or **EnforceRegoPolicy** effects, use _audit_ and
@@ -457,26 +457,25 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 
 ## DenyAction (preview)
 
-DenyAction is used to block request based on intended action to resources. The only supported action today is DELETE. This effect will help prevent any accidential deletion of critical resources.
-
+`DenyAction` is used to block request based on intended action to resources. The only supported action today is `DELETE`. This effect will help prevent any accidential deletion of critical resources.
 
 ### DenyAction evaluation
 
-When submitting a request to a matched resource in a Resource Manager mode, denyAction prevents the request
+When submitting a request to a matched resource in a Resource Manager mode, `denyAction` prevents the request
 from succeeding. The request is returned as a `403 (Forbidden)`. In the
 portal, the Forbidden can be viewed as a status on the deployment that was prevented by the policy
 assignment. 
 
-Microsoft.Authorization/policyAssignments, Microsoft.Authorization/denyAssignments, Microsoft.Blueprint/blueprintAssignments, Microsoft.Resources/deploymentStacks, and Microsoft.Authorization/locks are all exempt from DenyAction enforcement to prevent lockout scenarios. 
+`Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios. 
 
 **Subscription deletion**
 Policy will not block removal of resources that happens during a subscription deletion. 
 
 **Resource group deletion** 
-Policy will evaluate resources that support location and tags against DenyAction policies during a resource group deletion. Only policies that have the resourceGroup cascadeBehavior set to deny in the policy rule will block a resource group deletion. Policy will not block removal of resources that do not support location and tags nor any policy with mode:all. 
+Policy will evaluate resources that support location and tags against `DenyAction` policies during a resource group deletion. Only policies that have the `cascadeBehaviors` set to `deny` in the policy rule will block a resource group deletion. Policy will not block removal of resources that do not support location and tags nor any policy with `mode:all`. 
 
 **Cascade Deletion** 
-Cascade Deletion ocurs when deleting of a parent resources is implicately deletes all its child resources. Policy will not block removal of child resources when an deletion action targets the parent resources. For example, Microsoft.Insights/diagnosticSettings is a child resource of Microsoft.Storage/storageaccounts. If a denyAction policy targets Microsoft.Insights/diagnosticSettings, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implictely delete the diagnostic setting (child). 
+Cascade Deletion ocurs when deleting of a parent resources is implicately deletes all its child resources. Policy will not block removal of child resources when an deletion action targets the parent resources. For example, `Microsoft.Insights/diagnosticSettings` is a child resource of `Microsoft.Storage/storageaccounts`. If a `denyAction` policy targets `Microsoft.Insights/diagnosticSettings`, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implictely delete the diagnostic setting (child). 
 
 
 ### DenyAction properties
@@ -485,12 +484,12 @@ The **details** property of the DenyAction effect has all the subproperties that
 
 - **actionType** (required)
   - An _array_  that specifies what actions to prevent from being executed. 
-  - Supported action type is: delete 
+  - Supported action type is: `delete`. 
 - **cascadeBehaviors** (optional)
   - An _object_ that defines what behavior will be followed when the resource is being implicitly deleted by the removal of a resource group. 
-  - Only supported for mode:indexed.
-  - Allowed values are allow or deny. 
-  - Default value is deny. 
+  - Only supported for `mode:indexed`.
+  - Allowed values are `allow` or `deny`. 
+  - Default value is `deny`. 
 
 ### DenyAction example
 Example: Deny deletion of database accounts where tag environment equals prod. 

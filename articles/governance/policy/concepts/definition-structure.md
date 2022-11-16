@@ -138,7 +138,7 @@ The following Resource Provider modes are fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
   using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use
-  of the [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
+  of the `EnforceOPAConstraint` effect is _deprecated_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
   definitions, see
