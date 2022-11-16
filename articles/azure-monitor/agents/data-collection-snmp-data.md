@@ -1,34 +1,33 @@
 ---
-title: Collect SNMP data with with Azure Monitor Agent
-description: Learn how to use Azure Monitor Agent to collect SNMP data.  
+title: Send SNMP traps to Azure Monitor Logs using Azure Monitor Agent
+description: Learn how to collect SNMP traps using Azure Monitor Agent.  
 ms.topic: how-to
 ms.date: 06/22/2022
 ms.reviewer: shseth
 
 ---
 
-# Collect SNMP traps with Azure Monitor Agent
+# Send SNMP traps to Azure Monitor Logs using Azure Monitor Agent
   
 The Simple Network Management Protocol (SNMP) is a widely-deployed management protocol for monitoring and configuring Linux devices and appliances.  
   
-You can collect SNMP data in two ways: 
+There are two ways to collect SNMP data: 
 
-- With **polls**, where a managing system probes an SNMP agent to gather values for specific properties.
-- With **traps**, where an SNMP agent forwards events or notifications to a managing system. 
+- **Polls** - The managing system polls an SNMP agent to gather values for specific properties.
+- **Traps** - An SNMP agent forwards events or notifications to a managing system. 
 
 Traps are most often used as event notifications, while polls are more appropriate for stateful health detection and collecting performance metrics.  
   
-This article explains how to collect event notifications from SNMP traps using Azure Monitor Agent.
+This article explains how to collect events from SNMP traps using Azure Monitor Agent.
 
 
-## Collect SNMP traps with Azure Monitor Agent
+## Overview
   
-In this tutorial, we'll use an SNMP trap receiver called **snmptrapd** from the [Net-SNMP](https://www.net-snmp.org/) agent, which most Linux distributions provide. 
-However, there are many other SNMP trap receiver services available.
+In this tutorial, we'll use an SNMP trap receiver called **snmptrapd** from the [Net-SNMP](https://www.net-snmp.org/) agent. There are many other SNMP trap receiver services, but snmptrapd is a good SNMP trap receiver, which most Linux distributions provide. 
 
 SNMP identifies monitored properties using Object Identifier (OID) values, which are defined and described in vendor-provided Management Information Base (MIB) files.  
 
-It's important that the SNMP trap receiver you use can load MIB files for your environment, so that the properties in the SNMP trap message are described with their name, instead of an OID.  
+It's important that the SNMP trap receiver you use can load MIB files for your environment, so that the properties in the SNMP trap message have meaningful names instead of OIDs.  
  
 ### Install snmptrapd
 
