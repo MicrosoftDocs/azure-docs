@@ -18,6 +18,36 @@ As Application Insights instrumentation is built into Azure Functions, you need 
 
 You can also monitor the function app itself by using Azure Monitor. To learn more, see [Monitoring Azure Functions with Azure Monitor](monitor-functions.md).
 
+## Supported features
+
+| Azure Functions                   | Version 1.x     | Version 2.x+ | 
+|-----------------------------------|---------------|------------------|
+| | | | 
+| **Automatic  collection of**        |               |                  |
+| &bull; Requests                     | ✓           | ✓              |
+| &bull; Exceptions                   | ✓           | ✓              |
+| &bull; Performance Counters         | ✓           | ✓              |
+| &bull; Dependencies                 |               |                  |
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | ✓              |
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               | ✓              |
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               | ✓              |
+| &nbsp;&nbsp;&nbsp;&mdash; SQL\*       |               | ✓              |
+| | | | 
+| **Supported features**              |               |                  |
+| &bull; QuickPulse/LiveMetrics       | Yes           | Yes              | 
+| &nbsp;&nbsp;&nbsp;&mdash; Secure Control Channel |               | Yes | 
+| &bull; Sampling                     | Yes           | Yes              | 
+| &bull; Heartbeats                   | | Yes              | 
+| | | |
+| **Correlation**                    |               |                  |
+| &bull; ServiceBus                  |               | Yes              |
+| &bull; EventHub                    |               | Yes              |
+| | | | 
+| **Configurable**                  |               |                  |           
+| &bull;[Fully configurable](#custom-telemetry-data)           |               | Yes                 | 
+
+\* To enable the collection of SQL query string text, see [Enable SQL query collection](./configure-monitoring.md#enable-sql-query-collection).
+
 ## Application Insights pricing and limits
 
 You can try out Application Insights integration with Azure Functions for free featuring a daily limit to how much data is processed for free.
@@ -79,6 +109,10 @@ In addition to automatic dependency data collection, you can also use one of the
 + [Log custom telemetry in C# functions](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
 + [Log custom telemetry in JavaScript functions](functions-reference-node.md#log-custom-telemetry) 
 + [Log custom telemetry in Python functions](functions-reference-python.md#log-custom-telemetry)
+
+### Performance Counters
+
+Automatic collection of Performance Counters isn't supported when running on Linux.
 
 ## Writing to logs 
 

@@ -195,7 +195,7 @@ You can exclude certain types of telemetry from sampling. In this example, data 
 ```
 ---
 
-For more information, see [Sampling in Application Insights](../azure-monitor/app/sampling.md).
+If your project takes a dependency on the Application Insights SDK to do manual telemetry tracking, you may experience strange behavior if your sampling configuration differs from the sampling configuration in your function app. In such cases, use the same sampling configuration as the function app. For more information, see [Sampling in Application Insights](../azure-monitor/app/sampling.md).
 
 ## Enable SQL query collection
 
