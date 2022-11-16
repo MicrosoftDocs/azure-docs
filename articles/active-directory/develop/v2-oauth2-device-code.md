@@ -72,7 +72,7 @@ A successful response will be a JSON object containing the required information 
 
 After receiving the `user_code` and `verification_uri`, the client displays these to the user, instructing them to use their mobile phone or PC browser to sign in.
 
-If the user authenticates with a personal account, using `/common` or `/consumers`, they'll be asked to sign in again in order to transfer authentication state to the device. This is because the device isn't able to access the user's cookies. They'll also be asked to consent to the permissions requested by the client. This however doesn't apply to work or school accounts used to authenticate. 
+If the user authenticates with a personal account, using `/common` or `/consumers`, they'll be asked to sign in again in order to transfer authentication state to the device. This is because the device is unable to access the user's cookies. They'll also be asked to consent to the permissions requested by the client. This however doesn't apply to work or school accounts used to authenticate. 
 
 While the user is authenticating at the `verification_uri`, the client should be polling the `/token` endpoint for the requested token using the `device_code`.
 
