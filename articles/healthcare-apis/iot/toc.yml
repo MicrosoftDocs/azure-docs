@@ -13,7 +13,7 @@ items:
   items:
   - name: Get started with MedTech service
     href: get-started-with-iot.md
-  - name: Deploy the MedTech service
+  - name: Deploy MedTech service
     expanded: true
     items:
     - name: Deployment methods   
