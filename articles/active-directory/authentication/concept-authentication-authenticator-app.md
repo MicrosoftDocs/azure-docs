@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 11/16/2022
 
 ms.author: justinha
 author: justinha
@@ -60,7 +60,7 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 ## FIPS 140 compliant for Azure AD authentication
 
-Beginning with version 6.6.8, Microsoft Authenticator for iOS is compliant with [Federal Information Processing Standard (FIPS) 140](https://csrc.nist.gov/publications/detail/fips/140/3/final?azure-portal=false) for all Azure AD authentications using push multi-factor authentications (MFA), passwordless Phone Sign-In (PSI), and time-based one-time passcodes (TOTP).  
+Beginning with version 6.6.8, Microsoft Authenticator for iOS is compliant with [Federal Information Processing Standard (FIPS) 140](https://csrc.nist.gov/publications/detail/fips/140/3/final?azure-portal=true) for all Azure AD authentications using push multi-factor authentications (MFA), passwordless Phone Sign-In (PSI), and time-based one-time passcodes (TOTP).  
 
 Consistent with the guidelines outlined in [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html?azure-portal=true), authenticators are required to use FIPS 140 validated cryptography. This helps federal agencies meet the requirements of [Executive Order (EO) 14028](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/?azure-portal=true) and healthcare organizations working with [Electronic Prescriptions for Controlled Substances (EPCS)](/azure/compliance/offerings/offering-epcs-us). 
 
