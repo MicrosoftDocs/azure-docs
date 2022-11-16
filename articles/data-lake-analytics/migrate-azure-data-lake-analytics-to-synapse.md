@@ -6,12 +6,12 @@ ms.author: lingluo
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: migrate-azure-data-lake-analytics-to-synapse
-ms.date: 08/25/2021
+ms.date: 11/15/2022
 ---
 
 # Migrate Azure Data Lake Analytics to Azure Synapse Analytics
 
-Microsoft launched the Azure Synapse Analytics which aims at bringing both data lakes and data warehouse together for a unique big data analytics experience. It will help customers gather and analyze all the varying data, to solve data inefficiency, and work together. Moreover, Synapse’s integration with Azure Machine Learning and Power BI will allow the improved ability for organizations to get insights from its data as well as execute machine learning to all its smart apps. 
+Microsoft launched the Azure Synapse Analytics that aims at bringing both data lakes and data warehouse together for a unique big data analytics experience. It will help customers gather and analyze all the varying data, to solve data inefficiency, and work together. Moreover, Synapse’s integration with Azure Machine Learning and Power BI will allow the improved ability for organizations to get insights from its data and execute machine learning to all its smart apps. 
 
 The document shows you how to do the migration from Azure Data Lake Analytics to Azure Synapse Analytics. 
 
@@ -38,7 +38,7 @@ The document shows you how to do the migration from Azure Data Lake Analytics to
 
 1.	Identify jobs and data that you'll migrate.
     -	Take this opportunity to clean up those jobs that you no longer use. Unless you plan to migrate all your jobs at one time, take this time to identify logical groups of jobs that you can migrate in phases.
-    -	Evaluate the size of the data and understand Apache Spark data format. Review your U-SQL scripts and evaluate the scripts re-writing efforts and understand the Apache Spark code concept.
+    -	Evaluate the size of the data and understand Apache Spark data format. Review your U-SQL scripts and evaluate the scripts rewriting efforts and understand the Apache Spark code concept.
 
 2.	Determine the impact that a migration will have on your business. For example, whether you can afford any downtime while migration takes place.
 
