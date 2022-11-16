@@ -23,7 +23,7 @@ This article explains how to collect events from SNMP traps using Azure Monitor 
 
 ## Overview
   
-In this tutorial, we'll use an SNMP trap receiver called **snmptrapd** from the [Net-SNMP](https://www.net-snmp.org/) agent. There are many other SNMP trap receiver services, but snmptrapd is a good SNMP trap receiver, which most Linux distributions provide. 
+There are many SNMP trap receiver services available. In this article, we describe how to set up an SNMP trap receiver that called most Linux distributions provide, called **snmptrapd**, from the [Net-SNMP](https://www.net-snmp.org/) agent. 
 
 SNMP identifies monitored properties using Object Identifier (OID) values, which are defined and described in vendor-provided Management Information Base (MIB) files.  
 
