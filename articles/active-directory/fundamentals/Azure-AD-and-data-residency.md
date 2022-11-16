@@ -16,7 +16,7 @@ ms.collection:
 ---
 # Azure Active Directory and data residency
 
-Azure AD is an Identity as a Service (IDaaS) solution that stores and manages identity and access data in the cloud. You can use the data to enable and manage access to cloud services, achieve mobility scenarios, and secure your organization. An instance of the Azure AD service, called a [tenant](https://learn.microsoft.com/azure/active-directory/develop/developer-glossary#tenant), is an isolated set of directory object data that the customer provisions and owns. 
+Azure AD is an Identity as a Service (IDaaS) solution that stores and manages identity and access data in the cloud. You can use the data to enable and manage access to cloud services, achieve mobility scenarios, and secure your organization. An instance of the Azure AD service, called a [tenant](/azure/active-directory/develop/developer-glossary#tenant), is an isolated set of directory object data that the customer provisions and owns. 
 
 ## Core Store
 
