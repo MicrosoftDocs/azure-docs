@@ -43,18 +43,22 @@ We recommend that you make an initial estimate of your committed devices when on
 
     :::image type="content" source="media/how-to-manage-subscriptions/eiot-calculate-devices.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint." lightbox="media/how-to-manage-subscriptions/eiot-calculate-devices.png":::
 
-    For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
+1. Remove any endpoints that have an Defender for Endpoint agent installed and are already managed by Defender for Endpoint. Devices managed by Defender for Endpoint are not considered as committed devices for Defender for IoT.
 
-1. Remove any endpoints that have an MDE agent and are therefore already managed by MDE. Devices managed by MDE are not considered as committed devices for Defender for IoT.
+    To check whether a device is managed by MDE, select a device row to view the **Managed by** information in the device details pane that appears.
 
 1. Round up your total to a multiple of 100.
 
 For example:
 
 - In the Microsoft 365 Defender **Device inventory**, you have *473* network devices and *1206* IoT devices.
-- Added together, the total is *1679* devices, and rounded up to a multiple of 100 is **1700**.
+- Added together, the total is *1679* devices.
+- *100* of your network devices have an MDE agent installed, and are therefore managed by MDE. Subtract *100*, and your total is *1579*.
+- Rounded up to a multiple of 100 is **1600**.
 
-Use **1700** as the estimated number of committed devices.
+Use **1600** as the estimated number of committed devices.
+
+For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
 ## Onboard an Enterprise IoT plan
 
