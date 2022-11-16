@@ -306,7 +306,7 @@ The console will display restore failures.
 
 - Sign in to an administrative account and enter `$ sudo cyberx-management-system-restore`.
 
-## Configuring SMTP settings
+## Configure SMTP settings
 
 Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other services. For example, you'll need an SMTP mail server configured to configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
 
