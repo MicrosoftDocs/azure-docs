@@ -47,35 +47,30 @@ const msalConfig = {
     },
     system: {
         loggerOptions: {
-            loggerCallback: (level: LogLevel, message: string, containsPii: boolean): void => {
+            logLevel: msal.LogLevel.Verbose,
+            loggerCallback: (level, message, containsPii) => {
                 if (containsPii) {
                     return;
                 }
                 switch (level) {
-                    case LogLevel.Error:
+                    case msal.LogLevel.Error:
                         console.error(message);
                         return;
-                    case LogLevel.Info:
+                    case msal.LogLevel.Info:
                         console.info(message);
                         return;
-                    case LogLevel.Verbose:
+                    case msal.LogLevel.Verbose:
                         console.debug(message);
                         return;
-                    case LogLevel.Warning:
+                    case msal.LogLevel.Warning:
                         console.warn(message);
                         return;
                 }
             },
             piiLoggingEnabled: false
         },
-        windowHashTimeout: 60000,
-        iframeHashTimeout: 6000,
-        loadFrameTimeout: 0,
-        asyncPopups: false
-    };
-}
-
-const msalInstance = new PublicClientApplication(msalConfig);
+    },
+};
 ```
 
 ## Next steps
