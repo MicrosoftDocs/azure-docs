@@ -47,7 +47,7 @@ To replicate VMs running in an Public MEC (preview) to another Azure Public MEC,
     ```
     Connect-AzAccount
     ```
-1. Select Right subscription.
+1. Select Right subscription. 
 
     ```
     $subscription = Get-AzSubscription -SubscriptionName "<SubscriptionName>"

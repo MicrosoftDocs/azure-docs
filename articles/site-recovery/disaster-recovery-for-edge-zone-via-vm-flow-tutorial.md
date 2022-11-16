@@ -21,7 +21,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Enable replication for the Azure VMs
 
-To enable replication to a secondary location, follow the below steps:
+To enable replication to a secondary location, follow the below steps: 
 
 1. On the Azure portal, select **Virtual machines** and select a VM to replicate.
 1. On the left pane, under **Operations**, select **Disaster recovery**.
