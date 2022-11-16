@@ -18,6 +18,7 @@ These effects are currently supported in a policy definition:
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
+- [DenyAction (preview)](#denyAction)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [Manual (preview)](#manual-preview)
@@ -51,7 +52,10 @@ manages the evaluation and outcome and reports the results back to Azure Policy.
   Resource Manager mode.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired
   resource is prevented.
-- **Audit** is evaluated last.
+- **Audit** is evaluated. 
+- **Manual** is evaluated. 
+- **AuditIfNotexist** is evaluated. 
+- **denyAction** is evaluated last. 
 
 After the Resource Provider returns a success code on a Resource Manager mode request,
 **AuditIfNotExists** and **DeployIfNotExists** evaluate to determine whether additional compliance
@@ -451,6 +455,70 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 }
 ```
 
+## DenyAction (preview)
+
+DenyAction is used to block request based on intended action to resources. The only supported action today is DELETE. This effect will help prevent any accidential deletion of critical resources.
+
+
+### DenyAction evaluation
+
+When submitting a request to a matched resource in a Resource Manager mode, denyAction prevents the request
+from succeeding. The request is returned as a `403 (Forbidden)`. In the
+portal, the Forbidden can be viewed as a status on the deployment that was prevented by the policy
+assignment. 
+
+Microsoft.Authorization/policyAssignments, Microsoft.Authorization/denyAssignments, Microsoft.Blueprint/blueprintAssignments, Microsoft.Resources/deploymentStacks, and Microsoft.Authorization/locks are all exempt from DenyAction enforcement to prevent lockout scenarios. 
+
+**Subscription deletion**
+Policy will not block removal of resources that happens during a subscription deletion. 
+
+**Resource group deletion** 
+Policy will evaluate resources that support location and tags against DenyAction policies during a resource group deletion. Only policies that have the resourceGroup cascadeBehavior set to deny in the policy rule will block a resource group deletion. Policy will not block removal of resources that do not support location and tags nor any policy with mode:all. 
+
+**Cascade Deletion** 
+Cascade Deletion ocurs when deleting of a parent resources is implicately deletes all its child resources. Policy will not block removal of child resources when an deletion action targets the parent resources. For example, Microsoft.Insights/diagnosticSettings is a child resource of Microsoft.Storage/storageaccounts. If a denyAction policy targets Microsoft.Insights/diagnosticSettings, a delete call to the diagnostic setting (child) will fail, but a delete to the storage account (parent) will implictely delete the diagnostic setting (child). 
+
+
+### DenyAction properties
+
+The **details** property of the DenyAction effect has all the subproperties that define the action and behaviors.
+
+- **actionType** (required)
+  - An _array_  that specifies what actions to prevent from being executed. 
+  - Supported action type is: delete 
+- **cascadeBehaviors** (optional)
+  - An _object_ that defines what behavior will be followed when the resource is being implicitly deleted by the removal of a resource group. 
+  - Only supported for mode:indexed.
+  - Allowed values are allow or deny. 
+  - Default value is deny. 
+
+### DenyAction example
+Example: Deny deletion of database accounts where tag environment equals prod. 
+
+```json
+{
+   "if": {
+      "allOf": [
+         {
+            "field": "type",
+            "equals": "Microsoft.DocumentDb/accounts"
+         },
+         {
+            "field": "tags.environment",
+            "equals": "prod"
+         }
+      ]
+   },
+   "then": {
+      "effect": "DenyAction",
+      "details": {
+         "actionNames": [ "delete" ],
+         "cascadeBehaviors": { "resourceGroup": "deny" }
+      }
+   }
+}
+```
+
 ## DeployIfNotExists
 
 Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a template deployment
@@ -621,132 +689,6 @@ When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logg
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
-## EnforceOPAConstraint
-
-This effect is used with a policy definition _mode_ of `Microsoft.Kubernetes.Data`. It's used to
-pass Gatekeeper v3 admission control rules defined with
-[OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
-to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clusters on Azure.
-
-> [!IMPORTANT]
-> The limited preview policy definitions with **EnforceOPAConstraint** effect and the related
-> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
-> Resource Provider mode `Microsoft.Kubernetes.Data`.
-
-### EnforceOPAConstraint evaluation
-
-The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
-
-### EnforceOPAConstraint properties
-
-The **details** property of the EnforceOPAConstraint effect has the subproperties that describe the
-Gatekeeper v3 admission control rule.
-
-- **constraintTemplate** (required)
-  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
-    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
-    passed via **values** from Azure Policy.
-- **constraint** (required)
-  - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
-    `{{ .Values.<valuename> }}`. In the following example, these values are `{{ .Values.cpuLimit }}`
-    and `{{ .Values.memoryLimit }}`.
-- **values** (optional)
-  - Defines any parameters and values to pass to the Constraint. Each value must exist in the
-    Constraint template CRD.
-
-### EnforceOPAConstraint example
-
-Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in
-Kubernetes.
-
-```json
-"if": {
-    "allOf": [
-        {
-            "field": "type",
-            "in": [
-                "Microsoft.ContainerService/managedClusters",
-                "AKS Engine"
-            ]
-        },
-        {
-            "field": "location",
-            "equals": "westus2"
-        }
-    ]
-},
-"then": {
-    "effect": "enforceOPAConstraint",
-    "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/template.yaml",
-        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/constraint.yaml",
-        "values": {
-            "cpuLimit": "[parameters('cpuLimit')]",
-            "memoryLimit": "[parameters('memoryLimit')]"
-        }
-    }
-}
-```
-
-## EnforceRegoPolicy
-
-This effect is used with a policy definition _mode_ of `Microsoft.ContainerService.Data`. It's used
-to pass Gatekeeper v2 admission control rules defined with
-[Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) to
-[Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
-[Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
-
-> [!IMPORTANT]
-> The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
-> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
-> Resource Provider mode `Microsoft.Kubernetes.Data`.
-
-### EnforceRegoPolicy evaluation
-
-The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
-
-### EnforceRegoPolicy properties
-
-The **details** property of the EnforceRegoPolicy effect has the subproperties that describe the
-Gatekeeper v2 admission control rule.
-
-- **policyId** (required)
-  - A unique name passed as a parameter to the Rego admission control rule.
-- **policy** (required)
-  - Specifies the URI of the Rego admission control rule.
-- **policyParameters** (optional)
-  - Defines any parameters and values to pass to the rego policy.
-
-### EnforceRegoPolicy example
-
-Example: Gatekeeper v2 admission control rule to allow only the specified container images in AKS.
-
-```json
-"if": {
-    "allOf": [
-        {
-            "field": "type",
-            "equals": "Microsoft.ContainerService/managedClusters"
-        },
-        {
-            "field": "location",
-            "equals": "westus2"
-        }
-    ]
-},
-"then": {
-    "effect": "EnforceRegoPolicy",
-    "details": {
-        "policyId": "ContainerAllowedImages",
-        "policy": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/KubernetesService/container-allowed-images/limited-preview/gatekeeperpolicy.rego",
-        "policyParameters": {
-            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]"
-        }
-    }
-}
-```
 
 ## Manual (preview)
 
