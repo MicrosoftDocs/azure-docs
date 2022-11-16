@@ -81,7 +81,7 @@ The following tools are supported by Form Recognizer v2.1:
 
 | Feature | Resources | Model ID|
 |---|---|:---|
-|Custom model| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|***custom-model-id***|
+|Custom model| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|***custom-model-id***|
 
 
 ### Try building a custom model
@@ -202,4 +202,3 @@ Explore Form Recognizer quickstarts and REST APIs:
 |--|--|
 |[v3.0 Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) |[Form Recognizer v3.0 API 2022-08-31](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|
 | [v2.1 quickstart](quickstarts/get-started-v2-1-sdk-rest-api.md) | [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/BuildDocumentModel) |
-

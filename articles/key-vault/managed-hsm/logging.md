@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 03/30/2021
+ms.date: 11/14/2022
 ms.author: mbaldwin
 #Customer intent: As a Managed HSM administrator, I want to enable logging so I can monitor how my HSM is accessed.
 ---
