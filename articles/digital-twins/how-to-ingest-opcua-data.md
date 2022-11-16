@@ -20,11 +20,11 @@ The [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-tech
 
 Leveraging the solution outlined below has several advantages over traditional mechanisms:
 
-1. *Open*: By leveraging open standards like OPC UA and the ISA95 ontology, you are not locked into a solution architecture you will never be able to leave again.
+1. **Open**: By leveraging open standards like OPC UA and the ISA95 ontology, you are not locked into a solution architecture you will never be able to leave again.
 
-2. *Cost optimized*: By leveraging OPC UA and ISA95 data models you should already be familiar with, you can save money and effort and simply use what you already have.
+2. **Cost optimized**: By leveraging OPC UA and ISA95 data models you should already be familiar with, you can save money and effort and simply use what you already have.
 
-3. *Time optimized*: Since the ingestion happens completely automatically, it eliminates the need for you to create a digital twin ontology from scratch.
+3. **Time optimized**: Since the ingestion happens completely automatically, it eliminates the need for you to create a digital twin ontology from scratch.
 
 Learn more about the [manufacturing ontologies](https://github.com/digitaltwinconsortium/ManufacturingOntologies) leveraged in this solution.
 
