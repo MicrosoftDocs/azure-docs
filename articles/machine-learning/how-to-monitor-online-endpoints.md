@@ -31,13 +31,26 @@ In this article you learn how to:
 
 ## Metrics
 
-Use the following steps to view metrics for an online endpoint or deployment:
+Metrics for an online endpoint or deployment are available in the Azure portal. You can access these metrics by going directly to the Azure portal or by following links from the endpoint details page in the Azure Machine Learning Studio user interface.
+
+To access metrics directly from the Azure portal:
+
 1. Go to the [Azure portal](https://portal.azure.com).
 1. Navigate to the online endpoint or deployment resource.
 
-    online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
+    Online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
 
 1. In the left-hand column, select **Metrics**.
+
+You can also access metrics from the **Details** tab of an endpoint's page in the studio. This is an easy way to go directly to the exact metrics page in the Azure portal for the endpoint or deployment.
+
+1. Go to the [Azure Machine Learning Studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Endpoints** page.
+1. Select an endpoint by clicking its name.
+1. Click **View metrics** in the **Attributes** section of the endpoint to open up the endpoint's metrics page in the Azure portal
+1. Click **View metrics** in the section for each available deployment to open up the deployment's metrics page in the Azure portal.
+
+    :::image type="content" source="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png" alt-text="A screenshot showing how to access the metrics of an endpoint and deployment from the studio UI" lightbox="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png":::
 
 ### Available metrics
 
