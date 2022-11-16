@@ -316,16 +316,16 @@ Define SMTP mail server settings for the sensor so that you configure the sensor
 
 1. In the **Edit Mail Server Configuration** pane that appears, define the values for your SMTP server as follows:
 
-|  |  |
-|---|---|
-| **SMTP Server Address** | Enter the IP address or domain address of your SMTP server. |
-| **SMTP Server Port** | Default = 25. Adjust the value as needed. |
-| **Outgoing Mail Account** | Enter an email address to use as the outgoing mail account from your sensor. |
-| **SSL** | Toggle on for secure connections from your sensor. |
-| **Authentication** | Toggle on and then enter a username and password for your email account. |
-| **Use NTLM** | Toggle on to enable [NTLM](/windows-server/security/kerberos/ntlm-overview). This option only appears when you have the **Authentication** option toggled on. |
-
-3. Select **Save** when you're done.
+    |Column1  |Column2  |
+    |---------|---------|
+    |**SMTP Server Address**     | Enter the IP address or domain address of your SMTP server.        |
+    |**SMTP Server Port**     | Default = 25. Adjust the value as needed.        |
+    |**Outgoing Mail Account**     | Enter an email address to use as the outgoing mail account from your sensor.        |
+    |**SSL**     | Toggle on for secure connections from your sensor.        |
+    |**Authentication**     | Toggle on and then enter a username and password for your email account.        |
+    |**Use NTLM**     | oggle on to enable [NTLM](/windows-server/security/kerberos/ntlm-overview). This option only appears when you have the **Authentication** option toggled on.        |
+        
+1. Select **Save** when you're done.
 
 ## Forward sensor failure alerts
 
