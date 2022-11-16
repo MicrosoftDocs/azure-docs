@@ -1,5 +1,5 @@
 ---
-title: How to create an accelerator.yaml for App Accelerator for VMware Tanzu
+title: How to create an accelerator.yaml for App Accelerator
 titleSuffix: Azure Spring Apps Enterprise Tier
 description: How to create an accelerator.yaml for App Accelerator for VMware Tanzu
 author: 
