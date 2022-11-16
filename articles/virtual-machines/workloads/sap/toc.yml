@@ -380,6 +380,10 @@
     href: expose-sap-process-orchestration-on-azure.md
   - name: Enable SAP Principal Propagation for live OData feeds with Power Query
     href: expose-sap-odata-to-power-query.md
+  - name: Connect SAP services with Azure AD
+    items:
+    - name: SAP workload security - Microsoft Azure Well-Architected Framework 
+      href: /azure/architecture/framework/sap/security?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
 - name: SAP on Azure Large Instances
   items:
   - name: Overview

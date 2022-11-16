@@ -13,3 +13,6 @@
       - name: SAP
         tocHref: /azure/backup/index 
         topicHref: /azure/virtual-machines/workloads/sap/index
+      - name: architecture
+        tocHref: /azure/architecture/framework/sap/security/index
+        topicHref: /azure/virtual-machines/workloads/sap/index
