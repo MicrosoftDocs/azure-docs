@@ -66,7 +66,7 @@ To set up snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 se
         authCommunity log,execute,net public
         ```
 
-## Configure snmptrapd to send SNMP traps to Azure Monitor Agent
+## Configure snmptrapd to send traps to syslog or text file
 
 There are two ways snmptrapd can send SNMP traps to Azure Monitor Agent: 
 
