@@ -64,11 +64,11 @@ Page two lists billing details by product, including unit price, quantity, commi
 
 Here's an example of the first page of the invoice file.
 
-:::image type="content" source="./media/direct-ea-billing-invoice-documents/invoice-page-01.png" alt-text="Example image of the first page of the invoice file." lightbox="./media/direct-ea-billing-invoice-documents/invoice-page-01.png" :::
+:::image type="content" source="./media/direct-ea-billing-invoice-documents/invoice-page-01.png" alt-text="Example screenshot of the first page of the invoice file." lightbox="./media/direct-ea-billing-invoice-documents/invoice-page-01.png" :::
 
 Here's an example of the last page of the invoice file.
 
-:::image type="content" source="./media/direct-ea-billing-invoice-documents/invoice-page-02.png" alt-text="Example image of the second page of the invoice file." lightbox="./media/direct-ea-billing-invoice-documents/invoice-page-02.png" :::
+:::image type="content" source="./media/direct-ea-billing-invoice-documents/invoice-page-02.png" alt-text="Example screenshot of the second page of the invoice file." lightbox="./media/direct-ea-billing-invoice-documents/invoice-page-02.png" :::
 
 _Prices shown on the invoice are for informational purposes only._
 
@@ -78,11 +78,11 @@ The summary invoice file is a concise version of the detailed PDF file with a br
 
 Here's an example of the first page of the summary invoice file.
 
-:::image type="content" source="./media/direct-ea-billing-invoice-documents/invoice-summary-page-01.png" alt-text="Example image of the first page of the summary invoice file." lightbox="./media/direct-ea-billing-invoice-documents/invoice-summary-page-01.png" :::
+:::image type="content" source="./media/direct-ea-billing-invoice-documents/invoice-summary-page-01.png" alt-text="Example screenshot of the first page of the summary invoice file." lightbox="./media/direct-ea-billing-invoice-documents/invoice-summary-page-01.png" :::
 
 Here's an example of the last page of the summary invoice file.
 
-:::image type="content" source="./media/direct-ea-billing-invoice-documents/invoice-summary-page-02.png" alt-text="Example image of the second page of the summary invoice file." lightbox="./media/direct-ea-billing-invoice-documents/invoice-summary-page-02.png" :::
+:::image type="content" source="./media/direct-ea-billing-invoice-documents/invoice-summary-page-02.png" alt-text="Example screenshot of the second page of the summary invoice file." lightbox="./media/direct-ea-billing-invoice-documents/invoice-summary-page-02.png" :::
 
 
 ## Understand the transactions file
