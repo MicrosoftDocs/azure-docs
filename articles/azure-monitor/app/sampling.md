@@ -2,7 +2,7 @@
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 11/15/2022
 ms.custom: fasttrack-edit
 ms.reviewer: mmcc
 ---
@@ -173,7 +173,7 @@ builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Depend
 
 ### Configuring adaptive sampling for ASP.NET Core applications
 
-ASP.NET Core applications may be configured in code or through the `appsettings.json` file. For more information, see [Configuration in ASP.NET Core](https://learn.microsoft.com/aspnet/core/fundamentals/configuration).
+ASP.NET Core applications may be configured in code or through the `appsettings.json` file. For more information, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration).
 
 Adaptive sampling is enabled by default for all ASP.NET Core applications. You can disable or customize the sampling behavior.
 
