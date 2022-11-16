@@ -15,7 +15,7 @@ ms.date: 11/10/2022
 Substitutable Medical Applications and Reusable Technologies [SMART on FHIR](https://docs.smarthealthit.org/) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
 - Applications have a known method for obtaining authentication/authorization to a FHIR repository
 - Users accessing a FHIR repository with SMART on FHIR are restricted to resources associated with the user, rather than having access to all data in the repository
-- Users have the ability to grant applications access to an further limited set of their data by using SMART clinical scopes.
+- Users have the ability to grant applications access to a further limited set of their data by using SMART clinical scopes.
 
 <!---SMART Implementation Guide v1.0.0 is supported by Azure API for FHIR and Azure API Management (APIM). This is our recommended approach, as it enabled Health IT developers to comply with 21st Century Act Criterion §170.315(g)(10) Standardized API for patient and population services. 
 
@@ -32,7 +32,7 @@ Below tutorial describes steps to enable SMART on FHIR applications with FHIR Se
 - An instance of the FHIR Service
 - .NET SDK 6.0
 - [Enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
-- [Register public client application in AAD ](/register-public-azure-ad-client-app.md)
+- [Register public client application in Azure AD](/register-public-azure-ad-client-app.md)
      - After registering the application, make note of the applicationId for client application.
      
 <!--- Tutorial : To enable SMART on FHIR using APIM, follow below steps 
@@ -41,7 +41,7 @@ Follow the steps listed under section [Manage Users: Assign Users to Role](https
 
 Step 2 : Deploy the necessary components to set up the FHIR server integrated with APIM in production. Follow ReadMe
 Step 3 : Load US Core profiles 
-Step 4 : Create AAD custom policy using this README  ---> 
+Step 4 : Create Azure AD custom policy using this README  ---> 
 
 Lets go over individual steps to enable SMART on FHIR 
 ## Step 1 : Set admin consent for your client application
