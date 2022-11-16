@@ -27,7 +27,7 @@ This article explains how to manage the following aspects of NAT gateway:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An existing Azure Virtual Network. For information about creating an Azure Virtual Network, see [Quickstart: Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal).
+- An existing Azure Virtual Network. For information about creating an Azure Virtual Network, see [Quickstart: Create a virtual network using the Azure portal](../quick-create-portal.md).
     
     - The example virtual network used in this article is named **myVNet**. Replace the example value with the name of your virtual network. 
     
@@ -698,4 +698,3 @@ To learn more about Azure Virtual Network NAT and its capabilities, see the foll
 - [NAT gateway and availability zones](nat-availability-zones.md)
 
 - [Design virtual networks with NAT gateway](nat-gateway-resource.md)
-

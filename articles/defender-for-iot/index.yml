@@ -46,9 +46,9 @@ conceptualContent:
         - url: organizations/tutorial-onboarding.md
           itemType: tutorial
           text: Get started with for OT security monitoring
-        - url: organizations/tutorial-getting-started-eiot-sensor.md
-          itemType: tutorial
-          text: Get started with Enterprise IoT security monitoring
+        - url: organizations/concept-enterprise.md
+          itemType: concept
+          text: Securing IoT devices in the enterprise
         - url: organizations/best-practices/understand-network-architecture.md
           itemType: concept
           text: Understand your OT network architecture
