@@ -104,7 +104,7 @@ In progress.
 1. Steps for Mac
 ---
 
-1. Open the `_LoginPartial.cshtml` page, and then add the following code for adding sign-in and sign-out to the page:
+4. Open the `_LoginPartial.cshtml` page, and then add the following code for adding sign-in and sign-out to the page:
 
     ```csharp
     @using System.Security.Principal

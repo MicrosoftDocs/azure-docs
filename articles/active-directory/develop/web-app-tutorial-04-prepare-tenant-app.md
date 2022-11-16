@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 1. In the left menu, under **Manage**, select **Authentication**.
 1. In **Platform configurations**, select **Add a platform**, and then select **Web**.
 
-    :::image type="content" source="./media/web-app-tutorial-04-prepare-tenant-app/select-platform.png" alt-text="Select the platform for the application.":::
+    :::image type="content" source="./media/web-app-tutorial-04-prepare-tenant-app/select-platform.png" alt-text="Screenshot on how to select the platform for the application.":::
 
 ## Define URLs
 

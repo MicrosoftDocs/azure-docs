@@ -40,7 +40,7 @@ Organizations may have more than one Azure AD tenant. Choose the tenant where th
 1. Search for and select **Azure Active Directory**.
 1. Use the **Directories + subscriptions** filter in the top menu to switch to the tenant where the application should be registered.
 
-    :::image type="content" source="./media/web-app-tutorial-01-register-application/select-tenant.png" alt-text="Select a tenant in Azure Active Directory.":::
+    :::image type="content" source="./media/web-app-tutorial-01-register-application/select-tenant.png" alt-text="Screenshot of selecting a tenant in Azure Active Directory.":::
 
 1. Once your tenant is selected, you can close the page by clicking the 'X' icon on the top right, which will bring you to your tenant's **Overview** page.
 
@@ -51,7 +51,7 @@ Provide a name for the application. The name is seen by users in the various por
 1. Under **Manage**, select **App registrations > New registration**.
 1. Enter a **Name** for the application, such as *NewWebApp1*.
 
-    :::image type="content" source="./media/web-app-tutorial-01-register-application/register-application.png" alt-text="Enter a name and select the account type.":::
+    :::image type="content" source="./media/web-app-tutorial-01-register-application/register-application.png" alt-text="Screenshot of process to enter a name and select the account type.":::
 
 ### Select the account type and register the application
 
@@ -67,7 +67,7 @@ In the following tutorials, the **Directory (tenant) ID** and the **Application 
 1. Locate the **Directory (tenant) ID** and the **Application (client) ID** on the **Overview** page of the application.
 1. Record the values that you located to be used in later steps.
 
-    :::image type="content" source="./media/web-app-tutorial-01-register-application/record-identifiers.png" alt-text="Record the identifier values on the overview page.":::
+    :::image type="content" source="./media/web-app-tutorial-01-register-application/record-identifiers.png" alt-text="Screenshot of recording the identifier values on the overview page.":::
 
 ## See also
 

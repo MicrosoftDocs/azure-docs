@@ -121,9 +121,9 @@ dotnet run
 
 ---
 
-1. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
+2. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
 
-    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="The results of the API call is displayed.":::
+    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
 
 ## Next steps
 > [!div class="nextstepaction"]
