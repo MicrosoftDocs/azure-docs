@@ -254,7 +254,22 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 1. In the command palette, enter and run the command **Azure IoT Edge: Set default IoT Edge runtime version**.
 1. Choose the runtime version that your IoT Edge devices are running from the list.
 
-After you select a new runtime version, your deployment manifest is dynamically updated to reflect the change to the runtime module images.
+    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+
+    ```json
+    ...
+    "systemModules": {
+       "edgeAgent": {
+       ...
+          "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+       ...
+       "edgeHub": {
+       ...
+          "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+       ...
+    ```
+
+1. After you select a new runtime version, your deployment manifest is dynamically updated to reflect the change to the runtime module images.
 
 ::: zone-end
 
