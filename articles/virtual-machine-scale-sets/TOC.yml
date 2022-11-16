@@ -26,7 +26,7 @@
     href: flexible-virtual-machine-scale-sets-rest-api.md
 - name: Tutorials
   items: 
-  - name: 1 - Create / manage scale set
+  - name: 1 - Create and manage
     items:
     - name: Azure CLI
       href: tutorial-create-and-manage-cli.md
