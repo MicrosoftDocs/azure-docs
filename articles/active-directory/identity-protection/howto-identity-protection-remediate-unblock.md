@@ -19,14 +19,14 @@ ms.collection: M365-identity-device-management
 
 After completing your [investigation](howto-identity-protection-investigate-risk.md), you need to take action to remediate the risky users or unblock them. Organizations can enable automated remediation by setting up [risk-based policies](howto-identity-protection-configure-risk-policies.md). Organizations should try to investigate and remediate all risky users in a time period that your organization is comfortable with. Microsoft recommends acting quickly, because time matters when working with risks.
 
-## Risk Remediation
+## Risk remediation
 
 All active risk detections contribute to the calculation of the user's risk level. The user risk level is an indicator (low, medium, high) of the probability that the user's account has been compromised. As an administrator, after thorough investigation on the risky users and the corresponding risky sign-ins and detections, you want to remediate the risky users so that they're no longer at risk and won't be blocked.
 
 Some risk detections and the corresponding risky sign-ins may be marked by Identity Protection as dismissed with risk state "Dismissed" and risk detail "Azure AD Identity Protection assessed sign-in safe" because those events were no longer determined to be risky.
 
 Administrators have the following options to remediate:
-- Setup [risk-based policies](howto-identity-protection-configure-risk-policies.md) to allow users to self-remediate their risks
+- Set up [risk-based policies](howto-identity-protection-configure-risk-policies.md) to allow users to self-remediate their risks
 - Manual password reset
 - Dismiss user risk
 
@@ -36,16 +36,16 @@ You can allow users to self-remediate their sign-in risks and user risks by sett
 
 Here are the prerequisites on users before risk-based policies can be applied to them to allow self-remediation of risks:
 - To perform MFA to self-remediate a sign-in risk: 
-   - the user must have registered for Azure AD MFA
+   - The user must have registered for Azure AD MFA.
 - To perform secure password change to self-remediate a user risk:
-   -  the user must have registered for Azure AD MFA
-   -  for hybrid users that are synced from on-premises to cloud, password writeback must have been enabled on them
+   -  The user must have registered for Azure AD MFA.
+   -  For hybrid users that are synced from on-premises to cloud, password writeback must have been enabled on them.
 
 If a risk-based policy is applied to a user during sign-in before the above prerequisites are met, then the user will be blocked because they aren't able to perform the required access control, and admin intervention will be required to unblock the user. 
 
 Risk-based policies are configured based on risk levels and will only apply if the risk level of the sign-in or user matches the configured level. Some detections may not raise risk to the level where the policy will apply, and administrators will need to handle those risky users manually. Administrators may determine that extra measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
 
-### Self-remediation with Self-service password reset
+### Self-remediation with self-service password reset
 
 If a user has registered for self-service password reset (SSPR), then they can also remediate their own user risk by performing a self-service password reset.
 
