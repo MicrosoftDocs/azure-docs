@@ -434,6 +434,9 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it as
 - We added the following new user properties to sync from on-premises Active Directory to Azure AD:
   - employeeType
   - employeeHireDate
+    >[!NOTE]
+    > There's no corresponding EmployeeHireDate or EmployeeLeaveDateTime attribute in Active Directory. If you're importing from on-premises AD, you'll need to identify an attribute in AD that can be used. This attribute must be a string.  For more information see, [Synchronizing lifecycle workflow attributes](../governance/how-to-lifecycle-workflow-sync-attributes.md)
+
 - This release requires PowerShell version 5.0 or newer to be installed on the Windows server. This version is part of Windows Server 2016 and newer.
 - We increased the group sync membership limits to 250,000 with the new V2 endpoint.
 - We updated the Generic LDAP Connector and the Generic SQL Connector to the latest versions. To learn more about these connectors, see the reference documentation for:

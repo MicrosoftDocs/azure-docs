@@ -15,15 +15,13 @@ ms.date: 09/29/2022
 
 [!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-Hello! We have news to share - **Azure Database for MySQL - Single Server is on the retirement path**.
+Hello! We have news to share - **Azure Database for MySQL - Single Server is on the retirement path** and Azure Database for MySQL - Single Server is scheduled for retirement by **September 16, 2024**.
 
 After years of evolving the Azure Database for MySQL - Single Server service, it can no longer handle all the new features, functions, and security needs. We recommend upgrading to Azure Database for MySQL - Flexible Server. 
 
 Azure Database for MySQL - Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. For more information about Flexible Server, visit **[Azure Database for MySQL - Flexible Server](../flexible-server/overview.md)**.
 
-If you currently have an Azure Database for MySQL - Single Server service hosting production servers, we're glad to let you know that you can migrate your Azure Database for MySQL - Single Server servers to the Azure Database for MySQL - Flexible Server service.
-
-However, we know change can be disruptive to any environment, so we want to help you with this transition. Review the different ways using the Azure Data Migration Service to [migrate from Azure Database for MySQL - Single Server to MySQL - Flexible Server.](#migrate-from-single-server-to-flexible-server)
+If you currently have an Azure Database for MySQL - Single Server service hosting production servers, we're glad to let you know that you can migrate your Azure Database for MySQL - Single Server servers to the Azure Database for MySQL - Flexible Server service free of cost using Azure Database Migration Service. Review the different ways to migrate using Azure Data Migration Service in the section below.
 
 ## Migrate from Single Server to Flexible Server
 
@@ -34,7 +32,7 @@ Learn how to migrate from Azure Database for MySQL - Single Server to Azure Data
 | Offline | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (offline)](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) |
 | Online | Database Migration Service (DMS) and the Azure portal | [Tutorial: DMS with the Azure portal (online)](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) |
 
-For more information on migrating from Single Server to Flexible Server, visit [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md).
+For more information on migrating from Single Server to Flexible Server using other migration tools, visit [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md).
 
 ## Migration Eligibility
 
@@ -78,7 +76,7 @@ A. We aren't stopping new single server creations immediately, so you can provis
 
 **Q. Are there additional costs associated with performing the migration?**
 
-A. When running the migration, you pay for the target flexible server and the source single server. The configuration and compute of the target flexible server determines the additional costs incurred. For more information, see, [Pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). Once you've decommissioned the source single server post successful migration, you only pay for your running flexible server. There are no more costs on running the migration through the migration tooling. 
+A. When running the migration, you pay for the target flexible server and the source single server. The configuration and compute of the target flexible server determines the additional costs incurred. For more information, see, [Pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). Once you've decommissioned the source single server post successful migration, you only pay for your running flexible server. There are no costs incurred while running the migration through the Azure Database Migration Service migration tooling.
 
 **Q. Will my billing be affected by running Flexible Server as compared to Single Server?**
 
