@@ -53,16 +53,6 @@ You can also list databases using the [MongoClient.list_database_names](https://
 
 The preceding code snippet displays output similar to the following example console output:
 
-```python
-Key: version , Value: 3.6.0
-Key: versionArray , Value: [3, 6, 0, 0]
-Key: bits , Value: 64
-Key: maxBsonObjectSize , Value: 16777216
-Key: ok , Value: 1.0
-Server status {'ok': 1.0}
-Databases: ['adventureworks']
-```
-
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/200-admin/run.py" id="console_result":::
 
 ## Does database exist?
@@ -88,18 +78,6 @@ When you manage your MongoDB server programmatically, it's helpful to know what 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="database_object":::
 
 The preceding code snippet displays output similar to the following example console output:
-
-```python
-Database: adventureworks
-        Collection: products_new
-        Document count: 1
-        Collection: products
-        Document count: 3
-Database: testdb
-        Collection: mycoll
-        Document count: 1
-```
-
 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="console_result":::
 
