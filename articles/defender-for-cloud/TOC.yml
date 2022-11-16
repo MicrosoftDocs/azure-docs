@@ -132,7 +132,9 @@
         href: recommendations-reference.md
       - name: Reference list of AWS recommendations
         href: recommendations-reference-aws.md
-      - name: Reference list of attack paths
+      - name: Reference list of GCP recommendations
+        href: recommendations-reference-gcp.md
+      - name: Reference list of attack paths and cloud security graph components
         href: attack-path-reference.md
   - name: Protect cloud workloads
     items:
@@ -403,7 +405,7 @@
       href: defender-for-storage-introduction.md
     - name: Enable Defender for Storage
       href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
-    - name: Exclude a storage account
+    - name: Exclude a storage account (per-transaction)
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
       href: defender-for-storage-exclude.md
   - name: Defender for Key Vault
