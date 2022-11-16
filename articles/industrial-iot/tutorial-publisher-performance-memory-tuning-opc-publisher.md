@@ -1,8 +1,8 @@
 ---
 title: Microsoft OPC Publisher Performance and Memory Tuning
 description: In this tutorial, you learn how to tune the performance and memory of the OPC Publisher.
-author: jehona-m
-ms.author: jemorina
+author: hansgschossmann
+ms.author: johanng
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
