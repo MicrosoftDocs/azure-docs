@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Migrate from Dapr OSS to the Dapr extension for Azure Kubernetes Service (AKS)
 
-You've installed and configured Dapr OSS on your Kubernetes cluster and want to migrate to the Dapr extension on AKS. In this guide, you will learn how Dapr moves your managed clusters from using Dapr OSS to the Dapr extension by either:
+You've installed and configured Dapr OSS on your Kubernetes cluster and want to migrate to the Dapr extension on AKS. In this guide, you'll learn how Dapr moves your managed clusters from using Dapr OSS to the Dapr extension by either:
 
 - **Interactive flow**: A built-in check for an existing Dapr installation via CLI prompts, or
 - **Non-interactive flow**: Installing the Dapr extension with configuration settings using the Helm release name and namespace of the existing installation. 
@@ -50,7 +50,7 @@ self.MSG_WARN_EXISTING_INSTALLATION = "The extension will use your existing Dapr
     f"Please refer to {self.TSG_LINK} for more information."
 ```
 
-As indicated in the extension code above, when [installing the extension][dapr-create], you will be prompted with the following checks:
+As indicated in the extension code above, when [installing the extension][dapr-create], you'll be prompted with the following checks:
 
 ```bash
 Is Dapr already installed in the cluster? (y/N): y
@@ -94,7 +94,7 @@ az k8s-extension create --cluster-type managedClusters \
 
 ## Update HA mode or placement service settings
 
-Once you create the Dapr extension, either by using the built-in prompts or skipping the Dapr checks, you'll see the following message while the CLI creates the extension:
+Once you install the Dapr extension, you'll see the following message while the CLI creates the extension:
 
 ```bash
 The extension will be installed on your existing Dapr installation. Note, if you have updated the default values for global.ha.* or dapr_placement.* in your existing Dapr installation, you must provide them in the configuration settings. Failing to do so will result in an error, since Helm upgrade will try to modify the StatefulSet. See <link> for more information.
