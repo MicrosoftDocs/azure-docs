@@ -49,19 +49,6 @@ Access server info with the [server_info](https://pymongo.readthedocs.io/en/stab
 
 You can also list databases using the [MongoClient.list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method and issue a [MongoDB command](https://www.mongodb.com/docs/manual/reference/command/nav-diagnostic/) to a database with the [MongoClient.db.command](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.command) method.
 
-```python
-# Get server information
-for k, v in client.server_info().items():
-    print("Key: {} , Value: {}".format(k, v))
-
-# Get server status of admin database
-print("Server status {}".format(client.admin.command("serverStatus")))
-
-# List databases
-databases = client.list_database_names()
-print("Databases: {}".format(databases))
-```
-
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/200-admin/run.py" id="server_info":::
 
 The preceding code snippet displays output similar to the following example console output:
@@ -76,7 +63,7 @@ Server status {'ok': 1.0}
 Databases: ['adventureworks']
 ```
 
-:::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/200-admin/run.py" id="console_result":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/200-admin/run.py" id="console_result":::
 
 ## Does database exist?
 
@@ -84,28 +71,9 @@ The PyMongo driver for Python creates a database if it doesn't exist when you ac
 
 To see if the database already exists before using it, get the list of current databases with the [list_database_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) method.
 
-```python
-# Get list of databases
-databases = client.list_database_names()
-if not databases:
-    print("No databases found")
-
-# Does database exist?
-DB_NAME = "adventureworks"
-if DB_NAME in databases:
-    print("Database exists: {}".format(DB_NAME))
-else:
-    client[DB_NAME].command({"customAction": "CreateDatabase", "offerThroughput": 400})
-    print("Created db '{}' with shared throughput.\n".format(DB_NAME))
-```
-
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="does_database_exist":::
 
 The preceding code snippet displays output similar to the following example console output:
-
-```python
-Database exists: adventureworks
-```
 
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="console_result":::
 
@@ -116,26 +84,6 @@ When you manage your MongoDB server programmatically, it's helpful to know what 
 * [Getting a database](https://pymongo.readthedocs.io/en/stable/tutorial.html#getting-a-database)
 * [Getting a collection](https://pymongo.readthedocs.io/en/stable/tutorial.html#getting-a-collection)
 * [Counting documents](https://pymongo.readthedocs.io/en/stable/tutorial.html#counting)
-
-```python
-# Get list of databases
-databases = client.list_database_names()
-
-# Loop through databases
-for db in databases:
-    print("Database: {}".format(db))
-
-    # Get list of collections
-    collections = client[db].list_collection_names()
-
-    # Loop through collections
-    for col in collections:
-        print("\tCollection: {}".format(col))
-
-        # Get document count
-        doc_count = client[db][col].count_documents({})
-        print("\tDocument count: {}".format(doc_count))
-```
 
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="database_object":::
 
@@ -152,7 +100,7 @@ Database: testdb
         Document count: 1
 ```
 
-:::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="console_result":::
+:::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="console_result":::
 
 ## Get database object instance
 
@@ -171,23 +119,9 @@ For an overview of working with databases using the PyMongo driver, see [Databas
 
 A database is removed from the server using the [drop_database](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.drop_database) method of the MongoClient.
 
-```python
-DB_NAME = input("Enter database name to drop: ")
-if DB_NAME in client.list_database_names():
-    print("Dropping database: {}".format(DB_NAME))
-    client.drop_database(DB_NAME)
-else:
-    print("Didn't find database: {}".format(DB_NAME))
-```
-
 :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/300-drop-database/run.py" id="drop_database":::
 
 The preceding code snippet displays output similar to the following example console output:
-
-```python
-Enter database name to drop: adventureworks
-Dropping database: adventureworks
-```
 
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/300-drop-database/run.py" id="console_result":::
 
