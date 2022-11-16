@@ -178,7 +178,7 @@ Activity log alert rules are Azure resources, so they can be created by using an
 
 An activity log alert only monitors events in the subscription in which the alert is created.
 
-### Service Health Alerts
+### Service Health alerts
 
 Service Health alerts are a type of activity alert. [Service Health](../../service-health/overview.md) lets you know about outages, planned maintenance activities, and other health advisories because the authenticated Service Health experience knows which services and resources you currently use. 
 
