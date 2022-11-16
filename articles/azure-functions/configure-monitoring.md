@@ -199,7 +199,7 @@ For more information, see [Sampling in Application Insights](../azure-monitor/ap
 
 ## Enable SQL query collection
 
-Application Insights automatically collects data on dependencies for HTTP requests, database calls, and for several bindings. For more information, see [Dependencies](./functions-monitoring.md#dependencies). For SQL calls, the name of the server and database is always collected and stored, but SQL query text isn't collected by default. You can use `dependencyTrackingOptions.enableSqlCommandTextInstrumentation` to enable SQL query text logging by setting (at minimum) the following in your [host.json file](./functions-host-json.md): 
+Application Insights automatically collects data on dependencies for HTTP requests, database calls, and for several bindings. For more information, see [Dependencies](./functions-monitoring.md#dependencies). For SQL calls, the name of the server and database is always collected and stored, but SQL query text isn't collected by default. You can use `dependencyTrackingOptions.enableSqlCommandTextInstrumentation` to enable SQL query text logging by setting (at minimum) the following in your [host.json file](./functions-host-json.md#applicationinsightsdependencytrackingoptions): 
 
 ```json
 "logging": {
