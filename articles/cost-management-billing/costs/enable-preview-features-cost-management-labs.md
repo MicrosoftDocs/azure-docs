@@ -105,19 +105,6 @@ When the selected date range includes the current day, the average cost is calcu
 **The Average KPI is available by default in the cost analysis preview.**
 
 
-<a name="budgetsfeature"></a>
-
-## Budgets in the cost analysis preview
-
-Budgets in the cost analysis preview help you quickly create and edit budgets directly from the cost analysis preview.
-
-:::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-budget.png" alt-text="Screenshot showing Budget in the cost analysis preview." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-budget.png" :::
-
-If you don't have a budget yet, you'll see a link to create a new budget. Budgets created from the cost analysis preview are preconfigured with alerts. Thresholds are set for cost exceeding 50 percent, 80 percent, and 95 percent of your cost. Or, 100 percent of your forecast for the month. You can add other recipients or update alerts from the Budgets page.
-
-**The Budget KPI is available by default in the cost analysis preview.**
-
-
 <a name="resourceparent"></a>
 
 ## Group related resources in the cost analysis preview
@@ -166,16 +153,16 @@ Charts are enabled on the [Try preview](https://aka.ms/costmgmt/trypreview) page
 
 Show the forecast for the current period at the top of the cost analysis preview.
 
-Charts can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** Option at the bottom of the page to share feedback about the preview.
+The Forecast KPI can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
 
 
-<a name="productscolumn"></a>
+<a name="cav3delta"></a>
 
-## Product column in the cost analysis preview
+## Compare cost with previous period in the cost analysis preview
 
-Every service tracks different usage attributes of the resources you've deployed. Each of these usage attributes is tracked via a "meter" in your cost data. Meters are grouped into categories and include other metadata to help you understand the charges. We’re testing new columns in the Resources and Services views in the cost analysis preview for Microsoft Customer Agreement. You may see a single Product column instead of the Service, Tier, and Meter columns.
+Show the percentage difference in cost compared to the previous period at the top of the cost analysis preview. When your view is showing 3 months or less, the difference is calculated as the cost from the start of the period through yesterday compared to the the same days from the previous period. If showing more than 3 months, the date range uses the first month through last month. If the current day or month are not included, the entire period is compared to the previous period.
 
-You can also enable this preview from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Note this preview is only applicable for Microsoft Customer Agreement accounts.
+The previous period delta can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
 
 
 <a name="recommendationinsights"></a>
@@ -184,8 +171,15 @@ You can also enable this preview from the [Try preview](https://aka.ms/costmgmt/
 
 Cost insights surface important details about your subscriptions, like potential anomalies or top cost contributors. To support your cost optimization goals, cost insights now include the total cost savings available from Azure Advisor for your subscription.
 
-You can enable cost savings insights for subscriptions from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal.
+**Cost savings insights are available by default for all subscriptions in the cost analysis preview.**
 
+<a name="recommendationsview"></a>
+
+## Recommendations view in the cost analysis preview
+
+View a summary of Azure Advisor cost recommendations that help you optimize your Azure resources in the cost analysis preview.
+
+The Recommendations view can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
 
 <a name="resourceessentials"></a>
 
@@ -194,15 +188,6 @@ You can enable cost savings insights for subscriptions from the [Try preview](ht
 Cost analysis is available from every management group, subscription, resource group, and billing scope in the Azure portal and the Microsoft 365 admin center.  To make cost data more readily accessible for resource owners, you can now find a **View cost** link at the top-right of every resource overview screen, in **Essentials**. Clicking the link will open classic cost analysis with a resource filter applied.
 
 The view cost link is enabled by default in the [Azure preview portal](https://preview.portal.azure.com).
-
-
-<a name="whatsnew"></a>
-
-## What's new in Cost Management
-
-Learn about new and updated features or other announcements directly from within the Cost Management experience in the Azure portal. You can also follow along using the [Cost Management updates on the Azure blog](https://aka.ms/costmgmt/blog).
-
-What's new can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal.
 
 
 <a name="onlyinconfig"></a>

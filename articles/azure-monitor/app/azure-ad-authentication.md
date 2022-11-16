@@ -2,7 +2,7 @@
 title: Azure AD authentication for Application Insights
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 08/02/2021
+ms.date: 11/14/2022
 ms.devlang: csharp, java, javascript, python
 ms.reviewer: rijolly
 ---
@@ -76,12 +76,9 @@ Application Insights .NET SDK supports the credential classes provided by [Azure
 Below is an example of manually creating and configuring a `TelemetryConfiguration` using .NET:
 
 ```csharp
-var config = new TelemetryConfiguration
-{
-    ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/"
-}
+TelemetryConfiguration.Active.ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/";
 var credential = new DefaultAzureCredential();
-config.SetAzureTokenCredential(credential);
+TelemetryConfiguration.Active.SetAzureTokenCredential(credential);
 ```
 
 Below is an example of configuring the `TelemetryConfiguration` using .NET Core:

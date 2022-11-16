@@ -90,8 +90,6 @@ Metric counts such as request rate and exception rate are adjusted to compensate
 > [!NOTE]
 > This section applies to ASP.NET applications, not to ASP.NET Core applications. [Learn about configuring adaptive sampling for ASP.NET Core applications later in this document.](#configuring-adaptive-sampling-for-aspnet-core-applications)
 
-> With ASP.NET Core and with Microsoft.ApplicationInsights.AspNetCore >= 2.15.0 you can configure AppInsights options via appsettings.json
-
 In [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
@@ -175,7 +173,8 @@ builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Depend
 
 ### Configuring adaptive sampling for ASP.NET Core applications
 
-There's no `ApplicationInsights.config` for ASP.NET Core applications, so all configuration is done via code.
+ASP.NET Core applications may be configured in code or through the `appsettings.json` file. For more information, see [Configuration in ASP.NET Core](https://learn.microsoft.com/aspnet/core/fundamentals/configuration).
+
 Adaptive sampling is enabled by default for all ASP.NET Core applications. You can disable or customize the sampling behavior.
 
 #### Turning off adaptive sampling

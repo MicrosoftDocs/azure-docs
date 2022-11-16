@@ -189,7 +189,7 @@ Cache behavior and duration can be configured in Rules Engine. Rules Engine cach
 
 * When *caching* is **enabled**, the cache behavior is different based on the cache behavior value selected.
    * **Honor origin**: Azure Front Door will always honor origin response header directive. If the origin directive is missing, Azure Front Door will cache contents anywhere from 1 to 3 days.  
-   * **Override always**: Azure Front Door will always override with the cache duration, meaning that it will cache the contents for the cache duration ignoring the values from origin response directives.
+   * **Override always**: Azure Front Door will always override with the cache duration, meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. This behavior will only be applied if the response is cacheable.
    * **Override if origin missing**: If the origin doesn’t return caching TTL values, Azure Front Door will use the specified cache duration. This behavior will only be applied if the response is cacheable. 
 
 > [!NOTE]

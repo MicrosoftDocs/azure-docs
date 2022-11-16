@@ -1,342 +1,505 @@
 ---
-title: ASP.NET Core MVC web app tutorial using Azure Cosmos DB
-description:  ASP.NET Core MVC tutorial to create an MVC web application using Azure Cosmos DB. You'll store JSON and access data from a todo app hosted on Azure App Service - ASP NET Core MVC tutorial step by step.
-author: StefArroyo
-ms.author: esarroyo
+title: |
+  Tutorial: Develop an ASP.NET web application with Azure Cosmos DB for NoSQL
+description:  |
+  ASP.NET tutorial to create a web application that queries data from Azure Cosmos DB for NoSQL.
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: esarroyo
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 05/02/2020
-ms.custom: devx-track-dotnet, ignite-2022
+ms.date: 11/02/2022
+ms.devlang: csharp
+ms.custom: devx-track-dotnet, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet-path
 ---
 
-# Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK
+# Tutorial: Develop an ASP.NET web application with Azure Cosmos DB for NoSQL
+
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-> [!div class="op_single_selector"]
->
-> * [.NET](tutorial-dotnet-web-app.md)
-> * [Java](tutorial-java-web-app.md)
-> * [Node.js](tutorial-nodejs-web-app.md)
->
+[!INCLUDE[Web app language selector](includes/tutorial-web-app-selector.md)]
 
-This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure.  Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). In this tutorial, you use the .NET SDK V3. The following image shows the web page that you'll build by using the sample in this article:
+The Azure SDK for .NET allows you to query data in an API for NoSQL container using [LINQ in C#](how-to-dotnet-query-items.md#query-items-using-linq-asynchronously) or a [SQL query string](how-to-dotnet-query-items.md#query-items-using-a-sql-query-asynchronously). This tutorial will walk through the process of updating an existing ASP.NET web application that uses placeholder data to instead query from the API.
 
-:::image type="content" source="./media/tutorial-dotnet-web-app/asp-net-mvc-tutorial-image01.png" alt-text="Screenshot of the todo list MVC web application created by this tutorial - ASP NET Core MVC tutorial step by step":::
-
-If you don't have time to complete the tutorial, you can download the complete sample project from [GitHub][GitHub].
-
-This tutorial covers:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Creating an Azure Cosmos DB account
-> * Creating an ASP.NET Core MVC app
-> * Connecting the app to Azure Cosmos DB
-> * Performing create, read, update, and delete (CRUD) operations on the data
-
-> [!TIP]
-> This tutorial assumes that you have prior experience using ASP.NET Core MVC and Azure App Service. If you are new to ASP.NET Core or the [prerequisite tools](#prerequisites), we recommend you to download the complete sample project from [GitHub][GitHub], add the required NuGet packages, and run it. Once you build the project, you can review this article to gain insight on the code in the context of the project.
+> - Create and populate a database and container using API for NoSQL
+> - Create an ASP.NET web application from a template
+> - Query data from the API for NoSQL container using the Azure SDK for .NET
+>
 
 ## Prerequisites
 
-Before following the instructions in this article, make sure that you have the following resources:
+- An existing Azure Cosmos DB for NoSQL account.
+  - If you have an existing Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
+  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
+- [Visual Studio Code](https://code.visualstudio.com)
+- [.NET 6 (LTS) or later](https://dotnet.microsoft.com/download/dotnet/6.0)
+- Experience writing C# applications.
 
-* An active Azure account. If you don't have an Azure subscription, without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb)
+## Create API for NoSQL resources
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
+First, you'll create a database and container in the existing API for NoSQL account. You'll then populate this account with data using the `cosmicworks` dotnet tool.
 
-* Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
+1. Navigate to your existing API for NoSQL account in the [Azure portal](https://portal.azure.com/).
 
-All the screenshots in this article are from Microsoft Visual Studio Community 2019. If you use a different version, your screens and options may not match entirely. The solution should work if you meet the prerequisites.
+1. In the resource menu, select **Keys**.
 
-## Step 1: Create an Azure Cosmos DB account
+    :::image type="content" source="media/tutorial-dotnet-web-app/resource-menu-keys.png" lightbox="media/tutorial-dotnet-web-app/resource-menu-keys.png" alt-text="Screenshot of an API for NoSQL account page. The Keys option is highlighted in the resource menu.":::
 
-Let's start by creating an Azure Cosmos DB account. If you already have an Azure Cosmos DB for NoSQL account or if you're using the Azure Cosmos DB Emulator, skip to [Step 2: Create a new ASP.NET MVC application](#step-2-create-a-new-aspnet-core-mvc-application).
+1. On the **Keys** page, observe and record the value of the **URI**, **PRIMARY KEY**, and **PRIMARY CONNECTION STRING*** fields. These values will be used throughout the tutorial.
 
-[!INCLUDE [create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
+    :::image type="content" source="media/tutorial-dotnet-web-app/page-keys.png" alt-text="Screenshot of the Keys page with the URI, Primary Key, and Primary Connection String fields highlighted.":::
 
-[!INCLUDE [keys](../includes/cosmos-db-keys.md)]
+1. In the resource menu, select **Data Explorer**.
 
-In the next section, you create a new ASP.NET Core MVC application.
+    :::image type="content" source="media/tutorial-dotnet-web-app/resource-menu-data-explorer.png" alt-text="Screenshot of the Data Explorer option highlighted in the resource menu.":::
 
-## Step 2: Create a new ASP.NET Core MVC application
+1. On the **Data Explorer** page, select the **New Container** option in the command bar.
 
-1. Open Visual Studio and select **Create a new project**.
+    :::image type="content" source="media/tutorial-dotnet-web-app/page-data-explorer-new-container.png" alt-text="Screenshot of the New Container option in the Data Explorer command bar.":::
 
-1. In **Create a new project**, find and select **ASP.NET Core Web Application** for C#. Select **Next** to continue.
+1. In the **New Container** dialog, create a new container with the following settings:
 
-   :::image type="content" source="./media/tutorial-dotnet-web-app/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="Create new ASP.NET Core web application project":::
+    | Setting | Value |
+    | --- | --- |
+    | **Database id** | `cosmicworks` |
+    | **Database throughput type** | **Manual** |
+    | **Database throughput amount** | `4000` |
+    | **Container id** | `products` |
+    | **Partition key** | `/categoryId` |
 
-1. In **Configure your new project**, name the project *todo* and select **Create**.
+    :::image type="content" source="media/tutorial-dotnet-web-app/dialog-new-container.png" alt-text="Screenshot of the New Container dialog in the Data Explorer with various values in each field.":::
 
-1. In **Create a new ASP.NET Core Web Application**, choose **Web Application (Model-View-Controller)**. Select **Create** to continue.
+    > [!IMPORTANT]
+    > In this tutorial, we will first scale the database up to 4,000 RU/s in shared throughput to maximize performance for the data migration. Once the data migration is complete, we will scale down to 400 RU/s of provisioned throughput.
 
-   Visual Studio creates an empty MVC application.
+1. Select **OK** to create the database and container.
 
-1. Select **Debug** > **Start Debugging** or F5 to run your ASP.NET application locally.
+1. Open a terminal to run commands to populate the container with data.
 
-## Step 3: Add Azure Cosmos DB NuGet package to the project
+    > [!TIP]
+    > You can optionally use the Azure Cloud Shell here.
 
-Now that we have most of the ASP.NET Core MVC framework code that we need for this solution, let's add the NuGet packages required to connect to Azure Cosmos DB.
+1. Install a **pre-release**version of the `cosmicworks` dotnet tool from NuGet.
 
-1. In **Solution Explorer**, right-click your project and select **Manage NuGet Packages**.
+    ```bash
+    dotnet tool install --global cosmicworks  --prerelease
+    ```
 
-1. In the **NuGet Package Manager**, search for and select **Microsoft.Azure.Cosmos**. Select **Install**.
+1. Use the `cosmicworks` tool to populate your API for NoSQL account with sample product data using the **URI** and **PRIMARY KEY** values you recorded earlier in this lab. Those recorded values will be used for the `endpoint` and `key` parameters respectively.
 
-   :::image type="content" source="./media/tutorial-dotnet-web-app/asp-net-mvc-tutorial-nuget.png" alt-text="Install NuGet package":::
+    ```bash
+    cosmicworks \
+        --datasets product \
+        --endpoint <uri> \
+        --key <primary-key>
+    ```
 
-   Visual Studio  downloads and installs the Azure Cosmos DB package and its dependencies.
+1. Observe the output from the command line tool. It should add more than 200 items to the container. The example output included is truncated for brevity.
 
-   You can also use **Package Manager Console** to install the NuGet package. To do so, select **Tools** > **NuGet Package Manager** > **Package Manager Console**. At the prompt, type the following command:
+    ```output
+    ...
+    Revision:       v4
+    Datasets:
+            product
+    
+    Database:       [cosmicworks]   Status: Created
+    Container:      [products]      Status: Ready
+    
+    product Items Count:    295
+    Entity: [9363838B-2D13-48E8-986D-C9625BE5AB26]  Container:products      Status: RanToCompletion
+    ...
+    Container:      [product]       Status: Populated
+    ```
 
-   ```ps
-   Install-Package Microsoft.Azure.Cosmos
-   ```
-  
-## Step 4: Set up the ASP.NET Core MVC application
+1. Return to the **Data Explorer** page for your account.
 
-Now let's add the models, the views, and the controllers to this MVC application.
+1. In the **Data** section, expand the `cosmicworks` database node and then select **Scale**.
 
-###  Add a model
+    :::image type="content" source="media/tutorial-dotnet-web-app/section-data-database-scale.png" alt-text="Screenshot of the Scale option within the database node.":::
 
-1. In **Solution Explorer**, right-click the **Models** folder, select **Add** > **Class**.
+1. Reduce the throughput from **4,000** down to **400**.
 
-1. In **Add New Item**, name your new class *Item.cs* and select **Add**.
+    :::image type="content" source="media/tutorial-dotnet-web-app/section-scale-throughput.png" alt-text="Screenshot of the throughput settings for the database reduced down to 400 RU/s.":::
 
-1. Replace the contents of *Item.cs* class with the following code:
+1. In the command bar, select **Save**.
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs":::
+    :::image type="content" source="media/tutorial-dotnet-web-app/page-data-explorer-save.png" alt-text="Screenshot of the Save option in the Data Explorer command bar.":::
 
-Azure Cosmos DB uses JSON to move and store data. You can use the `JsonProperty` attribute to control how JSON serializes and deserializes objects. The `Item` class demonstrates the `JsonProperty` attribute. This code controls the format of the property name that goes into JSON. It also renames the .NET property `Completed`.
+1. In the **Data** section, expand and select the **products** container node.
 
-### Add views
+    :::image type="content" source="media/tutorial-dotnet-web-app/section-data-container.png" alt-text="Screenshot of the expanded container node within the database node.":::
 
-Next, let's add the following views.
+1. In the command bar, select **New SQL query**.
+
+    :::image type="content" source="media/tutorial-dotnet-web-app/page-data-explorer-new-sql-query.png" alt-text="Screenshot of the New SQL Query option in the Data Explorer command bar.":::
+
+1. In the query editor, add this SQL query string.
+
+    ```sql
+    SELECT
+      p.sku,
+      p.price
+    FROM products p
+    WHERE p.price < 2000
+    ORDER BY p.price DESC
+    ```
 
-* A create item view
-* A delete item view
-* A view to get an item detail
-* An edit item view
-* A view to list all the items
+1. Select **Execute Query** to run the query and observe the results.
+
+    :::image type="content" source="media/tutorial-dotnet-web-app/page-data-explorer-execute-query.png" alt-text="Screenshot of the Execute Query option in the Data Explorer command bar.":::
 
-#### Create item view
+1. The results should be a paginated array of all items in the container with a `price` value that is less than **2,000** sorted from highest price to lowest. For brevity, a subset of the output is included here.
 
-1. In **Solution Explorer**, right-click the **Views** folder and select **Add** > **New Folder**. Name the folder *Item*.
+    ```output
+    [
+      {
+        "sku": "BK-R79Y-48",
+        "price": 1700.99
+      },
+      ...
+      {
+        "sku": "FR-M94B-46",
+        "price": 1349.6
+      },
+    ...
+    ```
+
+1. Replace the content of the query editor with this query and then select **Execute Query** again to observe the results.
+
+    ```sql
+    SELECT
+      p.name,
+      p.categoryName,
+      p.tags
+    FROM products p
+    JOIN t IN p.tags
+    WHERE t.name = "Tag-32"
+    ```
+
+1. The results should be a smaller array of items filtered to only contain items that include at least one tag with a **name** value of `Tag-32`. Again, a subset of the output is included here for brevity.
+
+    ```output
+    ...
+    {
+    "name": "ML Mountain Frame - Black, 44",
+    "categoryName": "Components, Mountain Frames",
+    "tags": [
+        {
+        "id": "18AC309F-F81C-4234-A752-5DDD2BEAEE83",
+        "name": "Tag-32"
+        }
+    ]
+    },
+    ...
+    ```
+
+## Create ASP.NET web application
+
+Now, you'll create a new ASP.NET web application using a sample project template. You'll then explore the source code and run the sample to get acquainted with the application before adding Azure Cosmos DB connectivity using the Azure SDK for .NET.
 
-1. Right-click the empty **Item** folder, then select **Add** > **View**.
+1. Open a terminal in an empty directory.
+
+1. Install the `cosmicworks.template.web` project template package from NuGet.
 
-1. In **Add MVC View**, make the following changes:
+    ```bash
+    dotnet new install cosmicworks.template.web
+    ```
 
-   * In **View name**, enter *Create*.
-   * In **Template**, select **Create**.
-   * In **Model class**, select **Item (todo.Models)**.
-   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
-   * Select **Add**.
+1. Create a new web application project using the newly installed `dotnet new cosmosdbnosql-webapp` template.
 
-   :::image type="content" source="./media/tutorial-dotnet-web-app/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Screenshot showing the Add MVC View dialog box":::
+    ```bash
+    dotnet new cosmosdbnosql-webapp
+    ```
 
-1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+1. Build and run the web application project.
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
+    ```bash
+    dotnet run
+    ```
 
-#### Delete item view
+1. Observe the output of the run command. The output should include a list of ports and URLs where the application is running.
 
-1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
+    ```output
+    ...
+    info: Microsoft.Hosting.Lifetime[14]
+          Now listening on: http://localhost:5000
+    info: Microsoft.Hosting.Lifetime[14]
+          Now listening on: https://localhost:5001
+    info: Microsoft.Hosting.Lifetime[0]
+          Application started. Press Ctrl+C to shut down.
+    info: Microsoft.Hosting.Lifetime[0]
+          Hosting environment: Production
+    ...
+    ```
 
-1. In **Add MVC View**, make the following changes:
+1. Open a new browser and navigate to the running web application. Observe all three pages of the running application.
 
-   * In the **View name** box, type *Delete*.
-   * In the **Template** box, select **Delete**.
-   * In the **Model class** box, select **Item (todo.Models)**.
-   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
-   * Select **Add**.
+    :::image type="content" source="media/tutorial-dotnet-web-app/sample-application-placeholder-data.png" lightbox="media/tutorial-dotnet-web-app/sample-application-placeholder-data.png" alt-text="Screenshot of the sample web application running with placeholder data.":::
 
-1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+1. Stop the running application by terminating the running process.
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
+    > [!TIP]
+    > Use the <kbd>Ctrl</kbd>+<kbd>C</kbd> command to stop a running process.Alternatively, you can close and re-open the terminal.
 
-#### Add a view to get item details
+1. Open Visual Studio Code using the current project folder as the workspace.
 
-1. In **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
+    > [!TIP]
+    > You can run `code .` in the terminal to open Visual Studio Code and automatically open the working directory as the current workspace.
 
-1. In **Add MVC View**, provide the following values:
+1. Navigate to and open the **Services/ICosmosService.cs** file. Observe the ``RetrieveActiveProductsAsync`` and ``RetrieveAllProductsAsync`` default method implementations. These methods create a static list of products to use when running the project for the first time. A truncated example of one of the methods is provided here.
 
-   * In **View name**, enter *Details*.
-   * In **Template**, select **Details**.
-   * In **Model class**, select **Item (todo.Models)**.
-   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
+    ```csharp
+    public async Task<IEnumerable<Product>> RetrieveActiveProductsAsync()
+    {
+        await Task.Delay(1);
 
-1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+        return new List<Product>()
+        {
+            new Product(id: "baaa4d2d-5ebe-45fb-9a5c-d06876f408e0", categoryId: "3E4CEACD-D007-46EB-82D7-31F6141752B2", categoryName: "Components, Road Frames", sku: "FR-R72R-60", name: """ML Road Frame - Red, 60""", description: """The product called "ML Road Frame - Red, 60".""", price: 594.83000000000004m),
+           ...
+            new Product(id: "d5928182-0307-4bf9-8624-316b9720c58c", categoryId: "AA5A82D4-914C-4132-8C08-E7B75DCE3428", categoryName: "Components, Cranksets", sku: "CS-6583", name: """ML Crankset""", description: """The product called "ML Crankset".""", price: 256.49000000000001m)
+        };
+    }
+    ```
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
+1. Navigate to and open the **Services/CosmosService.cs** file. Observe the current implementation of the **CosmosService** class. This class implements the **ICosmosService** interface but doesn't override any methods. In this context, the class will use the default interface implementation until an override of the implementation is provided in the interface.
 
-#### Add an edit item view
+    ```csharp
+    public class CosmosService : ICosmosService
+    { }
+    ```
 
-1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
+1. Finally, navigate to and open the **Models/Product.cs** file. Observe the record type defined in this file. This type will be used in queries throughout this tutorial.
 
-1. In **Add MVC View**, make the following changes:
+    ```csharp
+    public record Product(
+        string id,
+        string categoryId,
+        string categoryName,
+        string sku,
+        string name,
+        string description,
+        decimal price
+    );
+    ```
 
-   * In the **View name** box, type *Edit*.
-   * In the **Template** box, select **Edit**.
-   * In the **Model class** box, select **Item (todo.Models)**.
-   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
-   * Select **Add**.
+## Query data using the .NET SDK
 
-1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+Next, you'll add the Azure SDK for .NET to this sample project and use the library to query data from the API for NoSQL container.
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
+1. Back in the terminal, add the `Microsoft.Azure.Cosmos` package from NuGet.
 
-#### Add a view to list all the items
+    ```bash
+    dotnet add package Microsoft.Azure.Cosmos
+    ```
 
-And finally, add a view to get all the items with the following steps:
+1. Build the project.
 
-1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
+    ```bash
+    dotnet build
+    ```
 
-1. In **Add MVC View**, make the following changes:
+1. Back in Visual Studio Code, navigate again to the **Services/CosmosService.cs** file.
 
-   * In the **View name** box, type *Index*.
-   * In the **Template** box, select **List**.
-   * In the **Model class** box, select **Item (todo.Models)**.
-   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
-   * Select **Add**.
+1. Add a new using directive for the `Microsoft.Azure.Cosmos` and `Microsoft.Azure.Cosmos.Linq` namespaces.
 
-1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+    ```csharp
+    using Microsoft.Azure.Cosmos;
+    using Microsoft.Azure.Cosmos.Linq;
+    ```
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
+1. Within the **CosmosService** class, add a new `private readonly` member of type `CosmosClient` named `_client`.
 
-Once you complete these steps, close all the *cshtml* documents in Visual Studio.
+    ```csharp
+    private readonly CosmosClient _client;
+    ```
 
-### Declare and initialize services
+1. Create a new empty constructor for the `CosmosClient` class.
 
-First, we'll add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial, we'll encapsulate this logic into a class called `CosmosDbService` and an interface called `ICosmosDbService`. This service does the CRUD operations. It also does read feed operations such as listing incomplete items, creating, editing, and deleting the items.
+    ```csharp
+    public CosmosClient()
+    { }
+    ```
 
-1. In **Solution Explorer**, right-click your project and select **Add** > **New Folder**. Name the folder *Services*.
+1. Within the constructor, create a new instance of the `CosmosClient` class passing in a string parameter with the **PRIMARY CONNECTION STRING** value you previously recorded in the lab. Store this new instance in the `_client` member.
 
-1. Right-click the **Services** folder, select **Add** > **Class**. Name the new class *CosmosDbService* and select **Add**.
+    ```csharp
+    public CosmosClient()
+    { 
+        _client = new CosmosClient(
+            connectionString: "<primary-connection-string>"
+        );
+    }
+    ```
+
+1. Back within the **CosmosClient** class, create a new `private` property of type `Container` named `container`. Set the **get accessor** to return the `cosmicworks` database and `products` container.
+
+    ```csharp
+    private Container container
+    {
+        get => _client.GetDatabase("cosmicworks").GetContainer("products");
+    }
+    ```
+
+1. Create a new asynchronous method named `RetrieveAllProductsAsync` that returns an `IEnumerable<Product>`.
+
+    ```csharp
+    public async Task<IEnumerable<Product>> RetrieveAllProductsAsync()
+    { }
+    ```
+
+1. For the next steps, add this code within the `RetrieveAllProductsAsync` method.
+
+    1. Use the `GetItemLinqQueryable<>` generic method to get an object of type `IQueryable<>` that you can use to construct a Language-integrated query (LINQ). Store that object in a variable named `queryable`.
+
+        ```csharp
+        var queryable = container.GetItemLinqQueryable<Product>();
+        ```
+
+    1. Construct a LINQ query using the `Where` and `OrderByDescending` extension methods. Use the `ToFeedIterator` extension method to create an iterator to get data from Azure Cosmos DB and store the iterator in a variable named `feed`. Wrap this entire expression in a using statement to dispose the iterator later.
+
+        ```csharp
+        using FeedIterator<Product> feed = queryable
+            .Where(p => p.price < 2000m)
+            .OrderByDescending(p => p.price)
+            .ToFeedIterator();
+        ```
+
+    1. Create a new variable named `results` using the generic `List<>` type.
+
+        ```csharp
+        List<Product> results = new();
+        ```
+
+    1. Create a **while** loop that will iterate until the `HasMoreResults` property of the `feed` variable returns false. This loop will ensure that you loop through all pages of server-side results.
+
+        ```csharp
+        while (feed.HasMoreResults)
+        { }
+        ```
+
+    1. Within the **while** loop, asynchronously call the `ReadNextAsync` method of the `feed` variable and store the result in a variable named `response`.
 
-1. Replace the contents of *CosmosDbService.cs* with the following code:
+        ```csharp
+        while (feed.HasMoreResults)
+        {
+            var response = await feed.ReadNextAsync();
+        }
+        ```
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
+    1. Still within the **while** loop, use a **foreach** loop to go through each item in the response and add them to the `results` list.
 
-1. Right-click the **Services** folder, select **Add** > **Class**. Name the new class *ICosmosDbService* and select **Add**.
+        ```csharp
+        while (feed.HasMoreResults)
+        {
+            var response = await feed.ReadNextAsync();
+            foreach (Product item in response)
+            {
+                results.Add(item);
+            }
+        }
+        ```
 
-1. Add the following code to *ICosmosDbService* class:
+    1. Return the `results` list as the output of the `RetrieveAllProductsAsync` method.
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
+        ```csharp
+        return results;
+        ```
 
-1. Open the *Startup.cs* file in your solution and add the following method **InitializeCosmosClientInstanceAsync**, which reads the configuration and initializes the client.
+1. Create a new asynchronous method named `RetrieveActiveProductsAsync` that returns an `IEnumerable<Product>`.
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync" :::
+    ```csharp
+    public async Task<IEnumerable<Product>> RetrieveActiveProductsAsync()
+    { }
+    ```
 
-1. On that same file, replace the `ConfigureServices` method with:
+1. For the next steps, add this code within the `RetrieveActiveProductsAsync` method.
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
+    1. Create a new string named `sql` with a SQL query to retrieve multiple fields where a filter (`@tagFilter`) is applied to **tags** array of each item.
 
-   The code in this step initializes the client based on the configuration as a singleton instance to be injected through [Dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).
+        ```csharp
+        string sql = """
+        SELECT
+            p.id,
+            p.categoryId,
+            p.categoryName,
+            p.sku,
+            p.name,
+            p.description,
+            p.price,
+            p.tags
+        FROM products p
+        JOIN t IN p.tags
+        WHERE t.name = @tagFilter
+        """;
+        ```
 
-   And make sure to change the default MVC Controller to `Item` by editing the routes in the `Configure` method of the same file:
+    1. Create a new `QueryDefinition` variable named `query` passing in the `sql` string as the only query parameter. Also, use the `WithParameter` fluid method to apply the value `Tag-75` to the `@tagFilter` parameter.
 
-   ```csharp
-    app.UseEndpoints(endpoints =>
-          {
-                endpoints.MapControllerRoute(
-                   name: "default",
-                   pattern: "{controller=Item}/{action=Index}/{id?}");
-          });
-   ```
+        ```csharp
+        var query = new QueryDefinition(
+            query: sql
+        )
+            .WithParameter("@tagFilter", "Tag-75");
+        ```
 
+    1. Use the `GetItemQueryIterator<>` generic method and the `query` variable to create an iterator that gets data from Azure Cosmos DB. Store the iterator in a variable named `feed`. Wrap this entire expression in a using statement to dispose the iterator later.
 
-1. Define the configuration in the project's *appsettings.json* file as shown in the following snippet:
+        ```csharp
+        using FeedIterator<Product> feed = container.GetItemQueryIterator<Product>(
+            queryDefinition: query
+        );
+        ```
 
-   :::code language="json" source="~/samples-cosmosdb-dotnet-core-web-app/src/appsettings.json":::
+    1. Use a **while** loop to iterate through multiple pages of results and store the value in a generic `List<>` named **results**. Return the **results** as the output of the `RetrieveActiveProductsAsync` method.
 
-### Add a controller
+        ```csharp
+        List<Product> results = new();
+        
+        while (feed.HasMoreResults)
+        {
+            FeedResponse<Product> response = await feed.ReadNextAsync();
+            foreach (Product item in response)
+            {
+                results.Add(item);
+            }
+        }
 
-1. In **Solution Explorer**, right-click the **Controllers** folder, select **Add** > **Controller**.
+        return results;
+        ```
 
-1. In **Add Scaffold**, select **MVC Controller - Empty** and select **Add**.
+1. **Save** the **Services/CosmosClient.cs** file.
 
-   :::image type="content" source="./media/tutorial-dotnet-web-app/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="Select MVC Controller - Empty in Add Scaffold":::
+    > [!TIP]
+    > If you are unsure that your code is correct, you can check your source code against the [sample code](https://github.com/Azure-Samples/cosmos-db-nosql-dotnet-sample-web/blob/sample/Services/CosmosService.cs) on GitHub.
 
-1. Name your new controller *ItemController*.
+## Validate the final application
 
-1. Replace the contents of *ItemController.cs* with the following code:
+Finally, you'll run the application with **hot reloads** enabled. Running the application will validate that your code can access data from the API for NoSQL.
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs":::
+1. Back in the terminal, run the application.
 
-The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. Your views should work with this anti-forgery token as well. For more information and examples, see [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET MVC Application][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
+    ```bash
+    dotnet watch
+    ```
 
-We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more information, see [Tutorial: Implement CRUD Functionality with the Entity Framework in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
+    > [!NOTE]
+    > `dotnet watch` is enabled here so you can quickly change the code if you find a mistake.
 
-## Step 5: Run the application locally
+1. The output of the run command should include a list of ports and URLs where the application is running. Open a new browser and navigate to the running web application. Observe all three pages of the running application. Each page should now include live data from Azure Cosmos DB.
 
-To test the application on your local computer, use the following steps:
+## Clean up resources
 
-1. Press F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
-
-   :::image type="content" source="./media/tutorial-dotnet-web-app/asp-net-mvc-tutorial-create-an-item-a.png" alt-text="Screenshot of the todo list web application created by this tutorial":::
-   
-   If the application instead opens to the home page, append `/Item` to the url.
-
-1. Select the **Create New** link and add values to the **Name** and **Description** fields. Leave the **Completed** check box unselected. If you select it, the app adds the new item in a completed state. The item no longer appears on the initial list.
-
-1. Select **Create**. The app sends you back to the **Index** view, and your item appears in the list. You can add a few more items to your **To-Do** list.
-
-    :::image type="content" source="./media/tutorial-dotnet-web-app/asp-net-mvc-tutorial-create-an-item.png" alt-text="Screenshot of the Index view":::
-  
-1. Select **Edit** next to an **Item** on the list. The app opens the **Edit** view where you can update any property of your object, including the **Completed** flag. If you select **Completed** and select **Save**, the app displays the **Item** as completed in the list.
-
-   :::image type="content" source="./media/tutorial-dotnet-web-app/asp-net-mvc-tutorial-completed-item.png" alt-text="Screenshot of the Index view with the Completed box checked":::
-
-1. Verify the state of the data in the Azure Cosmos DB service using [Azure Cosmos DB Explorer](https://cosmos.azure.com) or the Azure Cosmos DB Emulator's Data Explorer.
-
-1. Once you've tested the app, select Ctrl+F5 to stop debugging the app. You're ready to deploy!
-
-## Step 6: Deploy the application
-
-Now that you have the complete application working correctly with Azure Cosmos DB we're going to deploy this web app to Azure App Service.  
-
-1. To publish this application, right-click the project in **Solution Explorer** and select **Publish**.
-
-1. In **Pick a publish target**, select **App Service**.
-
-1. To use an existing App Service profile, choose **Select Existing**, then select **Publish**.
-
-1. In **App Service**, select a **Subscription**. Use the **View** filter to sort by resource group or resource type.
-
-1. Find your profile, and then select **OK**. Next search the required Azure App Service and select **OK**.
-
-   :::image type="content" source="./media/tutorial-dotnet-web-app/asp-net-mvc-tutorial-app-service-2019.png" alt-text="App Service dialog box in Visual Studio":::
-
-Another option is to create a new profile:
-
-1. As in the previous procedure, right-click the project in **Solution Explorer** and select **Publish**.
-  
-1. In **Pick a publish target**, select **App Service**.
-
-1. In **Pick a publish target**, select **Create New** and select **Publish**.
-
-1. In **App Service**, enter your Web App name and the appropriate subscription, resource group, and hosting plan, then select **Create**.
-
-   :::image type="content" source="./media/tutorial-dotnet-web-app/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="Create App Service dialog box in Visual Studio":::
-
-In a few seconds, Visual Studio publishes your web application and launches a browser where you can see your project running in Azure!
+When no longer needed, delete the database used in this tutorial. To do so, navigate to the account page, select **Data Explorer**, select the `cosmicworks` database, and then select **Delete**.
 
 ## Next steps
 
-In this tutorial, you've learned how to build an ASP.NET Core MVC web application. Your application can access data stored in Azure Cosmos DB. You can now continue with these resources:
+Now that you've created your first .NET web application using Azure Cosmos DB, you can now dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB for NoSQL resources.
 
-* [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
-* [Getting started with SQL queries](query/getting-started.md)
-* [How to model and partition data on Azure Cosmos DB using a real-world example](./how-to-model-partition-example.md)
-* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
-    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
-
-[Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: /aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-[Basic CRUD Operations in ASP.NET MVC]: /aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
-[GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app
+> [!div class="nextstepaction"]
+> [Get started with Azure Cosmos DB for NoSQL and .NET](how-to-dotnet-get-started.md)
