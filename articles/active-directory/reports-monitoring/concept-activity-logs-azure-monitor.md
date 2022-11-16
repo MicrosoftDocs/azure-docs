@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD activity logs in Azure Monitor
 
-You can route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. This feature allows you to:
+Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term retention and data insights. This feature allows you to:
 
 * Archive Azure AD activity logs to an Azure storage account.
 * Stream Azure AD activity logs to an Azure event hub for analytics, using popular Security Information and Event Management (SIEM) tools such as Splunk, QRadar, and Microsoft Sentinel.
@@ -34,7 +34,7 @@ You can route Azure AD audit logs and sign-in logs to your Azure Storage account
 * **Risky users logs**: With the [risky users logs](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users), you can monitor changes in user risk level and remediation activity. 
 * **Risk detections logs**: With the [risk detections logs](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
 
-## Prerequisites
+## Getting started
 
 To use this feature, you need:
 
@@ -45,9 +45,11 @@ To use this feature, you need:
 
 Depending on where you want to route the audit log data, you also need one of the following endpoints:
 
-* An Azure storage account that you have `ListKeys` permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
-* An [Azure Event Hubs namespace](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md) to integrate with third-party solutions.
 * An [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md) to send logs to Azure Monitor logs.
+* An Azure storage account that you have `ListKeys` permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
+* An [Azure Event Hubs namespace](../../event-hubs/event-hubs-create.md) to integrate with third-party solutions.
+
+Once you have your endpoint established, go to **Azure AD** and then **Diagnostic settings.** From here you can choose what logs to send to the endpoint of your choice. Follow the [Configure a Log Analytics workspace tutorial](tutorial-log-analytics-wizard.md).
 
 ## Cost considerations
 
@@ -176,6 +178,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 ## Next steps
 
+* [Create a storage account](../../storage/common/storage-account-create.md)
 * [Archive activity logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Route activity logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Integrate activity logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
