@@ -121,7 +121,7 @@ Before creating a pipeline, the source code for your app must be in a repository
 
 The Azure Container Apps Azure Pipelines task is currently in preview. Before you use it, you must install it from the Azure DevOps Marketplace.
 
-1. Open the [Azure Container Apps task](#) in the Azure DevOps Marketplace.
+1. Open the [Azure Container Apps task](https://marketplace.visualstudio.com/items?itemName=microsoft-oryx.AzureContainerAppsRC) in the Azure DevOps Marketplace.
 
 1. Select **Get it free**.
 
