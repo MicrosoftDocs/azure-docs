@@ -71,7 +71,7 @@ For reviews that may contain many reviewees, or users to be reviewed and atteste
 
 Later stage reviewers, such as user’s managers, or the resource owner, only see the reduced list of reviewees – those that approved previously. The number of reviewees per stage decreases stage by stage. Only the users that have been approved through all three stages preserve access.
 
-An example of this would be a review of a group that grants an IT exception, that an administrator wants to regularly review. As that exception is popular, users are asked to respond first, and only those that responded that they still need the exception, are progressed to the second stage, where their manager decides. Only if the user and the manager approve, IT owners for the exception get to see the list of users who still need and want the exception, look at a reduced list of reviewees.
+An example would be a review of a group that grants an IT exception, that an administrator wants to regularly review. As that exception is popular, users are asked to respond first, and only those that responded that they still need the exception, are progressed to the second stage, where their manager decides. Only if the user and the manager approve, IT owners for the exception get to see the list of users who still need and want the exception, look at a reduced list of reviewees.
 
  | Attribute | Configuration |
  |:--- |:---:|
@@ -87,11 +87,11 @@ An example of this would be a review of a group that grants an IT exception, tha
 
 ## Guest user reviews
 
-Guest user reviews include organizations that use Azure AD B2B for collaboration, users invited from another company into their tenant, guest user accounts created for assigning, and resources for tracking and reviewing access. These guest users’ access should be reviewed regularly to check on whether collaboration is still desired in order to facilitate a cleanup of guest user accounts that are no longer needed.
+Guest user reviews include organizations that use Azure AD B2B for collaboration, users that are invited from another company into their tenant, guest user accounts created for assigning, and resources for tracking and reviewing access. These guest users’ access should be reviewed regularly to check on whether collaboration is still desired in order to facilitate a cleanup of guest user accounts that are no longer needed.
 
 This scenario can be configured with multi-stage reviews similarly to how the reduce reviewee list by filtering works. First, ask guest users to self-review and attest their continued interest and need for collaboration, and only then letting an internal employee approve or deny continued access or collaboration.
 
-For guest user review scenarios, Access Reviews supports an extra configuration option: **Action to apply on denied guest users**, that can result in either:
+For guest user review scenarios, Access Reviews supports an extra configuration option: **Action to apply on denied guest users**, which can result in either:
 
 - Remove user’s membership from the resource
 - Block user from signing-in for 30 days, then remove user from the tenant
