@@ -26,11 +26,13 @@ You can set up the AKS to ACR integration in a few steps using the Azure CLI, Az
 
 ## Create a new AKS cluster with ACR integration
 
-You can set up AKS and ACR integration during the creation of your AKS cluster. To allow an AKS cluster to interact with ACR, an AAD **managed identity** is used.
+You can set up AKS and ACR integration during the creation of your AKS cluster. To allow an AKS cluster to interact with ACR, an AAD managed identity is used.
+
+### Create an ACR
 
 If you don't already have an ACR, create one using the following command.
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 # Set this variable to the name of your ACR. The name must be globally unique.
@@ -40,7 +42,7 @@ MYACR=myContainerRegistry
 az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 ```
 
-### [Azure PowerShell][#tab/azure-powershell]
+#### [Azure PowerShell][#tab/azure-powershell]
 
 ```azurepowershell
 # Set this variable to the name of your ACR. The name must be globally unique.
@@ -52,9 +54,11 @@ New-AzContainerRegistry -Name $MYACR -ResourceGroupName myContainerRegistryResou
 
 ---
 
+### Create a new AKS cluster and integrate with an existing ACR
+
 If you have already have an ACR, use the following command to create a new AKS cluster with ACR integration. This command allows you to authorize an existing ACR in your subscription and configures the appropriate **AcrPull** role for the managed identity. Supply valid values for your parameters below.
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 # Set this variable to the name of your ACR. The name must be globally unique.
@@ -77,7 +81,7 @@ Alternatively, you can specify the ACR name using an ACR resource ID using the f
 > az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
 > ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 # Set this variable to the name of your ACR. The name must be globally unique.
@@ -97,7 +101,7 @@ This step may take several minutes to complete.
 
 ### Attach an ACR to an AKS cluster
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 Integrate an existing ACR with an existing AKS cluster using the [`--attach-acr` parameter][cli-param] and valid values for **acr-name** or **acr-resource-id**.
 
@@ -112,7 +116,7 @@ az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 > [!NOTE]
 > The `az aks update --attach-acr` command uses the permissions of the user running the command to create the ACR role assignment. This role is assigned to the [kubelet][kubelet] managed identity. For more information on AKS managed identities, see [Summary of managed identities][summary-msi].
 
-### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 Integrate an existing ACR with an existing AKS cluster using the [`-AcrNameToAttach` parameter][ps-attach] and valid values for **acr-name**.
 
@@ -127,7 +131,7 @@ Set-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -AcrNameT
 
 ### Detach an ACR from an AKS cluster
 
-### [Azure CLI][#tab/azure-cli]
+#### [Azure CLI][#tab/azure-cli]
 
 Remove the integration between an ACR and an AKS cluster using the [`--detach-acr` parameter][cli-param] and valid values for **acr-name** or **acr-resource-id**.
 
@@ -139,7 +143,7 @@ az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-name>
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```
 
-### [Azure PowerShell][#tab/azure-powershell]
+#### [Azure PowerShell][#tab/azure-powershell]
 
 Remove the integration between an ACR and an AKS cluster using the [`-AcrNameToDetach` parameter][ps-detach] and valid values for **acr-name**.
 
@@ -155,13 +159,13 @@ Set-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -AcrNameT
 
 Run the following command to import an image from Docker Hub into your ACR.
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az acr import  -n <acr-name> --source docker.io/library/nginx:latest --image nginx:v1
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Import-AzContainerRegistryImage -RegistryName <acr-name> -ResourceGroupName myResourceGroup -SourceRegistryUri docker.io -SourceImage library/nginx:latest
@@ -173,13 +177,13 @@ Import-AzContainerRegistryImage -RegistryName <acr-name> -ResourceGroupName myRe
 
 Ensure you have the proper AKS credentials.
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
@@ -251,6 +255,6 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 [rbac-owner]: ../role-based-access-control/built-in-roles#owner
 [rbac-classic]: ../role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles
 [kubelet]: https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/
-[ps-detach]: /powershell/module/az.aks/set-azakscluster?view=azps-9.1.0#-acrnametodetach
-[cli-param]: /cli/azure/aks?view=azure-cli-latest#az-aks-update-optional-parameters
-[ps-attach]: /powershell/module/az.aks/set-azakscluster?view=azps-9.1.0#-acrnametoattach
+[ps-detach]: /powershell/module/az.aks/set-azakscluster#-acrnametodetach
+[cli-param]: /cli/azure/aks#az-aks-update-optional-parameters
+[ps-attach]: /powershell/module/az.aks/set-azakscluster#-acrnametoattach
