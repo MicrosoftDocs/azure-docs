@@ -65,16 +65,18 @@ If after investigation and confirming that the user account isn't at risk of bei
 
 To **Dismiss user risk**, search for and select **Azure AD Risky users** in the Azure portal or the Entra portal, select the affected user, and select **Dismiss user(s) risk**.
 
-When you select **Dismiss user risk**, the user will no longer be at risk, and all the risky sign-ins of this user and the corresponding risk detections will be dismissed as well.
-y have a "At risk" risk state, all events are closed and the affected user is no longer at risk. 
+When you select **Dismiss user risk**, the user will no longer be at risk, and all the risky sign-ins of this user and corresponding risk detections will be dismissed as well. 
+
+Because this method doesn't have an impact on the user's existing password, it doesn't bring their identity back into a safe state. 
+
+#### Risk state and detail based on dismissal of risk
+
 - Risky user: 
    - Risk state: "At risk" -> "Dismissed"
    - Risk detail (the risk remediation detail): "-" -> "Admin dismissed all risk for user" 
 - All the risky sign-ins of this user and the corresponding risk detections:
    - Risk state: "At risk" -> "Dismissed"
    - Risk detail (the risk remediation detail): "-" -> "Admin dismissed all risk for user" 
-
-However, because this method doesn't have an impact on the existing password, it doesn't bring the related identity back into a safe state. 
 
 ### Confirm a user to be compromised
 
