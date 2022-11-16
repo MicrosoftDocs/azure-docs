@@ -28,8 +28,11 @@ In this tutorial, we'll use an SNMP trap receiver called **snmptrapd** from the 
 SNMP identifies monitored properties using Object Identifier (OID) values, which are defined and described in vendor-provided Management Information Base (MIB) files.  
 
 It's important that the SNMP trap receiver you use can load MIB files for your environment, so that the properties in the SNMP trap message have meaningful names instead of OIDs.  
+
+The snmptrapd configuration procedure can vary slightly among Linux distributions.  For more information on snmptrapd configuration, including guidance on configuring for SNMP v3 authentication, see the [Net-SNMP documentation](https://www.net-snmp.org/docs/man/snmptrapd.conf.html).  
+
  
-### Install snmptrapd
+## Install snmptrapd
 
 To install and enable snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 server, use the following commands: 
 
@@ -44,9 +47,6 @@ sudo firewall-cmd --zone=public --add-port=162/udp --permanent
 
 ### Configure snmptrapd
  
-The snmptrapd configuration procedure can vary slightly between Linux distributions.  For more information on snmptrapd configuration, including guidance on configuring for SNMP v3 authentication, see the [Net-SNMP documentation](https://www.net-snmp.org/docs/man/snmptrapd.conf.html).  
-
-
 To configure snmptrapd on Red Hat Enterprise Linux, CentOS, or Oracle Linux:
  
 1. Authorize community strings (SNMP v1 & v2 authentication strings): 
