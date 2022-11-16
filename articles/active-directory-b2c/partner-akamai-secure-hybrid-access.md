@@ -215,46 +215,43 @@ Akamai EAA supports SAML federation with cloud Identity Providers like Azure AD 
    ```xml
    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
    <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-  PolicySchemaVersion="0.3.0.0"
-  TenantId="fabrikam.onmicrosoft.com"
-  PolicyId="B2C_1A_signup_signin_saml"
-  PublicPolicyUri="http://fabrikam.onmicrosoft.com/B2C_1A_signup_signin_saml">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
+    PolicySchemaVersion="0.3.0.0"
+    TenantId="fabrikam.onmicrosoft.com"
+    PolicyId="B2C_1A_signup_signin_saml"
+    PublicPolicyUri="http://fabrikam.onmicrosoft.com/B2C_1A_signup_signin_saml">
+    <BasePolicy>
+      <TenantId>fabrikam.onmicrosoft.com</TenantId>
+      <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
+    </BasePolicy>
 
-  <BasePolicy>
-    <TenantId>fabrikam.onmicrosoft.com</TenantId>
-    <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
-  </BasePolicy>
-
-  <UserJourneys>
-    <UserJourney Id="SignUpOrSignIn">
-      <OrchestrationSteps>
-        <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="AkamaiSaml2AssertionIssuer"/>
-      </OrchestrationSteps>
-    </UserJourney>
-  </UserJourneys>
-
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" DefaultValue="" />
-        <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="objectId"/>
-      </OutputClaims>
-      <SubjectNamingInfo ClaimType="objectId" ExcludeAsClaim="true"/>
-    </TechnicalProfile>
-  </RelyingParty>
-  </TrustFrameworkPolicy>
-  ```
-
+    <UserJourneys>
+      <UserJourney Id="SignUpOrSignIn">
+        <OrchestrationSteps>
+          <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="AkamaiSaml2AssertionIssuer"/>
+        </OrchestrationSteps>
+      </UserJourney>
+    </UserJourneys>
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="SAML2"/>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" DefaultValue="" />
+          <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="objectId"/>
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="objectId" ExcludeAsClaim="true"/>
+      </TechnicalProfile>
+    </RelyingParty>
+    </TrustFrameworkPolicy>
+    ```
   >[!NOTE]
   >You can follow this same process to implement other types of flows, for example, sign-in, password reset, or profile editing flows.
 
@@ -405,7 +402,7 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
 1. Configure the OIDC to SAML bridging in the **AZURE AD B2C SAML IDP** created with the previous steps.
 
-   ![Screenshot shows the akamai oidc app oidc settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_idp_settings.png)
+   [ ![Screenshot shows the akamai oidc app oidc settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_idp_settings.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_idp_settings.png#lightbox)
 
 2. Create a Custom HTTP type application following [Configure OpenID Connect for an Access Application.](https://techdocs.akamai.com/eaa/docs/config-openid#configure-openid-connect-for-an-access-application)
 
@@ -415,23 +412,23 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
 4. In **Advanced** select **OpenID Connect 1.0** as authentication mechanism and then select **Save**.
 
-   ![Screenshot shows the akamai oidc app authentication settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_authentication.png)
+   [ ![Screenshot shows the akamai oidc app authentication settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_authentication.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_authentication.png#lightbox)
 
-1. A new **OpenID** tab appears, copy the Discovery URL that is needed later in the steps when configuring the OWIN component for testing application.
+5. A new **OpenID** tab appears, copy the Discovery URL that is needed later in the steps when configuring the OWIN component for testing application.
 
-![Screenshot shows the akamai oidc app settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_settings.png)
+   [ ![Screenshot shows the akamai oidc app settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_authentication.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_authentication.png#lightbox)
 
-1. In the **Claims** section, define the claims that Akamai will issue for the OIDC application, mapping their values to the SAML attributes provided by Azure AD B2C in the SAML response upon a successful authentication. These claims have to map what you defined in the previous step when [configuring the OIDC to SAML bridging in the Azure AD B2C SAML IdP](#ConfigureOIDC).
+6. In the **Claims** section, define the claims that Akamai will issue for the OIDC application, mapping their values to the SAML attributes provided by Azure AD B2C in the SAML response upon a successful authentication. These claims have to map what you defined in the previous step when [configuring the OIDC to SAML bridging in the Azure AD B2C SAML IdP](#ConfigureOIDC).
 
-![Screenshot shows the akamai oidc app claim settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_claims_settings.png)
+  [ ![Screenshot shows the akamai oidc app claim settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_claims_settings.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_claims_settings.png#lightbox)
 
-1. Replace startup class with the following code in the [ASP.NET MVC web app](https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp).
+7. Replace startup class with the following code in the [ASP.NET MVC web app](https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp).
 
-These few changes configure the Authorization code flow grant, the authorization code will be redeemed for tokens at the token endpoint for the application, and it introduces the Metadata Address to set the discovery endpoint for obtaining metadata from Akamai.
+   These few changes configure the Authorization code flow grant, the authorization code will be redeemed for tokens at the token endpoint for the application, and it introduces the Metadata Address to set the discovery endpoint for obtaining metadata from Akamai.
 
-```csharp
-public class Startup
-{
+   ```csharp
+   public class Startup
+   {
         // The Client ID is used by the application to uniquely identify itself to Azure AD.
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
 
@@ -456,7 +453,7 @@ public class Startup
         /// </summary>
         /// <param name="app"></param>
         public void Configuration(IAppBuilder app)
-    {
+      {
         app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
         app.UseCookieAuthentication(new CookieAuthenticationOptions());
@@ -493,17 +490,17 @@ public class Startup
         context.HandleResponse();
         context.Response.Redirect("/?errormessage=" + context.Exception.Message);
         return Task.FromResult(0);
-    }
-}
-```
+       }
+   }
+   ```
 
 8. In the `web.config` file add the Metadata address, replace clientId, clientsecret, authority,redirectUri and PostLogoutRedirectUri with the values from the Akamai application in `appSettings`.
 
-You can find these values in the previous step in the  [OpenID tab for the HTTP Akamai Application](#OpenIdApp) you created (Discovery URL=MetadataAddress). `redirectUri` is the local address for the Akamai connector to resolve to the local OIDC application. `Authority` is the authorization_endpoint you can find from your `.well-known/openid-configuration` document.
+   You can find these values in the previous step in the  [OpenID tab for the HTTP Akamai Application](#OpenIdApp) you created (Discovery URL=MetadataAddress). `redirectUri` is the local address for the Akamai connector to resolve to the local OIDC application. `Authority` is the authorization_endpoint you can find from your `.well-known/openid-configuration` document.
 
-Discovery URL: `https://fabrikam.login.go.akamai-access.com/.well-known/openid-configuration`
+   Discovery URL: `https://fabrikam.login.go.akamai-access.com/.well-known/openid-configuration`
 
-```xml
+   ```xml
   <appSettings>
     <add key="ClientId" value="xxxxxxxxxxxxxxxxxx" />
     <add key="ClientSecret" value="xxxxxxxxxxxxxxxxxx" />
@@ -512,10 +509,10 @@ Discovery URL: `https://fabrikam.login.go.akamai-access.com/.well-known/openid-c
     <add key="PostLogoutRedirectUri" value="https://oidc-test.go.akamai-access.com/" />
     <add key="MetadataAddress" value="https://fabrikam.login.go.akamai-access.com/.well-known/openid-configuration" />
   </appSettings>
-```
-Test the application by selecting the Akamai URL for the custom http type web application created.
+   ```
+   Test the application by selecting the Akamai URL for the custom http type web application created.
 
-![Screenshot shows the akamai oidc app results.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_results.png)
+   [ ![Screenshot shows the akamai oidc app results.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_results.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_results.png#lightbox)
 
 ## Test the solution
 
