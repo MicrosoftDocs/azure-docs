@@ -15,7 +15,7 @@ Azure Container Apps allows you to use GitHub Actions to publish [revisions](rev
 
 :::image type="content" source="media/github-actions/azure-container-apps-github-actions.png" alt-text="Changes to a GitHub repo trigger an action to create a new revision.":::
 
-The GitHub Actions workflow is triggered by commits to a specific branch in your repository. When creating the workflow, you decide which branch triggers the action.
+The GitHub Actions workflow is triggered by commits to a specific branch in your repository. When creating the workflow, you decide which branch triggers it.
 
 This article shows you how to create your own workflow that you can fully customize. To generate a starter GitHub Actions workflow with Azure CLI, see [Generate GitHub Actions workflow with Azure CLI](github-actions-cli.md).
 
@@ -33,7 +33,7 @@ Here are some common scenarios for using the action. For more information, see t
 
 #### Build and deploy to Container Apps
 
-The following snippet shows how to build a container image and deploy it to Container Apps.
+The following snippet shows how to build a container image from source code and deploy it to Container Apps.
 
 ```yaml
 steps:
@@ -72,8 +72,11 @@ steps:
       acrName: myregistry
       containerAppName: my-container-app
       resourceGroup: my-rg
-      imageToDeploy: myregistry.azurecr.io/app:latest
+      imageToDeploy: myregistry.azurecr.io/app:${{ github.sha }}
 ```
+
+> [!IMPORTANT]
+> If you're building a container image in a separate step, make sure you use a unique tag such as the commit SHA instead of a stable tag like `latest`. For more information, see [Image tag best practices](../container-registry/container-registry-image-tag-version.md).
 
 ### Authenticate with Azure Container Registry
 
@@ -131,7 +134,7 @@ Before creating a workflow, the source code for your app must be in a GitHub rep
 
 ### Create a container app with managed identity enabled
 
-Create your container app using the `az containerapp up` command in the following steps. This command will build the container image, create an Azure Container Registry, and store the image in the registry. 
+Create your container app using the `az containerapp up` command in the following steps. This command will create Azure resources, build the container image, store the image in a registry, and deploy to a container app.
 
 After you create your app, you can add a managed identity to the app and assign the identity the `AcrPull` role to allow the identity to pull images from the registry. 
 

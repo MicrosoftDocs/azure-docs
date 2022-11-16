@@ -1,6 +1,6 @@
 ---
 title: Publish revisions with Azure Pipelines in Azure Container Apps
-description: Learn to automatically create new revisions in Azure Container Apps using a Azure DevOps pipeline
+description: Learn to automatically create new revisions in Azure Container Apps using an Azure DevOps pipeline
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Deploy to Azure Container Apps from Azure Pipelines (preview)
 
-Azure Container Apps allows you to use Azure Pipelines to publish [revisions](revisions.md) to your container app. As commits are pushed to your Azure DevOps repository, a pipeline is triggered which updates the container image in the container registry. Azure Container Apps creates a new revision based on the updated container image.
+Azure Container Apps allows you to use Azure Pipelines to publish [revisions](revisions.md) to your container app. As commits are pushed to your [Azure DevOps repository](/azure/devops/repos/?view=azure-devops), a pipeline is triggered which updates the container image in the container registry. Azure Container Apps creates a new revision based on the updated container image.
 
 The pipeline is triggered by commits to a specific branch in your repository. When creating the pipeline, you decide which branch is the trigger.
 
@@ -29,7 +29,7 @@ Here are some common scenarios for using the task. For more information, see the
 
 #### Build and deploy to Container Apps
 
-The following snippet shows how to build a container image and deploy it to Container Apps.
+The following snippet shows how to build a container image from source code and deploy it to Container Apps.
 
 ```yaml
 steps:
@@ -56,8 +56,11 @@ steps:
       acrName: 'myregistry'
       containerAppName: 'my-container-app'
       resourceGroup: 'my-container-app-rg'
-      imageToDeploy: 'myregistry.azurecr.io/my-container-app:latest'
+      imageToDeploy: 'myregistry.azurecr.io/my-container-app:$(Build.BuildId)'
 ```
+
+> [!IMPORTANT]
+> If you're building a container image in a separate step, make sure you use a unique tag such as the build ID instead of a stable tag like `latest`. For more information, see [Image tag best practices](../container-registry/container-registry-image-tag-version.md).
 
 ### Authenticate with Azure Container Registry
 
@@ -110,14 +113,14 @@ Before creating a pipeline, the source code for your app must be in a repository
 1. Open a terminal and run the following command to clone the repository:
 
     ```bash
-    git clone <REPOSITORY_URL>
+    git clone <REPOSITORY_URL> my-container-app
     ```
 
     Replace `<REPOSITORY_URL>` with the URL you copied.
     
 ### Create a container app and configure managed identity
 
-Create your container app using the `az containerapp up` command in the following steps. This command will build the container image, create an Azure Container Registry, and store the image in the registry. 
+Create your container app using the `az containerapp up` command in the following steps. This command will create Azure resources, build the container image, store the image in a registry, and deploy to a container app.
 
 After your app is created, you can add a managed identity to your app and assign the identity the `AcrPull` role to allow the identity to pull images from the registry. 
 
@@ -190,10 +193,10 @@ To learn more about service connections, see [Connect to Microsoft Azure](/azure
           resourceGroup: 'my-container-app-rg'
     ```
 
-    Replace `<AZURE_SUBSCRIPTION_SERVICE_CONNECTION>` with the name of the Azure DevOps service connection you created in the previous step and `<ACR_NAME>` with the name of your Azure Container Registry.
+    Replace `<AZURE_SUBSCRIPTION_SERVICE_CONNECTION>` with the name of the Azure DevOps service connection (`my-subscription-service-connection`) you created in the previous step and `<ACR_NAME>` with the name of your Azure Container Registry.
 
 1. Select **Save and run**.
 
-An Azure Pipelines run should start to build and deploy your container app. To check its progress, navigate to *Pipelines* and select the run.
+An Azure Pipelines run should start to build and deploy your container app. To check its progress, navigate to *Pipelines* and select the run. During the first pipeline run, you may be prompted to authorize the pipeline to use your service connection.
 
 To deploy a new revision of your app, push a new commit to the *main* branch.
