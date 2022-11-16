@@ -18,7 +18,7 @@ There are two ways to collect SNMP data:
 
 Traps are most often used as event notifications, while polls are more appropriate for stateful health detection and collecting performance metrics.  
   
-This article explains how to collect events from SNMP traps using Azure Monitor Agent.
+This article explains how to collect events from SNMP traps using Azure Monitor Agent and send the data as syslog events or SNMP events to Azure Monitor Logs.
 
 
 ## Overview
@@ -32,23 +32,24 @@ It's important that the SNMP trap receiver you use can load MIB files for your e
 The snmptrapd configuration procedure can vary slightly among Linux distributions.  For more information on snmptrapd configuration, including guidance on configuring for SNMP v3 authentication, see the [Net-SNMP documentation](https://www.net-snmp.org/docs/man/snmptrapd.conf.html).  
 
  
-## Install snmptrapd
+## Set up snmptrapd
 
-To install and enable snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 server, use the following commands: 
+To set up snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 server:
 
-```bash
-#Install the SNMP agent
-sudo yum install net-snmp
-#Enable the service
-sudo systemctl enable snmptrapd
-#Allow UDP 162 through the firewall
-sudo firewall-cmd --zone=public --add-port=162/udp --permanent
-```
+1. Install and enable snmptrapd: 
 
-### Configure snmptrapd
- 
-To configure snmptrapd on Red Hat Enterprise Linux, CentOS, or Oracle Linux:
- 
+    ```bash
+    #Install the SNMP agent
+    sudo yum install net-snmp
+    #Enable the service
+    sudo systemctl enable snmptrapd
+    #Allow UDP 162 through the firewall
+    sudo firewall-cmd --zone=public --add-port=162/udp --permanent
+    ```
+1. To enable logging SNMP trap fields with their names, instead of by OIDs, place all MIB files in `/usr/share/snmp/mibs`, which is the default directory for MIB files. 
+
+    Copy all MIB files to this directory for each device that sends SNMP traps. MIB files are typically provided by the device vendor, but third-party websites like [www.mibdepot.com](https://www.mibdepot.com/) and [www.oidview.com](https://www.oidview.com/) provide MIBs to download for many vendors. Some vendors, like APC, maintain a single MIB for all devices, while others, like Cisco, have many [hundreds of MIB files](https://tools.cisco.com/ITDIT/MIBS/servlet/index). For snmptrapd to correctly load an MIB file, all dependent MIBs must also be loaded. Be sure to check the snmptrapd log file after loading MIBs to ensure that there are no missing dependencies in parsing your MIB files.  
+
 1. Authorize community strings (SNMP v1 & v2 authentication strings): 
   
     1. Edit `snmptrapd.conf`: 
@@ -57,21 +58,21 @@ To configure snmptrapd on Red Hat Enterprise Linux, CentOS, or Oracle Linux:
         sudo vi /etc/snmp/snmptrapd.conf  
         ```        
 
-    1.  Ensure that the following line exists in your `snmptrapd.conf` file to allow all traps for all OIDs, from all sources, with a community string of *public*: `authCommunity log,execute,net public`.
+    1.  Ensure that the following line exists in your `snmptrapd.conf` file to allow all traps for all OIDs, from all sources, with a community string of *public*: 
+    
+        ```bash
+        authCommunity log,execute,net public
+        ```
 
-1. To enable logging SNMP trap fields with their names, instead of by OIDs, place all MIB files in `/usr/share/snmp/mibs`, which is the default directory for MIB files. 
+### Configure snmptrapd to send traps to Azure Monitor Agent
 
-    Copy all MIB files to this directory for each device that sends SNMP traps. MIB files are typically provided by the device vendor, but third-party websites like [www.mibdepot.com](https://www.mibdepot.com/) and [www.oidview.com](https://www.oidview.com/) provide MIBs to download for many vendors. Some vendors, like APC, maintain a single MIB for all devices, while others, like Cisco, have many [hundreds of MIB files](https://tools.cisco.com/ITDIT/MIBS/servlet/index). For snmptrapd to correctly load an MIB file, all dependent MIBs must also be loaded. Be sure to check the snmptrapd log file after loading MIBs to ensure that there are no missing dependencies in parsing your MIB files.  
+There are two ways snmptrapd can send SNMP traps to Azure Monitor Agent: 
 
-1. Configure snmptrapd output:
-  
-    There are two ways to send SNMP traps from snmptrapd to Azure Monitor Agent: 
+- Forward incoming traps to syslog, which Azure Monitor Agent collects if you [create a data collection rule to collect syslog data](../../sentinel/forward-syslog-monitor-agent.md). 
 
-    - snmptrapd can forward incoming traps to syslog, which Azure Monitor Agent collects if you [create a data collection rule to collect syslog data](../../sentinel/forward-syslog-monitor-agent.md). 
-
-    - snmptrapd can write the syslog messages to a file, which can be *tailed* and parsed by Azure Monitor Agent for collection. This option may be preferable, as you can send the SNMP traps as a new datatype rather than sending as syslog events.  
-      
-    To edit the output behavior configuration of snmptrapd on Red Hat, CentOS, and Oracle Linux: 
+- Write the syslog messages to a file, which can be *tailed* and parsed by Azure Monitor Agent for collection. This option may be preferable, as you can send the SNMP traps as a new datatype rather than sending as syslog events.  
+    
+To edit the output behavior configuration of snmptrapd on Red Hat, CentOS, and Oracle Linux: 
 
     1. Open the run `/etc/snmp/snmptrapd.conf` file: 
       
@@ -99,9 +100,7 @@ To configure snmptrapd on Red Hat Enterprise Linux, CentOS, or Oracle Linux:
           - `-m ALL` - Load all MIB files in the default directory.
           - `-Ls2` - Output traps to syslog, to the Local2 facility.
           - `-Lf /var/log/snmptrapd` - Log traps to the `/var/log/snmptrapd` file. 
-    
-    
-  
+         
     For more information, see: 
     - https://www.net-snmp.org/docs/man/snmpcmd.html for how to set output options. 
     - https://www.net-snmp.org/docs/man/snmptrapd.html for how to set formatting options. 
