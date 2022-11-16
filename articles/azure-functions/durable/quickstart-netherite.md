@@ -159,8 +159,9 @@ If you are running on the Elastic Premium Plan, we recommend that you enable run
 
 ### (Older runtimes) Configure for 64 bit
 
-On Function runtime versions older than V4, you need to run on a 64 bit architechture for Netherite to work.
-You can update this setting in the portal: under "Configuration", select "General Settings" and then ensure the "Platform" field is set to "64 Bit".
+On Function runtime versions older than V4, you need to run on a 64-bit architechture for Netherite to work. 
+
+If this applies to your app, then please ensure that you're running on a 64-bit configuration. You can usually update this setting in the portal: under "Configuration", select "General Settings" and then ensure the "Platform" field is set to "64 Bit". If you do not see this option in the portal, then it is possible you are already running on a 64-bit platform. For example, Python apps require 64-bit workers and so changing this configuration is not an option for Python apps.
 
 > [!NOTE]
 > This is only required for runtime versions older than V4. For V4 onwards, no action is required.
