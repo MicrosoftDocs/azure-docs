@@ -94,7 +94,7 @@ if not databases:
 
 # Does database exist?
 DB_NAME = "adventureworks"
-if DB_NAME in client.list_database_names():
+if DB_NAME in databases:
     print("Database exists: {}".format(DB_NAME))
 else:
     client[DB_NAME].command({"customAction": "CreateDatabase", "offerThroughput": 400})
@@ -111,26 +111,6 @@ Database exists: adventureworks
 <!--
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="console_result":::
 -->
-
-## Does collection exist?
-
-The PyMongo driver for Python creates a collection if it doesn't exist when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. To create a new collection if it doesn't exist, use the [create collection extension](/azure/cosmos-db/mongodb/custom-commands#create-collection) as shown in the following code snippet.
-
-To see if the database already exists before using it, get the list of current databases with the [list_collection_names](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) method.
-
-```python
-COLL_NAME = "products"
-if COLL_NAME in client[DB_NAME].list_collection_names():
-    print("Collection exists: {}".format(COLL_NAME))
-else:
-    client[DB_NAME].command({"customAction": "CreateCollection", "collection": COLL_NAME})
-    print("Created collection '{}'.\n".format(COLL_NAME))
-```
-
-<!--
-:::code language="javascript" source="~/azure-cosmos-db-mongodb-python-getting-started/201-does-database-exist/run.py" id="does_collection_exist":::
--->
-
 
 ## Get list of databases, collections, and document count
 
@@ -180,17 +160,17 @@ Database: testdb
 :::code language="console" source="~/azure-cosmos-db-mongodb-python-getting-started/202-get-doc-count/run.py" id="console_result":::
 -->
 
-## Work with a collection instance
+## Get database object instance
 
-If a database or collection doesn't exist, the PyMongo driver for Python creates it when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. These patterns are shown above in the sections [Does database exist?](#does-database-exist) and [Does collection exist?](#does-collection-exist).
+If a database doesn't exist, the PyMongo driver for Python creates it when you access it. However, we recommend that instead you use the [MongoDB extension commands](/azure/cosmos-db/mongodb/custom-commands) to manage data stored in Azure Cosmos DB’s API for MongoDB. The pattern is shown above in the section [Does database exist?](#does-database-exist).
 
-One you have a collection instance, you can get work with the documents in the collection as shown below.
+When working with PyMongo, you access databases using attribute style access on MongoClient instances. Once you have a database instance, you can use database level operations as shown below.
 
 ```python
-doc_id = collection.insert_one(DOCUMENT).inserted_id
+collections = client[db].list_collection_names()
 ```
 
-For a overview of working with documents using the PyMongo driver, see [Documents tutorial](https://pymongo.readthedocs.io/en/stable/tutorial.html#documents).
+For an overview of working with databases using the PyMongo driver, see [Database level operations](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database).
 
 
 ## Drop a database
