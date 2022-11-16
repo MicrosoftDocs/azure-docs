@@ -93,7 +93,7 @@ If you need to create a Service Bus queue, see [Use Azure portal to create a Ser
 
 1. Leave all other values in their default states and choose **Create** at the bottom.
 
-   :::image type="content" source="media/iot-hub-how-to-routing-portal/add-service-bus-endpoint.jpg" alt-text="Screenshot that shows the 'Add a service bus endpoint' page with correct options selected.":::
+   :::image type="content" source="media/how-to-routing-portal/add-service-bus-endpoint.jpg" alt-text="Screenshot that shows the 'Add a service bus endpoint' page with correct options selected.":::
 
 1. Leave all the other values as their defaults on the **Add a route** page.
 
@@ -169,7 +169,7 @@ If you need to create a Cosmos DB resource, see [Create an Azure Cosmos DB accou
 
    * Select **Save** at the bottom of the form. You should now see the route on your **Message routing** page.
 
-   :::image type="content" source="media/how-to-routing-portal/cosmosdb-confirm.jpg" alt-text="Screenshot that shows details of the 'Add a Cosmos DB endpoint' form." lightbox="media/how-to-routing-portal/cosmosdb-confirm.jpg":::  
+   :::image type="content" source="media/how-to-routing-portal/cosmosdb-confirm.jpg" alt-text="Screenshot that shows a new Cosmos DB route in the IoT Hub 'Message routing' page." lightbox="media/how-to-routing-portal/cosmosdb-confirm.jpg":::  
 
 ---
 
