@@ -25,7 +25,7 @@ To build and deploy your container app, you add the [`AzureContainerAppsRC`](htt
 
 ### Usage examples
 
-Here are some common scenarios for using the action. For more information, see the [task's documentation](https://github.com/Azure/container-apps-deploy-pipelines-task/blob/main/README.md).
+Here are some common scenarios for using the task. For more information, see the [task's documentation](https://github.com/Azure/container-apps-deploy-pipelines-task/blob/main/README.md).
 
 #### Build and deploy to Container Apps
 
@@ -65,7 +65,7 @@ The Azure Container Apps task needs to authenticate with your Azure Container Re
 
 To push images, the task automatically authenticates with the container registry specified in `acrName` using the service connection provided in `azureSubscription`.
 
-To pull images, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the container app the action is deploying to must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the action's `acrUsername` and `acrPassword` inputs.
+To pull images, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the container app the task is deploying to must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the task's `acrUsername` and `acrPassword` inputs.
 
 ## Configuration
 
