@@ -49,8 +49,7 @@ An *unplanned failover* might happen because of hardware failure, network failur
 
 The Azure Cache for Redis service regularly updates your cache with the latest platform features and fixes. To patch a cache, the service follows these steps:
 
-1. The management service selects the node to be patched.
-1. The replica node is patched.
+1. The service patches the replica node first.
 1. The patched replica cooperatively promotes itself to primary. This promotion is considered a planned failover.
 1. The former primary node reboots to take the new changes and comes back up as a replica node.
 1. The replica node connects to the primary node and synchronizes data.
