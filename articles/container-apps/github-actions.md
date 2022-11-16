@@ -180,10 +180,6 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
       push:
         branches:
           - main
-
-    permissions:
-          id-token: write
-          contents: read
           
     jobs:
       build:
