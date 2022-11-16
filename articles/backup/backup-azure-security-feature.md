@@ -120,8 +120,9 @@ The security features mentioned in this article provide defense mechanisms again
 
 When [immutability](backup-azure-immutable-vault-concept.md?tabs=recovery-services-vault) for your Recovery Services vault is enabled, operations that reduce the cloud backup retention or remove cloud backup for on-premises data sources are blocked. 
 
->[Note]
->This feature is supported from DPM 2022 UR1 with MARS agent version *2.0.9250.0* and later.
+### Immutability support for DPM
+
+This feature is supported from DPM 2022 UR1 with MARS agent version *2.0.9250.0* and later.
 
 The following table lists the disallowed operations on DPM connected to an immutable Recovery:
 
@@ -131,6 +132,18 @@ The following table lists the disallowed operations on DPM connected to an immut
 | **Stop protection with delete data** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. | 130001: Microsoft Azure Backup encountered an internal error. |
 | **Reduce online retention period** | 810002: Reduction in retention during Policy/Protection modification isn't allowed because the selected vault is immutable. | 130001: Microsoft Azure Backup encountered an internal error. |
 | **Remove-DPMChildDatasource command** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. <br><br> Use new option *-EnableOnlineRPsPruning* with *-KeepOnlineData* to retain data only up to policy duration. | 130001: Microsoft Azure Backup encountered an internal error. <br><br> Use the *-KeepOnlineData* flag to retain data. |
+
+### Immutability support for MARS
+
+The following table lists the disallowed operations for MARS when immutability is enabled on the Recovery Services vault. Other operations, such as increasing retention and excluding a file/folder from backup, are allowed.
+
+| Disallowed operation | Result with latest MARS agent | Result with old MARS agent |
+| --- | --- | --- |
+| **Stop protection with delete data for system state** | Error 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. | Error 130001 <br><br> Microsoft Azure Backup encountered an internal error. |
+| **Stop protection with delete data for file/folder** | Error 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. | Error 130001 <br><br> Microsoft Azure Backup encountered an internal error. |
+| **Reduce online retention period** | User trying to modify policy or protection with reduction of retention. | 130001 <br><br> Microsoft Azure Backup encountered an internal error. |
+| **Remove-OBPolicy with -DeleteBackup flag** | 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. <br><br> Use *–EnablePruning* flag to retain backups up to their retention period. | 130001 <br><br> Microsoft Azure Backup encountered an internal error. <br><br> Don't use the *-DeleteBackup* flag. |
+
 
 ## Next steps
 
