@@ -11,7 +11,7 @@ ms.date: 05/28/2021
 ---
 
 # ISV Success program and Marketplace Rewards
-Microsoft continues its strong commitment to the growth and success of ISVs and supporting them throughout the entire journey of building, publishing, and selling apps through the Microsoft commercial marketplace. To further this mission, Marketplace Rewards is now included in the ISV Success program, available—at no cost—to all participants of the program. As you grow through the Microsoft commercial marketplace, you unlock new benefits designed to help you convert customers and close deals. For details on the program and benefits, see [Marketplace Rewards](https://aka.ms/marketplacerewards) (PPT). To see what other Microsoft partners are saying about their experiences with Marketplace Rewards, visit Marketplace [Rewards testimonials](https://aka.ms/MarketplaceRewardsTestimonials)
+Microsoft continues its strong commitment to the growth and success of ISVs and supporting them throughout the entire journey of building, publishing, and selling apps through the Microsoft commercial marketplace. To further this mission, Marketplace Rewards is now included in the ISV Success program, available—at no cost—to all participants of the program. As you grow through the Microsoft commercial marketplace, you unlock new benefits designed to help you convert customers and close deals. For details on the program and benefits, see [Marketplace Rewards](https://aka.ms/marketplacerewards) (PPT). To see what other Microsoft partners are saying about their experiences with Marketplace Rewards, visit Marketplace [Rewards testimonials](https://aka.ms/MarketplaceRewardsTestimonials).
 The program creates a positive feedback loop: the benefits at each stage of growth help you progress to the next stage, helping you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform.
 
 Your benefits are differentiated based on whether your offer is  [List, Trial, Consulting or Transact](/azure/marketplace/determine-your-listing-type).
@@ -22,7 +22,7 @@ List, Trial and Consulting offers receive one-time use benefits. Transact offers
 
 The minimum requirement to publish in the online stores is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Every partner is empowered to grow your business through the commercial marketplace as a platform. 
 
-You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit" \l "/).
+You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit).
 
 To check your eligibility for the Marketplace Rewards program, see the [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) page in Partner Center.
 
