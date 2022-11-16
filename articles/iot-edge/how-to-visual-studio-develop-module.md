@@ -143,13 +143,13 @@ In our solution, we're going to build three projects. The main module that conta
 
 Now, you have an IoT Edge project and an IoT Edge module in your Visual Studio solution.
 
-#### Project structure
+### Project structure
 
 In your solution, there are two project level folders including a main project folder and a single module folder. For example, you may have a main project folder named *AzureIotEdgeApp1* and a module folder named *IotEdgeModule1*. The main project folder contains your deployment manifest.
 
 The module project folder contains a file for your module code named either `program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files included here provide the information needed to build your module as a Windows or Linux container.
 
-#### Deployment manifest of your project
+### Deployment manifest of your project
 
 The deployment manifest you'll edit is named `deployment.debug.template.json`. This file is a template of an IoT Edge deployment manifest that defines all the modules that run on a device along with how they communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). 
 
@@ -216,7 +216,7 @@ When you're ready to customize the module template with your own code, use the [
 
 ::: zone pivot="iotedge-dev-ext"
 
-## Set up the iotedgehubdev testing tool
+## Debug using the simulator
 
 The Azure IoT EdgeHub Dev Tool provides a local development and debug experience. The tool helps start IoT Edge modules without the IoT Edge runtime so that you can create, develop, test, run, and debug IoT Edge modules and solutions locally. You don't have to push images to a container registry and deploy them to a device for testing.
 
@@ -239,7 +239,7 @@ To initialize the tool in Visual Studio:
 > [!NOTE]
 > You need to follow these steps only once on your development computer as the results are automatically applied to all subsequent Azure IoT Edge solutions. This procedure can be followed again if you need to change to a different connection string.
 
-## Build and debug a single module
+### Build and debug a single module
 
 Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules. The IoT Edge simulator tool allows you to run a single module in isolation a send messages over port 53000.
 
@@ -294,7 +294,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. Press **Ctrl + F5** or click the stop button to stop debugging.
 
-## Build and debug multiple modules
+### Build and debug multiple modules
 
 After you're done developing a single module, you might want to run and debug an entire solution with multiple modules. The IoT Edge simulator tool allows you to run all modules defined in the deployment manifest including a simulated edgeHub for message routing. In this example, you'll run two custom modules and the simulated temperature sensor module. Messages from the simulated temperature sensor module are routed to each custom module.
 
@@ -327,7 +327,9 @@ After you're done developing a single module, you might want to run and debug an
 
 1. Press **Ctrl + F5** or select the stop button to stop debugging.
 
-## Build and push images
+## Build and push images to registry
+
+Once you've developed and debugged your module, you can build and push the module image to your Azure Container Registry. You can then deploy the module to your IoT Edge device.
 
 1. Set the main IoT Edge project as the start-up project, not one of the individual modules.
 1. Select either **Debug** or **Release** as the configuration to build for your module images.
@@ -382,7 +384,7 @@ After you're done developing a single module, you might want to run and debug an
 
 ## Deploy the solution
 
-In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the CLI in Visual Studio. You already have a deployment manifest template you've been observing throughout this tutorial. Let's generate a deployment manifest from that, then use an Azure CLI command to deploy your modules to your IoT Edge device in Azure.
+Now that you've built and pushed your module images to your Azure Container Registry, you can deploy the solution to your IoT Edge device. You already have a deployment manifest template you've been observing throughout this tutorial. Let's generate a deployment manifest from that, then use an Azure CLI command to deploy your modules to your IoT Edge device in Azure.
 
 1. Right-click on your main project in Visual Studio Solution Explorer and choose **Generate Deployment for IoT Edge**. 
 
@@ -441,6 +443,8 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
 
 ## Build module Docker image
 
+Once you've developed your module, you can build the module image to store in a container registry for deployment to your IoT Edge device.
+
 Use the module's Dockerfile to build the module Docker image.
 
 ```bash
@@ -459,7 +463,7 @@ docker build --rm -f "./IotEdgeModule1/Dockerfile.amd64.debug" -t localhost:5000
 docker build --rm -f "./IotEdgeModule1/Dockerfile.amd64.debug" -t myacr.azurecr.io/iotedgemodule1:0.0.1-amd64 "./IotEdgeModule1"
 ```
 
-#### Push module Docker image
+## Push module Docker image
 
 Push your module image to the local registry or a container registry.
 
@@ -477,7 +481,51 @@ az acr login --name myacr
 docker push myacr.azurecr.io/iotedgemodule1:0.0.1-amd64
 ```
 
-#### Deploy the module to the IoT Edge device.
+## Deploy the module to the IoT Edge device.
+
+In Visual Studio, open *deployment.debug.template.json* deployment manifest file in the main project. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device. Before deployment, you need to update your Azure Container Registry credentials, your module images, and the proper `createOptions` values. For more information about createOption values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
+
+1. If you're using an Azure Container Registry to store your module image, you'll need to add your credentials to **deployment.debug.template.json** in the *edgeAgent* settings. For example,
+
+    ```json
+    "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.1",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {
+              "myacr": {
+                "username": "myacr",
+                "password": "<your_acr_password>",
+                "address": "myacr.azurecr.io"
+              }
+            }
+          }
+        },
+    ...
+    ```
+
+1. Replace the the *image* property value with the module image name you pushed to the registry. For example, if you pushed an image tagged `myacr.azurecr.io/iotedgemodule1:0.0.1-amd64` for custom module *IotEdgeModule1*, replace the image property value with the tag value.
+
+1. Add or replace the *createOptions* value with stringified content for each system and custom module in the deployment template.
+
+    For example, the IotEdgeModule1's *image* and *createOptions* settings would be similar to the following:
+    
+    ```json
+    "IotEdgeModule1": {
+    "version": "1.0.0",
+    "type": "docker",
+    "status": "running",
+    "restartPolicy": "always",
+    "settings": {
+        "image": "myacr.azurecr.io/iotedgemodule1:0.0.1-amd64",
+        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+    }
+    ```
 
 Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.debug.amd64.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command:
 
@@ -504,17 +552,24 @@ You should see a list of your modules running on your device or virtual machine.
 
 ```azurecli
    NAME                        STATUS           DESCRIPTION      CONFIG
-   SimulatedTemperatureSensor  running          Up a day         mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-   edgeAgent                   running          Up a day         mcr.microsoft.com/azureiotedge-agent:1.2
-   edgeHub                     running          Up a day         mcr.microsoft.com/azureiotedge-hub:1.2
-   myIotEdgeModule             running          Up 2 hours       myregistry.azurecr.io/myiotedgemodule:0.0.1-amd64.debug
-   myIotEdgeModule2            running          Up 2 hours       myregistry.azurecr.io/myiotedgemodule2:0.0.1-amd64.debug
+   SimulatedTemperatureSensor  running          Up a minute      mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
+   edgeAgent                   running          Up a minute      mcr.microsoft.com/azureiotedge-agent:1.2
+   edgeHub                     running          Up a minute      mcr.microsoft.com/azureiotedge-hub:1.2
+   IotEdgeModule1              running          Up a minute      myacr.azurecr.io/iotedgemodule1:0.0.1-amd64.debug
+   myIotEdgeModule2            running          Up a minute      myacr.azurecr.io/myiotedgemodule2:0.0.1-amd64.debug
 ```
 
-## View generated data
+## Debug using Docker Remote SSH
 
-To monitor the device-to-cloud (D2C) messages for a specific IoT Edge device, review the [Tutorial: Monitor IoT Edge devices](tutorial-monitor-with-workbooks.md) to get started.
+The Docker and Moby engines support SSH connections to containers allowing you to attach and debug code on a remote device using Visual Studio.
+
+1. Connecting remotely to Docker requires root-level privileges. Follow the steps in [Manage docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall) to allow connection to the Docker daemon on the remote device. When you're finished debugging, you may want to remove your user from the Docker group.
+1. Follow the steps to use Visual Studio to [Attach to a process running on a Docker container](/visualstudio/debugger/attach-to-process-running-in-docker-container) on your remote device.
+1. In Visual Studio, set breakpoints in your custom module.
+1. When a breakpoint is hit, you can inspect variables, step through code, and debug your module.
 
 ## Next steps
 
-To develop custom modules for your IoT Edge devices, [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
+* To develop custom modules for your IoT Edge devices, [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
+
+* To monitor the device-to-cloud (D2C) messages for a specific IoT Edge device, review the [Tutorial: Monitor IoT Edge devices](tutorial-monitor-with-workbooks.md) to get started.

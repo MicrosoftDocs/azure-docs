@@ -17,6 +17,8 @@ zone_pivot_groups: iotedge-dev
 
 This article shows you how to use Visual Studio Code to develop and debug IoT Edge modules in multiple languages and multiple architectures. On your development computer, you can use Visual Studio Code to attach and debug your module in a local or remote module container.
 
+You can choose either the **Azure IoT Edge Dev Tool** CLI or the **Azure IoT Edge tools for VS Code** extension as your IoT Edge development tool. Use the tool selector button at the beginning to choose your tool option for this article.
+
 Visual Studio Code supports writing IoT Edge modules in the following programming languages:
 
 * C# and C# Azure Functions
@@ -556,7 +558,7 @@ In Visual Studio Code, open *deployment.debug.template.json* deployment manifest
     ...
     ```
 
-1. Add or replace the following stringified content to *createOptions* value for each system and custom module listed.
+1. Add or replace the following stringified content to the *createOptions* value for each system and custom module listed. Change the values if necessary.
 
     ```json
     "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
@@ -753,8 +755,10 @@ The Docker and Moby engines support SSH connections to containers allowing you t
 ### Remotely debug your module
 
 1. In VS Code Debug view, select the debug configuration *Remote Debug IoT Edge Module (.NET Core)*.
-1. Select **Start Debugging** or select **F5**. Select the process to attach to
+1. Select **Start Debugging** or select **F5**. Select the process to attach to.
 1. In the Visual Studio Code Debug view, you'll see the variables in the left panel.
+1. In VS Code, set breakpoints in your custom module.
+1. When a breakpoint is hit, you can inspect variables, step through code, and debug your module.
 
 > [!NOTE]
 > The preceding example shows how to debug IoT Edge modules on remote containers. It added a remote Docker context and changes to the Docker privileges on the remote device. After you finish debugging your modules, set your Docker context to *default* and remove privileges from your user account.
