@@ -381,20 +381,20 @@ Once the Application is deployed in a private environment and a connector is cap
 
 - In the **Advanced** section of the application, map the HTTP header to the SAML attributes issued by Azure AD B2C in the SAML response upon a successful authentication.
 
-Example:
+  Example:
 
-| Header Name  | Attribute |
-|--------------|-----------|
-| ps-sso-first | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name      |
-| ps-sso-last  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
-| ps-sso-EmailAddress      | emailaddress |
-| ps-sso-uid   | objectId |
+  | Header Name  | Attribute |
+  |--------------|-----------|
+  | ps-sso-first | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name      |
+  | ps-sso-last  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
+  | ps-sso-EmailAddress      | emailaddress |
+  | ps-sso-uid   | objectId |
 
-![Screenshot shows the akamai header app mapping.](./media/partner-akamai-secure-hybrid-access/akamai_header_app_mapping.png)
+  ![Screenshot shows the akamai header app mapping.](./media/partner-akamai-secure-hybrid-access/akamai_header_app_mapping.png)
 
-Test the application by selecting the Akamai URL for the Custom HTTP type Web application you created.
+  Test the application by selecting the Akamai URL for the Custom HTTP type Web application you created.
 
-![Screenshot shows the akamai header app results.](./media/partner-akamai-secure-hybrid-access/akamai_header_app_results.png)
+  ![Screenshot shows the akamai header app results.](./media/partner-akamai-secure-hybrid-access/akamai_header_app_results.png)
 
 #### Option 2: OpenID Connect
 
@@ -420,7 +420,7 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
 6. In the **Claims** section, define the claims that Akamai will issue for the OIDC application, mapping their values to the SAML attributes provided by Azure AD B2C in the SAML response upon a successful authentication. These claims have to map what you defined in the previous step when [configuring the OIDC to SAML bridging in the Azure AD B2C SAML IdP](#ConfigureOIDC).
 
-  [ ![Screenshot shows the akamai oidc app claim settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_claims_settings.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_claims_settings.png#lightbox)
+   [ ![Screenshot shows the akamai oidc app claim settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_claims_settings.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_claims_settings.png#lightbox)
 
 7. Replace startup class with the following code in the [ASP.NET MVC web app](https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp).
 
@@ -501,14 +501,14 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
    Discovery URL: `https://fabrikam.login.go.akamai-access.com/.well-known/openid-configuration`
 
    ```xml
-  <appSettings>
-    <add key="ClientId" value="xxxxxxxxxxxxxxxxxx" />
-    <add key="ClientSecret" value="xxxxxxxxxxxxxxxxxx" />
-    <add key="Authority" value="https://fabrikam.login.go.akamai-access.com/oidc/oauth" />
-    <add key="redirectUri" value="http://oidcapp.identity.mistermik.com/" />
-    <add key="PostLogoutRedirectUri" value="https://oidc-test.go.akamai-access.com/" />
-    <add key="MetadataAddress" value="https://fabrikam.login.go.akamai-access.com/.well-known/openid-configuration" />
-  </appSettings>
+    <appSettings>
+      <add key="ClientId" value="xxxxxxxxxxxxxxxxxx" />
+      <add key="ClientSecret" value="xxxxxxxxxxxxxxxxxx" />
+      <add key="Authority" value="https://fabrikam.login.go.akamai-access.com/oidc/oauth" />
+      <add key="redirectUri" value="http://oidcapp.identity.mistermik.com/" />
+      <add key="PostLogoutRedirectUri" value="https://oidc-test.go.akamai-access.com/" />
+      <add key="MetadataAddress" value="https://fabrikam.login.go.akamai-access.com/.well-known/openid-configuration" />
+    </appSettings>
    ```
    Test the application by selecting the Akamai URL for the custom http type web application created.
 
