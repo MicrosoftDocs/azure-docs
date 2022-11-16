@@ -87,9 +87,9 @@ You take the following steps to configure an Azure DevOps pipeline to deploy to 
 | Azure Devops project | Go to [Azure DevOps](https://azure.microsoft.com/services/devops/) and select *Start free*. Then create a new project. |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 
-### Create Azure resources and configure managed identity
+### Create an Azure DevOps repository and clone the source code
 
-Before creating a pipeline, the source code for your app must be in a repository. You also need to create a container app with managed identity enabled and ensure the identity has permissions to pull images from your Azure Container Registry.
+Before creating a pipeline, the source code for your app must be in a repository. 
 
 1. Log in to [Azure DevOps](https://dev.azure.com/) and navigate to your project.
 
@@ -114,6 +114,13 @@ Before creating a pipeline, the source code for your app must be in a repository
     ```
 
     Replace `<REPOSITORY_URL>` with the URL you copied.
+    
+### Create a container app and configure managed identity
+
+Create your container app using the `az containerapp up` command in the following steps. This command will build the container image, create an Azure Container Registry, and store the image in the registry. 
+
+After your app is created, you can add a managed identity to your app and assign the identity the `AcrPull` role to allow the identity to pull images from the registry. 
+
 [!INCLUDE [container-apps-github-devops-setup.md](../../includes/container-apps-github-devops-setup.md)]
 
 ### Install the Azure Container Apps task

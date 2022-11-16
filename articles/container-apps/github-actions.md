@@ -102,9 +102,9 @@ You take the following steps to configure a GitHub Actions workflow to deploy to
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 
-### Create Azure resources and configure managed identity
+### Create a GitHub repository and clone source code
 
-Before creating a workflow, the source code for your app must be in a GitHub repository. You also need to create a container app with managed identity enabled and ensure the identity has permissions to pull images from your Azure Container Registry.
+Before creating a workflow, the source code for your app must be in a GitHub repository. 
 
 1. Log in to Azure with the Azure CLI. 
 
@@ -128,6 +128,13 @@ Before creating a workflow, the source code for your app must be in a GitHub rep
     ```bash
     git clone https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-container-app.git
     ```
+
+### Create a container app with managed identity enabled
+
+Create your container app using the `az containerapp up` command in the following steps. This command will build the container image, create an Azure Container Registry, and store the image in the registry. 
+
+After you create your app, you can add a managed identity to the app and assign the identity the `AcrPull` role to allow the identity to pull images from the registry. 
+
 [!INCLUDE [container-apps-github-devops-setup.md](../../includes/container-apps-github-devops-setup.md)]
 
 ### Configure secrets in your GitHub repository
