@@ -33,7 +33,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 Form Recognizer documentation has been updated to present a versioned experience. Now, you can choose to view content targeting the v3.0 GA experience or the v2.1 GA experience. The v3.0 experience is the default.
 
-:::image type="content" source="media/versioning-and-monikers.png" alt-text="{alt-text}":::
+:::image type="content" source="media/versioning-and-monikers.png" alt-text="Screenshot of the Form Recognizer landing page denoting the version dropdown menu.":::
 
 ### Form Recognizer Studio Sample Code
 
