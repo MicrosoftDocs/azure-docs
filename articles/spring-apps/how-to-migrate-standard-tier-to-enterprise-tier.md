@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to migrate an existing application in Basic or Standard tier to Enterprise tier. When you migrate from Basic or Standard tier to Enterprise tier, VMware Tanzu components will replace the OSS Spring Cloud components to provide more feature support.
+This article shows you how to migrate an existing application in Basic or Standard tier to Enterprise tier. When you migrate from Basic or Standard tier to Enterprise tier, VMware Tanzu components will replace the open-source software (OSS) Spring Cloud components to provide more feature support.
 
 This article will use the Pet Clinic sample apps as examples of how to migrate.
 
@@ -132,14 +132,14 @@ The app creation steps are the same as Standard Tier.
 
 ## Use Application Configuration Service for external configuration
 
-For externalized configuration in a distributed system, managed Spring Cloud Config Server is only available in Basic and Standard tiers. In Enterprise tier, Application Configuration Service for Tanzu (ACS) provides similar functions for your apps. Although there are some differences in usage between OSS config server and ACS.
+For externalized configuration in a distributed system, managed Spring Cloud Config Server is only available in Basic and Standard tiers. In Enterprise tier, Application Configuration Service for Tanzu (ACS) provides similar functions for your apps. The following table describes some differences in usage between the OSS config server and ACS.
 
-| Component             | Support tiers  | Enable | Bind to app | Profile |
-|-----------------------|---------------------|------------------------|-----------------|-----------------|
-| Spring Cloud Config Server | Basic/Standard  | Always enabled | Auto bound | Configured in app's source code |
-| Application Configuration Service for Tanzu | Enterprise | Enable on demand | Manual bind | Provided as `config-file-pattern` in ASA deployment |
+| Component                                   | Support tiers  | Enabled           | Bind to app | Profile                                                               |
+|---------------------------------------------|----------------|-------------------|-------------|-----------------------------------------------------------------------|
+| Spring Cloud Config Server                  | Basic/Standard | Always enabled.   | Auto bound  | Configured in app's source code.                                      |
+| Application Configuration Service for Tanzu | Enterprise     | Enable on demand. | Manual bind | Provided as `config-file-pattern` in an Azure Spring Apps deployment. |
 
-Unlike the client-server mode in OSS config server, ACS manages configuration by Kubernetes-native `ConfigMap` that are populated from properties defined in backend Git repositories. ACS cannot get the active profile configured in the app's source code to match the right configuration, so explicit configuration `config-file-pattern` should be specified in ASA deployment level.
+Unlike the client-server mode in the OSS config server, ACS manages configuration by using the Kubernetes-native `ConfigMap`, which is populated from properties defined in backend Git repositories. ACS can't get the active profile configured in the app's source code to match the right configuration, so the explicit configuration `config-file-pattern` should be specified at the Azure Spring Apps deployment level.
 
 ## Configure Application Configuration Service for Tanzu settings
 
