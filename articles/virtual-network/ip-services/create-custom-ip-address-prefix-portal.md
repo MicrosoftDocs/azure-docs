@@ -196,13 +196,11 @@ When you create a prefix, you must create static IP addresses from the prefix. I
 
 When the custom IP prefix is in **Provisioned** state, update the prefix to begin the process of advertising the range from Azure.
 
-1. In the search box at the top of the portal, enter **Custom IP**.
+1. In the search box at the top of the portal, enter **Custom IP** and select **Custom IP Prefixes**.
 
-2. In the search results, select **Custom IP Prefixes**.
+1. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
 
-3. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
-
-4. In **Overview** of **myCustomIPPrefix**, select **Commission**.
+1. In **Overview** of **myCustomIPPrefix**, select the **Commission** dropdown menu, and choose **Westus2 only** or **Globally**.
 
 The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. The status which will initially show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in the **Commissioning** status.
 
