@@ -15,7 +15,6 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 This page lists new features released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 > [!IMPORTANT]
-> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
