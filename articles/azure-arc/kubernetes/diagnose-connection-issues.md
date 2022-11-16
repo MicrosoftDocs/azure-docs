@@ -76,7 +76,7 @@ When you [create your support request](../../azure-portal/supportability/how-to-
 
 If you are using a proxy server on at least one machine, complete the first five steps of the non-proxy flowchart (through resource provider registration) for basic troubleshooting steps. Then, if you are still encountering issues, review the next flowchart for additional troubleshooting steps. More details about each step are provided below.
 
-:::image type="content" source="media/diagnose-connection-issues/proxy-flowchart-2.png" alt-text="Flowchart showing a visual representation of checking for connection issues when using a proxy." lightbox="media/diagnose-connection-issues/proxy-flowchart.png":::
+:::image type="content" source="media/diagnose-connection-issues/proxy-flowchart-2.png" alt-text="Flowchart showing a visual representation of checking for connection issues when using a proxy." lightbox="media/diagnose-connection-issues/proxy-flowchart-2.png":::
 
 ### Is the machine executing commands behind a proxy server?
 
