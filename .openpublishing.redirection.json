@@ -29135,6 +29135,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/web-app-tutorial-01-prepare-app.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-tutorial-01-register-application",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/web-app-tutorial-02-prepare-azure-ad.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-tutorial-02-prepare-application",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/web-app-tutorial-04-call-web-api-graph.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-tutorial-04-prepare-tenant-app",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false

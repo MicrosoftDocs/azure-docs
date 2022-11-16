@@ -66,14 +66,16 @@
       href: tutorial-v2-nodejs-webapp-msal.md
     - name: Web app
       items:
-      - name: 1 - Prepare your app for auth
-        href: web-app-tutorial-01-prepare-app.md 
+      - name: 1 - Register your app
+        href: web-app-tutorial-01-register-application.md 
       - name: 2 - Prepare Azure AD for your app
-        href: web-app-tutorial-02-prepare-azure-ad.md
+        href: web-app-tutorial-02-prepare-application.md
       - name: 3 - Sign in users
         href: web-app-tutorial-03-sign-in-users.md
-      - name: 4 - Get user data from web API
-        href: web-app-tutorial-04-call-web-api-graph.md
+      - name: 4 - Prepare your app for auth
+        href: web-app-tutorial-04-prepare-tenant-app.md
+      - name: 5 - Get user data from web API
+        href: web-app-tutorial-05-call-web-api.md
   - name: Mobile and desktop
     items:
     - name: Android
