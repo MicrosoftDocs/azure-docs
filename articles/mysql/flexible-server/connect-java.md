@@ -121,7 +121,7 @@ az identity create \
 ```
 
 > [!IMPORTANT]
-> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
+> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](./concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](./concepts-azure-ad-authentication.md).
 
 Run the following command to assign the identity to MySQL server for creating Azure AD admin:
 
@@ -216,7 +216,7 @@ az mysql flexible-server db create \
 Next, create a non-admin user and grant all permissions on the `demo` database to it.
 
 > [!NOTE]
-> You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
+> You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](../single-server/how-to-create-users.md).
 
 #### [Passwordless connection (Recommended)](#tab/passwordless)
 
