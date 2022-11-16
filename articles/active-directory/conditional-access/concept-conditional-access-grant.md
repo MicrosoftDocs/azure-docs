@@ -91,7 +91,7 @@ Organizations can require that an approved client app is used  to access selecte
 
 To apply this grant control, the device must be registered in Azure AD, which requires using a broker app. The broker app can be Microsoft Authenticator for iOS, or either Microsoft Authenticator or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the appropriate app store to install the required broker app.
 
-The following client apps support this setting:
+The following client apps support this setting, this list isn't exhaustive and is subject to change::
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -142,8 +142,9 @@ To apply this grant control, Conditional Access requires that the device is regi
 
 Applications must have the Intune SDK with policy assurance implemented and must meet certain other requirements to support this setting. Developers who are implementing applications with the Intune SDK can find more information on these requirements in the [SDK documentation](/mem/intune/developer/app-sdk-get-started).
 
-The following client apps are confirmed to support this setting:
+The following client apps are confirmed to support this setting, this list isn't exhaustive and is subject to change:
 
+- iAnnotate for Office 365
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
@@ -158,15 +159,16 @@ The following client apps are confirmed to support this setting:
 - Microsoft PowerApps
 - Microsoft PowerPoint
 - Microsoft SharePoint
+- Microsoft Stream Mobile Native 2.0
 - Microsoft Teams
 - Microsoft To Do
 - Microsoft Word
-- Microsoft Power Apps
+- Microsoft Whiteboard Services
 - Microsoft Field Service (Dynamics 365)
 - MultiLine for Intune
 - Nine Mail - Email and Calendar
 - Notate for Intune
-- Yammer (iOS and iPadOS)
+- Yammer (Android, iOS, and iPadOS)
 
 This list isn't all encompassing, if your app isn't in this list please check with the application vendor to confirm support.
 

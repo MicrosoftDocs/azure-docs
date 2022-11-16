@@ -46,6 +46,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/icertisicm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/governance/tutorial-onboard-custom-workflow-graph.md",
       "redirect_url": "/graph/tutorial-lifecycle-workflows-onboard-custom-workflow",
       "redirect_document_id": false
@@ -3433,17 +3438,17 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-permissions.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-scopes.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/v1-permissions-and-consent.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
@@ -5535,6 +5540,21 @@
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-connectivity-ports-how-to.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-add-on-premises-application",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/consent-framework.md",
+      "redirect_url": "/azure/active-directory/develop/application-consent-experience",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/v2-permissions-and-consent.md",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/consent-and-permissions-overview.md",
+      "redirect_url": "/azure/active-directory/manage-apps/user-admin-consent-overview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-enable.md",

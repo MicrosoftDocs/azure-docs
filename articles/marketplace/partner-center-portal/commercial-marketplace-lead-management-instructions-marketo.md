@@ -11,6 +11,9 @@ ms.date: 06/08/2022
 
 # Use Marketo to manage commercial marketplace leads
 
+> [!IMPORTANT]
+> The marketo connector is not currently working due to a change in the Marketo platform. Use Leads from the Referrals workspace.
+
 This article describes how to set up your Marketo CRM system to process sales leads from your offers in Microsoft AppSource and Azure Marketplace.
 
 ## Set up your Marketo CRM system

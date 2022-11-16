@@ -83,7 +83,7 @@ To authorize passwordless access with Azure AD, you'll need to use an Azure cred
 |Developer environment|[Visual Studio Code](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?tabs=azure-portal%2Csign-in-vscode)|
 |Developer environment|[Service principal](../common/identity-library-acquire-token.md)|
 |Azure-hosted apps|[Azure-hosted apps setup](./authorize-managed-identity.md)|
-|On-premises|[On-premises app setup](../common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|On-premises|[On-premises app setup](../common/storage-auth-aad-app.md?tabs=dotnet&toc=/azure/storage/blobs/toc.json)|
 
 ### Set up storage account roles
 
@@ -144,12 +144,6 @@ To generate and manage SAS tokens, see any of these articles:
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
 
 - [Create a service SAS for a container or blob](sas-service-create.md)
-
-## Connect anonymously
-
-If you explicitly enable anonymous access, then you can connect to Blob Storage without authorization for your request. You can create a new BlobServiceClient object for anonymous access by providing the Blob storage endpoint for the account. This requires you to know the account and container names. To learn how to enable anonymous access, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
-
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-anonymous-credential.js":::
 
 The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control.
 

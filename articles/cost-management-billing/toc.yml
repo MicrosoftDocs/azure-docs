@@ -467,10 +467,8 @@
       href: manage/pay-by-invoice.md
     - name: Resolve pay-as-you-go past due balance
       href: manage/resolve-past-due-balance.md
-    - name: Add or update credit card
+    - name: Add, update, or delete payment method
       href: manage/change-credit-card.md
-    - name: Delete billing payment method
-      href: manage/delete-azure-payment-method.md
   - name: Troubleshoot
     items:
     - name: Error codes
@@ -495,6 +493,8 @@
       href: manage/troubleshoot-azure-sign-up.md
     - name: Subscription sign-in issues
       href: manage/troubleshoot-sign-in-issue.md
+    - name: Can't create multiple subscriptions
+      href: manage/create-multiple-subscriptions-error.md
     - name: Enterprise cost view disabled
       href: manage/enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Troubleshoot Azure EA portal access

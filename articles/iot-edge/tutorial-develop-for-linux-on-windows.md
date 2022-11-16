@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Tutorial: Develop IoT Edge modules with Linux containers using IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 Use Visual Studio 2019 to develop, debug and deploy code to devices running IoT Edge for Linux on Windows.
 

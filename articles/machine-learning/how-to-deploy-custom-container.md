@@ -381,4 +381,4 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 
 - [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
 - [Troubleshooting online endpoints deployment](./how-to-troubleshoot-online-endpoints.md)
-- [Torch serve sample](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-torchserve.sh)
+- [Torch serve sample](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-torchserve-densenet.sh)
