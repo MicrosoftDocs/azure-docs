@@ -94,17 +94,7 @@ In progress.
 1. Expand **Pages**, right-click **Shared**, and then select **Add > Razor page**.
 1. Select **Razor Page - Empty**, and then select **Add**.
 1. Enter `_LoginPartial.cshtml` for the name, and then select **Add**.
-
-### [Visual Studio Code](#tab/visual-studio-code)
-
-1. In the Explorer bar, select **Pages**, then right-click **Shared**, and then select **New File**, and name it *_LoginPartial.cshtml*.
-
-### [Visual Studio for Mac](#tab/visual-studio-for-mac)
-
-1. Steps for Mac
----
-
-4. Open the `_LoginPartial.cshtml` page, and then add the following code for adding sign-in and sign-out to the page:
+1. Open the `_LoginPartial.cshtml` page, and then add the following code for adding sign-in and sign-out to the page:
 
     ```csharp
     @using System.Security.Principal
@@ -143,6 +133,95 @@ In progress.
       <partial name="_LoginPartial" />
     </div>
     ```
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+1. In the Explorer bar, select **Pages**, then right-click **Shared**, and then select **New File**, and name it *_LoginPartial.cshtml*.
+1. Open the `_LoginPartial.cshtml` page, and then add the following code for adding sign-in and sign-out to the page:
+
+    ```csharp
+    @using System.Security.Principal
+
+    <ul class="navbar-nav">
+      @if (User.Identity?.IsAuthenticated == true)
+      {
+        <li class="nav-item">
+          <span class="navbar-text text-dark">Hello @User.Identity?.Name!</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+        </li>
+      }
+      else
+      {
+        <li class="nav-item">
+          <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+        </li>
+      }
+    </ul>
+    ```
+
+1. Open the `_Layout.cshtml` file and add a reference to the `_LoginPartial` file that was previously created. This code should go between the `</header` and `<footer` lines.
+
+    ```csharp
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+      <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+          <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+        </li>
+      </ul>
+      <partial name="_LoginPartial" />
+    </div>
+    ```
+
+### [Visual Studio for Mac](#tab/visual-studio-for-mac)
+
+1. Steps for Mac
+1. Open the `_LoginPartial.cshtml` page, and then add the following code for adding sign-in and sign-out to the page:
+
+    ```csharp
+    @using System.Security.Principal
+
+    <ul class="navbar-nav">
+      @if (User.Identity?.IsAuthenticated == true)
+      {
+        <li class="nav-item">
+          <span class="navbar-text text-dark">Hello @User.Identity?.Name!</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+        </li>
+      }
+      else
+      {
+        <li class="nav-item">
+          <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+        </li>
+      }
+    </ul>
+    ```
+
+1. Open the `_Layout.cshtml` file and add a reference to the `_LoginPartial` file that was previously created. This code should go between the `</header` and `<footer` lines.
+
+    ```csharp
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+      <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+          <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+        </li>
+      </ul>
+      <partial name="_LoginPartial" />
+    </div>
+    ```
+---
+
+
 
 
 ## Next steps

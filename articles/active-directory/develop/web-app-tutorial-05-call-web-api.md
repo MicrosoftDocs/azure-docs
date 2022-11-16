@@ -108,6 +108,9 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
 
 ### [Visual Studio](#tab/visual-studio)
 1. In Visual Studio, start the application by selecting **Start without debugging**.
+1. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
+
+    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 1. In Visual Studio Code, start the application by typing the following in the terminal;
@@ -116,14 +119,19 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
 dotnet run
 ```
 
+1. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
+
+    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
+
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 1. In Visual Studio, start the application by selecting **Start without debugging**.
+1. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
+
+    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
 
 ---
 
-2. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
 
-    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
 
 ## Next steps
 > [!div class="nextstepaction"]
