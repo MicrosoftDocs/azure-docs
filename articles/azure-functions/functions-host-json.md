@@ -37,6 +37,10 @@ The following sample *host.json* file for version 2.x+ has all possible options 
         "batchSize": 1000,
         "flushTimeout": "00:00:30"
     },
+    "concurrency": { 
+            "dynamicConcurrencyEnabled": true, 
+            "snapshotPersistenceEnabled": true 
+        },
     "extensions": {
         "blobs": {},
         "cosmosDb": {},
@@ -79,6 +83,9 @@ The following sample *host.json* file for version 2.x+ has all possible options 
               "movingAverageRatio": 1.0,
               "excludedTypes" : "Dependency;Event",
               "includedTypes" : "PageView;Trace"
+            },
+            "dependencyTrackingOptions": {
+                "enableSqlCommandTextInstrumentation": true
             },
             "enableLiveMetrics": true,
             "enableDependencyTracking": true,
@@ -149,6 +156,7 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | Property | Default | Description |
 | --------- | --------- | --------- | 
 | samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
+| dependencyTrackingOptions | n/a | See [applicationInsights.dependencyTrackingOptions](#applicationInsightsdependencyTrackingOptions). |
 | enableLiveMetrics | true | Enables live metrics collection. |
 | enableDependencyTracking | true | Enables dependency tracking. |
 | enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
@@ -181,6 +189,12 @@ For more information about these settings, see [Sampling in Application Insights
 | enableHttpTriggerExtendedInfoCollection | true | Enables or disables extended HTTP request information for HTTP triggers: incoming request correlation headers, multi-instrumentation keys support, HTTP method, path, and response. |
 | enableW3CDistributedTracing | true | Enables or disables support of W3C distributed tracing protocol (and turns on legacy correlation schema). Enabled by default if `enableHttpTriggerExtendedInfoCollection` is true. If `enableHttpTriggerExtendedInfoCollection` is false, this flag applies to outgoing requests only, not incoming requests. |
 | enableResponseHeaderInjection | true | Enables or disables injection of multi-component correlation headers into responses. Enabling injection allows Application Insights to construct an Application Map to  when several instrumentation keys are used. Enabled by default if `enableHttpTriggerExtendedInfoCollection` is true. This setting doesn't apply if `enableHttpTriggerExtendedInfoCollection` is false. |
+
+### applicationInsights.dependencyTrackingOptions
+
+|Property | Default | Description |
+| --------- | --------- | --------- | 
+| enableSqlCommandTextInstrumentation | false | Enables collection of the full text of SQL queries, which is disabled by default. For more information on collecting SQL query text, see [Advanced SQL tracking to get full SQL query](../azure-monitor/app/asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query). |
 
 ### applicationInsights.snapshotConfiguration
 
@@ -266,6 +280,24 @@ Configuration settings for a custom handler. For more information, see [Azure Fu
 ## durableTask
 
 Configuration setting can be found in [bindings for Durable Functions](durable/durable-functions-bindings.md#host-json).
+
+## concurrency
+
+Enables dynamic concurrency for specific bindings in your function app. For more information, see [Dynamic concurrency](./functions-concurrency.md#dynamic-concurrency). 
+
+```json
+    { 
+        "concurrency": { 
+            "dynamicConcurrencyEnabled": true, 
+            "snapshotPersistenceEnabled": true 
+        } 
+    } 
+```
+
+|Property | Default | Description |
+| --------- | --------- | --------- |
+| dynamicConcurrencyEnabled | false | Enables dynamic concurrency behaviors for all triggers supported by this feature, which is off by default. |
+| snapshotPersistenceEnabled | true | Learned concurrency values are periodically persisted to storage so new instances start from those values instead of starting from 1 and having to redo the learning. |
 
 ## eventHub
 
