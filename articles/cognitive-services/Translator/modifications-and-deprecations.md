@@ -22,10 +22,8 @@ Learn about Translator service changes, modification, and deprecations.
 
 ### Changes to Translator `Usage` metrics
 
----
- **Characters Translated** and **Characters Trained** are deprecated and have been removed from the Azure portal.
-
----
+> [!IMPORTANT]
+> **`Characters Translated`** and **`Characters Trained`** metrics are deprecated and have been removed from the Azure portal.
 
 |Deprecated metric| Current metric(s) | Description|
 |---|---|---|
@@ -36,13 +34,11 @@ Learn about Translator service changes, modification, and deprecations.
 
 ### Deprecated metric
 
----
-**Characters Translated** and **Characters Trained** are deprecated and will be removed from the Azure portal in October 2022.
+> [!IMPORTANT]
+> **Characters Translated** and **Characters Trained** are deprecated and will be removed from the Azure portal in October 2022.
 
----
-
-* In 2021, two new metrics **Text Characters Translated** and **Text Custom Characters Translated** were added to help the customers with granular metrics data service usage. These metrics replaced **Characters Translated** which provided combined usage data of the general and custom text translation service.
+* In 2021, two new metrics, **Text Characters Translated** and **Text Custom Characters Translated**, were added to help with granular metrics data service usage. These metrics replaced **Characters Translated** which provided combined usage data for the general and custom text translation service.
 
 * Similarly, the **Text Trained Characters** metric was added to replace the  **Characters Trained** metric.
 
-* **Characters Trained** and **Characters Translated** metrics have had continued support in the Azure portal with the deprecated flag in the Azure portal to allow customers to migrate to current metrics. These metrics are now scheduled for removal from the Azure portal.
+* **Characters Trained** and **Characters Translated** metrics have had continued support in the Azure portal with the deprecated flag to allow migration to the current metrics. Characters Trained and Characters Translated are now scheduled for removal from the Azure portal.
