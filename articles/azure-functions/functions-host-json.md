@@ -454,6 +454,8 @@ For example, say that you wanted to disable Application Insight sampling when ru
 }
 ```
 
+Overriding host.json settings using environment variables follows the ASP.NET Core naming conventions. When the element structure includes an array, the numeric array index should be treated as an additional element name in this path. For more information, see [Naming of environment variables](/aspnet/core/fundamentals/configuration/?view=aspnetcore-7.0#naming-of-environment-variables). 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
