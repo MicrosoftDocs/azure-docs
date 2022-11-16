@@ -18,7 +18,7 @@ This article shows you how to send Azure VMware Solution logs to Azure Monitor L
 
 In the rest of this article, we’ll show you how easy it is to make this happen.
 
-## How to Set Up Log Analytics
+## How to set up Log Analytics
 
 A Log Analytics workspace:
 
@@ -37,20 +37,20 @@ In this section, you’ll:
 1. In the Azure portal, go to **Create a resource**.
 2. Search for “Log Analytics Workspace” and click **Create** -> **Log Analytics Workspace**.
 
-:::image type="content" source="media/send-logs-to-log-analytics/marketplace.png" alt-text="Search for Log Analytics Workspace":::
+:::image type="content" source="media/send-logs-to-log-analytics/marketplace.png" alt-text="Screenshot of Create a resource.":::
 
 ### Set up your workspace
 
 1. Enter the Subscription you intend to use, the Resource Group that’ll house this workspace. Give it a name and select a region. 
 1. Click **Review** + **Create**.
 
-:::image type="content" source="media/send-logs-to-log-analytics/create-workspace.png" alt-text="Workspace":::
+:::image type="content" source="media/send-logs-to-log-analytics/create-workspace.png" alt-text="Screenshot of Marketplace.":::
 
 ### Add a diagnostic setting
 
 Next, we add a diagnostic setting in your AVS private cloud, so it knows where to send your logs to.
 
-:::image type="content" source="media/send-logs-to-log-analytics/private-cloud.png" alt-text="Private Cloud":::
+:::image type="content" source="media/send-logs-to-log-analytics/private-cloud.png" alt-text="Screenshot of vh-private-cloud.":::
 
 1. Click your AVS private cloud.
 Go to Diagnostic settings on the left-hand menu under Monitoring.
@@ -62,11 +62,11 @@ Select the log categories you are interested in sending to your Log Analytics wo
 Select the Subscription your Log Analytics workspace lives in and the Log Analytics workspace.
 Click **Save** on the top left.
 
-:::image type="content" source="media/send-logs-to-log-analytics/diagnostic-setting.png" alt-text="Diagnostics Setting":::
+:::image type="content" source="media/send-logs-to-log-analytics/diagnostic-setting.png" alt-text="Screenshot of Diagnostics settings.":::
 
 At this point, your Log Analytics workspace has been successfully configured to receive logs from your AVS private cloud.
 
-## Search and Analyze Logs using Kusto
+## Search and analyze logs using Kusto
 
 Now that you’ve successfully configured your logs to go to your Log Analytics workspace, you can use that data to gain meaningful insights with Log Analytics’ search feature.
 Log Analytics uses a language called the Kusto Query Language (or Kusto) to search through your logs.
