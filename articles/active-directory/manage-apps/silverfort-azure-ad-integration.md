@@ -13,7 +13,7 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort 
+# Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort  
 
 [Silverfort](https://www.silverfort.com/) uses innovative agent-less and proxy-less technology to connect your assets on-premises and in the cloud to Azure Active Directory (Azure AD). This solution enables organizations to apply identity protection, visibility, and user experience across environments in Azure AD. It enables universal risk-based monitoring and assessment of authentication activity for on-premises and cloud environments, and proactively prevents threats.  
 
