@@ -79,11 +79,11 @@ These series are optimized for computational workloads and run on Intel Xeon pro
 | **Standard_F12**  | 12      | 24          | 256                  | 1000                           | 48000                               | 500                             | 64              | 8         |
 | **Standard_F16**   | 16      | 32           | 256                 | 1000                           | 48000                               | 500                              | 64              | 8         |
 | **Standard_F1s**   | 1       | 2            | 4                   | 2000                           | 4000                                | 2300                             | 4               | 2         |
-| **Standard_F2s**   | 4       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 4         |
+| **Standard_F2s**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 4         |
 | **Standard_F4s**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
 | **Standard_F8s**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
 | **Standard_F16s**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |
-| **Standard_F4s_v1**| 4       | 4            | 32                  | 6400                             | 8000                              | 8000                             | 8               | 2         |
+| **Standard_F4s_v1**| 4       | 4            | 8                  | 2000                             | 8000                              | 2300                             | 8               | 4         |
 
 For more information, see [Fsv2-series](../articles/virtual-machines/fsv2-series.md).
 
