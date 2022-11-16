@@ -420,7 +420,7 @@ The following sections provide guidance for specific issues.
 
 #### ModuleNotFoundError when app starts
 
-If you see an error like `ModuleNotFoundError: No module named 'example'`, this means that Python couldn't find one or more of your modules when the application started. This most often occurs if you deploy your virtual environment with your code. Virtual environments aren't portable, so a virtual environment shouldn't be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This will force Oryx to install your packages whenever you deploy to App Service. For more information, please see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+If you see an error like `ModuleNotFoundError: No module named 'example'`, then Python couldn't find one or more of your modules when the application started. This most often occurs if you deploy your virtual environment with your code. Virtual environments aren't portable, so a virtual environment shouldn't be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This setting will force Oryx to install your packages whenever you deploy to App Service. For more information, please see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
 
 ### Database is locked
 
@@ -436,7 +436,7 @@ If you're encountering this error with the sample in [Tutorial: Deploy a Django 
 
 - **Commands in the SSH session appear to be cut off**: The editor may not be word-wrapping commands, but they should still run correctly.
 
-- **Static assets don't appear in a Django app**: Ensure that you have enabled the [whitenoise module](http://whitenoise.evans.io/en/stable/django.html)
+- **Static assets don't appear in a Django app**: Ensure that you've enabled the [whitenoise module](http://whitenoise.evans.io/en/stable/django.html)
 
 - **You see the message, "Fatal SSL Connection is Required"**: Check any usernames and passwords used to access resources (such as databases) from within the app.
 
