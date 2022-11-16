@@ -20,15 +20,13 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in November include:
 
-- [Protect containers in your entire GKE organization with Defender for Containers](#protect-containers-in-your-entire-gke-organization-with-defender-for-containers)
+- [Protect containers across your GCP organization with Defender for Containers](#protect-containers-across-your-gcp-organization-with-defender-for-containers)
 - [Validate Defender for Containers protections with sample alerts](#validate-defender-for-containers-protections-with-sample-alerts)
 - [Governance rules at scale (Preview)](#governance-rules-at-scale-preview)
 
-### Protect containers in your entire GKE organization with Defender for Containers
+### Protect containers across your GCP organization with Defender for Containers
 
-Defender for Containers helps you secure your Azure and multicloud container environments with environment hardening, vulnerability assessment, and run-time threat protection for nodes and clusters. GCP users enable this protection by connecting the GCP projects to Defender for Cloud using the native GCP connector.
-
-Now you can enable Defender for Containers for your GCP organization to protect clusters across your entire GCP organization. Create a new GCP connector or update your existing GCP connectors that connect organizations to Defender for Cloud, and enable Defender for Containers.
+Now you can enable [Defender for Containers](defender-for-containers-introduction.md) for your GCP environment to protect standard GKE clusters across an entire GCP organization. Just create a new GCP connector with Defender for Containers enabled or enable Defender for Containers on an existing organization level GCP connector.
 
 Learn more about [connecting GCP projects and organizations](quickstart-onboard-gcp.md#connect-your-gcp-project) to Defender for Cloud.
 

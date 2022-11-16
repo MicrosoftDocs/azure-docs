@@ -148,7 +148,7 @@ I'm excited to try text to speech
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
 
 > [!WARNING]
-> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](/azure/cognitive-services/speech-service/troubleshooting#connection-closed-or-timeout).
+> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](../../../troubleshooting.md#connection-closed-or-timeout).
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
@@ -160,4 +160,3 @@ This quickstart uses the `SpeakTextAsync` operation to synthesize a short block 
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
-

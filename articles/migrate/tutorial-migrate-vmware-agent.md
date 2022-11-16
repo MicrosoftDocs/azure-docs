@@ -1,9 +1,9 @@
 ---
 title: Migrate VMware vSphere VMs with agent-based Azure Migrate Server Migration
 description: Learn how to run an agent-based migration of VMware vSphere VMs with Azure Migrate.
-author: jyothisuri
-ms.author: jsuri
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
+ms.manager: kmadnani
 ms.topic: tutorial
 ms.date: 10/04/2022
 ms.custom: MVC
