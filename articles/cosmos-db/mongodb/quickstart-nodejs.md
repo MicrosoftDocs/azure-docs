@@ -1,18 +1,17 @@
 ---
-title: Quickstart - Azure Cosmos DB for MongoDB for JavaScript with MongoDB drier
-description: Learn how to build a JavaScript app to manage Azure Cosmos DB for MongoDB account resources in this quickstart.
-author: diberry
-ms.author: diberry
-ms.reviewer: sidandrews
+title: Quickstart - Azure Cosmos DB for MongoDB driver for MongoDB
+description: Learn how to build a Node.js app to manage Azure Cosmos DB for MongoDB account resources and data in this quickstart.
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 07/06/2022
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js, ignite-2022, devguide-js, cosmos-db-dev-journey
 ---
 
-# Quickstart: Azure Cosmos DB for MongoDB for JavaScript with MongoDB driver
+# Quickstart: Azure Cosmos DB for MongoDB driver for Node.js
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 

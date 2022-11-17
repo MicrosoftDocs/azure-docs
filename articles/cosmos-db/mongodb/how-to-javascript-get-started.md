@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Cosmos DB for MongoDB and JavaScript
+title: Get started with Azure Cosmos DB for MongoDB using JavaScript
 description: Get started developing a JavaScript application that works with Azure Cosmos DB for MongoDB. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB for MongoDB database.
 author: seesharprun
 ms.author: sidandrews
@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 06/23/2022
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js, ignite-2022, devguide-js, cosmos-db-dev-journey
 ---
 
 # Get started with Azure Cosmos DB for MongoDB and JavaScript
