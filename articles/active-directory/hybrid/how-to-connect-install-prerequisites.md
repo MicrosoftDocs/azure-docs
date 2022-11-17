@@ -57,7 +57,7 @@ To read more about securing your Active Directory environment, see [Best practic
 
 #### Installation prerequisites
 
-- Azure AD Connect must be installed on a domain-joined Windows Server 2019 or later - note that Windows Server 2022 is not yet supported. You can deploy Azure AD Connect on Windows Server 2016 but since WS2016 is in extended support, you may require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for this configuration. 
+- Azure AD Connect must be installed on a domain-joined Windows Server 2016 or later - note that Windows Server 2022 is not yet supported. You can deploy Azure AD Connect on Windows Server 2016 but since WS2016 is in extended support, you may require [a paid support program](/lifecycle/policies/fixed#extended-support) if you require support for this configuration. 
 - The minimum .Net Framework version required is 4.6.2, and newer versions of .Net are also supported.
 - Azure AD Connect can't be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better. 
 - The Azure AD Connect server must have a full GUI installed. Installing Azure AD Connect on Windows Server Core isn't supported. 
@@ -67,7 +67,7 @@ To read more about securing your Active Directory environment, see [Best practic
     - You must configure TLS/SSL certificates. For more information, see [Managing SSL/TLS protocols and cipher suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) and [Managing SSL certificates in AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - You must configure name resolution. 
 - It is not supported to break and analyze traffic between Azure AD Connect and Azure AD. Doing so may disrupt the service.
-- If your global administrators have MFA enabled, the URL https://secure.aadcdn.microsoftonline-p.com *must* be in the trusted sites list. You're prompted to add this site to the trusted sites list when you're prompted for an MFA challenge and it hasn't been added before. You can use Internet Explorer to add it to your trusted sites.
+- If your Hybrid Identity Administrators have MFA enabled, the URL https://secure.aadcdn.microsoftonline-p.com *must* be in the trusted sites list. You're prompted to add this site to the trusted sites list when you're prompted for an MFA challenge and it hasn't been added before. You can use Internet Explorer to add it to your trusted sites.
 - If you plan to use Azure AD Connect Health for syncing, ensure that the prerequisites for Azure AD Connect Health are also met. For more information, see [Azure AD Connect Health agent installation](how-to-connect-health-agent-install.md).
 
 ### Harden your Azure AD Connect server 
@@ -94,7 +94,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
   * You can have only one sync engine per SQL instance. Sharing a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync *isn't supported*.
 
 ### Accounts
-* You must have an Azure AD Global Administrator account for the Azure AD tenant you want to integrate with. This account must be a *school or organization account* and can't be a *Microsoft account*.
+* You must have an Azure AD Global Administrator account or Hybrid Identity Administrator account for the Azure AD tenant you want to integrate with. This account must be a *school or organization account* and can't be a *Microsoft account*.
 * If you use [express settings](reference-connect-accounts-permissions.md#express-settings-installation) or upgrade from DirSync, you must have an Enterprise Administrator account for your on-premises Active Directory.
 * If you use the custom settings installation path, you have more options. For more information, see [Custom installation settings](reference-connect-accounts-permissions.md#custom-installation-settings).
 

@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: tutorial
-ms.date: 11/09/2022
+ms.date: 11/14/2022
 ---
 
 # Tutorial: troubleshoot distribution of Microsoft Purview access policies (preview)
@@ -26,7 +26,7 @@ This guide will use examples for Azure SQL Server as data source.
 * Register a data source, enable *Data use management*, and create a policy. To do so, follow one of the Microsoft Purview policies guides. To follow along the examples in this tutorial you can [create a DevOps policy for Azure SQL Database](how-to-policies-devops-azure-sql-db.md)
 * To establish a bearer token and to call any data plane APIs, see [the documentation about how to call REST APIs for Microsoft Purview data planes](tutorial-using-rest-apis.md). In order to be authorized to fetch policies, you need to be Policy Author, Data Source Admin or Data Curator at root-collection level in Microsoft Purview. You can assign those roles by following this guide: [managing Microsoft Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
 
-## Overview
+## Overviewrelecloud-sql-srv1
 There are two ways to fetch access policies from Microsoft Purview
 - Full pull: Provides a complete set of policies for a particular data resource scope.
 - Delta pull: Provides an incremental view of policies, that is, what changed since the last pull request, regardless of whether the last pull  was a full or a delta one. A full pull is required prior to issuing the first delta pull.
@@ -66,11 +66,11 @@ where the path /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName
 
 ##### Example parameters:
 - Microsoft Purview account: relecloud-pv
-- Data source Resource ID: /subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1
+- Data source Resource ID: /subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1
 
 ##### Example request:
 ```
-GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1/policyElements?api-version=2021-01-01-preview
+GET https://relecloud-pv.purview.azure.com/pds/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1/policyElements?api-version=2021-01-01-preview
 ```
 
 ##### Example response:
@@ -87,17 +87,17 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-
             "kind": "policy",
             "updatedAt": "2022-11-04T20:57:20.9389522Z",
             "version": 1,
-            "elementJson": "{\"id\":\"9912572d-58bc-4835-a313-b913ac5bef97\",\"name\":\"Finance-rg_sqlsecurityauditor\",\"kind\":\"policy\",\"version\":1,\"updatedAt\":\"2022-11-04T20:57:20.9389522Z\",\"decisionRules\":[{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}],[{\"fromRule\":\"purviewdatarole_builtin_sqlsecurityauditor\",\"attributeName\":\"derived.purview.role\",\"attributeValueIncludes\":\"purviewdatarole_builtin_sqlsecurityauditor\"}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_0235e4df-0d3f-41ca-98ed-edf1b8bfcf9f\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_45fa5236-a2a3-4291-9f0a-813b2883f118\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/databases/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]}]}"
+            "elementJson": "{\"id\":\"9912572d-58bc-4835-a313-b913ac5bef97\",\"name\":\"marketing-rg_sqlsecurityauditor\",\"kind\":\"policy\",\"version\":1,\"updatedAt\":\"2022-11-04T20:57:20.9389522Z\",\"decisionRules\":[{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/**\"]}],[{\"fromRule\":\"purviewdatarole_builtin_sqlsecurityauditor\",\"attributeName\":\"derived.purview.role\",\"attributeValueIncludes\":\"purviewdatarole_builtin_sqlsecurityauditor\"}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_0235e4df-0d3f-41ca-98ed-edf1b8bfcf9f\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_45fa5236-a2a3-4291-9f0a-813b2883f118\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/databases/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]}]}"
         },
         {
             "id": "f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4",
             "scopes": [
-                "/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg"
+                "/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg"
             ],
             "kind": "policyset",
             "updatedAt": "2022-11-04T20:57:20.9389456Z",
             "version": 1,
-            "elementJson": "{\"id\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"name\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"kind\":\"policyset\",\"version\":1,\"updatedAt\":\"2022-11-04T20:57:20.9389456Z\",\"preconditionRules\":[{\"dnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}]]}],\"policyRefs\":[\"9912572d-58bc-4835-a313-b913ac5bef97\"]}"
+            "elementJson": "{\"id\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"name\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"kind\":\"policyset\",\"version\":1,\"updatedAt\":\"2022-11-04T20:57:20.9389456Z\",\"preconditionRules\":[{\"dnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/**\"]}]]}],\"policyRefs\":[\"9912572d-58bc-4835-a313-b913ac5bef97\"]}"
         }
     ]
 }
@@ -106,7 +106,7 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-
 ## Delta pull
 
 ### Request
-To fetch policies via full pull, send a `GET` request to /policyEvents as follows:
+To fetch policies via delta pull, send a `GET` request to /policyEvents as follows:
 
 ```
 GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyEvents?api-version={apiVersion}&syncToken={syncToken}
@@ -130,12 +130,12 @@ Provide the syncToken you got from the prior pull in any successive delta pulls.
 
 ##### Example parameters:
 - Microsoft Purview account: relecloud-pv
-- Data source Resource ID: /subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1
+- Data source Resource ID: /subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1
 - syncToken: 820:0
 
 ##### Example request:
 ```
-https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1/policyEvents?api-version=2021-01-01-preview&syncToken=820:0
+https://relecloud-pv.purview.azure.com/pds/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1/policyEvents?api-version=2021-01-01-preview&syncToken=820:0
 ```
 
 ##### Example response:
@@ -151,29 +151,29 @@ https://relecloud-pv.purview.azure.com/pds/subscriptions/b285630c-8185-456b-80ae
             "eventType": "Microsoft.Purview/PolicyElements/Delete",
             "id": "f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4",
             "scopes": [
-                "/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg"
+                "/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg"
             ],
             "kind": "policyset",
             "updatedAt": "2022-11-04T20:57:20.9389456Z",
             "version": 1,
-            "elementJson": "{\"id\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"name\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"kind\":\"policyset\",\"version\":1,\"updatedAt\":\"2022-11-04T20:57:20.9389456Z\",\"preconditionRules\":[{\"dnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}]]}],\"policyRefs\":[\"9912572d-58bc-4835-a313-b913ac5bef97\"]}"
+            "elementJson": "{\"id\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"name\":\"f1f2ecc0-c8fa-473f-9adf-7f7bd53ffdb4\",\"kind\":\"policyset\",\"version\":1,\"updatedAt\":\"2022-11-04T20:57:20.9389456Z\",\"preconditionRules\":[{\"dnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/**\"]}]]}],\"policyRefs\":[\"9912572d-58bc-4835-a313-b913ac5bef97\"]}"
         },
         {
             "eventType": "Microsoft.Purview/PolicyElements/Delete",
             "id": "9912572d-58bc-4835-a313-b913ac5bef97",
             "scopes": [
-                "/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg"
+                "/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg"
             ],
             "kind": "policy",
             "updatedAt": "2022-11-04T20:57:20.9389522Z",
             "version": 1,
-            "elementJson": "{\"id\":\"9912572d-58bc-4835-a313-b913ac5bef97\",\"name\":\"Finance-rg_sqlsecurityauditor\",\"kind\":\"policy\",\"version\":1,\"updatedAt\":\"2022-11-04T20:57:20.9389522Z\",\"decisionRules\":[{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}],[{\"fromRule\":\"purviewdatarole_builtin_sqlsecurityauditor\",\"attributeName\":\"derived.purview.role\",\"attributeValueIncludes\":\"purviewdatarole_builtin_sqlsecurityauditor\"}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_0235e4df-0d3f-41ca-98ed-edf1b8bfcf9f\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_45fa5236-a2a3-4291-9f0a-813b2883f118\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/databases/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]}]}"
+            "elementJson": "{\"id\":\"9912572d-58bc-4835-a313-b913ac5bef97\",\"name\":\"marketing-rg_sqlsecurityauditor\",\"kind\":\"policy\",\"version\":1,\"updatedAt\":\"2022-11-04T20:57:20.9389522Z\",\"decisionRules\":[{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/**\"]}],[{\"fromRule\":\"purviewdatarole_builtin_sqlsecurityauditor\",\"attributeName\":\"derived.purview.role\",\"attributeValueIncludes\":\"purviewdatarole_builtin_sqlsecurityauditor\"}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_0235e4df-0d3f-41ca-98ed-edf1b8bfcf9f\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]},{\"kind\":\"decisionrule\",\"effect\":\"Permit\",\"id\":\"auto_45fa5236-a2a3-4291-9f0a-813b2883f118\",\"updatedAt\":\"11/04/2022 20:57:20\",\"cnfCondition\":[[{\"attributeName\":\"resource.azure.path\",\"attributeValueIncludedIn\":[\"/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/**\"]}],[{\"attributeName\":\"request.azure.dataAction\",\"attributeValueIncludedIn\":[\"Microsoft.Sql/sqlservers/databases/Connect\"]}],[{\"attributeName\":\"principal.microsoft.groups\",\"attributeValueIncludedIn\":[\"b29c1676-8d2c-4a81-b7e1-365b79088375\"]}]]}]}"
         }
     ]
 }
 ```
 
-In this example, the delta pull communicates the event that the policy on the resource group Finance-rg, which had the scope ```"scopes": ["/subscriptions/b285630c-8185-456b-80ae-97296561303e/resourceGroups/Finance-rg"]``` was deleted, per the ```"eventType": "Microsoft.Purview/PolicyElements/Delete"```.
+In this example, the delta pull communicates the event that the policy on the resource group marketing-rg, which had the scope ```"scopes": ["/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg"]``` was deleted, per the ```"eventType": "Microsoft.Purview/PolicyElements/Delete"```.
 
 
 ## Policy constructs
