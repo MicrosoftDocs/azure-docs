@@ -215,13 +215,13 @@ Several features of Azure NetApp Files require that you have an Active Directory
         This feature is used for installing SQL Server in certain scenarios where a non-administrator AD DS domain account must temporarily be granted elevated security privilege.
 
         >[!NOTE]
-        > Using the Security privilege users feature requires that you submit a waitlist request through the Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page. Wait for an official confirmation email from the Azure NetApp Files team before using this feature.
+        > Using the Security privilege users feature requires that you submit a waitlist request through the Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page. Wait for an official confirmation email from the Azure NetApp Files team before using this feature. SMB Continuous Availability is **not** supported on custom applications. It is is only supported for workloads using Citrix App Laying, [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md), and Microsoft SQL Server (not Linux SQL Server).
 
         > [!IMPORTANT]
         > Using the **Security privilege users** feature requires that you submit a waitlist request through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using this feature.  
         >This feature is optional and supported only with SQL server. The AD DS domain account used for installing SQL server must already exist before you add it to the **Security privilege users** option. When you add the SQL Server installer account to **Security privilege users** option, the Azure NetApp Files service might validate the account by contacting an AD DS domain controller. This action might fail if Azure NetApp Files cannot contact the AD DS domain controller.
         
-        For more information about `SeSecurityPrivilege` and SQL Server, see [SQL Server installation fails if the Setup account doesn't have certain user rights](/troubleshoot/sql/install/installation-fails-if-remove-user-right).
+        For more information about `SeSecurityPrivilege` and SQL Server, see [SQL Serve r installation fails if the Setup account doesn't have certain user rights](/troubleshoot/sql/install/installation-fails-if-remove-user-right).
 
     * <a name="administrators-privilege-users"></a>**Administrators privilege users** 
 
