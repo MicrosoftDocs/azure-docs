@@ -10,7 +10,7 @@ ms.date: 06/30/2020
 ms.custom: mode-other
 ---
 
-# Setting up access for Azure Dev tools
+# Setting up access for Azure Dev Tools for Teaching
 
 There are two ways to access your subscription so that you can deploy software to your students and outfit your labs:
 1. By downloading software and keys from the Visual Studio Subscription Portal.

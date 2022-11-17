@@ -9,7 +9,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: ignite-2022
 ms.topic: article
-ms.date: 10/26/2021
+ms.date: 11/14/2022
 ms.author: mbaldwin
 ---
 # Azure encryption overview

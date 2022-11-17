@@ -29,9 +29,19 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## October 2022
 
+### Form Recognizer Studio Sample Code
+
+Sample code the Form Recgonizer Studio labeling experience is now available on github - https://github.com/microsoft/Form-Recognizer-Toolkit/tree/main/SampleCode/LabelingUX. Customers can develop and integrate Form Recognizer into their own UX or build their own new UX using the Form Recognizer Studio sample code. 
+
+### Language expansion
+
 With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages. These language additions include Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages. Form Recognizer now has a total of 299 supported languages across the most recent GA and new preview versions. Refer to the [supported languages](language-support.md) page to see all supported languages.
 
 Use the REST API parameter `api-version=2022-06-30-preview` when using the API or the corresponding SDK to support the new languages in your applications.
+
+### New Prebuilt Contract model
+
+A new prebuilt that extracts information from contracts such as parties, title, contract ID, execution date and more. Contracts is currently in preview, please request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQTRDQUdHMTBWUDRBQ01QUVNWNlNYMVFDViQlQCN0PWcu_).  
 
 ### Region expansion for training custom neural models 
 
@@ -245,7 +255,7 @@ The **2022-06-30-preview** release presents extensive updates across the feature
 * [**Invoice language expansion**](concept-invoice.md). The invoice model includes expanded language support. _See_ [supported languages](concept-invoice.md#supported-languages-and-locales).
 * [**Prebuilt business card**](concept-business-card.md) now includes Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).
 * [**Prebuilt ID document model**](concept-id-document.md). The ID document model now extracts DateOfIssue, Height, Weight, EyeColor, HairColor, and DocumentDiscriminator from US driver's licenses. _See_ [field extraction](concept-id-document.md).
-* [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [page extraction](concept-read.md#pages).
+* [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [Microsoft Office and HTML text extraction ](concept-read.md#microsoft-office-and-html-text-extraction).
 
 #### Form Recognizer SDK beta June 2022 preview release
 
@@ -899,8 +909,8 @@ pip package version 3.1.0b4
 * **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key-value pairs for selection marks.
 * **Model Compose** - allows multiple models to be composed and called with a single model ID. When you submit a document to be analyzed with a composed model ID, a classification step is first performed to route it to the correct custom model. Model Compose is available for `Train Custom Model` - _Train with labels_.
 * **Model name** - add a friendly name to your custom models for easier management and tracking.
-* **[New pre-built model for Business Cards](./concept-business-card.md)** for extracting common fields in English, language business cards.
-* **[New locales for pre-built Receipts](./concept-receipt.md)** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN
+* **[New prebuilt model for Business Cards](./concept-business-card.md)** for extracting common fields in English, language business cards.
+* **[New locales for prebuilt Receipts](./concept-receipt.md)** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN
 * **Quality improvements** for `Layout`, `Train Custom Model` - _Train without Labels_ and _Train with Labels_.
 
 **v2.0** includes the following update:

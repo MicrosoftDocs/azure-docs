@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 10/25/2022
 ---
 
 # Data Factory metrics and alerts

@@ -42,7 +42,7 @@ To create a database, call one of the following methods:
 
 The following example creates a database asynchronously:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/201-create-database-options/Program.cs" id="create_database" highlight="2":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/201-create-database-options/Program.cs" id="create_database" highlight="2":::
 
 The [``CosmosClient.CreateDatabaseAsync``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseasync) method will throw an exception if a database with the same name already exists.
 
@@ -50,7 +50,7 @@ The [``CosmosClient.CreateDatabaseAsync``](/dotnet/api/microsoft.azure.cosmos.co
 
 The following example creates a database asynchronously only if it doesn't already exist on the account:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/201-create-database-options/Program.cs" id="create_database_check" highlight="2":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/201-create-database-options/Program.cs" id="create_database_check" highlight="2":::
 
 The [``CosmosClient.CreateDatabaseIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) method will only create a new database if it doesn't already exist. This method is useful for avoiding errors if you run the same code multiple times.
 
@@ -60,7 +60,7 @@ In all examples so far, the response from the asynchronous request was cast imme
 
 The following example shows the **CosmosClient.CreateDatabaseIfNotExistsAsync** method returning a **DatabaseResponse**. Once returned, you can parse response properties and then eventually get the underlying **Database** object:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/201-create-database-options/Program.cs" id="create_database_response" highlight="2,6":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/201-create-database-options/Program.cs" id="create_database_response" highlight="2,6":::
 
 ## Next steps
 

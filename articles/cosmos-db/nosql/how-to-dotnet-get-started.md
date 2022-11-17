@@ -197,7 +197,7 @@ export COSMOS_KEY="<cosmos-account-PRIMARY-KEY>"
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` and ``COSMOS_KEY`` environment variables as parameters.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/101-client-endpoint-key/Program.cs" id="endpoint_key" highlight="3-4":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/101-client-endpoint-key/Program.cs" id="endpoint_key" highlight="3-4":::
 
 ### Connect with a connection string
 
@@ -295,7 +295,7 @@ export COSMOS_CONNECTION_STRING="<cosmos-account-PRIMARY-CONNECTION-STRING>"
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_CONNECTION_STRING`` environment variable as the only parameter.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/102-client-connection-string/Program.cs" id="connection_string" highlight="3":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/102-client-connection-string/Program.cs" id="connection_string" highlight="3":::
 
 ### Connect using the Microsoft Identity Platform
 
@@ -325,7 +325,7 @@ dotnet build
 
 In your code editor, add using directives for ``Azure.Core`` and ``Azure.Identity`` namespaces.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/103-client-default-credential/Program.cs" id="using_identity_directives":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/103-client-default-credential/Program.cs" id="using_identity_directives":::
 
 #### Create CosmosClient with default credential implementation
 
@@ -333,11 +333,11 @@ If you're testing on a local machine, or your application will run on Azure serv
 
 For this example, we saved the instance in a variable of type [``TokenCredential``](/dotnet/api/azure.core.tokencredential) as that's a more generic type that's reusable across SDKs.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/103-client-default-credential/Program.cs" id="credential":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/103-client-default-credential/Program.cs" id="credential":::
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/103-client-default-credential/Program.cs" id="default_credential" highlight="4":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/103-client-default-credential/Program.cs" id="default_credential" highlight="4":::
 
 #### Create CosmosClient with a custom credential implementation
 
@@ -345,13 +345,13 @@ If you plan to deploy the application out of Azure, you can obtain an OAuth toke
 
 For this example, we create a [``ClientSecretCredential``](/dotnet/api/azure.identity.clientsecretcredential) instance by using client and tenant identifiers, along with a client secret.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/104-client-secret-credential/Program.cs" id="credential" highlight="3-5":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/104-client-secret-credential/Program.cs" id="credential" highlight="3-5":::
 
 You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/104-client-secret-credential/Program.cs" id="secret_credential" highlight="4":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/104-client-secret-credential/Program.cs" id="secret_credential" highlight="4":::
 
 ## Build your application
 

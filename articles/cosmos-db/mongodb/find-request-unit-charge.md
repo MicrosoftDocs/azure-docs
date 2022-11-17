@@ -20,7 +20,7 @@ The cost of all database operations is normalized by Azure Cosmos DB and is expr
 
 This article presents the different ways you can find the [request unit](../request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB for MongoDB. If you're using a different API, see [API for NoSQL](../find-request-unit-charge.md), [API for Cassandra](../cassandra/find-request-unit-charge.md), [API for Gremlin](../gremlin/find-request-unit-charge.md), and [API for Table](../table/find-request-unit-charge.md) articles to find the RU/s charge.
 
-The RU charge is exposed by a custom [database command](https://docs.mongodb.com/manual/reference/command/) named `getLastRequestStatistics`. The command returns a document that contains the name of the last operation executed, its request charge, and its duration. If you use the Azure Cosmos DB for MongoDB, you have multiple options for retrieving the RU charge.
+The RU charge is exposed by a custom database command named `getLastRequestStatistics`. The command returns a document that contains the name of the last operation executed, its request charge, and its duration. If you use the Azure Cosmos DB for MongoDB, you have multiple options for retrieving the RU charge.
 
 ## Use the Azure portal
 
@@ -42,7 +42,15 @@ The RU charge is exposed by a custom [database command](https://docs.mongodb.com
 
    `db.runCommand({getLastRequestStatistics: 1})`
 
-## Use a MongoDB driver
+## Programmatically 
+
+### [Mongo Shell](#tab/mongo-shell)
+
+When you use the Mongo shell, you can execute commands by using runCommand().
+
+```javascript
+db.runCommand('getLastRequestStatistics')
+```
 
 ### [.NET driver](#tab/dotnet-driver)
 

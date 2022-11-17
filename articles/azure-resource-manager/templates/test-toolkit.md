@@ -311,7 +311,7 @@ You can add the test toolkit to your Azure Pipeline. With a pipeline, you can ru
 
 The easiest way to add the test toolkit to your pipeline is with third-party extensions. The following two extensions are available:
 
-- [Run ARM template TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtension)
+- [Run ARM template TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtensionXPlatform)
 - [ARM Template Tester](https://marketplace.visualstudio.com/items?itemName=maikvandergaag.maikvandergaag-arm-ttk)
 
 Or, you can implement your own tasks. The following example shows how to download the test toolkit.

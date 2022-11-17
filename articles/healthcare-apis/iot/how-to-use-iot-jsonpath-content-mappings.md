@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 10/25/2022
 ms.author: jasteppe
 ---
 
@@ -21,8 +21,8 @@ The assumption, when using this template, is the messages being evaluated were s
 
 When you're using these SDKs, the device identity and the timestamp of the message are known.
 
->[!IMPORTANT]
->Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination Fast Healthcare Interoperability Resource (FHIR&#174;) service.
+> [!IMPORTANT]
+> Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination Fast Healthcare Interoperability Resource (FHIR&#174;) service.
 
 If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContentTemplate, assuming that you're using custom properties in the message body for the device identity or measurement timestamp.
 
@@ -265,13 +265,13 @@ With each of these examples, you're provided with:
 ```
 
 > [!TIP]
-> See the MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See the MedTech service article [Troubleshoot MedTech service Device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
 
 ## Next steps
 
 In this article, you learned how to use IotJsonPathContentTemplate mappings with the MedTech service device mapping. To learn how to use MedTech service FHIR destination mapping, see
 
->[!div class="nextstepaction"]
->[How to use the FHIR destination mapping](how-to-use-fhir-mappings.md)
+> [!div class="nextstepaction"]
+> [How to use the FHIR destination mapping](how-to-use-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

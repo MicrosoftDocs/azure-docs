@@ -3106,6 +3106,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/advanced-queries.md",
+      "redirect_url": "/azure/cosmos-db/nosql/diagnostic-queries",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/cosmos-db-reserved-capacity.md",
       "redirect_url": "/azure/cosmos-db/reserved-capacity",
       "redirect_document_id": true

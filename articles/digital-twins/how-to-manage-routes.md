@@ -138,17 +138,7 @@ After successfully running these commands, the event grid, event hub, or Service
 
 You can also create an endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hubs and Service Bus-type endpoints (it's not supported for Event Grid).
 
-The CLI command to create this type of endpoint is below. You'll need the following values to plug into the placeholders in the command:
-* The Azure resource ID of your Azure Digital Twins instance
-* An endpoint name
-* An endpoint type
-* The endpoint resource's namespace
-* The name of the event hub or Service Bus topic
-* The location of your Azure Digital Twins instance
-
-```azurecli-interactive
-az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\"}, \"location\":\"<instance-location>\" }' --is-full-object
-```
+For instructions on how to do this, see [Create an endpoint with identity-based authentication](how-to-route-with-managed-identity.md?tabs=cli#create-an-endpoint-with-identity-based-authentication).
 
 ---
 
@@ -156,7 +146,7 @@ az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoin
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as *dead-lettering*.
 
-You can set up the necessary storage resources using the [Azure portal](https://portal.azure.com/#home) or the [Azure Digital Twins CLI](/cli/azure/dt). However, to create an endpoint with dead-lettering enabled, you'll need use the [Azure Digital Twins CLI](/cli/azure/dt) or [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
+You can set up the necessary storage resources using the [Azure portal](https://portal.azure.com/#home) or the [Azure Digital Twins CLI](/cli/azure/dt). However, to create an endpoint with dead-lettering enabled, you'll need to use the [Azure Digital Twins CLI](/cli/azure/dt) or [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
 
 To learn more about dead-lettering, see [Endpoints and event routes](concepts-route-events.md#dead-letter-events). For instructions on how to set up an endpoint with dead-lettering, continue through the rest of this section.
 
@@ -225,36 +215,18 @@ For instructions on how to create this type of endpoint with the Azure CLI, swit
 
 # [CLI](#tab/cli)
 
-To create an endpoint that has dead-lettering enabled, add the following dead letter parameter to the [az dt endpoint create](/cli/azure/dt/endpoint/create) command for the [Azure Digital Twins CLI](/cli/azure/dt).
+To create an endpoint that has dead-lettering enabled, add the `--deadletter-sas-uri` parameter to the [az dt endpoint create](/cli/azure/dt/endpoint/create) command that [creates an endpoint](#create-the-endpoint).
 
-The value for the parameter is the dead letter SAS URI made up of the storage account name, container name, and SAS token that you gathered in the [previous section](#set-up-storage-resources). This parameter creates the endpoint with key-based authentication.
+The value for the parameter is the dead letter SAS URI made up of the storage account name, container name, and SAS token that you gathered in the [previous section](#set-up-storage-resources). This parameter creates the endpoint with key-based authentication. Here is what the parameter looks like:
 
 ```azurecli
 --deadletter-sas-uri https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>
 ```
 
-Add this parameter to the end of the endpoint creation commands from the [Create the endpoint](#create-the-endpoint) section earlier to create an endpoint of your chosen type that has dead-lettering enabled.
+>[!TIP]
+>To create a dead-letter endpoint with identity-based authentication, add both the dead-letter parameter from this section and the [managed identity parameter](how-to-route-with-managed-identity.md?tabs=cli#create-an-endpoint-with-identity-based-authentication) to the same command.
 
 You can also create dead letter endpoints using the [Azure Digital Twins control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis) instead of the CLI. To do so, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to see how to structure the request and add the dead letter parameters.
-
-#### Create a dead-letter endpoint with identity-based authentication
-
-You can also create a dead-lettering endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hubs and Service Bus-type endpoints (it's not supported for Event Grid).
-
-To create this type of endpoint, use the same CLI command from earlier to [create an endpoint with identity-based authentication](#create-an-endpoint-with-identity-based-authentication), with an extra field in the JSON payload for a `deadLetterUri`.
-
-Here are the values you'll need to plug into the placeholders in the command:
-* The Azure resource ID of your Azure Digital Twins instance
-* An endpoint name
-* An endpoint type
-* The endpoint resource's namespace
-* The name of the event hub or Service Bus topic
-* Dead letter SAS URI details: storage account name, container name
-* The location of your Azure Digital Twins instance
-
-```azurecli-interactive
-az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\", \"deadLetterUri\": \"https://<storage-account-name>.blob.core.windows.net/<container-name>\"}, \"location\":\"<instance-location>\" }' --is-full-object
-```
 
 ---
 
@@ -473,13 +445,7 @@ When you implement or update a filter, the change may take a few minutes to be r
 
 Routing metrics such as count, latency, and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
 
-From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's navigation menu on the left to bring up the **Metrics** page.
-
-:::image type="content" source="media/how-to-monitor-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins.":::
-
-From here, you can view the metrics for your instance and create custom views.
-
-For more on viewing Azure Digital Twins metrics, see [Monitor with metrics](how-to-monitor-metrics.md).
+For information about viewing and managing metrics with Azure Monitor, see [Get started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md). For a full list of routing metrics available for Azure Digital Twins, see [Azure Digital Twins routing metrics](how-to-monitor.md#routing-metrics).
 
 ## Next steps
 

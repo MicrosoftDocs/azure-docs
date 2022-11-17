@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 11/14/2022
 ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
@@ -34,6 +34,9 @@ Azure NetApp Files lets you deploy new volumes in the logical availability zone 
 * Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. This feature aligns with the generic logical-to-physical availability zone mapping for the subscription. 
 
 * VMs and Azure NetApp Files volumes are to be deployed separately, within the same logical availability zone to create zone alignment between VMs and Azure NetApp Files. The availability zone volume placement feature does not create zonal VMs upon volume creation, or vice versa.
+
+> [!IMPORTANT]
+> Once the volume is created using the availability zone volume placement feature, the volume has the same level of support as other volumes deployed in the subscription without this feature enabled. For example, if there is an issue with backup and restore on the volume, it will be supported because the problem is not with the availability zone volume placement feature itself.
 
 ## Register the feature 
 
@@ -80,9 +83,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 4.	After you create the volume, the **Volume Overview** page includes availability zone information for the volume.
 
     [ ![Screenshot that shows the Availability Zone volume overview.](../media/azure-netapp-files/availability-zone-volume-overview.png) ](../media/azure-netapp-files/availability-zone-volume-overview.png#lightbox) 
-
-> [!IMPORTANT]
-> Once the volume is created using the availability zone volume placement feature, the volume has the same level of support as other volumes deployed in the subscription without this feature enabled. For example, if there is an issue with backup and restore on the volume, it will be supported because the problem is not with the availability zone volume placement feature itself.
 
 ## Next steps  
 

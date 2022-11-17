@@ -3,7 +3,7 @@ title: HDInsight 4.0 overview - Azure
 description: Compare HDInsight 3.6 to HDInsight 4.0 features, limitations, and upgrade recommendations.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/13/2022
+ms.date: 10/25/2022
 ---
 
 # Azure HDInsight 4.0 overview
@@ -97,6 +97,5 @@ There's no supported upgrade path from previous versions of HDInsight to HDInsig
 * [HBase migration guide](./hbase/apache-hbase-migrate-new-version.md)
 * [Hive migration guide](./interactive-query/apache-hive-migrate-workloads.md)
 * [Kafka migration guide](./kafka/migrate-versions.md)
-* [Spark migration guide](./spark/migrate-versions.md)
 * [Azure HDInsight Documentation](index.yml)
 * [Release Notes](hdinsight-release-notes.md)

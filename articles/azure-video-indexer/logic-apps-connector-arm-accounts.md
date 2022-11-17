@@ -44,7 +44,7 @@ The following image shows the first flow:
 
 ![Screenshot of the file upload flow.](./media/logic-apps-connector-arm-accounts/first-flow-high-level.png)
 
-1. Create the [Logic App](https://ms.portal.azure.com/#create/Microsoft.LogicApp). We create a Logic App in the same region as the Azure Video  Indexer region (recommended but not required). We call the logic app `UploadIndexVideosApp`.
+1. Create the [Logic App](https://portal.azure.com/#create/Microsoft.LogicApp). We create a Logic App in the same region as the Azure Video  Indexer region (recommended but not required). We call the logic app `UploadIndexVideosApp`.
 
     1. Select **Consumption** for **Plan type**.
     1. Press **Review + Create** -> **Create**.

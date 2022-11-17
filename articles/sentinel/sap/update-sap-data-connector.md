@@ -4,7 +4,7 @@ description: This article shows you how to update an already existing SAP data c
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
-ms.date: 03/02/2022
+ms.date: 11/07/2022
 ---
 
 # Update Microsoft Sentinel's SAP data connector agent

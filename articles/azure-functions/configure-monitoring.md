@@ -197,6 +197,23 @@ You can exclude certain types of telemetry from sampling. In this example, data 
 
 For more information, see [Sampling in Application Insights](../azure-monitor/app/sampling.md).
 
+## Enable SQL query collection
+
+Application Insights automatically collects data on dependencies for HTTP requests, database calls, and for several bindings. For more information, see [Dependencies](./functions-monitoring.md#dependencies). For SQL calls, the name of the server and database is always collected and stored, but SQL query text isn't collected by default. You can use `dependencyTrackingOptions.enableSqlCommandTextInstrumentation` to enable SQL query text logging by setting (at minimum) the following in your [host.json file](./functions-host-json.md#applicationinsightsdependencytrackingoptions): 
+
+```json
+"logging": {
+    "applicationInsights": {
+        "enableDependencyTracking": true,    
+        "dependencyTrackingOptions": {
+            "enableSqlCommandTextInstrumentation": true
+        }
+    }
+}
+```
+
+For more information, see [Advanced SQL tracking to get full SQL query](../azure-monitor/app/asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
+
 ## Configure scale controller logs
 
 _This feature is in preview._

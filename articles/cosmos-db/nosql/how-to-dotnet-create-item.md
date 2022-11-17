@@ -43,11 +43,11 @@ When referencing the item using a URI, use the system-generated *resource identi
 > [!NOTE]
 > The examples in this article assume that you have already defined a C# type to represent your data named **Product**:
 >
-> :::code language="csharp" source="~/azure-cosmos-dotnet-v3/250-create-item/Product.cs" id="type" :::
+> :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/250-create-item/Product.cs" id="type" :::
 >
 > The examples also assume that you have already created a new object of type **Product** named **newItem**:
 >
-> :::code language="csharp" source="~/azure-cosmos-dotnet-v3/250-create-item/Program.cs" id="create_object" :::
+> :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/250-create-item/Program.cs" id="create_object" :::
 >
 
 To create an item, call one of the following methods:
@@ -60,7 +60,7 @@ To create an item, call one of the following methods:
 
 The following example creates a new item asynchronously:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/250-create-item/Program.cs" id="create_item" :::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/250-create-item/Program.cs" id="create_item" :::
 
 The [``Container.CreateItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.createitemasync) method will throw an exception if there's a conflict with the unique identifier of an existing item. To learn more about potential exceptions, see [``CreateItemAsync<>`` exceptions](/dotnet/api/microsoft.azure.cosmos.container.createitemasync#exceptions).
 
@@ -68,7 +68,7 @@ The [``Container.CreateItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.contain
 
 The following example replaces an existing item asynchronously:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/250-create-item/Program.cs" id="replace_item" :::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/250-create-item/Program.cs" id="replace_item" :::
 
 The [``Container.ReplaceItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.replaceitemasync) method requires the provided string for the ``id`` parameter to match the unique identifier of the ``item`` parameter.
 
@@ -76,7 +76,7 @@ The [``Container.ReplaceItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.contai
 
 The following example will create a new item or replace an existing item if an item already exists with the same unique identifier:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/250-create-item/Program.cs" id="upsert_item" :::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/250-create-item/Program.cs" id="upsert_item" :::
 
 The [``Container.UpsertItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync) method will use the unique identifier of the ``item`` parameter to determine if there's a conflict with an existing item and to replace the item appropriately.
 

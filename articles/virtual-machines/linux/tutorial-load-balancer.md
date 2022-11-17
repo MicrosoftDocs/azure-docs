@@ -284,7 +284,7 @@ az network lb address-pool show \
     --lb-name myLoadBalancer \
     --name myBackEndPool \
     --query backendIpConfigurations \
-    --output tsv | cut -f4
+    --output tsv | cut -f5
 ```
 
 The output is similar to the following example, which shows that the virtual NIC for VM 2 is no longer part of the backend address pool:

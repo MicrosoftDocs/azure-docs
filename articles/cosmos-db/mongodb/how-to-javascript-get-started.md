@@ -57,7 +57,7 @@ The most common constructor for **MongoClient** has two parameters:
 
 | Parameter | Example value | Description |
 | --- | --- | --- |
-| ``url`` | ``COSMOS_CONNECTION_STRIN`` environment variable | API for MongoDB connection string to use for all requests |
+| ``url`` | ``COSMOS_CONNECTION_STRING`` environment variable | API for MongoDB connection string to use for all requests |
 | ``options`` | `{ssl: true, tls: true, }` | [MongoDB Options](https://mongodb.github.io/node-mongodb-native/4.5/interfaces/MongoClientOptions.html) for the connection. |
 
 Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection issues.
@@ -108,7 +108,7 @@ Skip this step and use the information for the portal in the next step.
 
     :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/101-client-connection-string/index.js" id="package_dependencies":::
 
-2. Define a new instance of the ``MongoClient,`` class using the constructor, and [``process.env.``](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env) to use the connection string.
+2. Define a new instance of the ``MongoClient`` class using the constructor, and [``process.env.``](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env) to use the connection string.
 
     :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/101-client-connection-string/index.js" id="client_credentials":::
 

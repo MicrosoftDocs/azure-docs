@@ -123,7 +123,7 @@ To fully remove a custom IP prefix, it must be deprovisioned and then deleted.
 > [!NOTE]
 > If there is a requirement to migrate an provisioned range from one region to the other, the original custom IP prefix must be fully removed from the fist region before a new custom IP prefix with the same address range can be created in another region.
 >
-> The estimated time to complete the deprovisioning process can range from 30 minutes to 13 hours.
+> The estimated time to complete the deprovisioning process is anywhere from 30 to 60 minutes.
 
 The following commands can be used in Azure CLI and Azure PowerShell to deprovision and remove the range from Microsoft. The deprovisioning operation is asynchronous. You can use the view commands to retrieve the status. The **CommissionedState** field will initially show the prefix as **Deprovisioning**, followed by **Deprovisioned** as it transitions to the earlier state. When the range is in the **Deprovisioned** state, it can be deleted by using the commands to remove.
 
@@ -168,9 +168,9 @@ Before you decommission a custom IP prefix, ensure it has no public IP prefixes 
 
 To migrate a custom IP prefix, it must first be deprovisioned from one region. A new custom IP prefix with the same CIDR can then be created in another region.
 
-### Any special considerations using IPv6
+### Are there any special considerations when using IPv6
 
-Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  Please see [Create a custom IP address prefix - IPv6](create-custom-ip-address-prefix-ipv6.md) for more details.
+Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  Please see [Create a custom IPv6 address prefix - PowerShell](create-custom-ip-address-prefix-ipv6-powershell.md) for more details.
 
 ### Status messages
 

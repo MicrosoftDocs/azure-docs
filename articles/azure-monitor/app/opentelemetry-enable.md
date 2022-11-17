@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 11/15/2022
 ms.devlang: csharp, javascript, python
 ms.reviewer: mmcc
 ---
@@ -965,16 +965,16 @@ You may want to collect metrics beyond what is collected by [instrumentation lib
 
 The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you'll need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
 
-The following table shows the recommended [aggregation types](/essentials/metrics-aggregation-explained.md#aggregation-types) for each of the OpenTelemetry Metric Instruments.
+The following table shows the recommended [aggregation types](../essentials/metrics-aggregation-explained.md#aggregation-types) for each of the OpenTelemetry Metric Instruments.
 
 | OpenTelemetry Instrument                             | Azure Monitor Aggregation Type                             |
 |------------------------------------------------------|------------------------------------------------------------|
 | Counter                                              | Sum                                                        |
 | Asynchronous Counter                                 | Sum                                                        |
-| Histogram                                            | Average, Sum, Count (Max, Min for Python and Node.js only) |
+| Histogram                                            | Min, Max, Average, Sum and Count                           |
 | Asynchronous Gauge                                   | Average                                                    |
-| UpDownCounter (Python and Node.js only)              | Sum                                                        |
-| Asynchronous UpDownCounter (Python and Node.js only) | Sum                                                        |
+| UpDownCounter                                        | Sum                                                        |
+| Asynchronous UpDownCounter                           | Sum                                                        |
 
 > [!CAUTION]
 > Aggregation types beyond what's shown in the table typically aren't meaningful.
@@ -1616,7 +1616,7 @@ To provide feedback:
 
 - To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter).
 - To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter/) page.
-- To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Tracing.Customization).
+- To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry .NET GitHub repository](https://github.com/open-telemetry/opentelemetry-dotnet).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
