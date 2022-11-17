@@ -156,7 +156,7 @@ Edit the storage provider section of the `host.json` file so it sets the `type` 
 }    
 ```
 
-The snippet above is a *minimal* configuration. Later, you may want to consider [additonal parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
+The snippet above is a *minimal* configuration. Later, you may want to consider [additional parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
 
 ### Test locally
 
@@ -193,12 +193,12 @@ mss
 
 If you don't have a publicly accessible SQL Server already, you can create one on Azure. If you already have one, irrespective of provider, you can skip this section.
 
-You can follow [these](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal&view=azuresql&preserve-view=true) instructions to create an Azure SQL database on the portal. When configuring these database, make sure to set the *Database collation* (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
+You can follow [these](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal&view=azuresql&preserve-view=true) instructions to create an Azure SQL database on the portal. When configuring the database, make sure to set the *Database collation* (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
 
 > [!NOTE]
 > Microsoft offers a [12-month free Azure subscription account]((https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.
 
-You may obtain your Azure SQL database's connection string by navigating to the database's blade in the Azure portal. Then, under Settings, select "Connection strings" and obtain the "ADO.NET" connection string. Make sure to provided your password in the template provided.
+You may obtain your Azure SQL database's connection string by navigating to the database's blade in the Azure portal. Then, under Settings, select "Connection strings" and obtain the "ADO.NET" connection string. Make sure to provide your password in the template provided.
 
 ## Deploy and enjoy
 
@@ -216,4 +216,4 @@ After running a simple orchestrator, you should see at least one result, as show
 
 And that's it for this walkthrough!
 
-For more information about the the MSSQL architecture, configuration, and workload behavior, we recommend you take a look at the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/#/).
+For more information about the MSSQL architecture, configuration, and workload behavior, we recommend you take a look at the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/#/).
