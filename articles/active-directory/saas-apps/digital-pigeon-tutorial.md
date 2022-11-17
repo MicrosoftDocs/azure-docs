@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Digital Pigeon
 
-In this article, you'll learn how to integrate Digital Pigeon with Azure Active Directory (Azure AD). Digital Pigeon helps creative people deliver their work, beautifully and quickly.  Whatever your needs, Digital Pigeon makes sending andreceiving large files seamless. When you integrate Digital Pigeon with Azure AD, you can:
+In this article, you'll learn how to integrate Digital Pigeon with Azure Active Directory (Azure AD). Digital Pigeon helps creative people deliver their work, beautifully and quickly.  Whatever your needs, Digital Pigeon makes sending and receiving large files seamless. When you integrate Digital Pigeon with Azure AD, you can:
 
 * Control in Azure AD who has access to Digital Pigeon.
 * Enable your users to be automatically signed-in to Digital Pigeon with their Azure AD accounts.
