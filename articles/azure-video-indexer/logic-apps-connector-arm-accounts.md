@@ -104,7 +104,7 @@ The following image shows the first flow:
 1. Generate an access token.
     
     > [!NOTE]
-    > For details about the ARM API and the request/response examples, see [Generate an Azure Video Indexer access token](/rest/api/videoindexer/generate/access-token?tabs=HTTP).
+    > For details about the ARM API and the request/response examples, see [Generate an Azure Video Indexer access token](/rest/api/videoindexer/preview/generate/access-token).
     >
     > Press **Try it** to get the correct values for your account.
 
