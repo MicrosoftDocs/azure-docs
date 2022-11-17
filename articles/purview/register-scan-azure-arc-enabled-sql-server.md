@@ -34,7 +34,7 @@ When you're scanning Azure Arc-enabled SQL Server, Microsoft Purview supports ex
 - Tables, including the columns
 - Views, including the columns
 
-When you're setting up scan, you can choose to specify the database name to scan one database. You can further scope the scan by selecting tables and views as needed. The whole Azure Arc-enabled SQL Server instance will be scanned if you don't provide a database name.
+When you're setting up a scan, you can choose to specify the database name to scan one database. You can further scope the scan by selecting tables and views as needed. The whole Azure Arc-enabled SQL Server instance will be scanned if you don't provide a database name.
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ A change to the server authentication requires you to restart the SQL Server ins
 
 #### Create a new login and user
 
-If you want to create a new login and user to scan your SQL Server instance, use the following the steps.
+If you want to create a new login and user to scan your SQL Server instance, use the following steps.
 
 The account must have access to the master database, because `sys.databases` is in the master database. The Microsoft Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
 
@@ -204,7 +204,7 @@ Before you can create policies, you must register the Azure Arc-enabled SQL Serv
 
 ### Create a policy
 
-To create an access policy for Arc-enabled SQL Server, follow these guides:
+To create an access policy for Azure Arc-enabled SQL Server, follow these guides:
 
 * [DevOps policy on a single Azure Arc-enabled SQL Server instance](./how-to-policies-devops-arc-sql-server.md#create-a-new-devops-policy)
 * [Data owner policy on a single Azure Arc-enabled SQL Server instance](./how-to-policies-data-owner-arc-sql-server.md#create-and-publish-a-data-owner-policy)
