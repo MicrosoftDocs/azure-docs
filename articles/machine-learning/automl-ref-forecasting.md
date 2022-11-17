@@ -36,11 +36,11 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `experiment_name` | string | The name of the Experiment. An Experiment is like a folder with multiple runs in Azure ML Workspace that should be related to the same logical machine learning experiment. For example, if a user runs this notebook multiple times, there will be multiple runs associated with the same Experiment name. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
 | `log_files` | object | Dictionary containing logs of AutoML job execution | | |
 | `log_verbosity` | string | Different levels of log verbosity. (The verbosity level for writing to the log file. The default is INFO or 20. Acceptable values are defined in the Python logging library <https://docs.python.org/3/library/logging.html>).| `'not_set'`,`'debug'`,`'info'`,`'warning'`,`'error'`,`'critical'` | `'info'` |
-| `type` | const | **Required.** The type of job. | `automl` | `automl` |
+| `type` | const | **Required.** The type of job. | `automl` | |
 | `environment_variables` | object | Dictionary of environment variable key-value pairs to set on the process where the command is executed. |  |  |
 | `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Outputs can be referenced in the `command` using the `${{ outputs.<output_name> }}` expression.|  |  |  
 | `target_column_name` | string |  **Required.** The name of the target/label column. It must always be specified.|  |  |
-| `task` | const | **Required.** The type of AutoML task to execute. | `forecasting` | `forecasting` |
+| `task` | const | **Required.** The type of AutoML task to execute. | `forecasting` | |
 | `cv_split_column_names` | list(string) | List of names of the columns that contain custom cross validation split. Each of the CV split columns represents one CV split where each row are either marked 1 for training or 0 for validation. This parameter is applicable to `training_data` parameter for custom cross validation purposes. | | None |
 | `featurization` | object | Dictionary containing the featurization config. See [featurization](#featurization) to see the properties of this object. |  |  |
 | `forecasting` | object | Dictionary containing the forecasting settings config. See [forecasting](#forecasting) to see the properties of this object.|  |  |
