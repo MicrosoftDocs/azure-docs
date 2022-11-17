@@ -29,6 +29,10 @@ landingContent:
         links:
           - text: Introduction to Azure Network Watcher
             url: /training/modules/intro-to-azure-network-watcher
+      - linkListType: deploy
+        links: 
+          - text: Monitor the Azure network
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%206
 
   # Card (optional)
   - title: Diagnose VM traffic filter problem

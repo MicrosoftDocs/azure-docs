@@ -930,8 +930,6 @@ items:
           href: app/separate-resources.md
         - name: Manage Application Insights
           href: app/powershell.md
-        - name: Manage Azure Cloud Services
-          href: app/powershell-azure-diagnostics.md
     - name: Export
       items:
       - name: Continuous export
