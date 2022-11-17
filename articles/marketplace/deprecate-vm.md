@@ -16,7 +16,7 @@ This article describes how to deprecate or restore virtual machine images, plans
 
 ## What is deprecation?
 
-Deprecation is the delisting of a VM offer or a subset of the offer from Azure Marketplace so that it is no longer available for customers to deploy additional instances. Reasons to deprecate may vary. Common examples are due to security issues or end of life. You can deprecate image versions, plans, or an entire VM offer:
+Deprecation is the removal of a VM offer or a subset of the offer from Azure Marketplace so that it is no longer available for customers to deploy additional instances. Reasons to deprecate may vary. Common examples are due to security issues or end of life. You can deprecate image versions, plans, or an entire VM offer:
 
 - **Deprecation of an image version** – The removal of an individual VM image version
 - **Deprecation of a plan** – The removal of a plan and subsequently all images within the plan
@@ -82,8 +82,9 @@ Keep the following things in mind when restoring a deprecated image:
 1. In the **Action** column, select one of the following:
     - If the deprecation date shown in the **Status** column is in the future, you can select **Cancel deprecation**. The image version will then be listed under the Active tab.
     - If the deprecation date shown in the **Status** column is in the past, select **Restore image**. The image is then listed on the **Active** tab.
-    > [!NOTE]
-    > If the image can no longer be restored, then no actions will be available.
+1. > [!NOTE]
+   > If the image can no longer be restored, then no actions will be available.
+   
 1. Save your changes on the **Technical configuration** page.
 1. For the change to take effect, select **Review and publish** and publish the offer.
 
@@ -132,9 +133,9 @@ Keep the following things in mind when deprecating an offer:
 1. On the [Marketplace offers](https://partner.microsoft.com/dashboard/marketplace-offers/overview) page, in the **Offer alias** column, select the offer you want to deprecate.
 1. On the **Offer overview** page, in the upper right, select **Deprecate offer**.
 1. In the confirmation dialog box that appears, enter the Offer ID and then confirm that you want to deprecate the offer.
-    > [!NOTE]
-    > On the [Marketplace offers](https://partner.microsoft.com/dashboard/marketplace-offers/overview) page, the **Status column** of the offer will say **Deprecation scheduled**. On the **Offer overview** page, under **Publish status**, the scheduled deprecation date is shown.
-
+1. > [!NOTE]
+   > On the [Marketplace offers](https://partner.microsoft.com/dashboard/marketplace-offers/overview) page, the **Status column** of the offer will say **Deprecation scheduled**. On the **Offer overview** page, under **Publish status**, the scheduled deprecation date is shown.
+   
 ## Restore a deprecated offer
 
 You can restore an offer only if the offer contains at least one active plan and at least one active image.
@@ -147,3 +148,4 @@ You can restore an offer only if the offer contains at least one active plan and
 1. Ensure that there is at least one active image version available on the **Technical Configuration** page of the plan. Note that all deprecated images are listed under **VM Images** on the **Deprecated** tab. You can either [restore a deprecated image](#restore-a-deprecated-image) or [add a new VM image](azure-vm-plan-technical-configuration.md#vm-images). Remember, if the restore window has expired, the image can no longer be restored.
 1. Save your changes on the **Technical configuration** page.
 1. For the changes to take effect, select **Review and publish** and publish the offer.
+
