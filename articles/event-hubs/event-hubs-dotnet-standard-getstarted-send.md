@@ -60,55 +60,6 @@ This section shows you how to create a .NET Core console application to send eve
 
 Add the following code to the top of the **Program.cs** file.
 
-## [Connection String](#tab/connection-string)
-
-Here are the important steps from the code:
-
-1. Creates a [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object using the primary connection string to the namespace and the event hub name. 
-1. Invokes the [CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync) method on the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object to create a [EventDataBatch](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch) object.     
-1. Add events to the batch using the [EventDataBatch.TryAdd](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch.tryadd) method. 
-1. Sends the batch of messages to the event hub using the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync) method.
-    
-    ```csharp
-    using Azure.Identity;
-    using Azure.Messaging.EventHubs;
-    using Azure.Messaging.EventHubs.Producer;
-    using System.Text;
-    
-    // number of events to be sent to the event hub
-    int numOfEvents = 3;
-    
-    // The Event Hubs client types are safe to cache and use as a singleton for the lifetime
-    // of the application, which is best practice when events are being published or read regularly.
-    // TODO: Replace the <CONNECTION_STRING> and <HUB_NAME> placeholder values
-    EventHubProducerClient producerClient = new EventHubProducerClient(
-        "<CONNECTION_STRING>",
-        "<HUB_NAME>");
-    
-    // Create a batch of events 
-    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
-    
-    for (int i = 1; i <= numOfEvents; i++)
-    {
-        if (!eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}"))))
-        {
-            // if it is too large for the batch
-            throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
-        }
-    }
-    
-    try
-    {
-        // Use the producer client to send the batch of events to the event hub
-        await producerClient.SendAsync(eventBatch);
-        Console.WriteLine($"A batch of {numOfEvents} events has been published.");
-    }
-    finally
-    {
-        await producerClient.DisposeAsync();
-    }
-    ```
-
 ## [Passwordless](#tab/passwordless)
 
 Here are the important steps from the code:
@@ -159,6 +110,56 @@ Here are the important steps from the code:
     }
     ```
 
+## [Connection String](#tab/connection-string)
+
+Here are the important steps from the code:
+
+1. Creates a [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object using the primary connection string to the namespace and the event hub name. 
+1. Invokes the [CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync) method on the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object to create a [EventDataBatch](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch) object.     
+1. Add events to the batch using the [EventDataBatch.TryAdd](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch.tryadd) method. 
+1. Sends the batch of messages to the event hub using the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync) method.
+    
+    ```csharp
+    using Azure.Identity;
+    using Azure.Messaging.EventHubs;
+    using Azure.Messaging.EventHubs.Producer;
+    using System.Text;
+    
+    // number of events to be sent to the event hub
+    int numOfEvents = 3;
+    
+    // The Event Hubs client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when events are being published or read regularly.
+    // TODO: Replace the <CONNECTION_STRING> and <HUB_NAME> placeholder values
+    EventHubProducerClient producerClient = new EventHubProducerClient(
+        "<CONNECTION_STRING>",
+        "<HUB_NAME>");
+    
+    // Create a batch of events 
+    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
+    
+    for (int i = 1; i <= numOfEvents; i++)
+    {
+        if (!eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}"))))
+        {
+            // if it is too large for the batch
+            throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
+        }
+    }
+    
+    try
+    {
+        // Use the producer client to send the batch of events to the event hub
+        await producerClient.SendAsync(eventBatch);
+        Console.WriteLine($"A batch of {numOfEvents} events has been published.");
+    }
+    finally
+    {
+        await producerClient.DisposeAsync();
+    }
+    ```
+
+
 ---
 
 5. Build the project, and ensure that there are no errors.
@@ -198,10 +199,6 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
     
     Note down the connection string and the container name. You'll use them in the receive code. 
 
-## [Passwordless](#tab/passwordless)
-
-    
-
 ---
 
 ### Create a project for the receiver
@@ -230,7 +227,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 1. Replace the contents of **Program.cs** with the following code:
 
-## [Connection String](#tab/connection-string)
+## [Passwordless](#tab/passwordless)
 
 Here are the important steps from the code:
 
@@ -248,14 +245,16 @@ Here are the important steps from the code:
     
     // Create a blob container client that the event processor will use 
     BlobContainerClient storageClient = new BlobContainerClient(
-        "<AZURE_STORAGE_CONNECTION_STRING>", "<BLOB_CONTAINER_NAME>");
+        new URI("<AZURE_STORAGE_CONTAINER_URI>"),
+        new DefaultAzureCredential());
     
     // Create an event processor client to process events in the event hub
     var processor = new EventProcessorClient(
         storageClient,
         EventHubConsumerClient.DefaultConsumerGroupName,
-        "<EVENT_HUBS_NAMESPACE_CONNECTION_STRING>",
-        "<EVENT_HUB_NAME>");
+        "<EVENT_HUBS_NAMESPACE>",
+        "<EVENT_HUB_NAME>",
+        new DefaultAzureCredential());
     
     // Register handlers for processing events and handling errors
     processor.ProcessEventAsync += ProcessEventHandler;
@@ -288,7 +287,7 @@ Here are the important steps from the code:
     }
     ```
 
-## [Passwordless](#tab/passwordless)
+## [Connection String](#tab/connection-string)
 
 Here are the important steps from the code:
 
@@ -306,16 +305,14 @@ Here are the important steps from the code:
     
     // Create a blob container client that the event processor will use 
     BlobContainerClient storageClient = new BlobContainerClient(
-        new URI("<AZURE_STORAGE_CONTAINER_URI>"),
-        new DefaultAzureCredential());
+        "<AZURE_STORAGE_CONNECTION_STRING>", "<BLOB_CONTAINER_NAME>");
     
     // Create an event processor client to process events in the event hub
     var processor = new EventProcessorClient(
         storageClient,
         EventHubConsumerClient.DefaultConsumerGroupName,
-        "<EVENT_HUBS_NAMESPACE>",
-        "<EVENT_HUB_NAME>",
-        new DefaultAzureCredential());
+        "<EVENT_HUBS_NAMESPACE_CONNECTION_STRING>",
+        "<EVENT_HUB_NAME>");
     
     // Register handlers for processing events and handling errors
     processor.ProcessEventAsync += ProcessEventHandler;
