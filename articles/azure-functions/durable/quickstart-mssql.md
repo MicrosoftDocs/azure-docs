@@ -61,7 +61,7 @@ For more information on installing Azure Functions Extensions via the Core Tools
 > [!NOTE]
 > If you already have an MSSQL-compatible database, you may skip this section *and* it's sub-section on setting up a Docker-based local DB.
 
-As the MSSQL backend is designed for portability, you have several options to set up your backing database. You may decide to set up an on-premise DBMS, or a cloud-provided instance such as the [Azure SQL DB](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql), [Microsoft SQL Server on AWS](https://aws.amazon.com/sql/?blog-posts-content-windows.sort-by=item.additionalFields.createdDate&blog-posts-content-windows.sort-order=desc), [Google Cloud's Cloud SQL](https://cloud.google.com/sql/), etc. 
+As the MSSQL backend is designed for portability, you have several options to set up your backing database. You may decide to set up an on-premise DBMS, or a cloud-provided instance such as the [Azure SQL DB](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql&preserve-view=true), [Microsoft SQL Server on AWS](https://aws.amazon.com/sql/?blog-posts-content-windows.sort-by=item.additionalFields.createdDate&blog-posts-content-windows.sort-order=desc), [Google Cloud's Cloud SQL](https://cloud.google.com/sql/), etc. 
 
 You also have options to support local development, even offline: could set up an [MS SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) instance on your local machine, or host your own SQL server from within an MSSQL Docker container. For ease of setup, we will focus on the latter.
 
@@ -197,7 +197,7 @@ mss
 
 If you don't have a publicly accessible SQL Server already, you can create one on Azure. If you already have one, irrespective of provider, you can skip this section.
 
-You can follow [these](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal&view=azuresql) instructions to create an Azure SQL database on the portal. When configuring these database, make sure to set the *Database collation* (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
+You can follow [these](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal&view=azuresql&preserve-view=true) instructions to create an Azure SQL database on the portal. When configuring these database, make sure to set the *Database collation* (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
 
 > [!NOTE]
 > Microsoft offers a [12-month free Azure subscription account]((https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.
