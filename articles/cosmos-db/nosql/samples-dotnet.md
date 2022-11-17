@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Examples for Azure Cosmos DB for NoSQL SDK for .NET
