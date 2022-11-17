@@ -25,6 +25,7 @@ VMware Tanzu Dev Tools includes a set of developer tools to help ease developer 
 - To provision an Azure Marketplace offer purchase, see the [Prerequisites](how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
+- [Create custom roles that delegate permissions to Azure Spring Apps resources](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-permissions?tabs=Azure-portal).
 
 ## Configure Dev Tools Portal
 
