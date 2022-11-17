@@ -38,7 +38,7 @@ To configure the application properties:
 
 ## Use Microsoft Graph to configure application properties
 
-You can also configure properties of both app registrations and enterprise applications (service principals) through Microsoft Graph. These can include basic properties, permissions, and role assignments. For more information, see [Create and manage an Azure AD application](/graph/tutorial-applications-basics).
+You can also configure properties of both app registrations and enterprise applications (service principals) through Microsoft Graph. These can include basic properties, permissions, and role assignments. For more information, see [Create and manage an Azure AD application using Microsoft Graph](/graph/tutorial-applications-basics).
 
 ## Next steps
 
