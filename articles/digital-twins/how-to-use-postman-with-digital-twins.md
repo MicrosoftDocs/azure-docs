@@ -254,7 +254,7 @@ Now that your collection is set up, you can add your own requests to the Azure D
 
 1. This action opens the SAVE REQUEST window, where you can enter a name for your request, give it an optional description, and choose the collection that it's a part of. Fill in the details and save the request to the collection you created earlier.
 
-:::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-save-request.png" alt-text="Screenshot of 'Save request' window in Postman showing the fields described. The 'Save to Azure Digital Twins collection' button is highlighted.":::
+:::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-save-request.png" alt-text="Screenshot of 'Save request' window in Postman showing the fields described. The 'Save to Azure Digital Twins collection' button is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/postman-save-request2.png":::
 
 You can now view your request under the collection, and select it to pull up its editable details.
 

@@ -158,7 +158,7 @@ Start on your app registration page in the Azure portal.
 
 1. Select **Certificates & secrets** from the registration's menu, and then select **+ New client secret**.
 
-    :::image type="content" source="media/how-to-create-app-registration/client-secret.png" alt-text="Screenshot of the Azure portal showing an Azure AD app registration and a highlight around 'New client secret'." lightbox="media/how-to-create-app-registration/client-secret.png":::
+    :::image type="content" source="media/how-to-create-app-registration/client-secret.png" alt-text="Screenshot of the Azure portal showing an Azure AD app registration and a highlight around 'New client secret'." lightbox="media/how-to-create-app-registration/client-secret2.png":::
 
 1. Enter whatever values you want for Description and Expires, and select **Add**.
 
