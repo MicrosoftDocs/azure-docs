@@ -71,7 +71,7 @@ az spring dev-tool update \
 ## Assign public endpoint
 
 #### [Portal](#tab/Portal)
-To access Dev Tool Portal, use the following steps to assign a public endpoint:
+To access Dev Tools Portal, use the following steps to assign a public endpoint:
 
 1. Select **Developer Tools (Preview)**.
 1. Click *Assign endpoint* button to assign a public endpoint. A URL will be generated within a few minutes.
