@@ -41,8 +41,7 @@ To complete this tutorial, you need:
 
     Place all MIB files for each device that sends SNMP traps in `/usr/share/snmp/mibs`, the default directory for MIB files. This enables logging SNMP trap fields with meaningful names instead of OIDs. 
 
-    > [!NOTE]
-    > Some vendors maintain a single MIB for all devices, while others have hundreds of MIB files. To load an MIB file correctly, snmptrapd must load all dependent MIBs. Be sure to check the snmptrapd log file after loading MIBs to ensure that there are no missing dependencies in parsing your MIB files.  
+    Some vendors maintain a single MIB for all devices, while others have hundreds of MIB files. To load an MIB file correctly, snmptrapd must load all dependent MIBs. Be sure to check the snmptrapd log file after loading MIBs to ensure that there are no missing dependencies in parsing your MIB files.  
 
 - A Linux server with an SNMP trap receiver.
 
@@ -102,7 +101,9 @@ To edit the output behavior configuration of snmptrapd:
     sudo vi /etc/sysconfig/snmptrapd
     ```    
 
-1. Here’s an example configuration:  
+1. Configure the output destination.
+
+   Here's an example configuration:   
 
     ```bash        
     # snmptrapd command line options
