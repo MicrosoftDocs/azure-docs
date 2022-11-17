@@ -22,8 +22,8 @@ Learn about the prerequisites for the SAP CDC connector in Azure Data Factory an
 To use the SAP CDC capabilities in Azure Data Factory, be able to complete these prerequisites:
 
 - Set up SAP systems to use the [SAP Operational Data Provisioning (ODP) framework](https://help.sap.com/docs/SAP_LANDSCAPE_TRANSFORMATION_REPLICATION_SERVER/007c373fcacb4003b990c6fac29a26e4/b6e26f56fbdec259e10000000a441470.html?q=SAP%20Operational%20Data%20Provisioning%20%28ODP%29%20framework).
-- [Set up a self-hosted integration runtime for the SAP CDC connector](sap-change-data-capture-shir-preparation.md) to use for the connector.
-- [Set up a linked service](sap-change-data-capture-prepare-linked-service-source-dataset.md#set-up-a-linked-service).
+- [Set up a self-hosted integration runtime for the SAP CDC connector](sap-change-data-capture-shir-preparation.md).
+- [Set up an SAP CDC linked service](sap-change-data-capture-prepare-linked-service-source-dataset.md#set-up-a-linked-service).
 - [Debug issues with the SAP CDC connector by sending self-hosted integration runtime logs](sap-change-data-capture-debug-shir-logs.md) to Microsoft.
 - Be familiar with [monitoring data extractions on SAP systems](sap-change-data-capture-management.md#monitor-data-extractions-on-sap-systems).
 
