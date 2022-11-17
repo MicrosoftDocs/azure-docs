@@ -260,7 +260,7 @@ az k8s-extension create --cluster-type managedClusters \
 
 ## Set automatic CRD updates
 
-Starting from Dapr version 1.9.2, you can add an `applyCrds` configuration setting to automatically update the Dapr CRDs. While this setting is `true` by default, you can disable it using an `applyCrds=false` flag. 
+Starting with Dapr version 1.9.2, CRDs are automatically upgraded when the extension upgrades. To disable this setting, you can set `hooks.applyCrds` to `false`. 
 
 ```azurecli
 az k8s-extension upgrade --cluster-type managedClusters \
@@ -273,7 +273,7 @@ az k8s-extension upgrade --cluster-type managedClusters \
 --configuration-settings "dapr_operator.replicaCount=2" \
 --configuration-settings "global.daprControlPlaneOs=linux” \
 --configuration-settings "global.daprControlPlaneArch=amd64” \
---configuration-settings "hooks.applyCrds=true"
+--configuration-settings "hooks.applyCrds=false"
 ```
 
 ## Configure the Dapr release namespace
