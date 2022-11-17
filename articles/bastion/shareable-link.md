@@ -18,8 +18,9 @@ By default, users in your org will have only read access to shared links. If a u
 
 ## Considerations
 
-* Shareable Links isn't currently supported on peered VNets that aren't in the same subscription.
-* Shareable Links is not supported for national clouds during preview.
+* Shareable Links isn't currently supported for peered VNets that aren't in the same subscription.
+* Shareable Links isn't currently supported for peered VNets that aren't in the same region.
+* Shareable Links isn't supported for national clouds during preview.
 * The Standard SKU is required for this feature.
 
 ## Prerequisites

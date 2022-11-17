@@ -2,7 +2,7 @@
 title: Template functions - scope
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about deployment scope.
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 11/17/2022
 ---
 
 # Scope functions for ARM templates
@@ -222,7 +222,7 @@ The following example shows the subscription function called in the outputs sect
 
 `tenant()`
 
-Returns properties about the tenant for the current deployment.
+Returns the tenant of the user.
 
 In Bicep, use the [tenant](../bicep/bicep-functions-scope.md#tenant) scope function.
 
