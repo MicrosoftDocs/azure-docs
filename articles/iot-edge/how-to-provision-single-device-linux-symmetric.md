@@ -247,7 +247,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
 
    2. Use the copied link in the following command to install that version of the identity service:
 
-      # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+      # [Ubuntu / Debian](#tab/ubuntu+debian+rpios)
       ```bash
       curl -L <identity service link> -o aziot-identity-service.deb && sudo apt-get install ./aziot-identity-service.deb
       ```
@@ -262,7 +262,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
 
    4. Use the copied link in the following command to install that version of IoT Edge.
 
-      # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+      # [Ubuntu / Debian](#tab/ubuntu+debian+rpios)
       ```bash
       curl -L <iotedge link> -o aziot-edge.deb && sudo apt-get install ./aziot-edge.deb
       ```
@@ -296,7 +296,7 @@ sudo apt-get autoremove iotedge
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+# [Ubuntu / Debian](#tab/ubuntu+debian+rpios)
 ```bash
 sudo apt-get autoremove --purge aziot-edge
 ```
@@ -325,7 +325,7 @@ sudo docker rm -f <container name>
 
 Finally, remove the container runtime from your device.
 
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+# [Ubuntu / Debian](#tab/ubuntu+debian+rpios)
 ```bash
 sudo apt-get autoremove --purge moby-engine
 ```
