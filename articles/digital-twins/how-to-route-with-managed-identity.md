@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Route events with a managed identity
 titleSuffix: Azure Digital Twins
-description: See how to enable a managed identity for Azure Digital Twins and use it to forward events, using the Azure portal or CLI.
+description: See how to use a managed identity to forward events in Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/15/2022
+ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: subject-rbac-steps, contperf-fy21q4, devx-track-azurecli
@@ -18,7 +18,7 @@ ms.custom: subject-rbac-steps, contperf-fy21q4, devx-track-azurecli
 
 # Enable a managed identity for routing Azure Digital Twins events
 
-This article describes how to enable a [managed identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources), and use the identity when forwarding events to supported routing destinations. Setting up a managed identity isn't required for routing, but it can help the instance to easily access other Azure AD-protected resources, such as [Event Hubs](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md). Managed identities can be *system-assigned* or *user-assigned*.
+This article describes how to use a [managed identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources) when forwarding events to supported routing destinations. Setting up a managed identity isn't required for routing, but it can help the instance to easily access other Azure AD-protected resources, such as [Event Hubs](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md). Managed identities can be *system-assigned* or *user-assigned*.
 
 Here are the steps that are covered in this article: 
 
@@ -26,119 +26,13 @@ Here are the steps that are covered in this article:
 1. Add an appropriate role or roles to the identity. For example, assign the **Azure Event Hub Data Sender** role to the identity if the endpoint is Event Hubs, or **Azure Service Bus Data Sender role** if the endpoint is Service Bus.
 1. Create an endpoint in Azure Digital Twins that can use managed identities for authentication.
 
-## Enable managed identity for the instance 
+## Create an Azure Digital Twins instance with a managed identity
 
-When you enable a managed identity on your Azure Digital Twins instance, Azure automatically creates an identity for it in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). That identity can then be used to authenticate to Azure Digital Twins endpoints for event forwarding.
+If you already have an Azure Digital Twins instance, ensure that you've enabled a [managed identity](how-to-set-up-instance-cli.md#enabledisable-managed-identity-for-the-instance) for it.
 
-You can enable managed identities for an Azure Digital Twins instance in two different ways:
+If you don't have an Azure Digital Twins instance, follow the instructions in [Create the instance with a managed identity](how-to-set-up-instance-cli.md#create-the-instance-with-a-managed-identity) to create an Azure Digital Twins instance with a managed identity for the first time.
 
-- Enable it as part of the instance's initial setup.
-- Enable it later on an instance that already exists.
-
-Either of these creation methods will give the same configuration options and the same end result for your instance. This section describes how to do both.
-
-### Add a managed identity during instance creation
-
-In this section, you'll learn how to enable a managed identity for an Azure Digital Twins instance while the instance is being created. You can enable the identity whether you're creating the instance with the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/what-is-azure-cli). Use the tabs below to select instructions for your preferred experience.
-
-# [Portal](#tab/portal) 
-
-To add a managed identity during instance creation in the portal, begin [creating an instance as you normally would](how-to-set-up-instance-portal.md).
-
-The managed identity option is located in the **Advanced** tab of instance setup.
-
-In this tab, select the **On** option for **System managed identity** to turn on this feature.
-
-:::image type="content" source="media/how-to-route-with-managed-identity/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. System managed identity is turned on.":::
-
-You can then use the bottom navigation buttons to continue with the rest of instance setup.
-   
-# [CLI](#tab/cli)
-
-Use the CLI command below for your chosen type of managed identity.
-
-#### System-managed identity command
-
-In the CLI, you can add an `--assign-identity` parameter to the `az dt create` command that's used to create the instance. (For more information about this command, see its [reference documentation](/cli/azure/dt#az-dt-create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
-
-To create an instance with a *system-managed* identity, add the  `--assign-identity` parameter like this:
-
-```azurecli-interactive
-az dt create --dt-name <new-instance-name> --resource-group <resource-group> --assign-identity
-```
-
-#### User-assigned identity command
-
-To create an instance with a *user-assigned identity*, provide the ID of an existing user assigned identity using the  `--mi-user-assigned` parameter, like this:
-
-```azurecli-interactive
-az dt create --dt-name <new-instance-name> --resource-group <resource-group> --mi-user-assigned <user-assigned-identity-resource-ID>
-```
-
----
-
-### Add a managed identity to an existing instance
-
-In this section, you'll add a managed identity to an Azure Digital Twins instance that already exists. Use the tabs below to select instructions for your preferred experience.
-
-# [Portal](#tab/portal) 
-
-Start by opening the [Azure portal](https://portal.azure.com) in a browser.
-
-1. Search for the name of your instance in the portal search bar, and select it to view its details.
-
-1. Select **Identity** in the left-hand menu.
-
-1. Use the tabs to select which type of managed identity you want to add.
-    1. **System-assigned**: After selecting this tab, select the **On** option to turn on this feature.
-
-       :::image type="content" source="media/how-to-route-with-managed-identity/identity-system-assigned.png" alt-text="Screenshot of the Azure portal showing the Identity page and system-assigned options for an Azure Digital Twins instance." lightbox="media/how-to-route-with-managed-identity/identity-system-assigned.png":::
-
-    1. **User-assigned (preview)**: After selecting this tab, select **Associate a user-assigned managed identity** and follow the prompts to choose an identity to associate with the instance.
-
-       :::image type="content" source="media/how-to-route-with-managed-identity/identity-user-assigned.png" alt-text="Screenshot of the Azure portal showing the Identity page and user-assigned options for an Azure Digital Twins instance." lightbox="media/how-to-route-with-managed-identity/identity-user-assigned.png":::
-
-1. Select the **Save** button, and **Yes** to confirm.
-
-
-
-After the change is saved, more fields will appear on this page for the new identity's **Object ID** and **Permissions**.
-
-You can copy the **Object ID** from here if needed, and use the **Permissions** button to view the Azure roles that are assigned to the identity. To set up some roles, continue to the next section.
-
-# [CLI](#tab/cli)
-
-Use the CLI commands below for your chosen type of managed identity.
-
-#### System-managed identity commands
-
-To enable a *system-managed* identity on an existing instance, you can still use the `az dt create` command and `--assign-identity` parameter. Instead of providing a new name of an instance to create, you can provide the name of an instance that already exists to update the value of `--assign-identity` for that instance.
-
-```azurecli-interactive
-az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity
-```
-
-To disable *system-managed* identity on an instance where it's currently enabled, use the following command to set `--assign-identity` to `false`.
-
-```azurecli-interactive
-az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity false
-```
-
-#### User-assigned identity commands
-
-To enable a *user-assigned* identity on an existing instance, provide the ID of an existing user assigned identity in the following command:
-
-```azurecli-interactive
-az dt identity assign --dt-name <name-of-existing-instance> --resource-group <resource-group> --user <user-assigned-identity-resource-ID>
-```
-
-To disable a *user-assigned* identity on an instance where it's currently enabled, provide the ID of the identity in the following command:
-
-```azurecli-interactive
-az dt identity remove --dt-name <name-of-existing-instance> --resource-group <resource-group> --user <user-assigned-identity-resource-ID>
-```
-
----
+Then, make sure you have *Azure Digital Twins Data Owner* role on the instance. You can find instructions in [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
 ## Assign Azure roles to the identity 
 
