@@ -77,7 +77,7 @@ After identifying your apps that use ADAL, migrate them to MSAL depending on you
 
 [!INCLUDE [application type](includes/adal-msal-migration.md)]
 
-MSAL Supports a wide range of application types and scenarios. Please refer to [Microsoft Authentication Library support for several application types](https://learn.microsoft.com/en-us/azure/active-directory/develop/reference-v2-libraries#single-page-application-spa).
+MSAL Supports a wide range of application types and scenarios. Please refer to [Microsoft Authentication Library support for several application types](reference-v2-libraries.md#single-page-application-spa).
 
 ADAL to MSAL Migration Guide for different platforms are available in the following link.
 - [Migrate to MSAL iOS and MacOS](migrate-objc-adal-msal.md)
