@@ -104,9 +104,9 @@ If **Verification code from mobile app or hardware token** is enabled in the leg
 
 ### SMS and phone calls
 
-In the legacy MFA policy, there are separate controls for **SMS** and **phone calls**. In the legacy SSPR policy, however, there is a control for **mobile phone** that enables mobile phones for both SMS and voice calls, and a control for **office phone** that enables an office phone only for voice call.
+In the legacy MFA policy, there are separate controls for **SMS** and **Phone calls**. In the legacy SSPR policy, however, there's a **Mobile phone** control that enables mobile phones for both SMS and voice calls. Another control for **Office phone** enables an office phone only for voice call.
 
-The Authentication methods policy has controls for **SMS** and **phone calls**, matching the legacy MFA policy. If your tenant is using SSPR and **mobile phone** is enabled, you'll want to enable both **SMS** and **phone calls** in the Authentication methods policy. If your tenant is using SSPR and **office phone** is enabled, you'll want to enable **phone calls** in the Authentication methods policy and ensure that the **office phone** option is enabled. 
+The Authentication methods policy has controls for **SMS** and **Phone calls**, matching the legacy MFA policy. If your tenant is using SSPR and **Mobile phone** is enabled, you'll want to enable both **SMS** and **Phone calls** in the Authentication methods policy. If your tenant is using SSPR and **Office phone** is enabled, you'll want to enable **Phone calls** in the Authentication methods policy and ensure that the **Office phone** option is enabled. 
 
 ### OATH tokens
 
