@@ -32,7 +32,7 @@ The following sections describe configuration in Dev Tool Portal.
 
 ### Configure single sign-on (SSO)
 
-Dev Tool Portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
+Dev Tools Portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
 
 > [!NOTE]
 > Only authorization servers supporting the OpenID Connect Discovery protocol are supported. Be sure to configure the external authorization server to allow redirects back to the Dev Tool Portal. Refer to your authorization server's documentation and add `https://<dev-tool-portal-external-url>/api/auth/oidc/handler/frame` to the list of allowed redirect URIs.
