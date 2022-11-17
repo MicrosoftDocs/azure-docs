@@ -21,14 +21,21 @@ Traps are most often used as event notifications, while polls are more appropria
 This article explains how to send SNMP traps to Azure Monitor Logs as syslog events or SNMP events using Azure Monitor Agent.
 
 
-## Overview
-  
-- In this article, we use **snmptrapd**, an SNMP trap receiver from the [Net-SNMP](https://www.net-snmp.org/) agent that most Linux distributions provide. However, there are many other SNMP trap receiver services you can use.
+## Prerequisites
+
+To complete this tutorial, you need: 
+
+- A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
+
+-  Management Information Base (MIB) files for the devices you are monitoring.
+    
+    SNMP identifies monitored properties using Object Identifier (OID) values, which are defined and described in vendor-provided MIB files.  
+
+- A Linux machine with an SNMP trap receiver.
+
+    In this article, we use **snmptrapd**, an SNMP trap receiver from the [Net-SNMP](https://www.net-snmp.org/) agent, which most Linux distributions provide. However, there are many other SNMP trap receiver services you can use.
 
     The snmptrapd configuration procedure can vary slightly among Linux distributions.  For more information on snmptrapd configuration, including guidance on configuring for SNMP v3 authentication, see the [Net-SNMP documentation](https://www.net-snmp.org/docs/man/snmptrapd.conf.html).  
-
-
-- SNMP identifies monitored properties using Object Identifier (OID) values, which are defined and described in vendor-provided Management Information Base (MIB) files.  
 
     It's important that the SNMP trap receiver you use can load MIB files for your environment, so that the properties in the SNMP trap message have meaningful names instead of OIDs.  
  
