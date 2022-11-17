@@ -41,7 +41,8 @@ To manage the Authentication methods policy, click **Security** > **Authenticati
 
 Only the [converged registration experience](concept-registration-mfa-sspr-combined.md) is aware of the Authentication methods policy. Users in scope of the Authentication methods policy but not the converged registration experience won't see the correct methods to register.
 
-Management of some methods in the Authentication methods policy is currently in preview and management of the rest is generally available as noted in the portal. Registration and usage of the methods is considered general availability unless otherwise noted.
+>[!NOTE]
+>Some pieces of the Authentication methods policy experience are in preview. This includes management of Email OTP, third party software OATH tokens, SMS, and voice call as noted in the portal. Also, use of the authentication methods policy alone with the legacy MFA and SSPR polices disabled is a preview experience.
 
 ## Legacy MFA and SSPR policies
 
@@ -104,7 +105,7 @@ Tenants are set to either Pre-migration or Migration in Progress by default, dep
 ## Known issues
 
 * Currently, all users must be enabled for at least one MFA method that isn't passwordless and the user can register in interrupt mode. Possible methods include Microsoft Authenticator, SMS, voice call, and software OATH/mobile app code. The method(s) can be enabled in any policy. If a user is not eligible for at least one of those methods, the user will see an error during registration and when visiting My Security Info. We're working to improve this experience to enable fully passwordless configurations. 
-  
+
 ## Next steps
 
 - [How to migrate MFA and SSPR policy settings to the Authentication methods policy](how-to-authentication-methods-manage.md)

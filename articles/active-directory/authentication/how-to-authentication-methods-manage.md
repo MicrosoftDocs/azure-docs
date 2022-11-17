@@ -69,7 +69,7 @@ If you've enabled other methods in the Authentication methods policy, write down
 
 ## Start the migration 
 
-After you capture available authentication methods from the policies you are currently using, you can start the migration. Open the Authentication methods policy, click **Manage migration**, and click **Migration in progress**. You'll want to set this option before you make any changes as it will apply your new policy to both sign-in and password reset scenarios.
+After you capture available authentication methods from the policies you're currently using, you can start the migration. Open the Authentication methods policy, click **Manage migration**, and click **Migration in progress**. You'll want to set this option before you make any changes as it will apply your new policy to both sign-in and password reset scenarios.
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
 
@@ -81,7 +81,7 @@ If your tenant is using both MFA and SSPR, you'll need to consider each method:
 - If the method is off in both legacy policies, leave it off for all users in the Authentication methods policy. 
 - If the method is enabled only in one policy, you'll need to decide whether or not it should be available in all situations.
 
-Where the policies match, you can easily match your current state. Where there is a mismatch, you will need to decide whether to enable or disable the method altogether. For example, suppose **Notification through mobile app** is enabled to allow push notifications for MFA. In the legacy SSPR policy, the **Mobile app notification** method isn't enabled. In that case, the legacy policies allow push notifications for MFA but not SSPR. 
+Where the policies match, you can easily match your current state. Where there's a mismatch, you will need to decide whether to enable or disable the method altogether. For example, suppose **Notification through mobile app** is enabled to allow push notifications for MFA. In the legacy SSPR policy, the **Mobile app notification** method isn't enabled. In that case, the legacy policies allow push notifications for MFA but not SSPR. 
 
 In the Authentication methods policy, you'll then need to choose whether to enable **Microsoft Authenticator** for both SSPR and MFA or disable it (we recommend enabling Microsoft Authenticator). 
 
@@ -97,7 +97,7 @@ There are two controls for **Email one-time passcode**:
 
 Targeting using include and exclude in the configuration's **Enable and target** section is used to enable email OTP for members of a tenant for use in **Password reset**.
 
-There is a separate **Allow external users to use email OTP** control in the **Configure** section that controls use of email OTP for sign-in by B2B users. The authentication method cannot be disabled if this is enabled.
+There's a separate **Allow external users to use email OTP** control in the **Configure** section that controls use of email OTP for sign-in by B2B users. The authentication method can't be disabled if this control is enabled.
 
 ### Microsoft Authenticator
 
@@ -109,7 +109,7 @@ If **Verification code from mobile app or hardware token** is enabled in the leg
 
 ### SMS and phone calls
 
-In the legacy MFA policy, there are separate controls for **SMS** and **Phone calls**. In the legacy SSPR policy, however, there's a **Mobile phone** control that enables mobile phones for both SMS and voice calls. Another control for **Office phone** enables an office phone only for voice call.
+The legacy MFA policy has separate controls for **SMS** and **Phone calls**. But there's also a **Mobile phone** control that enables mobile phones for both SMS and voice calls. And another control for **Office phone** enables an office phone only for voice call.
 
 The Authentication methods policy has controls for **SMS** and **Phone calls**, matching the legacy MFA policy. If your tenant is using SSPR and **Mobile phone** is enabled, you'll want to enable both **SMS** and **Phone calls** in the Authentication methods policy. If your tenant is using SSPR and **Office phone** is enabled, you'll want to enable **Phone calls** in the Authentication methods policy, and ensure that the **Office phone** option is enabled. 
 
@@ -119,11 +119,11 @@ The OATH token controls in the legacy MFA and SSPR policies were single controls
 
 The Authentication methods policy has granular control with separate controls for each type of OATH token. Use of OTP from Microsoft Authenticator is controlled by the **Allow use of Microsoft Authenticator OTP**  control in the **Microsoft Authenticator** section of the policy. Third-party apps are controlled by the **Third party software OATH tokens** section of the policy. 
 
-Another control for **Hardware OATH tokens** is coming soon. If you are using hardware OATH tokens, now in public preview, you should hold off on migrating OATH tokens and do not complete the migration process.
+Another control for **Hardware OATH tokens** is coming soon. If you're using hardware OATH tokens, now in public preview, you should hold off on migrating OATH tokens and don't complete the migration process.
 
 ### Security questions
 
-A control for **Security questions** is coming soon. If you are using security questions, and don't want to disable them, make sure to keep them enabled in the legacy SSPR policy until the new control is available. You _can_ finish migration as described in the next section with security questions enabled.
+A control for **Security questions** is coming soon. If you're using security questions, and don't want to disable them, make sure to keep them enabled in the legacy SSPR policy until the new control is available. You _can_ finish migration as described in the next section with security questions enabled.
 
 ## Finish the migration 
 
