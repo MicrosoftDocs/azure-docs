@@ -1,14 +1,14 @@
 ---
-title: "F5 Adv. WAF Integration via Syslog/CEF connector for Microsoft Sentinel"
-description: "Learn how to install the connector F5 Adv. WAF Integration via Syslog/CEF to connect your data source to Microsoft Sentinel."
+title: "F5 Advanced WAF Integration via Syslog/CEF connector for Microsoft Sentinel"
+description: "Learn how to install the connector F5 Advanced WAF Integration via Syslog/CEF to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 11/17/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# F5 Adv. WAF Integration via Syslog/CEF connector for Microsoft Sentinel
+# F5 Advanced WAF Integration via Syslog/CEF connector for Microsoft Sentinel
 
 The F5 firewall connector allows you to easily connect your F5 logs with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization's network and improves your security operation capabilities.
 

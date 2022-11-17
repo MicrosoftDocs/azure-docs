@@ -176,8 +176,8 @@ Data connectors are available as part of the following offerings:
 
 ## F5 Networks
 
-- [F5 Advanced WAF: Integration with Microsoft Sentinel](data-connectors/f5-advanced-waf-integration-with-microsoft-sentinel.md)
-- [F5 Adv. WAF Integration via Syslog/CEF for Microsoft Sentinel](data-connectors/f5-adv-waf-integration-via-syslog-cef-for-microsoft-sentinel.md)
+- [F5 Advanced WAF Integration via Telemetry Streaming for Microsoft Sentinel](data-connectors/f5-advanced-waf-integration-via-telemetry-streaming-for-microsoft-sentinel.md)
+- [F5 Advanced WAF Integration via Syslog/CEF for Microsoft Sentinel](data-connectors/f5-advanced-waf-integration-via-syslog-cef-for-microsoft-sentinel.md)
 
 ## Facebook
 
@@ -266,7 +266,6 @@ Data connectors are available as part of the following offerings:
 - [Cisco Umbrella](data-connectors/cisco-umbrella.md)
 - [Common Event Format solution for Sentinel](data-connectors/common-event-format-solution-for-sentinel.md)
 - [Windows Server DNS solution for Sentinel](data-connectors/windows-server-dns-solution-for-sentinel.md)
-- [Dynamics 365 solution for Sentinel](data-connectors/dynamics-365-solution-for-sentinel.md)
 - [Imperva WAF Cloud Solution](data-connectors/imperva-waf-cloud-solution.md)
 - [McAfee ePolicy Orchestrator Solution](data-connectors/mcafee-epolicy-orchestrator-solution.md)
 - [Microsoft 365 Defender solution for Sentinel](data-connectors/microsoft-365-defender-solution-for-sentinel.md)
@@ -441,6 +440,10 @@ Data connectors are available as part of the following offerings:
 
 - [TheHive Solution](data-connectors/thehive-solution.md)
 
+## Trend Micro
+
+- [Trend Micro Vision One for Microsoft Sentinel](data-connectors/trend-micro-vision-one-for-microsoft-sentinel.md)
+
 ## TrendMicro
 
 - [Trend Micro Apex One Solution](data-connectors/trend-micro-apex-one-solution.md)
@@ -455,7 +458,7 @@ Data connectors are available as part of the following offerings:
 
 ## Vectra AI, Inc
 
-- [Vectra AI Stream Sentinel Solution](data-connectors/vectra-ai-stream-sentinel-solution.md)
+- [Vectra AI Stream for Microsoft Sentinel](data-connectors/vectra-ai-stream-for-microsoft-sentinel.md)
 - [Vectra Detect for Microsoft Sentinel](data-connectors/vectra-detect-for-microsoft-sentinel.md)
 
 ## VMRay GmbH

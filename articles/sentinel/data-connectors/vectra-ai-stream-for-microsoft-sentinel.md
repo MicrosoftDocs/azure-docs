@@ -1,14 +1,14 @@
 ---
-title: "Vectra AI Stream Sentinel Solution connector for Microsoft Sentinel"
-description: "Learn how to install the connector Vectra AI Stream Sentinel Solution to connect your data source to Microsoft Sentinel."
+title: "Vectra AI Stream connector for Microsoft Sentinel"
+description: "Learn how to install the connector Vectra AI Stream to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 11/17/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Vectra AI Stream Sentinel Solution connector for Microsoft Sentinel
+# Vectra AI Stream connector for Microsoft Sentinel
 
 The AI Vectra Stream connector allows to send Network Metadata collected by Vectra Sensors accross the Network and Cloud to Microsoft Sentinel
 
@@ -72,7 +72,7 @@ VectraStream
 
 ## Prerequisites
 
-To integrate with Vectra AI Stream Sentinel Solution make sure you have: 
+To integrate with Vectra AI Stream for Microsoft Sentinel make sure you have: 
 
 - **Vectra AI Brain**: must be configured to export Stream metadata in JSON
 

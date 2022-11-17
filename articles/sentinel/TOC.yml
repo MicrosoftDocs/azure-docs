@@ -354,8 +354,6 @@
         href: data-connectors/delinea-secret-server-for-microsoft-sentinel.md
       - name: Digital Shadows SearchLight for Sentinel
         href: data-connectors/digital-shadows-searchlight-for-sentinel.md
-      - name: Dynamics 365 solution for Sentinel
-        href: data-connectors/dynamics-365-solution-for-sentinel.md
       - name: Elastic Agent Solution (Preview)
         href: data-connectors/elastic-agent-solution-preview.md
       - name: ESET PROTECT integration for Azure Sentinel
@@ -364,10 +362,10 @@
         href: data-connectors/exabeam-advanced-analytics.md
       - name: ExtraHop Reveal(x) for Microsoft Sentinel
         href: data-connectors/extrahop-reveal-x-for-microsoft-sentinel.md
-      - name: F5 Adv. WAF Integration via Syslog/CEF for Microsoft Sentinel
-        href: data-connectors/f5-adv-waf-integration-via-syslog-cef-for-microsoft-sentinel.md
-      - name: 'F5 Advanced WAF: Integration with Microsoft Sentinel'
-        href: data-connectors/f5-advanced-waf-integration-with-microsoft-sentinel.md
+      - name: F5 Advanced WAF Integration via Syslog/CEF for Microsoft Sentinel
+        href: data-connectors/f5-advanced-waf-integration-via-syslog-cef-for-microsoft-sentinel.md
+      - name: F5 Advanced WAF Integration via Telemetry Streaming for Microsoft Sentinel
+        href: data-connectors/f5-advanced-waf-integration-via-telemetry-streaming-for-microsoft-sentinel.md
       - name: Flare for Microsoft Sentinel
         href: data-connectors/flare-for-microsoft-sentinel.md
       - name: Forcepoint CASB
@@ -498,7 +496,7 @@
         href: data-connectors/senserva-offer-for-microsoft-sentinel.md
       - name: SentinelOne
         href: data-connectors/sentinelone.md
-      - name: SIGNL4 Mobile Alerting for Microsoft Sentinel
+      - name: SIGNL4 – Mobile Alerting for Microsoft Sentinel
         href: data-connectors/signl4-mobile-alerting-for-microsoft-sentinel.md
       - name: Slack Audit Solution
         href: data-connectors/slack-audit-solution.md
@@ -528,12 +526,14 @@
         href: data-connectors/thehive-solution.md
       - name: Trend Micro Apex One Solution
         href: data-connectors/trend-micro-apex-one-solution.md
+      - name: Trend Micro Vision One for Microsoft Sentinel
+        href: data-connectors/trend-micro-vision-one-for-microsoft-sentinel.md
       - name: Ubiquiti UniFi
         href: data-connectors/ubiquiti-unifi.md
       - name: vArmour Application Controller and Azure Sentinel Solution
         href: data-connectors/varmour-application-controller-and-azure-sentinel-solution.md
-      - name: Vectra AI Stream Sentinel Solution
-        href: data-connectors/vectra-ai-stream-sentinel-solution.md
+      - name: Vectra AI Stream for Microsoft Sentinel
+        href: data-connectors/vectra-ai-stream-for-microsoft-sentinel.md
       - name: Vectra Detect for Microsoft Sentinel
         href: data-connectors/vectra-detect-for-microsoft-sentinel.md
       - name: VMRay Email Threat Defender Connector for Azure Sentinel

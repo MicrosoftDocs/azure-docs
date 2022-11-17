@@ -3,7 +3,7 @@ title: "SecurityBridge App connector for Microsoft Sentinel"
 description: "Learn how to install the connector SecurityBridge App to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 11/17/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
