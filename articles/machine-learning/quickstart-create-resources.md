@@ -42,6 +42,9 @@ If you don't yet have a workspace, create one now:
    Region | Select the Azure region closest to your users and the data resources to create your workspace.
 1. Select **Create** to create the workspace
 
+> [!NOTE]
+> This creates a workspace along with all required resources. If you would like to reuse resources, such as Storage Account, Azure Container Registry, Azure KeyVault, or Application Insights, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.
+
 ## Create compute instance
 
 You could install Azure Machine Learning on your own computer.  But in this quickstart, you'll create an online compute resource that has a development environment already installed and ready to go.  You'll use this online machine, a *compute instance*, for your development environment to write and run code in Python scripts and Jupyter notebooks.

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 11/16/2022
 
 ms.author: justinha
 author: justinha
@@ -191,7 +191,7 @@ The MFA Server Migration utility targets a single Azure AD group for all migrati
 
 To begin the migration process, enter the name or GUID of the Azure AD group you want to migrate. Once complete, press Tab or click outside the window and the utility will begin searching for the appropriate group. The window will populate all users in the group. A large group can take several minutes to finish.
 
-To view user attribute data for a user, highlight the user, and select **View**:
+To view attribute data for a user, highlight the user, and select **View**:
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/view-user.png" alt-text="Screenshot of how to view use settings.":::
 
@@ -202,7 +202,10 @@ The settings option allows you to change the settings for the migration process:
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/settings.png" alt-text="Screenshot of settings.":::
 
 - Migrate – This setting allows you to specify which method(s) should be migrated for the selection of users
-- User Match – Allows you to specify a different attribute for matching users instead of the default UPN-matching
+- User Match – Allows you to specify a different on-premises Active Directory attribute for matching Azure AD UPN instead of the default match to userPrincipalName:
+  - The migration utility tries direct matching to UPN before using the on-premises Active Directory attribute.  
+  - If no match is found, it calls a Windows API to find the Azure AD UPN and get the SID, which it uses to search the MFA Server user list. 
+  - If the Windows API doesn’t find the user or the SID isn’t found in the MFA Server, then it will use the configured Active Directory attribute to find the user in the on-premises Active Directory, and then use the SID to search the MFA Server user list.
 - Automatic synchronization – Starts a background service that will continually monitor any authentication method changes to users in the on-premises MFA Server, and write them to Azure AD at the specified time interval defined
 
 The migration process can be an automatic process, or a manual process.
@@ -367,7 +370,7 @@ Content-Type: application/json
 }
 ```
 
-Set the **Staged Rollout for Azure MFA** to **Off**. Users will once again be redirected to your on-premises federation server for MFA. 
+Users will no longer be redirected to your on-premises federation server for MFA, whether they’re targeted by the Staged Rollout tool or not. Note this can take up to 24 hours to take effect.
 
 >[!NOTE]
 >The update of the domain federation setting can take up to 24 hours to take effect. 
@@ -443,7 +446,8 @@ If the upgrade had issues, follow these steps to roll back:
    }
    ```
 
-Users will no longer be redirected to your on-premises federation server for MFA, whether they’re targeted by the Staged Rollout tool or not. Note this can take up to 24 hours to take effect.
+
+Set the **Staged Rollout for Azure MFA** to **Off**. Users will once again be redirected to your on-premises federation server for MFA. 
 
 
 ## Next steps
