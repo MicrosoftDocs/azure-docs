@@ -17,7 +17,7 @@ ms.custom:  [amqp, mqtt]
 
 Use this article to identify and resolve common issues when using IoT Edge solutions. If you need information on how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
 
-## Installation, Provisioning and Deployment
+## Provisioning and Deployment
 
 ### IoT Edge module deploys successfully then disappears from device
 
@@ -27,7 +27,7 @@ After setting modules for an IoT Edge device, the modules are deployed successfu
 
 #### Cause
 
-If an automatic deployment targets a device, it takes priority over manually setting the modules for a single device. The **Set modules** functionality in Azure portal or **Create deployment for single device** functionality in Visual Studio Code will take effect for a moment. You see the modules that you defined start on the device. Then the automatic deployment's priority kicks in and overwrites the device's desired properties.
+If an automatic deployment targets a device, it takes priority over manually setting the modules for a single device. The **Set modules** functionality in Azure portal or **Create deployment for single device** functionality in Visual Studio Code takes effect for a moment. You see the modules that you defined start on the device. Then the automatic deployment's priority starts and overwrites the device's desired properties.
 
 #### Solution
 
@@ -83,7 +83,7 @@ A group enrollment is used to provision an IoT Edge device to an IoT Hub. The Io
 1. If the device isn't reprovisioned, restart the device using `sudo iotedge system restart`.
 1. If the device isn't reprovisioned, force reprovisioning using `sudo iotedge system reprovision`.
 
-To automatically reprovision, set `dynamic_reprovisioning: true` in the device configuration file. Setting this flag to true opts in to the dynamic reprovisioning feature. IoT Edge detects situations where the device appears to have been reprovisioned in the cloud by monitoring its own IoT Hub connection for certain errors. IoT Edge responds by shutting itself and all Edge modules down. The next time the daemon starts up, it will attempt to reprovision this device with Azure to receive the new IoT Hub provisioning information.
+To automatically reprovision, set `dynamic_reprovisioning: true` in the device configuration file. Setting this flag to true opts in to the dynamic reprovisioning feature. IoT Edge detects situations where the device appears to have been reprovisioned in the cloud by monitoring its own IoT Hub connection for certain errors. IoT Edge responds by shutting down all Edge modules and itself. The next time the daemon starts up, it will attempt to reprovision this device with Azure to receive the new IoT Hub provisioning information.
 
 When using external provisioning, the daemon will also notify the external provisioning endpoint about the reprovisioning event before shutting down. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
@@ -96,7 +96,7 @@ When using external provisioning, the daemon will also notify the external provi
 
 #### Symptoms
 
-The edgeAgent module starts and runs successfully for about a minute, then stops. The logs indicate that the IoT Edge agent attempts to connect to IoT Hub over AMQP, and then attempts to connect using AMQP over WebSocket. When that fails, the IoT Edge agent exits.
+The *edgeAgent* module starts and runs successfully for about a minute, then stops. The logs indicate that the IoT Edge agent attempts to connect to IoT Hub over AMQP, and then attempts to connect using AMQP over WebSocket. When that fails, the IoT Edge agent exits.
 
 Example edgeAgent logs:
 
@@ -121,7 +121,7 @@ Ensure that there's a route to the internet for the IP addresses assigned to thi
 
 #### Symptoms
 
-The device has trouble starting modules defined in the deployment. Only the edgeAgent is running but continually reporting 'empty config file...'.
+The device has trouble starting modules defined in the deployment. Only the *edgeAgent* is running but continually reporting 'empty config file...'.
 
 #### Cause
 
@@ -366,7 +366,7 @@ For all Linux distros except CentOS 7, IoT Edge's default configuration is to us
 
 #### Solution
 
-You don't need to disable socket activation on a distro where socket activation is supported. However, if you prefer to not use socket activation at all, put the sockets in `/var/lib/iotedge/`.
+You don't need to disable socket activation on a distribution where socket activation is supported. However, if you prefer to not use socket activation at all, put the sockets in `/var/lib/iotedge/`.
 1. Run `systemctl disable iotedge.socket iotedge.mgmt.socket` to disable the socket units so that systemd doesn't start them unnecessarily
 1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
 1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
