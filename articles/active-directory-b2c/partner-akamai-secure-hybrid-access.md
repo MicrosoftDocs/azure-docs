@@ -36,7 +36,7 @@ To get started, you'll need:
 
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
 
-- A virtual appliance deployed behind the firewall in your data center or in hybrid cloud environments to deploy the Akamai EAA [connector](https://techdocs.akamai.com/eaa/docs/conn)
+- A virtual appliance deployed behind the firewall in your datacenter or in hybrid cloud environments to deploy the Akamai EAA [connector](https://techdocs.akamai.com/eaa/docs/conn)
 
 - An application that uses headers for authentication. In this sample, we'll use an application that displays headers [docker header-demo-app](https://hub.docker.com/r/mistermik/header-demo-app).
 
