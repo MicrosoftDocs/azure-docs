@@ -20,6 +20,12 @@ Traps are most often used as event notifications, while polls are more appropria
   
 This article explains how to send SNMP traps to Azure Monitor Logs as syslog events or SNMP events using Azure Monitor Agent.
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Set up the trap receiver log options and format 
+> * Configure the trap receiver to send traps to syslog or text file
+> * Collect SNMP traps using Azure Monitor Agent
 
 ## Prerequisites
 
@@ -39,7 +45,7 @@ To complete this tutorial, you need:
 
     It's important that the SNMP trap receiver you use can load MIB files for your environment, so that the properties in the SNMP trap message have meaningful names instead of OIDs.  
  
-## Set up snmptrapd
+## Set up the trap receiver log options and format
 
 To set up snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 server:
 
@@ -79,7 +85,7 @@ To set up snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 se
 
         > [!NOTE]
         > snmptrapd logs both traps and daemon messages - for example, service stop and start - to the same log file. In the example above, we’ve defined the log format to start with the word “snmptrap” to make it easy to filter snmptraps from the log later on. 
-## Configure snmptrapd to send traps to syslog or text file
+## Configure the trap receiver to send traps to syslog or text file
 
 There are two ways snmptrapd can send SNMP traps to Azure Monitor Agent: 
 
