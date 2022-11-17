@@ -111,7 +111,7 @@ Existing web applications can be redeployed to Azure as follows:
 
 1. **App startup**: Review the section, [Container startup process](#container-startup-process) later in this article to understand how App Service attempts to run your app. App Service uses the Gunicorn web server by default, which must be able to find your app object or *wsgi.py* folder. If needed, you can [Customize the startup command](#customize-startup-command).
 
-1. **Continuous deployment**: Set up continuous deployment, as described on [Continuous deployment to Azure App Service](deploy-continuous-deployment.md) if using Azure Pipelines or Kudu deployment, or [Deploy to App Service using GitHub Actions](./deploy-continuous-deployment.md) if using GitHub actions.
+1. **Continuous deployment**: Set up continuous deployment from GitHub Actions, Bitbucket (Kudu), or Azure Repos as described in the article [Continuous deployment to Azure App Service](deploy-continuous-deployment.md). Or, set up continuous deployment from Local Git as described in the article [Local Git deployment to Azure App Service](deploy-local-git.md).
 
 1. **Custom actions**: To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container through SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL - generate database schema](tutorial-python-postgresql-app.md#4-generate-database-schema).
     - When using continuous deployment, you can perform those actions using post-build commands as described earlier under [Customize build automation](#customize-build-automation).
@@ -120,7 +120,7 @@ With these steps completed, you should be able to commit changes to your source 
 
 ### Production settings for Django apps
 
-For a production environment like Azure App Service, Django apps should follow Django's [Deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) (djangoproject.com).
+For a production environment like Azure App Service, Django apps should follow Django's [Deployment checklist](https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/) (djangoproject.com).
 
 The following table describes the production settings that are relevant to Azure. These settings are defined in the app's *setting.py* file.
 
@@ -129,11 +129,11 @@ The following table describes the production settings that are relevant to Azure
 | `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternately [store the value as a "secret" in Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 | `DEBUG` | Create a `DEBUG` setting on App Service with the value 0 (false), then load the value as an environment variable. In your development environment, create a `DEBUG` environment variable with the value 1 (true). |
 | `ALLOWED_HOSTS` | In production, Django requires that you include app's URL in the `ALLOWED_HOSTS` array of *settings.py*. You can retrieve this URL at runtime with the code, `os.environ['WEBSITE_HOSTNAME']`. App Service automatically sets the `WEBSITE_HOSTNAME` environment variable to the app's URL. |
-| `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternately store the values (especially the username and password) as [Azure Key Vault secrets](../key-vault/secrets/quick-create-python.md). |
+| `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/4.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternately store the values (especially the username and password) as [Azure Key Vault secrets](../key-vault/secrets/quick-create-python.md). |
 
 ## Serve static files for Django apps
 
-If your Django web app includes static front-end files, first follow the instructions on [Managing static files](https://docs.djangoproject.com/en/3.1/howto/static-files/) in the Django documentation.
+If your Django web app includes static front-end files, first follow the instructions on [Managing static files](https://docs.djangoproject.com/en/4.1/howto/static-files/) in the Django documentation.
 
 For App Service, you then make the following modifications:
 
@@ -181,7 +181,7 @@ For App Service, you then make the following modifications:
 
 ## Serve static files for Flask apps
 
-If your Flask web app includes static front-end files, first follow the instructions on [managing static files](https://flask.palletsprojects.com/en/2.1.x/tutorial/static/) in the Flask documentation. For an example of serving static files in a Flask application, see the [quickstart sample Flask application](https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart) on GitHub. 
+If your Flask web app includes static front-end files, first follow the instructions on [managing static files](https://flask.palletsprojects.com/en/2.2.x/tutorial/static/) in the Flask documentation. For an example of serving static files in a Flask application, see the [quickstart sample Flask application](https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart) on GitHub. 
 
 To serve static files directly from a route on your application, you can use the [`send_from_directory`](https://flask.palletsprojects.com/en/2.2.x/api/#flask.send_from_directory) method:
 
