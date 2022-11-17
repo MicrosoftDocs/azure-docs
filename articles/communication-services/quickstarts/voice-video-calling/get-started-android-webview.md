@@ -15,7 +15,7 @@ ms.subservice: calling
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 If you want to develop a calling application on Android, besides using the Azure Communication Calling Android SDK, you can also use Azure Communication Calling Web SDK on Android WebView.
-In this quickstart, you will learn how to run webapps developed with the Azure Communication Calling Web SDK in an Android WebView environment.
+In this quickstart, you'll learn how to run webapps developed with the Azure Communication Calling Web SDK in an Android WebView environment.
 
 ## Prerequisites
 
@@ -24,8 +24,8 @@ In this quickstart, you will learn how to run webapps developed with the Azure C
 - An Android WebView application. If you want to get started with sample code, you can [download the webview sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart).
 - A web application using the Azure Communication Calling Web SDK. [Get started with the web calling sample](../../samples/web-calling-sample.md).
 
- If you use the [webview sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart).
- All the  necessary  configurations and permission handling are in place. You can skip to Known Issues.
+ If you use the [webview sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart),
+ all the  necessary configurations and permission handling are in place. You can skip to Known Issues.
  All you have to do is update the `defaultUrl` in `MainActivity` to the url of the calling web application you deployed and build the application.
 
 
@@ -44,7 +44,7 @@ Make sure you have the following permissions added to the application manifest:
 
 ## Request permissions at run time
 
-Adding permissions to the application manifest is not enough. You must also [request the dangerous permissions at runtime](https://developer.android.com/training/permissions/requesting) to access camera and microphone.
+Adding permissions to the application manifest isn't enough. You must also [request the dangerous permissions at runtime](https://developer.android.com/training/permissions/requesting) to access camera and microphone.
 
 You have to call `requestPermissions()` and override `onRequestPermissionsResult`.
 Besides app permissions, you have to handle browser permission requests by overriding `WebChromeClient.onPermissionRequest`
@@ -55,7 +55,7 @@ shows how to handle permission requests from browser and then request app permis
 ## WebView configuration
 
 Azure Communication Calling Web SDK requires JavaScript enabled.
-In some cases, we saw `play() can only be initiated by a user gesture` error message in Android WebView environment, and users are not able to hear incoming audio.
+In some cases, we saw `play() can only be initiated by a user gesture` error message in Android WebView environment, and users aren't able to hear incoming audio.
 Therefore, we recommend setting  `MediaPlaybackRequiresUserGesture` to false.
 
 ```java
@@ -76,9 +76,9 @@ settings.setMediaPlaybackRequiresUserGesture(false);
 - DeviceManager.getSpeakers() (If the device supports speaker enumeration)
 
   The value of name field in the result object will be an empty string.
-  To provide a better UI experience, you can use the following workaround to get device labels and map the label by device id.
-  Although we cannot get device labels from MediaDevices.enumerateDevices(), we can get the label from MediaStreamTrack.
-  This requires the application to use getUserMedia to get the stream and map the device id.
+  To provide a better UI experience, you can use the following workaround to get device labels and map the label by `deviceId`.
+  Although we can't get device labels from MediaDevices.enumerateDevices(), we can get the label from MediaStreamTrack.
+  This requires the application to use getUserMedia to get the stream and map the `deviceId`.
   If there are many cameras and microphones on the Android device, it may take a while to collect labels.
 
 ```js
@@ -121,7 +121,7 @@ async function getDeviceLabels() {
 
 :::image type="content" source="./media/android-webview/get-device-label.png" alt-text="getDeviceLabels() result":::
 
-After you get the mapping between device id and device label, you can use it to show the device name from `DeviceManager.getCameras()` or `DeviceManager.getMicrophones()`
+After you get the mapping between deviceId and label, you can use it to show the device name from `DeviceManager.getCameras()` or `DeviceManager.getMicrophones()`
 
 :::image type="content" source="./media/android-webview/device-name-workaround.png" alt-text="Screenshot showing the device name workaround":::
 
