@@ -21,17 +21,18 @@ In this quickstart, you'll learn how to run webapps developed with the Azure Com
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
-- An Android WebView application. If you want to get started with sample code, you can [download the webview sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart).
 - A web application using the Azure Communication Calling Web SDK. [Get started with the web calling sample](../../samples/web-calling-sample.md).
 
- If you use the [webview sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart),
- all the  necessary configurations and permission handling are in place. You can skip to Known Issues.
- All you have to do is update the `defaultUrl` in `MainActivity` to the url of the calling web application you deployed and build the application.
+ This quickstart guide assumes that you already have an Android WebView application.
+ If you don't have one, you can [download the webview sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart).
 
+ If you use the [webview sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart),
+ all the necessary configurations and permission handling are in place. You can skip to Known Issues.
+ All you have to do is update the `defaultUrl` in `MainActivity` to the url of the calling web application you deployed and build the application.
 
 ## Add permissions to application manifest
 
-To request the permissions required to make a call, you must first declare the permissions in the application manifest. (app/src/main/AndroidManifest.xml)
+To request the permissions required to make a call, you must declare the permissions in the application manifest. (app/src/main/AndroidManifest.xml)
 Make sure you have the following permissions added to the application manifest:
 ```xml
     <uses-permission android:name="android.permission.INTERNET" />
