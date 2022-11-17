@@ -30,7 +30,7 @@ You must have already created a NetApp account.
 Azure NetApp Files now supports a lower size limit of 2 TiB for capacity pools.
 
 >[!IMPORTANT]
->Capacity pools using the new lower limit are only supported with Standard networking features. 
+>Capacity pools using the new lower limit are only supported with Standard network features. 
 
 The 2 TiB limit is currently in preview. If you wish to set your limit below 4 TiB for the first time, you must register the feature first:
 
