@@ -57,7 +57,6 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
     npm install @azure/service-bus @azure/identity
     ```
 
-
 ### [Connection string](#tab/connection-string)
 
 1. To install the required npm package(s) for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
@@ -74,11 +73,9 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 The following sample code shows you how to send a message to a queue.
 
-
 ### [Passwordless](#tab/passwordless)
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
-1. 
 1. Create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
     
     The passwordless credential is provided with the [**DefaultAzureCredential**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential).
@@ -174,9 +171,11 @@ The following sample code shows you how to send a message to a queue.
     ```console
     Sent a batch of messages to the queue: myqueue
     ```
----
 
 ### [Connection string](#tab/connection-string)
+
+1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
+1. Create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");
@@ -270,14 +269,73 @@ The following sample code shows you how to send a message to a queue.
 
 ## Receive messages from a queue
 
-1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
 
 ### [Passwordless](#tab/passwordless)
 
+1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
+2. Create a file called `receive.js` and paste the following code into it.
+
+    ```javascript
+    const { delay, ServiceBusClient, ServiceBusMessage } = require("@azure/service-bus");
+    const { DefaultAzureCredential } = require("@azure/identity");
+    
+    // Replace `<SERVICE-BUS-NAMESPACE>` with your namespace
+    const fullyQualifiedNamespace = "<SERVICE-BUS-NAMESPACE>.servicebus.windows.net";
+    
+    // Passwordless credential
+    const credential = new DefaultAzureCredential();
+
+    // name of the queue
+    const queueName = "<QUEUE NAME>"
+
+     async function main() {
+    	// create a Service Bus client using the connection string to the Service Bus namespace
+    	const sbClient = new ServiceBusClient(connectionString);
+     
+    	// createReceiver() can also be used to create a receiver for a subscription.
+    	const receiver = sbClient.createReceiver(queueName);
+    
+    	// function to handle messages
+    	const myMessageHandler = async (messageReceived) => {
+    		console.log(`Received message: ${messageReceived.body}`);
+    	};
+    
+    	// function to handle any errors
+    	const myErrorHandler = async (error) => {
+    		console.log(error);
+    	};
+    
+    	// subscribe and specify the message and error handlers
+    	receiver.subscribe({
+    		processMessage: myMessageHandler,
+    		processError: myErrorHandler
+    	});
+    
+    	// Waiting long enough before closing the sender to send messages
+    	await delay(20000);
+    
+    	await receiver.close();	
+    	await sbClient.close();
+    }    
+    // call the main function
+    main().catch((err) => {
+    	console.log("Error occurred: ", err);
+    	process.exit(1);
+     });
+    ```
+3. Replace `<SERVICE-BUS-NAMESPACE>` with your Service Bus namespace.
+4. Replace `<QUEUE NAME>` with the name of the queue. 
+5. Then run the command in a command prompt to execute this file.
+
+    ```console
+    node receive.js 
+    ```
+
 ### [Connection string](#tab/connection-string)
 
-1. Create a file called `receive.js` and paste the following code into it.
+1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
+2. Create a file called `receive.js` and paste the following code into it.
 
     ```javascript
     const { delay, ServiceBusClient, ServiceBusMessage } = require("@azure/service-bus");
@@ -323,31 +381,32 @@ The following sample code shows you how to send a message to a queue.
     	process.exit(1);
      });
     ```
+
 3. Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
 
-1. Replace `<QUEUE NAME>` with the name of the queue. 
+4. Replace `<QUEUE NAME>` with the name of the queue. 
+5. Then run the command in a command prompt to execute this file.
+
+    ```console
+    node receive.js 
+    ```
 
 ---
 
-1. Then, run the command in a command prompt to execute this file.
+You should see the following output.
 
-    ```console
-    node receive.js
-    ```
-1. You should see the following output.
-
-    ```console
-    Received message: Albert Einstein
-    Received message: Werner Heisenberg
-    Received message: Marie Curie
-    Received message: Steven Hawking
-    Received message: Isaac Newton
-    Received message: Niels Bohr
-    Received message: Michael Faraday
-    Received message: Galileo Galilei
-    Received message: Johannes Kepler
-    Received message: Nikolaus Kopernikus
-    ```
+```console
+Received message: Albert Einstein
+Received message: Werner Heisenberg
+Received message: Marie Curie
+Received message: Steven Hawking
+Received message: Isaac Newton
+Received message: Niels Bohr
+Received message: Michael Faraday
+Received message: Galileo Galilei
+Received message: Johannes Kepler
+Received message: Nikolaus Kopernikus
+```
 
 On the **Overview** page for the Service Bus namespace in the Azure portal, you can see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values. 
 
