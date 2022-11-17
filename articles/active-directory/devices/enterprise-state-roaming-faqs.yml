@@ -40,11 +40,11 @@ sections:
       - question: |
           How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10 or newer?
         answer: |
-          If you're joined to the Active Directory domain running Windows 8.1 with a connected Microsoft account, you'll sync settings through your Microsoft account. After upgrading to Windows 10 and newer, you'll continue to sync user settings via Microsoft account as long as you're a domain-joined user and the Active Directory domain doesn't connect with Azure AD.
+          If you're joined to the Active Directory domain running Windows 8.1 with a connected Microsoft account, you'll sync settings through your Microsoft account. After upgrading to Windows 10 and newer, you'll continue to sync user settings via Microsoft account as long as you're a domain-joined user, and the Active Directory domain doesn't connect with Azure AD.
           
           If the on-premises Active Directory domain does connect with Azure AD, your device will attempt to sync settings using the connected Azure AD account. If the Azure AD administrator doesn't enable Enterprise State Roaming, your connected Azure AD account will stop syncing settings. If you're running Windows 10 and newer and you sign in with an Azure AD identity, you'll start syncing windows settings as soon as your administrator enables settings sync via Azure AD.
           
-          If you stored any personal data on your corporate device, you should be aware that Windows OS and application data will begin syncing to Azure AD. This has the following implications:
+          If you stored any personal data on your corporate device, you should know Windows OS and application data will begin syncing to Azure AD. This has the following implications:
           
           * Your personal Microsoft account settings will drift apart from the settings on your work or school Azure AD accounts. This is because the Microsoft account and Azure AD settings sync are now using separate accounts.
           * Personal data such as Wi-Fi passwords, web credentials, and Internet Explorer favorites that were previously synced via a connected Microsoft account will be synced via Azure AD.
@@ -104,12 +104,12 @@ sections:
       - question: |
           What is Microsoft's recommendation for enabling roaming in Windows 10 or newer?
         answer: |
-          Microsoft has a few different settings roaming solutions available, including UE-V and Enterprise State Roaming.  If your organization isn't ready or comfortable with moving data to the cloud, then we recommend that you use UE-V as your primary roaming technology. If your organization requires roaming support for existing Windows desktop applications but is eager to move to the cloud, we recommend that you use both Enterprise State Roaming and UE-V. Although UE-V and Enterprise State Roaming are very similar technologies, they aren't mutually exclusive. They complement each other to help ensure that your organization provides the roaming services that your users need.  
+          Microsoft has a few different settings roaming solutions available, including UE-V and Enterprise State Roaming.  If your organization isn't ready or comfortable with moving data to the cloud, then we recommend that you use UE-V as your primary roaming technology. If your organization requires roaming support for existing Windows desktop applications but is eager to move to the cloud, we recommend that you use both Enterprise State Roaming and UE-V. Although UE-V and Enterprise State Roaming are similar technologies, they aren't mutually exclusive. They complement each other to help ensure that your organization provides the roaming services that your users need.  
           
           When using both Enterprise State Roaming and UE-V, Enterprise State Roaming is the primary roaming agent on the device. UE-V is being used to supplement Win32 applications.
           
           * Enterprise State Roaming is the primary roaming agent on the device. UE-V is being used to supplement the “Win32 gap.”
-          * UE-V roaming for Windows settings and modern UWP app data should be disabled when using the UE-V group policies. These are already covered by Enterprise State Roaming.
+          * UE-V roaming for Windows settings and modern UWP app data should be disabled when using the UE-V group policies. These settings are already covered by Enterprise State Roaming.
           
       - question: |
           How does Enterprise State Roaming support virtual desktop infrastructure (VDI)?
