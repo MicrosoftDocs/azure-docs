@@ -59,15 +59,18 @@ For more information, see our [introduction to Data Sharing](concept-data-share.
 ## Data Policy
 Microsoft Purview Data Policy is a set of central, cloud-based experiences that help you manage access to data sources and datasets securely and at scale.
 - Manage access to data sources from a single-pane of glass, cloud-based experience
-- Introduces a new data-plane permission model that is external to data sources
-- Seamless integration with Microsoft Purview Data Map and Catalog helps search for data assets and grant access only to what is required via fine-grained policies
-- Based on role definitions that are simple and abstracted (for example: Read, Modify)
 - At-scale access provisioning
+- Introduces a new data-plane permission model that is external to data sources
+- Seamless integration with Microsoft Purview Data Map and Catalog:
+    - Search for data assets and grant access only to what is required via fine-grained policies.
+    - Path to support SaaS, on-premises, and multicloud data sources
+    - Path to leverage all associated metadata for policies
+- Based on role definitions that are simple and abstracted (for example: Read, Modify)
 
 For more information, see our introductory guides:
 * [Data owner access policies](concept-policies-data-owner.md) (preview): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
 * [Self-service access policies](concept-self-service-data-access-policy.md) (preview): Self-Service: Workflow approval and automatic provisioning of access requests initiated by business analysts that discover data assets in Microsoft Purview’s catalog.
-* [DevOps policies](concept-policies-devops.md): Provision access to system metadata for IT operations and other DevOps personnel, supporting typical functions like SQL Performance Monitor and SQL Security Auditor.
+* [DevOps policies](concept-policies-devops.md): Provision access for IT operations and other DevOps users from Microsoft Purview Studio, enabling them to monitor SQL database system health and security, while limiting insider threat.
 
 ## Traditional challenges that Microsoft Purview seeks to address
 

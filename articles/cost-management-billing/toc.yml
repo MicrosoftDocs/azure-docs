@@ -143,6 +143,8 @@
       href: manage/ea-portal-get-started.md
     - name: Get started in the Azure portal for direct EA
       href: manage/ea-direct-portal-get-started.md
+    - name: Direct EA billing invoice documents
+      href: manage/direct-ea-billing-invoice-documents.md
     - name: Request Withholding Tax credit - India
       href: manage/withholding-tax-credit-india.md
   - name: Automation
