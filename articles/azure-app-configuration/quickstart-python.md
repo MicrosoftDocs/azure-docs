@@ -1,13 +1,13 @@
 --- 
-title: Using Azure App Configuration with Python apps with the Azure SDK for Python | Microsoft Docs
+title: Using Azure App Configuration in Python apps with the Azure SDK for Python | Microsoft Learn
 description: This document shows examples of how to use the Azure SDK for Python to access your data in Azure App Configuration.
 services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: sample
-ms.custom: devx-track-python, mode-other
-ms.date: 11/16/2022
+ms.custom: devx-track-python, mode-other, engagement-fy23
+ms.date: 11/17/2022
 ms.author: malev
 #Customer intent: As a Python developer, I want to use the Azure SDK for Python to access my data in Azure App Configuration.
 ---
@@ -22,12 +22,11 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- An Azure App Configuration store
 
-## Create an App Configuration store
+## Create a key-value pair
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
-
-9. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+1. In the Azure platform, open your App Configuration store and select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key                        | Value                               |
     |----------------------------|-------------------------------------|
@@ -35,9 +34,9 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
 
     Leave **Label** and **Content Type** empty for now.
 
-10. Select **Apply**.
+1. Select **Apply**.
 
-## Setting up the Python app
+## Set up the Python app
 
 1. Create a new directory for the project named *app-configuration-quickstart*.
 
@@ -341,9 +340,14 @@ Key: TestApp:Settings:NewSetting, Value: Value has been updated!
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and learned how to access key-values from a Python app.
+This guide showed you how to use the Azure SDK for Python to access your data in Azure App Configuration.
 
 For additional code samples, visit:
 
 > [!div class="nextstepaction"]
 > [Azure App Configuration client library samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration/samples)
+
+To learn how to use Azure App Configuration with Python apps, go to:
+
+> [!div class="nextstepaction"]
+> [Create a Python app with Azure App Configuration](./quickstart-python-provider.md)
