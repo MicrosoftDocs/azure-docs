@@ -109,19 +109,12 @@ endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',
     :::image type="content" source="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png" alt-text="A screenshot of how to disable public network access for an endpoint." lightbox="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png":::
 
 ---
+
 When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
 
 ## Outbound (resource access)
 
 To restrict communication between a deployment and the Azure resources it uses, set the `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint.
-
-The deployment communicates with these resources over the private endpoint:
-
-* The Azure Machine Learning workspace
-* The Azure Storage blob that is the default storage for the workspace
-* The Azure Container Registry for the workspace
-
-When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints to communicate with the workspace, blob, and container registry.
 
 # [Azure CLI](#tab/cli)
 
@@ -155,6 +148,14 @@ ml_client.begin_create_or_update(blue_deployment)
     :::image type="content" source="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png" alt-text="A screenshot of how to disable the egress public network access for a deployment" lightbox="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png":::
 
 ---
+
+The deployment communicates with these resources over the private endpoint:
+
+* The Azure Machine Learning workspace
+* The Azure Storage blob that is the default storage for the workspace
+* The Azure Container Registry for the workspace
+
+When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints to communicate with the workspace, blob, and container registry.
 
 ## Scenarios
 
