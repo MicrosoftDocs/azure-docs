@@ -325,9 +325,11 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 ### Configuring fixed-rate sampling for ASP.NET Core applications
 
-1. **Disable adaptive sampling**:  Changes can be made in the `ConfigureServices` method, using `ApplicationInsightsServiceOptions`:
+1. **Disable adaptive sampling**
 
     ### [ASP.NET Core 6 and later](#tab/net-core-new)
+    
+    Changes can be made after the `WebApplication.CreateBuilder()` method, using `ApplicationInsightsServiceOptions`:
     
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
@@ -340,6 +342,8 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     ```
 
     ### [ASP.NET Core 5 and earlier](#tab/net-core-old)
+    
+    Changes can be made in the `ConfigureServices()` method, using `ApplicationInsightsServiceOptions`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -352,9 +356,11 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     
     ---
 
-2. **Enable the fixed-rate sampling module.** Changes can be made in the `Configure` method as shown in the below snippet:
+2. **Enable the fixed-rate sampling module**
 
     ### [ASP.NET Core 6 and later](#tab/net-core-new)
+    
+    Changes can be made after the `WebApplication.CreateBuilder()` method:
     
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
@@ -369,6 +375,8 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     ```
 
     ### [ASP.NET Core 5 and earlier](#tab/net-core-old)
+    
+    Changes can be made in the `Configure()` method:
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
