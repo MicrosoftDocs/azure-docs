@@ -100,7 +100,7 @@ Give your automation rule a name that describes what it does.
 
 ## Add tasks to incidents with playbooks
 
-
+Use the **Add task** action in a playbook (in the Microsoft Sentinel connector) to automatically add a task to the incident that triggered the playbook.
 
 ## View and follow incident tasks
 
