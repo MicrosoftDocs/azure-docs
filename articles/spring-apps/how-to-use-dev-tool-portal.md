@@ -18,7 +18,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 VMware Tanzu Dev Tools includes a set of developer tools to help ease developer experience for both inner and outer loop. For now, it includes App live view and app accelerator in Enterprise tier. Dev Tools has a centralized portal - Dev Tools Portal which serves as the place to access any Dev Tools. here in this article, you can learn how to configure Dev Tools centrally against Dev Tools Portal on SSO config and endpoint exposure so that you can get access to any Dev tools.
 
-[Dev Tool Portal](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-tap-gui-about.html) is a tool for your developers to view your applications and services running for your organization.
+[Dev Tools Portal](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-tap-gui-about.html) is a tool for your developers to view your applications and services running for your organization.
 
 ## Prerequities
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
