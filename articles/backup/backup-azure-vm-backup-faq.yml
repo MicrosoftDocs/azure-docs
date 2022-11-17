@@ -271,7 +271,7 @@ sections:
         answer: |
           No, [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) is unsupported from [snapshot](backup-azure-vms-introduction.md#snapshot-creation) restore.
 
-      - question: Can I restore Azure zone pinned VMs to a secondary regions?
+      - question: Can I restore Azure zone pinned VMs to secondary regions?
         answer: |
           Yes, Azure Backup support restore of Azure zone pinned VMs to [secondary regions](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
 
