@@ -32,7 +32,7 @@ To learn more about working with the Logstash data collection engine, see [Getti
 
 ### Architecture and background
 
-:::image type="content" source="./media/connect-logstash-data-collection-rules/logstash-data-collection-rule-architecture.png" alt-text="Diagram of the Logstash architecture." border="false" lightbox="./media/connect-logstash-data-collection-rules/logstash-dcr-architecture.png":::
+:::image type="content" source="./media/connect-logstash-data-collection-rules/logstash-data-collection-rule-architecture.png" alt-text="Diagram of the Logstash architecture." border="false" lightbox="./media/connect-logstash-data-collection-rules/logstash-data-collection-rule-architecture.png":::
 
 The Logstash engine is comprised of three components:
 

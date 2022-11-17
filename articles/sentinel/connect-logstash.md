@@ -14,7 +14,7 @@ ms.author: yelevin
 > Data ingestion using the Logstash output plugin is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> A [newer version of the Logstash plugin](connect-logstash-data-collection-rules.md) can forward logs from external data sources into custom and standard tables using the DCR based API. The new plugin allows full control over the output schema, including the configuration of the column names and types. 
+> A [newer version of the Logstash plugin](connect-logstash-data-connection-rules.md) can forward logs from external data sources into custom and standard tables using the DCR based API. The new plugin allows full control over the output schema, including the configuration of the column names and types. 
 
 Using Microsoft Sentinel's output plugin for the **Logstash data collection engine**, you can send any type of log you want through Logstash directly to your Log Analytics workspace in Microsoft Sentinel. Your logs will be sent to a custom table that you define using the output plugin. This version of the plugin uses the HTTP Data Collection API. 
 
