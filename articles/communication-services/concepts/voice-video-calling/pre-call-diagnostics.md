@@ -159,7 +159,7 @@ mediaStatsCollector.on('mediaStatsEmitted', (mediaStats: SDK.MediaStats) => {
 
 When the Pre-Call diagnostic test runs, behind the scenes it uses calling minutes to run the diagnostic. The test lasts for roughly 30 seconds, using up 30 seconds of calling which is charged at the standard rate of $0.004 per participant per minute. For the case of Pre-Call diagnostic, the charge will be for 1 participant x 30 seconds = $0.002. 
 
-## Next Steps
+## Next steps
 
 - [Check your network condition with the diagnostics tool](../developer-tools/network-diagnostic.md)
 - [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
