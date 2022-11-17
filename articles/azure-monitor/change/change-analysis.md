@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 08/23/2022 
+ms.date: 11/15/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell, ignite-2022
 ---
@@ -32,7 +32,7 @@ Change Analysis detects various types of changes, from the infrastructure layer 
 
 The following diagram illustrates the architecture of Change Analysis:
 
-![Architecture diagram of how Change Analysis gets change data and provides it to client tools](./media/change-analysis/overview.png)
+:::image type="content" source="./media/change-analysis/architecture-overview.png" alt-text="Architecture diagram of how Change Analysis gets change data and provides it to client tools.":::
 
 ## Supported resource types
 

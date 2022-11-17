@@ -99,7 +99,7 @@ Persistent session tokens are stored as persistent cookies on the web browser's 
 | ESTSAUTHPERSISTENT | Common | Contains user's session information to facilitate SSO. Persistent. |
 | ESTSAUTHLIGHT | Common  | Contains Session GUID Information. Lite session state cookie used exclusively by client-side JavaScript in order to facilitate OIDC sign-out. Security feature. |
 | SignInStateCookie | Common | Contains list of services accessed to facilitate sign-out. No user information. Security feature. |
-| CCState | Common | Contains session information state to be used between Azure AD and the [Azure AD Backup Authentication Service](/azure/active-directory/conditional-access/resilience-defaults). |
+| CCState | Common | Contains session information state to be used between Azure AD and the [Azure AD Backup Authentication Service](../conditional-access/resilience-defaults.md). |
 | buid | Common | Tracks browser related information. Used for service telemetry and protection mechanisms. |
 | fpc | Common | Tracks browser related information. Used for tracking requests and throttling. |
 | esctx | Common | Session context cookie information. For CSRF protection. Binds a request to a specific browser instance so the request can't be replayed outside the browser. No user information. |
@@ -116,15 +116,15 @@ Persistent session tokens are stored as persistent cookies on the web browser's 
 | wlidperf | Common | Client-side cookie (set by JavaScript) that tracks local time for performance purposes. |
 | x-ms-gateway-slice | Common | Azure AD Gateway cookie used for tracking and load balance purposes. |
 | stsservicecookie | Common | Azure AD Gateway cookie also used for tracking purposes. |
-| x-ms-refreshtokencredential | Specific | Available when [Primary Refresh Token (PRT)](/azure/active-directory/devices/concept-primary-refresh-token) is in use. |
+| x-ms-refreshtokencredential | Specific | Available when [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md) is in use. |
 | estsStateTransient | Specific | Applicable to new session information model only. Transient. | 
 | estsStatePersistent | Specific | Same as estsStateTransient, but persistent. |
 | ESTSNCLOGIN | Specific | National Cloud Login related Cookie. | 
 | UsGovTraffic | Specific | US Gov Cloud Traffic Cookie. | 
 | ESTSWCTXFLOWTOKEN | Specific | Saves flowToken information when redirecting to ADFS. |
-| CcsNtv | Specific | To control when Azure AD Gateway will send requests to [Azure AD Backup Authentication Service](/azure/active-directory/conditional-access/resilience-defaults). Native flows. | 
-| CcsWeb | Specific | To control when Azure AD Gateway will send requests to [Azure AD Backup Authentication Service](/azure/active-directory/conditional-access/resilience-defaults). Web flows. | 
-| Ccs* | Specific | Cookies with prefix Ccs*, have the same purpose as the ones without prefix, but only apply when [Azure AD Backup Authentication Service](/azure/active-directory/conditional-access/resilience-defaults) is in use. | 
+| CcsNtv | Specific | To control when Azure AD Gateway will send requests to [Azure AD Backup Authentication Service](../conditional-access/resilience-defaults.md). Native flows. | 
+| CcsWeb | Specific | To control when Azure AD Gateway will send requests to [Azure AD Backup Authentication Service](../conditional-access/resilience-defaults.md). Web flows. | 
+| Ccs* | Specific | Cookies with prefix Ccs*, have the same purpose as the ones without prefix, but only apply when [Azure AD Backup Authentication Service](../conditional-access/resilience-defaults.md) is in use. | 
 | threxp | Specific | Used for throttling control. | 
 | rrc | Specific | Cookie used to identify a recent B2B invitation redemption. | 
 | debug | Specific | Cookie used to track if user's browser session is enabled for DebugMode. |

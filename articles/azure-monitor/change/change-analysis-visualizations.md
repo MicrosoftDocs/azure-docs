@@ -45,7 +45,7 @@ Click into a change to view full Resource Manager snippet and other properties.
   
 :::image type="content" source="./media/change-analysis/change-details.png" alt-text="Screenshot of change details":::
   
-Send any feedback to the [Change Analysis team](mailto:changeanalysisteam@microsoft.com) from the Change Analysis blade:
+Send feedback from the Change Analysis blade:
 
 :::image type="content" source="./media/change-analysis/change-analysis-feedback.png" alt-text="Screenshot of feedback button in Change Analysis tab":::
 
