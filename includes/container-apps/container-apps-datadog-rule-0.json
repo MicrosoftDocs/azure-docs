@@ -1,9 +1,9 @@
 ...
 "rules": [
   {
-    "name": "azure-queue-rule",
+    "name": "datadog-rule",
     "custom": {
-      "type": "azure-queue",
+      "type": "datadog",
       "metadata": {
         "query": "sum:trace.redis.command.hits{env:none,service:redis}.as_count()",
         "queryValue": "7.75",

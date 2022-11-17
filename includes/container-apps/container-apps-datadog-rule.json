@@ -16,16 +16,16 @@
             "maxReplicas": "30",
             "rules": [
             {
-              "name": "azure-queue-rule",
+              "name": "datadog-rule",
               "custom": {
-                "type": "azure-queue",
+                "type": "datadog",
                 "metadata": {
-                  "queueName": "<MY_QUEUE_NAME>",
-                  "queueLength": "5",
-                  "activationQueueLength": "50",
-                  "connectionFromEnv": "<MY_STORAGE_CONNECTION_STRING_ENV_NAME>",
-                  "accountName": "<MY_STORAGE_ACCOUNT_NAME>",
-                  "cloud": "AzureUSGovernmentCloud"
+                  "query": "sum:trace.redis.command.hits{env:none,service:redis}.as_count()",
+                  "queryValue": "7.75",
+                  "activationQueryValue": "1.1",
+                  "type": "global",
+                  "age": "120",
+                  "metricUnavailableValue": "1.5"
                 },
                 "auth": [{
                   "secretRef": "<MY_CONNECTION_STRING_NAME>",

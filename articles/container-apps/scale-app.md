@@ -257,7 +257,7 @@ First, you'll define the type and metadata of the scale rule.
 
 1. Find the `type` value from the KEDA scaler.
 
-    :::code language="yml" source="../../includes/container-apps/keda-datadog-trigger.yml" highlight="2":::
+    :::code language="yml" source="../../includes/container-apps/keda-azure-datadog-trigger.yml" highlight="2":::
 
 1. Set this value into the `custom.type` property of the scale rule.
 
@@ -269,7 +269,7 @@ First, you'll define the type and metadata of the scale rule.
 
 1. Add all metadata values to the `custom.metadata` section of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-0.json" highlight="7,8,9,10,11,12":::
+    :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-0.json" highlight="8,9,10,11,12,13":::
 
 Next, you'll map the [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) object to the scale rule.
 
