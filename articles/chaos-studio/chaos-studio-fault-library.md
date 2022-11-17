@@ -658,16 +658,16 @@ Known issues on Linux:
 
 | Property | Value |
 |-|-|
-| Capability Name | <ul><li>Version 1.0 - Shutdown-1.0</li><li>Version 2.0 - Shutdown-2.0</li></ul> |
+| Capability Names | <ul><li><strong>Version 1.0</strong>: Shutdown-1.0</li><li><strong>Version 2.0</strong>: Shutdown-2.0</li></ul> |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kills a virtual machine scale set instance during the fault, and restarts the VM at the end of the fault duration or if the experiment is canceled. |
+| Description | Shuts down or kills a virtual machine scale set instance during the fault, and restarts the VM at the end of the fault duration or if the experiment is canceled. To use this fault, [automatic upgrade must be enabled](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) in the VMSS where it runs.<br><br>Note this fault has two versions, Version 1.0 and Version 2.0. Examples for both versions are below. |
 | Prerequisites | None. |
-| Urn | <ul><li>Version 1.0 - urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0</li><li>Version 2.0 - urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0</li></ul> |
+| Urn | <ul><li><strong>Version 1.0</strong>: urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0</li><li><strong>Version 2.0</strong>: urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0</li></ul> |
 | [filter](/azure/templates/microsoft.chaos/experiments?pivots=deployment-language-arm-template#filter-objects-1) | (Optional) Available starting with Version 2.0. Used to filter the list of targets in a selector. Currently supports filtering on a list of zones, and the filter is only applied to VMSS resources within a zone.<ul><li>If no filter is specified, this fault will shut down all instances in the VMSS.</li><li>The experiment will target all VMSS instances in the specified zones.</li><li>If a filter results in no targets, the experiment will fail.</li></ul> |
 | Parameters (key, value) |  |
 | abruptShutdown | (Optional) Boolean indicating if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
-| instances | Only available in Version 1.0. A string that is a delimited array of virtual machine scale set instance IDs to which the fault will be applied. |
+| instances | Version 1.0 only. A string that is a delimited array of virtual machine scale set instance IDs to which the fault will be applied. |
 
 ### Sample JSON
 
