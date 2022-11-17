@@ -36,11 +36,10 @@ Only use one type of deployment mechanism per device, either an automatic deploy
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
 
-
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 
-### Can't get the IoT Edge daemon logs on Windows
+### Can't get the IoT Edge runtime logs on Windows
 
 #### Symptoms
 
@@ -75,7 +74,7 @@ IoT Edge fails to start with error message `failed to provision with IoT Hub, an
 
 #### Cause
 
-A group enrollment is used to provision an IoT Edge device to an IoT Hub. The IoT Edge device is moved to a different hub. The registration is deleted in DPS. A new registration is created in DPS for the new hub. The device is not reprovisioned.
+A group enrollment is used to provision an IoT Edge device to an IoT Hub. The IoT Edge device is moved to a different hub. The registration is deleted in DPS. A new registration is created in DPS for the new hub. The device isn't reprovisioned.
 
 #### Solution
 
@@ -84,14 +83,118 @@ A group enrollment is used to provision an IoT Edge device to an IoT Hub. The Io
 1. If the device isn't reprovisioned, restart the device using `sudo iotedge system restart`.
 1. If the device isn't reprovisioned, force reprovisioning using `sudo iotedge system reprovision`.
 
-To automatically reprovision, set `dynamic_reprovisioning: true` in the device configuration file. Setting this flag to true opts in to the dynamic re-provisioning feature. IoT Edge detects situations where the device appears to have been reprovisioned in the cloud by monitoring its own IoT Hub connection for certain errors. IoT Edge responds by shutting itself and all Edge modules down. The next time the daemon starts up, it will attempt to reprovision this device with Azure to receive the new IoT Hub provisioning information.
+To automatically reprovision, set `dynamic_reprovisioning: true` in the device configuration file. Setting this flag to true opts in to the dynamic reprovisioning feature. IoT Edge detects situations where the device appears to have been reprovisioned in the cloud by monitoring its own IoT Hub connection for certain errors. IoT Edge responds by shutting itself and all Edge modules down. The next time the daemon starts up, it will attempt to reprovision this device with Azure to receive the new IoT Hub provisioning information.
 
-When using external provisioning, the daemon will also notify the external provisioning endpoint about the re-provisioning event before shutting down. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+When using external provisioning, the daemon will also notify the external provisioning endpoint about the reprovisioning event before shutting down. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 :::moniker-end
 <!-- end 1.1 -->
 
 ## IoT Edge runtime
+
+### IoT Edge agent stops after a minute
+
+#### Symptoms
+
+The edgeAgent module starts and runs successfully for about a minute, then stops. The logs indicate that the IoT Edge agent attempts to connect to IoT Hub over AMQP, and then attempts to connect using AMQP over WebSocket. When that fails, the IoT Edge agent exits.
+
+Example edgeAgent logs:
+
+```output
+2017-11-28 18:46:19 [INF] - Starting module management agent.
+2017-11-28 18:46:19 [INF] - Version - 1.0.7516610 (03c94f85d0833a861a43c669842f0817924911d5)
+2017-11-28 18:46:19 [INF] - Edge agent attempting to connect to IoT Hub via AMQP...
+2017-11-28 18:46:49 [INF] - Edge agent attempting to connect to IoT Hub via AMQP over WebSocket...
+```
+
+#### Cause
+
+A networking configuration on the host network is preventing the IoT Edge agent from reaching the network. The agent attempts to connect over AMQP (port 5671) first. If the connection fails, it tries WebSockets (port 443).
+
+The IoT Edge runtime sets up a network for each of the modules to communicate on. On Linux, this network is a bridge network. On Windows, it uses NAT. This issue is more common on Windows devices using Windows containers that use the NAT network.
+
+#### Solution
+
+Ensure that there's a route to the internet for the IP addresses assigned to this bridge/NAT network. Sometimes a VPN configuration on the host overrides the IoT Edge network.
+
+### Edge Agent module reports 'empty config file' and no modules start on the device
+
+#### Symptoms
+
+The device has trouble starting modules defined in the deployment. Only the edgeAgent is running but continually reporting 'empty config file...'.
+
+#### Cause
+
+By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
+
+#### Solution
+
+**Option 1: Set DNS server in container engine settings**
+
+Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
+
+```json
+{
+    "dns": ["1.1.1.1"]
+}
+```
+
+This DNS server is set to a publicly accessible DNS service. However some networks, such as corporate networks, have their own DNS servers installed and won't allow access to public DNS servers. Therefore, if your edge device can't access a public DNS server, replace it with an accessible DNS server address.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+Place `daemon.json` in the right location for your platform:
+
+| Platform | Location |
+| --------- | -------- |
+| Linux | `/etc/docker` |
+| Windows host with Windows containers | `C:\ProgramData\iotedge-moby\config` |
+
+If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
+
+Restart the container engine for the updates to take effect.
+
+| Platform | Command |
+| --------- | -------- |
+| Linux | `sudo systemctl restart docker` |
+| Windows (Admin PowerShell) | `Restart-Service iotedge-moby -Force` |
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
+Place `daemon.json` in the `/etc/docker` directory on your device.
+
+If the location already contains a `daemon.json` file, add the **dns** key to it and save the file.
+
+Restart the container engine for the updates to take effect.
+
+```bash
+sudo systemctl restart docker
+```
+
+:::moniker-end
+<!-- end iotedge-2020-11 -->
+
+**Option 2: Set DNS server in IoT Edge deployment per module**
+
+You can set DNS server for each module's *createOptions* in the IoT Edge deployment. For example:
+
+```json
+"createOptions": {
+  "HostConfig": {
+    "Dns": [
+      "x.x.x.x"
+    ]
+  }
+}
+```
+
+> [!WARNING]
+> If you use this method and specify the wrong DNS address, *edgeAgent* loses connection with IoT Hub and can't receive new deployments to fix the issue. To resolve this issue, you can reinstall the IoT Edge runtime. Before you install a new instance of IoT Edge, be sure to remove any *edgeAgent* containers from the previous installation.
+
+Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
 ### IoT Edge agent can't access a module's image (403)
 
@@ -218,7 +321,7 @@ You may experience stability problems on resource constrained devices like the R
 
 #### Cause
 
-The IoT Edge hub, which is part of the IoT Edge runtime, is optimized for performance by default and attempts to allocate large chunks of memory. This optimization is not ideal for constrained edge devices and can cause stability problems.
+The IoT Edge hub, which is part of the IoT Edge runtime, is optimized for performance by default and attempts to allocate large chunks of memory. This optimization isn't ideal for constrained edge devices and can cause stability problems.
 
 #### Solution
 
@@ -263,39 +366,32 @@ For all Linux distros except CentOS 7, IoT Edge's default configuration is to us
 
 #### Solution
 
-You do not need to disable socket activation on a distro where socket activation is supported. However, if you prefer to not use socket activation at all, put the sockets in `/var/lib/iotedge/`. To do this 
+You don't need to disable socket activation on a distro where socket activation is supported. However, if you prefer to not use socket activation at all, put the sockets in `/var/lib/iotedge/`.
 1. Run `systemctl disable iotedge.socket iotedge.mgmt.socket` to disable the socket units so that systemd doesn't start them unnecessarily
 1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
 1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+### Could not start module due to OS mismatch
 
-## Networking
+#### Symptom
 
-### IoT Edge agent stops after a minute
-
-#### Symptoms
-
-The edgeAgent module starts and runs successfully for about a minute, then stops. The logs indicate that the IoT Edge agent attempts to connect to IoT Hub over AMQP, and then attempts to connect using AMQP over WebSocket. When that fails, the IoT Edge agent exits.
-
-Example edgeAgent logs:
-
-```output
-2017-11-28 18:46:19 [INF] - Starting module management agent.
-2017-11-28 18:46:19 [INF] - Version - 1.0.7516610 (03c94f85d0833a861a43c669842f0817924911d5)
-2017-11-28 18:46:19 [INF] - Edge agent attempting to connect to IoT Hub via AMQP...
-2017-11-28 18:46:49 [INF] - Edge agent attempting to connect to IoT Hub via AMQP over WebSocket...
-```
+The edgeHub module fails to start in IoT Edge version 1.1.
 
 #### Cause
 
-A networking configuration on the host network is preventing the IoT Edge agent from reaching the network. The agent attempts to connect over AMQP (port 5671) first. If the connection fails, it tries WebSockets (port 443).
-
-The IoT Edge runtime sets up a network for each of the modules to communicate on. On Linux, this network is a bridge network. On Windows, it uses NAT. This issue is more common on Windows devices using Windows containers that use the NAT network.
+Windows module uses a version of Windows that is incompatible with the version of Windows on the host. IoT Edge Windows version 1809 build 17763 is needed as the base layer for the module image, but a different version is in use.
 
 #### Solution
 
-Ensure that there is a route to the internet for the IP addresses assigned to this bridge/NAT network. Sometimes a VPN configuration on the host overrides the IoT Edge network.
+Check the version of your various Windows operating systems in [Troubleshoot host and container image mismatches](/virtualization/windowscontainers/deploy-containers/update-containers#troubleshoot-host-and-container-image-mismatches). If the operating systems are different, update them to IoT Edge Windows version 1809 build 17763 and rebuild the Docker image used for that module.
 
+:::moniker-end
+<!-- end 1.1 -->
+
+
+## Networking
 
 ### IoT Edge security daemon fails with an invalid hostname
 
@@ -380,7 +476,7 @@ IoT Edge modules that connect directly to cloud services, including the runtime 
 
 #### Cause
 
-Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://docs.docker.com/config/containers/container-networking/) in the Docker documentation.
+Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services won't work as expected. For more information, see [Understand container communication](https://docs.docker.com/config/containers/container-networking/) in the Docker documentation.
 
 #### Solution
 
@@ -437,28 +533,11 @@ On Linux:
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
-### IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module
+### IoT Edge behind a gateway can't perform HTTP requests and start edgeAgent module
 
 #### Symptoms
 
-The IoT Edge daemon is active with a valid configuration file, but it cannot start the edgeAgent module. The command `iotedge list` returns an empty list. The IoT Edge daemon logs report `Could not perform HTTP request`.
-
-#### Cause
-
-IoT Edge devices behind a gateway get their module images from the parent IoT Edge device specified in the `parent_hostname` field of the config file. The `Could not perform HTTP request` error means that the child device isn't able to reach its parent device via HTTP.
-
-#### Solution
-
-Make sure the parent IoT Edge device can receive incoming requests from the child IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the child device.
-
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
-
-### IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module
-
-#### Symptoms
-
-The IoT Edge daemon is active with a valid configuration file, but it cannot start the edgeAgent module. The command `iotedge list` returns an empty list. The IoT Edge daemon logs report `Could not perform HTTP request`.
+The IoT Edge runtime is active with a valid configuration file, but it can't start the *edgeAgent* module. The command `iotedge list` returns an empty list. The IoT Edge runtime reports `Could not perform HTTP request` in the logs.
 
 #### Cause
 
@@ -474,15 +553,35 @@ Make sure the parent IoT Edge device can receive incoming requests from the chil
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
-### IoT Edge behind a gateway cannot connect when migrating from one IoT hub to another
+### IoT Edge behind a gateway can't perform HTTP requests and start edgeAgent module
 
 #### Symptoms
 
-When attempting to migrate a hierarchy of IoT Edge devices from one IoT hub to another, the top level parent IoT Edge device can connect to IoT Hub, but downstream IoT Edge devices cannot. The logs report `Unable to authenticate client downstream-device/$edgeAgent with module credentials`. 
+The IoT Edge daemon is active with a valid configuration file, but it can't start the edgeAgent module. The command `iotedge list` returns an empty list. The IoT Edge daemon logs report `Could not perform HTTP request`.
 
 #### Cause
 
-The credentials for the downstream devices were not updated properly when the migration to the new IoT hub happened. Because of this, `edgeAgent` and `edgeHub` modules were set to have authentication type of `none` (default if not set explicitly). During connection, the modules on the downstream devices use old credentials, causing the authentication to fail.
+IoT Edge devices behind a gateway get their module images from the parent IoT Edge device specified in the `parent_hostname` field of the config file. The `Could not perform HTTP request` error means that the child device isn't able to reach its parent device via HTTP.
+
+#### Solution
+
+Make sure the parent IoT Edge device can receive incoming requests from the child IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the child device.
+
+:::moniker-end
+<!-- end iotedge-2020-11 -->
+
+<!-- iotedge-2020-11 -->
+::: moniker range=">=iotedge-2020-11"
+
+### IoT Edge behind a gateway can't connect when migrating from one IoT hub to another
+
+#### Symptoms
+
+When attempting to migrate a hierarchy of IoT Edge devices from one IoT hub to another, the top level parent IoT Edge device can connect to IoT Hub, but downstream IoT Edge devices can't. The logs report `Unable to authenticate client downstream-device/$edgeAgent with module credentials`. 
+
+#### Cause
+
+The credentials for the downstream devices weren't updated properly when the migration to the new IoT hub happened. Because of this, `edgeAgent` and `edgeHub` modules were set to have authentication type of `none` (default if not set explicitly). During connection, the modules on the downstream devices use old credentials, causing the authentication to fail.
 
 #### Solution
 
@@ -497,19 +596,6 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->
-
-######
-
-
-
-
-
-
-
-
-
-
-
 
 ## Next steps
 
