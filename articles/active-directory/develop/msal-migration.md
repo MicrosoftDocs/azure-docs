@@ -56,7 +56,7 @@ MSAL provides multiple benefits over ADAL, including the following features:
 | Throttling |![Throttling - MSAL provides the feature][y]|![Throttling - ADAL doesn't provide the feature][n]|
 
 ## Additional Capabilities of MSAL over ADAL
-- Auth Broker support – Device based Conditional Access Policy. 
+- Auth broker support – Device-based Conditional Access policy
 - Proof of Possession tokens.
 - Azure AD Certificate-based Authentication (CBA) on Mobile.
 - System browsers on mobile devices.
