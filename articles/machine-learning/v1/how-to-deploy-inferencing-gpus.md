@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 08/08/2022
+ms.date: 11/16/2022
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, sdkv1, event-tier1-build-2022
 ---

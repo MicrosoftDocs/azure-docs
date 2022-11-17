@@ -45,6 +45,8 @@ items:
         href: quickstarts/email/connect-email-communication-resource.md
       - name: Send an Email
         href: quickstarts/email/send-email.md
+      - name: Handle Email events
+        href: quickstarts/email/handle-email-events.md
       - name: Send an Email in Azure Logic Apps
         href: quickstarts/email/logic-app.md            
   - name: Telephony and phone numbers

@@ -80,6 +80,8 @@
         href: adglobalview-tutorial.md
       - name: Adra by Trintech
         href: adra-by-trintech-tutorial.md
+      - name: Adstream
+        href: adstream-tutorial.md
       - name: Agile Provisioning
         href: agile-provisioning-tutorial.md
       - name: Agiloft Contract Management Suite
@@ -1123,8 +1125,6 @@
         href: ibmopenpages-tutorial.md
       - name: ice Contact Center
         href: ice-contact-center-tutorial.md
-      - name: Icertis Contract Management Platform
-        href: icertisicm-tutorial.md
       - name: ICIMS
         href: icims-tutorial.md
       - name: IDC
