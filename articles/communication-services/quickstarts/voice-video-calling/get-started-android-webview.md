@@ -75,7 +75,7 @@ settings.setMediaPlaybackRequiresUserGesture(false);
 - DeviceManager.getMicrophones()
 - DeviceManager.getSpeakers() (If the device supports speaker enumeration)
 
-  :::image type="content" source="../../media/android-webview/device-name-issue.png" alt-text="Screenshot showing the empty device name issue":::
+  :::image type="content" source="./media/android-webview/device-name-issue.png" alt-text="Screenshot showing the empty device name issue":::
 
   To provide a better UI experience, you can use the following workaround to get device labels and map the label by device id.
   Although we cannot get device labels from MediaDevices.enumerateDevices(), we can get label from MediaStreamTrack.
@@ -120,11 +120,11 @@ async function getDeviceLabels() {
 }
 ```
 
-:::image type="content" source="../../media/android-webview/get-device-label.png" alt-text="getDeviceLabels() result":::
+:::image type="content" source="./media/android-webview/get-device-label.png" alt-text="getDeviceLabels() result":::
 
 After you get the mapping between device id and device label, you can use it to show device name from `DeviceManager.getCameras()` or `DeviceManager.getMicrophones()`
 
-:::image type="content" source="../../media/android-webview/device-name-workaround.png" alt-text="Screenshot showing the device name workaround":::
+:::image type="content" source="./media/android-webview/device-name-workaround.png" alt-text="Screenshot showing the device name workaround":::
 
 ## Next steps
 
