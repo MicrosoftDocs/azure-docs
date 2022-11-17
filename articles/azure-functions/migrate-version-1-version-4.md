@@ -383,7 +383,7 @@ To update your project to Azure Functions 4.x:
     }
     ```   
 
-    The `AzureWebJobsStorage` setting can be either the Azurite storage emulator or an actual Azure storage account. For more information, see [Local storage emulator](/functions-develop-local.md#local-storage-emulator).
+    The `AzureWebJobsStorage` setting can be either the Azurite storage emulator or an actual Azure storage account. For more information, see [Local storage emulator](/azure/azure-functions/functions-develop-local#local-storage-emulator).
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-csharp"
 [!INCLUDE [functions-migrate-v4](../../includes/functions-migrate-v4.md)]
