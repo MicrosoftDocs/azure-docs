@@ -1,15 +1,15 @@
 ---
-title: Support for Microsoft 365 Defender connector data types in Microsoft Sentinel for different GCC environments 
-description: This article describes support for different Microsoft 365 Defender connector data types in Microsoft Sentinel across different GCC environments.
+title: Support for Microsoft 365 Defender connector data types in Microsoft Sentinel for different clouds (GCC environments)
+description: This article describes support for different Microsoft 365 Defender connector data types in Microsoft Sentinel across different clouds, including Commercial, GCC, GCC-High, and DoD.
 author: limwainstein
 ms.topic: reference
 ms.date: 11/14/2022
 ms.author: lwainstein
 ---
 
-# Support for Microsoft 365 Defender connector data types in Microsoft Sentinel for different GCC environments
+# Support for Microsoft 365 Defender connector data types in different clouds
 
-The type of cloud your environment uses affects Microsoft Sentinel's ability to ingest and display data from these connectors, like logs, alerts, device events, and more. This article describes support for different Microsoft 365 Defender connector data types in Microsoft Sentinel across different GCC environments.
+The type of cloud your environment uses affects Microsoft Sentinel's ability to ingest and display data from these connectors, like logs, alerts, device events, and more. This article describes support for different Microsoft 365 Defender connector data types in Microsoft Sentinel across different clouds, including Commercial, GCC, GCC-High, and DoD.
 
 Read more about [GCC environments in Microsoft Sentinel](data-type-support-gcc.md).
 

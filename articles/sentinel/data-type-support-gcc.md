@@ -1,5 +1,5 @@
 ---
-title: Support for Microsoft Sentinel connector data types in Microsoft Sentinel across different GCC environments
+title: Support for Microsoft Sentinel connector data types in different clouds
 description: This article describes the types of clouds that affect data streaming from the different connectors that Microsoft Sentinel supports.  
 author: limwainstein
 ms.topic: conceptual
@@ -7,7 +7,7 @@ ms.date: 11/14/2022
 ms.author: lwainstein
 ---
 
-# Support for data types in Microsoft Sentinel across different GCC environments
+# Support for data types in Microsoft Sentinel across different clouds
 
 Microsoft Sentinel data connectors use data stored in various cloud environments, like the Microsoft 365 Commercial cloud or the Government Community Cloud (GCC). 
 
