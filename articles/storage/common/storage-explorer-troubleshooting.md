@@ -375,7 +375,7 @@ After removing connection names, you must clear their corrupted data. Then you c
 1. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key. An example is `StorageExplorer_CustomConnections_Accounts_v1/account1`.
 1. Delete and add back these connections.
 
-# [Linux](#tab/linux-ubuntu)
+# [Ubuntu](#tab/linux-ubuntu)
 
 Local credential management varies depending on your system configuration. If your system doesn't have a tool for local credential management installed, you may install a third-party tool compatible with `libsecret` to manage your local credentials. For example, on systems using GNOME, you can install [Seahorse](https://wiki.gnome.org/Apps/Seahorse/).
 
@@ -432,7 +432,7 @@ Storage Explorer comes packaged with all dependencies it needs to run on Windows
 
 Storage Explorer comes packaged with all dependencies it needs to run on macOS.
 
-# [Linux](#tab/linux-ubuntu)
+# [Ubuntu](#tab/linux-ubuntu)
 
 ### Snap
 
