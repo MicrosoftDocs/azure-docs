@@ -185,7 +185,7 @@ Next, you create a private endpoint for the web app that you created in the "Pre
     | **Networking** |  |
     | Virtual network | Select **myVNet**. |
     | Subnet | Select **myVNet/mySubnet (10.1.0.0/24)**. |
-    | Network policy for private endpoints. | Select **edit** to apply Network security groups and/or Route tables to the subnet that contains the private endpoint. </br> In **Edit subnet network policy**, select the checkbox next to **Network security groups** and **Route Tables**. </br> Select **Save**. </br></br>For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
+    | Network policy for private endpoints | Select **edit** to apply Network security groups and/or Route tables to the subnet that contains the private endpoint. </br> In **Edit subnet network policy**, select the checkbox next to **Network security groups** and **Route Tables**. </br> Select **Save**. </br></br>For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
 
 # [**Dynamic IP**](#tab/dynamic-ip)
 
