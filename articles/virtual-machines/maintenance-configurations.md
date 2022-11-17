@@ -65,6 +65,10 @@ You can create and manage maintenance configurations using any of the following 
 - [Azure CLI](maintenance-configurations-cli.md)
 - [Azure PowerShell](maintenance-configurations-powershell.md)
 - [Azure portal](maintenance-configurations-portal.md)
+- [API](https://learn.microsoft.com/azure/templates/microsoft.maintenance/maintenanceconfigurations?pivots=deployment-language-bicep) 
+
+>[!IMPORTANT]
+> Pre/Post scripts are not currently supported a this time.
 
 For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Configurations and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 
