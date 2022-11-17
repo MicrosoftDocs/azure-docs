@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 11/17/2022
 ms.author: helohr
 manager: femila
 ---
