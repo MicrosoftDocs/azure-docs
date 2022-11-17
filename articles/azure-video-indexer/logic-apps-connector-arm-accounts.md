@@ -101,7 +101,7 @@ The following image shows the first flow:
     > :::image type="content" source="./media/logic-apps-connector-arm-accounts/create-sas.png" alt-text="Screenshot of the create SAS URI by path logic." lightbox="./media/logic-apps-connector-arm-accounts/create-sas.png":::
  
     Select **+New Step**.
-1. <a id ="access-token>Generate an access token.</a>
+1. Generate an access token.
     
     > [!NOTE]
     > For details about the ARM API and the request/response examples, see [Generate an Azure Video Indexer access token](/rest/api/videoindexer/generate/access-token?tabs=HTTP).
