@@ -117,7 +117,7 @@ az network vnet create --resource-group myResourceGroup --name myVNet
 
    - **DNS servers**: You can specify whether the Azure internal DNS server or a custom DNS server provides name resolution for devices that are connected to the virtual network. When you create a virtual network by using the Azure portal, Azure's DNS servers are used for name resolution within a virtual network, by default. To learn how to modify the DNS servers, see the steps in [Change DNS servers](#change-dns-servers) in this article.
 
-   - **Peerings**: If there are existing peerings in the subscription, they're listed here. You can view settings for existing peerings, or create, change, or delete peerings. To learn more about peerings, see [Virtual network peering](virtual-network-peering-overview.md) and [Manage virtual network peerings](virtual-network-manage-peering).
+   - **Peerings**: If there are existing peerings in the subscription, they're listed here. You can view settings for existing peerings, or create, change, or delete peerings. To learn more about peerings, see [Virtual network peering](virtual-network-peering-overview.md) and [Manage virtual network peerings](virtual-network-manage-peering.md).
 
    - **Properties**: Displays settings about the virtual network, including the virtual network's resource ID and Azure subscription.
 
