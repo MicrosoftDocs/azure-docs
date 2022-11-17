@@ -272,12 +272,13 @@ az group delete --name myResourceGroup --no-wait --yes
 In this tutorial, you learned how to perform some basic scale set creation and management tasks with the Azure CLI:
 
 > [!div class="checklist"]
-> * Create a resource group and a scale set
+> * Create a resource group
+> * Create a scale set
 > * View and use specific VM sizes
 > * Manually scale a scale set
 > * Perform common scale set management tasks such as stopping, starting and restarting your scale set
 
-Advance to the next tutorial to learn about scale set and how to connect to individual instances.
+Advance to the next tutorial to learn how to connect to your scale set instances.
 
 > [!div class="nextstepaction"]
 > [Use data disks with scale sets](tutorial-use-disks-cli.md)
