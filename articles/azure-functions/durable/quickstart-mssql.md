@@ -11,7 +11,7 @@ ms.reviewer: azfuncdf
 
 Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called "backends" for short, each with their own [design characteristics](durable-functions-storage-providers.md#comparing-storage-providers). By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure an existing Durable Functions app to utilize the [MSSQL storage provider](durable-functions-storage-providers.md#mssql).
 
-The MSSQL backend was designed to maximize application portability and control over your data. It uses [MSSQL Server](https://www.microsoft.com/en-us/sql-server/) to persist all Task Hub state which means that it reaps the benefits of the MSSQL Server DBMS infrastructure towards scalability, security, compatibility with vendors, etc.  To learn more about when MSSQL may be good choice, please review our documentation on [storage providers](durable-functions-storage-providers.md).
+The MSSQL backend was designed to maximize application portability and control over your data. It uses [MSSQL Server](https://www.microsoft.com/en-us/sql-server/) to persist all Task Hub state which means that it reaps the benefits of the MSSQL Server DBMS infrastructure towards scalability, security, compatibility with vendors, etc.  To learn more about when the MSSQL backend may be good choice, please review our documentation on [storage providers](durable-functions-storage-providers.md).
 
 ## Note on data migration
 
@@ -46,9 +46,9 @@ If this is not the case, we suggest you start with one of the following articles
 > If your app uses [Extension Bundles](/articles/azure/azure-functions/functions-bindings-register#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 You will need to install the latest version of the `Microsoft.DurableTask.SqlServer.AzureFunctions` [Extension on Nuget](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) on your app. This usually means including a reference to it in your `.csproj` file and building the project.
 
-There are many ways to achieve this, especially for C# users who may leverage [VisualStudio package management tools](/articles/nuget/consume-packages/install-use-packages-visual-studio), the [Nuget package manager](../functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or even the [dotnet CLI](../functions-develop-vs-code.md?tabs=csharp#install-binding-extensions).
+There are many ways to achieve this, especially for C# users who may leverage [Visual Studio package management tools](/articles/nuget/consume-packages/install-use-packages-visual-studio), the [Nuget package manager](../functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or even the [dotnet CLI](../functions-develop-vs-code.md?tabs=csharp#install-binding-extensions).
 
-However, all languages should be able to utilize the [Azure Functions Core Tools CLI](../functions-run-local.md?tabs=v4,windows,csharp,portal,bash#install-the-azure-functions-core-tools) to do this. With it, you may install Netherite using the following command:
+However, all languages should be able to utilize the [Azure Functions Core Tools CLI](../functions-run-local.md?tabs=v4,windows,csharp,portal,bash#install-the-azure-functions-core-tools) to do this. With it, you may install the MSSQL backend using the following command:
 
 ```cmd
 func extensions install --package Microsoft.Azure.DurableTask.SqlServer.AzureFunctions --version <latestVersionOnNuget>
@@ -63,11 +63,11 @@ For more information on installing Azure Functions Extensions via the Core Tools
 
 As the MSSQL backend is designed for portability, you have several options to set up your backing database. You may decide to set up an on-premise database, or a cloud-provided DB such as the [Azure SQL DB](https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview?view=azuresql), [Microsoft SQL Server on AWS](https://aws.amazon.com/sql/?blog-posts-content-windows.sort-by=item.additionalFields.createdDate&blog-posts-content-windows.sort-order=desc), [Google Cloud's Cloud SQL](https://cloud.google.com/sql/), etc. 
 
-You also have options to support local development, even offline: could set up an [MS SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) instance on your local machine, or host your SQL server from within an MSSQL Docker instance. For ease of setup, we will focus on the latter.
+You also have options to support local development, even offline: could set up an [MS SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) instance on your local machine, or host your own SQL server from within an MSSQL Docker instance. For ease of setup, we will focus on the latter.
 
 ### Set up your Docker-based local DB
 
-You will need a [Docker](https://www.docker.com/products/docker-desktop/) installation on your local machine. Below are PowerShell commands that you can use to set up your local DB on Docker. Note that you can install PowerShell on both [Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux) and [macOS](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos).
+You will need a [Docker](https://www.docker.com/products/docker-desktop/) installation on your local machine. Below are PowerShell commands that you can use to set up a local DB on Docker. Note that you can install PowerShell on both [Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux) and [macOS](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos).
 
 ```powershell
 # primary parameters
@@ -90,12 +90,12 @@ docker run --name mssql-server -e 'ACCEPT_EULA=Y' -e "SA_PASSWORD=$pw" -e "MSSQL
 docker exec -d mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw" -Q "CREATE DATABASE [$dbname] COLLATE $collation"
 ```
 
-After running these, you should have a local SQL Server running on Docker and listening on port `1443`. If port `1443` were to conflict with another service, you can re-run these commands after changing variable `$port` to a different value.
+After running these commands, you should have a local SQL Server running on Docker and listening on port `1443`. If port `1443` were to conflict with another service, you can re-run these commands after changing the variable `$port` to a different value.
 
 > [!NOTE]
-> To stop and delete a running container, you may use `docker stop <containerName>` and `docker rm <containerName>` respectively. You may use these commands to re-create your container, and to stop if after you're done with this quickstart. For options, try `docker --help`.
+> To stop and delete a running container, you may use `docker stop <containerName>` and `docker rm <containerName>` respectively. You may use these commands to re-create your container, and to stop if after you're done with this quickstart. For more assistance, try `docker --help`.
 
-For validation, you may  query your new SQL DB through `docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw"  -Q "<your SQL query>"`. For example, to ensure the DB was correctly created, you may execute `docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw"  -Q "SELECT name FROM sys.databases"`, which should output something like the following
+For validation's sake, you may query your new SQL DB through `docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw"  -Q "<your SQL query>"`. For example, to ensure the `DurableDB` database exists, you may execute `docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw"  -Q "SELECT name FROM sys.databases"`, which should output something like the following
 
 ```bash
 name
@@ -115,11 +115,11 @@ DurableDB
 (5 rows affected)
 ```
 
-In this instance, you're looking for a result for  `DurableDB`, which we can see as the last item above.
+In this instance, you're looking for a result named `DurableDB`, which we can see as the last item above.
 
 ## Add your DB connection string to local.settings.json
 
-For the MSSQL backend to connect to your database, it will need a connection-string. How to obtain a connection string largely depends on your specific database instance and it's authentication config. Please review the documentation of your specific database provider for information on how to obtain a connection string.
+For the MSSQL backend to connect to your database, it will need a connection string to that database. How to obtain a connection string largely depends on your specific database provider. Please review the documentation of your specific database provider for information on how to obtain a connection string.
 
 Generally, a minimal connection string looks as follows:
 
