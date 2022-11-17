@@ -92,7 +92,7 @@ The following parameters are used by the App Configuration Push task:
 - **Delete all other Key-Values in store with the specified prefix and label**: Default value is **Unchecked**. The behavior of this option depends on the configuration file content profile.
    - **Checked**:
        - **Default content profile**: Removes all key-values in the App Configuration store that match both the specified prefix and label before pushing new key-values from the configuration file.
-        - **Kvset content profile**: Removes all key-values in the App Configuration store that are not included in the configuration file before pushing new key-values from the configuration file.
+       - **Kvset content profile**: Removes all key-values in the App Configuration store that are not included in the configuration file before pushing new key-values from the configuration file.
   - **Unchecked**: Pushes all key-values from the configuration file into the App Configuration store and leaves everything else in the App Configuration store intact.
 
 
