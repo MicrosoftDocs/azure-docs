@@ -5,10 +5,10 @@ description: Learn how to troubleshoot some common deployment and scoring errors
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: petrodeg
-ms.author:  petrodeg
-ms.reviewer: larryfr
-ms.date: 04/12/2022
+author: shohei1029
+ms.author:  shnagata
+ms.reviewer: mopeakande
+ms.date: 11/04/2022
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -61,7 +61,7 @@ To use local deployment, add  `local=True` parameter in the command:
 ml_client.begin_create_or_update(online_deployment, local=True)
 ```
 
-* `ml_client` and `online_deployment` are instances for `MLClient` class and `ManagedOnlineDeployment` class, respectively.
+* `ml_client` is the instance for `MLCLient` class, and `online_deployment` is the instance for either `ManagedOnlineDeployment` class or `KubernetesOnlineDeployment` class.
 
 ---
 
@@ -70,7 +70,9 @@ As a part of local deployment the following steps take place:
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
 - Docker starts a new container with mounted local artifacts such as model and code files.
 
-For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+For more, see [Deploy locally in Deploy and score a machine learning model](how-to-deploy-managed-online-endpoint-sdk-v2.md#create-local-endpoint-and-deployment).
+
+
 
 ## Conda installation
  
@@ -189,9 +191,9 @@ Below is a list of common image build failure scenarios:
 
 If the error message mentions `"container registry authorization failure"`, that means the container registry could not be accessed with the current credentials.
 This can be caused by desynchronization of a workspace resource's keys and it takes some time to automatically synchronize.
-However, you can [manually call for a synchronization of keys](https://learn.microsoft.com/cli/azure/ml/workspace#az-ml-workspace-sync-keys) which may resolve the authorization failure.
+However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys) which may resolve the authorization failure.
 
-Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network been set up properly.
+Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network has been set up properly.
 
 #### Generic image build failure
 
@@ -369,7 +371,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
     - A package that was imported but isn't in the conda environment.
     - A syntax error.
     - A failure in the `init()` method.
-- If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) instead.
+- If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](#deploy-locally) instead.
 - Readiness or liveness probes aren't set up correctly.
 - There's an error in the environment setup of the container, such as a missing dependency.
 - When you face `TypeError: register() takes 3 positional arguments but 4 were given` error, the error may be caused by the dependency between flask v2 and `azureml-inference-server-http`. See [FAQs for inference HTTP server](how-to-inference-server-http.md#1-i-encountered-the-following-error-during-server-startup) for more details.
@@ -448,7 +450,7 @@ When you access online endpoints with REST requests, the returned status codes a
 | 404 | Not found | The endpoint doesn't have any valid deployment with positive weight. |
 | 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
 | 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
-| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow maximum 2 * `max_concurrent_requests_per_instance` * `instance_count` / `request_process_time (in seconds)` requests per second. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`, respectively. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. Apart from enable auto-scaling, you could also increase the number of instances by using the below [code](#how-to-calculate-instance-count). |
+| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow maximum 2 * `max_concurrent_requests_per_instance` * `instance_count` requests in parallel at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`, respectively. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. Apart from enable auto-scaling, you could also increase the number of instances by using the below [code](#how-to-calculate-instance-count). |
 | 429 | Rate-limiting | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.|
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
 
@@ -458,7 +460,7 @@ To increase the number of instances, you could calculate the required replicas f
 from math import ceil
 # target requests per second
 target_rps = 20
-# time to process the request (in seconds)
+# time to process the request (in seconds, choose appropriate percentile)
 request_process_time = 10
 # Maximum concurrent requests per instance
 max_concurrent_requests_per_instance = 1

@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to add upload storage account configuration in Azure IoT Central
 description: How to use the IoT Central REST API to add upload storage account configuration in an application
-author: v-krishnag
-ms.author: v-krishnag
+author: eross-msft
+ms.author: lizross
 ms.date: 05/12/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -256,7 +256,7 @@ To test the file upload you run a sample device application. Create a device tem
 
 1. On the **Review** page, select **Create**.
 
-1. Select **Import a model** and upload the *FileUploadDeviceDcm.json* manifest file from the folder `iotc-file-upload-device\setup` in the repository you downloaded previously.
+1. Select **Import a model** and upload the *FileUploadDeviceDcm.json* model file from the folder `iotc-file-upload-device\setup` in the repository you downloaded previously.
 
 1. Select **Publish** to publish the device template.
 

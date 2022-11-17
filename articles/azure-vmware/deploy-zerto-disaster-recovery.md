@@ -3,8 +3,8 @@ title: Deploy Zerto disaster recovery on Azure VMware Solution
 description: Learn how to implement Zerto disaster recovery for on-premises VMware or Azure VMware Solution virtual machines. 
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 10/25/2021
-
+ms.date: 10/26/2022
+ms.custom: engagement-fy23
 ---
 
 # Deploy Zerto disaster recovery on Azure VMware Solution

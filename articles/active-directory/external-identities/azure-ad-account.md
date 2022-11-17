@@ -13,6 +13,7 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
+ms.custom: engagement-fy23
 ---
 
 # Add Azure Active Directory (Azure AD) as an identity provider for External Identities

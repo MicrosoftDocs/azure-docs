@@ -52,7 +52,7 @@ You can enable logging on your server. These resource logs can be sent to [Azure
 
 ## Query Performance Insight
 
-[Query Performance Insight](concepts-query-performance-insight.md) works in conjunction with Query Store to provide visualizations accessible from the Azure portal. These charts enable you to identify key queries that impact performance. Query Performance Insight is accessible from the **Support + troubleshooting** section of your Azure Database for PostgreSQL server's portal page.
+[Query Performance Insight](concepts-query-performance-insight.md) works in conjunction with Query Store to provide visualizations accessible from the Azure portal. These charts enable you to identify key queries that impact performance. Query Performance Insight is accessible from the **Intelligent Performance** section of your Azure Database for PostgreSQL server's portal page.
 
 ## Performance Recommendations
 

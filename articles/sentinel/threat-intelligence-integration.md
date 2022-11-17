@@ -44,7 +44,7 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 ### Health intelligence sharing community (H-ISAC)
 
-- [Join the H-ISAC](https://h-isac.org/soltra/) to get the credentials to access this feed.
+- [Join the H-ISAC](https://h-isac.org/) to get the credentials to access this feed.
 
 ### IBM X-Force
 
@@ -146,7 +146,7 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 
 ### ReversingLabs TitaniumCloud
 
-- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information).
+- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/ReversingLabs-EnrichFileHash).
 - See the ReversingLabs Intelligence Logic App [connector documentation](/connectors/reversinglabsintelligence/).
 
 ### RiskIQ Passive Total

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 11/03/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -23,7 +23,7 @@ In Azure AD B2C, there are two ways to provide identity user experiences:
 
 * **User flows** are predefined, built-in, configurable policies that we provide so you can create sign-up, sign-in, and policy editing experiences in minutes.
 
-* **Custom policies** enable you to create your own user journeys for complex identity experience scenarios.
+* **Custom policies** enable you to create your own user journeys for complex identity experience scenarios that are not supported by user flows. Azure AD B2C uses custom policies to provide extensibility.
 
 The following screenshot shows the user flow settings UI, versus custom policy configuration files.
 
@@ -64,7 +64,7 @@ Each user journey is defined by a policy. You can build as many or as few polici
 
 ![Diagram showing an example of a complex user journey enabled by IEF](media/user-flow-overview/custom-policy-diagram.png)
 
-A custom policy is defined by several XML files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey orchestration steps, and other aspects of the identity experience.
+A custom policy is defined by multiple XML files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey orchestration steps, and other aspects of the identity experience.
 
 The powerful flexibility of custom policies is most appropriate for when you need to build complex identity scenarios. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
 

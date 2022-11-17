@@ -111,7 +111,7 @@
         href: storage-files-identity-ad-ds-update-password.md
     - name: Enable Azure AD DS authentication and authorization
       href: storage-files-identity-auth-active-directory-domain-service-enable.md
-    - name: Enable Azure AD Kerberos authentication for hybrid accounts (preview)
+    - name: Enable Azure AD Kerberos authentication for hybrid accounts
       href: storage-files-identity-auth-azure-active-directory-enable.md
   - name: Manage
     items:
@@ -293,9 +293,9 @@
     - name: Java SDK
       href: /java/api/overview/azure/storage/management
     - name: Python SDK
-      href: /python/api/overview/azure/storage/management
+      href: /python/api/overview/azure/storage#management
     - name: JavaScript SDK
-      href: /javascript/api/overview/azure/storage/management
+      href: /javascript/api/overview/azure/storage#management
   - name: Spring Cloud Azure
     href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/files/toc.json#resource-handing
   - name: Monitoring Azure Files reference

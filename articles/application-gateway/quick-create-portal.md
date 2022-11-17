@@ -3,8 +3,8 @@ title: 'Quickstart: Direct web traffic using the portal'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use the Azure portal to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: ryanpfalz
-ms.author: ryanpfalz
+author: greg-lindsay
+ms.author: greglin
 ms.date: 10/13/2022
 ms.topic: quickstart
 ms.service: application-gateway
@@ -13,7 +13,7 @@ ms.custom: mvc, mode-ui
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure portal
 
-In this quickstart, you use the Azure portal to create an [Azure Application Gateway](overview.md) and test it to make sure it works correctly. You will assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with a public front-end IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
+In this quickstart, you use the Azure portal to create an [Azure Application Gateway](overview.md) and test it to make sure it works correctly. You will assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
 
 ![Quickstart setup](./media/quick-create-portal/application-gateway-qs-resources.png)
 
@@ -78,7 +78,7 @@ You'll create the application gateway using the tabs on the **Create application
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 

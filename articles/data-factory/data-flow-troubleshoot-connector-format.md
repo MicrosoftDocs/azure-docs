@@ -256,7 +256,7 @@ You can try to use copy activities to unblock this issue.
 
 #### Symptoms
 
-Your Azure SQL Database can work well in the data copy, dataset preview-data, and test-connection in the linked service, but it fails when the same Azure SQL Database is used as a source or sink in the data flow with error like `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access`
+Your Azure SQL Database can work well in the data copy, dataset preview-data, and test-connection in the linked service, but it fails when the same Azure SQL Database is used as a source or sink in the data flow with error like `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access.'`
 
 #### Cause
 

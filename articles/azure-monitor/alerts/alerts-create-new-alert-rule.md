@@ -176,13 +176,33 @@ And then defining these elements for the resulting alert actions using:
 
     1. In the **Conditions** pane, select the **Chart period**.
     1. The **Preview** chart shows you the results of your selection.
-    1. In the **Alert logic** section:
+    1. Select values for each of these fields in the **Alert logic** section:
 
         |Field |Description |
         |---------|---------|
-        |Event level| Select the level of the events that this alert rule monitors. Values are: **Critical**, **Error**, **Warning**, **Informational**, **Verbose** and **All**.|
-        |Status|Select the status levels for which the alert is evaluated.|
+        |Event level| Select the level of the events for this alert rule. Values are: **Critical**, **Error**, **Warning**, **Informational**, **Verbose** and **All**.|
+        |Status|Select the status levels for the alert.|
         |Event initiated by|Select the user or service principal that initiated the event.|
+
+    ### [Resource Health alert](#tab/resource-health)
+
+     1. In the **Conditions** pane, select values for each of these fields:
+
+        |Field |Description |
+        |---------|---------|
+        |Event status| Select the statuses of Resource Health events. Values are: **Active**, **In Progress**, **Resolved**, and **Updated**.|
+        |Current resource status|Select the current resource status. Values are: **Available**, **Degraded**, and **Unavailable**.|
+        |Previous resource status|Select the previous resource status. Values are: **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
+        |Reason type|Select the cause(s) of the Resource Health events. Values are: **Platform Initiated**, **Unknown**, and **User Initiated**.|  
+    ### [Service Health alert](#tab/service-health)
+
+     1. In the **Conditions** pane, select values for each of these fields:
+
+      |Field |Description |
+      |---------|---------|
+      |Services| Select the Azure services.|
+      |Regions|Select the Azure regions.|
+      |Event types|Select the type(s) of Service Health events. Values are: **Service issue**, **Planned maintenance**, **Health advisories**, and **Security advisories**.| 
 
     ---
 
@@ -253,6 +273,14 @@ And then defining these elements for the resulting alert actions using:
     1. (Optional) If you have configured action groups for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot of the actions tab when creating a new activity log alert rule.":::
+    ### [Resource Health alert](#tab/resource-health)
+
+     1. Enter values for the **Alert rule name** and the **Alert rule description**.
+     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+    ### [Service Health alert](#tab/service-health)
+    
+    1. Enter values for the **Alert rule name** and the **Alert rule description**.
+    1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
     ---
 
@@ -282,6 +310,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     ### [Log alert](#tab/log)
 
     To create a log alert rule that monitors count of system event errors:
+
     ```azurecli
     az monitor scheduled-query create -g {ResourceGroup} -n {nameofthealert} --scopes {vm_id} --condition "count \'union Event, Syslog | where TimeGenerated > a(1h) | where EventLevelName == \"Error\" or SeverityLevel== \"err\"\' > 2" --description {descriptionofthealert}
     ```
@@ -291,18 +320,36 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
 
     ### [Activity log alert](#tab/activity-log)
 
-    To create an activity log alert rule, use the **az monitor activity-log alert create** command. You can see detailed documentation on the metric alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
-
     To create a new activity log alert rule, use the following commands:
      - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
      - [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
      - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
 
-    ---
+    You can find detailed documentation on the activity log alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
+    ### [Resource Health alert](#tab/resource-health)
+ 
+    To create a new activity log alert rule, use the following commands using the `Resource Health` category:
+     - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource.
+     - [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
+     - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
+    
+    You can find detailed documentation on the alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert). 
+
+   ### [Service Health alert](#tab/service-health)
+
+    To create a new activity log alert rule, use the following commands using the `Service Health` category:
+     - [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Create a new activity log alert rule resource .
+     - [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): Add scope for the created activity log alert rule.
+     - [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): Add an action group to the activity log alert rule.
+
+    You can find detailed documentation on the alert rule create command in the **az monitor activity-log alert create** section of the [CLI reference documentation for activity log alerts](/cli/azure/monitor/activity-log/alert).
+
+   ---
 
 ## Create a new alert rule using PowerShell
 
 - To create a metric alert rule using PowerShell, use this cmdlet: [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2)
+- To create a log alert rule using PowerShell, use this cmdlet: [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule)
 - To create an  activity log alert rule using PowerShell, use this cmdlet: [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert)
 
 ## Create an activity log alert rule from the Activity log pane
@@ -450,7 +497,7 @@ The *sampleActivityLogAlert.parameters.json* file contains the values provided f
 
 ## Changes to log alert rule creation experience
 
-If you're creating a new log alert rule, please note that current alert rule wizard is a little different from the earlier experience:
+If you're creating a new log alert rule, note that current alert rule wizard is a little different from the earlier experience:
 
 - Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
     - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.

@@ -32,16 +32,16 @@ To view cost data for Azure EA subscriptions, a user must have at least read acc
 
 | **Scope** | **Defined at** | **Required access to view data** | **Prerequisite EA setting** | **Consolidates data to** |
 | --- | --- | --- | --- | --- |
-| Billing account<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Enterprise Admin | None | All subscriptions from the enterprise agreement |
+| Billing account¹ | [https://ea.azure.com](https://ea.azure.com/) | Enterprise Admin | None | All subscriptions from the enterprise agreement |
 | Department | [https://ea.azure.com](https://ea.azure.com/) | Department Admin | **DA view charges** enabled | All subscriptions belonging to an enrollment account that is linked to the department |
-| Enrollment account<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Account Owner | **AO view charges** enabled | All subscriptions from the enrollment account |
+| Enrollment account² | [https://ea.azure.com](https://ea.azure.com/) | Account Owner | **AO view charges** enabled | All subscriptions from the enrollment account |
 | Management group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All subscriptions below the management group |
 | Subscription | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All resources/resource groups in the subscription |
 | Resource group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management Reader (or Contributor) | **AO view charges** enabled | All resources in the resource group |
 
-<sup>1</sup> The billing account is also referred to as the Enterprise Agreement or Enrollment.
+¹ The billing account is also referred to as the Enterprise Agreement or Enrollment.
 
-<sup>2</sup> The enrollment account is also referred to as the account owner.
+² The enrollment account is also referred to as the account owner.
 
 Direct enterprise administrators can assign the billing account, department, and enrollment account scope the in the [Azure portal](https://portal.azure.com/). For more information, see [Azure portal administration for direct Enterprise Agreements](../manage/direct-ea-administration.md).
 

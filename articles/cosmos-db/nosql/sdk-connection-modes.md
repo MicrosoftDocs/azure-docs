@@ -74,14 +74,14 @@ There are two factors that dictate the number of TCP connections the SDK will op
 
     Each established connection can serve a configurable number of concurrent operations. If the volume of concurrent operations exceeds this threshold, new connections will be open to serve them, and it's possible that for a physical partition, the number of open connections exceeds the steady state number. This behavior is expected for workloads that might have spikes in their operational volume. For the .NET SDK this configuration is set by [CosmosClientOptions.MaxRequestsPerTcpConnection](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxrequestspertcpconnection), and for the Java SDK you can customize using [DirectConnectionConfig.setMaxRequestsPerConnection](/java/api/com.azure.cosmos.directconnectionconfig.setmaxrequestsperconnection).
 
-By default, connections are permanently maintained to benefit the performance of future operations (opening a connection has computational overhead). There might be some scenarios where you might want to close connections that are unused for some time understanding that this might affect future operations slightly. For the .NET SDK this configuration is set by [CosmosClientOptions.IdleTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout), and for the Java SDK you can customize using [DirectConnectionConfig.setIdleConnectionTimeout](/java/api/com.azure.cosmos.directconnectionconfig.setidleconnectiontimeout). It isn't recommended to set these configurations to low values as it might cause connections to be frequently closed and affect overall performance.
+By default, connections are permanently maintained to benefit the performance of future operations (opening a connection has computational overhead). There might be some scenarios where you might want to close connections that are unused for some time understanding that this might affect future operations slightly. For the .NET SDK this configuration is set by [CosmosClientOptions.IdleTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout), and for the Java SDK you can customize using [DirectConnectionConfig.setIdleConnectionTimeout](/java/api/com.azure.cosmos.directconnectionconfig.setidleconnectiontimeout). It isn't recommended to set these configurations to low values as it might cause connections to be frequently closed and effect overall performance.
 
 ### Language specific implementation details
 
 For further implementation details regarding a language see:
 
 * [.NET SDK implementation information](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/docs/SdkDesign.md)
-* [Java SDK direct mode information](performance-tips-java-sdk-v4.md#direct-connection)
+* [Java SDK direct mode information](tune-connection-configurations-java-sdk-v4.md#direct-connection-mode)
 
 ## Next steps
 

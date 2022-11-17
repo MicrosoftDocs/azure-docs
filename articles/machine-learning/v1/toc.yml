@@ -285,6 +285,9 @@
       - name: Local inference using ONNX
         displayName: SDK, automl
         href: how-to-inference-onnx-automl-image-models-v1.md
+      - name: Use automated ML with Databricks
+        displayName: automl
+        href: ../how-to-configure-databricks-automl-environment.md
       - name: Troubleshoot automated ML
         href: ../how-to-troubleshoot-auto-ml.md
     - name: Track experiments with MLflow

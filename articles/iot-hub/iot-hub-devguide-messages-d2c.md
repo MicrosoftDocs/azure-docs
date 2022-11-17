@@ -1,6 +1,6 @@
 ---
 title: Understand Azure IoT Hub message routing | Microsoft Docs
-description: Developer guide - how to use message routing to send device-to-cloud messages. Includes information about sending both telemetry and non-telemetry data.
+description: This article describes how to use message routing to send device-to-cloud messages. Includes information about sending both telemetry and non-telemetry data.
 author: kgremban
 manager: mehmet.kucukgoz
 ms.service: iot-hub
@@ -36,10 +36,11 @@ If your custom endpoint has firewall configurations, consider using the [Microso
 IoT Hub currently supports the following endpoints:
 
  - Built-in endpoint
- - Azure Storage
+ - Storage containers
  - Service Bus Queues and Service Bus Topics
- - Event Hubs
-
+ - Event Hubs 
+ - Cosmos DB (preview)
+   
 ## Built-in endpoint as a routing endpoint
 
 You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages-read-builtin.md) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Once a Route is created, data stops flowing to the built-in-endpoint unless a Route is created to that endpoint. Even if no routes are created, a fallback route must be enabled to route messages to the built-in endpoint. The fallback is enabled by default if you create your hub using the portal or the CLI.
@@ -94,6 +95,26 @@ Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions
 
 Apart from the built-in-Event Hubs compatible endpoint, you can also route data to custom endpoints of type Event Hubs. 
 
+## Azure Cosmos DB as a routing endpoint (preview)
+You can send data directly to Azure Cosmos DB from IoT Hub. Cosmos DB is a fully managed hyperscale multi-model database service. It provides very low latency and high availability, making it a great choice for scenarios like connected solutions and manufacturing which require extensive downstream data analysis.
+
+IoT Hub supports writing to Cosmos DB in JSON (if specified in the message content-type) or as Base64 encoded binary. In order to set up a route to Cosmos DB, you will have to do the following:
+
+From your provisioned IoT Hub, go to the Hub settings and click on message routing. Go to the Custom endpoints tab, click on Add and select Cosmos DB. The following image shows the endpoint addition:
+
+![Screenshot that shows how to add a Cosmos DB endpoint.](media/iot-hub-devguide-messages-d2c/add-cosmos-db-endpoint.png)
+
+Enter your endpoint name. You should be able to choose from a list of Cosmos DB accounts available for selection, along with the Database and collection.
+
+As Cosmos DB is a hyperscale datastore, all data/documents written to it must contain a field that represents a logical partition. The partition key property name is defined at the Container level and cannot be changed once it has been set. Each logical partition has a maximum size of 20GB. To effectively support high-scale scenarios, you can enable [Synthetic Partition Keys](/azure/cosmos-db/nosql/synthetic-partition-keys) for the Cosmos DB endpoint and configure them based on your estimated data volume. For example, in manufacturing scenarios, your logical partition might be expected to approach its max limit of 20 GB within a month. In that case, you can define a Synthetic Partition Key which is a combination of the device id and the month. This key will be automatically added to the partition key field for each new Cosmos DB record, ensuring logical partitions are created each month for each device.
+
+ You can choose any of the supported authentication types for accessing the database, based on your system setup.
+
+> [!Caution]
+> If you are using the System managed identity for authenticating to CosmosDB, you will need to have a “Cosmos DB Built in Data Contributor” Role assigned via CLI. The role setup is not supported from the portal today. For more details on the various roles, see [Configure role-based access for Azure Cosmos DB](/azure/cosmos-db/how-to-setup-rbac). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
+
+Once you have selected all the details, click on create and complete the setup of the custom endpoint.
+
 ## Reading data that has been routed
 
 You can configure a route by following this [tutorial](tutorial-routing.md).
@@ -110,7 +131,6 @@ Use the following tutorials to learn how to read messages from an endpoint.
 
 * Read from [Service Bus Topics](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-
 ## Fallback route
 
 The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the built-in-Event Hubs (**messages/events**), that is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is turned on, you can enable the fallback route capability. Once a route is created, data stops flowing to the built-in-endpoint, unless a route is created to that endpoint. If there are no routes to the built-in-endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, fallback route must be enabled to receive all data at the built-in-endpoint. 
@@ -120,7 +140,6 @@ You can enable/disable the fallback route in the Azure portal->Message Routing b
 ## Non-telemetry events
 
 In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, digital twin change events, and device connection state events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device or module was deleted or created. For more information about device lifecycle events, see [Device and module lifecycle notifications](./iot-hub-devguide-identity-registry.md#device-and-module-lifecycle-notifications). When using [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin property is set or changed, a digital twin is replaced, or when a change event happens for the underlying device twin. Finally, if a route is created with data source set to **device connection state events**, IoT Hub sends a message indicating whether the device was connected or disconnected.
-
 
 [IoT Hub also integrates with Azure Event Grid](iot-hub-event-grid.md) to publish device events to support real-time integrations and automation of workflows based on these events. See key [differences between message routing and Event Grid](iot-hub-event-grid-routing-comparison.md) to learn which works best for your scenario.
 
@@ -155,3 +174,5 @@ Use the [troubleshooting guide for routing](troubleshoot-message-routing.md) for
 * [How to send device-to-cloud messages](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 * For information about the SDKs you can use to send device-to-cloud messages, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
+
+

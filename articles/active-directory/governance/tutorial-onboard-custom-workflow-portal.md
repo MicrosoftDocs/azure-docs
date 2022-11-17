@@ -67,7 +67,7 @@ Use the following steps to create a pre-hire workflow that will generate a TAP a
 
      :::image type="content" source="media/tutorial-lifecycle-workflows/configure-scope.png" alt-text="Screenshot of selecting a configuration scope." lightbox="media/tutorial-lifecycle-workflows/configure-scope.png":::
 
-   8.  Next, you will configure the scope. The scope determines which users this workflow will run against.  In this case, it will be on all users in the Sales department.  On the configure scope screen, under **Rule** add the following settings and then select **Next: Review tasks**
+   8.  Next, you will configure the scope. The scope determines which users this workflow will run against.  In this case, it will be on all users in the Sales department.  On the configure scope screen, under **Rule** add the following settings and then select **Next: Review tasks**. For a full list of supported user properties, see: [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
 
        :::image type="content" source="media/tutorial-lifecycle-workflows/review-tasks.png" alt-text="Screenshot of selecting review tasks." lightbox="media/tutorial-lifecycle-workflows/review-tasks.png":::
 
@@ -120,4 +120,4 @@ After running your workflow on-demand and checking that everything is working fi
 
 ## Next steps
 - [Tutorial: Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azure-ad-user-accounts.md)
-- [Automate employee onboarding tasks before their first day of work with Microsoft Graph (preview)](tutorial-onboard-custom-workflow-graph.md)
+- [Automate employee onboarding tasks before their first day of work using Lifecycle Workflows APIs](/graph/tutorial-lifecycle-workflows-onboard-custom-workflow)

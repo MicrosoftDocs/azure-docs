@@ -6,7 +6,7 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.date: 10/12/2021
 ms.topic: quickstart
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.custom: mode-ui
 #Customer intent: As a BI developer, I want to create an Azure Analysis Services server by using the Azure portal.
 ---

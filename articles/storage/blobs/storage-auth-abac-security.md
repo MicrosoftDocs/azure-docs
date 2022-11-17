@@ -1,5 +1,5 @@
 ---
-title: Security considerations for Azure role assignment conditions in Azure Blob Storage (preview)
+title: Security considerations for Azure role assignment conditions in Azure Blob Storage
 titleSuffix: Azure Storage
 description: Security considerations for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC).
 services: storage
@@ -7,22 +7,19 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/01/2022
+ms.date: 10/25/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ---
 
-# Security considerations for Azure role assignment conditions in Azure Blob Storage (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Security considerations for Azure role assignment conditions in Azure Blob Storage
 
 To fully secure resources using [Azure attribute-based access control (Azure ABAC)](storage-auth-abac.md), you must also protect the [attributes](storage-auth-abac-attributes.md) used in the [Azure role assignment conditions](../../role-based-access-control/conditions-format.md). For instance, if your condition is based on a file path, then you should beware that access can be compromised if the principal has an unrestricted permission to rename a file path.
 
 This article describes security considerations that you should factor into your role assignment conditions.
+
+[!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
 ## Use of other authorization mechanisms
 
@@ -31,7 +28,7 @@ Role assignment conditions are only evaluated when using Azure RBAC for authoriz
 - [Account shared access signature](/rest/api/storageservices/create-account-sas) (SAS)
 - [Service SAS](/rest/api/storageservices/create-service-sas).
 
-Similarly, conditions are not evaluated when access is granted using [access control lists (ACLs)](../blobs/data-lake-storage-access-control.md) in storage accounts with a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS).
+Similarly, conditions are not evaluated when access is granted using [access control lists (ACLs)](data-lake-storage-access-control.md) in storage accounts with a [hierarchical namespace](data-lake-storage-namespace.md) (HNS).
 
 You can prevent shared key, account-level SAS, and service-level SAS authorization by [disabling shared key authorization](../common/shared-key-authorization-prevent.md) for your storage account. Since user delegation SAS depends on Azure RBAC, role-assignment conditions are evaluated when using this method of authorization.
 
@@ -51,7 +48,7 @@ When using blob path as a *@Resource* attribute for a condition, you should also
 
 ### Blob index tags
 
-[Blob index tags](../blobs/storage-manage-find-blobs.md) are used as free-form attributes for conditions in storage. If you author any access conditions by using these tags, you must also protect the tags themselves. Specifically, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` DataAction allows users to modify the tags on a storage object. You can restrict this action to prevent users from manipulating a tag key or value to gain access to unauthorized objects.
+[Blob index tags](storage-manage-find-blobs.md) are used as free-form attributes for conditions in storage. If you author any access conditions by using these tags, you must also protect the tags themselves. Specifically, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` DataAction allows users to modify the tags on a storage object. You can restrict this action to prevent users from manipulating a tag key or value to gain access to unauthorized objects.
 
 In addition, if blob index tags are used in conditions, data may be vulnerable if the data and the associated index tags are updated in separate operations. You can use `@Request` conditions on blob write operations to require that index tags be set in the same update operation. This approach can help secure data from the instant it's written to storage.
 
@@ -103,6 +100,6 @@ For conditions on the source blob, `@Resource` conditions on the `Microsoft.Stor
 
 ## See also
 
-- [Authorize access to blobs using Azure role assignment conditions (preview)](storage-auth-abac.md)
-- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](storage-auth-abac-attributes.md)
-- [What is Azure attribute-based access control (Azure ABAC)? (preview)](../../role-based-access-control/conditions-overview.md)
+- [Authorize access to blobs using Azure role assignment conditions](storage-auth-abac.md)
+- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](storage-auth-abac-attributes.md)
+- [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md)

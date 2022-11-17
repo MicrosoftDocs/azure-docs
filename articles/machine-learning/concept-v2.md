@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
-ms.date: 04/29/2022
+ms.date: 11/04/2022
 ms.custom: cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As a data scientist, I want to know whether to use v1 or v2 of CLI, SDK.
 ---

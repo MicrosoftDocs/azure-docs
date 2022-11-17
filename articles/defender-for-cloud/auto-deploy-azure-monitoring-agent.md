@@ -99,7 +99,7 @@ The required [Log Analytics workspace solutions](../azure-monitor/insights/solut
 
 ### Additional extensions for Defender for Cloud
 
-The Azure Monitor Agent requires additional extensions. The ASA extension, which supports endpoint protection recommendations and fileless attack detection, is automatically installed when you auto-provision the Azure Monitor Agent.
+The Azure Monitor Agent requires additional extensions. The ASA extension, which supports endpoint protection recommendations, fileless attack detection, and Adaptive Application controls, is automatically installed when you auto-provision the Azure Monitor Agent.
 
 ### Additional security events collection
 

@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/24/2022
+ms.date: 11/03/2022
 ms.author: radeltch
 
 ---
@@ -454,10 +454,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       params ip=10.90.90.10 \
       op monitor interval=10 timeout=20
     
-    sudo crm configure primitive nc_NW1_ASCS azure-lb port=62000
+    sudo crm configure primitive nc_NW1_ASCS azure-lb port=62000 \
+      op monitor timeout=20s interval=10
     
     sudo crm configure group g-NW1_ASCS fs_NW1_ASCS nc_NW1_ASCS vip_NW1_ASCS \
-       meta resource-stickiness=3000
+      meta resource-stickiness=3000
     ```
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
@@ -508,7 +509,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       params ip=10.90.90.9 \
       op monitor interval=10 timeout=20
    
-    sudo crm configure primitive nc_NW1_ERS azure-lb port=62101
+    sudo crm configure primitive nc_NW1_ERS azure-lb port=62101 \
+      op monitor timeout=20s interval=10
     
     sudo crm configure group g-NW1_ERS fs_NW1_ERS nc_NW1_ERS vip_NW1_ERS
     ```

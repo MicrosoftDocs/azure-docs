@@ -22,6 +22,8 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to
 - [Node.js](https://nodejs.org) installed.
 - [Next.js CLI](https://nextjs.org/docs/getting-started) installed. Refer to the [Next.js Getting Started guide](https://nextjs.org/docs/getting-started) for details.
 
+[!INCLUDE [Unsupported Next.js features](../../includes/static-web-apps-nextjs-unsupported.md)]
+
 ## Set up a Next.js app
 
 Begin by initializing a new Next.js application.

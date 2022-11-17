@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 09/20/2022
+ms.date: 11/13/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,41 +18,37 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | October 2022 |
+| [The ability to create custom assessments in AWS and GCP (Preview) is set to be deprecated](#the-ability-to-create-custom-assessments-in-aws-and-gcp-preview-is-set-to-be-deprecated) | November 2022 |
+| [Recommendation to configure dead-letter queues for Lambda functions to be deprecated](#recommendation-to-configure-dead-letter-queues-for-lambda-functions-to-be-deprecated) | November 2022 |
+| [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | December 2022 |
 
-### Multiple changes to identity recommendations
+### The ability to create custom assessments in AWS and GCP (Preview) is set to be deprecated
 
-**Estimated date for change:** October 2022
+**Estimated date for change: November 2022**
 
-Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In October, we'll be making the changes outlined below.
+The ability to create custom assessments for [AWS accounts](how-to-manage-aws-assessments-standards.md#create-a-new-custom-assessment-for-your-aws-account-preview) and [GCP projects](how-to-manage-gcp-assessments-standards.md#create-a-new-custom-assessment-for-your-gcp-project-preview) (Preview) is set to be deprecated. This feature will be replaced by with a new feature that will be a part of the [Defender CSPM](concept-cloud-security-posture-management.md) plan, which will be released in the future. 
 
-#### New recommendations in preview
+### Recommendation to configure dead-letter queues for Lambda functions to be deprecated
 
-The new release will bring the following capabilities:
+**Estimated date for change: November 2022**
 
-- **Extended evaluation scope** – Improved coverage to identity accounts without MFA and external accounts on Azure resources (instead of subscriptions only) allowing security admins to view role assignments per account.
+The recommendation [`Lambda functions should have a dead-letter queue configured`](https://portal.azure.com/#view/Microsoft_Azure_Security/AwsRecommendationDetailsBlade/assessmentKey/dcf10b98-798f-4734-9afd-800916bf1e65/showSecurityCenterCommandBar~/false) is set to be deprecated.
 
-- **Improved freshness interval** - Currently, the identity recommendations have a freshness interval of 24 hours. This update will reduce that interval to 12 hours.
+| Recommendation | Description | Severity |
+|--|--|--|
+| Lambda functions should have a dead-letter queue configured | This control checks whether a Lambda function is configured with a dead-letter queue. The control fails if the Lambda function is not configured with a dead-letter queue. As an alternative to an on-failure destination, you can configure your function with a dead-letter queue to save discarded events for further processing. A dead-letter queue acts the same as an on-failure destination. It is used when an event fails all processing attempts or expires without being processed. A dead-letter queue allows you to look back at errors or failed requests to your Lambda function to debug or identify unusual behavior. From a security perspective, it is important to understand why your function failed and to ensure that your function does not drop data or compromise data security as a result. For example, if your function cannot communicate to an underlying resource, that could be a symptom of a denial of service (DoS) attack elsewhere in the network. | Medium |
 
-- **Account exemption capability** - Defender for Cloud has many features you can use to customize your experience and ensure that your secure score reflects your organization's security priorities. For example, you can [exempt resources and recommendations from your secure score](exempt-resource.md).
+### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated
 
-    This update will allow you to exempt specific accounts from evaluation with the six recommendations listed in the following table.
+**Estimated date for change: December 2022**
 
-    Typically, you'd exempt emergency “break glass” accounts from MFA recommendations, because such accounts are often deliberately excluded from an organization's MFA requirements. Alternatively, you might have external accounts that you'd like to permit access to but which don't have MFA enabled.
+The recommendation [`Diagnostic logs in Virtual Machine Scale Sets should be enabled`](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/961eb649-3ea9-f8c2-6595-88e9a3aeedeb/showSecurityCenterCommandBar~/false) is set to be deprecated. 
 
-    > [!TIP]
-    > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear  unhealthy.
+The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) will also be deprecated from any standards displayed in the regulatory compliance dashboard. 
 
-    |Recommendation| Assessment key|
-    |--|--|
-    |Accounts with owner permissions on Azure resources should be MFA enabled|6240402e-f77c-46fa-9060-a7ce53997754|
-    |Accounts with write permissions on Azure resources should be MFA enabled|c0cb17b2-0607-48a7-b0e0-903ed22de39b|
-    |Accounts with read permissions on Azure resources should be MFA enabled|dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c|
-    |Guest accounts with owner permissions on Azure resources should be removed|20606e75-05c4-48c0-9d97-add6daa2109a|
-    |Guest accounts with write permissions on Azure resources should be removed|0354476c-a12a-4fcc-a79d-f0ab7ffffdbb|
-    |Guest accounts with read permissions on Azure resources should be removed|fde1c0c9-0fd2-4ecc-87b5-98956cbc1095|
-    |Blocked accounts with owner permissions on Azure resources should be removed|050ac097-3dda-4d24-ab6d-82568e7a50cf|
-    |Blocked accounts with read and write permissions on Azure resources should be removed| 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 |
+| Recommendation | Description | Severity |
+|--|--|--|
+| Diagnostic logs in Virtual Machine Scale Sets should be enabled | Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | Low |
 
 ## Next steps
 

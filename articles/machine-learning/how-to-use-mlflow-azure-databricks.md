@@ -3,14 +3,14 @@ title: MLflow Tracking for Azure Databricks ML experiments
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks ML experiments.
 services: machine-learning
-author: blackmist
-ms.author: larryfr
+author: santiagxf
+ms.author: fasantia
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: nibaccam
+ms.reviewer: mopeakande
 ms.date: 07/01/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Track Azure Databricks ML experiments with MLflow and Azure Machine Learning
@@ -99,7 +99,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
 
    # [Using the Azure ML SDK v2](#tab/azuremlsdk)
    
-   [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v2.md)]
+   [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
    You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 

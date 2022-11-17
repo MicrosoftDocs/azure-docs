@@ -190,3 +190,15 @@ landingContent:
             url: cluster-extensions.md
           - text: GitHub Actions for AKS
             url: integrations.md#github-actions
+  # Card
+  - title: Troubleshooting
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+         - text: Troubleshooting Guides
+           url: /troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes
+         - text: Troubleshoot create operations
+           url: /troubleshoot/azure/azure-kubernetes//troubleshoot-aks-cluster-creation-issues
+         - text: Troubleshoot common issues 
+           url: /troubleshoot/azure/azure-kubernetes/aks-common-issues-faq
+        

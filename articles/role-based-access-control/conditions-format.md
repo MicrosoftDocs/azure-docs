@@ -1,5 +1,5 @@
 ---
-title: Azure role assignment condition format and syntax (preview) - Azure RBAC
+title: Azure role assignment condition format and syntax - Azure ABAC
 description: Get an overview of the format and syntax of Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
@@ -8,18 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/28/2022
+ms.date: 10/24/2022
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
-# Azure role assignment condition format and syntax (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Azure role assignment condition format and syntax
 
 A condition is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object. This article describes the format and syntax of role assignment conditions.
 
@@ -243,7 +238,7 @@ Currently, conditions can be added to built-in or custom role assignments that h
 - [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
 - [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
 
-For a list of the storage actions you can use in conditions, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md).
+For a list of the storage actions you can use in conditions, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues](../storage/queues/queues-auth-abac-attributes.md).
 
 ## Attributes
 
@@ -254,16 +249,20 @@ Depending on the selected actions, the attribute might be found in different pla
 > | --- | --- | --- |
 > | Resource | Indicates that the attribute is on the resource, such as a container name. | `@Resource` |
 > | Request | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
-> | Principal | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. | `@Principal` |
+> | Principal | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. Principal attributes are currently in preview. | `@Principal` |
 
 #### Resource and request attributes
 
 For a list of the blob storage or queue storage attributes you can use in conditions, see:
 
-- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md)
-- [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions for Azure queues](../storage/queues/queues-auth-abac-attributes.md)
 
 #### Principal attributes
+
+> [!IMPORTANT]
+> Principal attributes are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 To use principal attributes, you must have **all** of the following:
 
@@ -273,9 +272,9 @@ To use principal attributes, you must have **all** of the following:
 
 For more information about custom security attributes, see:
 
-- [Allow read access to blobs based on tags and custom security attributes](conditions-custom-security-attributes.md)
-- [Principal does not appear in Attribute source](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
-- [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md)
+- [Allow read access to blobs based on tags and custom security attributes (Preview)](conditions-custom-security-attributes.md)
+- [Principal does not appear in Attribute source (Preview)](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
+- [Add or deactivate custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 ## Function operators
 
@@ -494,5 +493,5 @@ a AND (b OR c)
 
 ## Next steps
 
-- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
-- [Add or edit Azure role assignment conditions using the Azure portal (preview)](conditions-role-assignments-portal.md)
+- [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md)
+- [Add or edit Azure role assignment conditions using the Azure portal](conditions-role-assignments-portal.md)

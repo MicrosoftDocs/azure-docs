@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 10/19/2022
 ---
 
 # Data transformation expression usage in mapping data flow
@@ -119,6 +119,24 @@ Creates an array of items. All items should be of the same type. If no items are
 * ``'Washington'``
 ___
 
+<a name="ascii" ></a>
+
+### <code>ascii</code>
+<code><b>ascii(<i>&lt;Input&gt;</i> : string) => number</b></code><br/><br/>
+Returns the numeric value of the input character. If the input string has more than one character, the numeric value of the first character is returned
+* ``ascii('A') -> 65``
+* ``ascii('a') -> 97``
+
+___
+
+<a name="asin" ></a>
+
+### <code>asin</code>
+<code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
+Calculates an inverse sine value.  
+* ``asin(0) -> 0.0``  
+___
+
 <a name="assertErrorMessages" ></a>
 
 ### <code>assertErrorMessages</code>
@@ -129,16 +147,6 @@ Examples
 * ``assertErrorMessages() => ['assert1': 'This row failed on assert1.', 'assert2': 'This row failed on assert2.']. In this example, at(assertErrorMessages(), 'assert1') would return 'This row failed on assert1.'``
 
 ___
-
-
-<a name="asin" ></a>
-
-### <code>asin</code>
-<code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates an inverse sine value.  
-* ``asin(0) -> 0.0``  
-___
-
 
 <a name="associate" ></a>
 
@@ -379,6 +387,14 @@ Returns the smallest integer not smaller than the number.
 * ``ceil(-0.1) -> 0``  
 ___
 
+<a name="char" ></a>
+
+### <code>char</code>
+<code><b>char(<i>&lt;Input&gt;</i> : number) => string</b></code><br/><br/>
+Returns the ascii character represented by the input number. If number is greater than 256, the result is equivalent to char(number % 256)
+* ``char(65) -> 'A'``
+* ``char(97) -> 'a'``
+___
 
 <a name="coalesce" ></a>
 
@@ -666,6 +682,14 @@ Duration in milliseconds for number of days.
 * ``days(2) -> 172800000L``  
 ___
 
+<a name="decode" ></a>
+
+### <code>decode</code>
+<code><b>decode(<i>&lt;Input&gt;</i> : any, <i>&lt;Charset&gt;</i> : string) => binary</b></code><br/><br/>
+Decodes the encoded input data into a string based on the given charset. A second (optional) argument can be used to specify which charset to use - 'US-ASCII', 'ISO-8859-1', 'UTF-8' (default), 'UTF-16BE', 'UTF-16LE', 'UTF-16'
+* ``decode(array(toByte(97),toByte(98),toByte(99)), 'US-ASCII') -> abc``
+___
+
 
 <a name="degrees" ></a>
 
@@ -725,6 +749,15 @@ ___
 
 ## E
 
+<a name="encode" ></a>
+
+### <code>encode</code>
+<code><b>encode(<i>&lt;Input&gt;</i> : string, <i>&lt;Charset&gt;</i> : string) => binary</b></code><br/><br/>
+Encodes the input string data into binary based on a charset. A second (optional) argument can be used to specify which charset to use - 'US-ASCII', 'ISO-8859-1', 'UTF-8' (default), 'UTF-16BE', 'UTF-16LE', 'UTF-16'
+* ``encode('abc', 'US-ASCII') -> array(toByte(97),toByte(98),toByte(99))``  
+___
+
+Input string: string, Charset: string) => binary
 <a name="endsWith" ></a>
 
 ### <code>endsWith</code>

@@ -5,9 +5,9 @@ description: Link your Azure Synapse Analytics workspace to your Azure machine l
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
-ms.author: larryfr
-author: blackmist
-ms.date: 10/21/2021
+ms.author: zhanxia
+author: xiaoharper
+ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: synapse-azureml, sdkv1, event-tier1-build-2022
 #Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse Analytics, I'd like to use Apache Spark for the data preparation of my pipeline
