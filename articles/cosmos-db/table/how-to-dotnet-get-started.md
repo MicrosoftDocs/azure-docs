@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Cosmos DB for Table and .NET
+title: Get started with Azure Cosmos DB for Table using .NET
 description: Get started developing a .NET application that works with Azure Cosmos DB for Table. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB for Table endpoint.
 author: seesharprun
 ms.author: sidandrews
@@ -8,7 +8,7 @@ ms.subservice: table
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp, ignite-2022, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Get started with Azure Cosmos DB for Table and .NET
