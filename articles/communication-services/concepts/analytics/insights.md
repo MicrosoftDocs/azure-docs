@@ -127,7 +127,6 @@ The **Recording** tab displays data relevant to total recordings, recording form
 The **Call Automation** tab displays data about calls placed or answered using Call Automation SDK, like active call count, operations executed and errors encountered by your resource over time. You can also examine a particular call by looking at the sequence of operations taken on that call using the SDK:
 :::image type="content" source="media\workbooks\azure-communication-services-call-automation-insights.png" alt-text="Screenshot displays total call count, duration, and operation results details.":::
 
-
 ## Editing dashboards
 
 The **Insights** dashboards provided with your **Communication Service** resource can be customized by clicking on the **Edit** button on the top navigation bar:
