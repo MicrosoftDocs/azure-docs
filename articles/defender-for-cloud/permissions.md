@@ -27,7 +27,7 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | **Action**   | [Security Reader](../role-based-access-control/built-in-roles.md#security-reader) / <br> [Reader](../role-based-access-control/built-in-roles.md#reader) | [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) / [Owner](../role-based-access-control/built-in-roles.md#owner) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
 |:-|:-:|:-:|:-:|:-:|:-:|
 |  |  |  | **(Resource group level)** | **(Subscription level)** | **(Subscription level)** |
-| Add/assign initiatives (including) regulatory compliance standards) | - | - | - | ✔ | ✔ |
+| Add/assign initiatives (including) regulatory compliance standards) | - | - | - | - | ✔ |
 | Edit security policy | - | ✔ | - | ✔ | ✔ |
 | Enable / disable Microsoft Defender plans | - | ✔ | - | ✔ | ✔ |
 | Dismiss alerts | - | ✔ | - | ✔ | ✔ |

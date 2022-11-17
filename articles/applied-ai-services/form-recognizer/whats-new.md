@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 11/16/2022
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -22,16 +22,22 @@ ms.custom: references_regions
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
-Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
 ## October 2022
 
+### Form Recognizer versioned content
+
+Form Recognizer documentation has been updated to present a versioned experience. Now, you can choose to view content targeting the v3.0 GA experience or the v2.1 GA experience. The v3.0 experience is the default.
+
+:::image type="content" source="media/versioning-and-monikers.png" alt-text="Screenshot of the Form Recognizer landing page denoting the version dropdown menu.":::
+
 ### Form Recognizer Studio Sample Code
 
-Sample code the Form Recgonizer Studio labeling experience is now available on github - https://github.com/microsoft/Form-Recognizer-Toolkit/tree/main/SampleCode/LabelingUX. Customers can develop and integrate Form Recognizer into their own UX or build their own new UX using the Form Recognizer Studio sample code. 
+Sample code for the [Form Recognizer Studio labeling experience](https://github.com/microsoft/Form-Recognizer-Toolkit/tree/main/SampleCode/LabelingUX) is now available on GitHub. Customers can develop and integrate Form Recognizer into their own UX or build their own new UX using the Form Recognizer Studio sample code.
 
 ### Language expansion
 
@@ -41,7 +47,7 @@ Use the REST API parameter `api-version=2022-06-30-preview` when using the API o
 
 ### New Prebuilt Contract model
 
-A new prebuilt that extracts information from contracts such as parties, title, contract ID, execution date and more. Contracts is currently in preview, please request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQTRDQUdHMTBWUDRBQ01QUVNWNlNYMVFDViQlQCN0PWcu_).  
+A new prebuilt that extracts information from contracts such as parties, title, contract ID, execution date and more. the contracts model is currently in preview, request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQTRDQUdHMTBWUDRBQ01QUVNWNlNYMVFDViQlQCN0PWcu_).  
 
 ### Region expansion for training custom neural models 
 
@@ -255,7 +261,7 @@ The **2022-06-30-preview** release presents extensive updates across the feature
 * [**Invoice language expansion**](concept-invoice.md). The invoice model includes expanded language support. _See_ [supported languages](concept-invoice.md#supported-languages-and-locales).
 * [**Prebuilt business card**](concept-business-card.md) now includes Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).
 * [**Prebuilt ID document model**](concept-id-document.md). The ID document model now extracts DateOfIssue, Height, Weight, EyeColor, HairColor, and DocumentDiscriminator from US driver's licenses. _See_ [field extraction](concept-id-document.md).
-* [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [Microsoft Office and HTML text extraction (preview)](concept-read.md#microsoft-office-and-html-text-extraction-preview-).
+* [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [Microsoft Office and HTML text extraction ](concept-read.md#microsoft-office-and-html-text-extraction).
 
 #### Form Recognizer SDK beta June 2022 preview release
 
@@ -909,8 +915,8 @@ pip package version 3.1.0b4
 * **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key-value pairs for selection marks.
 * **Model Compose** - allows multiple models to be composed and called with a single model ID. When you submit a document to be analyzed with a composed model ID, a classification step is first performed to route it to the correct custom model. Model Compose is available for `Train Custom Model` - _Train with labels_.
 * **Model name** - add a friendly name to your custom models for easier management and tracking.
-* **[New pre-built model for Business Cards](./concept-business-card.md)** for extracting common fields in English, language business cards.
-* **[New locales for pre-built Receipts](./concept-receipt.md)** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN
+* **[New prebuilt model for Business Cards](./concept-business-card.md)** for extracting common fields in English, language business cards.
+* **[New locales for prebuilt Receipts](./concept-receipt.md)** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN
 * **Quality improvements** for `Layout`, `Train Custom Model` - _Train without Labels_ and _Train with Labels_.
 
 **v2.0** includes the following update:

@@ -510,7 +510,7 @@
         "articles/lighthouse/**/*.md": "https://feedback.azure.com/d365community/forum/cd8dfdcb-f824-ec11-b6e6-000d3a4f0da0",
         "articles/load-balancer/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=e8894060-8326-ec11-b6e6-000d3a4f0789",
         "articles/load-testing/**/*.md": "https://github.com/microsoft/azure-load-testing/issues",
-        "articles/dev-box/**/*.md": "https://feedback.azure.com/d365community/forum/dbaa0c2b-4e1d-ed11-b83d-000d3a4d97ea", 
+        "articles/dev-box/**/*.md": "https://feedback.azure.com/d365community/forum/dbaa0c2b-4e1d-ed11-b83d-000d3a4d97ea",
         "articles/log-analytics/**/*.md": "https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0",
         "articles/logic-apps/**/*.md": "https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c",
         "articles/machine-learning/**/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
@@ -863,13 +863,13 @@
         "articles/virtual-machines/*.md": "virtual-machines",
         "articles/virtual-machine-scale-sets/*.md": "virtual-machine-scale-sets",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
-        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "azure-video-analyzer", 
-        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",  
+        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "azure-video-analyzer",
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",
         "articles/azure-video-indexer/*.md": "azure-video-indexer"
       },
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova"
-      },  
+      },
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
         "articles/azure-arc/servers/**/*.md": "azure-arc-servers",
@@ -930,8 +930,8 @@
         "articles/media-services/previous/*.md": "rest-v2",
         "articles/media-services/video-indexer/*.md": "video-indexer",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice",
-        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "video-analyzer-subservice",  
-        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "video-analyzer-subservice",        
+        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "video-analyzer-subservice",
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "video-analyzer-subservice",
         "articles/cosmos-db/mongodb/*.md": "cosmosdb-mongo",
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
@@ -1096,7 +1096,7 @@
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Azure Video Analyzer",
         "articles/azure-video-analyzer/video-analyzer-docs/*.yml": "Azure Video Analyzer",
         "articles/azure-video-indexer/*.md": "Azure Video Indexer",
-        "articles/azure-video-indexer/*.yml": "Azure Video Indexer",     
+        "articles/azure-video-indexer/*.yml": "Azure Video Indexer",
         "articles/azure-vmware/**/*.md" : "Azure VMware Solution",
         "articles/azure-vmware/**/*.yml" : "Azure VMware Solution",
         "articles/backup/**/*.md": "Azure Backup",
@@ -1175,6 +1175,8 @@
         "articles/virtual-machines/windows/sql/**/*.yml": "SQL Server on Azure VM",
         "articles/virtual-machines/workloads/**/*.md": "Azure Virtual Machines",
         "articles/virtual-machines/workloads/**/*.yml": "Azure Virtual Machines",
+        "articles/cost-management-billing/**/*.md": "Microsoft Cost Management",
+        "articles/cost-management-billing/**/*.yml": "Microsoft Cost Management",
         "articles/azure-center-sap-solutions/*.md": "Azure Center for SAP solutions",
         "articles/azure-center-sap-solutions/*.yml": "Azure Center for SAP solutions"
       }
@@ -1207,7 +1209,7 @@
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md"
-          
+
         ]
       },
       "sensitive-language-sl": {

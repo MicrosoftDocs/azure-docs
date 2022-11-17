@@ -130,7 +130,7 @@ job = command(
     code="./src",  # local path where the code is stored
     command="ls ${{inputs.input_data}}",
     inputs=my_job_inputs,
-    environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:9",
+    environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:latest",
     compute="cpu-cluster",
 )
 

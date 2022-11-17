@@ -32,7 +32,7 @@ DRS is enabled by default in Detection mode in your WAF policies. You can disabl
 
 Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You may configure an exclusion list for a managed rule, rule group, or for the entire rule set. For more information, see [Web Application Firewall (WAF) with Front Door exclusion lists](./waf-front-door-exclusion.md).
 
-By default, DRS blocks requests that trigger the rules. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
+By default, DRS versions 2.0 and above will leverage anomaly scoring when a request matches a rule, DRS versions earlier than 2.0 blocks requests that trigger the rules. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
 
 Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
 

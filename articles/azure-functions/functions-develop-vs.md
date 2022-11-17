@@ -225,7 +225,7 @@ This section assumes you've already published to your function app using a relea
 
 ### Attach the debugger
 
-The way you attach the debugger depends on your execution mode. When debugging an isolated process app, you currently need to attach the remote debugger to a separate .NET process, and several other configuration steps are required.
+The way you attach the debugger depends on your execution mode. When debugging an isolated worker process app, you currently need to attach the remote debugger to a separate .NET process, and several other configuration steps are required.
 
 When you're done, you should [disable remote debugging](#disable-remote-debugging).
 
@@ -243,7 +243,7 @@ Visual Studio connects to your function app and enables remote debugging, if it'
 
 To attach a remote debugger to a function app running in a process separate from the Functions host:
 
-1. From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Download publish profile**. This action downloads a copy of the publish profile and opens the download location. You need this file, which contains the credentials used to attach to your isolated process running in Azure.
+1. From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Download publish profile**. This action downloads a copy of the publish profile and opens the download location. You need this file, which contains the credentials used to attach to your isolated worker process running in Azure.
 
     > [!CAUTION]
     > The .publishsettings file contains your credentials (unencoded) that are used to administer your function app. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then delete it after it's no longer needed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your function app.
@@ -271,7 +271,7 @@ To attach a remote debugger to a function app running in a process separate from
 
     ![Visual Studio enter credential](./media/functions-develop-vs/creds-dialog.png)
 
-1. Check **Show process from all users** and then choose **dotnet.exe** and select **Attach**. When the operation completes, you're attached to your C# class library code running in an isolated process. At this point, you can debug your function app as normal.
+1. Check **Show process from all users** and then choose **dotnet.exe** and select **Attach**. When the operation completes, you're attached to your C# class library code running in an isolated worker process. At this point, you can debug your function app as normal.
 
 ---
 

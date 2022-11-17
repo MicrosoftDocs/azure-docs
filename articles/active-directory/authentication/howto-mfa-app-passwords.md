@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 11/08/2022
 
 ms.author: justinha
 author: justinha
@@ -24,7 +24,7 @@ Modern authentication is supported for the Microsoft Office 2013 clients and lat
 This article shows you how to use app passwords for legacy applications that don't support multi-factor authentication prompts.
 
 >[!NOTE]
-> App passwords don't work with Conditional Access based multi-factor authentication policies and modern authentication. App passwords only work with legacy authentication protocols such as IMAP and SMTP.
+>App passwords don't work for accounts that are required to use modern authentication. 
 
 ## Overview and considerations
 

@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 11/15/2022
 ms.devlang: csharp, javascript, python
 ms.reviewer: mmcc
 ---
@@ -971,10 +971,10 @@ The following table shows the recommended [aggregation types](../essentials/metr
 |------------------------------------------------------|------------------------------------------------------------|
 | Counter                                              | Sum                                                        |
 | Asynchronous Counter                                 | Sum                                                        |
-| Histogram                                            | Average, Sum, Count (Max, Min for Python and Node.js only) |
+| Histogram                                            | Min, Max, Average, Sum and Count                           |
 | Asynchronous Gauge                                   | Average                                                    |
-| UpDownCounter (Python and Node.js only)              | Sum                                                        |
-| Asynchronous UpDownCounter (Python and Node.js only) | Sum                                                        |
+| UpDownCounter                                        | Sum                                                        |
+| Asynchronous UpDownCounter                           | Sum                                                        |
 
 > [!CAUTION]
 > Aggregation types beyond what's shown in the table typically aren't meaningful.

@@ -291,7 +291,7 @@ Because a system-assigned managed identity can only be retrieved after the creat
             },
             // ...
             "properties": {
-                "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
+                "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>",
                 "keyVaultKeyUri": "<key-vault-key-uri>"
                 // ...
             }
@@ -358,7 +358,7 @@ When you create a new Azure Cosmos DB account through an Azure Resource Manager 
     // ...
     "properties": {
         "backupPolicy": { "type": "Continuous" },
-        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
+        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>",
         "keyVaultKeyUri": "<key-vault-key-uri>"
         // ...
     }

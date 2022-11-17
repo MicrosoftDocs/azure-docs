@@ -34,7 +34,7 @@ Further prompts can be expected in various scenarios:
 
 * The user who originally consented to the application was an administrator, but they didn't consent on-behalf of the entire organization.
 
-* The application is using [incremental and dynamic consent](../azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) to request further permissions after consent was initially granted. Incremental and dynamic consent is often used when optional features of an application require permissions beyond those required for baseline functionality.
+* The application is using [incremental and dynamic consent](../develop/permissions-consent-overview.md#consent) to request further permissions after consent was initially granted. Incremental and dynamic consent is often used when optional features of an application require permissions beyond those required for baseline functionality.
 
 * Consent was revoked after being granted initially.
 

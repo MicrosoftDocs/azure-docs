@@ -739,13 +739,11 @@
               href: ../how-to-setup-cross-tenant-customer-managed-keys.md
             - name: Access Azure Key Vault with managed identity
               href: ../access-key-vault-managed-identity.md
-        - name: Managed Identity
-          items:
-            - name: Use a managed identity
-              href: ../how-to-setup-managed-identity.md
-            - name: Use managed identities to access data
-              href: ../managed-identity-based-authentication.md
-              displayName: msi, managed service identity, aad, azure active directory, identity
+        - name: Use managed identities with Azure services
+          href: ../how-to-setup-managed-identity.md
+        - name: Use managed identities to access data
+          href: ../managed-identity-based-authentication.md
+          displayName: msi, managed service identity, aad, azure active directory, identity
         - name: Role-based access control
           items:
             - name: Configure role-based access control to data
@@ -782,10 +780,10 @@
               href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: ../monitor-logs-basic-queries.md
-            - name: Troubleshoot issues using advanced queries
-              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Troubleshoot issues with advanced diagnostics queries
+              href: diagnostic-queries.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics

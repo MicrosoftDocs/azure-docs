@@ -16,7 +16,7 @@ Azure Storage events allow applications to react to events, such as the creation
 
 Blob storage events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering.
 
-See the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) article to view the full list of the events that Blob storage supports.
+See the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=/azure/storage/blobs/toc.json) article to view the full list of the events that Blob storage supports.
 
 Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
@@ -24,9 +24,9 @@ If you want to try blob storage events, see any of these quickstart articles:
 
 |If you want to use this tool:    |See this article: |
 |--|-|
-|Azure portal    |[Quickstart: Route Blob storage events to web endpoint with the Azure portal](../../event-grid/blob-event-quickstart-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|PowerShell    |[Quickstart: Route storage events to web endpoint with PowerShell](./storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Azure CLI    |[Quickstart: Route storage events to web endpoint with Azure CLI](./storage-blob-event-quickstart.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure portal    |[Quickstart: Route Blob storage events to web endpoint with the Azure portal](../../event-grid/blob-event-quickstart-portal.md?toc=/azure/storage/blobs/toc.json)|
+|PowerShell    |[Quickstart: Route storage events to web endpoint with PowerShell](./storage-blob-event-quickstart-powershell.md?toc=/azure/storage/blobs/toc.json)|
+|Azure CLI    |[Quickstart: Route storage events to web endpoint with Azure CLI](./storage-blob-event-quickstart.md?toc=/azure/storage/blobs/toc.json)|
 
 To view in-depth examples of reacting to Blob storage events by using Azure functions, see these articles:
 
@@ -44,7 +44,7 @@ Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscri
 
 First, subscribe an endpoint to an event. Then, when an event is triggered, the Event Grid service will send data about that event to the endpoint.
 
-See the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) article to view:
+See the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=/azure/storage/blobs/toc.json) article to view:
 
 > [!div class="checklist"]
 > - A complete list of Blob storage events and how each event is triggered.
@@ -91,7 +91,7 @@ Applications that handle Blob storage events should follow a few recommended pra
 > [!div class="checklist"]
 > - As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the storage account you are expecting.
 > - Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
-> - As messages can arrive after some delay, use the etag fields to understand if your information about objects is still up-to-date. To learn how to use the etag field, see [Managing concurrency in Blob storage](./concurrency-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
+> - As messages can arrive after some delay, use the etag fields to understand if your information about objects is still up-to-date. To learn how to use the etag field, see [Managing concurrency in Blob storage](./concurrency-manage.md?toc=/azure/storage/blobs/toc.json#managing-concurrency-in-blob-storage).
 > - As messages can arrive out of order, use the sequencer fields to understand the order of events on any particular object. The sequencer field is a string value that represents the logical sequence of events for any particular blob name. You can use standard string comparison to understand the relative sequence of two events on the same blob name.
 > - Storage events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries between backend nodes and services or availability of subscriptions, duplicate messages may occur. To learn more about message delivery and retry, see [Event Grid message delivery and retry](../../event-grid/delivery-and-retry.md).
 > - Use the blobType field to understand what type of operations are allowed on the blob, and which client library types you should use to access the blob. Valid values are either `BlockBlob` or `PageBlob`.
@@ -108,5 +108,5 @@ Applications that handle Blob storage events should follow a few recommended pra
 Learn more about Event Grid and give Blob storage events a try:
 
 - [About Event Grid](../../event-grid/overview.md)
-- [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=/azure/storage/blobs/toc.json)
 - [Route Blob storage Events to a custom web endpoint](storage-blob-event-quickstart.md)

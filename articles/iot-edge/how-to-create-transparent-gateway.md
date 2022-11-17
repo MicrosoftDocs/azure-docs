@@ -114,12 +114,30 @@ If you don't have your own certificate authority and want to use demo certificat
 
 # [IoT Edge](#tab/iotedge)
 
-If you created the certificates on a different machine, copy them over to your IoT Edge device then proceed with the next steps. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/). Choose one of these methods that best matches your scenario.
+1. If you created the certificates on a different machine, copy them over to your IoT Edge device. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
+1. Move the files to the preferred directory for certificates and keys. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
+1. Change the ownership and permissions of the certificates and keys.
+
+   ```bash
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chown -R iotedge /var/aziot/certs
+   sudo chmod 644 /var/aziot/secrets/
+   ```
 
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
 Now, you need to copy the certificates to the Azure IoT Edge for Linux on Windows virtual machine.
 
+1. Copy the certificates to the EFLOW virtual machine to a directory where you have write access. For example, the `/home/iotedge-user` home directory.
+
+   ```powershell
+   # Copy the IoT Edge device CA certificate and key
+   Copy-EflowVMFile -fromFile <path>\certs\iot-edge-device-ca-<cert name>-full-chain.cert.pem -toFile ~/iot-edge-device-ca-<cert name>-full-chain.cert.pem -pushFile
+   Copy-EflowVMFile -fromFile <path>\private\iot-edge-device-ca-<cert name>.key.pem -toFile ~/iot-edge-device-ca-<cert name>.key.pem -pushFile
+
+   # Copy the root CA certificate
+   Copy-EflowVMFile -fromFile <path>\certs\azure-iot-test-only.root.ca.cert.pem -toFile ~/azure-iot-test-only.root.ca.cert.pem -pushFile
+   ```
 1. Open an elevated _PowerShell_ session by starting with **Run as Administrator**.
 
    Connect to the EFLOW virtual machine.
@@ -128,38 +146,33 @@ Now, you need to copy the certificates to the Azure IoT Edge for Linux on Window
    Connect-EflowVm
    ```
 
-1. Create the certificates directory. You can select any writeable directory. For this tutorial, we'll use the _iotedge-user_ home folder.
+1. Create the certificates directory. You should store your certificates and keys to the preferred `/var/aziot` directory. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
 
    ```bash
-   cd ~
-   mkdir certs
-   cd certs
-   mkdir certs
-   mkdir private
+   sudo mkdir -p /var/aziot/certs
+   sudo mkdir -p /var/aziot/secrets
    ```
 
+1. Move the certificates and keys to the preferred `/var/aziot` directory.
+
+   ```bash
+   # Move the IoT Edge device CA certificate and key to preferred location
+   sudo mv ~/iot-edge-device-ca-<cert name>-full-chain.cert.pem /var/aziot/certs
+   sudo mv ~/iot-edge-device-ca-<cert name>.key.pem /var/aziot/secrets
+   sudo mv ~/azure-iot-test-only.root.ca.cert.pem /var/aziot/certs
+   ```
+
+1. Change the ownership and permissions of the certificates and keys.
+
+   ```bash
+   sudo chown -R iotedge /var/aziot/certs
+   sudo chmod 644 /var/aziot/secrets/iot-edge-device-ca-<cert name>.key.pem
+   ```
+ 
 1. Exit the EFLOW VM connection.
 
    ```bash
    exit
-   ```
-
-1. Copy the certificates to the EFLOW virtual machine.
-
-   ```powershell
-   # Copy the IoT Edge device CA certificates
-   Copy-EflowVMFile -fromFile <path>\certs\iot-edge-device-ca-<cert name>-full-chain.cert.pem -toFile /home/iotedge-user/certs/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem -pushFile
-   Copy-EflowVMFile -fromFile <path>\private\iot-edge-device-ca-<cert name>.key.pem -toFile /home/iotedge-user/certs/private/iot-edge-device-ca-<cert name>.key.pem -pushFile
-
-   # Copy the root CA certificate
-   Copy-EflowVMFile -fromFile <path>\certs\azure-iot-test-only.root.ca.cert.pem -toFile /home/iotedge-user/certs/certs/azure-iot-test-only.root.ca.cert.pem -pushFile
-   ```
-
-1. Invoke the following commands on the EFLOW VM to grant *iotedge* permissions to the certificate files since `Copy-EflowVMFile` copies files with root only access permissions.
-
-   ```powershell
-   Invoke-EflowVmCommand "sudo chown -R iotedge /home/iotedge-user/certs/"
-   Invoke-EflowVmCommand "sudo chmod 0644 /home/iotedge-user/certs/"  
    ```
 
 ----

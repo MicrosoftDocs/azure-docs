@@ -39,7 +39,7 @@ The Azure OpenAI service provides two methods for authentication. you can use  e
 
 The service APIs are versioned using the ```api-version``` query parameter. All versions follow the YYYY-MM-DD date structure, with a -preview suffix for a preview service. For example:
 
-```
+```http
 POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview
 ```
 
@@ -50,7 +50,7 @@ With the Completions operation, the model will generate one or more predicted co
 
 **Create a completion**
 
-```
+```http
 POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/completions?api-version={api-version}
 ```
 
@@ -87,7 +87,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview\
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d "{
@@ -120,7 +120,7 @@ Get a vector representation of a given input that can be easily consumed by mach
 
 **Create an embedding**
 
-```
+```http
 POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/embeddings?api-version={api-version}
 ```
 
@@ -179,7 +179,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 #### List all available models
 This API will return the list of all available models in your resource. This includes both 'base models' that are available by default and models you've created from fine-tuning jobs.
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/models?api-version={api-version}
 ```
 
@@ -196,7 +196,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/models?api-version={api
 
 #### Example request
 
-```
+```console
 curl -X GET https://example_resource_name.openai.azure.com/openai/models?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY" 
 ```
@@ -241,7 +241,7 @@ curl -X GET https://example_resource_name.openai.azure.com/openai/models?api-ver
 
 This API will retrieve information on a specific model
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/models/{model_id}?api-version={api-version}
 ```
 
@@ -259,7 +259,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/models/{model_id}?api-v
 
 #### Example request
 
-```
+```console
 curl -X GET https://example_resource_name.openai.azure.com/openai/models/ada?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY" 
 ```
@@ -291,7 +291,7 @@ You can create customized versions of our models using the fine-tuning APIs. The
 
 This API will list your resource's fine-tuning jobs
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes?api-version={api-version}
 ```
 
@@ -403,7 +403,7 @@ curl -X GET https://your_resource_name.openai.azure.com/openai/fine-tunes?api-ve
 
 This API will create a new job to fine-tune a specified model with the specified dataset.
 
-```
+```http
 POST https://{your-resource-name}.openai.azure.com/openai/fine-tunes?api-version={api-version}
 ```
 
@@ -500,7 +500,7 @@ curl https://your-resource-name.openai.azure.com/openai/fine-tunes?api-version=2
 
 This API will retrieve information about a specific fine tuning job
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_id}?api-version={api-version}
 ```
 
@@ -606,7 +606,7 @@ curl https://example_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f2a65
 
 This API will delete a specific fine tuning job
 
-```
+```http
 DELETE https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_id}?api-version={api-version}
 ```
 
@@ -635,7 +635,7 @@ curl https://example_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f2a65
 This API will retrieve the events associated with the specified fine tuning job. To stream events as they become available, use the query parameter “stream” and pass true value (&stream=true)
 
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_id}/events?api-version={api-version}
 ```
 
@@ -653,7 +653,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_i
 - `2022-06-01-preview`
 
 #### Example request
-```
+```console
 curl -X GET https://your_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f2a65d49d34e74a80f6328ba6d8d08/events?stream=true&api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY" 
 ```
@@ -696,7 +696,7 @@ curl -X GET https://your_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f
 
 This API will cancel the specified job
 
-```
+```http
 POST https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_id}/cancel?api-version={api-version}
 ```
 
@@ -712,7 +712,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_
 - `2022-06-01-preview`
 
 #### Example request
-```
+```console
 curl -X POST https://your_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f2a65d49d34e74a80f6328ba6d8d08/cancel?api-version=2022-06-01-preview \
     -H "api-key: YOUR_API_KEY" 
 ```
@@ -768,7 +768,7 @@ curl -X POST https://your_resource_name.openai.azure.com/openai/fine-tunes/ft-d3
 
 This API will list all the Files that have been uploaded to the resource
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/files?api-version={api-version}
 ```
 
@@ -785,7 +785,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/files?api-version={api-
 
 #### Example request
 
-```
+```console
 curl -X GET https://example_resource_name.openai.azure.com/openai/files?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY" 
 ```
@@ -825,7 +825,7 @@ curl -X GET https://example_resource_name.openai.azure.com/openai/files?api-vers
 
 This API will upload a file that contains the examples used for fine-tuning a model.
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/files?api-version={api-version}
 ```
 
@@ -859,7 +859,7 @@ curl -X POST https://example_resource_name.openai.azure.com/openai/files?api-ver
 
 #### Example response
 
-```JSON
+```json
 {
   "bytes": 405898,
   "purpose": "fine-tune",
@@ -876,7 +876,7 @@ curl -X POST https://example_resource_name.openai.azure.com/openai/files?api-ver
 
 This API will return information on the specified file
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/files/{file_id}?api-version={api-version}
 ```
 
@@ -918,7 +918,7 @@ curl -X GET https://example_resource_name.openai.azure.com/openai/files/file-6ca
 
 This API will delete the specified file
 
-```
+```http
 DELETE https://{your-resource-name}.openai.azure.com/openai/files/{file_id}?api-version={api-version}
 ```
 
@@ -944,7 +944,7 @@ curl -X DELETE https://example_resource_name.openai.azure.com/openai/files/file-
 
 This API will download the specified file.
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/files/{file_id}/content?api-version={api-version}
 ```
 
@@ -961,7 +961,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/files/{file_id}/content
 - `2022-06-01-preview`
 
 #### Example request
-```
+```console
 curl -X GET https://example_resource_name.openai.azure.com/openai/files/file-6ca9bd640c8e4eaa9ec922604226ab6c/content?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY" 
 ```
@@ -970,7 +970,7 @@ curl -X GET https://example_resource_name.openai.azure.com/openai/files/file-6ca
 
 Import files from blob storage or other web locations. We recommend you use this option for importing large files. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
-```
+```http
 POST https://{your-resource-name}.openai.azure.com/openai/files/import?api-version={api-version}
 ```
 
@@ -1008,7 +1008,7 @@ curl -X POST https://example_resource_name.openai.azure.com/openai/files/files/i
 
 ### Example response
 
-```JSON
+```json
 {
   "purpose": "fine-tune",
   "filename": "validationfiletest.jsonl",
@@ -1026,8 +1026,8 @@ curl -X POST https://example_resource_name.openai.azure.com/openai/files/files/i
 
 This API will return a list of all the deployments in the resource.
 
-```
-POST https://{your-resource-name}.openai.azure.com/openai/deployments?api-version={api-version}
+```http
+GET https://{your-resource-name}.openai.azure.com/openai/deployments?api-version={api-version}
 ```
 
 **Path parameters**
@@ -1077,7 +1077,7 @@ curl -X GET https://example_resource_name.openai.azure.com/openai/deployments?ap
 
 This API will create a new deployment in the resource. This will enable you to make completions and embeddings calls with the model.
 
-```
+```http
 POST https://{your-resource-name}.openai.azure.com/openai/deployments?api-version={api-version}
 ```
 
@@ -1135,7 +1135,7 @@ curl -X POST https://example_resource_name.openai.azure.com/openai/deployments?a
 
 This API will retrieve information about the specified deployment
 
-```
+```http
 GET https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment_id}?api-version={api-version}
 ```
 
@@ -1178,7 +1178,7 @@ curl -X GET https://example_resource_name.openai.azure.com/openai/deployments/{d
 
 This API will update an existing deployment. Make sure to set the content-type to `application/merge-patch+json`
 
-```
+```http
 PATCH https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment_id}?api-version={api-version}
 ```
 
@@ -1219,7 +1219,7 @@ curl -X PATCH  https://example_resource_name.openai.azure.com/openai/deployments
 
 This API will delete the specified deployment
 
-```
+```http
 DELETE https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment_id}?api-version={api-version}
 ```
 
@@ -1237,7 +1237,7 @@ DELETE https://{your-resource-name}.openai.azure.com/openai/deployments/{deploym
 
 #### Example request
 
-```Console
+```console
 curl -X DELETE https://example_resource_name.openai.azure.com/openai/deployments/{deployment_id}?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY"
 ```

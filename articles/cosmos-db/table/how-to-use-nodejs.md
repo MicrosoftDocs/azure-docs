@@ -51,7 +51,7 @@ communicate with the Storage REST services.
 Add the following code to the top of the **server.js** file in your application:
 
 ```javascript
-const { TableServiceClient } = require("@azure/data-tables");
+const { TableServiceClient, odata } = require("@azure/data-tables");
 ```
 
 ## Connect to Azure Table service
@@ -186,8 +186,11 @@ For successful batch operations, `result` contains information for each operatio
 To return a specific entity based on the **PartitionKey** and **RowKey**, use the **getEntity** method.
 
 ```javascript
-let result = await tableClient.getEntity("hometasks", "1");
-    // result contains the entity
+let result = await tableClient.getEntity("hometasks", "1")
+  .catch((error) => {
+    // handle any errors
+  });
+  // result contains the entity
 ```
 
 After this operation is complete, `result` contains the entity.
