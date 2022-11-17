@@ -81,7 +81,7 @@ MSAL Supports a wide range of application types and scenarios. Please refer to [
 
 ADAL to MSAL Migration Guide for different platforms are available in the following link.
 - [Migrate to MSAL iOS and MacOS](https://learn.microsoft.com/en-us/azure/active-directory/develop/migrate-objc-adal-msal)
-- [Migrate to MSAL Java](https://learn.microsoft.com/en-us/azure/active-directory/develop/migrate-adal-msal-java)
+- [Migrate to MSAL Java](migrate-adal-msal-java.md)
 - [Migrate to MSAL .Net](msal-net-migration.md)
 - [Migrate to MSAL Node](msal-node-migration.md)
 - [Migrate to MSAL Python](migrate-python-adal-msal.md)   
