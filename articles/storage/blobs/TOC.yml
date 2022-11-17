@@ -442,6 +442,8 @@ items:
               href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json
           - name: Configure network routing preference
             href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json
+          - name: Restrict scope of copy operations
+            href: ../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json
         - name: Enable threat protection with Microsoft Defender for Storage
           href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/blobs/toc.json
       - name: Protect blob data
