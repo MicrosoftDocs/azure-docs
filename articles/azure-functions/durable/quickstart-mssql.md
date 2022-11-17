@@ -1,5 +1,5 @@
 ---
-title: Configure Storage Provider - MSSQL
+title: Configure storage provider - Microsoft SQL Server (MSSQL)
 description: Configure a Durable Functions app to use MSSQL
 author: davidmrdavid
 ms.topic: quickstart
