@@ -52,7 +52,7 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `outputs.best_model` | object | Dictionary of output configurations for best model. For more information, see [Best model output configuration](#best-model-output-configuration). | | |
 
 
-### Training or validation Data
+### Training or validation data
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
