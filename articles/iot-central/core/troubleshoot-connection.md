@@ -4,7 +4,7 @@ description: Troubleshoot why you're not seeing data from your devices in IoT Ce
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2022
+ms.date: 10/28/2022
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
@@ -178,6 +178,59 @@ Here is a list of common error codes you might see when a device tries to upload
 
 When you've established that your device is sending data to IoT Central, the next step is to ensure that your device is sending data in a valid format.
 
+### Invalid JSON
+
+Use the **Raw data** view in your IoT Central to investigate invalid JSON errors.
+
+If the payload from the device includes invalid JSON, the **Raw data** view flags the message with the **JsonValidationError** error in the **Errors** column:
+
+:::image type="content" source="media/troubleshoot-connection/raw-data-error.png" alt-text="Screenshot that shows messages with a JSON validation error.":::
+
+> [!TIP]
+> To make it easier to find error messages, you can filter the **Raw data** view by error type, change column widths, and change the column order.
+
+To see the details of the invalid JSON, expand the message:
+
+:::image type="content" source="media/troubleshoot-connection/raw-data-error-detail.png" alt-text="Screenshot that shows the details of a message with invalid JSON.":::
+
+The payload shown by IoT Central has an `_error` object that includes the error code and message. It also shows the original invalid JSON payload. The previous example shows that the JSON message contained one or more `,` characters where there should be a `:` character. The device sent a message that looks like:
+
+```json
+{
+  "payload": [
+    {
+      "temp", 61.000000,
+      "humidity", 70.000000
+    },
+    {
+      "temp", 53.000000,
+      "humidity", 60.000000
+    }
+  ]
+}
+```
+
+The message should look like:
+
+```json
+{
+  "payload": [
+    {
+      "temp": 61.000000,
+      "humidity": 70.000000
+    },
+    {
+      "temp": 53.000000,
+      "humidity": 60.000000
+    }
+  ]
+}
+```
+
+To learn more about message payloads, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+
+### Data not appearing in IoT Central
+
 To detect which categories your issue is in, run the most appropriate Azure CLI command for your scenario:
 
 - To validate telemetry, use the preview command:
@@ -194,10 +247,9 @@ To detect which categories your issue is in, run the most appropriate Azure CLI 
 
 You may be prompted to install the `uamqp` library the first time you run a `validate` command.
 
-The three common types of issue that cause device data to not appear in IoT Central are:
+The two common types of issue that cause device data to not appear in IoT Central are:
 
 - Device template to device data mismatch.
-- Data is invalid JSON.
 - Old versions of IoT Edge cause telemetry from components to display incorrectly as unmodeled data.
 
 ### Device template to device data mismatch
@@ -237,12 +289,6 @@ If you prefer to use a GUI, use the IoT Central **Raw data** view to see if some
 When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
 
 If you chose to create a new template that models the data correctly, migrate devices from your old template to the new template. To learn more, see [Manage devices in your Azure IoT Central application](howto-manage-devices-individually.md).
-
-### Invalid JSON
-
-If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
-
-You can't use the validate commands or the **Raw data** view in the UI to detect if the device is sending malformed JSON.
 
 ### IoT Edge version
 
