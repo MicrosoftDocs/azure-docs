@@ -3,7 +3,7 @@ title: Get started with Azure Service Bus queues (JavaScript)
 description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the JavaScript programming language.
 author: spelluru
 ms.author: spelluru
-ms.date: 02/16/2022
+ms.date: 11/17/2022
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
@@ -16,17 +16,34 @@ ms.custom: devx-track-js, mode-api
 > * [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 > * [Python](service-bus-python-how-to-use-queues.md)
 
-In this tutorial, you learn how to use the [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package in a JavaScript program to send messages to and receive messages from a Service Bus queue.
+In this tutorial, you complete the following steps: 
+
+1. Create a Service Bus namespace, using the Azure portal.
+2. Create a Service Bus queue, using the Azure portal.
+3. Write a JavaScript application to use the [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package to:
+    1. Send a set of messages to the queue.
+    1. Write a .NET console application to receive those messages from the queue.
 
 > [!NOTE]
 > This quick start provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find pre-built JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for JavaScript repository on GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/service-bus/samples/v7). 
 
 ## Prerequisites
+
+If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart.
+
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- [Node.js LTS](https://nodejs.org/en/download/)
 - If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created.
 
 > [!NOTE]
 > - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), or [Node.js cloud service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
+
+[!INCLUDE [service-bus-create-queue-portal](./includes/service-bus-create-queue-portal.md)]
+
+[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
+
 
 ### Use Node Package Manager (NPM) to install the package
 To install the npm package for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
@@ -37,6 +54,10 @@ npm install @azure/service-bus
 
 ## Send messages to a queue
 The following sample code shows you how to send a message to a queue.
+
+### [Passwordless](#tab/passwordless)
+
+### [Connection string](#tab/connection-string)
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 2. Create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
@@ -128,10 +149,18 @@ The following sample code shows you how to send a message to a queue.
     Sent a batch of messages to the queue: myqueue
     ```
 
+---
+
 ## Receive messages from a queue
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called `receive.js` and paste the following code into it.
+
+
+### [Passwordless](#tab/passwordless)
+
+### [Connection string](#tab/connection-string)
+
+1. Create a file called `receive.js` and paste the following code into it.
 
     ```javascript
     const { delay, ServiceBusClient, ServiceBusMessage } = require("@azure/service-bus");
@@ -178,7 +207,11 @@ The following sample code shows you how to send a message to a queue.
      });
     ```
 3. Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
+
 1. Replace `<QUEUE NAME>` with the name of the queue. 
+
+---
+
 1. Then, run the command in a command prompt to execute this file.
 
     ```console
@@ -206,6 +239,11 @@ On the **Overview** page for the Service Bus namespace in the Azure portal, you 
 Select the queue on this **Overview** page to navigate to the **Service Bus Queue** page. You see the **incoming** and **outgoing** message count on this page too. You also see other information such as the **current size** of the queue, **maximum size**, **active message count**, and so on. 
 
 :::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Queue details":::
+
+## Clean up resources
+
+Navigate to your Service Bus namespace in the Azure portal, and select **Delete** on the Azure portal to delete the namespace and the queue in it.
+
 ## Next steps
 See the following documentation and samples: 
 
