@@ -241,6 +241,9 @@ items:
     href: custom-translator/faq.md
 - name: Resources
   items:
+  - name: Modifications to Translator Service
+    displayName: deprecation, deprecate, changes, modify, modifications
+    href: modifications-deprecations.md
   - name: Translator in sovereign clouds
     displayName: fairfax,compliant,secret,compliance,government,government cloud,dod,china,batch,region
     href: sovereign-clouds.md

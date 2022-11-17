@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/backup/backup-center-community.md",
+            "redirect_url": "/azure/backup/backup-center-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
             "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
             "redirect_document_id": false
@@ -7016,6 +7021,11 @@
         {
             "source_path_from_root": "/articles/azure-functions/functions-debug-event-grid-trigger-local.md",
             "redirect_url": "/azure/azure-functions/functions-event-grid-blob-trigger",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/azure-functions-supported-features.md",
+            "redirect_url": "/azure/azure-functions/functions-monitoring",
             "redirect_document_id": false
         },
         {
