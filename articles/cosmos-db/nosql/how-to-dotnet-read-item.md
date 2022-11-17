@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Read an item in Azure Cosmos DB for NoSQL using .NET
@@ -31,9 +31,9 @@ Every item in Azure Cosmos DB for NoSQL has a unique identifier specified by the
 
 To perform a point read of an item, call one of the following methods:
 
-* [``ReadItemAsync<>``](#read-an-item-asynchronously)
-* [``ReadItemStreamAsync<>``](#read-an-item-as-a-stream-asynchronously)
-* [``ReadManyItemsAsync<>``](#read-multiple-items-asynchronously)
+- [``ReadItemAsync<>``](#read-an-item-asynchronously)
+- [``ReadItemStreamAsync<>``](#read-an-item-as-a-stream-asynchronously)
+- [``ReadManyItemsAsync<>``](#read-multiple-items-asynchronously)
 
 ## Read an item asynchronously
 

@@ -1081,6 +1081,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cost-management-billing/manage/delete-azure-payment-method.md",
+            "redirect_url": "/azure/cost-management-billing/manage/change-credit-card",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cost-management/use-reports.md",
             "redirect_url": "/azure/cost-management-billing/cloudyn/use-reports",
             "redirect_document_id": true

@@ -50,7 +50,7 @@ Your retention requirement might be for compliance reasons or for occasional inv
 
 You can configure retention and archiving for all tables in a workspace or configure each table separately. The options allow you to optimize your costs by setting only the retention you require for each data type.
 
-### Configure Basic Logs (preview)
+### Configure Basic Logs
 
 You can save on data ingestion costs by configuring [certain tables](logs/basic-logs-configure.md#which-tables-support-basic-logs) in your Log Analytics workspace that you primarily use for debugging, troubleshooting, and auditing as [Basic Logs](logs/basic-logs-configure.md). 
 
@@ -63,7 +63,7 @@ The decision whether to configure a table for Basic Logs is based on the followi
 - You only require basic queries of the data using a limited version of the query language.
 - The cost savings for data ingestion over a month exceed the expected cost for any expected queries
 
-See [Query Basic Logs in Azure Monitor (preview)](.//logs/basic-logs-query.md) for information on query limitations. See [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md) for more information about Basic Logs.
+See [Query Basic Logs in Azure Monitor](.//logs/basic-logs-query.md) for information on query limitations. See [Configure Basic Logs in Azure Monitor](logs/basic-logs-configure.md) for more information about Basic Logs.
 
 ## Reduce the amount of data collected
 

@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Create a container in Azure Cosmos DB for NoSQL using .NET
@@ -23,9 +23,9 @@ In Azure Cosmos DB, a container is analogous to a table in a relational database
 
 Here are some quick rules when naming a container:
 
-* Keep container names between 3 and 63 characters long
-* Container names can only contain lowercase letters, numbers, or the dash (-) character.
-* Container names must start with a lowercase letter or number.
+- Keep container names between 3 and 63 characters long
+- Container names can only contain lowercase letters, numbers, or the dash (-) character.
+- Container names must start with a lowercase letter or number.
 
 Once created, the URI for a container is in this format:
 
@@ -35,8 +35,8 @@ Once created, the URI for a container is in this format:
 
 To create a container, call one of the following methods:
 
-* [``CreateContainerAsync``](#create-a-container-asynchronously)
-* [``CreateContainerIfNotExistsAsync``](#create-a-container-asynchronously-if-it-doesnt-already-exist)
+- [``CreateContainerAsync``](#create-a-container-asynchronously)
+- [``CreateContainerIfNotExistsAsync``](#create-a-container-asynchronously-if-it-doesnt-already-exist)
 
 ### Create a container asynchronously
 

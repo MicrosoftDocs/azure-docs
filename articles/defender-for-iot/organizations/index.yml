@@ -46,8 +46,6 @@ landingContent:
         links:
           - text: Get started with OT security monitoring
             url: tutorial-onboarding.md
-          - text: Get started with Enterprise IoT security monitoring
-            url: tutorial-getting-started-eiot-sensor.md
 
   - title: How-to
     linkLists:

@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 07/29/2022
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js, ignite-2022, devguide-js, cosmos-db-dev-journey
 ---
 
 # Query data in Azure Cosmos DB for MongoDB using JavaScript
@@ -22,14 +22,13 @@ Use [queries](#query-for-documents) and [aggregation pipelines](#aggregation-pip
 
 [API for MongoDB reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (npm)](https://www.npmjs.com/package/mongodb)
 
-
 ## Query for documents
 
-To find documents, use a query to define how the documents are found. 
+To find documents, use a query to define how the documents are found.
 
-* [MongoClient.Db.Collection.findOne](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#findOne)
-* [MongoClient.Db.Collection.find](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#find)
-* [FindCursor](https://mongodb.github.io/node-mongodb-native/4.7/classes/FindCursor.html)
+- [MongoClient.Db.Collection.findOne](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#findOne)
+- [MongoClient.Db.Collection.find](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#find)
+- [FindCursor](https://mongodb.github.io/node-mongodb-native/4.7/classes/FindCursor.html)
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/275-find/index.js" id="read_doc":::
 
@@ -39,18 +38,18 @@ The preceding code snippet displays the following example console output:
 
 ## Aggregation pipelines
 
-Aggregation pipelines are useful to isolate expensive query computation, transformations, and other processing on your Azure Cosmos DB server, instead of performing these operations on the client. 
+Aggregation pipelines are useful to isolate expensive query computation, transformations, and other processing on your Azure Cosmos DB server, instead of performing these operations on the client.
 
-For specific **aggregation pipeline support**, refer to the following: 
+For specific **aggregation pipeline support**, refer to the following:
 
-* [Version 4.2](feature-support-42.md#aggregation-pipeline)
-* [Version 4.0](feature-support-40.md#aggregation-pipeline)
-* [Version 3.6](feature-support-36.md#aggregation-pipeline)
-* [Version 3.2](feature-support-32.md#aggregation-pipeline)
+- [Version 4.2](feature-support-42.md#aggregation-pipeline)
+- [Version 4.0](feature-support-40.md#aggregation-pipeline)
+- [Version 3.6](feature-support-36.md#aggregation-pipeline)
+- [Version 3.2](feature-support-32.md#aggregation-pipeline)
 
 ### Aggregation pipeline syntax
 
-A pipeline is an array with a series of stages as JSON objects. 
+A pipeline is an array with a series of stages as JSON objects.
 
 ```javascript
 const pipeline = [
@@ -63,12 +62,12 @@ const pipeline = [
 
 A _stage_ defines the operation and the data it's applied to, such as:
 
-* $match - find documents
-* $addFields - add field to cursor, usually from previous stage
-* $limit - limit the number of results returned in cursor
-* $project - pass along new or existing fields, can be computed fields
-* $group - group results by a field or fields in pipeline
-* $sort - sort results
+- $match - find documents
+- $addFields - add field to cursor, usually from previous stage
+- $limit - limit the number of results returned in cursor
+- $project - pass along new or existing fields, can be computed fields
+- $group - group results by a field or fields in pipeline
+- $sort - sort results
 
 ```javascript
 // reduce collection to relative documents
@@ -88,7 +87,7 @@ const sortStage = {
 
 ### Aggregate the pipeline to get iterable cursor
 
-The pipeline is aggregated to produce an iterable cursor. 
+The pipeline is aggregated to produce an iterable cursor.
 
 ```javascript
 const db = 'adventureworks';
@@ -103,9 +102,9 @@ await aggCursor.forEach(product => {
 
 ## Use an aggregation pipeline in JavaScript
 
-Use a pipeline to keep data processing on the server before returning to the client. 
+Use a pipeline to keep data processing on the server before returning to the client.
 
-### Example product data 
+### Example product data
 
 The aggregations below use the [sample products collection](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples/blob/main/252-insert-many/products.json) with data in the shape of:
 
@@ -149,18 +148,15 @@ The aggregations below use the [sample products collection](https://github.com/A
 
 ### Example 1: Product subcategories, count of products, and average price
 
-Use the following [sample code](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples/blob/main/280-aggregation/average-price-in-each-product-subcategory.js) to report on average price in each product subcategory. 
+Use the following [sample code](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples/blob/main/280-aggregation/average-price-in-each-product-subcategory.js) to report on average price in each product subcategory.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregation/average-price-in-each-product-subcategory.js" id="aggregation_1" highlight="26, 43, 53, 56, 66":::
 
-
 ### Example 2: Bike types with price range
 
-Use the following [sample code](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples/blob/main/280-aggregation/bike-types-and-price-ranges.js) to report on the `Bikes` subcategory. 
+Use the following [sample code](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples/blob/main/280-aggregation/bike-types-and-price-ranges.js) to report on the `Bikes` subcategory.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/280-aggregation/bike-types-and-price-ranges.js" id="aggregation_1" highlight="23, 30, 38, 45, 68, 80, 85, 98":::
-
-
 
 ## See also
 

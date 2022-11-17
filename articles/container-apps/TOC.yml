@@ -104,8 +104,15 @@
           href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
     - name: Connect multiple apps
       href: connect-apps.md
-    - name: Publish revisions with GitHub Actions
-      href: github-actions-cli.md
+    - name: Set up continuous deployment
+      items:
+        - name: Azure Pipelines
+          href: azure-pipelines.md
+          displayName: Azure DevOps
+        - name: GitHub Actions
+          href: github-actions.md
+        - name: GitHub Actions with Azure CLI
+          href: github-actions-cli.md
     - name: Use a custom VNET
       href: vnet-custom.md
     - name: Use health probes

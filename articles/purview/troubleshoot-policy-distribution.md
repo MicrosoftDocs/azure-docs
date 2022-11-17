@@ -106,7 +106,7 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/BB345678-abcd-ABCD-
 ## Delta pull
 
 ### Request
-To fetch policies via full pull, send a `GET` request to /policyEvents as follows:
+To fetch policies via delta pull, send a `GET` request to /policyEvents as follows:
 
 ```
 GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyEvents?api-version={apiVersion}&syncToken={syncToken}
