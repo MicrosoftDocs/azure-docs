@@ -47,7 +47,7 @@ To add a managed identity during instance creation in the portal, begin [creatin
 
 The managed identity option is located in the **Advanced** tab of instance setup.
 
-In this tab, select the **On** option for either **System managed identity** or **User assigned identity** to turn on this feature.
+In this tab, select the **On** option for **System managed identity** to turn on this feature.
 
 :::image type="content" source="media/how-to-route-with-managed-identity/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. System managed identity is turned on.":::
 
@@ -91,11 +91,16 @@ Start by opening the [Azure portal](https://portal.azure.com) in a browser.
 
 1. Use the tabs to select which type of managed identity you want to add.
     1. **System-assigned**: After selecting this tab, select the **On** option to turn on this feature.
-    1. **User-assigned (preview)**: After selecting this tab, select an identity that you'd like to associate with the instance, and select **Associate**.
+
+       :::image type="content" source="media/how-to-route-with-managed-identity/identity-system-assigned.png" alt-text="Screenshot of the Azure portal showing the Identity page and system-assigned options for an Azure Digital Twins instance." lightbox="media/how-to-route-with-managed-identity/identity-system-assigned.png":::
+
+    1. **User-assigned (preview)**: After selecting this tab, select **Associate a user-assigned managed identity** and follow the prompts to choose an identity to associate with the instance.
+
+       :::image type="content" source="media/how-to-route-with-managed-identity/identity-user-assigned.png" alt-text="Screenshot of the Azure portal showing the Identity page and user-assigned options for an Azure Digital Twins instance." lightbox="media/how-to-route-with-managed-identity/identity-user-assigned.png":::
 
 1. Select the **Save** button, and **Yes** to confirm.
 
-   :::image type="content" source="media/how-to-route-with-managed-identity/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity page for an Azure Digital Twins instance." lightbox="media/how-to-route-with-managed-identity/identity-digital-twins.png":::
+
 
 After the change is saved, more fields will appear on this page for the new identity's **Object ID** and **Permissions**.
 
@@ -175,7 +180,7 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
     | Setting | Value |
     | --- | --- |
     | Role | Select the desired role from the dropdown menu. |
-    | Assign access to | Under **System assigned managed identity** or **User assigned managed identity**, select **Digital Twins**. |
+    | Assign access to | Under **Managed identity**, select **Digital Twins**. |
     | Members | Select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so choose the name of your Azure Digital Twins instance. |
     
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the 'Add role assignment' page for an Azure Digital Twins instance." lightbox="../../includes/role-based-access-control/media/add-role-assignment-page.png":::
