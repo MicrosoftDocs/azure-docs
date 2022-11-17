@@ -26,15 +26,20 @@ This article describes how to:
 
 ## Prerequisites
 
-In this tutorial, you set up a lab with virtual machines for your team. To set up a lab, you must be an Owner, Lab Creator, or Contributor on the lab plan. The user account that you used to create a lab plan can create a lab.
+- An Azure Lab Services lab plan. If you don't have a lab plan yet, see For information, see [Tutorial: Set up a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+- The lab plan is created in the same tenant as Microsoft Teams.
+- To add the Azure Lab Services Teams app to a channel, your account needs to be an owner of the team in Microsoft Teams.
+- To add a lab plan to Teams, your account should have the Owner, Lab Creator, or Contributor role on the lab plan.
 
 ## User workflow 
-Here's the typical workflow when using Azure Lab Services within Teams
 
-1. Create a lab plan in the Azure portal.  For information, see [Tutorial: Set up a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
-1. The lab plan owner [adds educators to the Lab Creator role](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role) so they can create labs for their classes.
-1. Then, the educators create labs, pre-configures the template VM and publishes the lab to create VMs to everyone on the team.
-1. Once the lab is published, a VM is assigned to everyone on the team membership list on their first sign into Azure Lab Services. Team members select on the tab containing **Azure Lab Services** App within Teams or by accessing the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). Team members can then use the VM to do the class work and homework.
+The typical workflow when using Azure Lab Services within Teams, is the following:
+
+1. The lab plan owner [creates a lab plan in the Azure portal](./tutorial-setup-lab-plan.md).
+1. The lab plan owner [adds educators to the Lab Creator role in the Azure portal](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role) so they can create labs for their classes.
+1. Educators create labs in Teams, pre-configure the template VM, and publishes the lab to create VMs for everyone on the team.
+1. Once the lab is published, Azure Lab Services automatically assigns a VM to each person on the team membership list upon their first sign into Azure Lab Services.
+1. Team members access the lab by using the **Azure Lab Services** Teams app, or by accessing the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). Team members can then use the VM to do the class work and homework.
 
 > [!IMPORTANT]
 > Azure Lab Services can be used within Teams only if the lab plans are created in the same tenant as Teams.
