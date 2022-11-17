@@ -21,7 +21,7 @@ The **Network Diagnostics Tool** enables Azure Communication Services developers
   
 As part of the diagnostics performed, the user is asked to enable permissions for the tool to access their devices. Next, the user is asked to record their voice, which is then played back using an echo bot to ensure that the microphone is working. The tool finally, performs a video test. The test uses the camera to detect video and measure the quality for sent and received frames. 
 
-If you are looking to build your own Network Diagnostic Tool or to perform deeper integration of this tool into your application, you can levearge [pre-call diagnostic APIs](../voice-video-calling/pre-call-diagnostics.md) for the calling SDK. 
+If you are looking to build your own Network Diagnostic Tool or to perform deeper integration of this tool into your application, you can leverage [pre-call diagnostic APIs](../voice-video-calling/pre-call-diagnostics.md) for the calling SDK. 
   
 ## Performed tests
 
