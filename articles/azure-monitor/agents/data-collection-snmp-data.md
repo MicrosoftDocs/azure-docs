@@ -11,7 +11,7 @@ ms.reviewer: shseth
   
 Simple Network Management Protocol (SNMP) is a widely-deployed management protocol for monitoring and configuring Linux devices and appliances.  
   
-There are two ways to collect SNMP data: 
+You can collect SNMP data in two ways: 
 
 - **Polls** - The managing system polls an SNMP agent to gather values for specific properties.
 - **Traps** - An SNMP agent forwards events or notifications to a managing system. 
