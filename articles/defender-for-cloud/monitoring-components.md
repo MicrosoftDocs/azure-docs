@@ -5,7 +5,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/12/2022
+ms.date: 11/17/2022
 ---
 
 # How does Defender for Cloud collect data?
@@ -61,14 +61,14 @@ Learn more about [using the Azure Monitor Agent with Defender for Cloud](auto-de
 
 ### Log Analytics agent
 
-| Aspect                                               | Azure virtual machines                                                                                                                                                              | Azure Arc-enabled machines                                                                                                                                                         |
-|------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                                       | Generally available (GA)                                                                                                                                                            | Generally available (GA)                                                                                                                                                                            |
-| Relevant Defender plan:                              | [Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md)                                            | [Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md)                                           |
-| Required roles and permissions (subscription-level): | [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Security Admin](../role-based-access-control/built-in-roles.md#security-admin)                        | [Owner](../role-based-access-control/built-in-roles.md#owner)                                                                                                                      |
-| Supported destinations:                              | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure virtual machines                                                                                                  | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines                                                                                             |
-| Policy-based:                                        | :::image type="icon" source="./media/icons/no-icon.png"::: No                                                                                                                       | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                                                                                                                    |
-| Clouds:                                              | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet |
+| Aspect | Azure virtual machines | Azure Arc-enabled machines |
+|---|:--|:--|
+| Release state: | Generally available (GA) | Generally available (GA) |
+| Relevant Defender plan: | [Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) | [Microsoft Defender for Servers](defender-for-servers-introduction.md)<br>[Microsoft Defender for SQL](defender-for-sql-introduction.md) |
+| Required roles and permissions (subscription-level): | [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
+| Supported destinations: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure virtual machines | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines |
+| Policy-based: | :::image type="icon" source="./media/icons/no-icon.png"::: No | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet |
 
 <a name="preexisting"></a>
 
