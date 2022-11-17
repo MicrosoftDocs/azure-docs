@@ -291,7 +291,7 @@ The following sample code shows you how to send a message to a queue.
 
      async function main() {
     	// create a Service Bus client using the connection string to the Service Bus namespace
-    	const sbClient = new ServiceBusClient(connectionString);
+    	const sbClient = new ServiceBusClient(fullyQualifiedNamespace, credential);
      
     	// createReceiver() can also be used to create a receiver for a subscription.
     	const receiver = sbClient.createReceiver(queueName);
