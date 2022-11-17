@@ -24,6 +24,9 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
     > - To change the technology type, you'll need to delete the site and [recreate it](create-a-site.md). <!-- link to new site deletion section -->
     > - To change the version, [upgrade the packet core instance](upgrade-packet-core-azure-portal.md).
 
+    >[!NOTE]
+    > If you have previously configured the packet core to have multiple data networks, you cannot update the packet core configuration whilst the **Packet Core Control Plane** resource has a custom location configured. You must first follow this guide, setting the **Custom Location** field to **None**, which will cause the packet core to be uninstalled. Once you have successfully made your changes in the portal, you will need to follow this guide again to set the **Custom Location** field to the value from [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values).
+
 - If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the new values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
@@ -47,7 +50,7 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration.png" alt-text="Screenshot of the Azure portal showing the Modify packet core option.":::
 
 7. Choose the next step:
-   - If you want to make changes to the packet core configuration or access network values, go to [Modify the packet core configuration](#modify-the-packet-core-configuration).
+   - If you want to make changes to the packet core configuration, access network values, or remove the custom location go to [Modify the packet core configuration](#modify-the-packet-core-configuration).
    - If you want to configure a new or existing data network and attach it to the packet core instance, go to [Attach a data network](#attach-a-data-network).
    - If you want to make changes to a data network that's already attached to the packet core instance, go to [Modify attached data network configuration](#modify-attached-data-network-configuration).
 
