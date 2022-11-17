@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory SSO integration with Drawboard Projects'
+title: Azure Active Directory SSO integration with Drawboard Projects
 description: Learn how to configure single sign-on between Azure Active Directory and Drawboard Projects.
 services: active-directory
 author: jeevansd
@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Drawboard Projects
 
-In this article, you'll learn how to integrate Drawboard Projects with Azure Active Directory (Azure AD). Drawboard Projects provides the safest and easiest to use business solution for sending and receiving files. When you integrate Drawboard Projects with Azure AD, you can:
+In this article, you'll learn how to integrate Drawboard Projects with Azure Active Directory (Azure AD). Drawboard Projects architecture, engineering and construction teams globally save valuable project time in the design review lifecycle. When you integrate Drawboard Projects with Azure AD, you can:
 
 * Control in Azure AD who has access to Drawboard Projects.
 * Enable your users to be automatically signed-in to Drawboard Projects with their Azure AD accounts.
@@ -55,7 +55,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Screenshot shows to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
+   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -77,7 +77,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Set up Drawboard Projects** section, copy the appropriate URL(s) based on your requirement.
 
-	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
+	![Screenshot shows how to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
 ## Configure Drawboard Projects SSO
 
