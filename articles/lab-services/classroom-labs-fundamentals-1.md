@@ -5,7 +5,6 @@ author: emaher
 ms.topic: overview
 ms.date: 05/30/2022
 ms.service: lab-services
-ms.author: enewman
 ---
 
 # Architecture Fundamentals in Azure Lab Services when using lab accounts
