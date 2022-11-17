@@ -95,6 +95,8 @@ The following parameters are used by the App Configuration Push task:
         - **Kvset content profile**: Removes all key-values in the App Configuration store that are not included in the configuration file before pushing new key-values from the configuration file.
   - **Unchecked**: Pushes all key-values from the configuration file into the App Configuration store and leaves everything else in the App Configuration store intact.
 
+
+
 ## Troubleshooting
 
 If an unexpected error occurs, debug logs can be enabled by setting the pipeline variable `system.debug` to `true`.
