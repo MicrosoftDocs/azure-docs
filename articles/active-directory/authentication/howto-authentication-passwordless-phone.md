@@ -38,7 +38,7 @@ You can enable passwordless phone sign-in for multiple accounts in Microsoft Aut
 
 Previously, admins might not require passwordless sign-in for users with multiple accounts because it requires them to carry more devices for sign-in. By removing the limitation of one user sign-in from a device, admins can more confidently encourage users to register passwordless phone sign-in and use it as their default sign-in method.
 
-The Azure AD accounts can be in the same tenant or different tenants. Guest accounts aren't supported for multiple account sign-in from one device.
+The Azure AD accounts can be in the same tenant or different tenants. Guest accounts aren't supported for multiple account sign-ins from one device.
 
 >[!NOTE]
 >Multiple accounts on iOS is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
@@ -47,7 +47,7 @@ The Azure AD accounts can be in the same tenant or different tenants. Guest acco
 
 To use passwordless phone sign-in with Microsoft Authenticator, the following prerequisites must be met:
 
-- Recommended: Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method. Push notifications to your smartphone or tablet help the Authenticator app to prevent unauthorized access to accounts and stop fraudulent transactions. The Authenticator app automatically generates codes when set up to do push notifications so a user has a backup sign-in method even if their device doesn't have connectivity. 
+- Recommended: Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method. Push notifications to your smartphone or tablet help the Authenticator app to prevent unauthorized access to accounts and stop fraudulent transactions. The Authenticator app automatically generates codes when set up to do push notifications. A user has a backup sign-in method even if their device doesn't have connectivity. 
 - Latest version of Microsoft Authenticator installed on devices running iOS or Android.
 - For Android, the device that runs Microsoft Authenticator must be registered to an individual user. We're actively working to enable multiple accounts on Android. 
 - For iOS, the device must be registered with each tenant where it's used to sign in. For example, the following device must be registered with Contoso and Wingtiptoys to allow all accounts to sign in:
@@ -61,7 +61,7 @@ To use passwordless authentication in Azure AD, first enable the combined regist
 
 ## Enable passwordless phone sign-in authentication methods
 
-Azure AD lets you choose which authentication methods can be used during the sign-in process. Users then register for the methods they'd like to use. The **Microsoft Authenticator** authentication method policy manages both the traditional push MFA method, as well as the passwordless authentication method. 
+Azure AD lets you choose which authentication methods can be used during the sign-in process. Users then register for the methods they'd like to use. The **Microsoft Authenticator** authentication method policy manages both the traditional push MFA method and the passwordless authentication method. 
 
 > [!NOTE]
 > If you enabled Microsoft Authenticator passwordless sign-in using Azure AD PowerShell, it was enabled for your entire directory. If you enable using this new method, it supersedes the PowerShell policy. We recommend you enable for all users in your tenant via the new **Authentication Methods** menu, otherwise users who aren't in the new policy can't sign in without a password.
@@ -73,7 +73,7 @@ To enable the authentication method for passwordless phone sign-in, complete the
 1. Under **Microsoft Authenticator**, choose the following options:
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
-1. Each added group or user is enabled by default to use Microsoft Authenticator in both passwordless and push notification modes ("Any" mode). To change this, for each row:
+1. Each added group or user is enabled by default to use Microsoft Authenticator in both passwordless and push notification modes ("Any" mode). To change the mode, for each row:
    1. Browse to **...** > **Configure**.
    1. For **Authentication mode** - choose **Any**, or **Passwordless**. Choosing **Push** prevents the use of the passwordless phone sign-in credential. 
 1. To apply the new policy, click **Save**. 
@@ -132,14 +132,14 @@ The following known issues exist.
 
 ### Not seeing option for passwordless phone sign-in
 
-In one scenario, a user can have an unanswered passwordless phone sign-in verification that is pending. Yet the user might attempt to sign in again. When this happens, the user might see only the option to enter a password.
+In one scenario, a user can have an unanswered passwordless phone sign-in verification that is pending. If the user attempts to sign in again, they might only see the option to enter a password.
 
-To resolve this scenario, the following steps can be used:
+To resolve this scenario, follow these steps:
 
 1. Open Microsoft Authenticator.
 2. Respond to any notification prompts.
 
-Then the user can continue to utilize passwordless phone sign-in.
+Then the user can continue to use passwordless phone sign-in.
 
 ### Federated Accounts
 
