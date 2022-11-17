@@ -212,17 +212,21 @@ Besides using the predefined accelerators, you can also create your own ones. Pl
     > It might take a few seconds for Tanzu Application Platform GUI to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as git interval when you create the accelerator. After changing the accelerator, it will also take time to be reflected in Tanzu Application Platform GUI. The best practice can be changing the git interval to speed up for verification after changes applied into git repo.
 
 ### Use accelerators to bootstrap a new project
-
-Click **App Accelerator URL** and jump to **Tanzu Application Platform GUI**, you can choose one accelerator to explore file and download as zip file.
-![explore-accelerator](./media/how-to-use-accelerator/explore-accelerator.png)   
+Click **App Accelerator URL** to access **Tanzu Application Platform GUI**
+![tap-gui-link](./media/how-to-use-accelerator/tap-gui-url.png)   
+Jump to **Tanzu Application Platform GUI**, you can choose one accelerator to explore file and download as zip file.
+In the "Configure accelerator" step, you can input values for your input options.
+![configure-accelerator](./media/how-to-use-accelerator/configure-accelerator.png)   
+Click **EXPLORE FILE**, you will see the project structure and view source code.
 ![explore-accelerator-project](./media/how-to-use-accelerator/explore-accelerator-project.png)   
+Go to the "Review and generate" step, you can review your provided paramenters and generator your project.
 ![generate-accelerator-](./media/how-to-use-accelerator/generate-accelerator.png)   
+Click **GENERATE ACCELERATOR**, it will start a task to process provided paramenters and zip files from accelerator. After the task is completed, you're free to download the project as zip file.
 ![download-accelerator-](./media/how-to-use-accelerator/download-file.png)   
 
 ## Manage App Accelerator in existing Enterprise tier instances
 
 #### [Portal](#tab/Portal)
-In **Developer Tools**, go to **Manage tools**. Check or uncheck **Enable App Accelerator** and then click **Apply** to enable or disable App Accelerator.
 1. Navigate to your Service resource. Click "Developer Tools (Preview)".
 1. Click "Manage tools".
 1. Check the App Accelerators checkbox and click "Apply"
