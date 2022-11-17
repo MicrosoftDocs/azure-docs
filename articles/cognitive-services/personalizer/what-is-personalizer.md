@@ -43,7 +43,7 @@ Personalizer uses reinforcement learning to select the best *action* for a given
 * **Reward**: A numerical score between 0 and 1 that indicates whether the decision was *bad* (0), or *good* (1)
     * Example: A "1" indicates that a user clicked on the suggested article, whereas a "0" indicates the user did not.
 
-### Personalizer APIs
+### Rank and Reward APIs
 
 Personalizer empowers you to take advantage of the power and flexibility of reinforcement learning using just two primary APIs.
 
