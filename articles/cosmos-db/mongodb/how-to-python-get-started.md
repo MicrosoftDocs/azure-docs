@@ -126,7 +126,7 @@ Skip this step and use the information for the portal in the next step.
     from dotenv import load_dotenv
     ```
 
-    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="package_dependencies":::
+    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/101-client-connection-string/run.py" id="package_dependencies":::
 
 2. Define a new instance of the `MongoClient` class using the constructor and the connection string read from an environment variable.
 
@@ -139,7 +139,7 @@ Skip this step and use the information for the portal in the next step.
         print("Property: {}: Value: {} ".format(prop, value))
     ```
 
-    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="client_credentials":::
+    :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/101-client-connection-string/run.py" id="client_credentials":::
 
 For more information on different ways to create a ``MongoClient`` instance, see [Making a Connection with MongoClient](https://pymongo.readthedocs.io/en/stable/tutorial.html#making-a-connection-with-mongoclient).
 
