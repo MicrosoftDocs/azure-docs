@@ -5,7 +5,7 @@ description: Learn how to use Apache Kafka on HDInsight with Azure IoT Hub. The 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 09/15/2022
+ms.date: 11/17/2022
 ---
 
 # Use Apache Kafka on HDInsight with Azure IoT Hub
