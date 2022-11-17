@@ -21,12 +21,12 @@ Virtual appointments are a communication pattern where a **consumer** and a **bu
 No matter the industry, there are at least three personas involved in a virtual appointment and certain tasks they accomplish:
 - **Office Manager.** The office manager configures the business’ availability and booking rules for providers and consumers.
 - **Provider.** The provider gets on the call with the consumer. They must be able to view upcoming virtual appointments and join the virtual appointment and engage in communication.
-- **Consumer**. The consumer who schedules and motivates the visit. They must schedule a visit, enjoy reminders of the visit, typically through SMS or email, and join the virtual appointment and engage in communication.
+- **Consumer**. The consumer who schedules and motivates the appointment. They must schedule an appointment, enjoy reminders of the appointment, typically through SMS or email, and join the virtual appointment and engage in communication.
 
 Azure and Teams are interoperable. This interoperability gives organizations choice in how they deliver virtual appointments using Microsoft's cloud. Three examples include:
 
 -  **Microsoft 365** provides a zero-code suite for virtual appointments using Microsoft [Teams](https://www.microsoft.com/microsoft-teams/group-chat-software/) and [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app). This is the easiest option but customization is limited. [Check out this video for an introduction.](https://www.youtube.com/watch?v=zqfGrwW2lEw)
--  **Microsoft 365 + Azure hybrid.** Combine Microsoft 365 Teams and Bookings with a custom Azure application for the consumer experience. Organizations take advantage of Microsoft 365's employee familiarity but customize and embed the consumer visit experience in their own application.
+-  **Microsoft 365 + Azure hybrid.** Combine Microsoft 365 Teams and Bookings with a custom Azure application for the consumer experience. Organizations take advantage of Microsoft 365's employee familiarity but customize and embed the consumer appointment experience in their own application.
 -  **Azure custom.** Build the entire solution on Azure primitives: the business experience, the consumer experience, and scheduling systems.
 
 ![Diagram of virtual appointment implementation options](./media/virtual-visits/virtual-visit-options.svg)
@@ -36,11 +36,11 @@ These three **implementation options** are columns in the table below, while eac
 |*Persona* | **Use Case** | **Microsoft 365** | **Microsoft 365 + Azure hybrid** | **Azure Custom** |
 |--------------|------------|-----------|---------------|---------------|
 | *Manager* | Configure Business Availability | Bookings | Bookings | Custom |
-| *Provider* | Managing upcoming visits | Outlook & Teams | Outlook & Teams | Custom |
-| *Provider* | Join the visit | Teams | Teams | ACS Calling & Chat |
-| *Consumer* | Schedule a visit | Bookings | Bookings | ACS Rooms |
-| *Consumer*| Be reminded of a visit | Bookings | Bookings | ACS SMS |
-| *Consumer*| Join the visit | Teams or virtual appointments | ACS Calling & Chat | ACS Calling & Chat |
+| *Provider* | Managing upcoming appointments | Outlook & Teams | Outlook & Teams | Custom |
+| *Provider* | Join the appointment | Teams | Teams | ACS Calling & Chat |
+| *Consumer* | Schedule an appointment | Bookings | Bookings | ACS Rooms |
+| *Consumer*| Be reminded of a appointment | Bookings | Bookings | ACS SMS |
+| *Consumer*| Join the appointment | Teams or virtual appointments | ACS Calling & Chat | ACS Calling & Chat |
 
 There are other ways to customize and combine Microsoft tools to deliver a virtual appointments experience:
 -  **Replace Bookings with a custom scheduling experience with Graph.** You can build your own consumer-facing scheduling experience that controls Microsoft 365 meetings with Graph APIs.
@@ -50,9 +50,9 @@ There are other ways to customize and combine Microsoft tools to deliver a virtu
 The rest of this tutorial focuses on Microsoft 365 and Azure hybrid solutions. These hybrid configurations are popular because they combine employee familiarity of Microsoft 365 with the ability to customize the consumer experience. They’re also a good launching point to understanding more complex and customized architectures. The diagram below shows user steps for a virtual appointment:
 
 ![High-level architecture of a hybrid virtual appointments solution](./media/virtual-visits/virtual-visit-arch.svg)
-1. Consumer schedules the visit using Microsoft 365 Bookings.
-2. Consumer gets a visit reminder through SMS and Email.
-3. Provider joins the visit using Microsoft Teams.
+1. Consumer schedules the appointment using Microsoft 365 Bookings.
+2. Consumer gets a appointment reminder through SMS and Email.
+3. Provider joins the appointment using Microsoft Teams.
 4. Consumer uses a link from the Bookings reminders to launch the Contoso consumer app and join the underlying Teams meeting.
 5. The users communicate with each other using voice, video, and text chat in a meeting.
 

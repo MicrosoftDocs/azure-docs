@@ -66,16 +66,16 @@ where the path `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 
 ### Example for Azure SQL Server (Azure SQL Database)
 
-##### Example parameters:
+**Example parameters**:
 - Microsoft Purview account: relecloud-pv
 - Data source Resource ID: /subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1
 
-##### Example request:
+**Example request**:
+
 ```
 GET https://relecloud-pv.purview.azure.com/pds/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1/policyElements?api-version=2021-01-01-preview
 ```
-
-##### Example response:
+**Example response**:
 
 `200 OK`
 
@@ -110,7 +110,8 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/BB345678-abcd-ABCD-
 A delta pull provides an incremental view of policies (that is, the changes since the last pull request), regardless of whether the last pull was a full or a delta pull. A full pull is required prior to issuing the first delta pull.
 
 ### Request
-To fetch policies via full pull, send a `GET` request to `/policyEvents` as follows:
+
+To fetch policies via delta pull, send a `GET` request to `/policyEvents`, as follows:
 
 ```
 GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyEvents?api-version={apiVersion}&syncToken={syncToken}
@@ -229,7 +230,7 @@ Policy specifies the decision that the data source must enforce (*permit* or *de
 
 ## Common subconstructs used in PolicySet, Policy, and AttributeRule
 
-#### AttributePredicate
+### AttributePredicate
 `AttributePredicate` checks to see whether the predicate that's specified on an attribute is satisfied. `AttributePredicate` can specify the following properties:
 - `attributeName`: Specifies the attribute name on which an attribute predicate needs to be evaluated.
 - `matcherId`: The ID of a matcher function that's used to compare the attribute value that's looked up in the request context by attribute name to the attribute value literal that's specified in the predicate. At present we support two `matcherId`(s): `ExactMatcher` and `GlobMatcher`. If `matcherId` isn't specified, it defaults to `GlobMatcher`.
@@ -239,18 +240,18 @@ Policy specifies the decision that the data source must enforce (*permit* or *de
 - `attributeValueExcluded`: A scalar literal value that should *not* match the request context attribute values.
 - `attributeValueExcludedIn`: An array of literal values that should *not* match the request context attribute values.
 
-#### CNFCondition
+### CNFCondition
 An array of `AttributePredicates` that have to be satisfied with the semantics of ANDofORs.
 
-#### DNFCondition
+### DNFCondition
 An array of `AttributePredicates` that have to be satisfied with the semantics of ORofANDs.
 
-#### PreConditionRule
+### PreConditionRule
 - A `PreConditionRule` can specify at most one each of `CNFCondition`, `DNFCondition`, or `Condition`.
 - All of the specified `CNFCondition`, `DNFCondition`, and `Condition` should evaluate to `true` for `PreConditionRule` to be satisfied for the current request.
 - If any of the precondition rules isn't satisfied, `PolicySet` or `Policy` is considered not applicable for the current request and skipped.
 
-#### Condition
+### Condition
 - `condition` allows you to specify a complex condition of predicates that can nest functions from a library of functions.
 - At `decision compute time`, `condition` evaluates to `true` or `false` and also could emit optional obligation(s).
 - If `condition` evaluates to  `false`, the containing `DecisionRule` is considered not applicable to the current request.
