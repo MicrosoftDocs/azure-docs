@@ -185,7 +185,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 1.	On the left menu, select **Monitor.**
 
-1.	On the **Monitor** blade, select **Metrics**.
+1.	On the **Monitor** pane on the left, select **Metrics**.
 
     ![Navigate metrics](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
 

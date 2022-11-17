@@ -156,11 +156,11 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 >[!IMPORTANT]
 >  If you are deploying Azure Monitor on a Kubernetes cluster running on top of Azure Stack Edge, then the Azure CLI option needs to be followed instead of the Azure portal option as a custom mount path needs to be set for these clusters.    
 
-### Onboarding from the Azure Arc-enabled Kubernetes resource blade
+### Onboarding from the Azure Arc-enabled Kubernetes resource pane
 
 1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster that you wish to monitor.
 
-2. Select the 'Insights' item under the 'Monitoring' section of the resource blade.
+2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 
 3. On the onboarding page, select the 'Configure Azure Monitor' button
 
@@ -210,7 +210,7 @@ Once you have successfully created the Azure Monitor extension for your Azure Ar
 
 ### [Azure portal](#tab/verify-portal)
 1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster with the extension installing
-2. Select the 'Extensions' item under the 'Settings' section of the resource blade
+2. From the resource pane on the left, select the 'Extensions' item under the 'Settings' section.
 3. You should see an extension with the name 'azuremonitor-containers' listed, with the listed status in the 'Install status' column
 ### [CLI](#tab/verify-cli)
 Run the following command to show the latest status of the `Microsoft.AzureMonitor.Containers` extension
