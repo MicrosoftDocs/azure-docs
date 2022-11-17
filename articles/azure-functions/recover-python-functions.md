@@ -163,9 +163,9 @@ However, if you're finding that the issue hasn't been fixed, and you're on a dea
 
 ---
 
-## Troubleshoot "cannot import 'cygrpc'"
+## Troubleshoot cannot import 'cygrpc'
 
-This section helps you troubleshoot 'cygrpc' related errors in your Python function app. These errors typically result in the following Azure Functions error message:
+This section helps you troubleshoot 'cygrpc'-related errors in your Python function app. These errors typically result in the following Azure Functions error message:
 
 "Cannot import name 'cygrpc' from 'grpc._cython'"
 
