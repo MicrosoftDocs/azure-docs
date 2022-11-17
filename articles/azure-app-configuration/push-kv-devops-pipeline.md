@@ -74,17 +74,26 @@ The following parameters are used by the App Configuration Push task:
         "TestApp:Settings:Message": "Message data"
     }
     ```
+- **File Content Profile**: The Configuration File's [content profile](https://docs.microsoft.com/azure/azure-app-configuration/concept-config-file). Default value is **Default**.
+     - **Default**: Refers to the conventional configuration file schema widely adopted.
+     - **Kvset**: Refers to a [file schema](https://github.com/Azure/AppConfiguration/blob/main/docs/KVSet/KVSet.v1.0.0.schema.json) that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags.
+- **Import Mode**: The default value is **All**. Determines the behavior when importing key-values.
+    - **All**: Imports all key-values in the configuration file to App Configuration. 
+    - **Ignore-Match**: Imports only settings that have no matching key-value in App Configuration.
+- **Dry Run**: Default value is **Unchecked**.
+   - **Checked**: Prints any updates that would have been performed in a normal run to the console for review.
+    - **Unchecked**: Performs any updates to App Configuration and does not print to the console.
 - **Separator**: The separator that's used to flatten .json and .yml files.
 - **Depth**: The depth that the .json and .yml files will be flattened to.
 - **Prefix**: A string that's appended to the beginning of each key pushed to the App Configuration store.
 - **Label**: A string that's added to each key-value as the label within the App Configuration store.
 - **Content Type**: A string that's added to each key-value as the content type within the App Configuration store.
 - **Tags**: A JSON object in the format of `{"tag1":"val1", "tag2":"val2"}`, which defines tags that are added to each key-value pushed to your App Configuration store.
-- **Delete all other Key-Values in store with the specified prefix and label**: Default value is **Unchecked**.
-  - **Checked**: Removes all key-values in the App Configuration store that match both the specified prefix and label before pushing new key-values from the configuration file.
+- **Delete all other Key-Values in store with the specified prefix and label**: Default value is **Unchecked**. The behavior of this option depends on the configuration file content profile.
+   - **Checked**:
+       - **Default content profile**: Removes all key-values in the App Configuration store that match both the specified prefix and label before pushing new key-values from the configuration file.
+        - **Kvset content profile**: Removes all key-values in the App Configuration store that are not included in the configuration file before pushing new key-values from the configuration file.
   - **Unchecked**: Pushes all key-values from the configuration file into the App Configuration store and leaves everything else in the App Configuration store intact.
-
-
 
 ## Troubleshooting
 
