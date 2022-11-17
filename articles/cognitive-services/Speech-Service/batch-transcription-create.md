@@ -100,7 +100,6 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions"
 ```
 
-
 You should receive a response body in the following format:
 
 ```json
@@ -166,7 +165,7 @@ Here are some property options that you can use to configure a transcription whe
 |`model`|You can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. For more information, see [Using custom models](#using-custom-models).|
 |`profanityFilterMode`|Specifies how to handle profanity in recognition results. Accepted values are `None` to disable profanity filtering, `Masked` to replace profanity with asterisks, `Removed` to remove all profanity from the result, or `Tags` to add profanity tags. The default value is `Masked`. |
 |`punctuationMode`|Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation. The default value is  `DictatedAndAutomatic`.|
-|`timeToLive`|A duration after the transcription job is created, when the transcription results will be automatically deleted. For example, specify `PT12H` for 12 hours. As an alternative, you can call [DeleteTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly after you retrieve the transcription results.|
+|`timeToLive`|A duration after the transcription job is created, when the transcription results will be automatically deleted. The value is an ISO 8601 encoded duration. For example, specify `PT12H` for 12 hours. As an alternative, you can call [DeleteTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly after you retrieve the transcription results.|
 |`wordLevelTimestampsEnabled`|Specifies if word level timestamps should be included in the output. The default value is `false`.|
 
 
