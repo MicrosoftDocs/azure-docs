@@ -36,7 +36,7 @@ The following diagram shows the v2.0 vs v1.0 endpoint experience at a high level
 
 MSAL leverages all the [benefits of Microsoft identity platform (v2.0) endpoint](https://user-images.githubusercontent.com/76989215/202164286-9b07d541-b48b-4297-9dd6-69927e1edc69.png)
 
-MSAL is designed to enable a secure solution without developers having to worry about the implementation details. it simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. It is recommended to use MSAL to [increase the resilience of authentication and authorization in client applications you develop](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/resilience-client-app?tabs=csharp#use-the-microsoft-authentication-library-msal).
+MSAL is designed to enable a secure solution without developers having to worry about the implementation details. it simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. We recommend you use MSAL to [increase the resilience of authentication and authorization in client applications that you develop](../fundamentals/resilience-client-app.md?tabs=csharp#use-the-microsoft-authentication-library-msal).
 
 MSAL provides multiple benefits over ADAL, including the following features: 
 
