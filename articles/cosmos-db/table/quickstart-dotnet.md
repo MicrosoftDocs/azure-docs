@@ -8,7 +8,7 @@ ms.subservice: table
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 08/22/2022
-ms.custom: devx-track-csharp, ignite-2022, devguide-csharp
+ms.custom: devx-track-csharp, ignite-2022, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Quickstart: Azure Cosmos DB for Table for .NET
