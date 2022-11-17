@@ -99,10 +99,10 @@ To edit the output behavior configuration of snmptrapd on Red Hat, CentOS, and O
         
     The options in this example configuration are:  
     
-        - `-m ALL` - Load all MIB files in the default directory.
-        - `-Ls2` - Output traps to syslog, to the Local2 facility.
-        - `-Lf /var/log/snmptrapd` - Log traps to the `/var/log/snmptrapd` file. 
-        
+    - `-m ALL` - Load all MIB files in the default directory.
+    - `-Ls2` - Output traps to syslog, to the Local2 facility.
+    - `-Lf /var/log/snmptrapd` - Log traps to the `/var/log/snmptrapd` file. 
+    
 For more information, see: 
 - https://www.net-snmp.org/docs/man/snmpcmd.html for how to set output options. 
 - https://www.net-snmp.org/docs/man/snmptrapd.html for how to set formatting options. 
