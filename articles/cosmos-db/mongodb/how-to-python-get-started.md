@@ -119,25 +119,9 @@ Skip this step and use the information for the portal in the next step.
 
 1. Add dependencies to reference the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
 
-    ```python
-    import os
-    
-    import pymongo
-    from dotenv import load_dotenv
-    ```
-
     :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/101-client-connection-string/run.py" id="package_dependencies":::
 
 2. Define a new instance of the `MongoClient` class using the constructor and the connection string read from an environment variable.
-
-    ```python
-    load_dotenv()
-    CONNECTION_STRING = os.environ.get("COSMOS_CONNECTION_STRING")
-    client = pymongo.MongoClient(CONNECTION_STRING)
-
-    for prop, value in vars(client.options).items():
-        print("Property: {}: Value: {} ".format(prop, value))
-    ```
 
     :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/101-client-connection-string/run.py" id="client_credentials":::
 
