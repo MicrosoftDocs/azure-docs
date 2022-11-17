@@ -67,13 +67,159 @@ A common use of the workspace transformation DCR is collection of [resource logs
 
 :::image type="content" source="media/data-collection-transformations/transformation-diagnostic-settings.png" lightbox="media/data-collection-transformations/transformation-diagnostic-settings.png" alt-text="Diagram of workspace transformation for resource logs configured with diagnostic settings." border="false":::
 
+## Multiple destinations
+
+Transformations allow you to send data to multiple tables in a Log Analytics workspace in a single DCR. For example, you may send data into Azure Monitor using the Logs ingestion API that should be separated between two different tables depending on particular criteria. You provide a KQL query for each destination, and the results of each query are sent to their corresponding tables. For example, you might want to send only information or audit events from a particular data source to a custom table configured for [basic logs]() to reduce your cost. Other events would be send to an [analytics table](). 
+
+To use multiple destinations, you must currently either manually create a new DCR or edit an existing one. See the [Samples](#samples) section for examples of DCRs using multiple destinations.
+
+> [!IMPORTANT]
+> Currently, the tables in the DCR must be in the same Log Analytics workspace. To send to multiple workspaces from a single data source, use multiple DCRs.
+
+:::image type="content" source="media/data-collection-transformations/transformation-multiple-destinations.png" lightbox="media/data-collection-transformations/transformation-multiple-destinations.png" alt-text="Diagram of transformation sending data to multiple tables." border="false":::
+
+
+
 ## Creating a transformation
 There are multiple methods to create transformations depending on the data collection method. The following table lists guidance for different methods for creating transformations. 
 
 | Type | Reference |
 |:---|:---|
 | Logs ingestion API with transformation | [Send data to Azure Monitor Logs using REST API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md)<br>[Send data to Azure Monitor Logs using REST API (Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md) |
-| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal (preview)](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates (preview)](../logs/tutorial-workspace-transformations-api.md)
+| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal (preview)](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates (preview)](../logs/tutorial-workspace-transformations-api.md) |
+| Edit |  |
+
+
+
+### Samples
+
+The following example is a DCR for data from Logs Ingestion API that sends data to both the `Syslog` and `SecurityEvents` table. This requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each. In this example, all incoming data is sent to the `Syslog` table while malicious data is also sent to the `SecurityEvents` table. If you didn't want to replicate the malicious data in both tables, you could add a `where` statement to first query to remove those records.
+
+```json
+{ 
+    "type": "Microsoft.Insights/dataCollectionRules", 
+    "name": "multiDestinationDCR", 
+    "location": "eastus", 
+    "apiVersion": "2021-09-01-preview", 
+    "properties": { 
+        "dataCollectionEndpointId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers//Microsoft.Insights/dataCollectionEndpoints/my-dce",
+        "streamDeclarations": { 
+            "Custom-MyTableRawData": { 
+                "columns": [ 
+                    { 
+                        "name": "Time", 
+                        "type": "datetime" 
+                    }, 
+                    { 
+                        "name": "Computer", 
+                        "type": "string" 
+                    }, 
+                    { 
+                        "name": "AdditionalContext", 
+                        "type": "string" 
+                    } 
+                ] 
+            } 
+        }, 
+        "destinations": { 
+            "logAnalytics": [ 
+                { 
+                    "workspaceResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace", 
+                    "name": "clv2ws1" 
+                }, 
+            ] 
+        }, 
+        "dataFlows": [ 
+            { 
+                "streams": [ 
+                    "Custom-MyTableRawData" 
+                ], 
+                "destinations": [ 
+                    "clv2ws1" 
+                ], 
+                "transformKql": "source | project TimeGenerated = Time, Computer, Message = AdditionalContext", 
+                "outputStream": "Microsoft-Syslog" 
+            }, 
+            { 
+                "streams": [ 
+                    "Custom-MyTableRawData" 
+                ], 
+                "destinations": [ 
+                    "clv2ws1" 
+                ], 
+                "transformKql": "source | where (AdditionalContext contains 'malicious traffic!' | project TimeGenerated = Time, Computer, Subject = AdditionalContext", 
+                "outputStream": "Microsoft-SecurityEvents" 
+            } 
+        ] 
+    } 
+} 
+```
+
+
+
+The following example is a DCR for data from Logs Ingestion API that sends data to both the `Syslog` table and a custom table with the data in a different format. This requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each. 
+
+
+```json
+{ 
+    "type": "Microsoft.Insights/dataCollectionRules", 
+    "name": "multiDestinationDCR", 
+    "location": "eastus", 
+    "apiVersion": "2021-09-01-preview", 
+    "properties": { 
+        "dataCollectionEndpointId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers//Microsoft.Insights/dataCollectionEndpoints/my-dce",
+        "streamDeclarations": { 
+            "Custom-MyTableRawData": { 
+                "columns": [ 
+                    { 
+                        "name": "Time", 
+                        "type": "datetime" 
+                    }, 
+                    { 
+                        "name": "Computer", 
+                        "type": "string" 
+                    }, 
+                    { 
+                        "name": "AdditionalContext", 
+                        "type": "string" 
+                    } 
+                ] 
+            } 
+        }, 
+        "destinations": { 
+            "logAnalytics": [ 
+                { 
+                    "workspaceResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace", 
+                    "name": "clv2ws1" 
+                }, 
+            ] 
+        }, 
+        "dataFlows": [ 
+            { 
+                "streams": [ 
+                    "Custom-MyTableRawData" 
+                ], 
+                "destinations": [ 
+                    "clv2ws1" 
+                ], 
+                "transformKql": "source | project TimeGenerated = Time, Computer, Message = AdditionalContext", 
+                "outputStream": "Microsoft-Syslog" 
+            }, 
+            { 
+                "streams": [ 
+                    "Custom-MyTableRawData" 
+                ], 
+                "destinations": [ 
+                    "clv2ws1" 
+                ], 
+                "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, ExtendedColumn=tostring(jsonContext.CounterName)", 
+                "outputStream": "Custom-MyTable_CL" 
+            } 
+        ] 
+    } 
+} 
+```
+
 
 
 ## Next steps
