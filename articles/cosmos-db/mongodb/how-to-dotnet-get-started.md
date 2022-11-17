@@ -11,7 +11,8 @@ ms.date: 10/17/2022
 ms.custom: devx-track-dotnet, ignite-2022, devguide-csharp, cosmos-db-dev-journey
 ---
 
-# Get started with Azure Cosmos DB for MongoDB and .NET Core
+# Get started with Azure Cosmos DB for MongoDB using .NET
+
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 This article shows you how to connect to Azure Cosmos DB for MongoDB using .NET Core and the relevant NuGet packages. Once connected, you can perform operations on databases, collections, and documents.

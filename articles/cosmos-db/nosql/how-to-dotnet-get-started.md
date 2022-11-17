@@ -11,7 +11,7 @@ ms.date: 07/06/2022
 ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey
 ---
 
-# Get started with Azure Cosmos DB for NoSQL and .NET
+# Get started with Azure Cosmos DB for NoSQL using .NET
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 

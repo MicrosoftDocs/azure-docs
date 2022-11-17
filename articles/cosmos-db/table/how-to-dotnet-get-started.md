@@ -11,7 +11,7 @@ ms.date: 07/06/2022
 ms.custom: devx-track-csharp, ignite-2022, devguide-csharp, cosmos-db-dev-journey
 ---
 
-# Get started with Azure Cosmos DB for Table and .NET
+# Get started with Azure Cosmos DB for Table using .NET
 
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 

@@ -11,7 +11,8 @@ ms.date: 06/23/2022
 ms.custom: devx-track-js, ignite-2022, devguide-js, cosmos-db-dev-journey
 ---
 
-# Get started with Azure Cosmos DB for MongoDB and JavaScript
+# Get started with Azure Cosmos DB for MongoDB using JavaScript
+
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 This article shows you how to connect to Azure Cosmos DB for MongoDB using the native MongoDB npm package. Once connected, you can perform operations on databases, collections, and docs.
