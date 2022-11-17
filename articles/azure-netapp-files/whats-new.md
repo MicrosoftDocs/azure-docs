@@ -19,7 +19,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-* [VWAN](configure-virtual-wan.md)
+* [VWAN](configure-vwan.md)
 
 ## November 2022 
 
