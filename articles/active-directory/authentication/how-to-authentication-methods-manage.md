@@ -53,7 +53,7 @@ To get the authentication methods available in the legacy SSPR policy, click **P
 | SSPR authentication methods | Authentication method policy |
 |-----------------------------|------------------------------|
 | Mobile app notification     | Microsoft Authenticator      |
-| Mobile app code             | Microsoft Authenticator      |
+| Mobile app code             | Microsoft Authenticator<br>Software OATH tokens  |
 | Email                       | Email OTP                    |
 | Mobile phone                | Phone calls<br>SMS            |
 | Office phone                | Phone calls                   |
