@@ -78,7 +78,7 @@ settings.setMediaPlaybackRequiresUserGesture(false);
   The value of name field in the result object will be an empty string.
   To provide a better UI experience, you can use the following workaround to get device labels and map the label by `deviceId`.
   Although we can't get device labels from MediaDevices.enumerateDevices(), we can get the label from MediaStreamTrack.
-  This requires the application to use getUserMedia to get the stream and map the `deviceId`.
+  This workaround requires the application to use getUserMedia to get the stream and map the `deviceId`.
   If there are many cameras and microphones on the Android device, it may take a while to collect labels.
 
 ```js
