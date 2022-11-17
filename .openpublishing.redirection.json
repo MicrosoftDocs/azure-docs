@@ -18284,6 +18284,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/monitor-sentinel-health.md",
+            "redirect_url": "/azure/sentinel/enable-monitoring",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/service-bus/index.md",
             "redirect_url": "/azure/service-bus-messaging/index",
             "redirect_document_id": false

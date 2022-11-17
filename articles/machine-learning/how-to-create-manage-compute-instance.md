@@ -177,12 +177,14 @@ This setting can be configured during CI creation or for existing CIs via the fo
 
     ```YAML
     # Note that this is just a snippet for the idle shutdown property. Refer to the "Create" Azure CLI section for more information.
+    # Note that idle_time_before_shutdown has been deprecated.
     idle_time_before_shutdown_minutes: 30
     ```
 
 * Python SDKv2: only configurable during new CI creation
 
     ```Python
+    # Note that idle_time_before_shutdown has been deprecated.
     ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
     ```
 
