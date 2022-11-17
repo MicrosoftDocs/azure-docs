@@ -323,7 +323,7 @@ Define SMTP mail server settings for the sensor so that you configure the sensor
     |**Outgoing Mail Account**     | Enter an email address to use as the outgoing mail account from your sensor.        |
     |**SSL**     | Toggle on for secure connections from your sensor.        |
     |**Authentication**     | Toggle on and then enter a username and password for your email account.        |
-    |**Use NTLM**     | oggle on to enable [NTLM](/windows-server/security/kerberos/ntlm-overview). This option only appears when you have the **Authentication** option toggled on.        |
+    |**Use NTLM**     | Toggle on to enable [NTLM](/windows-server/security/kerberos/ntlm-overview). This option only appears when you have the **Authentication** option toggled on.        |
         
 1. Select **Save** when you're done.
 
