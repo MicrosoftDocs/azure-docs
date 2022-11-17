@@ -19,13 +19,16 @@
   - name: Availability
     items:
     - name: Supported platforms for servers
-      displayName: coverage
+      displayName: coverage, supported platforms, cloud services, virtual machines
       href: os-coverage.md
     - name: Servers coverage by OS, machine type, and cloud
+      displayName: coverage, machines, windows, linux, multicloud, supported features, endpoint protections
       href: supported-machines-endpoint-solutions-clouds-servers.md
     - name: Defender for Containers feature availability
+      displayName: Containers, features availability, environment information
       href: supported-machines-endpoint-solutions-clouds-containers.md
     - name: Feature coverage for Azure PaaS resources
+      displayName: Paas, resources
       href: features-paas.md
     - name: User roles and permissions
       displayName: RBAC
