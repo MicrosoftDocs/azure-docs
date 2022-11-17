@@ -127,8 +127,8 @@ def conversation_transcription_differentiate_speakers():
     conversation.add_participant_async(user2)
     transcriber.join_conversation_async(conversation).get()
     transcriber.start_transcribing_async()
-
-       _, wav_data = wavfile.read(conversationfilename)
+    
+    sample_rate, wav_data = wavfile.read(conversationfilename)
     stream.write(wav_data.tobytes())
     stream.close()
     while not done:
