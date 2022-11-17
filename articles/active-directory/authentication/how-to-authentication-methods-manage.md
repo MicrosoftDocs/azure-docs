@@ -73,8 +73,7 @@ After you capture available authentication methods from the policies you are cur
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
 
-
-The next step is to update the Authentication methods policy to match your audit. You'll want to review each method one-by-one. If your tenant is only using the legacy MFA policy, and isn't using SSPR, this is a straightforward process - you can enabled each method for all users and precisely match your existing policy. 
+The next step is to update the Authentication methods policy to match your audit. You'll want to review each method one-by-one. If your tenant is only using the legacy MFA policy, and isn't using SSPR, the update is straightforward - you can enable each method for all users and precisely match your existing policy. 
 
 If your tenant is using both MFA and SSPR, you'll need to consider each method: 
 
@@ -86,9 +85,9 @@ Where the policies match, you can easily match your current state. Where there i
 
 In the Authentication methods policy, you'll then need to choose whether to enable **Microsoft Authenticator** for both SSPR and MFA or disable it (we recommend enabling Microsoft Authenticator). 
 
-As you update each method in the Authentication methods policy, some methods have configurable parameters that allows you want to control how that method can be used. For example, if you enable **Phone calls** as authentication method, you can choose to allow both office phone and mobile phones, or mobile only. Step through the process to configure each authentication method from your audit. 
+As you update each method in the Authentication methods policy, some methods have configurable parameters that allow you to control how that method can be used. For example, if you enable **Phone calls** as authentication method, you can choose to allow both office phone and mobile phones, or mobile only. Step through the process to configure each authentication method from your audit. 
 
-Note that you aren't required to match your existing policy! This is a great opportunity to review your enabled methods and choose a new policy that maximizes security and usability for your tenant. Just note that disabling methods for users who are already using them may require those users to register new authentication methods and prevent them from using previously-registered methods.
+Note that you aren't required to match your existing policy! This is a great opportunity to review your enabled methods and choose a new policy that maximizes security and usability for your tenant. Just note that disabling methods for users who are already using them may require those users to register new authentication methods and prevent them from using previously registered methods.
 
 The next sections cover specific migration guidance for each method.
 
