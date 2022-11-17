@@ -13,11 +13,34 @@ This article lists the supported software versions for Microsoft Defender for Io
 
 The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
+### On-premises monitoring software versions
+
+| Version / Patch |  Release date | Scope     | Supported until |
+| ------- |  ------------ | ----------- | ------------------- |
+| **22.2** | | | |
+| 22.2.7| 10/2022   | Patch | 09/2023          |
+| 22.2.6|09/2022 |Patch | 04/2023|
+|22.2.5 |08/2022 | Patch| 04/2023 |
+|22.2.4 |07/2022 |Patch |04/2023 |
+| 22.2.3| 07/2022| Major| 04/2023|
+| **22.1** | | | |
+| 22.1.7| 07/2022 |Patch | 06/2023 |
+| 22.1.6| 06/2022 |Patch |10/2022  |
+| 22.1.5| 06/2022 |Patch | 10/2022 |
+| 22.1.4|04/2022 | Patch|10/2022  |
+| 22.1.3|03/2022 |Patch | 10/2022|
+| 22.1.2| 02/2022 | Major|10/2022  |
+| **10.5** | | | |
+|10.5.5 |12/2022 |Patch |  09/2022|
+|10.5.4 |12/2022 |Patch |  09/2022|
+| 10.5.3| 10/2021 |Patch | 07/2022|
+| 10.5.2| 10/2021 | Major| 07/2022|
+
 ### Version update recommendations
 
 When updating your on-premises software, we recommend:
 
-- Plan to update your sensor versions to the **latest major version once every 6 months**.
+- Plan to **update your sensor versions to the latest major version once every 6 months**.
 
 - Update to a **patch version only for specific bug fixes or security patches**. When working with support on a specific issue, verify which patch version is recommended to resolve your issue.
 
@@ -45,6 +68,7 @@ Other versions use a legacy support model. For more information, see the tables 
 > Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
 >
 
+
 ### Feature documentation per versions
 
 Version numbers are listed only in this article and in the [What's new in Microsoft Defender for IoT?](whats-new.md) article, and not in detailed descriptions elsewhere in the documentation.
@@ -54,14 +78,6 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ## Versions 22.2.x
 
-
-|Version  |Release date  |Supported until  |Updates  |
-|---------|---------|---------|---------|
-|**22.2.7**     |  10/2022       |    09/2023     |   Minor stability improvements      |
-|**22.2.6**     |  09/2022       |    04/2023     |  Minor stability improvements      |
-|**22.2.5**     |  08/2022       |    04/2023     |   Minor stability improvements      |
-|**22.2.4**     |     07/2022    |   04/2023      |  New features   |
-|**22.2.3**     |   07/2022      |  04/2023       | New features      |
 
 To update to 22.2.x versions:
 
@@ -126,16 +142,6 @@ This version includes the following new updates and fixes:
 - [Sensor names shown in browser tabs](whats-new.md#sensor-names-shown-in-browser-tabs)
 
 ## Versions 22.1.x
-
-|Version  |Release date  |Supported until  |Updates  |
-|---------|---------|---------|---------|
-|**22.1.7**     |  07/2022     |    06/2023    |   New features     |
-|**22.1.6**     |  06/2022       |    10/2022     |  Minor stability improvements      |
-|**22.1.5**     |  06/2022       |    10/2022     |   Minor stability improvements      |
-|**22.1.4**     |     04/2022    |   10/2022      |  New features   |
-|**22.1.3**     |   03/2022      |  10/2022       | New features      |
-|**22.1.1**     |   02/2022      |  10/2022      | New features      |
-
 
 Software versions 22.1.x support direct updates to the latest OT monitoring software versions available. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
@@ -209,15 +215,6 @@ This version includes the following new updates and fixes:
 - [Modified, replaced, or removed options and configurations](whats-new.md#modified-replaced-or-removed-options-and-configurations)
 
 ## Versions 10.5.x
-
-
-|Version  |Release date  |Supported until  |Updates  |
-|---------|---------|---------|---------|
-|**10.5.5**     |  12/2022     |    09/2022    |   Minor stability improvements     |
-|**10.5.4**     |  12/2022     |    09/2022    |   New features     |
-|**10.5.3**     |  10/2021       |    07/2022     |  New features     |
-|**10.5.2**     |  10/2021       |    07/2022     |   New features      |
-
 
 To update your software to the latest version available, first update to version 22.1.7, and then update again to the latest 22.2.x version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
