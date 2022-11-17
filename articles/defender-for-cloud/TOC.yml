@@ -31,14 +31,16 @@
       displayName: Paas, resources
       href: features-paas.md
     - name: User roles and permissions
-      displayName: RBAC
+      displayName: RBAC, permissions, roles, contributor, security, reader, admin, owner
       href: permissions.md
 
 - name: Quickstarts
   items:
   - name: 1. Enable Defender for Cloud on your subscriptions
+    displayName: enable, defender for cloud, activate, turn on
     href: get-started.md
   - name: 2. Enable the enhanced security features
+    displayName: plans, enable, security, protect
     href: enable-enhanced-security.md
   - name: 3. Connect hybrid and multicloud environments
     items:
@@ -46,18 +48,19 @@
       displayName: azure stack, ash, windows, linux, hybrid, arc
       href: quickstart-onboard-machines.md
     - name: Connect AWS accounts
-      displayName: hybrid, multicloud, multicloud, amazon, arc
+      displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts
       href: quickstart-onboard-aws.md
     - name: Connect GCP projects
-      displayName: hybrid, multicloud, multicloud, google
+      displayName: hybrid, multicloud, multicloud, google, gcp
       href: quickstart-onboard-gcp.md
     - name: Connect GitHub repositories
-      displayName: GitHub, DevOps
+      displayName: GitHub, DevOps, repositories
       href: quickstart-onboard-github.md
     - name: Connect Azure DevOps repositories
       displayName: DevOps, connect, Azure
       href: quickstart-onboard-devops.md
   - name: 4. Set up email notifications
+    displayName: email,e-mail, notifications
     href: configure-email-notifications.md
   - name: 5. Create auto-responses to alerts using an ARM template or Bicep
     displayName: Resource Manager, ARM, Template
@@ -69,21 +72,28 @@
 - name: Tutorials
   items:
   - name: Planning and operations guide
+    displayName: guide, planning, roles, policies, recommendations
     href: security-center-planning-and-operations-guide.md
   - name: Protect your resources
+    displayName: manage, access, harden
     href: tutorial-protect-resources.md
   - name: Investigate and respond to security alerts
+    displayName: triage, security, alerts, investigate, 
     href: tutorial-security-incident.md
   - name: Improve your regulatory compliance
+    displayName: regulatory, compliance, remediate, assessment, reports, certificates, export, workflow, automation
     href: regulatory-compliance-dashboard.md
   - name: Manage security policies
+    displayName: security, policies, edit, disable
     href: tutorial-security-policy.md
   - name: Investigate the health of your resources
+    displayName: health, resources, outstanding, security, issues, 
     href: investigate-resource-health.md
 
 - name: Samples
   items:
   - name: Azure Resource Graph queries
+    displayName: sample, query, queries, resource, graph
     href: ./resource-graph-samples.md
 
 - name: Concepts
@@ -95,57 +105,76 @@
     - name: Planning multicloud security
       items:
       - name: Get started
+        displayName: begin, get started, 
         href: plan-multicloud-security-get-started.md
       - name: Determine business needs
+        displayName: needs, goals, business, requirements
         href: plan-multicloud-security-determine-business-needs.md
       - name: Define an adoption strategy
+        displayName: strategy, adoption, ownership
         href: plan-multicloud-security-define-adoption-strategy.md
       - name: Determine data residency requirements
+        displayName: data, residency, cspm, cwp, plan
         href: plan-multicloud-security-determine-data-residency-requirements.md
       - name: Determine compliance requirements
+        displayName: compliance, standards
         href: plan-multicloud-security-determine-compliance-requirements.md
       - name: Determine ownership requirements
+        displayName: ownership, team, alignment, best practices, 
         href: plan-multicloud-security-determine-ownership-requirements.md
       - name: Determine access control requirements
+        displayName: access, control
         href: plan-multicloud-security-determine-access-control-requirements.md
       - name: Determine multicloud dependencies
+        displayName: dependencies, cspm, cwpp, agents, 
         href: plan-multicloud-security-determine-multicloud-dependencies.md
       - name: Automate connector deployment
+        displayName: rest api
         href: plan-multicloud-security-automate-connector-deployment.md
       - name: Other resources
         href: plan-multicloud-security-other-resources.md
   - name: Improve your cloud security posture
     items:
       - name: Policies, initiatives, and recommendations
+        displayName: policies, security, initiative, Microsoft cloud security benchmark, mcsb, recommendation
         href: security-policy-concept.md
       - name: Security posture
+        displayName: security, posture, secure, score, calculate, control, improve, 
         href: secure-score-security-controls.md
       - name: Cloud Security Posture Management (CSPM)
         displayName: CSPM, cloud security, posture, management
         href: concept-cloud-security-posture-management.md
       - name: Microsoft cloud security benchmark (MCSB)
+        displayName: mcsb, azure, security, benchmark 
         href: concept-regulatory-compliance.md
       - name: What is the cloud security graph
-        displayName: What are the cloud security graph, attack path analysis, and the cloud security explorer?
+        displayName: cloud security graph, attack path analysis, cloud security explorer, attack, path, graph, security, explorer, explore, analysis
         href: concept-attack-path.md
       - name: External attack surface management (EASM)
         displayName: EASM, attack surface management
         href: concept-easm.md
       - name: Reference list of Azure recommendations
+        displayName: Azure, recommendations
         href: recommendations-reference.md
       - name: Reference list of AWS recommendations
+        displayName: AWS, recommendations
         href: recommendations-reference-aws.md
       - name: Reference list of GCP recommendations
+        displayName: gcp, recommendations
         href: recommendations-reference-gcp.md
       - name: Reference list of attack paths and cloud security graph components
+        displayName: attack, paths, security, graph, components
         href: attack-path-reference.md
   - name: Protect cloud workloads
     items:
     - name: Agentless scanning
+      displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
       href: concept-agentless-data-collection.md
     - name: Security alerts and incidents
+      displayName: security, alerts, classification, incident, threat, detection, analytics, 
       href: alerts-overview.md
     - name: Reference list of alerts
+      displayName: alets, mitre
       href: alerts-reference.md
 
 - name: How-to guides
@@ -156,46 +185,59 @@
       displayName: overview, compliance, inventory
       href: overview-page.md
     - name: See all of your workloads in the workload protections dashboard
+      displayName: workloads, dashboard, protections
       href: workload-protections-dashboard.md
     - name: Programmatic ways to track your secure score
+      displayName: secure score, rest api, resource graph, 
       href: secure-score-access-and-track.md
     - name: Build interactive reports with Azure Monitor workbooks
       displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
       href: custom-dashboards-azure-workbooks.md
     - name: View recommendations and alerts in Windows Admin Center
+      displayName: windows, admin, center
       href: windows-admin-center-integration.md
     - name: Integrate security solutions and data sources
+      displayName: security, solutions, integrate, integrated, data sources
       href: partner-integration.md
     - name: Security graph
       items:
       - name: Identify and remediate attack paths
+        displayName: attack paths, paths, investigate, easm, 
         href: how-to-manage-attack-path.md
       - name: Build queries with cloud security explorer
+        displayName: queries, security explorer, explorer, templates, query
         href: how-to-manage-cloud-security-explorer.md
   - name: Security recommendations
     items:
     - name: Create custom Azure security initiatives and policies
+      displayName: initiatives, custom, policies
       href: custom-security-policies.md
     - name: Manage AWS assessments and standards
+      displayName: aws, assessments, standards, custom, standard, built-in, query
       href: how-to-manage-aws-assessments-standards.md
     - name: Manage GCP assessments and standards
+      displayName: gcp, assessment, standards, built-in, compliance, standard, custom, assessment, query
       href: how-to-manage-gcp-assessments-standards.md
     - name: Review your security recommendations
+      displayName: security, recommendations, owner, azure, resource, graph, azure resource graph, csv report
       href: review-security-recommendations.md
     - name: Remediate recommendations
+      displayName: remediation, steps, recommendations, fix, actions, activity log
       href: implement-security-recommendations.md
     - name: Improve your security posture with recommendation governance
+      displayName: security, posture, recommendation, governance, automated, rules, owners, status, progress
       href: governance-rules.md
     - name: Prevent misconfigurations with Enforce/Deny
-      displayName: recommendations
+      displayName: recommendations, enforce, deny
       href: prevent-misconfigurations.md
     - name: Automate responses to recommendations
-      displayName: workflow
+      displayName: workflow, triggers, logic app, automation, policies, breaking change
       href: workflow-automation.md
     - name: Disable a recommendation
+      displayName: recommendation, disable, security, policy, 
       href: tutorial-security-policy.md#disable-security-policies-and-disable-recommendations
     - name: Exempt recommendations per resource, subscription, or management group
-      displayName: disable
+      displayName: disable, resource, exempt, recommendation
       href: exempt-resource.md
   - name: Built-in security protections
     items:
