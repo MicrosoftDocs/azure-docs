@@ -1,7 +1,7 @@
 ---
 title: Configure Storage Provider - MSSQL
 description: Configure a Durable Functions app to use MSSQL
-author: dajusto
+author: davidmrdavid
 ms.topic: quickstart
 ms.date: 11/14/2022
 ms.reviewer: azfuncdf
@@ -11,16 +11,16 @@ ms.reviewer: azfuncdf
 
 Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called "backends" for short, each with their own [design characteristics](durable-functions-storage-providers.md#comparing-storage-providers). By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure an existing Durable Functions app to utilize the [MSSQL storage provider](durable-functions-storage-providers.md#mssql).
 
-The MSSQL backend was designed to maximize application portability and control over your data. It uses [MSSQL Server](https://www.microsoft.com/en-us/sql-server/) to persist all Task Hub state which means that it reaps the benefits of the MSSQL Server DBMS infrastructure towards scalability, security, compatibility with vendors, etc.  To learn more about when the MSSQL backend may be good choice, please review our documentation on [storage providers](durable-functions-storage-providers.md).
+The MSSQL backend was designed to maximize application portability, and control over your data. It uses [MSSQL Server](https://www.microsoft.com/en-us/sql-server/) to persist all Task Hub state so it reaps the benefits of MSSQL DBMS infrastructure towards scalability, security, compatibility with vendors, etc.  To learn more about when the MSSQL backend may be good choice, please review our documentation on [storage providers](durable-functions-storage-providers.md).
 
 ## Note on data migration
 
-We do not currently support the migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers. This means that your application will need to start with a fresh, empty Task Hub after switching to MSSQL. Similarly, the Task Hub contents created with MSSQL cannot be preserved when switching to a different *backend*.
+We do not currently support the migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers. This means that your application will need to start with a fresh, empty Task Hub after switching to the MSSQL backend. Similarly, the Task Hub contents created with MSSQL cannot be preserved when switching to a different *backend*.
 
 > [!NOTE]
 > Changing your storage provider is a kind of breaking change as pre-existing data will not be transferred over. You can review the Durable Functions [versioning docs](durable-functions-versioning.md) for guidance on how to make these changes.
 
-While data migration *across storage providers* is not supported, the MSSQL storage provider does allow for data transfer between MSSQL-compatible databases. This means that there's no need to worry about your Task Hub data being locked to a particular vendor.
+While data migration *across storage providers* is not supported, the MSSQL storage provider does allow for data transfer between MSSQL-compatible providers. This means that there's no need to worry about your Task Hub data being locked to a particular vendor.
 
 ## Prerequisites
 
@@ -61,11 +61,11 @@ For more information on installing Azure Functions Extensions via the Core Tools
 > [!NOTE]
 > If you already have an MSSQL-compatible database, you may skip this section *and* it's sub-section on setting up a Docker-based local DB.
 
-As the MSSQL backend is designed for portability, you have several options to set up your backing database. You may decide to set up an on-premise database, or a cloud-provided DB such as the [Azure SQL DB](https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview?view=azuresql), [Microsoft SQL Server on AWS](https://aws.amazon.com/sql/?blog-posts-content-windows.sort-by=item.additionalFields.createdDate&blog-posts-content-windows.sort-order=desc), [Google Cloud's Cloud SQL](https://cloud.google.com/sql/), etc. 
+As the MSSQL backend is designed for portability, you have several options to set up your backing database. You may decide to set up an on-premise DBMS, or a cloud-provided instance such as the [Azure SQL DB](https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview?view=azuresql), [Microsoft SQL Server on AWS](https://aws.amazon.com/sql/?blog-posts-content-windows.sort-by=item.additionalFields.createdDate&blog-posts-content-windows.sort-order=desc), [Google Cloud's Cloud SQL](https://cloud.google.com/sql/), etc. 
 
-You also have options to support local development, even offline: could set up an [MS SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) instance on your local machine, or host your own SQL server from within an MSSQL Docker instance. For ease of setup, we will focus on the latter.
+You also have options to support local development, even offline: could set up an [MS SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) instance on your local machine, or host your own SQL server from within an MSSQL Docker container. For ease of setup, we will focus on the latter.
 
-### Set up your Docker-based local DB
+### Set up your Docker-based local DBMS
 
 You will need a [Docker](https://www.docker.com/products/docker-desktop/) installation on your local machine. Below are PowerShell commands that you can use to set up a local DB on Docker. Note that you can install PowerShell on both [Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux) and [macOS](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos).
 
@@ -119,7 +119,7 @@ In this instance, you're looking for a result named `DurableDB`, which we can se
 
 ## Add your DB connection string to local.settings.json
 
-For the MSSQL backend to connect to your database, it will need a connection string to that database. How to obtain a connection string largely depends on your specific database provider. Please review the documentation of your specific database provider for information on how to obtain a connection string.
+The MSSQL backend needs a connection string to your database. How to obtain a connection string largely depends on your specific MSSQL Server provider. Please review the documentation of your specific provider for information on how to obtain a connection string.
 
 Generally, a minimal connection string looks as follows:
 
@@ -127,7 +127,7 @@ Generally, a minimal connection string looks as follows:
 "Server=<server hosting your SQL DB>;Database=<DB name>;User Id=<DB login username>;Password=<DB login password>;"
 ```
 
-Depending on your setup, your DB's connection string may have more properties those shown above. However, these suffice for the Docker-based local DB that we instantiated in the previous section. For example, if you used our script above without changing any parameters, your connection string would look like this:
+Depending on your setup, your DB's connection string may have more properties those shown above. However, these suffice for the Docker-based local DB that we instantiated in the previous section. For example, if you used our commands above without changing any parameters, your connection string should be:
 
 ```
 Server=localhost,1433;Database=DurableDB;User Id=sa;Password=yourStrong(!)Password;
@@ -143,7 +143,7 @@ After obtaining your connection string, add it to `local.settings.json` so it ca
 
 ### Update host.json
 
-Edit the storage provider section of the `host.json` file so it sets the `type` to `mssql`. We'll also specify the connection string variable name under `connectionStringName`. We'll set `createDatabaseIfNotExists` to `true`; this setting creates a database named `DurableDB` if one does not already exists, with coallition `Latin1_General_100_BIN2_UTF8`.
+Edit the storage provider section of the `host.json` file so it sets the `type` to `mssql`. We'll also specify the connection string variable name, `SQLDB_Connection`, under `connectionStringName`. We'll set `createDatabaseIfNotExists` to `true`; this setting creates a database named `DurableDB` if one does not already exists, with coallition `Latin1_General_100_BIN2_UTF8`.
 
 ```json
 {
@@ -160,13 +160,13 @@ Edit the storage provider section of the `host.json` file so it sets the `type` 
 }    
 ```
 
-The above snippet is a *minimal* configuration. Later, you may want to configure additional [optional parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
+The snippet above is a *minimal* configuration. Later, you may want to consider [additonal parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
 
 ### Test locally
 
 Your app is now ready for local development: You can start the Function app to test it. One way to do this is to run `func host start` on your applications' root and executing a simple orchestrator Function.
 
-While the MSSQL backend is running, it will write to its backing DB. You can test this is working as expect using your SQL terminal. For example, in our docker-based local SQL server, you may view the state of 5 of your orchestrator instanceIDs through the following query:
+While the MSSQL backend is running, it will write to its backing DB. You can test this is working as expected using your SQL query interface. For example, in our docker-based local SQL server, you may view the state of 5 of your orchestrator instanceIDs through the following command:
 
 ```bash
 docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw"  -Q "SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM DurableDB.dt.Instances"
@@ -183,7 +183,7 @@ InstanceID                           RuntimeStatus        CreatedTime           
 
 ## Configure the app in Azure
 
-Assuming that you already have target app in Azure for deployment, we'll need to create a setting containing your connection string.
+Assuming that you already have target app in Azure for deployment, we'll need to create a setting for it containing your connection string.
 
 To do this through the Azure portal, first go to your Function App view. Then go under "Configuration", select "New application setting", and there you can assign "SQLDB_Connection" to map to a publicly accessible connection string. Below are some guiding images.
 
@@ -197,13 +197,13 @@ If you don't have a publicly accessible SQL Server already, you can create one o
 You can follow [these](https://learn.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal&view=azuresql) instructions to create an Azure SQL database on the portal. When configuring these database, make sure to set the *Database collation* (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
 
 > [!NOTE]
-> Microsoft offers a 12-month free Azure subscription account if you’re exploring Azure for the first time. You can redeem this benefit if you don't already have an Azure subscription [here](https://azure.microsoft.com/en-us/free/).
+> Microsoft offers a [12-month free Azure subscription account]((https://azure.microsoft.com/en-us/free/) if you’re exploring Azure for the first time.
 
-With an Azure SQL database, you may obtain its connection string by navigating to the database's blade in the Azure portal, under Settings, select "Connection strings" and obtain the "ADO.NET" connection string. Make sure to provided your password in the template provided.
+You may obtain your Azure SQL database's connection string by navigating to the database's blade in the Azure portal. Then, under Settings, select "Connection strings" and obtain the "ADO.NET" connection string. Make sure to provided your password in the template provided.
 
 ## Deploy and enjoy
 
-You can now deploy your code to the cloud, and then run your tests or workload on it. To validate the MSSQL backend is correctly configured, you can query your database for TaskHub data.
+You can now deploy your code to the cloud, and then run your tests or workload on it. To validate the MSSQL backend is correctly configured, you can query your database for Task Hub data.
 
 For instance, if you were using an Azure SQL database, you could review the information about your orchestration instanceIDs by going to your SQL database's blade, going to Query Editor, authenticating, and then running the following query:
 
@@ -211,7 +211,7 @@ For instance, if you were using an Azure SQL database, you could review the info
 SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM dt.Instances
 ```
 
-After running a simple orchestrator, you should see at least one result, as in shown below:
+After running a simple orchestrator, you should see at least one result, as shown below:
 
 ![Azure SQL Query editor results for the SQL query provided.](./media/quickstart-mssql/mssql-azure-db-check.png)
 
