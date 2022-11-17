@@ -256,8 +256,8 @@
         href: connect-rest-api-template.md
       - name: Azure Functions API connection
         href: connect-azure-functions-template.md
-      - name: Logstash plugin with DCRs
-        href: connect-logstash-dcr.md
+      - name: Logstash plugin with Data Collection Rules
+        href: connect-logstash-data-collection-rules.md
       - name: Logstash plugin (legacy)
         href: connect-logstash.md
       - name: Custom log sources

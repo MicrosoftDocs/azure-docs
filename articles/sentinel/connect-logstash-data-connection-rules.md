@@ -32,7 +32,7 @@ To learn more about working with the Logstash data collection engine, see [Getti
 
 ### Architecture and background
 
-:::image type="content" source="./media/connect-logstash-dcr/logstash-dcr-architecture.png" alt-text="Diagram of the Logstash architecture" border="false" lightbox="./media/connect-logstash-dcr/logstash-dcr-architecture.png":::
+:::image type="content" source="./media/connect-logstash-data-collection-rules/logstash-data-collection-rule-architecture.png" alt-text="Diagram of the Logstash architecture." border="false" lightbox="./media/connect-logstash-data-collection-rules/logstash-dcr-architecture.png":::
 
 The Logstash engine is comprised of three components:
 
@@ -62,7 +62,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 1. [Create the required DCR-related resources](#create-the-required-dcr-resources)
 1. [Configure Logstash configuration file](#configure-logstash-configuration-file) 
 1. [Restart Logstash](#restart-logstash)
-1. [View incoming logs in Microsoft Sentinel](#view-incoming-logs-in-microsoft-sentinel)
+1. [View inc    oming logs in Microsoft Sentinel](#view-incoming-logs-in-microsoft-sentinel)
 1. [Monitor output plugin audit logs](#monitor-output-plugin-audit-logs)
 
 ### Prerequisites
