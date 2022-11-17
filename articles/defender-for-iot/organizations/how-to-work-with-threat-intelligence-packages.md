@@ -97,7 +97,7 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 1. In the **Sensor Engine Configuration** area, select the sensors that you want to receive the updated packages. For example:
 
-    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png" alt-text="Upload Threat Intelligence package to multiple sensors." lightbox="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png":::
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png" alt-text="Select which sensors you want to make changes to." lightbox="media/how-to-work-with-threat-intelligence-packages/update-TI-multiple-sensors.png":::
 
 1. In the **Sensor Threat Intelligence Data** section, select the plus sign (**+**).
 
