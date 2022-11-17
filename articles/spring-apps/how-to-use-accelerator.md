@@ -6,7 +6,7 @@ author:
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 12/01/2022
-ms.author: caiqing
+ms.author: qingc
 ms.custom: 
 ---
 
@@ -29,7 +29,7 @@ You can enable App Accelerator when provisioning an Azure Spring Apps Enterprise
 #### [Portal](#tab/Portal)
 1. Navigate to [Azure Portal](https://portal.azure.com/#create/vmware-inc.azure-spring-cloud-vmware-tanzu-2).
 1. In the "Basic" tab, select "Enterprise tier" in pricing and fulfill other input fields. Click "next".
-1. In the "VMware Tanzu settings" tab, check "App Accelerator" checkbox.
+1. In the "VMware Tanzu settings" tab, check "App Accelerators" checkbox.
    ![Enable-Application-Accelerator](./media/how-to-use-accelerator/create-instance.png)
 3. Fulfill other settings and click "Review and Create".
 4. You can obtain "Enable Application Accelerator" and "Enable Dev Tools Portal" are "Yes" in the "Review and Create" tab. Click "create" to create the Enterprise tier instance.
@@ -80,11 +80,10 @@ Use the following steps to provision an Azure Spring Apps service instance.
     ```
 
 ## Monitor App Accelerator
-Application Accelerator allows you to generate new projects from files in Git repositories. An accelerator.yaml file in the repository declares input options for the accelerator. This file also contains instructions for processing the files when you generate a new project.
+Application Accelerator allows you to generate new projects from files in Git repositories.
+Application accelerator has 8 components:
 
-Application accelerator has 8 components, following are resource usages of each component:
-
-| Component name          | Instance count | vCPU per instance | Memory per instance | Description |
+| Component name          | Instance count | vCPU per instance | Memory per instance | Responsibility |
 | :---------------------- | :------------- | :---------------- | :------------------ | :------------------ |
 | accelerator-server      | 2              | 0.4 core          | 0.5Gi               | Power application accelerator. |
 | accelerator-engine      | 1              | 1 core            | 3Gi                 | Process the input values for input options to generate projects.|
@@ -95,12 +94,13 @@ Application accelerator has 8 components, following are resource usages of each 
 | cert-manager-cainjector | 1              | 0.2 core          | 0.25                | Support managing git repository sources for application accelerator.|
 | flux-source-controller  | 1              | 0.2 core          | 0.25                | Support managing git repository sources for application accelerator.|
 
-You can see the running instances and resource usage of all the components.
+You can see the running instances and resource usage of all the components through Azure Portal and CLI.
 #### [Portal](#tab/Portal)
-In **Developer Tools**, go to **Manage tools**. Check or uncheck **Enable App Accelerator** and then click **Apply** to enable or disable App Accelerator.
+You can view the state of App Accelerator in the "Developer Tools (Preview)" blade.
 ![Accelerator-components](./media/how-to-use-accelerator/accelerator-components.png)
 
 #### [CLI](#tab/Azure-CLI)
+Use the following command to view App Accelerator.
 ```azurecli
 az spring application-accelerator show \
     --service <Azure-Spring-Apps-service-instance-name> \
@@ -209,7 +209,7 @@ Besides using the predefined accelerators, you can also create your own ones. Pl
     ![tap-gui-accelerator](./media/how-to-use-accelerator/tap-gui-accelerator.png)   
 
     > [!NOTE]
-    > It might take a few seconds for Tanzu Application Platform GUI to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as git interval when you create the accelerator.
+    > It might take a few seconds for Tanzu Application Platform GUI to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as git interval when you create the accelerator. After changing the accelerator, it will also take time to be reflected in Tanzu Application Platform GUI. The best practice can be changing the git interval to speed up for verification after changes applied into git repo.
 
 ### Use accelerators to bootstrap a new project
 
