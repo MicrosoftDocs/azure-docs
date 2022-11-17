@@ -94,6 +94,12 @@ The next sections cover specific migration guidance for each method.
 
 ### Email one-time passcode
 
+There are two controls for **email one-time passcode**:
+
+Targeting using include and exclude in the configuration's **Enable and target** section is used to enable email OTP for members of a tenant for use in **Password reset**.
+
+There is a separate **Allow external users to use email OTP** control in the **Configure** section that controls use of email OTP for sign-in by B2B users. The authentication method cannot be disabled if this is enabled.
+
 ### Microsoft Authenticator
 
 If **Notification through mobile app** is enabled in the legacy MFA policy, enable **Microsoft Authenticator** for **All users** in the Authentication methods policy. Set the authentication mode to **Any** to allow either push notifications or passwordless authentication. 
