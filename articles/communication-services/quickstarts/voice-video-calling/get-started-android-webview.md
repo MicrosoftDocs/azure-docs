@@ -24,9 +24,9 @@ In this quickstart, you'll learn how to run webapps developed with the Azure Com
 - A web application using the Azure Communication Calling Web SDK. [Get started with the web calling sample](../../samples/web-calling-sample.md).
 
  This quickstart guide assumes that you already have an Android WebView application.
- If you don't have one, you can [download the webview sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart).
+ If you don't have one, you can [download the WebViewQuickstart sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart).
 
- If you use the [webview sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart),
+ If you use the [WebViewQuickstart sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart),
  all the necessary configurations and permission handling are in place. You can skip to Known Issues.
  All you have to do is update the `defaultUrl` in `MainActivity` to the url of the calling web application you deployed and build the application.
 
@@ -50,8 +50,8 @@ Adding permissions to the application manifest isn't enough. You must also [requ
 You have to call `requestPermissions()` and override `onRequestPermissionsResult`.
 Besides app permissions, you have to handle browser permission requests by overriding `WebChromeClient.onPermissionRequest`
 
-The [sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart)
-shows how to handle permission requests from browser and then request app permissions at runtime.
+The [WebViewQuickstart sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart)
+also shows how to handle permission requests from browser and request app permissions at runtime.
 
 ## WebView configuration
 
