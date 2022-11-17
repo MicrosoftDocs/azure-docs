@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: datadog-secrets
+  namespace: my-project
+type: Opaque
+data:
+  apiKey: <MY_API_KEY_VALUE>
+  appKey: <MY_APP_KEY_VALUE>
+  datadogSite: <MY_DATA_DOG_SITE>
+---
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: keda-trigger-auth-datadog-secret
+  namespace: my-project
+spec:
+  secretTargetRef:
+  - parameter: apiKey
+    name: datadog-secrets
+    key: apiKey
+  - parameter: appKey
+    name: datadog-secrets
+    key: appKey
+  - parameter: datadogSite
+    name: datadog-secrets
+    key: datadogSite
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: datadog-scaledobject
+  namespace: my-project
+spec:
+  scaleTargetRef:
+    name: worker
+  triggers:
+  - type: datadog
+    metricType: "Value"
+    metadata:
+      query: "sum:trace.redis.command.hits{env:none,service:redis}.as_count()"
+      queryValue: "7"
+      age: "120"
+      metricUnavailableValue: "0"
+    authenticationRef:
+      name: keda-trigger-auth-datadog-secret

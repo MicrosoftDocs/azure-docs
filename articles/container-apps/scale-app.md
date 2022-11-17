@@ -199,26 +199,7 @@ TODO
 
 ## Custom
 
-You can create a custom Container Apps scaling rule based on any [KEDA scaler](https://keda.sh/docs/latest/scalers/).
-
-KEDA scalers are implemented as [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)s with [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) objects that define security contexts. You can convert a KEDA scaler to a Container Apps scale rule by mapping values from a `ScaledObject` and `TriggerAuthentication` to a scale rule.
-
-The structure of a Container Apps scale rule follows this form:
-
-- The `type` and `metadata` values carry over from a `ScaledObject`, while `auth` values are composed from a KEDA `TriggerAuthentication` object.
-
-- Each `secretTargetRef` from a `TriggerAuthentication` object maps to an object in the Container Apps scale rule `auth` array.
-
-This table shows the mapping between KEDA and Container Apps.
-
-| KEDA `triggerAuthentication` parameter | Container Apps scale rule `auth` object parameter |
-|--|--|
-| `spec.secretTargetRef.parameter` | `triggerParameter` |
-| `spec.secretTargetRef.key` | `secretRef` |
-
-Alternatively, you can use the `connectionFromEnv` metadata parameter to provide a security context for your scale rule. When you set `connectionFromEnv` to an environment variable name, Container Apps looks at the first container listed in the ARM template for a connection string.
-
-Refer to the [considerations section](#considerations) for more security related information.
+You can create a custom Container Apps scaling rule based on any [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)-based [KEDA scaler](https://keda.sh/docs/latest/scalers/).
 
 The following example demonstrates how to create a custom scale rule.
 
@@ -226,26 +207,81 @@ The following example demonstrates how to create a custom scale rule.
 
 This example shows how to convert an [Azure Queue Storage KEDA scaler](https://keda.sh/docs/latest/scalers/azure-storage-blob/) to a Container Apps scale rule, but you use the same process for any other [KEDA scaler](https://keda.sh/docs/latest/scalers/).
 
+KEDA scaler authentication parameters convert into [Container Apps secrets](manage-secrets.md).
+
 ::: zone pivot="azure-resource-manager"
+
+The following procedure shows you how to convert a KEDA scaler to a Container App scale rule. This snippet is an excerpt of an ARM template to show you where each section fits in context of the overall template.
+
+```json
+{
+  ...
+  "resources": {
+    ...
+    "properties": {
+      ...
+      "template": {
+        ...
+        "scale": {
+          "minReplicas": 0,
+          "maxReplicas": 5,
+          "rules": [{
+            "name": "<RULE_NAME>",
+            "custom": {
+              "metadata": {
+                ...
+              },
+              "auth": [{
+                "secretRef": "<NAME>",
+                "triggerParameter": "<PARAMETER>"
+              }]
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+```
+
+Refer to this excerpt for context on how the below examples fit in the ARM template.
 
 > [!NOTE]
 > KEDA scale rules are defined using Kubernetes YAML, while Azure Container Apps supports ARM templates, Bicep templates and Container Apps-specific YAML. The following example uses an ARM template and therefore the rules need to switch property names from [kebab](https://wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) when translating from existing KEDA manifests.
 
+First, you'll define the type and metadata of the scale rule.
+
 1. Find the `type` value from the KEDA scaler.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-queue-trigger.yml" highlight="2":::
+    :::code language="yml" source="../../includes/container-apps/keda-datadog-trigger.yml" highlight="2":::
 
 1. Set this value into the `custom.type` property of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-queue-scale-rule.json" highlight="21":::
+    :::code language="json" source="../../includes/container-apps/container-apps-queue-scale-rule-0.json" highlight="5":::
 
 1. Find the `metadata` values from the KEDA scaler.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-queue-trigger.yml" highlight="4,5,6,7,8,9":::
+    :::code language="yml" source="../../includes/container-apps/keda-datadog-trigger.yml" highlight="5,6,7,8,9,10":::
 
-1. Add them in to the `custom.metadata` section of the scale rule.
+1. Add all metadata values to the `custom.metadata` section of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-queue-scale-rule.json" highlight="23,24,25,26,27,28":::
+    :::code language="json" source="../../includes/container-apps/container-apps-queue-scale-rule-0.json" highlight="7,8,9,10,11,12":::
+
+Next, you'll map the [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) object to the scale rule.
+
+1. Find each `secretTargetRef` of a `TriggerAuthentication` object.
+
+    :::code language="yml" source="../../includes/container-apps/keda-datadog-auth.yml" highlight="19,20,21,22,23,24,25,26,27":::
+
+1. Add all metadata values to the `custom.metadata` section of the scale rule.
+
+    :::code language="json" source="../../includes/container-apps/container-apps-queue-scale-rule-1.json" highlight="3,4,5,6,7,8,9,10,11,12,13,14":::
+
+    Each `secretTargetRef` maps to an object in the scale rule `auth` array.
+
+    Alternatively, you can use the `connectionFromEnv` metadata parameter to provide a security context for your scale rule. When you set `connectionFromEnv` to an environment variable name, Container Apps looks at the first container listed in the ARM template for a connection string.
+
+    Refer to the [considerations section](#considerations) for more security related information.
 
 ::: zone-end
 

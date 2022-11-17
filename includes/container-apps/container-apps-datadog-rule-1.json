@@ -1,0 +1,16 @@
+...
+"auth": [
+  {
+    "secretRef": "apiKey",
+    "triggerParameter": "apiKey"
+  },
+  {
+    "secretRef": "appKey",
+    "triggerParameter": "appKey"
+  },
+  {
+    "secretRef": "datadogSite",
+    "triggerParameter": "datadogSite"
+  }
+]
+...

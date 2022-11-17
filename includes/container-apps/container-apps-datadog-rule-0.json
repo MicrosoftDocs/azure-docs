@@ -1,0 +1,17 @@
+...
+"rules": [
+  {
+    "name": "azure-queue-rule",
+    "custom": {
+      "type": "azure-queue",
+      "metadata": {
+        "query": "sum:trace.redis.command.hits{env:none,service:redis}.as_count()",
+        "queryValue": "7.75",
+        "activationQueryValue": "1.1",
+        "type": "global",
+        "age": "120",
+        "metricUnavailableValue": "1.5"
+      }
+    }
+  }]
+...
