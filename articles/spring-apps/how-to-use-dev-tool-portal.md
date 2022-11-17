@@ -28,7 +28,7 @@ VMware Tanzu Dev Tools includes a set of developer tools to help ease developer 
 
 ## Configure Dev Tools Portal
 
-The following sections describe configuration in Dev Tool Portal.
+The following sections describe configuration in Dev Tools Portal.
 
 ### Configure single sign-on (SSO)
 
