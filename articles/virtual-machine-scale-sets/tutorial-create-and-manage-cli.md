@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Create & manage a virtual machine scale set – Azure CLI'
-description: Learn how to use the Azure CLI to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
+title: 'Tutorial: Create & manage a Virtual Machine Scale Set – Azure CLI'
+description: Learn how to use the Azure CLI to create a Virtual Machine Scale Set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
@@ -10,9 +10,9 @@ ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 
 ---
-# Tutorial: Create and manage a virtual machine scale set with the Azure CLI
+# Tutorial: Create and manage a Virtual Machine Scale Set with the Azure CLI
 
-A virtual machine scale set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. In this tutorial you learn how to:
+A Virtual Machine Scale Set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a resource group
@@ -28,7 +28,7 @@ This article requires version 2.0.29 or later of the Azure CLI. If using Azure C
 
 
 ## Create a resource group
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine scale set. Create a resource group with the [az group create](/cli/azure/group) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a Virtual Machine Scale Set. Create a resource group with the [az group create](/cli/azure/group) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -38,7 +38,7 @@ The resource group name is specified when you create or modify a scale set throu
 
 
 ## Create a scale set
-You create a virtual machine scale set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist:
+You create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they don't exist:
 
 ```azurecli-interactive
 az vmss create \
@@ -261,7 +261,7 @@ az vm restart \
 ```
 
 ## Clean up resources
-When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an extra prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

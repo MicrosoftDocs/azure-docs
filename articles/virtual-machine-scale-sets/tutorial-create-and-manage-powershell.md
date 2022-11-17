@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Create and manage a virtual machine scale set with Azure PowerShell'
-description: Learn how to use Azure PowerShell to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
+title: 'Tutorial: Create and manage a Virtual Machine Scale Set with Azure PowerShell'
+description: Learn how to use Azure PowerShell to create a Virtual Machine Scale Set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
@@ -10,8 +10,8 @@ ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
-# Tutorial: Create and manage a virtual machine scale set with Azure PowerShell
-A virtual machine scale set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. In this tutorial you learn how to:
+# Tutorial: Create and manage a Virtual Machine Scale Set with Azure PowerShell
+A Virtual Machine Scale Set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a resource group
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 
 ## Create a resource group
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine scale set. Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. In this example, a resource group named *myResourceGroup* is created in the *EastUS* region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a Virtual Machine Scale Set. Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. In this example, a resource group named *myResourceGroup* is created in the *EastUS* region. 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
@@ -36,14 +36,14 @@ New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 The resource group name is specified when you create or modify a scale set throughout this tutorial.
 
 
-## Create a scale set
+## Create a Virtual Machine Scale Set
 First, set an administrator username and password for the VM instances with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Now create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
+Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, and allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -154,7 +154,7 @@ To stop individual VM instances, use [Stop-AzVm](/powershell/module/az.compute/s
 Stop-AzVM -ResourceGroupName "myResourceGroup" -name "myScaleSet_instance1"
 ```
 
-By default, stopped VMs are deallocated and do not incur compute charges. If you wish the VM to remain in a provisioned state when stopped, add the `-StayProvisioned` parameter to the preceding command. Stopped VMs that remain provisioned incur regular compute charges.
+By default, stopped VMs are deallocated and don't incur compute charges. If you wish the VM to remain in a provisioned state when stopped, add the `-StayProvisioned` parameter to the preceding command. Stopped VMs that remain provisioned incur regular compute charges.
 
 ## Start VM instances in a scale set
 To start all the VM instances in a scale set, use [Start-AzVmss](/powershell/module/az.compute/start-azvmss).
@@ -182,7 +182,7 @@ Restart-AzVM -ResourceGroupName "myResourceGroup" -name "myScaleSet_instance1"
 ```
 
 ## Clean up resources
-When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
+When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `-Force` parameter confirms that you wish to delete the resources without an extra prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
