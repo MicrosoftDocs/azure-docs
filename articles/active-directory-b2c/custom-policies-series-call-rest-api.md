@@ -32,7 +32,7 @@ In this article, you'll learn how to:
 
 In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-in-user-journey-using-pre-conditions.md), users who select *Personal Account* needs to provide a valid invitation access code to proceed. We use a static access code, but real apps don't work this way. If the service, which issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP 200 (OK) response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 409 (Conflict) response, and the use must re-enter an access code. 
 
-:::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="sA flowchart of calling a R E S T  A P I.":::
+:::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="A flowchart of calling a R E S T  A P I.":::
 
 ## Prerequisites
 

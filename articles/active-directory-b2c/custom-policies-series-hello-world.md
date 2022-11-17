@@ -15,7 +15,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Write your first Azure AD B2C custom policy - Hello World! 
+# Write your first Azure Active Directory B2C custom policy - Hello World! 
 
 In your applications, you can use user flows that enable users to sign up, sign in, or manage their profile. When user flows don't cover all your business specific needs, you use custom policies. 
 

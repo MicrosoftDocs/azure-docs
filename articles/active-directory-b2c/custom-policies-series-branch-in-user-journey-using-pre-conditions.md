@@ -15,11 +15,11 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Create branching in user journey by using Azure AD B2C custom policy
+# Create branching in user journey by using Azure Active Directory B2C custom policy
 
 Different users of the same app can follow different user journeys depending on the values of the data in a custom policy. Azure Active Directory B2C (Azure AD B2C) custom policies allows you to conditionally enable or disable a technical profile to achieve this capability. For example, in [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md), we used a `Precondition` to determine whether or not we should run a Validation Technical Profile based on the value of *accountType* claim. 
 
-Technical Profiles also provides a `EnabledForUserJourneys` element to allow you to specify whether or not a technical profile should run. The `EnabledForUserJourneys` element contains one of five values including *OnClaimsExistence*, which you use to specify that a technical profile should run only when a certain claim specified in the technical profile exists. Learn more about technical profile's [EnabledForUserJourneys](technicalprofiles.md#enabled-for-user-journeys) element. 
+A Technical Profile also provides a `EnabledForUserJourneys` element to allow you to specify whether or not a technical profile should run. The `EnabledForUserJourneys` element contains one of five values including *OnClaimsExistence*, which you use to specify that a technical profile should run only when a certain claim specified in the technical profile exists. Learn more about technical profile's [EnabledForUserJourneys](technicalprofiles.md#enabled-for-user-journeys) element. 
 
 ## Scenario overview
 
@@ -179,13 +179,10 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 ## Next steps
 
-In [step 3](#step-3---configure-technical-profiles), we enabled or disabled the technical profile by using the `EnabledForUserJourneys` element. Alternatively, you can use [Preconditions](userjourneys.md#preconditions) inside the User Journey Orchestration Steps to execute or skip an orchestration step that runs a technical profile.
+In [step 3](#step-3---configure-technical-profiles), we enabled or disabled the technical profile by using the `EnabledForUserJourneys` element. Alternatively, you can use [Preconditions](userjourneys.md#preconditions) inside the User Journey Orchestration Steps to execute or skip an orchestration step. By doing so, you can enable or disable a technical profile.
 
 Next, learn: 
 
-- About [User Journey Orchestration Steps Preconditions](userjourneys.md#preconditions)
+- About [User Journey Orchestration Steps Preconditions](userjourneys.md#preconditions).
 
--  How to [Use the TrustFrameworkPolicy schema file to validate Azure AD B2C policy files](custom-policies-series-install-xml-extensions.md) 
-
-
- 
+-  How to [Use the TrustFrameworkPolicy schema file to validate Azure AD B2C policy files](custom-policies-series-install-xml-extensions.md).
