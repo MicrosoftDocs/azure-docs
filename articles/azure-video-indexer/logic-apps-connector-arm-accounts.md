@@ -130,7 +130,7 @@ The following image shows the first flow:
     Select **Save**.
     
     > [!TIP]
-    > Before moving to the next step step up the right permission between the Logic app and the Azure Video Indexer account.
+    > Before moving to the next step, set up the right permission between the Logic app and the Azure Video Indexer account.
     >
     > Make sure you have followed the steps to enable the system -assigned managed identity of your Logic Apps.
 
