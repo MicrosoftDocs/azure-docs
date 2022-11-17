@@ -1,20 +1,17 @@
 ---
-title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)
+title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/18/2022
+ms.date: 11/07/2022
 ms.custom: references_regions
 ---
 
-# Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)
+# Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 
 [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) is an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](../azure-netapp-files/index.yml) documentation. 
 
 [Azure VMware Solution](./introduction.md) supports attaching Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance.  
-
-> [!IMPORTANT]
-> Azure NetApp Files datastores for Azure VMware Solution hosts is currently in public preview. This version is provided without a service-level agreement and is not recommended for production workloads. Some features may not be supported or may have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware environments for the secondary site. 
 
@@ -31,8 +28,8 @@ Before you begin the prerequisites, review the [Performance best practices](#per
 1. [Deploy Azure VMware Solution](./deploy-azure-vmware-solution.md) private cloud and a dedicated virtual network connected via ExpressRoute gateway. The virtual network gateway should be configured with the Ultra performance SKU and have FastPath enabled. For more information, see [Configure networking for your VMware private cloud](tutorial-configure-networking.md) and [Network planning checklist](tutorial-network-checklist.md).
 1. Create an [NFSv3 volume for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-create-volumes.md) in the same virtual network created in the previous step.
     1. Verify connectivity from the private cloud to Azure NetApp Files volume by pinging the attached target IP.
-    2. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace. If the subscription isn't registered, register it now.
-    
+        2. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace. If the subscription isn't registered, register it now.
+
         `az feature register --name "ANFAvsDataStore" --namespace "Microsoft.NetApp"`
 
         `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
@@ -40,6 +37,9 @@ Before you begin the prerequisites, review the [Performance best practices](#per
     1. Create a volume with **Standard** [network features](../azure-netapp-files/configure-network-features.md) if available for ExpressRoute FastPath connectivity.
     1. Under the **Protocol** section, select **Azure VMware Solution Datastore** to indicate the volume is created to use as a datastore for Azure VMware Solution private cloud.
     1. If you're using [export policies](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) to control access to Azure NetApp Files volumes, enable the Azure VMware private cloud IP range, not individual host IPs. Faulty hosts in a private cloud could get replaced so if the IP isn't enabled, connectivity to datastore will be impacted.
+
+>[!NOTE]
+>Azure NetApp Files datastores for Azure VMware Solution are generally available. You must register Azure NetApp Files datastores for Azure VMware Solution before using it.
 
 ## Supported regions
 
@@ -51,11 +51,9 @@ Azure VMware Solution currently supports the following regions:
 
 **Brazil**    : Brazil South.
 
-**Europe**    : France Central, Germany West Central, North Europe, Switzerland West, UK South, UK West, West Europe
+**Europe**    : France Central, Germany West Central, North Europe, Sweden Central, Sweden North, Switzerland West, UK South, UK West, West Europe
 
-**North America**   : Canada Central, Canada East, Central US, East US, East US 2, North Central US, South Central US, West US.
-
-The list of supported regions will expand as the preview progresses. 
+**North America**   : Canada Central, Canada East, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2.
 
 ## Performance best practices
 
@@ -85,7 +83,7 @@ To attach an Azure NetApp Files volume to your private cloud using Portal, follo
 1. Under **Settings**, select **Preview features**.
 	1. Verify you're registered for both the `CloudSanExperience` and `AnfDatstoreExperience` features.
 1. Navigate to your Azure VMware Solution.
-Under **Manage**, select **Storage (preview)**.
+Under **Manage**, select **Storage**.
 1. Select **Connect Azure NetApp Files volume**.
 1. In **Connect Azure NetApp Files volume**, select the **Subscription**, **NetApp account**, **Capacity pool**, and **Volume** to be attached as a datastore.
 
@@ -94,7 +92,7 @@ Under **Manage**, select **Storage (preview)**.
 1. Verify the protocol is NFS. You'll need to verify the virtual network and subnet to ensure connectivity to the Azure VMware Solution private cloud.
 1. Under **Associated cluster**, select the **Client cluster** to associate the NFS volume as a datastore
 1. Under **Data store**, create a personalized name for your **Datastore name**.
-    1. When the datastore is created, you should see all of your datastores in the **Storage (preview)**.
+    1. When the datastore is created, you should see all of your datastores in the **Storage**.
     2. You'll also notice that the NFS datastores are added in vCenter.
 
 
@@ -120,6 +118,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
     `az feature register --name " AnfDatastoreExperience" --namespace "Microsoft.AVS"`
 
     `az feature show --name "AnfDatastoreExperience" --namespace "Microsoft.AVS" --query properties.state`
+
 1. Verify the VMware extension is installed. If the extension is already installed, verify you're using the latest version of the Azure CLI extension. If an older version is installed, update the extension.
 
     `az extension show --name vmware`
@@ -192,7 +191,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **What are my options for backup and recovery?**
     
-   Azure NetApp Files (ANF) supports [snapshots](../azure-netapp-files/azure-netapp-files-manage-snapshots.md) of datastores for quick checkpoints for near term recovery or quick clones. ANF backup lets you offload your ANF snapshots to Azure storage. This feature is available in public preview. Only for this technology are copies and stores-changed blocks relative to previously offloaded snapshots in an efficient format. This ability decreases Recovery Point Objective (RPO) and Recovery Time Objective (RTO) while lowering backup data transfer burden on the Azure VMware Solution service.   
+   Azure NetApp Files supports [snapshots](../azure-netapp-files/azure-netapp-files-manage-snapshots.md) of datastores for quick checkpoints for near term recovery or quick clones. Azure NetApp Files backup lets you offload your Azure NetApp Files snapshots to Azure storage. With snapshots, copies and stores-changed blocks relative to previously offloaded snapshots are stored in an efficient format. This ability decreases Recovery Point Objective (RPO) and Recovery Time Objective (RTO) while lowering backup data transfer burden on the Azure VMware Solution service.   
 
 - **How do I monitor Storage Usage?**
     

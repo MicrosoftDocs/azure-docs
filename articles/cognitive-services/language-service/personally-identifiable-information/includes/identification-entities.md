@@ -114,7 +114,7 @@ This category contains the following entity:
 
         IBAN codes for payment instruction information. Also returned with `domain=phi`.
 
-        To get this entity category, add `InternationalBankingAccountNumber` to the `piiCategories` parameter. `InternationlBankingAccountNumber` will be returned in the API response if detected.
+        To get this entity category, add `InternationalBankingAccountNumber` to the `piiCategories` parameter. `InternationalBankingAccountNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="2":::
@@ -283,7 +283,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `AUDriversLicense` to the `piiCategories` parameter. `AUDriversLicense` will be returned in the API response if detected.
+        To get this entity category, add `AUDriversLicenseNumber` to the `piiCategories` parameter. `AUDriversLicenseNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -319,7 +319,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ATPassportNumber` to the `piiCategories` parameter. `ATPassportNumber` will be returned in the API response if detected.
+        To get this entity category, add `AUPassportNumber` to the `piiCategories` parameter. `AUPassportNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -336,7 +336,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ATTaxIdentificationNumber` to the `piiCategories` parameter. `ATTaxIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `AUTaxFileNumber` to the `piiCategories` parameter. `AUTaxFileNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::

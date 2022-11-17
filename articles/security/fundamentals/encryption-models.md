@@ -229,6 +229,8 @@ The Azure services that support each encryption model:
 | Azure Backup                     | Yes                | Yes                | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
 | Data Box Edge                    | Yes                | Yes                | -                  |
+| **Other**                        |                    |                    |                    |
+| Microsoft Energy Data Services   | Yes                | -                  | Yes                |
 
 \* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
 

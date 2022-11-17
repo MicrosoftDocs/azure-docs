@@ -30,10 +30,6 @@ items:
     href: essentials/tutorial-metrics.md
   - name: Collect and view resource logs
     href: essentials/tutorial-resource-logs.md
-  - name: Send data to Azure Monitor Logs using REST API
-    href: logs/tutorial-logs-ingestion-portal.md
-  - name: Send data to Azure Monitor Logs with ARM templates
-    href: logs/tutorial-logs-ingestion-api.md
   - name: Detect and analyze anomalies in Azure Monitor Logs
     href: logs/kql-machine-learning-azure-monitor.md
   - name: Create a log query alert
@@ -66,12 +62,6 @@ items:
     items:
       - name: Track web outages
         href: change/tutorial-outages.md
-  - name: Workplace transformations
-    items:
-    - name: Workspace transformations in the Azure portal
-      href: logs/tutorial-workspace-transformations-portal.md
-    - name: Workspace transformations using ARM templates
-      href: logs/tutorial-workspace-transformations-api.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -200,7 +190,7 @@ items:
       items:
       - name: Using the agent extension
         href: agents/azure-monitor-agent-manage.md
-      - name: Using Windows client installer (preview)
+      - name: Using Windows client installer
         href: agents/azure-monitor-agent-windows-client.md
     - name: Configure data collection
       items:
@@ -352,6 +342,12 @@ items:
     - name: Structure
       displayName: Transformations
       href: essentials/data-collection-transformations-structure.md
+    - name: Tutorials
+      items:
+      - name: Workspace transformations in the Azure portal
+        href: logs/tutorial-workspace-transformations-portal.md
+      - name: Workspace transformations using ARM templates
+        href: logs/tutorial-workspace-transformations-api.md
   - name: Data collection endpoints
     href: essentials/data-collection-endpoint-overview.md
   - name: Private Link networking
@@ -380,6 +376,8 @@ items:
       - name: Overview
         displayName: Prometheus
         href: essentials/prometheus-metrics-overview.md
+      - name: FAQ
+        href: faq.yml#prometheus
       - name: Azure Monitor workspace
         href: essentials/azure-monitor-workspace-overview.md
       - name: Enable on AKS cluster
@@ -445,6 +443,12 @@ items:
         href: logs/logs-ingestion-api-overview.md
       - name: Migrate from Data Collector API
         href: logs/custom-logs-migrate.md
+      - name: Tutorials
+        items:
+        - name: Send data to Azure Monitor Logs using REST API
+          href: logs/tutorial-logs-ingestion-portal.md
+        - name: Send data to Azure Monitor Logs with ARM templates
+          href: logs/tutorial-logs-ingestion-api.md        
       - name: Data collector API
         items:
         - name: Overview
@@ -472,21 +476,28 @@ items:
         - name: Overview
           displayName: Log Analytics workspace
           href: logs/log-analytics-workspace-overview.md
-        - name: Create workspaces
-          href: logs/quick-create-workspace.md
-        - name: Configure
+        - name: Manage Log Analytics workspaces
           items:
+          - name: Create a Log Analytics workspace
+            href: logs/quick-create-workspace.md
           - name: Manage access
-            displayName: Log Analytics workspace
+            displayName: Manage access to a Log Analytics workspace
             href: logs/manage-access.md
           - name: Change pricing tier
             href: logs/change-pricing-tier.md
           - name: Set a daily cap
             href: logs/daily-cap.md
-          - name: Configure Basic Logs
-            href: logs/basic-logs-configure.md
           - name: Use Azure AD authentication
             href: logs/azure-ad-authentication-logs.md
+        - name: Manage tables
+          displayName: Azure Monitor Logs tables
+          items:            
+          - name: Overview
+            href: logs/manage-logs-tables.md      
+          - name: Add or delete tables and columns
+            href: logs/create-custom-table.md
+          - name: Set log data plan
+            href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
           - name: Set retention and archive policy
@@ -919,8 +930,6 @@ items:
           href: app/separate-resources.md
         - name: Manage Application Insights
           href: app/powershell.md
-        - name: Manage Azure Cloud Services
-          href: app/powershell-azure-diagnostics.md
     - name: Export
       items:
       - name: Continuous export
@@ -939,38 +948,6 @@ items:
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
-    - name: Map dependencies
-      href: vm/vminsights-maps.md
-    - name: Migrate from service map
-      href: vm/vminsights-migrate-from-service-map.md
-    - name: Monitor performance
-      href: vm/vminsights-performance.md
-    - name: Monitor guest health (preview)
-      items:
-      - name: Overview
-        href: vm/vminsights-health-overview.md
-      - name: Migrate
-        href: vm/vminsights-health-migrate.md
-      - name: Enable
-        href: vm/vminsights-health-enable.md
-      - name: Alerts
-        href: vm/vminsights-health-alerts.md
-      - name: Configure monitors in portal
-        href: vm/vminsights-health-configure.md
-      - name: Configure monitors at scale
-        href: vm/vminsights-health-configure-dcr.md
-      - name: Troubleshoot
-        href: vm/vminsights-health-troubleshoot.md
-    - name: Analyze data with log queries
-      href: vm/vminsights-log-query.md
-    - name: Monitor changes
-      href: vm/vminsights-change-analysis.md
-    - name: Visualize data with workbooks
-      href: vm/vminsights-workbooks.md
-    - name: Disable monitoring
-      href: vm/vminsights-optout.md
-    - name: Troubleshoot
-      href: vm/vminsights-troubleshoot.md
   - name: Container insights
     items:
     - name: Overview
@@ -1500,12 +1477,6 @@ items:
         href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
       - name: Scale Virtual Machine Scale Sets using PowerShell
         href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale with custom metrics
-        href: autoscale/autoscale-custom-metric.md
-      - name: Scale Virtual Machine Scale Sets
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale Virtual Machine Scale Sets using Resource Manager templates
-        href: autoscale/autoscale-virtual-machine-scale-sets.md
       - name: Use webhooks and email notifications
         href: autoscale/autoscale-webhook-email.md
       - name: Troubleshooting
@@ -1558,7 +1529,7 @@ items:
     - name: Endpoint overrides
       href: app/custom-endpoints.md
     - name: Azure Functions
-      href: app/azure-functions-supported-features.md
+      href: ../azure-functions/functions-monitoring.md
     - name: Statsbeat
       href: app/statsbeat.md
     - name: Release notes
@@ -1590,7 +1561,7 @@ items:
       - name: Context
         href: app/data-model-context.md
       - name: Integration with Azure Functions
-        href: app/azure-functions-supported-features.md
+        href: app/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell
     items:
     - name: Azure Monitor
