@@ -68,7 +68,7 @@ To set up the snmptrapd trap receiver on a CentOS 7, Red Hat Enterprise Linux 7,
 
 1. Authorize community strings (SNMP v1 and v2 authentication strings) and define the format for the traps written to the log file: 
   
-    1. Edit `snmptrapd.conf`: 
+    1. Open `snmptrapd.conf`: 
     
         ```bash
         sudo vi /etc/snmp/snmptrapd.conf  
