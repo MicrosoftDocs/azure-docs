@@ -8,15 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 07/11/2022
+ms.date: 11/16/2022
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020
-keywords: translator, text translation, machine translation, translation service, custom translator
 ---
 
 # What is Azure Cognitive Services Translator?
 
-Translator Service is a cloud-based neural machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs.  Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you'll learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
+Translator Service is a cloud-based neural machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs and can be used with any operating system. Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you'll learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
 
 Translator documentation contains the following article types:
 
