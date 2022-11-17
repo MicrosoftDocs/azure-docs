@@ -107,7 +107,7 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 1. Select **CLOSE** and then **SAVE CHANGES** to push the threat intelligence update to all selected sensors.
 
-    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/save-changes-CM.png" alt-text="Save changes made to selected sensors on the management console." lightbox="media/how-to-work-with-threat-intelligence-packages/save-changes-CM.png":::
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/save-changes-MC.png" alt-text="Save changes made to selected sensors on the management console." lightbox="media/how-to-work-with-threat-intelligence-packages/save-changes-MC.png":::
 
 ## Review package update status on the sensor
 
