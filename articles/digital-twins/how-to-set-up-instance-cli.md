@@ -72,6 +72,18 @@ To create an instance with a *user-assigned identity*, provide the ID of an exis
 az dt create --dt-name <new-instance-name> --resource-group <resource-group> --mi-user-assigned <user-assigned-identity-resource-ID>
 ```
 
+### Create the instance with a system-managed identity
+
+When you enable a [system-assigned identity](concepts-security.md#managed-identity-for-accessing-other-resources) on your Azure Digital Twins instance, Azure automatically creates an identity for it in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). That identity can then be used to authenticate to Azure Digital Twins endpoints for event forwarding. You can enable a system-managed identity for an Azure Digital Twins instance during instance creation, or [later on an existing instance](#enabledisable-system-managed-identity-for-the-instance).
+
+To create an Azure Digital Twins instance with system-assigned identity enabled, you can add an `--assign-identity` parameter to the `az dt create` command that's used to create the instance. (For more information about this command, see its [reference documentation](/cli/azure/dt#az-dt-create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+
+To create an instance with a system managed identity, add the  `--assign-identity` parameter like this:
+
+```azurecli-interactive
+az dt create --dt-name <new-instance-name> --resource-group <resource-group> --assign-identity
+```
+
 ### Verify success and collect important values
 
 If the instance was created successfully, the result in the CLI looks something like this, outputting information about the resource you have created:
