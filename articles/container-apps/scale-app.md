@@ -31,7 +31,7 @@ Scaling is defined by the combination of limits and rules.
 
 - **Rules** are the criteria used by Container Apps to decide when to add or remove replicas.
 
-    Rules are implemented as [HTTP](#http), [TCP](#tcp), or [custom](#custom). Custom rules are based on any [KEDA supported scaler](https://keda.sh/docs/latest/scalers/).
+    Rules are implemented as [HTTP](#http), [TCP](#tcp), or [custom](#custom). Custom rules are based on any [KEDA supported scaler](https://keda.sh/docs/latest/scalers/) using the KEDA [ScaledObject](https://keda.sh/docs/concepts/scaling-deployments/#details).
 
 As you define your scaling rules, keep in mind the following items:
 
@@ -39,9 +39,9 @@ As you define your scaling rules, keep in mind the following items:
 - Replicas that aren't processing, but remain in memory are billed as "idle".
 - If you want to ensure that an instance of your application is always running, set the minimum  number of replicas to 1 or higher.
 
-## Implement a scale rule
+## Scale rules
 
-Scaling is driven by various triggers. Azure Container Apps supports two categories of scale triggers:
+Scaling is driven by three different categories of triggers:
 
 - [HTTP](#http): Based on the number of concurrent HTTP requests to your revision.
 - [TCP](#tcp): Based on the number of concurrent TCP requests to your revision.
@@ -56,15 +56,17 @@ Scaling is driven by various triggers. Azure Container Apps supports two categor
 
 With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your app scales.
 
-| Scale property | Description | Default value | Min value | Max value |
-|---|---|---|---|---|
-| `concurrentRequests`| When the number of HTTP requests exceeds this value, then another replica is added. Replicas continue to add to the pool up to the `maxReplicas` amount. | 10 | 1 | n/a |
-
 In the following example, the container app scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
 
 ### Example
 
 ::: zone pivot="azure-resource-manager"
+
+The ARM template uses the `concurrentRequests` and `maxReplicas` properties to define a scale rule.
+
+| Scale property | Description | Default value | Min value | Max value |
+|---|---|---|---|---|
+| `concurrentRequests`| When the number of HTTP requests exceeds this value, then another replica is added. Replicas continue to add to the pool up to the `maxReplicas` amount. | 10 | 1 | n/a |
 
 ```json
 {
@@ -132,15 +134,17 @@ TODO: create, update, up
 
 With a TCP scaling rule, you have control over the threshold of concurrent TCP requests that determines how your app scales.
 
-| Scale property | Description | Default value | Min value | Max value |
-|---|---|---|---|---|
-| `concurrentRequests`| When the number of TCP requests exceeds this value, then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent requests increase. | 10 | 1 | n/a |
-
 In the following example, the container app scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
 
 ### Example
 
 ::: zone pivot="azure-resource-manager"
+
+The ARM template uses the `concurrentRequests` and `maxReplicas` properties to define a scale rule.
+
+| Scale property | Description | Default value | Min value | Max value |
+|---|---|---|---|---|
+| `concurrentRequests`| When the number of TCP requests exceeds this value, then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent requests increase. | 10 | 1 | n/a |
 
 ```json
 {
@@ -205,9 +209,9 @@ The following example demonstrates how to create a custom scale rule.
 
 ### Example
 
-This example shows how to convert an [Azure Queue Storage KEDA scaler](https://keda.sh/docs/latest/scalers/azure-storage-blob/) to a Container Apps scale rule, but you use the same process for any other [KEDA scaler](https://keda.sh/docs/latest/scalers/).
+This example shows how to convert a [Datadog scaler](https://keda.sh/docs/latest/scalers/datadog/) to a Container Apps scale rule, but you use the same process for any other [KEDA scaler](https://keda.sh/docs/latest/scalers/).
 
-KEDA scaler authentication parameters convert into [Container Apps secrets](manage-secrets.md).
+For authentication, KEDA scaler authentication parameters convert into [Container Apps secrets](manage-secrets.md).
 
 ::: zone pivot="azure-resource-manager"
 
@@ -257,25 +261,25 @@ First, you'll define the type and metadata of the scale rule.
 
 1. Set this value into the `custom.type` property of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-queue-scale-rule-0.json" highlight="5":::
+    :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-0.json" highlight="5":::
 
 1. Find the `metadata` values from the KEDA scaler.
 
-    :::code language="yml" source="../../includes/container-apps/keda-datadog-trigger.yml" highlight="5,6,7,8,9,10":::
+    :::code language="yml" source="../../includes/container-apps/keda-azure-datadog-trigger.yml" highlight="5,6,7,8,9,10":::
 
 1. Add all metadata values to the `custom.metadata` section of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-queue-scale-rule-0.json" highlight="7,8,9,10,11,12":::
+    :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-0.json" highlight="7,8,9,10,11,12":::
 
 Next, you'll map the [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) object to the scale rule.
 
 1. Find each `secretTargetRef` of a `TriggerAuthentication` object.
 
-    :::code language="yml" source="../../includes/container-apps/keda-datadog-auth.yml" highlight="19,20,21,22,23,24,25,26,27":::
+    :::code language="yml" source="../../includes/container-apps/keda-azure-datadog-auth.yml" highlight="19,20,21,22,23,24,25,26,27":::
 
 1. Add all metadata values to the `custom.metadata` section of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-queue-scale-rule-1.json" highlight="3,4,5,6,7,8,9,10,11,12,13,14":::
+    :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-1.json" highlight="3,4,5,6,7,8,9,10,11,12,13,14":::
 
     Each `secretTargetRef` maps to an object in the scale rule `auth` array.
 
