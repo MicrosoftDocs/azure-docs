@@ -192,11 +192,11 @@ Access to Azure resources that was set using Azure role-based access control (Az
 
 ### Azure reservations and savings plans
 
-Any Azure reservations and savings plan in your Enterprise Agreement enrollment are moved to your new billing account. During the transition, there won't be any changes to the reservation discounts that are being applied to your subscriptions. If you have a savings plan that's getting transferred and there's no change to the billing currency, there won't be any changes to the saving plan discounts that are being applied to your subscriptions.
+Any Azure reservations and savings plan in your Enterprise Agreement enrollment are moved to your new billing account. During the transition, there won't be any changes to the reservation discounts that are being applied to your subscriptions. If you have a savings plan that's getting transferred and it was purchased in USD, there won't be any changes to the saving plan discounts that are being applied to your subscriptions.
 
-### Savings plan transfer with a billing currency change
+### Savings plan transfers with a non-USD billing currency
 
-You'll see the following image when your savings plan was purchased in a currency different than your new billing currency.
+You'll see the following image when your Enterprise Agreement enrollment savings plan was not purchased in USD.
 
 :::image type="content" source="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" alt-text="Screenshot showing the Savings Plan page." lightbox="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" :::
 
@@ -205,7 +205,7 @@ You'll see the following image when your savings plan was purchased in a currenc
 
 To move forward, select **View charges** to open the Exchange savings plans page and view the savings plans that must be repurchased.
 
-The Exchange savings plans page shows you the savings plans that will get cancelled and credit that will get returned in the original currency to the source enrollment. It also shows the new savings plans that will get purchased in USD for a one-year term for the target billing account. Here’s an example showing the exchange. Monetary values are for example purposes only:
+The Exchange savings plans page shows you the savings plans that will get cancelled and credit that will get returned in the original currency to the source enrollment. It also shows the new savings plans that will get charged in USD for a one-year term for the target billing account. Here’s an example showing the exchange. Monetary values are for example purposes only:
 
 :::image type="content" source="./media/microsoft-customer-agreement-setup-account/exchange-savings-plans.png" alt-text="Screenshot showing the Exchange savings plan page." lightbox="./media/microsoft-customer-agreement-setup-account/exchange-savings-plans.png" :::
 
@@ -258,7 +258,8 @@ To complete the setup, you need access to both the new billing account and the E
     - The billing of your Azure subscriptions is transitioned to the new account. **There won't be any impact on your Azure services during this transition. They'll keep running without any disruption**.
     - If you have Azure reservations or savings plans, they're moved to your new billing account with no change to benefits or term. If have saving plans under the Enterprise Agreement that were not purchased in USD, then the savings plans are canceled. They are repurchased under the terms of the new Microsoft Customer Agreement in USD.
 
-4. You can monitor the status of the transition on the **Transition status** page. Any savings plans shown in the Transition details are those that were cancelled. If you had a savings plan that was repurchased, select the **new savings plan** link to view its details.
+4. You can monitor the status of the transition on the **Transition status** page. Any savings plans shown in the Transition details are those that were cancelled.  
+    - If you had a savings plan that was repurchased, select the **new savings plan** link to view its details and to verify that it was created successfully.
 
    ![Screenshot that shows the transition status](./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-status.png)
 
