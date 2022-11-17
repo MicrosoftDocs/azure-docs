@@ -98,6 +98,119 @@ You can remove the VPN connection profile from your computer.
 1. On the **Remove VPN connection?** box, click **Remove**.
    :::image type="content" source="media/openvpn-azure-ad-client-mac/remove-2.png" alt-text="Screenshot of removing.":::
 
+## FAQ
+
+### How do I add DNS suffixes to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnssuffixes>
+          <dnssuffix>.mycorp.com</dnssuffix>
+          <dnssuffix>.xyz.com</dnssuffix>
+          <dnssuffix>.etc.net</dnssuffix>
+    </dnssuffixes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### How do I add custom DNS servers to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<dnsservers>
+		<dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+	</dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### <a name="split"></a>Can I configure split tunneling for the VPN client?
+
+Split tunneling is configured by default for the VPN client.
+
+### <a name="forced-tunnel"></a>How do I direct all traffic to the VPN tunnel (forced tunneling)?
+
+You can configure forced tunneling using two different methods; either by advertising custom routes, or by modifying the profile XML file.    
+
+> [!NOTE]
+> Internet connectivity is not provided through the VPN gateway. As a result, all traffic bound for the Internet is dropped.
+>
+
+* **Advertise custom routes:** You can advertise custom routes 0.0.0.0/1 and 128.0.0.0/1. For more information, see [Advertise custom routes for P2S VPN clients](vpn-gateway-p2s-advertise-custom-routes.md).
+
+* **Profile XML:** You can modify the downloaded profile XML file to add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
+
+
+    ```
+    <azvpnprofile>
+    <clientconfig>
+          
+    	<includeroutes>
+    		<route>
+    			<destination>0.0.0.0</destination><mask>1</mask>
+    		</route>
+    		<route>
+    			<destination>128.0.0.0</destination><mask>1</mask>
+    		</route>
+    	</includeroutes>
+           
+    </clientconfig>
+    </azvpnprofile>
+    ```
+
+
+### How do I add custom routes to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<includeroutes>
+		<route>
+			<destination>x.x.x.x</destination><mask>24</mask>
+		</route>
+	</includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### How do I block (exclude) routes from the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<excluderoutes>
+		<route>
+			<destination>x.x.x.x</destination><mask>24</mask>
+		</route>
+	</excluderoutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+> [!NOTE]
+> - The default status for clientconfig tag is <clientconfig i:nil="true" />, which can be modified based on the requirement.
+> - Duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
+>
+
 ## Next steps
 
 For more information, see [Create an Azure AD tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).

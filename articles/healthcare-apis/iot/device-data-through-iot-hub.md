@@ -6,18 +6,20 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 11/14/2022
+ms.date: 11/16/2022
 ms.author: jasteppe
 ---
 
 # Tutorial: Receive device data through Azure IoT Hub
  
-The MedTech service may be used with devices created and managed through an [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md) for enhanced workflows and ease of use. This tutorial uses an Azure Resource Manager (ARM) template and a **Deploy to Azure** button to deploy and configure a MedTech service using an Azure IoT Hub for device creation, management, and routing of device messages to the device message event hub. The ARM template used in this article is available from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Healthcareapis) site using the **azuredeploy.json** file located on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub/azuredeploy.json). 
+The MedTech service may be used with devices created and managed through an [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md) for enhanced workflows and ease of use. This tutorial uses an Azure Resource Manager (ARM) template and a **Deploy to Azure** button to deploy a MedTech service using an Azure IoT Hub for device creation, management, and routing of device messages to the MedTech service device message event hub. The ARM template used in this article is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
 
 > [!TIP]
+> For more information about using Azure PowerShell and CLI to deploy MedTech service ARM templates, see [Using Azure PowerShell and Azure CLI to deploy the MedTech service with Azure Resource Manager templates](deploy-08-new-ps-cli.md).
+>
 > For more information about ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md)
 
-Below is a diagram of the IoT device message flow when using an IoT Hub with the MedTech service. As you can see, devices send their messages to the IoT Hub, which then routes the device messages to the device message event hub to be picked up by the MedTech service. The MedTech service will then transform the device messages and persist them into the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR Observations. To learn more about the MedTech service data flow, see [MedTech service data flow](iot-data-flow.md)
+Below is a diagram of the IoT device message flow when using an IoT Hub with the MedTech service. As you can see, devices send their messages to the IoT Hub, which then routes the device messages to the device message event hub to be picked up by the MedTech service. The MedTech service will then transform the device messages and persist them into the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR Observations. To learn more about the MedTech service data flow, see [MedTech service data flow](iot-data-flow.md).
 
 :::image type="content" source="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png" alt-text="Diagram of IoT message data flow through IoT Hub into the MedTech service." lightbox="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png"::: 
 
@@ -66,7 +68,7 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
    > [!IMPORTANT]
    > For this tutorial, the ARM template will configure the MedTech service to operate in **Create** mode so that a Patient Resource and Device Resource are created for each device that sends data to your FHIR service.
    >
-   > To learn more about the MedTech service resolution types: **Create** and **Lookup**, see: [Destination properties](./deploy-05-new-config.md#destination-properties)
+   > To learn more about the MedTech service resolution types: **Create** and **Lookup**, see: [Destination properties](deploy-05-new-config.md#destination-properties).
 
 3. Select the **Review + create** button after all the option fields are correctly filled out. This selection will review your option inputs and check to see if all your supplied values are valid.
 
@@ -88,11 +90,11 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
 
 Once the deployment has competed, the following resources and access roles will be created as part of the template deployment: 
 
-- An Azure Event Hubs Namespace and device message Azure event hub. In this example, the event hub is named **devicedata**.
+- An Azure Event Hubs Namespace and device message Azure event hub. In this deployment, the event hub is named **devicedata**.
 
-- An Azure event hub consumer group. In this example, the consumer group is named **$Default**.
+- An Azure event hub consumer group. In this deployment, the consumer group is named **$Default**.
 
-- An Azure event hub sender role. In this example, the sender role is named **devicedatasender**.
+- An Azure event hub sender role. In this deployment, the sender role is named **devicedatasender**. For the purposes of this tutorial, this role won't be used. To learn more about the role and its use, see [Review of deployed resources and access permissions](deploy-02-new-button.md#required-post-deployment-tasks).
 
 - An Azure IoT Hub with [messaging routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to send device messages to the device message event hub.
 
@@ -195,7 +197,7 @@ Use this tutorial: [Access using Postman](../fhir/use-postman.md) to get an Azur
 
 ## Next steps
 
-In this tutorial, you deployed a Quickstart ARM template in the Azure portal, connected to your Azure IoT Hub, created a device, and sent a test message to your MedTech service.
+In this tutorial, you deployed an ARM template in the Azure portal, connected to your Azure IoT Hub, created a device, and sent a test message to your MedTech service.
 
 To learn about how to use device mappings, see
 

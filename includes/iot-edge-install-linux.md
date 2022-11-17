@@ -11,7 +11,7 @@ services: iot-edge
 
 In this section, you prepare your Linux VM or physical device for IoT Edge. Then, you install IoT Edge.
 
-First, run the following commands to add the package repository and then add the Microsoft package signing key to your list of trusted keys.
+Run the following commands to add the package repository and then add the Microsoft package signing key to your list of trusted keys.
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -218,7 +218,7 @@ Install the latest version of IoT Edge and the IoT identity service package:
      sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
 
-The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
+The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It's recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
 
 # [Debian](#tab/debian)
 
@@ -229,7 +229,7 @@ Install the latest version of IoT Edge and the IoT identity service package:
      sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
 
-The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
+The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It's recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
 
 
 # [Raspberry Pi OS](#tab/rpios)
