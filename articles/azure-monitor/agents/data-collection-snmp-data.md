@@ -103,9 +103,8 @@ To edit the output behavior configuration of snmptrapd on Red Hat, CentOS, and O
     - `-Ls2` - Output traps to syslog, to the Local2 facility.
     - `-Lf /var/log/snmptrapd` - Log traps to the `/var/log/snmptrapd` file. 
     
-For more information, see: 
-- https://www.net-snmp.org/docs/man/snmpcmd.html for how to set output options. 
-- https://www.net-snmp.org/docs/man/snmptrapd.html for how to set formatting options. 
+> [!NOTE]   
+> For more information, see Net-SNMP documentation for [how to set output options](https://www.net-snmp.org/docs/man/snmpcmd.html) and [how to set formatting options](https://www.net-snmp.org/docs/man/snmptrapd.html). 
     
 ## Collect SNMP traps using Azure Monitor Agent
 
