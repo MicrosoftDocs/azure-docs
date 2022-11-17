@@ -1,14 +1,14 @@
 ---
 title: Query documents in Azure Cosmos DB for MongoDB using .NET
 description: Learn how to query documents in your Azure Cosmos DB for MongoDB database using the .NET SDK.
-author: alexwolfmsft
-ms.author: alexwolf
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/22/2022
-ms.custom: devx-track-dotnet, ignite-2022
+ms.custom: devx-track-dotnet, ignite-2022, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Query documents in Azure Cosmos DB for MongoDB using .NET
