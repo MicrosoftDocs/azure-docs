@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/02/2022
+ms.date: 11/16/2022
 
 ms.author: justinha
 author: justinha
