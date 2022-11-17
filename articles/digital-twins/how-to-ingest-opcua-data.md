@@ -19,17 +19,17 @@ ms.service: digital-twins
 # Introduction
 
 This solution provides an automated ingestion path from OPC UA-enabled manufacturing assets in multiple simulated factories to digital twins in an Azure Digital Twins service. More specifically, the example:
-* Simulates 8 OPC UA production lines in 6 locations, with each production line featuring a assembly, test and packaging machines. These machines are controlled by a seperate Manufacturing Execution System.
+* Simulates eight OPC UA production lines in six locations, with each production line featuring assembly, test and packaging machines. These machines are controlled by a separate Manufacturing Execution System.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/productionline.png" alt-text="Drawing of the opc ua production line" lightbox="media/how-to-ingest-opcua-data/production-line-3.png":::
 
 * The UA Cloud Publisher reads OPC UA data from each simulated factory and forwards it via OPC UA Pub Sub over MQTT to Azure IoT Hub. UA Cloud Publisher runs in a Docker container for easy deployment.
 
-* The UA Cloud Twin reads and processes the OPC UA data from IoT Hub and forwards it to Azire Digital Twins service. UA Cloud Twin runs in a Docker container for easy deployment.
+* The UA Cloud Twin reads and processes the OPC UA data from IoT Hub and forwards it to Azure Digital Twins service. UA Cloud Twin runs in a Docker container for easy deployment.
 
-* The UA Cloud Twin creates digital twins in Azure Digital Twins service automatically and on-the-fly, mapping each OPC UA element (publishers, server namespaces and nodes) to a seperate digital twin.
+* The UA Cloud Twin creates digital twins in Azure Digital Twins service automatically and on-the-fly, mapping each OPC UA element (publishers, server namespaces and nodes) to a separate digital twin.
 
-* The UA Cloud Twin also automatically updates each digital twin on OPC UA node data changes. This allows the historization of digital twin time-series data in Azure Data Explorer for condition monitoring, OEE calculation and predictive maitenance scenarios.
+* The UA Cloud Twin also automatically updates each digital twin on OPC UA node data changes. This allows the historization of digital twin time-series data in Azure Data Explorer for condition monitoring, OEE calculation and predictive maintenance scenarios.
 
 ## About OPC UA
 
