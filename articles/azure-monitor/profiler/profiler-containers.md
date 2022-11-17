@@ -68,7 +68,7 @@ In this article, you'll learn the various ways you can:
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-5. Enable Application Insights and Profiler
+5. Enable Application Insights and Profiler:
    
    ### [ASP.NET Core 6 and later](#tab/net-core-new)
    
@@ -96,6 +96,8 @@ In this article, you'll learn the various ways you can:
      services.AddControllersWithViews();
    }
    ```
+   
+   ---
 
 ## Pull the latest ASP.NET Core build/runtime images
 
