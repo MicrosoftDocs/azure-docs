@@ -220,9 +220,16 @@ Click **App Accelerator URL** and jump to **Tanzu Application Platform GUI**, yo
 ![download-accelerator-](./media/how-to-use-accelerator/download-file.png)   
 
 ## Manage App Accelerator in existing Enterprise tier instances
+
 #### [Portal](#tab/Portal)
 In **Developer Tools**, go to **Manage tools**. Check or uncheck **Enable App Accelerator** and then click **Apply** to enable or disable App Accelerator.
-![Enable-Application-Accelerator](./media/how-to-use-accelerator/enable-app-accelerator.png)
+1. Navigate to your Service resource. Click "Developer Tools (Preview)".
+1. Click "Manage tools".
+1. Check the App Accelerators checkbox and click "Apply"
+
+    ![Enable-Application-Accelerator](./media/how-to-use-accelerator/enable-app-accelerator.png)
+
+4.After it is saved successfully, you can view the state of App Accelerator in the "Developer Tools (Preview)" blade.
 
 #### [CLI](#tab/Azure-CLI)
 Use the following command to enable App Accelerator for an Azure Spring Apps service instance:
