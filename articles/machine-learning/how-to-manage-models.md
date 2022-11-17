@@ -39,6 +39,8 @@ When you provide a model you want to register, you'll need to specify a `path` p
 |A path on an AzureML Datastore   |   `azureml://datastores/<datastore-name>/paths/<path_on_datastore>`      |
 |A path from an AzureML job   |   `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`      |
 |A path from an MLflow job   |   `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`      |
+|A path from a Model Asset in AzureML Workspace  | `azureml:<model-name>:<version>`|
+|A path from a Model Asset in  AzureML Registry  | `azureml://registries/<registry-name>/models/<model-name>/versions/<version>`|
 
 ## Supported modes
 
