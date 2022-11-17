@@ -6,7 +6,7 @@ ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/09/2022
+ms.date: 11/14/2022
 ---
 
 # Create, import, export, and delete glossary terms
@@ -139,8 +139,6 @@ The system will upload the file and add all the terms to your glossary.
 
 ## Export terms from the glossary with custom attributes
 
-You can export terms from the glossary as long as the selected terms belong to same term template.
-
 When you're in the glossary, the **Export terms** button is disabled by default. After you select the terms that you want to export, the **Export terms** button is enabled.
 
 > [!NOTE]
@@ -151,7 +149,7 @@ Select **Export terms** to download the selected terms.
 :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot of the button to export terms on the glossary terms page.":::
 
 > [!Important]
-> If the terms in a hierarchy belong to different term templates, you need to split them into different .CSV files for import. Also, the import process currently doesn't support updating the parent of a term.
+> The import process currently doesn't support updating the parent of a term.
 
 ## Delete terms
 

@@ -1,17 +1,15 @@
 ---
-title: Create, list, update and delete Microsoft Purview DevOps policies (preview)
+title: Create, list, update and delete Microsoft Purview DevOps policies
 description: Step-by-step guide on provisioning access through Microsoft Purview DevOps policies
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 11/16/2022
 ms.custom:
 ---
-# Create, list, update and delete Microsoft Purview DevOps policies (preview)
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+# Create, list, update and delete Microsoft Purview DevOps policies
 
 [DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after being saved they get automatically published and then get enforced by the data source.
 
@@ -20,12 +18,12 @@ This how-to guide covers how to provision access from Microsoft Purview to SQL-t
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
-### Data source configuration
+### Configuration
 Before authoring policies in the Microsoft Purview policy portal, you'll need to configure the data sources so that they can enforce those policies.
 
 1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](./microsoft-purview-connector-overview.md) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
 1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](./microsoft-purview-connector-overview.md) for your resources.
-1. [Enable the "Data use management" toggle on the data source](how-to-enable-data-use-management.md). Additional permissions for this step are described in the linked document.
+1. [Enable the "Data use management" toggle in the data source registration](how-to-enable-data-use-management.md). Additional permissions for this step are described in the linked document.
 
 
 ## Create a new DevOps policy

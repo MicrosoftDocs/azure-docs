@@ -21,17 +21,13 @@ This guide describes how to create, update, and publish data owner policies in t
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
-## Microsoft Purview configuration
+### Configuration
+Before authoring policies in the Microsoft Purview policy portal, you'll need to configure Microsoft Purview and the data sources so that they can enforce those policies.
 
-### Data source configuration
+1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](./microsoft-purview-connector-overview.md) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
+1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](./microsoft-purview-connector-overview.md) for your resources.
+1. Enable the Data use management option on the data source registration. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
-Before authoring data policies in the Microsoft Purview governance portal, you'll need to configure the data sources so that they can enforce those policies.
-
-1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](microsoft-purview-connector-overview.md) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
-1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](microsoft-purview-connector-overview.md) for your resources.
-1. Enable the Data use management option on the data source. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
-
- 
 
 ## Create a new policy
 

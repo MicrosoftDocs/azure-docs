@@ -1,6 +1,6 @@
 ---
-title: Updating the address space for a peered virtual network 
-description: Learn about adding or deleting the address space for a peered virtual network without downtime.
+title: Update the address space for a peered virtual network - Azure portal
+description: Learn how to add, modify or delete the address ranges for a peered virtual network without downtime.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -10,7 +10,7 @@ ms.custom: template-how-to
 #Customer Intent: As a cloud engineer, I need to update the address space for peered virtual networks without incurring downtime from the current address spaces. I wish to do this in the Azure Portal.
 ---
 
-# Updating the address space for a peered virtual network - Portal
+# Update the address space for a peered virtual network using the Azure portal
 
 In this article, you'll learn how to update a peered virtual network by adding or deleting an address space without incurring downtime interruptions using the Azure portal. This feature is useful when you need to grow or resize the virtual networks in Azure after scaling your workloads.
 
@@ -51,7 +51,7 @@ In this section, you'll add an IP address range to the IP address space of a pee
 3. Select **Address space**, under **Settings**.
 4. On the **Address space** page, add the address range per your requirements, and select **Save** when finished.
 
-    ::image type="content" source="media/update-virtual-network-peering-address-space/add-address-range-thumb.png" alt-text="Image of the Address Space page used to add an IP address range." lightbox="media/update-virtual-network-peering-address-space/add-address-range-full.png":::
+    :::image type="content" source="media/update-virtual-network-peering-address-space/add-address-range-thumb.png" alt-text="Image of the Address Space page used to add an IP address range." lightbox="media/update-virtual-network-peering-address-space/add-address-range-full.png":::
 1. Select **Peering**, under **Settings** and **Sync** the peering connection.
 1. As previously done, verify the address space is updated on the remote virtual network.
 ## Delete an address range
@@ -71,8 +71,8 @@ In this task, you'll delete an IP address range from an address space. First, yo
 1. As previously done, verify the address space is updated on the remote virtual network.
 
 ## Next steps
-- [Learn how to Create, change, or delete an Azure virtual network peering]()
-- [Links]()
+- Learn how to [Create, change, or delete an Azure virtual network peering](virtual-network-manage-peering.md)
+- Learn how to [Create, change, or delete a virtual network](manage-virtual-network.md)
 
 
 

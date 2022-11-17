@@ -3,7 +3,7 @@ title: Telemetry, property, and command payloads in Azure IoT Central | Microsof
 description: Azure IoT Central device templates let you specify the telemetry, properties, and commands of a device must implement. Understand the format of the data a device can exchange with IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/08/2022
+ms.date: 10/28/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -36,6 +36,8 @@ The JSON file that defines the device model uses the [Digital Twin Definition La
 
 For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
+To troubleshoot payload errors, see [Unmodeled data issues](troubleshoot-connection.md#unmodeled-data-issues) in the troubleshooting FAQ.
+
 ## View raw data
 
 IoT Central lets you view the raw data that a device sends to an application. This view is useful for troubleshooting issues with the payload sent from a device. To view the raw data a device is sending:
@@ -46,7 +48,9 @@ IoT Central lets you view the raw data that a device sends to an application. Th
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Screenshot that shows the raw data view." lightbox="media/concepts-telemetry-properties-commands/raw-data.png":::
 
-    On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
+    On this view, you can select the columns to display, set column widths, set a time range to view, and filter the messages.
+    * The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
+    * The **Error** column shows any error status for the message. To see details of the error, expand the message.
 
 ## Telemetry
 
