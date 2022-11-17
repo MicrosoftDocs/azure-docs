@@ -23,7 +23,7 @@ The batch synthesis API is asynchronous and doesn't return synthesized audio in 
 
 This diagram provides a high-level overview of the workflow.
 
-![Batch Synthesis API workflow diagram](media/long-audio-api/long-audio-api-workflow.png)
+![Diagram of the Batch Synthesis API workflow.](media/long-audio-api/long-audio-api-workflow.png)
 
 > [!TIP]
 > You can also use the [Speech SDK](speech-sdk.md) to create synthesized audio longer than 10 minutes by iterating over the text and synthesizing it in chunks. 
