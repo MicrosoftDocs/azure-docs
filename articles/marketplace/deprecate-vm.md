@@ -41,7 +41,7 @@ After the scheduled deprecation date:
 - Active VM instances will not be impacted.
 - Existing virtual machine scale sets (VMSS) deployments cannot be scaled out. If deprecating a plan or offer, all existing VMSS deployments using any image within the plan or offer respectively cannot be scaled out.
 > [!TIP]
-> Before you deprecate an offer, plan, or image, make sure you understand the current usage by reviewing the [Usage dashboard in commercial marketplace analytics](https://partner.microsoft.com/en-us/dashboard/insights/commercial-marketplace/analytics/usage). If usage is high, consider hiding the plan or offer to minimize discoverability within the commercial marketplace. and steer new customers towards other available options. To hide an offer, select the **Hide plan** checkbox on the **Pricing and Availability** page of each individual plan in the offer.
+> Before you deprecate an offer, plan, or image, make sure you understand the current usage by reviewing the [Usage dashboard in commercial marketplace analytics](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/usage). If usage is high, consider hiding the plan or offer to minimize discoverability within the commercial marketplace. and steer new customers towards other available options. To hide an offer, select the **Hide plan** checkbox on the **Pricing and Availability** page of each individual plan in the offer.
 
 ## Deprecate an image
 
@@ -142,4 +142,5 @@ You can restore an offer only if the offer contains at least one active plan and
 1. Ensure that there is at least one active image version available on the **Technical Configuration** page of the plan. Note that all deprecated images are listed under **VM Images** on the **Deprecated** tab. You can either [restore a deprecated image](#restore-a-deprecated-image) or [add a new VM image](azure-vm-plan-technical-configuration.md#vm-images). Remember, if the restore window has expired, the image can no longer be restored.
 1. Save your changes on the **Technical configuration** page.
 1. For the changes to take effect, select **Review and publish** and publish the offer.
+
 
