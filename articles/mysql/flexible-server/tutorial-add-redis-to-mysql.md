@@ -87,20 +87,13 @@ In terms of strategy, the drawback of this approach is that when data is modifie
 An example of how you would use the fetch function:
 ```
 syntax: python
-print(fetch("SELECT * FROM planet"))
+print(fetch("SELECT * FROM tasks"))
 ```
 
 The result would be:
 ```
 syntax: python
-[{'id': 10, 'name': 'Mercury'},
- {'id': 11, 'name': 'Venus'},
- {'id': 12, 'name': 'Earth'},
- {'id': 13, 'name': 'Mars'},
- {'id': 14, 'name': 'Jupiter'},
- {'id': 15, 'name': 'Saturn'},
- {'id': 16, 'name': 'Uranus'},
- {'id': 17, 'name': 'Neptune'}]
+[{'title': 'Task1', 'completed': 0}]
  ```
  
  ## Cache a record as redis hash
