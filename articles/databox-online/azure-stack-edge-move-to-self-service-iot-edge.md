@@ -25,9 +25,11 @@ This article provides steps to move your managed IoT Edge workloads to IoT Edge 
 
 The high-level workflow is as follows:
 
-1. Deploy a Linux VM and install IoT Edge runtime on it. Connect the newly deployed IoT Edge runtime to the newly created IoT Edge device from the previous step.
+1. Deploy a Linux VM and install IoT Edge runtime on it using symmetric keys.
 
-1. From IoT Hub, redeploy modules onto the new IoT Edge device. 
+1. Connect the newly deployed IoT Edge runtime to the newly created IoT Edge device from the previous step.
+
+1. From IoT Hub, redeploy IoT Edge modules onto the new IoT Edge device. 
 
 1. Once your solution is running on IoT Edge on a Linux VM, you can remove the modules running on the native or managed IoT Edge on Azure Stack Edge. From IoT Hub, delete the IoT Edge device to remove the modules running on Azure Stack Edge. 
 
@@ -72,4 +74,4 @@ For more information about configuring downstream IoT devices to connect to a ne
 
 ## Next steps
 
-[Deploy IoT Edge on an Ubuntu VM on Azure Stack Edge](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md).
+[Deploy IoT Edge on an Ubuntu VM on Azure Stack Edge](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md)
