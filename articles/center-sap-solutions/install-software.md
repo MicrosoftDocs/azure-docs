@@ -182,7 +182,7 @@ You can use the following method to download and upload the SAP components to yo
 You also can [run scripts to automate this process](#option-1-upload-software-components-with-script) instead.
 
 1. Create a new Azure storage account for storing the software components.
-1. Grant the Azure Center for SAP solutions application *Azure SAP Workloads Management* **Storage Blob Data Reader** and **Reader and Data Access** role access to this storage account.
+1. Grant the User-assigned managed identity, which was used during infrastructure deployment, **Storage Blob Data Reader** and **Reader and Data Access role** on this storage account.
 1. Create a container within the storage account. You can choose any container name; for example, **sapbits**. 
 1. Create two folders within the container, named **deployervmpackages** and **sapfiles**. 
     > [!WARNING]
