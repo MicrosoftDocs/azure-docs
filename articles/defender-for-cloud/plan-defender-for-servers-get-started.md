@@ -45,13 +45,13 @@ Defender for Servers provides two plans you can choose from.
     - All the functionality included in Defender for Servers Plan 1.
     - Additional XDR capabilities.
 
-In addition to features provided in plans, Defender for Servers leverages Defender for Cloud's free [foundational cloud security posture management (CSPM) capabilities](concept-cloud-security-posture-management#defender-cspm-plan-options), to continually, assess, score,remediate, and harden your security posture.
+In addition to features provided in plans, Defender for Servers leverages Defender for Cloud's free [foundational cloud security posture management (CSPM) capabilities](concept-cloud-security-posture-management.md#defender-cspm-plan-options), to continually, assess, score,remediate, and harden your security posture.
 
 ### Plan features
 
 | Feature | Details | Plan 1 | Plan 2 |
 |:---|:---|:---:|:---:|
-| **Defender for Endpoint integration** | Defender for Servers integrates with Defender for Endpoint Plan 2 and protects servers with all the Plan 2 features, including:<br/>- [Attack surface reduction](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction) to lower the risk of attack.<br/>- [Next-generation protection](/microsoft-365/security/defender-endpoint/next-generation-protection?view=o365-worldwide), including real-time scanning/protection and [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection).<br> - EDR including [threat analytics](/microsoft-365/security/defender-endpoint/threat-analytics), [automated investigation and response](/microsoft-365/security/defender-endpoint/automated-investigations), [advanced hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview), and [Microsoft Defender Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts).<br/>- Vulnerability assessment/mitigation, provided by Defender for Endpoint's integration with [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Defender for Endpoint integration** | Defender for Servers integrates with Defender for Endpoint Plan 2 and protects servers with all the Plan 2 features, including:<br/>- [Attack surface reduction](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction) to lower the risk of attack.<br/>- [Next-generation protection](/microsoft-365/security/defender-endpoint/next-generation-protection), including real-time scanning/protection and [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection).<br> - EDR including [threat analytics](/microsoft-365/security/defender-endpoint/threat-analytics), [automated investigation and response](/microsoft-365/security/defender-endpoint/automated-investigations), [advanced hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview), and [Microsoft Defender Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts).<br/>- Vulnerability assessment/mitigation, provided by Defender for Endpoint's integration with [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Licensing** | Defender for Server charges Defender for Endpoint licenses per hour instead of per seat, lowering costs by protecting virtual machines only when they're in use.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Defender for Endpoint provisioning** | Defender for Servers automatically provisions the Defender for Endpoint sensor on every supported machine that's connected to Defender for Cloud.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | 
 | **Unified view** | Defender for Endpoint alerts display in the Defender for Cloud portal. You can drill down into the Defender for Endpoint portal for more information.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
@@ -102,7 +102,7 @@ When you enable auto-provisioning of the agent , you specify the Log Analytics w
     - If you want to use a custom workspace, it must be associated with the Azure subscription on which you're enabling Defender for Cloud.
     - You need at minimum read permissions for the workspace.
     - You need to manually enable Defender for Cloud, and turn on Defenderfor Server on the custom workspace. 
-    - Learn more about [design strategy and criteria](https://learn.microsoft.com/azure/azure-monitor/logs/workspace-design) for workspaces.
+    - Learn more about [design strategy and criteria](../azure-monitor/logs/workspace-design.md) for workspaces.
 
 ### Default location workspace
 
@@ -125,7 +125,7 @@ For Defender for Servers to protect AWS. GCP, and on-premises servers, these ser
 - After the agent is installed the machine is seen as an Azure VM resource.
 - After deployment, machines should be located in a subscription that has Defender for Servers enabled.
 
-Learn more about [onboarding requirements](../azure-arc/servers/prerequisites) for Azure Arc, and the [agent](../azure-arc/servers/security-overview.md#agent-security-and-permissions).
+Learn more about [onboarding requirements](../azure-arc/servers/prerequisites.md) for Azure Arc, and the [agent](../azure-arc/servers/security-overview.md#agent-security-and-permissions).
 
 ### Defender for Endpoint extensions
 
@@ -183,10 +183,10 @@ A few points to note:
 
 ## Determine access and ownership
 
-In complex enterprises, different teams manage different [security functions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/organize/cloud-security). 
+In complex enterprises, different teams manage different [security functions](/cloud-adoption-framework/organize/cloud-security). 
 
 - **Team access**: Figuring out ownership for server and endpoint security and protection is critical. Ownership that's undefined, or hidden within organization silos typically causes friction that can lead to delays, insecure deployments, and difficulties in identifying, analyzing, and following threats across the enterprise. -     - Security leadership should pinpoint who which teams, roles, and individuals are responsible for making server security decisions.
-    - Typically, a [central IT team](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/organize/central-it) and a [cloud infrastructure and endpoint security team](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint) share responsibility.
+    - Typically, a [central IT team](/cloud-adoption-framework/organize/central-it) and a [cloud infrastructure and endpoint security team](/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint) share responsibility.
     - Team members will need Azure access rights to manage and use Defender for Cloud.
 
 
