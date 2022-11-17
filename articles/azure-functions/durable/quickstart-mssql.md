@@ -187,9 +187,12 @@ Assuming that you already have target app in Azure for deployment, we'll need to
 
 To do this through the Azure portal, first go to your Function App view. Then go under "Configuration", select "New application setting", and there you can assign "SQLDB_Connection" to map to a publicly accessible connection string. Below are some guiding images.
 
+[On the DB blade, go to Configuration, then click new application setting.](./media/quickstart-mssql/mssql-azure-envvar1.png)
+[Enter your connection string setting name, and its value.](./media/quickstart-mssql/mssql-azure-envvar2.png)
+
 > [!NOTE]
 > Your Azure app won't be able to deploy to the Docker-based local image we created. You will need a publicly accessible SQL Server instance, and its corresponding connection string, instead. As mentioned above, there are many providers offering such services. If you want an Azure-provided solution, see the section below on instantiating an Azure SQL database.
-
+mss
 ### (optional) Creating an Azure SQL database
 
 If you don't have a publicly accessible SQL Server already, you can create one on Azure. If you already have one, irrespective of provider, you can skip this section.
