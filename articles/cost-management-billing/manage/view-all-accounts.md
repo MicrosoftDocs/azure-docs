@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/16/2022
+ms.date: 11/17/2022
 ms.author: banders
 ---
 
@@ -18,6 +18,7 @@ A billing account is created when you sign up to use Azure. You use your billing
 Azure portal supports the following type of billing accounts:
 
 - **Microsoft Online Services Program**: A billing account for a Microsoft Online Services Program is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). 
+    - A new billing account for a Microsoft Online Services Program can have a maximum of 5 subscriptions. However, subscriptions transferred to the new billing account don't count against the limit.
     - The ability to create other Microsoft Online Services Program subscriptions is determined on an individual basis according to your history with Azure.
 
 - **Enterprise Agreement**: A billing account for an Enterprise Agreement (EA) is created when your organization signs an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure. An EA enrollment can contain an unlimited number of EA accounts. 
