@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2022
+ms.date: 11/17/2022
 ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -23,7 +23,7 @@ Use the following information and examples to gain a more advanced understanding
 
 ## Usage location
 
-Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify usage location in **User** &gt; **Profile** &gt; **Settings**.
+Some Microsoft services aren't available in all locations. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify usage location in **User** &gt; **Profile** &gt; **Settings**.
 
 For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user resources before adding users to groups with licenses.
 
@@ -36,13 +36,13 @@ You can use group-based licensing with any security group, which means it can be
 
 For example, you can create a dynamic group for some set of products you want to assign to users. Each group is populated by a rule adding users by their attributes, and each group is assigned the licenses that you want them to receive. You can assign the attribute on-premises and sync it with Azure AD, or you can manage the attribute directly in the cloud.
 
-Licenses are assigned to the user shortly after they are added to the group. When the attribute is changed, the user leaves the groups and the licenses are removed.
+Licenses are assigned to the user shortly after they're added to the group. When the attribute is changed, the user leaves the groups, and the licenses are removed.
 
 ### Example
 
 Consider the example of an on-premises identity management solution that decides which users should have access to Microsoft web services. It uses **extensionAttribute1** to store a string value representing the licenses the user should have. Azure AD Connect syncs it with Azure AD.
 
-Users might need one license but not another, or might need both. Here's an example, in which you are distributing Office 365 Enterprise E5 and Enterprise Mobility + Security (EMS) licenses to users in groups:
+Users might need one license but not another, or might need both. Here's an example, in which you're distributing Office 365 Enterprise E5 and Enterprise Mobility + Security (EMS) licenses to users in groups:
 
 #### Office 365 Enterprise E5: base services
 
@@ -65,49 +65,48 @@ For this example, modify one user and set their extensionAttribute1 to the value
 
 A user can be a member of multiple groups with licenses. Here are some things to consider:
 
-- Multiple licenses for the same product can overlap, and they result in all enabled services being applied to the user. An example could be that *E3 base services* contains the foundation services to deploy first, to all users, and *E3 extended services* contains additional services (Sway and Planner) to deploy only to some users. You can add the user to both groups. As a result, the user has 7 of the 12 services in the product enabled, while using only one license for this product.
+- Multiple licenses for the same product can overlap, and they result in all enabled services being applied to the user. An example could be that *E3 base services* contains the foundation services to deploy first, to all users, and *E3 extended services* contains other services (Sway and Planner) to deploy only to some users. You can add the user to both groups. As a result, the user has 7 of the 12 services in the product enabled, while using only one license for this product.
 
-- Selecting the *E3* license shows more details, including information about which services are enabled for the user by by the group license assignment.
+- Selecting the *E3* license shows more details, including information about which services are enabled for the user by the group license assignment.
 
 ## Direct licenses coexist with group licenses
 
-When a user inherits a license from a group, you can't directly remove or modify that license assignment in the user's properties. You can change the license assignment only in the group and the changes are then propagated to all users. If you need to assign any additional features to a user that has their license from a group license assignment you must create another group to assign the additional features to the user.
+When a user inherits a license from a group, you can't directly remove or modify that license assignment in the user's properties. You can change the license assignment only in the group and the changes are then propagated to all users. If you need to assign other features to a user that has their license from a group license assignment, you must create another group to assign the other features to the user. 
 
-Directly assigned licenses can be removed, and don’t affect a user's inherited licenses. Consider the user who inherits an Office 365 Enterprise E3 license from a group.
+When you use group-based licensing, consider the following scenarios:
 
-Initially, the user inherits the license only from the *E3 basic services* group, which enables four service plans.
+- Group members inherit licenses assigned to the group.
+- License options for group-based licenses must be changed at the group level.
+- If different license options need to be assigned to a user, create a new group, assign a license to the group, then add the user to that group.
+- Users still use only one license of a product if different license options for that product are used in the different group-based licenses.
 
-1. Select **Assign** to directly assign an E3 license to the user. For example, if you want to disable all service plans except Yammer Enterprise.
+When you use direct assignment, the following operations are allowed:
 
-   As a result, the user still uses only one license of the E3 product. But the direct assignment enables the Yammer Enterprise service for that user only. You can see which services are enabled by the group membership versus the direct assignment.
-
-1. When you use direct assignment, the following operations are allowed:
-
-   - Yammer Enterprise can be turned off for a individual user. Because the service is assigned directly to the user, it can be changed.
-   - Additional services can be enabled as well, as part of the directly assigned license.
-   - The **Remove** button can be used to remove the direct license from the user. You can see that the user then has the inherited group license and only the original services remain enabled.
+- Licenses not already assigned through group-based licensing can be changed for an individual user.
+- Other services can be enabled, as part of a directly assigned license.
+- Directly assigned licenses can be removed and don’t affect a user's inherited licenses.
 
 ## Managing new services added to products
 
-When Microsoft adds a new service to a product license plan, it is enabled by default in all groups to which you have assigned the product license. Users in your organization who are subscribed to notifications about product changes will receive emails ahead of time notifying them about the upcoming service additions.
+When Microsoft adds a new service to a product license plan, it's enabled by default in all groups to which you've assigned the product license. Users in your organization who are subscribed to notifications about product changes will receive emails ahead of time notifying them about the upcoming service additions.
 
 As an administrator, you can review all groups affected by the change and take action, such as disabling the new service in each group. For example, if you created groups targeting only specific services for deployment, you can revisit those groups and make sure that any newly added services are disabled.
 
-Here is an example of what this process may look like:
+Here's an example of what this process may look like:
 
-1. Originally, you assigned the *Office 365 Enterprise E5* product to several groups. One of those groups, called *O365 E5 - Exchange only* was designed to enable only the *Exchange Online (Plan 2)* service for its members.
+1. Originally, you assigned the *Microsoft 365 Enterprise E5* product to several groups. One of those groups, called *Microsoft 365 E5 - Exchange only* was designed to enable only the *Exchange Online (Plan 2)* service for its members.
 
-2. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. When the service becomes available in your organization, you can do the following:
+2. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. When the service becomes available in your organization, you can complete the following steps:
 
-3. Go to the [**Azure Active Directory > Licenses > All products**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) blade and select *Office 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product.
+3. Go to [**Azure Active Directory > Licenses > All products**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) and select *Microsoft 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product.
 
-4. Click on the group you want to review (in this case, *O365 E5 - Exchange only*). This will open the **Licenses** tab. Clicking on the E5 license will open a blade listing all enabled services.
+4. Select the group you want to review (in this case, *Microsoft 365 E5 - Exchange only*). The **Licenses** tab opens. Select the E5 license to view all enabled services.
    > [!NOTE]
    > The *Microsoft Stream* service has been automatically added and enabled in this group, in addition to the *Exchange Online* service:
 
    ![Screenshot of new service added to a group license](./media/licensing-group-advanced/manage-new-services.png)
 
-5. If you want to disable the new service in this group, click the **On/Off** toggle next to the service and click the **Save** button to confirm the change. Azure AD will now process all users in the group to apply the change; any new users added to the group will not have the *Microsoft Stream* service enabled.
+5. If you want to disable the new service in this group, select the On/Off toggle next to the service, and select the **Save** button to confirm the change. Azure AD will now process all users in the group to apply the change; any new users added to the group won't have the *Microsoft Stream* service enabled.
 
    > [!NOTE]
    > Users may still have the service enabled through some other license assignment (another group they are members of or a direct license assignment).
@@ -123,7 +122,7 @@ You can use a PowerShell script to check if users have a license assigned direct
 
    ![Screenshot of the Get-Msolaccountsku cmdlet](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
-3. Use the *AccountSkuId* value for the license you are interested in with [this PowerShell script](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). This will produce a list of users who have this license with the information about how the license is assigned.
+3. Use the *AccountSkuId* value for the license you're interested in with [this PowerShell script](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). A list populates the users who have this license and information about how the license is assigned.
 
 ## Use Audit logs to monitor group-based licensing activity
 
@@ -137,14 +136,14 @@ You can use [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md) t
 
 ### Find out who modified a group license
 
-1. Set the **Activity** filter to *Set group license* and click **Apply**.
+1. Set the **Activity** filter to *Set group license* and select **Apply**.
 2. The results include all cases of licenses being set or modified on groups.
    >[!TIP]
    > You can also type the name of the group in the *Target* filter to scope the results.
 
-3. Select an item in the list to see the details of what has changed. Under *Modified Properties* both old and new values for the license assignment are listed.
+3. Select an item in the list to see the details of what has changed. Under *Modified Properties,* both old and new values for the license assignment are listed.
 
-Here is an example of recent group license changes, with details:
+Here's an example of recent group license changes, with details:
 
 ![Screenshot that shows the "Audit logs" page with a list item selected and the "Activity Details Audit log" pane open.](./media/licensing-group-advanced/audit-group-license-change.png)
 
@@ -152,7 +151,7 @@ Here is an example of recent group license changes, with details:
 
 When a license changes on a group, Azure AD will start applying the changes to all users.
 
-1. To see when groups started processing, set the **Activity** filter to *Start applying group based license to users*. Note that the actor for the operation is *Microsoft Azure AD Group-Based Licensing* - a system account that is used to execute all group license changes.
+1. To see when groups started processing, set the **Activity** filter to *Start applying group based license to users*. The actor for the operation is *Microsoft Azure AD Group-Based Licensing* - a system account that is used to execute all group license changes.
    >[!TIP]
    > Click an item in the list to see the *Modified Properties* field - it shows the license changes that were picked up for processing. This is useful if you made multiple changes to a group and you are not sure which one was processed.
 
@@ -180,34 +179,34 @@ This sample output shows the start of processing, all resulting user changes, an
 
 ## Deleting a group with an assigned license
 
-It is not possible to delete a group with an active license assigned. An administrator could delete a group not realizing that it will cause licenses to be removed from users - for this reason we require any licenses to be removed from the group first, before it can be deleted.
+It isn't possible to delete a group with an active license assigned. An administrator could delete a group not realizing that it will cause licenses to be removed from users. For this reason we require any licenses to be removed from the group first, before it can be deleted.
 
-When trying to delete a group in the Azure portal you may see an error notification like this:
+When trying to delete a group in the Azure portal, you may see an error notification like this:
 ![Screenshot group deletion failed](./media/licensing-group-advanced/groupdeletionfailed.png)
 
 Go to the **Licenses** tab on the group and see if there are any licenses assigned. If yes, remove those licenses and try to delete the group again.
 
-You may see similar errors when trying to delete the group through PowerShell or Graph API. If you are using a group synced from on-premises, Azure AD Connect may also report errors if it is failing to delete the group in Azure AD. In all such cases, make sure to check if there are any licenses assigned to the group, and remove them first.
+You may see similar errors when trying to delete the group through PowerShell or Graph API. If you're using a group synced from on-premises, Azure AD Connect may also report errors if it's failing to delete the group in Azure AD. In all such cases, make sure to check if there are any licenses assigned to the group, and remove them first.
 
 ## Limitations and known issues
 
 If you use group-based licensing, it's a good idea to familiarize yourself with the following list of limitations and known issues.
 
-- Group-based licensing currently does not support groups that contain other groups (nested groups). If you apply a license to a nested group, only the immediate first-level user members of the group have the licenses applied.
+- Group-based licensing currently doesn't support groups that contain other groups (nested groups). If you apply a license to a nested group, only the immediate first-level user members of the group have the licenses applied.
 
 - The feature can only be used with security groups, and Microsoft 365 groups that have securityEnabled=TRUE.
 
-- The [Microsoft 365 admin center](https://admin.microsoft.com) does not currently support group-based licensing. If a user inherits a license from a group, this license appears in the Office admin portal as a regular user license. If you try to modify that license or try to remove the license, the portal returns an error message. Inherited group licenses cannot be modified directly on a user.
+- The [Microsoft 365 admin center](https://admin.microsoft.com) doesn't currently support group-based licensing. If a user inherits a license from a group, this license appears in the Office admin portal as a regular user license. If you try to modify that license or try to remove the license, the portal returns an error message. Inherited group licenses can't be modified directly on a user.
 
-- When licenses are assigned or modified for a large group (for example, 100,000 users), it could impact performance. Specifically, the volume of changes generated by Azure AD automation might negatively impact the performance of your directory synchronization between Azure AD and on-premises systems.
+- When licenses are assigned or modified for a large group (for example, 100,000 users), it could affect performance. Specifically, the volume of changes generated by Azure AD automation might negatively affect the performance of your directory synchronization between Azure AD and on-premises systems.
 
-- If you are using dynamic groups to manage your user’s membership, verify that the user is part of the group, which is necessary for license assignment. If not, [check processing status for the membership rule](groups-create-rule.md) of the dynamic group.
+- If you're using dynamic groups to manage your user’s membership, verify that the user is part of the group, which is necessary for license assignment. If not, [check processing status for the membership rule](groups-create-rule.md) of the dynamic group.
 
-- In certain high load situations, it may take a long time to process license changes for groups or membership changes to groups with existing licenses. If you see your changes take more than 24 hours to process group size of 60K users or less, please [open a support ticket](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) to allow us to investigate. 
+- In certain high load situations, it may take a long time to process license changes for groups or membership changes to groups with existing licenses. If you see your changes take more than 24 hours to process group size of 60 K users or less, please [open a support ticket](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) to allow us to investigate. 
 
-- License management automation does not automatically react to all types of changes in the environment. For example, you might have run out of licenses, causing some users to be in an error state. To free up the available seat count, you can remove some directly assigned licenses from other users. However, the system does not automatically react to this change and fix users in that error state.
+- License management automation doesn't automatically react to all types of changes in the environment. For example, you might have run out of licenses, causing some users to be in an error state. To free up the available seat count, you can remove some directly assigned licenses from other users. However, the system doesn't automatically react to this change and fix users in that error state.
 
-  As a workaround to these types of limitations, you can go to the **Group** blade in Azure AD, and click **Reprocess**. This command processes all users in that group and resolves the error states, if possible.
+  As a workaround to these types of limitations, you can go to **Azure AD** > **Groups** > select a group > select **Licenses** > select **Reprocess**. This command processes all users in that group and resolves the error states, if possible.
 
 ## Next steps
 
