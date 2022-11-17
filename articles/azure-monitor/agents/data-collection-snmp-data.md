@@ -53,7 +53,7 @@ To set up snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 se
     > [!NOTE]
     > Some vendors maintain a single MIB for all devices, while others have hundreds of MIB files. To load an MIB file correctly, snmptrapd must load all dependent MIBs. Be sure to check the snmptrapd log file after loading MIBs to ensure that there are no missing dependencies in parsing your MIB files.  
 
-1. Authorize community strings (SNMP v1 & v2 authentication strings): 
+1. Authorize community strings (SNMP v1 and v2 authentication strings) and define the format for the traps written to the log file: 
   
     1. Edit `snmptrapd.conf`: 
     
@@ -61,12 +61,17 @@ To set up snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 se
         sudo vi /etc/snmp/snmptrapd.conf  
         ```        
 
-    1.  Ensure that the following line exists in your `snmptrapd.conf` file to allow all traps for all OIDs, from all sources, with a community string of *public*: 
+    1.  Add these lines to your `snmptrapd.conf` file: 
     
         ```bash
+        # Allow all traps for all OIDs, from all sources, with a community string of public
         authCommunity log,execute,net public
+        # Format logs for collection by Azure Monitor Agent
+        format2 snmptrap %a %B %y/%m/%l %h:%j:%k %N %W %q %T %W %v \n
         ```
 
+        > [!NOTE]
+        > snmptrapd logs both traps and daemon messages - for example, service stop and start - to the same log file. In the example above, we’ve defined the log format to start with the word “snmptrap” to make it easy to filter snmptraps from the log later on. 
 ## Configure snmptrapd to send traps to syslog or text file
 
 There are two ways snmptrapd can send SNMP traps to Azure Monitor Agent: 
@@ -82,21 +87,14 @@ To edit the output behavior configuration of snmptrapd on Red Hat, CentOS, and O
     ```bash
     sudo vi /etc/sysconfig/snmptrapd
     ```    
-1. Add this line to the `LOGGING` section of the file to format the logs for collection by Azure Monitor Agent:
-    
-    ```bash
-    format2 snmptrap %a %B %y/%m/%l %h:%j:%k %N %W %q %T %W %v \n
-    ```
-    
-    > [!NOTE]
-    > snmptrapd logs both traps and daemon messages - for example, service stop and start - to the same log file. In the example above, we’ve defined the log format to start with the word “snmptrap” to make it easy to filter snmptraps from the log later on.  
 
-1. Run the command line,     
-
-    Here’s an example configuration:  
+1. Here’s an example configuration:  
 
     ```bash        
-    # snmptrapd command line options# '-f' is implicitly added by snmptrapd systemd unit file# OPTIONS="-Lsd"OPTIONS="-m ALL -Ls2 -Lf /var/log/snmptrapd"
+    # snmptrapd command line options
+    # '-f' is implicitly added by snmptrapd systemd unit file
+    # OPTIONS="-Lsd"
+    OPTIONS="-m ALL -Ls2 -Lf /var/log/snmptrapd"
     ```  
         
     The options in this example configuration are:  
