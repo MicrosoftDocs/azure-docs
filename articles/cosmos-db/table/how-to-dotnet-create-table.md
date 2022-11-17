@@ -26,16 +26,16 @@ In Azure Cosmos DB, a table is analogous to a table in a relational database.
 
 Here are some quick rules when naming a table:
 
-* Keep table names between 3 and 63 characters long
-* Table names can only contain lowercase letters, numbers, or the dash (-) character.
-* Table names must start with a lowercase letter or number.
+- Keep table names between 3 and 63 characters long
+- Table names can only contain lowercase letters, numbers, or the dash (-) character.
+- Table names must start with a lowercase letter or number.
 
 ## Create a table
 
 To create a table, call one of the following methods:
 
-* [``CreateAsync``](#create-a-table-asynchronously)
-* [``CreateIfNotExistsAsync``](#create-a-table-asynchronously-if-it-doesnt-already-exist)
+- [``CreateAsync``](#create-a-table-asynchronously)
+- [``CreateIfNotExistsAsync``](#create-a-table-asynchronously-if-it-doesnt-already-exist)
 
 ### Create a table asynchronously
 

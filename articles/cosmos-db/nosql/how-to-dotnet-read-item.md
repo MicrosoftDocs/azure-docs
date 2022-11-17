@@ -31,9 +31,9 @@ Every item in Azure Cosmos DB for NoSQL has a unique identifier specified by the
 
 To perform a point read of an item, call one of the following methods:
 
-* [``ReadItemAsync<>``](#read-an-item-asynchronously)
-* [``ReadItemStreamAsync<>``](#read-an-item-as-a-stream-asynchronously)
-* [``ReadManyItemsAsync<>``](#read-multiple-items-asynchronously)
+- [``ReadItemAsync<>``](#read-an-item-asynchronously)
+- [``ReadItemStreamAsync<>``](#read-an-item-as-a-stream-asynchronously)
+- [``ReadManyItemsAsync<>``](#read-multiple-items-asynchronously)
 
 ## Read an item asynchronously
 

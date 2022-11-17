@@ -22,17 +22,16 @@ This article shows you how to connect to Azure Cosmos DB for MongoDB using .NET 
 
 [API for MongoDB reference documentation](https://docs.mongodb.com/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
 
-
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* [.NET 6.0](https://dotnet.microsoft.com/en-us/download)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
-* [Azure Cosmos DB for MongoDB resource](quickstart-dotnet.md#create-an-azure-cosmos-db-account)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- [.NET 6.0](https://dotnet.microsoft.com/download)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+- [Azure Cosmos DB for MongoDB resource](quickstart-dotnet.md#create-an-azure-cosmos-db-account)
 
 ## Create a new .NET Core app
 
-1. Create a new .NET Core application in an empty folder using your preferred terminal. For this scenario you'll use a console application. Use the [``dotnet new``](/dotnet/core/tools/dotnet-new) command to create and name the console app.
+1. Create a new .NET Core application in an empty folder using your preferred terminal. For this scenario, you'll use a console application. Use the [``dotnet new``](/dotnet/core/tools/dotnet-new) command to create and name the console app.
 
     ```console
     dotnet new console -o app
@@ -115,10 +114,10 @@ The following guides show you how to use each of these classes to build your app
 
 **Guide**:
 
-* [Manage databases](how-to-dotnet-manage-databases.md)  
-* [Manage collections](how-to-dotnet-manage-collections.md) 
-* [Manage documents](how-to-dotnet-manage-documents.md) 
-* [Use queries to find documents](how-to-dotnet-manage-queries.md) 
+- [Manage databases](how-to-dotnet-manage-databases.md)  
+- [Manage collections](how-to-dotnet-manage-collections.md)
+- [Manage documents](how-to-dotnet-manage-documents.md)
+- [Use queries to find documents](how-to-dotnet-manage-queries.md)
 
 ## See also
 
@@ -127,7 +126,7 @@ The following guides show you how to use each of these classes to build your app
 
 ## Next steps
 
-Now that you've connected to a API for MongoDB account, use the next guide to create and manage databases.
+Now that you've connected to an API for MongoDB account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
 > [Create a database in Azure Cosmos DB for MongoDB using .NET](how-to-dotnet-manage-databases.md)

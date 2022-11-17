@@ -43,8 +43,8 @@ To learn more about the SQL syntax for Azure Cosmos DB for NoSQL, see [Getting s
 
 To query items in a container, call one of the following methods:
 
-* [``GetItemQueryIterator<>``](#query-items-using-a-sql-query-asynchronously)
-* [``GetItemLinqQueryable<>``](#query-items-using-linq-asynchronously)
+- [``GetItemQueryIterator<>``](#query-items-using-a-sql-query-asynchronously)
+- [``GetItemLinqQueryable<>``](#query-items-using-linq-asynchronously)
 
 ## Query items using a SQL query asynchronously
 

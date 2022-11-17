@@ -52,9 +52,9 @@ When referencing the item using a URI, use the system-generated *resource identi
 
 To create an item, call one of the following methods:
 
-* [``CreateItemAsync<>``](#create-an-item-asynchronously)
-* [``ReplaceItemAsync<>``](#replace-an-item-asynchronously)
-* [``UpsertItemAsync<>``](#create-or-replace-an-item-asynchronously)
+- [``CreateItemAsync<>``](#create-an-item-asynchronously)
+- [``ReplaceItemAsync<>``](#replace-an-item-asynchronously)
+- [``UpsertItemAsync<>``](#create-or-replace-an-item-asynchronously)
 
 ## Create an item asynchronously
 
