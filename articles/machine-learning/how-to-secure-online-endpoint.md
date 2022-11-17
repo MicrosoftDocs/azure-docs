@@ -99,7 +99,14 @@ endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',
 
 # [Studio](#tab/azure-studio)
 
-:::image type="content" source="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png" alt-text="A screenshot of how to disable public network access for an endpoint." lightbox="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png":::
+1. Go to the [Azure Machine Learning Studio](https://ml.azure.com).
+1. Select the **Workspaces** page from the left navigation bar.
+1. Enter a workspace by clicking its name.
+1. Select the **Endpoints** page from the left navigation bar.
+1. Click **+ Create** to open the **Create deployment** setup wizard.
+1. Disable the **Public network access** flag at the **Create endpoint** step.
+
+    :::image type="content" source="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png" alt-text="A screenshot of how to disable public network access for an endpoint." lightbox="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png":::
 
 ---
 When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
@@ -142,7 +149,10 @@ ml_client.begin_create_or_update(blue_deployment)
 
 # [Studio](#tab/azure-studio)
 
-:::image type="content" source="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png" alt-text="A screenshot of how to disable the egress public network access for a deployment" lightbox="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png":::
+1. Follow the steps in the **Create deployment** setup wizard to the **Deployment** step.
+1. Disable the **Egress public network access** flag.
+
+    :::image type="content" source="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png" alt-text="A screenshot of how to disable the egress public network access for a deployment" lightbox="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png":::
 
 ---
 
