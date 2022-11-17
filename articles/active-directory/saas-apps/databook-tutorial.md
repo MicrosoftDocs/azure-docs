@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory SSO integration with Databook'
+title: Azure Active Directory SSO integration with Databook
 description: Learn how to configure single sign-on between Azure Active Directory and Databook.
 services: active-directory
 author: jeevansd
@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Databook
 
-In this article, you'll learn how to integrate Databook with Azure Active Directory (Azure AD). Databook provides the safest and easiest to use business solution for sending and receiving files. When you integrate Databook with Azure AD, you can:
+In this article, you'll learn how to integrate Databook with Azure Active Directory (Azure AD). Databook is a customer intelligence platform that provides insights into a company's financial & strategic priorities and maps best-fit Microsoft solutions to deliver high impact recommendations. When you integrate Databook with Azure AD, you can:
 
 * Control in Azure AD who has access to Databook.
 * Enable your users to be automatically signed-in to Databook with their Azure AD accounts.
@@ -55,9 +55,9 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Screenshot shows to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
+   ![Screenshot shows how to edit Basic Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, perform the following steps:-
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** textbox, type a value using the following pattern:
     `urn:auth0:databook:<CustomerID>`
@@ -88,7 +88,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, select copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![Screenshot shows the Certificate download link](common/copy-metadataurl.png "Certificate")
+	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
 ## Configure Databook SSO
 
