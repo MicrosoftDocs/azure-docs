@@ -356,7 +356,7 @@ When you deploy your code, App Service performs the build process described earl
 
 Use the following steps to access the deployment logs:
 
-1. On the Azure portal for your web app, select **Deployment** > **Deployment Center (Preview)** on the left menu.
+1. On the Azure portal for your web app, select **Deployment** > **Deployment Center** on the left menu.
 1. On the **Logs** tab, select the **Commit ID** for the most recent commit.
 1. On the **Log details** page that appears, select the **Show Logs...** link that appears next to "Running oryx build...".
 
@@ -372,9 +372,9 @@ When you're successfully connected to the SSH session, you should see the messag
 
 In general, the first step in troubleshooting is to use App Service Diagnostics:
 
-1. On the Azure portal for your web app, select **Diagnose and solve problems** from the left menu.
-1. Select **Availability and performance**.
-1. Examine the information in the **Application Logs**, **Container crash**, and **Container Issues** options, where the most common issues will appear.
+1. In the Azure portal for your web app, select **Diagnose and solve problems** from the left menu.
+1. Select **Availability and Performance**.
+1. Examine the information in the **Application Logs**, **Container Crash**, and **Container Issues** options, where the most common issues will appear.
 
 Next, examine both the [deployment logs](#access-deployment-logs) and the [app logs](#access-diagnostic-logs) for any error messages. These logs often identify specific issues that can prevent app deployment or app startup. For example, the build can fail if your *requirements.txt* file has the wrong filename or isn't present in your project root folder.
 
@@ -395,8 +395,6 @@ The following sections provide guidance for specific issues.
 - **You see the default app after deploying your own app code.** The [default app](#default-behavior) appears because you either haven't deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
 
   - Restart the App Service, wait 15-20 seconds, and check the app again.
-
-  - Be sure you're using App Service for Linux rather than a Windows-based instance. From the Azure CLI, run the command `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, replacing `<resource-group-name>` and `<app-name>` accordingly. You should see `app,linux` as output; otherwise, recreate the App Service and choose Linux.
 
   - Use [SSH](#open-ssh-session-in-browser) to connect directly to the App Service container and verify that your files exist under *site/wwwroot*. If your files don't exist, use the following steps:
       1. Create an app setting named `SCM_DO_BUILD_DURING_DEPLOYMENT` with the value of 1, redeploy your code, wait a few minutes, then try to access the app again. For more information on creating app settings, see [Configure an App Service app in the Azure portal](configure-common.md).
