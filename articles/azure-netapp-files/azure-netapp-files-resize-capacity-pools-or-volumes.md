@@ -25,7 +25,7 @@ For information about monitoring a volume’s capacity, see [Monitor the capacit
 You can change the capacity pool size in 1-TiB increments or decrements. However, the capacity pool size cannot be smaller than the sum of the capacity of the volumes hosted in the pool, with a minimum of 2 TiB. 
 
 >[!NOTE]
->2 TiB capacity pool limits are currently in preview. To set your capacity pool size lower than 4 TiB, you must be using Standard networking features and [register the feature](azure-netapp-files-set-up-capacity-pool.md#2-tib-capacity-pool).
+>2 TiB capacity pool limits are currently in preview. You must first [register the feature](azure-netapp-files-set-up-capacity-pool.md#2-tib-capacity-pool). Capacity pools smaller than 4 TiB are only supported for volumes configured with Standard network features.
 
 Resizing the capacity pool changes the purchased Azure NetApp Files capacity.
 
