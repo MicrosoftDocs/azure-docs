@@ -215,5 +215,5 @@ If you want to allow a user to grant access to other users, you need to assign t
 
 ## Next steps
 
-* [Long Audio API](./long-audio-api.md)
-
+- [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)
+- [Batch synthesis](batch-synthesis.md)

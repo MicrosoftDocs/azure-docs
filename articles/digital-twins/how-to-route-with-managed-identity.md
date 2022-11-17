@@ -95,7 +95,7 @@ Start by opening the [Azure portal](https://portal.azure.com) in a browser.
 
 1. Select the **Save** button, and **Yes** to confirm.
 
-    :::image type="content" source="media/how-to-route-with-managed-identity/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity page for an Azure Digital Twins instance.":::
+   :::image type="content" source="media/how-to-route-with-managed-identity/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity page for an Azure Digital Twins instance." lightbox="media/how-to-route-with-managed-identity/identity-digital-twins.png":::
 
 After the change is saved, more fields will appear on this page for the new identity's **Object ID** and **Permissions**.
 
@@ -178,7 +178,7 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
     | Assign access to | Under **System assigned managed identity** or **User assigned managed identity**, select **Digital Twins**. |
     | Members | Select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so choose the name of your Azure Digital Twins instance. |
     
-    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the 'Add role assignment' page for an Azure Digital Twins instance." lightbox="../../includes/role-based-access-control/media/add-role-assignment-page.png":::
 
 # [CLI](#tab/cli)
 
@@ -211,13 +211,7 @@ Start following the [instructions to create an Azure Digital Twins endpoint](how
 
 When you get to the step of completing the details required for your endpoint type, select either **System-assigned** or **User-assigned (preview)** for the Authentication type.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
 
 Finish setting up your endpoint and select **Save**.
 

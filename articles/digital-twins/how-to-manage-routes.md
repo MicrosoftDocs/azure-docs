@@ -34,7 +34,7 @@ You can find these details in the [Azure portal](https://portal.azure.com) after
 
 Select your instance from the results to see these details in the Overview for your instance:
 
-:::image type="content" source="media/how-to-manage-routes/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted.":::
+:::image type="content" source="media/how-to-manage-routes/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted." lightbox="media/how-to-manage-routes/instance-details.png":::
 
 Follow the instructions below if you intend to use the Azure CLI while following this guide.
 
@@ -83,13 +83,7 @@ To create a new endpoint, go to your instance's page in the [Azure portal](https
 1. Complete the other details that are required for your endpoint type, including your subscription and the endpoint resources described [above](#prerequisite-create-endpoint-resources).
     1. For Event Hubs and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or select the option for a [system-assigned or user-assigned managed identity](concepts-security.md#managed-identity-for-accessing-other-resources).
 
-    :::row:::
-        :::column:::
-            :::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs in the Azure portal." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
-        :::column-end:::
-        :::column:::
-        :::column-end:::
-    :::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs in the Azure portal." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
 
 1. Finish creating your endpoint by selecting **Save**.
 
@@ -98,13 +92,8 @@ To create a new endpoint, go to your instance's page in the [Azure portal](https
 
 After creating your endpoint, you can verify that the endpoint was successfully created by checking the notification icon in the top Azure portal bar: 
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-manage-routes/create-endpoint-notifications.png" alt-text="Screenshot of the notification to verify the creation of an endpoint in the Azure portal.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-endpoint-notifications.png" alt-text="Screenshot of the notification to verify the creation of an endpoint in the Azure portal.":::
+
 
 If the endpoint creation fails, observe the error message and retry after a few minutes.
 
@@ -356,23 +345,11 @@ You can either select from some basic common filter options, or use the advanced
 
 To use the basic filters, expand the **Event types** option and select the checkboxes corresponding to the events you want to send to your endpoint. 
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-manage-routes/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the checkboxes of the events.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the checkboxes of the events.":::
 
 Doing so will autopopulate the filter text box with the text of the filter you've selected:
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-manage-routes/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the autopopulated filter text after selecting the events.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the autopopulated filter text after selecting the events.":::
 
 ### Use the advanced filters
 
@@ -380,13 +357,7 @@ You can also use the advanced filter option to write your own custom filters.
 
 To create an event route with advanced filter options, toggle the switch for the **Advanced editor** to enable it. You can then write your own event filters in the **Filter** box:
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-manage-routes/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter in the Azure portal.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter in the Azure portal.":::
 
 # [API](#tab/api)
 
