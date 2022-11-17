@@ -19,7 +19,7 @@ In this article, you'll learn how to update a peered virtual network by adding o
 - An existing peered virtual network w/ two virtual networks
 - If adding address space, ensure it doesn't overlap other address spaces
 
-## Modifying the address range prefix of an existing address range (For example changing 10.1.0.0/16 to 10.1.0.0/18)
+## Modify the address range prefix of an existing address range
 In this section, you'll modify the address range prefix for an existing address range within your peered virtual network.
 1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it.
 2. From the list of virtual networks, select the virtual network where you're adding an address range.
