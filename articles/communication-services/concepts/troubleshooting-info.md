@@ -322,8 +322,8 @@ The below error codes are exposed by Call Automation SDK.
 | Error Code | Description | Actions to take |
 |--|--|--|
 | 400 | Bad request           | The input request is invalid. Look at the error message to determine which input is incorrect.
-| 400 | Play Failed           | Ensure your audio file is WAV, 16KHz, Mono), or make sure the file url is publicly accessible. |
-| 400 | Recognize Failed      | Check error message, the message will highlight if this is due to timeout being reached or if operation was canceled. For more information about the error codes and messages you can check our how-to guide for [gathering user input](../how-tos/call-automation/recognize-action.md#event-codes).
+| 400 | Play Failed           | Ensure your audio file is WAV, 16KHz, Mono and make sure the file url is publicly accessible. |
+| 400 | Recognize Failed      | Check the error message. The message will highlight if this is due to timeout being reached or if operation was canceled. For more information about the error codes and messages you can check our how-to guide for [gathering user input](../how-tos/call-automation/recognize-action.md#event-codes).
 | 401 | Unauthorized          | HMAC authentication failed. Verify whether the connection string used to create CallAutomationClient is correct.
 | 403 | Forbidden             | Request is forbidden. Make sure that you can have access to the resource you are trying to access. 
 | 404 | Resource not found    | The call you are trying to act on doesn't exist. For example, transferring a call that has already disconnected.
