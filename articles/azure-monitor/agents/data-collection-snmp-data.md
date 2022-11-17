@@ -18,7 +18,7 @@ You can collect SNMP data in two ways:
 
 Traps are most often used as event notifications, while polls are more appropriate for stateful health detection and collecting performance metrics.  
   
-This article explains how to send SNMP traps to Azure Monitor Logs as syslog events or SNMP events using Azure Monitor Agent.
+Azure Monitor Agent can collect SNMP logs as syslog events or as SNMP events logged in a text file.
 
 In this tutorial, you learn how to:
 
