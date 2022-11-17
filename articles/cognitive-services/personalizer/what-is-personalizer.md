@@ -7,23 +7,22 @@ ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 07/06/2022
+ms.date: 11/17/2022
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning 
 ---
 
 # What is Personalizer?
 
-Azure Personalizer helps your applications make smarter decisions at scale using **reinforcement learning**. Personalizer can determine the best actions to take in a variety of scenarios:
+Azure Personalizer is an AI service that your applications make smarter decisions at scale using **reinforcement learning**. Personalizer processes information about the state of your application, scenario, and/or users (*contexts*), and a set of possible decisions and related attributes (*actions*) to determine the best decision to make. Feedback from your application (*rewards*) is sent to Personalizer to learn how to improve its decision-making ability in near-real time.
+
+Personalizer can determine the best actions to take in a variety of scenarios:
 * E-commerce: What product should be shown to customers to maximize the likelihood of a purchase?
 * Content recommendation: What article should be shown to increase the click-through rate?
 * Content design: Where should an advertisement be placed to optimize user engagement on a website?
 * Communication: When and how should a notification be sent to maximize the chance of a response?
 
-Personalizer processes information about the state of your application, scenario, and/or users (*contexts*), and a set of possible decisions and related attributes (*actions*) to determine the best decision to make. Feedback from your application (*rewards*) is sent to Personalizer to learn how to improve its decision-making ability in near-real time.
-
-To get started with the Personalizer, follow the [**quickstart guide**](quickstart-personalizer-sdk.md), or try Personalizer with this [interactive demo](https://personalizerdevdemo.azurewebsites.net/).
-
+To get started with the Personalizer, follow the [**quickstart guide**](quickstart-personalizer-sdk.md), or try Personalizer in your browser with this [interactive demo](https://personalizerdevdemo.azurewebsites.net/).
 
 This documentation contains the following types of articles:
 
@@ -44,7 +43,7 @@ Personalizer uses reinforcement learning to select the best *action* for a given
 * **Reward**: A numerical score between 0 and 1 that indicates whether the decision was *bad* (0), or *good* (1)
     * Example: A "1" indicates that a user clicked on the suggested article, whereas a "0" indicates the user did not.
 
-### Rank and Reward APIs
+### Personalizer APIs
 
 Personalizer empowers you to take advantage of the power and flexibility of reinforcement learning using just two primary APIs.
 
@@ -63,7 +62,7 @@ Note that Personalizer uses collective information across all users to learn the
 * Log individual users' preferences or historical data.
 
 
-### Example scenarios
+## Example scenarios
 
 Here are a few examples where Personalizer can be used to select the best content to render for a user.
 
@@ -83,9 +82,12 @@ Use Personalizer when your scenario has:
 * Information describing the current context (_contextual features_).
 * Sufficient data volume to enable Personalizer to learn. In general, we recommend a minimum of ~1,000 events per day to enable Personalizer learn effectively. If Personalizer doesn't receive sufficient data, the service takes longer to determine the best actions. 
 
+## Responsible use of AI
 
+At Microsoft, we're committed to the advancement of AI driven by principles that put people first. AI models such as the ones available in the Personalizer service have significant potential benefits, 
+but without careful design and thoughtful mitigations, such models have the potential to generate incorrect or even harmful content. Microsoft has made significant investments to help guard against abuse and unintended harm, incorporating [Microsoft’s principles for responsible AI use](https://www.microsoft.com/en-us/ai/responsible-ai), building content filters to support customers, and providing responsible AI implementation guidance to onboarded customers. See the [Responsible AI docs for Personalizer](responsible-use-cases.md).
 
-## Integrating Personalizer in an application
+## Integrate Personalizer into an application
 
 1. [Design](concepts-features.md) and plan the **_actions_**, and **_context_**. Determine the how to interpret feedback as a **_reward_** score.
 1. Each [Personalizer Resource](how-to-settings.md) you create is defined as one _Learning Loop_. The loop will receive the both the Rank and Reward calls for that content or user experience and train an underlying RL model. There are 
@@ -101,27 +103,22 @@ Use Personalizer when your scenario has:
     1. Use the the best action, as specified as a _reward action ID_ in your scenario.
     1. Apply _business logic_ to user behavior or feedback data to determine the **reward** score. For example:
 
-    |Behavior|Calculated reward score|
-    |--|--|
-    |User selected a news article suggested by Personalizer |**1**|
-    |User selected a news article _not_ suggested by Personalizer |**0**|
-    |User hesitated to select a news article, scrolled around indecisively, and ultimately selected the news article suggested by Personalizer |**0.5**|
+       |Behavior|Calculated reward score|
+       |--|--|
+       |User selected a news article suggested by Personalizer |**1**|
+       |User selected a news article _not_ suggested by Personalizer |**0**|
+       |User hesitated to select a news article, scrolled around indecisively, and ultimately selected the news article suggested by Personalizer |**0.5**|
 
     1. Add a **Reward** call sending a reward score between 0 and 1
         * Immediately after feedback is received.
         * Or sometime later in scenarios where delayed feedback is expected.
     1. Evaluate your loop with an [offline evaluation](concepts-offline-evaluation.md) after a period of time when Personalizer has received significant data to make online decisions. An offline evaluation allows you to test and assess the effectiveness of the Personalizer Service without code changes or user impact.
 
-## Reference 
-
-* [Personalizer C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer)
-* [Personalizer Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview)
-* [Personalizer JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/)
-* [Personalizer Python SDK](/python/api/overview/azure/cognitiveservices/personalizer)
-* [REST APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How Personalizer works](how-personalizer-works.md)
-> [What is Reinforcement Learning?](concepts-reinforcement-learning.md)
+> [Personalizer quickstart](quickstart-personalizer-sdk.md)
+
+* [How Personalizer works](how-personalizer-works.md)
+* [What is Reinforcement Learning?](concepts-reinforcement-learning.md)
