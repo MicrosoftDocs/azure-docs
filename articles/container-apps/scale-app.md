@@ -261,7 +261,7 @@ First, you'll define the type and metadata of the scale rule.
 
 1. Set this value into the `custom.type` property of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-0.json" highlight="5":::
+    :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-0.json" highlight="6":::
 
 1. Find the `metadata` values from the KEDA scaler.
 
@@ -277,11 +277,9 @@ Next, you'll map the [TriggerAuthentication](https://keda.sh/docs/latest/concept
 
     :::code language="yml" source="../../includes/container-apps/keda-azure-datadog-auth.yml" highlight="19,20,21,22,23,24,25,26,27":::
 
-1. Add all metadata values to the `custom.metadata` section of the scale rule.
+1. Add all metadata values to the `auth` array of the scale rule.
 
     :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-1.json" highlight="3,4,5,6,7,8,9,10,11,12,13,14":::
-
-    Each `secretTargetRef` maps to an object in the scale rule `auth` array.
 
     Alternatively, you can use the `connectionFromEnv` metadata parameter to provide a security context for your scale rule. When you set `connectionFromEnv` to an environment variable name, Container Apps looks at the first container listed in the ARM template for a connection string.
 
@@ -323,12 +321,20 @@ TODO
 
 ## Default scale rule
 
-If you don't create a scale rule, the default scale rule is an HTTP rule with 0 `minReplicas` and 10 `maxReplicas`.
+If you don't create a scale rule, the default scale rule is applied to your container app.
+
+| Trigger | Min replicas | Max replicas |
+|--|--|--|
+| HTTP | 0 | 10 |
 
 > [!IMPORTANT]
 > Make sure you create a scale rule if you don't enable ingress. If ingress is disabled and all you have is the default rule, then your container app will scale to zero and have no way of starting back up.
 
-## Considerations
+## Unsupported KEDA capabilities
+
+- KEDA ScaledJobs aren't supported. For more information, see [KEDA Scaling Jobs](https://keda.sh/docs/concepts/scaling-jobs/#overview).
+
+## Known limitations
 
 - Vertical scaling isn't supported.
 
@@ -337,8 +343,6 @@ If you don't create a scale rule, the default scale rule is an HTTP rule with 0 
 - If you're using [Dapr actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) to manage states, you should keep in mind that scaling to zero isn't supported. Dapr uses virtual actors to manage asynchronous calls, which means their in-memory representation isn't tied to their identity or lifetime.
 
 - Managed identity isn't supported. Use a connection string instead via the `connection` property.
-
-- KEDA ScaledJobs aren't supported. For more information, see [KEDA Scaling Jobs](https://keda.sh/docs/concepts/scaling-jobs/#overview).
 
 - In multiple revision mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
 
