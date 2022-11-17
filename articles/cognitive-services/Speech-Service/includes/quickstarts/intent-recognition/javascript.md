@@ -41,7 +41,7 @@ Let's add some code that works as a skeleton for our project.
 Now we'll add some basic UI for input boxes, reference the Speech SDK's JavaScript, and grab an authorization token if available.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/cognitive-services/use-key-vault). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
 ```html
 <body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px;">

@@ -17,6 +17,9 @@ ms.custom: "devx-track-azurepowershell, references_regions"
 
 Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access often drops drastically as the data ages. Some data remains idle in the cloud and is rarely accessed once stored. Some data sets expire days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Storage lifecycle management offers a rule-based policy that you can use to transition blob data to the appropriate access tiers or to expire data at the end of the data lifecycle.
 
+> [!NOTE]
+> Each last access time update is charged as an "other transaction" at most once every 24 hours per object even if it's accessed 1000s of times in a day. This is separate from read transactions charges.
+
 With the lifecycle management policy, you can:
 
 - Transition blobs from cool to hot immediately when they're accessed, to optimize for performance.
@@ -145,6 +148,9 @@ To learn more about the blob index feature together with known issues and limita
 Actions are applied to the filtered blobs when the run condition is met.
 
 Lifecycle management supports tiering and deletion of current versions, previous versions, and blob snapshots. Define at least one action for each rule.
+
+> [!NOTE]
+> Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
 
 | Action                      | Current Version                            | Snapshot      | Previous Versions
 |-----------------------------|--------------------------------------------|---------------|---------------|

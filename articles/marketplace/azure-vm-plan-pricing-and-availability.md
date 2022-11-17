@@ -89,7 +89,7 @@ A hidden plan is not visible on Azure Marketplace and can only be deployed throu
 > A hidden plan is different from a private plan. When a plan is publicly available but hidden, it is still available for any Azure customer to deploy via Solution Template, Managed Application, Azure CLI or Azure PowerShell. However, a plan can be both hidden and private in which case only the customers configured in the private audience can deploy via these methods. If you wish to make the plan available to a limited set of customers, then set the plan to **Private**.
 
 > [!IMPORTANT]
-> Hidden plans don't generate preview links. However, you can test them by [following these steps](/azure/marketplace/azure-vm-faq).
+> Hidden plans don't generate preview links. However, you can test them by [following these steps](./azure-vm-faq.yml).
 
 ## Next steps
 

@@ -11,6 +11,9 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 # SDK, REST, and CLI developer resources for Language Understanding (LUIS)
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions.
 
 ## Azure resource management

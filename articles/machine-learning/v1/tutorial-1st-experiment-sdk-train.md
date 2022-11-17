@@ -10,7 +10,7 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 07/29/2022
-ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv1, event-tier1-build-2022
+ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Tutorial: Train your first machine learning model (SDK v1, part 2 of 3)
@@ -19,7 +19,7 @@ ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy2
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](tutorial-1st-experiment-sdk-train.md)
-> * [v2 (preview)](../tutorial-1st-experiment-sdk-train.md)
+> * [v2](../tutorial-1st-experiment-sdk-train.md)
 
 This tutorial shows you how to train a machine learning model in Azure Machine Learning.  This tutorial is *part 2 of a three-part tutorial series*.
 

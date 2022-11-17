@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to add upload storage account configuration in Azure IoT Central
 description: How to use the IoT Central REST API to add upload storage account configuration in an application
-author: v-krishnag
-ms.author: v-krishnag
+author: eross-msft
+ms.author: lizross
 ms.date: 05/12/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -137,7 +137,7 @@ The response to this request looks like the following example:
 Use the following request to create a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-PUT https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+PUT https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 The request body has the following fields:
@@ -176,7 +176,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-GET https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+GET https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
@@ -197,7 +197,7 @@ The response to this request looks like the following example:
 Use the following request to update a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 ```json
@@ -228,7 +228,7 @@ The response to this request looks like the following example:
 Use the following request to delete a  storage account configuration:
 
 ```http
-DELETE https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+DELETE https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 ## Test file upload
@@ -256,7 +256,7 @@ To test the file upload you run a sample device application. Create a device tem
 
 1. On the **Review** page, select **Create**.
 
-1. Select **Import a model** and upload the *FileUploadDeviceDcm.json* manifest file from the folder `iotc-file-upload-device\setup` in the repository you downloaded previously.
+1. Select **Import a model** and upload the *FileUploadDeviceDcm.json* model file from the folder `iotc-file-upload-device\setup` in the repository you downloaded previously.
 
 1. Select **Publish** to publish the device template.
 

@@ -15,6 +15,10 @@ ms.author: allensu
 # NAT gateway and availability zones
 NAT gateway is a zonal resource, which means it can be deployed and operate out of individual availability zones. With zone isolation scenarios, you can align your zonal NAT gateway resources with zonally designated IP based resources, such as virtual machines, to provide zone resiliency against outages. Review this document to understand key concepts and fundamental design guidance. 
 
+:::image type="content" source="./media/nat-availability-zones/zonal-nat-gateway.png" alt-text="Diagram of zonal deployment of NAT gateway.":::
+
+*Figure 1: Zonal deployment of NAT gateway.*
+
 NAT gateway can either be designated to a specific zone within a region or to ‘no zone’. Which zone property you select for your NAT gateway resource will inform the zone property of the public IP address that can be used for outbound connectivity as well. 
 
 ## NAT gateway has built in resiliency
@@ -38,11 +42,19 @@ Now that you understand the zone-related properties for NAT gateway, see the fol
 
 ### Single zonal NAT gateway resource for zone-spanning resources 
 
-A single zonal NAT gateway resource can be configured to either a subnet that contains virtual machines that span across multiple availability zones or to multiple subnets with different zonal virtual machines. When this type of deployment is configured, NAT gateway will provide outbound connectivity to the internet for all subnet resources from the specific zone it's located. If the zone that NAT gateway is deployed in goes down, then outbound connectivity across all virtual machine instances associated with the NAT gateway will also go down. This set up doesn't provide the best method of zone-resiliency. 
+A single zonal NAT gateway resource can be configured to either a subnet that contains virtual machines that span across multiple availability zones or to multiple subnets with different zonal virtual machines. When this type of deployment is configured, NAT gateway will provide outbound connectivity to the internet for all subnet resources from the specific zone it's located. If the zone that NAT gateway is deployed in goes down, then outbound connectivity across all virtual machine instances associated with the NAT gateway will also go down. This set up doesn't provide the best method of zone-resiliency.
+
+:::image type="content" source="./media/nat-availability-zones/single-nat-gw-zone-spanning-subnet.png" alt-text="Diagram of single zonal NAT gateway resource.":::
+
+*Figure 2: Single zonal NAT gateway resource for multi-zone spanning resources doesn't provide an effective method of zone-resiliency against outages.*
 
 ### Zonal NAT gateway resource for each zone in a region to create zone-resiliency 
 
 A zonal promise for zone isolation scenarios exists when a virtual machine instance using a NAT gateway resource is in the same zone as the NAT gateway resource and its public IP addresses. The pattern you want to use for zone isolation is creating a "zonal stack" per availability zone. This "zonal stack" consists of virtual machine instances, a NAT gateway resource with public IP addresses or prefix on a subnet all in the same zone.
+
+:::image type="content" source="./media/nat-availability-zones/multiple-zonal-nat-gateways.png" alt-text="Diagram of zonal isolation by creating zonal stacks.":::
+
+*Figure 3: Zonal isolation by creating zonal stacks with the same zone NAT gateway, public IPs, and virtual machines provides the best method of ensuring zone resiliency against outages.*
 
 Failure of outbound connectivity due to a zone outage is isolated to the specific zone affected. The outage won't affect the other zonal stacks where other NAT gateways are deployed with their own subnets and zonal public IPs. 
 
@@ -57,7 +69,8 @@ If your scenario requires inbound endpoints, you have two options:
 | (1) | **Align** the inbound endpoints with the respective **zonal stacks** you're creating for outbound. | Create a standard load balancer with a zonal frontend. | Same failure model for inbound and outbound. Simpler to operate. | Individual IP addresses per zone may need to be masked by a common DNS name. |
 | (2) | **Overlay** the zonal stacks with a cross-zone inbound endpoint. | Create a standard load balancer with a zone-redundant front-end. | Single IP address for inbound endpoint. | Varying models for inbound and outbound. More complex to operate. |
 
-Note that zonal configuration for a load balancer works differently from NAT gateway. The load balancer's availability zone selection is synonymous with its frontend IP configuration's zone selection. For public load balancers, if the public IP in the Load balancer's frontend is zone redundant then the load balancer is also zone-redundant. If the public IP in the load balancer's frontend is zonal, then the load balancer will also be designated to the same zone.
+> [!NOTE]
+> Note that zonal configuration for a load balancer works differently from NAT gateway. The load balancer's availability zone selection is synonymous with its frontend IP configuration's zone selection. For public load balancers, if the public IP in the Load balancer's frontend is zone redundant then the load balancer is also zone-redundant. If the public IP in the load balancer's frontend is zonal, then the load balancer will also be designated to the same zone.
 
 ## Limitations
 
@@ -65,10 +78,6 @@ Note that zonal configuration for a load balancer works differently from NAT gat
 
 ## Next steps
 
-* Learn more about [Azure regions and availability zones](/azure/availability-zones/az-overview)
-* Learn more about [Azure Virtual network NAT](/azure/virtual-network/nat-gateway/nat-overview)
-* Learn more about [Azure Load balancer](/azure/load-balancer/load-balancer-overview)
-
-
-
-
+* Learn more about [Azure regions and availability zones](../../availability-zones/az-overview.md)
+* Learn more about [Azure Virtual network NAT](./nat-overview.md)
+* Learn more about [Azure Load balancer](../../load-balancer/load-balancer-overview.md)

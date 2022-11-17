@@ -4,7 +4,8 @@ description: Learn how to set up disaster recovery to Azure for large numbers of
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 
 ---
 # Set up disaster recovery at scale for VMware VMs/physical servers

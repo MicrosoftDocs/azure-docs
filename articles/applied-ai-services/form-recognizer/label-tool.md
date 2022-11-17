@@ -7,10 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
-keywords: document processing
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -23,7 +23,7 @@ keywords: document processing
 > * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the [API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
-> * *See* our [**REST API**](quickstarts/get-started-v3-sdk-rest-api.md) or [**C#**](quickstarts/get-started-v3-sdk-rest-api.md), [**Java**](quickstarts/get-started-v3-sdk-rest-api.md), [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md), or [Python](quickstarts/get-started-v3-sdk-rest-api.md) SDK quickstarts to get started with the V3.0.
+> * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the V3.0.
 
 In this article, you'll use the Form Recognizer REST API with the Sample Labeling tool to train a custom model with manually labeled data.
 
@@ -255,7 +255,7 @@ Once you've defined your table tag, tag the cell values.
 
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](./quickstarts/try-sdk-rest-api.md).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by adding and labeling more forms, then retraining to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
@@ -315,4 +315,4 @@ In this quickstart, you've learned how to use the Form Recognizer Sample Labelin
 > [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [What is Form Recognizer?](overview.md)
-* [Form Recognizer quickstart](./quickstarts/try-sdk-rest-api.md)
+* [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)

@@ -28,7 +28,7 @@ Parameter | Description
 :---------| :---------
 `v`         | Version of the direct link protocol.
 `accountid` | The Azure Resource Manager resource ID of the storage account for the linked resource. If the linked resource is a storage account, this ID will be the Azure Resource Manager resource ID of that storage account. Otherwise, this ID will be the Azure Resource Manager resource ID of the storage account the linked resource belongs to.
-`resourcetype` | Optional. Only used when the linked resource is a blob container, a file share, a queue, or a table. Must be either one of "Azure.BlobContainer", "Azure.FileShare", "Azure.Queue", "Azure.FileShare".
+`resourcetype` | Optional. Only used when the linked resource is a blob container, a file share, a queue, or a table. Must be either one of "Azure.BlobContainer", "Azure.FileShare", "Azure.Queue", "Azure.Table".
 `resourcename` | Optional. Only used when the linked resource is a blob container, a file share, a queue, or a table. The name of the linked resource.
 
 Here is an example direct link to a blob container. 

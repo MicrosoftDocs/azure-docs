@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to manage data export in Azure IoT Central
 description: How to use the IoT Central REST API to manage data export in an application
-author: v-krishnag
-ms.author: v-krishnag
+author: eross-msft
+ms.author: lizross
 ms.date: 06/15/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -134,7 +134,7 @@ The response to this request looks like the following example:
 PATCH https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=2022-06-30-preview
 ```
 
-You can use this to perform an incremental update to an export. The sample request body looks like the following example which updates the `displayName` to a destination:
+You can use this to perform an incremental update to an export. The sample request body looks like the following example that updates the `displayName` to a destination:
 
 ```json
 {
@@ -306,7 +306,7 @@ The response to this request looks like the following example:
 PATCH https://{subdomain}.{baseDomain}/dataExport/exports/{exportId}?api-version=2022-06-30-preview
 ```
 
-You can use this to perform an incremental update to an export. The sample request body looks like the following example which updates the `enrichments` to an export:
+You can use this to perform an incremental update to an export. The sample request body looks like the following example that updates the `enrichments` to an export:
 
 ```json
 {

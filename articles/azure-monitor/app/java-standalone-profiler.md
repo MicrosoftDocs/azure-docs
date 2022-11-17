@@ -2,7 +2,7 @@
 title: Java Profiler for Azure Monitor Application Insights
 description: How to configure the Azure Monitor Application Insights for Java Profiler
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 11/15/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ---
@@ -112,7 +112,7 @@ The following steps will guide you through enabling the profiling component on t
          }
       }
    ```
-   Alternatively, set the `APPLICATIONINSIGHTS_PROFILER_ENABLED` environment variable to true.
+   Alternatively, set the `APPLICATIONINSIGHTS_PREVIEW_PROFILER_ENABLED` environment variable to true.
    
 1. Restart your process with the updated configuration.
 
@@ -138,7 +138,7 @@ Profiles can be generated/edited in the JDK Mission Control (JMC) user interface
 
 ### Environment variables
 
-- `APPLICATIONINSIGHTS_PROFILER_ENABLED`: boolean (default: `false`)
+- `APPLICATIONINSIGHTS_PREVIEW_PROFILER_ENABLED`: boolean (default: `false`)
     Enables/disables the profiling feature.
 
 ### Configuration file

@@ -7,13 +7,17 @@ ms.date: 09/11/2022
 
 # OT sensor cloud connection methods
 
-This article describes the architectures and methods supported for connecting your Microsoft Defender for IoT OT sensors to the cloud.
+This article describes the architectures and methods supported for connecting your Microsoft Defender for IoT OT sensors to the cloud. An integral part of the Microsoft Defender for IoT service is the managed cloud service in Azure that acts as the central security monitoring portal for aggregating security information collected from network monitoring sensors and security agents. In order to ensure the security of IoT/OT at a global scale, the service supports millions of concurrent telemetry sources securely and reliably. 
+
+
 
 The cloud connection methods described in this article are supported only for OT sensor version 22.x and later. All methods provide:
 
 - **Simple deployment**, requiring no extra installations in your private Azure environment, such as for an IoT Hub
 
 - **Improved security**, without needing to configure or lock down any resource security settings in the Azure VNET
+
+- **Encryption**, Transport Layer Security (TLS1.2/AES-256) provides encrypted communication between the sensor and Azure resources.
 
 - **Scalability** for new features supported only in the cloud
 
@@ -58,7 +62,7 @@ The following image shows how you can connect your sensors to the Defender for I
 
 With direct connections
 
-- Any sensors connected to Azure data centers directly over the internet have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS) provides *always-on* communication between the sensor and Azure resources.
+- Any sensors connected to Azure data centers directly over the internet have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS1.2/AES-256) provides *always-on* communication between the sensor and Azure resources.
 
 - The sensor initiates all connections to the Azure portal. Initiating connections only from the sensor protects internal network devices from unsolicited inbound connections, but also means that you don't need to configure any inbound firewall rules.
 

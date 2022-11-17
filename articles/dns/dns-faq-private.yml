@@ -41,11 +41,11 @@ sections:
           Can a virtual network that belongs to a different subscription be linked to a private zone?
         answer: |
           Yes. You must have write operation permission on the virtual networks and the private DNS zone. The write permission can be granted to several Azure roles. For example, the Classic Network Contributor Azure role has write permissions to virtual networks and Private DNS zones Contributor role has write permissions on the private DNS zones. For more information on Azure roles, see [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
-          
+
       - question: |
-          Will the automatically registered virtual machine DNS records in a private zone be automatically deleted when you delete the virtual machine?
+          What causes the automatically registered virtual machine DNS records in a private zone be created or deleted?
         answer: |
-          Yes. If you delete a virtual machine within a linked virtual network with autoregistration enabled, the registered records are automatically deleted.
+          When you start a virtual machine within a linked virtual network with autoregistration enabled, DNS records are automatically created for that virtual machine. When you stop a virtual machine and it is deallocated, the autoregistered DNS records are removed.
 
       - question: |
           I've reconfigured the OS in my virtual machine to have a new host name or static IP address. Why don't I see that change reflected in the private zone?

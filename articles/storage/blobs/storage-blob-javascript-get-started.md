@@ -82,12 +82,12 @@ To authorize passwordless access with Azure AD, you'll need to use an Azure cred
 |--|--|
 |Developer environment|[Visual Studio Code](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?tabs=azure-portal%2Csign-in-vscode)|
 |Developer environment|[Service principal](../common/identity-library-acquire-token.md)|
-|Azure-hosted apps|[Azure-hosted apps setup](/azure/storage/blobs/authorize-managed-identity)|
-|On-premises|[On-premises app setup](/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet)|
+|Azure-hosted apps|[Azure-hosted apps setup](./authorize-managed-identity.md)|
+|On-premises|[On-premises app setup](../common/storage-auth-aad-app.md?tabs=dotnet&toc=/azure/storage/blobs/toc.json)|
 
 ### Set up storage account roles
 
-Your storage resource needs to have one or more of the following [Azure RBAC](/azure/role-based-access-control/built-in-roles) roles assigned to the identity resource you plan to connect with. [Setup the Azure Storage roles](assign-azure-role-data-access.md?tabs=portal) for each identity you created in the previous step: Azure cloud, local development, on-premises. 
+Your storage resource needs to have one or more of the following [Azure RBAC](../../role-based-access-control/built-in-roles.md) roles assigned to the identity resource you plan to connect with. [Setup the Azure Storage roles](assign-azure-role-data-access.md?tabs=portal) for each identity you created in the previous step: Azure cloud, local development, on-premises. 
 
 After you complete the setup, each identity needs at least one of the appropriate roles: 
     
@@ -144,12 +144,6 @@ To generate and manage SAS tokens, see any of these articles:
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
 
 - [Create a service SAS for a container or blob](sas-service-create.md)
-
-## Connect anonymously
-
-If you explicitly enable anonymous access, then you can connect to Blob Storage without authorization for your request. You can create a new BlobServiceClient object for anonymous access by providing the Blob storage endpoint for the account. This requires you to know the account and container names. To learn how to enable anonymous access, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
-
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-anonymous-credential.js":::
 
 The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control.
 

@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv1, event-tier1-build-2022
-ms.author: sgilley
-author: sdgilley
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
 ms.date: 05/02/2022
 ---
@@ -40,7 +40,7 @@ In this article, learn how to:
 
     [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
-* If using the Python SDK, [set up your development environment with a workspace](../how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
+* If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment-v1.md).  Once your environment is set up, attach to the workspace in your Python script:
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 

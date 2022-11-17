@@ -41,7 +41,7 @@ System health checks include the following:
 |- Longest Key     | Displays the longest keys that might cause extensive memory usage.        |
 |**System**     |         |
 |- Core Log     | Provides the last 500 rows of the core log, so that you can view the recent log rows without exporting the entire system log.        |
-|- Task Manager     |  Translates the tasks that appear in the table of processes to the following layers: <br><br>  - Persistent layer (Redis)<br>  - Cash layer (SQL) |
+|- Task Manager     |  Translates the tasks that appear in the table of processes to the following layers: <br><br>  - Persistent layer (Redis)<br>  - Cache layer (SQL) |
 |- Network Statistics     | Displays your network statistics.        |
 |- TOP     |    Shows the table of processes. It's a Linux command that provides a dynamic real-time view of the running system.     |
 |- Backup Memory Check     | Provides the status of the backup memory, checking the following:<br><br> - The location of the backup folder<br>  - The size of the backup folder<br>  - The limitations of the backup folder<br>  - When the last backup happened<br>  - How much space there are for the extra backup files        |
@@ -242,22 +242,11 @@ Sometimes ICS devices are configured with external IP addresses. These ICS devic
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
 
-### Clearing sensor data to factory default
+### Clearing sensor data
 
-In cases where the sensor needs to be relocated or erased, the sensor can be reset to factory default data.
+In cases where the sensor needs to be relocated or erased, all learned data can be cleared from the sensor.
 
-> [!NOTE]
-> Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
-
-**To clear system data**:
-1. Sign in to the sensor as the **cyberx** user.
-1. Select **Support** > **Clear system data**, and confirm that you do want to reset the sensor to factory default data.
-
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/warning-screenshot.png" alt-text="Screenshot of warning message.":::
-
-All allowlists, policies, and configuration settings are cleared, and the sensor is restarted.
-
-
+For more information on how to clear system data, see [Clearing sensor data](how-to-manage-individual-sensors.md#clearing-sensor-data).
 
 ## Troubleshoot an on-premises management console
 

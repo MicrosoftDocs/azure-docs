@@ -48,21 +48,23 @@ The OS configuration can drift from the recommended settings over time. This dri
   To have proper network performance and system stability, ensure the appropriate OS-specific version of eNIC and fNIC drivers are installed per the following compatibility table (This table has the latest compatible driver version). Servers are delivered to customers with compatible versions. However, drivers can get rolled back to default versions during OS/kernel patching. Ensure the appropriate driver version is running post OS/kernel patching operations.
        
       
-  |  OS Vendor    |  OS Package Version     |  Firmware Version  |  eNIC Driver	|  fNIC Driver | 
+  |  OS Vendor    |  OS Package Version     |  Firmware Version  |  eNIC Driver	|  fNIC Driver |
   |---------------|-------------------------|--------------------|--------------|--------------|
   |   SuSE        |  SLES 12 SP2            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
   |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.43    |   1.6.0.36   |
-  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  4.0.0.14    |   2.0.0.63   | 
+  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  4.0.0.14    |   2.0.0.63   |
   |   SuSE        |  SLES 12 SP5            |   3.2.3i           |  4.0.0.14    |   2.0.0.63   |
   |   Red Hat     |  RHEL 7.6               |   3.2.3i           |  3.1.137.5   |   2.0.0.50   |
-  |   SuSE        |  SLES 12 SP4            |   4.1.1b           |  4.0.0.6     |   2.0.0.60   |  
+  |   SuSE        |  SLES 12 SP4            |   4.1.1b           |  4.0.0.6     |   2.0.0.60   |
   |   SuSE        |  SLES 12 SP5            |   4.1.1b           |  4.0.0.6     |   2.0.0.59   |
   |   SuSE        |  SLES 15 SP1            |   4.1.1b           |  4.0.0.8     |   2.0.0.60   |
   |   SuSE        |  SLES 15 SP2            |   4.1.1b           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7.6               |   4.1.1b           |  4.0.0.8     |   2.0.0.60   |
+  |   Red Hat     |  RHEL 8.2               |   4.1.1b           |  4.0.0.8     |   2.0.0.60   |
   |   SuSE        |  SLES 12 SP4	          |   4.1.3d           |  4.0.0.13    |   2.0.0.69   |
   |   SuSE        |  SLES 12 SP5	          |   4.1.3d           |  4.0.0.13    |   2.0.0.69   |
   |   SuSE        |  SLES 15 SP1	          |   4.1.3d           |  4.0.0.13    |   2.0.0.69   |
+  |   Red Hat     |  RHEL 8.2               |   4.1.3d           |  4.0.0.13    |   2.0.0.69   |
   
  
 

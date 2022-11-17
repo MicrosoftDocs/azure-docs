@@ -9,10 +9,9 @@ ms.custom: ignite-fall-2021
 
 # Import your content from the trial account
 
-When creating a new ARM-based account, you have an option to import your content from the trial account into the new ARM-based account free of charge.
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
 
-> [!NOTE]
-> Make sure to review the following considerations.
+When creating a new ARM-based account, you have an option to import your content from the trial account into the new ARM-based account free of charge.
 
 ## Considerations
 

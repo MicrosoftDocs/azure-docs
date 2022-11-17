@@ -265,7 +265,7 @@ The Functions editor built into the Azure portal lets you update your function c
 Files in the root of the app, such as function.proj or extensions.csproj need to be created and edited by using the [Advanced Tools (Kudu)](#kudu).
 
 1. Select your function app, then under **Development tools** select **Advanced tools** > **Go**.
-1. If promoted, sign-in to the SCM site with your Azure credentials.
+1. If prompted, sign-in to the SCM site with your Azure credentials.
 1. From the **Debug console** menu, choose **CMD**.
 1. Navigate to `.\site\wwwroot`, select the plus (**+**) button at the top, and select **New file**.
 1. Name the file, such as `extensions.csproj` and press Enter.

@@ -191,7 +191,7 @@ After you update your code to use client-side encryption v2, make sure that you 
 
 ### [Python v12 SDK](#tab/python)
 
-To use client-side encryption from your Python code, reference the [Blob Storage client library](/python/api/overview/azure/storage-blob-readme). Make sure that you are using version 12.13.0 or later. If you need to migrate from an earlier version of the Java client library, see the [Blob Storage migration guide for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/migration_guide.md).
+To use client-side encryption from your Python code, reference the [Blob Storage client library](/python/api/overview/azure/storage-blob-readme). Make sure that you are using version 12.13.0 or later. If you need to migrate from an earlier version of the Python client library, see the [Blob Storage migration guide for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/migration_guide.md).
 
 The following example shows how to use client-side migration v2 from Python:
 

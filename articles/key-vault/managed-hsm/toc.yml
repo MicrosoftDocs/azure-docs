@@ -29,7 +29,7 @@ items:
     href: private-link.md
   - name: Set up logging for managed HSM
     href: logging.md
-  - name: Configure automated key rotation (preview)
+  - name: Configure automated key rotation
     href: key-rotation.md
   - name: Disaster recovery
     href: disaster-recovery-guide.md
@@ -60,6 +60,8 @@ items:
   items:
   - name: Secure key release policy grammar 
     href: policy-grammar.md
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
   - name: Azure PowerShell
     href: /powershell/azure#key_vault
   - name: Azure CLI

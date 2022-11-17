@@ -10,7 +10,7 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2022
 adobe-target: true
-ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other
+ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other, ignite-2022
 #Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
 ---
 
@@ -41,6 +41,9 @@ If you don't yet have a workspace, create one now:
    Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. You need *contributor* or *owner* role to use an existing resource group.  For more information about access, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
    Region | Select the Azure region closest to your users and the data resources to create your workspace.
 1. Select **Create** to create the workspace
+
+> [!NOTE]
+> This creates a workspace along with all required resources. If you would like to reuse resources, such as Storage Account, Azure Container Registry, Azure KeyVault, or Application Insights, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.
 
 ## Create compute instance
 
@@ -123,5 +126,5 @@ You now have an Azure Machine Learning workspace that contains:
 Use these resources to learn more about Azure Machine Learning and train a model with Python scripts.
 
 > [!div class="nextstepaction"]
-> [Learn more with Python scripts](tutorial-1st-experiment-hello-world.md)
+> [Quickstart: Run Juypter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md)
 >

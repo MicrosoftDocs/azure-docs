@@ -1,17 +1,18 @@
 ---
-title: Integrations overview in Azure Cosmos DB API for MongoDB
-description: Learn how to integrate Azure Cosmos DB API for MongoDB account with other Azure services.
+title: Integrations overview in Azure Cosmos DB for MongoDB
+description: Learn how to integrate Azure Cosmos DB for MongoDB account with other Azure services.
 author: nayakshweta
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/25/2022
 ms.author: shwetn
 ---
 
-# Integrate Azure Cosmos DB API for MongoDB with Azure services
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+# Integrate Azure Cosmos DB for MongoDB with Azure services
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-Azure Cosmos DB API for MongoDB is a cloud-native offering and can be integrated seamlessly with other Azure services to build enterprise-grade modern applications. 
+Azure Cosmos DB for MongoDB is a cloud-native offering and can be integrated seamlessly with other Azure services to build enterprise-grade modern applications. 
 
 ## Compute services to run your application
 
@@ -21,14 +22,14 @@ Hosting options and deployment scenarios include several services and tools for 
 Azure App Service allows you to fully configure and manage the web server without needing to manage the underlying environment.
 
 Samples to get started: 
-* [Quickstart: ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB on Azure App Service](https://github.com/azure-samples/todo-nodejs-mongo) to get started. \
-This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Node.js for the API, Azure Cosmos DB API for MongoDB for storage, and Azure Monitor for monitoring and logging.
+* [Quickstart: ToDo Application with a Node.js API and Azure Cosmos DB for MongoDB on Azure App Service](https://github.com/azure-samples/todo-nodejs-mongo) to get started. \
+This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Node.js for the API, Azure Cosmos DB for MongoDB for storage, and Azure Monitor for monitoring and logging.
 
-* [Quickstart: ToDo Application with a C# API and Azure Cosmos DB API for MongoDB on Azure App Service](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) \
-This sample demonstrates how to build an Azure solution using C#, Azure Cosmos DB API for MongoDB for storage, and Azure Monitor for monitoring and logging.
+* [Quickstart: ToDo Application with a C# API and Azure Cosmos DB for MongoDB on Azure App Service](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) \
+This sample demonstrates how to build an Azure solution using C#, Azure Cosmos DB for MongoDB for storage, and Azure Monitor for monitoring and logging.
 
-* [Quickstart: ToDo Application with a Python API and Azure Cosmos DB API for MongoDB on Azure App Service](https://github.com/Azure-Samples/todo-python-mongo) \
-This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Python (FastAPI) for the API, Azure Cosmos DB API for MongoDB for storage, and Azure Monitor for monitoring and logging.
+* [Quickstart: ToDo Application with a Python API and Azure Cosmos DB for MongoDB on Azure App Service](https://github.com/Azure-Samples/todo-python-mongo) \
+This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Python (FastAPI) for the API, Azure Cosmos DB for MongoDB for storage, and Azure Monitor for monitoring and logging.
 
 
 ### Azure Functions & Static Web Apps
@@ -37,11 +38,11 @@ Azure Functions hosts serverless API endpoints or microservices for event-driven
 
 Samples to get started: 
 
-* [Quickstart: ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB on Static Web Apps and Functions](https://github.com/Azure-Samples/todo-nodejs-mongo-swa-func) \
-This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Node.js for the API, Azure Cosmos DB API for MongoDB for storage, and Azure Monitor for monitoring and logging.
+* [Quickstart: ToDo Application with a Node.js API and Azure Cosmos DB for MongoDB on Static Web Apps and Functions](https://github.com/Azure-Samples/todo-nodejs-mongo-swa-func) \
+This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Node.js for the API, Azure Cosmos DB for MongoDB for storage, and Azure Monitor for monitoring and logging.
 
-* [Quickstart: ToDo Application with a Python API and Azure Cosmos DB API for MongoDB on Azure App Service](https://github.com/Azure-Samples/todo-python-mongo-swa-func) \
-This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Python (FastAPI) for the API, Azure Cosmos DB API for MongoDB for storage, and Azure Monitor for monitoring and logging.
+* [Quickstart: ToDo Application with a Python API and Azure Cosmos DB for MongoDB on Azure App Service](https://github.com/Azure-Samples/todo-python-mongo-swa-func) \
+This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Python (FastAPI) for the API, Azure Cosmos DB for MongoDB for storage, and Azure Monitor for monitoring and logging.
 
 
 ### Azure Container Apps
@@ -50,11 +51,11 @@ Azure Container Apps provide a fully managed serverless container service for bu
 
 Samples to get started: 
 
-* [Quickstart: ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB on Azure Container Apps](https://github.com/Azure-Samples/todo-nodejs-mongo-aca)\
-This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Node.js for the API, Azure Cosmos DB API for MongoDB for storage, and Azure Monitor for monitoring and logging.
+* [Quickstart: ToDo Application with a Node.js API and Azure Cosmos DB for MongoDB on Azure Container Apps](https://github.com/Azure-Samples/todo-nodejs-mongo-aca)\
+This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Node.js for the API, Azure Cosmos DB for MongoDB for storage, and Azure Monitor for monitoring and logging.
 
-* [Quickstart: ToDo Application with a Python API and Azure Cosmos DB API for MongoDB on Azure Container Apps](https://github.com/Azure-Samples/todo-python-mongo-aca) \
-This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Python (FastAPI) for the API, Azure Cosmos DB API for MongoDB for storage, and Azure Monitor for monitoring and logging.
+* [Quickstart: ToDo Application with a Python API and Azure Cosmos DB for MongoDB on Azure Container Apps](https://github.com/Azure-Samples/todo-python-mongo-aca) \
+This sample includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Python (FastAPI) for the API, Azure Cosmos DB for MongoDB for storage, and Azure Monitor for monitoring and logging.
 
 ### Azure Virtual Machines
 Azure Virtual Machines allow you to have full control on the compute environment running the application. You may also choose to scale from one to thousands of VM instances in minutes with Azure Virtual Machine Scale Sets.
@@ -69,21 +70,21 @@ Read more about [how to choose the right compute service on Azure](/azure/archit
 
 ### Azure Cognitive Search
 Azure Cognitive Search is fully managed cloud search service that provides auto-complete, geospatial search, filtering and faceting capabilities for a rich user experience.
-Here's how you can [index data from the Azure Cosmos DB API for MongoDB account](/azure/search/search-howto-index-cosmosdb-mongodb) to use with Azure Cognitive Search.
+Here's how you can [index data from the Azure Cosmos DB for MongoDB account](../../search/search-howto-index-cosmosdb-mongodb.md) to use with Azure Cognitive Search.
 
 ## Improve database security
 
 ### Azure Networking
 
 Azure Networking features allow you to connect and deliver your hybrid and cloud-native applications with low-latency, Zero Trust based networking services -
-* [Configure the Azure Cosmos API for MongoDB account to allow access only from a specific subnet of virtual network (VNet)](../how-to-configure-vnet-service-endpoint.md)
+* [Configure the Azure Cosmos DB for MongoDB account to allow access only from a specific subnet of virtual network (VNet)](../how-to-configure-vnet-service-endpoint.md)
 * [Configure IP-based access controls for inbound firewall.](../how-to-configure-firewall.md)
 * [Configure connectivity to the account via a private endpoint.](../how-to-configure-private-endpoints.md)
 
 ### Azure Key Vault
 Azure Key Vault helps you to securely store and manage application secrets.
 You can use Azure Key Vault to -
-* [Secure Azure Cosmos DB API for MongoDB account credentials.](../access-secrets-from-keyvault.md)
+* [Secure Azure Cosmos DB for MongoDB account credentials.](../access-secrets-from-keyvault.md)
 * [Configure customer-managed keys for your account.](../how-to-setup-cmk.md)
 
 ### Azure AD
@@ -94,4 +95,4 @@ Azure AD managed identities eliminate the need for developers to manage credenti
 
 Learn about other key integrations:
 * [Monitor Azure Cosmos DB with Azure Monitor.](/azure/cosmos-db/monitor-cosmos-db?tabs=azure-diagnostics.md)
-* [Set up analytics with Azure Synapse Link.](/azure/cosmos-db/configure-synapse-link)
+* [Set up analytics with Azure Synapse Link.](../configure-synapse-link.md)

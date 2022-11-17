@@ -15,6 +15,8 @@
   items:
   - name: Forward syslog data to workspace
     href: forward-syslog-monitor-agent.md
+  - name: Configure data retention policy
+    href: configure-data-retention.md
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
@@ -215,10 +217,12 @@
     items:
     - name: Discover and deploy out-of-the-box content
       href: sentinel-solutions-deploy.md
-    - name: Deploy custom content from your repository
-      href: ci-cd.md
     - name: Delete out-of-the-box content
       href: sentinel-solutions-delete.md
+    - name: Deploy custom content from your repository
+      href: ci-cd.md
+    - name: Customize repository deployments
+      href: ci-cd-custom-deploy.md
   - name: Collect data
     items:
     - name: Find data connector
@@ -244,6 +248,8 @@
         href: ama-migrate.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
+      - name: CEF via AMA
+        href: connect-cef-ama.md
       - name: DNS via AMA
         href: connect-dns-ama.md
       - name: Syslog (raw) sources
@@ -252,7 +258,9 @@
         href: connect-rest-api-template.md
       - name: Azure Functions API connection
         href: connect-azure-functions-template.md
-      - name: Connect using Logstash
+      - name: Logstash plugin with Data Collection Rules
+        href: connect-logstash-data-connection-rules.md
+      - name: Logstash plugin (legacy)
         href: connect-logstash.md
       - name: Custom log sources
         href: connect-custom-logs.md
@@ -292,6 +300,10 @@
       href: work-with-threat-indicators.md
     - name: Add entity to threat indicators
       href: add-entity-to-threat-intelligence.md
+    - name: Use threat indicators in analytics rules
+      href: use-threat-indicators-in-analytics-rules.md
+    - name: Use matching analytics to detect threats
+      href: use-matching-analytics-to-detect-threats.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
@@ -428,8 +440,13 @@
         href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
         href: sap/deploy-sap-security-content.md
-      - name: Configure Microsoft Sentinel Solution for SAP
+      - name: Configure the solution
         href: sap/deployment-solution-configuration.md
+      - name: Update the connector
+        href: sap/update-sap-data-connector.md      
+      - name: Disable the connector
+        displayName: disable, stop ingestion, stop
+        href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector
     - name: Optional deployment steps
       items: 
       - name: Configure SAP data connector to use SNC
@@ -439,7 +456,9 @@
       - name: Collect SAP HANA audit logs
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually
-        href: sap/sap-solution-deploy-alternate.md      
+        href: sap/sap-solution-deploy-alternate.md
+      - name: Configure SAP audit log monitoring rules
+        href: sap/configure-audit-log-rules.md 
 - name: Troubleshoot
   items:
   - name: Troubleshoot CEF/Syslog data collection
@@ -578,5 +597,3 @@
       href: /training/browse/?expanded=azure&products=azure-sentinel
     - name: Learn modules for Kusto Query Language (KQL)
       href: /training/browse/?expanded=azure&terms=kusto%20query%20language
-  - name: Archived what's new (older than six months)
-    href: whats-new-archive.md

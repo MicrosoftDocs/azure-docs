@@ -9,6 +9,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/26/2021
 ms.author: kgremban
+ROBOTS: NOINDEX
 ---
 
 # Weather forecast using the sensor data from your IoT hub in Machine Learning Studio (classic)

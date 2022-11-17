@@ -267,6 +267,9 @@ When you test a runbook, the [Draft version](#publish-a-runbook) is executed and
 
 Even though the Draft version is being run, the runbook still executes normally and performs any actions against resources in the environment. For this reason, you should only test runbooks on non-production resources.
 
+> [!NOTE]
+> All runbook execution actions are logged in the **Activity Log** of the automation account with the operation name **Create an Azure Automation job**. However, runbook execution in a test pane where the draft version of the runbook is executed would be logged in the activity logs with the operation name **Write an Azure Automation runbook draft**. Select **Operation** and **JSON** tab to see the scope ending with *../runbooks/(runbook name)/draft/testjob*.
+
 The procedure to test each [type of runbook](automation-runbook-types.md) is the same. There's no difference in testing between the textual editor and the graphical editor in the Azure portal.
 
 1. Open the Draft version of the runbook in either the [textual editor](automation-edit-textual-runbook.md) or the [graphical editor](automation-graphical-authoring-intro.md).

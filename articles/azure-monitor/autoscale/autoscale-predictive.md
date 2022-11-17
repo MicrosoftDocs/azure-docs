@@ -5,11 +5,11 @@ ms.topic: conceptual
 author: EdB-MSFT
 ms.author: edbaynash
 ms.subservice: autoscale
-ms.date: 09/11/2022
+ms.date: 10/12/2022
 ms.custom: references_regions
-ms.reviewer: riroloff
+ms.reviewer: akkumari
 ---
-# Use predictive autoscale to scale out before load demands in virtual machine scale sets (preview)
+# Use predictive autoscale to scale out before load demands in virtual machine scale sets
 
 *Predictive autoscale* uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load to your virtual machine scale set, based on your historical CPU usage patterns. It predicts the overall CPU load by observing and learning from historical usage. This process ensures that scale-out occurs in time to meet the demand.
 
@@ -19,12 +19,7 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 
 *Forecast only* allows you to view your predicted CPU forecast without triggering the scaling action based on the prediction. You can then compare the forecast with your actual workload patterns to build confidence in the prediction models before you enable the predictive autoscale feature.
 
-## Public preview support and limitations
-
->[!NOTE]
-> This release is a public preview. We're testing and gathering feedback for future releases. As such, we do not provide production-level support for this feature. Support is best effort. Send feature suggestions or feedback on predicative autoscale to predautoscalesupport@microsoft.com.
-
-The following limitations apply during public preview. Predictive autoscale:
+## Predictive autoscale offerings
 
 - Predictive autoscale is for workloads exhibiting cyclical CPU usage patterns.
 - Support is only available for virtual machine scale sets.

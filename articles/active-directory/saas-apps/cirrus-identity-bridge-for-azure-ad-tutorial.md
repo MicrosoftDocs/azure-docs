@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/03/2021
+ms.date: 10/10/2022
 ms.author: jeedes
 
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Cirrus Identity Bridge for Azure AD
 
-In this tutorial, you'll learn how to integrate Cirrus Identity Bridge for Azure AD with Azure Active Directory (Azure AD). When you integrate Cirrus Identity Bridge for Azure AD with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Cirrus Identity Bridge for Azure AD with Azure Active Directory (Azure AD) using the Microsoft Graph API based integration pattern. When you integrate Cirrus Identity Bridge for Azure AD with Azure AD in this way, you can:
 
-* Control in Azure AD who has access to Cirrus Identity Bridge for Azure AD.
-* Enable your users to be automatically signed-in to Cirrus Identity Bridge for Azure AD with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control who has access to InCommon or other multilateral federation service providers from Azure AD.
+* Enable your users to SSO to InCommon or other multilateral federation service providers with their Azure AD accounts.
+* Enable your users to access Central Authentication Service (CAS) applications with their Azure AD accounts.
+* Manage your application access in one central location - the Azure portal.
 
 ## Prerequisites
 
@@ -34,6 +35,38 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Cirrus Identity Bridge for Azure AD supports **SP** and **IDP** initiated SSO.
+
+## Before adding the Cirrus Identity Bridge for Azure AD from the gallery
+
+When subscribing to the Cirrus Identity Bridge for Azure AD, you will be asked for your Azure AD TenantID. To view this:
+
+1. Sign in to the Azure portal using a Microsoft account with access to administer Azure Active Directory.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Overview** and view the Tenant ID.
+1. Copy the value and send it to the Cirrus Identity contract representative you are working with.
+
+To use the Microsoft Graph API integration, you must grant the Cirrus Identity Bridge for Azure AD access to use the API in your tenant. To do this:
+
+1. Sign in to the Azure portal as a Global Administrator for your Microsoft Azure Tenant.
+1. Edit the URL `https://login.microsoftonline.com/$TENANT_ID/adminconsent?client_id=ea71bc49-6159-422d-84d5-6c29d7287974&state=12345&redirect_uri=https://admin.cirrusidentity.com/azure-registration` replacing **$TENANT_ID** with the value for your Azure AD Tenant.
+1. Paste the URL into the browser where you are signed in as a Global Administrator.
+1. You will be asked to consent to grant access.
+1. When successful, there should be a new application called Cirrus Bridge API. 
+1. Advise the Cirrus Identity contract representative you are working with that you have successfully granted API access to the Cirrus Identity Bridge for Azure AD.
+
+
+Once Cirrus Identity has the Tenant ID, and access has been granted, we will provision Cirrus Identity Bridge for Azure AD infrastructure and provide you with the following information unique to your subscription:
+
+- Identifier URI/ Entity ID
+- Redirect URI / Reply URL
+- Single-logout URL
+- SP Encryption Cert (if using encrypted assertions or logout)
+- A URL for testing
+- Additional instructions depending on the options included with your subscription
+
+
+> [!NOTE] 
+> If you are unable to grant API access to the Cirrus Identity Bridge for Azure AD, the Bridge can be integrated using a traditional SAML2 integration. Advise the Cirrus Identity contract representative you are working with that you are not able to use MS Graph API integration.
 
 ## Add Cirrus Identity Bridge for Azure AD from the gallery
 
@@ -65,6 +98,10 @@ To configure and test Azure AD SSO with Cirrus Identity Bridge for Azure AD, per
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
+1. In the Azure portal, on the **Cirrus Identity Bridge for Azure AD** application integration page, find the **Manage** section and select **Properties**.
+1. On the **Properties** page, toggle **Assignment Required** based on your access requirements. If set to **Yes**, you will need to assign the **Cirrus Identity Bridge for Azure AD** application to an access control group on the **Users and Groups** page.
+1. While still on the **Properties** page, toggle **Visible to users** to **No**. The initial integration will always represent the default integration used for multiple service providers. In this case, there will not be any one service provider to direct end users to. To make specific applications visible to end users, you will have to use linking single sign-on to give end user access in My Apps to specific service providers. [See here](../manage-apps/configure-linked-sign-on.md) for more details.
+
 1. In the Azure portal, on the **Cirrus Identity Bridge for Azure AD** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
@@ -74,7 +111,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.cirrusidentity.com/bridge`
+    `https://<DOMAIN>/bridge`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<NAME>.proxy.cirrusidentity.com/module.php/saml/sp/saml2-acs.php/<NAME>_proxy`
@@ -85,17 +122,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `<CUSTOMER_LOGIN_URL>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. If you have not yet subscribed to the Cirrus Bridge, please visit the [registration page](https://info.cirrusidentity.com/cirrus-identity-azure-ad-app-gallery-registration). If you are an existing Cirrus Bridge customer, contact [Cirrus Identity Bridge for Azure AD Client support team](https://www.cirrusidentity.com/resources/service-desk) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. If you have not yet subscribed to the Cirrus Bridge, please visit the [registration page](https://info.cirrusidentity.com/cirrus-identity-azure-ad-app-gallery-registration). If you are an existing Cirrus Bridge customer, contact [Cirrus Identity Bridge for Azure AD Client support team](https://www.cirrusidentity.com/resources/service-desk) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Cirrus Identity Bridge for Azure AD application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, Cirrus Identity Bridge for Azure AD application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. Cirrus Identity Bridge for Azure AD pre-populates **Attributes & Claims** which are typical for use with the InCommon trust federation. You can review and modify them to meet your requirements. Consult the [eduPerson schema specification](https://wiki.refeds.org/display/STAN/eduPerson) for more details.
 	
 	| Name |  Source Attribute|
 	| ---------| --------- |
-	| displayname | user.displayname |
+	| urn:oid:2.5.4.42 | user.givenname |
+    | urn:oid:2.5.4.4 | user.surname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
+    | cirrus.nameIdFormat | "urn:oasis:names:tc:SAML:2.0:nameid-format:transient" | 
+
+    > [!NOTE]
+    > These defaults assume the Azure AD UPN is suitable to use as an eduPersonPrincipalName.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -127,7 +171,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Cirrus Identity Bridge for Azure AD SSO
 
-To configure single sign-on on **Cirrus Identity Bridge for Azure AD** side, you need to send the **App Federation Metadata Url** to [Cirrus Identity Bridge for Azure AD support team](https://www.cirrusidentity.com/resources/service-desk). They set this setting to have the SAML SSO connection set properly on both sides.
+More documentation on configuring the Cirrus Bridge is available [from Cirrus Identity](https://blog.cirrusidentity.com/documentation/azure-bridge-setup). To also configure the Cirrus Bridge to support access for CAS services, CAS support is also available [for the Cirrus Bridge](https://blog.cirrusidentity.com/documentation/cas-bridge-setup).
 
 ### Setup Cirrus Identity Bridge for Azure AD testing
 
@@ -152,3 +196,5 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 ## Next steps
 
 Once you configure Cirrus Identity Bridge for Azure AD you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+
+You can also create multiple App configurations for the Cirrus Identity Bridge for Azure AD, when using MS Graph API integration. These allow you to implement different claims, access controls, or Azure AD Conditional Access policies for groups of multilateral federation. See [here](https://blog.cirrusidentity.com/documentation/azure-bridge-setup) for further details. Many of these same access controls can also be applied to [CAS applications](https://blog.cirrusidentity.com/documentation/cas-bridge-setup).

@@ -5,12 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 09/30/2022
 ms.custom: engagement-fy23
 tags: connectors
 ---
 
 # Connect to Azure Service Bus from workflows in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 This article shows how to access Azure Service Bus from a workflow in Azure Logic Apps with the Service Bus connector. You can then create automated workflows that run when triggered by events in a service bus or run actions to manage service bus items, for example:
 
@@ -63,7 +65,7 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 ### Peek-lock
 
-Peek-lock operations are available only with the Azure Service Bus managed connector, not the built-in connector.
+In Standard logic app workflows, peek-lock operations are available only for *stateless* workflows, not stateful workflows.
 
 ### Limit on saved sessions in connector cache
 

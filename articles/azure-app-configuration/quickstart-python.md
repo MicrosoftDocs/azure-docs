@@ -1,38 +1,40 @@
----
-title: Quickstart for using Azure App Configuration with Python apps | Microsoft Docs
-description: In this quickstart, create a Python app with Azure App Configuration to centralize storage and management of application settings separate from your code.
+--- 
+title: Quickstart for using Azure App Configuration with Python apps using the Azure SDK for Python | Microsoft Docs
+description: In this quickstart, create a Python app with the Azure SDK for Python to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
-ms.custom: devx-track-python, mode-other
-ms.date: 9/17/2020
+ms.custom: devx-track-python, mode-other, engagement-fy23
+ms.date: 10/21/2022
 ms.author: malev
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
-# Quickstart: Create a Python app with Azure App Configuration
+# Quickstart: Create a Python app with the Azure SDK for Python
 
-In this quickstart, you will use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration).
+In this quickstart, you will use the Azure SDK for Python to centralize storage and management of application settings using the [Azure App Configuration client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
+
+To use Azure App Configuration with the Python provider instead of the SDK, go to [Python provider](./quickstart-python-provider.md). The Python provider enables loading  configuration settings from an Azure App Configuration store in a managed way.
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Python 2.7, or 3.6 or later - For information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+9. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
-    | Key | Value |
-    |---|---|
-    | TestApp:Settings:Message | Data from Azure App Configuration |
+    | Key                        | Value                               |
+    |----------------------------|-------------------------------------|
+    | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
     Leave **Label** and **Content Type** empty for now.
 
-8. Select **Apply**.
+10. Select **Apply**.
 
 ## Setting up the Python app
 
@@ -69,29 +71,79 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
     ```
 
 > [!NOTE]
-> The code snippets in this quickstart will help you get started with the App Configuration client library for Python. For your application, you should also consider handling exceptions according to your needs. To learn more about exception handling, please refer to our [Python SDK documentation](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration).
+> The code snippets in this quickstart will help you get started with the App Configuration client library for Python. For your application, you should also consider handling exceptions according to your needs. To learn more about exception handling, please refer to our [Python SDK documentation](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
 
 ## Configure your App Configuration connection string
 
-1. Set an environment variable named **AZURE_APP_CONFIG_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command:
+1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the connection string of your App Configuration store. At the command line, run the following command:
+
+    ### [Windows command prompt](#tab/windowscommandprompt)
+
+    To build and run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```cmd
-    setx AZURE_APP_CONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
+
+    ### [PowerShell](#tab/powershell)
+
+    If you use Windows PowerShell, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+
+    ```azurepowershell
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<app-configuration-store-connection-string>"
+    ```
+
+    ### [macOS](#tab/unix)
+
+    If you use macOS, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+
+    ```console
+    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
+    ```
+
+    ### [Linux](#tab/linux)
+
+    If you use Linux, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+
+    ```console
+    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
+    ```
+
+1. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly with the command below.
+
+    ### [Windows command prompt](#tab/windowscommandprompt)
+
+    Using the Windows command prompt, run the following command:
+
+    ```cmd
+    printenv AZURE_APPCONFIG_CONNECTION_STRING
+    ```
+
+    ### [PowerShell](#tab/powershell)
 
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-    $Env:AZURE_APP_CONFIG_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING
     ```
 
-    If you use macOS or Linux, run the following command:
+    ### [macOS](#tab/unix)
+
+    If you use macOS, run the following command:
 
     ```console
-    export AZURE_APP_CONFIG_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    echo "$AZURE_APPCONFIG_CONNECTION_STRING"
     ```
 
-2. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
+    ### [Linux](#tab/linux)
+
+    If you use Linux, run the following command:
+
+    ```console
+    echo "$AZURE_APPCONFIG_CONNECTION_STRING"
+    ```
+
+1. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
 
 ## Code samples
 
@@ -100,21 +152,23 @@ The sample code snippets in this section show you how to perform common operatio
 > [!NOTE]
 > The App Configuration client library refers to a key-value object as `ConfigurationSetting`. Therefore, in this article, the **key-values** in App Configuration store will be referred to as **configuration settings**.
 
-* [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
-* [Get a configuration setting](#get-a-configuration-setting)
-* [Add a configuration setting](#add-a-configuration-setting)
-* [Get a list of configuration settings](#get-a-list-of-configuration-settings)
-* [Lock a configuration setting](#lock-a-configuration-setting)
-* [Unlock a configuration setting](#unlock-a-configuration-setting)
-* [Update a configuration setting](#update-a-configuration-setting)
-* [Delete a configuration setting](#delete-a-configuration-setting)
+Learn below how to:
+
+- [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
+- [Get a configuration setting](#get-a-configuration-setting)
+- [Add a configuration setting](#add-a-configuration-setting)
+- [Get a list of configuration settings](#get-a-list-of-configuration-settings)
+- [Lock a configuration setting](#lock-a-configuration-setting)
+- [Unlock a configuration setting](#unlock-a-configuration-setting)
+- [Update a configuration setting](#update-a-configuration-setting)
+- [Delete a configuration setting](#delete-a-configuration-setting)
 
 ### Connect to an App Configuration store
 
 The following code snippet creates an instance of **AzureAppConfigurationClient** using the connection string stored in your environment variables.
 
 ```python
-    connection_string = os.getenv('AZURE_APP_CONFIG_CONNECTION_STRING')
+    connection_string = os.getenv('AZURE_APPCONFIG_CONNECTION_STRING')
     app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
 ```
 
@@ -130,7 +184,7 @@ The following code snippet retrieves a configuration setting by `key` name.
 
 ### Add a configuration setting
 
-The following code snippet creates a `ConfigurationSetting` object with `key` and `value` fields and invokes the `add_configuration_setting` method. 
+The following code snippet creates a `ConfigurationSetting` object with `key` and `value` fields and invokes the `add_configuration_setting` method.
 This method will throw an exception if you try to add a configuration setting that already exists in your store. If you want to avoid this exception, the [set_configuration_setting](#update-a-configuration-setting) method can be used instead.
 
 ```python
@@ -188,6 +242,7 @@ The `set_configuration_setting` method can be used to update an existing setting
 The following code snippet deletes a configuration setting by `key` name.
 
 ```python
+
     deleted_config_setting = app_config_client.delete_configuration_setting(key="TestApp:Settings:NewSetting")
     print("\nDeleted configuration setting:")
     print("Key: " + deleted_config_setting.key + ", Value: " + deleted_config_setting.value)
@@ -207,7 +262,7 @@ try:
     print("Azure App Configuration - Python Quickstart")
     # Quickstart code goes here
 
-    connection_string = os.getenv('AZURE_APP_CONFIG_CONNECTION_STRING')
+    connection_string = os.getenv('AZURE_APPCONFIG_CONNECTION_STRING')
     app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
 
     retrieved_config_setting = app_config_client.get_configuration_setting(key='TestApp:Settings:Message')
@@ -281,7 +336,6 @@ Key: TestApp:Settings:NewSetting, Value: Value has been updated!
 
 ## Clean up resources
 
-
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
@@ -291,4 +345,4 @@ In this quickstart, you created a new App Configuration store and learned how to
 For additional code samples, visit:
 
 > [!div class="nextstepaction"]
-> [Azure App Configuration client library samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration/samples)
+> [Azure App Configuration client library samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration/samples)

@@ -1,6 +1,11 @@
-- name: Azure partner solutions documentation
-  href: overview.md
-- name: Partner solutions
+items:
+- name: Azure Native ISV Services documentation
+  items:
+  - name: Overview of Azure Native ISV Services
+    href: overview.md
+  - name: Partner services
+    href: partners.md
+- name: Partner services documentation
   expanded: true
   items:
   - name: Apache Kafka on Confluent Cloud

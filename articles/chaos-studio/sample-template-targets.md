@@ -2,10 +2,10 @@
 title: Azure Resource Manager template samples for targets and capabilities in Azure Chaos Studio
 description: Sample Azure Resource Manager templates to onboard resources to Azure Chaos Studio using targets and capabilities
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: sample
 ms.date: 11/10/2021
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ---
 

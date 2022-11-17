@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 10/19/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: queues
@@ -15,11 +15,9 @@ ms.subservice: queues
 
 # Authorize access to queues using Azure role assignment conditions
 
-> [!IMPORTANT]
-> Azure ABAC is currently in preview and is provided without a service level agreement. It is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Attribute-based access control (ABAC) is an authorization strategy that defines access levels based on attributes associated with an access request such as the security principal, the resource, the environment and the request itself. With ABAC, you can grant a security principal access to a resource based on [Azure role assignment conditions](../../role-based-access-control/conditions-overview.md).
+
+[!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
 ## Overview of conditions in Azure Storage
 
@@ -65,5 +63,5 @@ Azure RBAC currently supports 2,000 role assignments in a subscription. If you n
 - [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md)
 - [FAQ for Azure role assignment conditions](../../role-based-access-control/conditions-faq.md)
 - [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)
-- [Scale the management of Azure role assignments by using conditions and custom security attributes (preview)](../../role-based-access-control/conditions-custom-security-attributes-example.md)
+- [Scale the management of Azure role assignments by using conditions and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes-example.md)
 - [Security considerations for Azure role assignment conditions in Azure Storage](..\blobs\storage-auth-abac-security.md)

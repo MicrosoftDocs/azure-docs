@@ -1,21 +1,25 @@
 ---
-title: Form Recognizer custom neural model
+title: Custom neural document model - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn about custom neural (neural) model type, its features and how you train a model with high accuracy to extract data from structured and unstructured documents.
+description: Use the custom neural document model to train a model to extract data from structured, semistructured, and unstructured documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 ms.custom: references_regions
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Form Recognizer custom neural model
+# Custom neural document model
 
-Custom neural models or neural models are a deep learned model that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
+**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
+
+
+Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
 
 |Documents | Examples |
 |---|--|
@@ -107,7 +111,7 @@ Custom neural models are only available in the [v3 API](v3-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom document | [Form Recognizer 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom document | [Form Recognizer 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 
@@ -128,17 +132,8 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-08-31
 
 ## Next steps
 
-* Train a custom model:
+Learn to create and compose custom models:
 
-  > [!div class="nextstepaction"]
-  > [How to train a model](how-to-guides/build-custom-model-v3.md)
-
-* Learn more about custom template models:
-
-  > [!div class="nextstepaction"]
-  > [Custom template models](concept-custom-template.md )
-
-* View the REST API:
-
-    > [!div class="nextstepaction"]
-    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+> [!div class="nextstepaction"]
+> [**Build a custom model**](how-to-guides/build-a-custom-model.md)
+> [**Compose custom models**](how-to-guides/compose-custom-models.md)

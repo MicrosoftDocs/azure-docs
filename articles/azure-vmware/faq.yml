@@ -244,7 +244,7 @@ sections:
           > Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud.
 
       - question: Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
-        answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](./enable-public-internet-access.md) option in your Azure portal for your Azure VMware Solution private cloud.
+        answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](./enable-public-ip-nsx-edge.md) option in your Azure portal for your Azure VMware Solution private cloud.
           
       - question: Do I need to restrict internet access from VMs on logical networks to the internet?
         answer: Yes. You'll need to use NSX-T Manager to create a firewall to restrict VM access to the internet.
@@ -283,7 +283,7 @@ sections:
         answer: Yes, vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter Server operations for key management.  When a host is removed from a vSphere cluster, data on SSDs is invalidated immediately.
 
       - question: Can I rename a datastore or cluster during creation?
-        answer: No, you can't change the name of datastores or clusters. The cluster name is configurable through non-portal deployment mechanisms for non-primary clusters.
+        answer: No, you can't change the name of datastores or clusters.
 
       - question: What is the Fault tolerance of hardware failure on the vSAN?
         answer: RAID-1, FTT-1, with Object Space reservation set to Thin Provisioning is the Default Storage policy for the software-defined datacenters (SDDCs).
@@ -377,7 +377,7 @@ sections:
         answer: VMware does not allow VCD in the cloud or from on-premises to be licensed with any Hyperscaler, including Microsoft.
 
       - question: Can I connect VMware Cloud Director Service (CDS) to my Azure VMware Solution instance in Azure?
-        answer: Although technically possible, Microsoft does not allow Azure VMware Solution to be used through the new CDS service from VMware running on VMware Cloud.
+        answer: Yes. You can connect your Azure VMware Solution private cloud to VMware Cloud Director Service from VMware. This integration of both services is [currently in public preview](https://azure.microsoft.com/updates/public-preview-enterprise-vmware-cloud-director-service-for-azure-vmware-solution/).
 
       - question: Can Azure VMware Solution be purchased through a Microsoft CSP?
         answer: Yes, customers can deploy Azure VMware Solution within an Azure subscription managed by a CSP.

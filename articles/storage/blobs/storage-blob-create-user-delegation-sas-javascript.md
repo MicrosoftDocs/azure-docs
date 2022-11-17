@@ -28,7 +28,7 @@ The permissions granted to a client who possesses the SAS are the intersection o
 
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
 
-[Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
+[Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
 ## Best practices for user delegation SAS tokens
 
@@ -88,7 +88,7 @@ The preceding server code creates a flow of values in order to create the contai
 
 * Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with the [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
 * Use the [blobServiceClient.getUserDelegationKey](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-getuserdelegationkey) operation to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
-* Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string with [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob#@azure-storage-blob-generateblobsasqueryparameters)
+* Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json#sas-token) string with [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob#@azure-storage-blob-generateblobsasqueryparameters)
 
 Once you're created the container SAS token, you can provide it to the client that will consume the token. The client can then use it to list the blobs in a container. A [client code example](#container-use-sas-token) shows how to test the SAS as a consumer.
 
@@ -134,7 +134,7 @@ The preceding code creates a flow of values in order to create the container SAS
 
 * Create the [**BlobServiceClient**](/javascript/api/@azure/storage-blob/blobserviceclient) with [_DefaultAzureCredential_](/javascript/api/@azure/identity/defaultazurecredential)
 * Use the [blobServiceClient.getUserDelegationKey](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-getuserdelegationkey) operation to create a [**UserDelegationKey**](/rest/api/storageservices/create-user-delegation-sas)
-* Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#sas-token) string. If the blob name wasn't specified in the options, the SAS token is a container token.
+* Use the key to create the [**SAS token**](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json#sas-token) string. If the blob name wasn't specified in the options, the SAS token is a container token.
 
 Once you're created the blob SAS token, you can provide it to the client that will consume the token. The client can then use it to upload a blob. A [client code example](#blob-use-sas-token) shows how to test the SAS as a consumer.
 
@@ -151,7 +151,7 @@ Once the blob SAS token is created, use the token. As an example of using the SA
 
 ## See also
 
-- [Types of SAS tokens](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
+- [Types of SAS tokens](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
 - [API reference](/javascript/api/@azure/storage-blob/)
 - [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)

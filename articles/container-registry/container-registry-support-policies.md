@@ -2,8 +2,9 @@
 title: Azure Container Registry technical support policies
 description: Learn about Azure Container Registry (ACR) technical support policies
 ms.topic: article
-ms.date: 02/18/2022
+author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.date: 10/11/2022
 #Customer intent: As a developer, I want to understand what ACR components I need to manage, what components are managed by Microsoft.
 ---
 
@@ -15,7 +16,7 @@ This article provides details about Azure Container Registry (ACR) support polic
 
 >* [Connect to ACR using Azure private link](container-registry-private-link.md)
 >* [Push and pull Helm charts to ACR](container-registry-helm-repos.md)
->* [Encrypt using Customer managed keys](container-registry-customer-managed-keys.md)
+>* [Encrypt using Customer managed keys](tutorial-enable-customer-managed-keys.md)
 >* [Enable Content trust](container-registry-content-trust.md)
 >* [Scan Images using Azure Security Center](../defender-for-cloud/defender-for-container-registries-introduction.md)
 >* [ACR Tasks](./container-registry-tasks-overview.md)

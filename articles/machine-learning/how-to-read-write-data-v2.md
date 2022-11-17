@@ -10,7 +10,7 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: ssalgadodev
 ms.date: 05/26/2022
-ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022
+ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As an experienced Python developer, I need to read in my data to make it available to a remote compute to train my machine learning models.
 ---
 
@@ -22,13 +22,13 @@ ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022
 > * [v1](v1/how-to-train-with-datasets.md)
 > * [v2 (current version)](how-to-read-write-data-v2.md)
 
-Learn how to read and write data for your jobs with the Azure Machine Learning Python SDK v2(preview) and the Azure Machine Learning CLI extension v2. 
+Learn how to read and write data for your jobs with the Azure Machine Learning Python SDK v2 and the Azure Machine Learning CLI extension v2. 
  
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-- The [Azure Machine Learning SDK for Python v2](/python/api/overview/azure/ml/intro).
+- The [Azure Machine Learning SDK for Python v2](https://aka.ms/sdk-v2-install).
 
 - An Azure Machine Learning workspace
 
@@ -41,7 +41,7 @@ When you provide a data input/output to a Job, you'll need to specify a `path` p
 |---------|---------|
 |A path on your local computer     | `./home/username/data/my_data`         |
 |A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/path` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
+|A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/<path>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
 |A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
 |A path to a Data Asset  |  `azureml:<my_data>:<version>`  |
 
@@ -68,8 +68,8 @@ Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct`
 
 Create a job specification YAML file (`<file-name>.yml`). Specify in the `inputs` section of the job:
 
-1. The `type`; whether the data you are pointing to is a specific file  (`uri_file`) or a folder location (`uri_folder`) or an `mltable`. 
-1. The `path` of where your data is located; the path can be any of those outlined in the [Supported Paths](#supported-paths) section. 
+1. The `type`; whether the data is a specific file  (`uri_file`) or a folder location (`uri_folder`) or an `mltable`. 
+1. The `path` of where your data is located; can be any of the paths outlined in the [Supported Paths](#supported-paths) section. 
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -100,8 +100,8 @@ az ml job create -f <file-name>.yml
 
 The `Input` class allows you to define:
 
-1. The `type`; whether the data you are pointing to is a specific file  (`uri_file`) or a folder location (`uri_folder`) or an `mltable`. 
-1. The `path` of where your data is located; the path can be any of those outlined in the [Supported Paths](#supported-paths) section. 
+1. The `type`; whether the data is a specific file  (`uri_file`) or a folder location (`uri_folder`) or an `mltable`. 
+1. The `path` of where your data is located; can be any of the paths outlined in the [Supported Paths](#supported-paths) section. 
 
 ```python
 from azure.ai.ml import command
@@ -130,7 +130,7 @@ job = command(
     code="./src",  # local path where the code is stored
     command="ls ${{inputs.input_data}}",
     inputs=my_job_inputs,
-    environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:9",
+    environment="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:latest",
     compute="cpu-cluster",
 )
 
@@ -363,7 +363,7 @@ returned_job.services["Studio"].endpoint
 
 ## Data in pipelines 
 
-If you're working with Azure Machine Learning pipelines, you can read data into and move data between pipeline components with the Azure Machine Learning CLI v2 extension or the Python SDK v2 (preview). 
+If you're working with Azure Machine Learning pipelines, you can read data into and move data between pipeline components with the Azure Machine Learning CLI v2 extension or the Python SDK v2. 
 
 ### Azure Machine Learning CLI v2
 The following YAML file demonstrates how to use the output data from one component as the input for another component of the pipeline using the Azure Machine Learning CLI v2 extension:
@@ -372,7 +372,7 @@ The following YAML file demonstrates how to use the output data from one compone
 
 :::code language="yaml" source="~/azureml-examples-main/CLI/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
-### Python SDK v2 (preview)
+### Python SDK v2
 
 The following example defines a pipeline containing three nodes and moves data between each node.
 
@@ -380,10 +380,10 @@ The following example defines a pipeline containing three nodes and moves data b
 * `train_node` that trains a CNN model with Keras using the training data, `mnist_train.csv` .
 * `score_node` that scores the model using test data, `mnist_test.csv`.
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
 ## Next steps
 
 * [Train models](how-to-train-model.md)
-* [Tutorial: Create production ML pipelines with Python SDK v2 (preview)](tutorial-pipeline-python-sdk.md)
+* [Tutorial: Create production ML pipelines with Python SDK v2](tutorial-pipeline-python-sdk.md)
 * Learn more about [Data in Azure Machine Learning](concept-data.md)

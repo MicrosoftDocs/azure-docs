@@ -5,9 +5,10 @@ description: Learn how Azure Machine Learning SDK (v1) enables you to scale out 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: larryfr
-author: blackmist
-ms.date: 02/23/2022
+ms.author: balapv
+author: balapv
+ms.reviewer: mopeakande
+ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 #Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
@@ -16,6 +17,9 @@ ms.custom: sdkv1, event-tier1-build-2022
 # Train TensorFlow models at scale with Azure Machine Learning SDK (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
+> * [v1](how-to-train-tensorflow.md)
+> * [v2 (current version)](../how-to-train-tensorflow.md)
 
 In this article, learn how to run your [TensorFlow](https://www.tensorflow.org/overview) training scripts at scale using Azure Machine Learning.
 
@@ -33,7 +37,7 @@ Run this code on either of these environments:
 
 - Your own Jupyter Notebook server
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
-    - [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
+    - [Create a workspace configuration file](how-to-configure-environment-v1.md).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow) `tf_mnist.py` and `utils.py`
 
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
@@ -132,12 +136,12 @@ To define the Azure ML [Environment](../concept-environments.md) that encapsulat
 
 #### Use a curated environment
 
-Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. For more info, see [Azure ML Curated Environments](../resource-curated-environments.md).
+Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. You can use the latest version of this environment using the `@latest` directive. For more info, see [Azure ML Curated Environments](../resource-curated-environments.md).
 
-If you want to use a curated environment, you can run the following command instead:
+If you want to use a curated environment, the code will be similar to the following example:
 
 ```python
-curated_env_name = 'AzureML-TensorFlow-2.2-GPU'
+curated_env_name = 'AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu'
 tf_env = Environment.get(workspace=ws, name=curated_env_name)
 ```
 
@@ -152,14 +156,14 @@ Make sure the curated environment includes all the dependencies required by your
 
 ```python
 
-tf_env = Environment.from_conda_specification(name='tensorflow-2.2-gpu', file_path='./conda_dependencies.yml')
+tf_env = Environment.from_conda_specification(name='AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu', file_path='./conda_dependencies.yml')
 ```
 
 If you had instead modified the curated environment object directly, you can clone that environment with a new name:
 
 ```python
 
-tf_env = tf_env.clone(new_name='tensorflow-2.2-gpu')
+tf_env = tf_env.clone(new_name='my-AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu')
 ```
 
 #### Create a custom environment
@@ -183,7 +187,7 @@ Create an Azure ML environment from this conda environment specification. The en
 By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you'll need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers GitHub repo](https://github.com/Azure/AzureML-Containers) for more information.
 
 ```python
-tf_env = Environment.from_conda_specification(name='tensorflow-2.2-gpu', file_path='./conda_dependencies.yml')
+tf_env = Environment.from_conda_specification(name='AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu', file_path='./conda_dependencies.yml')
 
 # Specify a GPU base image
 tf_env.docker.enabled = True

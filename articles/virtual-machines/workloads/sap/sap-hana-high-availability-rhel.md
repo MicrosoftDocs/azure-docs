@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/02/2022
+ms.date: 10/17/2022
 ms.author: radeltch
 
 ---
@@ -690,6 +690,10 @@ sudo pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana
 
 sudo pcs property set maintenance-mode=false
 </code></pre>
+
+> [!IMPORTANT]
+> It's a good idea to set `AUTOMATED_REGISTER` to `false`, while you're performing failover tests, to prevent a failed primary instance to automatically register as secondary. After testing, as a best practice, set `AUTOMATED_REGISTER` to `true`, so that after takeover, system replication can resume automatically. 
+
 
 Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
 

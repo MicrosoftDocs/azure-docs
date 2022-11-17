@@ -324,7 +324,7 @@ To register and view a model from a run, use the following steps:
     mlflow.register_model(model_uri,"registered_model_name")
     ```
 
-1. View the registered model in your workspace with [Azure Machine Learning studio](../overview-what-is-machine-learning-studio.md).
+1. View the registered model in your workspace with [Azure Machine Learning studio](https://ml.azure.com).
 
     In the following example the registered model, `my-model` has MLflow tracking metadata tagged. 
 

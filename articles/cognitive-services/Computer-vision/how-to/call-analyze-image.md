@@ -76,25 +76,19 @@ The Analyze API gives you access to all of the service's image analysis features
 
 #### [REST](#tab/rest)
 
-You can specify which features you want to use by setting the URL query parameters of the [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). A parameter can have multiple values, separated by commas. Each feature you specify will require more computation time, so only specify what you need.
+You can specify which features you want to use by setting the URL query parameters of the [Analyze API](https://aka.ms/vision-4-0-ref). A parameter can have multiple values, separated by commas. Each feature you specify will require more computation time, so only specify what you need.
 
 |URL parameter | Value | Description|
 |---|---|--|
-|`visualFeatures`|`Adult` | detects if the image is pornographic in nature (depicts nudity or a sex act), or is gory (depicts extreme violence or blood). Sexually suggestive content ("racy" content) is also detected.|
-|`visualFeatures`|`Brands` | detects various brands within an image, including the approximate location. The Brands argument is only available in English.|
-|`visualFeatures`|`Categories` | categorizes image content according to a taxonomy defined in documentation. This value is the default value of `visualFeatures`.|
-|`visualFeatures`|`Color` | determines the accent color, dominant color, and whether an image is black&white.|
-|`visualFeatures`|`Description` | describes the image content with a complete sentence in supported languages.|
-|`visualFeatures`|`Faces` | detects if faces are present. If present, generate coordinates, gender and age.|
-|`visualFeatures`|`ImageType` | detects if image is clip art or a line drawing.|
-|`visualFeatures`|`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
-|`visualFeatures`|`Tags` | tags the image with a detailed list of words related to the image content.|
-|`details`| `Celebrities` | identifies celebrities if detected in the image.|
-|`details`|`Landmarks` |identifies landmarks if detected in the image.|
+|`features`|`Read` | reads the visible text in the image and outputs it as structured JSON data.|
+|`features`|`Description` | describes the image content with a complete sentence in supported languages.|
+|`features`|`SmartCrops` | finds the rectangle coordinates that would crop the image to a desired aspect ratio while preserving the area of interest.|
+|`features`|`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
+|`features`|`Tags` | tags the image with a detailed list of words related to the image content.|
 
 A populated URL might look like this:
 
-`https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities`
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2022-10-12-preview&features=Tags`
 
 #### [C#](#tab/csharp)
 
@@ -143,7 +137,7 @@ The following URL query parameter specifies the language. The default value is `
 
 A populated URL might look like this:
 
-`https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities&language=en`
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2022-10-12-preview&features=Tags&language=en`
 
 #### [C#](#tab/csharp)
 
@@ -198,43 +192,40 @@ This section shows you how to parse the results of the API call. It includes the
 The service returns a `200` HTTP response, and the body contains the returned data in the form of a JSON string. The following text is an example of a JSON response.
 
 ```json
-{  
-  "tags":[  
-    {  
-      "name":"outdoor",
-      "score":0.976
+{
+    "metadata":
+    {
+        "width": 300,
+        "height": 200
     },
-    {  
-      "name":"bird",
-      "score":0.95
+    "tagsResult":
+    {
+        "values":
+        [
+            {
+                "name": "grass",
+                "confidence": 0.9960499405860901
+            },
+            {
+                "name": "outdoor",
+                "confidence": 0.9956876635551453
+            },
+            {
+                "name": "building",
+                "confidence": 0.9893627166748047
+            },
+            {
+                "name": "property",
+                "confidence": 0.9853052496910095
+            },
+            {
+                "name": "plant",
+                "confidence": 0.9791355729103088
+            }
+        ]
     }
-  ],
-  "description":{  
-    "tags":[  
-      "outdoor",
-      "bird"
-    ],
-    "captions":[  
-      {  
-        "text":"partridge in a pear tree",
-        "confidence":0.96
-      }
-    ]
-  }
 }
 ```
-
-See the following table for explanations of the fields in this example:
-
-Field | Type | Content
-------|------|------|
-Tags  | `object` | The top-level object for an array of tags.
-tags[].Name | `string`    | The keyword from the tags classifier.
-tags[].Score    | `number`    | The confidence score, between 0 and 1.
-description     | `object`    | The top-level object for an image description.
-description.tags[] |    `string`    | The list of tags. If there is insufficient confidence in the ability to produce a caption, the tags might be the only information available to the caller.
-description.captions[].text    | `string`    | A phrase describing the image.
-description.captions[].confidence    | `number`    | The confidence score for the phrase.
 
 ### Error codes
 
@@ -292,4 +283,4 @@ The following code calls the Image Analysis API and prints the results to the co
 ## Next steps
 
 * Explore the [concept articles](../concept-object-detection.md) to learn more about each feature.
-* See the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) to learn more about the API functionality.
+* See the [API reference](https://aka.ms/vision-4-0-ref) to learn more about the API functionality.

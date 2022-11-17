@@ -99,6 +99,8 @@ items:
       href: tutorial-firewall-deploy-portal.md
     - name: Deploy in hybrid network - classic
       href: tutorial-hybrid-portal.md
+    - name: Deploy Firewall Basic
+      href: deploy-firewall-basic-portal-policy.md
     - name: Filter inbound traffic with DNAT - classic
       href: tutorial-firewall-dnat.md
     - name: Deploy using Azure PowerShell

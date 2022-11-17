@@ -48,6 +48,7 @@ Follow these steps to create a Node.js console application for speech synthesis.
         var readline = require("readline");
         
         var audioFile = "YourAudioFile.wav";
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
         const speechConfig = sdk.SpeechConfig.fromSubscription(process.env.SPEECH_KEY, process.env.SPEECH_REGION);
         const audioConfig = sdk.AudioConfig.fromAudioFileOutput(audioFile);
         
@@ -96,6 +97,9 @@ Run your new console application to start speech synthesis to a file:
 node.exe SpeechSynthesis.js
 ```
 
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+
 The provided text should be output to an audio file:
 
 ```console
@@ -108,14 +112,16 @@ synthesis finished.
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-file-output" target="_target">I ran into an issue</a>
 
+> [!WARNING]
+> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](../../../troubleshooting.md#connection-closed-or-timeout).
+
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
 
 This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
-- For information about speech synthesis from a file, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
 - For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
 
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
-

@@ -131,8 +131,8 @@ After you create your schema, you now have to upload the schema based on the fol
 
    | Parameter | Value | Description |
    |-----------|-------|-------------|
-   | **Mode of empty node generation** | **ForcedDisabled** or **HonorSchemaNodeProperty** or **ForcedEnabled** | The mode to use for empty node generation in flat file encoding |
-   | **XML Normalization** | **Yes** or **No** | The setting to enable or disable XML normalization in flat file encoding |
+   | **Mode of empty node generation** | **ForcedDisabled** or **HonorSchemaNodeProperty** or **ForcedEnabled** | The mode to use for empty node generation with flat file encoding. <br><br>For BizTalk, the flat file schema has a property that controls empty node generation. You can either follow the empty node generation property behavior for your flat file schema, or you can use this setting to have Azure Logic Apps generate or omit empty nodes. For more information, see [Tags for empty elements](https://www.w3.org/TR/xml/#dt-empty). |
+   | **XML Normalization** | **Yes** or **No** | The setting to enable or disable XML normalization in flat file encoding. For more information, see [XmlTextReader.Normalization](/dotnet/api/system.xml.xmltextreader.normalization). |
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 

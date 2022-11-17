@@ -7,13 +7,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv1, sdkv1, event-tier1-build-2022
-ms.author: larryfr
-author:  larryfr
+ms.author: bozhlin
+author:  bozhong68
 ms.reviewer: larryfr
 ms.date: 04/21/2022
 ---
 
-# Create and attach an Azure Kubernetes Service cluster
+# Create and attach an Azure Kubernetes Service cluster with v1
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
@@ -21,10 +21,12 @@ ms.date: 04/21/2022
 > * [v1](how-to-create-attach-kubernetes.md)
 > * [v2 (current version)](../how-to-attach-kubernetes-anywhere.md)
 
+> [!IMPORTANT]
+> This article shows how to use the CLI and SDK v1 to create or attach an Azure Kubernetes Service cluster, which is considered as **legacy** feature now.  To attach Azure Kubernetes Service cluster using  the recommended approach for v2, see [Introduction to Kubernetes compute target in v2](../how-to-attach-kubernetes-anywhere.md).
+
 Azure Machine Learning can deploy trained machine learning models to Azure Kubernetes Service. However, you must first either __create__ an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or __attach__ an existing AKS cluster. This article provides information on both creating and attaching a cluster.
 
 ## Prerequisites
-
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
 - The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
@@ -35,6 +37,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 ## Limitations
 
+- An AKS can only be created or attached as a single compute target in AzureML workspace. Multiple attachments for one AKS is not supported.
 - If you need a **Standard Load Balancer(SLB)** deployed in your cluster instead of a Basic Load Balancer(BLB), create a cluster in the AKS portal/CLI/SDK and then **attach** it to the AzureML workspace.
 
 - If you have an Azure Policy that restricts the creation of Public IP addresses, then AKS cluster creation will fail. AKS requires a Public IP for [egress traffic](../../aks/limit-egress-traffic.md). The egress traffic article also provides guidance to lock down egress traffic from the cluster through the Public IP, except for a few fully qualified domain names. There are 2 ways to enable a Public IP:
@@ -228,7 +231,7 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
 
 
 > [!WARNING]
-> Do not create multiple, simultaneous attachments to the same AKS cluster from your workspace. For example, attaching one AKS cluster to a workspace using two different names. Each new attachment will break the previous existing attachment(s).
+> **Do not** create multiple, simultaneous attachments to the same AKS cluster. For example, attaching one AKS cluster to a workspace using two different names, or attaching one AKS cluster to different workspace. Each new attachment will break the previous existing attachment(s), and cause unpredictable error.
 >
 > If you want to re-attach an AKS cluster, for example to change TLS or other cluster configuration setting, you must first remove the existing attachment by using [AksCompute.detach()](/python/api/azureml-core/azureml.core.compute.akscompute#detach--).
 
@@ -360,10 +363,8 @@ To create an AKS cluster that uses an Internal Load Balancer, use the `load_bala
 from azureml.core.compute.aks import AksUpdateConfiguration
 from azureml.core.compute import AksCompute, ComputeTarget
 
-# Change to the name of the subnet that contains AKS
-subnet_name = "default"
 # When you create an AKS cluster, you can specify Internal Load Balancer to be created with provisioning_config object
-provisioning_config = AksCompute.provisioning_configuration(load_balancer_type = 'InternalLoadBalancer', load_balancer_subnet = subnet_name)
+provisioning_config = AksCompute.provisioning_configuration(load_balancer_type = 'InternalLoadBalancer')
 
 # Create the cluster
 aks_target = ComputeTarget.create(workspace = ws,
