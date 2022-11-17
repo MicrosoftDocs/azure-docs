@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory SSO integration with Digital Pigeon'
+title: Azure Active Directory SSO integration with Digital Pigeon
 description: Learn how to configure single sign-on between Azure Active Directory and Digital Pigeon.
 services: active-directory
 author: jeevansd
