@@ -1135,7 +1135,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/external-identities/add-user-without-invite.md",
-            "redirect_url": "/articles/active-directory/external-identities/redemption-experience.md",
+            "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
             "redirect_document_id": true
     	 },
         {
