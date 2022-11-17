@@ -30,10 +30,10 @@ The Request Service REST API issuance request supports the following HTTP method
 
 The Request Service REST API issuance request requires the following HTTP headers:
 
-| Method |Value  |
+| Name |Value  |
 |---------|---------|
 |`Authorization`| Attach the access token as a bearer token to the authorization header in an HTTP request. For example, `Authorization: Bearer <token>`.|
-|`Content-Type`| `Application/json`|
+|`Content-Type`| `application/json`|
 
 Construct an HTTP POST request to the Request Service REST API. 
 
