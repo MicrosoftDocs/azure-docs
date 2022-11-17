@@ -268,7 +268,7 @@ GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 ### Delete a specific Run Command deployment 
  
 
-You can also delete the instance of Run Command.  
+Delete the instance of Run Command  
 
 ```rest
 DELETE /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands/<runCommandName>?api-version=2019-12-01 
