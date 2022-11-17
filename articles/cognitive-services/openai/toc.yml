@@ -58,9 +58,9 @@ items:
       href: /legal/cognitive-services/openai/data-privacy?context=/azure/cognitive-services/openai/context/context
 - name: Reference
   items:
-    - name: REST API (completions | embeddings)
+    - name: REST API (completions & embeddings)
       href: /rest/api/cognitiveservices/azureopenai/deployments/create
-    - name: REST API (deployments| files | finetuning | models)
+    - name: REST API (control plane)
       href: reference.md
 - name: Resources
   items: 
