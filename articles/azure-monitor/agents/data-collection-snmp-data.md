@@ -127,6 +127,6 @@ If you configured snmptrapd to write events to a file, follow the steps describe
 
 Learn more about: 
 
-- [Azure Monitor agent](azure-monitor-agent-overview.md).
+- [Azure Monitor Agent](azure-monitor-agent-overview.md).
 - [Data collection rules](../essentials/data-collection-rule-overview.md).
 - [Best practices for cost management in Azure Monitor](../best-practices-cost.md). 
