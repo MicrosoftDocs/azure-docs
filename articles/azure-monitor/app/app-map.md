@@ -400,7 +400,7 @@ Filters can be reused in two ways:
     later time may be different from the one observed when the link was
     created.
 
--   The dashboard pin :::image type="content" source="media/app-map/image-10.png" alt-text="A screenshot displaying the dashboard pin button."::: is located next to the title bar of the Application Map blade. This button pins the map to a dashboard, along with the filters applied to it. This action can be useful for filters that are frequently interesting. As an example, the user can pin a map with "Error connector" filter applied to it, and the dashboard view will only show nodes that have errors in their HTTP calls.
+-   The dashboard pin :::image type="content" source="media/app-map/image-10.png" alt-text="A screenshot displaying the dashboard pin button."::: is located next to the title bar of the Application Map pane. This button pins the map to a dashboard, along with the filters applied to it. This action can be useful for filters that are frequently interesting. As an example, the user can pin a map with "Error connector" filter applied to it, and the dashboard view will only show nodes that have errors in their HTTP calls.
 
 #### Filter usage scenarios
 
