@@ -305,7 +305,7 @@ App Service ignores any errors that occur when processing a custom startup comma
 
     For more information, see [Gunicorn logging](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
 
-- **Custom Flask main module**: by default, App Service assumes that a Flask app's main module is *application.py* or *app.py*. If your main module uses a different name, then you must customize the startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named `myapp`, then the command is as follows:
+- **Custom Flask main module**: By default, App Service assumes that a Flask app's main module is *application.py* or *app.py*. If your main module uses a different name, then you must customize the startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named `myapp`, then the command is as follows:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -342,7 +342,7 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 # Do something when HTTPS is used
 ```
 
-Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. In [CodeIgniter](https://codeigniter.com/), the [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) checks the value of `X_FORWARDED_PROTO` by default.
+Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. For example in Django, you can use the [SECURE_PROXY_SSL_HEADER](https://docs.djangoproject.com/en/4.1/ref/settings/#secure-proxy-ssl-header) to tell Django to use the `X-Forwarded-Proto` header.
 
 ## Access diagnostic logs
 
