@@ -53,7 +53,7 @@ For standard storage, another level of performance considerations applies here.
 
 If you have highly active shares (shares used by many users and/or applications), two Azure file shares might reach the performance limit of a storage account.
 
-I you like to use the maximum number of IO and throughput a storage account offers, consider deploying storage accounts with one file share each.
+If you like to use the maximum number of IO and throughput a storage account offers, consider deploying storage accounts with one file share each.
 You can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them.
 
 This recommendation does not apply to premium storage. You determine individual performance characteristics for each premium Azure file share. Storage account limits do not apply for premium storage.
@@ -64,7 +64,7 @@ If you've made a list of your shares, you should map each share to the storage a
 To complete this phase, you should create a mapping of storage accounts to file shares. Then deploy the Azure storage accounts and Azure file shares from that mapping.
 
 > [!CAUTION]
-> If you create an Azure file share that has a 100 TiB limit, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100-TiB file shares.
+> If you create an Azure file share that has a 100 TiB limit, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100 TiB file shares.
 
 By default, storage accounts are created with Azure files shares limited at 5 TiB. Follow the steps in [Create an Azure file share](storage-how-to-create-file-share.md) to create a large file share.
 
