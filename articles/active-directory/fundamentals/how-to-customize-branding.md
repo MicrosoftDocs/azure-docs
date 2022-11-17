@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 11/17/2022
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.custom: "it-pro, seodec18, fasttrack-edit"
