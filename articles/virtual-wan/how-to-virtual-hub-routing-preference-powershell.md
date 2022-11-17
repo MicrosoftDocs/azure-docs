@@ -20,7 +20,7 @@ If you're using Azure PowerShell locally from your computer, verify that your az
 
 To configure virtual hub routing preference for an existing virtual hub, use the following steps.
 
-1. (Optional) Check the current HubRoutingPreference for an existing virtual hub.
+1. (Optional) Check the current HubRoutingPreference for an existing virtual hub (i.e VpnGateway or ExpressRoute)
 
    ```azurepowershell-interactive
    Get-AzVirtualHub -ResourceGroupName "[resource group name]" -Name "[virtual hub name]" | select-object HubRoutingPreference
