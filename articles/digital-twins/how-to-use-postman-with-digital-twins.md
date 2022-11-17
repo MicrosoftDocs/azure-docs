@@ -78,7 +78,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
 
 3. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authorize your requests.
 
-    :::image type="content" source="media/how-to-use-postman-with-digital-twins/console-access-token.png" alt-text="Screenshot of the console showing the result of the az account get-access-token command. The accessToken field and its sample value is highlighted.":::
+   :::image type="content" source="media/how-to-use-postman-with-digital-twins/console-access-token.png" alt-text="Screenshot of the console showing the result of the az account get-access-token command. The accessToken field and its sample value is highlighted." lightbox="media/how-to-use-postman-with-digital-twins/console-access-token.png":::
 
 >[!TIP]
 >This token is valid for at least five minutes and a maximum of 60 minutes. If you run out of time allotted for the current token, you can repeat the steps in this section to get a new one.
@@ -122,7 +122,7 @@ To find the collection, navigate to the repo link and choose the folder for your
 Here's how to download your chosen collection to your machine so that you can import it into Postman.
 1. Use the links above to open the collection file in GitHub in your browser.
 1. Select the **Raw** button to open the raw text of the file.
-    :::image type="content" source="media/how-to-use-postman-with-digital-twins/swagger-raw.png" alt-text="Screenshot of the data plane digitaltwins.json file in GitHub. There is a highlight around the Raw button." lightbox="media/how-to-use-postman-with-digital-twins/swagger-raw.png":::
+   :::image type="content" source="media/how-to-use-postman-with-digital-twins/swagger-raw.png" alt-text="Screenshot of the data plane digitaltwins.json file in GitHub. There is a highlight around the Raw button." lightbox="media/how-to-use-postman-with-digital-twins/swagger-raw.png":::
 1. Copy the text from the window, and paste it into a new file on your machine.
 1. Save the file with a .json extension (the file name can be whatever you want, as long as you can remember it to find the file later).
 
@@ -136,7 +136,7 @@ Next, import the collection into Postman.
 1. In the **Import** window that follows, select **Upload Files** and navigate to the collection file on your machine that you created earlier. Select Open.
 1. Select the **Import** button to confirm.
 
-    :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-import-collection-2.png" alt-text="Screenshot of Postman's 'Import' window, showing the file to import as a collection and the Import button.":::
+   :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-import-collection-2.png" alt-text="Screenshot of Postman's 'Import' window, showing the file to import as a collection and the Import button." lightbox="media/how-to-use-postman-with-digital-twins/postman-import-collection-2.png":::
 
 The newly imported collection can now be seen from your main Postman view, in the Collections tab.
 
@@ -254,13 +254,7 @@ Now that your collection is set up, you can add your own requests to the Azure D
 
 1. This action opens the SAVE REQUEST window, where you can enter a name for your request, give it an optional description, and choose the collection that it's a part of. Fill in the details and save the request to the collection you created earlier.
 
-    :::row:::
-        :::column:::
-            :::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-save-request.png" alt-text="Screenshot of 'Save request' window in Postman showing the fields described. The 'Save to Azure Digital Twins collection' button is highlighted.":::
-        :::column-end:::
-        :::column:::
-        :::column-end:::
-    :::row-end:::
+:::image type="content" source="media/how-to-use-postman-with-digital-twins/postman-save-request.png" alt-text="Screenshot of 'Save request' window in Postman showing the fields described. The 'Save to Azure Digital Twins collection' button is highlighted.":::
 
 You can now view your request under the collection, and select it to pull up its editable details.
 
