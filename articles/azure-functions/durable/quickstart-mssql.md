@@ -11,7 +11,7 @@ ms.reviewer: azfuncdf
 
 Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called "backends" for short, each with their own [design characteristics](durable-functions-storage-providers.md#comparing-storage-providers). By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure an existing Durable Functions app to utilize the [MSSQL storage provider](durable-functions-storage-providers.md#mssql).
 
-The MSSQL backend was designed to maximize application portability, and control over your data. It uses [MSSQL Server](https://www.microsoft.com/en-us/sql-server/) to persist all Task Hub state so it reaps the benefits of MSSQL DBMS infrastructure towards scalability, security, compatibility with vendors, etc.  To learn more about when the MSSQL backend may be good choice, please review our documentation on [storage providers](durable-functions-storage-providers.md).
+The MSSQL backend was designed to maximize application portability, and control over your data. It uses [MSSQL Server](https://www.microsoft.com/sql-server/) to persist all Task Hub state so it reaps the benefits of MSSQL DBMS infrastructure towards scalability, security, compatibility with vendors, etc.  To learn more about when the MSSQL backend may be good choice, please review our documentation on [storage providers](durable-functions-storage-providers.md).
 
 ## Note on data migration
 
@@ -61,13 +61,13 @@ For more information on installing Azure Functions Extensions via the Core Tools
 > [!NOTE]
 > If you already have an MSSQL-compatible database, you may skip this section *and* it's sub-section on setting up a Docker-based local DB.
 
-As the MSSQL backend is designed for portability, you have several options to set up your backing database. You may decide to set up an on-premise DBMS, or a cloud-provided instance such as the [Azure SQL DB](https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview?view=azuresql), [Microsoft SQL Server on AWS](https://aws.amazon.com/sql/?blog-posts-content-windows.sort-by=item.additionalFields.createdDate&blog-posts-content-windows.sort-order=desc), [Google Cloud's Cloud SQL](https://cloud.google.com/sql/), etc. 
+As the MSSQL backend is designed for portability, you have several options to set up your backing database. You may decide to set up an on-premise DBMS, or a cloud-provided instance such as the [Azure SQL DB](https://learn.microsoft.com/azure/azure-sql/database/sql-database-paas-overview?view=azuresql), [Microsoft SQL Server on AWS](https://aws.amazon.com/sql/?blog-posts-content-windows.sort-by=item.additionalFields.createdDate&blog-posts-content-windows.sort-order=desc), [Google Cloud's Cloud SQL](https://cloud.google.com/sql/), etc. 
 
-You also have options to support local development, even offline: could set up an [MS SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) instance on your local machine, or host your own SQL server from within an MSSQL Docker container. For ease of setup, we will focus on the latter.
+You also have options to support local development, even offline: could set up an [MS SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) instance on your local machine, or host your own SQL server from within an MSSQL Docker container. For ease of setup, we will focus on the latter.
 
 ### Set up your Docker-based local DBMS
 
-You will need a [Docker](https://www.docker.com/products/docker-desktop/) installation on your local machine. Below are PowerShell commands that you can use to set up a local DB on Docker. Note that you can install PowerShell on both [Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux) and [macOS](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos).
+You will need a [Docker](https://www.docker.com/products/docker-desktop/) installation on your local machine. Below are PowerShell commands that you can use to set up a local DB on Docker. Note that you can install PowerShell on both [Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux) and [macOS](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-macos).
 
 ```powershell
 # primary parameters
@@ -194,10 +194,10 @@ To do this through the Azure portal, first go to your Function App view. Then go
 
 If you don't have a publicly accessible SQL Server already, you can create one on Azure. If you already have one, irrespective of provider, you can skip this section.
 
-You can follow [these](https://learn.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal&view=azuresql) instructions to create an Azure SQL database on the portal. When configuring these database, make sure to set the *Database collation* (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
+You can follow [these](https://learn.microsoft.com/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal&view=azuresql) instructions to create an Azure SQL database on the portal. When configuring these database, make sure to set the *Database collation* (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
 
 > [!NOTE]
-> Microsoft offers a [12-month free Azure subscription account]((https://azure.microsoft.com/en-us/free/) if you’re exploring Azure for the first time.
+> Microsoft offers a [12-month free Azure subscription account]((https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.
 
 You may obtain your Azure SQL database's connection string by navigating to the database's blade in the Azure portal. Then, under Settings, select "Connection strings" and obtain the "ADO.NET" connection string. Make sure to provided your password in the template provided.
 
