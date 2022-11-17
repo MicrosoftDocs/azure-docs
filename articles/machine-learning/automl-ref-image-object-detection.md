@@ -14,7 +14,7 @@ ms.date: 10/11/2022
 ms.reviewer: ssalgado
 ---
 
-# CLI (v2) Automated ML Image Object Detection job YAML schema
+# CLI (v2) Automated ML image object detection job YAML schema
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -32,7 +32,7 @@ For information on all the keys in Yaml syntax, see [Yaml syntax](./automl-ref-i
 | --- | ---- | ----------- | -------------- | ------------- |
 | `task` | const | **Required.** The type of AutoML task. | `image_object_detection` | `image_object_detection` |
 | `primary_metric` | string |  The metric that AutoML will optimize for model selection. |`mean_average_precision` | `mean_average_precision` |
-| `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object that has keys as listed in following sections. <li> [Model Specific Hyperparameters](./reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for yolov5 (if you're using yolov5 for object detection) <li> [Model Agnostic Hyperparameters](./reference-automl-images-hyperparameters.md#model-agnostic-hyperparameters) <li> [Object Detection and Instance Segmentation Task Specific Hyperparameters](./reference-automl-images-hyperparameters.md#object-detection-and-instance-segmentation-task-specific-hyperparameters). <br> <br> For an example, see [Configure your experiment settings](./how-to-auto-train-image-models.md?tabs=cli#configure-your-experiment-settings) section.| | |
+| `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object that has keys as listed in following sections. <li> [Model Specific Hyperparameters](./reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for yolov5 (if you're using yolov5 for object detection) <li> [Model agnostic hyperparameters](./reference-automl-images-hyperparameters.md#model-agnostic-hyperparameters) <li> [Object detection and instance segmentation task specific hyperparameters](./reference-automl-images-hyperparameters.md#object-detection-and-instance-segmentation-task-specific-hyperparameters). <br> <br> For an example, see [Configure your experiment settings](./how-to-auto-train-image-models.md?tabs=cli#configure-your-experiment-settings) section.| | |
 
 ## Remarks
 
