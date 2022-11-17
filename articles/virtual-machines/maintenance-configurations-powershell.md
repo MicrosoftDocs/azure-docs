@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 
 Creating a Maintenance Configurations lets you decide when to apply platform updates to various Azure resources. This topic covers the Azure PowerShell options for Dedicated Hosts and Isolated VMs. For more about benefits of using Maintenance Configurations, its limitations, and other management options, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
 
-If you are looking for information about Maintenance Configurations for scale sets, see [Maintenance Control for virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+If you are looking for information about Maintenance Configurations for scale sets, see [Maintenance Control for Virtual Machine Scale Sets](virtual-machine-scale-sets-maintenance-control.md).
 
 > [!IMPORTANT]
 > There are different **scopes** which support certain machine types and schedules, so please ensure you are selecting the right scope for your virtual machine.
@@ -131,7 +131,7 @@ New-AzMaintenanceConfiguration
 
 ### Guest
 
-Our most recent addition to the maintenance configuration offering is the **InGuestPatch** scope. This example will show how to create a maintenance configuration for guest scope using powershell. To learn more about this scope see [Guest](maintenance-configurations.md#guest).
+Our most recent addition to the maintenance configuration offering is the **InGuestPatch** scope. This example will show how to create a maintenance configuration for guest scope using PowerShell. To learn more about this scope see [Guest](maintenance-configurations.md#guest).
 
 ```azurepowershell-interactive
 $RGName = "myMaintenanceRG"
@@ -184,7 +184,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ## Assign the configuration
 
-After you have created your configuration, you might want to also assign machines to it using powershell. To achieve this we will use [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment).
+After you have created your configuration, you might want to also assign machines to it using PowerShell. To achieve this we will use [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment).
 
 ### Isolated VM
 
