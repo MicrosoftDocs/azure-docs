@@ -42,7 +42,7 @@ MYACR=myContainerRegistry
 az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 ```
 
-#### [Azure PowerShell][#tab/azure-powershell]
+#### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 # Set this variable to the name of your ACR. The name must be globally unique.
@@ -131,7 +131,7 @@ Set-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -AcrNameT
 
 ### Detach an ACR from an AKS cluster
 
-#### [Azure CLI][#tab/azure-cli]
+#### [Azure CLI](#tab/azure-cli)
 
 Remove the integration between an ACR and an AKS cluster using the [`--detach-acr` parameter][cli-param] and valid values for **acr-name** or **acr-resource-id**.
 
@@ -143,7 +143,7 @@ az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-name>
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```
 
-#### [Azure PowerShell][#tab/azure-powershell]
+#### [Azure PowerShell](#tab/azure-powershell)
 
 Remove the integration between an ACR and an AKS cluster using the [`-AcrNameToDetach` parameter][ps-detach] and valid values for **acr-name**.
 
