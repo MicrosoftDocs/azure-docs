@@ -56,9 +56,9 @@ If you have highly active shares (shares used by many users and/or applications)
 I you like to use the maximum number of IO and throughput a storage account offers, consider deploying storage accounts with one file share each.
 You can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them.
 
-This recommendation does not apply to premium storage. In premium storage you provision the performance characteristics of each share individually.
+This recommendation does not apply to premium storage. You determine individual performance characteristics for each premium Azure file share. Storage account limits do not apply for premium storage.
 
-These considerations apply more to direct cloud access (through an Azure VM) than to Azure File Sync. If you plan to use only Azure File Sync on these shares, grouping several into a single Azure storage account is fine.
+These considerations apply more to direct cloud access (through an Azure VM or other service) than to Azure File Sync. If you plan to use only Azure File Sync on these shares, grouping several into a single Azure storage account is fine.
 
 If you've made a list of your shares, you should map each share to the storage account it will be in.
 To complete this phase, you should create a mapping of storage accounts to file shares. Then deploy the Azure storage accounts and Azure file shares from that mapping.
