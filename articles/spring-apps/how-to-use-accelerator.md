@@ -166,7 +166,7 @@ Besides using the predefined accelerators, you can also create your own ones. Pl
    ![Template-editor-entry](./media/how-to-use-accelerator/template-editor-entry.png)
    ![Template-editor](./media/how-to-use-accelerator/template-editor.png)
    
-   When there is no `accelerator.yaml`, the repository still works as an accelerator but the files are passed unmodified to users. For more information about how to write an accelerator.yaml file, see [Creating an accelerator.yaml file](./how-to-create-accelerator-yaml.md) 
+   When there is no `accelerator.yaml`, the repository still works as an accelerator but the files are passed unmodified to users. For more information about how to write an accelerator.yaml file, see [Creating an accelerator.yaml file](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-creating-accelerators-accelerator-yaml.html) 
 
 1. Publish accelerator
 
