@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand data history for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/17/2022
+ms.date: 10/25/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -54,7 +54,7 @@ Each Azure Digital Twins instance will have its own data history connection targ
 
 ## Required permissions
 
-In order to set up a data history connection, your Azure Digital Twins instance must have the following permissions to access the Event Hubs and Azure Data Explorer resources. These roles enable Azure Digital Twins to configure the event hub and Azure Data Explorer database on your behalf (for example, creating a table in the database). These permissions can optionally be removed after data history is set up. 
+In order to set up a data history connection, your Azure Digital Twins instance must have the following permissions to access the Event Hubs and Azure Data Explorer resources. These roles enable Azure Digital Twins to configure the event hub and Azure Data Explorer database on your behalf (for example, creating a table in the database). These permissions can optionally be removed after data history is set up.
 * Event Hubs resource: **Azure Event Hubs Data Owner**
 * Azure Data Explorer cluster: **Contributor** (scoped to either the entire cluster or specific database)
 * Azure Data Explorer database principal assignment: **Admin** (scoped to the database being used)

@@ -83,8 +83,8 @@ To create a new endpoint, go to your instance's page in the [Azure portal](https
 1. Complete the other details that are required for your endpoint type, including your subscription and the endpoint resources described [above](#prerequisite-create-endpoint-resources).
     1. For Event Hubs and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or select the option for a [system-assigned or user-assigned managed identity](concepts-security.md#managed-identity-for-accessing-other-resources).
 
-:::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs in the Azure portal." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
-
+    :::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs in the Azure portal." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
+    
 1. Finish creating your endpoint by selecting **Save**.
 
 >[!IMPORTANT]
