@@ -281,7 +281,7 @@ For more transformations available in `mltable`, please look into [reference-yam
 
 ### Create an MLTable artifact via Python SDK: from_*
 If you would like to create an MLTable object in memory via Python SDK, you could use from_* methods. 
-The from_* methods does not materialize the data, but rather stores is as a transformation in the MLTable definition.
+The from_* methods do not materialize the data, but rather stores it as a transformation in the MLTable definition.
 
 For example you can use from_delta_lake() to create an in-memory MLTable artifact to read delta lake data from the path `delta_table_path`. 
 ```python

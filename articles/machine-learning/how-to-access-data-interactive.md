@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 author: samuel100
-ms.author: samkemp
-ms.date: 10/28/2022
+ms.author: franksolomon
+ms.date: 11/17/2022
 ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
@@ -40,7 +40,7 @@ Typically the beginning of a machine learning project involves exploratory data 
 > pip install -U azureml-fsspec mltable
 > ```
 
-## Access data from a Datastore URI like a filesystem (preview)
+## Access data from a datastore URI, like a filesystem (preview)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -85,7 +85,7 @@ df.head()
 > 1. Select **Data** from the left-hand menu followed by the **Datastores** tab. 
 > 1. Select your datastore name and then **Browse**. 
 > 1. Find the file/folder you want to read into pandas, select the elipsis (**...**) next to it. Select from the menu **Copy URI**. You can select the **Datastore URI** to copy into your notebook/script.
-> :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="copy datastore URI":::
+> :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
 You can also instantiate an Azure ML filesystem and do filesystem-like commands like `ls`, `glob`, `exists`, `open`, etc. The `open()` method will return a file-like object, which can be passed to any other library that expects to work with python files, or used by your own code as you would a normal python file object. These file-like objects respect the use of `with` contexts, for example:
 
@@ -109,7 +109,7 @@ with fs.open('/datastore_name/folder/file1.csv') as f:
 
 ### Examples
 
-In this section we provide some examples of how to using Filesystem spec, for some common scenarios.
+In this section we provide some examples of how to use Filesystem spec, for some common scenarios.
 
 #### Read a single CSV file into pandas
 
@@ -160,7 +160,7 @@ df.head()
 #### Read a folder of parquet files into pandas
 Parquet files are typically written to a folder as part of an ETL process, which can emit files pertaining to the ETL such as progress, commits, etc. Below is an example of files created from an ETL process (files beginning with `_`) to produce a parquet file of data.
 
-:::image type="content" source="media/how-to-access-data-ci/parquet-auxillary.png" alt-text="parquet etl process":::
+:::image type="content" source="media/how-to-access-data-ci/parquet-auxillary.png" alt-text="Screenshot showing the parquet etl process.":::
 
 In these scenarios, you'll only want to read the parquet files in the folder and ignore the ETL process files. The code below shows how you can use glob patterns to read only parquet files in a folder:
 
@@ -185,7 +185,7 @@ df = pd.concat(dflist)
 df.head()
 ```
 
-#### Accessing data from your Azure Databricks Filesystem (`dbfs`)
+#### Accessing data from your Azure Databricks filesystem (`dbfs`)
 
 Filesystem spec (`fsspec`) has a range of [known implementations](https://filesystem-spec.readthedocs.io/en/stable/_modules/index.html), one of which is the Databricks Filesystem (`dbfs`).
 
@@ -456,7 +456,7 @@ df.head()
 > 1. Select **Data** from the left-hand menu followed by the **Datastores** tab. 
 > 1. Select your datastore name and then **Browse**. 
 > 1. Find the file/folder you want to read into pandas, select the elipsis (**...**) next to it. Select from the menu **Copy URI**. You can select the **Datastore URI** to copy into your notebook/script.
-> :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="copy datastore URI":::
+> :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
 ##### [HTTP Server](#tab/http)
 ```python
@@ -529,7 +529,7 @@ df.head()
 > 1. Select **Data** from the left-hand menu followed by the **Datastores** tab. 
 > 1. Select your datastore name and then **Browse**. 
 > 1. Find the file/folder you want to read into pandas, select the elipsis (**...**) next to it. Select from the menu **Copy URI**. You can select the **Datastore URI** to copy into your notebook/script.
-> :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="copy datastore URI":::
+> :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
 ##### [HTTP Server](#tab/http)
 
@@ -552,7 +552,7 @@ df.head()
 
 ---
 
-### Reading Data assets
+### Reading data assets
 In this section, you'll learn how to access your Azure ML data assets into pandas.
 
 #### Table asset
