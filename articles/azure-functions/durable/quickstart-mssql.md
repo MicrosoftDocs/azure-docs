@@ -24,7 +24,7 @@ While data migration *across storage providers* is not supported, the MSSQL stor
 
 ## Prerequisites
 
-We assume that you are starting with an existing Durable Functions app, and are familiar with how to operate it. 
+The following steps assume that you are starting with an existing Durable Functions app and are familiar with how to operate it. 
 
 In particular, we expect that you have already:
 1. Created a Functions project on your local machine.
