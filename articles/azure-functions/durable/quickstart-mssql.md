@@ -7,7 +7,7 @@ ms.date: 11/14/2022
 ms.reviewer: azfuncdf
 ---
 
-# Switch to the MSSQL Backend
+# Configure Durable Functions with the Microsoft SQL Server (MSSQL) storage provider
 
 Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as "backends", for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure a Durable Functions app to utilize the [MSSQL storage provider](durable-functions-storage-providers.md#mssql).
 
