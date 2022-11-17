@@ -34,6 +34,6 @@ Learn about Translator service changes, modification, and deprecations.
 
 * Similarly, the **Text Trained Characters** metric was added to replace the  **Characters Trained** metric.
 
-* **Characters Trained** and **Characters Translated** metrics have had continued support in the Azure portal with the deprecated flag to allow migration to the current metrics. Characters Trained and Characters Translated are now scheduled for removal from the Azure portal.
+* **Characters Trained** and **Characters Translated** metrics have had continued support in the Azure portal with the deprecated flag to allow migration to the current metrics. As of October 2022, Characters Trained and Characters Translated are no longer available in the Azure portal.
 
 ---
