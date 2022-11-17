@@ -222,7 +222,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | IPv4 address space | Enter **11.1.0.0/16** |
+    | IPv4 address space | Enter **10.1.0.0/16** |
 
 6. Select **+Add subnet**.
 
@@ -231,7 +231,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **mySubnetPE** |
-    | Subnet address range | Enter **11.1.0.0/24** |
+    | Subnet address range | Enter **10.1.0.0/24** |
 
 8. Select **Add**.
 
@@ -276,7 +276,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
     | ------- | ----- |
     | **Networking** |  |
     | Virtual network | Select **myVNet**. |
-    | Subnet | Select **myVNet/myBackendSubnet (10.1.0.0/24)**. |
+    | Subnet | Select **myVNet/mySubnetPE (10.1.0.0/24)**. |
     | Network policy for private endpoints | Select **edit** to apply Network security groups and/or Route tables to the subnet that contains the private endpoint. </br> In **Edit subnet network policy**, select the checkbox next to **Network security groups** and **Route Tables**. </br> Select **Save**. </br></br>For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
 
 # [**Dynamic IP**](#tab/dynamic-ip)
