@@ -63,6 +63,8 @@
         href: partner-integrations.md
       - name: Basic Logs
         href: basic-logs-use-cases.md
+      - name: Health monitoring 
+        href: health-audit.md
     - name: Architecture
       items:
       - name: Roles and permissions
@@ -310,10 +312,6 @@
       href: get-visibility.md
     - name: Use Azure Monitor workbooks
       href: ./monitor-your-data.md
-    - name: Enable health monitoring
-      href: monitor-sentinel-health.md
-    - name: Monitor data connector health
-      href: monitor-data-connector-health.md
   - name: Detect threats and analyze data
     items:
     - name: MITRE ATT&CK coverage
@@ -422,6 +420,14 @@
       href: customer-managed-keys.md
     - name: Manage your SOC with incident metrics
       href: manage-soc-with-incident-metrics.md
+    - name: Monitor Microsoft Sentinel health
+      items:
+      - name: Enable health monitoring
+        href: enable-monitoring.md
+      - name: Monitor data connector health
+        href: monitor-data-connector-health.md
+      - name: Monitor automation rules and playbooks health
+        href: monitor-automation-health.md
     - name: Auditing Microsoft Sentinel with Azure Activity Logs
       href: audit-sentinel-data.md
     - name: Remove Microsoft Sentinel from your workspaces
@@ -497,6 +503,8 @@
       href: /cli/azure/sentinel
     - name: Microsoft Sentinel PowerShell
       href: /powershell/module/az.securityinsights/
+    - name: SentinelHealth table reference 
+      href: health-table-reference.md
     - name: Azure RBAC roles
       items:
       - name: All Azure roles
