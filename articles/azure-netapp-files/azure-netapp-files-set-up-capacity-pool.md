@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/4/2021
+ms.date: 11/17/2022
 ms.author: anfdocs
 ---
 # Create a capacity pool for Azure NetApp Files
@@ -24,6 +24,32 @@ Creating a capacity pool enables you to create volumes within it.
 You must have already created a NetApp account.   
 
 [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
+
+## 2 TiB capacity pool
+
+Azure NetApp Files now supports a lower size limit of 2 TiB for capacity pools.
+
+>[!IMPORTANT]
+>Capacity pools using the new lower limit are only supported with Standard networking features. 
+
+The 2 TiB limit is currently in preview. If you wish to set your limit below 4 TiB for the first time, you must register the feature first:
+
+1.  Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANF2TiBPoolSize
+    ```
+
+2. Check the status of the feature registration: 
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANF2TiBPoolSize
+    ```
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Steps 
 
@@ -45,7 +71,10 @@ You must have already created a NetApp account.
 
     * **Size**     
      Specify the size of the capacity pool that you are purchasing.        
-     The minimum capacity pool size is 4 TiB. You can change the size of a capacity pool in 1-TiB increments.
+     The minimum capacity pool size is 2 TiB. You can change the size of a capacity pool in 1-TiB increments.
+
+    >[!NOTE]
+    >2 TiB capacity pool sizing is currently in preview. If you want to set your capacity pool size below 4 TiB, you must first [register the 2 TiB capacity pool feature](#2-tib-capacity-pool).
 
    * **QoS**   
      Specify whether the capacity pool should use the **Manual** or **Auto** QoS type.  

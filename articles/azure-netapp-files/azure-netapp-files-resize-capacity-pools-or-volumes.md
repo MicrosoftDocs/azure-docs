@@ -1,5 +1,5 @@
 ---
-title: Resize the capacity pool or a volume for Azure NetApp Files  | Microsoft Docs
+title: Resize the capacity pool or a volume for Azure NetApp Files | Microsoft Docs
 description: Learn how to change the size of a capacity pool or a volume. Resizing the capacity pool changes the purchased Azure NetApp Files capacity.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 9/30/2022
+ms.date: 11/17/2022
 ms.author: anfdocs
 ---
 # Resize a capacity pool or a volume
@@ -22,7 +22,12 @@ For information about monitoring a volume’s capacity, see [Monitor the capacit
 
 ## Resize the capacity pool using the Azure portal 
 
-You can change the capacity pool size in 1-TiB increments or decrements. However, the capacity pool size cannot be smaller than the sum of the capacity of the volumes hosted in the pool, with a minimum of 4TiB. Resizing the capacity pool changes the purchased Azure NetApp Files capacity.
+You can change the capacity pool size in 1-TiB increments or decrements. However, the capacity pool size cannot be smaller than the sum of the capacity of the volumes hosted in the pool, with a minimum of 2 TiB. 
+
+>[!NOTE]
+>2 TiB capacity pool limits are currently in preview. To set your capacity pool size lower than 4 TiB, you must be using Standard networking features and [register the feature](azure-netapp-files-set-up-capacity-pool.md#2-tib-capacity-pool).
+
+Resizing the capacity pool changes the purchased Azure NetApp Files capacity.
 
 1. From the NetApp Account view, go to **Capacity pools**, and select the capacity pool that you want to resize.
 2. Right-click the capacity pool name or select the "…" icon at the end of the capacity pool row to display the context menu. Select **Resize**. 

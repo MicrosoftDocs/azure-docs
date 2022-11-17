@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2022
+ms.date: 11/17/2022
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -32,7 +32,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |
 |  Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
-|  Minimum size of a single capacity pool   |  4 TiB     |    No  |
+|  Minimum size of a single capacity pool   |  2 TiB*     |    No  |
 |  Maximum size of a single capacity pool    |  500 TiB   |   No   |
 |  Minimum size of a single volume    |    100 GiB    |    No    |
 |  Maximum size of a single volume     |    100 TiB    |    No    |
@@ -48,6 +48,8 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of protected volume  |  100 TiB  |  N  |
 |  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
 |  Maximum number of manual backups per volume per day |  5  |  Y  |
+
+\* 2 TiB capacity pool limits are currently in preview. To set your capacity pool size lower than 4 TiB, you must first [register the feature](azure-netapp-files-set-up-capacity-pool.md#2-tib-capacity-pool).
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
