@@ -59,9 +59,7 @@ To set up the snmptrapd trap receiver on a CentOS 7, Red Hat Enterprise Linux 7,
     #Allow UDP 162 through the firewall
     sudo firewall-cmd --zone=public --add-port=162/udp --permanent
     ```
-1. To enable logging SNMP trap fields with their names, instead of by OIDs, place all MIB files in `/usr/share/snmp/mibs`, which is the default directory for MIB files. 
-
-    Copy all MIB files to this directory for each device that sends SNMP traps. 
+1. Place all MIB files for each device that sends SNMP traps in `/usr/share/snmp/mibs`, the default directory for MIB files. This enables logging SNMP trap fields with meaningful names instead of OIDs. 
 
     > [!NOTE]
     > Some vendors maintain a single MIB for all devices, while others have hundreds of MIB files. To load an MIB file correctly, snmptrapd must load all dependent MIBs. Be sure to check the snmptrapd log file after loading MIBs to ensure that there are no missing dependencies in parsing your MIB files.  
