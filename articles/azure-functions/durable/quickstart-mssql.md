@@ -15,7 +15,7 @@ The MSSQL backend was designed to maximize application portability and control o
 
 ## Note on data migration
 
-We do not currently support the migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers. This means that your application will need to start with a fresh, empty Task Hub after switching to the MSSQL backend. Similarly, the Task Hub contents created with MSSQL cannot be preserved when switching to a different *backend*.
+Migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers is not currently supported. Function apps with existing runtime data will start with a fresh, empty task hub after switching to the MSSQL backend. Similarly, the task hub contents created with MSSQL cannot be preserved when switching to a different storage provider.
 
 > [!NOTE]
 > Changing your storage provider is a kind of breaking change as pre-existing data will not be transferred over. You can review the Durable Functions [versioning docs](durable-functions-versioning.md) for guidance on how to make these changes.
