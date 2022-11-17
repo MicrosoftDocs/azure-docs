@@ -54,7 +54,7 @@ When you enable a [managed identity](concepts-security.md#managed-identity-for-a
 
 Use the CLI command below for your chosen type of managed identity.
 
-#### System-managed identity command
+#### System-assigned identity command
 
 To create an Azure Digital Twins instance with *system-assigned identity* enabled, you can add an `--assign-identity` parameter to the `az dt create` command that's used to create the instance. (For more information about this command, see its [reference documentation](/cli/azure/dt#az-dt-create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
@@ -124,13 +124,13 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 
 ## Enable/disable managed identity for the instance 
 
-This section shows you how to add a managed identity to an Azure Digital Twins instance that already exists. You can also disable system-managed identity on an instance that has it already.
+This section shows you how to add a managed identity to an Azure Digital Twins instance that already exists. You can also disable managed identity on an instance that has it already.
 
 Use the CLI commands below for your chosen type of managed identity.
 
-#### System-managed identity commands
+#### System-assigned identity commands
 
-The command to enable a *system-assigned* identity for an existing instance is the same `az dt create` command that's used to [create a new instance with a system-managed identity](#system-managed-identity-command). Instead of providing a new name of an instance to create, you can provide the name of an instance that already exists. Then, make sure to add the `--assign-identity` parameter.
+The command to enable a *system-assigned* identity for an existing instance is the same `az dt create` command that's used to [create a new instance with a system-assigned identity](#system-assigned-identity-command). Instead of providing a new name of an instance to create, you can provide the name of an instance that already exists. Then, make sure to add the `--assign-identity` parameter.
 
 ```azurecli-interactive
 az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity
@@ -156,7 +156,7 @@ To disable a user-assigned identity on an instance where it's currently enabled,
 az dt identity remove --dt-name <name-of-existing-instance> --resource-group <resource-group> --user <user-assigned-identity-resource-ID>
 ```
 
-### Considerations for disabling system-managed identities
+### Considerations for disabling managed identities
 
 It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-route-with-managed-identity.md) or for [data history](how-to-use-data-history.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
 

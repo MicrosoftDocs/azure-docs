@@ -83,7 +83,7 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
 
 You can add the `--scopes` parameter onto the `az dt create` command to assign the identity to one or more scopes with a specified role. The command with this parameter can be used when first creating the instance, or later by passing in the name of an instance that already exists.
 
-Here's an example that creates an instance with a system-managed identity, and assigns that identity a custom role called `MyCustomRole` in an event hub.
+Here's an example that creates an instance with a system-assigned managed identity, and assigns that identity a custom role called `MyCustomRole` in an event hub.
 
 ```azurecli-interactive
 az dt create --dt-name <new-instance-name> --resource-group <resource-group> --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource-group>/providers/Microsoft.EventHub/namespaces/<Event-Hubs-namespace>/eventhubs/<event-hub-name>" --role MyCustomRole
@@ -120,9 +120,9 @@ Managed identities are added to an endpoint by adding a `--auth-type` parameter 
 
 Use the CLI command below for your chosen type of managed identity.
 
-#### System-managed identity command
+#### System-assigned identity command
 
-To create an endpoint that uses system-managed authentication, specify the `IdentityBased` authentication type with the  `--auth-type` parameter. The example below illustrates this functionality for an Event Hubs endpoint.
+To create an endpoint that uses system-assigned authentication, specify the `IdentityBased` authentication type with the  `--auth-type` parameter. The example below illustrates this functionality for an Event Hubs endpoint.
 
 ```azurecli-interactive
 az dt endpoint create eventhub --endpoint-name <endpoint-name> --eventhub-resource-group <eventhub-resource-group> --eventhub-namespace <eventhub-namespace> --eventhub <eventhub-name> --dt-name <instance-name> --auth-type IdentityBased

@@ -95,7 +95,7 @@ Azure Digital Twins supports both types of managed identities, *system-assigned*
 
 You can use both of these managed identity types to authenticate to a [custom-defined endpoint](concepts-route-events.md#create-an-endpoint). Azure Digital Twins supports identity-based authentication to endpoints for [Event Hubs](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and to an [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md) endpoint for [dead-letter events](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md) endpoints are currently not supported for managed identities.
 
-For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [Route events with a managed identity](how-to-route-with-managed-identity.md).
+For instructions on how to enable a managed identity for Azure Digital Twins and use it to route events, see [Route events with a managed identity](how-to-route-with-managed-identity.md).
 
 ## Private network access with Azure Private Link
 

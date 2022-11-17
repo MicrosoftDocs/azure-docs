@@ -61,7 +61,7 @@ In order to set up a data history connection, your Azure Digital Twins instance 
 
 Later, your Azure Digital Twins instance must have the following permission on the Event Hubs resource while data history is being used: **Azure Event Hubs Data Sender** (you can also opt instead to keep **Azure Event Hubs Data Owner** from data history setup).
 
-These permissions can be assigned using the Azure CLI or Azure portal. If you have a [user-assigned identity](concepts-security.md#managed-identity-for-accessing-other-resources) for your instance, you can assign the permissions to that identity.
+These permissions can be assigned using the Azure CLI or Azure portal.
 
 ## Creating a data history connection
 
