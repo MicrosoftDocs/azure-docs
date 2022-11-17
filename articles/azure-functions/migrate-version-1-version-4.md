@@ -369,7 +369,7 @@ To update your project to Azure Functions 4.x:
 
     [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
  
-    The `extensionBundle` element is required because after version 1.x, bindings are maintained as external packages. For more information, see [Extension bundles](/functions-bindings-register.md#extension-bundles).
+    The `extensionBundle` element is required because after version 1.x, bindings are maintained as external packages. For more information, see [Extension bundles](/azure/azure-functions/functions-bindings-register#extension-bundles).
 
 1. Update your local.settings.json file so that it has at least the following elements:
 
@@ -394,7 +394,7 @@ This section details changes made after version 1.x in both trigger and binding 
 
 ### Changes in triggers and bindings
 
-Starting with version 2.x, you must install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](./functions-bindings-register.md).
+Starting with version 2.x, you must install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](/azure/azure-functions/functions-bindings-register).
 
 There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hubs `path` property is now `eventHubName`. See the [existing binding table](functions-versions.md#bindings) for links to documentation for each binding.
 
