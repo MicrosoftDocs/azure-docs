@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Deploy your first container app'
-description: Deploy your first application to Azure Container Apps.
+title: 'Quickstart: Deploy your first container app with containerapp up'
+description: Deploy your first application to Azure Container Apps using the Azure CLI containerapp up command.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli, event-tier1-build-20
 ms.devlang: azurecli
 ---
 
-# Quickstart: Deploy your first container app
+# Quickstart: Deploy your first container app with containerapp up
 
 The Azure Container Apps service enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while you leave behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
@@ -22,8 +22,6 @@ In this quickstart, you create and deploy your first container app.
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-
-## Setup
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-setup-cli-only.md)]
 
