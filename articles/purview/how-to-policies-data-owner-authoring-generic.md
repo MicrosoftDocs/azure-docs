@@ -77,7 +77,7 @@ Now that you have created your policy, you will need to publish it for it to bec
 ## Publish a policy
 A newly created policy is in the **draft** state. The process of publishing associates the new policy with one or more data sources under governance. This is called "binding" a policy to a data source.
 
-Ensure you have the *Data Source Admin* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-publish-data-owner-policies)
+Ensure you have the *Data Source Admin* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-for-publishing-data-owner-policies)
 
 The steps to publish a policy are as follows:
 
@@ -99,7 +99,7 @@ The steps to publish a policy are as follows:
 > After making changes to a policy, there is no need to publish it again for it to take effect if the data source(s) continues to be the same.
 
 ## Unpublish a policy
-Ensure you have the *Data Source Admin* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-needed-to-publish-data-owner-policies)
+Ensure you have the *Data Source Admin* permission as described [here](how-to-enable-data-use-management.md#configure-microsoft-purview-permissions-for-publishing-data-owner-policies)
 
 The steps to publish a policy are as follows:
 
