@@ -75,8 +75,6 @@ settings.setMediaPlaybackRequiresUserGesture(false);
 - DeviceManager.getMicrophones()
 - DeviceManager.getSpeakers() (If the device supports speaker enumeration)
 
-  :::image type="content" source="./media/android-webview/empty-device-name.png" alt-text="Screenshot showing the empty device name issue":::
-
   To provide a better UI experience, you can use the following workaround to get device labels and map the label by device id.
   Although we cannot get device labels from MediaDevices.enumerateDevices(), we can get label from MediaStreamTrack.
   This requires the application using getUserMedia to get stream and map the device id.
