@@ -106,19 +106,19 @@ If **Verification code from mobile app or hardware token** is enabled in the leg
 
 In the legacy MFA policy, there are separate controls for **SMS** and **Phone calls**. In the legacy SSPR policy, however, there's a **Mobile phone** control that enables mobile phones for both SMS and voice calls. Another control for **Office phone** enables an office phone only for voice call.
 
-The Authentication methods policy has controls for **SMS** and **Phone calls**, matching the legacy MFA policy. If your tenant is using SSPR and **Mobile phone** is enabled, you'll want to enable both **SMS** and **Phone calls** in the Authentication methods policy. If your tenant is using SSPR and **Office phone** is enabled, you'll want to enable **Phone calls** in the Authentication methods policy and ensure that the **Office phone** option is enabled. 
+The Authentication methods policy has controls for **SMS** and **Phone calls**, matching the legacy MFA policy. If your tenant is using SSPR and **Mobile phone** is enabled, you'll want to enable both **SMS** and **Phone calls** in the Authentication methods policy. If your tenant is using SSPR and **Office phone** is enabled, you'll want to enable **Phone calls** in the Authentication methods policy, and ensure that the **Office phone** option is enabled. 
 
 ### OATH tokens
 
 The OATH token controls in the legacy MFA and SSPR policies were single controls that enabled the use of three different types of OATH tokens: the Microsoft Authenticator app, third-party software OATH TOTP code generator apps, and hardware OATH tokens.
 
-The Authentication methods policy has granular control with separate controls for each of these three types. Use of OTP from Microsoft Authenticator is controlled by the **Allow use of Microsoft Authenticator OTP**  control in the **Microsoft Authenticator** section of the policy, while third party apps are controlled by the **Third party software OATH tokens** secton of the policy. 
+The Authentication methods policy has granular control with separate controls for each type of OATH token. Use of OTP from Microsoft Authenticator is controlled by the **Allow use of Microsoft Authenticator OTP**  control in the **Microsoft Authenticator** section of the policy. Third-party apps are controlled by the **Third party software OATH tokens** section of the policy. 
 
-There will be a control for **Hardware OATH tokens** coming soon, but not yet available. If you are using hardware OATH tokens, which are currently in public preview, you should hold off on migrating OATH tokens and do not complete the migration process.
+Another control for **Hardware OATH tokens** is coming soon. If you are using hardware OATH tokens, now in public preview, you should hold off on migrating OATH tokens and do not complete the migration process.
 
 ### Security questions
 
-There will be a control for **Security questions** coming soon, but not yet available. If you are using security questions, and don't want to disable them, make sure to keep them enabled in the legacy SSPR policy until the new control is available in the future. You _are_ able to finish migration as described below with security questions enabled.
+A control for **Security questions** is coming soon. If you are using security questions, and don't want to disable them, make sure to keep them enabled in the legacy SSPR policy until the new control is available. You _can_ finish migration as described in the next section with security questions enabled.
 
 ## Finish the migration 
 
