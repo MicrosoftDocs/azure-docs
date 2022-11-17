@@ -36,8 +36,6 @@ Typically, you create an Application Insights instance when you create your func
 > [!IMPORTANT]
 > Sovereign clouds, such as Azure Government, require the use of the Application Insights connection string (`APPLICATIONINSIGHTS_CONNECTION_STRING`) instead of the instrumentation key. To learn more, see the [APPLICATIONINSIGHTS_CONNECTION_STRING reference](functions-app-settings.md#applicationinsights_connection_string).
 
-## Application Insights features
-
 The following table details the supported features of Application Insights available for monitoring your function apps:
 
 | Azure Functions runtime version   | 1.x     | 2.x+ | 
