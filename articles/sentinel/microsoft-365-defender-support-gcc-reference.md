@@ -15,42 +15,32 @@ Read more about [GCC environments in Microsoft Sentinel](data-type-support-gcc.m
 
 ## Microsoft Defender for Endpoint
 
-Option 1:
-
-|Data type  |Microsoft Defender 365 |Microsoft Sentinel |
-|---------|---------|---------|
-|DeviceInfo |GA for all clouds* |Public Preview for all clouds* |
-
-*Supported on Azure Commercial, GCC, GCC-High, DoD 
-
-Option 2:
-
 |Data type  |Commercial  |GCC  |GCC-High |DoD |
 |---------|---------|---------|---------|---------|
-|DeviceInfo     |• Microsoft 365 Defender: GA<br>Microsoft Sentinel: Public Preview |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |
-|DeviceNetworkInfo     |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |
-|DeviceProcessEvents     |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |
-|DeviceNetworkEvents     |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |
-|DeviceFileEvents     |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Pubic Preview |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |
-|DeviceRegistryEvents     |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |
-|DeviceLogonEvents     |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |
-|DeviceImageLoadEvents     |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |
-|DeviceEvents     |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |
-|DeviceFileCertificateInfo     |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview         |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |
+|DeviceInfo     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
+|DeviceNetworkInfo     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
+|DeviceProcessEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</ul></li>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
+|DeviceNetworkEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li> |
+|DeviceFileEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Pubic Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
+|DeviceRegistryEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
+|DeviceLogonEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
+|DeviceImageLoadEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
+|DeviceEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
+|DeviceFileCertificateInfo     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
 
 ## Microsoft Defender for Identity
 
 |Data type  |Commercial  |GCC  |GCC-High |DoD |
 |---------|---------|---------|---------|---------|
-|IdentityDirectoryEvents |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |Unsupported |Unsupported |Unsupported |
-IdentityLogonEvents|• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |Unsupported |Unsupported |Unsupported |
-IdentityQueryEvents|• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |Unsupported |Unsupported |Unsupported |
+|IdentityDirectoryEvents |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |Unsupported |Unsupported |Unsupported |
+IdentityLogonEvents|<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |Unsupported |Unsupported |Unsupported |
+IdentityQueryEvents|<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li> |Unsupported |Unsupported |Unsupported |
 
 ## Microsoft Defender for Cloud Apps
 
 |Data type  |Commercial  |GCC  |GCC-High |DoD |
 |---------|---------|---------|---------|---------|
-|CloudAppEvents |• Microsoft 365 Defender: GA<br> • Microsoft Sentinel: Public Preview |Unsupported |Unsupported |Unsupported |
+|CloudAppEvents |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |Unsupported |Unsupported |Unsupported |
 
 ## Microsoft 365 Defender incidents
 
@@ -73,7 +63,7 @@ Micorosft Defender for Cloud Apps Alerts (standalone connector): 	SecurityAlert 
 
 |Data type  |Commercial  |GCC  |GCC-High |DoD |
 |---------|---------|---------|---------|---------|
-|SecurityAlert (IPC) |Public Preview/GA | |Supported |Supported |
+|SecurityAlert (IPC) |Public Preview/GA |Supported |Supported |Supported |
 |AlertEvidence |Public Preview |Unsupported |Unsupported |Unsupported |
 
 ## Next steps
