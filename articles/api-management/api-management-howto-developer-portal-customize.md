@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 10/31/2022
+ms.date: 11/17/2022
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -165,15 +165,15 @@ Although you don't need to adjust any styles, you may consider adjusting particu
 
 ### Visibility and access controls
 
-Some content and functionality of the developer portal are visible only to authenticated users. For example, only authenticated users can see pages for the user profile and user reports.
+Some content and functionality of the developer portal are visible only to certain users. For example, only authenticated users can see pages for the user profile and user reports.
 
-For more fine-grained access control, you can configure which portal content appears to different [users or groups](api-management-howto-create-groups.md) that are set up in your API Management instance. For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access a specific API. Or, you might want to make a certain widget appear only for certain groups. The developer portal has built-in controls for these needs.
+You can also control which portal content appears to different [users or groups](api-management-howto-create-groups.md) that are set up in your API Management instance. For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access a specific API. Or, make a certain widget appear only for certain groups. The developer portal has built-in controls for these needs.
 
-* When you add or edit a page, select the **Access** tab to choose the users or groups that can access the page
+* When you add or edit a page, select the **Access** tab to control the users or groups that can access the page
     
     :::image type="content" source="media/api-management-howto-developer-portal-customize/page-access-control.png" alt-text="Screenshot of the page access control settings in the developer portal.":::
 
-* When you customize page content such as a page section, menu, or widget, select the **Change visibility** icon to choose the users or groups that can see the element on the page
+* When you customize page content such as a page section, menu, or widget, select the **Change visibility** icon to control the users or groups that can see the element on the page
 
     :::image type="content" source="media/api-management-howto-developer-portal-customize/visibility-control.png" alt-text="Screenshot of the visibility control settings in the developer portal.":::
 
