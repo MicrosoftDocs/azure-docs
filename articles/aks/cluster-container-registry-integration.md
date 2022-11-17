@@ -124,10 +124,10 @@ Integrate an existing ACR with an existing AKS cluster using the [`-AcrNameToAtt
 Set-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -AcrNameToAttach <acr-name>
 ```
 
----
-
 > [!NOTE]
 > Running the `Set-AzAksCluster -AcrNameToAttach` cmdlet uses the permissions of the user running the command to create the role ACR assignment. This role is assigned to the [kubelet][kubelet] managed identity. For more information on AKS managed identities, see [Summary of managed identities][summary-msi].
+
+---
 
 ### Detach an ACR from an AKS cluster
 
