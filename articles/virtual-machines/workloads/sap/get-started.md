@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/14/2022
+ms.date: 11/15/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -64,7 +64,9 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
-- November 14, 2022: Proveded more details about nconnect mount option in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
+- November 15, 2022: Change in [HA for SAP HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md), [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) to add recommendation to use mount option `nconnect` for workloads with higher throughput requirements  
+- November 15, 2022: Add a recommendation for minimum required version of package resource-agents in [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md)  
+- November 14, 2022: Provided more details about nconnect mount option in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 - November 14, 2022: Change in [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to update suggested timeouts for `FileSystem` Pacemaker cluster resources     
 - November 07, 2022: Added HANA hook susChkSrv for scale-up pacemaker cluster in [High availability of SAP HANA on Azure VMs on SLES](sap-hana-high-availability.md), [High availability of SAP HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md)  
 - November 07, 2022: Added monitor operation for azure-lb resource in [High availability of SAP HANA on Azure VMs on SLES](sap-hana-high-availability.md), [SAP HANA scale-out with HSR and Pacemaker on SLES](sap-hana-high-availability-scale-out-hsr-suse.md), [Set up IBM Db2 HADR on Azure virtual machines (VMs)](dbms-guide-ha-ibm.md), [Azure VMs high availability for SAP NetWeaver on SLES for SAP Applications with simple mount and NFS](high-availability-guide-suse-nfs-simple-mount.md), [Azure VMs high availability for SAP NW on SLES with NFS on Azure File](high-availability-guide-suse-nfs-azure-files.md), [Azure VMs high availability for SAP NW on SLES with Azure NetApp Files](high-availability-guide-suse-netapp-files.md), [Azure VMs high availability for SAP NetWeaver on SLES](high-availability-guide-suse.md), [High availability for NFS on Azure VMs on SLES](high-availability-guide-suse-nfs.md), [Azure VMs high availability for SAP NetWeaver on SLES multi-SID guide](high-availability-guide-suse-multi-sid.md)

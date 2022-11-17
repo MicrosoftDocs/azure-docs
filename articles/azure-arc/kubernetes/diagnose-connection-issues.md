@@ -62,7 +62,7 @@ If everything is working correctly, your pods should all be in the `Running` sta
 
 ### Still having problems?
 
-The steps above will resolve many common connection issues, but if you're still unable to connect successfully, generate a troubleshooting log file and then [open a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) so we can investigate the problem further.
+The steps above will resolve many common connection issues, but if you're still unable to connect successfully, generate a troubleshooting log file and then [open a support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) so we can investigate the problem further.
 
 To generate the troubleshooting log file, run the following command:
 
@@ -70,17 +70,29 @@ To generate the troubleshooting log file, run the following command:
 az connectedk8s troubleshoot -g <myResourceGroup> -n <myK8sCluster>
 ```
 
-When you [create your support request](/azure/azure-portal/supportability/how-to-create-azure-support-request), in the **Additional details** section, use the **File upload** option to upload the generated log file.
+When you [create your support request](../../azure-portal/supportability/how-to-create-azure-support-request.md), in the **Additional details** section, use the **File upload** option to upload the generated log file.
 
 ## Connections with a proxy server
 
 If you are using a proxy server on at least one machine, complete the first five steps of the non-proxy flowchart (through resource provider registration) for basic troubleshooting steps. Then, if you are still encountering issues, review the next flowchart for additional troubleshooting steps. More details about each step are provided below.
 
-:::image type="content" source="media/diagnose-connection-issues/proxy-flowchart.png" alt-text="Flowchart showing a visual representation of checking for connection issues when using a proxy." lightbox="media/diagnose-connection-issues/proxy-flowchart.png":::
+:::image type="content" source="media/diagnose-connection-issues/proxy-flowchart-2.png" alt-text="Flowchart showing a visual representation of checking for connection issues when using a proxy." lightbox="media/diagnose-connection-issues/proxy-flowchart-2.png":::
 
 ### Is the machine executing commands behind a proxy server?
 
+If the machine is executing commands behind a proxy server, you'll need to set any necessary environment variables, [explained below](#set-environment-variables).
+
+### Set environment variables
+
 Be sure you have set all of the necessary environment variables. For more information, see [Connect using an outbound proxy server](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
+
+For example:
+
+```bash
+export HTTP_PROXY=“http://<proxyIP>:<proxyPort>”
+export HTTPS_PROXY=“https://<proxyIP>:<proxyPort>”
+export NO_PROXY=“<service CIDR>,Kubernetes.default.svc,.svc.cluster.local,.svc”
+```
 
 ### Does the proxy server only accept trusted certificates?
 
@@ -118,7 +130,7 @@ If everything is working correctly, your pods should all be in the `Running` sta
 
 ### Still having problems?
 
-The steps above will resolve many common connection issues, but if you're still unable to connect successfully, generate a troubleshooting log file and then [open a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) so we can investigate the problem further.
+The steps above will resolve many common connection issues, but if you're still unable to connect successfully, generate a troubleshooting log file and then [open a support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) so we can investigate the problem further.
 
 To generate the troubleshooting log file, run the following command:
 
@@ -126,8 +138,7 @@ To generate the troubleshooting log file, run the following command:
 az connectedk8s troubleshoot -g <myResourceGroup> -n <myK8sCluster>
 ```
 
-When you [create your support request](/azure/azure-portal/supportability/how-to-create-azure-support-request), in the **Additional details** section, use the **File upload** option to upload the generated log file.
-
+When you [create your support request](../../azure-portal/supportability/how-to-create-azure-support-request.md), in the **Additional details** section, use the **File upload** option to upload the generated log file.
 
 ## Next steps
 

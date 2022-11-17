@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/28/2022
+ms.date: 11/16/2022
 ms.author: kendownie
 ---
 
@@ -28,6 +28,8 @@ Update-AzStorageAccountADObjectPassword `
         -ResourceGroupName "<your-resource-group-name-here>" `
         -StorageAccountName "<your-storage-account-name-here>"
 ```
+
+This action will change the password for the AD object from kerb1 to kerb2. This is intended to be a two-stage process: rotate from kerb1 to kerb2 (kerb2 will be regenerated on the storage account before being set), wait several hours, and then rotate back to kerb1 (this cmdlet will likewise regenerate kerb1).
 
 ## Applies to
 | File share type | SMB | NFS |

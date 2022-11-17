@@ -35,6 +35,10 @@ landingContent:
             url: /training/paths/architect-network-infrastructure/
           - text: Explore Azure networking services
             url: /training/modules/azure-networking-fundamentals/
+      - linkListType: deploy
+        links:
+          - text: Azure Networking Solutions
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions
   
   # Card (optional)
   - title: Get started

@@ -2,7 +2,7 @@
 title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with Application Map and Intelligent view.
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 11/15/2022
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ms.reviewer: rijolly 
@@ -422,7 +422,7 @@ There are many filter combinations. Here are some suggestions that apply to most
 -   Hide a dependency type that is too noisy:
      :::image type="content" source="media/app-map/image-16.png" alt-text="A screenshot displaying the Last 24 hours and Nodes Contains Storage Accounts filters.":::
 
--   Show only connectors that have higher error rates than a specific
+-   Show only connectors that have higher error rates than a specific value
      :::image type="content" source="media/app-map/image-17.png" alt-text="A screenshot displaying the Last 24 hours and Errors greater than 0.01 filters.":::  
 
 ---------------------------------------------------------------------------------

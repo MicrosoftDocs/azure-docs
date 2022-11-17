@@ -33,21 +33,15 @@ Get started with using audio streams through Azure Communication Services Media 
 When ACS has received the URL for your WebSocket server, it will create a connection to it. Once ACS has successfully connected to your WebSocket server, it will send through the first data packet which contains metadata regarding the incoming media packets.
 
 ``` code
-/**
- * The first message upon WebSocket connection will be the metadata packet
- * which contains the subscriptionId and audio format
- */
-public class AudioMetadataSample {
-    public string kind; // What kind of data this is, e.g. AudioMetadata, AudioData.
-    public AudioMetadata audioMetadata;
-}
-
-public class AudioMetadata {
-    public string subscriptionId // unique identifier for a subscription request
-    public string encoding; // PCM only supported
-    public int sampleRate; // 16000 default
-    public int channels; // 1 default
-    public int length; // 640 default
+{
+    "kind": <string> // What kind of data this is, e.g. AudioMetadata, AudioData.
+    "audioMetadata": {
+        "subscriptionId": <string>, // unique identifier for a subscription request
+        "encoding":<string>, // PCM only supported
+        "sampleRate": <int>, // 16000 default
+        "channels": <int>, // 1 default
+        "length": <int> // 640 default
+    }
 }
 ```
 
@@ -55,20 +49,15 @@ public class AudioMetadata {
 After sending through the metadata packet, ACS will start streaming audio media to your WebSocket server. Below is an example of what the media object your server will receive looks like. 
 
 ``` code
-/**
- * The audio buffer object which is then serialized to JSON format
- */
-public class AudioDataSample {
-    public string kind; // What kind of data this is, e.g. AudioMetadata, AudioData.
-    public AudioData audioData;
+{
+    "kind": <string>, // What kind of data this is, e.g. AudioMetadata, AudioData.
+    "audioData":{
+        "data": <string>, // Base64 Encoded audio buffer data
+        "timestamp": <string>, // In ISO 8601 format (yyyy-mm-ddThh:mm:ssZ) 
+        "participantRawID": <string>, 
+        "silent": <boolean> // Indicates if the received audio buffer contains only silence.
+    }
 }
-
-public class AudioData {
-    public string data; // Base64 Encoded audio buffer data
-    public string timestamp; // In ISO 8601 format (yyyy-mm-ddThh:mm:ssZ) 
-    public string participantRawID;
-    public boolean silent; // Indicates if the received audio buffer contains only silence.
-} 
 ```
 
 Example of audio data being streamed 

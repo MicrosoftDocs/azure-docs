@@ -16,7 +16,7 @@ This article is a guide to troubleshoot and configure Azure Synapse Link for Azu
 
 ## Symptom
 
-For the safety of data, users may choose to set [auto-failover group](/sql/azure-sql/database/failover-group-add-single-database-tutorial) for Azure SQL Database. By setting failover group, users can group multiple geo-replicated databases that can protect a potential data loss. However, when Azure Synapse Link for Azure SQL Database has been started for the table in the Azure SQL Database and the database experiences failover, Synapse Link will be disabled in the backend even though its status is still displayed as running. 
+For the safety of data, users may choose to set [auto-failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial) for Azure SQL Database. By setting failover group, users can group multiple geo-replicated databases that can protect a potential data loss. However, when Azure Synapse Link for Azure SQL Database has been started for the table in the Azure SQL Database and the database experiences failover, Synapse Link will be disabled in the backend even though its status is still displayed as running. 
 
 ## Resolution
 
@@ -61,5 +61,5 @@ You must stop Synapse Link manually and configure Synapse Link according to the 
  
 ## Next steps
 
- - [Tutorial: Add an Azure SQL Database to an auto-failover group](/sql/azure-sql/database/failover-group-add-single-database-tutorial)
+ - [Tutorial: Add an Azure SQL Database to an auto-failover group](/azure/azure-sql/database/failover-group-add-single-database-tutorial)
  - [Get started with Azure Synapse Link for Azure SQL Database](../connect-synapse-link-sql-database.md)
