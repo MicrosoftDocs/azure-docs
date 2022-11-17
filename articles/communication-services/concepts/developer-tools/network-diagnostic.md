@@ -47,5 +47,4 @@ The test provides a **unique identifier** for your test which you can provide ou
 - [Use Pre-Call Diagnostic APIs to build your own tech check](../voice-video-calling/pre-call-diagnostics.md)
 - [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
 - [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
-- [Debug your application with Monitoring tool](./real-time-inspection.md)
 - [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)
