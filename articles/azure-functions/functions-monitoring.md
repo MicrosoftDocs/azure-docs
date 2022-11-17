@@ -20,8 +20,10 @@ You can also monitor the function app itself by using Azure Monitor. To learn mo
 
 ## Supported features
 
-| Azure Functions                   | Version 1.x     | Version 2.x+ | 
-|-----------------------------------|---------------|------------------|
+The following table details the supported features of Application Insights available for monitoring your function apps:
+
+| Azure Functions runtime version   | 1.x     | 2.x+ | 
+|-----------------------------------|:---------------:|:------------------:|
 | | | | 
 | **Automatic  collection of**        |               |                  |
 | &bull; Requests                     | ✓           | ✓              |
@@ -29,8 +31,8 @@ You can also monitor the function app itself by using Azure Monitor. To learn mo
 | &bull; Performance Counters         | ✓           | ✓              |
 | &bull; Dependencies                 |               |                  |
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | ✓              |
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               | ✓              |
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               | ✓              |
+| &nbsp;&nbsp;&nbsp;&mdash; Service Bus|               | ✓              |
+| &nbsp;&nbsp;&nbsp;&mdash; Event Hubs  |               | ✓              |
 | &nbsp;&nbsp;&nbsp;&mdash; SQL\*       |               | ✓              |
 | | | | 
 | **Supported features**              |               |                  |
@@ -40,8 +42,8 @@ You can also monitor the function app itself by using Azure Monitor. To learn mo
 | &bull; Heartbeats                   | | Yes              | 
 | | | |
 | **Correlation**                    |               |                  |
-| &bull; ServiceBus                  |               | Yes              |
-| &bull; EventHub                    |               | Yes              |
+| &bull; Service Bus                  |               | Yes              |
+| &bull; Event Hubs                    |               | Yes              |
 | | | | 
 | **Configurable**                  |               |                  |           
 | &bull;[Fully configurable](#custom-telemetry-data)           |               | Yes                 | 
