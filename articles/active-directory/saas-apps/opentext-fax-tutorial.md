@@ -145,11 +145,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Provide the following required information:
 
-    a. In the **Sign In URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    a. In the **Issuer (Identity Provider)** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    
+    b. In the **Sign In URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    b. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Signing Certificate** textbox.
+    c. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Signing Certificate** textbox.
 
-    c. click **Save**.
+    d. click **Save**.
 
 > [!NOTE]
 > Keep the fail-safe URL (`https://login.[domain]/[account]/no-sso`) provided at the bottom of the SSO configuration section, it will allow you to log in using your XM Cloud account credentials if you lock yourself after SSO activation.
