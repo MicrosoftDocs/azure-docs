@@ -16,6 +16,23 @@ ms.service: digital-twins
 
 # Ingesting OPC UA data with Azure Digital Twins
 
+# Introduction
+
+This solution provides an automated ingestion path from OPC UA-enabled manufacturing assets in multiple simulated factories to digital twins in an Azure Digital Twins service. More specifically, the example:
+* Simulates 8 OPC UA production lines in 6 locations, with each production line featuring a assembly, test and packaging machines. These machines are controlled by a seperate Manufacturing Execution System.
+
+:::image type="content" source="media/how-to-ingest-opcua-data/productionline.png" alt-text="Drawing of the opc ua production line" lightbox="media/how-to-ingest-opcua-data/production-line-3.png":::
+
+* The UA Cloud Publisher reads OPC UA data from each simulated factory and forwards it via OPC UA Pub Sub over MQTT to Azure IoT Hub. UA Cloud Publisher runs in a Docker container for easy deployment.
+
+* The UA Cloud Twin reads and processes the OPC UA data from IoT Hub and forwards it to Azire Digital Twins service. UA Cloud Twin runs in a Docker container for easy deployment.
+
+* The UA Cloud Twin creates digital twins in Azure Digital Twins service automatically and on-the-fly, mapping each OPC UA element (publishers, server namespaces and nodes) to a seperate digital twin.
+
+* The UA Cloud Twin also automatically updates each digital twin on OPC UA node data changes. This allows the historization of digital twin time-series data in Azure Data Explorer for condition monitoring, OEE calculation and predictive maitenance scenarios.
+
+## About OPC UA
+
 The [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a platform independent, service-oriented architecture for industrial verticals. It's used for machine to machine communication, machine to SCADA system or Manufacturing Execution System communication and more recently also for field-level communication and cloud communication. It comes with best-in-class security and rich data modeling capabilities and represents the standard bar none for modeling and communicating with industrial assets. Microsoft has been a member of the OPC Foundation, OPC UA's non-profit governing body since its foundation. Microsoft has been integrating OPC UA into its products since 2015 and has been instrumental in defining the use of OPC UA in the cloud.
 
 Using the solution outlined below has several advantages over traditional mechanisms:
@@ -32,7 +49,7 @@ Learn more about the [manufacturing ontologies](https://github.com/digitaltwinco
 
 Here are the components required for this solution.
 
- :::image type="content" source="media/how-to-ingest-opcua-data/opcua-to-adt-diagram-1.png" alt-text="Drawing of the opc ua to Azure Digital Twins architecture" lightbox="media/how-to-ingest-opcua-data/opcua-to-adt-diagram-1.png":::    
+ :::image type="content" source="media/how-to-ingest-opcua-data/opcua-to-adt-diagram-1.png" alt-text="Drawing of the opc ua to Azure Digital Twins architecture" lightbox="media/how-to-ingest-opcua-data/opcua-to-adt-diagram-1.png":::
 
 | Component | Description |
 | --- | --- |
@@ -67,8 +84,10 @@ You can use Azure Digital Twins Explorer to monitor twin property updates and ad
 
 :::image type="content" source="media/how-to-ingest-opcua-data/adt-explorer-2.png" alt-text="Screenshot of using azure digital twins explorer to monitor twin property updates":::
 
+7. Set up the [Data History](https://learn.microsoft.com/en-us/azure/digital-twins/concepts-data-history) feature in the Azure Digital Twins service to historize your contextualized OPC UA data to Azure Data Explorer deployed in this solution. You can find the wizard to set this up in the Azure Digital Twins service configuration in the Azure portal. 
+
 ## Next steps
 
-In this article, you set up a full data flow for getting OPC UA data into Azure Digital Twins from simulated production lines.
+Setup Azure Data Explorer also allows you to create condition monitoring [dashboards](https://learn.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards) with a few clicks.
 
-Next, use the instructions [replacing the simulation with a real production line instructions](https://github.com/digitaltwinconsortium/ManufacturingOntologies#replacing-the-production-line-simulation-with-a-real-production-line) to connect your own industrial assets.
+Use the instructions [replacing the simulation with a real production line instructions](https://github.com/digitaltwinconsortium/ManufacturingOntologies#replacing-the-production-line-simulation-with-a-real-production-line) to connect your own industrial assets.
