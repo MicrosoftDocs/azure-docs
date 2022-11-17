@@ -39,7 +39,7 @@ To manage the Authentication methods policy, click **Security** > **Authenticati
 
 :::image type="content" border="true" source="./media/concept-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
 
-Only the [converged registration experience](concept-registration-mfa-sspr-combined.md) is aware of the Authentication methods policy. Users in scope of the Authentication methods policy but not the converged registration experience will not see the correct methods to register.
+Only the [converged registration experience](concept-registration-mfa-sspr-combined.md) is aware of the Authentication methods policy. Users in scope of the Authentication methods policy but not the converged registration experience won't see the correct methods to register.
 
 Management of some methods in the Authentication methods policy is currently in preview and management of the rest is generally available as noted in the portal. Registration and usage of the methods is considered general availability unless otherwise noted.
 
@@ -48,7 +48,7 @@ Management of some methods in the Authentication methods policy is currently in 
 Two other policies, located in **Multifactor authentication** settings and **Password reset** settings, provide a legacy way to manage some authentication methods for all users in the tenant. You can't control who uses an enabled authentication method, or how the method can be used. A [Global Administrator](../roles/permissions-reference.md#global-administrator) is needed to manage these policies. 
 
 >[!NOTE]
->Hardware OATH tokens and security questions can only be enabled today by using these legacy policies. In the future, they will be available in the Authentication methods policy.
+>Hardware OATH tokens and security questions can only be enabled today by using these legacy policies. In the future, these methods will be available in the Authentication methods policy.
 
 To manage the legacy MFA policy, click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**.
 
@@ -60,7 +60,7 @@ To manage authentication methods for self-service password reset (SSPR), click *
 
 ## How policies work together
 
-Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. Azure AD respects the settings in all of the policies so a user who is enabled for an authentication method in _any_ policy can register and use that method. To prevent users from using a method, it must be disable in all policies.
+Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. Azure AD respects the settings in all of the policies so a user who is enabled for an authentication method in _any_ policy can register and use that method. To prevent users from using a method, it must be disabled in all policies.
 
 Let's walk through an example where a user who belongs to the Accounting group wants to register Microsoft Authenticator. The registration process first checks the Authentication methods policy. If the Accounting group is enabled for Microsoft Authenticator, the user can register it. 
 
@@ -103,7 +103,7 @@ Tenants are set to either Pre-migration or Migration in Progress by default, dep
 
 ## Known issues
 
-* Currently, all users must be enabled for at least one non-passwordless, MFA-usable method that the user can register in the registration interrupt mode. This includes Authenticator app, SMS, voice call, and software OATH/mobile app code. The method(s) can be enabled in any policy. If a user is not eligible for at least one of those methods, the user will experience an error in the registration experience and when visiting My Security Info. We're working to improve this experience to enable fully passwordless configurations. 
+* Currently, all users must be enabled for at least one MFA method that isn't passwordless and the user can register in interrupt mode. Possible methods include Microsoft Authenticator, SMS, voice call, and software OATH/mobile app code. The method(s) can be enabled in any policy. If a user is not eligible for at least one of those methods, the user will see an error during registration and when visiting My Security Info. We're working to improve this experience to enable fully passwordless configurations. 
   
 ## Next steps
 
