@@ -1529,7 +1529,7 @@ items:
     - name: Endpoint overrides
       href: app/custom-endpoints.md
     - name: Azure Functions
-      href: app/azure-functions-supported-features.md
+      href: ../azure-functions/functions-monitoring.md
     - name: Statsbeat
       href: app/statsbeat.md
     - name: Release notes
@@ -1561,7 +1561,7 @@ items:
       - name: Context
         href: app/data-model-context.md
       - name: Integration with Azure Functions
-        href: app/azure-functions-supported-features.md
+        href: app/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell
     items:
     - name: Azure Monitor
