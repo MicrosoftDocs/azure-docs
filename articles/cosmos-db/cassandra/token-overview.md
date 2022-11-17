@@ -15,11 +15,11 @@ ms.date: 11/04/2022
 
 This article discusses tokens and token function in Azure Cosmos DB for Apache Cassandra and clarifies the difference between the computation and usage of token in native Cassandra.
 
-## What is Token?
+## What is a Token
 
 A token is a hashed partition key used to distribute data across the cluster. When data is distributed in Apache Cassandra, a range of tokens are assigned to each node, and you can either assign a token range or this can be done by Cassandra. So, when data is ingested, Cassandra can calculate the token and use that in finding the node to store the newly ingested data. 
 
-## What is the Token Function? 
+## What is the Token Function
 
 The Token Function is a function available via the CQL API of a Cassandra cluster. It provides a means to expose the partitioning function used by the cluster. As a cql function, Token differs from most other functions, since it restricts the parameters passed to it based on the table that you are querying. The number of parameters allowed for the function equates to the number of partition keys for the table being queried, and the data type of the parameters are also restricted to the data types of the corresponding partition keys. 
 
