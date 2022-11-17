@@ -3,7 +3,7 @@ title: Logic Apps connector with ARM-based AVI accounts
 description: This article shows how to unlock new experiences and monetization opportunities Azure Video Indexer connectors with Logic App and Power Automate with AVI ARM accounts.
 ms.author: Itnorman
 ms.topic: how-to
-ms.date: 08/04/2022
+ms.date: 11/1t/2022
 ---
 
 # Logic Apps connector with ARM-based AVI accounts
@@ -38,13 +38,13 @@ The logic apps that you create in this article, contain one flow per app. The se
 
 ## Set up the first flow - file upload
 
-In this section you'll, you create the following flow. The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Azure Video Indexer with a callback URL to send a notification once the indexing operation completes. 
+This section describes how to set up the first ("file upload") flow. The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Azure Video Indexer with a callback URL to send a notification once the indexing operation completes. 
 
 The following image shows the first flow:
 
 ![Screenshot of the file upload flow.](./media/logic-apps-connector-arm-accounts/first-flow-high-level.png)
 
-1. Create the [Logic App](https://portal.azure.com/#create/Microsoft.LogicApp). We create a Logic App in the same region as the Azure Video  Indexer region (recommended but not required). We call the logic app `UploadIndexVideosApp`.
+1. Create the  <a href="https://portal.azure.com/#create/Microsoft.LogicApp" target="_blank">Logic App</a>. We create a Logic App in the same region as the Azure Video  Indexer region (recommended but not required). We call the logic app `UploadIndexVideosApp`.
 
     1. Select **Consumption** for **Plan type**.
     1. Press **Review + Create** -> **Create**.
