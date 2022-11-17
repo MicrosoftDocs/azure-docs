@@ -41,6 +41,22 @@ With Flexible orchestration, Azure provides a unified experience across the Azur
 ## What has changed with Flexible orchestration mode?
 One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with Uniform orchestration. There are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
 
+Flexible orchestration mode can be used with all VM sizes. Flexible orchestration mode provides the highest scale and configurability for VM sizes that support memory preserving updates or live migration (such as B, D, E and F-series) or when the scale set is configured for maximum spreading between instances (`platformFaultDomainCount=1`). Currently, the Flexible orchestration mode has additional constraints for VM sizes that do not support memory preserving updates (including G, H, L, M, and N-series VMs) and instances are spread across multiple fault domains. You can use the Compute Resource SKUs API to determine whether a specific VM SKU support memory preserving updates. 
+
+ 
+| | Memory Preserving Updates Supported **or** Scale set with Max Spreading (`platformFaultDomainCount=1`) | Memory Preserving Updates Not Supported **and** Fixed Spreading (`platformFaultDomainCount > 1`) | 
+|---|---|---|
+|Maximum VMSS Instance Count | 1000 | 200 | 
+| Mix operating systems | Yes | Yes |
+| Mix Spot and On-demand instances | Yes | No | 
+| Mix General Purpose and Specialty SKU Types | Yes (`FDCount = 1`) | No | 
+| Maximum Fault Domain Count | Regional – 3 (depending on the regional fault domain max count) <br> Zonal – 1  | Regional – 3 <br> Zonal – 1  |
+| Spread instances across zones | Yes | Yes | 
+| Assign VM to a Specific Zone | Yes | Yes | 
+| Assign VM to a Specific Fault domain | Yes | No | 
+| Update Domains | No | No | 
+| Single Placement Group | Optional (will be set to false based on 1st VM deployed) | Optional (will be set to true based on 1st VM deployed) | 
+
 ### Scale out with standard Azure virtual machines
 Virtual machine scale sets in Flexible Orchestration mode manage standard Azure VMs. You have full control over the virtual machine lifecycle, as well as network interfaces and disks using the standard Azure APIs and commands. Virtual machines created with Uniform orchestration mode are exposed and managed via the virtual machine scale set VM API commands. Individual instances are not compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging RBAC permissions, Azure Backup, or Azure Site Recovery.
 
