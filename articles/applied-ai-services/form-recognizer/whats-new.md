@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/16/2022
+ms.date: 11/17/2022
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -32,7 +32,6 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 ---
 
 * **Form Recognizer versioned content**
-
   * Form Recognizer documentation has been updated to present a versioned experience. Now, you can choose to view content targeting the v3.0 GA experience or the v2.1 GA experience. The v3.0 experience is the default.
 
     :::image type="content" source="media/versioning-and-monikers.png" alt-text="Screenshot of the Form Recognizer landing page denoting the version dropdown menu.":::
@@ -59,9 +58,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## September 2022
 
-* **Region expansion for training custom neural models**
-  * Training custom neural models is now supported in six new regions.
-
+* **Region expansion for training custom neural models now supported in six new regions**
     > [!div class="checklist"]
     >
     > * Australia East
@@ -74,17 +71,14 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md).
 
   * Form Recognizer SDK version 4.0.0 GA release
-
-  * **Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
-
-  * For more information on Form Recognizer SDKs, see the [**SDK overview**](sdk-overview.md).
-
-  * Update your applications using your programming language's **migration guide** (see below).
+    * **Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
+    * For more information on Form Recognizer SDKs, see the [**SDK overview**](sdk-overview.md).
+    * Update your applications using your programming language's **migration guide** (see below).
 
   >[!NOTE]
   > Starting with version 4.0.0, a new set of clients has been introduced to leverage the newest features of the Form Recognizer service.
 
-SDK version 4.0.0 GA release includes the following updates:
+**SDK version 4.0.0 GA release includes the following updates:**
 
 ### [**C#**](#tab/csharp)
 
@@ -154,9 +148,7 @@ SDK version 4.0.0 GA release includes the following updates:
 
 ## August 2022
 
-* Form Recognizer SDK beta August 2022 preview release
-
-This release includes the following updates:
+**Form Recognizer SDK beta August 2022 preview release includes the following updates:**
 
 ### [**C#**](#tab/csharp)
 
@@ -207,9 +199,7 @@ This release includes the following updates:
 
   * **Form Recognizer REST API v3.0 is now generally available and ready for use in production applications!** Update your applications with [**REST API version 2022-08-31**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
 
-* The August release introduces the following new capabilities and updates:
-  * Form Recognizer Studio updates
-
+* Form Recognizer Studio updates
   > [!div class="checklist"]
   >
   > * **Next steps**. Under each model page, the Studio now has a next steps section. Users can quickly reference sample code, troubleshooting guidelines, and pricing information.
@@ -220,42 +210,30 @@ This release includes the following updates:
 * Form Recognizer service updates
 
   * [**prebuilt-read**](concept-read.md). Read OCR model is now also available in Form Recognizer with paragraphs and language detection as the two new features. Form Recognizer Read targets advanced document scenarios aligned with the broader document intelligence capabilities in Form Recognizer.
-
   * [**prebuilt-layout**](concept-layout.md). The Layout model extracts paragraphs and whether the extracted text is a paragraph, title, section heading, footnote, page header, page footer, or page number.
-
   * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields will now resolve to the existing fields TotalTax and Line/Tax respectively.
-
   * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
-
   * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
-
   * [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract subfields for address components like address, city, state, country, and zip code.
 
 * **AI quality improvements**
 
   * [**prebuilt-read**](concept-read.md). Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices and improved processing of digital PDF documents.
-
   * [**prebuilt-layout**](concept-layout.md). Support for better detection of cropped tables, borderless tables, and improved recognition of long spanning cells.
-
   * [**prebuilt-document**](concept-general-document.md). Improved value and check box detection.
-
   * [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
 
 ---
 
 ## June 2022
 
-* [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) June Update
-
-  The June release is the latest update to the Form Recognizer Studio. There are considerable user experience and accessibility improvements addressed in this update:
+* [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) June release is the latest update to the Form Recognizer Studio. There are considerable user experience and accessibility improvements addressed in this update:
 
   * **Code sample for Javascript and C#**. The Studio code tab now adds JavaScript and C# code samples in addition to the existing Python one.
   * **New document upload UI**. Studio now supports uploading a document with drag & drop into the new upload user interface.
   * **New feature for custom projects**. Custom projects now support creating storage account and blobs when configuring the project. In addition, custom project now supports uploading training files directly within the Studio and copying the existing custom model.
 
-* Form Recognizer v3.0 preview release
-
-  The **2022-06-30-preview** release presents extensive updates across the feature APIs:
+* Form Recognizer v3.0 **2022-06-30-preview** release presents extensive updates across the feature APIs:
 
   * [**Layout extends structure extraction**](concept-layout.md). Layout now includes added structure elements including sections, section headers, and paragraphs. This update enables finer grain document segmentation scenarios. For a complete list of structure elements identified, _see_ [enhanced structure](concept-layout.md#data-extraction).
   * [**Custom neural model tabular fields support**](concept-custom-neural.md). Custom document models now support tabular fields. Tabular fields by default are also multi page. To learn more about tabular fields in custom neural models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).
@@ -264,11 +242,9 @@ This release includes the following updates:
   * [**Invoice language expansion**](concept-invoice.md). The invoice model includes expanded language support. _See_ [supported languages](concept-invoice.md#supported-languages-and-locales).
   * [**Prebuilt business card**](concept-business-card.md) now includes Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).
   * [**Prebuilt ID document model**](concept-id-document.md). The ID document model now extracts DateOfIssue, Height, Weight, EyeColor, HairColor, and DocumentDiscriminator from US driver's licenses. _See_ [field extraction](concept-id-document.md).
-  * [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [Microsoft Office and HTML text extraction ](concept-read.md#microsoft-office-and-html-text-extraction).
+  * [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [Microsoft Office and HTML text extraction](concept-read.md#microsoft-office-and-html-text-extraction).
 
-* Form Recognizer SDK beta June 2022 preview release
-
-This new release includes the following updates:
+* Form Recognizer SDK beta June 2022 preview release includes the following updates:
 
 ### [**C#**](#tab/csharp)
 
@@ -316,9 +292,7 @@ This new release includes the following updates:
 
 ## February 2022
 
-* Form Recognizer v3.0 preview release
-
-  Form Recognizer v3.0 preview release introduces several new features and capabilities and enhances existing one:
+* Form Recognizer v3.0 preview release introduces several new features, capabilities and enhancements:
 
   * [**Custom neural model**](concept-custom-neural.md) or custom document model is a new custom model to extract text and selection marks from structured forms, semi-strutured and **unstructured documents**.
   * [**W-2 prebuilt model**](concept-w2.md) is a new prebuilt model to extract fields from W-2 forms for tax reporting and income verification scenarios.
@@ -328,7 +302,7 @@ This new release includes the following updates:
   * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
   * [**Language Expansion**](language-support.md) Form Recognizer Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten language support expands to Japanese and Korean.
 
-  * Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
+* Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
 
 * Form Recognizer model data extraction
 
@@ -344,9 +318,7 @@ This new release includes the following updates:
   | Custom template  |✓  |  ✓ | ✓  | ✓  |  ✓ |
   | Custom neural    |✓  |  ✓ | ✓  | ✓  |   |
 
-* Form Recognizer SDK beta preview release
-
-  This new release includes the following updates:
+* Form Recognizer SDK beta preview release includes the following updates:
 
   * [Custom Document models and modes](concept-custom.md):
     * [Custom template](concept-custom-template.md) (formerly custom form)
@@ -403,9 +375,7 @@ This new release includes the following updates:
 
 ## November 2021
 
-* Form Recognizer v3.0 preview SDK release update (beta.2)
-
-  The beta.2 version of the Azure Form Recognizer SDKs has been released. This new beta release incorporates bug fixes and minor feature updates.
+* **Form Recognizer v3.0 preview SDK release update (beta.2) incorporates bug fixes and minor feature updates:**
 
 ### [**C#**](#tab/csharp)
 
@@ -431,24 +401,17 @@ This new release includes the following updates:
 
 ## October 2021
 
-* Form Recognizer v3.0 preview release (beta.1)
-
-  **Version 4.0.0-beta.1 (2021-10-07)**
-
-   Form Recognizer v3.0 preview release introduces several new features and capabilities:
+* **Form Recognizer v3.0 preview release version 4.0.0-beta.1 (2021-10-07)introduces several new features and capabilities:**
 
   * [**General document**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
   * [**Hotel receipt**](concept-receipt.md) model added to prebuilt receipt processing.
   * [**Expanded fields for ID document**](concept-id-document.md) the ID model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
   * [**Signature field**](concept-custom.md) is a new field type in custom forms to detect the presence of a signature in a form field.
-
   * [**Language Expansion**](language-support.md) Support for 122 languages (print) and 7 languages (handwritten). Form Recognizer Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. The preview includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages. In addition extraction of handwritten text now supports seven languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
-
   * **Tables and text extraction enhancements** Layout now supports extracting single row tables also called key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
-
   * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) To simplify use of the service, you can now access the Form Recognizer Studio to test the different prebuilt models or label and train a custom model
 
-  Get started with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
+  * Get started with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
 
 * Form Recognizer model data extraction
 
@@ -470,11 +433,11 @@ This new release includes the following updates:
 
 * Monitoring menu
 
-:::image type="content" source="media/portal-metrics.png" alt-text="Screenshot showing the monitoring menu in the Azure portal":::
+  :::image type="content" source="media/portal-metrics.png" alt-text="Screenshot showing the monitoring menu in the Azure portal":::
 
 * Charts
 
-:::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metric chart in the Azure portal.":::
+  :::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metric chart in the Azure portal.":::
 
 * **ID document** model update: given names including a suffix, with or without a period (full stop), process successfully:
 
@@ -487,27 +450,19 @@ This new release includes the following updates:
 
 ## July 2021
 
-* System-assigned managed identity support
-
- You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including accounts protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
+* System-assigned managed identity support: You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including accounts protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
 
 ---
 
 ## June 2021
 
-* Form Recognizer containers v2.1 released in gated preview
-
-  * Form Recognizer features are now supported by six feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom**. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
+* Form Recognizer containers v2.1 released in gated preview and are now supported by six feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom**. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
 
   * *See* [**Install and run Docker containers for Form Recognizer**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout) and [**Configure Form Recognizer containers**](containers/form-recognizer-container-configuration.md?branch=main)
 
-* Form Recognizer connector released in preview
+* Form Recognizer connector released in preview: The [**Form Recognizer connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview). The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
 
-  The [**Form Recognizer connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview). The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
-
-* Form Recognizer SDK v3.1.0 patched to v3.1.1 for C#, Java, and Python
-
-  The patch addresses invoices that don't have subline item fields detected such as a  `FormField` with `Text` but no `BoundingBox` or `Page` information.
+* Form Recognizer SDK v3.1.0 patched to v3.1.1 for C#, Java, and Python. The patch addresses invoices that don't have subline item fields detected such as a  `FormField` with `Text` but no `BoundingBox` or `Page` information.
 
 ### [**C#**](#tab/csharp)
 
@@ -533,10 +488,7 @@ This new release includes the following updates:
 
 ## May 2021
 
-* Form Recognizer 2.1 API Generally Available  release
-
-  * Form Recognizer 2.1 is generally available. The General Availability  release marks the stability of the changes introduced in prior 2.1 preview package versions. This release enables you to detect and extract information and data from the following document types:
-
+* Form Recognizer 2.1 is generally available. The GA release marks the stability of the changes introduced in prior 2.1 preview package versions. This release enables you to detect and extract information and data from the following document types:
   > [!div class="checklist"]
   >
   > * [Documents](concept-layout.md)
@@ -546,13 +498,9 @@ This new release includes the following updates:
   > * [Identity documents](./concept-id-document.md)
   > * [Custom forms](concept-custom.md)
 
-* Get started
+* To get started, try the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) and follow the [quickstart](./quickstarts/try-sample-label-tool.md).
 
-  Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) and follow the [quickstart](./quickstarts/try-sample-label-tool.md)
-
-* Layout adds table headers
-
-The updated Layout API table feature adds header recognition with column headers that can span multiple rows. Each table cell has an attribute that indicates whether it's part of a header or not. This update can be used to identify which rows make up the table header.
+* The updated Layout API table feature adds header recognition with column headers that can span multiple rows. Each table cell has an attribute that indicates whether it's part of a header or not. This update can be used to identify which rows make up the table header.
 
 * SDK updates
 
@@ -587,7 +535,7 @@ The updated Layout API table feature adds header recognition with column headers
 ## April 2021
 <!-- markdownlint-disable MD029 -->
 
-### SDK preview updates for API  version 2.1-preview.3
+**SDK preview updates for API  version 2.1-preview.3**
 
 ### [**C#**](#tab/csharp)
 
@@ -632,11 +580,11 @@ The updated Layout API table feature adds header recognition with column headers
 
    For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Form Recognizer documentation.
 
-* **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
+* ** **Bitmap Image file (.bmp) support for custom forms and training methods in the [FormContentType](/java/api/com.azure.ai.formrecognizer.models.formcontenttype?view=azure-java-preview&preserve-view=true#fields) fields**:
 
-* `image/bmp`
-
-* **New property `Pages`  supported by the following classes**:
+  * `image/bmp`
+  
+  * **New property `Pages`  supported by the following classes**:
 
    **[RecognizeBusinessCardsOptions](/java/api/com.azure.ai.formrecognizer.models.recognizebusinesscardsoptions?view=azure-java-preview&preserve-view=true)**</br>
    **[RecognizeCustomFormOptions](/java/api/com.azure.ai.formrecognizer.models.recognizecustomformsoptions?view=azure-java-preview&preserve-view=true)**</br>
@@ -645,16 +593,11 @@ The updated Layout API table feature adds header recognition with column headers
 
   * The `Pages` property allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
 
-* **Bitmap Image file (.bmp) support for custom forms and training methods in the [FormContentType](/java/api/com.azure.ai.formrecognizer.models.formcontenttype?view=azure-java-preview&preserve-view=true#fields) fields**:
-
-  `image/bmp`
-
 * **New keyword argument `ReadingOrder` supported for the following methods**:
 
-* **[beginRecognizeContent](/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizecontent?preserve-view=true&view=azure-java-preview)**</br>
-**[beginRecognizeContentFromUrl](/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizecontentfromurl?view=azure-java-preview&preserve-view=true)**</br>
-
-   The `ReadingOrder` keyword argument is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+  * **[beginRecognizeContent](/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizecontent?preserve-view=true&view=azure-java-preview)**</br>
+  * **[beginRecognizeContentFromUrl](/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizecontentfromurl?view=azure-java-preview&preserve-view=true)**</br>
+  * The `ReadingOrder` keyword argument is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
 * The client defaults to the latest supported service version, which currently is **2.1-preview.3**.
 
@@ -737,13 +680,13 @@ The updated Layout API table feature adds header recognition with column headers
 
 ## March 2021
 
-**Form Recognizer v2.1 public preview 3 is now available.** v2.1-preview.3 has been released, including the following features:
+ **Form Recognizer v2.1 public preview v2.1-preview.3 has been released and includes the following features:**
 
 * **New prebuilt ID model** The new prebuilt ID model enables customers to take IDs and return structured data to automate processing. It combines our powerful Optical Character Recognition (OCR) capabilities with ID understanding models to extract key information from passports and U.S. driver licenses.
 
   [Learn more about the prebuilt ID model](./concept-id-document.md)
 
-   :::image type="content" source="./media/id-canada-passport-example.png" alt-text="passport example" lightbox="./media/id-canada-passport-example.png":::
+   :::image type="content" source="./media/id-canada-passport-example.png" alt-text="Screenshot of a sample passport." lightbox="./media/id-canada-passport-example.png":::
 
 * **Line-item extraction for invoice model** - Prebuilt Invoice model now supports line item extraction; it now extracts full items and their parts - description, amount, quantity, product ID, date and more. With a simple API/SDK call, you can extract useful data from your invoices - text, table, key-value pairs, and line items.
 
@@ -751,7 +694,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 * **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model will extract line items as part of the JSON output in the documentResults section.
 
-    :::image type="content" source="./media/table-labeling.png" alt-text="Table labeling" lightbox="./media/table-labeling.png":::
+    :::image type="content" source="./media/table-labeling.png" alt-text="Screenshot of the table labeling feature." lightbox="./media/table-labeling.png":::
 
     In addition to labeling tables, you can now label empty values and regions. If some documents in your training set don't have values for certain fields, you can label them so that your model will know to extract values properly from analyzed documents.
 
@@ -767,21 +710,19 @@ The updated Layout API table feature adds header recognition with column headers
 
 ## November 2020
 
-* New features
-
-  **Form Recognizer v2.1 public preview 2 is now available.** v2.1-preview.2 has been released, including the following features:
+* **Form Recognizer v2.1-preview.2 has been released and includes the following features:**
 
   * **New prebuilt invoice model** - The new prebuilt Invoice model enables customers to take invoices in various formats and return structured data to automate the invoice processing. It combines our powerful Optical Character Recognition (OCR) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts key text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, amount due, tax amount, ship to, and bill to.
 
-  > [Learn more about the prebuilt invoice model](./concept-invoice.md)
+    > [Learn more about the prebuilt invoice model](./concept-invoice.md)
 
-    :::image type="content" source="./media/invoice-example.jpg" alt-text="invoice example" lightbox="./media/invoice-example.jpg":::
+    :::image type="content" source="./media/invoice-example.jpg" alt-text="Screenshot of a sample invoice." lightbox="./media/invoice-example.jpg":::
 
   * **Enhanced table extraction** - Form Recognizer now provides enhanced table extraction, which combines our powerful Optical Character Recognition (OCR) capabilities with a deep learning table extraction model. Form Recognizer can extract data from tables, including complex tables with merged columns, rows, no borders and more.
 
-    :::image type="content" source="./media/tables-example.jpg" alt-text="tables example" lightbox="./media/tables-example.jpg":::
+    :::image type="content" source="./media/tables-example.jpg" alt-text="Screenshot of tables analysis." lightbox="./media/tables-example.jpg":::
 
-  > [Learn more about Layout extraction](concept-layout.md)
+    > [Learn more about Layout extraction](concept-layout.md)
 
   * **Client library update** - The latest versions of the [client libraries](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api) for .NET, Python, Java, and JavaScript support the Form Recognizer 2.1 API.
   * **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
@@ -789,22 +730,20 @@ The updated Layout API table feature adds header recognition with column headers
   * **Quality improvements** - Extraction improvements including single digit extraction improvements.
   * **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
 
-  [**Try the Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net)
+  * [**Try the Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net)
 
-  ![Screenshot: Sample Labeling tool.](./media/ui-preview.jpg)
+    :::image type="content" source="media/ui-preview.jpg" alt-text="Screenshot of the Sample Labeling tool homepage.":::
 
-  * **Feedback Loop** - When Analyzing files via the Sample Labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
-  * **Auto Label Documents** - Automatically labels added documents based on previous labeled documents in the project.
+    * **Feedback Loop** - When Analyzing files via the Sample Labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
+    * **Auto Label Documents** - Automatically labels added documents based on previous labeled documents in the project.
 
 ---
 
 ## August 2020
 
-* New features
+* **Form Recognizer v2.1-preview.1 has been released and includes the following features:
 
-  **Form Recognizer v2.1 public preview is now available.** V2.1-preview.1 has been released, including the following features:
-
-  * **REST API reference is available** - View the [v2.1-preview.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
+  * **REST API reference is available** - View the [`v2.1-preview.1 reference`](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
   * **New languages supported In addition to English**, the following [languages](language-support.md) are now supported: for `Layout` and `Train Custom Model`: English (`en`), Chinese (Simplified) (`zh-Hans`), Dutch (`nl`), French (`fr`), German (`de`), Italian (`it`), Portuguese (`pt`) and Spanish (`es`).
   * **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key-value pairs for selection marks.
   * **Model Compose** - allows multiple models to be composed and called with a single model ID. When you submit a document to be analyzed with a composed model ID, a classification step is first performed to route it to the correct custom model. Model Compose is available for `Train Custom Model` - _Train with labels_.
@@ -813,7 +752,7 @@ The updated Layout API table feature adds header recognition with column headers
   * **[New locales for prebuilt Receipts](./concept-receipt.md)** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN
   * **Quality improvements** for `Layout`, `Train Custom Model` - _Train without Labels_ and _Train with Labels_.
 
-  **v2.0** includes the following update:
+* **v2.0** includes the following update:
 
   * The [client libraries](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api) for NET, Python, Java, and JavaScript have entered General Availability.
 
@@ -828,8 +767,7 @@ The updated Layout API table feature adds header recognition with column headers
 ## July 2020
 
 <!-- markdownlint-disable MD004 -->
-* New features
-  * **v2.0 reference available** - View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme), and [JavaScript](/javascript/api/overview/azure/).
+* **Form Recognizer v2.0 reference available** - View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme), and [JavaScript](/javascript/api/overview/azure/).
   * **Table enhancements and Extraction enhancements** - includes accuracy improvements and table extractions enhancements, specifically, the capability to learn tables headers and structures in _custom train without labels_.
 
   * **Currency support** - Detection and extraction of global currency symbols.
@@ -842,81 +780,74 @@ The updated Layout API table feature adds header recognition with column headers
 
 ## June 2020
 
-* New features
-
-  * **CopyModel API added to client SDKs** - You can now use the client SDKs to copy models from one subscription to another. See [Back up and recover models](./disaster-recovery.md) for general information on this feature.
-  * **Azure Active Directory integration** - You can now use your Azure AD credentials to authenticate your Form Recognizer client objects in the SDKs.
-  * **SDK-specific changes** - This change includes both minor feature additions and breaking changes. For more information, _see_ the SDK changelogs.
-    * [C# SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
-    * [Python SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
-    * [Java SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
-    * [JavaScript SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_1.0.0-preview.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+* **CopyModel API added to client SDKs** - You can now use the client SDKs to copy models from one subscription to another. See [Back up and recover models](./disaster-recovery.md) for general information on this feature.
+* **Azure Active Directory integration** - You can now use your Azure AD credentials to authenticate your Form Recognizer client objects in the SDKs.
+* **SDK-specific changes** - This change includes both minor feature additions and breaking changes. For more information, _see_ the SDK changelogs.
+  * [C# SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+  * [Python SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Java SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [JavaScript SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_1.0.0-preview.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 ---
 
 ## April 2020
 
-* New features
+* **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0  release. Use the links below to get started with your language of choice:
+* [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
+* [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
+* [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
+* [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
-  * **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0  release. Use the links below to get started with your language of choice:
-    * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
-    * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
-    * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
-    * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme)
+The new SDK supports all the features of the v2.0 REST API for Form Recognizer. You can share your feedback on the SDKs through the [SDK Feedback form](https://aka.ms/FR_SDK_v1_feedback).
 
-    The new SDK supports all the features of the v2.0 REST API for Form Recognizer. You can share your feedback on the SDKs through the [SDK Feedback form](https://aka.ms/FR_SDK_v1_feedback).
+* **Copy Custom Model** You can now copy models between regions and subscriptions using the new Copy Custom Model feature. Before invoking the Copy Custom Model API, you must first obtain authorization to copy into the target resource. This authorization is secured by calling the Copy Authorization operation against the target resource endpoint.
 
-  * **Copy Custom Model** You can now copy models between regions and subscriptions using the new Copy Custom Model feature. Before invoking the Copy Custom Model API, you must first obtain authorization to copy into the target resource. This authorization is secured by calling the Copy Authorization operation against the target resource endpoint.
-
-    * [Generate a copy authorization](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) REST API
-    * [Copy a custom model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) REST API
+* [Generate a copy authorization](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) REST API
+* [Copy a custom model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) REST API
 
 * Security improvements
 
-  * Customer-Managed Keys are now available for FormRecognizer. For more information, see [Data encryption at rest for Form Recognizer](./encrypt-data-at-rest.md).
-  * Use Managed Identities for access to Azure resources with Azure Active Directory. For more information, see [Authorize access to managed identities](../../cognitive-services/authentication.md#authorize-access-to-managed-identities).
+* Customer-Managed Keys are now available for FormRecognizer. For more information, see [Data encryption at rest for Form Recognizer](./encrypt-data-at-rest.md).
+* Use Managed Identities for access to Azure resources with Azure Active Directory. For more information, see [Authorize access to managed identities](../../cognitive-services/authentication.md#authorize-access-to-managed-identities).
 
 ## March 2020
 
-* New features
+* **Value types for labeling** You can now specify the types of values you're labeling with the Form Recognizer Sample Labeling tool. The following value types and variations are currently supported:
+* `string`
+  * default, `no-whitespaces`, `alphanumeric`
+* `number`
+  * default, `currency`
+* `date`
+  * default, `dmy`, `mdy`, `ymd`
+* `time`
+* `integer`
 
-  * **Value types for labeling** You can now specify the types of values you're labeling with the Form Recognizer Sample Labeling tool. The following value types and variations are currently supported:
-    * `string`
-      * default, `no-whitespaces`, `alphanumeric`
-    * `number`
-      * default, `currency`
-    * `date`
-      * default, `dmy`, `mdy`, `ymd`
-    * `time`
-    * `integer`
+See the [Sample Labeling tool](label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
 
-    See the [Sample Labeling tool](label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
+* **Table visualization** The Sample Labeling tool now displays tables that were recognized in the document. This feature lets you view recognized and extracted tables from the document prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
 
-  * **Table visualization** The Sample Labeling tool now displays tables that were recognized in the document. This feature lets you view recognized and extracted tables from the document prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
+* The following image is an example of how tables are recognized and extracted:
 
-    * The following image is an example of how tables are recognized and extracted:
+    :::image type="content" source="media/whats-new/table-viz.png" alt-text="Screenshot of table visualization using the Sample Labeling tool.":::
 
-      > [!div class="mx-imgBorder"]
-      > ![Table visualization using the Sample Labeling tool](./media/whats-new/table-viz.png)
+* The extracted tables are available in the JSON output under `"pageResults"`.
 
-    * The extracted tables are available in the JSON output under `"pageResults"`.
-
-      > [!IMPORTANT]
-      > Labeling tables isn't supported. If tables are not recognized and extrated automatically, you can only label them as key/value pairs. When labeling tables as key/value pairs, label each cell as a unique value.
+  > [!IMPORTANT]
+  > Labeling tables isn't supported. If tables are not recognized and extracted automatically, you can only label them as key/value pairs. When labeling tables as key/value pairs, label each cell as a unique value.
 
 * Extraction enhancements
 
-  * This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text.
+* This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text.
 
 * Sample Labeling tool is now open-source
 
-  * The Form Recognizer Sample Labeling tool is now available as an open-source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
+* The Form Recognizer Sample Labeling tool is now available as an open-source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
 
-  * For more information about the Form Recognizer Sample Labeling tool, review the documentation available on [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+* For more information about the Form Recognizer Sample Labeling tool, review the documentation available on [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 * TLS 1.2 enforcement
 
-  * TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../cognitive-services/security-features.md).
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../cognitive-services/security-features.md).
 
 ## January 2020
 
