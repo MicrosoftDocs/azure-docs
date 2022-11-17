@@ -44,7 +44,7 @@ We have identified support discrepancies between the different clouds for the da
 - Microsoft Defender for Cloud Apps
 - Azure Active Directory Identity Protection
 
-Read more about [support for Microsoft Defender 365 connector data types across different GCC environments](microsoft-365-defender-support-gcc-reference.md).
+Read more about [support for Microsoft Defender 365 connector data types in different clouds](microsoft-365-defender-support-gcc-reference.md).
 
 ## Next steps
 
