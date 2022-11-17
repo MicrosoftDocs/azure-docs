@@ -46,17 +46,33 @@ The migration process consists of several phases. You'll need to deploy Azure st
 > [!TIP]
 > If you are returning to this article, use the navigation on the right side to jump to the migration phase where you left off.
 
-## Phase 1: Identify how many Azure file shares you need
+## Phase 1: Deploy Azure storage resources
 
-[!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
+An Azure file share is stored in the cloud in an Azure storage account.
+For standard storage, another level of performance considerations applies here.
 
-## Phase 2: Deploy Azure storage resources
+If you have highly active shares (shares used by many users and/or applications), two Azure file shares might reach the performance limit of a storage account.
 
-In this phase, consult the mapping table from Phase 1 and use it to provision the correct number of Azure storage accounts and file shares within them.
+I you like to use the maximum number of IO and throughput a storage account offers, consider deploying storage accounts with one file share each.
+You can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them.
 
-[!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
+This recommendation does not apply to premium storage. In premium storage you provision the performance characteristics of each share individually.
 
-## Phase 3: Preparing to use Azure file shares
+These considerations apply more to direct cloud access (through an Azure VM) than to Azure File Sync. If you plan to use only Azure File Sync on these shares, grouping several into a single Azure storage account is fine.
+
+If you've made a list of your shares, you should map each share to the storage account it will be in.
+To complete this phase, you should create a mapping of storage accounts to file shares. Then deploy the Azure storage accounts and Azure file shares from that mapping.
+
+> [!CAUTION]
+> If you create an Azure file share that has a 100 TiB limit, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100-TiB file shares.
+
+By default, storage accounts are created with Azure files shares limited at 5 TiB. Follow the steps in [Create an Azure file share](../articles/storage/files/storage-how-to-create-file-share.md) to create a large file share.
+
+Another consideration when you're deploying a storage account is the redundancy of Azure Storage. See [Azure Storage redundancy options](../articles/storage/common/storage-redundancy.md).
+
+The names of your resources are also important. For example, if you group multiple shares for the HR department into an Azure storage account, you should name the storage account appropriately. Similarly, when you name your Azure file shares, you should use names similar to the ones used for their on-premises counterparts.
+
+## Phase 2: Preparing to use Azure file shares
 
 With the information in this phase, you will be able to decide how your servers and users in Azure and outside of Azure will be enabled to utilize your Azure file shares. The most critical decisions are:
 
@@ -90,11 +106,11 @@ With the information in this phase, you will be able to decide how your servers 
 Before you can use RoboCopy, you need to make the Azure file share accessible over SMB. The easiest way is to mount the share as a local network drive to the Windows Server you are planning on using for RoboCopy.
 
 > [!IMPORTANT]
-> Make sure you mount the Azure file share using the storage account access key. Don't use a domain identity. Before you can successfully mount an Azure file share to a local Windows Server, you need to have completed Phase 3: Preparing to use Azure file shares.
+> Make sure you mount the Azure file share using the storage account access key. Don't use a domain identity. Before you can successfully mount an Azure file share to a local Windows Server, you need to have completed Phase 2: Preparing to use Azure file shares.
 
 Once you are ready, review the [Use an Azure file share with Windows how-to article](storage-how-to-use-files-windows.md). Then mount the Azure file share you want to start the RoboCopy for.
 
-## Phase 4: RoboCopy
+## Phase 3: RoboCopy
 
 The following RoboCopy command will copy only the differences (updated files and folders) from your source storage to your Azure file share.
 
@@ -103,7 +119,7 @@ The following RoboCopy command will copy only the differences (updated files and
 > [!TIP]
 > [Check out the Troubleshooting section](#troubleshoot-and-optimize) if RoboCopy is impacting your production environment, reports lots of errors or is not progressing as fast as expected.
 
-## Phase 5: User cut-over
+## Phase 4: User cut-over
 
 When you run the RoboCopy command for the first time, your users and applications are still accessing files on the source of your migration and potentially change them. It is possible, that RoboCopy has processed a directory, moves on to the next and then a user on the source location adds, changes, or deletes a file that will now not be processed in this current RoboCopy run. This behavior is expected.
 
