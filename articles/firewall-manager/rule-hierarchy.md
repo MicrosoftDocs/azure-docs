@@ -7,7 +7,7 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 11/17/2022
 ms.author: victorh
-ms.custom FY23 content-maintenance
+ms.custom FY23-content-maintenance
 ---
 
 # Use Azure Firewall policy to define a rule hierarchy
