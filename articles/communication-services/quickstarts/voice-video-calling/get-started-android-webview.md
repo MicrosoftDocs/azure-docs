@@ -22,7 +22,7 @@ In this quickstart, you will learn how to run webapps developed with Azure Commu
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
 - An Android WebView application. If you want to get started with sample code, you can [download the webview sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart).
-- A deployed calling web application. [Get started with the web calling sample](../../samples/web-calling-sample)
+- A deployed calling web application. [Get started with the web calling sample](../../samples/web-calling-sample.md)
 
  If you use the [webview sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/WebViewQuickstart).
  All the required configurations and permission handling are ready. You can skip to Known issues.
@@ -75,7 +75,7 @@ settings.setMediaPlaybackRequiresUserGesture(false);
 - DeviceManager.getMicrophones()
 - DeviceManager.getSpeakers() (If the device supports speaker enumeration)
 
-  :::image type="content" source="./media/android-webview/device-name-issue.png" alt-text="Screenshot showing the empty device name issue":::
+  :::image type="content" source="./media/android-webview/empty-device-name.png" alt-text="Screenshot showing the empty device name issue":::
 
   To provide a better UI experience, you can use the following workaround to get device labels and map the label by device id.
   Although we cannot get device labels from MediaDevices.enumerateDevices(), we can get label from MediaStreamTrack.
