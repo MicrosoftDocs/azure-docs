@@ -72,7 +72,7 @@
       - name: Security baseline
         href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Support for data types in different clouds
-        href: data-type-support-gcc.md
+        href: data-type-cloud-support.md
   - name: Find solutions and content
     items:
     - name: About Sentinel content
@@ -547,8 +547,8 @@
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference
       href: dns-ama-fields.md
-    - name: Microsoft 365 Defender data types - GCC 
-      href: microsoft-365-defender-support-gcc-reference.md
+    - name: Microsoft 365 Defender connector data type support
+      href: microsoft-365-defender-cloud-support.md
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks
