@@ -75,7 +75,7 @@ settings.setMediaPlaybackRequiresUserGesture(false);
 - DeviceManager.getMicrophones()
 - DeviceManager.getSpeakers() (If the device supports speaker enumeration)
 
-  The value of name field in the result object will be an empty string. This issue will not affect the function of streaming in the video call but the application users won't be able to know the camera label they select for sending the video.
+  The value of name field in the result object will be an empty string. This issue won't affect the function of streaming in the video call but the application users won't be able to know the camera label they select for sending the video.
   To provide a better UI experience, you can use the following workaround in the web application to get device labels and map the label by `deviceId`.
 
   Although we can't get device labels from MediaDevices.enumerateDevices(), we can get the label from MediaStreamTrack.
