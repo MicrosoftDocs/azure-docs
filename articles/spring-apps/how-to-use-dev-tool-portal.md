@@ -26,7 +26,7 @@ VMware Tanzu Dev Tools includes a set of developer tools to help ease developer 
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
-## Configure Dev Tool Portal
+## Configure Dev Tools Portal
 
 The following sections describe configuration in Dev Tool Portal.
 
