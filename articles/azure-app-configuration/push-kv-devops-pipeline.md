@@ -82,7 +82,7 @@ The following parameters are used by the App Configuration Push task:
     - **Ignore-Match**: Imports only settings that have no matching key-value in App Configuration.
 - **Dry Run**: Default value is **Unchecked**.
    - **Checked**: Prints any updates that would have been performed in a normal run to the console for review.
-    - **Unchecked**: Performs any updates to App Configuration and does not print to the console.
+   - **Unchecked**: Performs any updates to App Configuration and does not print to the console.
 - **Separator**: The separator that's used to flatten .json and .yml files.
 - **Depth**: The depth that the .json and .yml files will be flattened to.
 - **Prefix**: A string that's appended to the beginning of each key pushed to the App Configuration store.
