@@ -39,9 +39,9 @@ After the scheduled deprecation date:
 
 - Customers will not be able to deploy new instances using the affected images. If deprecating a plan, all images within the plan will no longer be available and if deprecating an offer, all images within the offer will no longer be available following deprecation.
 - Active VM instances will not be impacted.
-- Existing virtual machine scale sets (VMSS) deployments cannot be scaled out. If deprecating a plan or offer, all existing VMSS deployments using any image within the plan or offer respectively cannot be scaled out.
+- Existing virtual machine scale sets deployments cannot be scaled out. If deprecating a plan or offer, all existing scale sets deployments using any image within the plan or offer respectively cannot be scaled out.
 > [!TIP]
-> Before you deprecate an offer, plan, or image, make sure you understand the current usage by reviewing the [Usage dashboard in commercial marketplace analytics](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/usage). If usage is high, consider hiding the plan or offer to minimize discoverability within the commercial marketplace. and steer new customers towards other available options. To hide an offer, select the **Hide plan** checkbox on the **Pricing and Availability** page of each individual plan in the offer.
+> Before you deprecate an offer, plan, or image, make sure you understand the current usage by reviewing the [Usage dashboard in commercial marketplace analytics](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/usage). If usage is high, consider hiding the plan or offer to minimize discoverability within the commercial marketplace and steer new customers towards other available options. To hide an offer, select the **Hide plan** checkbox on the **Pricing and Availability** page of each individual plan in the offer.
 
 ## Deprecate an image
 
