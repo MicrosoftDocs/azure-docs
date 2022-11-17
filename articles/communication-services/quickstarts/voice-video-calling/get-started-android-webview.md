@@ -66,7 +66,7 @@ settings.setMediaPlaybackRequiresUserGesture(false);
 
 ## Known issues
 
-### MediaDevices.enumerateDevices() returns empty labels
+### MediaDevices.enumerateDevices() API returns empty labels
 
   It's a [known issue](https://bugs.chromium.org/p/chromium/issues/detail?id=669492) on Android WebView.
   The issue will affect the following API in Web SDK:
@@ -75,10 +75,11 @@ settings.setMediaPlaybackRequiresUserGesture(false);
 - DeviceManager.getMicrophones()
 - DeviceManager.getSpeakers() (If the device supports speaker enumeration)
 
-  The value of name field in the result object will be an empty string.
-  To provide a better UI experience, you can use the following workaround to get device labels and map the label by `deviceId`.
+  The value of name field in the result object will be an empty string. This issue will not affect the function of streaming in the video call but the application users won't be able to know the camera label they select for sending the video.
+  To provide a better UI experience, you can use the following workaround in the web application to get device labels and map the label by `deviceId`.
+
   Although we can't get device labels from MediaDevices.enumerateDevices(), we can get the label from MediaStreamTrack.
-  This workaround requires the application to use getUserMedia to get the stream and map the `deviceId`.
+  This workaround requires the web application to use getUserMedia to get the stream and map the `deviceId`.
   If there are many cameras and microphones on the Android device, it may take a while to collect labels.
 
 ```js
@@ -88,26 +89,29 @@ async function getDeviceLabels() {
     for (let i = 0; i < devices.length; i++) {
         const device = devices[i];
         if(device.kind != 'audioinput' && device.kind != 'videoinput') continue;
+        if(device.label) continue;
         const deviceId = device.deviceId;
         const deviceConstraint = {
             deviceId: {
                 exact: deviceId
             }
-        };
-		console.log(device.kind, deviceId);
+        };		
         const constraint = (device.kind == 'audioinput') ?
                 { audio: deviceConstraint } :
                 { video: deviceConstraint };
 		try {
             const stream =  await navigator.mediaDevices.getUserMedia(constraint);
             stream.getTracks().forEach(track => {
-                if(!result[track.kind]) {
-                    result[track.kind] = {};
+                let namePrefix = '';
+                if (device.kind == 'audioinput') {
+                    namePrefix = 'microphone:';
+                } else if(device.kind == 'videoinput') {
+                    namePrefix = 'camera:';
                 }
                 if (track.label === '' && deviceId == 'default') {
-                    result[track.kind][deviceId] = 'Default';
+                    result[namePrefix + deviceId] = 'Default';
                 } else {
-                    result[track.kind][deviceId] = track.label;
+                    result[namePrefix + deviceId] = track.label;
                 }
                 track.stop();
             });
@@ -121,7 +125,7 @@ async function getDeviceLabels() {
 
 :::image type="content" source="./media/android-webview/get-device-label.png" alt-text="getDeviceLabels() result":::
 
-After you get the mapping between deviceId and label, you can use it to show the device name from `DeviceManager.getCameras()` or `DeviceManager.getMicrophones()`
+After you get the mapping between deviceId and label, you can use it to relate the label with the `id` from `DeviceManager.getCameras()` or `DeviceManager.getMicrophones()`
 
 :::image type="content" source="./media/android-webview/device-name-workaround.png" alt-text="Screenshot showing the device name workaround":::
 
