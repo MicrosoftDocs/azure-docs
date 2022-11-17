@@ -27,9 +27,9 @@ For a list of all BlobFuse2 settings and their descriptions, see the [base confi
 
 To manage configuration settings for BlobFuse2, you have three options (in order of precedence):
 
-1. [Configuration file](#configuration-file)
-1. [Environment variables](#environment-variables)
-1. [CLI parameters](#cli-parameters)
+- [Configuration file](#configuration-file)
+- [Environment variables](#environment-variables)
+- [CLI parameters](#cli-parameters)
 
 Using a configuration file is the preferred method, but the other methods might be useful in some circumstances.
 
