@@ -242,7 +242,7 @@ items:
 - name: Resources
   items:
   - name: Modifications to Translator Service
-    displayName: deprecation, changes, modifications, usage, metrics
+    displayName: deprecation, deprecate, changes, modify, modifications
     href: modifications-and-deprecations.md
   - name: Translator in sovereign clouds
     displayName: fairfax,compliant,secret,compliance,government,government cloud,dod,china,batch,region
