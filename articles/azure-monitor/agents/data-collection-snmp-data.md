@@ -1,13 +1,13 @@
 ---
-title: Send SNMP traps to Azure Monitor Logs using Azure Monitor Agent
-description: Learn how to collect SNMP traps using Azure Monitor Agent.  
+title: Collect SNMP trap data with Azure Monitor Agent
+description: Learn how to collect SNMP trap data using Azure Monitor Agent.  
 ms.topic: how-to
 ms.date: 06/22/2022
 ms.reviewer: shseth
 
 ---
 
-# Send SNMP traps to Azure Monitor Logs using Azure Monitor Agent
+# Collect SNMP trap data with Azure Monitor Agent
   
 Simple Network Management Protocol (SNMP) is a widely-deployed management protocol for monitoring and configuring Linux devices and appliances.  
   
@@ -37,6 +37,13 @@ To complete this tutorial, you need:
     
     SNMP identifies monitored properties using Object Identifier (OID) values, which are defined and described in vendor-provided MIB files.  
 
+    The device vendor typically provides MIB files. If you don't have the MIB files, you can find the files for many vendors on third-party websites.
+
+    Place all MIB files for each device that sends SNMP traps in `/usr/share/snmp/mibs`, the default directory for MIB files. This enables logging SNMP trap fields with meaningful names instead of OIDs. 
+
+    > [!NOTE]
+    > Some vendors maintain a single MIB for all devices, while others have hundreds of MIB files. To load an MIB file correctly, snmptrapd must load all dependent MIBs. Be sure to check the snmptrapd log file after loading MIBs to ensure that there are no missing dependencies in parsing your MIB files.  
+
 - A Linux server with an SNMP trap receiver.
 
     In this article, we use **snmptrapd**, an SNMP trap receiver from the [Net-SNMP](https://www.net-snmp.org/) agent, which most Linux distributions provide. However, there are many other SNMP trap receiver services you can use.
@@ -59,10 +66,6 @@ To set up the snmptrapd trap receiver on a CentOS 7, Red Hat Enterprise Linux 7,
     #Allow UDP 162 through the firewall
     sudo firewall-cmd --zone=public --add-port=162/udp --permanent
     ```
-1. Place all MIB files for each device that sends SNMP traps in `/usr/share/snmp/mibs`, the default directory for MIB files. This enables logging SNMP trap fields with meaningful names instead of OIDs. 
-
-    > [!NOTE]
-    > Some vendors maintain a single MIB for all devices, while others have hundreds of MIB files. To load an MIB file correctly, snmptrapd must load all dependent MIBs. Be sure to check the snmptrapd log file after loading MIBs to ensure that there are no missing dependencies in parsing your MIB files.  
 
 1. Authorize community strings (SNMP v1 and v2 authentication strings) and define the format for the traps written to the log file: 
   
@@ -83,7 +86,7 @@ To set up the snmptrapd trap receiver on a CentOS 7, Red Hat Enterprise Linux 7,
 
         > [!NOTE]
         > snmptrapd logs both traps and daemon messages - for example, service stop and start - to the same log file. In the example above, we’ve defined the log format to start with the word “snmptrap” to make it easy to filter snmptraps from the log later on. 
-## Configure the trap receiver to send traps to syslog or text file
+## Configure the trap receiver to send trap data to syslog or text file
 
 There are two ways snmptrapd can send SNMP traps to Azure Monitor Agent: 
 
