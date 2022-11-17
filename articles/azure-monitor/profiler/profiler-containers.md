@@ -33,13 +33,13 @@ In this article, you'll learn the various ways you can:
       git clone https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore.git
       ```
 
-1. Navigate to the Container App example: 
+2. Navigate to the Container App example: 
 
    ```bash
    cd examples/EnableServiceProfilerForContainerAppNet6
    ```
 
-1. This example is a bare bone project created by calling the following CLI command:
+3. This example is a bare bone project created by calling the following CLI command:
 
    ```powershell
    dotnet new mvc -n EnableServiceProfilerForContainerApp
@@ -47,7 +47,7 @@ In this article, you'll learn the various ways you can:
 
    We've added delay in the `Controllers/WeatherForecastController.cs` project to simulate the bottleneck.
 
-   ```CSharp
+   ```csharp
    [HttpGet(Name = "GetWeatherForecast")]
    public IEnumerable<WeatherForecast> Get()
    {
@@ -62,22 +62,40 @@ In this article, you'll learn the various ways you can:
    }
    ```
 
-1. Add the NuGet package to collect the Profiler traces:
+4. Add the NuGet package to collect the Profiler traces:
 
    ```console
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. Enable Application Insights and Profiler in `Startup.cs`:
+5. Enable Application Insights and Profiler
+   
+   ### [ASP.NET Core 6 and later](#tab/net-core-new)
+   
+   Add `builder.Services.AddApplicationInsightsTelemetry()` and `builder.Services.AddServiceProfiler()` after the `WebApplication.CreateBuilder()` method in `Program.cs`:
+   
+   ```csharp
+   var builder = WebApplication.CreateBuilder(args);
 
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
-        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
-        services.AddControllersWithViews();
-    }
-    ```
+   builder.Services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
+   builder.Services.AddServiceProfiler(); // Add this line of code to enable Profiler
+   builder.Services.AddControllersWithViews();
+
+   var app = builder.Build();
+   ```   
+   
+   ### [ASP.NET Core 5 and earlier](#tab/net-core-old)
+   
+   Add `services.AddApplicationInsightsTelemetry()` and `services.AddServiceProfiler()` to the `ConfigureServices()` method in `Startup.cs`:
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+     services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
+     services.AddServiceProfiler(); // Add this line of code to enable Profiler
+     services.AddControllersWithViews();
+   }
+   ```
 
 ## Pull the latest ASP.NET Core build/runtime images
 
@@ -87,7 +105,7 @@ In this article, you'll learn the various ways you can:
    cd examples/EnableServiceProfilerForContainerAppNet6
    ```
 
-1. Pull the latest ASP.NET Core images
+2. Pull the latest ASP.NET Core images
 
    ```shell
    docker pull mcr.microsoft.com/dotnet/sdk:6.0
@@ -103,7 +121,7 @@ In this article, you'll learn the various ways you can:
 
    :::image type="content" source="./media/profiler-containerinstances/application-insights-key.png" alt-text="Screenshot of finding instrumentation key in Azure portal.":::
 
-1. Open `appsettings.json` and add your Application Insights instrumentation key to this code section:
+2. Open `appsettings.json` and add your Application Insights instrumentation key to this code section:
 
    ```json
    {
@@ -118,13 +136,13 @@ In this article, you'll learn the various ways you can:
 
 1. Review the `Dockerfile`.
 
-1. Build the example image:
+2. Build the example image:
 
    ```bash
    docker build -t profilerapp .
    ```
 
-1. Run the container:
+3. Run the container:
 
    ```bash
    docker run -d -p 8080:80 --name testapp profilerapp
@@ -162,8 +180,8 @@ Service Profiler session finished.              # A profiling session is complet
 ## View the Service Profiler traces
 
 1. Wait for 2-5 minutes so the events can be aggregated to Application Insights.
-1. Open the **Performance** blade in your Application Insights resource. 
-1. Once the trace process is complete, you'll see the Profiler Traces button like it below:
+2. Open the **Performance** blade in your Application Insights resource. 
+3. Once the trace process is complete, you'll see the Profiler Traces button like it below:
 
       :::image type="content" source="./media/profiler-containerinstances/profiler-traces.png" alt-text="Screenshot of Profile traces in the performance blade.":::
 
