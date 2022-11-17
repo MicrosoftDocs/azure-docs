@@ -30,6 +30,10 @@ items:
       href: quickstart-data-share.md
     - name: .NET data sharing
       href: quickstart-data-share-dotnet.md
+  - name: Data Policy
+    items:
+    - name: Create a simple DevOps policy
+      href: how-to-policies-devops-azure-sql-db.md
 - name: Tutorials
   items:
   - name: Deployment checklist
@@ -355,6 +359,8 @@ items:
         href: how-to-policies-devops-azure-sql-db.md
       - name: DevOps policies - Azure Arc enabled SQL Servers
         href: how-to-policies-devops-arc-sql-server.md
+      - name: DevOps policies - Resource groups or Subscriptions
+        href: how-to-policies-devops-resource-group.md
     - name: Data owner policies
       items:
       - name: Data owner policies - Author and publish policies
@@ -373,6 +379,10 @@ items:
         href: how-to-view-self-service-data-access-policy.md
       - name: Delete self-service data access policy
         href: how-to-delete-self-service-data-access-policy.md
+      - name: Self-service policies Azure SQL DB
+        href: how-to-policies-self-service-azure-sql-db.md
+      - name: Self-service policies Azure Storage
+        href: how-to-policies-self-service-storage.md
   - name: Workflows
     items:
     - name: Self-service hybrid data access
@@ -384,7 +394,9 @@ items:
     - name: Manage workflow runs
       href: how-to-workflow-manage-runs.md
     - name: Workflow connectors
-      href: how-to-use-workflow-connectors.md      
+      href: how-to-use-workflow-connectors.md    
+    - name: Workflow dynamic content
+      href: how-to-use-workflow-dynamic-content.md      
     - name: Workflow HTTP connector
       href: how-to-use-workflow-http-connector.md
   - name: Manage Kafka notifications - .NET

@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 09/20/2022
+ms.date: 11/14/2022
 ---
 
 # Application Insights overview
@@ -20,11 +20,11 @@ Application Insights provides other features including, but not limited to:
 
 - [Live Metrics](live-stream.md) – observe activity from your deployed application in real time with no effect on the host environment
 - [Availability](availability-overview.md)  – also known as “Synthetic Transaction Monitoring”, probe your applications external endpoint(s) to test the overall availability and responsiveness over time
-- [GitHub or Azure DevOps integration](work-item-integration.md) – create [GitHub](https://learn.microsoft.com/training/paths/github-administration-products/) or [Azure DevOps](https://learn.microsoft.com/azure/devops/?view=azure-devops) work items in context of Application Insights data
+- [GitHub or Azure DevOps integration](work-item-integration.md) – create [GitHub](/training/paths/github-administration-products/) or [Azure DevOps](/azure/devops/?view=azure-devops) work items in context of Application Insights data
 - [Usage](usage-overview.md) – understand which features are popular with users and how users interact and use your application
 - [Smart Detection](proactive-diagnostics.md) – automatic failure and anomaly detection through proactive telemetry analysis
 
-In addition, Application Insights supports [Distributed Tracing](distributed-tracing.md), also known as “distributed component correlation”. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a given execution or transaction. The ability to trace activity end-to-end is increasingly important for applications that have been built as distributed components or [microservices](https://learn.microsoft.com/azure/architecture/guide/architecture-styles/microservices).
+In addition, Application Insights supports [Distributed Tracing](distributed-tracing.md), also known as “distributed component correlation”. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a given execution or transaction. The ability to trace activity end-to-end is increasingly important for applications that have been built as distributed components or [microservices](/azure/architecture/guide/architecture-styles/microservices).
 
 The [Application Map](app-map.md) allows a high level top-down view of the application architecture and at-a-glance visual references to component health and responsiveness. 
 
