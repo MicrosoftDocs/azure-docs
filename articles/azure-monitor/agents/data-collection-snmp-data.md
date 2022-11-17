@@ -37,7 +37,7 @@ To complete this tutorial, you need:
     
     SNMP identifies monitored properties using Object Identifier (OID) values, which are defined and described in vendor-provided MIB files.  
 
-- A Linux machine with an SNMP trap receiver.
+- A Linux server with an SNMP trap receiver.
 
     In this article, we use **snmptrapd**, an SNMP trap receiver from the [Net-SNMP](https://www.net-snmp.org/) agent, which most Linux distributions provide. However, there are many other SNMP trap receiver services you can use.
 
@@ -47,7 +47,7 @@ To complete this tutorial, you need:
  
 ## Set up the trap receiver log options and format
 
-To set up snmptrapd on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 server:
+To set up the snmptrapd trap receiver on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 server:
 
 1. Install and enable snmptrapd: 
 
