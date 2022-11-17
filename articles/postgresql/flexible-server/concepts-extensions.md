@@ -396,11 +396,14 @@ SELECT cron.schedule_in_database('VACUUM','0 10 * * * ','VACUUM','testcron',null
 ```
 
 > [!NOTE]
-> pg_cron extension is preloaded in Shared_Preload_Libraries for every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security. However, fpr security reasons, you still have to [allow list](#how-to-use-postgresql-extensions) pg_cron extension and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
+> pg_cron extension is preloaded in shared_preload_libraries for every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security. However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions) pg_cron extension and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
 
 ## pg_stat_statements
 
-The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL flexible server to provide you a means of tracking execution statistics of SQL statements.
+The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) gives you a view of all the queries that have run on your database. That is very useful to get an understanding of what your query workload performance looks like on a production system.
+
+The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded in shared_preload_libraries on every Azure Database for PostgreSQL flexible server to provide you a means of tracking execution statistics of SQL statements.
+However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions)  [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
 The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter.
 
 There is a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you are not actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Note that some third party monitoring services may rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.

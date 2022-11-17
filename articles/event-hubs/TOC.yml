@@ -33,14 +33,12 @@
           href: event-hubs-dotnet-standard-getstarted-send.md
         - name: Java (azure-messaging-eventhubs)
           href: event-hubs-java-get-started-send.md
-        - name: Java (azure-eventhubs - legacy)
-          href: event-hubs-java-get-started-send-legacy.md
-        - name: Spring
-          href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
         - name: Python (azure-eventhub)
           href: event-hubs-python-get-started-send.md
         - name: JavaScript (azure/event-hubs)
           href: event-hubs-node-get-started-send.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
         - name: Go
           href: event-hubs-go-get-started-send.md
         - name: C (send only)

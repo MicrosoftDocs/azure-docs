@@ -1,6 +1,6 @@
 ---
-title: Updating the address space for a peered virtual network 
-description: Learn about adding or deleting the address space for a peered virtual network without downtime.
+title: Update the address space for a peered virtual network - Azure portal
+description: Learn how to add, modify or delete the address ranges for a peered virtual network without downtime.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -10,7 +10,7 @@ ms.custom: template-how-to
 #Customer Intent: As a cloud engineer, I need to update the address space for peered virtual networks without incurring downtime from the current address spaces. I wish to do this in the Azure Portal.
 ---
 
-# Updating the address space for a peered virtual network - Portal
+# Update the address space for a peered virtual network using the Azure portal
 
 In this article, you'll learn how to update a peered virtual network by adding or deleting an address space without incurring downtime interruptions using the Azure portal. This feature is useful when you need to grow or resize the virtual networks in Azure after scaling your workloads.
 

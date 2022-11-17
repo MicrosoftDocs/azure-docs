@@ -31,7 +31,6 @@ If you're looking for items older than six months, you'll find them in the [Arch
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Out of the box anomaly detection on the SAP audit log (Preview)](#out-of-the-box-anomaly-detection-on-the-sap-audit-log-preview)
 - [IoT device entity page (Preview)](#iot-device-entity-page-preview)
-- [Common Event Format (CEF) via AMA](#common-event-format-cef-via-ama-preview)
 
 ### Account enrichment fields removed from Azure AD Identity Protection connector
 
@@ -120,18 +119,6 @@ For SOCs, monitoring IoT/OT networks presents a number of challenges, including 
 The new [IoT device entity page](entity-pages.md) is designed to help the SOC investigate incidents that involve IoT/OT devices in their environment, by providing the full OT/IoT context through Microsoft Defender for IoT to Sentinel. This enables SOC teams to detect and respond more quickly across all domains to the entire attack timeline.
 
 Learn more about [investigating IoT device entities in Microsoft Sentinel](iot-advanced-threat-monitoring.md).
-
-### Common Event Format (CEF) via AMA (Preview)
-
-The [Common Event Format (CEF) via AMA](connect-cef-ama.md) connector allows you to quickly filter and upload logs over CEF from multiple on-premises appliances to Microsoft Sentinel via the Azure Monitor Agent (AMA). 
-
-The AMA supports Data Collection Rules (DCRs), which you can use to filter the logs before ingestion, for quicker upload, efficient analysis, and querying.
-
-Here are some benefits of using AMA for CEF log collection:
-
-- AMA is faster compared to the existing Log Analytics Agent (MMA/OMS). 
-- AMA provides centralized configuration using Data Collection Rules (DCRs), and also supports multiple DCRs.
-- AMA is Syslog RFC compliant, a faster and a more resilient and reliant agent, more secure with lower footprint on the installed machine.
 
 ## September 2022
 
