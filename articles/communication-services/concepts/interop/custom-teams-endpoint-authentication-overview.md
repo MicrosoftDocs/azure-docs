@@ -93,8 +93,14 @@ Artifacts:
 
 ## Next steps
 
-The following articles may be of interest to you:
-
 - Learn more about [authentication](../authentication.md).
 - Try this [quickstart to authenticate Teams users](../../quickstarts/manage-teams-identity.md).
 - Try this [quickstart to call a Teams user](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md).
+
+The following sample apps may be interesting to you:
+
+- Try the [Sample App](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/manage-teams-identity-mobile-and-desktop), which showcases a process of acquiring Azure Communication Services access tokens for Teams users in mobile and desktop applications.
+
+- To see how the Azure Communication Services access tokens for Teams users are acquired in a single-page application, check out a [SPA sample app](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/manage-teams-identity-spa).
+
+- To learn more about a server implementation of an authentication service for Azure Communication Services check out the [Authentication service hero sample](../../samples/trusted-auth-sample.md).
