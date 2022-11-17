@@ -1,31 +1,29 @@
 ---
-title: Migrate Azure Stack Edge from managed to self-service IoT Edge Linux VM 
-description: Describes migration steps for an Azure Stack Edge device from managed to self-service IoT Edge Linux VM.
+title: Move native or managed IoT Edge workloads on Azure Stack Edge to a self-service IoT Edge solution on a Linux VM 
+description: Describes steps to move IoT Edge workloads from Azure Stack Edge to a self-service IoT Edge solution on a Linux VM.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/16/2022
+ms.date: 11/17/2022
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to migrate an Azure Stack Edge device from managed to self-service IoT Edge Linux VM, so that I can efficiently manage my VMs. 
+#Customer intent: As an IT admin, I need to understand how to move an IoT Edge workload from native/managed on Azure Stack Edge to self-service IoT Edge solution on a Linux VM, so that I can efficiently manage my VMs. 
 ---
 
-# Migrate Azure Stack Edge from managed to self-service IoT Edge Linux VM
+# Move native or managed IoT Edge workloads on Azure Stack Edge to a self-service IoT Edge solution on a Linux VM
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article provides steps to move your native or managed IoT Edge workloads to IoT Edge running on a Linux VM on Azure Stack Edge. 
+This article provides steps to move your managed IoT Edge workloads to IoT Edge running on a Linux VM on Azure Stack Edge. We use an example in this article that includes an IoT Edge running on an Ubuntu VM on Azure Stack Edge. 
 
 > [!NOTE]
-> We use an example in this article that includes an IoT Edge running on an Ubuntu VM on Azure Stack Edge. We recommend that you deploy the latest IoT Edge version in a Linux VM to run IoT Edge workloads on Azure Stack Edge. For more information about earlier versions of IoT Edge, see [IoT Edge v1.1 EoL: What does that mean for me?](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137). 
+> We recommend that you deploy the latest IoT Edge version in a Linux VM to run IoT Edge workloads on Azure Stack Edge. For more information about earlier versions of IoT Edge, see [IoT Edge v1.1 EoL: What does that mean for me?](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137). 
 
-## IoT migration workflow
+## Workflow to deploy onto an IoT Edge VM
 
-The high-level migration workflow is as follows:
-
-1. From IoT Hub, create a new IoT Edge device to connect to a new IoT Edge device running on a VM. 
+The high-level workflow is as follows:
 
 1. Deploy a Linux VM and install IoT Edge runtime on it. Connect the newly deployed IoT Edge runtime to the newly created IoT Edge device from the previous step.
 
@@ -43,7 +41,7 @@ Create and provision an IoT Edge device on Linux using symmetric keys. For detai
 
 ## Step 2. Install and provision an IoT Edge on a Linux VM
 
-Follow the steps at [Deploy IoT Edge runtime](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md#deploy-iot-edge-runtime). To deploy other Linux VMs, see [Linux containers](../iot-edge/support.md). 
+Follow the steps at [Deploy IoT Edge on an Ubuntu VM on Azure Stack Edge](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md). To deploy other Linux VMs, see [Linux containers](../iot-edge/support.md). 
 
 ## Step 3. Deploy Azure IoT Edge modules from the Azure portal
 
@@ -74,4 +72,4 @@ For more information about configuring downstream IoT devices to connect to a ne
 
 ## Next steps
 
-[Deploy VMs on your Azure Stack Edge Pro GPU device via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
+[Deploy IoT Edge on an Ubuntu VM on Azure Stack Edge](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md).
