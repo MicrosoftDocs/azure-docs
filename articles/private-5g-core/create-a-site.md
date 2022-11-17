@@ -43,6 +43,9 @@ In this step, you'll create the mobile network site resource representing the ph
 
 2. In the **Packet core** section, set the fields as follows:
 
+    >[!NOTE]
+    > If you are planning to configure your packet core to have multiple attached data networks, you must leave the **Custom location** field blank and set it later.
+
     - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type**, **Azure Stack Edge device**, and **Custom location** fields.
     - Select the recommended packet core version in the **Version** field.
     - Ensure **AKS-HCI** is selected in the **Platform** field.
@@ -81,6 +84,8 @@ In this step, you'll create the mobile network site resource representing the ph
     - One or more **Attached Data Network** resources providing configuration for the packet core instance's connection to the data networks.
   
     :::image type="content" source="media/create-a-site/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/create-a-site/site-related-resources.png":::
+
+11. If you have not yet set the **Custom location** field, use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to set it now. Search for and select the **Packet Core Control Plane** resource and select **Configure a custom location**. Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Custom location** field and select **Modify**.
 
 ## Next steps
 
