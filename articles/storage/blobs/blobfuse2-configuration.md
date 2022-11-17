@@ -8,7 +8,7 @@ ms.reviewer: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 11/17/2022
 ---
 
 # Configure settings for BlobFuse2 (preview)
@@ -27,11 +27,9 @@ For a list of all BlobFuse2 settings and their descriptions, see the [base confi
 
 To manage configuration settings for BlobFuse2, you have three options (in order of precedence):
 
-(1) [Configuration file](#configuration-file)
-
-(2) [Environment variables](#environment-variables)
-
-(3) [CLI parameters](#cli-parameters)
+1. [Configuration file](#configuration-file)
+1. [Environment variables](#environment-variables)
+1. [CLI parameters](#cli-parameters)
 
 Using a configuration file is the preferred method, but the other methods might be useful in some circumstances.
 
