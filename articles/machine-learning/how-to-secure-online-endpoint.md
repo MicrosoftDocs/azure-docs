@@ -13,11 +13,13 @@ ms.date: 10/04/2022
 ms.custom: event-tier1-build-2022
 ---
 
-# Use network isolation with managed online endpoints
+# Use network isolation with managed online endpoints (preview)
 
 [!INCLUDE [SDK/CLI v2](../../includes/machine-learning-dev-v2.md)]
 
-When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md).
+When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md). Using a private endpoint with online endpoints is currently a preview feature.
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 You can secure the inbound scoring requests from clients to an _online endpoint_. You can also secure the outbound communications between a _deployment_ and the Azure resources used by the deployment. Security for inbound and outbound communication is configured separately. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints.md#what-are-endpoints-and-deployments).
 
