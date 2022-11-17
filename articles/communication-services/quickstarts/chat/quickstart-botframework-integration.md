@@ -57,23 +57,23 @@ To use Azure Communication Services chat as a channel in Azure Bot Service, the 
 
    1. Select `Create a resource` and in the search box, search for web app and select `Web App`. 
    
-   :::image type="content" source="./media/web-app.png" alt-text="Create a Web app resource in Azure portal.":::
+   :::image type="content" source="./media/web-app.png" alt-text="Screenshot of creating a Web app resource in Azure portal.":::
 
 
    2. Configure the options you want to set including the region you want to deploy it to.
    
-   :::image type="content" source="./media/web-app-create-options.png" alt-text="Specify Web App Create Options to set.":::
+   :::image type="content" source="./media/web-app-create-options.png" alt-text="Screenshot of specifying Web App create options to set.":::
 
    3. Review your options and create the Web App and  once it has been created, copy the hostname URL exposed by the Web App.
    
-   :::image type="content" source="./media/web-app-endpoint.png" alt-text="Copy the Web App deployed endpoint of the created Web App.":::
+   :::image type="content" source="./media/web-app-endpoint.png" alt-text="Diagram that shows how to copy the newly created Web App endpoint.":::
 
 
 ### Configure the Azure Bot
 
 Configure the Azure Bot you created with its Web App endpoint where the bot logic is located. To do this configuration, copy the hostname URL of the Web App from previous step and append it with `/api/messages` 
 
-   :::image type="content" source="./media/smaller-bot-configure-with-endpoint.png" alt-text="Set Bot messaging endpoint with copied Web App Endpoint." lightbox="./media/bot-configure-with-endpoint.png":::
+   :::image type="content" source="./media/smaller-bot-configure-with-endpoint.png" alt-text="Diagram that shows how to set bot messaging endpoint with the copied Web App endpoint." lightbox="./media/bot-configure-with-endpoint.png":::
 
 
 ### Deploy the Azure Bot
@@ -98,17 +98,17 @@ The final step would be to deploy the Web App we created. The Echo bot functiona
 
    1. Select the project to publish the Web App code to Azure. Choose the publish option in Visual Studio. 
 
-   :::image type="content" source="./media/publish-app.png" alt-text="Publish your Web App from Visual Studio.":::
+   :::image type="content" source="./media/publish-app.png" alt-text="Screenshot of publishing your Web App from Visual Studio.":::
 
    2. Select New to create a new publishing profile, choose Azure as the target, and Azure App Service as the specific target.
 
-   :::image type="content" source="./media/select-azure-as-target.png" alt-text="Select Azure as Target in a new publishing profile.":::
+   :::image type="content" source="./media/select-azure-as-target.png" alt-text="Diagram that shows how to select Azure as target in a new publishing profile.":::
    
-   :::image type="content" source="./media/select-app-service.png" alt-text="Select specific target as Azure App Service.":::
+   :::image type="content" source="./media/select-app-service.png" alt-text="Diagram that shows how to select specific target as Azure App Service.":::
 
    3. Lastly, the above option opens the deployment config. Choose the Web App we had created from the list of options it comes up with after signing into your Azure account. Once ready select `Finish` to complete the profile, and then select `Publish` to start the deployment.
    
-   :::image type="content" source="./media/smaller-deployment-config.png" alt-text="Set deployment config with the created Web App." lightbox="./media/deployment-config.png":::
+   :::image type="content" source="./media/smaller-deployment-config.png" alt-text="Screenshot of setting deployment config with the created Web App name." lightbox="./media/deployment-config.png":::
 
 ## Step 2 - Get an Azure Communication Services Resource
 Now that bot is created and deployed, you will need an Azure Communication Services resource, which you can use to configure the Azure Communication Services channel.
@@ -121,20 +121,20 @@ With the Azure Communication Services resource, you can set up the Azure Communi
 
 1. Go to your Bot Services resource on Azure portal. Navigate to `Channels` configuration on the left pane and select `Azure Communications Services - Chat` channel from the list provided. 
  
-   :::image type="content" source="./media/smaller-demoapp-launch-acs-chat.png" alt-text="Launch Azure Communication Services Chat channel." lightbox="./media/demoapp-launch-acs-chat.png":::
+   :::image type="content" source="./media/smaller-demoapp-launch-acs-chat.png" alt-text="Screenshot of launching Azure Communication Services Chat channel." lightbox="./media/demoapp-launch-acs-chat.png":::
 
    
 2. Select the connect button to see a list of ACS resources available under your subscriptions.
 
-   :::image type="content" source="./media/smaller-bot-connect-acs-chat-channel.png" alt-text="Connect an Azure Communication Service Resource to this bot." lightbox="./media/bot-connect-acs-chat-channel.png":::
+   :::image type="content" source="./media/smaller-bot-connect-acs-chat-channel.png" alt-text="Diagram that shows how to connect an Azure Communication Service Resource to this bot." lightbox="./media/bot-connect-acs-chat-channel.png":::
 
 3. Once you have selected the required Azure Communication Services resource from the resources dropdown list, press the apply button.
 
-   :::image type="content" source="./media/smaller-bot-choose-resource.png" alt-text="Save the selected Azure Communication Service resource." lightbox="./media/bot-choose-resource.png":::
+   :::image type="content" source="./media/smaller-bot-choose-resource.png" alt-text="Diagram that shows how to save the selected Azure Communication Service resource to create a new Azure Communication Services user ID." lightbox="./media/bot-choose-resource.png":::
 
 4. Once the provided resource details are verified, you will see the **bot's Azure Communication Services ID** assigned. With this ID, you can add the bot to the conversation whenever appropriate using Chat's AddParticipant API. Once the bot is added as participant to a chat, it will start receiving chat related activities, and can respond back in the chat thread. 
 
-   :::image type="content" source="./media/smaller-acs-chat-channel-saved.png" alt-text="New Azure Communication Services user id is assigned to the bot." lightbox="./media/acs-chat-channel-saved.png":::
+   :::image type="content" source="./media/smaller-acs-chat-channel-saved.png" alt-text="Screenshot of new Azure Communication Services user ID assigned to the bot." lightbox="./media/acs-chat-channel-saved.png":::
 
 
 ## Step 4 - Create a chat app and add bot as a participant
@@ -261,7 +261,7 @@ Follow these steps to deploy the chat application:
 1. Open the chat project in Visual Studio.
 2. Select the ChatQuickstart project and from the right-click menu, select Publish
 
-   :::image type="content" source="./media/deploy-chat-application.png" alt-text="Deploy Chat Application to Azure from Visual Studio.":::
+   :::image type="content" source="./media/deploy-chat-application.png" alt-text="Screenshot of deploying chat application to Azure from Visual Studio.":::
 
 
 ## More things you can do with a bot
@@ -419,7 +419,7 @@ Event payload comprises all json fields in the message content except name field
 - Message activity
 - Typing activity
 
-#### Message Activity Fields
+#### Message activity fields
 - `Text`
 - `Attachments`
 - `AttachmentLayout`
