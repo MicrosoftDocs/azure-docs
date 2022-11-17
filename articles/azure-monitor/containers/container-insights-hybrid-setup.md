@@ -15,17 +15,12 @@ Container insights provides a rich monitoring experience for the Azure Kubernete
 The following configurations are officially supported with Container insights. If you have a different version of Kubernetes and operating system versions, send an email to askcoin@microsoft.com.
 
 - Environments:
-
     - Kubernetes on-premises.
     - AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 and higher, on-premises or in other cloud environments.
-
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
-
 - The following container runtimes are supported: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
-
 - The Linux OS release for main and worker nodes supported are Ubuntu (18.04 LTS and 16.04 LTS) and Red Hat Enterprise Linux CoreOS 43.81.
-
 - Azure Access Control service supported: Kubernetes role-based access control (RBAC) and non-RBAC.
 
 ## Prerequisites
@@ -39,11 +34,8 @@ Before you start, make sure that you meet the following prerequisites:
     >
 
 - You're a member of the Log Analytics contributor role to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage access to workspace and log data](../logs/manage-access.md).
-
 - To view the monitoring data, you must have the [Log Analytics reader](../logs/manage-access.md#azure-rbac) role in the Log Analytics workspace, configured with Container insights.
-
 - You have a [Helm client](https://helm.sh/docs/using_helm/) to onboard the Container insights chart for the specified Kubernetes cluster.
-
 - The following proxy and firewall configuration information is required for the containerized version of the Log Analytics agent for Linux to communicate with Azure Monitor:
 
     |Agent resource|Ports |
@@ -53,7 +45,6 @@ Before you start, make sure that you meet the following prerequisites:
     |*.dc.services.visualstudio.com |Port 443 |
 
 - The containerized agent requires the Kubelet `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend that you configure `secure port: 10250` on the Kubelet cAdvisor if it isn't configured already.
-
 - The containerized agent requires the following environmental variables to be specified on the container to communicate with the Kubernetes API service within the cluster to collect inventory data: `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`.
 
 >[!IMPORTANT]
@@ -259,11 +250,10 @@ In this section, you install the containerized agent for Container insights. Bef
 
     In the output, find the primary key under the field **primarySharedKey** and then copy the value.
 
->[!NOTE]
->The following commands are applicable only for Helm version 2. Use of the `--name` parameter isn't applicable with Helm version 3.
-
->[!NOTE]
->If your Kubernetes cluster communicates through a proxy server, configure the parameter `amalogsagent.proxy` with the URL of the proxy server. If the cluster doesn't communicate through a proxy server, you don't need to specify this parameter. For more information, see the section [Configure the proxy endpoint](#configure-the-proxy-endpoint) later in this article.
+    >[!NOTE]
+    >The following commands are applicable only for Helm version 2. Use of the `--name` parameter isn't applicable with Helm version 3.
+    
+    If your Kubernetes cluster communicates through a proxy server, configure the parameter `amalogsagent.proxy` with the URL of the proxy server. If the cluster doesn't communicate through a proxy server, you don't need to specify this parameter. For more information, see the section [Configure the proxy endpoint](#configure-the-proxy-endpoint) later in this article.
 
 1. Add the Azure charts repository to your local list by running the following command:
 
@@ -334,7 +324,7 @@ The proxy configuration value has the syntax `[protocol://][user:password@]proxy
 
 |Property| Description |
 |--------|-------------|
-|Protocol | HTTP or HTTPS |
+|protocol | HTTP or HTTPS |
 |user | Optional username for proxy authentication |
 |password | Optional password for proxy authentication |
 |proxyhost | Address or FQDN of the proxy server |
@@ -354,7 +344,7 @@ If you encounter an error while you attempt to enable monitoring for your hybrid
 - The Azure Monitor Agent daemonset pods are running.
 - The Azure Monitor Agent Health service is running.
 - The Log Analytics workspace ID and key configured on the containerized agent match with the workspace that the insight is configured with.
-- Validate that all the Linux worker nodes have the `kubernetes.io/role=agent` label to schedule rs pod. If it doesn't exist, add it.
+- Validate that all the Linux worker nodes have the `kubernetes.io/role=agent` label to the schedulers pod. If it doesn't exist, add it.
 - Validate that `cAdvisor secure port:10250` or `unsecure port: 10255` is opened on all nodes in the cluster.
 
 To execute with Azure PowerShell, use the following commands in the folder that contains the script:
