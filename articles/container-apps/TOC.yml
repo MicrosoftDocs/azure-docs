@@ -108,6 +108,7 @@
       items:
         - name: Azure Pipelines
           href: azure-pipelines.md
+          displayName: Azure DevOps
         - name: GitHub Actions
           href: github-actions.md
         - name: GitHub Actions with Azure CLI
