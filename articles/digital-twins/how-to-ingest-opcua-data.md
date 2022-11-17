@@ -16,7 +16,7 @@ ms.service: digital-twins
 
 # Ingesting OPC UA data with Azure Digital Twins
 
-# Introduction
+## Introduction
 
 This solution provides an automated ingestion path from OPC UA-enabled manufacturing assets in multiple simulated factories to digital twins in an Azure Digital Twins service. More specifically, the example:
 * Simulates eight OPC UA production lines in six locations, with each production line featuring assembly, test and packaging machines. These machines are controlled by a separate Manufacturing Execution System.
