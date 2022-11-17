@@ -66,9 +66,9 @@ To complete this phase, you should create a mapping of storage accounts to file 
 > [!CAUTION]
 > If you create an Azure file share that has a 100 TiB limit, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100-TiB file shares.
 
-By default, storage accounts are created with Azure files shares limited at 5 TiB. Follow the steps in [Create an Azure file share](../articles/storage/files/storage-how-to-create-file-share.md) to create a large file share.
+By default, storage accounts are created with Azure files shares limited at 5 TiB. Follow the steps in [Create an Azure file share](storage-how-to-create-file-share.md) to create a large file share.
 
-Another consideration when you're deploying a storage account is the redundancy of Azure Storage. See [Azure Storage redundancy options](../articles/storage/common/storage-redundancy.md).
+Another consideration when you're deploying a storage account is the redundancy of Azure Storage. See [Azure Storage redundancy options](../common/storage-redundancy.md).
 
 The names of your resources are also important. For example, if you group multiple shares for the HR department into an Azure storage account, you should name the storage account appropriately. Similarly, when you name your Azure file shares, you should use names similar to the ones used for their on-premises counterparts.
 
@@ -134,7 +134,7 @@ When you consider the downtime acceptable, then you need to remove user access t
 Run one last RoboCopy round. It will pick up any changes, that might have been missed.
 How long this final step takes, dependents on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
 
-In a previous section, you've configured your users to [access the share with their identity](#phase-3-preparing-to-use-azure-file-shares) and should have established a strategy for your users to [use established paths to your new Azure file shares (DFS-N)](files-manage-namespaces.md).
+In a previous section, you've configured your users to [access the share with their identity](#phase-2-preparing-to-use-azure-file-shares) and should have established a strategy for your users to [use established paths to your new Azure file shares (DFS-N)](files-manage-namespaces.md).
 
 You can try to run a few of these copies between different source and target shares in parallel. When doing so, keep your network throughput and core to thread count ratio in mind to not overtax the system.
 
