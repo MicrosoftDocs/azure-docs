@@ -53,7 +53,7 @@ Deploy Azure IoT modules to the new IoT Edge. For detailed steps, see [Deploy Az
 
 Once your modules are successfully running on the new IoT Edge instance running on a VM, you can delete the whole IoT Edge device associated with that IoT Edge instance. From IoT Hub on the Azure portal, delete the IoT Edge device connected to the IoT Edge, as shown below.
 
-![Screenshot showing delete IoT Edge device from IoT Edge instance in Azure portal UI](media/azure-stack-edge-migrate-to-self-service-iot-edge/azure-stack-edge-delete-iot-edge-device.png)
+![Screenshot showing delete IoT Edge device from IoT Edge instance in Azure portal UI](media/azure-stack-edge-move-to-self-service-iot-edge/azure-stack-edge-delete-iot-edge-device.png)
 
 ## Step 5. Optional: Remove the IoT Edge service
 
