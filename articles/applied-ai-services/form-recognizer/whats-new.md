@@ -38,21 +38,16 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
     :::image type="content" source="media/versioning-and-monikers.png" alt-text="Screenshot of the Form Recognizer landing page denoting the version dropdown menu.":::
 
 * **Form Recognizer Studio Sample Code**
-
   * Sample code for the [Form Recognizer Studio labeling experience](https://github.com/microsoft/Form-Recognizer-Toolkit/tree/main/SampleCode/LabelingUX) is now available on GitHub. Customers can develop and integrate Form Recognizer into their own UX or build their own new UX using the Form Recognizer Studio sample code.
 
 * **Language expansion**
-
   * With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages. These language additions include Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages. Form Recognizer now has a total of 299 supported languages across the most recent GA and new preview versions. Refer to the [supported languages](language-support.md) page to see all supported languages.
-
   * Use the REST API parameter `api-version=2022-06-30-preview` when using the API or the corresponding SDK to support the new languages in your applications.
 
 * **New Prebuilt Contract model**
-
   * A new prebuilt that extracts information from contracts such as parties, title, contract ID, execution date and more. the contracts model is currently in preview, request access [here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQTRDQUdHMTBWUDRBQ01QUVNWNlNYMVFDViQlQCN0PWcu_).  
 
-* **Region expansion for training custom neural models** 
-
+* **Region expansion for training custom neural models**
   * Training custom neural models now supported in added regions.
     > [!div class="checklist"]
     >
@@ -64,18 +59,19 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## September 2022
 
-### Region expansion for training custom neural models
+* **Region expansion for training custom neural models**
+  * Training custom neural models is now supported in six new regions.
 
-Training custom neural models is now supported in six new regions.
+    > [!div class="checklist"]
+    >
+    > * Australia East
+    > * Central US
+    > * East Asia
+    > * France Central
+    > * UK South
+    > * West US2
 
-* Australia East
-* Central US
-* East Asia
-* France Central
-* UK South
-* West US2
-
-For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md).
+  * For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md).
 
 #### Form Recognizer SDK version 4.0.0 GA release
 
