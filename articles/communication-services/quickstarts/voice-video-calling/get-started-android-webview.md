@@ -68,7 +68,7 @@ settings.setMediaPlaybackRequiresUserGesture(false);
 
 ### MediaDevices.enumerateDevices() returns empty labels
 
-  It is a [known issue](https://bugs.chromium.org/p/chromium/issues/detail?id=669492) on Android WebView.
+  It's a [known issue](https://bugs.chromium.org/p/chromium/issues/detail?id=669492) on Android WebView.
   The issue will affect the following API in Web SDK:
 
 - DeviceManager.getCameras()
