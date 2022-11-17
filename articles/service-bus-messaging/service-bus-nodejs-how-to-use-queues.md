@@ -45,22 +45,135 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 [!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
 
 
-### Use Node Package Manager (NPM) to install the package
-To install the npm package for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
+## Use Node Package Manager (NPM) to install the package
+
+1. To install the required npm package(s) for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
+
+### [Passwordless](#tab/passwordless)
+
+* [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus)
+* [@azure/identity](https://www.npmjs.com/package/@azure/identity)
+
+```bash
+npm install @azure/service-bus @azure/identity
+```
+
+
+### [Connection string](#tab/connection-string)
+
+* [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus)
 
 ```bash
 npm install @azure/service-bus
 ```
 
+---
+
 ## Send messages to a queue
+
 The following sample code shows you how to send a message to a queue.
-
-### [Passwordless](#tab/passwordless)
-
-### [Connection string](#tab/connection-string)
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 2. Create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
+
+    ### [Passwordless](#tab/passwordless)
+    
+    The passwordless credential is provided with the [**DefaultAzureCredential**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential).
+    
+    ```javascript
+    const { ServiceBusClient } = require("@azure/service-bus");
+    const { DefaultAzureCredential } = require("@azure/identity");
+    
+    // Replace `<SERVICE-BUS-NAMESPACE>` with your namespace
+    const fullyQualifiedNamespace = "<SERVICE-BUS-NAMESPACE>.servicebus.windows.net";
+    
+    // Passwordless credential
+    const credential = new DefaultAzureCredential();
+    
+    // name of the queue
+    const queueName = "<QUEUE NAME>"
+    
+    const messages = [
+    	{ body: "Albert Einstein" },
+    	{ body: "Werner Heisenberg" },
+    	{ body: "Marie Curie" },
+    	{ body: "Steven Hawking" },
+    	{ body: "Isaac Newton" },
+    	{ body: "Niels Bohr" },
+    	{ body: "Michael Faraday" },
+    	{ body: "Galileo Galilei" },
+    	{ body: "Johannes Kepler" },
+    	{ body: "Nikolaus Kopernikus" }
+    	];
+    
+    async function main() {
+    	// create a Service Bus client using the connection string to the Service Bus namespace
+    	const sbClient = new ServiceBusClient(fullyQualifiedNamespace, credential);
+    	
+    	// createSender() can also be used to create a sender for a topic.
+    	const sender = sbClient.createSender(queueName);
+    	
+    	try {
+    		// Tries to send all messages in a single batch.
+    		// Will fail if the messages cannot fit in a batch.
+    		// await sender.sendMessages(messages);
+    	
+    		// create a batch object
+    		let batch = await sender.createMessageBatch(); 
+    		for (let i = 0; i < messages.length; i++) {
+    			// for each message in the array			
+    
+    			// try to add the message to the batch
+    			if (!batch.tryAddMessage(messages[i])) {			
+    				// if it fails to add the message to the current batch
+    				// send the current batch as it is full
+    				await sender.sendMessages(batch);
+    
+    				// then, create a new batch 
+    				batch = await sender.createMessageBatch();
+    	
+    				// now, add the message failed to be added to the previous batch to this batch
+    				if (!batch.tryAddMessage(messages[i])) {
+    					// if it still can't be added to the batch, the message is probably too big to fit in a batch
+    					throw new Error("Message too big to fit in a batch");
+    				}
+    			}
+    		}
+    
+    		// Send the last created batch of messages to the queue
+    		await sender.sendMessages(batch);
+    	
+    		console.log(`Sent a batch of messages to the queue: ${queueName}`);
+    				
+    		// Close the sender
+    		await sender.close();
+    	} finally {
+    		await sbClient.close();
+    	}
+    }
+    
+    // call the main function
+    main().catch((err) => {
+    	console.log("Error occurred: ", err);
+    	process.exit(1);
+    	});
+    ```
+
+3. Replace `<SERVICE-BUS-NAMESPACE>` with your Service Bus namespace.
+4. Replace `<QUEUE NAME>` with the name of the queue. 
+5. Then run the command in a command prompt to execute this file.
+
+    ```console
+    node send.js 
+    ```
+6. You should see the following output.
+
+    ```console
+    Sent a batch of messages to the queue: myqueue
+    ```
+---
+
+### [Connection string](#tab/connection-string)
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");
@@ -137,19 +250,20 @@ The following sample code shows you how to send a message to a queue.
      });
     ```
 3. Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
-1. Replace `<QUEUE NAME>` with the name of the queue. 
-1. Then run the command in a command prompt to execute this file.
+4. Replace `<QUEUE NAME>` with the name of the queue. 
+5. Then run the command in a command prompt to execute this file.
 
     ```console
     node send.js 
     ```
-1. You should see the following output.
+6. You should see the following output.
 
     ```console
     Sent a batch of messages to the queue: myqueue
     ```
 
 ---
+
 
 ## Receive messages from a queue
 
