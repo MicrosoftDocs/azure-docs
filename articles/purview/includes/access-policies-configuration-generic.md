@@ -57,7 +57,7 @@ For more information about managing Microsoft Purview role assignments, see [Cre
 
 After a resource has been enabled for **Data use management**, any Microsoft Purview user with the *Policy author* role at the root collection level can provision access to that data source from Microsoft Purview.
 
-The IAM Owner role for a data resource can be inherited from a parent resource group, a subscription, or a subscription management group. Check which Azure AD users, groups, and service principals hold or are inheriting the IAM Owner role for the resource.
+The *IAM Owner* role for a data resource can be inherited from a parent resource group, a subscription, or a subscription management group. Check which Azure AD users, groups, and service principals hold or are inheriting the *IAM Owner* role for the resource.
 
 > [!NOTE]
 > Any Microsoft Purview root *Collection admin* can assign new users to root *Policy author* roles. Any *Collection admin* can assign new users to a *Data source admin* role under the collection. Minimize and carefully vet the users that hold Microsoft Purview *Collection admin*, *Data source admin*, or *Policy author* roles.
