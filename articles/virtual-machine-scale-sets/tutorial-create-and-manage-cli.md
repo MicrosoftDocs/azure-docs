@@ -68,12 +68,11 @@ Name                 ResourceGroup    Location    Zones
 myScaleSet_instance1  myResourceGroup  eastus
 myScaleSet_instance2  myResourceGroup  eastus
 ```
-To see additional information about each individual instance, use [az vm show](/cli/azure/vm) and specify the VM name.
+To see additional information about a specific VM instance, use [az vm show](/cli/azure/vm) and specify the VM name.
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myScaleSet_instance1
 ```
-Below is a simplified output from running the [az vm show](/cli/azure/vm) command: 
 
 ```output
 {
@@ -187,8 +186,8 @@ az vm list --resource-group myResourceGroup --output table
 ```
 
 ```output
-Name                 ResourceGroup    Location    Zones
--------------------  ---------------  ----------  -------
+Name                 ResourceGroup    Location    
+-------------------  ---------------  ----------  
 myScaleSet_instance1  myResourceGroup  eastus
 myScaleSet_instance2  myResourceGroup  eastus
 myScaleSet_instance3  myResourceGroup  eastus
@@ -203,7 +202,7 @@ az vmss stop \
   --name myScaleSet 
 ```
 
-To stop individual VM instances in a scale set, use [az vm stop](/cli/azure/vm) and the name of the individual instance. 
+To stop individual VM instances in a scale set, use [az vm stop](/cli/azure/vm) and specify the instance name. 
 
 ```azurecli-interactive
 az vm stop \ 
@@ -219,7 +218,7 @@ az vmss deallocate \
   --name myScaleSet
 ```
 
-To deallocate individual VM instances in a scale set, use [az vm deallocate](/cli/azure/vm) and the name of the individual instance. 
+To deallocate an individual VM instance in a scale set, use [az vm deallocate](/cli/azure/vm) and specify the instance name.  
 
 ```azurecli-interactive
 az vm deallocate \
@@ -236,7 +235,7 @@ az vmss start \
   --name myScaleSet 
 ```
 
-To start individual VM instances in a scale set, use [az vm start](/cli/azure/vm) and the name of the individual instance.
+To start individual VM instances in a scale set, use [az vm start](/cli/azure/vm) and specify the instance name. 
 
 ```azurecli-interactive
 az vm start \
@@ -253,7 +252,7 @@ az vmss restart \
   --name myScaleSet 
 ```
 
-To restart individual VM instances in a scale set, use [az vm restart](/cli/azure/vm) and the name of the individual instance.
+To restart individual VM instances in a scale set, use [az vm restart](/cli/azure/vm) and specify the instance name. 
 
 ```azurecli-interactive
 az vm restart \
