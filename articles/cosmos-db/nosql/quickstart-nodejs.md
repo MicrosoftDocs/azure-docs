@@ -1,18 +1,17 @@
 ---
-title: Quickstart- Use Node.js to query from Azure Cosmos DB for NoSQL account
-description: How to use Node.js to create an app that connects to Azure Cosmos DB for NoSQL account and queries data.
+title: Quickstart - Azure Cosmos DB for NoSQL client library for Node.js
+description: Learn how to build a Node.js app to manage Azure Cosmos DB for NoSQL account resources in this quickstart.
 author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/22/2022
-ms.author: sidandrews
-ms.reviewer: mjbrown
-ms.custom: devx-track-js, mode-api, ignite-2022
+ms.custom: devx-track-js, mode-api, ignite-2022, devguide-js, cosmos-db-dev-journey
 ---
 
-# Quickstart: Use Node.js to connect and query data from Azure Cosmos DB for NoSQL account
+# Quickstart - Azure Cosmos DB for NoSQL client library for Node.js
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
