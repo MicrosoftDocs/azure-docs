@@ -23,7 +23,7 @@ This article explains how to send SNMP traps to Azure Monitor Logs as syslog eve
 
 ## Overview
   
-- In this article, we describe how to set up an SNMP trap receiver that most Linux distributions provide, called **snmptrapd**, from the [Net-SNMP](https://www.net-snmp.org/) agent. However, there are many SNMP trap receiver services you can use.
+- In this article, we use **snmptrapd**, an SNMP trap receiver from the [Net-SNMP](https://www.net-snmp.org/) agent that most Linux distributions provide. However, there are many other SNMP trap receiver services you can use.
 
     The snmptrapd configuration procedure can vary slightly among Linux distributions.  For more information on snmptrapd configuration, including guidance on configuring for SNMP v3 authentication, see the [Net-SNMP documentation](https://www.net-snmp.org/docs/man/snmptrapd.conf.html).  
 
