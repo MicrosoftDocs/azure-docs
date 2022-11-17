@@ -279,7 +279,7 @@ No. Migration won't affect existing API access to data. After migration, you'll 
 
 ### Will there be any impact on Live Metrics or other monitoring experiences?
 
-No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor--diagnose-with-1-second-latency) or other monitoring experiences.
+No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor-and-diagnose-with-1-second-latency) or other monitoring experiences.
 
 ### What happens with continuous export after migration?
 

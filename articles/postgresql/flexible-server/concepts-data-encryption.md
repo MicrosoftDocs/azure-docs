@@ -10,9 +10,12 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Azure Database for PostgreSQL - Flexible Server Data Encryption with a Customer-managed Key Preview
+# Azure Database for PostgreSQL - Flexible Server Data Encryption with a Customer-managed Key 
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+> [!NOTE]
+> Azure Database for PostgreSQL - Flexible Server Data Encryption with a Customer-managed Key is currently in preview.
 
 Azure PostgreSQL uses [Azure Storage encryption](../../storage/common/storage-service-encryption.md) to encrypt data at-rest by default using Microsoft-managed keys. For Azure PostgreSQL users, it's similar to Transparent Data Encryption (TDE) in other databases such as SQL Server. Many organizations require full control of access to the data using a customer-managed key. Data encryption with customer-managed keys for Azure Database for PostgreSQL Flexible server - Preview enables you to bring your key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you're responsible for, and in full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
 
@@ -60,7 +63,7 @@ The key vault administrator can also [enable logging of Key Vault audit events](
 
 When the server is configured to use the customer-managed key stored in the key Vault, the server sends the DEK to the key Vault for encryptions. Key Vault returns the encrypted DEK stored in the user database. Similarly, when needed, the server sends the protected DEK to the key Vault for decryption. Auditors can use Azure Monitor to review Key Vault audit event logs, if logging is enabled.
 
-## Requirements for configuring data encryption in preview for Azure Database for PostgreSQL Flexible server
+## Requirements for configuring data encryption for Azure Database for PostgreSQL Flexible server
 
 The following are requirements for configuring Key Vault:
 
@@ -151,7 +154,7 @@ Prerequisites:
 
 - Azure Active Directory (Azure AD) user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
 
-- Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. Follow [requirements section above](#requirements-for-configuring-data-encryption-in-preview-for-azure-database-for-postgresql-flexible-server) for required Azure Key Vault settings
+- Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. Follow [requirements section above](#requirements-for-configuring-data-encryption-for-azure-database-for-postgresql-flexible-server) for required Azure Key Vault settings
 
 Follow the steps below to enable CMK while creating Postgres Flexible Server.
 

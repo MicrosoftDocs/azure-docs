@@ -2,7 +2,7 @@
 title: 'Application Insights: Languages, platforms, and integrations | Microsoft Docs'
 description: Languages, platforms, and integrations that are available for Application Insights.
 ms.topic: conceptual
-ms.date: 10/24/2022
+ms.date: 11/15/2022
 ms.reviewer: mmcc
 ---
 
