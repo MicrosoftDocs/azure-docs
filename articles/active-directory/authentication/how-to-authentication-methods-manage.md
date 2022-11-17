@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/16/2022
+ms.date: 11/17/2022
 
 ms.author: justinha
 author: justinha
@@ -48,7 +48,7 @@ For each method, note whether or not it's enabled for the tenant. The following 
 
 ### SSPR policy
 
-To get the authentication methods available in the legacy SSPR policy, click **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. Record which users are in scope for SSPR (this will be either all users, one specific group, or no users) and the authentication methods they can use. While security questions aren't yet available to manage in the Authentication methods policy, make sure you record them for later use when the becomes available in the new policy. 
+To get the authentication methods available in the legacy SSPR policy, click **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. Record which users are in scope for SSPR (either all users, one specific group, or no users) and the authentication methods they can use. While security questions aren't yet available to manage in the Authentication methods policy, make sure you record them for later when they are. 
 
 | SSPR authentication methods | Authentication method policy |
 |-----------------------------|------------------------------|
@@ -74,7 +74,7 @@ After you capture available authentication methods from the policies you are cur
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
 
 
-The next step is to update the Authentication methods policy to match your audit. You'll want to review each method one-by-one. If your tenant is only using the legacy MFA policy, and is not using SSPR, this is a straightforward process - you can enabled each method for all users and precisely match your existing policy. 
+The next step is to update the Authentication methods policy to match your audit. You'll want to review each method one-by-one. If your tenant is only using the legacy MFA policy, and isn't using SSPR, this is a straightforward process - you can enabled each method for all users and precisely match your existing policy. 
 
 If your tenant is using both MFA and SSPR, you'll need to consider each method: 
 
@@ -94,7 +94,7 @@ The next sections cover specific migration guidance for each method.
 
 ### Email one-time passcode
 
-There are two controls for **email one-time passcode**:
+There are two controls for **Email one-time passcode**:
 
 Targeting using include and exclude in the configuration's **Enable and target** section is used to enable email OTP for members of a tenant for use in **Password reset**.
 
