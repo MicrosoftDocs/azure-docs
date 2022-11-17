@@ -18,14 +18,14 @@ The listed features were released in the last three months. For information abou
 
 ## November 2022
 
+### Updated Microsoft Sentinel Logstash plugin
+
 A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-connection-rules.md) leverages the new Azure Monitor Data Collection Rules (DCR) based Logs Ingestion API. The new plugin: 
 
 - Provides data transformation capabilities like filtering, masking, and enrichment. 
 - Allows full control over the output schema, including configuration of the column names and types. 
 - Can forward logs from external data sources into both custom tables and standard tables. 
 - Provides performance improvements, compression, and better telemetry and error handling.
-
-## November 2022
 
 ### Monitor the health of automation rules and playbooks
 
