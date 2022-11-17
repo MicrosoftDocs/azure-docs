@@ -40,7 +40,7 @@ Using the same example of a 100 TiB SAN that has 250,000 IOPS and 4,000 MB/s. Sa
 
 ## Networking
 
-In Preview, Elastic SAN supports public endpoint from selected virtual network, restricting access to specified virtual networks. You configure volume groups to allow network access only from specific vnet subnets. Once a volume group is configured to allow access from a subnet, this configuration is inherited by all volumes belonging to the volume group. You can then mount volumes from any clients in the subnet, with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. Note that you need to first enable [service point for Azure Storage] (../../virtual-network/virtual-network-service-endpoints-overview.md) in your virtual network before setting up the network rule on volume group. 
+In Preview, Elastic SAN supports public endpoint from selected virtual network, restricting access to specified virtual networks. You configure volume groups to allow network access only from specific vnet subnets. Once a volume group is configured to allow access from a subnet, this configuration is inherited by all volumes belonging to the volume group. You can then mount volumes from any clients in the subnet, with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. You must enable [service endpoint for Azure Storage](../../virtual-network/virtual-network-service-endpoints-overview) in your virtual network before setting up the network rule on volume group.
 
 ## Redundancy
 
