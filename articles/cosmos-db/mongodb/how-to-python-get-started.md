@@ -69,12 +69,7 @@ This article shows you how to communicate with the Azure Cosmos DB’s API for M
 
 To connect with the PyMongo driver to Azure Cosmos DB, create an instance of the  [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient) object. This class is the starting point to perform all operations against databases. 
 
-The most common constructor for **MongoClient** has two parameters:
-
-| Parameter | Example value | Description |
-| --- | --- | --- |
-| `host` | `COSMOS_CONNECTION_STRING` environment variable | API for MongoDB connection string to use for all requests |
-| *`kwargs`* | `connect=False` | Keyword arguments for the connection. Many of the keyword arguments can also be specified using a MongoDB URI. If the same option is passed in a URI and as a keyword argument the keyword argument takes precedence. |
+The most common constructor for **MongoClient** has just the `host` parameter, which in this article is set to the `COSMOS_CONNECTION_STRING` environment variable. The are other optional parameters and keyword parameters you can use in the constructor. Many of the optional parameters can also be specified with the MongoDB URI used for the `host` parameter. If the same option is passed in with `host` and as a parameter, the parameter takes precedence.
 
 Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection issues.
 
