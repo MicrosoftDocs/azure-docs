@@ -1,5 +1,5 @@
 ---
-title: How to use Dev Tool Portal for VMware Tanzu with Azure Spring Apps Enterprise Tier
+title: Configure Dev Tools
 titleSuffix: Azure Spring Apps Enterprise Tier
 description: How to use Dev Tool Portla for VMware Tanzu with Azure Spring Apps Enterprise Tier.
 author: 
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use Dev Tool Portal for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
+VMware Tanzu Dev Tools includes a set of developer tools to help ease developer experience for both inner and outer loop. For now, it includes App live view and app accelerator in Enterprise tier. Dev Tools has a centralized portal - Dev Tools Portal which serves as the place to access any Dev Tools. here in this article, you can learn how to configure Dev Tools centrally against Dev Tools Portal on SSO config and endpoint exposure so that you can get access to any Dev tools.
 
 [Dev Tool Portal](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-tap-gui-about.html) is a tool for your developers to view your applications and services running for your organization.
 
@@ -44,11 +44,17 @@ Dev Tool Portal supports authentication and authorization using single sign-on (
 | clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
 | scopes | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
 
-To set up SSO with Azure AD, see [How to set up single sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu](./how-to-set-up-sso-with-azure-ad.md).
-
 > [!NOTE]
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
 
+#### [Portal](#tab/Portal)
+1. Open the [Azure portal](https://portal.azure.com).
+1. Select **Developer Tools (Preview)**.
+1. Select **Configuration** tab.
+1. Update **Scope**, **Client ID**, **Client Secret** and **Metadata Url** in the form. Then click **Save** button.
+1. After SSO configuration saved successfully, click **Assign endpoint** button to expose public endpoint.
+
+#### [CLI](#tab/Azure-CLI)
 To update SSO configuration and expose to public with Azure CLI, run the following command:
 
 ```azurecli
@@ -64,13 +70,15 @@ az spring dev-tool update \
 
 ## Assign public endpoint
 
+#### [Portal](#tab/Portal)
 To access Dev Tool Portal, use the following steps to assign a public endpoint:
 
 1. Select **Developer Tools (Preview)**.
 1. Click *Assign endpoint* button to assign a public endpoint. A URL will be generated within a few minutes.
-1. Save the URL for use later.
+1. Save the URL for use later. Application Live View and Application Accelerator will then get their corresponding endpoints.
 
-You can also use the Azure CLI to assign a public endpoint with the following command:
+#### [CLI](#tab/Azure-CLI)
+You can use the Azure CLI to assign a public endpoint with the following command:
 
 ```azurecli
 az spring dev-tool update \
