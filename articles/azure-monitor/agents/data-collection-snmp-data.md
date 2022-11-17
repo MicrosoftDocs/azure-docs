@@ -87,11 +87,11 @@ To set up the snmptrapd trap receiver on a CentOS 7, Red Hat Enterprise Linux 7,
 
 There are two ways snmptrapd can send SNMP traps to Azure Monitor Agent: 
 
-- Forward incoming traps to syslog, which Azure Monitor Agent collects if you [create a data collection rule to collect syslog data](../../sentinel/forward-syslog-monitor-agent.md). 
+- Forward incoming traps to syslog, which you can set as the data source for Azure Monitor Agent. 
 
-- Write the syslog messages to a file, which can be *tailed* and parsed by Azure Monitor Agent for collection. This option may be preferable, as you can send the SNMP traps as a new datatype rather than sending as syslog events.  
+- Write the syslog messages to a file, which Azure Monitor Agent can *tail* and parse. This option allows you to send the SNMP traps as a new datatype rather than sending as syslog events.  
     
-To edit the output behavior configuration of snmptrapd on Red Hat, CentOS, and Oracle Linux: 
+To edit the output behavior configuration of snmptrapd: 
 
 1. Open the `/etc/snmp/snmptrapd.conf` file: 
     
@@ -115,7 +115,7 @@ To edit the output behavior configuration of snmptrapd on Red Hat, CentOS, and O
     - `-Lf /var/log/snmptrapd` - Log traps to the `/var/log/snmptrapd` file. 
     
 > [!NOTE]   
-> For more information, see Net-SNMP documentation for [how to set output options](https://www.net-snmp.org/docs/man/snmpcmd.html) and [how to set formatting options](https://www.net-snmp.org/docs/man/snmptrapd.html). 
+> See Net-SNMP documentation for more information about [how to set output options](https://www.net-snmp.org/docs/man/snmpcmd.html) and [how to set formatting options](https://www.net-snmp.org/docs/man/snmptrapd.html). 
     
 ## Collect SNMP traps using Azure Monitor Agent
 
