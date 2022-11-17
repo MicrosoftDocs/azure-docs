@@ -71,8 +71,8 @@ In this task, you'll delete an IP address range from an address space. First, yo
 1. As previously done, verify the address space is updated on the remote virtual network.
 
 ## Next steps
-- [Learn how to Create, change, or delete an Azure virtual network peering]()
-- [Links]()
+- Learn how to [Create, change, or delete an Azure virtual network peering](virtual-network-manage-peering.md)
+- Learn how to [Create, change, or delete a virtual network](manage-virtual-network.md)
 
 
 
