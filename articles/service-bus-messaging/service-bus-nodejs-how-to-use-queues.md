@@ -47,25 +47,26 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 ## Use Node Package Manager (NPM) to install the package
 
-1. To install the required npm package(s) for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
-
 ### [Passwordless](#tab/passwordless)
 
-* [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus)
-* [@azure/identity](https://www.npmjs.com/package/@azure/identity)
+1. To install the required npm package(s) for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
 
-```bash
-npm install @azure/service-bus @azure/identity
-```
+1. Install the following packages: 
+
+    ```bash
+    npm install @azure/service-bus @azure/identity
+    ```
 
 
 ### [Connection string](#tab/connection-string)
 
-* [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus)
+1. To install the required npm package(s) for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
 
-```bash
-npm install @azure/service-bus
-```
+1. Install the following package: 
+
+    ```bash
+    npm install @azure/service-bus
+    ```
 
 ---
 
@@ -73,10 +74,12 @@ npm install @azure/service-bus
 
 The following sample code shows you how to send a message to a queue.
 
-1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
-2. Create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
 
-    ### [Passwordless](#tab/passwordless)
+### [Passwordless](#tab/passwordless)
+
+1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
+1. 
+1. Create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
     
     The passwordless credential is provided with the [**DefaultAzureCredential**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential).
     
