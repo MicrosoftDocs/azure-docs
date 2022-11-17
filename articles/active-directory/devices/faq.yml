@@ -223,7 +223,7 @@ sections:
           
       - question: How can we disable cached logon/expire the cache logon of the user on Azure AD joined devices?
         answer: |
-              For now, Currently Azure AD joined devices allow cached logon to land the user quickly to the desktop. you can't disable or expire the previous cached logon. 
+              It is not possible to disable or expire previous cached logons on Azure AD joined devices. 
           
           
   - name: Hybrid Azure AD join FAQ
