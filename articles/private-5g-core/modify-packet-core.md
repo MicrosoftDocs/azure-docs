@@ -14,6 +14,17 @@ ms.custom: template-how-to
 
 Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core's custom location, connected Azure Stack Edge device, and access network configuration. You'll also learn how to add and modify the data networks attached to the packet core instance.
 
+>[!IMPORTANT]
+> If you have configured or will configure your packet core to have more than one attached data network, you'll need to modify it without a custom location to avoid issues with your data networks.
+>
+> 1. Follow this how-to to modify your packet core instance with the following changes:
+>
+>    1. In [Modify the packet core configuration](#modify-the-packet-core-configuration), make a note of the custom location value in the **Custom ARC location** field.
+>    1. Set the **Custom ARC location** field to **None**.
+>    1. In [Submit and verify changes](#submit-and-verify-changes), the packet core will be redeployed at an uninstalled state with the new configuration.
+>
+> 2. Follow this how-to again to set the **Custom ARC location** field to the custom location value you noted down.
+
 ## Prerequisites
 
 - If you want to make changes to the packet core configuration or access network, refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to collect the new values and make sure they're in the correct format.
@@ -24,8 +35,6 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
     > - To change the technology type, you'll need to delete the site and [recreate it](create-a-site.md). <!-- link to new site deletion section -->
     > - To change the version, [upgrade the packet core instance](upgrade-packet-core-azure-portal.md).
 
-    >[!NOTE]
-    > If you have previously configured the packet core to have multiple data networks, you cannot update the packet core configuration whilst the **Packet Core Control Plane** resource has a custom location configured. You must first follow this guide, setting the **Custom Location** field to **None**, which will cause the packet core to be uninstalled. Once you have successfully made your changes in the portal, you will need to follow this guide again to set the **Custom Location** field to the value from [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values).
 
 - If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the new values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
