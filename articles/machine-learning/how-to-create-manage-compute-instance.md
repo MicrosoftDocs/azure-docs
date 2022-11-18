@@ -620,7 +620,7 @@ Access the custom applications that you set up in studio:
 Once you launch **RStudio**, you may not see any of your files, even after specifying the correct **Bind mounts** above.  If this happens:
 
 1. Select the **...** at the far right of the Files pane
-1. In the popup box, type `/home/azureuser/cloudfiles/code`
+1. For the **Path to folder**, type `/home/azureuser/cloudfiles/code`
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/find-files.png" alt-text="Screenshot: Configure RStudio to find your cloudfiles.":::
 
