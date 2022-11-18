@@ -29509,7 +29509,7 @@
             "redirect_url": "/azure/applied-ai-services/form-recognizer/overview",
             "redirect_document_id": false
         },
-        {}
+        {
             "source_path_from_root": "/articles/aks/managed-cluster-snapshot.md",
             "redirect_url": "/azure/aks/intro-kubernetes",
             "redirect_document_id": "false"
