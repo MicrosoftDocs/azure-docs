@@ -12,13 +12,13 @@ ms.author: malev
 
 # Tutorial: Connect an ASP.NET Core 6 app to App Configuration using Service Connector
 
-In this tutorial you will learn how to connect an ASP.NET Core 6 app to App Configuration using Service Connector. This tutorial leverages the feature flags capability introduced in the quickstart [Add feature flags to an ASP.NET Core app](https://learn.microsoft.com/en-us/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core?tabs=core6x). Before you continue, finish this tutorial.
+In this tutorial, you'll learn how to connect an ASP.NET Core 6 app to App Configuration using Service Connector. This tutorial leverages the feature flags capability introduced in the quickstart [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md). Before you continue, finish this tutorial.
 
 ## Prerequisites
 
 - An Azure subscription
 - Docker CLI
-- Complete the [Quickstart for adding feature flags to ASP.NET Core](https://learn.microsoft.com/en-us/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core?tabs=core6x).
+- Complete the [Quickstart for adding feature flags to ASP.NET Core](./quickstart-feature-flag-aspnet-core).
 
 ## Build a docker image and test it locally
 
@@ -32,7 +32,7 @@ In this tutorial you will learn how to connect an ASP.NET Core 6 app to App Conf
 
 ## Push the image to Azure Container Registry
 
-In the next step, create an Azure Container Registry (ACR), where you will push the Docker image. ACR allows you to build, store, and manage container image.
+In the next step, create an Azure Container Registry (ACR), where you'll push the Docker image. ACR allows you to build, store, and manage container image.
 
 1. Open  the Azure portal and in the search bar, search for and select **Container Registries**.
 1. Select **Create**
@@ -68,7 +68,7 @@ In the next step, create an Azure Container Registry (ACR), where you will push 
 
 ## Connect the app to Azure App Configuration
 
-The next step lets you connect the container app to Azure App Configuration using [Service Connector](../service-connector/overview), which enables you to connect several Azure services together in a few steps without having to manage the configuration of the network settings and connection information yourself.
+The next step lets you connect the container app to Azure App Configuration using [Service Connector](../service-connector/overview.md), which enables you to connect several Azure services together in a few steps without having to manage the configuration of the network settings and connection information yourself.
 
 ## [Portal](#tab/azure-portal)
 
@@ -107,7 +107,7 @@ The next step lets you connect the container app to Azure App Configuration usin
 
 ## Browse the URL of the Azure Container App
 
-In the Azure portal, browse to the container app you have created and in the **Overview** tab, open the **Application URL**.
+In the Azure portal, browse to the container app you've created and in the **Overview** tab, open the **Application URL**.
 
 > [!NOTE]
 > You may need to restart the app if you've disable Beta in the App Configuration feature flag management.
