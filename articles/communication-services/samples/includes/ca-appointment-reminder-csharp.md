@@ -23,9 +23,9 @@ ms.author: kpunjabi
 - Enable Visual studio dev tunneling for local development. For details, see [Enable dev tunnel] (https://learn.microsoft.com/en-us/connectors/custom-connectors/port-tunneling)
 	- To enable dev tunneling, Click `Tools` -> `Options` in Visual Studio 2022
 	- In the search bar type tunnel, Click the checkbox under `Environment` -> `Preview Features` called `Enable dev tunnels for Web Application`
-	![EnableDevTunnel](./media/call-automation/enable-dev-tunnel.png) 
+	![EnableDevTunnel](../media/call-automation/enable-dev-tunnel.png) 
 	- Login into your account under `Dev Tunnels` -> `General`
-  ![LogInDevTunnel](./media/call-automation/add-account-for-tunnel.png) 
+  ![LogInDevTunnel](../media/call-automation/add-account-for-tunnel.png) 
   
 ## Before running the sample for the first time 
 
@@ -47,14 +47,3 @@ Open the appsetting.json file to configure the following settings
 1. Run the `CallAutomation_AppointmentReminder` project in debug mode
 2. Browser should pop up with swagger UI, If using Visual studio dev tunnels note the app base url and update it in the appsetting.json file `(AppBaseUri)`
 3. To initiate the call, from the swagger ui execute the `/api/call` endpoint or make a Http post request to `https://<AppBaseUri>/api/call`
-
-### Publish the Call Automation Appointment Reminder to Azure WebApp
-
-1. Right click the CallAutomation_AppointmentReminder project and select Publish
-2. Create a new publish profile and select your app name, Azure subscription, resource group etc. (choose any unique name, as this URL needed for `AppBaseUri` configuration settings)
-3. After publishing, add the following configurations on azure portal (under app service's configuration section)
-	1. `ConnectionString`: Azure Communication Service resource's connection string.
-	2. `SourcePhone`: Phone number associated with the Azure Communication Service resource. For e.g. "+1425XXXAAAA"
-	3. `TargetPhoneNumber`: Target phone number to add in the call. For e.g. "+1425XXXAAAA"
-    4. `AppBaseUri`:  URI of the deployed app service.
-4. Detailed instructions on publishing the app to Azure are available at [Publish a Web app](https://learn.microsoft.com/en-us/visualstudio/deployment/quickstart-deploy-aspnet-web-app?view=vs-2019&tabs=azure)
