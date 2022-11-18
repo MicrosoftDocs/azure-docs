@@ -6,7 +6,7 @@ services: storage
 author: jimmart-dev
 
 ms.author: jammart
-ms.date: 05/26/2022
+ms.date: 11/17/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -136,7 +136,10 @@ az storage account show \
 
 You can use a connection string to authorize access to Azure Storage with the account access keys (Shared Key authorization). To learn more about connection strings, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).
 
-[!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
+> [!IMPORTANT]
+> Your storage account access keys are similar to a root password for your storage account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely. Avoid distributing access keys to other users, hard-coding them, or saving them anywhere in plain text that is accessible to others. Rotate your keys if you believe they may have been compromised.
+>
+> Microsoft recommends using Azure Active Directory (Azure AD) to authorize requests against blob and queue data if possible, rather than using the account keys (Shared Key authorization). Authorization with Azure AD provides superior security and ease of use over Shared Key authorization. For more information, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
 # [Portal](#tab/portal)
 
