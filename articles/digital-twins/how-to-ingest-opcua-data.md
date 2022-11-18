@@ -90,4 +90,4 @@ You can use Azure Digital Twins Explorer to monitor twin property updates and ad
 
 Setup Azure Data Explorer also allows you to create condition monitoring [dashboards](https://learn.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards) with a few clicks.
 
-Use the instructions [replacing the simulation with a real production line instructions](https://github.com/digitaltwinconsortium/ManufacturingOntologies#replacing-the-production-line-simulation-with-a-real-production-line) to connect your own industrial assets.
+Use the instructions [replacing the simulation with a real production line](https://github.com/digitaltwinconsortium/ManufacturingOntologies#replacing-the-production-line-simulation-with-a-real-production-line) to connect your own industrial assets.
