@@ -11,7 +11,7 @@ ms.date: 06/27/2022
 
 # Disable or enable Data Estate Insights
 
-Microsoft Purview Data Estate Insights automatically aggregates metrics and creates reports about your Microsoft Purview account and your data estate. When you scan registered sources and populate your Microsoft Purview Data Map, the Data Estate Insights application automatically extracts valuable governance gaps and highlights them in its top metrics. It also provides drill-down experience that enables all stakeholders, such as data owners and data stewards, to take appropriate action to close the gaps.
+Microsoft Purview Data Estate Insights automatically aggregates metrics and creates reports about your Microsoft Purview account and your data estate. When you scan registered sources and populate your Microsoft Purview Data Map, the Data Estate Insights application automatically identifies governance gaps and highlights them in its top metrics. It also provides drill-down experience that enables all stakeholders, such as data owners and data stewards, to take appropriate action to close the gaps.
 
 These features are optional and can be enabled or disabled at any time. This article provides the specific steps required to enable or disable Microsoft Purview Data Estate Insights features.
 
@@ -108,7 +108,7 @@ If Data Estate Insights or report refresh has been disabled in your Microsoft Pu
 
 1. In the **Edit** menu, select **Recurring**.
 
-1. Then select your time zone, set your recurrance to **Month(s)** or **Weeks(s)**, select your day and time to run, specify a start time, and optionally specify an end time.
+1. Then select your time zone, set your recurrence to **Month(s)** or **Weeks(s)**, select your day and time to run, specify a start time, and optionally specify an end time.
 
     :::image type="content" source="media/enable-disable-data-estate-insights/set-recurrance.png" alt-text="Screenshot of the Data Estate Insights edit page, with the Recurring radio button highlighted and set to Recurring." :::
 
