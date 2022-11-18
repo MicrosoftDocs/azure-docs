@@ -56,11 +56,9 @@ The actions below require Lockbox authorization in order for a support engineer 
 - Create Kubernetes object
 - Update Kubernetes object
 - Delete Kubernetes object
-- Get logs from an OpenShift pod
+- Get logs from a pod in the OpenShift namespace
 - List or get Kubernetes objects
 
 ## Auditing logs
 
 Lockbox logs are stored in activity logs. In the Azure portal, select Activity Logs to view auditing information related to Customer Lockbox requests. See [Customer Lockbox, Auditing Logs](/azure/security/fundamentals/customer-lockbox-overview#auditing-logs) for more information.
-
-
