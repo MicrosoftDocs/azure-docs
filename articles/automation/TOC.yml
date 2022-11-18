@@ -281,7 +281,7 @@
             - name: Enable
               items:
                 - name: Enable change tracking from portal
-                  href: enable-vms-ama.md
+                  href: change-tracking/enable-vms-ama.md
     - name: Start/Stop VMs during off-hours
       items:
         - name: Overview

@@ -7,7 +7,7 @@ ms.date: 11/17/2022
 ms.topic: conceptual
 ---
 
-# Enable Change Tracking and Inventory from Azure portal
+# Enable Change Tracking and Inventory for virtual machines from Azure portal
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry
 
@@ -16,7 +16,7 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 ## Prerequisites
 
 - Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [virtual machine](../../virtual-machines/windows/quick-create-portal.md).
+- A [virtual machine](../../virtual-machines/windows/quick-create-portal.md).
 - Ensure that your virtual machine is configured in the specified locations.
 
 ## Enable Change Tracking and Inventory
@@ -31,11 +31,9 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 
    :::image type="content" source="media/enable-vms-ama/select-change-tracking-vm-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-vms-ama/select-change-tracking-vm-expanded.png":::
 
-1. Select **Enable using AMA agent (Recommended)** option and **Enable**. This will inititate the deployment and the notification appears on the top right corner of the screen. You can also [change the workspace](#change-workspace) from this screen.
+1. Select **Enable using AMA agent (Recommended)** option and **Enable**. This will inititate the deployment and the notification appears on the top right corner of the screen. You can also [change the workspace](#change-a-workspace) from this screen.
    
     :::image type="content" source="media/enable-vms-ama/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-ama/deployment-success-expanded.png":::
-
-   It usually takes upto two to three minutes to successfully on-board and enable the machine. After you enable a machine for change tracking, you can make changes to the files, registries or software for the specific VM. For more information, see [Configure data collection rule](#configure-data-collection-rule)
 
 
 #### [For multiple VMs](#tab/multiplevms)
@@ -48,7 +46,7 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 
    :::image type="content" source="media/enable-vms-ama/select-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select multiple virtual machine from the portal." lightbox="media/enable-vms-ama/select-change-tracking-multiple-vms-expanded.png":::
 
-1. In **Enable Change Tracking**, click on the banner that says **Click to try new change tracking and inventory v2 experience**.
+1. In **Enable Change Tracking**, select the banner on the top of the page - **Click to try new change tracking and inventory v2 experience**.
 
    :::image type="content" source="media/enable-vms-ama/enable-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select enable change tracking for multiple vms from the portal." lightbox="media/enable-vms-ama/enable-change-tracking-multiple-vms-expanded.png":::
 
@@ -59,15 +57,13 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 1. Select **Enable** to inititate the deployment and a notification appears on the top right corner of the screen.
 --- 
 
->[!NOTE]
-A single virtual machine will have one data collection rule. However, in a workspace, as there are many virtual machines, there will be multiple data collection rules but you will see the default data collection rule which is primarily the first data collection rule that you have created.
+It usually takes upto two to three minutes to successfully on-board and enable the machine(s). After you enable a machine for change tracking, you can make changes to the files, registries or software for the specific VM. For more information, see [Configure data collection rule](#configure-data-collection-rule)
 
 ## Change a workspace
 
 #### [For single VMs](#tab/workspace-singlevm)
 
 1. Select the virtual machine, in search, enter **change tracking**.
-
 1. Select **Open change and inventory center**.
     
     :::image type="content" source="media/enable-vms-ama/select-change-and-inventory-center-inline.png" alt-text="Screenshot showing how to select change and inventory center from the portal." lightbox="media/enable-vms-ama/select-change-and-inventory-center-expanded.png":::
@@ -78,8 +74,8 @@ A single virtual machine will have one data collection rule. However, in a works
 #### [For multiple VMs](#tab/workspace-multiplevms)
 
 1. Select the virtual machine, in search, enter **change tracking**.
-
-1. In the **Stay up-to-date with all changes** layout, in **Log analytics workspace**, select **Change** and in the **Custom Configuration** screen, provide the **Subscription**, **Location** and **Workspace**. and select **Ok**.
+1. In the **Stay up-to-date with all changes** layout, in **Log analytics workspace**, select **Change**.
+1. In **Custom Configuration** screen, provide the **Subscription**, **Location** and **Workspace**. and select **Ok**.
 
    :::image type="content" source="media/enable-vms-ama/custom-configuration-inline.png" alt-text="Screenshot showing how change a workspace." lightbox="media/enable-vms-ama/custom-configuration-expanded.png":::
 ---
@@ -100,7 +96,8 @@ A single virtual machine will have one data collection rule. However, in a works
 
 1. In the **Edit windows file setting**, to make changes to the existing rule and select **Save**.
 
-
+>[!NOTE]
+A single virtual machine will have one data collection rule. However, in a workspace, as there are many virtual machines, there will be multiple data collection rules but you will see the default data collection rule which is primarily the first data collection rule that you have created
  
 ## Next steps
 
