@@ -30,7 +30,7 @@ The open source BlobFuse2 project is on GitHub:
 
 ### Licensing
 
-The BlobFuse2 project is [licensed under MIT](https://github.com/Azure/azure-storage-fuse/blob/main/LICENSE).
+The BlobFuse2 project is [licensed under the MIT license](https://github.com/Azure/azure-storage-fuse/blob/main/LICENSE).
 
 ## Features
 
