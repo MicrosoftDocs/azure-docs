@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 09/22/2022
+ms.date: 10/26/2022
 ms.author: radeltch
 
 ---
@@ -580,6 +580,13 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    # Change/set the following settings
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
+   </code></pre>
+   
+    c. Make sure vm.swappiness is set to 10 to reduce swap usage and favor memory.
+
+   <pre><code>sudo vi /etc/sysctl.conf
+   # Change/set the following setting
+   vm.swappiness = 10
    </code></pre>
 
 1. **[A]** Configure *cloud-netconfig-azure* for the high availability cluster.

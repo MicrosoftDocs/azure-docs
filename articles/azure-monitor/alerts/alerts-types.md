@@ -15,10 +15,12 @@ This article describes the kinds of Azure Monitor alerts you can create, and hel
 
 There are four types of alerts:
 - [Metric alerts](#metric-alerts)
-- [Prometheus alerts](#prometheus-alerts-preview)
 - [Log alerts](#log-alerts)
 - [Activity log alerts](#activity-log-alerts)
+    - [Service Health alerts](#service-health-alerts)
+    - [Resource Health alerts](#resource-health-alerts)
 - [Smart detection alerts](#smart-detection-alerts)
+- [Prometheus alerts](#prometheus-alerts-preview) (preview)
 
 ## Choosing the right alert type
 
@@ -26,9 +28,9 @@ This table can help you decide when to use what type of alert. For more detailed
 
 |Alert Type  |When to Use |Pricing Information|
 |---------|---------|---------|
-|Metric alert|Metric alerts are useful when you want to be alerted about data that requires little or no manipulation.  Metric data is stored in the system already pre-computed. We recommend using metric alerts if the data you want to monitor is available in metric data.|Each metrics alert rule is charged based on the number of time-series that are monitored. |
-|Log alert|Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation using log alerts.|Each Log Alert rule is billed based the interval at which the log query is evaluated (more frequent query evaluation results in a higher cost). Additionally, for Log Alerts configured for [at scale monitoring](#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. | 
-|Activity Log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource.|For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).|
+|Metric alert|Metric data is stored in the system already pre-computed. Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. We recommend using metric alerts if the data you want to monitor is available in metric data.|Each metric alert rule is charged based on the number of time-series that are monitored. |
+|Log alert|Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation using log alerts.|Each log alert rule is billed based on the interval at which the log query is evaluated (more frequent query evaluation results in a higher cost). Additionally, for log alerts configured for [at scale monitoring](#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. | 
+|Activity Log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource. Service Health alerts and Resource Health alerts can let you know when there is an issue with one of your services or resources.|For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).|
 |Prometheus alerts (preview)| Prometheus alerts are primarily used for alerting on performance and health of Kubernetes clusters (including AKS). The alert rules are based on PromQL, which is an open source query language. | There is no charge for Prometheus alerts during the preview period. |
 ## Metric alerts
 
@@ -176,6 +178,16 @@ Activity log alert rules are Azure resources, so they can be created by using an
 
 An activity log alert only monitors events in the subscription in which the alert is created.
 
+### Service Health alerts
+
+Service Health alerts are a type of activity alert. [Service Health](../../service-health/overview.md) lets you know about outages, planned maintenance activities, and other health advisories because the authenticated Service Health experience knows which services and resources you currently use. 
+
+The best way to use Service Health is to set up Service Health alerts to notify you using your preferred communication channels when service issues, planned maintenance, or other changes may affect the Azure services and regions you use.
+
+### Resource Health alerts
+
+Resource Health alerts are a type of activity alert. [Resource Health overview](../../service-health/resource-health-overview.md) helps you diagnose and get support for service problems that affect your Azure resources. It reports on the current and past health of your resources. Resource Health relies on signals from different Azure services to assess whether a resource is healthy. If a resource is unhealthy, Resource Health analyzes additional information to determine the source of the problem. It also reports on actions that Microsoft is taking to fix the problem and identifies things that you can do to address it.
+
 ## Smart Detection alerts
 
 After setting up Application Insights for your project, when your app generates a certain minimum amount of data, Smart Detection takes 24 hours to learn the normal behavior of your app. Your app's performance has a typical pattern of behavior. Some requests or dependency calls will be more prone to failure than others; and the overall failure rate may go up as load increases. Smart Detection uses machine learning to find these anomalies. Smart Detection monitors the data received from your app, and in particular the failure rates. Application Insights automatically alerts you in near real time if your web app experiences an abnormal rise in the rate of failed requests.
@@ -194,3 +206,4 @@ Prometheus alerts are based on metric values stored in [Azure Monitor managed se
 - Get an [overview of alerts](alerts-overview.md).
 - [Create an alert rule](alerts-log.md).
 - Learn more about [Smart Detection](proactive-failure-diagnostics.md).
+

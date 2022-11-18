@@ -163,7 +163,7 @@ This section shows how you can define a Triton deployment to deploy to a managed
     endpoint_name = f"endpoint-{random.randint(0, 10000)}"
     ```
 
-1. We use these details above in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. Check the [configuration notebook](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
+1. We use these details above in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. Check the [configuration notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
     ```python 
     from azure.ai.ml import MLClient
@@ -352,7 +352,7 @@ Once your deployment completes, use the following command to make a scoring requ
     keys = ml_client.online_endpoints.list_keys(endpoint_name)
     auth_key = keys.primary_key
 
-1. The following scoring code uses the [Triton Inference Server Client](https://github.com/triton-inference-server/client) to submit the image of a peacock to the endpoint. This script is available in the companion notebook to this example - [Deploy a model to online endpoints using Triton](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/triton/single-model/online-endpoints-triton.ipynb).
+1. The following scoring code uses the [Triton Inference Server Client](https://github.com/triton-inference-server/client) to submit the image of a peacock to the endpoint. This script is available in the companion notebook to this example - [Deploy a model to online endpoints using Triton](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/triton/single-model/online-endpoints-triton.ipynb).
 
     ```python
     # Test the blue deployment with some sample data

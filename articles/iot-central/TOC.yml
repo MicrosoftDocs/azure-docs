@@ -25,12 +25,12 @@
       items:
       - name: Create and connect a device
         href: core/tutorial-connect-device.md
-      - name: Create a gateway device template
-        href: core/tutorial-define-gateway-device-type.md
-      - name: Connect an IoT Edge device
-        href: /training/modules/connect-iot-edge-device-to-iot-central
       - name: Create a device group
         href: core/tutorial-use-device-groups.md
+      - name: Connect an IoT Edge device
+        href: core/tutorial-connect-iot-edge-device.md
+      - name: Create a gateway device template
+        href: core/tutorial-define-gateway-device-type.md
     - name: Extend your application
       items:
       - name: Create a rule
@@ -141,6 +141,8 @@
           href: core/howto-use-commands.md
         - name: Connect devices that use X.509
           href: core/how-to-connect-devices-x509.md
+        - name: Manage IoT Edge deployment manifests
+          href: core/howto-manage-deployment-manifests.md
         - name: Connect devices through an IoT Edge transparent gateway
           href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Prepare and connect an IoT Edge for Linux on Windows device 

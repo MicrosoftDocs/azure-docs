@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 11/08/2022
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -98,6 +98,9 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
+        >[!NOTE]
+        >By default, the `.snapshot` directory path is hidden from NFSv4.1 clients. Enabling the **Hide snapshot path** option will hide the .snapshot directory from NFSv3 clients; the directory will still be accessible.
+
 3. Click **Protocol**, and then complete the following actions:  
     * Select **NFS** as the protocol type for the volume.   
 
@@ -140,3 +143,4 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 * [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
+* [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)

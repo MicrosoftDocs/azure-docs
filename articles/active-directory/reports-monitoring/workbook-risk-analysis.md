@@ -3,17 +3,14 @@
 title: Identity protection risk analysis workbook in Azure AD | Microsoft Docs
 description: Learn how to use the identity protection risk analysis workbook.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: chuqiaoshi 
 
 ms.collection: M365-identity-device-management

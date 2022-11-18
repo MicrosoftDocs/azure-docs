@@ -5,9 +5,10 @@ description: Learn how Azure Machine Learning SDK (v1) enables you to scale out 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: larryfr
-author: blackmist
-ms.date: 03/21/2022
+ms.author: balapv
+author: balapv
+ms.reviewer: mopeakande
+ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
@@ -18,7 +19,7 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](how-to-train-scikit-learn.md)
-> * [v2 (preview)](../how-to-train-scikit-learn.md)
+> * [v2 (current version)](../how-to-train-scikit-learn.md)
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 

@@ -38,9 +38,4 @@ The following table provides details about how the two tiers of IoT Hub compare 
 
 Even if the only use case is device-to-cloud data ingestion, we highly recommend using IoT Hub as it provides a service that is designed for IoT device connectivity. 
 
-### Next steps
-
-To further explore the capabilities of IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
-
-<!-- This one reference link is used over and over. --robinsh -->
 [checkmark]: ./media/iot-hub-compare-event-hubs/ic195031.png

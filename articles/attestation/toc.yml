@@ -27,12 +27,18 @@
     href: private-endpoint-powershell.md
   - name: Azure Diagnostic Monitoring
     href: azure-diagnostic-monitoring.md
-  - name: SGX attestation code samples
+  - name: How to perform TPM and VBS attestation
+    href: azure-tpm-vbs-attestation-usage.md
+  - name: How to perform SGX attestation
     href: /samples/browse/?expanded=azure&terms=attestation
 - name: Examples
   items:
     - name: Attestation policy
-      href: policy-examples.md
+      items:
+      - name: SGX
+        href: policy-examples.md
+      - name: TPM
+        href: tpm-attestation-sample-policies.md
     - name: Policy signer certificate
       href: policy-signer-examples.md
     - name: Attestation token
@@ -41,9 +47,8 @@
   items:
   - name: Basic concepts
     href: basic-concepts.md
-    items:
-      - name: Trusted Platform Module (TPM) Attestation
-        href: tpm-attestation-concepts.md
+  - name: TPM attestation overview
+    href: tpm-attestation-concepts.md
   - name: Attestation policy
     items:
       - name: Claim rule grammar

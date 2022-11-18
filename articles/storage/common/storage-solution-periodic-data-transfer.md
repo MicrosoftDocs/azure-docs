@@ -63,7 +63,7 @@ The following table summarizes the differences in key capabilities.
 
 ## Next steps
 
-- [Transfer data with AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Transfer data with AzCopy](./storage-use-azcopy-v10.md?toc=/azure/storage/tables/toc.json).
 - [More information on data transfer with Storage REST APIs](/dotnet/api/overview/azure/storage).
 - Understand how to:
   - [Transfer data with Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).

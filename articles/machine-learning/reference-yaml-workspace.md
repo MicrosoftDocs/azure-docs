@@ -8,10 +8,10 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
 
-author: s-polly
-ms.author: scottpolly
+author: deeikele
+ms.author: deeikele
 ms.date: 10/21/2021
-ms.reviewer: laobri
+ms.reviewer: scottpolly
 ---
 
 # CLI (v2) workspace YAML schema

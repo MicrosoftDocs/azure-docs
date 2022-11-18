@@ -1,21 +1,21 @@
 ---
-title: Quickstart - Create a Windows virtual machine scale set with Bicep
+title: Quickstart - Create a Windows Virtual Machine Scale Set with Bicep
 description: Learn how to quickly create a Windows virtual machine scale with Bicep to deploy a sample app and configures autoscale rules
-author: carmonmills
-ms.author: carmonm
+author: ju-shim
+ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.collection: windows
-ms.date: 06/28/2022
+ms.date: 11/01/2022
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 
-# Quickstart: Create a Windows virtual machine scale set with Bicep
+# Quickstart: Create a Windows Virtual Machine Scale Set with Bicep
 
 > [!NOTE]
-> This quickstart uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+> This quickstart uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
-A virtual machine scale set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the virtual machine scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the virtual machine scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with Bicep.
+A Virtual Machine Scale Set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the Virtual Machine Scale Set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the Virtual Machine Scale Set. In this quickstart, you create a Virtual Machine Scale Set and deploy a sample application with Bicep.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -39,7 +39,7 @@ The following resources are defined in the Bicep file:
 
 ### Define a scale set
 
-To create a virtual machine scale set with a Bicep file, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
+To create a Virtual Machine Scale Set with a Bicep file, you define the appropriate resources. The core parts of the Virtual Machine Scale Set resource type are:
 
 | Property                     | Description of property                                  | Example template value                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
@@ -54,11 +54,11 @@ To create a virtual machine scale set with a Bicep file, you define the appropri
 | osProfile.adminUsername      | The username for each VM instance                        | azureuser                                 |
 | osProfile.adminPassword      | The password for each VM instance                        | P@ssw0rd!                                 |
 
-To customize a virtual machine scale set Bicep file, you can change the VM size or initial capacity. Another option is to use a different platform or a custom image.
+To customize a Virtual Machine Scale Set Bicep file, you can change the VM size or initial capacity. Another option is to use a different platform or a custom image.
 
 ### Add a sample application
 
-To test your virtual machine scale set, install a basic web application. When you deploy a virtual machine scale set, VM extensions can provide post-deployment configuration and automation tasks, such as installing an app. Scripts can be downloaded from [GitHub](https://azure.microsoft.com/resources/templates/vmss-windows-webapp-dsc-autoscale/) or provided to the Azure portal at extension run-time. To apply an extension to your virtual machine scale set, add the `extensionProfile` section to the resource example above. The extension profile typically defines the following properties:
+To test your Virtual Machine Scale Set, install a basic web application. When you deploy a Virtual Machine Scale Set, VM extensions can provide post-deployment configuration and automation tasks, such as installing an app. Scripts can be downloaded from [GitHub](https://azure.microsoft.com/resources/templates/vmss-windows-webapp-dsc-autoscale/) or provided to the Azure portal at extension run-time. To apply an extension to your Virtual Machine Scale Set, add the `extensionProfile` section to the resource example above. The extension profile typically defines the following properties:
 
 - Extension type
 - Extension publisher
@@ -91,14 +91,14 @@ An install script is downloaded from GitHub, as defined in `url`. The extension 
 
     ---
 
-    Replace *\<vmss-name\>* with the name of the virtual machine scale set. It must be 3-61 characters in length and globally unique across Azure. You'll be prompted to enter `adminPassword`.
+    Replace *\<vmss-name\>* with the name of the Virtual Machine Scale Set. It must be 3-61 characters in length and globally unique across Azure. You'll be prompted to enter `adminPassword`.
 
     > [!NOTE]
-    > When the deployment finishes, you should see a message indicating the deployment succeeded. It can take 10-15 minutes for the virtual machine scale set to be created and apply the extension to configure the app.
+    > When the deployment finishes, you should see a message indicating the deployment succeeded. It can take 10-15 minutes for the Virtual Machine Scale Set to be created and apply the extension to configure the app.
 
 ## Validate the deployment
 
-To see your virtual machine scale set in action, access the sample web application in a web browser. Obtain the public IP address of your load balancer using Azure CLI or Azure PowerShell.
+To see your Virtual Machine Scale Set in action, access the sample web application in a web browser. Obtain the public IP address of your load balancer using Azure CLI or Azure PowerShell.
 
 # [CLI](#tab/CLI)
 
@@ -138,7 +138,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-In this quickstart, you created a Windows virtual machine scale set with a Bicep file and used the PowerShell DSC extension to install a basic ASP.NET app on the VM instances. To learn more, continue to the tutorial for how to create and manage Azure virtual machine scale sets.
+In this quickstart, you created a Windows Virtual Machine Scale Set with a Bicep file and used the PowerShell DSC extension to install a basic ASP.NET app on the VM instances. To learn more, continue to the tutorial for how to create and manage Azure Virtual Machine Scale Sets.
 
 > [!div class="nextstepaction"]
-> [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-powershell.md)
+> [Create and manage Azure Virtual Machine Scale Sets](tutorial-create-and-manage-powershell.md)
