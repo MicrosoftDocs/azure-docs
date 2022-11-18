@@ -8,7 +8,7 @@ ms.reviewer: tilee
 
 # Automate custom reports with Application Insights data
 
-Periodical reports help keep a team informed on how their business-critical services are doing. Developers, DevOps/SRE teams, and their managers can be productive with automated reports reliably delivering insights without requiring everyone to sign in the portal. Such reports can also help identify gradual increases in latencies, load, or failure rates that might not trigger any alert rules.
+Periodical reports help keep a team informed on how their business-critical services are doing. Developers, DevOps/SRE teams, and their managers can be productive with automated reports that reliably deliver insights without requiring everyone to sign in to the portal. Such reports can also help identify gradual increases in latencies, load, or failure rates that might not trigger any alert rules.
 
 Each enterprise has its unique reporting needs, such as:
 
@@ -28,7 +28,7 @@ You can [programmatically query Application Insights](https://dev.applicationins
 
 * [Automate reports with Power Automate](../logs/logicapp-flow-connector.md).
 * [Automate reports with Azure Logic Apps](automate-with-logic-apps.md).
-* Use the **Application Insights scheduled digest** [Azure Functions](../../azure-functions/functions-get-started.md) template in the Monitoring scenario. This function uses SendGrid to deliver the email.
+* Use the **Application Insights scheduled digest** [Azure Functions](../../azure-functions/functions-get-started.md) template in the **Monitoring** scenario. This function uses SendGrid to deliver the email.
 
     ![Screenshot that shows an Azure Functions template.](./media/automate-custom-reports/azure-function-template.png)
 
@@ -67,9 +67,9 @@ availabilityResults
 
 1. Create an Azure Functions app. Application Insights **On** is required only if you want to monitor your new Azure Functions app with Application Insights.
 
-   See the Azure Functions documentation to learn how to [create a function app](../../azure-functions/functions-get-started.md)
+   See the Azure Functions documentation to learn how to [create a function app](../../azure-functions/functions-get-started.md).
 
-1. After your new Azure Functions app has completed deployment, select **Go to resource**.
+1. After your new Azure Functions app has finished deployment, select **Go to resource**.
 
 1. Select **New function**.
 
@@ -82,7 +82,7 @@ availabilityResults
 
    ![Screenshot that shows New Function Application Insights Template.](./media/automate-custom-reports/function-app-04.png)
 
-1. Enter an appropriate recipient e-mail address for your report and select **Create**.
+1. Enter an appropriate recipient email address for your report and select **Create**.
 
    ![Screenshot that shows Function Settings.](./media/automate-custom-reports/scheduled-digest.png)
 
@@ -90,7 +90,7 @@ availabilityResults
 
     ![Screenshot that shows Azure Function Application settings.](./media/automate-custom-reports/config.png)
 
-1. Create three new application settings with appropriate corresponding values ``AI_APP_ID``, ``AI_APP_KEY``, and ``SendGridAPI``. Select **Save**.
+1. Create three new application settings with the appropriate corresponding values ``AI_APP_ID``, ``AI_APP_KEY``, and ``SendGridAPI``. Select **Save**.
 
      ![Screenshot that shows Function integration interface.](./media/automate-custom-reports/app-settings.png)
     
@@ -107,7 +107,7 @@ availabilityResults
 
      ![Screenshot that shows Outputs.](./media/automate-custom-reports/integrate.png)
 
-1. Under the **SendGridAPI Key App Setting**, select your newly created app setting for **SendGridAPI**.
+1. Under the **SendGridAPI Key App Setting**, select your newly created app setting **SendGridAPI**.
 
      ![Screenshot that shows SendGridAPI.](./media/automate-custom-reports/sendgrid-output.png)
 
@@ -135,7 +135,7 @@ These steps only apply if you don't already have a SendGrid account configured.
 
      ![Screenshot that shows API Keys under Settings.](./media/automate-custom-reports/function-app-15.png)
 
-1. To create an API key, choose **Create & View**. Review SendGrid's documentation on restricted access to determine what level of permissions is appropriate for your API key. **Full Access** is selected here only as an example.
+1. To create an API key, select **Create & View**. Review SendGrid's documentation on restricted access to determine what level of permissions is appropriate for your API key. **Full Access** is selected here only as an example.
 
    ![Screenshot that shows Full Access.](./media/automate-custom-reports/function-app-16.png)
 
