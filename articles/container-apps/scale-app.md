@@ -12,7 +12,7 @@ zone_pivot_groups: arm-azure-cli-portal
 
 # Set scaling rules in Azure Container Apps
 
-Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app scales out, new instances of the container app are created on-demand. These instances are known as replicas.
+Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app revision scales out, new instances of the revision are created on-demand. These instances are known as replicas.
 
 Adding or editing scaling rules creates a new revision of your container app. A revision is an immutable snapshot of your container app. See revision [change types](./revisions.md#change-types) to review which types of changes trigger a new revision.
 
@@ -20,12 +20,12 @@ Adding or editing scaling rules creates a new revision of your container app. A 
 
 Scaling is defined by the combination of limits and rules.
 
-- **Limits** are the minimum and maximum possible number of replicas as your container app scales.
+- **Limits** are the minimum and maximum possible number of replicas per revision as your container app scales.
 
     | Scale limit | Default value | Min value | Max value |
     |---|---|---|---|
-    | Minimum number of replicas | 0 | 0 | 30 |
-    | Maximum number of replicas | 10 | 1 | 30 |
+    | Minimum number of replicas per revision | 0 | 0 | 30 |
+    | Maximum number of replicas per revision | 10 | 1 | 30 |
 
     To request an increase in maximum replica amounts for your container app, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
 
@@ -36,8 +36,8 @@ Scaling is defined by the combination of limits and rules.
 As you define your scaling rules, keep in mind the following items:
 
 - You aren't billed usage charges if your container app scales to zero.
-- Replicas that aren't processing, but remain in memory are billed as "idle".
-- If you want to ensure that an instance of your application is always running, set the minimum  number of replicas to 1 or higher.
+- Replicas that aren't processing, but remain in memory may be billed at a lower "idle" rate. For more information, see [Billing](./billing.md).
+- If you want to ensure that an instance of your revision is always running, set the minimum  number of replicas to 1 or higher.
 
 ## Scale rules
 
@@ -54,9 +54,9 @@ Scaling is driven by three different categories of triggers:
 
 ## HTTP
 
-With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your app scales.
+With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales.
 
-In the following example, the container app scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
+In the following example, the revision scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests.
 
 ### Example
 
@@ -134,7 +134,7 @@ TODO: create, update, up
 
 With a TCP scaling rule, you have control over the threshold of concurrent TCP requests that determines how your app scales.
 
-In the following example, the container app scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
+In the following example, the container app revision scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
 
 ### Example
 
@@ -271,17 +271,26 @@ First, you'll define the type and metadata of the scale rule.
 
     :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-0.json" highlight="8,9,10,11,12,13":::
 
-Next, you'll map the [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) object to the scale rule.
+A KEDA scaler may support using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the `authenticationRef` property. You can map the TriggerAuthentication object to the Container Apps scale rule.
 
-1. Find each `secretTargetRef` of a `TriggerAuthentication` object.
+> [!NOTE]
+> Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
+
+1. In your container app, create the [secrets](./manage-secrets.md) that you want to reference.
+
+1. Find the `TriggerAuthentication` object referenced by the KEDA ScaledObject.
+
+1. Find each `secretTargetRef` of the `TriggerAuthentication`.
 
     :::code language="yml" source="../../includes/container-apps/keda-azure-datadog-auth.yml" highlight="19,20,21,22,23,24,25,26,27":::
 
-1. Add all metadata values to the `auth` array of the scale rule.
+1. Add all entries to the `auth` array of the scale rule.
+    1. Set the value of the `triggerParameter` property to the value of the `TriggerAuthentication`'s `key` property.
+    1. Set the value of the `secretRef` property to the name of the Container Apps secret.
 
     :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-1.json" highlight="3,4,5,6,7,8,9,10,11,12,13,14":::
 
-    Alternatively, you can use the `connectionFromEnv` metadata parameter to provide a security context for your scale rule. When you set `connectionFromEnv` to an environment variable name, Container Apps looks at the first container listed in the ARM template for a connection string.
+    Some scalers support metadata with the `FromEnv` suffix to reference a value in an environment variable. Container Apps looks at the first container listed in the ARM template for the environment variable.
 
     Refer to the [considerations section](#considerations) for more security related information.
 
@@ -328,7 +337,7 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 | HTTP | 0 | 10 |
 
 > [!IMPORTANT]
-> Make sure you create a scale rule if you don't enable ingress. If ingress is disabled and all you have is the default rule, then your container app will scale to zero and have no way of starting back up.
+> Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and all you have is the default limits and rule, then your container app will scale to zero and have no way of starting back up.
 
 ## Unsupported KEDA capabilities
 
