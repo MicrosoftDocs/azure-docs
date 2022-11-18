@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
 
-[! INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL - Flexible Server supports the following logical data extraction and replication methodologies:
 1. **Logical replication**
@@ -35,8 +35,6 @@ Logical replication:
 Logical decoding:
 * Extracts changes across all tables in a database.
 
->[!NOTE]
-> As at this time, Flexible server does not support cross-region read replicas. Depending on the type of workload, you may choose to use logical replication feature for cross-region disaster recovery (DR) purpose.
 
 ## Pre-requisites for logical replication and logical decoding
 
@@ -104,7 +102,6 @@ Visit the PostgreSQL documentation to understand more about [logical replication
 ### pglogical extension
 
 Here is an example of configuring pglogical at the provider database server and the subscriber. Refer to [pglogical extension documentation](https://github.com/2ndQuadrant/pglogical#usage) for more details. Also make sure you have performed pre-requisite tasks listed above.
-
 
 1. Install pglogical extension in the database in both the provider and the subscriber database servers.
     ```SQL
@@ -241,8 +238,10 @@ SELECT * FROM pg_replication_slots;
 
 ## Limitations
 * **Logical replication** limitations apply as documented [here](https://www.postgresql.org/docs/12/logical-replication-restrictions.html).
-* **Read replicas** - Azure Database for PostgreSQL read replicas are not currently supported with flexible servers.
 * **Slots and HA failover** - Logical replication slots on the primary server are not available on the standby server in your secondary AZ. This situation applies to you if your server uses the zone-redundant high availability option. In the event of a failover to the standby server, logical replication slots will not be available on the standby.
+
+>[!IMPORTANT]
+> You must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists.  Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot is not in use (due to non-available subscriber), Flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation.
 
 ## Next steps
 * Learn more about [networking options](concepts-networking.md)

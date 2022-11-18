@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/20/2022
+ms.date: 10/28/2022
 ms.author: jasteppe
 ---
 
@@ -15,7 +15,7 @@ MedTech service provides multiple methods for deploying it into an Azure Platfor
 
 The different deployment methods are:
 
-- Azure ARM Quickstart template with Deploy to Azure button
+- Azure Resource Manager (ARM) Quickstart template with Deploy to Azure button
 - Azure PowerShell and Azure CLI automation
 - Manual deployment
 
@@ -33,13 +33,13 @@ For more information about Using an ARM template with Azure PowerShell and Azure
 
 ## Manual deployment
 
-The manual deployment method uses Azure portal to implement each deployment task individually. There are no shortcuts. Because you'll be able to see all the details of how to complete the sequence of each task, this procedure can be beneficial if you need to customize or troubleshoot your deployment process. This is the most complex method, but it provides valuable technical information and developmental options that will enable you to fine-tune your deployment precisely.
+The manual deployment method uses the Azure portal to implement each deployment task individually. Using the manual deployment method will allow you to see all the details of how to complete the sequence of each deployment task. The manual deployment method can be beneficial if you need to customize or troubleshoot your deployment process. The manual deployment is the most complex method, but it provides valuable technical information and developmental options that will enable you to fine-tune your deployment precisely.
 
 For more information about manual deployment with portal, see [Overview of how to manually deploy the MedTech service using the Azure portal](deploy-03-new-manual.md).
 
 ## Deployment architecture overview
 
-The following data-flow diagram outlines the basic steps of MedTech service deployment and shows how these steps fit together with its data processing procedures. This may help you analyze the options and determine which deployment method is best for you.
+The following data-flow diagram outlines the basic steps of MedTech service deployment and shows how these steps fit together with its data processing procedures. These basic steps may help you analyze the options and determine which deployment method is best for you.
 
 :::image type="content" source="media/iot-get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architecture overview." lightbox="media/iot-get-started/get-started-with-iot.png":::
 
@@ -48,7 +48,7 @@ There are six different steps of the MedTech service PaaS. Only the first four a
 ### Step 1: Prerequisites
 
 - Have an Azure subscription
-- Create RBAC roles contributor and user access administrator or owner. This feature is automatically done in the QuickStart template method with the Deploy to Azure button, but it isn't included in manual or PowerShell/CLI method and need to be implemented individually.
+- Create RBAC roles contributor and user access administrator or owner. This feature is automatically done in the Quickstart template method with the Deploy to Azure button. It isn't included in the manual or PowerShell/CLI methods and needs to be implemented individually.
 
 ### Step 2: Provision
 
@@ -75,7 +75,7 @@ Each method must add **all** these post-deployment tasks:
 - Connect to services using device and destination mapping.
 - Use managed identity to grant access to the device message event hub.
 - Use managed identity to grant access to the FHIR service, enabling FHIR to receive data from the MedTech service.
-- Note: only the ARM QuickStart method requires a shared access key for post-deployment.
+- Note: only the ARM Quickstart method requires a shared access key for post-deployment.
 
 ### Granting access to the device message event hub
 

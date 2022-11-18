@@ -30,7 +30,7 @@ Azure Load Testing Preview collects detailed resource metrics across your Azure 
 
 Azure Load Testing lets you monitor server-side metrics for your Azure app components for a load test. You can then visualize and analyze these metrics in the Azure Load Testing dashboard.
 
-When the application you're load testing is hosted on Azure App Service, you can get extra insights by using [App Service diagnostics](/azure/app-service/overview-diagnostics.md).
+When the application you're load testing is hosted on Azure App Service, you can get extra insights by using [App Service diagnostics](/azure/app-service/overview-diagnostics).
 
 To view the App Service diagnostics information for your application under load test:
 

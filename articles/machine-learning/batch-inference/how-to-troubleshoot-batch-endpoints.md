@@ -112,6 +112,8 @@ The following section contains common problems and solutions you may see during 
 
 ### No module named 'azureml'
 
+__Message logged__: `No module named 'azureml'`.
+
 __Reason__: Azure Machine Learning Batch Deployments require the package `azureml-core` to be installed.
 
 __Solution__: Add `azureml-core` to your conda dependencies file.
@@ -161,3 +163,11 @@ __Message logged__: There is no succeeded mini batch item returned from run(). P
 __Reason__: The batch endpoint failed to provide data in the expected format to the `run()` method. This may be due to corrupted files being read or incompatibility of the input data with the signature of the model (MLflow).
 
 __Solution__: To understand what may be happening, go to __Outputs + Logs__ and open the file at `logs > user > stdout > 10.0.0.X > process000.stdout.txt`. Look for error entries like `Error processing input file`. You should find there details about why the input file can't be correctly read.
+
+### Audiences in JWT are not allowed
+
+__Context__: When invoking a batch endpoint using its REST APIs.
+
+__Reason__: The access token used to invoke the REST API for the endpoint/deployment is indicating a token that is issued for a different audience/service. Azure Active Directory tokens are issued for specific actions.
+
+__Solution__: When generating an authentication token to be used with the Batch Endpoint REST API, ensure the `resource` parameter is set to `https://ml.azure.com`. Please notice that this resource is different from the resource you need to indicate to manage the endpoint using the REST API. All Azure resources (including batch endpoints) use the resource `https://management.azure.com` for managing them. Ensure you use the right resource URI on each case. Notice that if you want to use the management API and the job invocation API at the same time, you will need two tokens. For details see: [Authentication on batch endpoints (REST)](how-to-authenticate-batch-endpoint.md?tabs=rest).

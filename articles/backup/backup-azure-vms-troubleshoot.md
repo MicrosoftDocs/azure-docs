@@ -3,7 +3,7 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 10/20/2022
+ms.date: 11/07/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -479,6 +479,14 @@ To resolve this issue:
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Trusted Launch Azure VMs (TVMs).
 
 **Resolution**: Use the same subscription for Restore of Trusted Launch Azure VMs. 
+
+### UserErrorCrossSubscriptionRestoreInvalidTargetSubscription
+
+**Error code**: UserErrorCrossSubscriptionRestoreInvalidTargetSubscription
+
+**Error message**: Operation failed as the target subscription specified for restore is not registered to the Azure Recovery Services Resource Provider.
+
+**Recommended action**: Ensure that the target subscription is registered to the Recovery Services Resource Provider before you attempt a cross subscription restore. Creating a vault in the target Subscription should typically register the Subscription to Recovery Services vault Provider.
 
 ## Backup or restore takes time
 

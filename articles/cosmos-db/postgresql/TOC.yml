@@ -166,6 +166,8 @@
               href: howto-scale-initial.md
             - name: Scale cluster
               href: howto-scale-grow.md
+        - name: Choose shard count
+          href: howto-shard-count.md
         - name: Rebalance shards
           href: howto-scale-rebalance.md
         - name: Change compute quotas

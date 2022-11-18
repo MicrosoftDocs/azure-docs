@@ -112,7 +112,7 @@ az role assignment create \
 
 ### Save credentials to GitHub repo
 
-1. In the GitHub UI, navigate to your forked repository and select **Settings** > **Secrets** > **Actions**. 
+1. In the GitHub UI, navigate to your forked repository and select **Security > Secrets and variables > Actions**.
 
 1. Select **New repository secret** to add the following secrets:
 

@@ -35,7 +35,7 @@ There are several possible causes, including:
 ## Troubleshooting steps
 
 > [!TIP]
-> As with deploying new endpoints, Azure Front Door configuration changes take some time to propagate through the network. Usually, changes are applied within 90 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs. 
+> As with deploying new endpoints, Azure Front Door configuration changes take some time to propagate through the network. Usually, changes are applied within 10 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs. 
 > 
 
 ### Verify the request

@@ -21,11 +21,11 @@ THIM defines the Azure security baseline for Azure Confidential computing (ACC) 
 
 ## Frequently asked questions
 
-**The "next update" date of the Azure-internal caching service API ,used by Microsoft Azure Attestation, seems to be out of date. Is it still in operation and can it be used?**
+### The "next update" date of the Azure-internal caching service API, used by Microsoft Azure Attestation, seems to be out of date. Is it still in operation and can it be used?
 
-The "tcbinfo" field contains the TCB information. The THIM service by default provides an older tcbinfo -- updating to the latest tcbinfo from Intel would cause attestation failures for those customers who have not migrated to the latest Intel SDK, and could results in outages.
+The "tcbinfo" field contains the TCB information. The THIM service by default provides an older tcbinfo -- updating to the latest tcbinfo from Intel would cause attestation failures for those customers who haven't migrated to the latest Intel SDK, and could results in outages.
 
-Open Enclave SDK and Microsoft Azure Attestation do not look at nextUpdate date, however, and will pass attestation. 
+Open Enclave SDK and Microsoft Azure Attestation don't look at nextUpdate date, however, and will pass attestation. 
 
 ### What is the Azure DCAP Library?
 
@@ -39,7 +39,7 @@ Azure Data Center Attestation Primitives (DCAP), a replacement for Intel Quote P
 
 ### Why are there different baselines between THIM and Intel?
 
-THIM and Intel provide different baseline levels of the trusted computing base. While Intel can be viewed as having the latest and greatest, this imposes requirements upon the consumer to ensure that all the requirements are satisfied, thus leading to a potential breakage of customers if they have not updated to the specified requirements. THIM takes a slower approach to updating the TCB baseline to allow customers to make the necessary changes at their own pace. This approach, while does provide an older TCB baseline, ensures that customers will not break if they have not been able to meet the requirements of the new TCB baseline. This reason is why THIM's TCB baseline is of a different version from Intel's. We are customer-focused and want to empower the customer to meet the requirements imposed by the new TCB baseline on their pace, instead of forcing them to update and causing them a disruption that would require reprioritization of their workstreams.
+THIM and Intel provide different baseline levels of the trusted computing base. While Intel can be viewed as having the latest and greatest, this imposes requirements upon the consumer to ensure that all the requirements are satisfied, thus leading to a potential breakage of customers if they haven't updated to the specified requirements. THIM takes a slower approach to updating the TCB baseline to allow customers to make the necessary changes at their own pace. This approach, while does provide an older TCB baseline, ensures that customers will not break if they haven't been able to meet the requirements of the new TCB baseline. This reason is why THIM's TCB baseline is of a different version from Intel's. We're customer-focused and want to empower the customer to meet the requirements imposed by the new TCB baseline on their pace, instead of forcing them to update and causing them a disruption that would require reprioritization of their workstreams.
 
 THIM is also introducing a new feature that will enable customers to select their own custom baseline. This feature will allow customers to decide between the newest TCB or using an older TCB than provided by Intel, enabling customers to ensure that the TCB version to enforce is compliant with their specific configuration. This new feature will be reflected in a future iteration of the THIM documentation.
 
@@ -49,7 +49,7 @@ The certificates are fetched and cached in THIM service using platform manifest 
 
 To retrieve the certificate, you must install the [Azure DCAP library](#what-is-the-azure-dcap-library) which replaces Intel QPL. This library directs the fetch requests to THIM service running in Azure cloud. For the downloading the latest DCAP packages, please see: [Where can I download the latest DCAP packages?](#where-can-i-download-the-latest-dcap-packages)
 
-### How do I request collateral in a Confidential Virtual Machine (CVM)?**
+### How do I request collateral in a Confidential Virtual Machine (CVM)?
 
 Use the following sample in a CVM guest for requesting AMD collateral that includes the VCEK certificate and certificate chain. For details on this collateral and where it originates from, see [Versioned Chip Endorsement Key (VCEK) Certificate and KDS Interface Specification](https://www.amd.com/system/files/TechDocs/57230.pdf) (from <amd.com>).
 
@@ -59,26 +59,26 @@ Use the following sample in a CVM guest for requesting AMD collateral that inclu
 GET "http://169.254.169.254/metadata/THIM/amd/certification"
 ```
 
-##### Request body
+#### Request body
 
 | Name | Type | Description |
 |--|--|--|
 | Metadata | Boolean | Setting to True allows for collateral to be returned |
 
-##### Sample request
+#### Sample request
 
 ```bash
 curl GET "http://169.254.169.254/metadata/THIM/amd/certification" -H "Metadata: true”
 ```
 
-##### Responses
+#### Responses
 
 | Name | Description |
 |--|--|
 | 200 OK | Lists available collateral in http body within JSON format. For details on the keys in the JSON, please see Definitions |
 | Other Status Codes | Error response describing why the operation failed |
 
-##### Definitions
+#### Definitions
 
 | Key | Description |
 |--|--|

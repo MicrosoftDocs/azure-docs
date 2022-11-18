@@ -1,6 +1,6 @@
 ---
 title: How to use the 'blobfuse2 unmount' command to unmount an existing mount point (preview)| Microsoft Docs
-titleSuffix: Azure Blob Storage
+titleSuffix: Azure Storage
 description: How to use the 'blobfuse2 unmount' command to unmount an existing mount point. (preview)
 author: jimmart-dev
 ms.service: storage

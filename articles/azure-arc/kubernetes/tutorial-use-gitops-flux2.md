@@ -45,11 +45,6 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
   > For new AKS clusters created with “az aks create”, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI run “az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity”. For more information, refer to [managed identity docs](../../aks/use-managed-identity.md).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
-* Registration of your subscription with the `AKS-ExtensionManager` feature flag. Use the following command:
-
-  ```console
-  az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
-  ```
 
 ### Common to both cluster types
 

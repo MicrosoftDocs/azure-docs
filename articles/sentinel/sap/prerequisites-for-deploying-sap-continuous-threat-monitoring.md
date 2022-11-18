@@ -102,7 +102,7 @@ If you choose to retrieve additional information with the [NPLK900202 optional C
 
 | SAP BASIS versions | Notes |
 | --- | --- |
-| - 750 SP01 to SP12<br>- 751 SP01 to SP06<br>- 752 SP01 to SP03 | [2641084 - Standardized read access to data of Security Audit Log](https://launchpad.support.sap.com/#/notes/2641084)* |
+| - 750 SP04 to SP12<br>- 751 SP00 to SP06<br>- 752 SP00 to SP02 | [2641084 - Standardized read access to data of Security Audit Log](https://launchpad.support.sap.com/#/notes/2641084)* |
 
 ## Next steps
 

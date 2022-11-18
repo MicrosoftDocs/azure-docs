@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/27/2022
+ms.date: 11/15/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -27,7 +27,7 @@ Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on A
 
 We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP solutions 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
 
-For customers and partners who are focussed on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP deployment automation framework to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
+For customers and partners who are focussed on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP on Azure Deployment Automation Framework to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
 
 Hosting SAP workload scenarios in Azure also can create requirements of identity integration and single sign-on. This situation can occur when you use Azure Active Directory (Azure AD) to connect different SAP components and SAP software-as-a-service (SaaS) or platform-as-a-service (PaaS) offers. A list of such integration and single sign-on scenarios with Azure AD and SAP entities is described and documented in the section "Azure AD SAP identity integration and single sign-on."
 
@@ -64,6 +64,14 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- November 15, 2022: Change in [HA for SAP HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md), [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) to add recommendation to use mount option `nconnect` for workloads with higher throughput requirements  
+- November 15, 2022: Add a recommendation for minimum required version of package resource-agents in [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md)  
+- November 14, 2022: Provided more details about nconnect mount option in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
+- November 14, 2022: Change in [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to update suggested timeouts for `FileSystem` Pacemaker cluster resources     
+- November 07, 2022: Added HANA hook susChkSrv for scale-up pacemaker cluster in [High availability of SAP HANA on Azure VMs on SLES](sap-hana-high-availability.md), [High availability of SAP HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md)  
+- November 07, 2022: Added monitor operation for azure-lb resource in [High availability of SAP HANA on Azure VMs on SLES](sap-hana-high-availability.md), [SAP HANA scale-out with HSR and Pacemaker on SLES](sap-hana-high-availability-scale-out-hsr-suse.md), [Set up IBM Db2 HADR on Azure virtual machines (VMs)](dbms-guide-ha-ibm.md), [Azure VMs high availability for SAP NetWeaver on SLES for SAP Applications with simple mount and NFS](high-availability-guide-suse-nfs-simple-mount.md), [Azure VMs high availability for SAP NW on SLES with NFS on Azure File](high-availability-guide-suse-nfs-azure-files.md), [Azure VMs high availability for SAP NW on SLES with Azure NetApp Files](high-availability-guide-suse-netapp-files.md), [Azure VMs high availability for SAP NetWeaver on SLES](high-availability-guide-suse.md), [High availability for NFS on Azure VMs on SLES](high-availability-guide-suse-nfs.md), [Azure VMs high availability for SAP NetWeaver on SLES multi-SID guide](high-availability-guide-suse-multi-sid.md)
+- October 31, 2022: Change in [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md) to fix script location for DRBD 9.0 
+- October 31, 2022: Change in [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) to update the guideline for sizing `/hana/shared`
 - October 27, 2022: Adding Ev4 and Ev5 VM families and updated OS releases to table in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
 - October 20, 2022: Change in [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md) and [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md) to indicate that we are de-emphasizing SAP reference architectures, utilizing NFS clusters  
 - October 18, 2022: Clarify some considerations around using Azure Availability Zones in [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md)

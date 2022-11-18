@@ -104,7 +104,7 @@ az functionapp function show --resource-group <your-resource-group> --name <your
 
 ### Configure the function app
 
-To access Azure Digital Twins, your function app needs a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up in this section, by assigning an access role for the function and configuring the application settings so that it can access your Azure Digital Twins instance.
+To access Azure Digital Twins, your function app needs a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) with permissions to access your Azure Digital Twins instance. You'll set that up in this section, by assigning an access role for the function and configuring the application settings so that it can access your Azure Digital Twins instance.
 
 [!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
 

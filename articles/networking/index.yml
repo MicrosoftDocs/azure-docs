@@ -33,9 +33,9 @@ highlightedContent:
     - title: Azure Networking blogs
       itemType: concept
       url: https://azure.microsoft.com/blog/topics/networking/
-    - title: Working remotely using Azure services
-      itemType: concept
-      url: working-remotely-support.md
+    - title: Azure Networking Solutions
+      itemType: deploy
+      url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions
     
 
 # additionalContent section (optional)

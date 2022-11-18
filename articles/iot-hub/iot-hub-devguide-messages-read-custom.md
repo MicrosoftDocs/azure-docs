@@ -1,6 +1,6 @@
 ---
 title: Understand Azure IoT Hub custom endpoints | Microsoft Docs
-description: Developer guide - using routing queries to route device-to-cloud messages to custom endpoints.
+description: This article describes using routing queries to route device-to-cloud messages to custom endpoints.
 author: kgremban
 
 ms.author: kgremban
@@ -40,14 +40,13 @@ For more information about creating custom endpoints in IoT Hub, see [IoT Hub en
 
 For more information about reading from custom endpoints, see:
 
-* Reading from [Azure Storage containers](../storage/blobs/storage-blobs-introduction.md).
-
+* Reading from [Storage containers](../storage/blobs/storage-blobs-introduction.md).
 * Reading from [Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 * Reading from [Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 * Reading from [Service Bus topics](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
-
+* Reading from [Cosmos DB](/azure/cosmos-db/nosql/query/getting-started)
 ## Next steps
 
 * For more information about IoT Hub endpoints, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
@@ -55,3 +54,5 @@ For more information about reading from custom endpoints, see:
 * For more information about the query language you use to define routing queries, see [Message Routing query syntax](iot-hub-devguide-routing-query-syntax.md).
 
 * The [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md) tutorial shows you how to use routing queries and custom endpoints.
+
+

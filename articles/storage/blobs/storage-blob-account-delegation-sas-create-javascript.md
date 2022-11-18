@@ -20,11 +20,11 @@ This article shows you how to create and use account SAS tokens to use the Azure
 
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
 
-[Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
+[Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
 ## Account SAS tokens
 
-An **account SAS token** is one [type of SAS token](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-shared-access-signatures) for access delegation provided by Azure Storage. An account SAS token provides access to Azure Storage. The token is only as restrictive as you define it when creating it. Because anyone with the token can use it to access your Storage account, you should define the token with the most restrictive permissions that still allow the token to complete the required tasks.
+An **account SAS token** is one [type of SAS token](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json#types-of-shared-access-signatures) for access delegation provided by Azure Storage. An account SAS token provides access to Azure Storage. The token is only as restrictive as you define it when creating it. Because anyone with the token can use it to access your Storage account, you should define the token with the most restrictive permissions that still allow the token to complete the required tasks.
 
 [Best practices for token](../common/storage-sas-overview.md#best-practices-when-using-sas) creation include limiting permissions:
 
@@ -101,8 +101,8 @@ To use the account SAS token, you need to combine it with the account name to cr
 
 ## See also
 
-- [Types of SAS tokens](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
-- [How a shared access signature works](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#how-a-shared-access-signature-works)
+- [Types of SAS tokens](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
+- [How a shared access signature works](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json#how-a-shared-access-signature-works)
 - [API reference](/javascript/api/@azure/storage-blob/)
 - [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
