@@ -6,7 +6,7 @@
       href: introduction.md
     - name: Wire protocol support
       href: support.md
-    - name: Tokens and the Token Function in Azure Cosmos DB for Apache Cassandra
+    - name: Tokens and the Token function
       href: token-overview.md
     - name: FAQ
       href: cassandra-faq.yml
