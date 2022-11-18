@@ -74,6 +74,10 @@ The following example subscribes to the custom topic you created, and passes the
 
 The following script gets the resource ID of the storage account for the queue. It constructs the ID for the queue storage, and subscribes to an event grid topic. It sets the endpoint type to `storagequeue` and uses the queue ID for the endpoint.
 
+
+> [!IMPORTANT]
+> Replace expiration date placeholder (`<yyyy-mm-dd>`) with an actual value. For example: `2022-11-17` before running the command.
+
 ```azurecli-interactive
 storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
 queueid="$storageid/queueservices/default/queues/$queuename"

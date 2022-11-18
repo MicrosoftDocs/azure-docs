@@ -1,14 +1,19 @@
 ---
 title: 'Quickstart: Send custom events to Event Hubs - Event Grid, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint.'
-ms.date: 09/28/2021
+ms.date: 11/18/2022
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Route custom events to Azure Event Hubs with Azure CLI and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. Azure Event Hubs is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to an event hub.
+[Azure Event Grid](overview.md) is a highly scalable and serverless event broker that you can use to integrate applications using events. Events are delivered by Event Grid to  [supported event handlers](event-handlers.md) and Azure Event Hubs is one of them. In this article, you use  Azure CLI for the following steps:
+
+1. Create an Event Grid custom topic.
+1. Create an Azure Event Hubs subscription for the custom topic.
+1. Send sample events to the custom topic.
+1. Verify that those events are delivered to the event hub.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -16,9 +21,10 @@ Azure Event Grid is an eventing service for the cloud. Azure Event Hubs is one o
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named **gridResourceGroup** in the **westus2** location.
 
-The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
+> [!NOTE]
+> Select **Try it** next to the CLI example to launch Cloud Shell in the right pane. Select **Copy** button to copy the command, paste it in the Cloud Shell window, and then press ENTER to run the command.
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
@@ -26,38 +32,45 @@ az group create --name gridResourceGroup --location westus2
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## Create a Custom Topic
+## Create a custom topic
 
-An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<your-topic-name>` with a unique name for your custom topic. The custom topic name must be unique because it's represented by a DNS entry.
+An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The event grid topic name must be unique because it's represented by a DNS entry.
 
-```azurecli-interactive
-topicname=<your-topic-name>
-```
+1. Specify a name for the topic. 
 
-```azurecli-interactive
-az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
-```
+    ```azurecli-interactive
+    topicname="<TOPIC NAME>"
+    ```    
+1. Run the following command to create the topic. 
 
-## Create event hub
+    ```azurecli-interactive
+    az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
+    ```
+
+## Create an event hub
 
 Before subscribing to the custom topic, let's create the endpoint for the event message. You create an event hub for collecting the events.
 
-```azurecli-interactive
-namespace=<unique-namespace-name>
-```
+1. Specify a unique name for the Event Hubs namespace. 
 
-```azurecli-interactive
-hubname=demohub
+    ```azurecli-interactive
+    namespace=<EVENT HUBS NAMESPACE NAME>
+    ```
+1. Run the following commands to create an Event Hubs namespace and an event hub in that namespace.
 
-az eventhubs namespace create --name $namespace --resource-group gridResourceGroup
-az eventhubs eventhub create --name $hubname --namespace-name $namespace --resource-group gridResourceGroup
-```
+
+    ```azurecli-interactive
+    hubname=demohub
+    
+    az eventhubs namespace create --name $namespace --resource-group gridResourceGroup
+    az eventhubs eventhub create --name $hubname --namespace-name $namespace --resource-group gridResourceGroup
+    ```
 
 ## Subscribe to a custom topic
 
 You subscribe to an event grid topic to tell Event Grid which events you want to track. The following example subscribes to the custom topic you created, and passes the resource ID of the event hub for the endpoint. The endpoint is in the format:
 
-`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.EventHub/namespaces/<namespace-name>/eventhubs/<hub-name>`
+`/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>`
 
 The following script gets the resource ID for the event hub, and subscribes to an event grid topic. It sets the endpoint type to `eventhub` and uses the event hub ID for the endpoint.
 
