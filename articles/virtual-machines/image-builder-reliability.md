@@ -94,7 +94,7 @@ To ensure fast and easy recovery for Azure Image Builder (AIB), it is recommende
 
 ### Cross-region disaster recovery in multi-region geography
 
-Microsoft will be responsible for outage detection, notifications, and support in the event of disaster recovery scenarios for Azure Image Builder.
+Microsoft will be responsible for outage detection, notifications, and support in the event of disaster recovery scenarios for Azure Image Builder. Customers will need to set up disaster recovery for the control plane (service side) and data plane.
 
 
 #### Outage detection, notification, and management
@@ -104,7 +104,7 @@ Microsoft will send a notification if there is an outage for the Azure Image Bui
 
 #### Set up disaster recovery and outage detection
 
-Customers are responsible for setting up disaster recovery for their Azure Image Builder (AIB)environment, as there isn't a region failover at the AIB service side. Both the control plane (service side) and data plane will need to configured by the customer.
+Customers are responsible for setting up disaster recovery for their Azure Image Builder (AIB) environment, as there isn't a region failover at the AIB service side. Both the control plane (service side) and data plane will need to configured by the customer.
 
 The high level guidelines include creating a AIB resource in another region close by and replicating your resources. For more information, see the [supported regions](/azure/virtual-machines/image-builder-overview#regions) and what resources are involved in [AIB]( /azure/virtual-machines/image-builder-overviewl#how-it-works) creation.
 
