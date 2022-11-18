@@ -184,6 +184,8 @@ Set-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -AcrNameT
 
 > [!NOTE]
 > Running the `Set-AzAksCluster -AcrNameToAttach` cmdlet uses the permissions of the user running the command to create the role ACR assignment. This role is assigned to the [kubelet][kubelet] managed identity. For more information on AKS managed identities, see [Summary of managed identities][summary-msi].
+ 
+#### [Terraform](#tab/terraform)
 
 ```terraform
 # Example Usage
