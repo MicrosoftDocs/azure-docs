@@ -148,8 +148,6 @@ The higher the quality of the application the higher chances your application wi
 | Stock alerts                    |                                   |                                  |                              |
 | Cryptocurrency                  |                                   |                                  |                              |
 
-###
-
 ### How is my data being used?
 Toll-free verification (TFV) involves an integration between Microsoft and the Toll-Free messaging aggregator. The toll-free messaging aggregator is the final reviewer and approver of the TFV application. Microsoft must share the TFV application information with the toll-free messaging aggregator for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a TFV form, you agree that Microsoft may share the TFV application details as necessary for provisioning the toll-free number.
  
