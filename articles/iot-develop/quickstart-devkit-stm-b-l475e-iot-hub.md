@@ -132,14 +132,14 @@ To add a connection to your IoT hub:
     ```
 
 1. Copy the connection string without the surrounding quotation characters.
-1. In Azure IoT Explorer, select **IoT hubs** on the left menu, then select **Connect via IoT Hub connection string**.
+1. In Azure IoT Explorer, select **IoT hubs** on the left menu.
 1. Select **+ Add connection**. 
 1. Paste the connection string into the **Connection string** box.
 1. Select **Save**.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-add-connection.png" alt-text="Screenshot of adding a connection in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-add-connection.png" alt-text="Screenshot of adding a connection in IoT Explorer":::
 
-1. If the connection succeeds, IoT Explorer switches to the **Devices** view.
+If the connection succeeds, IoT Explorer switches to the **Devices** view.
 
 To add the public model repository:
 
@@ -147,7 +147,7 @@ To add the public model repository:
 1. On the left menu, select **IoT Plug and Play Settings**, then select **+Add** and select **Public repository** from the drop-down menu.
 1. An entry appears for the public model repository at `https://devicemodels.azure.com`.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-add-public-repository.png" alt-text="Screenshot of adding the public model repository in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-add-public-repository.png" alt-text="Screenshot of adding the public model repository in IoT Explorer":::
 
 1. Select **Save**.
 
@@ -162,11 +162,11 @@ To register a device:
 1. Select **+ New** and enter a device ID for your device; for example, `mydevice`. Leave all other properties the same.
 1. Select **Create**.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity":::
 
 1. Use the copy buttons to copy and note down the **Device ID** and **Primary key** fields.
 
-Before continuing to the next section, confirm that you've copied the following values to a safe location:
+Before continuing to the next section, copy each of the following values retrieved from earlier steps, to a safe location:
 
 * `hostName`
 * `deviceId`
@@ -259,41 +259,40 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
     ```output
     Starting Azure thread
-
+    
+    
     Initializing WiFi
     	Module: ISM43362-M3G-L44-SPI
-	    MAC address: C4:7F:51:8F:67:F6
+    	MAC address: ****************
     	Firmware revision: C3.5.2.5.STM
-	    Connecting to SSID 'iot'
-    SUCCESS: WiFi connected to iot
-
+    SUCCESS: WiFi initialized
+    
+    Connecting WiFi
+    	Connecting to SSID 'iot'
+    	Attempt 1...
+    SUCCESS: WiFi connected
+    
     Initializing DHCP
-	    IP address: 192.168.0.22
-	    Gateway: 192.168.0.1
+    	IP address: 192.168.0.35
+    	Mask: 255.255.255.0
+    	Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
-
+    
     Initializing DNS client
-	    DNS address: 75.75.75.75
+    	DNS address 1: ************
+    	DNS address 2: ************
     SUCCESS: DNS client initialized
-
-    Initializing SNTP client
+    
+    Initializing SNTP time sync
     	SNTP server 0.pool.ntp.org
-	    SNTP IP address: 108.62.122.57
-	    SNTP time update: May 21, 2021 22:42:8.394 UTC 
+    	SNTP time update: Nov 18, 2022 0:56:56.127 UTC 
     SUCCESS: SNTP initialized
-
-    Initializing Azure IoT DPS client
-	    DPS endpoint: global.azure-devices-provisioning.net
-	    DPS ID scope: ***
-	    Registration ID: mydevice
-    SUCCESS: Azure IoT DPS client initialized
-
+    
     Initializing Azure IoT Hub client
-	    Hub hostname: ***.azure-devices.net
-	    Device id: mydevice
-	    Model id: dtmi:azurertos:devkit:gsgstml4s5;1
-    Connected to IoT Hub
-    SUCCESS: Azure IoT Hub client initialized
+    	Hub hostname: *******.azure-devices.net
+    	Device id: mydevice
+    	Model id: dtmi:azurertos:devkit:gsgstml4s5;2
+    SUCCESS: Connected to IoT Hub
     ```
     > [!IMPORTANT]
     > If the DNS client initialization fails and notifies you that the Wi-Fi firmware is out of date, you'll need to update the Wi-Fi module firmware. Download and install the [Inventek ISM 43362 Wi-Fi module firmware update](https://www.st.com/resource/en/utilities/inventek_fw_updater.zip). Then press the **Reset** button on the device to recheck your connection, and continue with this quickstart.
@@ -303,7 +302,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In this section and the following sections, you'll use the Plug and Play capabilities that surfaced in IoT Explorer to manage and interact with the STM DevKit. These capabilities rely on the device model published for the STM DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by select IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you'll use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the STM DevKit. These capabilities rely on the device model published for the STM DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -312,27 +311,29 @@ To access IoT Plug and Play components for the device in IoT Explorer:
 1. Select **IoT Plug and Play components**.
 1. Select **Default component**. IoT Explorer displays the IoT Plug and Play components that are implemented on your device.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-default-component-view.png" alt-text="Screenshot of STM DevKit default component in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-default-component-view.png" alt-text="Screenshot of STM DevKit default component in IoT Explorer":::
 
 1. On the **Interface** tab, view the JSON content in the device model **Description**. The JSON contains configuration details for each of the IoT Plug and Play components in the device model.
+
+    > [!NOTE]
+    > The description for the default component includes the STM L4S5 board.  The STM L4S5 plug and play device model is also used for the STM L475E board.
 
     Each tab in IoT Explorer corresponds to one of the IoT Plug and Play components in the device model.
 
     | Tab | Type | Name | Description |
     |---|---|---|---|
     | **Interface** | Interface | `STM Getting Started Guide` | Example model for the STM DevKit |
-    | **Properties (read-only)** | Property | -- | The model currently doesn't have any read-only properties |
+    | **Properties (read-only)** | Property | `ledState` | Whether the led is on or off |
     | **Properties (writable)** | Property | `telemetryInterval` | The interval that the device sends telemetry |
     | **Commands** | Command | `setLedState` | Turn the LED on or off |
-    | **Telemetry** | Telemetry | `temperature` | The temperature in Celsius |
 
 To view device properties using Azure IoT Explorer:
 
-1. Select the **Properties (read-only)** tab. Currently, there aren't any read-only properties exposed by the device model.
+1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off. 
 1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
 1. Change the `telemetryInterval` to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-set-telemetry-interval.png" alt-text="Screenshot of setting telemetry interval on STM DevKit in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-set-telemetry-interval.png" alt-text="Screenshot of setting telemetry interval on STM DevKit in IoT Explorer":::
 
 1. IoT Explorer responds with a notification. You can also observe the update in Termite.
 1. Set the telemetry interval back to 10.
@@ -357,14 +358,14 @@ To view telemetry in Azure IoT Explorer:
 1. Select **Start**.
 1. View the telemetry as the device sends messages to the cloud.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Explorer":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
 
 1. Select the **Show modeled events** checkbox to view the events in the data format specified by the device model.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer":::
 
 1. Select **Stop** to end receiving events.
 
@@ -401,11 +402,11 @@ To call a method in Azure IoT Explorer:
 
 1. From the **IoT Plug and Play components** (Default Component) pane for your device in IoT Explorer, select the **Commands** tab.
 1. For the **setLedState** command, set the **state** to **true**.
-1. Select **Send command**. You should see a notification in IoT Explorer, and the yellow User LED light on the device should turn on.
+1. Select **Send command**. You should see a notification in IoT Explorer, and the green LED light on the device should turn on.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling the setLedState method in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling the setLedState method in IoT Explorer":::
 
-1. Set the **state** to  **false**, and then select **Send command**. The yellow User LED should turn off.
+1. Set the **state** to  **false**, and then select **Send command**. The LED should turn off.
 1. Optionally, you can view the output in Termite to monitor the status of the methods.
 
 To use Azure CLI to call a method:
@@ -430,10 +431,10 @@ To use Azure CLI to call a method:
 1. View the Termite terminal to confirm the output messages:
 
     ```output
-    Receive direct method: setLedState
-	    Payload: true
-    LED is turned ON
-    Device twin property sent: {"ledState":true}
+    Received command: setLedState
+        Payload: true
+        LED is turned ON
+    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=15{"ledState":true}
     ```
 
 ## Troubleshoot and debug
@@ -470,8 +471,6 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 
 As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT. 
 
-> [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
