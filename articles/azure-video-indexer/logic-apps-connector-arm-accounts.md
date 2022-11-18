@@ -59,7 +59,7 @@ The following image shows the first flow:
     1. Press **Save** (on the top of the page).
     1. Select the **Logic app designer** tab, in the pane on the left.
     1. Pick a **Blank Logic App** flow.
-    1. Search for "blob".
+    1. Search for "blob" in the **Choose an Operation** blade.
     1. In the **All** tab, choose the **Azure Blob Storage** component.
     1. Under **Triggers**, select the **When a blob is added or modified (properties only) (V2)** trigger. 
 1. Set the storage connection.
@@ -118,7 +118,7 @@ The following image shows the first flow:
     |Key| Value|
     |----|----|
     |Method | **POST**|
-    | URI| `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateAccessToken?api-version={API-version}`. |
+    | URI| [generateAccessToken](/rest/api/videoindexer/stable/generate/access-token?tabs=HTTP#generate-accesstoken-for-account-contributor). |
     | Body|`{ "permissionType": "Contributor", "scope": "Account" }` |
     | Add new parameter | **Authentication**  |
     
