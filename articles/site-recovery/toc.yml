@@ -29,15 +29,15 @@
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Run failback
       href: azure-to-azure-tutorial-failback.md
-  - name: Edge Zone VMs disaster recovery
+  - name: Azure Public Multi-Access Edge Compute (MEC) VMs disaster recovery
     items:
-    - name: Replicate VMs running in an Azure Edge Zone (preview) to Azure region
+    - name: Replicate VMs running in an Azure Public MEC (preview) to Azure region
       href: tutorial-replicate-vms-edge-zone-to-azure-region.md
-    - name: Replicate VMs running in an Azure Edge Zone (preview) to another Edge Zone in the same region 
+    - name: Replicate VMs running in an Azure Public MEC (preview) to another Public MEC in the same region 
       href: tutorial-replicate-vms-edge-zone-to-another-zone.md
-    - name: Set up disaster recovery for VMs on Edge Zone using Vault flow
+    - name: Set up disaster recovery for VMs on Public MEC using Vault flow
       href: disaster-recovery-for-edge-zone-vm-tutorial.md
-    - name: Set up disaster recovery for Edge Zone using VM flow
+    - name: Set up disaster recovery for Azure Public MEC using VM flow
       href: disaster-recovery-for-edge-zone-via-vm-flow-tutorial.md
   - name: Move to modernized VMware VM disaster recovery
     items:
