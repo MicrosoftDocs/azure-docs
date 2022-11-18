@@ -392,11 +392,11 @@
       href: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Write-back users from Azure AD to SAP SuccessFactors
       href: /azure/active-directory/saas-apps/sap-successfactors-writeback-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-    - name: Provision users to SAP Cloud Platform Identity Authentication Service
+    - name: Provision users to SAP Cloud Identity Services - Identity Authentication
       href: /azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json      
     - name: Single Sign On
       items:
-      - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
+      - name: Configure SSO with SAP Cloud Identity Services - Identity Authentication
         href: /azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
       - name: Configure SSO with SAP SuccessFactors
         href: /azure/active-directory/saas-apps/successfactors-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
@@ -410,7 +410,7 @@
         href: /azure/active-directory/saas-apps/ariba-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
       - name: Configure SSO with SAP Concur Travel and Expense
         href: /azure/active-directory/saas-apps/concur-travel-and-expense-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP Cloud Platform
+      - name: Configure SSO with SAP Business Technology Platform
         href: /azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
       - name: Configure SSO with SAP NetWeaver
         href: /azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
