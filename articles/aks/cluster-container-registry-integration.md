@@ -185,6 +185,18 @@ Set-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -AcrNameT
 > [!NOTE]
 > Running the `Set-AzAksCluster -AcrNameToAttach` cmdlet uses the permissions of the user running the command to create the role ACR assignment. This role is assigned to the [kubelet][kubelet] managed identity. For more information on AKS managed identities, see [Summary of managed identities][summary-msi].
 
+```terraform
+# Example Usage
+
+resource "azurerm_role_assignment" "example" {
+  principal_id                     = azurerm_kubernetes_cluster.example.kubelet_identity[0].object_id
+  role_definition_name             = "AcrPull"
+  scope                            = azurerm_container_registry.example.id
+  skip_service_principal_aad_check = true
+}
+```
+> **_NOTE_** [Ref]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry
+
 ---
 
 ### Detach an ACR from an AKS cluster
