@@ -46,7 +46,7 @@ The following HTTP request demonstrates a request to the Request Service REST AP
 ```http
 POST https://verifiedid.did.msidentity.com/v1.0/verifiableCredentials/createIssuanceRequest
 Content-Type: application/json
-Authorization: Bearer  <token>
+Authorization: Bearer <token>
 
 {
     "includeQRCode": true, 
