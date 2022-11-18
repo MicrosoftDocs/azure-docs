@@ -1192,8 +1192,6 @@ items:
     items:
       - name: Export log data
         href: logs/log-powerbi.md
-      - name: Export application data
-        href: app/export-power-bi.md
   - name: Grafana
     href: visualize/grafana-plugin.md
 - name: Analyze
