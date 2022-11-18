@@ -62,7 +62,7 @@ The following diagram shows how communications flow through private endpoints to
 
 * If your Azure Machine Learning workspace has a private endpoint that was created before May 24, 2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
-* The public network access (PNA) flag of an online endpoint is immutable. This means that you cannot update this flag after creating the endpoint. Attempting to change the flag while updating the endpoint will fail with an error. Similarly, the egress PNA flag of an online deployment is immutable, and attempting to change it while updating a deployment will fail with an error.
+* The egress public network access flag of an online deployment is immutable—an attempt to change the flag while updating a deployment will fail with an error. On the contrary, you can update the public network access flag of an online endpoint after creating it.
 
 * Secure outbound communication creates three private endpoints per deployment. One to Azure Blob storage, one to Azure Container Registry, and one to your workspace.
 
@@ -102,14 +102,11 @@ endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',
 ---
 When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
 
-> [!CAUTION]
-> You cannot update the `public_network_access` flag after creating the endpoint. Attempting to change the flag while updating the endpoint will fail with an error.
-
 ## Outbound (resource access)
 
-To restrict communication between a deployment and the Azure resources used to by the deployment, set the `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint.
+To restrict communication between a deployment and the Azure resources used by the deployment, set the `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint.
 
-> [!CAUTION]
+> [!WARNING]
 > You cannot update the `egress_public_network_access` flag after creating the deployment. Attempting to change the flag while updating the deployment will fail with an error.
 
 The following are the resources that the deployment communicates with over the private endpoint:
