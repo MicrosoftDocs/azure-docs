@@ -201,16 +201,22 @@ IoT Edge does not remove volumes attached to module containers. This behavior is
 
 ### Store runtime containers in your private registry
 
-You know about storing your container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as for the edgeAgent and edgHub runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
+You know how to store container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as for the **edgeAgent** and **edgeHub** runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
 
-Obtain the images with the Docker pull command to place in your private registry. You will need to specify the container version during the pull operation, find the latest container version at container description page as below, and replace the version in the pull command if needed. Be aware that you will need to update the images with each new release of IoT Edge runtime.
+Obtain the images with the following Docker pull command to place in your private registry.
+
+1. Replace `mcr.microsoft.com/azureiotedge-agent:<VERSION_TAG>` with the path of **edgeAgent** from your private registry.
+
+1. Specify the container version (located on your container description page) and use it to replace `\<VERSION_TAG\>`. You need to update the images with each new release of IoT Edge runtime.
+
+For more information, see [Configure the IoT Edge agent](/azure/iot-edge/how-to-configure-proxy-support#configure-the-iot-edge-agent).
 
 | IoT Edge runtime container | Docker pull command |
 | --- | --- |
 | [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent:<VERSION_TAG>` |
 | [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub:<VERSION_TAG>` |
 
-Next, be sure to update the image references in the deployment.template.json file for the edgeAgent and edgeHub system modules. Replace `mcr.microsoft.com` with your registry name and server for both modules.
+1. Update the image references in the deployment.template.json file for the **edgeAgent** and **edgeHub** system modules. Replace `mcr.microsoft.com` with your registry name and server for both modules.
 
 * edgeAgent:
 
@@ -221,6 +227,7 @@ Next, be sure to update the image references in the deployment.template.json fil
     `"image": "<registry name and server>/azureiotedge-hub:1.1",`
 
 ::: moniker range=">=iotedge-1.4"
+
 ### Configure image garbage collection
 Image garbage collection is a feature in IoT Edge v1.4 and later to automatically clean up Docker images that are no longer used by IoT Edge modules. It only deletes Docker images that were pulled by the IoT Edge runtime as part of a deployment. Deleting unused Docker images helps conserve disk space.
 
