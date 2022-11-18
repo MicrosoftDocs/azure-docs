@@ -10,7 +10,7 @@ keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps"
 
 # GitOps Flux v1 configurations with Azure Arc-enabled Kubernetes
 
-> [!NOTE]
+> [!IMPORTANT]
 > The documents in this section are for GitOps with Flux v1.  GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [learn about GitOps with Flux v2](./conceptual-gitops-flux2.md). Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 In relation to Kubernetes, GitOps is the practice of declaring the desired state of Kubernetes cluster configurations (deployments, namespaces, etc.) in a Git repository. This declaration is followed by a polling and pull-based deployment of these cluster configurations using an operator. The Git repository can contain:
