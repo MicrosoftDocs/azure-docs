@@ -137,7 +137,7 @@ To configure resource logs:
    You have several options about where to send the logs and metrics. For example, archive resource logs along with metrics to a storage account, stream them to an event hub, or send them to a Log Analytics workspace.
 
    > [!TIP]
-   > If you select a Log Analytics workspace, you can choose to store the data in resource-specific tables or store in the general Azure diagnostics table. We recommend using resource-specific tables, which make it easier to discover schemas and query data. [Learn more](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
+   > If you select a Log Analytics workspace, you can choose to store the data in the resource-specific ApiManagementGatewayLogs table or store in the general AzureDiagnostics table. We recommend using the resource-specific table for log destinations that support it. [Learn more](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
 
 1. After configuring details for the log destination or destinations, select **Save**. 
 
@@ -154,12 +154,14 @@ To view the data:
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot of Logs item in Monitoring menu in the portal.":::
 
-1. Run queries to view the data. Several [sample queries](../azure-monitor/logs/queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
+1. Run queries to view the data. Several [sample queries](../azure-monitor/logs/queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the ApiManagementGatewayLogs table:
 
     ```kusto
     ApiManagementGatewayLogs
     | where TimeGenerated > ago(1d) 
     ```
+
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/query-resource-logs.png" alt-text="Screenshot of querying ApiManagementGatewayLogs table in the portal.":::
 
 For more information about using resource logs for API Management, see:
 
@@ -167,49 +169,13 @@ For more information about using resource logs for API Management, see:
 
 * [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
-The following JSON indicates a sample entry in GatewayLogs for a successful API request. For details, see the [schema reference](gateway-log-schema-reference.md). 
-
-```json
-{
-    "Level": 4,
-    "isRequestSuccess": true,
-    "time": "2020-10-14T17:xx:xx.xx",
-    "operationName": "Microsoft.ApiManagement/GatewayLogs",
-    "category": "GatewayLogs",
-    "durationMs": 152,
-    "callerIpAddress": "xx.xx.xxx.xx",
-    "correlationId": "3f06647e-xxxx-xxxx-xxxx-530eb9f15261",
-    "location": "East US",
-    "properties": {
-        "method": "GET",
-        "url": "https://apim-hello-world.azure-api.net/conference/speakers",
-        "backendResponseCode": 200,
-        "responseCode": 200,
-        "responseSize": 41583,
-        "cache": "none",
-        "backendTime": 87,
-        "requestSize": 526,
-        "apiId": "demo-conference-api",
-        "operationId": "GetSpeakers",
-        "apimSubscriptionId": "master",
-        "clientTime": 65,
-        "clientProtocol": "HTTP/1.1",
-        "backendProtocol": "HTTP/1.1",
-        "apiRevision": "1",
-        "clientTlsVersion": "1.2",
-        "backendMethod": "GET",
-        "backendUrl": "https://conferenceapi.azurewebsites.net/speakers"
-    },
-    "resourceId": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/APIM-HELLO-WORLD"
-}
-```
+* [API Management resource log schema reference](gateway-log-schema-reference.md). 
 
 ## Modify API logging settings
 
-By default, when you create a diagnostic setting to enable collection of resource logs, logging is enabled for all APIs, with default settings. You can adjust the logging settings for all APIs, or override them for individual APIs. For example, you can adjust the sampling rate or the verbosity of the data, or disable logging for some APIs.
+By default, when you create a diagnostic setting to enable collection of resource logs, logging is enabled for all APIs, with default settings. You can adjust the logging settings for all APIs, or override them for individual APIs. For example, adjust the sampling rate or the verbosity of the data, or disable logging for some APIs.
 
-For details about the logging settings, see [Diagnostic logs settings reference](diagnostic-logs-reference.md).
-
+For details about the logging settings, see [Diagnostic logging settings reference](diagnostic-logs-reference.md).
 
 To configure logging settings for all APIs:
 
