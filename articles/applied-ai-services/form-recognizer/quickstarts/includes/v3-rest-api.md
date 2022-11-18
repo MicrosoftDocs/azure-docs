@@ -29,7 +29,7 @@ In this quickstart you'll, use the Form Recognizer REST API to analyze and extra
   * [macOS](/powershell/scripting/install/installing-powershell-on-macos?view=powershell-7.2&preserve-view=true)
   * [Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.2&preserve-view=true)
 
-* To check your PowerShell version, type the following:
+* To check your PowerShell version, type the following command relative to your operating system:
   * Windows: `Get-Host | Select-Object Version`
   * macOS or Linux: `$PSVersionTable`
 
@@ -50,7 +50,7 @@ In this quickstart you'll, use the Form Recognizer REST API to analyze and extra
 
 ### Analyze document (POST Request)
 
-Before you run the cURL command, make the following changes:
+Before you run the cURL command, make the following changes to the [post request](#post-request):
 
 1. Replace `{endpoint}` with the endpoint value from your Azure portal Form Recognizer instance.
 
