@@ -53,15 +53,15 @@ The following image shows the first flow:
 
     1. Select **Consumption** for **Plan type**.
     1. Press **Review + Create** -> **Create**.
-    1. Once the Logic App deployment is complete, in the Azure portal, go to the newly created Logic App.
+    1. Once the Logic App deployment is complete, in the Azure portal, search and navigate to the newly created Logic App.
     1. Under the **Settings** section, on the left side's panel, select the **Identity** tab.
-    1. Under **System assigned**, change the **Status** from **Off** to **On** (the step is important for later on in this tutorial).
-    1. Press **Save** (on the top of the page).
-    1. Select the **Logic app designer** tab, in the pane on the left.
-    1. Pick a **Blank Logic App** flow.
-    1. Search for "blob" in the **Choose an Operation** blade.
-    1. In the **All** tab, choose the **Azure Blob Storage** component.
-    1. Under **Triggers**, select the **When a blob is added or modified (properties only) (V2)** trigger. 
+    3. Under **System assigned**, change the **Status** from **Off** to **On** (the step is important for later on in this tutorial).
+    4. Press **Save** (on the top of the page).
+    5. Select the **Logic app designer** tab, in the pane on the left.
+    6. Pick a **Blank Logic App** flow.
+    7. Search for "blob" in the **Choose an Operation** blade.
+    8. In the **All** tab, choose the **Azure Blob Storage** component.
+    9. Under **Triggers**, select the **When a blob is added or modified (properties only) (V2)** trigger. 
 1. Set the storage connection.
 
     After creating a **When a blob is added or modified (properties only) (V2)** trigger, the connection needs to be set to the following values:  
