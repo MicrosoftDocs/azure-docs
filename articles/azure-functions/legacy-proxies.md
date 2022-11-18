@@ -22,7 +22,7 @@ Re-enabling proxies requires you to set a flag in the `AzureWebJobsFeatureFlags`
 
 + If the `AzureWebJobsFeatureFlags` setting doesn't already exists, add this setting to your function app with a value of `EnableProxies`. 
 
-+ If this setting already exists, add `,EnableProxies` to the end of existing value.
++ If this setting already exists, add `,EnableProxies` to the end of the existing value.
 
 [`AzureWebJobsFeatureFlags`](functions-app-settings.md#azurewebjobsfeatureflags) is a comma-delimited array of flags used to enable preview and other temporary features. 
 
