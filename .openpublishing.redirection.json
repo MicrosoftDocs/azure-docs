@@ -7029,6 +7029,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/azure-functions-az-redundancy.md",
+            "redirect_url": "/azure/reliability/reliability-functions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-government/documentation-government-k8.md",
             "redirect_url": "/azure/azure-government",
             "redirect_document_id": false
