@@ -186,7 +186,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 1. Comment out the following line near the top of the file as shown:
 
     ```c
-    // #define ENABLE_DPS
+    // #define ENABLE_DPS 
     ```
 
 1. Set the Wi-Fi constants to the following values from your local environment.
