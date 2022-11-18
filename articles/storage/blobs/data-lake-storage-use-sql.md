@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Synapse | Microsoft Docs'
+title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Synapse'
 description: This tutorial shows how to run SQL queries on an Azure Synapse serverless SQL endpoint to access data in an Azure Data Lake Storage Gen2 storage account.
 author: jovanpop-msft
 ms.subservice: data-lake-storage-gen2
