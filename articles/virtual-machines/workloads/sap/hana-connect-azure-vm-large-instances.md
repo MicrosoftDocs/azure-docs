@@ -9,7 +9,6 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

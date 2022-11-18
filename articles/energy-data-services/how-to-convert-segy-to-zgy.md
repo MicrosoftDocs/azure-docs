@@ -316,4 +316,4 @@ OSDU&trade; is a trademark of The Open Group.
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
-> [How to convert segy to ovds](/azure/energy-data-services/how-to-convert-segy-to-ovds)
+> [How to convert segy to ovds](./how-to-convert-segy-to-ovds.md)

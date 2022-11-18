@@ -470,5 +470,5 @@ Other automation articles:
 
 * [Create an Application Insights resource](./create-new-resource.md#creating-a-resource-automatically) - quick method without using a template.
 * [Create web tests](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
-* [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
+* [Send Azure Diagnostics to Application Insights](../agents/diagnostics-extension-to-application-insights.md)
 * [Create release annotations](annotations.md)
