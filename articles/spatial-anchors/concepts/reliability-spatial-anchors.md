@@ -5,7 +5,7 @@ author: RamonArguelles #Required; your GitHub user alias, with correct capitaliz
 ms.author: rgarcia #Required; Microsoft alias of author; optional team alias.
 ms.topic: conceptual
 ms.custom: subject-reliability
-ms.date: 11/17/2022 #Required; mm/dd/yyyy format.
+ms.date: 11/18/2022 #Required; mm/dd/yyyy format.
 #Customer intent: As a customer, I want to understand reliability support for Azure Spatial Anchors so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
