@@ -83,7 +83,7 @@ sections:
       - question: |
           Is DDoS protection integrated with Front Door? 
         answer: |
-          Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. For more information, see [DDoS protection on Front Door](../../frontdoor/front-door-ddos.md).
+          Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection on the VNet where your back-ends are deployed. Azure DDoS Protection customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. For more information, see [DDoS protection on Front Door](../../frontdoor/front-door-ddos.md).
           
       - question: |
           Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?
