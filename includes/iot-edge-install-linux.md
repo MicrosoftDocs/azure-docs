@@ -14,7 +14,7 @@ In this section, you prepare your Linux VM or physical device for IoT Edge. Then
 Run the following commands to add the package repository and then add the Microsoft package signing key to your list of trusted keys.
 
 > [!IMPORTANT]
-> By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
+> On June 30, 2022, Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities, update your host OS to Bullseye.
 
 # [Ubuntu](#tab/ubuntu)
 
