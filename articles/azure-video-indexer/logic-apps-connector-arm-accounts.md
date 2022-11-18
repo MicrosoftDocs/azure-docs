@@ -59,7 +59,7 @@ The following image shows the first flow:
     1. Press **Save** (on the top of the page).
     1. Select the **Logic app designer** tab, in the pane on the left.
     1. Pick a **Blank Logic App** flow.
-    1. Search for "blob".
+    1. Search for "blob" in the **Choose an Operation** blade.
     1. In the **All** tab, choose the **Azure Blob Storage** component.
     1. Under **Triggers**, select the **When a blob is added or modified (properties only) (V2)** trigger. 
 1. Set the storage connection.
