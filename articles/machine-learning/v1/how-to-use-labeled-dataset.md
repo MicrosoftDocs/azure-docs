@@ -78,14 +78,11 @@ from azureml.core import Dataset, Workspace
 animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe()
 
-# download the images to local 
-download_path = animal_labels.download(stream_column='image_url') 
-
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 #read images from downloaded path
-img = mpimg.imread(download_path[0])
+img = mpimg.imread(animal_pd['image_url'].iloc(0).open())
 imgplot = plt.imshow(img)
 ```
 

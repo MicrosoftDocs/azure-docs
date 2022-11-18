@@ -266,6 +266,30 @@ The following example shows an exported device lifecycle message received in Azu
 }
 ```
 
+[!INCLUDE [iot-central-data-export-audit-logs](../../../includes/iot-central-data-export-audit-logs.md)]
+
+The following example shows an exported audit log message received in Azure Blob Storage:
+
+```json
+{
+  "actor": {
+    "id": "test-audit",
+    "type": "apiToken"
+    },
+  "applicationId": "570c2d7b-1111-2222-abcd-000000000000",
+  "enqueuedTime": "2022-07-25T21:54:40.000Z",
+  "enrichments": {},
+  "messageSource": "audit",
+  "messageType": "created",
+  "resource": {
+    "displayName": "Sensor 1",
+    "id": "sensor",
+    "type": "device"    
+  },
+  "schema": "default@v1"
+}
+```
+
 ## Next steps
 
 Now that you know how to export to Blob Storage, a suggested next step is to learn [Export to Service Bus](howto-export-to-service-bus.md).

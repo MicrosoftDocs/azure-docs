@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Manage blob properties and metadata with JavaScript
