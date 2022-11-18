@@ -97,7 +97,7 @@ Run the following commands to locate the full Azure Resource Manager identifier 
     In the output, find the workspace name of interest. The `id` field of that represents the Azure Resource Manager identifier of that Log Analytics workspace.
 
     >[!TIP]
-    > This `id` can also be found in the *Overview* blade of the Log Analytics workspace through the Azure portal.
+    > This `id` can also be found in the *Overview* pane of the Log Analytics workspace through the Azure portal.
 
 ## Create extension instance 
 
@@ -170,9 +170,9 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 6. Select the 'Configure' button to deploy the Azure Monitor Container Insights cluster extension.
 
-### Onboarding from Azure Monitor blade
+### Onboarding from Azure Monitor pane
 
-1. In the Azure portal, navigate to the 'Monitor' blade, and select the 'Containers' option under the 'Insights' menu.
+1. In the Azure portal, navigate to the 'Monitor' pane, and select the 'Containers' option under the 'Insights' menu.
 
 2. Select the 'Unmonitored clusters' tab to view the Azure Arc-enabled Kubernetes clusters that you can enable monitoring for.
 
@@ -267,7 +267,7 @@ az k8s-extension delete --name azuremonitor-containers --cluster-type connectedC
 ```
 
 ## Disconnected cluster
-If your cluster is disconnected from Azure for > 48 hours, then Azure Resource Graph won't have information about your cluster. As a result the Insights blade may display incorrect information about your cluster state.
+If your cluster is disconnected from Azure for > 48 hours, then Azure Resource Graph won't have information about your cluster. As a result the Insights pane may display incorrect information about your cluster state.
 
 ## Troubleshooting
 For issues with enabling monitoring, we have provided a [troubleshooting script](https://aka.ms/azmon-ci-troubleshooting) to help diagnose any problems.
