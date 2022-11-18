@@ -21,7 +21,7 @@ ms.service: digital-twins
 This solution provides an automated ingestion path from OPC UA-enabled manufacturing assets in multiple simulated factories to digital twins in an Azure Digital Twins service. More specifically, the example:
 * Simulates eight OPC UA production lines in six locations, with each production line featuring assembly, test and packaging machines. These machines are controlled by a separate Manufacturing Execution System.
 
-:::image type="content" source="media/how-to-ingest-opcua-data/productionline.png" alt-text="Drawing of the opc ua production line" lightbox="media/how-to-ingest-opcua-data/production-line-3.png":::
+:::image type="content" source="media/how-to-ingest-opcua-data/production-line-3.png" alt-text="Drawing of the opc ua production line" lightbox="media/how-to-ingest-opcua-data/production-line-3.png":::
 
 * The UA Cloud Publisher reads OPC UA data from each simulated factory and forwards it via OPC UA Pub Sub over MQTT to Azure IoT Hub. UA Cloud Publisher runs in a Docker container for easy deployment.
 
