@@ -182,7 +182,6 @@ If you're using a network security group (NSG) rules to control outbound connect
     - *GuestAndHybridManagement*
 - We recommend you test rules in a non-production environment. [Review some examples](../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags). 
 
-
 ## Next steps
 
 Try [moving an Azure VM](tutorial-move-region-virtual-machines.md) to another region with Resource Mover.
