@@ -182,7 +182,7 @@ When your app receives the response, the app needs to present the QR code to the
 
 ## Error response
 
-If there is an error with the request, an [error responses](error-codes.md) will be returned and should be handled appropriately by the app. 
+If there is an error with the request, an [error response](error-codes.md) will be returned and should be handled appropriately by the app. 
 
 ## Callback events
 
