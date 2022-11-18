@@ -221,6 +221,8 @@ items:
         href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Media quality statistics
         href: concepts/voice-video-calling/media-quality-sdk.md
+      - name: Pre-Call diagnostics
+        href: concepts/voice-video-calling/pre-call-diagnostics.md
       - name: Web best practices
         href: concepts/best-practices.md
       - name: Call networking internals
