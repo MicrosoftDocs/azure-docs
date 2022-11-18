@@ -17,7 +17,7 @@ ms.custom: mvc
 
 - Support for providing a sudo user account to perform agentless dependency analysis on Linux servers running in VMware, Hyper-V, and Physical/other cloud environments.
 - Support for selecting VNet and Subnet during test migration using PowerShell for agentless VMware.
-- Support for OS disk swap using the Azure Portal and PowerShell for agentless VMware.
+- Support for OS disk swap using the Azure portal and PowerShell for agentless VMware.
 - Support for pausing and resuming replications using PowerShell for agentless VMware.
 
 ## Update (October 2022)
