@@ -23,9 +23,11 @@ Azure availability zones are at least three physically separate groups of datace
 
 Azure availability zones-enabled services are designed to provide the right level of reliability and flexibility. They can be configured in two ways. They can be either zone redundant, with automatic replication across zones, or zonal, with instances pinned to a specific zone. You can also combine these approaches. For more information on zonal vs. zone-redundant architecture, see [Build solutions with availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
-Azure Image Builder has [availability zones](/azure/availability-zones/az-overview#availability-zones) (AZ) for resources supporting AZ, which provides recovery in case of local failures in a region.
+Azure Image Builder has availability zones (AZ) for resources supporting AZ, which provides recovery in case of local failures in a region. For more information, see [availability zones](/azure/availability-zones/az-overview#availability-zones)
 
-The following [Azure Marketplace images](/azure/virtual-machines/image-builder-overview#os-support) are also supported for Azure Image Builder.
+The Image Builder service also supports many base operating system images. For more information, see [Azure Marketplace images](/azure/virtual-machines/image-builder-overview#os-support).
+
+
 
 
 ### Prerequisites
