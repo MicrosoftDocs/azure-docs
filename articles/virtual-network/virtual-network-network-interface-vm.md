@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/15/2022
+ms.date: 11/16/2022
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -19,7 +19,7 @@ Learn how to add an existing network interface when you create an Azure virtual 
 
 If you need to add, change, or remove IP addresses for a network interface, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md). To manage network interfaces, see [Create, change, or delete a network interface](virtual-network-network-interface.md).
 
-## Before you begin
+## Prerequisites
 
 If you don't have one, set up an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
 

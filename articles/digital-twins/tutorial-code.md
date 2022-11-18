@@ -79,13 +79,7 @@ There's also a section showing the complete code at the end of the tutorial. You
 
 To begin, open the file *Program.cs* in any code editor. You'll see a minimal code template that looks something like this:
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="Screenshot of a snippet of sample code in a code editor." lightbox="media/tutorial-code/starter-template.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/tutorial-code/starter-template.png" alt-text="Screenshot of a snippet of sample code in a code editor.":::
 
 First, add some `using` lines at the top of the code to pull in necessary dependencies.
 

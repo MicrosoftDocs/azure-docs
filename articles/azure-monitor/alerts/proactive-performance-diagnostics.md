@@ -42,7 +42,7 @@ The notifications include diagnostic information. Here's an example:
 2. **Scope**. Is the problem affecting all traffic, or just some pages? Is it restricted to particular browsers or locations? This information can be obtained from the notification.
 3. **Diagnose**. Often, the diagnostic information in the notification will suggest the nature of the problem. For example, if response time slows down when request rate is high, it may indicate that your server or dependencies are beyond their capacity. 
 
-    Otherwise, open the Performance blade in Application Insights. You'll find there [Profiler](../profiler/profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](../snapshot-debugger/snapshot-debugger.md).
+    Otherwise, open the Performance pane in Application Insights. You'll find there [Profiler](../profiler/profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](../snapshot-debugger/snapshot-debugger.md).
 
 ## Configure Email Notifications
 
