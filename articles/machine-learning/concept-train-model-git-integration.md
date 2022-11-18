@@ -10,7 +10,7 @@ author: ositanachi
 ms.author: osiotugo
 ms.reviewer: larryfr
 ms.date: 04/05/2022
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022
 ---
 # Git integration for Azure Machine Learning
 
@@ -185,12 +185,12 @@ The logged information contains text similar to the following JSON:
 
 After submitting a training run, a [Run](/python/api/azureml-core/azureml.core.run%28class%29) object is returned. The `properties` attribute of this object contains the logged git information. For example, the following code retrieves the commit hash:
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
-run.properties['azureml.git.commit']
+job.properties["azureml.git.commit"]
 ```
 
 ## Next steps
 
-* [Use compute targets for model training](v1/how-to-set-up-training-targets.md)
+* [Access a compute instance terminal in your workspace](how-to-access-terminal.md)
