@@ -1,3 +1,4 @@
+items:
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
@@ -13,7 +14,19 @@
       - name: SAP
         tocHref: /azure/backup/index 
         topicHref: /azure/virtual-machines/workloads/sap/index
-        items:
-        - name: architecture
-          tocHref: /azure/architecture/framework/sap
-          topicHref: /azure/virtual-machines/workloads/sap/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Virtual machines
+    tocHref: /azure/virtual-machines/index
+    topicHref: /azure/virtual-machines/index
+    items:
+    - name: Workloads
+      tocHref: /azure/virtual-machines/workloads/sap/get-started
+      topicHref: /azure/virtual-machines/workloads/sap/get-started
+      items:    
+      - name: Architecture
+        tocHref: /azure/architecture/framework/sap/security
+        topicHref: /azure/virtual-machines/workloads/sap/index
