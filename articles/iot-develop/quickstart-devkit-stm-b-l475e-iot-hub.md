@@ -137,7 +137,7 @@ To add a connection to your IoT hub:
 1. Paste the connection string into the **Connection string** box.
 1. Select **Save**.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-add-connection.png" alt-text="Screenshot of adding a connection in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-add-connection.png" alt-text="Screenshot of adding a connection in IoT Explorer.":::
 
 If the connection succeeds, IoT Explorer switches to the **Devices** view.
 
@@ -147,7 +147,7 @@ To add the public model repository:
 1. On the left menu, select **IoT Plug and Play Settings**, then select **+Add** and select **Public repository** from the drop-down menu.
 1. An entry appears for the public model repository at `https://devicemodels.azure.com`.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-add-public-repository.png" alt-text="Screenshot of adding the public model repository in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-add-public-repository.png" alt-text="Screenshot of adding the public model repository in IoT Explorer.":::
 
 1. Select **Save**.
 
@@ -162,7 +162,7 @@ To register a device:
 1. Select **+ New** and enter a device ID for your device; for example, `mydevice`. Leave all other properties the same.
 1. Select **Create**.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity.":::
 
 1. Use the copy buttons to copy the **Device ID** and **Primary key** fields.
 
@@ -221,7 +221,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
 1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You'll refer to these items in the next steps. All of them are highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/stm-devkit-board-475.png" alt-text="Locate key components on the STM DevKit board":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/stm-devkit-board-475.png" alt-text="Photo that that shows key components on the STM DevKit board.":::
 
 1. Connect the Micro USB cable to the **USB STLINK** port on the STM DevKit, and then connect it to your computer.
 
@@ -251,7 +251,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     * **Baud rate**: 115,200
     * **Port**: The port that your STM DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app.":::
 
 1. Select OK.
 1. Press the **Reset** button on the device. The button is black and is labeled on the device.
@@ -311,7 +311,7 @@ To access IoT Plug and Play components for the device in IoT Explorer:
 1. Select **IoT Plug and Play components**.
 1. Select **Default component**. IoT Explorer displays the IoT Plug and Play components that are implemented on your device.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-default-component-view.png" alt-text="Screenshot of STM DevKit default component in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-default-component-view.png" alt-text="Screenshot of STM DevKit default component in IoT Explorer.":::
 
 1. On the **Interface** tab, view the JSON content in the device model **Description**. The JSON contains configuration details for each of the IoT Plug and Play components in the device model.
 
@@ -333,7 +333,7 @@ To view device properties using Azure IoT Explorer:
 1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
 1. Change the `telemetryInterval` to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-set-telemetry-interval.png" alt-text="Screenshot of setting telemetry interval on STM DevKit in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-set-telemetry-interval.png" alt-text="Screenshot of setting telemetry interval on STM DevKit in IoT Explorer.":::
 
 1. IoT Explorer responds with a notification. You can also observe the update in Termite.
 1. Set the telemetry interval back to 10.
@@ -358,14 +358,14 @@ To view telemetry in Azure IoT Explorer:
 1. Select **Start**.
 1. View the telemetry as the device sends messages to the cloud.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Explorer.":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
 
 1. Select the **Show modeled events** checkbox to view the events in the data format specified by the device model.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-show-modeled-events.png" alt-text="Screenshot of modeled telemetry events in IoT Explorer.":::
 
 1. Select **Stop** to end receiving events.
 
@@ -404,7 +404,7 @@ To call a method in Azure IoT Explorer:
 1. For the **setLedState** command, set the **state** to **true**.
 1. Select **Send command**. You should see a notification in IoT Explorer, and the green LED light on the device should turn on.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling the setLedState method in IoT Explorer":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling the setLedState method in IoT Explorer.":::
 
 1. Set the **state** to  **false**, and then select **Send command**. The LED should turn off.
 1. Optionally, you can view the output in Termite to monitor the status of the methods.
