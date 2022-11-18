@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/03/2022
+ms.date: 11/18/2022
 ms.author: radeltch
 
 ---
@@ -55,7 +55,7 @@ This article describes how to deploy and configure Azure virtual machines (VMs),
 -  [NFS on Azure Files](../../../storage/files/files-nfs-protocol.md) 
 -  [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md)        
 
-The simple mount configuration is expected to be the [default](https://documentation.suse.com/sbp/sap/single-html/SAP-S4HA10-setupguide-simplemount-sle15/#id-introduction) for new deployments on SLES for SAP Applications 15.
+The simple mount configuration is expected to be the [default](https://documentation.suse.com/sbp/sap/single-html/SAP-S4HA10-setupguide-simplemount-sle15/#id-introduction) for new implementations on SLES for SAP Applications 15.
 
 ## Prerequisites  
 
