@@ -78,7 +78,7 @@ animal_pd = animal_labels.to_pandas_dataframe()
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-#read images from downloaded path
+#read images from dataset
 img = mpimg.imread(animal_pd['image_url'].iloc(0).open())
 imgplot = plt.imshow(img)
 ```
