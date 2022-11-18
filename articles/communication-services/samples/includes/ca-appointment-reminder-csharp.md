@@ -12,8 +12,9 @@ ms.author: kpunjabi
 ---
 
 ## Prerequsites
-> Note 
-> The application is a web-based application built on .Net6 framework.
+> Note: 
+> This application is a web-based application built on .Net6 framework.
+
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/)
 - [Visual Studio (2022 v17.4.0 and above)](https://visualstudio.microsoft.com/vs/)
 - [.NET6 Framework](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
