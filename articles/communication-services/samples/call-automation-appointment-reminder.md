@@ -25,7 +25,7 @@ This Azure Communication Services Call Automation - Appointment Reminder sample 
 
 This sample application makes an outbound call to a phone number performs dtmf recognition and then plays the next audio file based on the key pressed by the callee. This sample application is configured for accepting tone 1 (tone1), 2 (tone2), if the callee presses any key other than what is expected, an invalid audio tone will be played and then the call will be disconnected.
 
-This sample application is also capable of making multiple concurrent outbound calls. The application is a web-based application built on .Net6 framework.
+This sample application is also capable of making multiple concurrent outbound calls.
 
 ## Design
 
