@@ -74,17 +74,17 @@ This solution does not install any management packs in connected management grou
 
 ## Use the solution
 
-The following sections describe how you can use the blades shown in the Application Insights dashboard to view and interact with data from your apps.
+The following sections describe how you can use the panes shown in the Application Insights dashboard to view and interact with data from your apps.
 
 ### View Application Insights Connector information
 
-Click the **Application Insights** tile to open the **Application Insights** dashboard to see the following blades.
+Click the **Application Insights** tile to open the **Application Insights** dashboard to see the following panes.
 
-![Screenshot of the Application Insights dashboard showing the blades for Applications, Data Volume, and Availability.](./media/app-insights-connector/app-insights-dash01.png)
+![Screenshot of the Application Insights dashboard showing the panes for Applications, Data Volume, and Availability.](./media/app-insights-connector/app-insights-dash01.png)
 
-![Screenshot of the Application Insights dashboard showing the blades for Server Requests, Failures, and Exceptions.](./media/app-insights-connector/app-insights-dash02.png)
+![Screenshot of the Application Insights dashboard showing the panes for Server Requests, Failures, and Exceptions.](./media/app-insights-connector/app-insights-dash02.png)
 
-The dashboard includes the blades shown in the table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records when you click **See all** at the bottom of the blade or when you click the blade header.
+The dashboard includes the panes shown in the table. Each pane lists up to 10 items matching that pane's criteria for the specified scope and time range. You can run a log search that returns all records when you click **See all** at the bottom of the pane or when you click the pane header.
 
 
 | **Column** | **Description** |
