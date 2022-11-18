@@ -335,3 +335,9 @@ To view your new route in the [Azure portal](https://portal.azure.com/), go to y
 To confirm your template deployed successfully to Azure, check in your resource group resource on the **Deployments** page of the **Settings** menu in the Azure portal.
 
 :::image type="content" source="media/how-to-routing-arm/confirm-template-deployment.jpg" alt-text="Screenshot that shows location of a deployment log in a resource group on the Deployments page of the Azure portal.":::
+
+## Next Steps
+
+In this how-to article you learned how to create a route and endpoint for your Event Hubs, Service Bus queue or topic, and Azure Storage. 
+
+To further your exploration into message routing, see [Tutorial: Send device data to Azure Storage using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal). In this tutorial, you'll create a storage route and test it with a device in your IoT hub.
