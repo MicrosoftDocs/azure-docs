@@ -49,15 +49,15 @@ Content-Type: application/json
 Authorization: Bearer <token>
 
 {
-    "includeQRCode": true, 
-    "callback": {  
-        "url": "https://wwww.contoso.com/vc/callback",  
-        "state": "Aaaabbbb11112222", 
-        "headers": { 
-            "api-key": "an-api-key-can-go-here" 
-        }  
-    }, 
-    ... 
+    "includeQRCode": true,
+    "callback": {
+        "url": "https://wwww.contoso.com/vc/callback",
+        "state": "Aaaabbbb11112222",
+        "headers": {
+            "api-key": "an-api-key-can-go-here"
+        }
+    },
+    ...
 }
 ```  
 
