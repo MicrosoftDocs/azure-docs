@@ -4,7 +4,7 @@ description: Step-by-step instructions for viewing the service principal of a ma
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
@@ -44,4 +44,4 @@ az ad sp list --display-name <Azure resource name>
 
 ## Next steps
 
-For more information on managing Azure AD service principals using Azure CLI, see [az ad sp](/cli/azure/ad/sp).
+For more information on managing Azure AD service principals, see [Azure CLI ad sp](/cli/azure/ad/sp).

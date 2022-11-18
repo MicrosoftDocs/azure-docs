@@ -1,5 +1,5 @@
 ---
-title: Cross-tenant management in Microsoft Defender for Cloud | Microsoft Docs
+title: Cross-tenant management in Microsoft Defender for Cloud
 description: Learn how to set up cross-tenant management to manage the security posture of multiple tenants in Defender for Cloud using Azure Lighthouse.
 documentationcenter: na
 ms.assetid: 7d51291a-4b00-4e68-b872-0808b60e6d9c
@@ -40,7 +40,7 @@ The views and actions are basically the same. Here are some examples:
 - **Remediate recommendations**: Monitor and remediate a [recommendation](review-security-recommendations.md) for many resources from various tenants at one time. You can then immediately tackle the vulnerabilities that present the highest risk across all tenants.
 - **Manage Alerts**: Detect [alerts](alerts-overview.md) throughout the different tenants. Take action on resources that are out of compliance with actionable [remediation steps](managing-and-responding-alerts.md).
 
-- **Manage advanced cloud defense features and more**: Manage the various threat protection services, such as [just-in-time (JIT) VM access](just-in-time-access-usage.md), [Adaptive Network Hardening](adaptive-network-hardening.md), [adaptive application controls](adaptive-application-controls.md), and more.
+- **Manage advanced cloud defense features and more**: Manage the various threat protection services, such as [just-in-time (JIT) VM access](just-in-time-access-usage.md), [Adaptive network hardening](adaptive-network-hardening.md), [adaptive application controls](adaptive-application-controls.md), and more.
  
 ## Next steps
 This article explains how cross-tenant management works in Defender for Cloud. To discover how Azure Lighthouse can simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants, see [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md).

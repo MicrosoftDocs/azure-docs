@@ -220,7 +220,7 @@ function addTermsOfUseLink() {
     var termsLabelText = termsOfUseLabel.innerHTML;
 
     // create a new <a> element with the same inner text
-    var termsOfUseUrl = 'https://docs.microsoft.com/legal/termsofuse';
+    var termsOfUseUrl = 'https://learn.microsoft.com/legal/termsofuse';
     var termsOfUseLink = document.createElement('a');
     termsOfUseLink.setAttribute('href', termsOfUseUrl);
     termsOfUseLink.setAttribute('target', '_blank');
@@ -232,6 +232,21 @@ function addTermsOfUseLink() {
 ```
 
 In the code, replace `termsOfUseUrl` with the link to your terms of use agreement. For your directory, create a new user attribute called **termsOfUse** and then include **termsOfUse** as a user attribute.
+
+Alternatively, you can add a link at the bottom of self-asserted pages, without using of JavaScript. Use the following localization:
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <!-- The following elements will display a link at the bottom of the page. -->
+    <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_text">Terms of use</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_url">termsOfUseUrl</LocalizedString>
+    </LocalizedStrings>
+</LocalizedResources>
+```
+
+Replace `termsOfUseUrl` with the link to your organization's privacy policy and terms of use. 
+
 
 ## Next steps
 

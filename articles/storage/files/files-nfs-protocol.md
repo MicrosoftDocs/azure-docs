@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/19/2022
+ms.date: 11/15/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
@@ -16,7 +16,7 @@ Azure Files offers two industry-standard file system protocols for mounting Azur
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
 > [!IMPORTANT]
->  Before using NFS file shares for production, see the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for a list of known issues.
+> NFS Azure file shares are not supported for Windows clients. Before using NFS Azure file shares for production, see the [Troubleshoot NFS Azure file shares](storage-troubleshooting-files-nfs.md) article for a list of known issues.
 
 ## Common scenarios
 NFS file shares are often used in the following scenarios:
@@ -28,9 +28,11 @@ NFS file shares are often used in the following scenarios:
 ## Features
 - Fully POSIX-compliant file system.
 - Hard link support.
-- Symbolic link support.
+- Symbolic link support. 
 - NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, Kerberos authentication, and encryption-in-transit are not supported.
 
+> [!NOTE]
+> Creating a hard link from an existing symbolic link isn't currently supported.
 
 ## Security and networking
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
@@ -59,11 +61,11 @@ The status of items that appear in this table may change over time as support co
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
-| [LRS to ZRS conversion](../common/redundancy-migration.md?tabs=portal#switch-between-types-of-replication)|	⛔ |
+| [LRS to ZRS conversion](../common/redundancy-migration.md?tabs=portal#limitations-for-changing-replication-types)|	⛔ |
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
 | Subdirectory mounts|	✔️ |
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
-| [Grant network access to specific IP addresses](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#grant-access-from-an-internet-ip-range)| ⛔ |
+| [Grant network access to specific IP addresses](../common/storage-network-security.md?toc=/azure/storage/files/toc.json#grant-access-from-an-internet-ip-range)| ⛔ |
 | [Premium tier](storage-files-planning.md#storage-tiers) |  ✔️  |
 | [Standard tiers (Hot, Cool, and Transaction optimized)](storage-files-planning.md#storage-tiers)| ⛔ |
 | [POSIX-permissions](https://en.wikipedia.org/wiki/File-system_permissions#Notation_of_traditional_Unix_permissions)|  ✔️  |
@@ -75,7 +77,7 @@ The status of items that appear in this table may change over time as support co
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
 | [Azure file share snapshots](storage-snapshots-files.md)| ⛔ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
-| [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)| ⛔ |
+| [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)| ⛔ |
 | Azure Storage Explorer| ⛔ |
 | Support for more than 16 groups| ⛔ |
 
@@ -88,14 +90,14 @@ NFS Azure file shares are only offered on premium file shares, which store data 
 
 ## Workloads
 > [!IMPORTANT]
-> Before using NFS file shares for production, see the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for a list of known issues.
+> Before using NFS Azure file shares for production, see [Troubleshoot NFS Azure file shares](storage-troubleshooting-files-nfs.md) for a list of known issues.
 
 NFS has been validated to work well with workloads such as SAP application layer, database backups, database replication, messaging queues, home directories for general purpose file servers, and content repositories for application workloads.
 
-The following workloads have known issues. See the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues:
+The following workloads have known issues:
 - Oracle Database will experience incompatibility with its dNFS feature.
 
 
 ## Next steps
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
-- [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](../common/nfs-comparison.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+- [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](../common/nfs-comparison.md?toc=/azure/storage/files/toc.json)

@@ -1,12 +1,12 @@
 ---
 title:  What is the workspace? - Azure Health Data Services
 description: This article describes an overview of the Azure Health Data Services workspace.
-author: stevewohl
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/28/2022
-ms.author: ginle
+ms.date: 06/06/2022
+ms.author: mikaelw
 ---
 
 # What is Azure Health Data Services workspace?
@@ -37,7 +37,6 @@ Additionally, workspaces can be created using Azure Resource Manager deployment 
 
 You can use PowerShell, CLI, Terraform scripts, or the .NET SDK to deploy Azure Health Data Services. To create a service instance in the workspace, select **Create** (FHIR service, DICOM service, or MedTech service), and then enter the account details for that service instance that is being created.
 
-
 ## FHIR service
 
 FHIR service includes FHIR APIs and endpoints in Azure for data access and storage in FHIR data 
@@ -51,7 +50,7 @@ Deploy a DICOM service to bring medical imaging data into the cloud from any DIC
 
 ## MedTech service
 
-The IoT Connector service enables you to ingest high-frequency IoT device data into the FHIR Service in a scalable, secure, and compliant manner. For more information, see [the MedTech service documentation page](./iot/index.yml).
+The MedTech service enables you to ingest high-frequency IoT device data into the FHIR Service in a scalable, secure, and compliant manner. For more information, see [the MedTech service documentation page]see [Overview of MedTech](../healthcare-apis/iot/iot-connector-overview.md).
  
 ## Workspace configuration settings
 
@@ -76,3 +75,5 @@ To start working with Azure Health Data Services, follow the 5-minute quick star
 
 >[!div class="nextstepaction"]
 >[Deploy workspace in the Azure portal](healthcare-apis-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

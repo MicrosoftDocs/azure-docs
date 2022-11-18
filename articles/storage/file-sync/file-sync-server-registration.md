@@ -4,7 +4,7 @@ description: Learn how to register and unregister a Windows Server with an Azure
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/3/2022
+ms.date: 06/15/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -144,6 +144,17 @@ Now that all data has been recalled and the server has been removed from all syn
 2. Right-click on the server you want to unregister and click "Unregister Server".
 
     ![Unregister server](media/storage-sync-files-server-registration/unregister-server-1.png)
+
+#### Unregister the server with PowerShell
+You can also unregister the server via PowerShell by using the `Unregister-AzStorageSyncServer` cmdlet.
+
+> [!WARNING]  
+> Unregistering a server will result in cascading deletes of all server endpoints on the server. You should only run this cmdlet when you are certain that no path on the server is to be synced anymore.
+
+```powershell
+$RegisteredServer = Get-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
+Unregister-AzStorageSyncServer -Force -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>" -ServerId $RegisteredServer.ServerId
+```
 
 ## Ensuring Azure File Sync is a good neighbor in your datacenter 
 Since Azure File Sync will rarely be the only service running in your datacenter, you may want to limit the network and storage usage of Azure File Sync.

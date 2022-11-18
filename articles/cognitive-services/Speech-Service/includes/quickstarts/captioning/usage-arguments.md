@@ -9,12 +9,12 @@ ms.author: eur
 Connection options include:
 
 - `--key`: Your Speech resource key. 
-- `--region REGION`: Your Speech resource region. Examples: `westus`, `eastus`
+- `--region REGION`: Your Speech resource region. Examples: `westus`, `northeurope`
 
 Input options include:
 
 - `--input FILE`: Input audio from file. The default input is the microphone. 
-- `--format FORMAT`: Use compressed audio format. Valid only with `--file`. Valid values are `alaw`, `any`, `flac`, `mp3`, `mulaw`, and `ogg_opus`. The default value is `any`. This option is not available with the JavaScript captioning sample. For compressed audio files such as MP4, install GStreamer and see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
+- `--format FORMAT`: Use compressed audio format. Valid only with `--file`. Valid values are `alaw`, `any`, `flac`, `mp3`, `mulaw`, and `ogg_opus`. The default value is `any`. To use a `wav` file, don't specify the format. This option is not available with the JavaScript captioning sample. For compressed audio files such as MP4, install GStreamer and see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md). 
 
 Language options include:
 
@@ -34,5 +34,5 @@ Output options include:
 - `--output FILE`: Output captions to the specified `file`. This flag is required.
 - `--srt`: Output captions in SRT (SubRip Text) format. The default format is WebVTT (Web Video Text Tracks). For more information about SRT and WebVTT caption file formats, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format).
 - `--quiet`: Suppress console output, except errors.
-- `--profanity OPTION`: Valid values: raw, remove, mask. For more information, see [Profanity filter](~/articles/cognitive-services/speech-service/captioning-concepts.md#profanity-filter) concepts.
-- `--threshold NUMBER`: Set stable partial result threshold. The default value with this code example is `3`. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results) concepts.
+- `--profanity OPTION`: Valid values: raw, remove, mask. For more information, see [Profanity filter](~/articles/cognitive-services/speech-service/display-text-format.md#profanity-filter) concepts.
+- `--threshold NUMBER`: Set stable partial result threshold. The default value is `3`. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results) concepts.

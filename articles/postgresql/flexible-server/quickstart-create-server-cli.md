@@ -13,6 +13,8 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 # Quickstart: Create an Azure Database for PostgreSQL Flexible Server using Azure CLI
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for PostgreSQL Flexible Server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 
@@ -27,13 +29,13 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 ## Prerequisites
 
-You'll need to log in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You'll need to log in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property in the output, which refers to the **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription under your account using [az account set](/cli/azure/account#az-account-set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az-account-list).
+Select the specific subscription under your account using [az account set](/cli/azure/account#az-account-set) command. Use the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -47,21 +49,24 @@ Create an [Azure resource group](../../azure-resource-manager/management/overvie
 az group create --name myresourcegroup --location westus
 ```
 
-Create a flexible server with the `az postgres flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's [local context](/cli/azure/local-context): 
+Create a flexible server with the `az postgres flexible-server create` command. A server can contain multiple databases. The following command creates a server in the resource group you just created:
 
 ```azurecli
-az postgres flexible-server create
+az postgres flexible-server create --name mydemoserver --resource-group myresourcegroup
 ```
 
-The server created has the below attributes: 
-- Auto-generated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group 
-- Service defaults for remaining server configurations: compute tier (General Purpose), compute size/SKU (D2s_v3 - 2 vCore, 8 GB RAM), backup retention period (7 days), and PostgreSQL version (12)
-- The default connectivity method is Private access (VNet Integration) with an auto-generated virtual network and subnet
+Since the default connectivity method is *Public access (allowed IP addresses)*, the command will prompt you for your own IP address to initialize the list of allowed addresses.
+
+The server created has the following attributes: 
+- The same location as your resource group
+- Auto-generated admin username and admin password (which you should save in a secure place)
+- A default database named "flexibleserverdb"
+- Service defaults for remaining server configurations: compute tier (General Purpose), compute size/SKU (`Standard_D2s_v3` - 2 vCore, 8 GB RAM), backup retention period (7 days), and PostgreSQL version (13)
 
 > [!NOTE] 
-> The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking.md).
+> The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during creation, then you cannot change it to *Public access (allowed IP addresses)* after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking.md).
 
-If you'd like to change any defaults, please refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. 
+If you'd like to change any defaults, please refer to the Azure CLI reference for [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create).
 
 > [!NOTE]
 > Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432.
@@ -71,51 +76,55 @@ If you'd like to change any defaults, please refer to the Azure CLI reference do
 To connect to your server, you need to provide host information and access credentials.
 
 ```azurecli-interactive
-az postgres flexible-server show --resource-group myresourcegroup --name mydemoserver
+az postgres flexible-server show --name mydemoserver --resource-group myresourcegroup
 ```
 
-The result is in JSON format. Make a note of the **fullyQualifiedDomainName** and **administratorLogin**.
+The result is in JSON format. Make a note of the **fullyQualifiedDomainName** and **administratorLogin**. You should have saved the password in the previous step.
 
-<!--FIXME-->
 ```json
 {
   "administratorLogin": "myadmin",
+  "availabilityZone": "3",
+  "backup": {
+    "backupRetentionDays": 7,
+    "earliestRestoreDate": "2022-10-20T18:03:50.989428+00:00",
+    "geoRedundantBackup": "Disabled"
+  },
   "earliestRestoreDate": null,
   "fullyQualifiedDomainName": "mydemoserver.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/mydemoserver",
   "location": "westus",
   "name": "mydemoserver",
+  "network": {
+    "delegatedSubnetResourceId": null,
+    "privateDnsZoneArmResourceId": null,
+    "publicNetworkAccess": "Enabled"
+  },
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 2,
     "name": "Standard_D2s_v3",
-    "size": null,
     "tier": "GeneralPurpose"
   },
-  "publicAccess": "Enabled",
-  "storageProfile": {
-    "backupRetentionDays": 7,
-    "geoRedundantBackup": "Disabled",
-    "storageMb": 131072
+  "state": "Ready",
+  "storage": {
+    "storageSizeGb": 128
   },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/flexibleServers",
-  "userVisibleState": "Ready",
-  "version": "12"
+  "version": "13"
 }
 ```
 
 ## Connect using PostgreSQL command-line client
 
-As the flexible server was created with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the virtual network created. 
+First, install the **[psql](https://www.postgresql.org/download/)** command-line tool.
 
-Once your VM is created, you can SSH into the machine and install the **[psql](https://www.postgresql.org/download/)** command-line tool.
-
-With psql, connect using the below command. Replace values with your actual server name and password. 
+With psql, connect to the "flexibleserverdb" database using the below command. Replace values with the auto-generated domain name and username. 
 
 ```bash
-psql -h mydemoserver.postgres.database.azure.com -u mydemouser -p
+psql -h mydemoserver.postgres.database.azure.com -U myadmin flexibleserverdb
 ```
+
 >[!Note]
 > If you get an error `The parameter PrivateDnsZoneArguments is required, and must be provided by customer`, this means you may be running an older version of Azure CLI. Please [upgrade Azure CLI](/cli/azure/update-azure-cli) and retry the operation.
 
@@ -127,7 +136,7 @@ If you don't need these resources for another quickstart/tutorial, you can delet
 az group delete --name myresourcegroup
 ```
 
-If you would just like to delete the one newly created server, you can run the `az postgres flexible-server delete` command.
+If you would just like to delete only the newly created server, you can run the `az postgres flexible-server delete` command.
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

@@ -4,26 +4,25 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
+ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 04/06/2022
+ms.date: 06/29/2022
 ms.author: aahi
 ---
 
-
-### Request URL
-
-Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
+Submit a **POST** request using the following URL, headers, and JSON body to submit a training job. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/:train?api-version=2021-11-01-preview
+{ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/:train?api-version={API-VERSION}
 ```
 
-|Placeholder  |Value  | Example |
+| Placeholder |Value | Example |
 |---------|---------|---------|
-|`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
+| `{ENDPOINT}` | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| `{PROJECT-NAME}` | The name of your project. This value is case-sensitive.   | `myProject` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. See [Model lifecycle](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) to learn more about other available API versions.  | `2022-05-01` |
 
-### Headers
+#### Headers
 
 Use the following header to authenticate your request. 
 
@@ -31,94 +30,39 @@ Use the following header to authenticate your request.
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
 
-### Request body
+#### Request body
 
-Use the following JSON in your request. The model will be named `MyModel` once training is complete.  
+Use the following JSON in your request body. The model will be given the `{MODEL-NAME}` once training is complete. Only successful training jobs will produce models. 
+
 
 ```json
 {
-  "modelLabel": "MyModel",
-  "runValidation": true,
-  "evaluationOptions":
-    {
-        "type":"percentage",
-        "testingSplitPercentage":"30",
-        "trainingSplitPercentage":"70"
-    }
+	"modelLabel": "{MODEL-NAME}",
+	"trainingConfigVersion": "{CONFIG-VERSION}",
+	"evaluationOptions": {
+		"kind": "percentage",
+		"trainingSplitPercentage": 80,
+		"testingSplitPercentage": 20
+	}
 }
 ```
 
-|Key  |Value  | Example |
-|---------|---------|---------|
-|`modelLabel  `    | Your Model name.   | MyModel |
-|`runValidation`     | Boolean value to run validation on the test set.   | `True` or `False` |
-|`evaluationOptions`     | Specifies evaluation options.   |  |
-|`type`     | Specifies datasplit type.   | set or percentage |
-|`testingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies testing split.   | `30` |
-|`trainingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies training split.   | `70` |
+|Key  |Placeholder  |Value  | Example |
+|---------|---------|-----|----|
+| modelLabel | `{MODEL-NAME}` | The model name that will be assigned to your model once trained successfully.  | `myModel` |
+| trainingConfigVersion | `{CONFIG-VERSION}` | This is the [model version](../../../concepts/model-lifecycle.md) that will be used to train the model. | `2022-05-01`| 
+| evaluationOptions |  | Option to split your data across training and testing sets. | `{}` |
+| kind | `percentage` |  Split methods. Possible values are `percentage` or `manual`. See [How to train a model](../../how-to/train-model.md#data-splitting) for more information. |`percentage`|
+| trainingSplitPercentage | `80`| Percentage of your tagged data to be included in the training set. Recommended value is `80`. | `80`|
+| testingSplitPercentage | `20` | Percentage of your tagged data to be included in the testing set. Recommended value is `20`.   | `20` |
 
-Once you send your API request, you’ll receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
+  > [!NOTE]
+  > The `trainingSplitPercentage` and `testingSplitPercentage` are only required if `Kind` is set to `percentage` and the sum of both percentages should be equal to 100.
+
+Once you send your API request, you’ll receive a `202` response indicating that the job was submitted correctly. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
+{ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/train/jobs/{JOB-ID}?api-version={API-VERSION}
 ``` 
 
-`JOB-ID` is used to identify your request, since this operation is asynchronous. You’ll use this URL in the next step to get the training status. 
-
-## Get Training Status
-
-Use the following **GET** request to query the status of your model's training process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
-
-```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
-```
-
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-
-### Headers
-
-Use the following header to authenticate your request. 
-
-|Key|Value|
-|--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-
-### Response Body
-
-Once you send the request, you’ll get the following response. 
-
-```json
-{
-  "jobs": [
-    {
-      "result": {
-        "trainedModelLabel": "MyModel",
-        "trainStatus": {
-          "percentComplete": 0,
-          "elapsedTime": "string"
-        },
-        "evaluationStatus": {
-          "percentComplete": 0,
-          "elapsedTime": "string"
-        }
-      },
-      "jobId": "string",
-      "createdDateTime": "2021-10-19T23:24:41.572Z",
-      "lastUpdatedDateTime": "2021-10-19T23:24:41.572Z",
-      "expirationDateTime": "2021-10-19T23:24:41.572Z",
-      "status": "unknown",
-      "errors": [
-        {
-          "code": "unknown",
-          "message": "string"
-        }
-      ]
-    }
-  ],
-  "nextLink": "string"
-}
-```
+`{JOB-ID}` is used to identify your request, since this operation is asynchronous. You can use this URL to get the training status.  

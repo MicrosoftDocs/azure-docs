@@ -22,6 +22,7 @@ This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on th
 - Windows 10
 - Ubuntu 20.04 LTS
 - Raspberry Pi OS (Raspbian) version 10, running on a Raspberry Pi 3 Model B+
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 Install the remaining prerequisites for your operating system.
 

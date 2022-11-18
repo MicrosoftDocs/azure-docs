@@ -1,13 +1,16 @@
 This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into an LDAP directory. The document includes a sample for how you can provision users into AD LDS, but you can provision into any of the supported LDAP directories mentioned below. Provisioning users into Active Directory Domain Services through this solution is not supported.
  
-For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md).
+For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md). The following video provides an overview of on-premises provisioning.
+
+
+> [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
 ## Prerequisites for provisioning users into an LDAP directory
 
 ### On-premises prerequisites
 
  - A target directory, such as Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted. This directory instance should not be a directory that is also used to provision users into Azure AD, because having both scenarios may create a loop with Azure AD Connect.
- - A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target directory, and with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide) and [Azure](/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
+ - A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target directory, and with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
  - The .NET Framework 4.7.2 needs to be installed.
  - Optional:  Although it is not required, it is recommended to download [Microsoft Edge for Windows Server](https://www.microsoft.com/en-us/edge?r=1) and use it in-place of Internet Explorer.
 
@@ -37,7 +40,7 @@ For more information, see the [Generic LDAP Connector reference](/microsoft-iden
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
  
     [!INCLUDE [active-directory-p1-license.md](active-directory-p1-license.md)]
- - The Hybrid Identity Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
+ - The Hybrid Identity Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Application Administrator roles for configuring provisioning in the Azure portal.
 
 ### More recommendations and limitations
 The following bullet points are more recommendations and limitations.
@@ -76,26 +79,26 @@ C:\Windows\ADAM> ADAMInstall.exe /answer:answer.txt
 ### Create containers and a service account for AD LDS
 The use the PowerShell script from [Appendix C](#appendix-c---populate-ad-lds-powershell-script).  The script performs the following actions:
   - Creates a container for the service account that will be used with the LDAP connector
-  - Creates a container for the cloud users.  This container is where users will be provisioned to.
+  - Creates a container for the cloud users, where users will be provisioned to
   - Creates the serve account in AD LDS
   - Enables the service account
   - Adds the service account to the AD LDS Administrators role
 
 On the Windows Server virtual machine, you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
 
-### Grant the NETWORK SERVICE read permissions to the SSL cert
+### Grant the NETWORK SERVICE read permissions to the SSL certificate
 In order to enable SSL to work, you need to grant the NETWORK SERVICE read permissions to our newly created certificate.  To grant permissions, use the following steps.
 
  1. Navigate to **C:\Program Data\Microsoft\Crypto\Keys**.
  2. Right-click on the system file located here.  It will be a guid.  This container is storing our certificate.
-    a. Select properties.
-    b. At the top, select the **Security** tab.
-    c. Select **Edit**.
-    d. Click **Add**.
-    e. In the box, enter **Network Service** and select **Check Names**.
-    f. Select **NETWORK SERVICE** from the list and click **OK**.
-    g. Click **Ok**.
-    h. Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
+    - Select properties.
+    - At the top, select the **Security** tab.
+    - Select **Edit**.
+    - Click **Add**.
+    - In the box, enter **Network Service** and select **Check Names**.
+    - Select **NETWORK SERVICE** from the list and click **OK**.
+    - Click **Ok**.
+    - Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
 
 ### Verify SSL connectivity with AD LDS
 Now that we have configured the certificate and granted the network service account permissions, test the connectivity to verify that it is working.
@@ -107,9 +110,9 @@ Now that we have configured the certificate and granted the network service acco
     - Server:  APP3
     - Port: 636
     - Place a check in the SSL box
-   [![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
+   [![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)](media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
  5.  You should see a response similar to the screenshot below.
-   ![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)](media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
+   [![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)](media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
  6.  At the top, under **Connection** select **Bind**.
  7. Leave the defaults and click **OK**.
    [![Ldp bind](media/active-directory-app-provisioning-ldap/ldp-4.png)](media/active-directory-app-provisioning-ldap/ldp-4.png#lightbox)</br>
@@ -137,7 +140,7 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
      >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
  1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
  1. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
- 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The Hybrid Identity Administrator or global administrator role is required.
+ 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The Hybrid Identity Administrator or Global Administrator role is required.
  1. Select **Confirm** to confirm the installation was successful.
  1. Sign in to the Azure portal.
  1. Go to **Enterprise applications** > **Add a new application**.
@@ -268,7 +271,11 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
 Now that you have the Azure AD ECMA Connector Host talking with Azure AD, and the attribute mapping configured, you can move on to configuring who's in scope for provisioning. 
 
 >[!IMPORTANT]
->If you were signed in using a Hybrid identity administrator role, you need to sign-out and sign-in with an account that has the app administrator or global administrator role, for this section.  The Hybrid identity administrator role does not have permissions to assign users to applications.
+>If you were signed in using a Hybrid Identity Administrator role, you need to sign-out and sign-in with an account that has the Application Administrator, Cloud Application Administrator or Global Administrator role, for this section.  The Hybrid Identity Administrator role does not have permissions to assign users to applications.
+
+If there are existing users in the LDAP directory, then you should create application role assignments for those existing users. To learn more about how to create application role assignments in bulk, see [governing an application's existing users in Azure AD](../articles/active-directory/governance/identity-governance-applications-existing-users.md).
+
+Otherwise, if the LDAP directory is empty, then select a test user from Azure AD who will be provisioned to the application.
 
  1. In the Azure portal, select **Enterprise applications**.
  2. Select the **On-premises ECMA app** application.
@@ -308,6 +315,8 @@ If an error is shown, then select **View provisioning logs**.  Look in the log f
 If the error message is **Failed to create User**, then check the attributes that are shown against the requirements of the directory schema.
 
 For more information, change to the **Troubleshooting & Recommendations** tab.
+
+For other errors, see [troubleshooting on-premises application provisioning](../articles/active-directory/app-provisioning/on-premises-ecma-troubleshoot.md).
 
 ## Check that users were successfully provisioned
 After waiting, check your directory to ensure users are being provisioned.  The following instructions illustrate how to check AD LDS.

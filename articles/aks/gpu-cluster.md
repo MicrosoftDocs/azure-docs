@@ -3,8 +3,8 @@ title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
+ms.custom: event-tier1-build-2022
 ms.date: 08/06/2021
-
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
 
@@ -43,7 +43,7 @@ There are two options for adding the NVIDIA device plugin:
 
 ### Update your cluster to use the AKS GPU image (preview)
 
-AKS provides is providing a fully configured AKS image that already contains the [NVIDIA device plugin for Kubernetes][nvidia-github].
+AKS provides a fully configured AKS image that already contains the [NVIDIA device plugin for Kubernetes][nvidia-github].
 
 Register the `GPUDedicatedVHDPreview` feature:
 
@@ -93,7 +93,7 @@ az aks nodepool add \
     --max-count 3
 ```
 
-The above command adds a node pool named *gpunp* to the *myAKSCluster* in the *myResourceGroup* resource group. The command also sets the VM size for the nodes in the node pool to *Standard_NC6*, enables the cluster autoscaler, configures the cluster autoscaler to maintain a minimum of one node and a maximum of three nodes in the node pool, specifies a specialized AKS GPU image nodes on your new node pool, and specifies a *sku=gpu:NoSchedule* taint for the node pool.
+The above command adds a node pool named *gpunp* to the *myAKSCluster* in the *myResourceGroup* resource group. The command also sets the VM size for the node in the node pool to *Standard_NC6*, enables the cluster autoscaler, configures the cluster autoscaler to maintain a minimum of one node and a maximum of three nodes in the node pool, specifies a specialized AKS GPU image nodes on your new node pool, and specifies a *sku=gpu:NoSchedule* taint for the node pool.
 
 > [!NOTE]
 > A taint and VM size can only be set for node pools during node pool creation, but the autoscaler settings can be updated at any time.
@@ -408,8 +408,8 @@ For more information about running machine learning (ML) workloads on Kubernetes
 
 For information on using Azure Kubernetes Service with Azure Machine Learning, see the following articles:
 
-* [Deploy a model to Azure Kubernetes Service][azureml-aks].
-* [Deploy a deep learning model for inference with GPU][azureml-gpu].
+* [Configure a Kubernetes cluster for ML model training or deployment][azureml-aks].
+* [Deploy a model with an online endpoint][azureml-deploy].
 * [High-performance serving with Triton Inference Server][azureml-triton].
 
 <!-- LINKS - external -->
@@ -434,7 +434,7 @@ For information on using Azure Kubernetes Service with Azure Machine Learning, s
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[azureml-aks]: ../machine-learning/how-to-deploy-azure-kubernetes-service.md
-[azureml-gpu]: ../machine-learning/how-to-deploy-inferencing-gpus.md
+[azureml-aks]: ../machine-learning/how-to-attach-kubernetes-anywhere.md
+[azureml-deploy]: ../machine-learning/how-to-deploy-managed-online-endpoints.md
 [azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md
 [aks-container-insights]: monitor-aks.md#container-insights

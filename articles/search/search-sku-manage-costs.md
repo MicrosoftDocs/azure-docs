@@ -52,7 +52,7 @@ There is no meter on the number of queries, query responses, or documents ingest
 
 Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Several premium features ([Knowledge store](knowledge-store-concept-intro.md), [Debug Sessions](cognitive-search-debug-session.md), [Enrichment cache (preview)](cognitive-search-incremental-indexing-conceptual.md)) have a dependency on Azure Storage. The meters for Azure Storage apply in this case, and the associated storage costs of using these features will be included in the Azure Storage bill.
+Several premium features such as [knowledge store](knowledge-store-concept-intro.md), [Debug Sessions](cognitive-search-debug-session.md), and [enrichment cache](cognitive-search-incremental-indexing-conceptual.md) have a dependency on Azure Storage. The meters for Azure Storage apply in this case, and the associated storage costs of using these features will be included in the Azure Storage bill.
 
 [Customer-managed keys](search-security-manage-encryption-keys.md) provide double encryption of sensitive content. This feature requires a billable [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)).
 
@@ -105,4 +105,4 @@ In-place upgrade or downgrade is not supported. Changing a service tier requires
 + Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 + Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 + Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-+ Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
++ Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

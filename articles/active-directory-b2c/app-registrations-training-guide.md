@@ -63,7 +63,7 @@ You can also use this option  to use Azure AD B2C as a SAML service provider. [L
 
 ## Applications for DevOps scenarios
 
-You can use the other account types to create an app to manage your DevOps scenarios, like using Microsoft Graph to upload Identity Experience Framework policies or provision users. Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
+You can use the other account types to create an app to manage your DevOps scenarios, like using Microsoft Graph to upload Identity Experience Framework policies or provision users. Learn [how to register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
 
 You might not see all Microsoft Graph permissions, because many of these permissions don't apply to Azure B2C consumer users. [Read more about managing users using Microsoft Graph](microsoft-graph-operations.md).
 
@@ -112,6 +112,6 @@ To get started with the new app registration experience:
 * Learn [how to register a web application](tutorial-register-applications.md).
 * Learn [how to register a web API](add-web-api-application.md).
 * Learn [how to register a native client application](add-native-application.md).
-* Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
+* Learn [how to register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
 * Learn [how to use Azure AD B2C as a SAML Service Provider.](identity-provider-adfs.md)
 * Learn about [application types](application-types.md).

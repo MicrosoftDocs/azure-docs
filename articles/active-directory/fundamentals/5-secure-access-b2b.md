@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -76,13 +76,15 @@ You can use an allowlist or blocklist to [restrict invitations to B2B users](../
 > Limiting to a predefined  domain may inadvertently prevent authorized collaboration with organizations, which have other domains for their users. For example, if doing business with an organization Contoso, the initial point of contact with Contoso might be one of their US-based employees who has an email with a ".com" domain. However, if you only allow the ".com" domain you may inadvertently omit their Canadian employees who have ".ca" domain.
 
 > [!IMPORTANT]
-> These lists do not apply to users who are already in your directory. By default, they also do not apply to OneDrive for Business and SharePoint allow/blocklists which are separate unless you enable the [SharePoint/OneDrive B2B integration](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration).  
+> These lists do not apply to users who are already in your directory. By default, they also do not apply to OneDrive for Business and SharePoint allow/blocklists which are separate unless you enable the [SharePoint/OneDrive B2B integration](/sharepoint/sharepoint-azureb2b-integration).  
 
 Some organizations use a list of known ‘bad actor’ domains provided by their managed security provider for their blocklist. For example, if the organization is legitimately doing business with Contoso and using a .com domain, there may be an unrelated organization that has been using the Contoso .org domain and attempting a phishing attack to impersonate Contoso employees. 
 
 ### Using Cross Tenant Access Settings
 
 You can control both inbound and outbound access using Cross Tenant Access Settings. In addition, you can trust MFA, Compliant device, and hybrid Azure Active Directory joined device (HAADJ) claims from all or a subset of external Azure AD tenants. When you configure an organization specific policy, it applies to the entire Azure AD tenant and will cover all users from that tenant regardless of the user’s domain suffix. 
+
+You can enable collaboration across Microsoft clouds such as Microsoft Azure China 21Vianet or Microsoft Azure Government with additional configuration. Determine if any of your collaboration partners reside in a different Microsoft cloud. If so, you should [enable collaboration with these partners using Cross Tenant Access Settings](../external-identities/cross-cloud-settings.md).
 
 If you wish to allow inbound access to only specific tenants (allowlist), you can set the default policy to block access and then create organization policies to granularly allow access on a per user, group, and application basis.
 

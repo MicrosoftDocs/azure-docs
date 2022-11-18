@@ -8,7 +8,7 @@ editor: ''
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 11/14/2022
 ms.author: mbaldwin
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: Upgrade to .NET SDK version 11
 titleSuffix: Azure Cognitive Search
-description: Migrate code to the Azure Cognitive Search .NET SDK version 11 from older versions. 
+description: Migrate your search application code from older SDK versions to the Azure Cognitive Search .NET SDK version 11 . 
 
 manager: nitinme
 author: HeidiSteen
@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/25/2022
+ms.date: 05/31/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -34,6 +34,8 @@ The benefits of upgrading are summarized as follows:
 + New features will be added to **Azure.Search.Documents** only. The previous version, Microsoft.Azure.Search, is now retired. Updates to deprecated libraries are limited to high priority bug fixes only.
 
 + Consistency with other Azure client libraries. **Azure.Search.Documents** takes a dependency on [Azure.Core](/dotnet/api/azure.core) and [System.Text.Json](/dotnet/api/system.text.json), and follows conventional approaches for common tasks such as client connections and authorization.
+
+**Microsoft.Azure.Search** is officially retired. If you're using an old version, we recommend upgrading to the next higher version, repeating the process in succession until you reach version 11 and **Azure.Search.Documents**. An incremental upgrade strategy makes it easier to find and fix blocking issues. See [Previous version docs](/previous-versions/azure/search/) for guidance.
 
 ## Package comparison
 
@@ -60,7 +62,7 @@ Where applicable, the following table maps the client libraries between the two 
 
 ## Naming and other API differences
 
-Besides the client differences (noted previously and thus omitted here), multiple other APIs have been renamed and in some cases redesigned. Class name differences are summarized below. This list is not exhaustive but it does group API changes by task, which can be helpful for revisions on specific code blocks. For an itemized list of API updates, see the [change log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) for `Azure.Search.Documents` on GitHub.
+Besides the client differences (noted previously and thus omitted here), multiple other APIs have been renamed and in some cases redesigned. Class name differences are summarized below. This list isn't exhaustive but it does group API changes by task, which can be helpful for revisions on specific code blocks. For an itemized list of API updates, see the [change log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) for `Azure.Search.Documents` on GitHub.
 
 ### Authentication and encryption
 
@@ -148,7 +150,7 @@ SearchClient client = new SearchClient(endpoint, "mountains", credential, client
 Response<SearchResults<Mountain>> results = client.Search<Mountain>("Rainier");
 ```
 
-If you are using Newtonsoft.Json for JSON serialization, you can pass in global naming policies using similar attributes, or by using properties on [JsonSerializerSettings](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializerSettings.htm). For an example equivalent to the one above, see the [Deserializing documents example](https://github.com/Azure/azure-sdk-for-net/blob/259df3985d9710507e2454e1591811f8b3a7ad5d/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md) in the Newtonsoft.Json readme.
+If you're using Newtonsoft.Json for JSON serialization, you can pass in global naming policies using similar attributes, or by using properties on [JsonSerializerSettings](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializerSettings.htm). For an example equivalent to the one above, see the [Deserializing documents example](https://github.com/Azure/azure-sdk-for-net/blob/259df3985d9710507e2454e1591811f8b3a7ad5d/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md) in the Newtonsoft.Json readme.
 
 <a name="WhatsNew"></a>
 
@@ -222,7 +224,7 @@ The following steps get you started on a code migration by walking through the f
    SearchIndexClient indexClient = new SearchIndexClient(endpoint, credential);
    ```
 
-1. Add new client references for indexer-related objects. If you are using indexers, datasources, or skillsets, change the client references to [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). This client is new in version 11 and has no antecedent.
+1. Add new client references for indexer-related objects. If you're using indexers, datasources, or skillsets, change the client references to [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). This client is new in version 11 and has no antecedent.
 
 1. Revise collections and lists. In the new SDK, all lists are read-only to avoid downstream issues if the list happens to contain null values. The code change is to add items to a list. For example, instead of assigning strings to a Select property, you would add them as follows:
 
@@ -260,11 +262,13 @@ The following steps get you started on a code migration by walking through the f
 
 Given the sweeping changes to libraries and APIs, an upgrade to version 11 is non-trivial and constitutes a breaking change in the sense that your code will no longer be backward compatible with version 10 and earlier. For a thorough review of the differences, see the [change log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) for `Azure.Search.Documents`.
 
-In terms of service version updates, where code changes in version 11 relate to existing functionality (and not just a refactoring of the APIs), you will find the following behavior changes:
+In terms of service version updates, where code changes in version 11 relate to existing functionality (and not just a refactoring of the APIs), you'll find the following behavior changes:
 
 + [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. New services will use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
 
 + [Ordered results](search-query-odata-orderby.md) for null values have changed in this version, with null values appearing first if the sort is `asc` and last if the sort is `desc`. If you wrote code to handle how null values are sorted, you should review and potentially remove that code if it's no longer necessary.
+
+Due to these behavior changes, it's likely that you'll see slight variations in ranked results.
 
 ## Next steps
 

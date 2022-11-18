@@ -3,13 +3,13 @@ title: "Tutorial: Migrate SQL Server online to SQL Managed Instance"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from SQL Server to an Azure SQL Managed Instance by using Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
+ms.custom: seo-lt-2019, ignite-2022
 ms.topic: tutorial
 ms.date: 08/20/2021
 ---
@@ -58,7 +58,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to the subnet in which the service will be provisioned:
     >
-    > * Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > * Target database endpoint (for example, SQL endpoint, Azure Cosmos DB endpoint, and so on)
     > * Storage endpoint
     > * Service bus endpoint
     >
@@ -225,7 +225,7 @@ After the full database backup is restored on the target instance of SQL Managed
     ![Preparing to complete cutover](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
     > [!IMPORTANT]
-    > After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for AlwaysOn High Availability group. This operation duration depends on the size of data, for more information see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
+    > After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for Always On High Availability group. This operation duration depends on the size of data, for more information see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
 
 5. When the database migration status shows **Completed**, connect your applications to the new target instance of SQL Managed Instance.
 

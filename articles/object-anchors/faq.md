@@ -1,12 +1,12 @@
 ---
 title: Frequently asked questions
-description: FAQs about the Azure Object Anchors service.
+description: Answers to frequently asked questions about the Azure Object Anchors service, which enables an application to detect an object in the world using a 3D model.
 author: craigktreasure
 manager: vriveras
-
+ms.custom: kr2b-contr-experiment
 ms.author: crtreasu
-ms.date: 09/10/2021
-ms.topic: overview
+ms.date: 05/20/2022
+ms.topic: troubleshooting
 ms.service: azure-object-anchors
 #Customer intent: Address frequently asked questions regarding Azure Object Anchors.
 ---
@@ -18,6 +18,7 @@ Azure Object Anchors enables an application to detect an object in the physical 
 For more information, see [Azure Object Anchors overview](overview.md).
 
 ## Product FAQ
+
 **Q: What recommendations do you have for the objects that should be used?**
 
 **A:** We recommend the following properties for objects:
@@ -44,9 +45,7 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **Q: What is the gravity direction and unit required by the model conversion service?**
 
-**A:** The gravity direction is the down vector pointing to the earth and the unit of measurement represents the scale
-       of the model. When converting a model, it's important to
-       [ensure the gravity direction and asset dimension unit are correct](./troubleshoot/object-detection.md#ensure-the-gravity-direction-and-asset-dimension-unit-are-correct).
+**A:** The gravity direction is the down vector pointing to the earth and the unit of measurement represents the scale of the model. When converting a model, it's important to [ensure the gravity direction and asset dimension unit are correct](./troubleshoot/object-detection.md#ensure-the-gravity-direction-and-asset-dimension-unit-are-correct).
 
 **Q: How long does it take to convert a CAD model?**
 
@@ -60,11 +59,9 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **A:** HoloLens 2.
 
-**Q: Which OS build should my HoloLens run?**
+**Q: Which version of Windows Holographic should my HoloLens 2 have installed?**
 
-**A:** OS Build 18363.720 or newer, released after March 12, 2020.
-
-  More details at [Windows 10 March 12, 2020 update](https://support.microsoft.com/help/4551762).
+**A:** We recommend the most recent release from Windows Update. See the Windows Holographic [release notes](/hololens/hololens-release-notes) and [update instructions](/hololens/hololens-update-hololens).
 
 **Q: How long does it take to detect an object on HoloLens?**
 
@@ -87,15 +84,15 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: Which version of the Mixed Reality Toolkit (MRTK) should my HoloLens Unity application use to be able to work with the Object Anchors Unity SDK?**
 
-**A:** The Azure Object Anchors Unity SDK doesn't depend on the Mixed Reality Toolkit in any way, which means you are free to use any version you like. For more information, see [Introducing MRTK for Unity](/windows/mixed-reality/develop/unity/mrtk-getting-started).
+**A:** The Azure Object Anchors Unity SDK doesn't depend on the Mixed Reality Toolkit in any way, which means you're free to use any version you like. For more information, see [Introducing MRTK for Unity](/windows/mixed-reality/develop/unity/mrtk-getting-started).
 
 **Q: How accurate is an estimated pose?**
 
-**A:** It depends on object size, material, environment, etc. For small objects, the estimated pose can be within 2-cm error. For large objects, like a car, the error can be up to 2-8 cm.
+**A:** It depends on object size, material, environment, and other factors. For small objects, the estimated pose can be within 2-cm error. For large objects, like a car, the error can be up to 2 cm to 8 cm.
 
 **Q: Can Object Anchors handle moving objects?**
 
-**A:** We don't support **continuously moving** or **dynamic** objects. We do support objects in an entirely new position in the space once they have been physically moved there, but cannot track it while it is being moved.
+**A:** We don't support *continuously moving* or *dynamic* objects. We do support objects in an entirely new position in the space once they've been physically moved there, but can't track it while it's being moved.
 
 **Q: Can Object Anchors handle deformation or articulations?**
 
@@ -103,15 +100,11 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: How many different models can Object Anchors detect at the same time?**
 
-**A:** We currently support detecting three models at a time to ensure the best user experience, but we don't enforce a
-       limit.
+**A:** We currently support detecting three models at a time to ensure the best user experience, but we don't enforce a limit.
 
 **Q: Can Object Anchors detect multiple instances of the same object model?**
 
-**A:** Yes, we support detecting up to three instances of the same model type to ensure the best user experience, but we
-       don't enforce a limit. You can detect one object instance per search area. By calling
-       `ObjectQuery.SearchAreas.Add`, you can add more search areas to a query to detect more instances. You can call
-       `ObjectObserver.DetectAsync` with multiple queries to detect multiple models.
+**A:** Yes, we support detecting up to three instances of the same model type to ensure the best user experience, but we don't enforce a limit. You can detect one object instance per search area. By calling `ObjectQuery.SearchAreas.Add`, you can add more search areas to a query to detect more instances. You can call `ObjectObserver.DetectAsync` with multiple queries to detect multiple models.
 
 **Q: What should I do if the Object Anchors runtime cannot detect my object?**
 
@@ -120,8 +113,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: How to choose object query parameters?**
 
-**A:** Here's some [general guidance](./troubleshoot/object-detection.md#adjust-object-query-values) and a more
-       detailed guide for [difficult to detect objects](./detect-difficult-object.md).
+**A:** Here's some [general guidance](./troubleshoot/object-detection.md#adjust-object-query-values) and a more detailed guide for [difficult to detect objects](./detect-difficult-object.md).
 
 **Q: How do I get Object Anchors diagnostics data from the HoloLens?**
 
@@ -129,11 +121,11 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: Why does the source model not align with the physical object when using the pose returned by the Object Anchors Unity SDK?**
 
-**A:** Unity may change the coordinate system when importing an object model. For example, the Object Anchors Unity SDK inverts the Z axis when converting from a right-handed to left-handed coordinate system, but Unity may apply an additional rotation about either the X or Y axis. A developer can determine this additional rotation by visualizing and comparing the coordinate systems.
+**A:** Unity may change the coordinate system when importing an object model. For example, the Object Anchors Unity SDK inverts the Z axis when it converts from a right-handed to left-handed coordinate system. Unity may apply another rotation about either the X or Y axis. A developer can determine this other rotation by visualizing and comparing the coordinate systems.
 
 **Q: Do you support 2D?**
 
-**A:** Since we are geometry based, we only support 3D.
+**A:** Since we're geometry based, we only support 3D.
 
 **Q: Can you differentiate between the same model in different colors?**
 
@@ -142,10 +134,12 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 **Q: Can I use Object Anchors without internet connectivity?**
 
 **A:**
-* For model conversion and training, connectivity is required as this occurs in the cloud.
-* Runtime sessions are fully on-device and do not require connectivity as all computations occur on the HoloLens 2.
+
+* For model conversion and training, connectivity is required because these actions occur in the cloud.
+* Runtime sessions are fully on-device and don't require connectivity because all computations occur on the HoloLens 2.
 
 ## Privacy FAQ
+
 **Q: How does Azure Object Anchors store data?**
 
 **A:** We only store System Metadata, which is encrypted at rest with a Microsoft managed data encryption key.

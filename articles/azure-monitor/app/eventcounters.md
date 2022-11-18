@@ -4,6 +4,7 @@ description: Monitor system and custom .NET/.NET Core EventCounters in Applicati
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-csharp
+ms.reviewer: cithomas
 ---
 
 # EventCounters introduction
@@ -25,7 +26,7 @@ To get a list of well known counters published by the .NET Runtime, see [Availab
 
 ## Customizing counters to be collected
 
-The following example shows how to add/remove counters. This customization would be done in the `ConfigureServices` method of your application after Application Insights telemetry collection is enabled using either `AddApplicationInsightsTelemetry()` or `AddApplicationInsightsWorkerService()`. Following is an example code from an ASP.NET Core application. For other type of applications, refer to [this](worker-service.md#configuring-or-removing-default-telemetrymodules) document.
+The following example shows how to add/remove counters. This customization would be done in the `ConfigureServices` method of your application after Application Insights telemetry collection is enabled using either `AddApplicationInsightsTelemetry()` or `AddApplicationInsightsWorkerService()`. Following is an example code from an ASP.NET Core application. For other type of applications, refer to [this](worker-service.md#configure-or-remove-default-telemetry-modules) document.
 
 ```csharp
     using Microsoft.ApplicationInsights.Extensibility.EventCounterCollector;

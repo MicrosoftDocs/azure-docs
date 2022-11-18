@@ -38,6 +38,9 @@ Azure Automation supports three types of source control:
 > 
 > If you have both a Run As account and managed identity enabled, then managed identity is given preference. If you want to use a Run As account instead, you can [create an Automation variable](./shared-resources/variables.md) of BOOLEAN type named `AUTOMATION_SC_USE_RUNAS` with a value of `true`.
 
+> [!NOTE]
+> According to [this](/azure/devops/organizations/accounts/change-application-access-policies?view=azure-devops#application-connection-policies) Azure DevOps documentation, **Third-party application access via OAuth** policy is defaulted to **off** for all new organizations. So if you try to configure source control in Azure Automation with **Azure Devops (Git)** as source control type without enabling **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps then you might get **SourceControl securityToken is invalid** error. Hence to avoid this error, make sure you first enable **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps. 
+
 ## Configure source control
 
 This section tells how to configure source control for your Automation account. You can use either the Azure portal or PowerShell.
@@ -82,13 +85,14 @@ Use this procedure to configure source control using the Azure portal.
     |Publish Runbook     | Setting of On if runbooks are automatically published after synchronization from source control, and Off otherwise.           |
     |Description     | Text specifying additional details about the source control.        |
 
-    <sup>1</sup> To enable Auto Sync when configuring source control integration with Azure DevOps, you must be a Project Administrator.
+    <sup>1</sup> To enable Auto Sync when configuring source control integration with Azure DevOps, you must be a Project Administrator.</br>
+    Auto Sync does not work with Automation Private Link. If you enable the Private Link, the source control webhook invocations will fail as it is outside the network.
 
    :::image type="content" source="./media/source-control-integration/source-control-summary-inline.png" alt-text="Screenshot that describes the Source control summary." lightbox="./media/source-control-integration/source-control-summary-expanded.png":::
 
    
 > [!NOTE]
-> The login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from **dev.azure.com**, **visualstudio.com**, or **github.com**, and try reconnecting to source control.
+> The login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from **dev.azure.com**, **visualstudio.com**, or **github.com**, and try reconnecting to source control. 
 
 ### Configure source control in PowerShell
 

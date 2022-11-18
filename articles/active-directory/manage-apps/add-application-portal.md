@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Add an enterprise application'
 description: Add an enterprise application in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
 author: omondiatieno
 manager: CelesteDG

@@ -1,11 +1,11 @@
 ---
-title: Specify marketplace images in a lab account (deprecated)
+title: Specify marketplace images in a lab account 
 description: This article shows you how to specify the Marketplace images that a lab creator can use to create labs.
 ms.topic: how-to
 ms.date: 02/15/2022
 ---
 
-# Specify Marketplace images available to lab creators (deprecated)
+# Specify Marketplace images available to lab creators in a lab account
 
 As a lab account owner, you can specify the Marketplace images that lab creators can use to create labs in the lab account.
 

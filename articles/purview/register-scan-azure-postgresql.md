@@ -10,15 +10,15 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage an Azure Database for PostgreSQL in Microsoft Purview
+# Connect to and manages an Azure Database for PostgreSQL in Microsoft Purview
 
 This article outlines how to register an Azure Database for PostgreSQL deployed with single server deployment option, as well as how to authenticate and interact with an Azure Database for PostgreSQL in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | No** |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 

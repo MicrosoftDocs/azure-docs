@@ -2,15 +2,14 @@
 title: Upload a blob using .NET - Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the .NET client library.
 services: storage
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.devlang: csharp, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Upload a blob to Azure Storage by using the .NET client library

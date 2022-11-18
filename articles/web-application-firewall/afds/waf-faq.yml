@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: web-application-firewall
   ms.topic: faq
-  ms.date: 09/20/2021
+  ms.date: 07/11/2022
   ms.author: victorh
 title: Frequently asked questions for Azure Web Application Firewall on Azure Front Door Service
 summary: This article answers common questions about Azure Web Application Firewall (WAF) on Azure Front Door Service features and functionality. 
@@ -78,7 +78,7 @@ sections:
       - question: |
           Do you support same WAF features in all integrated platforms?
         answer: |
-          Currently, ModSec CRS 2.2.9, CRS 3.0, and CRS 3.1 rules are only supported with WAF on Application Gateway. Rate-limiting, geo-filtering, and Azure managed Default Rule Set rules are supported only with WAF on Azure Front Door.
+          Currently, ModSec CRS 2.2.9, CRS 3.0, and CRS 3.1 rules are only supported with WAF on Application Gateway. Rate limiting, geo-filtering, and Azure managed Default Rule Set rules are supported only with WAF on Azure Front Door.
 
       - question: |
           Is DDoS protection integrated with Front Door? 
@@ -88,11 +88,7 @@ sections:
       - question: |
           Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?
         answer: |
-          A rate limit rule can limit abnormally high traffic from any client IP address. You may configure a threshold on the number of web requests allowed from a client IP address during a one-minute or five-minute duration. For granular rate control, rate limiting can be combined with additional match conditions such as HTTP(S) parameter matching. 
-          
-          Requests from the same client often arrive at the same Front Door server. In that case, you'll see additional requests above the threshold get blocked immediately. 
-          
-          However, it's possible that requests from the same client may arrive at a different Front Door server that has not refreshed the rate limit counter yet. For example, the client may open a new connection for each request and the threshold is low. In this case, the first request to the new Front Door server would pass the rate limit check. A rate limit threshold is usually set high to defend against denial of service attacks from any client IP address. For a very low threshold, you may see additional requests above the threshold get through.
+          You might not see requests immediately blocked by the rate limit when requests are processed by different Front Door servers. For more information, see [Rate limiting and Front Door servers](waf-front-door-rate-limit.md#rate-limits-and-front-door-servers).
 
       - question: |
           What content types does WAF support?

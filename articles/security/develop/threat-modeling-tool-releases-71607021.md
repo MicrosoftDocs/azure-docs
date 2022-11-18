@@ -4,8 +4,7 @@ titleSuffix: Azure
 description: Read the release notes for the threat modeling tool update released on 7/2/2019. The notes include accessibility improvements and bug fixes.
 author: jegeib
 ms.author: jegeib
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
 ms.topic: article
 ms.date: 07/02/2019
 ---
@@ -37,7 +36,7 @@ A stencil set for modeling medical devices has been contributed by the open-sour
 
 ## Documentation and feedback
 
-- Documentation for the Threat Modeling Tool is located on [docs.microsoft.com](threat-modeling-tool.md), and includes information [about using the tool](threat-modeling-tool-getting-started.md).
+- Documentation for the Threat Modeling Tool is [located](threat-modeling-tool.md), and includes information [about using the tool](threat-modeling-tool-getting-started.md).
 
 ## Next steps
 

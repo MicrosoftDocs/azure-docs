@@ -70,7 +70,7 @@ In Solution Explorer, right-click the **CustomFontSample** project and select **
 
 Select **Docker Compose** > **OK**.
 
-Your project is now set to run in a Windows container. A _Dockerfile_ is added to the **CustomFontSample** project, and a **docker-compose** project is added to the solution. 
+Your project is now set to run in a Windows container. A `Dockerfile` is added to the **CustomFontSample** project, and a **docker-compose** project is added to the solution. 
 
 From the Solution Explorer, open **Dockerfile**.
 
@@ -131,7 +131,7 @@ A terminal window is opened and displays the image deployment progress. Wait for
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com>.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a web app
 
@@ -411,7 +411,7 @@ To deploy a container to Azure App Service, you first create a web app on App Se
 
     An App Service plan corresponds to the virtual machine that hosts the web app. By default, the previous command uses an inexpensive [B1 pricing tier](https://azure.microsoft.com/pricing/details/app-service/linux/) that is free for the first month. You can control the tier with the `--sku` parameter.
 
-1. Create the web app with the [`az webpp create`](/cli/azure/webapp#az-webapp-create) command:
+1. Create the web app with the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command:
 
     ```azurecli-interactive
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest

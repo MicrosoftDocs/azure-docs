@@ -49,9 +49,9 @@ Connect-AzAccount
 > Connect-AzAccount -EnvironmentName AzureChinaCloud
 > ```
 
-Signing into your Azure account requires a code that's generated when you run the Connect cmdlet. To sign in, go to <https://microsoft.com/devicelogin>, enter the code, then sign in using your Azure admin credentials.
+Signing into your Azure account requires a code that's generated when you run the Connect cmdlet. Sign in via [device login](https://microsoft.com/devicelogin), enter the code, then sign in using your Azure admin credentials.
 
-```powershell
+```output
 Account SubscriptionName TenantId Environment
 
 ------- ---------------- -------- -----------

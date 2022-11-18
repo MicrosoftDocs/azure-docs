@@ -1,11 +1,11 @@
 ---
 title: Audit logs - Azure Database for MariaDB
 description: Describes the audit logs available in Azure Database for MariaDB, and the available parameters for enabling logging levels.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/24/2020
+ms.date: 06/24/2022
 ---
 
 # Audit Logs in Azure Database for MariaDB
@@ -157,7 +157,7 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
     | where Category == 'MySqlAuditLogs'
     | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
     | order by TimeGenerated asc nulls last
-    ``` 
+    ```
 
 ## Next steps
 

@@ -1,16 +1,20 @@
 ---
-title: Deploy container instance by GitHub action
-description: Configure a GitHub action that automates steps to build, push, and deploy a container image to Azure Container Instances
-ms.topic: article
-ms.date: 08/20/2020
+title: Deploy container instance by GitHub Actions
+description: Configure a GitHub Action that automates steps to build, push, and deploy a container image to Azure Container Instances
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
-# Configure a GitHub action to create a container instance
+# Configure a GitHub Action to create a container instance
 
 [GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
 
-Use the [Deploy to Azure Container Instances](https://github.com/azure/aci-deploy) GitHub action to automate deployment of a single container to Azure Container Instances. The action allows you to set properties for a container instance similar to those in the [az container create][az-container-create] command.
+Use the [Deploy to Azure Container Instances](https://github.com/azure/aci-deploy) GitHub Actions to automate deployment of a single container to Azure Container Instances. The action allows you to set properties for a container instance similar to those in the [az container create][az-container-create] command.
 
 This article shows how to set up a workflow in a GitHub repo that performs the following actions:
 
@@ -24,7 +28,7 @@ This article shows two ways to set up the workflow:
 * [Use CLI extension](#use-deploy-to-azure-extension) - Use the `az container app up` command in the [Deploy to Azure](https://github.com/Azure/deploy-to-azure-cli-extension) extension in the Azure CLI. This command streamlines creation of the GitHub workflow and deployment steps.
 
 > [!IMPORTANT]
-> The GitHub action for Azure Container Instances is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+> The GitHub Actions for Azure Container Instances is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Prerequisites
 
@@ -93,6 +97,7 @@ Get the resource ID of your container registry. Substitute the name of your regi
 ```azurecli
 $registryId=$(az acr show \
   --name <registry-name> \
+  --resource-group <resource-group-name> \
   --query id --output tsv)
 ```
 
@@ -107,7 +112,7 @@ az role assignment create \
 
 ### Save credentials to GitHub repo
 
-1. In the GitHub UI, navigate to your forked repository and select **Settings** > **Secrets** > **Actions**. 
+1. In the GitHub UI, navigate to your forked repository and select **Security > Secrets and variables > Actions**.
 
 1. Select **New repository secret** to add the following secrets:
 

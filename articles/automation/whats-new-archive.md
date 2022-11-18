@@ -176,7 +176,7 @@ Manage Oracle Linux 6 and 7 machines with Automation State Configuration. See [S
 
 **Type:** New feature
 
-Azure Automation now supports Python 3 cloud and hybrid runbook execution in public preview in all regions in Azure global cloud. For more information, see the [announcement]((https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
+Azure Automation now supports Python 3 cloud and hybrid runbook execution in public preview in all regions in Azure global cloud. For more information, see the [announcement](https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
 
 ## November 2020
 
@@ -334,4 +334,4 @@ Azure Service Management (ASM) REST APIs for Azure Automation will be retired an
 
 ## Next steps
 
-If you'd like to contribute to Azure Automation documentation, see the [Docs Contributor Guide](/contribute/).
+If you'd like to contribute to Azure Automation documentation, see our [contributor guide](/contribute/).

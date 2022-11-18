@@ -11,7 +11,9 @@ ms.date: 01/26/2022
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
 
-This sample CLI script scales compute and storage for a single Azure Database for PostgreSQL server after querying the metrics. Compute can scale up or down. Storage can only scale up. \
+[!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
+
+This sample CLI script scales compute and storage for a single Azure Database for PostgreSQL server after querying the metrics. Compute can scale up or down. Storage can only scale up. 
 
 > [!IMPORTANT]
 > Storage can only be scaled up, not down.

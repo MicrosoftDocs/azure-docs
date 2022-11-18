@@ -39,7 +39,6 @@ The following table includes links to Azure Resource Manager deployment model te
 | [Azure Functions with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-function-private-link) | Creates an Azure Functions app with a private endpoint, and a Front Door profile.  |
 |**API Management origins**| **Description** |
 | [API Management (external)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-api-management-external) | Creates an API Management instance with external VNet integration, and a Front Door profile.  |
-| [API Management with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-api-management-private-link) | Creates an API Management instance with a private endpoint, and a Front Door profile.  |
 |**Storage origins**| **Description** |
 | [Storage static website](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-storage-static-website) | Creates an Azure Storage account and static website with a public endpoint, and a Front Door profile.  |
 | [Storage blobs with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-storage-blobs-private-link) | Creates an Azure Storage account and blob container with a private endpoint, and a Front Door profile.  |

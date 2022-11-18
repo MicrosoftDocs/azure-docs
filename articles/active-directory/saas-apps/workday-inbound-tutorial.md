@@ -238,7 +238,7 @@ This section provides steps for user account provisioning from Workday to each A
 
 **To configure Workday to Active Directory provisioning:**
 
-1. Go to <https://portal.azure.com>.
+1. Go to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, search for and select **Azure Active Directory**.
 
@@ -387,7 +387,7 @@ In this section, you will configure how user data flows from Workday to Active D
 | **WorkerID**  |  EmployeeID | **Yes** | Written on create only |
 | **PreferredNameData**    |  cn    |   |   Written on create only |
 | **SelectUniqueValue( Join("\@", Join(".",  \[FirstName\], \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Written on create only 
-| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Written on create only |
+| `Replace(Mid(Replace([UserID], , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , )`      |    sAMAccountName            |     |         Written on create only |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Create + update |
 | **FirstName**   | givenName       |     |    Create + update |
 | **LastName**   |   sn   |     |  Create + update |

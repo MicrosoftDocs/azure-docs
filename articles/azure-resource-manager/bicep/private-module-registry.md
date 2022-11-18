@@ -11,9 +11,9 @@ To share [modules](modules.md) within your organization, you can create a privat
 
 To work with module registries, you must have [Bicep CLI](./install.md) version **0.4.1008 or later**. To use with Azure CLI, you must also have version **2.31.0 or later**; to use with Azure PowerShell, you must also have version **7.0.0** or later.
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about parameters through step-by-step guidance, see [Share Bicep modules by using private registries](/learn/modules/share-bicep-modules-using-private-registries) on **Microsoft Learn**.
+If you would rather learn about parameters through step-by-step guidance, see [Share Bicep modules by using private registries](/training/modules/share-bicep-modules-using-private-registries).
 
 ## Configure private registry
 

@@ -1,7 +1,7 @@
 ---
 title: Recommended security practices
 description: When using Azure Lighthouse, it's important to consider security and access control.
-ms.date: 09/08/2021
+ms.date: 06/09/2022
 ms.topic: conceptual
 ---
 
@@ -45,6 +45,6 @@ Keep  in mind that when you [onboard customers through a public managed service 
 
 ## Next steps
 
-- Review the [security baseline information](../security-baseline.md) to understand how guidance from the Azure Security Benchmark applies to Azure Lighthouse.
+- Review the [security baseline information](/security/benchmark/azure/baselines/lighthouse-security-baseline) to understand how guidance from the Microsoft clou security benchmark applies to Azure Lighthouse.
 - [Deploy Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 06/07/2022
 ---
 
 # Indexer connections to Azure SQL Managed Instance through a public endpoint
@@ -16,6 +16,9 @@ ms.date: 03/10/2022
 If you are setting up an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) that connects to an Azure SQL managed instance, you'll need to enable a public endpoint on the managed instance as a prerequisite. By default, an indexer connects to a managed instance over a public endpoint. 
 
 This article provides basic steps that include collecting information necessary for data source configuration. For more information and methodologies, see [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure).
+
+> [!NOTE]
+> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
 
 ## Enable a public endpoint
 

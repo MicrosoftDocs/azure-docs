@@ -1,105 +1,107 @@
 ---
-title: 'Tutorial: Deploy Web Application Connected to Azure Storage Blob with Service Connector'
-description: Create a web app connected to Azure Storage Blob with Service Connector.
-author: shizn
-ms.author: xshi
+title: 'Tutorial: Deploy a web application connected to Azure Blob Storage with Service Connector'
+description: Create a web app connected to Azure Blob Storage with Service Connector.
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 10/28/2021
-ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.date: 05/03/2022
 ms.devlang: azurecli
+ms.custom: event-tier1-build-2022
 ---
 
-# Tutorial: Deploy Web Application Connected to Azure Storage Blob with Service Connector
+# Tutorial: Deploy a web application connected to Azure Blob Storage with Service Connector
 
-Learn how to access Azure Storage for a web app (not a signed-in user) running on Azure App Service by using managed identities. In this tutorial, you use the Azure CLI to complete the following tasks:
+Learn how to access Azure Blob Storage for a web app (not a signed-in user) running on Azure App Service by using managed identities. In this tutorial, you'll use the Azure CLI to complete the following tasks:
 
 > [!div class="checklist"]
 > * Set up your initial environment with the Azure CLI
 > * Create a storage account and an Azure Blob Storage container.
 > * Deploy code to Azure App Service and connect to storage with managed identity using Service Connector
 
-## 1. Set up your initial environment
+## Prerequisites
 
-1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-2. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.30.0 or higher, with which you run commands in any shell to provision and configure Azure resources.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.30.0 or higher. You'll use it to run commands in any shell to provision and configure Azure resources.
 
+## Set up your initial environment
+1. Check that your Azure CLI version is 2.30.0 or higher:
 
-Check that your Azure CLI version is 2.30.0 or higher:
+    ```azurecli
+    az --version
+    ```
+    If you need to upgrade, try the `az upgrade` command (requires version 2.11+) or see <a href="/cli/azure/install-azure-cli" target="_blank">Install the Azure CLI</a>.
 
-```Azure CLI
-az --version
-```
+1. Sign in to Azure using the CLI:
 
-If you need to upgrade, try the `az upgrade` command (requires version 2.11+) or see <a href="/cli/azure/install-azure-cli" target="_blank">Install the Azure CLI</a>.
+    ```azurecli
+    az login
+    ```
+    This command opens a browser to gather your credentials. When the command finishes, it shows a JSON output containing information about your subscriptions.
 
-Then sign in to Azure through the CLI:
+    Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
 
-```Azure CLI
-az login
-```
+## Clone or download the sample app
 
-This command opens a browser to gather your credentials. When the command finishes, it shows JSON output containing information about your subscriptions.
+1. Clone the sample repository:
+    ```Bash
+    git clone https://github.com/Azure-Samples/serviceconnector-webapp-storageblob-dotnet.git
+    ```
 
-Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
+1. Go to the repository's root folder:
+    ```Bash
+    cd serviceconnector-webapp-storageblob-dotnet
+    ```
 
-## 2. Clone or download the sample app
+## Create the App Service app
 
-Clone the sample repository:
-```Bash
-git clone https://github.com/Azure-Samples/serviceconnector-webapp-storageblob-dotnet.git
-```
+1. In the terminal, make sure you're in the *WebAppStorageMISample* repository folder that contains the app code.
 
-and go to the root folder of repository:
-```Bash
-cd serviceconnector-webapp-storageblob-dotnet
-```
+1. Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command below.
+   
+   ```azurecli
+    az webapp up --name <app-name> --sku B1 --location eastus --resource-group ServiceConnector-tutorial-rg
+    ```
 
-## 3. Create the App Service app
+    Replace the following placeholder texts with your own data:
 
-In the terminal, make sure you're in the *WebAppStorageMISample* repository folder that contains the app code.
+    - For the *`--location`* argument, make sure to use a [region supported by Service Connector](concept-region-support.md). 
+    - Replace *`<app-name>`* with a unique name across all Azure (the server endpoint is `https://<app-name>.azurewebsites.net`). Allowed characters for *`<app-name>`* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
 
-Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
+## Create a storage account and a Blob Storage container
 
-```Azure CLI
-az webapp up --name <app-name> --sku B1 --location eastus --resource-group ServiceConnector-tutorial-rg
-```
+In the terminal, run the following command to create a general purpose v2 storage account and a Blob Storage container. 
 
-- For the `--location` argument, make sure you use the location that [Service Connector supports](concept-region-support.md).
-- **Replace** *\<app-name>* with a unique name across all Azure (the server endpoint is `https://<app-name>.azurewebsites.net`). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
-
-## 4. Create a storage account and Blob Storage container
-
-In the terminal, run the following command to create general-purpose v2 storage account and Blob Storage container. **Replace** *\<storage-name>* with a unique name. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character.
-
-```Azure CLI
+```azurecli
 az storage account create --name <storage-name> --resource-group ServiceConnector-tutorial-rg --sku Standard_RAGRS --https-only
 ```
+Replace *`<storage-name>`* with a unique name. The name of the container must be in lowercase, start with a letter or a number, and can include only letters, numbers, and the dash (-) character.
 
 
-## 5. Connect App Service app to Blob Storage container with managed identity
+## Connect an App Service app to a Blob Storage container with a managed identity
 
-In the terminal, run the following command to connect your web app to blob storage with managed identity.
+In the terminal, run the following command to connect your web app to blob storage with a managed identity.
 
-```Azure CLI
+```azurecli
 az webapp connection create storage-blob -g ServiceConnector-tutorial-rg -n <app-name> --tg ServiceConnector-tutorial-rg --account <storage-name> --system-identity
 ```
 
-- **Replace** *\<app-name>* with your web app name you used in step 3.
-- **Replace** *\<storage-name>* with your storage app name you used in step 4.
+  Replace the following placeholder texts with your own data:
+- Replace *`<app-name>`* with your web app name you used in step 3.
+- Replace *`<storage-name>`* with your storage app name you used in step 4.
 
 > [!NOTE]
 > If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again. 
 
-## 6. Run sample code
+## Run sample code
 
-In the terminal, run the following command to open the sample application in your browser. Replace *\<app-name>* with your web app name you used in step 3.
+In the terminal, run the following command to open the sample application in your browser. Replace *`<app-name>`* with the web app name you used earlier.
 
 ```Azure CLI
 az webapp browse --name <app-name> 
 ```
 
-The sample code is a web application. Each time you refresh the index page, it will create or update a blob with the text `Hello Service Connector! Current is {UTC Time Now}` to the storage container and read back to show it in the index page.
+The sample code is a web application. Each time you refresh the index page, the application creates or updates a blob with the text `Hello Service Connector! Current is {UTC Time Now}` to the storage container and reads back to show it in the index page.
 
 ## Next steps
 

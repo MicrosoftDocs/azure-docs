@@ -1,6 +1,5 @@
 ---
 title: Migrate to the Microsoft Authentication Library (MSAL)
-titleSuffix: Microsoft identity platform
 description: Learn about the differences between the Microsoft Authentication Library (MSAL) and Azure AD Authentication Library (ADAL) and how to migrate to MSAL.
 services: active-directory
 author: jmprieur

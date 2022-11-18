@@ -3,7 +3,7 @@ title: Architectural concepts in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating the architecture of Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/31/2021
+ms.date: 06/03/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -48,6 +48,7 @@ In IoT Central, you can configure and manage security in the following areas:
 - Device access to your application.
 - Programmatic access to your application.
 - Authentication to other services from your application.
+- Audit logs track activity in your application.
 
 To learn more, see the [IoT Central security guide](overview-iot-central-security.md).
 

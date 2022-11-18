@@ -78,6 +78,8 @@ kind: Pod
 metadata:
   name: mypod
 spec:
+  nodeSelector:
+    kubernetes.io/os: linux
   containers:
   - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: mypod
@@ -95,6 +97,7 @@ spec:
   - name: azure
     csi:
       driver: file.csi.azure.com
+      readOnly: false
       volumeAttributes:
         secretName: azure-secret  # required
         shareName: aksshare  # required

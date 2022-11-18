@@ -3,7 +3,7 @@ title: Troubleshoot Azure Virtual Desktop connection quality
 description: How to troubleshoot connection quality issues in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/16/2022
+ms.date: 09/26/2022
 ms.author: helohr
 manager: femila
 ---
@@ -34,6 +34,14 @@ To reduce round trip time:
 ## Optimize VM latency with the Azure Virtual Desktop Experience Estimator tool
 
 The [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/) can help you determine the best location to optimize the latency of your VMs. We recommend you use the tool every two to three months to make sure the optimal location hasn't changed as Azure Virtual Desktop rolls out to new areas.
+
+## My connection data isn't going to Azure Log Analytics
+
+If your **Connection Network Data Logs**  aren't going to Azure Log Analytics every two minutes, you'll need to check the following things:
+
+- Make sure you've [configured the diagnostic settings correctly](diagnostics-log-analytics.md).
+- Make sure you've configured the VM and [monitoring agents](azure-monitor.md) correctly.
+- Make sure you're actively using the session. Sessions that aren't actively used won't send data to Azure Log Analytics as frequently.
 
 ## Next steps
 

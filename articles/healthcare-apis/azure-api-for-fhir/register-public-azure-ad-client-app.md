@@ -1,12 +1,12 @@
 ---
 title: Register a public client app in Azure AD - Azure API for FHIR
 description: This article explains how to register a public client application in Azure Active Directory, in preparation for deploying FHIR API in Azure.
-author: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/21/2022
-ms.author: mikaelw
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # Register a public client application in Azure Active Directory for Azure API for FHIR
@@ -61,7 +61,9 @@ If you configure your client application in a different Azure AD tenant from you
 
 ## Next steps
 
-In this article, you've learned how to register a public client application in Azure Active Directory. Next, test access to your FHIR server using Postman.
+In this article, you've learned how to register a public client application in Azure AD. Next, test access to your FHIR Server using Postman.
  
 >[!div class="nextstepaction"]
 >[Access the FHIR service using Postman](./../fhir/use-postman.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

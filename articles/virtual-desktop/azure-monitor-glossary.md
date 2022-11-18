@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 10/26/2022
 ms.author: helohr
 manager: femila
 ---
@@ -21,6 +21,13 @@ Any active Azure Monitor alerts that you've configured on the subscription and c
 ## Available sessions
 
 Available sessions shows the number of available sessions in the host pool. The service calculates this number by multiplying the number of virtual machines (VMs) by the maximum number of sessions allowed per virtual machine, then subtracting the total sessions.
+
+## Client operating system (OS)
+
+The client operating system (OS) shows which version of the OS end-users accessing Azure Virtual Desktop resources are currently using. The client OS also shows which version of the web (HTML) client and the full Remote Desktop client the users have. For a full list of Windows OS versions, see [Operating System Version](/windows/win32/sysinfo/operating-system-version).
+
+>[!IMPORTANT]
+>Windows 7 support will end on January 10, 2023. The client OS version for Windows 7 is Windows 6.1.
 
 ## Connection success
 
@@ -224,7 +231,7 @@ The following table lists the required Windows Event Logs for Azure Monitor for 
 | Microsoft-FSLogix-Apps/Operational|Error, Warning, and Information|
 |Microsoft-FSLogix-Apps/Admin|Error, Warning, and Information|
 
-To learn more about Windows Event Logs, see [Windows Event records properties](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
+To learn more about Windows Event Logs, see [Windows Event records properties](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs).
 
 ## Next steps
 

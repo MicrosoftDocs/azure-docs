@@ -147,6 +147,7 @@ For Node.js applications, you can take fine-grained control over what commands r
 
 > [!NOTE]
 > Currently, you can only define `app_build_command` and `api_build_command` for Node.js builds.
+> To specify the Node.js version, use the [`engines`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#engines) field in the `package.json` file.
 
 # [GitHub Actions](#tab/github-actions)
 
@@ -188,6 +189,9 @@ To skip building the front-end app:
 - Set `app_location` to the location the files you want to deploy.
 - Set `skip_app_build` to `true`.
 - Set `output_location` to an empty string (`''`).
+
+> [!NOTE]
+> Make sure you have your `staticwebapp.config.json` file copied as well into the *output* directory.
 
 # [GitHub Actions](#tab/github-actions)
 

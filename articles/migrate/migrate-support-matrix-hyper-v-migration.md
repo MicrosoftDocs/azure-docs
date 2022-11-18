@@ -1,8 +1,8 @@
 ---
 title: Support for Hyper-V migration in Azure Migrate
 description: Learn about support for Hyper-V migration with Azure Migrate.
-author: bsiva
-ms.author: bsiva
+author: v-ksreedevan
+ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
@@ -81,10 +81,23 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 time.nist.gov | Verifies time synchronization between system and global time.   
 
 >[!Note]
->
-> If you Migrate project has **private endpoint connectivity**, the replication provider software on the Hyper-V hosts will need access to these URLs for private link support. 
+> If your Migrate project has **private endpoint connectivity**, the replication provider software on the Hyper-V hosts will need access to these URLs for private link support. 
 > - *.blob.core.windows.com - To access storage account that stores replicated data. This is optional and is not required if the storage account has a private endpoint attached. 
 > - login.windows.net for access control and identity management using Active Directory.
+
+## Replication storage account requirements
+
+This table summarizes support for the replication storage account for Hyper-V VM migrations.
+
+**Setting** | **Support** | **Details**
+--- | --- | ---
+General purpose V2 storage accounts (Hot and Cool tier) | Supported | GPv2 storage accounts may incur higher transaction costs than V1 storage accounts.
+Premium storage | Supported | However, standard storage accounts are recommended to help optimize costs.
+Region | Same region as virtual machine | Storage account should be in the same region as the virtual machine being protected.
+Subscription | Can be different from source virtual machines | The Storage account need not be in the same subscription as the source virtual machine(s).
+Azure Storage firewalls for virtual networks | Supported | If you are using firewall enabled replication storage account or target storage account, ensure you [Allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions). Also, ensure that you allow access to at least one subnet of source VNet. **You should allow access from All networks for public endpoint connectivity.** 
+Soft delete | Not supported | Soft delete is not supported because once it is enabled on replication storage account, it increases cost. Azure Migrate performs very frequent creates/deletes of log files while replicating causing costs to increase.
+Private endpoint | Supported | Follow the guidance to [set up Azure Migrate with private endpoints](migrate-servers-to-azure-using-private-link.md?pivots=hyperv).
 
 ## Azure VM requirements
 

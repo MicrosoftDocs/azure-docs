@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/10/2022
+ms.date: 11/15/2022
 ms.author: ampatel
 
 ---
@@ -324,6 +324,8 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    # Mount all volumes
    sudo mount -a
    ```
+   For workloads, that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.        
+
 
 4.**[A]** Verify that all HANA volumes are mounted with NFS protocol version NFSv4.
 
@@ -367,10 +369,10 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    10.3.0.5   hanadb2
    ```
 
-2.**[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+2.**[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the NetApp configuration settings.  
 
    ```
-   vi /etc/sysctl.d/netapp-hana.conf
+   vi /etc/sysctl.d/91-NetApp-HANA.conf
    # Add the following entries in the configuration file
    net.core.rmem_max = 16777216
    net.core.wmem_max = 16777216
@@ -477,9 +479,9 @@ This section describes necessary steps required for cluster to operate seamlessl
 
 Follow the steps in, [Setting up Pacemaker on SUSE Enterprise Linux](./high-availability-guide-suse-pacemaker.md) in Azure to create a basic Pacemaker cluster for this HANA server.
 
-### Implement the Python system replication hook SAPHanaSR
+## Implement HANA hooks SAPHanaSR and susChkSrv
 
-This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.  Follow the steps mentioned in, [Implement the Python System Replication hook SAPHanaSR](./sap-hana-high-availability.md#implement-the-python-system-replication-hook-saphanasr)
+This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure both SAPHanaSR and susChkSrv Python hooks.  Follow the steps mentioned in, [Implement the Python System Replication hooks SAPHanaSR and susChkSrv](./sap-hana-high-availability.md#implement-hana-hooks-saphanasr-and-suschksrv)
 
 
 ## Configure SAP HANA cluster resources

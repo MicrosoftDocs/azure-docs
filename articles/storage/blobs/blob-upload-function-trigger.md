@@ -37,7 +37,7 @@ The first step is to create the storage account that will hold the uploaded blob
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount).
+Sign in to the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount).
 
 1) In the search bar at the top of the portal, search for *Storage* and select the result labeled **Storage accounts**.
 
@@ -106,7 +106,7 @@ Copy the value of the `connectionString` property and paste it somewhere to use 
 ---
 
 ## Create the Computer Vision service
-Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers a variety of features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/azure/cognitive-services/computer-vision/overview).
+Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers a variety of features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](../../cognitive-services/computer-vision/overview.md).
 
 ### [Azure portal](#tab/azure-portal)
 

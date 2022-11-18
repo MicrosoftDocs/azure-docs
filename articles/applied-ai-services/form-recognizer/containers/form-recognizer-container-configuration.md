@@ -7,8 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/25/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 # Configure Form Recognizer containers
 
@@ -16,7 +18,7 @@ ms.author: lajanuar
 >
 > Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. For more information, See [**Request approval to run container**](form-recognizer-container-install-run.md#request-approval-to-run-the-container).
 
-With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, isolated environment that can be easily deployed on-premise and in the cloud. In this article, you'll learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have several required settings and a few optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
+With Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, isolated environment that can be easily deployed on-premises and in the cloud. In this article, you'll learn to configure the Form Recognizer container run-time environment by using the `docker compose` command arguments. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have both required and optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
 
 ## Configuration settings
 
@@ -25,9 +27,9 @@ Each container has the following configuration settings:
 |Required|Setting|Purpose|
 |--|--|--|
 |Yes|[Key](#key-and-billing-configuration-setting)|Tracks billing information.|
-|Yes|[Billing](#key-and-billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.  _See_ [Billing]](form-recognizer-container-install-run.md#billing), for more information. For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Cognitive Services](../../../cognitive-services/cognitive-services-custom-subdomains.md).|
+|Yes|[Billing](#key-and-billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.  For more information, _see_ [Billing](form-recognizer-container-install-run.md#billing). For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Cognitive Services](../../../cognitive-services/cognitive-services-custom-subdomains.md).|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
-|No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) telemetry support to your container.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) customer content support to your container.|
 |No|[Fluentd](#fluentd-settings)|Writes log and, optionally, metric data to a Fluentd server.|
 |No|HTTP Proxy|Configures an HTTP proxy for making outbound requests.|
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
@@ -120,7 +122,7 @@ services:
     container_name: azure-cognitive-service-receipt
     image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-form-recognizer-receipt:2.1
     environment:
-      - EULA=accept 
+      - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
       - key={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
@@ -132,7 +134,7 @@ services:
     container_name: azure-cognitive-service-read
     image: mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
     environment:
-      - EULA=accept 
+      - EULA=accept
       - billing={COMPUTER_VISION_ENDPOINT_URI}
       - key={COMPUTER_VISION_KEY}
     networks:

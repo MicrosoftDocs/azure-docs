@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/27/2021
+ms.date: 11/15/2022
 ms.author: juergent
 
 ---
@@ -112,6 +112,11 @@ Complete the planning process before you execute the deployment. Planning builds
 | Name resolution| How name resolution works in the environment. DNS service is highly recommended. Local hosts file can be used. |
 	
 For more information about Linux Pacemaker in Azure, see [Setting up Pacemaker on Red Hat Enterprise Linux in Azure][rhel-pcs-azr].
+
+>[!IMPORTANT]
+>For Db2 versions 11.5.6 and higher we highly recommend Integrated solution using Pacemaker from IBM. 
+>* [Integrated solution using Pacemaker](https://www.ibm.com/docs/en/db2/11.5?topic=feature-integrated-solution-using-pacemaker)
+>* [Alternate or additional configurations available on Microsoft Azure](https://www.ibm.com/support/pages/alternate-or-additional-configurations-available-microsoft-azure)
 
 ## Deployment on Red Hat Enterprise Linux
 
@@ -410,7 +415,7 @@ sudo pcs property set maintenance-mode=true
 
 **[1]** Create IBM Db2 resources:
 
-If building a cluster on **RHEL 7.x**, use the following commands:
+If building a cluster on **RHEL 7.x**, make sure to update package **resource-agents** to version `resource-agents-4.1.1-61.el7_9.15` or higher. Use the following commands to create the cluster resources:
 
 <pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
 sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' master meta notify=true resource-stickiness=5000
@@ -434,7 +439,9 @@ sudo pcs constraint colocation add g_ipnc_<b>db2id2</b>_<b>ID2</b> with master D
 sudo pcs constraint order promote Db2_HADR_<b>ID2</b>-master then g_ipnc_<b>db2id2</b>_<b>ID2</b>
 </code></pre>
 
-If building a cluster on **RHEL 8.x**, use the following commands:
+
+
+If building a cluster on **RHEL 8.x**, make sure to update package **resource-agents** to version `resource-agents-4.1.1-93.el8` or higher. For details see Red Hat KB [A `db2` resource with HADR fails promote with state `PRIMARY/REMOTE_CATCHUP_PENDING/CONNECTED`](https://access.redhat.com/solutions/6516791). Use the following commands to create the cluster resources:
 
 <pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
 sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' promotable meta notify=true resource-stickiness=5000

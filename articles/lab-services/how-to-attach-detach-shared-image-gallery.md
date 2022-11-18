@@ -2,7 +2,7 @@
 title: Attach or detach an Azure Compute Gallery in Azure Lab Services | Microsoft Docs
 description: This article describes how to attach an Azure Compute Gallery to a lab in Azure Lab Services. 
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.date: 07/04/2022
 ms.custom: devdivchpfy22
 ---
 
@@ -11,12 +11,12 @@ ms.custom: devdivchpfy22
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [Attach or detach a shared image gallery in Azure Lab Services (deprecated)](how-to-attach-detach-shared-image-gallery-1.md).
+> If using a version of Azure Lab Services prior to the [August 2022 Update](lab-services-whats-new.md), see [Attach or detach a shared image gallery to a lab account in Azure Lab Services](how-to-attach-detach-shared-image-gallery-1.md).
 
 This article shows you how to attach or detach an Azure Compute Gallery to a lab plan.
 
 > [!IMPORTANT]
-> Lab plan administrators must manually [replicate images](/azure/virtual-machines/shared-image-galleries) to other regions in the compute gallery. Replicate an Azure Compute Gallery image to the same region as the lab plan to be shown in the list of virtual machine images during lab creation.
+> Lab plan administrators must manually [replicate images](../virtual-machines/shared-image-galleries.md) to other regions in the compute gallery. Replicate an Azure Compute Gallery image to the same region as the lab plan to be shown in the list of virtual machine images during lab creation.
 
 Saving images to a compute gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. For more information about Azure Compute Gallery pricing, see [Azure Compute Gallery – Billing](../virtual-machines/azure-compute-gallery.md#billing).
 

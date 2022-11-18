@@ -2,19 +2,14 @@
 title: Tutorial - Archive directory logs to a storage account | Microsoft Docs
 description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to a storage account 
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/05/2021
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an Azure storage account so I can retain it for longer than the default retention period.
@@ -49,11 +44,11 @@ To use this feature, you need:
 
      ![Export settings](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
-5. Once in the **Diagnostic setting** pane if you are creating a new setting, enter a name for the setting to remind you of its purpose (for example, *Send to Azure storage account*). You can't change the name of an existing setting.
+5. Once in the **Diagnostic setting** pane if you're creating a new setting, enter a name for the setting to remind you of its purpose (for example, *Send to Azure storage account*). You can't change the name of an existing setting.
 
 6. Under **Destination Details** Select the **Archive to a storage account** check box. 
 
-7. Select the Azure subscription in the **Subscription** drop down menu and storage account in the **Storage account** drop down menu that you want to route the logs to.
+7. Select the Azure subscription in the **Subscription**  menu and storage account in the **Storage account** menu that you want to route the logs to.
 
 8. Select all the relevant categories in under **Category details**:
 

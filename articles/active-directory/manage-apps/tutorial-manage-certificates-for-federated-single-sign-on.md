@@ -1,7 +1,6 @@
 ---
 title: "Tutorial: Manage federation certificates"
 description: In this tutorial, you'll learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
-titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2022
+ms.date: 05/27/2022
 ms.author: davidmu
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
@@ -19,13 +18,28 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Manage certificates for federated single sign-on
 
-In this article, we cover common questions and information related to certificates that Azure Active Directory (Azure AD) creates to establish federated single sign-on (SSO) to your software as a service (SaaS) applications. Add applications from the Azure AD app gallery or by using a non-gallery application template. Configure the application by using the federated SSO option.
+In this article, we cover common questions and information related to certificates that Azure Active Directory (Azure AD) creates to establish federated single sign-on (SSO) to your software as a service (SaaS) applications. Add applications from the Azure AD application gallery or by using a non-gallery application template. Configure the application by using the federated SSO option.
 
 This tutorial is relevant only to apps that are configured to use Azure AD SSO through [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) federation.
 
+Using the information in this tutorial, an administrator of the application learns how to:
+
+> [!div class="checklist"]
+> * Generate certificates for gallery and non-gallery applications
+> * Customize the expiration dates for certificates
+> * Add email notification address for certificate expiration dates
+> * Renew certificates
+
+## Prerequisites
+
+- An Azure account with an active subscription. If you don't already have one, [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Privileged Role Administrator, Cloud Application Administrator, or Application Administrator.
+- An enterprise application that has been configured in your Azure AD tenant.
+
+
 ## Auto-generated certificate for gallery and non-gallery applications
 
-When you add a new application from the gallery and configure a SAML-based sign-on (by selecting **Single sign-on** > **SAML** from the application overview page), Azure AD generates a certificate for the application that is valid for three years. To download the active certificate as a security certificate (**.cer**) file, return to that page (**SAML-based sign-on**) and select a download link in the **SAML Signing Certificate** heading. You can choose between the raw (binary) certificate or the Base64 (base 64-encoded text) certificate. For gallery applications, this section might also show a link to download the certificate as federation metadata XML (an **.xml** file), depending on the requirement of the application.
+When you add a new application from the gallery and configure a SAML-based sign-on (by selecting **Single sign-on** > **SAML** from the application overview page), Azure AD generates a self-signed certificate for the application that is valid for three years. To download the active certificate as a security certificate (**.cer**) file, return to that page (**SAML-based sign-on**) and select a download link in the **SAML Signing Certificate** heading. You can choose between the raw (binary) certificate or the Base64 (base 64-encoded text) certificate. For gallery applications, this section might also show a link to download the certificate as federation metadata XML (an **.xml** file), depending on the requirement of the application.
 
 You can also download an active or inactive certificate by selecting the **SAML Signing Certificate** heading's **Edit** icon (a pencil), which displays the **SAML Signing Certificate** page. Select the ellipsis (**...**) next to the certificate you want to download, and then choose which certificate format you want. You have the additional option to download the certificate in privacy-enhanced mail (PEM) format. This format is identical to Base64 but with a **.pem** file name extension, which isn't recognized in Windows as a certificate format.
 
@@ -75,7 +89,7 @@ Next, download the new certificate in the correct format, upload it to the appli
 1. When you want to roll over to the new certificate, go back to the **SAML Signing Certificate** page, and in the newly saved certificate row, select the ellipsis (**...**) and select **Make certificate active**. The status of the new certificate changes to **Active**, and the previously active certificate changes to a status of **Inactive**.
 1. Continue following the application's SAML sign-on configuration instructions that you displayed earlier, so that you can upload the SAML signing certificate in the correct encoding format.
 
-If your application doesn't have any validation for the certificate's expiration, and the certificate matches in both Azure Active Directory and your application, your app is still accessible despite having an expired certificate. Ensure your application can validate the certificate's expiration date.
+If your application doesn't have any validation for the certificate's expiration, and the certificate matches in both Azure Active Directory and your application, your application is still accessible despite having an expired certificate. Ensure your application can validate the certificate's expiration date.
 
 ## Add email notification addresses for certificate expiration
 
@@ -101,15 +115,14 @@ If a certificate is about to expire, you can renew it using a procedure that res
    1. In the newly saved certificate row, select the ellipsis (**...**) and then select **Make certificate active**.
    1. Skip the next two steps.
 
-1. If the app can only handle one certificate at a time, pick a downtime interval to perform the next step. (Otherwise, if the application doesn’t automatically pick up the new certificate but can handle more than one signing certificate, you can perform the next step anytime.)
-1. Before the old certificate expires, follow the instructions in the [Upload and activate a certificate](#upload-and-activate-a-certificate) section earlier. If your application certificate isn't updated after a new certificate is updated in Azure Active Directory, authentication on your app may fail.
+1. If the application can only handle one certificate at a time, pick a downtime interval to perform the next step. (Otherwise, if the application doesn’t automatically pick up the new certificate but can handle more than one signing certificate, you can perform the next step anytime.)
+1. Before the old certificate expires, follow the instructions in the [Upload and activate a certificate](#upload-and-activate-a-certificate) section earlier. If your application certificate isn't updated after a new certificate is updated in Azure Active Directory, authentication on your application may fail.
 1. Sign in to the application to make sure that the certificate works correctly.
 
-If your application doesn't validate the certificate expiration configured in Azure Active Directory, and the certificate matches in both Azure Active Directory and your application, your app is still accessible despite having an expired certificate. Ensure your application can validate certificate expiration.
+If your application doesn't validate the certificate expiration configured in Azure Active Directory, and the certificate matches in both Azure Active Directory and your application, your application is still accessible despite having an expired certificate. Ensure your application can validate certificate expiration.
 
 ## Related articles
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
 - [Application management with Azure Active Directory](what-is-application-management.md)
 - [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md)
 - [Debug SAML-based single sign-on to applications in Azure Active Directory](./debug-saml-sso-issues.md)

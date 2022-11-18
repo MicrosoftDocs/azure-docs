@@ -6,7 +6,9 @@ ms.author: benmansheim
 author: bmansheim
 ms.date: 02/27/2022
 ---
-# Feature coverage for Azure PaaS services <a name="paas-services"></a>
+# Feature coverage for Azure PaaS services
+
+<a name="paas-services"></a>
 
 The table below shows the availability of Microsoft Defender for Cloud features for the supported Azure PaaS resources.
 

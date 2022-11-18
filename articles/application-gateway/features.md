@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 01/18/2022
+ms.date: 09/13/2022
 ms.author: greglin
 ---
 
@@ -40,7 +40,7 @@ The application gateway Standard_v2 SKU supports static VIP type exclusively. Th
 
 ## Web Application Firewall
 
-Web Application Firewall (WAF) is a service that provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is based on rules from the [OWASP (Open Web Application Security Project) core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (WAF_v2 only), 3.0, and 2.2.9. 
+Web Application Firewall (WAF) is a service that provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is based on rules from the [OWASP (Open Web Application Security Project) core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1 (WAF_v2 only), 3.0, and 2.2.9. 
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at many layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a Web Application Firewall enabled application gateway easily.
 
@@ -55,7 +55,7 @@ For more information, see [Application Gateway Ingress Controller (AGIC)](ingres
 
 ## URL-based routing
 
-URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. 
+URL Path Based Routing allows you to route traffic to backend server pools based on URL Paths of the request. 
 One of the scenarios is to route requests for different content types to different pool.
 
 For example, requests for `http://contoso.com/video/*` are routed to VideoServerPool, and `http://contoso.com/images/*` are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
@@ -120,7 +120,7 @@ HTTP headers allow the client and server to pass additional information with the
 - Removing response header fields that can reveal sensitive information.
 - Stripping port information from X-Forwarded-For headers.
 
-Application Gateway and WAF v2 SKU supports the capability to add, remove, or update HTTP request and response headers, while the request and response packets move between the client and back-end pools. You can also rewrite URLs, query string parameters and host name. With URL rewrite and URL path-based routing, you can choose to either route requests to one of the backend pools based on the original path or the rewritten path, using the re-evaluate path map option. 
+Application Gateway and WAF v2 SKU supports the capability to add, remove, or update HTTP request and response headers, while the request and response packets move between the client and backend pools. You can also rewrite URLs, query string parameters and host name. With URL rewrite and URL path-based routing, you can choose to either route requests to one of the backend pools based on the original path or the rewritten path, using the re-evaluate path map option. 
 
 It also provides you with the capability to add conditions to ensure the specified headers or URL are rewritten only when certain conditions are met. These conditions are based on the request and response information.
 
@@ -136,13 +136,13 @@ For a complete list of application gateway limits, see [Application Gateway serv
 
 The following table shows an average performance throughput for each application gateway v1 instance with SSL offload enabled:
 
-| Average back-end page response size | Small | Medium | Large |
+| Average backend page response size | Small | Medium | Large |
 | --- | --- | --- | --- |
 | 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
 | 100 KB |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
-> These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests. These values are only provided for capacity planning guidance.
+> These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of backend instances, and processing time to serve a page. For exact performance numbers, you should run your own tests. These values are only provided for capacity planning guidance.
 
 ## Version feature comparison
 
@@ -150,4 +150,5 @@ For an Application Gateway v1-v2 feature comparison, see [What is Azure Applicat
 
 ## Next steps
 
-- Learn how Application Gateway works - [How an application gateway works](how-application-gateway-works.md)
+- Learn [how an application gateway works](how-application-gateway-works.md)
+- Review [Frequently asked questions about Azure Application Gateway](application-gateway-faq.yml)

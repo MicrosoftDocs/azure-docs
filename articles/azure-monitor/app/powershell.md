@@ -4,6 +4,7 @@ description: Automate creating and managing resources, alerts, and availability 
 ms.topic: conceptual
 ms.date: 05/02/2020 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: vitalyg
 ---
 
 #  Manage Application Insights resources using PowerShell
@@ -157,7 +158,8 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 "tags": {},
                 "properties": {
                     "ApplicationId": "[parameters('appName')]",
-                    "retentionInDays": "[parameters('retentionInDays')]"
+                    "retentionInDays": "[parameters('retentionInDays')]",
+                    "ImmediatePurgeDataOn30Days": "[parameters('ImmediatePurgeDataOn30Days')]"
                 },
                 "dependsOn": []
             },
@@ -468,5 +470,5 @@ Other automation articles:
 
 * [Create an Application Insights resource](./create-new-resource.md#creating-a-resource-automatically) - quick method without using a template.
 * [Create web tests](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
-* [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
+* [Send Azure Diagnostics to Application Insights](../agents/diagnostics-extension-to-application-insights.md)
 * [Create release annotations](annotations.md)

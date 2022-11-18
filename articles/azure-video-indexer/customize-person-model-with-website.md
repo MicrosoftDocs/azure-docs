@@ -1,19 +1,20 @@
 ---
-title: Customize a Person model with Azure Video Indexer (formerly Azure Video Analyzer for Media) website
-description: Learn how to customize a Person model with the Azure Video Indexer (formerly Azure Video Analyzer for Media) website.
-services: azure-video-analyzer
+title: Customize a Person model with Azure Video Indexer website
+description: Learn how to customize a Person model with the Azure Video Indexer website.
 author: Juliako
 manager: femila
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 05/31/2022
 ms.author: juliako
 ---
 
 # Customize a Person model with the Azure Video Indexer website
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) supports celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. For a detailed overview, see [Customize a Person model in Azure Video Indexer](customize-person-model-overview.md).
+[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
-You can use the Azure Video Indexer website to edit faces that were detected in a video, as described in this topic. You can also use the API, as described in [Customize a Person model using APIs](customize-person-model-with-api.md).
+Azure Video Indexer supports celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. For a detailed overview, see [Customize a Person model in Azure Video Indexer](customize-person-model-overview.md).
+
+You can use the Azure Video Indexer website to edit faces that were detected in a video, as described in this article. You can also use the API, as described in [Customize a Person model using APIs](customize-person-model-with-api.md).
 
 ## Central management of Person models in your account
 
@@ -34,7 +35,7 @@ You can use the Azure Video Indexer website to edit faces that were detected in 
 ## Create a new Person model
 
 1. Select the **+ Add model** button on the right.
-1. Enter the name of the model. You can now add new people and faces to the new Person model.
+1. Enter the name of the model and select the check button to save the new model created. You can now add new people and faces to the new Person model.
 1. Select the list menu button and choose **+ Add person**.
 
     > [!div class="mx-imgBorder"]
@@ -52,7 +53,7 @@ You can use the Azure Video Indexer website to edit faces that were detected in 
 
     You can then choose from your file explorer or drag and drop the face images of the face. Azure Video Indexer will take all standard image file types (ex: JPG, PNG, and more).
 
-    Azure Video Indexer can detect occurrences of this person in the future videos that you index and the current videos that you had already indexed, using the Person model to which you added this new face to. Recognition of the person in your current videos might take some time to take effect, as this is a batch process.
+    Azure Video Indexer can detect occurrences of this person in the future videos that you index and the current videos that you had already indexed, using the Person model to which you added this new face. Recognition of the person in your current videos might take some time to take effect, as this is a batch process.
 
 ## Rename a Person model
 
@@ -77,7 +78,7 @@ You can delete any Person model that you created in your account. However, you c
 
 ## Manage existing people in a Person model
 
-To look at the contents of any of your Person models, select the arrow next to the name of the Person model. The drop-down shows you all of the people in that particular Person model. If you select the list menu button next to each of the people, you see manage, rename, and delete options.  
+To look at the contents of any of your Person models, select the arrow next to the name of the Person model. Then you can view all of the people in that particular Person model. If you select the list menu button next to each of the people, you see manage, rename, and delete options.  
 
 ![Screenshot shows a contextual menu with options to Manage, Rename, and Delete.](./media/customize-face-model/manage-people.png)
 
@@ -92,6 +93,10 @@ To look at the contents of any of your Person models, select the arrow next to t
 1. To delete a person from your Person model, select the list menu button and choose **Delete** from the list menu.
 1. A pop-up tells you that this action will delete the person and that this action can't be undone.
 1. Select **Delete** again and this will remove the person from the Person model.
+
+### Check if a person already exists 
+
+You can use the search to check if a person already exists in the model.
 
 ### Manage a person
 
@@ -108,7 +113,7 @@ You can add more faces to the person by selecting **Add images**.
 
 Select the image you wish to delete and click **Delete**.
 
-#### Rename and delete the person 
+#### Rename and delete a person 
 
 You can use the manage pane to rename the person and to delete the person from the Person model.
 
@@ -128,7 +133,7 @@ If you don't specify a Person model during the upload, Azure Video Indexer will 
 
 ## Use a Person model to reindex a video
 
-To use a Person model to reindex a video in your collection, go to your account videos on the Azure Video Indexer home page and hover over the name of the video that you want to reindex.
+To use a Person model to reindex a video in your collection, go to your account videos on the Azure Video Indexer home page, and hover over the name of the video that you want to reindex.
 
 You see options to edit, delete, and reindex your video.
 
@@ -173,6 +178,10 @@ If you name a face with the name of an existing person in the Person model that 
 To delete a detected face in your video, go to the Insights pane and select the pencil icon in the top-right corner of the pane. Select the **Delete** option underneath the name of the face. This action removes the detected face from the video. The person's face will still be detected in the other videos in which it appears, but you can delete the face from those videos as well after they've been indexed.
 
 The person, if they had been named, will also continue to exist in the Person model that was used to index the video from which you deleted the face unless you specifically delete the person from the Person model.
+
+## Optimize the ability of your model to recognize a person
+
+To optimize your model ability to recognize the person, upload as many different images as possible and from different angles. To get optimal results, use high resolution images.
 
 ## Next steps
 

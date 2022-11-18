@@ -1,6 +1,5 @@
 ---
 title: Troubleshoot problems signing in to an application from My Apps portal
-titleSuffix: Azure AD
 description: Troubleshoot problems signing in to an application from Azure AD My Apps
 services: active-directory
 author: lnalepa

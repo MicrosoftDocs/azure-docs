@@ -2,7 +2,7 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 02/15/2022
+ms.date: 11/01/2022
 ---
 
 # Environment variables and app settings in Azure App Service
@@ -32,7 +32,7 @@ The following environment variables are related to the app environment in genera
 | `WEBSOCKET_CONCURRENT_REQUEST_LIMIT` | Read-only. Limit for websocket's concurrent requests. For **Standard** tier and above, the value is `-1`, but there's still a per VM limit based on your VM size (see [Cross VM Numerical Limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)). ||
 | `WEBSITE_PRIVATE_EXTENSIONS` | Set to `0` to disable the use of private site extensions. ||
 | `WEBSITE_TIME_ZONE` | By default, the time zone for the app is always UTC. You can change it to any of the valid values that are listed in [TimeZone](/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10)). If the specified value isn't recognized, UTC is used. | `Atlantic Standard Time` |
-| `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | In the case of a storage volume failover or reconfiguration, your app is switched over to a standby storage volume. The default setting of `1` prevents your worker process from recycling when the storage infrastructure changes. If you are running a Windows Communication Foundation (WCF) app, disable it by setting it to `0`. The setting is slot-specific, so you should set it in all slots. ||
+| `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | After slot swaps, the app may experience unexpected restarts. This is because after a swap, the hostname binding configuration goes out of sync, which by itself doesn't cause restarts. However, certain underlying storage events (such as storage volume failovers) may detect these discrepancies and force all worker processes to restart. To minimize these types of restarts, set the app setting value to `1`on all slots (default is`0`). However, do not set this value if you are running a Windows Communication Foundation (WCF) application. For more information, see [Troubleshoot swaps](deploy-staging-slots.md#troubleshoot-swaps)||
 | `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively "autohealed" when it's using more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VM instance has triggered one of these rules, the recovery process is an overlapping restart of the instance. Set to `false` to disable this recovery behavior. The default is `true`. For more information, see [Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html). ||
 | `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance, and collects a memory dump when the worker process crashes again. This memory dump is then analyzed and the call stack of the thread that caused the crash is logged in your App Service’s logs. Set to `false` to disable this automatic monitoring behavior. The default is `true`. For more information, see [Proactive Crash Monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html). ||
 | `WEBSITE_DAAS_STORAGE_SASURI` | During crash monitoring (proactive or manual), the memory dumps are deleted by default. To save the memory dumps to a storage blob container, specify the SAS URI.  ||
@@ -279,7 +279,11 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 > |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
 > |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
 > |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
-> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to WordPress.|
+> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](../mysql/single-server/how-to-create-manage-server-portal.md#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
+> |WORDPRESS_ADMIN_EMAIL|Deployment only|-|-|WordPress admin email.|
+> |WORDPRESS_ADMIN_PASSWORD|Deployment only|-|-|WordPress admin password. This is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).|
+> |WORDPRESS_ADMIN_USER|Deployment only|-|-|WordPress admin username|
+> |WORDPRESS_ADMIN_LOCALE_CODE|Deployment only|-|-|Database username used to connect to WordPress.|
 
 ## Domain and DNS
 
@@ -287,6 +291,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 |-|-|-|
 | `WEBSITE_DNS_SERVER` | IP address of primary DNS server for outgoing connections (such as to a back-end service). The default DNS server for App Service is Azure DNS, whose IP address is `168.63.129.16`. If your app uses [VNet integration](./overview-vnet-integration.md) or is in an [App Service environment](environment/intro.md), it inherits the DNS server configuration from the VNet by default. | `10.0.0.1` |
 | `WEBSITE_DNS_ALT_SERVER` | IP address of fallback DNS server for outgoing connections. See `WEBSITE_DNS_SERVER`. | |
+| `WEBSITE_ENABLE_DNS_CACHE` | Allows successful DNS resolutions to be cached. By Default expired DNS cache entries will be flushed & in addition to the existing cache to be flushed every 4.5 mins. | |
 
 <!-- 
 DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
@@ -310,7 +315,6 @@ For more information on deployment slots, see [Set up staging environments in Az
 
 | Setting name| Description | Example |
 |-|-|-|
-|`WEBSITE_SLOT_NAME`| Read-only. Name of the current deployment slot. The name of the production slot is `Production`. ||
 |`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS`| By default, the versions for site extensions are specific to each slot. This prevents unanticipated application behavior due to changing extension versions after a swap. If you want the extension versions to swap as well, set to `0` on *all slots*. ||
 |`WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS`| Designates certain settings as [sticky or not swappable by default](deploy-staging-slots.md#which-settings-are-swapped). Default is `true`. Set this setting to `false` or `0` for *all deployment slots* to make them swappable instead. There's no fine-grain control for specific setting types. ||
 |`WEBSITE_SWAP_WARMUP_PING_PATH`| Path to ping to warm up the target slot in a swap, beginning with a slash. The default is `/`, which pings the root path over HTTP. | `/statuscheck` |
@@ -329,13 +333,13 @@ For more information on custom containers, see [Run a custom container in Azure]
 
 | Setting name| Description | Example |
 |-|-|-|
-| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `false` for custom containers. ||
+| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `true` for custom containers. ||
 | `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time in seconds to wait for the container to complete start-up before restarting the container. Default is `230`. You can increase it up to the maximum of `1800`. ||
 | `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server, when running a custom container in App Service. For security, this variable is not passed on to the container. | `https://<server-name>.azurecr.io` |
 | `DOCKER_REGISTRY_SERVER_USERNAME` | Username to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||
 | `DOCKER_REGISTRY_SERVER_PASSWORD` | Password to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||
 | `DOCKER_ENABLE_CI` | Set to `true` to enable the continuous deployment for custom containers. The default is `false` for custom containers. ||
-| `WEBSITE_PULL_IMAGE_OVER_VNET` | Connect and pull from a registry inside a Virtual Network or on-premise. Your app will need to be connected to a Virtual Network using VNet integration feature. This setting is also needed for Azure Container Registry with Private Endpoint. ||
+| `WEBSITE_PULL_IMAGE_OVER_VNET` | Connect and pull from a registry inside a Virtual Network or on-premises. Your app will need to be connected to a Virtual Network using VNet integration feature. This setting is also needed for Azure Container Registry with Private Endpoint. ||
 | `WEBSITES_WEB_CONTAINER_NAME` | In a Docker Compose app, only one of the containers can be internet accessible. Set to the name of the container defined in the configuration file to override the default container selection. By default, the internet accessible container is the first container to define port 80 or 8080, or, when no such container is found, the first container defined in the configuration file. |  |
 | `WEBSITES_PORT` | For a custom container, the custom port number on the container for App Service to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. This setting is *not* injected into the container as an environment variable. ||
 | `WEBSITE_CPU_CORES_LIMIT` | By default, a Windows container runs with all available cores for your chosen pricing tier. To reduce the number of cores, set to the number of desired cores limit. For more information, see [Customize the number of compute cores](configure-custom-container.md?pivots=container-windows#customize-the-number-of-compute-cores).||

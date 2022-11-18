@@ -4,9 +4,9 @@ description: Set plan technical configuration for an IoT Edge Module offer on Az
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: aarathin
+author: AarathiN
 ms.author: aarathin
-ms.date: 05/21/2021
+ms.date: 6/20/2022
 ---
 
 # Set plan technical configuration for an IoT Edge Module offer

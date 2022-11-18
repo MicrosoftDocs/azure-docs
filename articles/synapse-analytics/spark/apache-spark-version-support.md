@@ -5,8 +5,9 @@ author: DaniBunny
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 04/20/2022
+ms.date: 08/02/2022
 ms.author: dacoelho 
+ms.reviewer: martinle
 ---
 
 # Azure Synapse runtimes
@@ -18,10 +19,6 @@ When you create a serverless Apache Spark pool, you will have the option to sele
 - Faster session startup times
 - Tested compatibility with specific Apache Spark versions
 - Access to popular, compatible connectors and open-source packages
-
-> [!IMPORTANT]
-> Azure Synapse Runtime for Apache Spark 3.2 is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE]
 > - Maintenance updates will be automatically applied to new sessions for a given serverless Apache Spark pool. 
@@ -48,16 +45,22 @@ When you create a serverless Apache Spark pool, you will have the option to sele
 ## Supported Azure Synapse runtime releases 
 The following table lists the runtime name, Apache Spark version, and release date for supported Azure Synapse Runtime releases.
 
-|  Runtime name  | Release date |  Release stage |
-| ----- | ----- | ----- |
-| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | GA|
-| [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | GA |
-| [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | April 20, 2022 | Preview |
+|  Runtime name  | Release date |  Release stage | End of life announcement date | End of life effective date |
+| ----- | ----- | ----- | ----- | ----- |
+| [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022 | GA | July 8, 2023 | July 8, 2024 |
+| [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | LTS | January 26, 2023 | January 26, 2024 |
+| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __End of Life Announced (EOLA)__ | __July 29, 2022__ | __July 28, 2023__ |
 
 ## Runtime release stages
 
-## Preview runtimes
-Azure Synapse Analytics provides previews to give you a chance to evaluate and share feedback on features before they become generally available (GA). While a runtime is available in preview, new dependencies and component versions may be introduced. Support SLAs are not applicable for preview runtimes. 
+For the complete runtime for Apache Spark lifecycle and support policies, refer to [Synapse runtime for Apache Spark lifecycle and supportability](./runtime-for-apache-spark-lifecycle-and-supportability.md).
 
-## Generally available runtimes
-Generally available (GA) runtimes are open to all customers and are ready for production use. Once a runtime is generally available, security fixes and stability improvements may be backported. In addition, new components will only be introduced if they do not change underlying dependencies or component versions. 
+## Runtime patching
+
+Azure Synapse runtime for Apache Spark patches are rolled out monthly containing bug, feature and security fixes to the Apache Spark core engine, language environments, connectors and libraries.
+
+The patch policy differs based on the [runtime lifecycle stage](./runtime-for-apache-spark-lifecycle-and-supportability.md):
+1. Generally Available (GA) runtime: Receive no upgrades on major versions (i.e. 3.x -> 4.x). And will upgrade a minor version (i.e. 3.x -> 3.y) as long as there are no deprecation or regression impacts.
+2. Preview runtime: No major version upgrades unless strictly necessary. Minor versions (3.x -> 3.y) will be upgraded to add latest features to a runtime.
+3. Long Term Support (LTS) runtime will be patched with security fixes only.
+4. End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.

@@ -2,11 +2,11 @@
 title: Creating an ingress controller with a new Application Gateway 
 description: This article provides information on how to deploy an Application Gateway Ingress Controller with a new Application Gateway. 
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/4/2019
-ms.author: caya
+ms.date: 06/09/2022
+ms.author: greglin
 ---
 
 # How to Install an Application Gateway Ingress Controller (AGIC) Using a New Application Gateway
@@ -24,8 +24,8 @@ Alternatively, launch Cloud Shell from Azure portal using the following icon:
 
 ![Portal launch](./media/application-gateway-ingress-controller-install-new/portal-launch-icon.png)
 
-Your [Azure Cloud Shell](https://shell.azure.com/) already has all necessary tools. Should you
-choose to use another environment, please ensure the following command-line tools are installed:
+Your [Azure Cloud Shell](https://shell.azure.com/) already has all necessary tools. If you
+choose to use another environment, ensure the following command-line tools are installed:
 
 * `az` - Azure CLI: [installation instructions](/cli/azure/install-azure-cli)
 * `kubectl` - Kubernetes command-line tool: [installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl)
@@ -35,7 +35,7 @@ choose to use another environment, please ensure the following command-line tool
 
 ## Create an Identity
 
-Follow the steps below to create an Azure Active Directory (AAD) [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Please record the `appId`, `password`, and `objectId` values - these will be used in the following steps.
+Follow the steps below to create an Azure Active Directory (Azure AD) [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Record the `appId`, `password`, and `objectId` values - these values will be used in the following steps.
 
 1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
@@ -70,16 +70,17 @@ This step will add the following components to your subscription:
 
 - [Azure Kubernetes Service](../aks/intro-kubernetes.md)
 - [Application Gateway](./overview.md) v2
-- [Virtual Network](../virtual-network/virtual-networks-overview.md) with 2 [subnets](../virtual-network/virtual-networks-overview.md)
+- [Virtual Network](../virtual-network/virtual-networks-overview.md) with two [subnets](../virtual-network/virtual-networks-overview.md)
 - [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
-- [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [AAD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
+- [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
 
 1. Download the Azure Resource Manager template and modify the template as needed.
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/deploy/azuredeploy.json -O template.json
     ```
 
-1. Deploy the Azure Resource Manager template using `az cli`. This may take up to 5 minutes.
+1. Deploy the Azure Resource Manager template using the Azure CLI. The deployment might take up to 5 minutes.
+
     ```azurecli
     resourceGroupName="MyResourceGroup"
     location="westus2"
@@ -103,13 +104,11 @@ This step will add the following components to your subscription:
 
 ## Set up Application Gateway Ingress Controller
 
-With the instructions in the previous section, we created and configured a new AKS cluster and
-an Application Gateway. We are now ready to deploy a sample app and an ingress controller to our new
-Kubernetes infrastructure.
+With the instructions in the previous section, we created and configured a new AKS cluster and an Application Gateway. We're now ready to deploy a sample app and an ingress controller to our new Kubernetes infrastructure.
 
 ### Setup Kubernetes Credentials
 For the following steps, we need setup [kubectl](https://kubectl.docs.kubernetes.io/) command,
-which we will use to connect to our new Kubernetes cluster. [Cloud Shell](https://shell.azure.com/) has `kubectl` already installed. We will use `az` CLI to obtain credentials for Kubernetes.
+which we'll use to connect to our new Kubernetes cluster. [Cloud Shell](https://shell.azure.com/) has `kubectl` already installed. We'll use `az` CLI to obtain credentials for Kubernetes.
 
 Get credentials for your newly deployed AKS ([read more](../aks/manage-azure-rbac.md#use-azure-rbac-for-kubernetes-authorization-with-kubectl)):
 
@@ -121,16 +120,16 @@ resourceGroupName=$(jq -r ".resourceGroupName.value" deployment-outputs.json)
 az aks get-credentials --resource-group $resourceGroupName --name $aksClusterName
 ```
 
-### Install AAD Pod Identity
+### Install Azure AD Pod Identity
   Azure Active Directory Pod Identity provides token-based access to
   [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md).
 
-  [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) will add the following components to your Kubernetes cluster:
+  [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) will add the following components to your Kubernetes cluster:
    * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
    * [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
    * [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
 
-To install AAD Pod Identity to your cluster:
+To install Azure AD Pod Identity to your cluster:
 
    - *Kubernetes RBAC enabled* AKS cluster
 
@@ -146,7 +145,7 @@ To install AAD Pod Identity to your cluster:
 
 ### Install Helm
 [Helm](../aks/kubernetes-helm.md) is a package manager for
-Kubernetes. We will leverage it to install the `application-gateway-kubernetes-ingress` package:
+Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress` package:
 
 1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
 
@@ -257,17 +256,15 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
      - `appgw.resourceGroup`: Name of the Azure Resource Group in which Application Gateway was created. Example: `app-gw-resource-group`
      - `appgw.name`: Name of the Application Gateway. Example: `applicationgatewayd0f0`
      - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared Application Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
-     - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. This could be a single string value, or a comma-separated list of namespaces.
+     - `kubernetes.watchNamespace`: Specify the namespace that AGIC should watch. The namespace value can be a single string value, or a comma-separated list of namespaces.
     - `armAuth.type`: could be `aadPodIdentity` or `servicePrincipal`
     - `armAuth.identityResourceID`: Resource ID of the Azure Managed Identity
-    - `armAuth.identityClientId`: The Client ID of the Identity. See below for more information on Identity
+    - `armAuth.identityClientID`: The Client ID of the Identity. More information about **identityClientID** is provided below. 
     - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`) 
 
 
    > [!NOTE]
-   > The `identityResourceID` and `identityClientID` are values that were created
-   during the [Deploy Components](ingress-controller-install-new.md#deploy-components)
-   steps, and could be obtained again using the following command:
+   > The `identityResourceID` and `identityClientID` are values that were created during the [Deploy Components](ingress-controller-install-new.md#deploy-components) steps, and could be obtained again using the following command:
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```

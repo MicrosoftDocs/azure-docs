@@ -1,5 +1,5 @@
 ---
-title: Adaptive network hardening in Microsoft Defender for Cloud | Microsoft Docs
+title: Adaptive network hardening in Microsoft Defender for Cloud
 description: Learn how to use actual traffic patterns to harden your network security groups (NSG) rules and further improve your security posture.
 author: bmansheim
 ms.author: benmansheim
@@ -16,7 +16,7 @@ This page explains how to configure and manage adaptive network hardening in Def
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
 
@@ -46,7 +46,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
       * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Defender for Cloud requires at least 30 days of traffic data.
       * **VM is not protected by Microsoft Defender for Servers**: Only VMs protected with [Microsoft Defender for Servers](defender-for-servers-introduction.md) are eligible for this feature.
 
-    :::image type="content" source="./media/adaptive-network-hardening/recommendation-details-page.png" alt-text="Details page of the recommendation Adaptive Network Hardening recommendations should be applied on internet facing virtual machines.":::
+    :::image type="content" source="./media/adaptive-network-hardening/recommendation-details-page.png" alt-text="Details page of the recommendation Adaptive network hardening recommendations should be applied on internet facing virtual machines.":::
 
 1. From the **Unhealthy resources** tab, select a VM to view its alerts and the recommended hardening rules to apply.
 

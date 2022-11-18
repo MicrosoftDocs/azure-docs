@@ -3,12 +3,12 @@ title: Configure a connection string
 titleSuffix: Azure Storage
 description: Configure a connection string for an Azure storage account. A connection string contains the information needed to authorize access to a storage account from your application at runtime using Shared Key authorization.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/14/2022
-ms.author: tamram
+ms.date: 10/26/2022
+ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: common
 ---

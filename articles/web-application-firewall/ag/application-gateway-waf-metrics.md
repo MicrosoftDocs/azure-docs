@@ -6,7 +6,7 @@ author: tobystic
 manager: gunjan.jain 
 ms.service: web-application-firewall
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 07/14/2022
 ms.author: olotolor
 ---
 
@@ -24,23 +24,24 @@ WAF with Application Gateway provides detailed reporting on each threat it detec
 
 ![WAFDiag](../media/waf-appgateway-metrics/waf-appgateway-diagnostic.png)
 
-For additional information on diagnostics log, visit [Application Gateway WAF resource logs](../ag/web-application-firewall-logs.md) 
+For more information about diagnostics logs, see [Application Gateway WAF resource logs](../ag/web-application-firewall-logs.md).  If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine tune rules and exclude any data that you want to be excluded from the logs. For more information, see [Web application firewall exclusion lists in Azure Application Gateway](../ag/application-gateway-waf-configuration.md).
 
 
-## Application Gateway WAF V2 Metrics  
+
+## Application Gateway WAF v2 Metrics  
 
 New WAF metrics are only available for Core Rule Set 3.2 or greater, or with bot protection and geo-filtering. The metrics can be further filtered on the supported dimensions.
  
 |**Metrics**|**Description**|**Dimension**|
 | :------------------| :-------------------------------------| :-----------------|
-|**WAF Total Requests**|Count of successful requests that WAF engine has served.| Action, Country/Region, Method, Mode|
-|**WAF Managed Rule Matches**|Count of total requests that a managed rule has matched.| Action, Country/Region, Mode, Rule Group, Rule Id |
-|**WAF Custom Rule Matches**|Count of total requests that match a specific custom rule. | Action, Country/Region, Mode, Rule Group, Rule Name|
-|**WAF Bot Protection Matches**|Count of total requests that have been blocked or logged from malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed.| Action, Country/Region, Bot Type, Mode|
+|**WAF Total Requests**|Count of successful requests that WAF engine has served| Action, Country/Region, Method, Mode|
+|**WAF Managed Rule Matches**|Count of total managed rule matches| Action, Country/Region, Mode, Rule Group, Rule Id |
+|**WAF Custom Rule Matches**|Count of custom rule matches| Action, Country/Region, Mode, Rule Group, Rule Name|
+|**WAF Bot Protection Matches**|Count of total bot protection rule matches that have been blocked or logged from malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed.| Action, Country/Region, Bot Type, Mode|
 
 For metrics supported by Application Gateway V2 SKU, see [Application Gateway v2 metrics](../../application-gateway/application-gateway-metrics.md#metrics-supported-by-application-gateway-v2-sku)
 
-## Application Gateway WAF V1 Metrics
+## Application Gateway WAF v1 Metrics
 
 |**Metrics**|**Description**|**Dimension**|
 | :------------------| :-------------------------------------| :-----------------|

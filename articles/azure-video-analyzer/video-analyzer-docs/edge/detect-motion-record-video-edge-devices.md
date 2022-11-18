@@ -227,7 +227,7 @@ To play the MP4 clip:
 1. Sign in by using the credentials that were generated when you set up your Azure resources.
 1. At the command prompt, go to the relevant directory. The default location is /var/media. You should see the MP4 files in the directory.
 
-1. Use [Secure Copy (SCP)](../../../virtual-machines/linux/copy-files-to-linux-vm-using-scp.md) to copy the files to your local machine.
+1. Use [Secure Copy (SCP)](../../../virtual-machines/copy-files-to-vm-using-scp.md) to copy the files to your local machine.
 1. Play the files by using [VLC media player](https://www.videolan.org/vlc/) or any other MP4 player.
 
 ## Clean up resources

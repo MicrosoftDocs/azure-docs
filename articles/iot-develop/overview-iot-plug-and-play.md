@@ -23,7 +23,7 @@ IoT Plug and Play enables solution builders to integrate IoT devices with their 
 
 You can group these elements in interfaces to reuse across models to make collaboration easier and to speed up development.
 
-To make IoT Plug and Play work with [Azure Digital Twins](../digital-twins/overview.md), you define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and industry. Both are based on open W3C standards such as JSON-LD and RDF, which enables easier adoption across services and tooling.
+To make IoT Plug and Play work with [Azure Digital Twins](../digital-twins/overview.md), you define models and interfaces using the [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and industry. Both are based on open W3C standards such as JSON-LD and RDF, which enables easier adoption across services and tooling.
 
 There's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md) and other Azure services remain the same.
 

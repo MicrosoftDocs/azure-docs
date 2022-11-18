@@ -4,6 +4,7 @@ description: Quickly access your Application Insights request and exception tele
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
+ms.reviewer: masoucou
 ---
 
 # Application Insights telemetry in Visual Studio CodeLens

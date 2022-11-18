@@ -5,6 +5,8 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.custom: MVC
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Set up disaster recovery of on-premises Hyper-V VMs to Azure
 
@@ -99,7 +101,8 @@ If you're running a Hyper-V core server, download the setup file and follow thes
 3. Register the server by running this command:
 
     ```
-    cd  "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
+    cd "C:\Program Files\Microsoft Azure Site Recovery Provider"
+    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
     ```
 
 ## Set up the target environment

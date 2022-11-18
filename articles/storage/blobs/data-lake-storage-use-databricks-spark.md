@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark | Microsoft Docs'
+title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark'
 description: This tutorial shows how to run Spark queries on an Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
-- Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json)
 
 - Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -50,13 +50,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
 
-1. Go to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ).
+1. Download the [On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/tutorials/On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip) file. This file contains the flight data.
 
-2. Select the **Prezipped File** check box to select all data fields.
-
-3. Select the **Download** button and save the results to your computer.
-
-4. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
+2. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
 
 ## Create an Azure Databricks service
 

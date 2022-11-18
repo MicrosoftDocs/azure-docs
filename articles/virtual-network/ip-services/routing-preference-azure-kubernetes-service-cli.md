@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Configure routing preference for an Azure Kubernetes service - Azure CLI'
+title: 'Tutorial: Configure routing preference for an Azure Kubernetes Service - Azure CLI'
 titlesuffix: Azure virtual network
-description: Use this tutorial to learn how to configure routing preference for an Azure Kubernetes service.
+description: Use this tutorial to learn how to configure routing preference for an Azure Kubernetes Service.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -12,7 +12,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is., devx-
 ms.devlang: azurecli
 ---
 
-# Tutorial: Configure routing preference for an Azure Kubernetes service using the Azure CLI
+# Tutorial: Configure routing preference for an Azure Kubernetes Service using the Azure CLI
 
 This article shows you how to configure routing preference via ISP network (**Internet** option) for a Kubernetes cluster using Azure CLI. Routing preference is set by creating a public IP address of routing preference type **Internet** and then using it while creating the AKS cluster.
 

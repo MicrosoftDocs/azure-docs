@@ -12,11 +12,11 @@ ms.custom: seodec18
 ---
 # Java migration resources for Azure App Service
 
-Azure App Service provides tools to discover web apps deployed to on-premise web servers. You can assess these apps for readiness, then migrate them to App Service. Both the web app content and supported configuration can be migrated to App Service. These tools are developed to support a wide variety of scenarios focused on discovery, assessment, and migration.
+Azure App Service provides tools to discover web apps deployed to on-premises web servers. You can assess these apps for readiness, then migrate them to App Service. Both the web app content and supported configuration can be migrated to App Service. These tools are developed to support a wide variety of scenarios focused on discovery, assessment, and migration.
 
 ## Java Tomcat migration (Linux)
 
-[Download the assistant](https://azure.microsoft.com/services/app-service/migration-assistant/) to migrate a Java app running on Apache Tomcat web server. You can also use Azure Container Registry to migrate on-premise Linux Docker containers to App Service.
+[Download the assistant](https://azure.microsoft.com/services/app-service/migration-assistant/) to migrate a Java app running on Apache Tomcat web server. You can also use Azure Container Registry to migrate on-premises Linux Docker containers to App Service.
 
 | Resources |
 |-----------|

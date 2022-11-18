@@ -88,6 +88,10 @@ The action text provides general guidance on how to resolve the issue. If an act
 
 For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
 
+## Azure CLI troubleshooting
+
+[!INCLUDE [azure-cli-troubleshooting.md](../../includes/azure-cli-troubleshooting.md)]
+
 ## Next steps
 
 If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that may be in question.

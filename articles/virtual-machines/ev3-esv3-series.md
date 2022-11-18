@@ -2,7 +2,7 @@
 title: Ev3-series and Esv3-series 
 description: Specifications for the Ev3 and Esv3-series VMs.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 author: andysports8

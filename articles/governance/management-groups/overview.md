@@ -1,7 +1,7 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 05/12/2022
+ms.date: 05/25/2022
 ms.topic: overview
 author: timwarner-msft
 ms.author: timwarner
@@ -10,7 +10,7 @@ ms.author: timwarner
 
 If your organization has many Azure subscriptions, you may need a way to efficiently manage access,
 policies, and compliance for those subscriptions. _Management groups_ provide a governance scope
-above subscriptions. You organize subscriptions into management groups the governance conditions you apply
+above subscriptions. You organize subscriptions into management groups; the governance conditions you apply
 cascade by inheritance to all associated subscriptions.
 
 Management groups give you
@@ -313,6 +313,9 @@ management group.
 
 When looking to query on management groups outside the Azure portal, the target scope for
 management groups looks like **"/providers/Microsoft.Management/managementGroups/{_management-group-id_}"**.
+
+> [!NOTE]
+> Using the Azure Resource Manager REST API, you can enable diagnostic settings on a management group to send related Azure Activity log entries to a Log Analytics workspace, Azure Storage, or Azure Event Hub. For more information, see [Management Group Diagnostic Settings - Create Or Update](/rest/api/monitor/management-group-diagnostic-settings/create-or-update).
 
 ## Next steps
 

@@ -86,7 +86,7 @@ Load and modify the template so you can create a new Azure Load Testing resource
 
 ### Create tests
 
-Once the resource is created in the target location, you can create new tests by following the steps mentioned [here](./quickstart-create-and-run-load-test.md#create_test).
+Once the resource is created in the target location, you can create new tests by following the steps mentioned [here](how-to-create-and-run-load-test-with-jmeter-script.md#create-a-load-test).
 
 1. You can refer to the test configuration in the config.yaml file of the input artifacts downloaded earlier.
 

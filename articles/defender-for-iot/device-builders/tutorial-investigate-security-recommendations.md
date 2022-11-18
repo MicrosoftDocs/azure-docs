@@ -11,7 +11,7 @@ This tutorial will help you learn how to explore the information available in ea
 
 Timely analysis and mitigation of recommendations by Defender for IoT is the best way to improve security posture and reduce attack surface across your IoT solution.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Investigate new recommendations

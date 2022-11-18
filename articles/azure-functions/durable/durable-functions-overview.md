@@ -3,8 +3,9 @@ title: Durable Functions Overview - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 12/23/2020
+ms.date: 05/24/2022
 ms.author: cgillum
+ms.custom: devdivchpfy22
 ms.reviewer: azfuncdf
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -15,17 +16,15 @@ ms.reviewer: azfuncdf
 
 ## <a name="language-support"></a>Supported languages
 
-Durable Functions currently supports the following languages:
+Durable Functions is designed to work with all Azure Functions programming languages but may have different minimum requirements for each language. The following table shows the minimum supported app configurations:
 
-* **C#**: both [precompiled class libraries](../functions-dotnet-class-library.md) and [C# script](../functions-reference-csharp.md).
-* **JavaScript**: supported only for version 2.x or later of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
-* **Python**: requires version 2.3.1 of the Durable Functions extension, or a later version.
-* **F#**: precompiled class libraries and F# script. F# script is only supported for version 1.x of the Azure Functions runtime.
-* **PowerShell**: Supported only for version 3.x of the Azure Functions runtime and PowerShell 7. Requires version 2.x of the bundle extensions.
-
-To access the latest features and updates, it is recommended you use the latest versions of the Durable Functions extension and the language-specific Durable Functions libraries. Learn more about [Durable Functions versions](durable-functions-versions.md).
-
-Durable Functions has a goal of supporting all [Azure Functions languages](../supported-languages.md). See the [Durable Functions issues list](https://github.com/Azure/azure-functions-durable-extension/issues) for the latest status of work to support additional languages.
+| Language stack | Azure Functions Runtime versions | Language worker version | Minimum bundles version |
+| - | - | - | - |
+| .NET / C# / F# | Functions 1.0+ | In-process (GA) <br/> Out-of-process ([preview](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions)) | n/a |
+| JavaScript/TypeScript | Functions 2.0+ | Node 8+ | 2.x bundles |
+| Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
+| PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
+| Java (preview) | Functions 3.0+ | Java 8+ | 4.x bundles |
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
@@ -42,7 +41,8 @@ The primary use case for Durable Functions is simplifying complex, stateful coor
 
 ### <a name="chaining"></a>Pattern #1: Function chaining
 
-In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function.
+In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function. The use of queues between each function ensures that the system stays durable and scalable, even though there is a flow of control from one function to the next.
+
 
 ![A diagram of the function chaining pattern](./media/durable-functions-concepts/function-chaining.png)
 
@@ -130,6 +130,27 @@ Invoke-DurableActivity -FunctionName 'F4' -Input $Z
 ```
 
 You can use the `Invoke-DurableActivity` command to invoke other functions by name, pass parameters, and return function output. Each time the code calls `Invoke-DurableActivity` without the `NoWait` switch, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `Invoke-DurableActivity` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("Chaining")
+public String helloCitiesOrchestrator(
+        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+        String input = ctx.getInput(String.class);
+        int x = ctx.callActivity("F1", input, int.class).await();
+        int y = ctx.callActivity("F2", x, int.class).await();
+        int z = ctx.callActivity("F3", y, int.class).await();
+        return  ctx.callActivity("F4", z, double.class).await();
+    });
+}
+```
+
+You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these method calls is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time you call `Task<V>.await()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.await()` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+
+> [!NOTE]
+> The orchestrator function logic must implemented as a lambda function and wrapped by a call to `OrchestrationRunner.loadAndRun(...)` as shown in the above example.
 
 ---
 
@@ -248,6 +269,31 @@ The fan-out work is distributed to multiple instances of the `F2` function. Plea
 
 The automatic checkpointing that happens at the `Wait-ActivityFunction` call ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("FanOutFanIn")
+public String fanOutFanInOrchestrator(
+        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+        List<?> batch = ctx.callActivity("F1", List.class).await();
+
+        // Schedule each task to run in parallel
+        List<Task<Integer>> parallelTasks = IntStream.range(0, batch.size())
+                .mapToObj(i -> ctx.callActivity("F2", i, Integer.class))
+                .collect(Collectors.toList());
+
+        // Wait for all tasks to complete, then return the aggregated sum of the results
+        List<Integer> results = ctx.allOf(parallelTasks).await();
+        return results.stream().reduce(0, Integer::sum);
+    });
+}
+```
+
+The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `ctx.allOf(parallelTasks).await()` is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and returned as the orchestrator function's output.
+
+The automatic checkpointing that happens at the `.await()` call on `ctx.allOf(parallelTasks)` ensures that an unexpected process recycle doesn't require restarting any already completed tasks.
+
 ---
 
 > [!NOTE]
@@ -259,7 +305,7 @@ The async HTTP API pattern addresses the problem of coordinating the state of lo
 
 ![A diagram of the HTTP API pattern](./media/durable-functions-concepts/async-http-api.png)
 
-Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-create-first-csharp.md) and [JavaScript](quickstart-js-vscode.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
+Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md), [Python](quickstart-python-vscode.md), [PowerShell](quickstart-powershell-vscode.md), and [Java](quickstart-java.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
 
 The following example shows REST commands that start an orchestrator and query its status. For clarity, some protocol details are omitted from the example.
 
@@ -422,9 +468,40 @@ while ($Context.CurrentUtcDateTime -lt $expiryTime) {
 $output
 ```
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("Monitor")
+public String monitorOrchestrator(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            JobInfo jobInfo = ctx.getInput(JobInfo.class);
+            String jobId = jobInfo.getJobId();
+            Instant expiryTime = jobInfo.getExpirationTime();
+
+            while (ctx.getCurrentInstant().compareTo(expiryTime) < 0) {
+                String status = ctx.callActivity("GetJobStatus", jobId, String.class).await();
+                
+                // Perform an action when a condition is met
+                if (status.equals("Completed")) {
+                    // send an alert and exit
+                    ctx.callActivity("SendAlert", jobId).await();
+                    break;
+                } else {
+                    // wait N minutes before doing the next poll
+                    Duration pollingDelay = jobInfo.getPollingDelay();
+                    ctx.createTimer(pollingDelay).await();
+                }
+            }
+
+            return "done";
+        });
+}
+```
+
 ---
 
-When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until a condition is met and the loop is exited. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end. When `nextCheck` exceeds `expiryTime`, the monitor ends.
+When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until either a condition is met or until a timeout expires. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end.
 
 ### <a name="human"></a>Pattern #5: Human interaction
 
@@ -549,7 +626,36 @@ $output
 ```
 To create the durable timer, call `Start-DurableTimer`. The notification is received by `Start-DurableExternalEventListener`. Then, `Wait-DurableTask` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("ApprovalWorkflow")
+public String approvalWorkflow(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            ApprovalInfo approvalInfo = ctx.getInput(ApprovalInfo.class);
+            ctx.callActivity("RequestApproval", approvalInfo).await();
+
+            Duration timeout = Duration.ofHours(72);
+            try {
+                // Wait for an approval. A TaskCanceledException will be thrown if the timeout expires.
+                boolean approved = ctx.waitForExternalEvent("ApprovalEvent", timeout, boolean.class).await();
+                approvalInfo.setApproved(approved);
+
+                ctx.callActivity("ProcessApproval", approvalInfo).await();
+            } catch (TaskCanceledException timeoutEx) {
+                ctx.callActivity("Escalate", approvalInfo).await();
+            }
+        });
+}
+```
+
+The `ctx.waitForExternalEvent(...).await()` method call pauses the orchestration until it receives an event named `ApprovalEvent`, which has a `boolean` payload. If the event is received, an activity function is called to process the approval result. However, if no such event is received before the `timeout` (72 hours) expires, a `TaskCanceledException` is raised and the `Escalate` activity function is called.
+
 ---
+
+> [!NOTE]
+> There is no charge for time spent waiting for external events when running in the Consumption plan.
 
 An external client can deliver the event notification to a waiting orchestrator function by using the [built-in HTTP APIs](durable-functions-http-api.md#raise-event):
 
@@ -602,7 +708,20 @@ async def main(client: str):
 
 Send-DurableExternalEvent -InstanceId $InstanceId -EventName "ApprovalEvent" -EventData "true"
 
-``````
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("RaiseEventToOrchestration")
+public void raiseEventToOrchestration(
+        @HttpTrigger(name = "instanceId") String instanceId,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+
+    DurableTaskClient client = durableContext.getClient();
+    client.raiseEvent(instanceId, "ApprovalEvent", true);
+}
+```
 
 ---
 
@@ -684,9 +803,6 @@ module.exports = df.entity(function(context) {
 # [Python](#tab/python)
 
 ```python
-import logging
-import json
-
 import azure.functions as func
 import azure.durable_functions as df
 
@@ -712,6 +828,10 @@ main = df.Entity.create(entity_function)
 # [PowerShell](#tab/powershell)
 
 Durable entities are currently not supported in PowerShell.
+
+# [Java](#tab/java)
+
+Durable entities are currently not supported in Java.
 
 ---
 
@@ -767,6 +887,10 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 Durable entities are currently not supported in PowerShell.
 
+# [Java](#tab/java)
+
+Durable entities are currently not supported in Java.
+
 ---
 
 Entity functions are available in [Durable Functions 2.0](durable-functions-versions.md) and above for C#, JavaScript, and Python.
@@ -791,6 +915,7 @@ You can get started with Durable Functions in under 10 minutes by completing one
 * [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
 * [Python using Visual Studio Code](quickstart-python-vscode.md)
 * [PowerShell using Visual Studio Code](quickstart-powershell-vscode.md)
+* [Java using Maven](quickstart-java.md)
 
 In these quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
 
@@ -798,18 +923,18 @@ In these quickstarts, you locally create and test a "hello world" durable functi
 
 Durable Functions is developed in collaboration with Microsoft Research. As a result, the Durable Functions team actively produces research papers and artifacts; these include:
 
-* [Durable Functions: Semantics for Stateful Serverless](https://www.microsoft.com/en-us/research/uploads/prod/2021/10/DF-Semantics-Final.pdf) _(OOPSLA'21)_
-* [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/pdf/2103.00033.pdf) _(pre-print)_
+* [Durable Functions: Semantics for Stateful Serverless](https://www.microsoft.com/research/uploads/prod/2021/10/DF-Semantics-Final.pdf) *(OOPSLA'21)*
+* [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/pdf/2103.00033.pdf) *(pre-print)*
 
 ## Learn more
 
 The following video highlights the benefits of Durable Functions:
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
 
 For a more in-depth discussion of Durable Functions and the underlying technology, see the following video (it's focused on .NET, but the concepts also apply to other supported languages):
 
-> [!VIDEO https://docs.microsoft.com/Events/dotnetConf/2018/S204/player]
+> [!VIDEO https://learn.microsoft.com/Events/dotnetConf/2018/S204/player]
 
 Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 

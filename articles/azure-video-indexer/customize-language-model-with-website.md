@@ -1,7 +1,6 @@
 ---
-title: Customize Language model with Azure Video Indexer (formerly Azure Video Analyzer for Media) website
-description: Learn how to customize a Language model with the Azure Video Indexer (formerly Azure Video Analyzer for Media) website.
-services: azure-video-analyzer
+title: Customize Language model with Azure Video Indexer website
+description: Learn how to customize a Language model with the Azure Video Indexer website.
 author: anikaz
 manager: johndeu
 ms.topic: article
@@ -11,7 +10,7 @@ ms.author: kumud
 
 # Customize a Language model with the Azure Video Indexer website
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized.
+Azure Video Indexer lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized.
 
 For a detailed overview and best practices for custom language models, see [Customize a Language model with Azure Video Indexer](customize-language-model-overview.md).
 

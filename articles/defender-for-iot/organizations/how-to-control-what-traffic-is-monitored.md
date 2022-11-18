@@ -1,7 +1,7 @@
 ---
 title: Control what traffic is monitored
-description: Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and network behavior. Several tools are available to control the type of traffic that each sensor detects. 
-ms.date: 02/03/2022
+description: Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and network behavior. Several tools are available to control the type of traffic that each sensor detects.
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 
@@ -156,13 +156,13 @@ If you're working with dynamic networks, you handle IP address changes that occu
 
 Changes might happen, for example, when a DHCP server assigns IP addresses.
 
-Defining dynamic IP addresses on each sensor enables comprehensive, transparent support in instances of IP address changes. This ensures comprehensive reporting for each unique device.
+Defining dynamic IP addresses on each sensor enables comprehensive, transparent support in instances of IP address changes.  This activity ensures comprehensive reporting for each unique device.
 
 The sensor console presents the most current IP address associated with the device and indicates which devices are dynamic. For example:
 
 - The Data Mining report and Device Inventory report consolidate all activity learned from the device as one entity, regardless of the IP address changes. These reports indicate which addresses were defined as DHCP addresses.
 
-  :::image type="content" source="media/how-to-control-what-traffic-is-monitored/populated-device-inventory-screen-v2.png" alt-text="Screenshot that shows device inventory.":::
+  :::image type="content" source="media/how-to-control-what-traffic-is-monitored/populated-device-inventory-screen-v2.png" alt-text="Screenshot that shows device inventory." lightbox="media/how-to-control-what-traffic-is-monitored/populated-device-inventory-screen-v2.png":::
 
 - The **Device Properties** window indicates if the device was defined as a DHCP device.
 
@@ -183,98 +183,11 @@ The sensor console presents the most current IP address associated with the devi
 
 6. Select **Save**.
 
-## Configure DNS servers for reverse lookup resolution
-
-To enhance device enrichment, you can configure multiple DNS servers to carryout reverse lookups. You can resolve host names or FQDNs associated with the IP addresses detected in network subnets. For example, if a sensor discovers an IP address, it might query multiple DNS servers to resolve the host name.
-
-All CIDR formats are supported.
-
-The host name appears in the device inventory, and device map, and in reports.
-
-You can schedule reverse lookup resolution schedules for specific hourly intervals, such as every 12 hours. Or you can schedule a specific time.
-
-**To define DNS servers:**
-
-1. Select **System settings**> **Network monitoring**, then select **Reverse DNS Lookup**.
-
-2. Select **Add DNS Server**.
-
-3. In the **Schedule Reverse lookup** field, choose either:
-
-    - Intervals (per hour).
-  
-    - A specific time. Use European formatting. For example, use **14:30** and not **2:30 PM**.
-
-4. In the **DNS server address** field, enter the DNS IP address.
-
-5. In the **DNS server port** field, enter the DNS port.
-
-6. Resolve the network IP addresses to device FQDNs. In the **Number of labels** field, add the number of domain labels to display. Up to 30 characters are displayed from left to right.
-
-7. In the **Subnets** field, enter the subnets that you want the DNS server to query.
-
-8. Select the **Enable** toggle if you want to initiate the reverse lookup.
-
-1. Select **Save**.
-
-### Test the DNS configuration 
-
-By using a test device, verify that the settings you defined work properly:
-
-1. Enable the **DNS Lookup** toggle.
-
-2. Select **Test**.
-
-3. Enter an address in **Lookup Address** for the **DNS reverse lookup test for server** dialog box.
-
-4. Select **Test**.
-
-## Configure Windows Endpoint Monitoring
-
-With the Windows Endpoint Monitoring capability, you can configure Microsoft Defender for IoT to selectively probe Windows systems. This provides you with more focused and accurate information about your devices, such as service pack levels.
-
-You can configure probing with specific ranges and hosts, and configure it to be performed only as often as desired. You accomplish selective probing by using the Windows Management Instrumentation (WMI), which is Microsoft's standard scripting language for managing Windows systems.
-
-> [!NOTE]
-> - You can run only one scan at a time.
-> - You get the best results with users who have domain or local administrator privileges.
-> - Before you begin the WMI configuration, configure a firewall rule that opens outgoing traffic from the sensor to the scanned subnet by using UDP port 135 and all TCP ports above 1024.
-
-When the probe is finished, a log file with all the probing attempts is available from the option to export a log. The log contains all the IP addresses that were probed. For each IP address, the log shows success and failure information. There's also an error code, which is a free string derived from the exception. The scan of the last log only is kept in the system.
-
-You can perform scheduled scans or manual scans. When a scan is finished, you can view the results in a CSV file.
-
-**Prerequisites**
-
-Configure a firewall rule that opens outgoing traffic from the sensor to the scanned subnet by using UDP port 135 and all TCP ports above 1024.
-
-**To configure an automatic scan:**
-
-1. Select **System settings**> **Network monitoring**, then select **Windows Endpoint Monitoring (WMI)**.
-
-1. In the **Edit scan ranges configuration** section, enter the ranges you want to scan and add your username and password.
-
-3. Define how you want to run the scan:
-
-      - **By fixed intervals (in hours)**: Set the scan schedule according to intervals in hours.
-
-      - **By specific times**: Set the scan schedule according to specific times and select **Save Scan**.
-
-8. Select **Save**. The dialog box closes.
-
-**To perform a manual scan:**
-
-1. Define the scan ranges.
-
-3. Select **Save** and **Apply changes** and then select **Manually scan**.
-
-**To view scan results:**
-
-1. When the scan is finished, select **View Scan Results**. A .csv file with the scan results is downloaded to your computer.
 
 ## Next steps
 
 For more information, see:
 
+- [Configure active monitoring for OT networks](configure-active-monitoring.md)
 - [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 - [Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)

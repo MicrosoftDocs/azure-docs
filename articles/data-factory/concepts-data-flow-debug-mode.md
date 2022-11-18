@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/01/2021
+ms.date: 07/12/2022
 ---
 
 # Mapping data flow Debug Mode
@@ -64,9 +64,11 @@ The default IR used for debug mode in data flows is a small 4-core single worker
 
 ## Data preview
 
-With debug on, the Data Preview tab will light-up on the bottom panel. Without debug mode on, Data Flow will show you only the current metadata in and out of each of your transformations in the Inspect tab. The data preview will only query the number of rows that you have set as your limit in your debug settings. Click **Refresh** to fetch the data preview.
+With debug on, the Data Preview tab will light-up on the bottom panel. Without debug mode on, Data Flow will show you only the current metadata in and out of each of your transformations in the Inspect tab. The data preview will only query the number of rows that you have set as your limit in your debug settings. Click **Refresh** to update the data preview based on your current transformations. If your source data has changed, then click the Refresh > Refetch from source.
 
 :::image type="content" source="media/data-flow/datapreview.png" alt-text="Data preview":::
+
+You can sort columns in data preview and rearrange columns using drag and drop. Additionally, there is an export button on the top of the data preview panel that you can use to export the preview data to a CSV file for offline data exploration. You can use this feature to export up to 1,000 rows of preview data.
 
 > [!NOTE]
 > File sources only limit the rows that you see, not the rows being read. For very large datasets, it is recommended that you take a small portion of that file and use it for your testing. You can select a temporary file in Debug Settings for each source that is a file dataset type.

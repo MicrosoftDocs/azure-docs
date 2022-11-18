@@ -150,11 +150,11 @@ On the Review request tab, the following status messages might be displayed.
 
 You can request billing ownership of the following subscription types.
 
-* [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)<sup>1</sup>
+* [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)¹
 * [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
-* Azure Plan<sup>1</sup> [(Microsoft Customer Agreement in Enterprise Motion)](https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement)
+* Azure Plan¹ [(Microsoft Customer Agreement in Enterprise Motion)](https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement)
 
-<sup>1</sup> You must convert an EA Dev/Test subscription to an EA Enterprise offer using a support ticket and respectively, an Azure Plan Dev/Test offer to Azure plan. A Dev/Test subscription will be billed at a pay-as-you-go rate after conversion. There's no discount currently available through the Dev/Test offer to CSP partners.
+¹ You must convert an EA Dev/Test subscription to an EA Enterprise offer using a support ticket and respectively, an Azure Plan Dev/Test offer to Azure plan. A Dev/Test subscription will be billed at a pay-as-you-go rate after conversion. There's no discount currently available through the Dev/Test offer to CSP partners.
 
 ## Additional information
 
@@ -194,7 +194,9 @@ Azure support doesn't transfer with the subscriptions. If the user transfers all
 
 ### Charges for transferred subscription
 
-The original billing owner of the subscriptions is responsible for any charges that were reported up to the point that the transfer is completed. You're  responsible for charges reported from the time of transfer onwards. There may be some charges that took place before transfer but was reported afterwards. These charges show up on your invoice.
+Any charges after the time of transfer appear on the new account's invoice. Charges before the time of transfer appear on the previous account's invoice.
+
+The original billing owner of the subscriptions is responsible for any charges that were reported up to the time that the transfer completes. Your invoice section is responsible for charges reported from the time of transfer onwards. There may be some charges that happened before the transfer but were reported afterward. The charges appear on your invoice section.
 
 ### Cancel a transfer request
 

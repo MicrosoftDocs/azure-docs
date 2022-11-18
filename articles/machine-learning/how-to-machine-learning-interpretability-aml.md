@@ -10,10 +10,12 @@ author: minthigpen
 ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, responsible-ml, mktng-kw-nov2021
+ms.custom: devx-track-python, responsible-ml, mktng-kw-nov2021, sdkv1, event-tier1-build-2022
 ---
 
 # Use the Python interpretability package to explain ML models & predictions (preview)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this how-to guide, you learn to use the interpretability package of the Azure Machine Learning Python SDK to perform the following tasks:
 
@@ -363,7 +365,8 @@ Follow one of these paths to access the explanations dashboard in Azure Machine 
    [![Visualization Dashboard with Aggregate Feature Importance in AzureML studio in experiments](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png)](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png#lightbox)
 
 * **Models** pane
-  1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-and-where.md), you can select **Models** in the left pane to view it.
+
+  1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-managed-online-endpoints.md), you can select **Models** in the left pane to view it.
   1. Select a model, and then the **Explanations** tab to view the explanations dashboard.
 
 ## Interpretability at inference time
@@ -428,7 +431,7 @@ You can deploy the explainer along with the original model and use it at inferen
 
 1. Deploy the image to a compute target, by following these steps:
 
-   1. If needed, register your original prediction model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-and-where.md).
+   1. If needed, register your original prediction model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-managed-online-endpoints.md).
 
    1. Create a scoring file.
 

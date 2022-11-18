@@ -3,7 +3,7 @@ title: 'Tutorial: Configure Facebook Work Accounts for automatic user provisioni
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Facebook Work Accounts.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
+author: CelesteDG
 writer: Zhchia
 manager: beatrizd
 
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/27/2021
-ms.author: Zhchia
+ms.author: celested
 ---
 
 # Tutorial: Configure Facebook Work Accounts for automatic user provisioning
@@ -27,7 +27,7 @@ This tutorial describes the steps you need to perform in both Facebook Work Acco
 > * Create users in Facebook Work Accounts
 > * Remove users in Facebook Work Accounts when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and Facebook Work Accounts
-> * [Single sign-on](facebook-work-accounts-tutorial.md) to Facebook Work Accounts (recommended)
+> * Single sign-on to Facebook Work Accounts (recommended)
 
 ## Prerequisites
 

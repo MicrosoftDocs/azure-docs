@@ -6,19 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/18/2022
 ms.author: govindk
-ms.reviewer: wiassaf
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ---
 
 # Restore an Azure Cosmos DB account that uses continuous backup mode
-[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
 Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
 
 This article describes how to identify the restore time and restore a live or deleted Azure Cosmos DB account. It shows restore the account using [Azure portal](#restore-account-portal), [PowerShell](#restore-account-powershell), [CLI](#restore-account-cli), or an [Azure Resource Manager template](#restore-arm-template).
 
 > [!NOTE]
-> Currently in preview, the restore action for Table API and Gremlin API is supported via PowerShell and the Azure CLI.
+> Currently in preview, the restore action for API for Table and Gremlin is supported via PowerShell and the Azure CLI.
 
 ## <a id="restore-account-portal"></a>Restore an account using Azure portal
 
@@ -120,7 +120,7 @@ Before restoring the account, install the [latest version of Azure PowerShell](/
    ```azurepowershell
    Select-AzSubscription -Subscription <SubscriptionName>
 
-### <a id="trigger-restore-ps"></a>Trigger a restore operation for SQL API account
+### <a id="trigger-restore-ps"></a>Trigger a restore operation for API for NoSQL account
 
 The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, and timestamp:
 
@@ -163,7 +163,7 @@ Restore-AzCosmosDBAccount `
   -Location "West US"
 
 ```
-**Example 3:** Restoring Gremlin API Account. This example restores the graphs *graph1*, *graph2* from *MyDB1* and the entire database *MyDB2*, which, includes all the containers under it.
+**Example 3:** Restoring API for Gremlin Account. This example restores the graphs *graph1*, *graph2* from *MyDB1* and the entire database *MyDB2*, which, includes all the containers under it.
 
 ```azurepowershell
 $datatabaseToRestore1 = New-AzCosmosDBGremlinDatabaseToRestore  -DatabaseName "MyDB1" -GraphName "graph1", "graph2"  
@@ -179,7 +179,7 @@ Restore-AzCosmosDBAccount `
 
 ```
 
-**Example 4:** Restoring Table API Account. This example restores the tables *table1*, *table1* from *MyDB1* 
+**Example 4:** Restoring API for Table Account. This example restores the tables *table1*, *table1* from *MyDB1* 
 
 ```azurepowershell
 $tablesToRestore  = New-AzCosmosDBTableToRestore -TableName "table1", "table2"  
@@ -201,7 +201,7 @@ Import the `Az.CosmosDB` module and run the following command to get the restore
 Get-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount 
 ```
 
-### <a id="enumerate-sql-api"></a>Enumerate restorable resources for SQL API
+### <a id="enumerate-sql-api"></a>Enumerate restorable resources for API for NoSQL
 
 The enumeration cmdlets help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources.
 
@@ -285,7 +285,7 @@ Get-AzCosmosdbSqlRestorableResource `
 
 ### <a id="enumerate-mongodb-api"></a>Enumerate restorable resources in API for MongoDB
 
-The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. These commands only work for live accounts and they are similar to SQL API commands but with `MongoDB` in the command name instead of `sql`.
+The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. These commands only work for live accounts and they are similar to API for NoSQL commands but with `MongoDB` in the command name instead of `sql`.
 
 #### List all the versions of MongoDB databases in a live database account
 
@@ -317,7 +317,7 @@ Get-AzCosmosdbMongoDBRestorableResource `
   -RestoreLocation "West US" `
   -RestoreTimestamp "2020-07-20T16:09:53+0000"
 ```
-### <a id="enumerate-gremlin-api-ps"></a>Enumerate restorable resources for Gremlin API
+### <a id="enumerate-gremlin-api-ps"></a>Enumerate restorable resources for API for Gremlin
 
 The enumeration cmdlets help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and graph resources. 
 
@@ -334,7 +334,7 @@ Get-AzCosmosdbGremlinRestorableDatabase `
 
 #### List all the versions of Gremlin graphs of a database in a live database account 
 
-Use the following command to list all the versions of Gremlin API graphs. This command only works with live accounts. The `DatabaseRId` parameter is the `ResourceId` of the database you want to restore. It is the value of `ownerResourceid` attribute found in the response of `Get-AzCosmosdbGremlinRestorableDatabase` cmdlet. The response also includes a list of operations performed on all the graphs inside this database. 
+Use the following command to list all the versions of API for Gremlin graphs. This command only works with live accounts. The `DatabaseRId` parameter is the `ResourceId` of the database you want to restore. It is the value of `ownerResourceid` attribute found in the response of `Get-AzCosmosdbGremlinRestorableDatabase` cmdlet. The response also includes a list of operations performed on all the graphs inside this database. 
 
 ```azurepowershell
 Get-AzCosmosdbGremlinRestorableGraph ` 
@@ -355,7 +355,7 @@ Get-AzCosmosdbGremlinRestorableResource `
    -RestoreTimestamp "2020-07-20T16:09:53+0000" 
 ```
 
-### <a id="enumerate-table-api-ps"></a>Enumerate restorable resources for Table API
+### <a id="enumerate-table-api-ps"></a>Enumerate restorable resources for API for Table
 
 The enumeration cmdlets help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account and table resources.
 
@@ -427,7 +427,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
     --databases-to-restore name=MyDB2 collections=Collection3 Collection4
 
    ```
-#### Create a new Azure Cosmos DB Gremlin API account by restoring only selected databases and graphs from an existing Gremlin API account
+#### Create a new Azure Cosmos DB API for Gremlin account by restoring only selected databases and graphs from an existing API for Gremlin account
 
    ```azurecli-interactive
 
@@ -441,7 +441,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
     --gremlin-databases-to-restore name=MyDB2 graphs =graph3 graph4 
    ```
 
- #### Create a new Azure Cosmos DB Table API account by restoring only selected tables from an existing Table API account
+ #### Create a new Azure Cosmos DB API for Table account by restoring only selected tables from an existing API for Table account
 
    ```azurecli-interactive
 
@@ -462,7 +462,7 @@ Run the following command to get the restore details. The `az cosmosdb show` com
 az cosmosdb show --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup
 ```
 
-### <a id="enumerate-sql-api-cli"></a>Enumerate restorable resources for SQL API
+### <a id="enumerate-sql-api-cli"></a>Enumerate restorable resources for API for NoSQL
 
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources.
 
@@ -617,7 +617,7 @@ az cosmosdb sql restorable-resource list \
 ]
 ```
 
-### <a id="enumerate-mongodb-api-cli"></a>Enumerate restorable resources for MongoDB API account
+### <a id="enumerate-mongodb-api-cli"></a>Enumerate restorable resources for API for MongoDB account
 
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. These commands only work for live accounts.
 
@@ -726,9 +726,9 @@ az cosmosdb gremlin restorable-resource list \
 ] 
 ```
 
-### <a id="enumerate-table-api-cli"></a>Enumerate restorable resources for Table API account
+### <a id="enumerate-table-api-cli"></a>Enumerate restorable resources for API for Table account
 
-The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account and Table API resources. These commands only work for live accounts.
+The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account and API for Table resources. These commands only work for live accounts.
 
 #### List all the versions of tables in a live database account
 
@@ -764,7 +764,7 @@ az cosmosdb table restorable-table list \
 ] 
 ```
 
-### List all the resources of a Table API account that are available to restore at a given timestamp and region 
+### List all the resources of a API for Table account that are available to restore at a given timestamp and region 
 
 ```azurecli-interactive
 az cosmosdb table restorable-resource list \ 
@@ -787,13 +787,13 @@ az cosmosdb table restorable-resource list \
 
 You can also restore an account using Azure Resource Manager (ARM) template. When defining the template, include the following parameters:
 
-### Restore SQL API or MongoDB API account using ARM template
+### Restore API for NoSQL or MongoDB account using ARM template
 
 1. Set the `createMode` parameter to *Restore*.
 1. Define the `restoreParameters`, notice that the `restoreSource` value is extracted from the output of the `az cosmosdb restorable-database-account list` command for your source account. The Instance ID attribute for your account name is used to do the restore.
 1. Set the `restoreMode` parameter to *PointInTime* and configure the `restoreTimestampInUtc` value.
 
-Use the following ARM template to restore an account for the Azure Cosmos DB SQL API or MongoDB API. Examples for other APIs are provided next.
+Use the following ARM template to restore an account for the Azure Cosmos DB API for NoSQL or MongoDB. Examples for other APIs are provided next.
 
 ```json
 {
@@ -824,7 +824,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB SQL
 }
 ```
 
-### Restore Gremlin API account using ARM template
+### Restore API for Gremlin account using ARM template
 
 ```json
 {
@@ -864,7 +864,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB SQL
 }
 ```
 
-### Restore Table API account using ARM template
+### Restore API for Table account using ARM template
 
 ```json
 {
@@ -904,7 +904,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB SQL
 Next, deploy the template by using Azure PowerShell or Azure CLI. The following example shows how to deploy the template with an Azure CLI command:  
 
 ```azurecli-interactive
-az group deployment create -g <ResourceGroup> --template-file <RestoreTemplateFilePath> 
+az deployment group create -g <ResourceGroup> --template-file <RestoreTemplateFilePath> 
 ```
 
 ## Next steps

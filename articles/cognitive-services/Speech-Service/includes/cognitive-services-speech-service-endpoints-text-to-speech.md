@@ -16,8 +16,6 @@ Use this table to determine *availability of neural voices* by region or endpoin
 | Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| China East 2 | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/v1` |
-| China North 2 | `https://chinanorth2.tts.speech.azure.cn/cognitiveservices/v1` |
 | East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
 | East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` |
@@ -47,46 +45,46 @@ Use this table to determine *availability of neural voices* by region or endpoin
 | West US 3 | `https://westus3.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
-> [Voices in preview](../language-support.md#prebuilt-neural-voices-in-preview) are available in only these three regions: East US, West Europe, and Southeast Asia.
+> [Voices in preview](../language-support.md?tabs=stt-tts) are available in only these three regions: East US, West Europe, and Southeast Asia.
 
 ### Custom neural voices
 
 If you've created a custom neural voice font, use the endpoint that you've created. You can also use the following endpoints. Replace `{deploymentId}` with the deployment ID for your neural voice model.
 
-| Region | Endpoint |
-|--------|----------|
-| Australia East | `https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Brazil South | `https://brazilsouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Canada Central | `https://canadacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Central US | `https://centralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| East Asia | `https://eastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| East US | `https://eastus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| East US 2 | `https://eastus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| France Central | `https://francecentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Germany West Central | `https://germanywestcentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| India Central | `https://centralindia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Japan East | `https://japaneast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Japan West | `https://japanwest.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Jio India West | `https://jioindiawest.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Korea Central | `https://koreacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| North Central US | `https://northcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| North Europe | `https://northeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Norway East| `https://norwayeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| South Africa North | `https://southafricanorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| South Central US | `https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Southeast Asia | `https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Switzerland North | `https://switzerlandnorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Switzerland West | `https://switzerlandwest.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| UAE North | `https://uaenorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}`|
-| UK South | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| West Central US | `https://westcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| West Europe | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| West US | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| West US 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| West US 3 | `https://westus3.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Region | Training |Deployment |Endpoint |
+|--------|----------|----------|----------|
+| Australia East |Yes|Yes| `https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Brazil South | No |Yes| `https://brazilsouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Canada Central | No |Yes|`https://canadacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Central US | No |Yes| `https://centralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| East Asia | No |Yes| `https://eastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| East US |Yes| Yes | `https://eastus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| East US 2 |Yes| Yes |`https://eastus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| France Central | No |Yes| `https://francecentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Germany West Central | No |Yes| `https://germanywestcentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| India Central |Yes| Yes | `https://centralindia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Japan East |Yes| Yes | `https://japaneast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Japan West | No |Yes| `https://japanwest.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Jio India West | No |Yes| `https://jioindiawest.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Korea Central |Yes|Yes| `https://koreacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| North Central US | No |Yes| `https://northcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| North Europe |Yes|Yes| `https://northeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Norway East| No |Yes| `https://norwayeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| South Africa North | No |Yes| `https://southafricanorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| South Central US |Yes|Yes| `https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Southeast Asia |Yes|Yes| `https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Switzerland North | No |Yes| `https://switzerlandnorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Switzerland West | No |Yes| `https://switzerlandwest.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| UAE North | No |Yes| `https://uaenorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}`|
+| UK South |Yes| Yes | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| West Central US | No |Yes| `https://westcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| West Europe |Yes|Yes| `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| West US |Yes|Yes| `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| West US 2 |Yes|Yes| `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| West US 3 | No |Yes| `https://westus3.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 
 > [!NOTE]
-> The preceding regions are available for neural voice model hosting and real-time synthesis. Custom neural voice training is available in only these three regions: East US, Southeast Asia, and UK South. But users can easily copy a neural voice model from the three regions to other regions in the preceding list.
+> The preceding regions are available for neural voice model hosting and real-time synthesis. Custom neural voice training is only available in some regions. But users can easily copy a neural voice model from these regions to other regions in the preceding list.
 
 ### Long Audio API
 

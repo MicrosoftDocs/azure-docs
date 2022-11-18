@@ -2,15 +2,15 @@
 title: Azure Active Directory authentication and synchronization protocol overview
 description: Architectural guidance on integrating Azure AD with legacy authentication protocols and sync patterns
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 10/10/2020
-ms.author: baselden
+ms.date: 8/19/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management

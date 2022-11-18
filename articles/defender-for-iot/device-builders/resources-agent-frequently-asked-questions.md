@@ -11,7 +11,7 @@ This article provides a list of frequently asked questions and answers about the
 
 ## Do I have to install an embedded security agent?
 
-Agent installation on your IoT devices isn't mandatory in order to enable Defender for IoT. You can choose between the following two options There are four different levels of security monitoring, and management capabilities which will provide different levels of protection:
+Agent installation on your IoT devices isn't mandatory in order to enable Defender for IoT. You can choose between the following two options There are four different levels of security monitoring, and management capabilities, which will provide different levels of protection:
 
 - Install the Defender for IoT embedded security agent with or without modifications. This option provides the highest level of enhanced security insights into device behavior and access.
 

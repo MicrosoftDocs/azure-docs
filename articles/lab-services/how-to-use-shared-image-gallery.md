@@ -62,7 +62,7 @@ An educator can pick a custom image available in the compute gallery for the tem
 >[!IMPORTANT]
 >Azure Compute Gallery images will not show if they have been disabled or if the region of the lab plan is different than the gallery images.
 
-For more information about replicating images, see  [replication in Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries.md). For more information about disabling gallery images for a lab plan, see [enable and disable images](how-to-attach-detach-shared-image-gallery.md#enable-and-disable-images).
+For more information about replicating images, see  [replication in Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). For more information about disabling gallery images for a lab plan, see [enable and disable images](how-to-attach-detach-shared-image-gallery.md#enable-and-disable-images).
 
 ### Re-save a custom image to compute gallery
 

@@ -84,8 +84,8 @@ This table shows which incidents this integration is intended for:
 
 | Incident type | Description |
 |--|--|
-|**Unauthorized PLC changes** | An update to the ladder logic, or firmware of a device. This can represent legitimate activity, or an attempt to compromise the device. For example, malicious code, such as a Remote Access Trojan (RAT), or parameters that cause the physical process, such as a spinning turbine, to operate in an unsafe manner. |
-|**Protocol Violation** | A packet structure, or field value that violates the protocol specification. This can represent a misconfigured application, or a malicious attempt to compromise the device. For example, causing a buffer overflow condition in the target device. |
+|**Unauthorized PLC changes** | An update to the ladder logic, or firmware of a device.  This alert can represent legitimate activity, or an attempt to compromise the device. For example, malicious code, such as a Remote Access Trojan (RAT), or parameters that cause the physical process, such as a spinning turbine, to operate in an unsafe manner. |
+|**Protocol Violation** | A packet structure, or field value that violates the protocol specification. This alert can represent a misconfigured application, or a malicious attempt to compromise the device. For example, causing a buffer overflow condition in the target device. |
 |**PLC Stop** | A command that causes the device to stop functioning, thereby risking the physical process that is being controlled by the PLC. |
 |**Industrial malware found in the ICS network** | Malware that manipulates ICS devices using their native protocols, such as TRITON and Industroyer. Defender for IoT also detects IT malware that has moved laterally into the ICS, and SCADA environment. For example, Conficker, WannaCry, and NotPetya. |
 |**Scanning malware** | Reconnaissance tools that collect data about system configuration in a pre-attack phase. For example, the Havex Trojan scans industrial networks for devices using OPC, which is a standard protocol used by Windows-based SCADA systems to communicate with ICS devices. |
@@ -190,7 +190,5 @@ There are no resources to clean up.
 
 ## Next step
 
-In this tutorial, you learned how to get started with the Palo Alto integration.
+In this article, you learned how to get started with the [Palo Alto integration](./tutorial-splunk.md).
 
-> [!div class="nextstepaction"]
-> [Next steps button](tutorial-splunk.md)

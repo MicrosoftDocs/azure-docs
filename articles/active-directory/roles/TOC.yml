@@ -58,7 +58,7 @@
       href: groups-pim-eligible.md
     - name: Assign roles with scope using PowerShell
       href: custom-assign-powershell.md
-    - name: Assign roles using Graph API
+    - name: Assign roles using Microsoft Graph
       href: custom-assign-graph.md
   - name: Remove role assignments
     items: 
@@ -118,6 +118,8 @@
       href: custom-consent-permissions.md
     - name: Device management permissions
       href: custom-device-permissions.md
+    - name: User management permissions
+      href: custom-user-permissions.md
     - name: Group management permissions
       href: custom-group-permissions.md
   - name: Azure AD service limits

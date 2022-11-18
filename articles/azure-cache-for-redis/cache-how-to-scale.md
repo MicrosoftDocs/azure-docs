@@ -27,8 +27,8 @@ You can monitor the following metrics to help determine if you need to scale.
 - Memory Usage
   - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory.
 - Client connections
-  - Each cache size has a limit to the number of client connections it can support. If your client connections are close to the limit for the cache size, consider scaling up to a larger tier, or scaling out to enable clustering and increase shard count. Your choice depends on the Redis server load and memory usage.
-  - For more information on connection limits by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
+  - Each cache size has a limit to the number of client connections it can support. If your client connections are close to the limit for the cache size, consider scaling up to a larger tier. Scaling out using clustering does not increase the number of supported client connections.
+  - For more information on connection limits by cache size, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 - Network Bandwidth
   - If the Redis server exceeds the available bandwidth, clients requests could time out because the server can't push data to the client fast enough. Check "Cache Read" and "Cache Write" metrics to see how much server-side bandwidth is being used. If your Redis server is exceeding available network bandwidth, you should consider scaling up to a larger cache size with higher network bandwidth.
   - For more information on network available bandwidth by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).

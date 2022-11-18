@@ -2,9 +2,11 @@
 title: Zone-redundant registry for high availability
 description: Learn about enabling zone redundancy in Azure Container Registry. Create a container registry or replication in an Azure availability zone. Zone redundancy is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 09/13/2021
-ms.custom: references_regions, devx-track-azurecli
+author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.date: 10/11/2022
+ms.custom: references_regions, devx-track-azurecli
+
 ---
 
 # Enable zone redundancy in Azure Container Registry for resiliency and high availability
@@ -225,7 +227,7 @@ Copy the following contents to a new file and save it using a filename such as `
   }
 ```
 
-Run the following [az deployment group create](/cli/azure/group/deployment#az-group-deployment-create) command to create the registry using the preceding template file. Where indicated, provide:
+Run the following [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to create the registry using the preceding template file. Where indicated, provide:
 
 * a unique registry name, or deploy the template without parameters and it will create a unique name for you
 * a location for the replica that supports availability zones, such as *westus2*

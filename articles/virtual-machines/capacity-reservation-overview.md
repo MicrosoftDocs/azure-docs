@@ -12,6 +12,8 @@ ms.custom: template-how-to
 
 # On-demand Capacity Reservation 
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
+
 On-demand Capacity Reservation enables you to reserve Compute capacity in an Azure region or an Availability Zone for any duration of time. Unlike [Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/), you do not have to sign up for a 1-year or a 3-year term commitment. Create and delete reservations at any time and have full control over how you want to manage your reservations.  
 
 Once the Capacity Reservation is created, the capacity is available immediately and is exclusively reserved for your use until the reservation is deleted.  
@@ -59,9 +61,10 @@ From this example accumulation of Minutes Not Available, here is the calculation
     - D series, v2 and newer; AMD and Intel 
     - E series, all versions; AMD and Intel 
     - F series, all versions 
+    - Lsv3 (Intel) and Lasv3 (AMD)
     - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation. 
 - Support for additional VM Series isn't currently available: 
-    - L series  
+    - Ls and Lsv2 series  
     - M series, any version 
     - NC-series, v3 and newer 
     - NV-series, v2 and newer 
@@ -89,7 +92,7 @@ From this example accumulation of Minutes Not Available, here is the calculation
 
 ## Pricing and billing 
 
-Capacity Reservations are priced at the same rate as the underlying VM size. For example, if you create a reservation for quantity 10 for D2s_v3 VM then you will start getting billed for ten D2s_v3 VMs, even if the reservation is not being used.  
+Capacity Reservations are priced at the same rate as the underlying VM size. For example, if you create a reservation for ten D2s_v3 VMs then you will start getting billed for ten D2s_v3 VMs, even if the reservation is not being used.  
 
 If you then deploy a D2s_v3 VM and specify reservation property, the Capacity Reservation gets used. Once in use, you will only pay for the VM and nothing extra for the Capacity Reservation. Let’s say you deploy six D2s_v3 VMs against the previously mentioned Capacity Reservation. You will see a bill for six D2s_v3 VMs and four unused Capacity Reservation, both charged at the same rate as a D2s_v3 VM.  
 
@@ -140,13 +143,13 @@ Track the state of the overall reservation through the following properties:
 - `virtualMachinesAllocated` = List of VMs allocated against the Capacity Reservation and count towards consuming the capacity. These VMs are either *Running*, *Stopped* (*Allocated*), or in a transitional state such as *Starting* or *Stopping*. This list doesn’t include the VMs that are in deallocated state, referred to as *Stopped* (*deallocated*). 
 - `virtualMachinesAssociated` = List of VMs associated with the Capacity Reservation. This list has all the VMs that have been configured to use the reservation, including the ones that are in deallocated state.  
 
-The previous example will start with `capacity` as 2 and length of `virutalMachinesAllocated` and `virtualMachinesAssociated` as 0.  
+The previous example will start with `capacity` as 2 and length of `virtualMachinesAllocated` and `virtualMachinesAssociated` as 0.  
 
 When a VM is then allocated against the Capacity Reservation, it will logically consume one of the reserved capacity instances: 
 
 ![Capacity Reservation image 2.](./media/capacity-reservation-overview/capacity-reservation-2.jpg) 
 
-The status of the Capacity Reservation will now show `capacity` as 2 and length of `virutalMachinesAllocated` and `virtualMachinesAssociated` as 1.  
+The status of the Capacity Reservation will now show `capacity` as 2 and length of `virtualMachinesAllocated` and `virtualMachinesAssociated` as 1.  
 
 Allocations against the Capacity Reservation will succeed as along as the VMs have matching properties and there is at least one empty capacity instance.  
 
@@ -154,7 +157,7 @@ Using our example, when a third VM is allocated against the Capacity Reservation
 
 ![Capacity Reservation image 3.](./media/capacity-reservation-overview/capacity-reservation-3.jpg) 
 
-The `capacity` is 2 and the length of `virutalMachinesAllocated` and `virtualMachinesAssociated` is 3. 
+The `capacity` is 2 and the length of `virtualMachinesAllocated` and `virtualMachinesAssociated` is 3. 
 
 Now suppose the application scales down to the minimum of two VMs. Since VM 0 needs an update, it is chosen for deallocation. The reservation automatically shifts to this state: 
 
@@ -215,7 +218,12 @@ In the previous image, the VM Reserved Instance discount is applied to VM 0, whi
 
 ## Next steps
 
-Create a Capacity Reservation and start reserving Compute capacity in an Azure region or an Availability Zone. 
-
-> [!div class="nextstepaction"]
-> [Create a Capacity Reservation](capacity-reservation-create.md)
+Get started reserving Compute capacity. Check out our other related Capacity Reservation articles: 
+- [Create a capacity reservation](capacity-reservation-create.md)
+- [Overallocating capacity reservation](capacity-reservation-overallocate.md)
+- [Modify a capacity reservation](capacity-reservation-modify.md)
+- [Associate a VM](capacity-reservation-associate-vm.md)
+- [Remove a VM](capacity-reservation-remove-vm.md)
+- [Associate a VM scale set - Flexible](capacity-reservation-associate-virtual-machine-scale-set-flex.md)
+- [Associate a VM scale set - Uniform](capacity-reservation-associate-virtual-machine-scale-set.md)
+- [Remove a VM scale set](capacity-reservation-remove-virtual-machine-scale-set.md)

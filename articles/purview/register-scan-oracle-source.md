@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 11/01/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -16,9 +16,9 @@ This article outlines how to register Oracle, and how to authenticate and intera
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes*](#lineage)|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No| [Yes*](#lineage)| No |
 
 \* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
@@ -59,18 +59,14 @@ Currently, the Oracle service name isn't captured in the metadata or hierarchy.
 
     * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-    * Download the [Oracle JDBC driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) on the machine where your self-hosted integration runtime is running. Note down the folder path which you will use to set up the scan.
+    * Download the [Oracle JDBC driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) on the machine where your self-hosted integration runtime is running. Note down the folder path that you'll use to set up the scan.
 
         > [!Note]
         > The driver should be accessible by the self-hosted integration runtime. By default, self-hosted integration runtime uses [local service account "NT SERVICE\DIAHostService"](manage-integration-runtimes.md#service-account-for-self-hosted-integration-runtime). Make sure it has "Read and execute" and "List folder contents" permission to the driver folder.
 
-## Register
+### Required permissions for scan
 
-This section describes how to register Oracle in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
-
-### Prerequisites for registration
-
-A read-only access to system tables is required.
+Microsoft Purview supports basic authentication (username and password) for scanning Oracle. The Oracle user must have read access to system tables in order to access advanced metadata. For classification, user also needs to have read permission on the tables/views to retrieve sample data.
 
 The user should have permission to create a session and role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
 
@@ -102,9 +98,9 @@ grant select on V_$INSTANCE to [user];
 grant select on v_$database to [user];
 ```
 
-### Authentication for registration
+## Register
 
-The only supported authentication for an Oracle source is **Basic authentication**.
+This section describes how to register Oracle in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Steps to register
 
@@ -137,7 +133,12 @@ On the **Register sources (Oracle)** screen, do the following:
 
 ## Scan
 
-Follow the steps below to scan Oracle to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
+Follow the steps below to scan Oracle to automatically identify assets. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
+
+> [!TIP]
+> To troubleshoot any issues with scanning:
+> 1. Confirm you have followed all [**prerequisites**](#prerequisites).
+> 1. Review our [**scan troubleshooting documentation**](troubleshoot-connections.md).
 
 ### Create and run scan
 
@@ -173,7 +174,7 @@ To create and run a new scan, do the following:
 
         Usage of NOT and special characters aren't acceptable.
 
-    1. **Driver location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running, e.g. `D:\Drivers\Oracle`. It's the path to valid JAR folder location. Make sure the driver is accessible by the self-hosted integration runtime, learn more from [prerequisites section](#prerequisites).
+    1. **Driver location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running, for example, `D:\Drivers\Oracle`. It's the path to valid JAR folder location. Make sure the driver is accessible by the self-hosted integration runtime, learn more from [prerequisites section](#prerequisites).
 
     1. **Stored procedure details**: Controls the number of details imported from stored procedures:
 
@@ -195,6 +196,8 @@ To create and run a new scan, do the following:
     > Use the "Test connection" button in the scan setup UI to test the connection. The "Test Connection" in self-hosted integration runtime configuration manager UI -> Diagnostics tab does not fully validate the connectivity.
 
 1. Select **Continue**.
+
+1. Select a **scan rule set** for classification. You can choose between the system default, existing custom rule sets, or [create a new rule set](create-a-scan-rule-set.md) inline.
 
 1. Choose your **scan trigger**. You can set up a schedule or ran the scan once.
 

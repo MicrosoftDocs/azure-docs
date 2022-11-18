@@ -1,9 +1,12 @@
 ---
 title: Set up Azure Service Fabric Linux cluster on WSL2 linux distribution inside Windows 
 description: This article covers how to set up Service Fabric Linux clusters inside WSL2 linux distribution running on Windows development machines. This approach is useful for cross-platform development.
-
-ms.topic: conceptual
-ms.date: 10/31/2021
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 
 # Maintainer notes: Keep these documents in sync:
 # service-fabric-get-started-linux.md
@@ -11,6 +14,7 @@ ms.date: 10/31/2021
 # service-fabric-local-linux-cluster-windows.md
 # service-fabric-local-linux-cluster-windows-wsl2.md
 ---
+
 # Set up a Linux Service Fabric cluster via WSL2 on your Windows developer machine
 
 This document covers how to set up a local Linux Service Fabric cluster via WSL2 on a Windows development machine. Setting up a local Linux cluster is useful to quickly test applications targeted for Linux clusters but are developed on a Windows machine.
@@ -24,7 +28,7 @@ Before you get started, you need:
 * Set up Ubuntu 18.04 Linux Distribution from Microsoft Store while setting up WSL2
 
 >[!TIP]
-> To install WSL2 on your Windows machine, follow the steps in the [WSL documentation](https://docs.microsoft.com/windows/wsl/install). After installing, please ensure installation of Ubuntu-18.04, make it your default distribution and it should be up and running.
+> To install WSL2 on your Windows machine, follow the steps in the [WSL documentation](/windows/wsl/install). After installing, please ensure installation of Ubuntu-18.04, make it your default distribution and it should be up and running.
 >
 
 ## Set up Service Fabric SDK inside Linux Distribution
@@ -54,7 +58,7 @@ For manual installation of the Service Fabric runtime and common SDK, follow the
 
 5. Inside genie namespace, SF SDK can also be installed as mentioned under Script Installation or Manual Installation steps in [Set up a linux local cluster](service-fabric-get-started-linux.md)
 
-6. Provide sudo privileges to current user by making an entry (e.g. <USERNAME> ALL = (ALL) NOPASSWD:ALL) in /etc/sudoers
+6. Provide sudo privileges to current user by making an entry `<USERNAME\> ALL = (ALL) NOPASSWD:ALL` in /etc/sudoers
 
 ## Set up a local cluster
 Service Fabric inside WSL2 VM is recommended to manage from host windows

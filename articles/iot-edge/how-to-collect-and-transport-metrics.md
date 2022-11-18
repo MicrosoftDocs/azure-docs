@@ -277,7 +277,7 @@ This option does require [extra setup](how-to-collect-and-transport-metrics.md#s
 
 ### Sample cloud workflow
 
-A cloud workflow that delivers metrics messages from IoT Hub to Log Analytics is available as part of the [IoT Edge logging and monitoring sample](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution#monitoring-architecture-reference). The sample can be deployed on to existing cloud resources or serve as a production deployment reference.
+A cloud workflow that delivers metrics messages from IoT Hub to Log Analytics is available as part of the [IoT Edge logging and monitoring sample](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution/blob/main/docs/CloudWorkflow.md). The sample can be deployed on to existing cloud resources or serve as a production deployment reference.
 
 # [IoT Central](#tab/iotcentral)
 

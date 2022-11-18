@@ -5,11 +5,12 @@ description: Learn how network traffic flows between components when your Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 02/08/2022
+ms.date: 10/03/2022
 ---
 
 # Network traffic flow when using a secured workspace
@@ -53,7 +54,7 @@ This article assumes the following configuration:
 | [Access workspace from studio](#scenario-access-workspace-from-studio) | NA | <ul><li>Azure Active Directory</li><li>Azure Front Door</li><li>Azure Machine Learning service</li></ul> | You may need to use a custom DNS server. For more information, see [Use your workspace with a custom DNS](how-to-custom-dns.md). | 
 | [Use AutoML, designer, dataset, and datastore from studio](#scenario-use-automl-designer-dataset-and-datastore-from-studio) | NA | NA | <ul><li>Workspace service principal configuration</li><li>Allow access from trusted Azure services</li></ul>For more information, see [How to secure a workspace in  a virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). | 
 | [Use compute instance and compute cluster](#scenario-use-compute-instance-and-compute-cluster) | <ul><li>Azure Machine Learning service on port 44224</li><li>Azure Batch Management service on ports 29876-29877</li></ul> | <ul><li>Azure Active Directory</li><li>Azure Resource Manager</li><li>Azure Machine Learning service</li><li>Azure Storage Account</li><li>Azure Key Vault</li></ul> | If you use a firewall, create user-defined routes. For more information, see [Configure inbound and outbound traffic](how-to-access-azureml-behind-firewall.md). | 
-| [Use Azure Kubernetes Service](#scenario-use-azure-kubernetes-service) | NA | For information on the outbound configuration for AKS, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | Configure the Internal Load Balancer. For more information, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | 
+| [Use Azure Kubernetes Service](#scenario-use-azure-kubernetes-service) | NA | For information on the outbound configuration for AKS, see [How to secure Kubernetes inference](how-to-secure-kubernetes-inferencing-environment.md). | | 
 | [Use Docker images managed by Azure Machine Learning](#scenario-use-docker-images-managed-by-azure-ml) | NA | <ul><li>Microsoft Container Registry</li><li>`viennaglobal.azurecr.io` global container registry</li></ul> | If the Azure Container Registry for your workspace is behind the VNet, configure the workspace to use a compute cluster to build images. For more information, see [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). | 
 
 > [!IMPORTANT]
@@ -114,7 +115,7 @@ When you create a compute instance or compute cluster, the following resources a
 * A Network Security Group with required outbound rules. These rules allow __inbound__ access from the Azure Machine Learning (TCP on port 44224) and Azure Batch service (TCP on ports 29876-29877).
 
     > [!IMPORTANT]
-    > If you usee a firewall to block internet access into the VNet, you must configure the firewall to allow this traffic. For example, with Azure Firewall you can create user-defined routes. For more information, see [How to use Azure Machine Learning with a firewall](how-to-access-azureml-behind-firewall.md#inbound-configuration).
+    > If you use a firewall to block internet access into the VNet, you must configure the firewall to allow this traffic. For example, with Azure Firewall you can create user-defined routes. For more information, see [How to use Azure Machine Learning with a firewall](how-to-access-azureml-behind-firewall.md#inbound-configuration).
 
 * A load balancer with a public IP.
 
@@ -129,9 +130,33 @@ If you use Visual Studio Code on a compute instance, you must allow other outbou
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
 
+## Scenario: Use online endpoints
+
+Securing an online endpoint with a private endpoint is a preview feature.
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+__Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `disabled` restricts the online endpoint to receiving traffic only from the virtual network. For secure inbound communications, the Azure Machine Learning workspace's private endpoint is used.
+
+__Outbound__ communication from a deployment can be secured on a per-deployment basis by using the `egress_public_network_access` flag. Outbound communication in this case is from the deployment to Azure Container Registry, storage blob, and workspace. Setting the flag to `true` will restrict communication with these resources to the virtual network.
+
+> [!NOTE]
+> For secure outbound communication, a private endpoint is created for each deployment where `egress_public_network_access` is set to `disabled`.
+
+Visibility of the endpoint is also governed by the `public_network_access` flag of the Azure Machine Learning workspace. If this flag is `disabled`, then the scoring endpoints can only be accessed from virtual networks that contain a private endpoint for the workspace. If it is `enabled`, then the scoring endpoint can be accessed from the virtual network and public networks.
+
+### Supported configurations
+
+| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
+| -------- | -------------------------------- | --------------------------------- | --------- |
+| secure inbound with secure outbound | `public_network_access` is disabled | `egress_public_network_access` is disabled   | Yes |
+| secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled  | Yes |
+| public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
+| public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled  | Yes |
+
 ## Scenario: Use Azure Kubernetes Service
 
-For information on the outbound configuration required for Azure Kubernetes Service, see the connectivity requirements section of [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster).
+For information on the outbound configuration required for Azure Kubernetes Service, see the connectivity requirements section of [How to secure inference](how-to-secure-inferencing-vnet.md).
 
 > [!NOTE]
 > The Azure Kubernetes Service load balancer is not the same as the load balancer created by Azure Machine Learning. If you want to host your model as a secured application, only available on the VNet, use the internal load balancer created by Azure Machine Learning. If you want to allow public access, use the public load balancer created by Azure Machine Learning.

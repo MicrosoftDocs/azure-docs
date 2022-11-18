@@ -17,7 +17,7 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
 
 * Review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 
-* You must have an active ExpressRoute circuit. 
+* You must have an active ExpressRoute circuit in a **non-vWAN environment**. This feature is not supported for ExpressRoute with vWAN. 
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
   * Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
   * Ensure that Azure private peering gets configured and establishes BGP peering between your network and Microsoft for end-to-end connectivity.
@@ -105,7 +105,7 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
     ```
 
 > [!IMPORTANT]
->  If your virtual network is peered with other virtual networks, you'll need to delete and recreate each vnet peering after applying the custom BGP community value. See [Connect virtual networks with virtual network peering](../virtual-network/tutorial-connect-virtual-networks-portal.md), to learn how.
+>  If your virtual network is peered with other virtual networks, you'll need to delete all peerings before applying the custom BGP community value. Then re-create the peerings. See [Connect virtual networks with virtual network peering](../virtual-network/tutorial-connect-virtual-networks-portal.md), to learn how.
 >
 
 ## Next steps

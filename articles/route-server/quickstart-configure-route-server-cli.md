@@ -2,11 +2,11 @@
 title: 'Quickstart: Create and configure Route Server using Azure CLI'
 description: In this quickstart, you learn how to create and configure a Route Server using Azure CLI.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/01/2021
-ms.author: duau
+ms.author: halkazwini
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -17,16 +17,15 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure CLI." border="false":::
 
-> [!IMPORTANT]
-> If you have an Azure Route Server created before September 1st and it doesn't have a public IP address asssociated, you'll need to recreate the Route Server so it can obtain an IP address for management purpose.
+[!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
-##  Prerequisites 
+##  Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-* Make sure you have the latest Azure CLI, or you can use Azure Cloud Shell in the portal. 
-* Review the [service limits for Azure Route Server](route-server-faq.md#limitations). 
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Install the latest Azure CLI](/cli/azure/install-azure-cli), or make sure you can use [Azure Cloud Shell](../cloud-shell/quickstart.md) in the portal. 
+* Review the [service limits for Azure Route Server](route-server-faq.md#limitations).
 
-##  Sign in to your Azure account and select your subscription. 
+##  Sign in to your Azure account and select your subscription.
 
 To begin your configuration, sign in to your Azure account. If you use the Cloud Shell "Try It", you're signed in automatically. Use the following examples to help you connect:
 
@@ -74,7 +73,7 @@ az network vnet create \
 
 Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or short prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
 
-1. Run the follow command to add the *RouteServerSubnet* to your virtual network.
+1. Run the following command to add the *RouteServerSubnet* to your virtual network.
 
     ```azurecli-interactive 
     az network vnet subnet create \
@@ -170,7 +169,7 @@ If you have an ExpressRoute and an Azure VPN gateway in the same virtual network
 > For greenfield deployments make sure to create the Azure VPN gateway before creating Azure Route Server; otherwise the deployment of Azure VPN Gateway will fail.
 > 
 
-1. To enable route exchange between Azure Route Server and the gateway(s) use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **true**:
+1. To enable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **true**:
 
     ```azurecli-interactive 
     az network routeserver update \
@@ -206,7 +205,9 @@ az network routeserver peering list-learned-routes \
     --name myNVA \
     --routeserver myRouteServer
     --resource-group myRouteServerRG \
-``` 
+```
+
+[!INCLUDE [azure-cli-troubleshooting.md](../../includes/azure-cli-troubleshooting.md)]
 
 ## Clean up resources
 
@@ -235,4 +236,3 @@ After you've created the Azure Route Server, continue on to learn more about how
 
 > [!div class="nextstepaction"]
 > [Azure ExpressRoute and Azure VPN support](expressroute-vpn-support.md)
- 

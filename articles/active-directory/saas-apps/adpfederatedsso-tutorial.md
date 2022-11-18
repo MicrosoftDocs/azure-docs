@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2021
+ms.date: 08/03/2022
 ms.author: jeedes
 ---
 
@@ -51,6 +51,8 @@ To configure the integration of ADP into Azure AD, you need to add ADP from the 
 1. In the **Add from the gallery** section, type **ADP** in the search box.
 1. Select **ADP** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for ADP
 
 Configure and test Azure AD SSO with ADP using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ADP.
@@ -60,7 +62,7 @@ To configure and test Azure AD SSO with ADP, perform the following steps:
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-2. **[Configure ADP SSO](#configure-adp-sso)** - to configure the Single Sign-On settings on application side.
+2. **[Configure ADP SSO](#configure-adp-sso)** - to configure the single sign-on settings on application side.
     1. **[Create ADP test user](#create-adp-test-user)** - to have a counterpart of B.Simon in ADP that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
@@ -125,10 +127,29 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ADP SSO
 
-To configure single sign-on on **ADP** side, you need to upload the downloaded **Metadata XML** on the [ADP website](https://adpfedsso.adp.com/public/login/index.fcc).
+1. To automate the configuration within ADP, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-> [!NOTE]  
-> This process may take a few days.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up ADP** will direct you to the ADP application. From there, provide the admin credentials to sign in to ADP. The browser extension will automatically configure the application for you and automate steps 3-7.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to set up ADP manually, open a new web browser window and sign in to your ADP company site as an administrator and perform the following steps:
+
+1. Click **Federation Setup** and go to **Identity Provider** then, select the **Microsoft Azure**.
+
+	![Screenshot for identity provider.](./media/adpfederatedsso-tutorial/microsoft-azure.png)
+
+1. In the **Services Selection**, select all applicable service(s) for connection, and then click **Next**.
+
+    ![Screenshot for services selection.](./media/adpfederatedsso-tutorial/services.png)
+
+1. In the **Configure** section, click on the **Next**.
+
+1. In the **Upload Metadata**, click **Browse** to upload the metadata XML file which you have downloaded from the Azure portal and click **UPLOAD**.
+
+    ![Screenshot for uploading metadata.](./media/adpfederatedsso-tutorial/metadata.png)
 
 ### Configure your ADP service(s) for federated access
 
@@ -142,6 +163,8 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **ADP** in the search box.
 1. Select **ADP** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 1. In the Azure portal, on your **ADP** application integration page, click on **Properties tab** and perform the following steps:  
 
     ![Single sign-on linked properties tab](./media/adpfederatedsso-tutorial/application.png)

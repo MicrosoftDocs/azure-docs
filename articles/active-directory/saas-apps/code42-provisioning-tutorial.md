@@ -19,7 +19,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Code42 for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Code42 and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Code42](https://www.crashplan.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+This tutorial describes the steps you need to perform in both Code42 and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Code42](https://www.code42.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 
 ## Capabilities Supported

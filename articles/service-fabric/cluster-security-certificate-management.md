@@ -2,8 +2,11 @@
 title: Manage certificates in a Service Fabric cluster 
 description: Learn about managing certificates in a Service Fabric cluster that's secured with X.509 certificates.
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.custom: sfrev, devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Manage certificates in Service Fabric clusters
 
@@ -28,7 +31,7 @@ We describe *certificate management* as the processes and procedures that are us
 
 Some management operations, such as enrollment, policy setting, and authorization controls, are beyond the scope of this article. Other operations, such as provisioning, renewal, re-keying, or revocation, are related only incidentally to Service Fabric. Nonetheless, the article addresses them somewhat, because understanding these operations can help you secure your cluster properly. 
 
-Your immediate goal is likely to be to automate certificate management as much as possible to ensure uninterrupted availability of the cluster. Because the process is user-touch-free, you'll also want to offer security assurances. With Service Fabric clusters, this goal is attainable. 
+Your immediate goal is likely to be to automate certificate management as much as possible to ensure uninterrupted availability of the cluster. Because the process is user-touch-free, you'll also want to offer security assurances. With Service Fabric clusters, this goal is attainable.
 
 The rest of the article first deconstructs certificate management, and later focuses on enabling autorollover.
 
@@ -87,7 +90,7 @@ Let's quickly outline the progression of a certificate from issuance to consumpt
   
 For the purposes of this article, the first two steps in the preceding sequence are mostly unrelated. Their only connection is that the subject common name of the certificate is the DNS name that's declared in the cluster definition.
 
-Certificate issuance and provisioning flow is illustrated in the following diagrams:
+Certificate issuance and provisioning flow are illustrated in the following diagrams:
 
 **For certificates that are declared by thumbprint**
 
@@ -113,14 +116,13 @@ Continuing with Azure as the context, and using Key Vault as the secret-manageme
   - Under `{vaultUri}/secrets/{name}`: The certificate, including its private key, available for downloading as an unprotected PFX or PEM file.
 	
 Recall that a certificate in the key vault contains a chronological list of certificate instances that share a policy. Certificate versions will be created according to the lifetime and renewal attributes of this policy. We highly recommend that vault certificates not share subjects or domains or DNS names, because it can be disruptive in a cluster to provision certificate instances from different vault certificates, with identical subjects but substantially different other attributes, such as issuer, key usages, and so on.
-
 At this point, a certificate exists in the key vault, ready for consumption. Now let's explore the rest of the process.
 
 ### Certificate provisioning
 
-We mentioned a *provisioning agent*, which is the entity that retrieves the certificate, including its private key, from the key vault and installs it on each of the hosts of the cluster. (Recall that Service Fabric doesn't provision certificates.) 
+We mentioned a *provisioning agent*, which is the entity that retrieves the certificate, including its private key, from the key vault and installs it on each of the hosts of the cluster. (Recall that Service Fabric doesn't provision certificates.)
 
-In the context of this article, the cluster will be hosted on a collection of Azure virtual machines (VMs) or virtual machine scale sets (VMSS). In Azure, you can provision a certificate from a vault to a VM/VMSS by using the following mechanisms. This assumes, as before, that the provisioning agent was previously granted *secret get* permissions on the key vault by the key vault owner. 
+In the context of this article, the cluster will be hosted on a collection of Azure virtual machines (VMs) or virtual machine scale sets. In Azure, you can provision a certificate from a vault to a VM/VMSS by using the following mechanisms. This assumes, as before, that the provisioning agent was previously granted *secret get* permissions on the key vault by the key vault owner.
 
 - Ad-hoc: An operator retrieves the certificate from the key vault (as PFX/PKCS #12 or PEM) and installs it on each node.
 
@@ -133,9 +135,9 @@ In the context of this article, the cluster will be hosted on a collection of Az
     
 - By using the [Key Vault VM extension](../virtual-machines/extensions/key-vault-windows.md). This lets you provision certificates by using version-less declarations, with periodic refreshing of observed certificates. In this case, the VM/VMSS is expected to have a [managed identity](../virtual-machines/security-policy.md#managed-identities-for-azure-resources), an identity that has been granted access to the key vaults that contain the observed certificates.
 
-VMSS/compute-based provisioning presents security and availability advantages, but it also presents restrictions. It requires, by design, that you declare certificates as versioned secrets, which makes it suitable only for clusters secured with certificates declared by thumbprint. 
+VMSS/compute-based provisioning presents security and availability advantages, but it also presents restrictions. It requires, by design, that you declare certificates as versioned secrets. This requirement makes VMSS/compute-based provisioning suitable only for clusters secured with certificates declared by thumbprint.
 
-In contrast, Key Vault VM extension-based provisioning always installs the latest version of each observed certificate, which makes it suitable only for clusters secured with certificates declared by subject common name. To emphasize, do not use an autorefresh provisioning mechanism (such as the Key Vault VM extension) for certificates that are declared by instance (that is, by thumbprint). The risk of losing availability is considerable.
+In contrast, Key Vault VM extension-based provisioning always installs the latest version of each observed certificate. which makes it suitable only for clusters secured with certificates declared by subject common name. To emphasize, do not use an autorefresh provisioning mechanism (such as the Key Vault VM extension) for certificates that are declared by instance (that is, by thumbprint). The risk of losing availability is considerable.
 
 Other provisioning mechanisms exist, but the approaches mentioned here are the currently accepted options for Azure Service Fabric clusters.
 
@@ -276,7 +278,7 @@ Next, let's set up the additional resources that are needed to ensure the autoro
 
 ### Set up the prerequisite resources
 
-As mentioned earlier, a certificate that's provisioned as a virtual machine scale set secret is retrieved from the key vault by the Microsoft.Compute Resource Provider service. It does so by using its first-party identity on behalf of the deployment operator. For autorollover, that will change. You'll switch to using a managed identity that's assigned to the virtual machine scale set and that has been granted GET permissions on the secrets in that vault.
+As mentioned earlier, a certificate that's provisioned as a virtual machine scale set secret is retrieved from the key vault by the Microsoft Compute Resource Provider service. It does so by using its first-party identity on behalf of the deployment operator. That process will change for autorollover. You'll switch to using a managed identity that's assigned to the virtual machine scale set and that has been granted GET permissions on the secrets in that vault.
 
 You should deploy the next excerpts at the same time. They're listed individually only for play-by-play analysis and explanation.
 
@@ -500,7 +502,7 @@ This indicates to the Key Vault VM extension that, on the first run (after deplo
 
 #### Certificate linking, explained
 
-You might have noticed the Key Vault VM extension `linkOnRenewal` flag, and the fact that it is set to false. This setting addresses in depth the behavior controlled by this flag and its implications on the functioning of a cluster. This behavior is specific to Windows.
+You might have noticed the Key Vault VM extension `linkOnRenewal` flag, and the fact that it is set to false. This setting addresses the behavior controlled by this flag and its implications on the functioning of a cluster. This behavior is specific to Windows.
 
 According to its [definition](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
 

@@ -1,13 +1,14 @@
 ---
 # Mandatory fields.
-title: Use Azure Digital Twins Explorer
+title: Use Azure Digital Twins Explorer (preview)
 titleSuffix: Azure Digital Twins
-description: Learn how to use the features of Azure Digital Twins Explorer
+description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 02/24/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: event-tier1-build-2022
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,10 +18,7 @@ ms.service: digital-twins
 
 # Use Azure Digital Twins Explorer (preview)
 
-[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. You can interact with the Azure Digital Twins Explorer using clicks or [keyboard shortcuts](#accessibility-and-advanced-settings).
-
->[!NOTE]
->This tool is currently in public preview.
+[Azure Digital Twins Explorer (preview)](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. You can interact with the Azure Digital Twins Explorer using clicks or [keyboard shortcuts](#accessibility-and-advanced-settings).
 
 ## How to access
 
@@ -143,13 +141,7 @@ There are two possible error scenarios that each give their own error message:
 
 Both of these error messages are shown in the screenshot below:
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model. " lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors-large.png":::
 
 #### View a twin's relationships
 
@@ -238,13 +230,7 @@ You can create a new digital twin from its model definition in the **Models** pa
 
 To create a twin from a model, find that model in the list and choose the menu dots next to the model name. Then, select **Create a Twin**. You'll be asked to enter a **name** for the new twin, which must be unique. Then save the twin, which will add it to your graph.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Create a Twin is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Create a Twin is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin-large.png":::
 
 To add property values to your twin, see [Edit twin and relationship properties](#edit-twin-and-relationship-properties).
 
@@ -310,13 +296,7 @@ You can use the **Model Graph** panel to view a graphical representation of the 
 
 To see the full definition of a model, find that model in the **Models** pane and select the menu dots next to the model name. Then, select **View Model**. Doing so will display a **Model Information** modal showing the raw DTDL definition of the model.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to View Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to View Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-view-large.png":::
 
 You can also view a model's full definition by selecting it in the **Model Graph**, and using the **Toggle model details** button to expand the **Model Detail** panel. This panel will also display the full DTDL code for the model.
 
@@ -353,13 +333,7 @@ You can upload custom images to represent different models in the Model Graph an
 
 To upload an image for a single model, find that model in the **Models** panel and select the menu dots next to the model name. Then, select **Upload Model Image**. In the file selector box that appears, navigate on your machine to the image file you want to upload for that model. Choose **Open** to upload it.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Upload Model Image is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Upload Model Image is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image-large.png":::
 
 You can also upload model images in bulk.
 
@@ -374,13 +348,7 @@ First, use the following instructions to set the image file names before uploadi
 
 Then, to upload the images at the same time, use the **Upload Model Images** icon at the top of the Models panel. In the file selector box, choose which image files to upload. 
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-images.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload Model Images icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-images.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-images.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload Model Images icon is highlighted.":::
 
 ## Manage models
 
@@ -401,25 +369,13 @@ You can upload models from your machine by selecting them individually, or by up
 
 To upload one or more models that are individually selected, select the **Upload a model** icon showing an upwards arrow.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a model icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a model icon is highlighted.":::
 
 In the file selector box that appears, navigate on your machine to the model(s) you want to upload. You can select one or more JSON model files and select **Open** to upload them.
 
 To upload a folder of models, including everything that's inside it, select the **Upload a directory of Models** icon showing a file folder.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a directory of Models icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a directory of Models icon is highlighted.":::
 
 In the file selector box that appears, navigate on your machine to a folder containing JSON model files. Select **Open** to upload that top-level folder and all of its contents.
 
@@ -432,23 +388,11 @@ You can use the Models panel to delete individual models, or all of the models i
 
 To delete a single model, find that model in the list and select the menu dots next to the model name. Then, select **Delete Model**.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Delete Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Delete Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one-large.png":::
 
 To delete all of the models in your instance at once, choose the **Delete All Models** icon at the top of the Models panel.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-all.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Delete All Models icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-all.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-all.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Delete All Models icon is highlighted.":::
 
 ### Refresh models
 
@@ -456,13 +400,7 @@ When you open Azure Digital Twins Explorer, the Models panel should automaticall
 
 However, you can manually refresh the panel at any time to reload the list of all models in your Azure Digital Twins instance. To do so, select the **Refresh models** icon. 
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-refresh.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Refresh models icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-refresh.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-refresh.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Refresh models icon is highlighted.":::
 
 ## Import/export graph
 

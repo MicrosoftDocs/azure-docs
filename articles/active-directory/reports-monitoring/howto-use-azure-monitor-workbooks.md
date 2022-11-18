@@ -2,57 +2,95 @@
 title: Azure Monitor workbooks for reports | Microsoft Docs
 description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
 services: active-directory
-author: MarkusVi
-manager: karenhoran
-
-ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang:
 ms.topic: how-to
-ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/10/2022
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: sarbar
 ---
 # How to use Azure Monitor workbooks for Azure Active Directory reports
 
-> [!IMPORTANT]
-> In order to optimize the underlying queries in this workbook, please click on "Edit", click on Settings icon and select the workspace where you want to run these queries. Workbooks by default will select all workspaces where you are routing your Azure AD logs. 
+As an IT admin, you need powerful tools to turn the data about your Azure AD tenant into a visual representation that enables you to understand how your identity management environment is doing. Azure Monitor workbooks are an example for such a tool. 
 
-Do you want to:
-
-- Understand the effect of your [Conditional Access policies](../conditional-access/overview.md) on your users' sign-in experience?
-
-- Troubleshoot sign-in failures to get a better view of your organization's sign-in health and to resolve issues quickly?
-
-- Understand risky users and risk detections trends in your tenant?
-
-- Know who's using legacy authentications to sign in to your environment? (By [blocking legacy authentication](../conditional-access/block-legacy-authentication.md), you can improve your tenant's protection.)
-
-- Do you need to understand the impact of Conditional Access policies in your tenant?
-
-- Would you like the ability to review: sign-in log queries, with a workbook
-that reports how many users were granted or denied access, as well as how many users bypassed
-Conditional Access policies when accessing resources?
-
-- Interested in developing a deeper understanding of conditional access, with a workbook details per
-condition so that the impact of a policy can be contextualized per condition,
-including device platform, device state, client app, sign-in risk, location, and application?
-
-- Archive and report on more than one year of historical application role and [access package assignment activity](../governance/entitlement-management-logs-and-reporting.md)?
-
-To help you to address these questions, Azure Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md) combine text, analytics queries, metrics, and parameters into rich interactive reports.
+This article gives you an overview of how you can use Azure Monitor workbooks for Azure Active Directory reports to analyze your Azure AD tenant. 
 
 
+## What is Azure Monitor workbooks for Azure AD reports?
 
-This article:
+Azure AD tracks all activities in your Azure AD in the activity logs. The data in your Azure AD logs enables you to assess how your Azure AD is doing. The Azure Active Directory portal gives you access to three activity logs:
 
-- Assumes you're familiar with how to [Create interactive reports by using Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
+- **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
+- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
+- **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
-- Explains how to use Monitor workbooks to understand the effect of your Conditional Access policies, to troubleshoot sign-in failures, and to identify legacy authentications.
- 
+
+Using the access capabilities provided by the Azure portal, you can review the information that is tracked in your activity logs. This option is helpful if you need to do a quick investigation of an event with a limited scope. For example, a user had trouble signing in during a period of a few hours. In this scenario, reviewing the recent records of this user in the sign-in logs can help to shed light on this issue. 
+
+For one-off investigations with a limited scope, the Azure portal is often the easiest way to find the data you need. However, there are also business problems requiring a more complex analysis of the data in your activity logs. One common example for a scenario that requires a trend analysis is related to blocking legacy authentication in your Azure AD tenant. 
+
+Azure AD supports several of the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication refers to basic authentication, a widely used industry-standard method for collecting user name and password information. Examples of applications that commonly or only use legacy authentication are:
+
+- Microsoft Office 2013 or older.
+- Apps using mail protocols like POP, IMAP, and SMTP AUTH.
+
+
+Typically, legacy authentication clients can't enforce any type of second factor authentication. However, multi-factor authentication (MFA) is a common requirement in many environments to provide a high level of protection.   
+
+How can you determine whether it's safe to block legacy authentication in an environment? Answering this question requires an analysis of the sign-ins in your environment for a certain timeframe. Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences.
+
+With Azure Monitor workbooks, you can:
+
+- Query data from multiple sources in Azure
+- Visualize data for reporting and analysis
+- Combine multiple elements into a single interactive experience
+
+For more information, see [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
+
+
+## How does it help me?
+
+Common scenarios for using workbooks include:
+
+- Get shareable, at-a-glance summary reports about your Azure AD tenant, and build your own custom reports.
+
+- Find and diagnose sign-in failures, and get a trending view of your organization's sign-in health.
+
+- Monitor Azure AD logs for sign-ins, tenant administrator actions, provisioning, and risk together in a flexible, customizable format.
+
+- Watch trends in your tenant’s usage of Azure AD features such as conditional access, self-service password reset, and more.
+
+- Know who's using legacy authentications to sign in to your environment.
+
+- Understand the effect of your conditional access policies on your users' sign-in experience.
+
+
+
+
+## Who should use it?
+
+Typical personas for workbooks are:
+
+- **Reporting admin** - Someone who is responsible for creating reports on top of the available data and workbook templates
+
+- **Tenant admins** - People who use the available reports to get insight and take action.
+
+- **Workbook template builder** - Someone who “graduates” from the role of reporting admin by turning a workbook into a template for others with similar needs to use as a basis for creating their own workbooks.
+
+
+
+## How to use it
+
+When working with workbooks, you can either start with an empty workbook, or use an existing template. Workbook templates enable you to quickly get started using workbooks without needing to build from scratch. 
+
+There are:
+
+- **Public templates** published to a [gallery](../../azure-monitor/visualize/workbooks-overview.md#the-gallery) that serve as a good starting point when you're just getting started with workbooks.
+- **Private templates** when you start building your own workbooks and want to save one as a template to serve as the foundation for multiple workbooks in your tenant.
+
 
 
 ## Prerequisites
@@ -63,8 +101,8 @@ To use Monitor workbooks, you need:
 
 - A [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 
-- [Access](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) to the log analytics workspace
-- Following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)
+- [Access](../../azure-monitor/logs/manage-access.md#azure-rbac) to the log analytics workspace
+- Following roles in Azure Active Directory (if you're accessing Log Analytics through Azure Active Directory portal)
     - Security administrator
     - Security reader
     - Report reader
@@ -72,7 +110,7 @@ To use Monitor workbooks, you need:
 
 ## Roles
 
-To access workbooks in Azure Active Directory, you must have access to the underlying [Log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) workspace and be assigned to one of the following roles:
+To access workbooks in Azure Active Directory, you must have access to the underlying [Log Analytics workspace](../../azure-monitor/logs/manage-access.md#azure-rbac) and be assigned to one of the following roles:
 
 
 - Global Reader
@@ -104,239 +142,6 @@ To access workbooks:
 1. Select a report or template, or on the toolbar select **Open**. 
 
 ![Find the Azure Monitor workbooks in Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
-
-## Sign-in analysis
-
-To access the sign-in analysis workbook, in the **Usage** section, select **Sign-ins**. 
-
-This workbook shows the following sign-in trends:
-
-- All sign-ins
-
-- Success
-
-- Pending user action
-
-- Failure
-
-You can filter each trend by the following categories:
-
-- Time range
-
-- Apps
-
-- Users
-
-![Sign-in analysis](./media/howto-use-azure-monitor-workbooks/43.png)
-
-
-For each trend, you get a breakdown by the following categories:
-
-- Location
-
-    ![Sign-ins by location](./media/howto-use-azure-monitor-workbooks/45.png)
-
-- Device
-
-    ![Sign-ins by device](./media/howto-use-azure-monitor-workbooks/46.png)
-
-
-## Sign-ins using legacy authentication 
-
-
-To access the workbook for sign-ins that use [legacy authentication](../conditional-access/block-legacy-authentication.md), in the **Usage** section, select **Sign-ins using Legacy Authentication**. 
-
-This workbook shows the following sign-in trends:
-
-- All sign-ins
-
-- Success
-
-
-You can filter each trend by the following categories:
-
-- Time range
-
-- Apps
-
-- Users
-
-- Protocols
-
-![Sign-ins by legacy authentication](./media/howto-use-azure-monitor-workbooks/47.png)
-
-
-For each trend, you get a breakdown by app and protocol.
-
-![Legacy-authentication sign-ins by app and protocol](./media/howto-use-azure-monitor-workbooks/48.png)
-
-
-
-## Sign-ins by Conditional Access 
-
-
-To access the workbook for sign-ins by [Conditional Access policies](../conditional-access/overview.md), in the **Conditional Access** section, select **Sign-ins by Conditional Access**. 
-
-This workbook shows the trends for disabled sign-ins. You can filter each trend by the following categories:
-
-- Time range
-
-- Apps
-
-- Users
-
-![Sign-ins using Conditional Access](./media/howto-use-azure-monitor-workbooks/49.png)
-
-
-For disabled sign-ins, you get a breakdown by the Conditional Access status.
-
-![Screenshot shows Conditional access status and Recent sign-ins.](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
-
-
-## Conditional Access Insights
-
-### Overview
-
-Workbooks contain sign-in log queries that can help IT administrators monitor the impact of Conditional Access policies in their tenant. You have the ability to report on how many users would have been granted or denied access. The workbook contains insights on how many users would have bypassed Conditional Access policies based on those users’ attributes at the time of sign-in. It contains details per condition so that the impact of a policy can be contextualized per condition, including device platform, device state, client app, sign-in risk, location, and application.
-
-### Instructions 
-To access the workbook for Conditional Access Insights, select the **Conditional Access Insights** workbook in the Conditional Access section. 
-This workbook shows the expected impact of each Conditional Access policy in your tenant. Select one or more Conditional Access policies from the dropdown list and narrow the scope of the workbook by applying the following filters: 
-
-- **Time Range**
-
-- **User**
-
-- **Apps**
-
-- **Data View**
-
-![Screenshot shows the Conditional Access pane where you can select a Conditional Access Policy.](./media/howto-use-azure-monitor-workbooks/access-insights.png)
-
-
-The Impact Summary shows the number of users or sign-ins for which the selected policies had a particular result. Total is the number of users or sign-ins for which the selected policies  were evaluated in the selected Time Range. Click on a tile to filter the data in the workbook by that result type. 
-
-![Screenshot shows tiles to use to filter results such as Total, Success, and Failure.](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
-
-This workbook also shows the impact of the selected policies broken down by each of six conditions: 
-- **Device state**
-- **Device platform**
-- **Client apps**
-- **Sign-in risk**
-- **Location**
-- **Applications**
-
-![Screenshot shows the details from the Total sign-ins filter.](./media/howto-use-azure-monitor-workbooks/device-platform.png)
-
-You can also investigate individual sign-ins, filtered by the parameters selected in the workbook. Search for individual users, sorted by sign-in frequency, and view their corresponding sign-in events. 
-
-![Screenshot shows individual sign-ins you can review.](./media/howto-use-azure-monitor-workbooks/filtered.png)
-
-## Sign-ins by grant controls
-
-To access the workbook for sign-ins by [grant controls](../conditional-access/controls.md), in the **Conditional Access** section, select **Sign-ins by Grant Controls**. 
-
-This workbook shows the following disabled sign-in trends:
-
-- Require MFA
- 
-- Require terms of use
-
-- Require privacy statement
-
-- Other
-
-
-You can filter each trend by the following categories:
-
-- Time range
-
-- Apps
-
-- Users
-
-![Sign-ins by grant controls](./media/howto-use-azure-monitor-workbooks/50.png)
-
-
-For each trend, you get a breakdown by app and protocol.
-
-![Breakdown of recent sign-ins](./media/howto-use-azure-monitor-workbooks/51.png)
-
-
-
-
-## Sign-ins failure analysis
-
-Use the **Sign-ins failure analysis** workbook to troubleshoot errors with:
-
-- Sign-ins
-- Conditional Access policies
-- Legacy authentication 
-
-
-To access the sign-ins by Conditional Access data, in the **Troubleshoot** section, select **Sign-ins using Legacy Authentication**. 
-
-This workbook shows the following sign-in trends:
-
-- All sign-ins
-
-- Success
-
-- Pending action
-
-- Failure
-
-
-You can filter each trend by the following categories:
-
-- Time range
-
-- Apps
-
-- Users
-
-![Troubleshooting sign-ins](./media/howto-use-azure-monitor-workbooks/52.png)
-
-
-To help you troubleshoot sign-ins, Azure Monitor gives you a breakdown by the following categories:
-
-- Top errors
-
-    ![Summary of top errors](./media/howto-use-azure-monitor-workbooks/53.png)
-
-- Sign-ins waiting on user action
-
-    ![Summary of sign-ins waiting on user action](./media/howto-use-azure-monitor-workbooks/54.png)
-
-
-## Identity Protection Risk Analysis
-
-Use the **Identity Protection Risk Analysis** workbook in the **Usage** section to understand:
-
-- Distribution in risky users and risk detections by levels and types
-- Opportunities to better remediate risk
-- Where in the world risk is being detected
-
-You can filter the Risky Detections trends by:
-- Detection timing type
-- Risk level
-
-Real-time risk detections are those that can be detected at the point of authentication. These detections can be challenged by risky sign-in policies using Conditional Access to require multi-factor authentication. 
-
-You can filter the Risky Users trends by:
-- Risk detail
-- Risk level
-
-If you have a high number of risky users where "no action" has been taken, consider enabling a Conditional Access policy to require secure password change when a user is high risk.
-
-## Best practices
-
-### Query partially succeeded
-
-After running a workbook, you might see the following error: "Query partially succeeded; results may be incomplete or incorrect"
-
-This error means that your query timed out in the database layer. In this case, it still “succeeded” to workbooks (it got results) but the results also contained an error/warning message that some part of the query failed. In this case, you review your query and start troubleshooting by reducing the scope of it.
-For example, you could add or rearrange a where condition to reduce the amount of data the query has to process. 
 
 
 

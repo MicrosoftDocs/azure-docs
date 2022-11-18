@@ -37,7 +37,7 @@ The distributed tracing web GUI provides two search tabs to allow you to search 
 
 If you can't see the **Search** heading, select the **Search** button in the top-level menu.
 
-- **SUPI** - Allows you to search for activity involving a particular subscriber using their Subscription Permanent Identifier (SUPI). This tab also provides an **Errors** panel, which allows you to filter the results by error condition. To search for activity for a particular subscriber, enter all of the initial digits of the subscriber's SUPI into the text box on the **SUPI search** panel.
+- **SUPI** - Allows you to search for activity involving a particular subscriber using their subscription permanent identifier (SUPI) or, in 4G networks, their international mobile subscriber identity (IMSI). This tab also provides an **Errors** panel, which allows you to filter the results by error condition. To search for activity for a particular subscriber, enter all of the initial digits of the subscriber's SUPI or IMSI into the text box on the **SUPI search** panel.
 - **Errors** - Allows you to search for error condition occurrences across all subscribers. To search for occurrences of error conditions across all subscribers, select the **Errors** tab and then use the drop-down menus on the **Error** panel to select an error category and, optionally, a specific error.
 
   :::image type="content" source="media\distributed-tracing\distributed-tracing-search-display.png" alt-text="Screenshot of the Search display in the distributed tracing web G U I, showing the S U P I and Errors tabs.":::
@@ -64,7 +64,7 @@ You can select an entry in the search results to view detailed information for t
 When you select a specific result, the display shows the following tabs containing different categories of information.
 
 > [!NOTE] 
-> In addition to the tabs described below, the distributed tracing web GUI also includes a **User Experience** tab. This tab is not used by Azure Private 5G Core Preview and will not display any information.
+> In addition to the tabs described below, the distributed tracing web GUI also includes a **User Experience** tab. This tab is not used by Azure Private 5G Core and will not display any information.
 
 ### Summary view
 

@@ -2,9 +2,9 @@
 title: Handling errors in Durable Functions - Azure
 description: Learn how to handle errors in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/01/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, powershell, python
+ms.devlang: csharp, javascript, powershell, python, java
 ---
 
 # Handling errors in Durable Functions (Azure Functions)
@@ -122,8 +122,16 @@ main = df.Orchestrator.create(orchestrator_function)
 ```
 # [PowerShell](#tab/powershell)
 
+By default, cmdlets in PowerShell do not raise exceptions that can be caught using try/catch blocks. You have two options for changing this behavior:
+
+1. Use the `-ErrorAction Stop` flag when invoking cmdlets, such as `Invoke-DurableActivity`.
+2. Set the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) preference variable to `"Stop"` in the orchestrator function before invoking cmdlets.
+
 ```powershell
 param($Context)
+
+$ErrorActionPreference = "Stop"
+
 $transferDetails = $Context.Input
 
 Invoke-DurableActivity -FunctionName 'DebitAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
@@ -135,6 +143,32 @@ try {
 }
 ```
 
+For more information on error handling in PowerShell, see the [Try-Catch-Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) PowerShell documentation.
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("TransferFunds")
+public String transferFunds(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            TransferOperation transfer = ctx.getInput(TransferOperation.class);
+            ctx.callActivity(
+                "DebitAccount", 
+                new OperationArgs(transfer.sourceAccount, transfer.amount)).await();
+            try {
+                ctx.callActivity(
+                    "CreditAccount", 
+                    new OperationArgs(transfer.destinationAccount, transfer.amount)).await();
+            } catch (TaskFailedException ex) {
+                // Refund the source account on failure
+                ctx.callActivity(
+                    "CreditAccount", 
+                    new OperationArgs(transfer.sourceAccount, transfer.amount)).await();
+            }
+        });
+}
+```
 
 ---
 
@@ -204,10 +238,26 @@ main = df.Orchestrator.create(orchestrator_function)
 param($Context)
 
 $retryOptions = New-DurableRetryOptions `
-                    -FirstRetryInterval (New-Timespan -Seconds 5) `
+                    -FirstRetryInterval (New-TimeSpan -Seconds 5) `
                     -MaxNumberOfAttempts 3
 
 Invoke-DurableActivity -FunctionName 'FlakyFunction' -RetryOptions $retryOptions
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("TimerOrchestratorWithRetry")
+public String timerOrchestratorWithRetry(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            final int maxAttempts = 3;
+            final Duration firstRetryInterval = Duration.ofSeconds(5);
+            RetryPolicy policy = new RetryPolicy(maxAttempts, firstRetryInterval);
+            ctx.callActivity("FlakeyFunction", new TaskOptions(policy)).await();
+            // ...
+        });
+}
 ```
 
 ---
@@ -219,15 +269,74 @@ The activity function call in the previous example takes a parameter for configu
 * **Backoff coefficient**: The coefficient used to determine rate of increase of backoff. Defaults to 1.
 * **Max retry interval**: The maximum amount of time to wait in between retry attempts.
 * **Retry timeout**: The maximum amount of time to spend doing retries. The default behavior is to retry indefinitely.
-* **Handle**: A user-defined callback can be specified to determine whether a function should be retried. 
 
-> [!NOTE]
-> User-defined callbacks aren't currently supported by Durable Functions in JavaScript (`context.df.RetryOptions`).
+## Custom retry handlers
 
+When using the .NET isolated worker or Java, you also have the option to implement retry handlers in code. This is useful when declarative retry policies are not expressive enough. For languages that don't support custom retry handlers, you still have the option of implementing retry policies using loops, exception handling, and timers for injecting delays between retries.
+
+# [C#](#tab/csharp)
+
+```csharp
+TaskOptions retryOptions = TaskOptions.FromRetryHandler(retryContext =>
+{
+    // Don't retry anything that derives from ApplicationException
+    if (!retryContext.LastFailure.IsCausedBy<ApplicationException>())
+    {
+        return false;
+    }
+
+    // Quit after N attempts
+    return retryContext.LastAttemptNumber < 3;
+});
+
+try
+{
+    await ctx.CallActivityAsync("FlakeyActivity", options: retryOptions);
+}
+catch (TaskFailedException)
+{
+    // Case when the retry handler returns false...
+}
+```
+
+# [JavaScript](#tab/javascript)
+
+JavaScript doesn't currently support custom retry handlers. However, you still have the option of implementing retry logic directly in the orchestrator function using loops, exception handling, and timers for injecting delays between retries.
+
+# [Python](#tab/python)
+
+Python doesn't currently support custom retry handlers. However, you still have the option of implementing retry logic directly in the orchestrator function using loops, exception handling, and timers for injecting delays between retries.
+
+# [PowerShell](#tab/powershell)
+
+PowerShell doesn't currently support custom retry handlers. However, you still have the option of implementing retry logic directly in the orchestrator function using loops, exception handling, and timers for injecting delays between retries.
+
+# [Java](#tab/java)
+
+```java
+RetryHandler retryHandler = retryCtx -> {
+    // Don't retry anything that derives from RuntimeException
+    if (retryCtx.getLastFailure().isCausedBy(RuntimeException.class)) {
+        return false;
+    }
+
+    // Quit after N attempts
+    return retryCtx.getLastAttemptNumber() < 3;
+};
+
+TaskOptions options = new TaskOptions(retryHandler);
+try {
+    ctx.callActivity("FlakeyActivity", options).await();
+} catch (TaskFailedException ex) {
+    // Case when the retry handler returns false...
+}
+```
+
+---
 
 ## Function timeouts
 
-You might want to abandon a function call within an orchestrator function if it's taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) using `context.CreateTimer` (.NET), `context.df.createTimer` (JavaScript), or `context.create_timer` (Python) in conjunction with `Task.WhenAny` (.NET), `context.df.Task.any` (JavaScript), or `context.task_any` (Python) , as in the following example:
+You might want to abandon a function call within an orchestrator function if it's taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) with an "any" task selector, as in the following example:
 
 # [C#](#tab/csharp)
 
@@ -285,6 +394,7 @@ module.exports = df.orchestrator(function*(context) {
     }
 });
 ```
+
 # [Python](#tab/python)
 
 ```python
@@ -313,7 +423,7 @@ main = df.Orchestrator.create(orchestrator_function)
 ```powershell
 param($Context)
 
-$expiryTime =  New-TimeSpan -Seconds 30
+$expiryTime = New-TimeSpan -Seconds 30
 
 $activityTask = Invoke-DurableActivity -FunctionName 'FlakyFunction'-NoWait
 $timerTask = Start-DurableTimer -Duration $expiryTime -NoWait
@@ -326,6 +436,28 @@ if ($winner -eq $activityTask) {
 }
 else {
     return $False
+}
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("TimerOrchestrator")
+public String timerOrchestrator(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            Task<Void> activityTask = ctx.callActivity("SlowFunction");
+            Task<Void> timeoutTask = ctx.createTimer(Duration.ofMinutes(30));
+
+            Task<?> winner = ctx.anyOf(activityTask, timeoutTask).await();
+            if (winner == activityTask) {
+                // success case
+                return true;
+            } else {
+                // timeout case
+                return false;
+            }
+        });
 }
 ```
 

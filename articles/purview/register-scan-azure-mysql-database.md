@@ -1,7 +1,7 @@
 ---
 title: 'Connect to and manage Azure Database for MySQL'
 description: This guide describes how to connect to Azure Database for MySQL in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Database for MySQL source.
-author: evwhite
+author: evangelinew
 ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-map
@@ -16,9 +16,9 @@ This article outlines how to register a database in Azure Database for MySQL, an
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes*](#scan) | [Yes](#scan) | [Yes](#scan) | No | No** |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)| [Yes*](#scan) | [Yes](#scan) | [Yes](#scan) | No | Limited** | No |
 
 \* Microsoft Purview relies on UPDATE_TIME metadata from Azure Database for MySQL for incremental scans. In some cases, this field might not persist in the database and a full scan is performed. For more information, see [The INFORMATION_SCHEMA TABLES Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) for MySQL.
 

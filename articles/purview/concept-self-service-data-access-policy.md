@@ -6,7 +6,7 @@ ms.author: blessonj
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 11/11/2022
 ---
 
 # Microsoft Purview Self-service data discovery and access (Preview)
@@ -34,7 +34,7 @@ A **workflow admin** will need to map a self-service data access workflow to a c
 
 * **Self-service data access workflow** is the workflow that is initiated when a data consumer requests access to data.
 
-* **Approver** is either security group or Azure Active Directory (Azure AD) users that can approve self-service access requests.
+* **Approver** is either security group or Azure Active Directory (Azure AD) users or Azure AD Groups that can approve self-service access requests.
 
 ## How to use Microsoft Purview self-service data access policy
 
@@ -42,9 +42,18 @@ Microsoft Purview allows organizations to catalog metadata about all registered 
 
 With self-service data access workflow, data consumers can not only find data assets but also request access to the data assets. When the data consumer requests access to a data asset, the associated self-service data access workflow is triggered.
 
-A default self-service data access workflow template is provided with every Microsoft Purview account. The default template can be amended to add more approvers and/or set the approver's email address. For more details refer [Create and enable self-service data access workflow](./how-to-workflow-self-service-data-access-hybrid.md).
+A default self-service data access workflow template is provided with every Microsoft Purview account. The default template can be amended to add more approvers and/or set the approver's email address. For more details, refer [Create and enable self-service data access workflow](./how-to-workflow-self-service-data-access-hybrid.md).
 
-Whenever a data consumer requests access to a dataset, the notification is sent to the workflow approver(s). The approver(s) can view the request and approve it either from Microsoft Purview portal or from within the email notification. When the request is approved, a policy is auto-generated and applied against the respective data source. Self-service data access policy gets auto-generated only if the data source is registered for **Data Use Management**. The pre-requisites mentioned within the [Data Use Management](./how-to-enable-data-use-management.md#prerequisites) have to be satisfied.  
+Whenever a data consumer requests access to a dataset, the notification is sent to the workflow approver(s). The approver(s) can view the request and approve it either from Microsoft Purview governance portal or from within the email notification. When the request is approved, a policy is auto-generated and applied against the respective data source. Self-service data access policy gets auto-generated only if the data source is registered for **Data Use Management**. The pre-requisites mentioned within the [Data Use Management](./how-to-enable-data-use-management.md#prerequisites) have to be satisfied.
+
+Data consumer can access the requested dataset using tools such as Power BI or Azure Synapse Analytics workspace.
+
+>[!NOTE]
+> Users will not be able to browse to the asset using the Azure Portal or Storage explorer if the only permission granted is read/modify access at the file or folder level of the storage account.
+
+> [!CAUTION]
+> Folder level permission is required to access data in ADLS Gen 2 using PowerBI.
+> Additionally, resource sets are not supported by self-service policies. Hence, folder level permission needs to be granted to access resource set files such as CSV or parquet. 
 
 ## Next steps
 
@@ -53,3 +62,4 @@ If you would like to preview these features in your environment, follow the link
 -  [create self-service data access workflow](./how-to-workflow-self-service-data-access-hybrid.md)
 -  [working with policies at file level](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-file-level-permission/ba-p/3102166)
 -  [working with policies at folder level](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-accessing-data-when-folder-level-permission/ba-p/3109583)
+-  [self-service policies for Azure SQL Database tables and views](./how-to-policies-self-service-azure-sql-db.md)

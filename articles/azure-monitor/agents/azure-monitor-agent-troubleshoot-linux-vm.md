@@ -6,6 +6,7 @@ author: shseth
 ms.author: shseth
 ms.date: 5/3/2022
 ms.custom: references_region
+ms.reviewer: shseth
 
 ---
 
@@ -19,7 +20,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  
 
 2. **Verify that the extension was successfully installed and provisioned, which installs the agent binaries on your machine**:  
-	1. Open Azure portal > select your virtual machine > Open **Settings** : **Extensions + applications** blade from left menu > 'AzureMonitorLinuxAgent'should show up with Status: 'Provisioning succeeded'  
+	1. Open Azure portal > select your virtual machine > Open **Settings** : **Extensions + applications** from the pane on the left > 'AzureMonitorLinuxAgent'should show up with Status: 'Provisioning succeeded'  
 	2. If you don't see the extension listed, check if machine can reach Azure and find the extension to install using the command below:  
 		```azurecli
 		az vm extension image list-versions --location <machine-region> --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor
@@ -42,7 +43,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	
 4. **Verify that the DCR exists and is associated with the virtual machine:**  
 	1. If using Log Analytics workspace as destination, verify that DCR exists in the same physical region as the Log Analytics workspace.  
-	2. Open Azure portal > select your data collection rule > Open **Configuration** : **Resources** blade from left menu > You should see the virtual machine listed here. 
+	2. Open Azure portal > select your data collection rule > Open **Configuration** : **Resources** from the pane on the left > You should see the virtual machine listed here. 
 	3. If not listed, click 'Add' and select your virtual machine from the resource picker. Repeat across all DCRs. 
 	4. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'DCR not found or associated' and **Problem type** as 'I need help configuring data collection from a VM'.
 
@@ -94,6 +95,7 @@ Here's how AMA collects syslog events:
 	3. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'Syslog DCR not available' and **Problem type** as 'I need help configuring data collection from a VM'.
 3. Validate the layout of the Syslog collection workflow to ensure all necessary pieces are in place and accessible:
 	1. For `rsyslog` users, ensure the `/etc/rsyslog.d/10-azuremonitoragent.conf` file is present, isn't empty, and is accessible by the `rsyslog` daemon (syslog user).
+		1. Check your rsyslog configuration at `/etc/rsyslog.conf` and `/etc/rsyslog.d/*` to see if you have any inputs bound to a non-default ruleset, as messages from these inputs will not be forwarded to Azure Monitor Agent. For instance, messages from an input configured with a non-default ruleset like `input(type="imtcp" port="514" `**`ruleset="myruleset"`**`)` will not be forward.
 	2. For `syslog-ng` users, ensure the `/etc/syslog-ng/conf.d/azuremonitoragent.conf` file is present, isn't empty, and is accessible by the `syslog-ng` daemon (syslog user).
 	3. Ensure the file `/run/azuremonitoragent/default_syslog.socket` exists and is accessible by `rsyslog` or `syslog-ng` respectively.
 	4. Check for a corresponding drop in count of processed syslog events in `/var/opt/microsoft/azuremonitoragent/log/mdsd.qos`. If such drop isn't indicated in the file, [file a ticket](#file-a-ticket) with **Summary** as 'Syslog data dropped in pipeline' and **Problem type** as 'I need help with Azure Monitor Linux Agent'.

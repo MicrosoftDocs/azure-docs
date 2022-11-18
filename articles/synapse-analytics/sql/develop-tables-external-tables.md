@@ -16,8 +16,8 @@ ms.custom: ignite-fall-2021
 An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read external data using dedicated SQL pool or serverless SQL pool.
 
 Depending on the type of the external data source, you can use two types of external tables:
-- Hadoop external tables that you can use to read and export data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables are available in dedicated SQL pools, but they aren't available in serverless SQL pools.
-- Native external tables that you can use to read and export data in various data formats such as CSV and Parquet. Native external tables are available in serverless SQL pools, and they are in **public preview** in dedicated SQL pools.
+- **Hadoop external tables** that you can use to read and export data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables are available in dedicated SQL pools, but they aren't available in serverless SQL pools.
+- **Native external tables** that you can use to read and export data in various data formats such as CSV and Parquet. Native external tables are available in serverless SQL pools, and they are in **public preview** in dedicated SQL pools. Writing/exporting data using CETAS and the native external tables is available only in the serverless SQL pool, but not in the dedicated SQL pools.
 
 The key differences between Hadoop and native external tables are presented in the following table:
 
@@ -26,11 +26,13 @@ The key differences between Hadoop and native external tables are presented in t
 | Dedicated SQL pool | Available | Only Parquet tables are available in **public preview**. |
 | Serverless SQL pool | Not available | Available |
 | Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless SQL pool: Delimited/CSV, Parquet, and [Delta Lake](query-delta-lake-format.md)<br/>Dedicated SQL pool: Parquet (preview) |
-| [Folder partition elimination](#folder-partition-elimination) | No | Only for partitioned tables synchronized from Apache Spark pools in Synapse workspace to serverless SQL pools |
+| [Folder partition elimination](#folder-partition-elimination) | No | Partition elimination is available only in the partitioned tables created on Parquet or CSV formats that are synchronized from Apache Spark pools. You might create external tables on Parquet partitioned folders, but the partitioning columns will be inaccessible and ignored, while the partition elimination will not be applied. Do not create [external tables on Delta Lake folders](create-use-external-tables.md#delta-tables-on-partitioned-folders) because they are not supported. Use [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) if you need to query partitioned Delta Lake data. |
 | [File elimination](#file-elimination) (predicate pushdown) | No | Yes in serverless SQL pool. For the string pushdown, you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns to enable pushdown. |
-| Custom format for location | Yes | Yes, using wildcards like `/year=*/month=*/day=*` |
-| Recursive folder scan | No | Only in serverless SQL pools when specified `/**` at the end of the location path |
+| Custom format for location | No | Yes, using wildcards like `/year=*/month=*/day=*` for Parquet or CSV formats. Custom folder paths are not available in Delta Lake. In the serverless SQL pool you can also use recursive wildcards `/logs/**` to reference Parquet or CSV files in any sub-folder beneath the referenced folder. |
+| Recursive folder scan | Yes | Yes. In serverless SQL pools must be specified `/**` at the end of the location path. In Dedicated pool the folders are always scanned recursively. |
 | Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | [Shared Access Signature(SAS)](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), [AAD passthrough](develop-storage-files-storage-access-control.md?tabs=user-identity), [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity), [Custom application Azure AD identity](develop-storage-files-storage-access-control.md?tabs=service-principal). |
+| Column mapping | Ordinal - the columns in the external table definition are mapped to the columns in the underlying Parquet files by position. | Serverless pool: by name. The columns in the external table definition are mapped to the columns in the underlying Parquet files by column name matching. <br/> Dedicated pool: ordinal matching. The columns in the external table definition are mapped to the columns in the underlying Parquet files by position.|
+| CETAS (exporting/transformation) | Yes | CETAS with the native tables as a target works only in the serverless SQL pool. You cannot use the dedicated SQL pools to export data using native tables. |
 
 > [!NOTE]
 > The native external tables are the recommended solution in the pools where they are generally available. If you need to access external data, always use the native tables in serverless pools. In dedicated pools, you should switch to the native tables for reading Parquet files once they are in GA. Use the Hadoop tables only if you need to access some types that are not supported in native external tables (for example - ORC, RC), or if the native version is not available.
@@ -181,6 +183,8 @@ CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
     CREDENTIAL = sqlondemand
 );
 ```
+> [!NOTE]
+> The SQL users needs to have proper permissions on database scoped credentials to access the data source in Azure Synapse Analytics Serverless SQL Pool. [Access external storage using serverless SQL pool in Azure Synapse Analytics](./develop-storage-files-overview.md?tabs=impersonation#permissions).
 
 The following example creates an external data source for Azure Data Lake Gen2 pointing to the publicly available New York data set:
 
@@ -259,6 +263,9 @@ Specifies the row number that is read first and applies to all files. Setting th
 
 USE_TYPE_DEFAULT = { TRUE | **FALSE** } -
 Specifies how to handle missing values in delimited text files when retrieving data from the text file.
+
+> [!NOTE]
+> Please note that USE_TYPE_DEFAULT=true is not supported for FORMAT_TYPE = DELIMITEDTEXT, PARSER_VERSION = '2.0'.
 
 TRUE -
 If you're retrieving data from the text file, store each missing value by using the default value's data type for the corresponding column in the external table definition. For example, replace a missing value with:

@@ -9,6 +9,7 @@ ms.reviewer: cawa
 ms.date: 05/09/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
+ms.reviwer: cawa
 ---
 
 # Navigate to a change using custom filters in Change Analysis
@@ -27,13 +28,13 @@ Browsing through a long list of changes in the entire subscription is time consu
 | Time range | Specifies how far back the UI display changes, up to 14 days. By default, it’s set to the past 24 hours. |
 | Resource group | Select the resource group to scope the changes. By default, all resource groups are selected. |
 | Change level | Controls which levels of changes to display. Levels include: important, normal, and noisy. <ul><li>Important: related to availability and security</li><li>Noisy: Read-only properties that are unlikely to cause any issues</li></ul> By default, important and normal levels are checked. |
-| Resource | Select **Add filter** to use this filter. </br> Filter the changes to specific resources. Helpful if you already know which resources to look at for changes. |
+| Resource | Select **Add filter** to use this filter. </br> Filter the changes to specific resources. Helpful if you already know which resources to look at for changes. [If the filter is only returning 1,000 resources, see the corresponding solution in troubleshooting guide](./change-analysis-troubleshoot.md#cant-filter-to-your-resource-to-view-changes). |
 | Resource type | Select **Add filter** to use this filter. </br> Filter the changes to specific resource types. |
 
 ### Search bar
 
 The search bar filters the changes according to the input keywords. Search bar results apply only to the changes loaded by the page already and don't pull in results from the server side.
 
+
 ## Next steps
-- Use [Change Analysis with the Az.ChangeAnalysis PowerShell module](./change-analysis-powershell.md) to determine changes made to resources in your Azure subscription.
-- [Troubleshoot Change Analysis](./change-analysis-troubleshoot.md).
+[Troubleshoot Change Analysis](./change-analysis-troubleshoot.md).

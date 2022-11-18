@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Web app accesses Microsoft Graph as the user | Azure
+title: Tutorial - Web app accesses Microsoft Graph as the user
 description: In this tutorial, you learn how to access data in Microsoft Graph from a web app for a signed-in user.
 services: microsoft-graph, app-service-web
 author: rwike77
@@ -130,7 +130,7 @@ Using the [Microsoft.Identity.Web library](https://github.com/AzureAD/microsoft-
 To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
 
 > [!NOTE]
-> The Microsoft.Identity.Web library isn't required in your web app for basic authentication/authorization or to authenticate requests with Microsoft Graph. It's possible to [securely call downstream APIs](/azure/app-service/tutorial-auth-aad#call-api-securely-from-server-code) with only the App Service authentication/authorization module enabled.
+> The Microsoft.Identity.Web library isn't required in your web app for basic authentication/authorization or to authenticate requests with Microsoft Graph. It's possible to [securely call downstream APIs](../../app-service/tutorial-auth-aad.md#call-api-securely-from-server-code) with only the App Service authentication/authorization module enabled.
 > 
 > However, the App Service authentication/authorization is designed for more basic authentication scenarios. For more complex scenarios (handling custom claims, for example), you need the Microsoft.Identity.Web library or [Microsoft Authentication Library](msal-overview.md). There's a little more setup and configuration work in the beginning, but the Microsoft.Identity.Web library can run alongside the App Service authentication/authorization module. Later, when your web app needs to handle more complex scenarios, you can disable the App Service authentication/authorization module and Microsoft.Identity.Web will already be a part of your app.
 
@@ -275,9 +275,14 @@ public class IndexModel : PageModel
 
 # [Node.js](#tab/programming-language-nodejs)
 
-The web app gets the user's access token from the incoming requests header, which is then passed down to Microsoft Graph client to make an authenticated request to the `/me` endpoint.
+Using the [microsoft-identity-express](https://github.com/Azure-Samples/microsoft-identity-express) package, the web app gets the user's access token from the incoming requests header. microsoft-identity-express detects that the web app is hosted on App Service and gets the access token from the App Service authentication/authorization module. The access token is then passed down to the Microsoft Graph SDK client to make an authenticated request to the `/me` endpoint.
 
 To see this code as part of a sample application, see *graphController.js* in the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
+
+> [!NOTE]
+> The microsoft-identity-express package isn't required in your web app for basic authentication/authorization or to authenticate requests with Microsoft Graph. It's possible to [securely call downstream APIs](../../app-service/tutorial-auth-aad.md#call-api-securely-from-server-code) with only the App Service authentication/authorization module enabled.
+> 
+> However, the App Service authentication/authorization is designed for more basic authentication scenarios. Later, when your web app needs to handle more complex scenarios, you can disable the App Service authentication/authorization module and microsoft-identity-express will already be a part of your app.
 
 ```nodejs
 const graphHelper = require('../utils/graphHelper');

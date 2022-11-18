@@ -28,7 +28,7 @@ Prices shown in the following image are for example purposes only.
 :::image type="content" source="./media/sql-server-hadr-licenses/fully-discounted-consumption-hadr.svg" alt-text="Diagram showing fully discounted vCore consumption with HADR selected." border="false" lightbox="./media/sql-server-hadr-licenses/fully-discounted-consumption-hadr.svg":::
 
 > [!NOTE]
-> HADR option reflects the specific role of this SQL Server instance in the AlwaysOn availability group. Selecting it is the responsibility of the service owner or DBA and requires at least a [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role. This task is unrelated to scope-level license assignments.
+> HADR option reflects the specific role of this SQL Server instance in the Always On availability group. Selecting it is the responsibility of the service owner or DBA and requires at least a [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role. This task is unrelated to scope-level license assignments.
 
 ## Next steps
 

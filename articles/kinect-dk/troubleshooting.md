@@ -3,7 +3,7 @@ title: Azure Kinect known issues and troubleshooting
 description: Learn about some of the known issues and troubleshooting tips when using the Sensor SDK with Azure Kinect DK.
 author: qm13
 ms.author: quentinm
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 03/15/2022
 ms.topic: conceptual
 keywords: troubleshooting, update, bug, kinect, feedback, recovery, logging, tips

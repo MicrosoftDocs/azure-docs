@@ -1,14 +1,16 @@
 ---
-title: The Azure Video Indexer (formerly Azure Video Analyzer for Media) connectors with Logic App and Power Automate tutorial.
-description: This tutorial shows how to unlock new experiences and monetization opportunities Azure Video Indexer (formerly Azure Video Analyzer for Media) connectors with Logic App and Power Automate.
+title: The Azure Video Indexer connectors with Logic App and Power Automate.
+description: This tutorial shows how to unlock new experiences and monetization opportunities Azure Video Indexer connectors with Logic App and Power Automate.
 ms.author: alzam
 ms.topic: tutorial #Required
 ms.date: 09/21/2020
 ---
 
-# Tutorial: use Azure Video Indexer with Logic App and Power Automate
+# Use Azure Video Indexer with Logic App and Power Automate
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) supports both server-to-server and client-to-server communication and enables Azure Video Indexer users to integrate video and audio insights easily into their application logic, unlocking new experiences and monetization opportunities.
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
+Azure Video Indexer [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) supports both server-to-server and client-to-server communication and enables Azure Video Indexer users to integrate video and audio insights easily into their application logic, unlocking new experiences and monetization opportunities.
 
 To make the integration even easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with our API. You can use the connectors to set up custom workflows to effectively index and extract insights from a large amount of video and audio files, without writing a single line of code. Furthermore, using the connectors for your integration gives you better visibility on the health of your workflow and an easy way to debug it.  
 
@@ -59,7 +61,7 @@ Also, add a new "Shared Access Protocol" parameter. Choose HttpsOnly for the val
 
 ![SAS uri by path](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Fill out [your account location](regions.md) and [account ID](./video-indexer-use-apis.md#account-id) to get the Azure Video Indexer account token.
+Fill out [your account location](regions.md) and [account ID](./video-indexer-use-apis.md#operational-api-calls) to get the Azure Video Indexer account token.
 
 ![Get account access token](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -83,9 +85,9 @@ Create the second flow separate from the first one.
 
 To set up this flow, you will need to provide your Azure Video Indexer API Key and Azure Storage credentials again. You will need to update the same parameters as you did for the first flow. 
 
-For your trigger, you will see a HTTP POST URL field. The URL won’t be generated until after you save your flow; however, you will need the URL eventually. We will come back to this. 
+For your trigger, you will see an HTTP POST URL field. The URL won’t be generated until after you save your flow; however, you will need the URL eventually. We will come back to this. 
 
-Fill out [your account location](regions.md) and [account ID](./video-indexer-use-apis.md#account-id) to get the Azure Video Indexer account token.  
+Fill out [your account location](regions.md) and [account ID](./video-indexer-use-apis.md#operational-api-calls) to get the Azure Video Indexer account token.  
 
 Go to the “Get Video Index” action and fill out the required parameters. For Video ID, put in the following expression: triggerOutputs()['queries']['id'] 
 

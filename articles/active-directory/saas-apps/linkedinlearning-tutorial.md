@@ -34,7 +34,6 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * LinkedIn Learning supports **SP and IDP** initiated SSO.
 * LinkedIn Learning supports **Just In Time** user provisioning.
-* LinkedIn Learning supports [Automated user provisioning](linkedin-learning-provisioning-tutorial.md).
 
 ## Add LinkedIn Learning from the gallery
 
@@ -46,6 +45,8 @@ To configure the integration of LinkedIn Learning into Azure AD, you need to add
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **LinkedIn Learning** in the search box.
 1. Select **LinkedIn Learning** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for LinkedIn Learning
 
@@ -83,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. You will update these values with the actual Identifier, Reply URL and Sign on URL which is explained later in the **Configure LinkedIn Learning SSO** section of tutorial.
 
-1. LinkedIn Learning application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. LinkedIn Learning application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+1. LinkedIn Learning application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **nameidentifier** is mapped with **user.userprincipalname**. LinkedIn Learning application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 

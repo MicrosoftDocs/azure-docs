@@ -4,7 +4,7 @@ description: Specifications for the Edv5 and Edsv5-series VMs.
 author: andysports8
 ms.author: shuji
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 10/20/2021
 ---
@@ -17,7 +17,7 @@ The Edv5 and Edsv5-series Virtual Machines run on the 3rd Generation Intel&reg; 
 
 ## Edv5-series
 
-Edv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM as well as fast, local SSD storage up to 3800 GiB. Edv5-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
+Edv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM and fast, local SSD storage up to 3800 GiB. Edv5-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
 
 Edv5-series virtual machines support Standard SSD and Standard HDD disk types. To use Premium SSD or Ultra Disk storage, select Edsv5-series virtual machines. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -26,13 +26,13 @@ Edv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)<sup>1</sup>: Required <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br><br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup>  | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_E2d_v5<sup>1,2</sup>  | 2   | 16  | 75   | 4  | 9000/125    | 2 | 12500 |
+| Standard_E2d_v5  | 2   | 16  | 75   | 4  | 9000/125    | 2 | 12500 |
 | Standard_E4d_v5                | 4   | 32  | 150  | 8  | 19000/250   | 2 | 12500 |
 | Standard_E8d_v5                | 8   | 64  | 300  | 16 | 38000/500   | 4 | 12500 |
 | Standard_E16d_v5               | 16  | 128 | 600  | 32 | 75000/1000  | 8 | 12500 |
@@ -45,13 +45,12 @@ Edv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking is required and turned on by default on all Edv5 virtual machines.<br>
-<sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.
+<sup>2</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.
 
 
 ## Edsv5-series
 
-Edsv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM as well as fast, local SSD storage up to 3800 GiB. Edsv5-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
+Edsv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM and fast, local SSD storage up to 3800 GiB. Edsv5-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
 
 Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to these VMs. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -60,14 +59,14 @@ Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. 
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)<sup>1</sup>: Required <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup> | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>5</sup> | Max NICs | Max network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup> | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>4</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_E2ds_v5<sup>1,2</sup>  | 2   | 16  | 75   | 4  | 9000/125    | 3750/85      | 10000/1200 | 2 | 12500 |
+| Standard_E2ds_v5  | 2   | 16  | 75   | 4  | 9000/125    | 3750/85      | 10000/1200 | 2 | 12500 |
 | Standard_E4ds_v5                | 4   | 32  | 150  | 8  | 19000/250   | 6400/145     | 20000/1200 | 2 | 12500 |
 | Standard_E8ds_v5                | 8   | 64  | 300  | 16 | 38000/500   | 12800/290    | 20000/1200 | 4 | 12500 |
 | Standard_E16ds_v5               | 16  | 128 | 600  | 32 | 75000/1000  | 25600/600    | 40000/1200 | 8 | 12500 |
@@ -76,14 +75,25 @@ Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. 
 | Standard_E48ds_v5               | 48  | 384 | 1800 | 32 | 225000/3000 | 76800/1315   | 80000/3000 | 8 | 24000  |
 | Standard_E64ds_v5               | 64  | 512 | 2400 | 32 | 375000/4000 | 80000/1735   | 80000/3000 | 8 | 30000  |
 | Standard_E96ds_v5<sup>3</sup>   | 96  | 672 | 3600 | 32 | 450000/4000 | 80000/2600   | 80000/4000 | 8 | 35000  |
-| Standard_E104ids_v5<sup>4</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 120000/4000  | 120000/4000 | 8 | 100000 |
+| Standard_E104ids_v5<sup>4,6</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 120000/4000  | 120000/4000 | 8 | 100000 |
 
-<sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
-<sup>1</sup> Accelerated networking is required and turned on by default on all Edsv5 virtual machines.<br>
-<sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> [Constrained Core](constrained-vcpu.md) sizes available.<br>
-<sup>4</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.<br>
-<sup>5</sup> Edsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)
+
+<sup>1</sup> Accelerated networking is required and turned on by default on all Edsv5 virtual machines.
+
+<sup>2</sup> [Constrained Core](constrained-vcpu.md) sizes available.
+
+<sup>3</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.
+
+<sup>4</sup> Edsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+
+<sup>5</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E104ids_v5** results in higher IOPs and MBps than standard premium disks:
+- Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 120000/4000 
+- Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 120000/4000
+
+
+
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -98,4 +108,4 @@ Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. 
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
+More information on Disks Types: [Disk Types](./disks-types.md#ultra-disks)

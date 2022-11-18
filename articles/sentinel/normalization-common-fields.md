@@ -75,7 +75,7 @@ The role of the device fields is different for different schemas and event types
 | <a name="dvczone"></a>**DvcZone** | Optional | String | The network on which the event occurred or which reported the event, depending on the schema. The zone is defined by the reporting device.<br><br>Example: `Dmz` |
 | <a name="dvcos"></a>**DvcOs**               | Optional    | String     |         The operating system running on the device on which the event occurred or which reported the event.    <br><br>Example: `Windows`    |
 | <a name="dvcosversion"></a>**DvcOsVersion**        | Optional    | String     |   The version of the operating system on the device on which the event occurred or which reported the event. <br><br>Example: `10` |
-| <a name="dvcaction"></a>**DvcAction** | Optional | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
+| <a name="dvcaction"></a>**DvcAction** | Recommended | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
 | <a name="dvcoriginalaction"></a>**DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
 | <a name="dvcinterface"></a>**DvcInterface** | Optional | String | The network interface on which data was captured. This field is  typically relevant to network related activity which is captured by an intermediate or tap device. | 
 | <a name="dvcsubscription"></a>**DvcSubscriptionId** | Optional | String | The cloud platform subscription ID the device belongs to. **DvcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
@@ -98,11 +98,11 @@ The currently supported list of vendors and products used in the [EventVendor](#
 | Vendor | Products |
 | ------ | -------- | 
 | AWS | - CloudTrail<br> - VPC | 
-| Cisco | - ASA<br> - Umbrella |
+| Cisco | - ASA<br> - Umbrella<br> - IOS |
 | Corelight | Zeek | 
 | GCP | Cloud DNS | 
 | Infoblox | NIOS | 
-| Microsoft | - AAD<br> - Azure Firewall<br> - Azure File Storage<br>    - Azure NSG flows<br> -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
+| Microsoft | - AAD<br> - Azure Firewall<br> - Azure Blob Storage<br>    - Azure File Storage<br>    - Azure NSG flows<br> - Azure Queue Storage<br>  - Azure Table Storage <br>      -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
 | Okta | - Okta<BR> - Auth0<br> | 
 | Palo Alto | - PanOS<br> - CDL<br> |
 | PostgreSQL | PostgreSQL |

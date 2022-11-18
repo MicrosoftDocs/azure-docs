@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 10/10/2022
 ms.author: jeedes
 
 ---
@@ -49,6 +49,8 @@ To configure the integration of Kronos Workforce Dimensions into Azure AD, you n
 1. In the **Add from the gallery** section, type **Kronos Workforce Dimensions** in the search box.
 1. Select **Kronos Workforce Dimensions** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Kronos Workforce Dimensions
 
 Configure and test Azure AD SSO with Kronos Workforce Dimensions using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Kronos Workforce Dimensions.
@@ -70,7 +72,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -89,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
 ### Create an Azure AD test user
 
@@ -119,9 +121,273 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on **Kronos Workforce Dimensions** side, you need to send the **App Federation Metadata Url** to [Kronos Workforce Dimensions support team](mailto:support@kronos.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create Kronos Workforce Dimensions test user
+## Create Kronos Workforce Dimensions test user
 
 In this section, you create a user called Britta Simon in Kronos Workforce Dimensions. Work with [Kronos Workforce Dimensions support team](mailto:support@kronos.com) to add the users in the Kronos Workforce Dimensions platform. Users must be created and activated before you use single sign-on.
+
+> [!NOTE]
+> Original Microsoft documentation advises to contact UKG Support via email to create your Azure AD Users. While this option is available please consider the following self-service options. 
+
+### Manual Process 
+
+There are two ways to manually create your Azure AD users in WFD.  You can either select an existing user, duplicate them and then update the necessary fields to make that user unique.  This process can be time consuming and requires knowledge of the WFD User Interface. The alternative is to create the user via the WFD API which is much quicker. This option requires knowledge of using API Tools such as Postman to send the request to the API instead. The following instructions will assist with importing a prebuilt example into the Postman API Tool. 
+
+#### Setup 
+
+1. Open Postman tool and import the following files: 
+
+    a. Workforce Dimensions - Create User.postman_collection.json 
+
+    b. AAD to WFD Env Variables.json 
+
+1. In the left-pane, select the **Environments** button. 
+
+1. Click on **AAD_to_WFD_Env_Variables** and add the values provided by UKG Support pertaining to your WFD instance. 
+
+    > [!NOTE]
+    > access_token and refresh_token should be empty as these will automatically populate as a result of the Obtain Access Token HTTP Request.   
+
+1. Open the **Create Azure AD User in WFD** HTTP Request and update highlighted properties within the JSON payload: 
+
+    ```  
+    { 
+
+    "personInformation": { 
+
+       "accessAssignment": { 
+
+          "accessProfileName": "accessProfileName", 
+
+          "notificationProfileName": "All" 
+
+        }, 
+
+        "emailAddresses": [ 
+
+          { 
+
+            "address": "address” 
+
+            "contactTypeName": "Work" 
+
+          } 
+
+        ], 
+
+        "employmentStatusList": [ 
+
+          { 
+
+            "effectiveDate": "2019-08-15", 
+
+            "employmentStatusName": "Active", 
+
+            "expirationDate": "3000-01-01" 
+
+          } 
+
+        ], 
+
+        "person": { 
+
+          "personNumber": "personNumber", 
+
+          "firstName": "firstName", 
+
+          "lastName": "lastName", 
+
+          "fullName": "fullName", 
+
+          "hireDate": "2019-08-15", 
+
+          "shortName": "shortName" 
+
+        }, 
+
+        "personAuthenticationTypes": [ 
+
+          { 
+
+            "activeFlag": true, 
+
+            "authenticationTypeName": "Federated" 
+
+          } 
+
+        ], 
+
+        "personLicenseTypes": [ 
+
+          { 
+
+            "activeFlag": true, 
+
+            "licenseTypeName": "Employee" 
+
+          }, 
+
+          { 
+
+            "activeFlag": true, 
+
+            "licenseTypeName": "Absence" 
+
+          }, 
+
+          { 
+
+            "activeFlag": true, 
+
+            "licenseTypeName": "Hourly Timekeeping" 
+
+          }, 
+
+          { 
+
+            "activeFlag": true, 
+
+            "licenseTypeName": "Scheduling" 
+
+          } 
+
+        ], 
+
+        "userAccountStatusList": [ 
+
+          { 
+
+            "effectiveDate": "2019-08-15", 
+
+            "expirationDate": "3000-01-01", 
+
+            "userAccountStatusName": "Active" 
+
+          } 
+
+        ] 
+
+      }, 
+
+      "jobAssignment": { 
+
+        "baseWageRates": [ 
+
+          { 
+
+            "effectiveDate": "2019-01-01", 
+
+            "expirationDate": "3000-01-01", 
+
+            "hourlyRate": 20.15 
+
+          } 
+
+        ], 
+
+        "jobAssignmentDetails": { 
+
+          "payRuleName": "payRuleName", 
+
+          "timeZoneName": "timeZoneName" 
+
+        }, 
+
+        "primaryLaborAccounts": [ 
+
+          { 
+
+            "effectiveDate": "2019-08-15", 
+
+            "expirationDate": "3000-01-01", 
+
+            "organizationPath": "organizationPath" 
+
+          } 
+
+        ] 
+
+      }, 
+
+      "user": { 
+
+        "userAccount": { 
+
+          "logonProfileName": "Default", 
+
+          "userName": "userName" 
+
+        } 
+
+      } 
+
+    }
+    ```
+
+    > [!NOTE]
+    > The personInformation.emailAddress.address and the user.userAccount.userName must both match the targeted Azure AD User you are trying to create in WFD. 
+
+1. In the upper-righthand corner, select the **Environments** drop-down-box and select **AAD_to_WFD_Env_Variables**. 
+
+1. Once the JSON payload has been updated and the correct environment variables selected, select the **Obtain Access Token** HTTP Request and click the **Send** button. This will leverage the updated environment variables to authenticate to your WFD instance and then cache your access token in the environment variables to use when calling the create user method. 
+
+1. If the authentication call was successful, you should see a 200 response with an access token returned. This access token will also now show in the **CURRENT VALUE** column in the environment variables for the **access_token** entry. 
+
+    > [!NOTE]
+    > If an access_token is not received, confirm that all variables in the environment variables are correct. User credentials should be a super user account. 
+
+1. Once an **access_token** is obtained, select the **AAD_to_WFD_Env_Variables** HTTP Request and click the **Send** button.  If the request is successful you will receive a 200 HTTP status back. 
+
+1. Login to WFD with the **Super User** account and confirm the new Azure AD User was created within the WFD instance. 
+
+### Automated Process 
+
+The automated process consists of a flat-file in CSV format which allows the user to prespecify the highlighted values in the payload from the manual API process above. The flat-file is consumed by the accompanying PowerShell script which creates the new WFD users in bulk. The script processes new user creations in batches of 70 (default) which is configurable for optimal performance. The following instructions will walk through the setup and execution of the script. 
+
+1. Save both the **AAD_To_WFD.csv** and **AAD_To_WFD.ps1** files locally to your computer. 
+
+1. Open the **AAD_To_WFD.csv** file and fill in the columns. 
+
+    * **personInformation.accessAssignment.accessProfileName**: Specific Access Profile Name from WFD instance. 
+
+    * **personInformation.emailAddresses.address**: 
+    Must match the User Principle Name in Azure Active Directory. 
+
+    * **personInformation.personNumber**: Must be unique across the WFD instance. 
+
+    * **personInformation.firstName**: User’s first name. 
+
+    * **personInformation.lastName**: User’s last name. 
+
+    * **jobAssignment.jobAssignmentDetails.payRuleName**: Specific Pay Rule Name from WFD. 
+
+    * **jobAssignment.jobAssignmentDetails.timeZoneName**: Timezone format must match WFD instance (i.e. (GMT -08:00) Pacific Time) 
+
+    * **jobAssignment.primaryLaborAccounts.organizationPath**: Organization Path of a specific Business structure in the WFD instance. 
+
+1. Save the .csv file. 
+
+1. Right-Click the **AAD_To_WFD.ps1** script and click **Edit** to modify it. 
+
+1. Confirm the path specified in Line 15 is the correct name/path to the **AAD_To_WFD.csv** file. 
+
+1. Update the following lines with the values provided by UKG Support pertaining to your WFD instance. 
+
+    * Line 33:  vanityUrl 
+
+    * Line 43:  appKey 
+
+    * Line 48:  client_id 
+
+    * Line 49:  client_secret 
+
+1. Save and execute the script. 
+
+1. Provide WFD **Super User** credentials when prompted. 
+
+1. Once completed, the script will return a list of any users that failed to create.
+
+> [!Note]
+> Be sure to check the values provided in the AAD_To_WFD.csv file if it is returned as the result of typos or mismatched fields in the WFD instance.  The error could also be returned by the WFD API instance if all users in the batch already exist in the instance.
 
 ## Test SSO 
 

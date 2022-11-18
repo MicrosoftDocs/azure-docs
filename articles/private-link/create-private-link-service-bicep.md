@@ -2,12 +2,12 @@
 title: 'Quickstart: Create a private link service in Azure Private Link using Bicep'
 description: In this quickstart, you use Bicep to create a private link service.
 services: private-link
-author: schaffererin
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 04/29/2022
-ms.author: v-eschaffer
+ms.author: allensu
 ---
 
 # Quickstart: Create a private link service using Bicep
@@ -36,7 +36,7 @@ Multiple Azure resources are defined in the Bicep file:
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): There are two virtual machines, one that hosts the service and one that tests the connection to the private endpoint.
 - [**Microsoft.Compute/virtualMachines/extensions**](/azure/templates/Microsoft.Compute/virtualMachines/extensions): The extension that installs a web server.
 - [**Microsoft.Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices): The private link service to expose the service.
-- [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses): There are two public IP addresses, one for each virtual machine.
+- [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses): There is a public IP address for the test virtual machine.
 - [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints): The private endpoint to access the service.
 
 ## Deploy the Bicep file
