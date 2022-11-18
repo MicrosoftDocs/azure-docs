@@ -265,6 +265,8 @@
           href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-standard-premium
         - name: Configure HTTPS on a custom domain
           href: standard-premium/how-to-configure-https-custom-domain.md
+        - name: Configure caching
+          href: how-to-configure-caching.md
         - name: Rules Engine
           href: standard-premium/how-to-configure-rule-set.md
         - name: Purge cache
