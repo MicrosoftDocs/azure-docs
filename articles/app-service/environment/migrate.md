@@ -43,6 +43,7 @@ At this time, App Service Environment migrations to v3 using the migration featu
 - Norway East
 - Norway West
 - South Central US
+- South India
 - Switzerland North
 - Switzerland West
 - UAE North
