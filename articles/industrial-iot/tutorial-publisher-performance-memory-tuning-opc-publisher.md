@@ -25,7 +25,9 @@ An OPC UA node is exposing a value reflecting a measurement of a sensor. If the 
 OPC Publisher does establish a session to an OPC UA server and creates subscriptions to monitor data value changes of OPC UA nodes. Depending on configuration settings, the OPC UA server notifies OPC Publisher and reports data value changes. Those data change notifications might contain more than one data value change.
 
 ### Telemetry event
-A telemetry event is equal to an encoded data value change, which can be sent to the cloud.
+A telemetry event is an event which is sent to the cloud. Depending on the messaging mode configured in OPC Publisher (`--mm`) this event will contain:
+- for Samples mode (`--mm=Samples`): one data value change
+- for PubSub mode (`--mm=PubSub`): all data value changes in a data change notification
 
 ### Latency
 Latency in the context of this tutorial is the time difference between the `SourceTimestamp` of a data value change and when the corresponding telemetry event is queued in IoT Hub.
@@ -37,7 +39,7 @@ A telemetry event emitted by OPC Publisher is triggered by data value change of 
 * Queue size
 * Heartbeat interval
 
-The (section)[https://reference.opcfoundation.org/Core/Part4/v104/5.12.1/] of the OPC UA Reference describes, which affect sampling interval and queue size have on the notifications. The timing is controlled by the publishing interval, it specifies the interval in which notifications will be reported by the OPC UA server to OPC Publisher. The Publishing Interval is a parameter set during the (subscription creation process)[https://reference.opcfoundation.org/Core/Part4/v104/5.13.2/].
+The (section)[https://reference.opcfoundation.org/Core/Part4/v104/5.12.1/] of the OPC UA Specification describes, which affect sampling interval and queue size have on the notifications. The timing is controlled by the publishing interval, it specifies the interval in which notifications will be reported by the OPC UA server to OPC Publisher. The Publishing Interval is a parameter set during the (subscription creation process)[https://reference.opcfoundation.org/Core/Part4/v104/5.13.2/].
 
 OPC UA servers are often handling higher priority tasks like controlling machinery. For this reason the settings above are sent to the OPC UA server, which may return revised values in case the OPC UA server doesn't want to support the requested value.
 
@@ -59,7 +61,7 @@ To run OPC Publisher in production, network performance requirements (throughput
 ## Latency considerations
 
 What is typically seen as latency is the time difference between the `iothub-enqueuedtime` of the (device to cloud message)[https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-construct] and the `SourceTimestamp` field of an OPC UA telemetry event. There are multiple factors, which contribute to the latency:
-* The `SourceTimestamp` of the OPC UA telemetry event is a value (defined by the OPC UA specification)[https://reference.opcfoundation.org/Core/Part4/v104/7.7.3/] as to be as close to the source of the value. The origin of `SourceTimestamp` is highly dependent on the setup between sensor and OPC UA server. Independent from the setup, it's important to ensure that the time source is synchronized precisely otherwise the latency calculation will be not correct.
+* The `SourceTimestamp` of the OPC UA telemetry event is a value (defined by the OPC UA Specification)[https://reference.opcfoundation.org/Core/Part4/v104/7.7.3/] as to be as close to the source of the value. The origin of `SourceTimestamp` is highly dependent on the setup between sensor and OPC UA server. Independent from the setup, it's important to ensure that the time source is synchronized precisely otherwise the latency calculation will be not correct.
 * It's important that the systems and interconnection between the sensor and the IoT Edge host system where OPC Publisher runs is stable and doesn't introduce latency.
 * The configuration of the OPC UA nodes to publish and the effect of OPC Publisher command line options on latency will be discussed below.
 * OPC Publisher sends messages via IoT Edge edgeHub to IoT Hub. The latency added by internal communication is typically low. 
