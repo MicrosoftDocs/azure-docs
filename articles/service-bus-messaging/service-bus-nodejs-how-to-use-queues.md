@@ -39,7 +39,8 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 To use this quickstart with your own Azure account, you need:
 * Instal [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
-* Sign in at the terminal or command prompt with `az login`. 
+* Sign in with your Azure account at the terminal or command prompt with `az login`. 
+* Use the same account when you add the **Azure Service Bus Data Owner** role to your resource.
 * Run the code in the same terminal or command prompt.
 * Note down your **queue** name for your Service Bus namespace. You'll need that in the code.  
 
@@ -284,10 +285,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 
 ---
 
-
 ## Receive messages from a queue
-
-
 
 ### [Passwordless](#tab/passwordless)
 
