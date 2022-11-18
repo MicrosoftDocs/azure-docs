@@ -17,13 +17,14 @@ ms.custom: devx-track-azurecli, mode-api
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
 ## Create a resource group
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named **gridResourceGroup** in the **westus2** location.
+
+> [!NOTE]
+> Select **Try it** next to the CLI example to launch Cloud Shell in the right pane. Select **Copy** button to copy the command, paste it in the Cloud Shell window, and then press ENTER to run the command.
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
@@ -42,9 +43,9 @@ An event grid topic provides a user-defined endpoint that you post your events t
     ```    
 1. Run the following command to create the topic. 
 
-```azurecli-interactive
-az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
-```
+    ```azurecli-interactive
+    az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
+    ```
 
 ## Create Queue storage
 
@@ -61,7 +62,8 @@ Before subscribing to the custom topic, let's create the endpoint for the event 
     queuename="eventqueue"
 
     az storage account create -n $storagename -g gridResourceGroup -l westus2 --sku Standard_LRS
-    az storage queue create --name $queuename --account-name $storagename
+    key="$(az storage account keys list -n $storagename --query "[0].{value:value}" --output tsv)"    
+    az storage queue create --name $queuename --account-name $storagename --account-key $key
     ```
 
 ## Subscribe to a custom topic
@@ -75,11 +77,11 @@ The following script gets the resource ID of the storage account for the queue. 
 ```azurecli-interactive
 storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
 queueid="$storageid/queueservices/default/queues/$queuename"
-topicid=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query id --output tsv)
+topicid=$(az eventgrid topic show --name $topicname -g gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
   --source-resource-id $topicid \
-  --name <event_subscription_name> \
+  --name mystoragequeuesubscription \
   --endpoint-type storagequeue \
   --endpoint $queueid \
   --expiration-date "<yyyy-mm-dd>"
@@ -120,7 +122,7 @@ done
 
 Navigate to the Queue storage in the portal, and notice that Event Grid sent those three events to the queue.
 
-![Show messages](./media/custom-event-to-queue-storage/messages.png)
+:::image type="content" source="./media/custom-event-to-queue-storage/messages.png" alt-text="Screenshot showing the list of messages in the queue that are received from Event Grid.":::
 
 > [!NOTE]
 > If you use an [Azure Queue storage trigger for Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) for a queue that receives messages from Event Grid, you may see the following error message on the function execution: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
