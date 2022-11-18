@@ -1,6 +1,6 @@
 ---
-title: How to use the 'blobfuse2 mount' command to mount a Blob Storage container as a file system in Linux, or to display and manage existing mount points (preview). | Microsoft Docs
-titleSuffix: Azure Blob Storage
+title: How to use the 'blobfuse2 mount' command to mount a Blob Storage container as a file system in Linux, or to display and manage existing mount points (preview).
+titleSuffix: Azure Storage
 description: Learn how to use the 'blobfuse2 mount' command to mount a Blob Storage container as a file system in Linux, or to display and manage existing mount points (preview).
 author: jimmart-dev
 ms.service: storage
