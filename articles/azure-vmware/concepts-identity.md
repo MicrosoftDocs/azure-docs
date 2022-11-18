@@ -53,7 +53,7 @@ The CloudAdmin role in Azure VMware Solution has the following privileges on vCe
 
 ### Create custom roles on vCenter Server
 
-Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role.  You'll use the CloudAdmin role to create, modify, or delete custom roles with privileges lesser than or equal to their current role.
+Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role.  You'll use the CloudAdmin role to create, modify, or delete custom roles with privileges less than or equal to their current role.
 
    >[!NOTE]
    >You can create roles with privileges greater than CloudAdmin. However, you can't assign the role to any users or groups or delete the role.  Roles that have privileges greater than that of CloudAdmin is unsupported.
