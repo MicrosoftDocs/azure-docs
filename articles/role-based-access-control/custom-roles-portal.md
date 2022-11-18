@@ -203,6 +203,9 @@ Microsoft.CostManagement/exports/*
 
 If you want to add a new wildcard permission, you can't add it using the **Add permissions** pane. To add a wildcard permission, you have to add it manually using the **JSON** tab. For more information, see [Step 6: JSON](#step-6-json).
 
+> [!NOTE]
+> It's recommended that you specify `Actions` and `DataActions` explicitly instead of using the wildcard (`*`) character. The additional access and permissions granted through future `Actions` or `DataActions` may be unwanted behavior using the wildcard.
+
 ### Exclude permissions
 
 If your role has a wildcard (`*`) permission and you want to exclude or subtract specific permissions from that wildcard permission, you can exclude them. For example, let's say that you have the following wildcard permission:
@@ -238,7 +241,7 @@ When you exclude a permission, it is added as a `NotActions` or `NotDataActions`
 
 On the **Assignable scopes** tab, you specify where your custom role is available for assignment, such as management group, subscriptions, or resource groups. Depending on how you chose to start, this tab might already list the scope where you opened the Access control (IAM) page.
 
- You can only define one management group in assignable scopes. Setting assignable scope to root scope ("/") is not supported.
+ You can define only one management group in assignable scopes. Setting assignable scope to root scope ("/") is not supported.
 
 1. Click **Add assignable scopes** to open the Add assignable scopes pane.
 
@@ -252,7 +255,7 @@ On the **Assignable scopes** tab, you specify where your custom role is availabl
 
 ## Step 6: JSON
 
-On the **JSON** tab, you see your custom role formatted in JSON. If you want, you can directly edit the JSON. If you want to add a wildcard (`*`) permission, you must use this tab.
+On the **JSON** tab, you see your custom role formatted in JSON. If you want, you can directly edit the JSON.
 
 1. To edit the JSON, click **Edit**.
 

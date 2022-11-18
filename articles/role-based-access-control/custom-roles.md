@@ -178,7 +178,8 @@ Instead of adding all of these strings, you could just add a wildcard string. Fo
 Microsoft.CostManagement/exports/*
 ```
 
-It's recommended that you specify `Actions` and `DataActions` explicitly instead of using the wildcard (`*`) character. The additional access and permissions granted through future `Actions` or `DataActions` may be unwanted behavior using the wildcard.
+> [!NOTE]
+> It's recommended that you specify `Actions` and `DataActions` explicitly instead of using the wildcard (`*`) character. The additional access and permissions granted through future `Actions` or `DataActions` may be unwanted behavior using the wildcard.
 
 ## Who can create, delete, update, or view a custom role
 
@@ -210,7 +211,7 @@ The following list describes the limits for custom roles.
 - Azure China 21Vianet can have up to 2000 custom roles for each tenant.
 - You cannot set `AssignableScopes` to the root scope (`"/"`).
 - You cannot use wildcards (`*`) in `AssignableScopes`. This wildcard restriction helps ensure a user can't potentially obtain access to a scope by updating the role definition.
-- You can only define one management group in `AssignableScopes` of a custom role.
+- You can define only one management group in `AssignableScopes` of a custom role.
 - You can have only one wildcard in an action string.
 - Custom roles with `DataActions` cannot be assigned at the management group scope.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's `AssignableScopes`.
