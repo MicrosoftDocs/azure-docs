@@ -24,9 +24,9 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
 - Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 - An Azure App Configuration store
 
-## Create a key-value pair
+## Create a key-value
 
-1. In the Azure platform, open your App Configuration store and select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+1. In the Azure portal, open your App Configuration store and select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value:
 
     | Key                        | Value                               |
     |----------------------------|-------------------------------------|
@@ -38,16 +38,16 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
 
 ## Set up the Python app
 
-1. Create a new directory for the project named *app-configuration-quickstart*.
+1. Create a new directory for the project named *app-configuration-example*.
 
     ```console
-    mkdir app-configuration-quickstart
+    mkdir app-configuration-example
     ```
 
-1. Switch to the newly created *app-configuration-quickstart* directory.
+1. Switch to the newly created *app-configuration-example* directory.
 
     ```console
-    cd app-configuration-quickstart
+    cd app-configuration-example
     ```
 
 1. Install the Azure App Configuration client library by using the `pip install` command.
@@ -56,22 +56,22 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
     pip install azure-appconfiguration
     ```
 
-1. Create a new file called *app-configuration-quickstart.py* in the *app-configuration-quickstart* directory and add the following code:
+1. Create a new file called *app-configuration-example.py* in the *app-configuration-example* directory and add the following code:
 
     ```python
     import os
     from azure.appconfiguration import AzureAppConfigurationClient, ConfigurationSetting
     
     try:
-        print("Azure App Configuration - Python Quickstart")
-        # Quickstart code goes here
+        print("Azure App Configuration - Python example")
+        # Example code goes here
     except Exception as ex:
         print('Exception:')
         print(ex)
     ```
 
 > [!NOTE]
-> The code snippets in this quickstart will help you get started with the App Configuration client library for Python. For your application, you should also consider handling exceptions according to your needs. To learn more about exception handling, please refer to our [Python SDK documentation](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
+> The code snippets in this example will help you get started with the App Configuration client library for Python. For your application, you should also consider handling exceptions according to your needs. To learn more about exception handling, please refer to our [Python SDK documentation](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
 
 ## Configure your App Configuration connection string
 
@@ -147,7 +147,7 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
 
 ## Code samples
 
-The sample code snippets in this section show you how to perform common operations with the App Configuration client library for Python. Add these code snippets to the `try` block in *app-configuration-quickstart.py* file you created earlier.
+The sample code snippets in this section show you how to perform common operations with the App Configuration client library for Python. Add these code snippets to the `try` block in *app-configuration-example.py* file you created earlier.
 
 > [!NOTE]
 > The App Configuration client library refers to a key-value object as `ConfigurationSetting`. Therefore, in this article, the **key-values** in App Configuration store will be referred to as **configuration settings**.
@@ -250,17 +250,17 @@ The following code snippet deletes a configuration setting by `key` name.
 
 ## Run the app
 
-In this quickstart, you created a Python app that uses the Azure App Configuration client library to retrieve a configuration setting created through the Azure portal, add a new setting, retrieve a list of existing settings, lock and unlock a setting, update a setting, and finally delete a setting.
+In this example, you created a Python app that uses the Azure App Configuration client library to retrieve a configuration setting created through the Azure portal, add a new setting, retrieve a list of existing settings, lock and unlock a setting, update a setting, and finally delete a setting.
 
-At this point, your *app-configuration-quickstart.py* file should have the following code:
+At this point, your *app-configuration-example.py* file should have the following code:
 
 ```python
 import os
 from azure.appconfiguration import AzureAppConfigurationClient, ConfigurationSetting
 
 try:
-    print("Azure App Configuration - Python Quickstart")
-    # Quickstart code goes here
+    print("Azure App Configuration - Python example")
+    # Example code goes here
 
     connection_string = os.getenv('AZURE_APPCONFIG_CONNECTION_STRING')
     app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
@@ -302,16 +302,16 @@ except Exception as ex:
     print(ex)
 ```
 
-In your console window, navigate to the directory containing the *app-configuration-quickstart.py* file and execute the following Python command to run the app:
+In your console window, navigate to the directory containing the *app-configuration-example.py* file and execute the following Python command to run the app:
 
 ```console
-python app-configuration-quickstart.py
+python app-configuration-example.py
 ```
 
 You should see the following output:
 
 ```output
-Azure App Configuration - Python Quickstart
+Azure App Configuration - Python example
 
 Retrieved configuration setting:
 Key: TestApp:Settings:Message, Value: Data from Azure App Configuration
