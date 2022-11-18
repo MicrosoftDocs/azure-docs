@@ -24,48 +24,50 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 
 1. Sign in to [Azure portal](https://portal.azure.com) and navigate to **Virtual machines**.
 
-   :::image type="content" source="media/enable-vms-ama/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-ama/select-vm-portal-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-vm-portal-expanded.png":::
 
 1. Select the virtual machine to which you want to configure the changes and in the search enter **Change tracking**.
 
-   :::image type="content" source="media/enable-vms-ama/select-change-tracking-vm-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-vms-ama/select-change-tracking-vm-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-vm-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-vm-expanded.png":::
 
-1. Select **Enable using AMA agent (Recommended)** option and **Enable**. This will inititate the deployment and the notification appears on the top right corner of the screen. You can also [change the workspace](#change-a-workspace) from this screen.
+1. Select **Enable using AMA agent (Recommended)** option and **Enable**. This will initiate the deployment and the notification appears on the top right corner of the screen. You can also [change the workspace](#change-a-workspace) from this screen.
    
-    :::image type="content" source="media/enable-vms-ama/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-ama/deployment-success-expanded.png":::
+    :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
 
 
 #### [For multiple VMs](#tab/multiplevms)
 
 1. Sign in to [Azure portal](https://portal.azure.com) and navigate to **Virtual machines**.
 
-   :::image type="content" source="media/enable-vms-ama/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-ama/select-vm-portal-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-vm-portal-expanded.png":::
 
 1. Select the machines to which you intend to enable change tracking and select **Services** > **Change Tracking**. You can select upto 250 virtual machines at a time to enable this feature.
 
-   :::image type="content" source="media/enable-vms-ama/select-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select multiple virtual machine from the portal." lightbox="media/enable-vms-ama/select-change-tracking-multiple-vms-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select multiple virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-expanded.png":::
 
 1. In **Enable Change Tracking**, select the banner on the top of the page, **Click to try new change tracking and inventory v2 experience**.
 
-   :::image type="content" source="media/enable-vms-ama/enable-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select enable change tracking for multiple vms from the portal." lightbox="media/enable-vms-ama/enable-change-tracking-multiple-vms-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/enable-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select enable change tracking for multiple vms from the portal." lightbox="media/enable-vms-monitoring-agent/enable-change-tracking-multiple-vms-expanded.png":::
 
 1. In **Enable Change Tracking** page, you can view the list of machines that are enabled, ready to be enabled and the ones that you can't enable. You can use the filters to select the **Subscription**, **Location**, and **Resource groups**. You can select a maximum of three resource groups.
 
-   :::image type="content" source="media/enable-vms-ama/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple vms." lightbox="media/enable-vms-ama/change-tracking-status-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple vms." lightbox="media/enable-vms-monitoring-agent/change-tracking-status-expanded.png":::
 
 1. Select **Enable** to inititate the deployment and a notification appears on the top right corner of the screen.
 --- 
 
 It usually takes upto two to three minutes to successfully onboard and enable the machine(s). After you enable a machine for change tracking, you can make changes to the files, registries, or software for the specific VM. For more information, see [Configure data collection rule](#configure-data-collection-rule).
 
-## Change a workspace
+## Manage change tracking and inventory
+
+### Change a workspace
 
 #### [For single VMs](#tab/workspace-singlevm)
 
 1. Select the virtual machine, in search, enter **change tracking**.
 1. Select **Open change and inventory center**.
     
-    :::image type="content" source="media/enable-vms-ama/select-change-and-inventory-center-inline.png" alt-text="Screenshot showing how to select change and inventory center from the portal." lightbox="media/enable-vms-ama/select-change-and-inventory-center-expanded.png":::
+    :::image type="content" source="media/enable-vms-monitoring-agent/select-change-and-inventory-center-inline.png" alt-text="Screenshot showing how to select change and inventory center from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-and-inventory-center-expanded.png":::
 
 1. Select the workspace from the filter, and **Apply** and select **Settings** to configure the data collection rule at the workspace level.
 
@@ -76,7 +78,7 @@ It usually takes upto two to three minutes to successfully onboard and enable th
 1. In the **Stay up-to-date with all changes** layout, in **Log analytics workspace**, select **Change**.
 1. In **Custom Configuration** screen, provide the **Subscription**, **Location**, and **Workspace**. and select **OK**.
 
-   :::image type="content" source="media/enable-vms-ama/custom-configuration-inline.png" alt-text="Screenshot showing how change a workspace." lightbox="media/enable-vms-ama/custom-configuration-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/custom-configuration-inline.png" alt-text="Screenshot showing how to change a workspace." lightbox="media/enable-vms-monitoring-agent/custom-configuration-expanded.png":::
 ---
 
 ### Configure data collection rule
@@ -87,11 +89,11 @@ It usually takes upto two to three minutes to successfully onboard and enable th
 
 1. Select **+Add** to enter the file settings. Enter the **Name**, **Group**, **File path**, **Path Type** which can be either a file or folder and select **Add**.
 
-   :::image type="content" source="media/enable-vms-ama/add-windows-file-setting.png" alt-text="Screenshot showing how to enter file settings for a single virtual machine.":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/add-windows-file-setting.png" alt-text="Screenshot showing how to enter file settings for a single virtual machine.":::
 
 1. You can further select the filter to choose a specific data collection rule to configure changes to specific virtual machine.
 
-   :::image type="content" source="media/enable-vms-ama/select-data-collection-rule-inline.png" alt-text="Screenshot showing to select data collection rule to further configure a virtual machine." lightbox="media/enable-vms-ama/select-data-collection-rule-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-data-collection-rule-inline.png" alt-text="Screenshot showing to select data collection rule to further configure a virtual machine." lightbox="media/enable-vms-monitoring-agent/select-data-collection-rule-expanded.png":::
 
 1. In the **Edit windows file setting**, you can make changes to the existing rule and select **Save**.
 
