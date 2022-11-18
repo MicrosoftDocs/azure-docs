@@ -434,6 +434,13 @@ Select the queue on this **Overview** page to navigate to the **Service Bus Queu
 
 :::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Queue details":::
 
+## Troubleshooting
+
+If you receive one of the following errors when running the **passwordless** version of the JavaScript code, make sure you are signed in via the Azure CLI command, `az login` and the [appropriate role](#azure-built-in-roles-for-azure-service-bus) is applied to your Azure user account:
+
+* 'Send' claim(s) are required to perform this operation
+* 'Receive' claim(s) are required to perform this operation
+
 ## Clean up resources
 
 Navigate to your Service Bus namespace in the Azure portal, and select **Delete** on the Azure portal to delete the namespace and the queue in it.
