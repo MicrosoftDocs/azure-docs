@@ -60,7 +60,7 @@ To run OPC Publisher in production, network performance requirements (throughput
 
 ## Latency considerations
 
-What is typically seen as latency is the time difference between the `iothub-enqueuedtime` of the (device to cloud message)[https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct] and the `SourceTimestamp` field of an OPC UA telemetry event. There are multiple factors, which contribute to the latency:
+What is typically seen as latency is the time difference between the `iothub-enqueuedtime` of the [device to cloud message](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) and the `SourceTimestamp` field of an OPC UA telemetry event. There are multiple factors, which contribute to the latency:
 * The `SourceTimestamp` of the OPC UA telemetry event is a value [defined by the OPC UA Specification](https://reference.opcfoundation.org/Core/Part4/v104/7.7.3/) as to be as close to the source of the value. The origin of `SourceTimestamp` is highly dependent on the setup between sensor and OPC UA server. Independent from the setup, it's important to ensure that the time source is synchronized precisely otherwise the latency calculation will be not correct.
 * It's important that the systems and interconnection between the sensor and the IoT Edge host system where OPC Publisher runs is stable and doesn't introduce latency.
 * The configuration of the OPC UA nodes to publish and the effect of OPC Publisher command line options on latency will be discussed below.
