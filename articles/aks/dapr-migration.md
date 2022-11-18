@@ -17,19 +17,30 @@ You've installed and configured Dapr OSS on your Kubernetes cluster and want to 
 - **Interactive flow**: A built-in check for an existing Dapr installation via CLI prompts, or
 - **Non-interactive flow**: Installing the Dapr extension with configuration settings using the Helm release name and namespace of the existing installation. 
 
-This check allows the Dapr extension to reuse the already existing Kubernetes resources from your previous installation and start managing them. To get the details of your current Dapr installation, you can use the Helm CLI:
+This check allows the Dapr extension to reuse the already existing Kubernetes resources from your previous installation and start managing them. 
 
-```bash
-helm list -A
-```
 #### [Interactive flow](#tab/interactive)
 
 ## Use the built-in check for an existing Dapr installation
 
-The Dapr extension, by default, checks for existing Dapr installations when you run the `az k8s-extension create` command. When [installing the extension][dapr-create], you'll be prompted with the following checks:
+The Dapr extension, by default, checks for existing Dapr installations when you run the `az k8s-extension create` command. To list the details of your current Dapr installation, run the following command and save the Dapr release name and namespace:
+
+```bash
+helm list -A
+```
+
+When [installing the extension][dapr-create], you'll receive a prompt asking if Dapr is already installed:
 
 ```bash
 Is Dapr already installed in the cluster? (y/N): y
+```
+
+For the following prompts:
+
+- If you kept the default Dapr name and namespace created with `dapr init -k`, press **Enter**. 
+- If you created your own unique name and namespace, type the unique release name and namespace and press **Enter**.
+
+```bash
 Enter the Helm release name for Dapr, or press Enter to use the default name [dapr]:
 Enter the namespace where Dapr is installed, or press Enter to use the default namespace [dapr-system]:
 ```
@@ -62,9 +73,6 @@ az k8s-extension create --cluster-type managedClusters \
 --configuration-settings existingDaprReleaseName=dapr \
 --configuration-settings existingDaprReleaseNamespace=dapr-system
 ```
-
-> [!NOTE]
-> `dapr-system` is the default namespace installed with `dapr init -k`. If you created a custom namespace, replace `dapr-system` with your namespace.
 
 --- 
 
