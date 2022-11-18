@@ -141,7 +141,7 @@ There are two possible error scenarios that each give their own error message:
 
 Both of these error messages are shown in the screenshot below:
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model. " lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors-large.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors-large.png":::
 
 #### View a twin's relationships
 
