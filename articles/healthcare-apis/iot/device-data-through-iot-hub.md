@@ -1,6 +1,6 @@
 ---
 title: Receive device data through Azure IoT Hub - Azure Health Data Services
-description: In this tutorial, you'll learn how us deploy an Azure IoT Hub with message routing to send device messages to the MedTech service using VSCode and the Azure IoT Hub extension.
+description: In this tutorial, learn how us deploy an Azure IoT Hub with message routing to send device messages to the MedTech service by using Visual Studio Code and the Azure IoT Hub extension.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -11,31 +11,33 @@ ms.author: jasteppe
 ---
 
 # Tutorial: Receive device data through Azure IoT Hub
- 
-The MedTech service may be used with devices created and managed through an [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md) for enhanced workflows and ease of use. This tutorial uses an Azure Resource Manager (ARM) template and a **Deploy to Azure** button to deploy a MedTech service using an Azure IoT Hub for device creation, management, and routing of device messages to the MedTech service device message event hub. The ARM template used in this article is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
+
+You can use the MedTech service with devices that are created and managed through a hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md) for enhanced workflows and ease of use. This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service by using a hub to create and manage devices, and to route device messages to the MedTech service device message event hub.
+
+The ARM template that you use to deploy your solution in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
 
 > [!TIP]
-> For more information about using Azure PowerShell and CLI to deploy MedTech service ARM templates, see [Using Azure PowerShell and Azure CLI to deploy the MedTech service with Azure Resource Manager templates](deploy-08-new-ps-cli.md).
+> For more information about using Azure PowerShell and the Azure CLI to deploy MedTech service ARM templates, see [Using Azure PowerShell and the Azure CLI to deploy the MedTech service with Azure Resource Manager templates](deploy-08-new-ps-cli.md).
 >
 > For more information about ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md)
 
-Below is a diagram of the IoT device message flow when using an IoT Hub with the MedTech service. As you can see, devices send their messages to the IoT Hub, which then routes the device messages to the device message event hub to be picked up by the MedTech service. The MedTech service will then transform the device messages and persist them into the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR Observations. To learn more about the MedTech service data flow, see [MedTech service data flow](iot-data-flow.md).
+The following diagram depicts the IoT device message flow when you use an hub in Azure IoT Hub with the MedTech service. Devices send their messages to the IoT hub, which then routes the device messages to the device message event hub to be picked up by the MedTech service. The MedTech service then transforms the device messages and persists them in the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR Observations. For more information, see [MedTech service data flow](iot-data-flow.md).
 
-:::image type="content" source="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png" alt-text="Diagram of IoT message data flow through IoT Hub into the MedTech service." lightbox="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png"::: 
+:::image type="content" source="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png" border="false" alt-text="Diagram of the IoT message data flow through an IoT hub into the MedTech service." lightbox="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png":::
 
 ## Prerequisites
 
-In order to begin the deployment and complete this tutorial, you'll need to have the following prerequisites completed:
+To begin the deployment and complete this tutorial, first have the following prerequisites:
 
 - An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- **Owner** or **Contributor + User Access Administrator** access to the Azure subscription. For more information about Azure role-based access control, see [What is Azure role-based access control?](../../role-based-access-control/overview.md).
+- **Owner** or **Contributor + User Access Administrator** access to the Azure subscription. For more information about Azure role-based access control, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
 
 - These resource providers registered with your Azure subscription: **Microsoft.HealthcareApis**, **Microsoft.EventHub**, and **Microsoft.Devices**. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-- [Visual Studio Code (VSCode)](https://code.visualstudio.com/Download) installed locally and configured with the addition of the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools). The **Azure IoT Tools** are a collection of extensions that makes it easy to connect to IoT Hubs, create devices, and send messages. For the purposes of this tutorial, we'll be using the **Azure IoT Hub extension** to connect to your deployed IoT Hub, create a device, and send a test message from the device to your IoT Hub.
+- [Visual Studio Code](https://code.visualstudio.com/Download) installed locally and configured with the addition of the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools). Azure IoT Tools is a collection of extensions that makes it easy to connect to IoT hubs, create devices, and send messages. In this tutorial, you use the Azure IoT Hub extension to connect to your deployed IoT hub, create a device, and send a test message from the device to your IoT hub.
 
-When you've fulfilled these prerequisites, you're ready to use the **Deploy to Azure** button.
+When you have these prerequisites, you're ready to use the **Deploy to Azure** button.
 
 ## Use the Deploy to Azure button
 
@@ -47,7 +49,7 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
 
 ## Provide configuration details
 
-2. When the Azure portal screen appears, your next task is to fill out the option fields that provide specific details of your deployment configuration.
+1. When the Azure portal screen appears, your next task is to fill out the option fields that provide specific details of your deployment configuration.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-deploy-template-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-hub-to-iot-connector\iot-deploy-template-options.png":::
 
@@ -70,19 +72,19 @@ When you've fulfilled these prerequisites, you're ready to use the **Deploy to A
    >
    > To learn more about the MedTech service resolution types: **Create** and **Lookup**, see: [Destination properties](deploy-05-new-config.md#destination-properties).
 
-3. Select the **Review + create** button after all the option fields are correctly filled out. This selection will review your option inputs and check to see if all your supplied values are valid.
+1. Select the **Review + create** button after all the option fields are correctly filled out. This selection will review your option inputs and check to see if all your supplied values are valid.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-review-and-create-button.png" alt-text="Screenshot of Azure portal page displaying the **Review + create**." lightbox="media\iot-hub-to-iot-connector\iot-review-and-create-button.png":::
 
-4. If the validation is successful, you'll see a **Validation Passed** message. If not, fix the option creating the validation error and attempt the validation process again.
+1. If the validation is successful, you'll see a **Validation Passed** message. If not, fix the option creating the validation error and attempt the validation process again.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-validation-completed.png" alt-text="Screenshot of Azure portal page displaying the **Validation Passed** message." lightbox="media\iot-hub-to-iot-connector\iot-validation-completed.png":::
 
-5. After a successful validation, select the **Create** button to begin the deployment.
+1. After a successful validation, select the **Create** button to begin the deployment.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-button.png" alt-text="Screenshot of Azure portal page displaying the **Create**." lightbox="media\iot-hub-to-iot-connector\iot-create-button.png":::
 
-6. After a few minutes wait, a message will appear telling you that your deployment is completed.
+1. After a few minutes wait, a message will appear telling you that your deployment is completed.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-deployment-complete-banner.png" alt-text="Screenshot of Azure portal page displaying Your deployment is complete." lightbox="media\iot-hub-to-iot-connector\iot-deployment-complete-banner.png":::
 
@@ -117,7 +119,7 @@ Now that your deployment has successfully completed, we'll connect to your IoT H
 - Transform the test message into five FHIR Observations.
 - Persist the FHIR Observations into your FHIR service.
 
-1. Open **VSCode** with the previously installed **Azure IoT Tools**.
+1. Open Visual Studio Code, with the Azure IoT Tools installed.
 
 2. The **Azure IoT Hub extension** can be found in the **Explorer** section of **VSCode**. Select **…** and then select **Select IoT Hub**. You'll be shown a list of Azure subscriptions. Select the subscription where your IoT Hub was provisioned. You'll then be shown a list of IoT Hubs. Select your IoT Hub (your IoT Hub will be the **basename** you provided when you provisioned the resources prefixed with **ih-**.). For this example, we'll select an IoT Hub named **ih-azuredocsdemo**. You'll be selecting your own IoT Hub.
 
