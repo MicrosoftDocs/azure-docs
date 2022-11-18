@@ -25,7 +25,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
 * **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
-* **Email message ID**: This ID is used to identify an email delivery request.
+* **Email message ID**: This ID is used to identify Send Email requests.
 * **Correlation ID**: This ID is used to identify requests made using Call Automation. 
 * **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
 
