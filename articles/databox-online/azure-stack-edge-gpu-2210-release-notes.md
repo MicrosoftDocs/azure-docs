@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/16/2022
+ms.date: 11/18/2022
 ms.author: alkohli
 ---
 
@@ -19,23 +19,16 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2210** release, which maps to software version **2.2.2088.5593**. --> for 2210 > 2.2.2110.5795? This software can be applied to your device if you're running at least **Azure Stack Edge 2209** (2.2.2088.5593).
+This article applies to the **Azure Stack Edge 2210** release, which maps to software version **2.2.2111.98**. This software can be applied to your device if you're running **Azure Stack Edge 2207 or later** (2.2.2038.5916).
 
 ## What's new
 
 The 2210 release has the following features and enhancements:
 
-- **Version updates** - This release contains the following version updates:
-  - K8 
 - **High performance network VMs** - In this release, when you deploy high performance network (HPN) VMs, vCPUs are automatically reserved using a default SkuPolicy. If a vCPU reservation was defined in an earlier version, and if you update the device to 2210, then that existing reservation is carried forth to 2210. For more information, see how to [Deploy HPN VMs on your Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md).
+- **Kubernetes security updates** - This release includes security updates and security hardening improvements for Kubernetes VMs. 
 
 If you have questions or concerns, [open a support case through the Azure portal](azure-stack-edge-contact-microsoft-support.md).
-
-## Known issues in 2210 release
-
-| No. | Feature | Issue | Workaround/comments |
-| --- | --- | --- | --- |
-|**1.**|Preview features |For this release, the following features are available in preview: <br> - Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only.  <br> - VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only. <br> - Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R. |These features will be generally available in later releases. |
 
 ## Known issues from previous releases
 
