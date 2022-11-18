@@ -138,7 +138,7 @@ When planning where to replicate a template, consider:
 
 ## Additional guidance
 
-In regards to customer data processing information, refer to the Azure Image Builder[data residency](https://learn.microsoft.com/azure/virtual-machines/linux/image-builder-json#data-residency) details.
+In regards to customer data processing information, refer to the Azure Image Builder [data residency](https://learn.microsoft.com/azure/virtual-machines/linux/image-builder-json#data-residency) details.
 
 
 ## Next steps
