@@ -14,7 +14,7 @@ ms.custom: [mvc, iot-central-frontdoor]
 
 # IoT Central application administration guide
 
-An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for administrators who manage IoT Central applications.
+An IoT Central application lets you monitor and manage your devices, thereby allowing you to quickly evaluate your IoT journey. This guide is for administrators who manage IoT Central applications.
 
 IoT Central application administration includes the following tasks:
 
@@ -116,3 +116,4 @@ Many of the tools you use as an administrator are available in the **Security** 
 ## Next steps
 
 Now that you've learned about how to administer your Azure IoT Central application, the suggested next step is to learn about [Security in Azure IoT Central](overview-iot-central-security.md).
+
