@@ -33,7 +33,7 @@ As Azure Image Builder (AIB) is a regional service with a cluster serving in a s
 
 ### SLA improvements
 
-Azure Image Builder follows the same SLA for service requests and billing and subscription management as Azure Virtual Machines. For more information, see the [Virtual Machines SLA](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/).
+Azure Image Builder doesn't have an official SLA at this time.
 
 
 #### Create a resource with availability zone enabled
@@ -122,11 +122,6 @@ Below are instructions on how to get an image template resource using Resource G
 
     ![Diagram of the VM Image Builder process, showing the sources (Windows/Linux), customizations (Shell, PowerShell, Windows Update and Restart, adding files), and global distribution with Compute Gallery](./media/image-builder-reliability/resource-graph-explorer-search.png)
 
-<!-- 4E. Capacity and proactive disaster recovery resiliency ---------------------------
-Microsoft and its customers operate under the Shared responsibility model. This means that for customer-enabled DR (customer-responsible services), the customer must address DR for any service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there is no guarantee of capacity at time of impact for those who have not pre-allocated. 
-
-In this section, provide details of customer knowledge required re: capacity planning and proactive deployments.
--->
 
 ### Capacity and proactive disaster recovery resiliency
 
@@ -142,15 +137,13 @@ When planning where to replicate a template, consider:
     - Recovery efforts for paired regions where prioritization is needed.
 
 ## Additional guidance
-TODO: Add your additional guidance
 
-<!-- 6. Next steps ---------------------------------------------------------------------
-Required: Include a Next steps H2 that points to a relevant task to accomplish,
-or to a related topic. Use the blue box format for links.
--->
+In regards to customer data processing information, refer to the Azure Image Builder[data residency](https://learn.microsoft.com/azure/virtual-machines/linux/image-builder-json#data-residency) details.
+
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Resiliency in Azure](/azure/availability-zones/overview)
 > [Enable Azure VM disaster recovery between availability zones](/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery)
+> [Azure Image Builder overview](/azure/virtual-machines/image-builder-overview)
