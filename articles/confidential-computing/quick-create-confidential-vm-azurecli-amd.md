@@ -42,14 +42,14 @@ Create a VM with the [az vm create](/cli/azure/vm) command.
 The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location(*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-values` option.
 For Size, select a confidential VM size. For more information, see [supported confidential VM families](virtual-machine-solutions-amd.md).
 
-Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key.
+Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. For more information on disk encryption, vTPM, and secure boot see [confidential OS disk encryption](confidential-vm-overview.md).
 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
   --generate-ssh-keys \
-  --size Standard_DC2as_v5 \
+  --size Standard_DC4as_v5 \
   --admin-username azureuser \
   --admin-password AzurePassword@123 \
   --enable-vtpm true \
@@ -80,7 +80,7 @@ Make a note of the `publicIpAddress` to use later.
 
 ## Create Confidential virtual machine using a Customer Managed Key
 
-Create a Confidential [disk encryption set](../virtual-machines/linux/disks-enable-customer-managed-keys-cli.md) using [Azure Key Vault](../key-vault/general/quick-create-cli.md) or [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md). The example below will use Azure Key Vault. 
+Create a Confidential [disk encryption set](../virtual-machines/linux/disks-enable-customer-managed-keys-cli.md) using [Azure Key Vault](../key-vault/general/quick-create-cli.md) or [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md). Based on your security and compliance needs you can choose either option. The example below will use Azure Key Vault Premium. 
 
   1.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys).
   ```azurecli-interactive
@@ -112,7 +112,7 @@ Create a Confidential [disk encryption set](../virtual-machines/linux/disks-enab
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --size Standard_DC2as_v5 \
+  --size Standard_DC4as_v5 \
   --admin-username azureuser \
   --admin-password AzurePassword@123 \
   --enable-vtpm true \
@@ -140,34 +140,45 @@ It takes a few minutes to create the VM and supporting resources. The following 
 ```
 Make a note of the `publicIpAddress` to use later.
   
-## Connect to confidential VM
+## Connect and attest the CVM through Microsoft Azure Attestation Sample App
 
-There are different methods to connect to [Windows confidential VMs](#connect-to-windows-vms) and [Linux confidential VMs](#connect-to-linux-vms).
+To use a sample application in C++ for use with the guest attestation APIs, follow the instructions. This example will use a Linux confidential virtual machine. For Windows, see [build instructions for Windows](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-attestation-sample-app).
 
-### Connect to Windows VMs
+1. Sign in to your confidential VM using its public IP address.
 
-To connect to a confidential VM with a Windows OS, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
+2. Clone the [sample Linux application](https://github.com/Azure/confidential-computing-cvm-guest-attestation).
 
-### Connect to Linux VMs
+3. Install the `build-essential` package. This package installs everything required for compiling the sample application.
+```bash
+sudo apt-get install build-essential 
+```
+4. Install the packages below.
+```bash
+sudo apt-get install libcurl4-openssl-dev 
+sudo apt-get install libjsoncpp-dev
+sudo apt-get install libboost-all-dev
+sudo apt install nlohmann-json3-dev
+```
+5. Download the attestation package from <https://packages.microsoft.com/repos/azurecore/pool/main/a/azguestattestation1/>.
 
-For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
+6. Install the attestation package. Make sure to replace `<version>` with the version that you downloaded.
+```bash
+sudo dpkg -i azguestattestation1_<latest-version>_amd64.deb
+```
+7. Once the above packages have been installed, use the below steps to build and run the app.
+```bash
+cd confidential-computing-cvm-guest-attestation/cvm-attestation-sample-app
+sudo cmake . && make
+sudo ./AttestationClient -o token
+```
+8. To convert the web token to a JSON, use the steps below.
+```bash
+sudo ./AttestationClient -o token>> /attestation_output
 
-1. Open your SSH client, such as PuTTY.
+JWT=$(cat /attestation_output)
 
-2. Enter your confidential VM's public IP address.
-
-3. Connect to the VM. In PuTTY, select **Open**.
-
-4. Enter your VM administrator username and password.
-
-    > [!NOTE]
-    > If you 're using PuTTY, you might receive a security alert that the server's host key isn't cached in the registry. If you trust the host, select **Yes** to add the key to PuTTY's cache and continue connecting. To connect just once, without adding the key, select **No**. If you don't trust the host, select **Cancel** to abandon your connection.
-## Clean up resources
-
-When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and all related resources. 
-
-```azurecli-interactive
-az group delete --name myResourceGroup
+echo -n $JWT | cut -d "." -f 1 | base64 -d 2>/dev/null | jq .
+echo -n $JWT | cut -d "." -f 2 | base64 -d 2>/dev/null | jq .
 ```
 
 ## Next steps
