@@ -133,7 +133,9 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsFeatureFlags|`feature1,feature2`|
+|AzureWebJobsFeatureFlags|`feature1,feature2,EnableProxies`|
+
+Add `EnableProxies` to this list to reenable proxies on version 4.x of the Functions runtime while you plan your migration to Azure API Management. For more information, see [Reenable proxies in Functions v4.x](./legacy-proxies.md#reenable-proxies-in-functions-v4x). 
 
 ## AzureWebJobsKubernetesSecretName 
 
