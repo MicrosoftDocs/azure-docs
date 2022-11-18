@@ -10,9 +10,8 @@ ms.author: kendownie
 ---
 
 # Overview of Azure Files identity-based authentication options for SMB access
-[!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-This article focuses on how Azure file shares can use domain services, either on-premises or in Azure, to support identity-based access to Azure file shares over SMB. Enabling identity-based access for your Azure file shares allows you to replace existing file servers with Azure file shares without replacing your existing directory service, maintaining seamless user access to shares.
+This article explains how Azure file shares can use domain services, either on-premises or in Azure, to support identity-based access to Azure file shares over SMB. Enabling identity-based access for your Azure file shares allows you to replace existing file servers with Azure file shares without replacing your existing directory service, maintaining seamless user access to shares.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -50,14 +49,14 @@ It's helpful to understand some key terms relating to identity-based authenticat
 
 -   **Hybrid identities**
 
-    [Hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md) are identities in AD DS that are synced to Azure AD using Azure AD Connect sync or Azure AD Connect cloud sync.
+    [Hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md) are identities in AD DS that are synced to Azure AD using either the on-premises [Azure AD Connect sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application or [Azure AD Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md), a lightweight agent that can be installed from the Azure Active Directory Admin Center.
 
-## Supported scenarios
+## Supported authentication scenarios
 
-This section summarizes the three supported Azure Files authentication scenarios over SMB.
+Azure Files supports identity-based authentication for Windows file shares over SMB through the following three methods:
 
 - **On-premises AD DS authentication:** On-premises AD DS-joined or Azure AD DS-joined Windows machines can access Azure file shares with on-premises Active Directory credentials that are synched to Azure AD over SMB. Your client must have line of sight to your AD DS. If you already have AD DS set up on-premises or on a VM in Azure where your devices are domain-joined to your AD, you should use AD DS for Azure file shares authentication.
-- **Azure AD DS authentication:** Cloud-based, Azure AD DS-joined Windows VMs can access Azure file shares with Azure AD credentials over SMB. In this solution, Azure AD runs a traditional Windows Server AD domain on behalf of the customer, which is a child of the customer’s Azure AD tenant. However, Azure AD DS doesn't support non-cloud VMs (i.e. user laptops, workstations, VMs in other clouds, etc.) being domain-joined to that Azure AD DS hosted domain.
+- **Azure AD DS authentication:** Cloud-based, Azure AD DS-joined Windows VMs can access Azure file shares with Azure AD credentials. In this solution, Azure AD runs a traditional Windows Server AD domain on behalf of the customer, which is a child of the customer’s Azure AD tenant. However, Azure AD DS doesn't support non-cloud VMs (i.e. user laptops, workstations, VMs in other clouds, etc.) being domain-joined to that Azure AD DS hosted domain.
 - **Azure AD Kerberos for hybrid identities:** Using Azure AD for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md) allows Azure AD users to access Azure file shares using Kerberos authentication. This means your end users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from hybrid Azure AD-joined and Azure AD-joined VMs. Cloud-only identities aren't currently supported.
 
 ## Restrictions
