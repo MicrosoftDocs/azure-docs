@@ -145,6 +145,6 @@ In regards to customer data processing information, refer to the Azure Image Bui
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview)
+> [Reliability in Azure](/azure/reliability/overview)
 > [Enable Azure VM disaster recovery between availability zones](/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery)
 > [Azure Image Builder overview](/azure/virtual-machines/image-builder-overview)
