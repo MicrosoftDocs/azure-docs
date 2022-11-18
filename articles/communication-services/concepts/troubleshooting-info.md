@@ -137,13 +137,13 @@ console.log(result); // your message ID will be in the result
 The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Short Codes blade. 
 
 :::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
+
 ---
 
 ## Access your email message ID
-
-# [.NET](#tab/dotnet)
 When troubleshooting send email or email message status requests, you may be asked to provide a `message ID`. This can be accessed in the response:
 
+# [.NET](#tab/dotnet)
 ```csharp
 Console.WriteLine($"MessageId = {emailResult.MessageId}");
 ```
