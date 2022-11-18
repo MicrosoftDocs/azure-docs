@@ -1,6 +1,6 @@
 ---
 title: List blobs with .NET - Azure Storage
-description: Learn how to list blobs in your storage account using the Azure Storage client library for .NET. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
+description: Learn how to tune your uploads and downloads for better performance with Azure Storage client library for .NET. 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
@@ -12,9 +12,13 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Tuning Your Uploads and Downloads with the Azure Storage SDK
+# Tune your uploads and downloads with Azure Storage client library for .NET
 
-A lot is happening behind the scenes when transferring your data with the Storage SDK, and that can have an effect on speed, memory usage, and in some cases whether or not the transfer will even be successful. This guide aims to advise you in how to get the most out of Storage SDK data transfers to suit your needs.
+When transferring data with the Azure Storage client libraries for .NET, there are many factors that can affect speed, memory usage, and even the success or failure of the request. For example, every time a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) method is called, an HTTP request is sent to the service. This request requires a connection to be established between the client and server, which is an expensive operation that takes time and resources to process.
+
+This article walks through several considerations and best practices to improve performance on data transfers using client library methods. 
+
+## Performance tuning with `StorageTransferOptions`
 
 This guide applies to the `Azure.Storage.Blobs` and `Azure.Storage.Files.DataLake` packages. Specifically, this looks at APIs that accept `StorageTransferOptions` as a parameter. This includes the following:
 - `BlobClient.UploadAsync(Stream stream, ...)`
@@ -26,9 +30,15 @@ This guide applies to the `Azure.Storage.Blobs` and `Azure.Storage.Files.DataLak
 - `DataLakeFileClient.ReadToAsync(Stream stream, ...)`
 - `DataLakeFileClient.ReadToAsync(string path, ...)`
 
-## [`StorageTransferOptions`](https://docs.microsoft.com/dotnet/api/azure.storage.storagetransferoptions)
+Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) is key to reliable performance for data transfer operations. Storage transfers are partitioned into several sub-transfers, or workers, based on the property values defined in this struct. The following table gives the name of each property in `StorageTransferOptions` and a brief description:
 
-This is the key class for tuning your performance. Storage transfers are partitioned into several sub-transfers based on the values in this class. Here, you define values for the following, which are the basis for managing your transfer:
+| Property | Description |
+| --- | --- |
+| [InitialTransferSize](/dotnet/api/azure.storage.storagetransferoptions.initialtransfersize) | The size of the first range request in bytes. Blobs smaller than this limit will be downloaded in a single request. Blobs larger than this limit will continue being downloaded in chunks of size MaximumTransferSize. | 
+| [MaximumConcurrency](/dotnet/api/azure.storage.storagetransferoptions.maximumconcurrency) | The maximum number of workers that may be used in a parallel transfer. |
+| [MaximumTransferSize](/dotnet/api/azure.storage.storagetransferoptions.maximumtransfersize) | The maximum length of an transfer in bytes. |
+
+
 - `MaximumConcurrency`: the max number of parallel sub-transfers that can take place at once.
   - As of `Azure.Storage.Blobs` 12.10.0 and `Azure.Storage.Files.DataLake` 12.8.0, only async operations can perform these transfers in parallel. Synchronous operations will ignore this value and work in sequence.
   - The effectiveness of this value is subject to the restrictions set by .NET's connection pool limit, which may be hindering you by default. See this [blog post](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/) for more details.
@@ -38,17 +48,17 @@ This is the key class for tuning your performance. Storage transfers are partiti
 
 You also define a value for `InitialTransferSize`. Unlike the name may suggest, your `MaximumTransferSize` does **not** limit this value. In fact, it is often the case that you will want `InitialTransferSize` to be *at least* as large as your `MaximumTransferSize`, if not larger. `InitialTransferSize` defines a separate data size limitation for an initial attempt to do the entire operation at once with no sub-transfers. This cuts down on overhead for some data sizes relative to your `MaximumTransferSize`. If unsure of what is best for you, setting this to the same value used for `MaximumTransferSize` is a safe option.
 
-While the class contains nullable values, the SDK will use defaults for each individual value when not provided. These defaults are a fine in a datacenter environment, but likely not suitable for home consumer environments. Poorly tuned `StorageTransferOptions` can result in excessively long operations and even timeouts. You should always be proactive in determining your values for this class.
+While the class contains nullable values, the SDK will use defaults for each individual value when not provided. These defaults are typically fine in a data center environment, but likely not suitable for home consumer environments. Poorly tuned `StorageTransferOptions` can result in excessively long operations and even timeouts. It's best to be proactive in testing the values in `StorageTransferOptions`, and tuning them based on the needs of your application.
 
 ## Uploads
 
-The Storage SDK will split a given upload stream into various sub-uploads based on provided `StorageTransferOptions`, each with their own dedicated REST call. With `BlobClient`, this will be [Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block) and with `DataLakeFileClient`, this will be [Append Data](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update). The Storage SDK manages these REST operations in parallel (depending on transfer options) to complete the total upload.
+The Storage client libraries will split a given upload stream into various sub-uploads based on the values defined in `StorageTransferOptions`, each with their own dedicated REST call. With `BlobClient`, this will be [Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block) and with `DataLakeFileClient`, this will be [Append Data](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update). The Storage client library manages these REST operations in parallel (depending on transfer options) to complete the total upload.
 
 *Note: block blobs have a maximum block count of 50,000. Your your blob therefore has a maximum size of 50,000 times `MaximumTransferSize`.*
 
 ### Buffering on Uploads
 
-The Storage REST layer does not support picking up a REST upload where you left off; individual transfers are either completed or lost. Therefore, if a stream is not seekable, the storage SDK will buffer the data for each individual REST call before starting the upload. Outside of network speed, this is also why you may be interesting in setting a smaller value for `MaximumTransferSize` even when uploading in sequence; your `MaximumTransferSize` is the maximum division of data you will need to retry in the event of a failure.
+The Storage REST layer does not support resuming a REST upload where you left off; individual transfers are either completed or lost. Therefore, if a stream is not seekable, the storage SDK will buffer the data for each individual REST call before starting the upload. Outside of network speed, this is also why you may be interesting in setting a smaller value for `MaximumTransferSize` even when uploading in sequence; your `MaximumTransferSize` is the maximum division of data you will need to retry in the event of a failure.
 
 If uploading with parallel REST calls to maximize network throughput, the SDK needs sources it can read from in parallel. Therefore, if uploading in parallel, the storage SDK will buffer the data for each individual REST call before starting the upload **even if the provided stream is already seekable**.
 
