@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need: 
 
-- A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
+- A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 
 -  Management Information Base (MIB) files for the devices you are monitoring.
     
