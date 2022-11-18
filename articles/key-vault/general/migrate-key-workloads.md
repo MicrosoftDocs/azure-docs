@@ -28,7 +28,7 @@ Below we discuss several methods for migrating workloads to use a new key, eithe
 
 ## Azure Services using customer-managed Key
 
-For most workloads that use keys in Key Vault, the most effective way to migrate to a key into a new location (a new managed HSM or new key vault in a different subscription or region) is to:
+For most workloads that use keys in Key Vault, the most effective way to migrate a key into a new location (a new managed HSM or new key vault in a different subscription or region) is to:
 
 1. Create a new key in the new vault or managed HSM.
 1. Ensure that the workload has access to this new key, by adding the workload's identity to the appropriate role in [Azure Key Vault](rbac-guide.md) or [Azure Managed HSM](../managed-hsm/access-control.md).
@@ -42,12 +42,7 @@ For example, to update Azure Storage to use a new key, follow the instructions a
 For client-side encryption or custom applications you've built, that directly encrypt data using the keys in Key Vault, the process is different:
 
 1. Create the new key vault or managed HSM, and create a new key encryption key (KEK).
-1. Re-encrypt all data using the new Key URI. (This may take some time, as all data must be read, decrypted, and encrypted with the new key).
-
-  - Using a 3 level key hierarchy is helpful to make this easier and faster in the future. We recommend:
-    1. Key Encryption Key in Key Vault
-    1. Master Key
-    1. Data Encryption Keys derived from Master Key
+1. Re-encrypt any keys or data that was encrypted by the old key using the new Key. (If data was directly encrypted by the key in key vault, this may take some time, as all data must be read, decrypted, and encrypted with the new key. Use [envelope encryption](../../security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) where possible to make such key rotations faster).
 1. Do not delete old key/key vault until you no longer want the backups of data associated with it/
 
 ## Migrating Tenant Keys in Azure Information Protection
