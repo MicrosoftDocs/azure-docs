@@ -46,7 +46,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
     ```azurecli
-    CLUSTER_NAME="<clusterName>"
+    CLUSTER_NAME="<name-of-arc-connected-cluster>"
     TENANT_ID="<tenant>"
     SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
     SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
@@ -61,7 +61,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
             {
                 "adminConsentDescription": "Sign in and read user profile",
                 "adminConsentDisplayName": "Sign in and read user profile",
-                "id": "<unique_guid>",
+                "id": "<paste_the_SERVER_APP_ID>",
                 "isEnabled": true,
                 "type": "User",
                 "userConsentDescription": "Sign in and read user profile",
@@ -98,7 +98,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     ```
 
     > [!NOTE]
-    > An Azure tenant administrator has to run this step.
+    > An Azure [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) has to run this step.
     > 
     > For usage of this feature in production, we recommend that you  create a different server application for every cluster.  
 
@@ -142,7 +142,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
     ```azurecli
-    CLUSTER_NAME="<clusterName>"
+    CLUSTER_NAME="<name-of-arc-connected-cluster>"
     TENANT_ID="<tenant>"
     SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
     SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
@@ -169,7 +169,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     ```
 
     > [!NOTE]
-    > An Azure tenant administrator has to run this step.
+    > An Azure [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) has to run this step.
     > 
     > For usage of this feature in production, we recommend that you  create a different server application for every cluster.
 
