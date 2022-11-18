@@ -14,7 +14,7 @@ ms.author: jodowns
 
 # Accelerate and secure your web application with Azure Front Door
 
-Azure Front Door is a globally distributed entry point to your application. Front Door provides a wide range of features including content delivery network, traffic acceleration, load balancing, and security.
+Azure Front Door is a globally distributed content delivery network (CDN) that provides lower latency and faster delivery of your web application and content. Moreover, Front Door allows for your content to be available with the highest levels of resiliency, and provides a wide range of features including an advanced application load balancer, traffic acceleration, and security.
 
 Consider deploying Front Door in front of any publicly facing web application.
 
