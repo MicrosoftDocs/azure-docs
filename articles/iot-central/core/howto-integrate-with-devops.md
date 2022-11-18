@@ -271,7 +271,7 @@ Now that you have a configuration file that represents the settings for your dev
 
 1. To upload the *Configuration* folder to your GitHub repository, run the following commands from the *IoTC-CICD-howto* folder.
 
-   ```cmd/bash
+   ```cmd/sh
     git add Config
     git commit -m "Adding config directories and files"
     git push
