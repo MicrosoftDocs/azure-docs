@@ -77,7 +77,7 @@ Emails about smart detection performance anomalies are limited to one email per 
 
 
 * *If I don't do anything in response to a notification, will I get a reminder?*
-  * No, you get a message about each issue only once. If the issue persists, it will be updated in the smart detection feed blade.
+  * No, you get a message about each issue only once. If the issue persists, it will be updated in the smart detection feed pane.
 * *I lost the email. Where can I find the notifications in the portal?*
   * In the Application Insights overview of your app, click the **Smart detection** tile. There you'll find all notifications up to 90 days back.
 
@@ -94,7 +94,7 @@ Consider the parameters of the issue. If it's geography-dependent, set up [avail
 ### Diagnose slow page loads
 Where is the problem? Is the server slow to respond, is the page too long, or does the browser need too much work to display it?
 
-Open the Browsers metric blade. The segmented display of browser page load time shows where the time is going. 
+Open the Browsers metric pane. The segmented display of browser page load time shows where the time is going. 
 
 * If **Send Request Time** is high, either the server is responding slowly, or the request is a post with large amount of data. Look at the [performance metrics](../app/performance-counters.md) to investigate response times.
 * Set up [dependency tracking](../app/asp-net-dependencies.md) to see whether the slowness is because of external services or your database.
