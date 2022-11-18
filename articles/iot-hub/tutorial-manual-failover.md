@@ -45,7 +45,7 @@ For more information about manual failover and Microsoft-initiated failover with
 
 1. Under **Hub settings** on the navigation menu, select **Failover**.
 
-   :::image type="content" source="./media/tutorial-manual-failover/trigger-failover-01.png" alt-text="Screenshot showing IoT Hub properties pane":::
+   :::image type="content" source="./media/tutorial-manual-failover/trigger-failover-01.png" alt-text="Screenshot showing IoT Hub properties pane.":::
 
 1. On the **Failover** pane, you see the **Current location** and the **Failover location** listed for your IoT hub. The current location always indicates the location in which the hub is currently active. The failover location is the standard [Azure geo-paired region](../availability-zones/cross-region-replication-azure.md) that is paired to the current location. You cannot change the location values.
 
