@@ -12,7 +12,7 @@ ms.author: v-pgaddala
 
 This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to the parent Azure region where Azure Public MEC (preview) is an extension.
 
-## Disaster recovery in Azure Edge Zone (preview)
+## Disaster recovery in Azure Public MEC (preview)
 
 Site Recovery ensure business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Azure Public MEC and secondary location is the parent region to which the Azure Public MEC is connected. 
 

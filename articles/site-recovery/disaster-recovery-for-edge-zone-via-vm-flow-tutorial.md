@@ -25,9 +25,18 @@ To enable replication to a secondary location, follow the below steps:
 
 1. On the Azure portal, select **Virtual machines** and select a VM to replicate.
 1. On the left pane, under **Operations**, select **Disaster recovery**.
+    
+:::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/disaster-recovery.png" alt-text=" Select Disaster Recovery":::
+
 1. In **Basics**, select the **Target region** or an Azure Public MEC (preview).
     - Option1: **Public MEC to Region**
+    
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/edge-zone-to-region.png" alt-text="Option1- Edge Zone to Region":::
+
     - Option2: **Public MEC to Public MEC**
+    
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/EZ-to-EZ.png" alt-text=" Option 2 Edge Zone to Edge Zone ":::    
+
     >[!Note]
     >This flow proceeds with option1: Public MEC to Region replication.
 1. Select **Next : Advanced settings**.
@@ -36,5 +45,13 @@ To enable replication to a secondary location, follow the below steps:
 1. In **Advanced settings**, select **Subscription**, **VM resource group**, **Virtual network**, **Availability** and **Proximity placement group** as required.
     1. Under **Capacity Reservation Settings**, **Capacity Reservation Groups** is disabled.
     1. Under **Storage settings** > **Cache storage account**, select the cache storage account associated with the vault from the dropdown.
+    
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/cache-storage.png" alt-text=" Cache storage field":::
+
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/cache-storage-2.png" alt-text=" Cache storage field step 2":::
+
 1. Select **Next : Review + Start replication**.
+
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/review.png" alt-text=" Review settings tab":::
+
 1. In **Review + Start replication**, review the VM settings and select **Start replication**.
