@@ -111,102 +111,102 @@ Once the deployment has competed, the following resources and access roles will 
 > [!TIP]
 > For detailed step-by-step instructions on how to manually deploy the MedTech service, see [How to manually deploy the MedTech service using the Azure portal](deploy-03-new-manual.md).
 
-## Create a device and send a test message 
+## Create a device and send a test message
 
-Now that your deployment has successfully completed, we'll connect to your IoT Hub, create a device, and send a test message to the IoT Hub using **VSCode** with the **Azure IoT Hub extension**. These steps will allow your MedTech service to:
+Now that your deployment has successfully completed, we'll connect to your hub, create a device, and send a test message to the hub by using Visual Studio Code with the Azure IoT Hub extension. These steps will allow your MedTech service to:
 
-- Pick up the IoT Hub routed test message from the device message event hub.
+- Pick up the hub-routed test message from the device message event hub.
 - Transform the test message into five FHIR Observations.
-- Persist the FHIR Observations into your FHIR service.
+- Persist the FHIR Observations to your FHIR service.
 
-1. Open Visual Studio Code, with the Azure IoT Tools installed.
+1. Open Visual Studio Code with Azure IoT Tools installed.
 
-2. The **Azure IoT Hub extension** can be found in the **Explorer** section of **VSCode**. Select **…** and then select **Select IoT Hub**. You'll be shown a list of Azure subscriptions. Select the subscription where your IoT Hub was provisioned. You'll then be shown a list of IoT Hubs. Select your IoT Hub (your IoT Hub will be the **basename** you provided when you provisioned the resources prefixed with **ih-**.). For this example, we'll select an IoT Hub named **ih-azuredocsdemo**. You'll be selecting your own IoT Hub.
+1. In Explorer, in **Azure IoT Hub**, select **…** and then select **Select IoT Hub**. In a list of Azure subscriptions, select the subscription where your IoT hub was provisioned. You'll then be shown a list of IoT hubs. Select your IoT Hub (your IoT Hub will be the **basename** you provided when you provisioned the resources prefixed with **ih-**.). For this example, we'll select an IoT Hub named **ih-azuredocsdemo**. You'll be selecting your own IoT Hub.
 
-   :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-iot-hub.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting the deployed IoT Hub for this tutorial " lightbox="media\iot-hub-to-iot-connector\iot-select-iot-hub.png":::
+   :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-iot-hub.png" alt-text="Screenshot of Visual Studio Code with the Azure IoT Hub extension selecting the deployed IoT Hub for this tutorial " lightbox="media\iot-hub-to-iot-connector\iot-select-iot-hub.png":::
 
-3. To create a device within your IoT Hub to use to send a test message, select **…**, and then select **Create Device**. For this example, we'll be creating a device named **iot-001**. You'll create a device name of your own choosing.
+1. To create a device in your hub to use to send a test message, select **…**, and then select **Create Device**. For example, create a device named **iot-001**. You'll create a device name of your own choosing.
 
-   :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-device.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting Create device for this tutorial." lightbox="media\iot-hub-to-iot-connector\iot-create-device.png":::
+   :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-device.png" alt-text="Screenshot of Visual Studio Code with the Azure IoT Hub extension selecting Create device for this tutorial." lightbox="media\iot-hub-to-iot-connector\iot-create-device.png":::
 
-4. To send a test message from the newly created device to your IoT Hub, right-click the device and select the **Send D2C Message to IoT Hub** option. For this example, we'll be using a device named **iot-001**. You'll use the device you created as part of the previous step.
+1. To send a test message from the device to your hub, right-click the device and select **Send D2C Message to IoT Hub**. In this example, the device is named **iot-001**. Use the device you created in the preceding step.
 
    > [!NOTE]
-   > **D2C** stands for Device-to-Cloud. In this example, cloud is the IoT Hub that will be receiving the device message. IoT Hub allows two-way communications, which is why there's also the option to **Send C2D Message to Device Cloud** (C2D stands for Cloud-to-Device).
+   > In this device-to-cloud (D2C) example, *cloud* is the hub in Azure IoT Hub that receives the device message. IoT Hub supports two-way communications. To set up a cloud-to-device (C2D) scenario, you select the **Send C2D Message to Device Cloud** option.
 
-   :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting the Send D2C Message to IoT Hub option." lightbox="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png":::
+   :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png" alt-text="Screenshot of Visual Studio Code with the Azure IoT Hub extension Send D2C Message to IoT Hub option selected." lightbox="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png":::
 
-5. In the **Send D2C Messages** box, make the following selections and edits:
+1. In **Send D2C Messages**, select or enter the following values:
 
-   - **Device(s) to send messages from** - Leave at default. The device will be the one previously created by you.
-   
-   - **Message(s) per device** - Adjust from 10 to one.
-   
-   - **Interval between two messages** - Leave at default of one second.
-   
-   - **Message** - Leave at default value of **Plain Text**
-   
-   - **Edit** - If present, remove the **Hello from Azure IoT!** example and then **copy + paste** the below test message into the **Edit** box. 
+   - **Device(s) to send messages from**: The name of the device you created (default).
 
-   > [!TIP]
-   > You can use the **Copy** option in in the right corner of the test message to place the text into your clip board so that you can then paste it into the **Edit** box.
+   - **Message(s) per device**: **1**.
 
-   ```json
-   {
-     "HeartRate": 78,
-     "RespiratoryRate": 12,
-     "HeartRateVariability": 30,
-     "BodyTemperature": 98.6,
-     "BloodPressure": {
-       "Systolic": 120,
-       "Diastolic": 80
+   - **Interval between two messages**: **1 second(s)** (default).
+
+   - **Message**: **Plain Text** (default).
+
+   - **Edit**: Clear any existing text, and then paste the following JSON.
+
+     > [!TIP]
+     > You can use the **Copy** option in in the right corner of the test message, and then paste it in **Edit**.
+
+     ```json
+     {
+       "HeartRate": 78,
+       "RespiratoryRate": 12,
+       "HeartRateVariability": 30,
+       "BodyTemperature": 98.6,
+       "BloodPressure": {
+         "Systolic": 120,
+         "Diastolic": 80
+       }
      }
-   }
-   ```
+     ```
 
-6. Select **Send** to begin the process of sending a test message to your IoT Hub.
+1. To begin the process of sending a test message to your hub, select **Send**.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message-options.png" alt-text="Screenshot of VSCode with the Azure IoT Hub extension selecting the device message options." lightbox="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message-options.png":::   
-   
+
    > [!NOTE]
-   >  After the test message is sent, it may take up to five minutes for the FHIR resources to be present in the FHIR service.
+   >  After you select **Send**, it might take up to five minutes for the FHIR resources to be available in the FHIR service.
 
    > [!IMPORTANT]
-   > To avoid device spoofing in device-to-cloud messages, Azure IoT Hub enriches all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties).
+   > To avoid device spoofing in D2C messages, Azure IoT Hub enriches all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties).
    >
-   > To learn more about IotJsonPathContentTemplate mappings usage with the MedTech service device mappings, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md).
+   > To learn more, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md).
 
-## Review metrics from test message 
+## Review metrics from test message
 
-Now that you've successfully sent a test message to your IoT Hub, you can now review your MedTech service metrics to verify that your MedTech service received, transformed, and persisted the test message into your FHIR service. To learn more about how to display the MedTech service monitoring tab metrics and the different metrics types, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
+Now that you've successfully sent a test message to your hub, you can review your MedTech service metrics to verify that your MedTech service received, transformed, and persisted the test message to your FHIR service. To learn more about how to display the MedTech service monitoring tab metrics and the different types of metrics, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
 
-For your MedTech service metrics, you see can see that your MedTech service performed the following steps with the test message:
+For your MedTech service metrics, you can see that your MedTech service completed the following steps with the test message:
 
-* **Number of Incoming Messages** - Received the incoming test message from the device message event hub.
-* **Number of Normalized Messages** - Created five normalized messages.
-* **Number of Measurements** - Created five measurements.
-* **Number of FHIR resources** - Created five FHIR resources that will be persisted on your FHIR service.
+- **Number of Incoming Messages**: Received the incoming test message from the device message event hub.
+- **Number of Normalized Messages**: Created five normalized messages.
+- **Number of Measurements**: Created five measurements.
+- **Number of FHIR resources**: Created five FHIR resources that will be persisted on your FHIR service.
 
-:::image type="content" source="media\iot-hub-to-iot-connector\iot-metrics-tile-one.png" alt-text="Screenshot of MedTech service first metrics tile showing the test data metrics." lightbox="media\iot-hub-to-iot-connector\iot-metrics-tile-one.png"::: 
+:::image type="content" source="media\iot-hub-to-iot-connector\iot-metrics-tile-one.png" alt-text="Screenshot of MedTech service first metrics tile showing the test data metrics." lightbox="media\iot-hub-to-iot-connector\iot-metrics-tile-one.png":::
 
-:::image type="content" source="media\iot-hub-to-iot-connector\iot-metrics-tile-two.png" alt-text="Screenshot of MedTech service second metrics tile showing the test data metrics." lightbox="media\iot-hub-to-iot-connector\iot-metrics-tile-two.png"::: 
+:::image type="content" source="media\iot-hub-to-iot-connector\iot-metrics-tile-two.png" alt-text="Screenshot of MedTech service second metrics tile showing the test data metrics." lightbox="media\iot-hub-to-iot-connector\iot-metrics-tile-two.png":::
 
-## View test data in the FHIR service 
+## View test data in the FHIR service
 
-If you provided your own Azure AD user object ID as the optional **Fhir Contributor Principal ID** when deploying this tutorial's template, then you have access to query FHIR resources in your FHIR service. 
+If you provided your own Azure AD user object ID as the optional value for **Fhir Contributor Principal ID** when you deployed the tutorial template, you can query FHIR resources in your FHIR service.
 
-Use this tutorial: [Access using Postman](../fhir/use-postman.md) to get an Azure AD access token and view FHIR resources in your FHIR service.
+To learn how to get an Azure AD access token and view FHIR resources in your FHIR service, see [Access by using Postman](../fhir/use-postman.md).
 
 ## Next steps
 
-In this tutorial, you deployed an ARM template in the Azure portal, connected to your Azure IoT Hub, created a device, and sent a test message to your MedTech service.
+In this tutorial, you deployed an ARM template in the Azure portal, connected to your hub in Azure IoT Hub, created a device, and sent a test message to your MedTech service.
 
-To learn about how to use device mappings, see
+To learn how to use device mappings, see:
 
 > [!div class="nextstepaction"]
 > [How to use device mappings](how-to-use-device-mappings.md)
 
-To learn more about FHIR destination mappings, see
+To learn more about FHIR destination mappings, see:
 
 > [!div class="nextstepaction"]
 > [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
