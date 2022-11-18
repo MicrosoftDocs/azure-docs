@@ -24,13 +24,13 @@ These precise points of interest are referred to as Spatial Anchors.
 
 For more information about availability zones, see [Regions and availability zones](../availability-zones/az-overview.md).
 
-Within a given region, all Azure Spatial Anchors accounts run as Active-Active. Failure of even an entire cluster within any given region is not expected to impact overall service availability, provided the incoming load does not exceed the capacity of the remaining cluster.
+Within a given region, all Azure Spatial Anchors accounts run as Active-Active. Failure of even an entire cluster within any given region isn't expected to impact overall service availability, provided the incoming load doesn't exceed the capacity of the remaining cluster.
 
-In the event of an Azure regional outage, recovery of Azure Spatial Anchors account will rely on the Azure Paired Regions relationships for failover of resource dependencies, plus manual failover of resource dependencies which is the responsibility of Microsoft and not customers.
+During an Azure regional outage, recovery of Azure Spatial Anchors account will rely on the Azure Paired Regions relationships for failover of resource dependencies, plus manual failover of resource dependencies, which is the responsibility of Microsoft and not customers.
 
 ## Availability zone support
 
-SouthEastAsia region does not rely on Azure Paired Regions in order to be compliant with data privacy regulations. A failure of this entire region will impact overall service availability, since there is no other region to redirect traffic to.
+SouthEastAsia region doesn't rely on Azure Paired Regions in order to be compliant with data privacy regulations. A failure of this entire region will impact overall service availability, since there's no other region to redirect traffic to.
 
 ### Prerequisites
 
@@ -38,7 +38,7 @@ For a list of regions that support availability zones, see [Azure regions with a
 
 #### Create a resource with availability zone enabled
 
-To enable AZ support for Azure Spatial Anchors, you do not need to take further steps beyond provisioning the account. Just create the resource in the region with AZ support, and it will be available across all AZs.
+To enable AZ support for Azure Spatial Anchors, you don't need to take further steps beyond provisioning the account. Just create the resource in the region with AZ support, and it will be available across all AZs.
 
 For detailed steps on how to provision the account, see [Create an Azure Spatial Anchors account](..\how-tos\create-asa-account.md).
 
@@ -48,7 +48,7 @@ During a zone-wide outage, no action is required during zone recovery. The servi
 
 ## Disaster recovery: cross-region failover
 
-In the event of an Azure regional outage, recovery of Azure Spatial Anchors account will rely on the Azure Paired Regions relationships for failover of resource dependencies, plus manual failover of resource dependencies which is the responsibility of Microsoft and not customers.
+During an Azure regional outage, recovery of Azure Spatial Anchors account will rely on the Azure Paired Regions relationships for failover of resource dependencies, plus manual failover of resource dependencies, which is the responsibility of Microsoft and not customers.
 
 ## Next steps
 
