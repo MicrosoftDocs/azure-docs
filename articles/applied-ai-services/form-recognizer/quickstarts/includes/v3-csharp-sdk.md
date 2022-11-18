@@ -44,7 +44,7 @@ In this quickstart, you'll use the following features to analyze and extract dat
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
+> [&#10033; I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
 
 ## Set up
 
@@ -67,7 +67,7 @@ In this quickstart, you'll use the following features to analyze and extract dat
     :::image type="content" source="../../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=setup)
+> [&#10033; I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=setup)
 
 ### Install the client library with NuGet
 
@@ -83,7 +83,7 @@ In this quickstart, you'll use the following features to analyze and extract dat
 <!-- --- -->
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=install-package)
+> [&#10033; I ran into an issue with the NuGet package installation.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=install-package)
 
 ## Build your application
 
@@ -233,7 +233,7 @@ Once you've added a code sample to your application, choose the green **Start** 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
+> [&#10033; I ran into an issue when running the app.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
 
 ### General document model output
 
@@ -350,7 +350,8 @@ Once you've added a code sample to your application, choose the green **Start** 
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-layout)
+> [!div class="nextstepaction"]
+[&#10033; I ran into an issue when running the app.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-layout)
 
 ### Layout model output
 
@@ -506,7 +507,7 @@ Once you've added a code sample to your application, choose the green **Start** 
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
+[&#10033; I ran into an issue when running the app.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
 
 ### Prebuilt model output
 
