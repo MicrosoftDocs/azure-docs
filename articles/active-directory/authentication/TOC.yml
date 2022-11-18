@@ -310,8 +310,10 @@
     href: /samples/browse/?products=azure
   - name: Azure PowerShell cmdlets
     href: /powershell/azure/
-  - name: Microsoft Graph REST API beta
+  - name: Authentication methods APIs in Microsoft Graph
     href: /graph/api/resources/authenticationmethods-overview
+  - name: Authentication strengths APIs in Microsoft Graph (preview)
+    href: /graph/api/resources/authenticationstrengths-overview
   - name: Service limits and restrictions
     href: ../enterprise-users/directory-service-limits-restrictions.md
   - name: FIDO2 compatibility
