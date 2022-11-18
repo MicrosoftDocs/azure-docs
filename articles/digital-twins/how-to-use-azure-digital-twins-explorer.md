@@ -296,7 +296,7 @@ You can use the **Model Graph** panel to view a graphical representation of the 
 
 To see the full definition of a model, find that model in the **Models** pane and select the menu dots next to the model name. Then, select **View Model**. Doing so will display a **Model Information** modal showing the raw DTDL definition of the model.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to View Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to View Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-view2.png":::
 
 You can also view a model's full definition by selecting it in the **Model Graph**, and using the **Toggle model details** button to expand the **Model Detail** panel. This panel will also display the full DTDL code for the model.
 
@@ -348,7 +348,7 @@ First, use the following instructions to set the image file names before uploadi
 
 Then, to upload the images at the same time, use the **Upload Model Images** icon at the top of the Models panel. In the file selector box, choose which image files to upload. 
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-images.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload Model Images icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-images.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-images.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload Model Images icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-images2.png":::
 
 ## Manage models
 
@@ -369,7 +369,7 @@ You can upload models from your machine by selecting them individually, or by up
 
 To upload one or more models that are individually selected, select the **Upload a model** icon showing an upwards arrow.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a model icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a model icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload2.png":::
 
 In the file selector box that appears, navigate on your machine to the model(s) you want to upload. You can select one or more JSON model files and select **Open** to upload them.
 
@@ -388,7 +388,7 @@ You can use the Models panel to delete individual models, or all of the models i
 
 To delete a single model, find that model in the list and select the menu dots next to the model name. Then, select **Delete Model**.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Delete Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Delete Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one2.png":::
 
 To delete all of the models in your instance at once, choose the **Delete All Models** icon at the top of the Models panel.
 
