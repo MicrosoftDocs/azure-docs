@@ -32,6 +32,75 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## November 2022
+
+### General Availability - use Web Sign-in on Windows for password-less recovery with Temporary Access Pass
+
+
+
+**Type:** Changed feature   
+**Service category:** N/A          
+**Product capability:** User Authentication     
+
+For users who do not know or use a password, the Temporary Access Pass can now be used to recover Azure AD-joined PCs when the EnableWebSignIn policy is enabled on the device. For more information, see: [Authentication/EnableWebSignIn](/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin).
+
+
+---
+
+### Public Preview - Dynamic Group Pause Functionality 
+
+
+
+**Type:** New feature   
+**Service category:** Group Management           
+**Product capability:** Directory     
+
+Admins can now pause, and resume, the processing of individual dynamic groups in the Entra Admin Center. For more information, see: [Create or update a dynamic group in Azure Active Directory](../enterprise-users/groups-create-rule.md).
+
+
+---
+
+### Public Preview - Enabling extended customization capabilities for sign-in and sign-up pages in Company Branding capabilities.
+
+
+
+**Type:** New feature   
+**Service category:** Authentications (Logins)          
+**Product capability:** User Authentication     
+
+Update the Azure AD and Microsoft 365 login experience with new company branding capabilities. You can apply your company’s brand guidance to authentication experiences with pre-defined templates. For more information, see: [Configure your company branding](../fundamentals/customize-branding.md).
+
+
+---
+
+### Public Preview - Enabling customization capabilities for the Self-Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icons in Company Branding.
+
+
+
+**Type:** New feature   
+**Service category:** Directory Management             
+**Product capability:** Directory       
+
+Update the company branding functionality on the Azure AD/Microsoft 365 login experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see: [Configure your company branding](../fundamentals/customize-branding.md).
+
+
+---
+
+### General Availability - Soft Delete for Administrative Units
+
+
+
+**Type:** New feature   
+**Service category:** B2B        
+**Product capability:** B2B/B2C   
+
+Administrative Units now support soft deletion. Admins can now list, view properties of, perform ad hoc hard delete, or restore deleted Administrative Units using Microsoft Graph. This functionality restores all configuration for the Administrative Unit when restored from soft delete including: memberships, admin roles, processing rules, and processing rules state.
+
+This functionality greatly enhances recoverability and resilience when using Administrative Units. Now, when an Administrative Unit is accidentally deleted, it can be restored quickly to the same state it was at time of deletion. This removes uncertainty around how things were configured, and makes restoration quick and easy. For more information, see: [Soft deletions](../fundamentals/recover-from-deletions.md#soft-deletions).
+
+
+---
+
 ## October 2022
 
 ### General Availability - Upgrade Azure AD Provisioning agent to the latest version (version number: 1.1.977.0)
