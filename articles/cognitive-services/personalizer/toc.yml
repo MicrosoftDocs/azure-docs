@@ -122,7 +122,7 @@
   - name: Go
     items:
     - name: Reference
-      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview
+      href: https://github.com/Azure/azure-sdk-for-go/
   - name: Node.js
     items:
     - name: Reference

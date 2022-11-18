@@ -280,6 +280,10 @@
               href: change-tracking/overview.md
             - name: Support regions for Azure Monitoring Agent
               href: change-tracking/region-mappings-monitoring-agent.md
+            - name: Enable
+              items:
+                - name: Enable change tracking from portal
+                  href: change-tracking/enable-vms-monitoring-agent.md
     - name: Start/Stop VMs during off-hours
       items:
         - name: Overview
