@@ -13,7 +13,7 @@ ms.date: 11/16/2022
 Azure Video Indexer (AVI) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) supports both server-to-server and client-to-server communication. The API enables you to integrate video and audio insights into your application logic.
 
 > [!TIP]
-> For the latest `api-version`, chose the latest stable version in [our REST documentation](https://learn.microsoft.com/rest/api/videoindexer/stable/generate).
+> For the latest `api-version`, chose the latest stable version in [our REST documentation](/rest/api/videoindexer/stable/generate).
 
 To make the integration easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with the Azure Video Indexer API. 
 
@@ -115,12 +115,12 @@ The following image shows the first flow:
 
     Search and create an **HTTP** action.
     
-    |Key| Value|
-    |----|----|
-    |Method | **POST**|
-    | URI| [generateAccessToken](/rest/api/videoindexer/stable/generate/access-token?tabs=HTTP#generate-accesstoken-for-account-contributor). |
-    | Body|`{ "permissionType": "Contributor", "scope": "Account" }` |
-    | Add new parameter | **Authentication**  |
+    |Key| Value|Notes|
+    |----|----|---|
+    |Method | **POST**||
+    | URI| [generateAccessToken](/rest/api/videoindexer/stable/generate/access-token?tabs=HTTP#generate-accesstoken-for-account-contributor). ||
+    | Body|`{ "permissionType": "Contributor", "scope": "Account" }` |See the [REST doc example](/rest/api/videoindexer/preview/generate/access-token?tabs=HTTP#generate-accesstoken-for-account-contributor), make sure to delete the **POST** line.|
+    | Add new parameter | **Authentication**  ||
     
     ![Screenshot of the HTTP access token.](./media/logic-apps-connector-arm-accounts/http-with-param.png)
      
