@@ -100,7 +100,7 @@ For more information, see [Configure kubenet networking for an AKS cluster][aks-
 
 ### Azure CNI (advanced) networking
 
-With Azure CNI, every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be planned in advance and unique across your network space. Each node has a configuration parameter for the maximum number of pods it supports. The equivalent number of IP addresses per node are then reserved up front. Without planning, this approach can lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
+With Azure CNI, every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be planned in advance and unique across your network space. Each node has a configuration parameter for the maximum number of pods it supports. The equivalent number of IP addresses per node are then reserved up front. This approach can lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow, so it's important to plan properly.
 
 Unlike kubenet, traffic to endpoints in the same virtual network isn't NAT'd to the node's primary IP. The source address for traffic inside the virtual network is the pod IP. Traffic that's external to the virtual network still NATs to the node's primary IP.
 
@@ -172,7 +172,7 @@ For more information, see [Deploy HTTP application routing][aks-http-routing].
 
 ### Application Gateway Ingress Controller (AGIC)
 
-With the Application Gateway Ingress Controller (AGIC) add-on, you can leverage Azure's native Application Gateway level 7 load-balancer to expose cloud software to the Internet. AGIC runs as a pod within the AKS cluster. It consumes [Kubernetes Ingress Resources][k8s-ingress] and converts them to an Application Gateway configuration, which allows the gateway to load-balance traffic to the Kubernetes pods.
+With the Application Gateway Ingress Controller (AGIC) add-on, you can use Azure's native Application Gateway level 7 load-balancer to expose cloud software to the Internet. AGIC runs as a pod within the AKS cluster. It consumes [Kubernetes Ingress Resources][k8s-ingress] and converts them to an Application Gateway configuration, which allows the gateway to load-balance traffic to the Kubernetes pods.
 
 To learn more about the AGIC add-on for AKS, see [What is Application Gateway Ingress Controller?][agic-overview].
 
@@ -192,7 +192,7 @@ To learn more about client source IP preservation, see [How client source IP pre
 
 ## Control outbound (egress) traffic
 
-AKS clusters are deployed on a virtual network and have outbound dependencies on services outside of that virtual network. These outbound dependencies are almost entirely defined with fully qualified domain names (FQDNs). By default, AKS clusters have unrestricted outbound (egress) Internet access. This allows the nodes and services you run to access external resources as needed. If desired, you can restrict outbound traffic.
+AKS clusters are deployed on a virtual network and have outbound dependencies on services outside of that virtual network. These outbound dependencies are almost entirely defined with fully qualified domain names (FQDNs). By default, AKS clusters have unrestricted outbound (egress) Internet access, which allows the nodes and services you run to access external resources as needed. If desired, you can restrict outbound traffic.
 
 For more information, see [Control egress traffic for cluster nodes in AKS][limit-egress].
 
@@ -200,7 +200,7 @@ For more information, see [Control egress traffic for cluster nodes in AKS][limi
 
 A network security group filters traffic for VMs like the AKS nodes. As you create Services, such as a *LoadBalancer*, the Azure platform automatically configures any necessary network security group rules.
 
-You don't need to manually configure network security group rules to filter traffic for pods in an AKS cluster. Simply define any required ports and forwarding as part of your Kubernetes Service manifests. Let the Azure platform create or update the appropriate rules.
+You don't need to manually configure network security group rules to filter traffic for pods in an AKS cluster. You can define any required ports and forwarding as part of your Kubernetes Service manifests and let the Azure platform create or update the appropriate rules.
 
 You can also use network policies to automatically apply traffic filter rules to pods.
 
