@@ -183,21 +183,7 @@ TODO
 
 ::: zone pivot="azure-portal"
 
-1. Go to your container app in the Azure portal
-
-1. Select **Scale**.
-
-1. Select **Edit and deploy**.
-
-1. Select the **Scale** tab.
-
-1. Select the minimum and maximum replica range.
-
-    :::image type="content" source="media/scale-app/azure-container-apps-scale-slide.png" alt-text="Screenshot of Azure Container Apps scale range slider.":::
-
-1. Select **Add**.
-
-1. TODO
+Not supported in portal
 
 ::: zone-end
 
@@ -249,9 +235,6 @@ The following procedure shows you how to convert a KEDA scaler to a Container Ap
 ```
 
 Refer to this excerpt for context on how the below examples fit in the ARM template.
-
-> [!NOTE]
-> KEDA scale rules are defined using Kubernetes YAML, while Azure Container Apps supports ARM templates, Bicep templates and Container Apps-specific YAML. The following example uses an ARM template and therefore the rules need to switch property names from [kebab](https://wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) when translating from existing KEDA manifests.
 
 First, you'll define the type and metadata of the scale rule.
 
@@ -342,7 +325,7 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 
 - If you're using [Dapr actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) to manage states, you should keep in mind that scaling to zero isn't supported. Dapr uses virtual actors to manage asynchronous calls, which means their in-memory representation isn't tied to their identity or lifetime.
 
-- Managed identity isn't supported. Use a connection string instead via the `connection` property.
+## Considerations
 
 - In multiple revision mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
 
