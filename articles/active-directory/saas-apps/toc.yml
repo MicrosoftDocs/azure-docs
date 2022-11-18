@@ -630,6 +630,8 @@
         href: dagster-cloud-tutorial.md
       - name: DATABASICS
         href: databasics-tutorial.md
+      - name: Databook
+        href: databook-tutorial.md
       - name: DataCamp
         href: datacamp-tutorial.md
       - name: Datadog
