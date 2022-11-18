@@ -175,10 +175,3 @@ landingContent:
               url: concepts/call-automation/recognize-action.md
             - text: Call recording concepts
               url: concepts/voice-video-calling/call-recording.md
-        - linkListType: how-to
-            - text: Control and steer calls
-              url: how-tos/call-automation/actions-for-call-control.md
-            - text: Customize voice prompts to users with Play action
-              url: how-tos/call-automation/play-action.md
-            - text: Gather user input with Recognize action
-              url: how-tos/call-automation/recognize-action.md
