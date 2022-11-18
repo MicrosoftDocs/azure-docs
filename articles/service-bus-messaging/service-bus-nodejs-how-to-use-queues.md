@@ -40,7 +40,7 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 To use this quickstart with your own Azure account, you need:
 * Install [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
 * Sign in with your Azure account at the terminal or command prompt with `az login`. 
-* Use the same account when you add the **Azure Service Bus Data Owner** role to your resource.
+* Use the same account when you add the appropriate data role to your resource.
 * Run the code in the same terminal or command prompt.
 * Note down your **queue** name for your Service Bus namespace. You'll need that in the code.  
 
