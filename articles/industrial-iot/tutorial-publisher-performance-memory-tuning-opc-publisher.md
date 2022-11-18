@@ -60,7 +60,7 @@ To run OPC Publisher in production, network performance requirements (throughput
 
 ## Latency considerations
 
-What is typically seen as latency is the time difference between the `iothub-enqueuedtime` of the (device to cloud message)[https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-construct] and the `SourceTimestamp` field of an OPC UA telemetry event. There are multiple factors, which contribute to the latency:
+What is typically seen as latency is the time difference between the `iothub-enqueuedtime` of the (device to cloud message)[https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct] and the `SourceTimestamp` field of an OPC UA telemetry event. There are multiple factors, which contribute to the latency:
 * The `SourceTimestamp` of the OPC UA telemetry event is a value (defined by the OPC UA Specification)[https://reference.opcfoundation.org/Core/Part4/v104/7.7.3/] as to be as close to the source of the value. The origin of `SourceTimestamp` is highly dependent on the setup between sensor and OPC UA server. Independent from the setup, it's important to ensure that the time source is synchronized precisely otherwise the latency calculation will be not correct.
 * It's important that the systems and interconnection between the sensor and the IoT Edge host system where OPC Publisher runs is stable and doesn't introduce latency.
 * The configuration of the OPC UA nodes to publish and the effect of OPC Publisher command line options on latency will be discussed below.
@@ -106,7 +106,7 @@ Another side effect of this is that throughput is maximized due to the fact of h
 Sending the payload is compared to the other parts (especially waiting for the acknowledgment) small. Given this fact it's faster to send one message with large payload than multiple messages with smaller payloads (where sum of the smaller payloads is equal to the large payload size). That means to maximize the payload size also maximizes the overall throughput.
 
 ### Optimizing for low cost
-Minimizing the cost of the cloud ingest requires to understand how [IoT Hub pricing](https://azure.microsoft.com/en-us/pricing/details/iot-hub/) works. The ingested data is one part of the price and is counted in 4-KB blocks. Depending on the node configuration and data value change frequency the `--ms` parameter should be set to a multiple of 4096. 
+Minimizing the cost of the cloud ingest requires to understand how [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/) works. The ingested data is one part of the price and is counted in 4-KB blocks. Depending on the node configuration and data value change frequency the `--ms` parameter should be set to a multiple of 4096. 
 To tune the solution also for the required latency the send interval `--si` can be adjusted. The batch size `--bs` shouldn't trigger sending a message to IoT Hub and be set to 262144.
 
 ## High load conditions
@@ -116,7 +116,7 @@ OPC Publisher maintains an internal queue for all data change notifications. The
 
 If the queue keeps growing even though the `--si` and `--ms` have been adjusted and the queue capacity will be reached, messages will be discarded. The reason can be that the time it takes to send a message to IoT Hub doesn't provide the required throughput. Since this time is made up of multiple parts to understand if there's a bottleneck several areas should be validated:
 - Validation that the IoT Edge host network connection to the IoT Hub is stable and has low latency.
-- Validation that the modules running in IoT Edge (OPC Publisher, edgeHub, and others) don't hit any limits for CPU and memory consumption. Additionally use of the (IoT Edge metrics collector)[https://learn.microsoft.com/en-us/azure/iot-edge/how-to-collect-and-transport-metrics?view=iotedge-1.4&tabs=iothub] can give insights on resource usage of the system.
+- Validation that the modules running in IoT Edge (OPC Publisher, edgeHub, and others) don't hit any limits for CPU and memory consumption. Additionally use of the (IoT Edge metrics collector)[https://learn.microsoft.com/azure/iot-edge/how-to-collect-and-transport-metrics?view=iotedge-1.4&tabs=iothub] can give insights on resource usage of the system.
 - Validation that the time to ingest a message from an IoT Edge module not using any OPC UA data does meet expectations even with active workload.
 
 If the capacity of the internal message queue is used and there are still incoming notifications from the OPC UA server, data change notifications will be discarded. The diagnostics output will show the number of discarded messages.
