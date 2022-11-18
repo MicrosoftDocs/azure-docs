@@ -280,7 +280,7 @@ To specify a startup command or command file:
 
     Replace `<custom-command>` with either the full text of your startup command or the name of your startup command file.
 
-App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free and that a startup command file is deployed to App Service along with your app code. You can also check the [Diagnostic logs](#access-diagnostic-logs) for more information. Also check the app's **Diagnose and solve problems** page on the [Azure portal](https://portal.azure.com).
+App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free, and that a startup command file is deployed to App Service along with your app code. You can also check the [Diagnostic logs](#access-diagnostic-logs) for more information. Also check the app's **Diagnose and solve problems** page on the [Azure portal](https://portal.azure.com).
 
 ### Example startup commands
 
@@ -418,11 +418,11 @@ The following sections provide guidance for specific issues.
 
 #### ModuleNotFoundError when app starts
 
-If you see an error like `ModuleNotFoundError: No module named 'example'`, then Python couldn't find one or more of your modules when the application started. This most often occurs if you deploy your virtual environment with your code. Virtual environments aren't portable, so a virtual environment shouldn't be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This setting will force Oryx to install your packages whenever you deploy to App Service. For more information, please see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+If you see an error like `ModuleNotFoundError: No module named 'example'`, then Python couldn't find one or more of your modules when the application started. This error most often occurs if you deploy your virtual environment with your code. Virtual environments aren't portable, so a virtual environment shouldn't be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This setting will force Oryx to install your packages whenever you deploy to App Service. For more information, please see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
 
 ### Database is locked
 
-When attempting to run database migrations with a Django app, you may see "sqlite3. OperationalError: database is locked." The error indicates that your application is using a SQLite database for which Django is configured by default, rather than using a cloud database such as PostgreSQL for Azure.
+When attempting to run database migrations with a Django app, you may see "sqlite3. OperationalError: database is locked." The error indicates that your application is using a SQLite database for which Django is configured by default rather than using a cloud database such as PostgreSQL for Azure.
 
 Check the `DATABASES` variable in the app's *settings.py* file to ensure that your app is using a cloud database instead of SQLite.
 
