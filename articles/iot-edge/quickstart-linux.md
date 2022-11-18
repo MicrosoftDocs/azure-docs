@@ -33,7 +33,7 @@ If you don't have an active Azure subscription, create a [free account](https://
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [Azure-CLI-prepare-your-environment-no-header.md](../../includes/Azure-CLI-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 Cloud resources:
 
@@ -75,7 +75,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    az iot hub device-identity create --device-id myEdgeDevice --edge-enabled --hub-name {hub_name}
    ```
 
-   If you get an error about iothubowner policy keys, make sure that your Cloud Shell is running the latest version of the Azure-iot extension.
+   If you get an error about iothubowner policy keys, make sure that your Cloud Shell is running the latest version of the *azure-iot* extension.
 
 2. View the connection string for your device, which links your physical device with its identity in IoT Hub. It contains the name of your IoT hub, the name of your device, and then a shared key that authenticates connections between the two. We'll refer to this connection string again in the next section when you set up your IoT Edge device.
 
@@ -301,7 +301,7 @@ Select **Next: Routes** to continue to the next step of the wizard.
 
 ### Routes
 
-A route, **SimulatedTemperatureSensorToIoTHub**, was created automatically when you added the module from Azure Marketplace. This route sends all messages from the simulated temperature module to IoT Hub.
+A route named *SimulatedTemperatureSensorToIoTHub* was created automatically when you added the module from Azure Marketplace. This route sends all messages from the simulated temperature module to IoT Hub.
 
    ![Screenshot that shows removing the default route then moving to the next step.](./media/quickstart/delete-route-next-review-create.png)
 
