@@ -33,12 +33,12 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - [Node.js LTS](https://nodejs.org/en/download/)
-- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created.
+- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. 
 
 ### [Passwordless](#tab/passwordless)
 
 To use this quickstart with your own Azure account, you need:
-* Instal [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
+* Install [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
 * Sign in with your Azure account at the terminal or command prompt with `az login`. 
 * Use the same account when you add the **Azure Service Bus Data Owner** role to your resource.
 * Run the code in the same terminal or command prompt.
@@ -46,7 +46,7 @@ To use this quickstart with your own Azure account, you need:
 
 ### [Connection string](#tab/connection-string)
 
-Note down the following which you'll use in the code below:
+Note down the following, which you'll use in the code below:
 * Service Bus namespace **connection string** 
 * Service Bus namespace **queue** you created
 
