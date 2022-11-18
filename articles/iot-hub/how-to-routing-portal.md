@@ -113,7 +113,7 @@ If you need to create a Service Bus topic, see [Use the Azure portal to create a
 
 1. Select the dropdown list for **Service bus namespace** and select your service bus.
 
-1. Select the dropdown list for **Service Bus Topic** and select your service bus topic.
+1. Select the dropdown list for **Service Bus Topic** and select your Service Bus topic.
 
 1. Leave all other values in their default states and choose **Create** at the bottom.
 
@@ -123,7 +123,7 @@ If you need to create a Service Bus topic, see [Use the Azure portal to create a
 
 1. Select **Save** at the bottom to create your new route. You should now see the route on your **Message routing** page. 
 
-   :::image type="content" source="media/how-to-routing-portal/see-new-service-bus-topic-route.jpg" alt-text="Screenshot that shows your new service bus topic route on the 'Message routing' page." lightbox="media/how-to-routing-portal/see-new-service-bus-topic-route.jpg":::
+   :::image type="content" source="media/how-to-routing-portal/see-new-service-bus-topic-route.jpg" alt-text="Screenshot that shows your new Service Bus topic route on the 'Message routing' page." lightbox="media/how-to-routing-portal/see-new-service-bus-topic-route.jpg":::
 
 # [Azure Storage](#tab/azurestorage)
 
