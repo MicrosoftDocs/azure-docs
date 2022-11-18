@@ -154,24 +154,24 @@ landingContent:
           - text: Get started with the Chat hero sample
             url: samples/chat-hero-sample.md
   - title: Call Automation
-      linkLists:
-        - linkListType: quickstart
-          links:
-            - text: Handle an inbound phone call
-              url: quickstarts/call-automation/redirect-inbound-telephony-calls.md
-            - text: Build a customer interaction workflow using Call Automation
-              url: quickstarts/call-automation/callflows-for-customer-interactions.md
-            - text: Record calls
-              url: quickstarts/voice-video-calling/get-started-call-recording.md
-        - linkListType: concept
-          links:
-            - text: Call Automation Overview
-              url: concepts/call-automation/call-automation.md
-            - text: Learn about inbound calls
-              url: concepts/call-automation/incoming-call-notificaiton.md
-            - text: Play audio in calls
-              url: concepts/call-automation/play-action.md
-            - text: Gathering user input
-              url: concepts/call-automation/recognize-action.md
-            - text: Call recording concepts
-              url: concepts/voice-video-calling/call-recording.md
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Handle an inbound phone call
+            url: quickstarts/call-automation/redirect-inbound-telephony-calls.md
+          - text: Build a customer interaction workflow using Call Automation
+            url: quickstarts/call-automation/callflows-for-customer-interactions.md
+          - text: Record calls
+            url: quickstarts/voice-video-calling/get-started-call-recording.md
+      - linkListType: concept
+        links:
+          - text: Call Automation Overview
+            url: concepts/call-automation/call-automation.md
+          - text: Learn about inbound calls
+            url: concepts/call-automation/incoming-call-notificaiton.md
+          - text: Play audio in calls
+            url: concepts/call-automation/play-action.md
+          - text: Gathering user input
+            url: concepts/call-automation/recognize-action.md
+          - text: Call recording concepts
+            url: concepts/voice-video-calling/call-recording.md
