@@ -17,14 +17,14 @@ The client can be configured to enable Windows Insider releases. The following t
 
 | Release | Latest version | Minimum supported version |
 |---------|----------------|---------------------------|
-| Public  | 1.2.3667       | 1.2.1672                  |
+| Public  | 1.2.3577         | 1.2.1672                  |
 | Insider | 1.2.3667       | 1.2.1672                  |
 
-## Updates for version 1.2.3667
+## Updates for version 1.2.3667 (Insider)
 
-*Date published: 11/16/2022*
+*Date published: 10/25/2022*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
 - Added User Datagram Protocol (UDP) support to the client's ARM64 platform.
 - Fixed an issue where the tooltip didn't disappear when the user moved the mouse cursor away from the tooltip area.
@@ -37,13 +37,15 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 
 *Date published: 10/10/2022*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58R78), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE591Lx), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58R77)
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 Fixed a bug related to tracing that was blocking reconnections.
 
 ## Updates for version 1.2.3576
 
 *Date published: 10/6/2022*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58YFH), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE59ekJ), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58YFG)
 
 Fixed a bug that affected users of some third-party plugins.
 
