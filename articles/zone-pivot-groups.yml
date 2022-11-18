@@ -1871,6 +1871,15 @@ groups:
     title: Cloud build
   - id: docker-local
     title: Local build (requires Docker)
+# Owner: cebundy
+- id: container-apps-image-build-from-repo
+  title: Container GitHub and local build methods
+  prompt: Choose your source location
+  pivots:
+  - id: github-build
+    title: GitHub build
+  - id: local-build
+    title: Local build
  # Owner: rahulmehta
 - id: azure-red-hat-openshift-service-principal
   title: Azure CLI and Azure portal
