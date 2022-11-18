@@ -80,4 +80,3 @@ In this example, you learned how to use Spark to read and write to Kafka. Use th
 
 * [Get started with Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)
 * [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](kafka/apache-kafka-mirroring.md)
-* [Use Apache Storm with Apache Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
