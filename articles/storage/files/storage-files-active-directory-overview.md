@@ -53,10 +53,10 @@ It's helpful to understand some key terms relating to identity-based authenticat
 
 ## Supported authentication scenarios
 
-Azure Files supports identity-based authentication for Windows file shares over SMB through the following three methods:
+Azure Files supports identity-based authentication for Windows file shares over SMB through the following three methods. You can only use one method per storage account.
 
 - **On-premises AD DS authentication:** On-premises AD DS-joined or Azure AD DS-joined Windows machines can access Azure file shares with on-premises Active Directory credentials that are synched to Azure AD over SMB. Your client must have line of sight to your AD DS. If you already have AD DS set up on-premises or on a VM in Azure where your devices are domain-joined to your AD, you should use AD DS for Azure file shares authentication.
-- **Azure AD DS authentication:** Cloud-based, Azure AD DS-joined Windows VMs can access Azure file shares with Azure AD credentials. In this solution, Azure AD runs a traditional Windows Server AD domain on behalf of the customer, which is a child of the customer’s Azure AD tenant. However, Azure AD DS doesn't support non-cloud VMs (i.e. user laptops, workstations, VMs in other clouds, etc.) being domain-joined to that Azure AD DS hosted domain.
+- **Azure AD DS authentication:** Cloud-based, Azure AD DS-joined Windows VMs can access Azure file shares with Azure AD credentials. In this solution, Azure AD runs a traditional Windows Server AD domain on behalf of the customer, which is a child of the customer’s Azure AD tenant. 
 - **Azure AD Kerberos for hybrid identities:** Using Azure AD for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md) allows Azure AD users to access Azure file shares using Kerberos authentication. This means your end users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from hybrid Azure AD-joined and Azure AD-joined VMs. Cloud-only identities aren't currently supported.
 
 ## Restrictions
@@ -97,7 +97,7 @@ Identity-based authentication for Azure Files offers several benefits over using
 
 Azure file shares use the Kerberos protocol to authenticate with an AD source. When an identity associated with a user or application running on a client attempts to access data in Azure file shares, the request is sent to the AD source to authenticate the identity. If authentication is successful, it returns a Kerberos token. The client sends a request that includes the Kerberos token, and Azure file shares use that token to authorize the request. Azure file shares only receive the Kerberos token, not the user's access credentials.
 
-Before you can enable identity-based authentication on your storage account, you must first set up your domain environment.
+You can enable identity-based authentication on your new and existing storage accounts using one of three AD sources: AD DS, Azure AD DS, or Azure AD Kerberos for hybrid identities. Only one AD source can be used for file access authentication on the storage account, which applies to all file shares in the account. Before you can enable identity-based authentication on your storage account, you must first set up your domain environment. 
 
 ### AD DS
 
@@ -107,17 +107,21 @@ The following diagram depicts on-premises AD DS authentication to Azure file sha
 
 :::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagram that depicts on-premises AD DS authentication to Azure file shares over SMB.":::
 
+To learn how to enable AD DS authentication, first read [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md) and then see [Enable on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md).
+
 ### Azure AD DS
 
 For Azure AD DS authentication, you should enable Azure AD DS and domain-join the VMs you plan to access file data from. Your domain-joined VM must reside in the same virtual network (VNET) as your Azure AD DS. 
 
-The following diagram represents the workflow for Azure AD DS authentication to Azure file shares over SMB. It follows a similar pattern to on-premises AD DS authentication to Azure file shares. There are two major differences:
+The following diagram represents the workflow for Azure AD DS authentication to Azure file shares over SMB. It follows a similar pattern to on-premises AD DS authentication, but there are two major differences:
 
 1. You don't need to create the identity in Azure AD DS to represent the storage account. This is performed by the enablement process in the background.
 
-2. All users that exist in Azure AD can be authenticated and authorized. The user can be cloud-only or hybrid. The sync from Azure AD to Azure AD DS is managed by the platform without requiring any user configuration. However, the client must be domain-joined to Azure AD DS. It can't be Azure AD joined or registered. 
+2. All users that exist in Azure AD can be authenticated and authorized. The user can be cloud-only or hybrid. The sync from Azure AD to Azure AD DS is managed by the platform without requiring any user configuration. However, the client must be joined to the Azure AD DS hosted domain. It can't be Azure AD joined or registered. Azure AD DS doesn't support non-cloud VMs (i.e. user laptops, workstations, VMs in other clouds, etc.) being domain-joined to the Azure AD DS hosted domain.
 
 :::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagram":::
+
+To learn how to enable Azure AD DS authentication, see [Enable Azure Active Directory Domain Services authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
 ### Azure AD Kerberos for hybrid identities
 
@@ -126,28 +130,26 @@ Enabling and configuring Azure AD for authenticating [hybrid user identities](..
 > [!IMPORTANT]
 > Azure AD Kerberos authentication only supports hybrid user identities; it doesn't support cloud-only identities. A traditional AD DS deployment is required, and it must be synced to Azure AD using Azure AD Connect sync or Azure AD Connect cloud sync.
 
+To learn how to enable Azure AD Kerberos authentication for hybrid identities, see [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files](storage-files-identity-auth-azure-active-directory-enable.md).
+
 ## Access control
 Azure Files enforces authorization on user access to both the share level and the directory/file levels. Share-level permission assignment can be performed on Azure AD users or groups managed through Azure RBAC. With Azure RBAC, the credentials you use for file access should be available or synced to Azure AD. You can assign Azure built-in roles like **Storage File Data SMB Share Reader** to users or groups in Azure AD to grant access to an Azure file share.
 
-At the directory/file level, Azure Files supports preserving, inheriting, and enforcing [Windows ACLs](/windows/win32/secauthz/access-control-lists) just like any Windows file servers. You can choose to keep Windows ACLs when copying data over SMB between your existing file share and your Azure file shares. Whether you plan to enforce authorization or not, you can use Azure file shares to back up ACLs along with your data.
-
-### Enable identity-based authentication
-
-You can enable identity-based authentication on your new and existing storage accounts using one of three AD sources: AD DS, Azure AD DS, or Azure AD Kerberos for hybrid identities. Only one AD source can be used for file access authentication on the storage account, which applies to all file shares in the account.
-
-- To learn how to enable **on-premises Active Directory Domain Services** authentication, first read [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md) and then see [Enable on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md).
-
-- To learn how to enable **Azure AD DS** authentication, see [Enable Azure Active Directory Domain Services authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md).
-
-- To learn how to enable **Azure Active Directory (Azure AD) Kerberos** authentication for hybrid identities, see [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files](storage-files-identity-auth-azure-active-directory-enable.md).
+At the directory/file level, Azure Files supports preserving, inheriting, and enforcing [Windows ACLs](/windows/win32/secauthz/access-control-lists) just like any Windows file server. You can choose to keep Windows ACLs when copying data over SMB between your existing file share and your Azure file shares. Whether you plan to enforce authorization or not, you can use Azure file shares to back up ACLs along with your data.
 
 ### Configure share-level permissions for Azure Files
 
-Once you've enabled an AD source on your storage account, you can use Azure built-in RBAC roles, or configure custom roles for Azure AD identities and assign access rights to any file shares in your storage accounts. The assigned permission allows the granted identity to get access to the share only, nothing else, not even the root directory. You still need to separately configure directory and file-level permissions for Azure file shares.
+Once you've enabled an AD source on your storage account, you can do one of the following:
+
+- Use a default share-level permission
+- Assign built-in Azure RBAC roles, or 
+- Configure custom roles for Azure AD identities and assign access rights to file shares in your storage account.
+
+The assigned share-level permission allows the granted identity to get access to the share only, nothing else, not even the root directory. You still need to separately configure directory and file-level permissions.
 
 ### Configure directory or file-level permissions for Azure Files
 
-Azure file shares enforce standard Windows file permissions at both the directory and file level, including the root directory. Configuration of directory or file-level permissions is supported over both SMB and REST. Mount the target file share from your VM and configure permissions using Windows File Explorer, Windows [icacls](/windows-server/administration/windows-commands/icacls), or the [Set-ACL](/powershell/module/microsoft.powershell.security/get-acl) command.
+Azure file shares enforce standard Windows ACLs at both the directory and file level, including the root directory. Configuration of directory or file-level permissions is supported over both SMB and REST. Mount the target file share from your VM and configure permissions using Windows File Explorer, Windows [icacls](/windows-server/administration/windows-commands/icacls), or the [Set-ACL](/powershell/module/microsoft.powershell.security/get-acl) command.
 
 ### Use the storage account key for superuser permissions
 
@@ -158,10 +160,10 @@ A user with the storage account key can access Azure file shares with superuser 
 
 ### Preserve directory and file ACLs when importing data to Azure file shares
 
-Azure Files supports preserving directory or file level ACLs when copying data to Azure file shares. You can copy ACLs on a directory or file to Azure file shares using either Azure File Sync or common file movement toolsets. For example, you can use [robocopy](/windows-server/administration/windows-commands/robocopy) with the `/copy:s` flag to copy data as well as ACLs to an Azure file share. ACLs are preserved by default, you are not required to enable identity-based authentication on your storage account to preserve ACLs.
+Azure Files supports preserving directory or file level ACLs when copying data to Azure file shares. You can copy ACLs on a directory or file to Azure file shares using either Azure File Sync or common file movement toolsets. For example, you can use [robocopy](/windows-server/administration/windows-commands/robocopy) with the `/copy:s` flag to copy data as well as ACLs to an Azure file share. ACLs are preserved by default, so you don't need to enable identity-based authentication on your storage account to preserve ACLs.
 
 ## Pricing
-There is no additional service charge to enable identity-based authentication over SMB on your storage account. For more information on pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) and [Azure AD Domain Services pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/).
+There's no additional service charge to enable identity-based authentication over SMB on your storage account. For more information on pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) and [Azure AD Domain Services pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
 ## Next steps
 For more information about Azure Files and identity-based authentication over SMB, see these resources:
