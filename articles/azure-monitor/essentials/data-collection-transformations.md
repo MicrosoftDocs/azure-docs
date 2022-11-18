@@ -13,7 +13,7 @@ Transformations in Azure Monitor allow you to filter or modify incoming data bef
 ## When to use transformations
 Transformations are useful for a variety of scenarios, including those described below. 
 
-**Reduce data costs**
+### Reduce data costs
 Since you're charged ingestion cost for any data sent to a Log Analytics workspace, you want to filter out any data that you don't require to reduce your costs.
 
 | Scenario | Details |
@@ -23,7 +23,7 @@ Remove entire rows | For example, you might have a diagnostic setting to collect
 | Parse important data from a column | You may have a table with valuable data buried in a particular column. Use a transformation to parse the valuable data into a new column and remove the original. |
 
 
-**Remove sensitive data**
+### Remove sensitive data
 You may have a data source that sends information you don't want stored for privacy or compliancy reasons.
 
 | Scenario | Details |
@@ -32,12 +32,7 @@ You may have a data source that sends information you don't want stored for priv
 | Obfuscate sensitive information | For example, you might replace digits with a common character in an IP address or telephone number. |
 
 
-**Enrich data with additional or calculated information**
-Use a transformation to add information to data that provides business context or simplifies querying the data later.
-
-- **Add a column with additional information.** For example, you might add a column identifying whether an IP address in another column is internal or external.
-
-- **Add business specific information.** For example, you might add a column indicating a company division based on location information in other columns. 
+### Enrich data with additional or calculated information
 Use a transformation to add information to data that provides business context or simplifies querying the data later.
 
 | Scenario | Details |
@@ -46,7 +41,7 @@ Use a transformation to add information to data that provides business context o
 | Add business specific information | For example, you might add a column indicating a company division based on location information in other columns. |
 
 
-**Send data to multiple tables**
+### Send data to multiple tables
 Using a transformation, you can send data from a single data input to multiple tables in a workspace.
 
 | Scenario | Details |
@@ -87,9 +82,9 @@ A common use of the workspace transformation DCR is collection of [resource logs
 
 ## Multiple destinations
 
-Transformations allow you to send data to multiple tables in a Log Analytics workspace in a single DCR. For example, you may send data into Azure Monitor using the Logs ingestion API that should be separated between two different tables depending on particular criteria. You provide a KQL query for each destination, and the results of each query are sent to their corresponding tables. For example, you might want to send only information or audit events from a particular data source to a custom table configured for [basic logs]() to reduce your cost. Other events would be send to an [analytics table](). 
+Transformations allow you to send data to multiple tables in a Log Analytics workspace in a single DCR. For example, you may send data into Azure Monitor using the Logs ingestion API that should be separated between two different tables depending on particular criteria. You provide a KQL query for each destination, and the results of each query are sent to their corresponding tables. For example, you might want to send audit events from a particular data source to a custom table configured for [basic logs](../logs/basic-logs-configure.md) to reduce your cost. Other events would be sent to an analytics table where it could be queried regularly. 
 
-To use multiple destinations, you must currently either manually create a new DCR or edit an existing one. See the [Samples](#samples) section for examples of DCRs using multiple destinations.
+To use multiple destinations, you must currently either manually create a new DCR or [edit an existing one](data-collection-rule-edit.md). See the [Samples](#samples) section for examples of DCRs using multiple destinations.
 
 > [!IMPORTANT]
 > Currently, the tables in the DCR must be in the same Log Analytics workspace. To send to multiple workspaces from a single data source, use multiple DCRs.
@@ -105,7 +100,7 @@ There are multiple methods to create transformations depending on the data colle
 |:---|:---|
 | Logs ingestion API with transformation | [Send data to Azure Monitor Logs using REST API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md)<br>[Send data to Azure Monitor Logs using REST API (Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md) |
 | Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal (preview)](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates (preview)](../logs/tutorial-workspace-transformations-api.md) |
-| Edit |  |
+| Edit a DCR | [Editing Data Collection Rules](data-collection-rule-edit.md) |
 
 
 
@@ -113,10 +108,13 @@ There are multiple methods to create transformations depending on the data colle
 
 ### Single destination
 
-The following example is a DCR for Azur Monitor agent that sends data to the `Syslog` table. In this example, the transformation filters the data for records with *error* in the message.
+The following example is a DCR for Azure Monitor agent that sends data to the `Syslog` table. In this example, the transformation filters the data for records with *error* in the message.
 
 ```json
 { 
+    "type": "Microsoft.Insights/dataCollectionRules", 
+    "name": "singleDestinationDCR", 
+    "apiVersion": "2021-09-01-preview", 
     "location": "eastus", 
     "properties": { 
       "dataSources": { 
