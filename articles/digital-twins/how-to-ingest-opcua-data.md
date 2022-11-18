@@ -19,6 +19,7 @@ ms.service: digital-twins
 ## Introduction
 
 This solution provides an automated ingestion path from OPC UA-enabled manufacturing assets in multiple simulated factories to digital twins in an Azure Digital Twins service. More specifically, the example:
+
 * Simulates eight OPC UA production lines in six locations, with each production line featuring assembly, test and packaging machines. These machines are controlled by a separate Manufacturing Execution System.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/production-line-3.png" alt-text="Drawing of the opc ua production line" lightbox="media/how-to-ingest-opcua-data/production-line-3.png":::
@@ -78,9 +79,7 @@ Once the deployment is complete in the Azure portal, follow these steps to confi
 
 5. Under Access Control -> Role Assignments of your Azure Digital Twin service instance in the Azure portal, add a new Role Assignment of type "Azure Digital Twins Data Owner" and assign it's access to "Managed Identity". Under "Select Users", select your previously deployed Azure Web App service instance.
 
-6. Open the URL of the deployed Azure Web App service in a browser and fill in the two fields under Settings and click Apply. The Azure Event Hubs connection string can be read for Azure IoT Hub under "Built-in Endpoints" -> "Event Hub-compatible endpoint" in the Azure portal.
-
-You can use Azure Digital Twins Explorer to monitor twin property updates and add additional relationships to the digital twins created, for example the order of machines in your production lines.
+6. Open the URL of the deployed Azure Web App service in a browser and fill in the two fields under Settings and click Apply. The Azure Event Hubs connection string can be read for Azure IoT Hub under "Built-in Endpoints" -> "Event Hub-compatible endpoint" in the Azure portal. You can use Azure Digital Twins Explorer to monitor twin property updates and add additional relationships to the digital twins created, for example the order of machines in your production lines.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/adt-explorer-2.png" alt-text="Screenshot of using azure digital twins explorer to monitor twin property updates":::
 
@@ -88,6 +87,6 @@ You can use Azure Digital Twins Explorer to monitor twin property updates and ad
 
 ## Next steps
 
-Setup Azure Data Explorer also allows you to create condition monitoring [dashboards](https://learn.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards) with a few clicks.
+Azure Data Explorer also allows you to create condition monitoring [dashboards](https://learn.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards) with a few clicks.
 
 Use the instructions [replacing the simulation with a real production line](https://github.com/digitaltwinconsortium/ManufacturingOntologies#replacing-the-production-line-simulation-with-a-real-production-line) to connect your own industrial assets.
