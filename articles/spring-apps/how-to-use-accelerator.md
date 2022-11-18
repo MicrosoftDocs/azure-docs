@@ -169,7 +169,8 @@ Besides using the predefined accelerators, you can also create your own ones. Pl
    When there is no `accelerator.yaml`, the repository still works as an accelerator but the files are passed unmodified to users. For more information about how to write an accelerator.yaml file, see [Creating an accelerator.yaml file](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-creating-accelerators-accelerator-yaml.html) 
 
 1. Publish the new accelerator
-When you have an Git repository to create an accelerator, you can publish it to be visible on Accelerator portal for developers to consume.
+
+    When you have an Git repository to create an accelerator, you can publish it to be visible on Accelerator portal for developers to consume.
 
     #### [Portal](#tab/Portal)
 
@@ -227,6 +228,7 @@ Click **GENERATE ACCELERATOR**, it will start a task to process provided paramen
 
 ## Manage App Accelerator in existing Enterprise tier instances
 This section instructs you how to enable the App Accelerator under an existing Azure Spring Apps Enterprise tier instance.
+
 If Dev tools public endpoint has already been exposed, then after enabling App Accelerator here, please use Ctrl+F5 to inactivate browser cache in order to see it on the Dev Tools Portal.
 
 #### [Portal](#tab/Portal)
