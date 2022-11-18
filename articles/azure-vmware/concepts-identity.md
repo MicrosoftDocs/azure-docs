@@ -216,7 +216,7 @@ You can create custom roles in NSX-T Data Center with permissions lesser than or
 > The VMware NSX-T Data Center Traceflow feature isn't supported by the VMware NSX-T Data Center custom role. The recommendation is to assign the **Auditor** role to the user along with above custom role to enable Traceflow feature for that user.
 
 > [!NOTE]
-> VMware vRealize Automation(vRA) integration with the NSX-T Data Center component of the Azure VMware Solution requires the “auditor” role to be added to the NSX-T Manager cloudadmin role.
+> VMware vRealize Automation(vRA) integration with the NSX-T Data Center component of the Azure VMware Solution requires the “auditor” role to be added to the user with the NSX-T Manager cloudadmin role.
 
 ## Next steps
 
