@@ -28,13 +28,13 @@ In Azure Digital Twins, you can route [event notifications](concepts-event-notif
     - Instance name
     - Resource group
 
-You can find these details in the [Azure portal](https://portal.azure.com) after setting up your instance. Log into the portal and search for the name of your instance in the portal search bar.
+You can find these details in the [Azure portal](https://portal.azure.com) after setting up your instance. Log in to the portal and search for the name of your instance in the portal search bar.
  
 :::image type="content" source="media/how-to-manage-routes/search-field-portal.png" alt-text="Screenshot of Azure portal search bar." lightbox="media/how-to-manage-routes/search-field-portal.png":::
 
 Select your instance from the results to see these details in the Overview for your instance:
 
-:::image type="content" source="media/how-to-manage-routes/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted.":::
+:::image type="content" source="media/how-to-manage-routes/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted." lightbox="media/how-to-manage-routes/instance-details.png":::
 
 Follow the instructions below if you intend to use the Azure CLI while following this guide.
 
@@ -83,13 +83,7 @@ To create a new endpoint, go to your instance's page in the [Azure portal](https
 1. Complete the other details that are required for your endpoint type, including your subscription and the endpoint resources described [above](#prerequisite-create-endpoint-resources).
     1. For Event Hubs and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or identity-based authentication if you'll be using the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for your Azure Digital Twins instance. 
 
-    :::row:::
-        :::column:::
-            :::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs in the Azure portal." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
-        :::column-end:::
-        :::column:::
-        :::column-end:::
-    :::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs in the Azure portal.":::
 
 1. Finish creating your endpoint by selecting **Save**.
 
@@ -98,19 +92,14 @@ To create a new endpoint, go to your instance's page in the [Azure portal](https
 
 After creating your endpoint, you can verify that the endpoint was successfully created by checking the notification icon in the top Azure portal bar: 
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-manage-routes/create-endpoint-notifications.png" alt-text="Screenshot of the notification to verify the creation of an endpoint in the Azure portal.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-endpoint-notifications.png" alt-text="Screenshot of the notification to verify the creation of an endpoint in the Azure portal.":::
+
 
 If the endpoint creation fails, observe the error message and retry after a few minutes.
 
 You can also view the endpoint that was created back on the **Endpoints** page for your Azure Digital Twins instance.
 
-Now the event grid, event hub, or Service Bus topic is available as an endpoint in Azure Digital Twins, under the name you chose for the endpoint. You'll typically use that name as the target of an event route, which you'll create [later in this article](#create-an-event-route).
+Now the Event Grid topic, event hub, or Service Bus topic is available as an endpoint in Azure Digital Twins, under the name you chose for the endpoint. You'll typically use that name as the target of an event route, which you'll create [later in this article](#create-an-event-route).
 
 # [CLI](#tab/cli) 
 
@@ -132,7 +121,7 @@ To create a Service Bus topic endpoint (key-based authentication):
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> --dt-name <your-Azure-Digital-Twins-instance-name>
 ```
 
-After successfully running these commands, the event grid, event hub, or Service Bus topic will be available as an endpoint in Azure Digital Twins, under the name you supplied with the `--endpoint-name` argument. You'll typically use that name as the target of an event route, which you'll create [later in this article](#create-an-event-route).
+After successfully running these commands, the Event Grid topic, event hub, or Service Bus topic will be available as an endpoint in Azure Digital Twins, under the name you supplied with the `--endpoint-name` argument. You'll typically use that name as the target of an event route, which you'll create [later in this article](#create-an-event-route).
 
 #### Create an endpoint with identity-based authentication
 
@@ -217,7 +206,7 @@ For instructions on how to create this type of endpoint with the Azure CLI, swit
 
 To create an endpoint that has dead-lettering enabled, add the `--deadletter-sas-uri` parameter to the [az dt endpoint create](/cli/azure/dt/endpoint/create) command that [creates an endpoint](#create-the-endpoint).
 
-The value for the parameter is the dead letter SAS URI made up of the storage account name, container name, and SAS token that you gathered in the [previous section](#set-up-storage-resources). This parameter creates the endpoint with key-based authentication. Here is what the parameter looks like:
+The value for the parameter is the dead letter SAS URI made up of the storage account name, container name, and SAS token that you gathered in the [previous section](#set-up-storage-resources). This parameter creates the endpoint with key-based authentication. Here's what the parameter looks like:
 
 ```azurecli
 --deadletter-sas-uri https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>
@@ -334,7 +323,7 @@ The following sample method shows how to create, list, and delete an event route
 
 As described above, routes have a filter field. If the filter value on your route is `false`, no events will be sent to your endpoint. 
 
-After enabling the minimal filter of `true`, endpoints will receive different kinds of events from Azure Digital Twins:
+After you've enabled a minimal filter of `true`, endpoints will receive different kinds of events from Azure Digital Twins:
 * Telemetry fired by [digital twins](concepts-twins-graph.md) using the Azure Digital Twins service API
 * Twin property change notifications, fired on property changes for any twin in the Azure Digital Twins instance
 * Life-cycle events, fired when twins or relationships are created or deleted
@@ -356,23 +345,11 @@ You can either select from some basic common filter options, or use the advanced
 
 To use the basic filters, expand the **Event types** option and select the checkboxes corresponding to the events you want to send to your endpoint. 
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-manage-routes/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the checkboxes of the events.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the checkboxes of the events." lightbox="media/how-to-manage-routes/create-event-route-filter-basic-1-large.png":::
 
 Doing so will autopopulate the filter text box with the text of the filter you've selected:
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-manage-routes/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the autopopulated filter text after selecting the events.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the autopopulated filter text after selecting the events." lightbox="media/how-to-manage-routes/create-event-route-filter-basic-2-large.png":::
 
 ### Use the advanced filters
 
@@ -380,13 +357,7 @@ You can also use the advanced filter option to write your own custom filters.
 
 To create an event route with advanced filter options, toggle the switch for the **Advanced editor** to enable it. You can then write your own event filters in the **Filter** box:
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-manage-routes/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter in the Azure portal.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-manage-routes/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter in the Azure portal." lightbox="media/how-to-manage-routes/create-event-route-filter-advanced-large.png":::
 
 # [API](#tab/api)
 

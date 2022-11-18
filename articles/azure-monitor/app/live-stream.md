@@ -2,7 +2,7 @@
 title: Diagnose with Live Metrics - Application Insights - Azure Monitor
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 11/15/2022
 ms.reviewer: sdash
 ms.devlang: csharp
 ---

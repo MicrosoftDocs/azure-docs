@@ -425,6 +425,20 @@
             - name: Use a template from Azure PowerShell
               displayName: create IoT Hub,  change settings, shared access policies, register device, message routing, delete IoT hub, Azure Resource Manager, PowerShell script
               href: iot-hub-rm-template-powershell.md
+        - name: Create message routes and endpoints
+          items:
+            - name: Azure portal
+              displayName: create IoT Hub, create endpoint, message routing, delete IoT hub, update IoT hub
+              href: how-to-routing-portal.md
+            - name: Azure CLI
+              displayName: create IoT Hub, create endpoint, message routing, delete IoT hub, update IoT hub
+              href: how-to-routing-azure-cli.md
+            - name: PowerShell
+              displayName: create IoT Hub, create endpoint, message routing, delete IoT hub, update IoT hub
+              href: how-to-routing-powershell.md
+            - name: Azure Resource Manager
+              displayName: create IoT Hub, create endpoint, message routing, delete IoT hub, update IoT hub
+              href: how-to-routing-arm.md
         - name: Configure managed identities
           displayName: Azure AD, egress connectivity, ARM template, user-assigned identity, message routing, file upload, bulk device import export, REST API SDK
           href: iot-hub-managed-identity.md

@@ -50,7 +50,7 @@ To download the publishing profile of your function app:
 
 1. In [GitHub](https://github.com/), go to your repository.
 
-1. Select **Security > Secrets and variables > Actions**.
+1. Select **Settings > Secrets > Actions**.
 
 1. Select **New repository secret**.
 

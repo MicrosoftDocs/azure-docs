@@ -4,7 +4,7 @@ description: Learn how to set up a lab with graphics processing unit (GPU) virtu
 author: nicolela
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.author: nicolela
+ms.service: lab-services
 ---
 
 # Set up GPU virtual machines in labs contained within lab accounts

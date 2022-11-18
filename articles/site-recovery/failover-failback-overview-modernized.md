@@ -108,9 +108,10 @@ To reprotect and fail back VMware machines and physical servers from Azure to on
 
 - You can select any of the Azure Site Recovery replication appliances registered under a vault to re-protect to on-premises. You do not require a separate Process server in Azure for re-protect operation and a scale-out Master Target server for Linux VMs.
 - Replication appliance doesn’t require additional network connection/ports (as compared with forward protection) during failback. Same appliance can be used for forward and backward protections if it is in healthy state. It should not impact the performance of the replications.
-- When selecting target datastore, ensure that the ESX Host where the replication appliance is located is able to access it.
+- When selecting the appliance, ensure that the target datastore where the source machine is located, is accessible by the appliance. The datastore of the source machine should always be accessible by the appliance. Even if the machine and appliance are located in different ESX servers, as long as the data store is shared between them, reprotection will succeed. 
   > [!NOTE]
   > Storage vMotion of replication appliance is not supported after re-protect operation.
+  > When selecting the appliance, ensure that the target datastore where the source machine is located, is accessible by the appliance.
 
 
 **Re-protect job**
