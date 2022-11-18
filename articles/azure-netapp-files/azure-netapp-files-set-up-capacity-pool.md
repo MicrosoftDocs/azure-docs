@@ -84,7 +84,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
      > [!IMPORTANT] 
      > Setting **QoS type** to **Manual** is permanent. You cannot convert a manual QoS capacity pool to use auto QoS. However, you can convert an auto QoS capacity pool to use manual QoS. See [Change a capacity pool to use manual QoS](manage-manual-qos-capacity-pool.md#change-to-qos).   
 
-    ![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot of new capacity pool options.":::
 
 4. Select **Create**.
 
