@@ -3,7 +3,7 @@ title: Configure vRealize Operations for Azure VMware Solution
 description: Learn how to set up vRealize Operations for your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/18/2022
+ms.date: 11/18/2022
 ---
 
 # Configure vRealize Operations for Azure VMware Solution
