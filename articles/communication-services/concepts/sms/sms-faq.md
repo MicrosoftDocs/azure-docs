@@ -92,21 +92,20 @@ What happens to the unverified toll-free number depends on the destination of SM
 #### SMS to US phone numbers
 Effective **October 1, 2022**, unverified toll-free numbers sending messages to US phone numbers will be subjected to the following: 
 
-1. **Stricter filtering** -  SMS messages are more likely to get blocked due to strict filtering, preventing messages to be delivered (i.e., SMS messages with URLs might be blocked).  
+1. **Stricter filtering** - SMS messages are more likely to get blocked due to strict filtering, preventing messages to be delivered (i.e., SMS messages with URLs might be blocked).  
 2. **SMS volume thresholds**:
 - **Daily Limit:** 2,000 messages
 - **Weekly limit:** 12,000 messages
 - **Monthly limit:** 25,000 messages
 
 This would not apply to TFNs in a pending or verified status.
-
-#### SMS to Canadian phone numbers
-Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To be unblocked, TFNs have to be in pending or verified status.
-
 > [!IMPORTANT]
 > Unverified SMS traffic that exceeds the daily limit or is filtered for spam will have a [4010 error code](../troubleshooting-info.md#sms-error-codes)  returned for both scenarios.
 > 
 > The unverified volume daily cap is a daily maximum limit (not a guaranteed daily minimum), so unverified traffic can still experience message filtering even when it’s well below the daily limits.
+
+#### SMS to Canadian phone numbers
+Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To be unblocked, TFNs have to be in pending or verified status.
 
 ### What does the different application status (verified, pending and unverified) mean? 
 - **Verified:** Verified numbers have gone through the toll-free verification process and were approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content will be blocked but the number will not be automatically blocked.
@@ -116,7 +115,7 @@ Effective **October 1, 2022**, unverified toll-free numbers sending messages to 
 ### What happens after I submit the toll-free verification form?
 After submission of the form, we will coordinate with our downstream peer to get the application verified by the toll-free messagining aggregator. While we are reviewing your application, we may reach out to you for more information.
 - From Application Submitted to Pending = **1-2 weeks** 
-- From Pending to Verdict(Verfied/Rejected/More information needed) = **4-5 weeks**
+- From Pending to Verdict(Verfied/Rejected/More info needed) = **4-5 weeks**
 
 The whole toll-free verification process takes about **5-6 weeks**. These timelines are subject to change depending on the volume of applications to the toll-free messaging aggregator and the [quality](#what-is-considered-a-high-quality-toll-free-verification-application) of your application.
 
@@ -136,18 +135,17 @@ The higher the quality of the application the higher chances your application wi
 - [CTIA guidelines](https://www.ctia.org/the-wireless-industry/industry-commitments/messaging-interoperability-sms-mms) are being followed
 
 ### What are the Ineligible Use Cases for toll-free verification? 
-| High-Risk Financial Services    | Get Rich Quick Schemes            | Debt Forgiveness                 | Illegal Substances/Activites |
-|---------------------------------|-----------------------------------|----------------------------------|------------------------------|
-| Payday loans                    | Debt consolidation                | Work from home programs          | Cannabis                     |
-| Short-term, high-interest loans | Debt reduction                    | Risk investment opportunities    | Alcohol                      |
-| Auto loans                      | Credit repair programs            | Debt collection or consolidation | Tabacco or vape              |
-| Mortgage loans                  | Deceptive work from home programs |                                  |                              |
-| Student loans                   | Multi-level marketing             |                                  |                              |
-| Gambling                        |                                   |                                  |                              |
-| Sweepstakes                     |                                   |                                  |                              |
-| Stock alerts                    |                                   |                                  |                              |
-| Cryptocurrency                  |                                   |                                  |                              |
-
+| High-Risk Financial Services    | Get Rich Quick Schemes            | Debt Forgiveness                 | Illegal Substances/Activites | General                  |
+|---------------------------------|-----------------------------------|----------------------------------|------------------------------|--------------------------|
+| Payday loans                    | Debt consolidation                | Work from home programs          | Cannabis                     | Phishing                 |
+| Short-term, high-interest loans | Debt reduction                    | Risk investment opportunities    | Alcohol                      | Fraud or scams           |
+| Auto loans                      | Credit repair programs            | Debt collection or consolidation | Tabacco or vape              | Deceptive marketing      |
+| Mortgage loans                  | Deceptive work from home programs |                                  |                              | Pornography              |
+| Student loans                   | Multi-level marketing             |                                  |                              | Sex-related content      |
+| Gambling                        |                                   |                                  |                              | Profanity or hate speech |
+| Sweepstakes                     |                                   |                                  |                              | Firearms                 |
+| Stock alerts                    |                                   |                                  |                              |                          |
+| Cryptocurrency                  |                                   |                                  |                              |                          |
 ### How is my data being used?
 Toll-free verification (TFV) involves an integration between Microsoft and the Toll-Free messaging aggregator. The toll-free messaging aggregator is the final reviewer and approver of the TFV application. Microsoft must share the TFV application information with the toll-free messaging aggregator for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a TFV form, you agree that Microsoft may share the TFV application details as necessary for provisioning the toll-free number.
  
