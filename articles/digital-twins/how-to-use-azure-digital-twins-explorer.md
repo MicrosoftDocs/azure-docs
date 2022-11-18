@@ -375,7 +375,7 @@ In the file selector box that appears, navigate on your machine to the model(s) 
 
 To upload a folder of models, including everything that's inside it, select the **Upload a directory of Models** icon showing a file folder.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a directory of Models icon is highlighted." "media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory2.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload a directory of Models icon is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-directory2.png":::
 
 In the file selector box that appears, navigate on your machine to a folder containing JSON model files. Select **Open** to upload that top-level folder and all of its contents.
 
