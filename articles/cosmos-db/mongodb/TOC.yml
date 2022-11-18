@@ -233,8 +233,16 @@
           href: ../security-controls-policy.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
-    - name: Optimize your Azure Cosmos DB cost
+    - name: Optimize your Azure Cosmos DB costs
       items:
+        - name: Overview
+          href: ../optimize-costs.yml
+        - name: Free tier
+          href: ../free-tier.md
+          displayName: free tier
+        - name: Limit total account throughput
+          displayName: cost, RUs, RU
+          href: ../limit-total-account-throughput.md
         - name: Plan and manage costs
           href: ../plan-manage-costs.md
         - name: Pricing model
@@ -261,6 +269,8 @@
           href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
+        - name: Use the emulator
+          href: ../local-emulator.md
     - name: Enterprise readiness
       items:
         - name: Service quotas
@@ -292,7 +302,7 @@
               href: connect-using-mongochef.md
             - name: Connect using Compass
               href: connect-using-compass.md
-            - name: Connect using Robo 3T
+            - name: Connect using Studio 3T
               href: connect-using-robomongo.md
             - name: Connect using Mongoose
               href: connect-using-mongoose.md
@@ -334,6 +344,12 @@
               href: how-to-javascript-manage-documents.md
             - name: Manage queries
               href: how-to-javascript-manage-queries.md
+        - name: Python
+          items:
+            - name: Get started
+              href: how-to-python-get-started.md
+            - name: Manage databases
+              href: how-to-python-manage-databases.md
         - name: .NET
           items:
             - name: Get started
@@ -389,12 +405,14 @@
               href: migrate-databricks.md
             - name: Post-migration guide
               href: post-migration-optimization.md
-    - name: Manage API for MongoDB resources
+    - name: Manage Cosmos DB for MongoDB resources
       items:
         - name: Create a collection
           href: how-to-create-container.md
         - name: Allocate throughput
           href: how-to-provision-throughput.md
+        - name: Configure multi-region writes
+          href: how-to-configure-multi-region-write.md
         - name: Limit total account throughput
           displayName: cost, RUs, RU
           href: ../limit-total-account-throughput.md
@@ -413,8 +431,6 @@
           href: error-codes-solutions.md
         - name: Troubleshoot query performance
           href: troubleshoot-query-performance.md
-        - name: Troubleshoot API for MongoDB queries with diagnostics
-          href: diagnostic-queries.md
         - name: Prevent rate-limiting errors
           href: prevent-rate-limiting-errors.md
         - name: Optimize query and storage costs when upgrading
@@ -482,7 +498,7 @@
           href: ../how-to-setup-customer-managed-keys.md
         - name: Configure cross-tenant customer-managed keys
           href: ../how-to-setup-cross-tenant-customer-managed-keys.md
-        - name: Use a managed identity
+        - name: Use managed identities with Azure services
           href: ../how-to-setup-managed-identity.md
     - name: Monitor
       items:
@@ -508,10 +524,10 @@
               href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: ../monitor-logs-basic-queries.md
-            - name: Troubleshoot issues using advanced queries
-              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Troubleshoot issues with advanced diagnostics queries
+              href: diagnostic-queries.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics

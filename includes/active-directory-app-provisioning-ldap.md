@@ -79,26 +79,26 @@ C:\Windows\ADAM> ADAMInstall.exe /answer:answer.txt
 ### Create containers and a service account for AD LDS
 The use the PowerShell script from [Appendix C](#appendix-c---populate-ad-lds-powershell-script).  The script performs the following actions:
   - Creates a container for the service account that will be used with the LDAP connector
-  - Creates a container for the cloud users.  This container is where users will be provisioned to.
+  - Creates a container for the cloud users, where users will be provisioned to
   - Creates the serve account in AD LDS
   - Enables the service account
   - Adds the service account to the AD LDS Administrators role
 
 On the Windows Server virtual machine, you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
 
-### Grant the NETWORK SERVICE read permissions to the SSL cert
+### Grant the NETWORK SERVICE read permissions to the SSL certificate
 In order to enable SSL to work, you need to grant the NETWORK SERVICE read permissions to our newly created certificate.  To grant permissions, use the following steps.
 
  1. Navigate to **C:\Program Data\Microsoft\Crypto\Keys**.
  2. Right-click on the system file located here.  It will be a guid.  This container is storing our certificate.
-    a. Select properties.
-    b. At the top, select the **Security** tab.
-    c. Select **Edit**.
-    d. Click **Add**.
-    e. In the box, enter **Network Service** and select **Check Names**.
-    f. Select **NETWORK SERVICE** from the list and click **OK**.
-    g. Click **Ok**.
-    h. Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
+    - Select properties.
+    - At the top, select the **Security** tab.
+    - Select **Edit**.
+    - Click **Add**.
+    - In the box, enter **Network Service** and select **Check Names**.
+    - Select **NETWORK SERVICE** from the list and click **OK**.
+    - Click **Ok**.
+    - Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
 
 ### Verify SSL connectivity with AD LDS
 Now that we have configured the certificate and granted the network service account permissions, test the connectivity to verify that it is working.
@@ -110,9 +110,9 @@ Now that we have configured the certificate and granted the network service acco
     - Server:  APP3
     - Port: 636
     - Place a check in the SSL box
-   [![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
+   [![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)](media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
  5.  You should see a response similar to the screenshot below.
-   ![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)](media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
+   [![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)](media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
  6.  At the top, under **Connection** select **Bind**.
  7. Leave the defaults and click **OK**.
    [![Ldp bind](media/active-directory-app-provisioning-ldap/ldp-4.png)](media/active-directory-app-provisioning-ldap/ldp-4.png#lightbox)</br>
@@ -315,6 +315,8 @@ If an error is shown, then select **View provisioning logs**.  Look in the log f
 If the error message is **Failed to create User**, then check the attributes that are shown against the requirements of the directory schema.
 
 For more information, change to the **Troubleshooting & Recommendations** tab.
+
+For other errors, see [troubleshooting on-premises application provisioning](../articles/active-directory/app-provisioning/on-premises-ecma-troubleshoot.md).
 
 ## Check that users were successfully provisioned
 After waiting, check your directory to ensure users are being provisioned.  The following instructions illustrate how to check AD LDS.

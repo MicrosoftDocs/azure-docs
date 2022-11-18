@@ -2,8 +2,9 @@
 title: Create and explore datasets with labels
 titleSuffix: Azure Machine Learning
 description: Learn how to export data labels from your Azure Machine Learning labeling projects and use them for machine learning tasks.  
-author: blackmist
-ms.author: larryfr
+author: kvijaykannan 
+ms.author: vkann 
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
@@ -77,14 +78,11 @@ from azureml.core import Dataset, Workspace
 animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe()
 
-# download the images to local 
-download_path = animal_labels.download(stream_column='image_url') 
-
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 #read images from downloaded path
-img = mpimg.imread(download_path[0])
+img = mpimg.imread(animal_pd['image_url'].iloc(0).open())
 imgplot = plt.imshow(img)
 ```
 

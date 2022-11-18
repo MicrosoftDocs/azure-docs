@@ -3,7 +3,7 @@ title: Accelerated Networking overview
 description: Accelerated Networking to improves networking performance of Azure VMs.
 services: virtual-network
 documentationcenter: ''
-author: steveesp
+author: asudbring
 manager: gedegrac
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/15/2022
-ms.author: steveesp
+ms.author: allensu
 ---
 
 # What is Accelerated Networking?
@@ -44,6 +44,7 @@ The benefits of accelerated networking only apply to the VM that it's enabled on
 
 The following versions of Windows are supported:
 
+- **Windows Server 2022**
 - **Windows Server 2019 Standard/Datacenter**
 - **Windows Server 2016 Standard/Datacenter** 
 - **Windows Server 2012 R2 Standard/Datacenter**

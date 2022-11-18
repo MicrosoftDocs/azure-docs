@@ -34,7 +34,7 @@ You can provision throughput at a container-level or a database-level in terms o
 | Maximum storage per container | Unlimited |
 | Maximum attachment size per Account (Attachment feature is being deprecated) | 2 GB |
 | Minimum RU/s required per 1 GB | 10 RU/s <sup>3</sup> |
- 
+
 <sup>1</sup> You can increase Maximum RUs per container or database by [filing an Azure support ticket](create-support-request-quota-increase.md).
 
 <sup>2</sup> To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md). If your workload has already reached the logical partition limit of 20 GB in production, it's recommended to rearchitect your application with a different partition key as a long-term solution. To help give time to rearchitect your application, you can request a temporary increase in the logical partition key limit for your existing application. [File an Azure support ticket](create-support-request-quota-increase.md) and select quota type **Temporary increase in container's logical partition key size**. Requesting a temporary increase is intended as a temporary mitigation and not recommended as a long-term solution, as **SLA guarantees are not honored when the limit is increased**. To remove the configuration, file a support ticket and select quota type **Restore container’s logical partition key size to default (20 GB)**. Filing this support ticket can be done after you have either deleted data to fit the 20-GB logical partition limit or have rearchitected your application with a different partition key.
@@ -158,6 +158,7 @@ An Azure Cosmos DB item can represent either a document in a collection, a row i
 | Maximum size of an item | 2 MB (UTF-8 length of JSON representation) <sup>1</sup> |
 | Maximum length of partition key value | 2048 bytes |
 | Maximum length of ID value | 1023 bytes |
+| Allowed characters for ID value | Service-side all Unicode characters except for '/' and '\\' are allowed. <br/>**WARNING: But for best interoperability we STRONGLY RECOMMEND to only use alpha-numerical ASCII characters in the ID value only**. <br/>There are several known limitations in some versions of the Cosmos DB SDK, as well as connectors (ADF, Spark, Kafka etc.) and http-drivers/libraries etc. that can prevent successful processing when the ID value contains non-alphanumerical ASCII characters. So, to increase interoperability, please encode the ID value - [for example via Base64 + custom encoding of special charatcers allowed in Base64](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/78fc16c35c521b4f9a7aeef11db4df79c2545dee/Microsoft.Azure.Cosmos.Encryption/src/EncryptionProcessor.cs#L475-L489). - if you have to support non-alphanumerical ASCII characters in your service/application. |
 | Maximum number of properties per item | No practical limit |
 | Maximum length of property name | No practical limit |
 | Maximum length of property value | No practical limit |

@@ -8,10 +8,12 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 11/07/2022
 ms.author: mimart
-ms.custom: "it-pro"
+ms.custom: engagement-fy23, it-pro
 ms.collection: M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to create custom attributes for the self-service sign-up user flows.
 ---
 
 # Define custom attributes for user flows
@@ -53,4 +55,5 @@ Once you've created a new user using a user flow that uses the newly created cus
 
 ## Next steps
 
-[Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md)
+- [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md)
+- [Customize the user flow language](user-flow-customize-language.md)

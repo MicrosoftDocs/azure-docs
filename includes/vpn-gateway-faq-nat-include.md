@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/07/2022
+ ms.date: 10/19/2022
  ms.author: cherylmc
 ---
 ### Is NAT supported on all Azure VPN Gateway SKUs?
@@ -16,6 +16,10 @@ No, NAT is supported on **IPsec** cross-premises connections only.
 ### How many NAT rules can I use on a VPN gateway?
 
 You can create up to 100 NAT rules (Ingress and Egress rules combined) on a VPN gateway.
+
+### Can I use / in a NAT rule name?
+
+No. You will receive an error.
 
 ### Is NAT applied to all connections on a VPN gateway?
 

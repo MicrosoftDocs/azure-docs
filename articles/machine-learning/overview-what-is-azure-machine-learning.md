@@ -175,7 +175,7 @@ To bring a model into production, it's deployed. Azure Machine Learning's manage
 
 See:
  * [Deploy a model with a real-time managed endpoint](how-to-deploy-managed-online-endpoints.md)
- * [Use batch endpoints for scoring](how-to-use-batch-endpoint.md) 
+ * [Use batch endpoints for scoring](batch-inference/how-to-use-batch-endpoint.md) 
 
 
 ## MLOps: DevOps for machine learning 

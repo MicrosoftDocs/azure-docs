@@ -15,9 +15,9 @@ ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Users and groups
+# Conditional Access: Users, groups, and workload identities
 
-A Conditional Access policy must include a user assignment as one of the signals in the decision process. Users can be included or excluded from Conditional Access policies. Azure Active Directory evaluates all policies and ensures that all requirements are met before granting access to the user. 
+A Conditional Access policy must include a user, group, or workload identity assignment as one of the signals in the decision process. These can be included or excluded from Conditional Access policies. Azure Active Directory evaluates all policies and ensures that all requirements are met before granting access. 
 
 > [!VIDEO https://www.youtube.com/embed/5DsW1hB3Jqs]
 
@@ -96,6 +96,14 @@ If you do find yourself locked out, see [What to do if you're locked out of the 
 ### External partner access
 
 Conditional Access policies that target external users may interfere with service provider access, for example granular delegated admin privileges [Introduction to granular delegated admin privileges (GDAP)](/partner-center/gdap-introduction). For policies that are intended to target service provider tenants, use the **Service provider user** external user type available in the **Guest or external users** selection options.
+
+## Workload identities (Preview)
+
+A workload identity is an identity that allows an application or service principal access to resources, sometimes in the context of a user. Conditional Access policies can be applied to single tenant service principals that have been registered in your tenant. Third party SaaS and multi-tenanted apps are out of scope. Managed identities aren't covered by policy.
+
+Organizations can target specific workload identities to be included or excluded from policy.
+
+For more information, see the article [Conditional Access for workload identities preview](workload-identity.md).
 
 ## Next steps
 

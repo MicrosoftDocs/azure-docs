@@ -237,7 +237,7 @@ spec:
 After you've created the Kubernetes secret, you can reference it by setting an environment variable in your pod, as shown in the following example code:
 
 > [!NOTE]
-> The example here demonstrates access to a secret through env variables and through volume/volumeMount. This is for illustrative purposes. These two methods can exist independently from the other.
+> The example here demonstrates access to a secret through env variables and through volume/volumeMount. This is for illustrative purposes; a typical application would use one method or the other.  However, be aware that in order for a secret to be available through env variables, it first must be mounted by at least one pod.
 
 ```yml
 kind: Pod

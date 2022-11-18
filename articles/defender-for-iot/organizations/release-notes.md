@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 08/08/2022
+ms.date: 11/03/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -23,7 +23,7 @@ The Defender for IoT architecture uses on-premises sensors and management server
 
     Therefore, for example, all **22.1.x** versions, including all hotfix versions, are supported for nine months after the first **22.1.x** release.
 
-    Fixes and new functionality are applied to each new version and are not applied to older versions.
+    Fixes and new functionality are applied to each new version and aren't applied to older versions.
 
 - **Software update packages include new functionality and security patches**. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter. 
 
@@ -60,6 +60,24 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## October 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | [Enhanced OT monitoring alert reference](#enhanced-ot-monitoring-alert-reference) |
+
+### Enhanced OT monitoring alert reference
+
+Our alert reference article now includes the following details for each alert:
+
+- **Alert category**, helpful when you want to investigate alerts that are aggregated by a specific activity or configure SIEM rules to generate incidents based on specific activities.
+
+- **MITRE ATT&CK for ICS tactics and techniques**, which describe the actions an adversary may take while operating within the network. Use the tactics and techniques listed for each alert to learn about the network areas that might be at risk and collaborate more efficiently across your security and OT teams more as you secure those assets.
+
+- **Alert threshold**, for relevant alerts. Thresholds indicate the specific point at which an alert is triggered. Modify alert thresholds as needed from the sensor's **Support** page.
+
+For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md), specifically [Supported alert categories](alert-engine-messages.md#supported-alert-categories).
+
 ## September 2022
 
 |Service area  |Updates  |
@@ -94,7 +112,7 @@ Defender for IoT now provides vulnerability data in the Azure portal for detecte
 
 Access vulnerability data in the Azure portal from the following locations:
 
-- On a device details page select the **Vulnerabilities** tab to view current vulnerabilities on the selected device. For example, from the **Device inventory** page, select a specific device and then select **Vulnerabilities**.
+- On a device details page, select the **Vulnerabilities** tab to view current vulnerabilities on the selected device. For example, from the **Device inventory** page, select a specific device and then select **Vulnerabilities**.
 
     For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
 
@@ -232,9 +250,9 @@ For more information, see [Understand sensor health (Public preview)](how-to-man
 
 The Enterprise IoT integration with Microsoft Defender for Endpoint is now in General Availability (GA). With this update, we've made the following updates and improvements:
 
-- Onboard an Enterprise IoT plan directly in Defender for Endpoint. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md) and the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+- Onboard an Enterprise IoT plan directly in Defender for Endpoint. For more information, see [Enable Enterprise IoT security in Defender for Endpoint](eiot-defender-for-endpoint.md).
 
-- Seamless integration with Microsoft Defender for Endpoint to view detected Enterprise IoT devices, and their related alerts, vulnerabilities, and recommendations in the Microsoft 365 Security portal. For more information, see the [Enterprise IoT tutorial](tutorial-getting-started-eiot-sensor.md) and the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration). You can continue to view detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal.
+- Seamless integration with Microsoft Defender for Endpoint to view detected Enterprise IoT devices, and their related alerts, vulnerabilities, and recommendations in the Microsoft 365 Security portal. For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md). You can continue to use an Enterprise IoT network sensor (Public preview) and view detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal.
 
 - All Enterprise IoT sensors are now automatically added to the same site in Defender for IoT, named **Enterprise network**. When onboarding a new Enterprise IoT device, you only need to define a sensor name and select your subscription, without defining a site or zone.
 
@@ -285,13 +303,13 @@ Use the following table to understand the mapping between legacy hardware profil
 
 |Legacy name  |New name  | Description |
 |---------|---------|---------|
-|**Corporate**     |    **C5600** | A *Corporate* environment, with: <br>16 Cores<br>32 GB RAM<br>5.6 TB disk storage |
-|**Enterprise**     | **E1800** | An *Enterprise* environment, with: <br>8 Cores<br>32 GB RAM<br>1.8 TB disk storage        |
-|**SMB**    |    **L500**   | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>500 GB disk storage  |
-|**Office**     | **L100**  | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>100 GB disk storage      |
-|**Rugged**     |   **L64** | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>64 GB disk storage     |
+|**Corporate**     |    **C5600** | A *Corporate* environment, with: <br>16 Cores<br>32-GB RAM<br>5.6-TB disk storage |
+|**Enterprise**     | **E1800** | An *Enterprise* environment, with: <br>8 Cores<br>32-GB RAM<br>1.8-TB disk storage        |
+|**SMB**    |    **L500**   | A *Production line* environment, with: <br>4 Cores<br>8-GB RAM<br>500-GB disk storage  |
+|**Office**     | **L100**  | A *Production line* environment, with: <br>4 Cores<br>8-GB RAM<br>100-GB disk storage      |
+|**Rugged**     |   **L64** | A *Production line* environment, with: <br>4 Cores<br>8-GB RAM<br>64-GB disk storage     |
 
-We also now support new enterprise hardware profiles, for sensors supporting both 500 GB and 1 TB disk sizes.
+We also now support new enterprise hardware profiles, for sensors supporting both 500 GB and 1-TB disk sizes.
 
 For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
 
@@ -413,7 +431,6 @@ Check out our new structure to follow through viewing devices and assets, managi
 - [Microsoft Defender for IoT architecture](architecture.md)
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
 - [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
-- [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
 - [Plan your sensor connections for OT monitoring](best-practices/plan-network-monitoring.md)
 - [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
 
@@ -653,7 +670,7 @@ For more information, see [Defender for IoT installation](how-to-install-softwar
 
 To use all of Defender for IoT's latest features, make sure to update your sensor software versions to 22.1.x.
 
-If you're on a legacy version, you may need to run a series of updates in order to get to the latest version. You'll also need to update your firewall rules and re-activate your sensor with a new activation file.
+If you're on a legacy version, you may need to run a series of updates in order to get to the latest version. You'll also need to update your firewall rules and reactivate your sensor with a new activation file.
 
 After you've upgraded to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 
@@ -807,7 +824,7 @@ This information also provides operational engineers with critical visibility in
 
 #### What is an unsecure mode?
 
-If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*.
+If the Key state is detected as *Program* or the *Run state* is detected as either *Remote* or *Program*, the PLC is defined by Defender for IoT as *unsecure*.
 
 #### Visibility and risk assessment
 
@@ -815,7 +832,7 @@ If the Key state is detected as Program or the Run state is detected as either R
 
     :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing PLC operating mode.":::
 
-- View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false.
+- View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the *Key state* is detected as *Program* or the *Run state* is detected as either *Remote* or *Program*, the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false.
 
     :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing PLC information.":::
 
@@ -851,7 +868,7 @@ Webhook extended can be used to send extra data to the endpoint. The extended fe
 
 ### Unicode support for certificate passphrases
 
-Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [About certificates](how-to-deploy-certificates.md#about-certificates)
+Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [Certificates for appliance encryption and authentication (OT appliances)](how-to-deploy-certificates.md#certificates-for-appliance-encryption-and-authentication-ot-appliances).
 
 ## Next steps
 

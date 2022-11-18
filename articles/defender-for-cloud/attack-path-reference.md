@@ -1,22 +1,24 @@
 ---
-title: Reference list of attack paths
+title: Reference list of attack paths and cloud security graph components
 titleSuffix: Defender for Cloud
 description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 09/21/2022
+ms.date: 11/08/2022
 ---
 
 
-# Reference list of attack paths
+# Reference list of attack paths and cloud security graph components
 
-This article lists the attack paths, connections and insights you might see in Microsoft Defender for Cloud. What you are shown in your environment depends on the resources you're protecting and your customized configuration.
+This article lists the attack paths, connections and insights you might see in Microsoft Defender for Cloud related to Defender for Cloud Security Posture Management (CSPM). What you are shown in your environment depends on the resources you're protecting and your customized configuration. You will need to [enable Defender for CSPM](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) to view your attack paths. Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md).
 
 To learn about how to respond to these attack paths, see [Identify and remediate attack paths](how-to-manage-attack-path.md).
 
 ## Attack paths
 
 ### Azure VMs
+
+Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentless.md).
 
 | Attack Path Display Name | Attack Path Description |
 |--|--|
@@ -32,6 +34,8 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 
 ### AWS VMs
 
+Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentless.md).
+
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
 | Internet exposed EC2 instance has high severity vulnerabilities and high permission to an account | AWS EC2 instance '\[EC2Name]' is reachable from the internet, has high severity vulnerabilities\[RCE] and has '\[permission]' permission to account '\[AccountName]' |
@@ -43,6 +47,8 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 
 ### Azure data
 
+Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md).
+
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
 | Internet exposed SQL on VM has a user account with commonly used username and allows code execution on the VM | SQL on VM '\[SqlVirtualMachineName]' is reachable from the internet, has a local user account with commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying VM |
@@ -52,18 +58,24 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 
 ### AWS Data
 
+Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md).
+
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
 | Internet exposed AWS S3 Bucket with sensitive data is publicly accessible | S3 bucket '\[BucketName]' with sensitive data is reachable from the internet and allows public read access without authorization required. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). |
 
 ### Azure containers
 
+Prerequisite: [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This will also give you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer.
+
 | Attack Path Display Name	| Attack Path Description |
 |--|--|--|
 | Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | Internet exposed Kubernetes pod '\[pod name]' in namespace '\[namespace]' is running a container '\[container name]' using image '\[image name]' which has vulnerabilities allowing remote code execution |
 | Kubernetes pod running on an internet exposed node uses host network is running a container with RCE vulnerabilities | Kubernetes pod '\[pod name]' in namespace '\[namespace]' with host network access enabled is exposed to the internet via the host network. The pod is running container '\[container name]' using image '\[image name]' which has vulnerabilities allowing remote code execution |
 
-## Insights and connections
+## Cloud security graph components list
+
+This section  lists all of the cloud security graph components (connections & insights) that can be used in queries with the [cloud security explorer](concept-attack-path.md).
 
 ### Insights
 
@@ -94,7 +106,7 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 |--|--|--|--|
 | Can authenticate as | Indicates that an Azure resource can authenticate to an identity and use its privileges | Azure VM, Azure VMSS, Azure Storage Account, Azure App Services, SQL Servers | AAD Managed identity |
 | Has permission to | Indicates that an identity has permissions to a resource or a group of resources | AAD user account, Managed Identity, IAM user, EC2 instance | All Azure & AWS resources|
-| Contains | Indicates that the source entity contains the target entity | Azure subscription, Azure resource group, AWS account, Kubernetes namespace, Kubernetes pod, Kubernetes cluster, Github owner, Azure DevOps project, Azure DevOps organization | All Azure & AWS resources, All Kubernetes entities, All DevOps entities |
+| Contains | Indicates that the source entity contains the target entity | Azure subscription, Azure resource group, AWS account, Kubernetes namespace, Kubernetes pod, Kubernetes cluster, GitHub owner, Azure DevOps project, Azure DevOps organization | All Azure & AWS resources, All Kubernetes entities, All DevOps entities |
 | Routes traffic to | Indicates that the source entity can route network traffic to the target entity | Public IP, Load Balancer, VNET, Subnet, VPC, Internet Gateway, Kubernetes service, Kubernetes pod| Azure VM, Azure VMSS, AWS EC2, Subnet, Load Balancer, Internet gateway, Kubernetes pod, Kubernetes service |
 | Is running | Indicates that the source entity is running the target entity as a process | Azure VM, Kubernetes container | SQL, Kubernetes image, Kubernetes pod |
 | Member of | Indicates that the source identity is a member of the target identities group | AAD group, AAD user | AAD group |

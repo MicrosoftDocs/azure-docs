@@ -5,8 +5,8 @@ description: Monitor online endpoints and create alerts with Application Insight
 services: machine-learning
 ms.service: machine-learning
 ms.reviewer: mopeakande 
-author: dem108
-ms.author: sehan
+author: Bozhong68
+ms.author: bozhlin
 ms.subservice: mlops
 ms.date: 08/29/2022
 ms.topic: conceptual

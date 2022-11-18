@@ -276,7 +276,7 @@ A BIG-IP system can also be managed via its underlying SSH environment, which is
 
 - [Azure Bastion service](../../bastion/bastion-overview.md): Allows fast and secure connections to any VM within a vNET, from any location
 
-- Connect directly via an SSH client like PuTTY through the JIT approach
+- Connect directly via an SSH client like PowerShell through the JIT approach
 
 - Serial Console: Offered at the bottom of the Support and troubleshooting section of VMs menu in the portal. It doesn't support file transfers.
 

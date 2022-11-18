@@ -11,10 +11,6 @@ ms.custom: devx-track-java, mode-api
 
 This quickstart shows how to send events to and receive events from an event hub using the **azure-messaging-eventhubs** Java package.
 
-> [!IMPORTANT]
-> This quickstart uses the new **azure-messaging-eventhubs** package. For a quickstart that uses the old **azure-eventhubs** and **azure-eventhubs-eph** packages, see [Send and receive events using azure-eventhubs and azure-eventhubs-eph](event-hubs-java-get-started-send-legacy.md).
-
-
 ## Prerequisites
 
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart.

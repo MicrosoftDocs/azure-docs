@@ -5,7 +5,7 @@ author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 10/04/2022
 ---
 
 # Prepare on-premises machines for migration to Azure
@@ -15,7 +15,7 @@ This article describes how to prepare on-premises machines before you migrate th
 In this article, you:
 > [!div class="checklist"]
 > * Review migration limitations.
-> * Select a method for migrating VMware VMs
+> * Select a method for migrating VMware vSphere VMs
 > * Check hypervisor and operating system requirements for machines you want to migrate.
 > * Review URL and port access for machines you want to migrate.
 > * Review changes you might need to make before you begin migration.
@@ -29,17 +29,17 @@ The table summarizes discovery, assessment, and migration limits for Azure Migra
 
 **Scenario** | **Project** | **Discovery/Assessment** | **Migration**
 --- | --- | --- | ---
-**VMware VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware. <br> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance. | **Agentless migration**: you can simultaneously replicate a maximum of 500 VMs across multiple vCenter Servers (discovered from one appliance) using a scale-out appliance.<br> **Agent-based migration**: you can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**VMware vSphere VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware vSphere VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware vSphere. <br> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance. | **Agentless migration**: you can simultaneously replicate a maximum of 500 VMs across multiple vCenter Servers (discovered from one appliance) using a scale-out appliance.<br> **Agent-based migration**: you can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 **Hyper-V VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 5,000 Hyper-V VMs with a single Azure Migrate appliance | An appliance isn't used for Hyper-V migration. Instead, the Hyper-V Replication Provider runs on each Hyper-V host.<br/><br/> Replication capacity is influenced by performance factors such as VM churn, and upload bandwidth for replication data.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 **Physical machines** | Discover and assess up to 35,000 machines in a single Azure Migrate project. | Discover up to 250 physical servers with a single Azure Migrate appliance for physical servers. | You can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of servers.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 
-## Select a VMware migration method
+## Select a VMware vSphere migration method
 
-If you're migrating VMware VMs to Azure, [compare](server-migrate-overview.md#compare-migration-methods) the agentless and agent-based migration methods, to decide what works for you.
+If you're migrating VMware vSphere VMs to Azure, [compare](server-migrate-overview.md#compare-migration-methods) the agentless and agent-based migration methods, to decide what works for you.
 
 ## Verify hypervisor requirements
 
-- Verify [VMware agentless](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless), or [VMware agent-based](migrate-support-matrix-vmware-migration.md#vmware-requirements-agent-based) requirements.
+- Verify [VMware agentless](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless), or [VMware vSphere agent-based](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agent-based) requirements.
 - Verify [Hyper-V host](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) requirements.
 
 
@@ -47,7 +47,7 @@ If you're migrating VMware VMs to Azure, [compare](server-migrate-overview.md#co
 
 Verify supported operating systems for migration:
 
-- If you're migrating VMware VMs or Hyper-V VMs, verify VMware VM requirements for [agentless](migrate-support-matrix-vmware-migration.md#vm-requirements-agentless), and [agent-based](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) migration, and requirements for [Hyper-V VMs](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms).
+- If you're migrating VMware vSphere VMs or Hyper-V VMs, verify VMware vSphere VM requirements for [agentless](migrate-support-matrix-vmware-migration.md#vm-requirements-agentless), and [agent-based](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) migration, and requirements for [Hyper-V VMs](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms).
 - Verify [Windows operating systems](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) are supported in Azure.
 - Verify [Linux distributions](../virtual-machines/linux/endorsed-distros.md) supported in Azure.
 
@@ -57,8 +57,8 @@ Review which URLs and ports are accessed during migration.
 
 **Scenario** | **Details** |  **URLs** | **Ports**
 --- | --- | --- | ---
-**VMware agentless migration** | Uses the [Azure Migrate appliance](migrate-appliance-architecture.md) for migration. Nothing is installed on VMware VMs. | Review the public cloud and government [URLs](migrate-appliance.md#url-access) needed for discovery, assessment, and migration with the appliance. | [Review](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) the port requirements for agentless migration.
-**VMware agent-based migration** | Uses the [replication appliance](migrate-replication-appliance.md) for migration. The Mobility service agent is installed on VMs. | Review the [public cloud](migrate-replication-appliance.md#url-access) and [Azure Government](migrate-replication-appliance.md#azure-government-url-access) URLs that the replication appliance needs to access. | [Review](migrate-replication-appliance.md#port-access) the ports used during agent-based migration.
+**VMware vSphere agentless migration** | Uses the [Azure Migrate appliance](migrate-appliance-architecture.md) for migration. Nothing is installed on VMware vSphere VMs. | Review the public cloud and government [URLs](migrate-appliance.md#url-access) needed for discovery, assessment, and migration with the appliance. | [Review](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) the port requirements for agentless migration.
+**VMware vSphere agent-based migration** | Uses the [replication appliance](migrate-replication-appliance.md) for migration. The Mobility service agent is installed on VMs. | Review the [public cloud](migrate-replication-appliance.md#url-access) and [Azure Government](migrate-replication-appliance.md#azure-government-url-access) URLs that the replication appliance needs to access. | [Review](migrate-replication-appliance.md#port-access) the ports used during agent-based migration.
 **Hyper-V migration** | Uses a Provider installed on Hyper-V hosts for migration. Nothing is installed on Hyper-V VMs. | Review the [public cloud](migrate-support-matrix-hyper-v-migration.md#url-access-public-cloud) and [Azure Government](migrate-support-matrix-hyper-v-migration.md#url-access-azure-government) URLs that the Replication Provider running on the hosts needs to access. | The Replication Provider on the Hyper-V host uses outbound connections on HTTPS port 443 to send VM replication data.
 **Physical machines** | Uses the [replication appliance](migrate-replication-appliance.md) for migration. The Mobility service agent is installed on the physical machines. | Review the [public cloud](migrate-replication-appliance.md#url-access) and [Azure Government](migrate-replication-appliance.md#azure-government-url-access) URLs that the replication appliance needs to access. | [Review](migrate-replication-appliance.md#port-access) the ports used during physical migration.
 
@@ -76,7 +76,7 @@ Review the tables to identify the changes you need to make.
 
 Changes performed are summarized in the table.
 
-**Action** | **VMware (agentless migration)** | **VMware (agent-based)/physical machines** | **Windows on Hyper-V**
+**Action** | **VMware vSphere (agentless migration)** | **VMware vSphere (agent-based)/physical machines** | **Windows on Hyper-V**
 --- | --- | --- | ---
 **Configure the SAN policy as Online All**<br/><br/> | Set automatically for machines running Windows Server 2008 R2 or later.<br/><br/> Configure manually for earlier operating systems. | Set automatically in most cases. | Set automatically for machines running Windows Server 2008 R2 or later.
 **Install Hyper-V Guest Integration** | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) on machines running Windows Server 2003.
@@ -84,14 +84,14 @@ Changes performed are summarized in the table.
 **Install the Windows Azure Guest Agent** <br/><br/> The Virtual Machine Agent (VM Agent) is a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. |  Set automatically for machines running Windows Server 2008 R2 or later. <br/> Configure manually for earlier operating systems. | Set automatically for machines running Windows Server 2008 R2 or later. | Set automatically for machines running Windows Server 2008 R2 or later.
 **Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
 
-[Learn more](./prepare-for-agentless-migration.md#changes-performed-on-windows-servers) on the changes performed on Windows servers for agentless VMware migrations.
+[Learn more](./prepare-for-agentless-migration.md#changes-performed-on-windows-servers) on the changes performed on Windows servers for agentless VMware vSphere migrations.
 
 #### Configure SAN policy
 
-By default, Azure VMs are assigned drive D to use as temporary storage.
+By default, Azure VMs are assigned drive D: to use as temporary storage.
 
 - This drive assignment causes all other attached storage drive assignments to increment by one letter.
-- For example, if your on-premises installation uses a data disk that is assigned to drive D for application installations, the assignment for this drive increments to drive E after you migrate the VM to Azure.
+- For example, if your on-premises installation uses a data disk that is assigned to drive D: for application installations, the assignment for this drive increments to drive E: after you migrate the VM to Azure.
 - To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to **OnlineAll**:
 
 Configure this setting manually as follows:
@@ -130,12 +130,12 @@ For other versions, prepare machines as summarized in the table.
 **Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/><br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
 **Install the Linux Azure Guest Agent** | The Microsoft Azure Linux Agent (waagent) is a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.| Enable manually for all versions except those called out above.  <br> Follow instructions to [install the Linux Agent manually](../virtual-machines/extensions/agent-linux.md#installation) for other OS versions. Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. 
 
-[Learn more](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers) on the changes performed on Linux servers for agentless VMware migrations.
+[Learn more](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers) on the changes performed on Linux servers for agentless VMware vSphere migrations.
 
 The following table summarizes the steps performed automatically for the operating systems listed above.
 
 
-| Action                                      | Agent\-Based VMware Migration | Agentless VMware Migration | Agentless Hyper\-V Migration   |
+| Action                                      | Agent\-Based VMware vSphere Migration | Agentless VMware vSphere Migration | Agentless Hyper\-V Migration   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Update kernel image with Hyper\-V Linux Integration Services. <br> (The LIS drivers should be present on the kernel.) | Yes                           | Yes                        | Yes |
 | Enable Azure Serial Console logging         | Yes                           | Yes                        | Yes        |
@@ -192,17 +192,17 @@ After migration, complete these steps on the Azure VMs that are created:
 
 ## Next steps
 
-Decide which method you want to use to [migrate VMware VMs](server-migrate-overview.md) to Azure, or begin migrating [Hyper-V VMs](tutorial-migrate-hyper-v.md) or [physical servers or virtualized or cloud VMs](tutorial-migrate-physical-virtual-machines.md).
+Decide which method you want to use to [migrate VMware vSphere VMs](server-migrate-overview.md) to Azure, or begin migrating [Hyper-V VMs](tutorial-migrate-hyper-v.md) or [physical servers or virtualized or cloud VMs](tutorial-migrate-physical-virtual-machines.md).
 
 
 ## See what's supported
 
-For VMware VMs, Server Migration supports [agentless or agent-based migration](server-migrate-overview.md).
+For VMware vSphere VMs, Server Migration supports [agentless or agent-based migration](server-migrate-overview.md).
 
-- **VMware VMs**: Verify [migration requirements and support](migrate-support-matrix-vmware-migration.md) for VMware VMs.
+- **VMware vSphere VMs**: Verify [migration requirements and support](migrate-support-matrix-vmware-migration.md) for VMware vSphere VMs.
 - **Hyper-V VMs**: Verify [migration requirements and support](migrate-support-matrix-hyper-v-migration.md) for Hyper-V VMs.
 - **Physical machines**: Verify [migration requirements and support](migrate-support-matrix-physical-migration.md) for on-premises physical machines and other virtualized servers.
 
 ## Learn more
 
-- [Prepare for VMware agentless migration with Azure Migrate.](./prepare-for-agentless-migration.md)
+- [Prepare for VMware vSphere agentless migration with Azure Migrate.](./prepare-for-agentless-migration.md)

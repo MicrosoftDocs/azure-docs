@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/10/2022
+ms.date: 10/28/2022
 ms.author: jeedes
 
 ---
@@ -136,7 +136,22 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure OpenText XM Fax and XM SendSecure SSO
 
-To configure single sign-on on **OpenText XM Fax and XM SendSecure** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [OpenText XM Fax and XM SendSecure support team](mailto:support@opentext.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Login to your XM Cloud account using a Web browser.
+
+1. From the main menu of your Web Portal, select **enterprise_account -> Enterprise Settings**.
+
+1. Go to **Single Sign-On** section and select **SAML 2.0**.
+
+1. Provide the following required information:
+
+    a. In the **Sign In URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+
+    b. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Signing Certificate** textbox.
+
+    c. click **Save**.
+
+> [!NOTE]
+> Keep the fail-safe URL (`https://login.[domain]/[account]/no-sso`) provided at the bottom of the SSO configuration section, it will allow you to log in using your XM Cloud account credentials if you lock yourself after SSO activation.
 
 ### Create OpenText XM Fax and XM SendSecure test user
 

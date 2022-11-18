@@ -5,8 +5,9 @@ description: Learn to deploy your MLflow model to the deployment targets support
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: fasantia
 author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.date: 06/06/2022
 ms.topic: how-to
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2, event-tier1-build-2022
@@ -551,11 +552,11 @@ The following data types are supported for batch inference.
 
 To learn more, review these articles:
 
-- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
+- [Deploy models with REST](how-to-deploy-with-rest.md)
 - [Create and use online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)
-- [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
-- [Access Azure resources with an online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
+- [Use batch endpoints for batch scoring](batch-inference/how-to-use-batch-endpoint.md)
+- [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
+- [Access Azure resources with an online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot online endpoint deployment](how-to-troubleshoot-managed-online-endpoints.md)

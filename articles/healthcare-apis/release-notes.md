@@ -53,7 +53,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 | Enhancements/Improvements | Related information |
 | :------------------------ | :------------------------------- |
-| Export is GA |The export feature for the DICOM service is now generally available. Export enables a user-supplied list of studies, series, and/or instances to be exported in bulk to an Azure Storage account. Learn more about the [export feature](https://github.com/microsoft/dicom-server/blob/main/docs/how-to-guides/export-data.md).  |
+| Export is GA |The export feature for the DICOM service is now generally available. Export enables a user-supplied list of studies, series, and/or instances to be exported in bulk to an Azure Storage account. Learn more about the [export feature](dicom/export-dicom-files.md).  |
 |Improved deployment performance  |Performance improvements have cut the time to deploy new instances of the DICOM service by more than 55% at the 50th percentile.    |
 | Reduced strictness when validating STOW requests |Some customers have run into issues storing DICOM files that do not perfectly conform to the specification.  To enable those files to be stored in the DICOM service, we have reduced the strictness of the validation performed on STOW. <p>The service will now accept the following: <p><ul><li>DICOM UIDs that contain trailing whitespace <li>IS, DS, SV, and UV VRs that are not valid numbers<li>Invalid private creator tags |
 

@@ -136,7 +136,7 @@ The following table lists the supported languages for print text by the most rec
 |Kazakh (Latin) | `kk-latn`|Zhuang | `za` |
 |Khaling | `klr`|Zulu  | `zu` |
 
-### Preview (2022-06-30-preview)
+### Print text in preview (API version 2022-06-30-preview)
 
 Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDK to support these languages in your applications.
 
@@ -223,7 +223,7 @@ Language| Locale code |
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
-Receipt supports all English receipts with the following locales:
+Receipt supports all English receipts and the following locales:
 
 |Language| Locale code |
 |:-----|:----:|
@@ -232,6 +232,8 @@ Receipt supports all English receipts with the following locales:
 |English (United Kingdom)|`en-gb`|
 |English (India|`en-in`|
 |English (United States)| `en-us`|
+|French | 'fr' |
+| Spanish | `es` |
 
 ## Business card model
 
@@ -505,7 +507,7 @@ This table lists the written languages supported by each Form Recognizer service
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
-Pre-Built Receipt and Business Cards support all English receipts and business cards with the following locales:
+Prebuilt Receipt and Business Cards support all English receipts and business cards with the following locales:
 
 |Language| Locale code |
 |:-----|:----:|
@@ -537,5 +539,5 @@ This technology is currently available for US driver licenses and the biographic
 
 ::: moniker range="form-recog-2.1.0"
 > [!div class="nextstepaction"]
-> [Try Form Recognizer sample labeling tool](https://aka.ms/fott-2.1-ga)
+> [Try Form Recognizer Sample Labeling tool](https://aka.ms/fott-2.1-ga)
 ::: moniker-end

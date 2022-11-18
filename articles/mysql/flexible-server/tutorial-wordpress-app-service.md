@@ -24,7 +24,7 @@ In this tutorial, you'll learn how to create and deploy your first [WordPress](h
 
 ## Create WordPress site using Azure portal
 
-1. Browse to [https://ms.portal.azure.com/#create/WordPress.WordPress](https://ms.portal.azure.com/#create/WordPress.WordPress), or search for "WordPress" in the Azure Marketplace.
+1. Browse to [https://portal.azure.com/#create/WordPress.WordPress](https://portal.azure.com/#create/WordPress.WordPress), or search for "WordPress" in the Azure Marketplace.
 
     :::image type="content" source="./media/tutorial-wordpress-app-service/01-portal-create-wordpress-on-app-service.png?text=WordPress from Azure Marketplace" alt-text="Screenshot of Create a WordPress site.":::
 

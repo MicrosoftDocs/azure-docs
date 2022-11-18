@@ -3,17 +3,14 @@
 title: Sign-ins using legacy authentication workbook in Azure AD | Microsoft Docs
 description: Learn how to use the sign-ins using legacy authentication workbook.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler 
 
 ms.collection: M365-identity-device-management
@@ -21,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Sign-ins using legacy authentication workbook
 
-Have you ever wondered how you can determine whether it is safe to turn off legacy authentication in your tenant? The sign-ins using legacy authentication workbook helps you to answer this question.
+Have you ever wondered how you can determine whether it's safe to turn off legacy authentication in your tenant? The sign-ins using legacy authentication workbook helps you to answer this question.
 
 This article gives you an overview of this workbook.
 
@@ -39,12 +36,12 @@ Examples of applications that commonly or only use legacy authentication are:
 - Apps using legacy auth with mail protocols like POP, IMAP, and SMTP AUTH.
 
 
-Single-factor authentication (for example, username and password) doesn’t provide the required level of protection for today’s computing environments. Passwords are bad as they are easy to guess and humans are bad at choosing good passwords. 
+Single-factor authentication (for example, username and password) doesn’t provide the required level of protection for today’s computing environments. Passwords are bad as they're easy to guess and humans are bad at choosing good passwords. 
 
 
 Unfortunately, legacy authentication:
 
-- Does not support multi-factor authentication (MFA) or other strong authentication methods.
+- Doesn't support multi-factor authentication (MFA) or other strong authentication methods.
 
 - Makes it impossible for your organization to move to passwordless authentication. 
 
@@ -97,7 +94,7 @@ This workbook supports multiple filters:
 
 - Many email protocols that once relied on legacy authentication now support more secure modern authentication methods. If you see legacy email authentication protocols in this workbook, consider migrating to modern authentication for email instead. For more information, see [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online).
 
-- Some clients can use both legacy authentication or modern authentication depending on client configuration. If you see “modern mobile/desktop client” or “browser” for a client in the Azure AD logs, it is using modern authentication. If it has a specific client or protocol name, such as “Exchange ActiveSync”, it is using legacy authentication to connect to Azure AD. The client types in conditional access, and the Azure AD reporting page in the Azure portal demarcate modern authentication clients and legacy authentication clients for you, and only legacy authentication is captured in this workbook. 
+- Some clients can use both legacy authentication or modern authentication depending on client configuration. If you see “modern mobile/desktop client” or “browser” for a client in the Azure AD logs, it's using modern authentication. If it has a specific client or protocol name, such as “Exchange ActiveSync”, it's using legacy authentication to connect to Azure AD. The client types in conditional access, and the Azure AD reporting page in the Azure portal demarcate modern authentication clients and legacy authentication clients for you, and only legacy authentication is captured in this workbook. 
 
 
 ## Next steps

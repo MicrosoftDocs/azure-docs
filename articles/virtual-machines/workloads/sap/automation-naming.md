@@ -1,6 +1,6 @@
 ---
 title: Naming standards for the automation framework
-description: Explanation of naming conventions for the SAP deployment automation framework on Azure.
+description: Explanation of naming conventions for the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Naming conventions for SAP automation framework
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses standard naming conventions. Consistent naming helps the automation framework run correctly with Terraform. Standard naming helps you deploy the automation framework smoothly. For example, consistent naming helps you to:
+The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) uses standard naming conventions. Consistent naming helps the automation framework run correctly with Terraform. Standard naming helps you deploy the automation framework smoothly. For example, consistent naming helps you to:
 
 - Deploy the SAP virtual network infrastructure into any supported Azure region.
 
