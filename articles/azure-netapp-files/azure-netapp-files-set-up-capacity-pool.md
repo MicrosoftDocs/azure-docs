@@ -57,7 +57,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     
     ![Navigate to capacity pool](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
 
-2. Click **+ Add pools** to create a new capacity pool.   
+2. Select **+ Add pools** to create a new capacity pool.   
     The New Capacity Pool window appears.
 
 3. Provide the following information for the new capacity pool:  
@@ -86,7 +86,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     ![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
-4. Click **Create**.
+4. Select **Create**.
 
 ## Next steps 
 
