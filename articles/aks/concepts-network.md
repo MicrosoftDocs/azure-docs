@@ -14,7 +14,7 @@ In a container-based, microservices approach to application development, applica
 * You can connect to and expose applications internally or externally.
 * You can build highly available applications by load balancing your applications.
 * You can restrict the flow of network traffic into or between pods and nodes to improve security.
-* You can configure ingress traffic for SSL/TLS termination or routing of multiple components for your more complex applications.
+* You can configure Ingress traffic for SSL/TLS termination or routing of multiple components for your more complex applications.
 
 This article introduces the core concepts that provide networking to your applications in AKS:
 
@@ -35,7 +35,7 @@ In Kubernetes:
 * You can *control outbound (egress) traffic* for cluster nodes.
 * Security and filtering of the network traffic for pods is possible with *network policies*.
 
-The Azure platform also simplifies virtual networking for AKS clusters. When you create a Kubernetes load balancer, you also create and configure the underlying Azure load balancer resource. As you open network ports to pods, the corresponding Azure network security group rules are configured. For HTTP application routing, Azure can also configure *external DNS* as new ingress routes are configured.
+The Azure platform also simplifies virtual networking for AKS clusters. When you create a Kubernetes load balancer, you also create and configure the underlying Azure load balancer resource. As you open network ports to pods, the corresponding Azure network security group rules are configured. For HTTP application routing, Azure can also configure *external DNS* as new Ingress routes are configured.
 
 ## Services
 
@@ -59,7 +59,7 @@ To simplify the network configuration for application workloads, Kubernetes uses
 
     ![Diagram showing Load Balancer traffic flow in an AKS cluster][aks-loadbalancer]
 
-    For extra control and routing of the inbound traffic, you may instead use an [ingress controller](#ingress-controllers).
+    For extra control and routing of the inbound traffic, you may instead use an [Ingress controller](#ingress-controllers).
 
 * **ExternalName**
 
@@ -156,59 +156,64 @@ Although capabilities like service endpoints or UDRs are supported with both kub
 
 ## Ingress controllers
 
-When you create a LoadBalancer-type Service, you also create an underlying Azure load balancer resource. The load balancer is configured to distribute traffic to the pods in your Service on a given port. 
+When you create a LoadBalancer-type Service, you also create an underlying Azure load balancer resource. The load balancer is configured to distribute traffic to the pods in your Service on a given port.
 
-The LoadBalancer only works at layer 4. At layer 4, the Service is unaware of the actual applications, and can't make any more routing considerations.
+The *LoadBalancer* only works at layer 4. At layer 4, the Service is unaware of the actual applications, and can't make any more routing considerations.
 
-*Ingress controllers* work at layer 7, and can use more intelligent rules to distribute application traffic. Ingress controllers typically route HTTP traffic to different applications based on the inbound URL.
+*Ingress controllers* work at layer 7 and can use more intelligent rules to distribute application traffic. Ingress controllers typically route HTTP traffic to different applications based on the inbound URL.
 
 ![Diagram showing Ingress traffic flow in an AKS cluster][aks-ingress]
 
-### Create an ingress resource
+### Create an Ingress resource
 
-In AKS, you can create an Ingress resource using NGINX, a similar tool, or the AKS HTTP application routing feature. When you enable HTTP application routing for an AKS cluster, the Azure platform creates the Ingress controller and an *External-DNS* controller. As new Ingress resources are created in Kubernetes, the required DNS A records are created in a cluster-specific DNS zone. 
+In AKS, you can create an [Ingress resource using NGINX][nginx-ingress], a similar tool, or the AKS HTTP application routing feature. When you enable HTTP application routing for an AKS cluster, the Azure platform creates the ingress controller and an *External-DNS* controller. As new Ingress resources are created in Kubernetes, the required DNS `A` records are created in a cluster-specific DNS zone.
 
 For more information, see [Deploy HTTP application routing][aks-http-routing].
 
 ### Application Gateway Ingress Controller (AGIC)
 
-With the Application Gateway Ingress Controller (AGIC) add-on, AKS customers leverage Azure's native Application Gateway level 7 load-balancer to expose cloud software to the Internet. AGIC monitors the host Kubernetes cluster and continuously updates an Application Gateway, exposing selected services to the Internet. 
+With the Application Gateway Ingress Controller (AGIC) add-on, you can leverage Azure's native Application Gateway level 7 load-balancer to expose cloud software to the Internet. AGIC runs as a pod within the AKS cluster. It consumes [Kubernetes Ingress Resources][k8s-ingress] and converts them to an Application Gateway configuration, which allows the gateway to load-balance traffic to the Kubernetes pods.
 
 To learn more about the AGIC add-on for AKS, see [What is Application Gateway Ingress Controller?][agic-overview].
 
 ### SSL/TLS termination
 
-SSL/TLS termination is another common feature of Ingress. On large web applications accessed via HTTPS, the Ingress resource handles the TLS termination rather than within the application itself. To provide automatic TLS certification generation and configuration, you can configure the Ingress resource to use providers such as "Let's Encrypt". 
+SSL/TLS termination is another common feature of Ingress. On large web applications accessed via HTTPS, the Ingress resource handles the TLS termination rather than within the application itself. To provide automatic TLS certification generation and configuration, you can configure the Ingress resource to use providers such as "Let's Encrypt".
 
-For more information on configuring an NGINX Ingress controller with Let's Encrypt, see [Ingress and TLS][aks-ingress-tls].
+For more information on configuring an NGINX ingress controller with Let's Encrypt, see [Ingress and TLS][aks-ingress-tls].
 
 ### Client source IP preservation
 
-Configure your ingress controller to preserve the client source IP on requests to containers in your AKS cluster. When your ingress controller routes a client's request to a container in your AKS cluster, the original source IP of that request is unavailable to the target container. When you enable *client source IP preservation*, the source IP for the client is available in the request header under *X-Forwarded-For*. 
+Configure your ingress controller to preserve the client source IP on requests to containers in your AKS cluster. When your ingress controller routes a client's request to a container in your AKS cluster, the original source IP of that request is unavailable to the target container. When you enable *client source IP preservation*, the source IP for the client is available in the request header under *X-Forwarded-For*.
 
 If you're using client source IP preservation on your ingress controller, you can't use TLS pass-through. Client source IP preservation and TLS pass-through can be used with other services, such as the *LoadBalancer* type.
 
+To learn more about client source IP preservation, see [How client source IP preservation works for LoadBalancer Services in AKS][ip-preservation].
+
 ## Control outbound (egress) traffic
 
-AKS clusters are deployed on a virtual network and have outbound dependencies on services outside of that virtual network. These outbound dependencies are almost entirely defined with fully qualified domain names (FQDNs). By default, AKS clusters have unrestricted outbound (egress) internet access. This allows the nodes and services you run to access external resources as needed. If desired, you can restrict outbound traffic.
+AKS clusters are deployed on a virtual network and have outbound dependencies on services outside of that virtual network. These outbound dependencies are almost entirely defined with fully qualified domain names (FQDNs). By default, AKS clusters have unrestricted outbound (egress) Internet access. This allows the nodes and services you run to access external resources as needed. If desired, you can restrict outbound traffic.
 
 For more information, see [Control egress traffic for cluster nodes in AKS][limit-egress].
 
 ## Network security groups
 
-A network security group filters traffic for VMs like the AKS nodes. As you create Services, such as a LoadBalancer, the Azure platform automatically configures any necessary network security group rules. 
+A network security group filters traffic for VMs like the AKS nodes. As you create Services, such as a *LoadBalancer*, the Azure platform automatically configures any necessary network security group rules.
 
 You don't need to manually configure network security group rules to filter traffic for pods in an AKS cluster. Simply define any required ports and forwarding as part of your Kubernetes Service manifests. Let the Azure platform create or update the appropriate rules.
 
 You can also use network policies to automatically apply traffic filter rules to pods.
 
+For more information, see [How network security groups filter network traffic][nsg-traffic].
+
 ## Network policies
 
 By default, all pods in an AKS cluster can send and receive traffic without limitations. For improved security, define rules that control the flow of traffic, like:
-* Backend applications are only exposed to required frontend services. 
+
+* Back-end applications are only exposed to required frontend services.
 * Database components are only accessible to the application tiers that connect to them.
 
-Network policy is a Kubernetes feature available in AKS that lets you control the traffic flow between pods. You allow or deny traffic to the pod based on settings such as assigned labels, namespace, or traffic port. While network security groups are better for AKS nodes, network policies are a more suited, cloud-native way to control the flow of traffic for pods. As pods are dynamically created in an AKS cluster, required network policies can be automatically applied.
+Network policy is a Kubernetes feature available in AKS that lets you control the traffic flow between pods. You can allow or deny traffic to the pod based on settings such as assigned labels, namespace, or traffic port. While network security groups are better for AKS nodes, network policies are a more suited, cloud-native way to control the flow of traffic for pods. As pods are dynamically created in an AKS cluster, required network policies can be automatically applied.
 
 For more information, see [Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)][use-network-policies].
 
@@ -220,11 +225,11 @@ For associated best practices, see [Best practices for network connectivity and 
 
 For more information on core Kubernetes and AKS concepts, see the following articles:
 
-- [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
-- [Kubernetes / AKS access and identity][aks-concepts-identity]
-- [Kubernetes / AKS security][aks-concepts-security]
-- [Kubernetes / AKS storage][aks-concepts-storage]
-- [Kubernetes / AKS scale][aks-concepts-scale]
+* [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
+* [Kubernetes / AKS access and identity][aks-concepts-identity]
+* [Kubernetes / AKS security][aks-concepts-security]
+* [Kubernetes / AKS storage][aks-concepts-storage]
+* [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- IMAGES -->
 [aks-clusterip]: ./media/concepts-network/aks-clusterip.png
@@ -253,3 +258,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [operator-best-practices-network]: operator-best-practices-network.md
 [support-policies]: support-policies.md
 [limit-egress]: limit-egress-traffic.md
+[k8s-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[nginx-ingress]: /ingress-basic.md
+[ip-preservation]: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-client-source-ip-preservation-works-for-loadbalancer/ba-p/3033722#:~:text=Enable%20Client%20source%20IP%20preservation%201%20Edit%20loadbalancer,is%20the%20same%20as%20the%20source%20IP%20%28srjumpbox%29.
+[nsg-traffic]: ../virtual-network/network-security-group-how-it-works.md
