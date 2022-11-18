@@ -168,7 +168,7 @@ landingContent:
           - text: Call Automation Overview
             url: concepts/call-automation/call-automation.md
           - text: Learn about inbound calls
-            url: concepts/call-automation/incoming-call-notificaiton.md
+            url: concepts/call-automation/incoming-call-notification.md
           - text: Play audio in calls
             url: concepts/call-automation/play-action.md
           - text: Gathering user input
