@@ -683,7 +683,7 @@ To keep track of whether a compute instance's operating system version is curren
 
 In your workspace in Azure Machine Learning studio, select Compute, then select compute instance on the top. Select a compute instance's compute name to see its properties including the current operating system. When a more recent instance OS version is, use the creation wizard to create a new instance. Enable 'audit and observe compute instance os version' under the previews management panel to see these preview properties.
 
-# [Azure Policy](#tab-azure-policy)
+# [Azure Policy](#tab/azure-policy)
 
 Administrators can use [Azure Policy](./../governance/policy/overview.md) definitions to audit instances that are running on outdated operating system versions across workspaces and subscriptions. The following is a sample policy:
 
