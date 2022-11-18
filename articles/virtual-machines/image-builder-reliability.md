@@ -7,7 +7,6 @@ ms.topic: overview
 ms.custom: subject-reliability
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: references_regions
 ms.date: 11/18/2022
 ---
 
@@ -65,7 +64,7 @@ During a zone-wide outage scenario for Azure Image Builder(AIB), customers will 
 Customers should expect to be notified on the Azure Image Builder service status within a 6 hour window.
 Once Azure Image Builder is back online, the service will pick up all previous builds and rerun them. As the service reruns, it also creates a new resource group *IT_RG* for AIB specifically.
 
-Image template submission errors currently don't have an error log, so it's recommended to follow the [troubleshooting](azure/virtual-machines/linux/image-builder-troubleshoot#troubleshoot-image-template-submission-errors) steps if submission errors are present during a zone outage.
+Image template submission errors currently don't have an error log, so it's recommended to follow the [troubleshooting](/azure/virtual-machines/linux/image-builder-troubleshoot#troubleshoot-image-template-submission-errors) steps if submission errors are present during a zone outage.
 
 ### Low-latency design
 
@@ -79,7 +78,7 @@ To ensure fast and easy recovery for your Azure Image Builder, it's recommended 
 
 For safe deployment techniques using Azure Image Builder (AIB), you can use Virtual Machine Scale Sets (VMSS) for your image versions when targeting one-zone-at-a-time for your deployments and application upgrades. Behind the scenes, the AIB service uses Azure Kubernetes Service (AKS) clusters, which include multi-node deployments, auto-scaling, and self-healing.
 
-Before proceeding with upgrading your image builder templates, ensure you follow the troubleshooting [prerequisites](azure/virtual-machines/linux/image-builder-troubleshoot#prerequisites) when creating a new build.
+Before proceeding with upgrading your image builder templates, ensure you follow the troubleshooting [prerequisites](/azure/virtual-machines/linux/image-builder-troubleshoot#prerequisites) when creating a new build.
 
 
 ### Availability zone redeployment and migration
@@ -140,7 +139,7 @@ When planning where to replicate a template, consider:
 
 ## Additional guidance
 
-In regards to customer data processing information, refer to the Azure Image Builder [data residency](https://learn.microsoft.com/azure/virtual-machines/linux/image-builder-json#data-residency) details.
+In regards to customer data processing information, refer to the Azure Image Builder [data residency](/azure/virtual-machines/linux/image-builder-json#data-residency) details.
 
 
 ## Next steps
