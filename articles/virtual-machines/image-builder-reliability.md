@@ -5,7 +5,9 @@ author: ericd-mst-github
 ms.author: kofiforson
 ms.topic: overview 
 ms.custom: subject-reliability
-ms.prod: non-product-specific
+ms.service: virtual-machines
+ms.subservice: image-builder
+ms.custom: references_regions
 ms.date: 11/18/2022
 ---
 
@@ -116,11 +118,11 @@ Below are instructions on how to get an image template resource using Resource G
 
 1. Go to the search bar in Azure portal and search for *resource graph explorer*.
 
-    ![Diagram of the VM Image Builder process, showing the sources (Windows/Linux), customizations (Shell, PowerShell, Windows Update and Restart, adding files), and global distribution with Compute Gallery](./media/image-builder-reliability/resource-graph-explorer-portal.png)
+    ![Screenshot of Azure Resource Graph Explorer in the portal](./media/image-builder-reliability/resource-graph-explorer-portal.png)
 
 1. Use the search bar on the far left to search resource by type and name to see how the details will give you properties of the image template. The *See details* option on the bottom right will show the image template's properties attribute and tags separately. Template name, location, ID, and tenant ID can be used to get the correct image template resource.
 
-    ![Diagram of the VM Image Builder process, showing the sources (Windows/Linux), customizations (Shell, PowerShell, Windows Update and Restart, adding files), and global distribution with Compute Gallery](./media/image-builder-reliability/resource-graph-explorer-search.png)
+    ![Screenshot of using Azure Resource Graph Explorer search](./media/image-builder-reliability/resource-graph-explorer-search.png)
 
 
 ### Capacity and proactive disaster recovery resiliency
