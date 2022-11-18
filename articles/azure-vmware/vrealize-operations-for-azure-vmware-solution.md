@@ -72,6 +72,9 @@ The warning occurs because the **cloudadmin@vsphere.local** user in Azure VMware
 
 For more information, see [Privileges Required for Configuring a vCenter Server Adapter Instance](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
 
+> [!NOTE]
+> VMware vRealize Automation(vRA) integration with the NSX-T Data Center component of the Azure VMware Solution requires the “auditor” role to be added to the NSX-T Manager cloudadmin role.
+
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
