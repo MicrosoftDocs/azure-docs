@@ -118,7 +118,7 @@ The following image shows the first flow:
     |Key| Value|
     |----|----|
     |Method | **POST**|
-    | URI| `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateAccessToken?api-version={API-version}`. |
+    | URI| [generateAccessToken](/rest/api/videoindexer/stable/generate/access-token?tabs=HTTP#generate-accesstoken-for-account-contributor). |
     | Body|`{ "permissionType": "Contributor", "scope": "Account" }` |
     | Add new parameter | **Authentication**  |
     
