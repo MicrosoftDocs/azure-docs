@@ -85,8 +85,8 @@ Application accelerator has 8 components:
 
 | Component name          | Instance count | vCPU per instance | Memory per instance | Responsibility |
 | :---------------------- | :------------- | :---------------- | :------------------ | :------------------ |
-| accelerator-server      | 2              | 0.4 core          | 0.5Gi               | Power application accelerator. |
-| accelerator-engine      | 1              | 1 core            | 3Gi                 | Process the input values for input options to generate projects.|
+| accelerator-server      | 2              | 0.4 core          | 0.5Gi               | Serve API used by other components to list available accelerators and options. |
+| accelerator-engine      | 1              | 1 core            | 3Gi                 | Process the input values and files(pulled from a snapshot of a git repository) and apply dynamic tranformations to generate projects.|
 | accelerator-controller  | 1              | 0.2 core          | 0.25                | Reconcile the accelerator resources to appear in Application Accelerator UI. |
 | source-controller       | 1              | 0.2 core          | 0.25                | Support managing git repository sources for application accelerator.|
 | cert-manager            | 1              | 0.2 core          | 0.25                | Support managing git repository sources for application accelerator.|
@@ -162,7 +162,7 @@ Besides using the predefined accelerators, you can also create your own ones. Pl
 
 1. You can use any Git repository to create an accelerator. (Currently we support Git repository in GitHub, GitLab and BitBucket.) 
 
-   Create a file named `accelerator.yaml` in the root directory of this Git repository. By including an `accelerator.yaml` file in your Accelerator repository, you can declare input options that users fill in using a form in the UI. Those option values control processing by the template engine before it returns the zipped output files. You can also use **Template Editor** in **Tanzu Application Platform GUI** to edit your accelerator.yaml file for visualization and syntax check.
+   Create a file named `accelerator.yaml` in the root directory of this Git repository. By including an `accelerator.yaml` file in your Accelerator repository, you can declare input options that users fill in using a form in the UI. Those option values control processing by the template engine before it returns the zipped output files. You can also use **Template Editor** in Dev Tools Portal to edit your accelerator.yaml file for visualization and syntax check.
    ![Template-editor-entry](./media/how-to-use-accelerator/template-editor-entry.png)
    ![Template-editor](./media/how-to-use-accelerator/template-editor.png)
    
@@ -200,21 +200,21 @@ Besides using the predefined accelerators, you can also create your own ones. Pl
       [--host-key-algorithm]
       ```
 
-1. Click App Accelerator URL to access Tanzu Application Platform GUI to see all the published accelerators.
+1. Click App Accelerator URL to access Dev Tools Portal to see all the published accelerators.
 
 	![tap-gui-link](./media/how-to-use-accelerator/tap-gui-url.png)   
 
-    You need to refresh the Tanzu Application Platform GUI to reveal the newly published accelerator.
+    You need to refresh the Dev Tools Portal to reveal the newly published accelerator.
 
     ![tap-gui-accelerator](./media/how-to-use-accelerator/tap-gui-accelerator.png)   
 
     > [!NOTE]
-    > It might take a few seconds for Tanzu Application Platform GUI to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as git interval when you create the accelerator. After changing the accelerator, it will also take time to be reflected in Tanzu Application Platform GUI. The best practice can be changing the git interval to speed up for verification after changes applied into git repo.
+    > It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as git interval when you create the accelerator. After changing the accelerator, it will also take time to be reflected in Dev Tools Portal. The best practice can be changing the git interval to speed up for verification after changes applied into git repo.
 
 ### Use accelerators to bootstrap a new project
-Click **App Accelerator URL** to access **Tanzu Application Platform GUI**
+Click **App Accelerator URL** to access Dev Tools Portal.
 ![tap-gui-link](./media/how-to-use-accelerator/tap-gui-url.png)   
-Jump to **Tanzu Application Platform GUI**, you can choose one accelerator to explore file and download as zip file.
+Jump to Dev Tools Portal, you can choose one accelerator to explore file and download as zip file.
 In the "Configure accelerator" step, you can input values for your input options.
 ![configure-accelerator](./media/how-to-use-accelerator/configure-accelerator.png)   
 Click **EXPLORE FILE**, you will see the project structure and view source code.
@@ -250,7 +250,7 @@ az spring application-accelerator delete \
     --resource-group <resource-group-name>
 ```
 
-> To access the Tanzu Application Platform GUI, please make sure Dev Tool Portal is enabled with public endpoint assigned. Run this command by using Azure CLI if the component is not enabled.
+> To access the Dev Tools Portal, please make sure Dev Tool Portal is enabled with public endpoint assigned. Run this command by using Azure CLI if the component is not enabled.
 > ```azurecli
 > az spring dev-tool create \
 >    --resource-group <resource-group-name> \
