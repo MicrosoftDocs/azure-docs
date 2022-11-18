@@ -10,8 +10,8 @@ ms.topic: how-to
 ms.date: 03/28/2022
 
 ms.subservice: blobs
-ms.devlang: csharp, python
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # List blobs using the Azure Storage client library for .NET

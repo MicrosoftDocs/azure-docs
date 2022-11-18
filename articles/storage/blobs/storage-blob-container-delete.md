@@ -11,7 +11,7 @@ ms.date: 03/28/2022
 
 ms.subservice: blobs
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Delete and restore a container in Azure Storage with .NET

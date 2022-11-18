@@ -8,8 +8,8 @@ ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.devlang: csharp,
-ms.custom: "devx-track-csharp"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Copy a blob with Azure Storage using the .NET client library
