@@ -87,12 +87,12 @@ Application accelerator has 8 components:
 | :---------------------- | :------------- | :---------------- | :------------------ | :------------------ |
 | accelerator-server      | 2              | 0.4 core          | 0.5Gi               | Serve API used by other components to list available accelerators and options. |
 | accelerator-engine      | 1              | 1 core            | 3Gi                 | Process the input values and files(pulled from a snapshot of a git repository) and apply dynamic tranformations to generate projects.|
-| accelerator-controller  | 1              | 0.2 core          | 0.25                | Reconcile the accelerator resources to appear in Application Accelerator UI. |
-| source-controller       | 1              | 0.2 core          | 0.25                | Support managing git repository sources for application accelerator.|
-| cert-manager            | 1              | 0.2 core          | 0.25                | Support managing git repository sources for application accelerator.|
-| cert-manager-webhook    | 1              | 0.2 core          | 0.25                | Support managing git repository sources for application accelerator.|
-| cert-manager-cainjector | 1              | 0.2 core          | 0.25                | Support managing git repository sources for application accelerator.|
-| flux-source-controller  | 1              | 0.2 core          | 0.25                | Support managing git repository sources for application accelerator.|
+| accelerator-controller  | 1              | 0.2 core          | 0.25Gi               | Reconcile the accelerator resources to appear in Application Accelerator UI. |
+| source-controller       | 1              | 0.2 core          | 0.25Gi               | Support managing git repository sources for application accelerator.|
+| cert-manager            | 1              | 0.2 core          | 0.25Gi               | Support managing git repository sources for application accelerator.|
+| cert-manager-webhook    | 1              | 0.2 core          | 0.25Gi               | Support managing git repository sources for application accelerator.|
+| cert-manager-cainjector | 1              | 0.2 core          | 0.25Gi               | Support managing git repository sources for application accelerator.|
+| flux-source-controller  | 1              | 0.2 core          | 0.25Gi               | Support managing git repository sources for application accelerator.|
 
 You can see the running instances and resource usage of all the components through Azure Portal and CLI.
 #### [Portal](#tab/Portal)
