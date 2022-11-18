@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/03/2022
+ms.date: 11/18/2022
 ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
@@ -54,6 +54,8 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=prerequisites)
+
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
 ## Set up your programming environment
@@ -92,6 +94,8 @@ ms.custom: devx-track-csharp
     > * You can create a new file using PowerShell.
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item index.js**.
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=setup)
 
 ## Build your application
 
@@ -208,9 +212,9 @@ main().catch((error) => {
     process.exit(1);
 });
 
-
-
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-read)
 
 ### Read model output
 
@@ -281,7 +285,10 @@ async function main() {
     console.error("An error occurred:", error);
     process.exit(1);
   });
+
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-layout)
 
 ### Layout model output
 
@@ -328,13 +335,16 @@ main().catch((error) => {
     console.error("An error occurred:", error);
     process.exit(1);
 });
+
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-general-document)
 
 ### General document model output
 
 Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/how-to-guide/general-document-model-output.md).
 
-## W-2 model
+## W-2 tax model
 
 ```javascript
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
@@ -408,7 +418,10 @@ main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
+
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-w2-tax)
 
 ### W-2 tax model output
 
@@ -471,7 +484,10 @@ main().catch((error) => {
   console.error("An error occurred:", error);
   process.exit(1);
 });
+
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-invoice)
 
 ### Invoice model output
 
@@ -531,7 +547,10 @@ async function main() {
 main().catch((err) => {
     console.error("The sample encountered an error:", err);
 });
+
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-receipt)
 
 ### Receipt model output
 
@@ -613,7 +632,10 @@ main().catch((error) => {
   console.error("An error occurred:", error);
   process.exit(1);
 });
+
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-id-document)
 
 ### ID document model output
 
@@ -693,7 +715,10 @@ main().catch((error) => {
     console.error("An error occurred:", error);
     process.exit(1);
 });
+
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=how-to&Section=run-business-card)
 
 ### Business card model output
 

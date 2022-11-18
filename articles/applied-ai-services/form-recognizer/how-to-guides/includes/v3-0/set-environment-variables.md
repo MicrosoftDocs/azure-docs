@@ -45,6 +45,8 @@ setx FR_ENDPOINT {yourEndpoint}
 
 * Restart any running programs that will read the environment variable. For example, if you're using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
 
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=windows&Product=FormRecognizer&Page=how-to&Section=environment-variables)
+
  Here are a few more helpful commands to use with environment variables:
 
   | Command | Action | Example |
@@ -90,6 +92,8 @@ export endpoint={yourEndpoint}
       source ~/.bash-profile
       ```
 
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=macos&Product=FormRecognizer&Page=how-to&Section=environment-variables)
+
 Here are a few more helpful commands to use with environment variables:
 
   | Command | Action | Example |
@@ -134,6 +138,8 @@ export FR_ENDPOINT={yourEndpoint}
       ```bash
       source ~/.bashrc
       ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=linux&Product=FormRecognizer&Page=how-to&Section=environment-variables)
 
 Here are a few more helpful commands to use with environment variables:
 

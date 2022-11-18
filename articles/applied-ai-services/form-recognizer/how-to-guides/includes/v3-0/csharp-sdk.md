@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/03/2022
+ms.date: 11/18/2022
 ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
@@ -54,6 +54,8 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=prerequisites)
+
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
 ## Set up your programming environment
@@ -88,6 +90,8 @@ ms.custom: devx-track-csharp
 
  1. Select version **4.0.0** from the dropdown menu and install the package in your project.
 <!-- --- -->
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=setup)
 
 ## Build your application
 
@@ -185,6 +189,8 @@ foreach (DocumentLanguage language in result.Languages)
 }
 
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-read)
 
 ### Read model output
 
@@ -285,6 +291,8 @@ for (int i = 0; i < result.Tables.Count; i++)
 }
 
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-layout)
 
 ### Layout model output
 
@@ -387,6 +395,8 @@ for (int i = 0; i < result.Tables.Count; i++)
 }
 
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-general-document)
 
 ### General document model output
 
@@ -502,6 +512,8 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 ```
 
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-w2-tax)
+
 ### W-2 model output
 
 Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/w2-tax-model-output.md).
@@ -613,6 +625,7 @@ for (int i = 0; i < result.Documents.Count; i++)
     }
 }
 ```
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-invoice)
 
 ### Invoice model output
 
@@ -708,6 +721,8 @@ foreach (AnalyzedDocument receipt in receipts.Documents)
 }
 
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-reecipt)
 
 ### Receipt model output
 
@@ -818,6 +833,8 @@ if (identityDocument.Fields.TryGetValue("Sex", out DocumentField sexfield))
 }
 
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-id-document)
 
 ### ID document model output
 
@@ -1026,6 +1043,8 @@ foreach (AnalyzedDocument businessCard in businessCards.Documents)
 }
 
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-business-card)
 
 ### Business card model output
 
