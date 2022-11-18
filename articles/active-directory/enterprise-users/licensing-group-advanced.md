@@ -23,12 +23,18 @@ Use the following information and examples to gain a more advanced understanding
 
 ## Usage location
 
-Some Microsoft services aren't available in all locations. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify usage location in **User** &gt; **Profile** &gt; **Settings**.
+Some Microsoft services aren't available in all locations. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) in the **User Administrator** role.
+1. Go to **Azure AD** > **Users** and select a user.
+1. Select **Edit properties**. 
+1. Select the **Settings** tab and enter a location for the user.
+1. Select the **Save** button.
 
 For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user resources before adding users to groups with licenses.
 
 > [!NOTE]
-> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (for example, via AAD Connect configuration) - that will ensure the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
+> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (for example, via AAD Connect configuration). Following such a process ensures the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
 
 ## Use group-based licensing with dynamic groups
 
@@ -40,21 +46,21 @@ Licenses are assigned to the user shortly after they're added to the group. When
 
 ### Example
 
-Consider the example of an on-premises identity management solution that decides which users should have access to Microsoft web services. It uses **extensionAttribute1** to store a string value representing the licenses the user should have. Azure AD Connect syncs it with Azure AD.
+Consider the example of an on-premises identity management solution that decides which users should have access to Microsoft web services. It uses `extensionAttribute1` to store a string value representing the licenses the user should have. Azure AD Connect syncs it with Azure AD.
 
-Users might need one license but not another, or might need both. Here's an example, in which you're distributing Office 365 Enterprise E5 and Enterprise Mobility + Security (EMS) licenses to users in groups:
+Users might need one license but not another, or might need both. Here's an example, in which you're distributing Microsoft 365  E5 and Enterprise Mobility + Security (EMS) licenses to users in groups:
 
-#### Office 365 Enterprise E5: base services
+#### Microsoft 365 E5
 
-![Screenshot of Office 365 Enterprise E5 base services](./media/licensing-group-advanced/o365-e5-base-services.png)
+![Screenshot of Microsoft 365 E5 attribute in dynamic membership rules.](./media/licensing-group-advanced/dynamic-groups-rules-E5.png)
 
 #### Enterprise Mobility + Security: licensed users
 
-![Screenshot of Enterprise Mobility + Security licensed users](./media/licensing-group-advanced/o365-e5-licensed-users.png)
+![Screenshot of EMS and Microsoft 365 E5 dynamic membership rules.](./media/licensing-group-advanced/dynamic-groups-rules-EMS.png)
 
-For this example, modify one user and set their extensionAttribute1 to the value of `EMS;E5_baseservices;` if you want the user to have both licenses. You can make this modification on-premises. After the change syncs with the cloud, the user is automatically added to both groups, and licenses are assigned.
+For this example, modify one user and set their extensionAttribute1 to the value of `EMS;SPE_E5;` if you want the user to have both licenses. You can make this modification on-premises. After the change syncs with the cloud, the user is automatically added to both groups, and licenses are assigned.
 
-![Screenshot showing how to set the user's extensionAttribute1](./media/licensing-group-advanced/user-set-extensionAttribute1.png)
+![Screenshot of Enterprise Mobility + Security licensed user.](./media/licensing-group-advanced/user-license-dynamic.png)
 
 > [!WARNING]
 > Use caution when modifying an existing group’s membership rule. When a rule is changed, the membership of the group will be re-evaluated and users who no longer match the new rule will be removed (users who still match the new rule will not be affected during this process). Those users will have their licenses removed during the process which may result in loss of service, or in some cases, loss of data.
@@ -94,7 +100,7 @@ As an administrator, you can review all groups affected by the change and take a
 
 Here's an example of what this process may look like:
 
-1. Originally, you assigned the *Microsoft 365 Enterprise E5* product to several groups. One of those groups, called *Microsoft 365 E5 - Exchange only* was designed to enable only the *Exchange Online (Plan 2)* service for its members.
+1. Originally, you assigned the *Microsoft 365 E5* product to several groups. One of those groups, called *Microsoft 365 E5 - Exchange only* was designed to enable only the *Exchange Online (Plan 2)* service for its members.
 
 2. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. When the service becomes available in your organization, you can complete the following steps:
 
