@@ -799,4 +799,4 @@ Administrators can use [Azure Policy](./../governance/policy/overview.md) defini
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
-* [Submit a training job](v1/how-to-set-up-training-targets.md)
+
