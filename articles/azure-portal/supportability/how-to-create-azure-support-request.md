@@ -86,7 +86,7 @@ Next, we collect additional details about the problem. Providing thorough and de
 
    In some cases, there will be additional options to choose from. For example, for certain types of Virtual Machine problem types, you can choose whether to [allow access to a virtual machine's memory](#memory-dump-collection).
 
-1. In the **Support method** section, select the **Severity** level, depending on the business impact. The [maximum severity level and time to respond](https://azure.microsoft.com/support/plans/response/) depends on your [support plan](https://azure.microsoft.com/support/plans).
+1. In the **Support method** section, select the **Severity** level, depending on the business impact. The [maximum available severity level and time to respond](https://azure.microsoft.com/support/plans/response/) depends on your [support plan](https://azure.microsoft.com/support/plans).
 
 1. Provide your preferred contact method, your availability, and your preferred support language.
 
