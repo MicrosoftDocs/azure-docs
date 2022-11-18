@@ -131,7 +131,7 @@ Using pipeline extension processors you can extend the pipeline to send and rece
   > [!TIP]
   > Use **[Docker inspect command](https://docs.docker.com/engine/reference/commandline/inspect/)** to find the IP address of the machine.
 
-- If you're running one or more live pipelines that uses the pipeline extension processor, you should use the `samplingOptions` field to manage the frames per second (fps) rate of the video feed.
+- If you're running one or more live pipelines that use the pipeline extension processor, you should use the `samplingOptions` field to manage the frames per second (fps) rate of the video feed.
 
   - In certain situations, where the CPU or memory of the edge machine is highly utilized, you can lose certain inference events. To address this issue, set a low value for the `maximumSamplesPerSecond` property on the `samplingOptions` field. You can set it to 0.5 ("maximumSamplesPerSecond": "0.5") on each instance of the pipeline and then re-run the instance to check for inference events on the hub.
 
@@ -250,7 +250,7 @@ To configure the Video Analyzer edge module to generate debug logs, do the follo
 
 [Monitoring and logging](monitor-log-edge.md) should help in understanding the taxonomy and how to generate logs that will help in debugging issues with Video Analyzer.
 
-As gRPC server implementation differ across languages, there is no standard way of adding logging inside in the server.
+As gRPC server implementation differs across languages, there is no standard way of adding logging inside in the server.
 
 As an example, if you build a gRPC server using .NET core, gRPC service adds logs under the **Grpc** category. To enable detailed logs from gRPC, configure the Grpc prefixes to the Debug level in your appsettings.json file by adding the following items to the LogLevel sub-section in Logging:
 
