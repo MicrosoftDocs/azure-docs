@@ -221,7 +221,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
 1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You'll refer to these items in the next steps. All of them are highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/stm-devkit-board-475.png" alt-text="Locate key components on the STM DevKit board":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/stm-devkit-board-475.png" alt-text="Locate key components on the STM DevKit board":::
 
 1. Connect the Micro USB cable to the **USB STLINK** port on the STM DevKit, and then connect it to your computer.
 
@@ -251,7 +251,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     * **Baud rate**: 115,200
     * **Port**: The port that your STM DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
 1. Select OK.
 1. Press the **Reset** button on the device. The button is black and is labeled on the device.
