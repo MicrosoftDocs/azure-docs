@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 09/09/2022
+ms.date: 11/18/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -42,6 +42,8 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
+
 ## Set up
 
 Open a terminal window in your local environment and install the Azure Form Recognizer client library for Python with pip:
@@ -49,6 +51,8 @@ Open a terminal window in your local environment and install the Azure Form Reco
 ```console
 pip install azure-ai-formrecognizer==3.2.0
 ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=setup)
 
 ## Create your Python application
 
@@ -217,6 +221,8 @@ Once you've added a code sample to your application, build and run your program:
     python form_recognizer_quickstart.py
     ```
 
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
+
 ### General document model output
 
 Here's a snippet of the expected output:
@@ -363,6 +369,8 @@ Once you've added a code sample to your application, build and run your program:
     ```console
     python form_recognizer_quickstart.py
     ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-layout)
 
 ### Layout model output
 
@@ -700,6 +708,8 @@ Once you've added a code sample to your application, build and run your program:
     ```console
     python form_recognizer_quickstart.py
     ```
+
+[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
 
 ### Prebuilt model output
 
