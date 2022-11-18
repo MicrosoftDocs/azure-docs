@@ -17,13 +17,13 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
 >[!IMPORTANT]
 > If you have configured or will configure your packet core to have more than one attached data network, you'll need to modify it without a custom location to avoid issues with your data networks.
 >
-> 1. Follow this how-to to modify your packet core instance with the following changes:
+> 1. Follow this how-to guide to modify your packet core instance with the following changes:
 >
 >    1. In [Modify the packet core configuration](#modify-the-packet-core-configuration), make a note of the custom location value in the **Custom ARC location** field.
 >    1. Set the **Custom ARC location** field to **None**.
 >    1. In [Submit and verify changes](#submit-and-verify-changes), the packet core will be redeployed at an uninstalled state with the new configuration.
 >
-> 2. Follow this how-to again to set the **Custom ARC location** field to the custom location value you noted down.
+> 2. Follow this how-to guide again to set the **Custom ARC location** field to the custom location value you noted down.
 
 ## Prerequisites
 
