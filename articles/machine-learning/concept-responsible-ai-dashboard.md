@@ -13,7 +13,7 @@ ms.date: 11/09/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
-# Assess AI systems by using the Responsible AI dashboard (preview)
+# Assess AI systems by using the Responsible AI dashboard
 
 Implementing Responsible AI in practice requires rigorous engineering. But rigorous engineering can be tedious, manual, and time-consuming without the right tooling and infrastructure.
 

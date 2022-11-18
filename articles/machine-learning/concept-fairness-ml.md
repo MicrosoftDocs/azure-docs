@@ -1,5 +1,5 @@
 ---
-title: Machine learning fairness (preview)
+title: Machine learning fairness
 titleSuffix: Azure Machine Learning
 description: Learn about machine learning fairness and how the Fairlearn Python package can help you assess and mitigate unfairness. 
 services: machine-learning
@@ -14,7 +14,7 @@ ms.custom: responsible-ml
 #Customer intent: As a data scientist, I want to learn about machine learning fairness and how to assess and mitigate unfairness in machine learning models.
 ---
 
-# Model performance and fairness (preview)
+# Model performance and fairness
 
 This article describes methods that you can use to understand your model performance and fairness in Azure Machine Learning.
 

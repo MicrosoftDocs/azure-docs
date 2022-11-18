@@ -5,10 +5,9 @@ keywords: azure app service, web app, linux, docker, compose, multicontainer, mu
 author: msangapu-msft
 
 ms.topic: tutorial
-ms.date: 10/31/2020
+ms.date: 11/18/2022
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-#Customer intent: As an Azure customer, I want to learn how to deploy multiple containers using WordPress into Web App for Containers.
 ---
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
 

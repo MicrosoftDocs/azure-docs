@@ -1,6 +1,6 @@
 ---
 title: Configure settings for BlobFuse2 (preview)
-titleSuffix: Azure Blob Storage
+titleSuffix: Azure Storage
 description: Learn about your options for setting and changing configuration settings for BlobFuse2 (preview).
 author: jimmart-dev
 ms.author: jammart
