@@ -278,6 +278,10 @@
           items:
             - name: Overview
               href: change-tracking/overview.md
+            - name: Enable
+              items:
+                - name: Enable change tracking from portal
+                  href: change-tracking/enable-vms-monitoring-agent.md
     - name: Start/Stop VMs during off-hours
       items:
         - name: Overview
