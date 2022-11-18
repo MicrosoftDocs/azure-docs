@@ -7,14 +7,13 @@ ms.date: 04/27/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-
 ---
 
 # Industrial IoT (IIoT) architecture patterns with Azure IoT Central
 
 :::image type="content" source="media/concepts-iiot-architecture/industrial-iot-architecture.svg" alt-text="Diagram of high-level industrial I O T architecture." border="false":::
 
-IoT Central enables you to implement your IIoT scenario by using the following built-in capabilities:
+IoT Central enables you to evaluate your IIoT scenario by using the following built-in capabilities:
 
 - Connect industrial assets either directly or through a gateway device
 - Collect data at scale from your industrial assets
@@ -22,10 +21,9 @@ IoT Central enables you to implement your IIoT scenario by using the following b
 - Model and organize the data from your industrial assets and use the built-in analytics and monitoring capabilities
 - Integrate and extend your solution by connecting to first and third party applications and services
 
-IoT Central enables you to build highly available, scalable, and secure solutions.
+Powered by the Azure IoT Platform, IoT Central enables you to model highly available, scalable, and secure solutions.
 
 ## Connect your industrial assets
-
 Operational technology (OT) is the hardware and software that monitors and controls the equipment and infrastructure in industrial facilities. There are four ways to connect your industrial assets to Azure IoT Central:
 
 - Proxy through on-premises partner solutions that have built-in support to connect to Azure IoT Central.
@@ -138,3 +136,4 @@ Industrial networks are crucial to the working of a manufacturing facility. With
 ## Next steps
 
 Now that you've learned about IIoT architecture patterns with Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-developer.md) in Azure IoT Central.
+
