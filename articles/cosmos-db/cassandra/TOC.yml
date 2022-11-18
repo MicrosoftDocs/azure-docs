@@ -7,7 +7,7 @@
     - name: Wire protocol support
       href: support.md
     - name: Tokens and the Token function
-      href: token-overview.md
+      href: tokens.md
     - name: FAQ
       href: cassandra-faq.yml
 - name: Quickstarts

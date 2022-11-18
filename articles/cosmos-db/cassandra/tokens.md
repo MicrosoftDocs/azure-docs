@@ -26,10 +26,23 @@ The Token Function is a function available via the CQL API of a Cassandra cluste
 Note though, this type of restriction on Apache Cassandra is arbitrary, and is only applied on constant values being passed to the function. The most notable usage of the Token function is with applying relations on the token of the partition key. Azure Cosmos DB for Apache Cassandra allows for `SELECT` queries to make use of a `WHERE` clause filtering on the tokens of your data instead of the data itself.
 
 ```sql
-SELECT token(accounted) FROM uprofile.accounts;
- name  | accountid | city  | state | country
--------+-----------+-------+-------+---------
- Ade M |       405 | Benin |   Edo |     NGR
+SELECT token(accountid) FROM uprofile.accounts;
+
+system.token(accountid)
+-------------------------
+     2601062599670757427
+     2976626013207263698
+
+```
+
+```sql
+SELECT token(accountid) 
+FROM uprofile.accounts 
+WHERE token(accountid)=2976626013207263698;
+
+ name  | accountid | state | country
+-------+-----------+-------+-------+
+ Devon |       405 | NYC   |  USA  |   
 
 ```
 
