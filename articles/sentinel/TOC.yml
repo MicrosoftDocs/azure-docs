@@ -73,6 +73,8 @@
         href: extend-sentinel-across-workspaces-tenants.md
       - name: Security baseline
         href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Support for data types in different clouds
+        href: data-type-cloud-support.md
   - name: Find solutions and content
     items:
     - name: About Sentinel content
@@ -102,7 +104,7 @@
       - name: KQL quick reference
         href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Other KQL resources
-        href: kusto-resources.md
+        href: kusto-resources.md      
   - name: Normalize data
     items:
     - name: ASIM overview
@@ -557,6 +559,8 @@
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference
       href: dns-ama-fields.md
+    - name: Microsoft 365 Defender connector data type support
+      href: microsoft-365-defender-cloud-support.md
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks
