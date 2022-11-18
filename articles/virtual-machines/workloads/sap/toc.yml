@@ -384,6 +384,8 @@
     items:
     - name: SAP workload security - Microsoft Azure Well-Architected Framework 
       href: /azure/architecture/framework/sap/security.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+    - name: Provision users from SAP SuccessFactors to Active Directory
+      href: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
 - name: SAP on Azure Large Instances
   items:
   - name: Overview

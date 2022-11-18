@@ -27,6 +27,6 @@ items:
       tocHref: /azure/virtual-machines/workloads/sap/get-started
       topicHref: /azure/virtual-machines/workloads/sap/get-started
       items:    
-      - name: Architecture
-        tocHref: /azure/architecture/framework/sap/security
+      - name: Active-Directory
+        tocHref: /azure/active-directory/saas-apps
         topicHref: /azure/virtual-machines/workloads/sap/index
