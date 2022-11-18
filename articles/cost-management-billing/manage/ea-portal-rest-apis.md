@@ -3,11 +3,11 @@ title: Azure Enterprise REST APIs
 description: This article describes the REST APIs for use with your Azure enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/10/2021
+ms.date: 11/17/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: racheg
 ---
 
 # Azure Enterprise REST APIs
@@ -30,12 +30,12 @@ Microsoft Enterprise Azure customers can get usage and billing information throu
 
 **Billing Periods -** The [Billing Periods API](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) returns a list of billing periods that have consumption data for an enrollment in reverse chronological order. Each period contains a property pointing to the API route for the four sets of data, BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet. For more information, see [Reporting APIs for Enterprise customers - Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
-### Enable API data access
+### API key generation
 
 Role owners can perform the following steps in the Azure EA portal. Navigate to **Reports** > **Download Usage** > **API Access Key**. Then they can:
 
-- Generate primary and secondary access keys.
-- Disable access keys.
+- Generate and regenerate primary and secondary access keys.
+- Revoke access keys.
 - View start and end dates of access keys.
 
 ### Generate or retrieve the API Key
@@ -43,11 +43,11 @@ Role owners can perform the following steps in the Azure EA portal. Navigate to 
 1. Sign in as an enterprise administrator.
 2. Select **Reports** on the left navigation window and then select the **Download Usage** tab.
 3. Select **API Access Key**.
-4. Under **Enrollment Access Keys**, select the generate key symbol to generate either a primary or secondary key.
+4. Under **Enrollment Access Keys**, select **regenerate** to generate either a primary or secondary key.
 5. Select **Expand Key** to view the entire generated API access key.
 6. Select **Copy** to get the API access key for immediate use.
 
-![Example showing API Access Key page](./media/ea-portal-rest-apis/ea-create-generate-or-retrieve-the-api-key.png)
+:::image type="content" source="./media/ea-portal-rest-apis/ea-create-generate-or-retrieve-the-api-key.png" alt-text="Screenshot showing the API Access Key page." lightbox="./media/ea-portal-rest-apis/ea-create-generate-or-retrieve-the-api-key.png" :::
 
 If you want to give the API access keys to people who aren't enterprise administrators in your enrollment, perform the following steps:
 
@@ -57,7 +57,8 @@ If you want to give the API access keys to people who aren't enterprise administ
 4. Select the pencil symbol next to **AO view charges** (Account Owner view charges).
 5. Select **Enable** and then select **Save**.
 
-![Example showing DA and AO view charges enabled](./media/ea-portal-rest-apis/create-ea-generate-or-retrieve-api-key-enable-ao-do-view.png)
+![Screenshot showing DA and AO view charges enabled.](./media/ea-portal-rest-apis/create-ea-generate-or-retrieve-api-key-enable-ao-do-view.png)
+
 The preceding steps give API access key holders with access to cost and pricing information in usage reports.
 
 ### Pass keys in the API
@@ -67,7 +68,7 @@ Pass the API key for each call for authentication and authorization. Pass the fo
 | Request header key | Value |
 | --- | --- |
 | Authorization | Specify the value in this format: **bearer {API\_KEY}**
-Example: bearer \&lt;APIKey\&gt; |
+Example: bearer \<APIKey\> |
 
 ### Swagger
 
@@ -107,7 +108,7 @@ JSON format is generated from the CSV report. As a result, the format is same as
 | Account Name | AccountName | AccountName |   |
 | ServiceAdministratorId | ServiceAdministratorLiveId | ServiceAdministratorLiveId |   |
 | SubscriptionId | SubscriptionId | SubscriptionId |   |
-| SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
+| SubscriptionGuid | MOSPSubscriptionGuid | SubscriptionGuid |   |
 | Subscription Name | SubscriptionName | SubscriptionName |   |
 | Date | Date | Date | Shows the date that the service catalog report ran. The format is a date string without a time stamp. |
 | Month | Month | Month |   |

@@ -42,7 +42,7 @@ Before you begin your migration, ensure that you meet these prerequisites.
 
 ### Required roles
 
-For staged rollout, you need to be a global administrator on your tenant. 
+For staged rollout, you need to be a Hybrid Identity Administrator on your tenant. 
 
 To enable seamless SSO on a specific Windows Active Directory Forest, you need to be a domain administrator.
 

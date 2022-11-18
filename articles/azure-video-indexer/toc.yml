@@ -8,6 +8,32 @@
     href: accounts-overview.md
   - name: Language support
     href: language-support.md
+- name: Responsible use of AI
+  items:
+  - name: Limited access features
+    href: limited-access-features.md         
+  - name: Transparency notes
+    items:
+    - name: Transparency notes
+      href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Audio effects detection
+      href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Faces detection
+      href: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: OCR
+      href: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Keywords extraction
+      href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context  
+    - name: Transcription, translation, language
+      href: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Labels identification
+      href: /legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Named entities
+      href: /legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Observed people tracking & matched faces
+      href: /legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Topics inference
+      href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: Quickstarts
   expanded: true
   items:
@@ -15,32 +41,6 @@
     href: video-indexer-get-started.md
   - name: Invite users
     href: invite-users.md
-  - name: Responsible use of AI
-    items:
-    - name: Transparency notes
-      items:
-      - name: Limited access features
-        href: limited-access-features.md         
-      - name: Transparency notes
-        href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
-      - name: Audio effects detection
-        href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-      - name: Faces detection
-        href: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context
-      - name: OCR
-        href: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
-      - name: Keywords extraction
-        href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context  
-      - name: Transcription, translation, language
-        href: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
-      - name: Labels identification
-        href: /legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context
-      - name: Named entities
-        href: /legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context
-      - name: Observed people tracking & matched faces
-        href: /legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context
-      - name: Topics inference
-        href: /legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: Tutorials
   items:
   - name: Create an ARM-based account
@@ -126,6 +126,8 @@
       href: scenes-shots-keyframes.md
     - name: View and update transcriptions
       href: edit-transcript-lines-portal.md     
+    - name: Edit speakers
+      href: edit-speakers.md   
     - name: Identify and transcribe multi-language content
       href: multi-language-identification-transcription.md
     - name: Use editor to create projects
@@ -146,22 +148,27 @@
     - name: View closed captions
       href: view-closed-captions.md
     - name: Customize content models
+      displayName: customizing   
       items:
       - name: Animated characters
+        displayName: customizing       
         href: animated-characters-recognition-how-to.md
       - name: Person
+        displayName: customizing       
         items:
         - name: using the website
           href: customize-person-model-with-website.md
         - name: using the API
           href: customize-person-model-with-api.md
       - name: Brands
+        displayName: customizing       
         items:
         - name: using the website
           href: customize-brands-model-with-website.md
         - name: using the API
           href: customize-brands-model-with-api.md
       - name: Language
+        displayName: customizing       
         items:
         - name: using the website
           href: customize-language-model-with-website.md
@@ -222,8 +229,6 @@
     href: /answers/topics/azure-video-indexer.html
   - name: FAQ
     href: faq.yml
-  - name: Compliance
-    href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
   - name: Release notes
     href: release-notes.md
   - name: Stack Overflow
