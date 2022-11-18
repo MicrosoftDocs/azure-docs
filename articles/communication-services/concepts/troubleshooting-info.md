@@ -25,6 +25,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
 * **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
+* **Email message ID**: This ID is used to identify an email delivery request.
 * **Correlation ID**: This ID is used to identify requests made using Call Automation. 
 * **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
 
@@ -136,6 +137,35 @@ console.log(result); // your message ID will be in the result
 The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Short Codes blade. 
 
 :::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
+---
+
+## Access your email message ID
+
+# [.NET](#tab/dotnet)
+When troubleshooting send email or email message status requests, you may be asked to provide a `message ID`. This can be accessed in the response:
+
+```csharp
+Console.WriteLine($"MessageId = {emailResult.MessageId}");
+```
+
+# [JavaScript](#tab/javascript)
+```javascript
+  const messageId = response.messageId;
+  if (messageId === null) {
+    console.log("Message Id not found.");
+    return;
+  }
+```
+
+# [Java](#tab/java)
+```java
+String message_id = response.getMessageId();
+```
+
+# [Python](#tab/python)
+```python
+message_id = response.message_id
+```
 ---
 
 ## Enable and access call logs
