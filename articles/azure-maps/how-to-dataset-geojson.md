@@ -179,4 +179,5 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html
 [dataset-concept]: creator-indoor-maps.md#datasets
 [Dataset Create 2022-09-01-preview]: /rest/api/maps/v20220901preview/dataset/create
+[Dataset Create]: /rest/api/maps/v2/dataset/create
 [Visual Studio]: https://visualstudio.microsoft.com/downloads/
