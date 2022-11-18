@@ -13,7 +13,7 @@ ms.date: 11/16/2022
 Azure Video Indexer (AVI) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) supports both server-to-server and client-to-server communication. The API enables you to integrate video and audio insights into your application logic.
 
 > [!TIP]
-> For the latest `api-version`, chose the latest stable version in our documentation.
+> For the latest `api-version`, chose the latest stable version in [our REST documentation](https://learn.microsoft.com/rest/api/videoindexer/stable/generate).
 
 To make the integration easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with the Azure Video Indexer API. 
 
