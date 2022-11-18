@@ -29,6 +29,9 @@ If your IT security policies do not allow computers on your network to connect t
 
 Before starting, review the following requirements.
 
+>[!Note]
+>From 1 February 2023, System Center Operations Manager version lower than [2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents) will stop sending data to Log Analytics workspace. Ensure your agents are on SCOM Agent version 10.19.10177.0 ([2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents) or later) or 10.22.10056.0 ([2022 RTM](/system-center/scom/release-build-versions?view=sc-om-2022#agents)) and SCOM Management Group version is SCOM 2022 & 2019 UR3 or later version.
+
 * Azure Monitor supports the following:
     * System Center Operations Manager 2022
     * System Center Operations Manager 2019
