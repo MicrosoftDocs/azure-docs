@@ -340,7 +340,7 @@ az k8s-extension create --cluster-type managedClusters \
 --configuration-settings "dapr_operator.replicaCount=3"
 ```
 
-## Set the outbound proxy for Dapr extension for Azure Arc on-prem
+## Set the outbound proxy for Dapr extension for Azure Arc on-premises
 
 If you want to use an outbound proxy with the Dapr extension for AKS, you can do so by:
 
