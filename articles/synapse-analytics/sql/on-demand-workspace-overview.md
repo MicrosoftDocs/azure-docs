@@ -60,7 +60,7 @@ Serverless SQL pool offers T-SQL querying surface area, which is slightly enhanc
 - Workload can be organized using familiar concepts:
 - Databases - serverless SQL pool endpoint can have multiple databases.
 - Schemas - Within a database, there can be one or many object ownership groups called schemas.
-- Views, stored procedures, inline table value functions
+- Stored procedures, inline table value functions
 - External resources – data sources, file formats, and tables
 
 Security can be enforced using:
