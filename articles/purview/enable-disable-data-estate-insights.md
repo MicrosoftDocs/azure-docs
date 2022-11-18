@@ -16,9 +16,13 @@ Microsoft Purview Data Estate Insights automatically aggregates metrics and crea
 These features are optional and can be enabled or disabled at any time. This article provides the specific steps required to enable or disable Microsoft Purview Data Estate Insights features.
 
 > [!IMPORTANT]
-> The Data Estate Insights application is **on** by default when you create a Microsoft Purview account. This means, “State” is on and “Refresh Frequency” is set to automatic*. As the Data Map is populated and curated, Insights App shows data in the reports. The reports are ready for consumption to anyone with Insights Reader role.
-> 
-> \* At this time automatic refresh is weekly.
+> The Data Estate Insights application is **on** by default when you create a Microsoft Purview account.
+>
+> **State** is set to On.
+>
+> **Refresh Schedule** is set to a weekly refresh that begins 7 days after the account is created.
+>
+> As the Data Map is populated and curated, Insights App shows data in the reports. The reports are ready for consumption to anyone with Insights Reader role.
 
 If you don't plan on using Data Estate Insights for a time, a **[data curator](catalog-permissions.md#roles) on the [root collection](reference-azure-purview-glossary.md#root-collection)** can disable the Data Estate Insights in one of two ways:
 
@@ -76,9 +80,15 @@ To disable the Data Estate Insights report refresh, a user with the [data curato
     :::image type="content" source="media/enable-disable-data-estate-insights/locate-management.png" alt-text="Screenshot of the Microsoft Purview governance portal left menu, with the Management section highlighted." :::
 
 1. Then select **Overview**.
-1. In the **Feature options** menu, locate Data Estate Insights, select the **Refresh frequency** drop-down menu, and select **Off**.
+1. In the **Insights refresh** menu, locate Data Estate Insights and select the **Edit pencil**
 
-    :::image type="content" source="media/enable-disable-data-estate-insights/refresh-frequency.png" alt-text="Screenshot of the Overview window in the Management section of the Microsoft Purview governance portal with the refresh frequency dropdown highlighted for Data Estate Insights feature options." :::
+    :::image type="content" source="media/enable-disable-data-estate-insights/disable-data-estate-insights.png" alt-text="Screenshot of the Overview window in the Management section of the Microsoft Purview governance portal with the edit pencil in the Data Estate Insights row highlighted." :::
+
+1. Select the **Off** radio button and select **Continue**. If prompted, review your edits and select **Save.**
+
+    :::image type="content" source="media/enable-disable-data-estate-insights/disable-recurrance.png" alt-text="Screenshot of the Data Estate Insights edit page, with the Recurring radio button highlighted and set to Off." :::
+
+1. You can now see under the **Schedule** column, the refresh schedule reads as **Disabled**.
 
 ## Enable Data Estate Insights and report refresh
 
@@ -92,6 +102,17 @@ If Data Estate Insights or report refresh has been disabled in your Microsoft Pu
     :::image type="content" source="media/enable-disable-data-estate-insights/locate-management.png" alt-text="Screenshot of the Microsoft Purview governance portal Management section highlighted.":::
 
 1. Then select **Overview**.
-1. In the **Feature options** menu, locate Data Estate Insights, select the **Refresh frequency** drop-down menu, and select a refresh rate to enable report refresh. Or select the State toggle to change it to **On** to re-enable the entire application.
+1. In the **Insights refresh** menu, locate Data Estate Insights, and select the **Edit** pencil.
 
-    :::image type="content" source="media/enable-disable-data-estate-insights/disable-data-estate-insights.png" alt-text="Screenshot of the Overview window in the Management section of the Microsoft Purview governance portal with Data Estate Insights highlighted." :::
+    :::image type="content" source="media/enable-disable-data-estate-insights/refresh-frequency.png" alt-text="Screenshot of the Overview window in the Management section of the Microsoft Purview governance portal with the refresh frequency dropdown highlighted for Data Estate Insights feature options." :::
+
+1. In the **Edit** menu, select **Recurring**.
+
+1. Then select your time zone, set your recurrance to **Month(s)** or **Weeks(s)**, select your day and time to run, specify a start time, and optionally specify an end time.
+
+    :::image type="content" source="media/enable-disable-data-estate-insights/set-recurrance.png" alt-text="Screenshot of the Data Estate Insights edit page, with the Recurring radio button highlighted and set to Recurring." :::
+
+1. Select **Continue**. If prompted, review the updates and select **Save**.
+1. Now you can see your schedule is set. Selecting **More info** in the schedule columns will give you the recurrence details.
+
+    :::image type="content" source="media/enable-disable-data-estate-insights/schedule-set.png" alt-text="Screenshot of the management page, with the Data Estate Insights information row highlighted." :::
