@@ -13,30 +13,48 @@ Transformations in Azure Monitor allow you to filter or modify incoming data bef
 ## When to use transformations
 Transformations are useful for a variety of scenarios, including those described below. 
 
-### Reduce data costs
+**Reduce data costs**
 Since you're charged ingestion cost for any data sent to a Log Analytics workspace, you want to filter out any data that you don't require to reduce your costs.
 
-- **Remove entire rows.** For example, you might have a diagnostic setting to collect resource logs from a particular resource but not require all of the log entries that it generates. Create a transformation that filters out records that match a certain criteria. 
+| Scenario | Details |
+|:---|:---|
+Remove entire rows | For example, you might have a diagnostic setting to collect resource logs from a particular resource but not require all of the log entries that it generates. Create a transformation that filters out records that match a certain criteria. |
+| Remove a column from each row | For example, your data may include columns with data that's redundant or has minimal value. Create a transformation that filters out columns that aren't required. |
+| Parse important data from a column | You may have a table with valuable data buried in a particular column. Use a transformation to parse the valuable data into a new column and remove the original. |
 
-- **Remove a column from each row.** For example, your data may include columns with data that's redundant or has minimal value. Create a transformation that filters out columns that aren't required.
 
-- **Parse important data from a column.** You may have a table with valuable data buried in a particular column. Use a transformation to parse the valuable data into a new column and remove the original.
-
-
-### Remove sensitive data
+**Remove sensitive data**
 You may have a data source that sends information you don't want stored for privacy or compliancy reasons.
 
-- **Filter sensitive information.** Filter out entire rows or just particular columns that contain sensitive information.
- 
-- **Obfuscate sensitive information**. For example, you might replace digits with a common character in an IP address or telephone number.
+| Scenario | Details |
+|:---|:---|
+| Filter sensitive information | Filter out entire rows or just particular columns that contain sensitive information. |
+| Obfuscate sensitive information | For example, you might replace digits with a common character in an IP address or telephone number. |
 
 
-### Enrich data with additional or calculated information
+**Enrich data with additional or calculated information**
 Use a transformation to add information to data that provides business context or simplifies querying the data later.
 
 - **Add a column with additional information.** For example, you might add a column identifying whether an IP address in another column is internal or external.
 
 - **Add business specific information.** For example, you might add a column indicating a company division based on location information in other columns. 
+Use a transformation to add information to data that provides business context or simplifies querying the data later.
+
+| Scenario | Details |
+|:---|:---|
+| Add a column with additional information | For example, you might add a column identifying whether an IP address in another column is internal or external. |
+| Add business specific information | For example, you might add a column indicating a company division based on location information in other columns. |
+
+
+**Send data to multiple tables**
+Using a transformation, you can send data from a single data input to multiple tables in a workspace.
+
+| Scenario | Details |
+|:---|:---|
+| Store a normalized version of data together with the original | For example, you may want to parse Syslog messages into a custom table with a more readable format, but you need to retain the original syslog data for audit. |
+| Separate full telemetry from filtered data | You may want to keep the full telemetry with very verbose detail for a short time period, but send as smaller set of the data to a separate table with longer data retention. | 
+| Separate different dimensions of data according to security | You may have data with different dimensions that have different organizational security implications. You can send different records or columns of the data to different tables each with specific access levels. For example, AAD login data may go to one table with any user details anonymized for usage information, while data with full user information is sent to a table used by the security team. |
+
 
 ## Supported tables
 Transformations may be applied to the following tables in a Log Analytics workspace. 
@@ -91,7 +109,68 @@ There are multiple methods to create transformations depending on the data colle
 
 
 
-### Samples
+## Samples
+
+### Single destination
+
+The following example is a DCR for Azur Monitor agent that sends data to the `Syslog` table. In this example, the transformation filters the data for records with *error* in the message.
+
+```json
+{ 
+    "location": "eastus", 
+    "properties": { 
+      "dataSources": { 
+        "syslog": [ 
+          { 
+            "name": "sysLogsDataSource", 
+            "streams": [ 
+              "Microsoft-Syslog" 
+            ], 
+            "facilityNames": [ 
+              "auth",
+              "authpriv",
+              "cron",
+              "daemon",
+              "mark",
+              "kern",
+              "mail",
+              "news",
+              "syslog",
+              "user",
+              "uucp"
+            ], 
+            "logLevels": [ 
+              "Debug", 
+              "Critical", 
+              "Emergency" 
+            ] 
+          } 
+        ] 
+      }, 
+      "destinations": { 
+        "logAnalytics": [ 
+          { 
+            "workspaceResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace", 
+            "name": "centralWorkspace" 
+          } 
+        ] 
+      }, 
+      "dataFlows": [ 
+        { 
+          "streams": [ 
+            "Microsoft-Syslog" 
+          ], 
+          "transformKql": "source | where message contains 'error'", 
+          "destinations": [ 
+            "centralWorkspace" 
+          ] 
+        } 
+      ] 
+    } 
+} 
+```
+
+### Multiple Azure tables
 
 The following example is a DCR for data from Logs Ingestion API that sends data to both the `Syslog` and `SecurityEvents` table. This requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each. In this example, all incoming data is sent to the `Syslog` table while malicious data is also sent to the `SecurityEvents` table. If you didn't want to replicate the malicious data in both tables, you could add a `where` statement to first query to remove those records.
 
@@ -155,7 +234,7 @@ The following example is a DCR for data from Logs Ingestion API that sends data 
 } 
 ```
 
-
+### Combination of Azure and custom tables
 
 The following example is a DCR for data from Logs Ingestion API that sends data to both the `Syslog` table and a custom table with the data in a different format. This requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each. 
 
