@@ -101,7 +101,7 @@ Existing web applications can be redeployed to Azure as follows:
 1. **Source repository**: Maintain your source code in a suitable repository like GitHub, which enables you to set up continuous deployment later in this process.
     - Your *requirements.txt* file must be at the root of your repository for App Service to automatically install the necessary packages.
 
-1. **Database**: If your app depends on a database, create the necessary resources on Azure as well. For an example, see [Deploy a Python web app with PostgreSQL in Azure](tutorial-python-postgresql-app.md).
+1. **Database**: If your app depends on a database, create the necessary resources on Azure as well.
 
 1. **App service resources**: Create a resource group, App Service Plan, and App Service web app to host your application. You can do it easily by running the Azure CLI command [`az webapp up`](/cli/azure/webapp?az-webapp-up). Or, you can create and deploy resources as shown in [Tutorial: Deploy a Python (Django or Flask) web app with PostgreSQL](tutorial-python-postgresql-app.md). Replace the names of the resource group, App Service Plan, and the web app to be more suitable for your application.
 
