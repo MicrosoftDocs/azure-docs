@@ -1,5 +1,5 @@
 ---
-title: Data Resiliency in Azure Image Builder
+title: Reliability in Azure Image Builder
 description: Find out about reliability in Azure Image Builder
 author: ericd-mst-github
 ms.author: kofiforson
@@ -10,7 +10,7 @@ ms.subservice: image-builder
 ms.date: 11/18/2022
 ---
 
-# Resiliency in Azure Image Builder
+# Reliability in Azure Image Builder
 
 This article describes reliability support in Azure Image Builder, and covers both regional resiliency with availability zones. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
