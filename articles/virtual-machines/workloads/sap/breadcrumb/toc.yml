@@ -28,5 +28,8 @@ items:
       topicHref: /azure/virtual-machines/workloads/sap/get-started
       items:    
       - name: SAP
-        tocHref: /azure/active-directory/saas-apps
+        tocHref: /azure/active-directory
         topicHref: /azure/virtual-machines/workloads/sap/index
+      - name: SAP
+        tocHref: /azure/power-bi
+        topicHref: /azure/virtual-machines/workloads/sap/index      

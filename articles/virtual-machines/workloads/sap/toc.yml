@@ -385,7 +385,7 @@
     - name: Secure access with SAP Cloud Identity Services and Azure AD
       href: /azure/active-directory/fundamentals/scenario-azure-first-sap-identity-integration?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: SAP workload security - Microsoft Azure Well-Architected Framework 
-      href: /azure/architecture/framework/sap/security?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      href: /azure/architecture/framework/sap/security?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json#use-identity-management
     - name: Provision users from SAP SuccessFactors to Active Directory
       href: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Provision users from SAP SuccessFactors to Azure AD
@@ -394,6 +394,54 @@
       href: /azure/active-directory/saas-apps/sap-successfactors-writeback-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Provision users to SAP Cloud Platform Identity Authentication Service
       href: /azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json      
+    - name: Single Sign On
+      items:
+      - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
+        href: /azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAP SuccessFactors
+        href: /azure/active-directory/saas-apps/successfactors-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAP Analytics Cloud
+        href: /azure/active-directory/saas-apps/sapboc-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAP Fiori
+        href: /azure/active-directory/saas-apps/sap-fiori-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAP Qualtrics
+        href: /azure/active-directory/saas-apps/qualtrics-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAP Ariba
+        href: /azure/active-directory/saas-apps/ariba-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAP Concur Travel and Expense
+        href: /azure/active-directory/saas-apps/concur-travel-and-expense-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAP Cloud Platform
+        href: /azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAP NetWeaver
+        href: /azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAP Business ByDesign
+        href: /azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAP HANA
+        href: /azure/active-directory/saas-apps/saphana-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAP Cloud for Customer
+        href: /azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Configure SSO with SAPGUI using Kerberos and Azure AD Domain Services
+        href: https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/
+  - name: Azure Data Services integration
+    items:
+    - name: Use SAP HANA in Power BI Desktop
+      href: /power-bi/desktop-sap-hana?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+    - name: DirectQuery and SAP HANA
+      href: /power-bi/desktop-directquery-sap-hana?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+    - name: Use the SAP BW Connector in Power BI Desktop
+      href: /power-bi/desktop-sap-bw-connector?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+    - name: Azure Data Factory offers SAP HANA and Business Warehouse data integration
+      href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
+  - name: Threat monitoring with Microsoft Sentinel for SAP
+    items:
+      - name: Deploy the Microsoft Sentinel solution for SAP
+        href: /azure/sentinel/sap/deploy-sap-security-content?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json#deploy-sap-security-content
+      - name: Detailed requirements
+        href: /azure/sentinel/sap/prerequisites-for-deploying-sap-continuous-threat-monitoring?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Microsoft Sentinel SAP solution data reference
+        href: /azure/sentinel/sap/sap-solution-log-reference?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: SAP security content reference
+        href: /azure/sentinel/sap/sap-solution-security-content?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
 - name: SAP on Azure Large Instances
   items:
   - name: Overview
@@ -490,56 +538,6 @@
     href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
   - name: Azure Site Recovery for SAP Disaster Recovery
     href: ../../../site-recovery/site-recovery-workload.md#protect-sap
-  - name: Azure AD integration
-    items:
-    - name: SSO
-      items:
-      - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
-        href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md
-      - name: Configure SSO with SAP SuccessFactors
-        href: ../../../active-directory/saas-apps/successfactors-tutorial.md
-      - name: Configure SSO with SAP Analytics Cloud
-        href: ../../../active-directory/saas-apps/sapboc-tutorial.md
-      - name: Configure SSO with SAP Fiori
-        href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md
-      - name: Configure SSO with SAP Qualtrics
-        href: ../../../active-directory/saas-apps/qualtrics-tutorial.md
-      - name: Configure SSO with SAP Ariba
-        href: ../../../active-directory/saas-apps/ariba-tutorial.md
-      - name: Configure SSO with SAP Concur Travel and Expense
-        href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md
-      - name: Configure SSO with SAP Cloud Platform
-        href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md
-      - name: Configure SSO with SAP NetWeaver
-        href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md
-      - name: Configure SSO with SAP Business ByDesign
-        href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md
-      - name: Configure SSO with SAP HANA
-        href: ../../../active-directory/saas-apps/saphana-tutorial.md
-      - name: Configure SSO with SAP Cloud for Customer
-        href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md
-      - name: Configure SSO with SAPGUI using Kerberos and Azure AD Domain Services
-        href: https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/
-  - name: Azure Services integration
-    items:
-    - name: Use SAP HANA in Power BI Desktop
-      href: /power-bi/desktop-sap-hana
-    - name: DirectQuery and SAP HANA
-      href: /power-bi/desktop-directquery-sap-hana
-    - name: Use the SAP BW Connector in Power BI Desktop
-      href: /power-bi/desktop-sap-bw-connector
-    - name: Azure Data Factory offers SAP HANA and Business Warehouse data integration
-      href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
-  - name: Microsoft Sentinel threat monitoring
-    items:
-      - name: Deploy the Microsoft Sentinel solution for SAP
-        href: ../../../sentinel/sap/deploy-sap-security-content.md#deploy-sap-security-content
-      - name: Detailed requirements
-        href: ../../../sentinel/sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
-      - name: Microsoft Sentinel SAP solution data reference
-        href: ../../../sentinel/sap/sap-solution-log-reference.md
-      - name: SAP security content reference
-        href: ../../../sentinel/sap/sap-solution-security-content.md
 - name: Resources
   items:
   - name: Azure Roadmap
