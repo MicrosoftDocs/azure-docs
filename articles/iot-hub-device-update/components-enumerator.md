@@ -480,7 +480,7 @@ For example, for *hostfw*, the value of the property `properties.version` will b
 
 The example in this article used C. To explore C++ example source codes, see:
 
-- [CMakeLists.txt](https://github.com/Azure/iot-hub-device-update/blob/main/src/CMakeLists.txt)
+- [CMakeLists.txt](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component_enumerators/examples/contoso_component_enumerator/CMakeLists.txt)
 - [contoso-component-enumerator.cpp](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component_enumerators/examples/contoso_component_enumerator/contoso_component_enumerator.cpp)
 - [inc/aduc/component_enumerator_extension.hpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/inc/aduc/component_enumerator_extension.hpp)
 
