@@ -55,6 +55,8 @@ This article describes how to deploy and configure Azure virtual machines (VMs),
 -  [NFS on Azure Files](../../../storage/files/files-nfs-protocol.md) 
 -  [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md)        
 
+The simple mount configuration is expected to be the [default](https://documentation.suse.com/sbp/sap/single-html/SAP-S4HA10-setupguide-simplemount-sle15/#id-introduction) for new deployments on SLES for SAP Applications 15.
+
 ## Prerequisites  
 
 The following guides contain all the required information to set up a NetWeaver HA system:
