@@ -7,16 +7,14 @@ ms.date: 06/09/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-
 ---
 
 # How do I move between aPaaS and PaaS solutions?
 
-When you begin your IoT journey, start with Azure IoT Central. IoT Central is the Microsoft application platform as a service (aPaaS) IoT offering. IoT Central is the fastest and easiest way to get started using Azure IoT. However, if you require a high level of customization, you can move from IoT Central and go lower in the stack with the Azure IoT platform as a service (PaaS) services. Use the *IoT Central migrator tool* to migrate devices seamlessly from IoT Central to a custom PaaS solution that uses the Device Provisioning Service (DPS) and IoT Hub service.
-
+IoT Central is the fastest and easiest way to evaluate your IoT journey. You can use the *IoT Central migrator tool* to migrate devices seamlessly from IoT Central to a PaaS solution that uses the Device Provisioning Service (DPS) and IoT Hub service.
 ## Move devices with the IoT Central migrator tool
 
-Use the migrator tool to move devices with no downtime from IoT Central to your own DPS instance. In a PaaS solution, you link a DPS instance to your IoT hub. The migrator tool disconnects devices from IoT Central and connects them to your PaaS solution. From this point forward, new devices are created in your IoT hub. Old device registrations remain in IoT Central so that you can fall back to IoT Central just if something goes wrong.
+Use the migrator tool to move devices with no downtime from IoT Central to your own DPS instance. In a PaaS solution, you link a DPS instance to your IoT hub. The migrator tool disconnects devices from IoT Central and connects them to your PaaS solution. From this point forward, new devices are created in your IoT hub. 
 
 Download the [migrator tool from GitHub](https://github.com/Azure/iotc-migrator).
 
@@ -37,7 +35,7 @@ Minimize business impact by following these steps:
 
 - When you've migrated all the devices to the PaaS solution and fully exported your data from IoT Central, you can remove the devices from the IoT Central solution.
 
-After the migration, devices aren't automatically deleted from the IoT Central application so that you can fail them back from your PaaS solution. These devices continue to be billed as IoT Central charges for all provisioned devices in the application. When you remove these devices from the IoT Central application, they're no longer be billed. Eventually, remove the IoT Central application.
+After the migration, devices aren't automatically deleted from the IoT Central application. These devices continue to be billed as IoT Central charges for all provisioned devices in the application. When you remove these devices from the IoT Central application, they're no longer be billed. Eventually, remove the IoT Central application.
 
 ## Firmware best practices
 
@@ -47,8 +45,7 @@ So that you can seamlessly migrate devices from your IoT Central applications to
 
 - The device must follow the [IoT Central data formats for telemetry, property, and commands](concepts-telemetry-properties-commands.md).
 
-- IoT Central uses the DPS to provision the devices. The PaaS solution must also use DPS to  provision the devices.
-
+- IoT Central uses the DPS to provision the devices. The PaaS solution must also use DPS to provision the devices.
 - The updateable DPS pattern ensures that the device can move seamlessly between IoT Central applications and the PaaS solution without any downtime.
 
 ## Move existing data out of IoT Central
@@ -58,3 +55,4 @@ You can configure IoT Central to continuously export telemetry and property valu
 ## Next steps  
 
 Now that you've learned about moving from aPaaS to PaaS solutions, a suggested next step is to explore the [IoT Central migrator tool](https://github.com/Azure/iotc-migrator).
+
