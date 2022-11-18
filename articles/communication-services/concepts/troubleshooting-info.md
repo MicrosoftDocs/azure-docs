@@ -144,7 +144,7 @@ The program brief ID can be found on the [Azure portal](https://portal.azure.com
 When troubleshooting send email or email message status requests, you may be asked to provide a `message ID`. This can be accessed in the response:
 
 # [.NET](#tab/dotnet)
-```csharp
+```dotnet
 Console.WriteLine($"MessageId = {emailResult.MessageId}");
 ```
 
