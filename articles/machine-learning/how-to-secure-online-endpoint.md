@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-author: dem108
-ms.author: sehan
+ms.reviewer: mopeakande
+author: jhirono
+ms.author: jhirono
 ms.date: 10/04/2022
 ms.custom: event-tier1-build-2022
 ---
@@ -86,17 +86,15 @@ az ml online-endpoint create -f endpoint.yml --set public_network_access=disable
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.ml.entities._common import PublicNetworkAccess
+from azure.ai.ml.entities import ManagedOnlineEndpoint
 
 endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',  
                          description='this is a sample online endpoint', 
                          tags={'foo': 'bar'}, 
                          auth_mode="key", 
-                         public_network_access=PublicNetworkAccess.Disabled 
-                         # public_network_access=PublicNetworkAccess.Enabled 
-) 
-                          
-ml_client.begin_create_or_update(endpoint) 
+                         public_network_access="disabled" 
+                         # public_network_access="enabled" 
+)
 ```
 
 ---
@@ -131,8 +129,8 @@ blue_deployment = ManagedOnlineDeployment(name='blue',
                                           environment=env, 
                                           instance_type='Standard_DS2_v2', 
                                           instance_count=1, 
-                                          egress_public_network_access=PublicNetworkAccess.Disabled 
-                                          # egress_public_network_access=PublicNetworkAccess.Enabled 
+                                          egress_public_network_access="disabled"
+                                          # egress_public_network_access="enabled" 
 ) 
                               
 ml_client.begin_create_or_update(blue_deployment) 
@@ -186,9 +184,9 @@ The following diagram shows the overall architecture of this example:
 
 To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_SUFFIX>` with a unique suffix for the resources that are created.
 
-:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_suffix":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_suffix":::
 
-:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_create":::
 
 ### Create the virtual machine jump box
 

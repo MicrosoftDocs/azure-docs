@@ -1,5 +1,5 @@
 ---
-title: Form Recognizer v3.0 content
+title: Form Recognizer v3.0 and v2.1 content
 description: include file
 author: laujan
 ms.author: lajanuar

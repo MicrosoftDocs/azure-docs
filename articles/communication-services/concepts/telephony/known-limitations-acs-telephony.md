@@ -22,6 +22,8 @@ This article provides information about limitations and known issues related to 
     - will be fixed in GA release
 - Different set of Media Processors (MP) is used with different IP addresses. Currently [any Azure IP address](./direct-routing-infrastructure.md#media-traffic-ip-and-port-ranges) can be used for media connection between Azure MP and Session Border Controller (SBC).
     - will be fixed in GA release
+- When you change direct routing configuration (add SBC, change Voice Route, etc.), wait approximately five minutes for changes to take effect.
+- If you move SBC FQDN to another Communication resource, wait approximately an hour, or restart SBC to force configuration change. 
 - Azure Communication Services SBC Fully Qualified Domain Name (FQDN) must be different from Teams Direct Routing SBC FQDN.
 - One SBC FQDN can be connected to a single resource only. Unique SBC FQDNs are required for pairing to different resources.
 - Wildcard SBC certificates require extra workaround. Contact Azure support for details.

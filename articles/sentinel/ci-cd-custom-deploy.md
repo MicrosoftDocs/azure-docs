@@ -225,7 +225,5 @@ A sample repository is available with demonstrating the deployment config file a
 For more information, see:
 
 - [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent)
-- [Create Resource Manager parameter file](/../../azure/azure-resource-manager/templates/parameter-files.md)
-- [Parameters in ARM templates](/../../azure/azure-resource-manager/templates/parameters.md)
-
-
+- [Create Resource Manager parameter file](../azure-resource-manager/templates/parameter-files.md)
+- [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md)

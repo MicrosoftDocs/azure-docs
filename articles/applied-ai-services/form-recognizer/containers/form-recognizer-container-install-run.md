@@ -7,9 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 12/16/2021
+ms.date: 10/20/2022
 ms.author: lajanuar
-keywords: on-premises, Docker, container, identify
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Install and run Form Recognizer v2.1-preview containers

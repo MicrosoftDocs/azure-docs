@@ -554,9 +554,6 @@ public class Function {
 
 ```
 
-> [!NOTE]
-> The value of AppSetting FUNCTIONS_EXTENSION_VERSION should be ~2 or ~3 for an optimized cold start experience.
-
 ## Next steps
 
 For more information about Azure Functions Java development, see the following resources:

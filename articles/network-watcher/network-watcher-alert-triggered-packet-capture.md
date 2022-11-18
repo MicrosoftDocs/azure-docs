@@ -4,16 +4,14 @@ titleSuffix: Azure Network Watcher
 description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
 services: network-watcher
 documentationcenter: na
-author: damendo
-
-
+author: shijaiswal
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: damendo 
+ms.author: shijaiswal 
 ms.custom: devx-track-azurepowershell
 
 ---

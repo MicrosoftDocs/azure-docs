@@ -3,8 +3,8 @@ title: Plan a Lifecycle Workflow deployment
 description: Planning guide for a successful Lifecycle Workflow deployment in Azure AD.
 services: active-directory
 documentationCenter: ''
-author: billmath
-manager: billmath
+author: owinfreyATL
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 04/16/2021
-ms.author: billmath
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 ---
@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 -  **Extend** your HR-driven provisioning process with other workflows that simplify and automate tasks.  
 - **Centralize** your workflow process so you can easily create and manage workflows all in one location.
 - **Troubleshoot** workflow scenarios with the Workflow history and Audit logs with minimal effort.
-- **Manage** user lifecycle at scale.  As your organization grows, the need for other resources to manage user lifecycles is minimalized.
+- **Manage** user lifecycle at scale.  As your organization grows, the need for other resources to manage user lifecycles is lowered.
 - **Reduce** or remove manual tasks that were done in the past with automated Lifecycle Workflows
 - **Apply** logic apps to extend workflows for more complex scenarios using your existing Logic apps
 
@@ -48,7 +48,7 @@ For more information on deployment plans, see [Azure AD deployment plans](../fun
 >[!Note]
 >Be aware that if your license expires, any workflows that you have created will stop working.
 >
->Workflows that are in progress when a license expires will continue to exectue, but no new ones will be processed.
+>Workflows that are in progress when a license expires will continue to execute, but no new ones will be processed.
 
 ### Plan the Lifecycle Workflow deployment project
 

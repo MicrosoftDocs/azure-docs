@@ -17,7 +17,7 @@ ms.custom: template-concept
 
 Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
-- [Azure Government](/azure/azure-government/documentation-government-welcome)
+- [Azure Government](../../azure-government/documentation-government-welcome.md)
 
 This page is updated monthly, so revisit it regularly.
 

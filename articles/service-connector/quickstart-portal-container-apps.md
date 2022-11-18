@@ -23,7 +23,7 @@ This quickstart shows you how to connect Azure Container Apps to other Cloud res
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An [app deployed to Container Apps](../container-apps/quickstart-portal.md) in a [region supported by Service Connector](./concept-region-support.md).
-- A target resource to connect your Container Apps to. For example, a [storage account](/azure/storage/common/storage-account-create).
+- A target resource to connect your Container Apps to. For example, a [storage account](../storage/common/storage-account-create.md).
 
 ## Sign in to Azure
 
@@ -74,7 +74,7 @@ You'll use Service Connector to create a new service connection in Container App
     1. Select **Review + create** and the **Create**
     1. Once your managed identity has been deployed, go to your Service Connector tab, select **Previous** and then **Next** to refresh the form's data, and under **User-assigned managed identity**, select the identity you've created.
 
-    For more information, go to [create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
+    For more information, go to [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp).
 
     ### [Connection string](#tab/CS)
 

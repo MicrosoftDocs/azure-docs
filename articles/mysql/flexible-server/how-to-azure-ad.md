@@ -1,5 +1,5 @@
 ---
-title: Set up Azure Active Directory authentication for Azure Database for MySQL flexible server Preview
+title: Set up Azure Active Directory authentication for Azure Database for MySQL flexible server
 description: Learn how to set up Azure Active Directory authentication for Azure Database for MySQL flexible Server
 author: vivgk
 ms.author: vivgk
@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server Preview
+# Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -38,9 +38,6 @@ To create an Azure AD Admin user, please follow the following steps.
 
     - **MySQL and Azure Active Directory authentication** – Allows authentication using a native MySQL password or an Azure AD account. Turns _OFF_ the server parameter aad_auth_only 
 
-    > [!NOTE]
-    > The server parameter aad_auth_only stays set to ON when the authentication type is changed to Azure Active Directory authentication only. We recommend disabling it manually when you opt for MySQL authentication only in the future.
-
 - **Select Identity** – Select/Add User assigned managed identity. To allow the UMI to read from Microsoft Graph as the server identity, the following permissions are required. Alternatively, give the UMI the [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) role. 
 
     - [User.Read.All](/graph/permissions-reference#user-permissions): Allows access to Azure AD user information.
@@ -52,7 +49,7 @@ For guidance about how to grant and use the permissions, refer [Microsoft Graph 
 After you grant the permissions to the UMI, they're enabled for all servers or instances that are created with the UMI assigned as a server identity.
 
 > [!IMPORTANT]
-> Only a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator) or [Privileged Role Administrator](/azure/active-directory/roles/permissions-reference#privileged-role-administrator) can grant these permissions.
+> Only a [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) can grant these permissions.
 
 - Select a valid Azure AD user or an Azure AD group in the customer tenant to be **Azure AD administrator**. Once Azure AD authentication support has been enabled, Azure AD Admins can be added as security principals with permissions to add Azure AD Users to the MySQL server.  
 
@@ -145,9 +142,6 @@ The access token validity is anywhere between 5 minutes to 60 minutes. We recomm
 **Step 3: Use token as password for logging in with MySQL**
 
 When connecting you need to use the access token as the MySQL user password. When using GUI clients such as MySQLWorkbench, you can use the method described above to retrieve the token. 
-
-> [!NOTE]
-> The newly restored server will also have the server parameter aad_auth_only set to ON if it was ON on the source server during failover. If you wish to use MySQL authentication on the restored server, you must manually disable this server parameter. Otherwise, an Azure AD Admin must be configured.
 
 #### Using MySQL CLI
 When using the CLI, you can use this short-hand to connect: 

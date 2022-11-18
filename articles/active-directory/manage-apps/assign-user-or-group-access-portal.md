@@ -53,6 +53,7 @@ To assign users to an app using PowerShell, you need:
 
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
+    ```
 
 To assign a group to an enterprise app, you must replace `Get-AzureADUser` with `Get-AzureADGroup` and replace `New-AzureADUserAppRoleAssignment` with `New-AzureADGroupAppRoleAssignment`.
 
@@ -68,6 +69,7 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
     # Assign the values to the variables
     $username = "britta.simon@contoso.com"
     $app_name = "Workplace Analytics"
+    ```
 
 1. In this example, we don't know what is the exact name of the application role we want to assign to Britta Simon. Run the following commands to get the user ($user) and the service principal ($sp) using the user UPN and the service principal display names.
 
@@ -75,6 +77,7 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
     # Get the user to assign, and the service principal for the app to assign to
     $user = Get-AzureADUser -ObjectId "$username"
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+    ```
 
 1. Run the command `$sp.AppRoles` to display the roles available for the Workplace Analytics application. In this example, we want to assign Britta Simon the Analyst (Limited access) Role.
    ![Shows the roles available to a user using Workplace Analytics Role](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
@@ -84,6 +87,7 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
     # Assign the values to the variables
     $app_role_name = "Analyst (Limited access)"
     $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
+    ```
 
 1. Run the following command to assign the user to the app role:
 
@@ -114,12 +118,11 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
 
 ## Remove all users who are assigned to the application
 
-   ```powershell
-
-   #Retrieve the service principal object ID.
-   $app_name = "<Your App's display name>"
-   $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
-   $sp.ObjectId
+```powershell
+#Retrieve the service principal object ID.
+$app_name = "<Your App's display name>"
+$sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+$sp.ObjectId
 
 # Get Service Principal using objectId
 $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"

@@ -82,7 +82,7 @@ The following table provides a list of high-level features and capabilities comp
 | Support for PgLogical extension | No | Yes |
 | Support logical replication with HA | N/A | [Limited](concepts-high-availability.md#high-availability---limitations) |
 | **Disaster Recovery** | | |
-| Cross region DR | Using read replicas, geo-redundant backup | Geo-redundant backup (Preview) in select regions|
+| Cross region DR | Using read replicas, geo-redundant backup | Geo-redundant backup (in [selected regions](overview.md#azure-regions)) |
 | DR using replica | Using async physical replication | N/A |
 | Automatic failover | No | N/A |
 | Can use the same r/w endpoint | No | N/A |
@@ -92,7 +92,7 @@ The following table provides a list of high-level features and capabilities comp
 | PITR capability to any time within the retention period | Yes | Yes
 | Ability to restore on a different zone | N/A | Yes |
 | Ability to restore to a different VNET | No | Yes |
-| Ability to restore to a different region | Yes (Geo-redundant) | Yes (in Preview in [selected regions](overview.md#azure-regions)) |
+| Ability to restore to a different region | Yes (Geo-redundant) | Yes (in [selected regions](overview.md#azure-regions)) |
 | Ability to restore a deleted server | Limited via API | Limited via support ticket |
 | **Read Replica** | | |
 | Support for read replicas | Yes | No |

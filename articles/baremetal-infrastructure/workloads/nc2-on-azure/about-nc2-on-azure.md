@@ -3,7 +3,8 @@ title: About Nutanix Cloud Clusters on Azure
 description: Learn about Nutanix Cloud Clusters on Azure and the benefits it offers.
 ms.topic: overview
 ms.subservice: baremetal-nutanix
-ms.date: 03/31/2021
+ms.custom: engagement-fy23
+ms.date: 10/13/2022
 ---
 
 # About Nutanix Cloud Clusters on Azure

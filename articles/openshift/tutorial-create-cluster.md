@@ -84,7 +84,7 @@ az feature register --namespace Microsoft.RedHatOpenShift --name preview
    > [!NOTE] 
    > ARO pull secret does not change the cost of the RH OpenShift license for ARO.
 
-A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended.
+A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended. Please note that the field `cloud.openshift.com` will be removed from your secret even if your pull-secret contains that field. This field enables an extra monitoring feature which sends data to RedHat and is thus disabled by default. To enable this feature, see https://docs.openshift.com/container-platform/4.11/support/remote_health_monitoring/enabling-remote-health-reporting.html . 
 
 1. [Navigate to your Red Hat OpenShift cluster manager portal](https://console.redhat.com/openshift/install/azure/aro-provisioned) and log in.
 
@@ -195,8 +195,7 @@ Next, you will create a virtual network containing two empty subnets. If you hav
      --resource-group $RESOURCEGROUP \
      --vnet-name aro-vnet \
      --name master-subnet \
-     --address-prefixes 10.0.0.0/23 \
-     --service-endpoints Microsoft.ContainerRegistry
+     --address-prefixes 10.0.0.0/23
    ```
 
 4. **Add an empty subnet for the worker nodes.**
@@ -206,18 +205,7 @@ Next, you will create a virtual network containing two empty subnets. If you hav
      --resource-group $RESOURCEGROUP \
      --vnet-name aro-vnet \
      --name worker-subnet \
-     --address-prefixes 10.0.2.0/23 \
-     --service-endpoints Microsoft.ContainerRegistry
-   ```
-
-5. **[Disable subnet private endpoint policies](../private-link/disable-private-link-service-network-policy.md) on the master subnet.** This is required for the service to be able to connect to and manage the cluster.
-
-   ```azurecli-interactive
-   az network vnet subnet update \
-     --name master-subnet \
-     --resource-group $RESOURCEGROUP \
-     --vnet-name aro-vnet \
-     --disable-private-link-service-network-policies true
+     --address-prefixes 10.0.2.0/23
    ```
 
 ## Create the cluster

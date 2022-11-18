@@ -19,7 +19,7 @@ The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine is isolated from
 This article shows you how to enable the folder sharing between the Windows host OS and the EFLOW virtual machine. 
 
 ## Prerequisites
-- Azure IoT Edge for Linux on Windows 1.3.1.30082 update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
+- Azure IoT Edge for Linux on Windows 1.3.1.02092 update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
 - A machine with an x64/x86 processor.
 - Windows 11 Sun Valley 2 (build 22621) or higher. To get Windows SV2 update, you must be part of Windows Insider Program. For more information, see [Getting started with the Windows Insider Program](https://insider.windows.com/en-us/getting-started). After installation, you can verify your build version by running `winver` at the command prompt.
 

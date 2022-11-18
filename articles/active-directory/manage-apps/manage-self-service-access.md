@@ -78,7 +78,7 @@ To enable self-service application access to an application, follow the steps be
 
 1. Select the **Save** button at the top of the pane to finish.
 
-Once you complete self-service application configuration, users can navigate to their My Apps portal and select **Add self-service apps** to find the apps that are enabled with self-service access. Business approvers also see a notification in their My Apps portal. You can enable an email notifying them when a user has requested access to an application that requires their approval.
+Once you complete self-service application configuration, users can navigate to their My Apps portal and select **Request new apps** to find the apps that are enabled with self-service access. Business approvers also see a notification in their My Apps portal. You can enable an email notifying them when a user has requested access to an application that requires their approval.
 
 ## Next steps
 

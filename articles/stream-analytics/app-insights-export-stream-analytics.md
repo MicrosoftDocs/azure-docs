@@ -2,8 +2,9 @@
 title: Export using Stream Analytics from Azure Application Insights | Microsoft Docs
 description: Stream Analytics can continuously transform, filter and route the data you export from Application Insights.
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 10/24/2022
 ms.service: stream-analytics
+ms.author: ebnkruma
 ---
 
 # Use Stream Analytics to process exported data from Application Insights
@@ -13,10 +14,10 @@ ms.service: stream-analytics
 In this example, we'll create an adaptor that takes data from Application Insights using continuous export, renames and processes some of the fields, and pipes it into Power BI.
 
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/app/export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/logs/log-powerbi.md) if you've [migrated to a workspace-based resource](../azure-monitor/app/convert-classic-resource.md). The path illustrated here is just an example to illustrate how to process exported data.
 
 > [!IMPORTANT]
-> Continuous export has been deprecated and is only supported for classic Application Insights resources. [Migrate to a workspace-based Application Insights resource](../azure-monitor/app/convert-classic-resource.md) to use [diagnostic settings](../azure-monitor/app/export-telemetry.md#diagnostic-settings-based-export) for exporting telemetry.
+> Continuous export will be deprecated on February 29, 2024 and is only supported for classic Application Insights resources. Azure Stream Analytics does not support reading from AppInsights with diagnostic settings.
 
 
 ![Block diagram for export through Stream Analytics to PowerBI.](./media/app-insights-export-stream-analytics/020.png)
@@ -191,7 +192,7 @@ Wait until the job is Running.
 ## See results in Power BI
 
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/app/export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](../azure-monitor/logs/log-powerbi.md) if you've [migrated to a workspace-based resource](../azure-monitor/app/convert-classic-resource.md). The path illustrated here is just an example to illustrate how to process exported data.
 
 
 Open Power BI with your work or school account, and select the dataset and table that you defined as the output of the Stream Analytics job.

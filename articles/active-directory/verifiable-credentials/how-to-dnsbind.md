@@ -17,6 +17,7 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
+
 ## Prerequisites
 
 To link your DID to your domain, you need to have completed the following.

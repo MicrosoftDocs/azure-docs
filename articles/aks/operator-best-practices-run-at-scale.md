@@ -20,6 +20,7 @@ To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota 
 To increase the node limit beyond 1000, you must have the following pre-requisites:
 - An existing AKS cluster that needs the node limit increase. This cluster shouldn't be deleted as that will remove the limit increase.
 - Uptime SLA enabled on your cluster.
+- Clusters should use Kubernetes version 1.23 or above
 
 > [!NOTE] 
 > It may take up to a week to enable your clusters with the larger node limit.
@@ -36,13 +37,15 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 > [!NOTE] 
 > You can't use NPM with clusters greater than 500 Nodes 
 
-
 ## Node pool scaling considerations and best practices
 
-* For system node pools, use the *Standard_D16ds_v5* SKU or equivalent core/memory VM SKUs to provide sufficient compute resources for *kube-system* pods.
+* For system node pools, use the *Standard_D16ds_v5* SKU or equivalent core/memory VM SKUs with ephemeral OS disks to provide sufficient compute resources for *kube-system* pods.
 * Create at-least five user node pools to scale up to 5,000 nodes since there's a 1000 nodes per node pool limit.
 * Use cluster autoscaler wherever possible when running at-scale AKS clusters to ensure dynamic scaling of node pools based on the demand for compute resources.
 * When scaling beyond 1000 nodes without cluster autoscaler, it's recommended to scale in batches of a maximum 500 to 700 nodes at a time. These scaling operations should also have 2 mins to 5-mins sleep time between consecutive scale-ups to prevent Azure API throttling.
+
+> [!NOTE] 
+> You can't use [Stop and Start feature][Stop and Start feature] on clusters enabled with the greater than 1000 node limit
 
 ## Cluster upgrade best practices
 
@@ -55,9 +58,10 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 [Managed NAT Gateway - Azure Kubernetes Service]: nat-gateway.md
 [Configure Azure CNI networking in Azure Kubernetes Service (AKS)]: configure-azure-cni.md#dynamic-allocation-of-ips-and-enhanced-subnet-support
 [max surge]: upgrade-cluster.md?tabs=azure-cli#customize-node-surge-upgrade
-[Azure Portal]: https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
+[Azure Portal]: https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
 [uptime SLA]: uptime-sla.md
 
 <!-- LINKS - Internal -->
 [quotas-skus-regions]: quotas-skus-regions.md
 [cluster upgrades]: upgrade-cluster.md
+[Stop and Start feature]: start-stop-cluster.md

@@ -109,7 +109,7 @@ The next step is to either choose existing prepared training data or upload new 
 - [From a local file](../reference.md#upload-a-file)
 - [Import from an Azure Blob store or other web location](../reference.md#import-a-file-from-azure-blob)
 
-For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](../../../storage/blobs/storage-blobs-overview.md)
 
 > [!NOTE]
 > Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200 MB in size.
@@ -345,7 +345,7 @@ When you're done with your customized model, you can delete the deployment and m
 
 You can use various methods to delete the deployment for your customized model:
 
-- [Azure OpenAI Studio](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-model-deployment)</a>
+- [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-model-deployment)</a>
 - [Azure CLI](/cli/azure/cognitiveservices/account/deployment?preserve-view=true#az-cognitiveservices-account-deployment-delete)
 - [REST APIs](../reference.md#delete-a-deployment) 
 - Python SDK
@@ -362,7 +362,7 @@ result = openai.Deployment.delete(sid=deployment_id)
 
 Similarly, you can use various methods to delete your customized model:
 
-- [Azure OpenAI Studio](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-customized-model)
+- [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-customized-model)
 - [REST APIs](../reference.md#delete-a-specific-fine-tuning-job) 
 - Python SDK
 
@@ -381,7 +381,7 @@ result = openai.FineTune.delete(sid=job_id)
 
 You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
-- [Azure OpenAI Studio](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-training-files)
+- [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
 - [REST APIs](../reference.md#delete-a-file) 
 - Python SDK
 

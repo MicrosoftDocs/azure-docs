@@ -149,4 +149,4 @@ When you’re done working with your pipeline, delete `quickstartdb` in your Azu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](/azure/app-service/tutorial-dotnetcore-sqldb-app)
+> [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](../../app-service/tutorial-dotnetcore-sqldb-app.md)

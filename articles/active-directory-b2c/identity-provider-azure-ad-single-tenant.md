@@ -81,7 +81,7 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 1. Select **Add optional claim**.
 1. For the **Token type**, select **ID**.
 1. Select the optional claims to add, `family_name` and `given_name`.
-1. Select **Add**. If **Turn on the Microsoft Graph email permission (required for claims to appear in token)** appears, enable it, and then select **Add** again.
+1. Select **Add**. If **Turn on the Microsoft Graph profile permission (required for claims to appear in token)** appears, enable it, and then select **Add** again.
 
 ## [Optional] Verify your app authenticity
 

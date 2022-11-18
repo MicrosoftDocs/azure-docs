@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 10/24/2022
 ms.author: banders
 ---
 
@@ -20,7 +20,8 @@ If you find that your Azure VMs, Dedicated Hosts, or Azure App Services reservat
 
 Although you can return the above offerings for a savings plan, you can't exchange a savings plan for them or for another savings plan.
 
-The ability to exchange Azure VM reservations will retire in the future. For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
+> [!NOTE]
+> Exchanges will be unavailable for Azure reserved instances for compute services purchased on or after **January 1, 2024**. Azure savings plan for compute is designed to help you save broadly on predictable compute usage. The savings plan provides more flexibility needed to accommodate changes such as virtual machine series and regions. With savings plan providing the flexibility automatically, we’re adjusting our reservations exchange policy. You can continue to exchange VM sizes (with instance size flexibility) but we'll no longer support exchanging instance series or regions for Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations. Until **December 31, 2023** you can trade-in your Azure reserved instances for compute for a savings plan. Or, you may continue to use and purchase reservations for those predictable, stable workloads where you know the specific configuration you’ll need and want additional savings. For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 
 The following reservations aren't eligible to be traded in for savings plans:
 

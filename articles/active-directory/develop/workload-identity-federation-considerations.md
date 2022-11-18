@@ -166,7 +166,7 @@ The following Azure Resource Manager template (ARM template) example creates thr
 
 *Applies to: applications and user-assigned managed identities (public preview)*
 
-It is possible to use a deny [Azure Policy](/azure/governance/policy/overview) as in the following ARM template example:
+It is possible to use a deny [Azure Policy](../../governance/policy/overview.md) as in the following ARM template example:
 
 ```json
 { 
@@ -190,10 +190,10 @@ The following table describes limits on requests to the user-assigned managed id
 
 | Operation         | Requests-per-second per Azure AD tenant    | Requests-per-second per subscription    | Requests-per-second per resource    |
 |-------------------|----------------|----------------|----------------|
-| [Create or update](/rest/api/managedidentity/user-assigned-identities/create-or-update) requests | 10 | 2 | 0.25 |
-| [Get](/rest/api/managedidentity/user-assigned-identities/get) requests | 30 | 10 | 0.5 |
-| [List by resource group](/rest/api/managedidentity/user-assigned-identities/list-by-resource-group) or [List by subscription](/rest/api/managedidentity/user-assigned-identities/list-by-subscription) requests | 15 | 5 | 0.25 |
-| [Delete](/rest/api/managedidentity/user-assigned-identities/delete) requests | 10 | 2 | 0.25 |
+| [Create or update](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/create-or-update) requests | 10 | 2 | 0.25 |
+| [Get](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/get) requests | 30 | 10 | 0.5 |
+| [List by resource group](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/list-by-resource-group) or [List by subscription](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/list-by-subscription) requests | 15 | 5 | 0.25 |
+| [Delete](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/delete) requests | 10 | 2 | 0.25 |
 
 ## Errors
 

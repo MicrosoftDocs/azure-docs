@@ -42,7 +42,7 @@ The notifications include diagnostic information. Here's an example:
 2. **Scope**. Is the problem affecting all traffic, or just some pages? Is it restricted to particular browsers or locations? This information can be obtained from the notification.
 3. **Diagnose**. Often, the diagnostic information in the notification will suggest the nature of the problem. For example, if response time slows down when request rate is high, it may indicate that your server or dependencies are beyond their capacity. 
 
-    Otherwise, open the Performance blade in Application Insights. You'll find there [Profiler](../profiler/profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](../snapshot-debugger/snapshot-debugger.md).
+    Otherwise, open the Performance pane in Application Insights. You'll find there [Profiler](../profiler/profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](../snapshot-debugger/snapshot-debugger.md).
 
 ## Configure Email Notifications
 
@@ -68,7 +68,7 @@ Emails about smart detection performance anomalies are limited to one email per 
 
   * Not yet, but you can:
     * [Set up alerts](./alerts-log.md) that tell you when a metric crosses a threshold.
-    * [Export telemetry](../app/export-telemetry.md) to a [database](../../stream-analytics/app-insights-export-sql-stream-analytics.md) or [to Power BI](../app/export-power-bi.md), where you can analyze it yourself.
+    * [Export telemetry](../app/export-telemetry.md) to a [database](../../stream-analytics/app-insights-export-sql-stream-analytics.md) or [to Power BI](../logs/log-powerbi.md), where you can analyze it yourself.
 * *How often is the analysis done?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
@@ -77,7 +77,7 @@ Emails about smart detection performance anomalies are limited to one email per 
 
 
 * *If I don't do anything in response to a notification, will I get a reminder?*
-  * No, you get a message about each issue only once. If the issue persists, it will be updated in the smart detection feed blade.
+  * No, you get a message about each issue only once. If the issue persists, it will be updated in the smart detection feed pane.
 * *I lost the email. Where can I find the notifications in the portal?*
   * In the Application Insights overview of your app, click the **Smart detection** tile. There you'll find all notifications up to 90 days back.
 
@@ -94,7 +94,7 @@ Consider the parameters of the issue. If it's geography-dependent, set up [avail
 ### Diagnose slow page loads
 Where is the problem? Is the server slow to respond, is the page too long, or does the browser need too much work to display it?
 
-Open the Browsers metric blade. The segmented display of browser page load time shows where the time is going. 
+Open the Browsers metric pane. The segmented display of browser page load time shows where the time is going. 
 
 * If **Send Request Time** is high, either the server is responding slowly, or the request is a post with large amount of data. Look at the [performance metrics](../app/performance-counters.md) to investigate response times.
 * Set up [dependency tracking](../app/asp-net-dependencies.md) to see whether the slowness is because of external services or your database.

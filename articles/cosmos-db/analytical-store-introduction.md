@@ -276,9 +276,9 @@ WITH (num varchar(100)) AS [IntToFloat]
 
 The full fidelity schema representation is designed to handle the full breadth of polymorphic schemas in the schema-agnostic operational data. In this schema representation, no items are dropped from the analytical store even if the well-defined schema constraints (that is no mixed data type fields nor mixed data type arrays) are violated.
 
-This is achieved by translating the leaf properties of the operational data into the analytical store with distinct columns based on the data type of values in the property. The leaf property names are extended with data types as a suffix in the analytical store schema such that they can be queries without ambiguity.
+This is achieved by translating the leaf properties of the operational data into the analytical store as JSON `key-value` pairs, where the datatype is the `key` and the property content is the `value`. This JSON object representation allows queries without ambiguity, and you can individually analyze each datatype.
 
-In the full fidelity schema representation, each datatype of each property will generate a column for that datatype. Each of them count as one of the 1000 maximum properties.
+In other words, in the full fidelity schema representation, each datatype of each property of each document will generate a `key-value`pair in a JSON object for that property. Each of them count as one of the 1000 maximum properties limit.
 
 For example, let's take the following sample document in the transactional store:
 
@@ -296,11 +296,14 @@ salary: 1000000
 }
 ```
 
-The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it's a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
+The nested object `address` is a property in the root level of the document and will be represented as a column. Each leaf property in the `address` object will be represented as a JSON object: `{"object":{"streetNo":{"int32":15850},"streetName":{"string":"NE 40th St."},"zip":{"int32":98052}}}`.
 
-##### Data type to suffix map for full fidelity schema
+Unlike the well-defined schema representation, the full fidelity method allows variation in datatypes. If the next document in this collection of the example above has `streetNo` as a string, it will be represented in analytical store as `"streetNo":{"string":15850}`. In well-defined schema method, it wouldn't be represented.
 
-Here's a map of all the property data types and their suffix representations in the analytical store in full fidelity schema representation:
+
+##### Datatypes map for full fidelity schema
+
+Here's a map of all the property data types and their representations in the analytical store in full fidelity schema representation:
 
 |Original data type  |Suffix  |Example  |
 |---------|---------|---------|
@@ -324,11 +327,118 @@ Here's a map of all the property data types and their suffix representations in 
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
+##### Using full fidelity schema on Spark
+
+Spark will manage each datatype as a column when loading into a `DataFrame`. Let's assume a collection with the documents below.
+
+```json
+{
+	"_id" : "1" ,
+	"item" : "Pizza",
+	"price" : 3.49,
+	"rating" : 3,
+	"timestamp" : 1604021952.6790195
+},
+{
+	"_id" : "2" ,
+	"item" : "Ice Cream",
+	"price" : 1.59,
+	"rating" : "4" ,
+	"timestamp" : "2022-11-11 10:00 AM"
+}
+```
+
+While the first document has `rating` as a number and `timestamp` in utc format, the second document has `rating` and `timestamp` as strings. Assuming that this collection was loaded into `DataFrame` without any data transformation, the output of the `df.printSchema()`  is:
+
+```JSON
+root
+ |-- _rid: string (nullable = true)
+ |-- _ts: long (nullable = true)
+ |-- id: string (nullable = true)
+ |-- _etag: string (nullable = true)
+ |-- _id: struct (nullable = true)
+ |    |-- objectId: string (nullable = true)
+ |-- item: struct (nullable = true)
+ |    |-- string: string (nullable = true)
+ |-- price: struct (nullable = true)
+ |    |-- float64: double (nullable = true)
+ |-- rating: struct (nullable = true)
+ |    |-- int32: integer (nullable = true)
+ |    |-- string: string (nullable = true)
+ |-- timestamp: struct (nullable = true)
+ |    |-- float64: double (nullable = true)
+ |    |-- string: string (nullable = true)
+ |-- _partitionKey: struct (nullable = true)
+ |    |-- string: string (nullable = true)
+ ```
+
+In well-defined schema representation, both `rating` and `timestamp` of the second document wouldn't be represented. In full fidelity schema, you can use the following examples to individually access to each value of each datatype.
+
+In the example below, we can use `PySpark` to run an aggregation:
+
+```PySpark
+df.groupBy(df.item.string).sum().show()
+```
+
+In the example below, we can use `PySQL` to run another aggregation:
+
+```PySQL
+df.createOrReplaceTempView("Pizza")
+sql_results = spark.sql("SELECT sum(price.float64),count(*) FROM Pizza where timestamp.string is not null and item.string = 'Pizza'")
+sql_results.show()
+```
+
+##### Using full fidelity schema on SQL
+
+Considering the same documents of the Spark example above, customers can use the following syntax example:
+
+```SQL
+SELECT rating,timestamp_string,timestamp_utc
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
+                CONNECTION = 'Account=<your-database-account-name';Database=<your-database-name>',
+                OBJECT = '<your-collection-name>',
+                SERVER_CREDENTIAL = '<your-synapse-sql-server-credential-name>')
+WITH ( 
+rating integer '$.rating.int32',    
+timestamp varchar(50) '$.timestamp.string',
+timestamp_utc float '$.timestamp.float64' 
+) as HTAP 
+WHERE timestamp is not null or timestamp_utc is not null
+```
+
+Starting from the query above, customers can implement transformations using `cast`, `convert` or any other T-SQL function to manipulate your data. Customers can also hide complex datatype structures by using views.
+
+```SQL
+create view MyView as
+SELECT MyRating=rating,MyTimestamp = convert(varchar(50),timestamp_utc)
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
+                CONNECTION = 'Account=<your-database-account-name';Database=<your-database-name>',
+                OBJECT = '<your-collection-name>',
+                SERVER_CREDENTIAL = '<your-synapse-sql-server-credential-name>')
+WITH ( 
+rating integer '$.rating.int32',    
+timestamp_utc float '$.timestamp.float64' 
+) as HTAP 
+WHERE  timestamp_utc is not null
+union all 
+SELECT MyRating=convert(integer,rating_string),MyTimestamp = timestamp_string
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
+                CONNECTION = 'Account=<your-database-account-name';Database=<your-database-name>',
+                OBJECT = '<your-collection-name>',
+                SERVER_CREDENTIAL = '<your-synapse-sql-server-credential-name>')
+WITH ( 
+rating_string varchar(50) '$.rating.string',    
+timestamp_string varchar(50) '$.timestamp.string' 
+) as HTAP 
+WHERE  timestamp_string is not null
+```
+
+
 ##### Working with the MongoDB `_id` field
 
-the MongoDB `_id` field is fundamental to every collection in MongoDB and originally has a hexadecimal representation. As you can see in the table above, `Full Fidelity Schema` will preserve its characteristics, creating a challenge for its visualization in Azure Synapse Analytics. For correct visualization, you must convert the `_id` datatype as below:
+the MongoDB `_id` field is fundamental to every collection in MongoDB and originally has a hexadecimal representation. As you can see in the table above, full fidelity schema will preserve its characteristics, creating a challenge for its visualization in Azure Synapse Analytics. For correct visualization, you must convert the `_id` datatype as below:
 
-###### Spark
+###### Working with the MongoDB `_id` field in Spark
 
 ```Python
 import org.apache.spark.sql.types._
@@ -345,7 +455,7 @@ df = spark.read.format("cosmos.olap")\
 
 df.select("id", "_id.objectId").show()
 ```
-###### SQL
+###### Working with the MongoDB `_id` field in SQL
 
 ```SQL
 SELECT TOP 100 id=CAST(_id as VARBINARY(1000))
@@ -374,7 +484,7 @@ The schema representation type decision must be made at the same time that Synap
 > In the command above, replace `create` with `update` for existing accounts.
  
   With the PowerShell:
-  ```
+  ```PowerShell
    New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
    ```
  
@@ -402,6 +512,7 @@ Some points to consider:
 *    You can achieve longer retention of your operational data in the analytical store by setting ATTL >= TTTL at the container level.
 *    The analytical store can be made to mirror the transactional store by setting ATTL = TTTL.
 *    If you have ATTL bigger than TTTL, at some point in time you'll have data that only exists in analytical store. This data is read only.
+*    Currently we don't delete any data from analytical store. If you set your ATTL to any positive integer, the data won't be included in your queries and you won't be billed for it. But if you change ATTL back to `-1`, all the data will show up again, you will start to be billed for all the data volume.
 
 How to enable analytical store on a container:
 
@@ -441,10 +552,7 @@ Although analytical store has built-in protection against physical failures, bac
 Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
 
 * Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account.
-* Continuous backup mode isn't fully supported yet:
-  * Database accounts with Synapse Link enabled currently can't use continuous backup mode. 
-  * Database accounts with continuous backup mode enabled can enable Synapse Link through a support case. This capability is in preview now.
-  * Database accounts that have neither continuous backup nor Synapse Link enabled can use these two features together through a support case. This capability is in preview now.
+* Currently Continuous backup mode and Synapse Link aren't supported in the same database account. Customers have to choose one of these two features and this decision can't be changed.
 
 ### Backup Polices
 
@@ -521,14 +629,13 @@ Analytical store follows a consumption-based pricing model where you're charged 
 
 Analytical store pricing is separate from the transaction store pricing model. There's no concept of provisioned RUs in the analytical store. See [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for full details on the pricing model for analytical store.
 
-Data in the analytics store can only be accessed through Azure Synapse Link, which is done in the Azure Synapse Analytics runtimes: Azure Synapse Apache Spark pools and
-Azure Synapse serverless SQL pools. See [Azure Synapse Analytics pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics/) for full details on the pricing model to access data in analytical store.
+Data in the analytics store can only be accessed through Azure Synapse Link, which is done in the Azure Synapse Analytics runtimes: Azure Synapse Apache Spark pools and Azure Synapse serverless SQL pools. See [Azure Synapse Analytics pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics/) for full details on the pricing model to access data in analytical store.
 
-In order to get a high-level cost estimate to enable analytical store on an Azure Cosmos DB container, from the analytical store perspective, you can use the [Azure Cosmos DB Capacity planner](https://cosmos.azure.com/capacitycalculator/) and get an estimate of your analytical storage and write operations costs. Analytical read operations costs depends on the analytics workload characteristics but as a high-level estimate, scan of 1 TB of data in analytical store typically results in 130,000 analytical read operations, and results in a cost of $0.065.
+In order to get a high-level cost estimate to enable analytical store on an Azure Cosmos DB container, from the analytical store perspective, you can use the [Azure Cosmos DB Capacity planner](https://cosmos.azure.com/capacitycalculator/) and get an estimate of your analytical storage and write operations costs. 
 
-> [!NOTE]
-> Analytical store read operations estimates aren't included in the Azure Cosmos DB cost calculator since they are a function of your analytical workload. While the above estimate is for scanning 1TB of data in analytical store, applying filters reduces the volume of data scanned and this determines the exact number of analytical read operations given the consumption pricing model. A proof-of-concept around the analytical workload would provide a more finer estimate of analytical read operations. This estimate doesn't include the cost of Azure Synapse Analytics.
+Analytical store read operations estimates aren't included in the Azure Cosmos DB cost calculator since they are a function of your analytical workload. But as a high-level estimate, scan of 1 TB of data in analytical store typically results in 130,000 analytical read operations, and results in a cost of $0.065. As an example, if you use Azure Synapse serverless SQL pools to perform this scan of 1 TB, it will cost $5.00 according to [Azure Synapse Analytics pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics/). The final total cost for this 1 TB scan would be $5.065.
 
+While the above estimate is for scanning 1TB of data in analytical store, applying filters reduces the volume of data scanned and this determines the exact number of analytical read operations given the consumption pricing model. A proof-of-concept around the analytical workload would provide a more finer estimate of analytical read operations. This estimate doesn't include the cost of Azure Synapse Analytics.
 
 
 ## Next steps
