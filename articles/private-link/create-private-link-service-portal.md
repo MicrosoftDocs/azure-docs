@@ -275,7 +275,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
     | Setting | Value |
     | ------- | ----- |
     | **Networking** |  |
-    | Virtual network | Select **myVNet**. |
+    | Virtual network | Select **myVNetPE**. |
     | Subnet | Select **myVNet/mySubnetPE (10.1.0.0/24)**. |
     | Network policy for private endpoints | Select **edit** to apply Network security groups and/or Route tables to the subnet that contains the private endpoint. </br> In **Edit subnet network policy**, select the checkbox next to **Network security groups** and **Route Tables**. </br> Select **Save**. </br></br>For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
 
