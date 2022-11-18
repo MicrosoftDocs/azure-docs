@@ -4,7 +4,7 @@ description: include file
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include
-ms.date: 11/17/2022
+ms.date: 11/18/2022
 ms.author: anfdocs
 ms.custom: include file
 
@@ -13,4 +13,4 @@ ms.custom: include file
 ---
 
 > [!IMPORTANT]
-> Once the volume is created using the availability zone volume placement feature, the volume has the same level of support as other volumes deployed in the subscription without this feature enabled. For example, if there is an issue with backup and restore on the volume, it will be supported because the problem is not with the availability zone volume placement feature itself.
+> Once the volume is created using the availability zone volume placement feature, the volume has the same level of support as other volumes deployed in the subscription without this feature enabled. For example, if there is an issue with other generally available features on the volume such as snapshots, it will be supported because the problem is not with the availability zone volume placement feature itself.
