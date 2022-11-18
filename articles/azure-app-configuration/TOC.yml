@@ -115,6 +115,8 @@
           href: monitor-app-configuration.md
         - name: Reference for monitoring data
           href: monitor-app-configuration-reference.md
+    - name: Connect to Container Apps
+      href: connect-container-apps.md
 - name: Samples
   items:
     - name: Azure CLI
