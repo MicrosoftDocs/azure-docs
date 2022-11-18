@@ -617,6 +617,13 @@ Access the custom applications that you set up in studio:
 > [!NOTE]
 > It might take a few minutes after setting up a custom application until you can access it via the links above. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
 
+Once you launch **RStudio**, you may not see any of your files, even after specifying the correct **Bind mounts** above.  If this happens:
+
+1. Select the **...** at the far right of the Files pane
+1. For the **Path to folder**, type `/home/azureuser/cloudfiles/code`
+
+:::image type="content" source="media/how-to-create-manage-compute-instance/find-files.png" alt-text="Screenshot: Configure RStudio to find your cloudfiles.":::
+
 ## Manage
 
 Start, stop, restart, and delete a compute instance. A compute instance doesn't automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you'll still be billed for disk, public IP, and standard load balancer. 
