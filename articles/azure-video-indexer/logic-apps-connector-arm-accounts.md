@@ -138,8 +138,9 @@ The following image shows the first flow:
     > Before moving to the next step, set up the right permission between the Logic app and the Azure Video Indexer account.
     >
     > Make sure you have followed the steps to enable the system -assigned managed identity of your Logic Apps.
-
-    ![Screenshot of the how to enable the system assigned managed identity.](./media/logic-apps-connector-arm-accounts/enable-system.png)
+    
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/logic-apps-connector-arm-accounts/enable-system.png" alt-text="Screenshot of the how to enable the system assigned managed identity." lightbox="./media/logic-apps-connector-arm-accounts/enable-system.png":::    
     1. Set up system assigned managed identity for permission on Azure Video Indexer resource.
 
         In the Azure portal, go to your Azure Video Indexer resource/account.
