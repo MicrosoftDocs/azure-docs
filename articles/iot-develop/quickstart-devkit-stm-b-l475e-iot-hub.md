@@ -132,7 +132,8 @@ To add a connection to your IoT hub:
     ```
 
 1. Copy the connection string without the surrounding quotation characters.
-1. In Azure IoT Explorer, select **IoT hubs** on the left menu, then select **+ Add connection**.
+1. In Azure IoT Explorer, select **IoT hubs** on the left menu, then select **Connect via IoT Hub connection string**.
+1. Select **+ Add connection**. 
 1. Paste the connection string into the **Connection string** box.
 1. Select **Save**.
 
@@ -158,14 +159,14 @@ To register a device:
 
 1. From the home view in IoT Explorer, select **IoT hubs**.
 1. The connection you previously added should appear. Select **View devices in this hub** below the connection properties.
-1. Select **+ New** and enter a device ID for your device; for example, *my device*. Leave all other properties the same.
+1. Select **+ New** and enter a device ID for your device; for example, `mydevice`. Leave all other properties the same.
 1. Select **Create**.
 
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity":::
 
 1. Use the copy buttons to copy and note down the **Device ID** and **Primary key** fields.
 
-Before continuing to the next section, confirm that you've copied the following values:
+Before continuing to the next section, confirm that you've copied the following values to a safe location:
 
 * `hostName`
 * `deviceId`
@@ -182,6 +183,12 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
     *getting-started\STMicroelectronics\B-L475E-IOT01A\app\azure_config.h*
 
+1. Comment out the following line near the top of the file as shown:
+
+    ```c
+    // #define ENABLE_DPS
+    ```
+
 1. Set the Wi-Fi constants to the following values from your local environment.
 
     |Constant name|Value|
@@ -194,8 +201,8 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
     |Constant name|Value|
     |-------------|-----|
-    |`IOT_DPS_ID_SCOPE` |{*Your ID scope value*}|
-    |`IOT_DPS_REGISTRATION_ID` |{*Your Device ID value*}|
+    |`IOT_HUB_HOSTNAME` |{*Your Iot hub hostName value*}|
+    |`IOT_HUB_DEVICE_ID` |{*Your Device ID value*}|
     |`IOT_DEVICE_SAS_KEY` |{*Your Primary key value*}|
 
 1. Save and close the file.
@@ -467,6 +474,7 @@ As a next step, explore the following articles to learn more about using the IoT
 > [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [!div class="nextstepaction"]
 > [Connect an STMicroelectronics B-L475E-IOT01A to IoT Central](quickstart-devkit-stm-b-l475e.md)
 
 > [!IMPORTANT]
