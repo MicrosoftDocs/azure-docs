@@ -120,7 +120,7 @@ Below are instructions on how to get an image template resource using Resource G
 
 1. Use the search bar on the far left to search resource by type and name to see how the details will give you properties of the image template. The *See details* option on the bottom right will show the image template's properties attribute and tags separately. Template name, location, id, and tenant id can be used to get the correct image template resource.
 
-    ![Diagram of the VM Image Builder process, showing the sources (Windows/Linux), customizations (Shell, PowerShell, Windows Update and Restart, adding files), and global distribution with Compute Gallery](./media/image-builder-relaibility/resource-graph-explorer-search.png)
+    ![Diagram of the VM Image Builder process, showing the sources (Windows/Linux), customizations (Shell, PowerShell, Windows Update and Restart, adding files), and global distribution with Compute Gallery](./media/image-builder-reliability/resource-graph-explorer-search.png)
 
 <!-- 4E. Capacity and proactive disaster recovery resiliency ---------------------------
 Microsoft and its customers operate under the Shared responsibility model. This means that for customer-enabled DR (customer-responsible services), the customer must address DR for any service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there is no guarantee of capacity at time of impact for those who have not pre-allocated. 
