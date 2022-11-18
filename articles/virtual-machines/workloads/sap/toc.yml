@@ -383,7 +383,7 @@
   - name: Connect SAP services with Azure AD
     items:
     - name: SAP workload security - Microsoft Azure Well-Architected Framework 
-      href: ../../../architecture/framework/sap/security.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      href: /azure/architecture/framework/sap/security.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
 - name: SAP on Azure Large Instances
   items:
   - name: Overview
