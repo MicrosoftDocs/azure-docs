@@ -336,7 +336,7 @@ items:
     href: concepts/network-traversal.md    
   - name: Developer Tools
     items:
-      - name: Network Diagnostic Tool
+      - name: Network Diagnostic Tool 
         herf: concepts/developer-tools/network-diagnostic.md
   - name: Data residency and user privacy
     href: concepts/privacy.md
