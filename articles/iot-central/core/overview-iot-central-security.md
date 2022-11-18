@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # IoT Central security guide
 
-An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for administrators who manage security in IoT Central applications.
+An IoT Central application lets you monitor and manage your devices, thereby allowing you to evaluate your IoT journey. This guide is for administrators who manage security in IoT Central applications.
 
 In IoT Central, you can configure and manage security in the following areas:
 
@@ -95,7 +95,7 @@ Data export in IoT Central lets you continuously stream device data to destinati
 ## Audit logs
 
 Audit logs let administrators track activity within your IoT Central application. Administrators can see who made what changes at what times. To learn more, see [Use audit logs to track activity in your IoT Central application](howto-use-audit-logs.md).
-  
 ## Next steps
 
 Now that you've learned about security in your Azure IoT Central application, the suggested next step is to learn about [Manage users and roles](howto-manage-users-roles.md) in Azure IoT Central.
+
