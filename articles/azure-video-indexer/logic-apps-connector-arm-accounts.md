@@ -196,7 +196,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
     
     Follow all the steps from:
 
-    1. **Generate an access token** we did for the first flow.
+    1. **Generate an access token** we did for the first flow ([as shown here](#access_token)).
     1. Select **Save** -> **+ New step**.
 1. Get Video Indexer insights.
 
