@@ -48,9 +48,9 @@ Licenses are assigned to the user shortly after they're added to the group. When
 
 Consider the example of an on-premises identity management solution that decides which users should have access to Microsoft web services. It uses `extensionAttribute1` to store a string value representing the licenses the user should have. Azure AD Connect syncs it with Azure AD.
 
-Users might need one license but not another, or might need both. Here's an example, in which you're distributing Microsoft 365  E5 and Enterprise Mobility + Security (EMS) licenses to users in groups:
+Users might need one license but not another, or might need both. In this example, you're distributing Microsoft 365 E5 and Enterprise Mobility + Security (EMS) licenses to users in groups. 
 
-#### Microsoft 365 E5
+Users that need the Microsoft 365 E5 license will be added to the *Microsoft365_E5* group. User that need the Enterprise Mobility + Security license will be added to the *EMS* group. A third group is created for users that need both licenses. 
 
 ![Screenshot of Microsoft 365 E5 attribute in dynamic membership rules.](./media/licensing-group-advanced/dynamic-groups-rules-E5.png)
 
