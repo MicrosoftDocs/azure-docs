@@ -170,7 +170,7 @@
           href: concept-mlflow.md
         - name: Git integration
           displayName: github gitlab
-          href: ../concept-train-model-git-integration.md
+          href: concept-train-model-git-integration.md
     - name: Responsible AI
       items:
         - name: Responsible AI overview
