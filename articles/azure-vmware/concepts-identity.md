@@ -4,7 +4,7 @@ description: Learn about the identity and access concepts of Azure VMware Soluti
 ms.topic: conceptual
 ms.service: azure-vmware
 ms.date: 11/18/2022
-ms.custom: references_regions
+ms.custom: "references_regions, engagement-fy23"
 ---
 
 # Azure VMware Solution identity concepts
