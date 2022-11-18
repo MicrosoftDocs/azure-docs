@@ -34,7 +34,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## Create a custom topic
 
-An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The event grid topic name must be unique because it's represented by a DNS entry.
+An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The Event Grid topic name must be unique because it's represented by a DNS entry.
 
 1. Specify a name for the topic. 
 
@@ -68,11 +68,11 @@ Before subscribing to the custom topic, let's create the endpoint for the event 
 
 ## Subscribe to a custom topic
 
-You subscribe to an event grid topic to tell Event Grid which events you want to track. The following example subscribes to the custom topic you created, and passes the resource ID of the event hub for the endpoint. The endpoint is in the format:
+You subscribe to an Event Grid topic to tell Event Grid which events you want to track. The following example subscribes to the custom topic you created, and passes the resource ID of the event hub for the endpoint. The endpoint is in the format:
 
 `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>`
 
-The following script gets the resource ID for the event hub, and subscribes to an event grid topic. It sets the endpoint type to `eventhub` and uses the event hub ID for the endpoint.
+The following script gets the resource ID for the event hub, and subscribes to an Event Grid topic. It sets the endpoint type to `eventhub` and uses the event hub ID for the endpoint.
 
 ```azurecli-interactive
 hubid=$(az eventhubs eventhub show --name $hubname --namespace-name $namespace --resource-group gridResourceGroup --query id --output tsv)
@@ -96,7 +96,7 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-To simplify this article, you use sample event data to send to the custom topic. Typically, an application or Azure service would send the event data. CURL is a utility that sends HTTP requests. In this article, use CURL to send the event to the custom topic.  The following example sends three events to the event grid topic:
+To simplify this article, you use sample event data to send to the custom topic. Typically, an application or Azure service would send the event data. CURL is a utility that sends HTTP requests. In this article, use CURL to send the event to the custom topic.  The following example sends three events to the Event Grid topic:
 
 ```azurecli-interactive
 for i in 1 2 3
@@ -106,7 +106,7 @@ do
 done
 ```
 
-On the **Overview** page for your Event Hubs namespace in the Azure portal, notice that Event Grid sent those three events to the event hub. You will see the same chart on the **Overview** page for the **demohub** Event Hubs instance page. 
+On the **Overview** page for your Event Hubs namespace in the Azure portal, notice that Event Grid sent those three events to the event hub. You'll see the same chart on the **Overview** page for the `demohub` Event Hubs instance page. 
 
 :::image type="content" source="./media/custom-event-to-eventhub/show-result.png" lightbox="./media/custom-event-to-eventhub/show-result.png" alt-text="Image showing the portal page with incoming message count as 3.":::
 
