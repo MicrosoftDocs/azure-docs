@@ -30,7 +30,7 @@ The following [Azure Marketplace images](/azure/virtual-machines/image-builder-o
 
 ### Prerequisites
 
-As Azure Image Builder (AIB) is a regional service with a cluster serving in a single region, you must protect your system from region failure by creating an image builder template and replicate related resources across different regions. 
+Since Azure Image Builder (AIB) is a regional service with a cluster serving in a single region, you must protect your system from region failure by creating an image builder template and replicating related resources across different regions. 
 
 ### SLA improvements
 
