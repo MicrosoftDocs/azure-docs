@@ -55,3 +55,4 @@ To enable replication to a secondary location, follow the below steps:
     :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/review.png" alt-text=" Review settings tab":::
 
 1. In **Review + Start replication**, review the VM settings and select **Start replication**.
+
