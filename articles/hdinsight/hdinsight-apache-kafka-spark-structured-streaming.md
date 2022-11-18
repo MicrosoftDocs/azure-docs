@@ -323,9 +323,5 @@ To remove the resource group using the Azure portal:
 >
 > Deleting a Kafka on HDInsight cluster deletes any data stored in Kafka.
 
-## Next steps
 
-In this tutorial, you learned how to use Apache Spark Structured Streaming. To write and read data from Apache Kafka on HDInsight. Use the following link to learn how to use Apache Storm with Kafka.
 
-> [!div class="nextstepaction"]
-> [Use Apache Storm with Apache Kafka](hdinsight-apache-storm-with-kafka.md)
