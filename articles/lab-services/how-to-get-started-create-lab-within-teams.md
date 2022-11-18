@@ -1,7 +1,7 @@
 ---
-title: Manage and access labs in Microsoft Teams
+title: Configure Teams to access lab plans
 titleSuffix: Azure Lab Services
-description: Learn how to access and manage Azure Lab Services labs within Microsoft Teams.
+description: Learn how to configure Microsoft Teams to access Azure Lab Services lab plans.
 ms.topic: how-to
 ms.date: 11/15/2022
 author: ntrogh
@@ -9,75 +9,72 @@ ms.author: nicktrog
 ms.custom: engagement-fy23
 ---
 
-# Manage Azure Lab Services labs within Teams
+# Configure Microsoft Teams to access Azure Lab Services lab plans
 
-Learn how to access and manage Azure Lab Services labs within Microsoft Teams. Add the Azure Lab Services Teams app to a team and let educators create and manage labs from within Teams. Students can connect to their lab without navigating to the Azure Lab Services portal. Learn more about the [benefits of using Azure Lab Services within Teams](./lab-services-within-teams-overview.md).
+In this article, you learn how to configure Microsoft Teams to access Azure Lab Services lab plans. Add the Azure Lab Services Teams app to a team channel to let educators and students access to their labs directly without navigating to the Azure Lab Services portal. Learn more about the [benefits of using Azure Lab Services within Teams](./lab-services-within-teams-overview.md).
 
-This article describes how to:
-
-- Add a lab plan to a Teams channel.
-- Manage lab user lists.
-- Manage a lab virtual machine (VM) pool.
-- Delete labs.
-- Configure lab schedules and settings.
-- Access a lab VM as a student.
+For information about creating and managing labs in Microsoft Teams, see [Create and manage labs in Microsoft Teams](./how-to-manage-labs-within-teams.md).
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 ## Prerequisites
 
-- An Azure Lab Services lab plan. If you don't have a lab plan yet, see For information, see [Tutorial: Set up a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+- An existing Azure Lab Services lab plan. If you don't have a lab plan yet, see [Tutorial: Set up a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
 - The lab plan is created in the same tenant as Microsoft Teams.
 - To add the Azure Lab Services Teams app to a channel, your account needs to be an owner of the team in Microsoft Teams.
 - To add a lab plan to Teams, your account should have the Owner, Lab Creator, or Contributor role on the lab plan.
 
 ## User workflow 
 
-The typical workflow when using Azure Lab Services within Teams, is the following:
+The typical workflow when using Azure Lab Services within Teams is:
 
-1. The lab plan owner [creates a lab plan in the Azure portal](./tutorial-setup-lab-plan.md).
-1. The lab plan owner [adds educators to the Lab Creator role in the Azure portal](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role) so they can create labs for their classes.
-1. Educators create labs in Teams, pre-configure the template VM, and publishes the lab to create VMs for everyone on the team.
-1. Once the lab is published, Azure Lab Services automatically assigns a VM to each person on the team membership list upon their first sign into Azure Lab Services.
-1. Team members access the lab by using the **Azure Lab Services** Teams app, or by accessing the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). Team members can then use the VM to do the class work and homework.
+1. The admin [creates a lab plan in the Azure portal](./tutorial-setup-lab-plan.md).
+1. The admin [adds educators to the Lab Creator role in the Azure portal](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role), so they can create labs for their classes.
+1. Educators create labs in Teams, pre-configure the template VM, and publish the lab to create VMs for everyone on the team.
+1. Azure Lab Services automatically assigns a VM to each person on the team membership list upon their first sign into Azure Lab Services.
+1. Team members access the lab by using the Azure Lab Services Teams app, or by accessing the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). Team members can then use the VM to do the class work and homework.
 
 > [!IMPORTANT]
 > Azure Lab Services can be used within Teams only if the lab plans are created in the same tenant as Teams.
 
-## Add Azure Lab Services app as a tab to a Team
+## Add the Azure Lab Services Teams app to a channel
 
-You, as a Team owner, can add **Azure Lab Services** app directly in your Teams channels, and then the app is available for everyone in the team to use. Follow the below three steps:
+You can add the Azure Lab Services Teams app in your Teams channels. The app is then available as a tab for everyone that has access to the channel. To add the Azure Lab Services Teams app, your account needs to be an owner of the team in Microsoft Teams.
 
-1. Navigate to the Teams channel where you want to add the app and select **+** to add a tab.
-1. Search for **Azure Lab Services** from the tab options and add this app.
+To add the Azure Lab Services Teams app to a channel:
+
+1. Navigate to the Teams channel where you want to add Azure Lab Services. 
+
+1. In the list of tabs at the top, select **+** to add a new tab.
+
+1. Enter *Azure Lab Services* in the search box, and then select the **Azure Lab Services** icon to add the app.
+
+    :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Screenshot that shows the dialog for adding apps in Teams, highlighting the Azure Lab Services app.":::
 
     > [!NOTE]
-    > Only Team **Owners** will be able to create labs for the team.
+    > Only team owners can add the Azure Lab Services app to the channel.
 
-    :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Screenshot of Add a tab in teams.":::
-1. Select a resource group, containing one or more lab plans, that you would like to use for creating labs in this team.
+1. Select the resource group, which contains the lab plan that you want manage from within this team.
 
-    Azure Lab Services uses single sign-on into the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)) and pulls all the lab plans that you have access to.  The resource groups with lab plans that are in the same tenant as Teams and for which you have **Owner**, **Contributor**, or **Creator** access are displayed.
+    Azure Lab Services uses single sign-on into the Azure Lab Services web portal (https://labs.azure.com) and lists all the lab plans that you have access to and which are in the same tenant as Teams.
 
-    :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Screenshot of Welcome to Azure Lab Services dialog.":::
-1. Press **Save**. The Azure Lab Services tab is added to the channel.
+    The dropdown lists all the resource groups that contain lab plans and for which you have the Owner, Contributor, or Lab Creator role.
 
-    :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Screenshot of Azure Lab Service home screen.  The Azure Lab Services tab is highlighted.":::
+    :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Screenshot that shows the Azure Lab Services dialog for selecting the resource group for your lab plan.":::
 
-    Now you can select the **Azure Lab Services** tab from your channel and start managing labs as described in the following articles.
+1. Select **Save** to add the Azure Lab Services tab to the channel. You can now select the **Azure Lab Services** tab from your channel.
 
-After the lab plan is selected, Team owners can create labs for the team. The entire lab creation process and all the tasks at the lab level can be performed within Teams. Educators can [create multiple labs](tutorial-setup-lab.md) within Teams at the same team.  The Team owner, with appropriate access at the lab plan level, will see only the labs associated with the specific team.
+    :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Screenshot that shows the Azure Lab Service home screen in Microsoft Teams, highlighting the Azure Lab Services tab.":::
+
+When you create a lab within Teams, Azure Lab Services automatically adds everyone on the team, including owners, members, and guests, to the lab user list. Learn more about [managing user lists within Teams](./how-to-manage-user-lists-within-teams.md).
+
+Educators can now [create and manage labs from within the team channel](./how-to-manage-labs-within-teams.md). The team owner, with appropriate access at the lab plan level, will see only the labs that are associated with the team.
+
+> [!IMPORTANT]
+> Labs must be created using the Azure Lab Services app in Teams.  Labs created from the Azure Lab Services portal aren't visible from Teams.
 
 ## Next steps
 
-When a lab is created within Teams, the lab user list is automatically synced with the team membership. Everyone on the team, including owners, members, and guests will be automatically added to the lab user list. Azure lab Services will maintain a sync with the team membership.  An automatic sync is triggered every 24 hours. For more information, see [Manage Lab Services user lists within Teams](how-to-manage-user-lists-within-teams.md)
-
-### See also
-
-Also see the following articles:
-
-- As an educator, [manage the VM pool within Teams](how-to-manage-vm-pool-within-teams.md).
-- As an educator, [create and manage schedules within Teams](how-to-create-schedules-within-teams.md).
-- As an educator, [manage lab user lists from Teams](how-to-manage-user-lists-within-teams.md).
-- As an admin or educator, [delete labs within Teams](how-to-delete-lab-within-teams.md)
-- As student, [access a VM within Teams](how-to-access-vm-for-students-within-teams.md)
+- As an admin, [add educators as lab creators to the lab plan](./add-lab-creator.md) in the Azure portal.
+- As an educator, [create and manage labs in Microsoft Teams](./how-to-manage-labs-within-teams.md).
+- As student, [access a lab VM within Teams](./how-to-access-vm-for-students-within-teams.md).

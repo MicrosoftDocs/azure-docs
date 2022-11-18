@@ -251,7 +251,7 @@
         href: how-to-access-vm-for-students-within-canvas.md     
   - name: Use labs within Teams
     items:
-      - name: Create a lab from Teams
+      - name: Configure Teams to access lab plans
         href: how-to-get-started-create-lab-within-teams.md
       - name: Manage user lists
         href: how-to-manage-user-lists-within-teams.md
