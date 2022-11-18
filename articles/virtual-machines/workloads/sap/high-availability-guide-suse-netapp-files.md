@@ -54,7 +54,7 @@ ms.author: radeltch
 
 This article explains how to configure high availability for SAP NetWeaver application with [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).
 
-For new implementations on SLES for SAP Applications 15, we  recommended to deploy high availability for SAP ASCS/ERS in [simple mount configuration](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-simple-mount). The classic Pacemaker configuration, based on cluster-controlled file systems for the SAP central services directories, described in this article is still [supported](https://documentation.suse.com/sbp/all/single-html/SAP-nw740-sle15-setupguide/#id-introduction).   
+For new implementations on SLES for SAP Applications 15, we  recommended to deploy high availability for SAP ASCS/ERS in [simple mount configuration](./high-availability-guide-suse-nfs-simple-mount.md). The classic Pacemaker configuration, based on cluster-controlled file systems for the SAP central services directories, described in this article is still [supported](https://documentation.suse.com/sbp/all/single-html/SAP-nw740-sle15-setupguide/#id-introduction).   
 
 In the example configurations, installation commands etc., the ASCS instance is number 00, the ERS instance number 01, the Primary Application instance (PAS) is 02 and the Application instance (AAS) is 03. SAP System ID QAS is used. The database layer isn't covered in detail in this article.
 
