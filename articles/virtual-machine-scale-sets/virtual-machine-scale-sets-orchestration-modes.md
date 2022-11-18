@@ -141,7 +141,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Auto-Remove NICs and Disks when deleting VM instances | Yes | Yes | No |
 | Upgrade Policy (virtual machine scale set) | No, upgrade policy must be null or [] during create | Automatic, Rolling, Manual | N/A |
 | Automatic OS Updates (virtual machine scale set) | No | Yes | N/A |
-| In Guest Security Patching | Yes | No | Yes |
+| In Guest Security Patching | Yes, read [Auto VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) | No | Yes |
 | Terminate Notifications (virtual machine scale set) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | N/A |
 | Monitor Application Health | Application health extension | Application health extension or Azure load balancer probe | Application health extension |
 | Instance Repair (virtual machine scale set) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | N/A |
