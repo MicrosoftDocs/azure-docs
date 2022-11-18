@@ -14,13 +14,13 @@ This article explains how to configure and work with Azure Functions Proxies. Wi
 
 Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
-## Reenable proxies in Functions v4.x
+## Re-enable proxies in Functions v4.x
 
 After [migrating your function app to version 4.x of the Functions runtime](migrate-version-3-version-4.md), you'll need to specifically reenable proxies. You should still switch to integrating your function apps with [Azure API Management](functions-proxies.md#api-management-integration) as soon as possible, and not just rely on proxies. 
 
-Reenabling proxies requires you to set a flag in the `AzureWebJobsFeatureFlags` application setting in one of the following ways:
+Re-enabling proxies requires you to set a flag in the `AzureWebJobsFeatureFlags` application setting in one of the following ways:
 
-+ If the `AzureWebJobsFeatureFlags` setting doesn't already esist, add this setting to your function app with a value of `EnableProxies`. 
++ If the `AzureWebJobsFeatureFlags` setting doesn't already exists, add this setting to your function app with a value of `EnableProxies`. 
 
 + If this setting already exists, add `,EnableProxies` to the end of existing value.
 
