@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up Citrix Cloud SAML SSO** will direct you to the Citrix Cloud SAML Single Sign-On application. From there, provide the admin credentials to sign in to Citrix Cloud SAML Single Sign-On. The browser extension will automatically configure the application for you and automate steps 3-6.
+1. After adding extension to the browser, click on **Set up Citrix Cloud SAML SSO** will direct you to the Citrix Cloud SAML SSO application. From there, provide the admin credentials to sign in to Citrix Cloud SAML SSO. The browser extension will automatically configure the application for you and automate steps 3-6.
 
 	![Setup configuration](common/setup-sso.png)
 
