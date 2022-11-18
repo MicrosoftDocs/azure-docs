@@ -41,7 +41,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 > [!div class="nextstepaction"]
-> [&#10033; I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
 
 ## Set up
 
@@ -81,7 +81,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
     > * Type the following command **New-Item index.js**.
 
 > [!div class="nextstepaction"]
-> [&#10033; I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=setup)
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=setup)
 
 ## Build your application
 
@@ -162,7 +162,7 @@ Once you've added a code sample to your application, run your program:
     ```
 
 > [!div class="nextstepaction"]
-> [&#10033; I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-general-document)
 
 ### General document model output
 
@@ -270,7 +270,7 @@ Once you've added a code sample to your application, run your program:
     ```
 
 > [!div class="nextstepaction"]
-> [&#10033; I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-layout)
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-layout)
 
 ### Layout model output
 
@@ -362,7 +362,7 @@ Once you've added a code sample to your application, run your program:
     ```
 
 > [!div class="nextstepaction"]
-> [&#10033; I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=javascript&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt)
 
 ### Prebuilt model output
 
