@@ -28,11 +28,7 @@ The Authentication methods policy is the recommended way to manage authenticatio
 Methods enabled in the Authentication methods policy can typically be used anywhere in Azure AD - for both authentication and password reset scenarios. The exception is that some methods are inherently limited to use in authentication, such as FIDO2 and Windows Hello for Business, and others are limited to use in password reset, such as security questions. For more control over which methods are usable in a given authentication scenario, consider using the **Authentication Strengths** feature.
 
 Most methods also have configuration parameters to more precisely control how that method can be used. For example, if you enable **Phone call**, you can also specify whether an office phone can be used in addition to a mobile phone.
-
-<!---they will add ability to specify roles in addition to users and groups. Also, they will add ability to exclude, just like CA.--->
-
  
-
 Or let's say you want to enable passwordless authentication with Microsoft Authenticator. You can set extra parameters like showing the user sign-in location or the name of the app being signed into. These options provide more context for users when they sign-in and help prevent accidental MFA approvals.
 
 To manage the Authentication methods policy, click **Security** > **Authentication methods** > **Policies**.
