@@ -54,9 +54,9 @@ Before subscribing to the custom topic, let's create the endpoint for the event 
 1. Specify a unique name for the Event Hubs namespace. 
 
     ```azurecli-interactive
-    namespace=<EVENT HUBS NAMESPACE NAME>
+    namespace="<EVENT HUBS NAMESPACE NAME>"
     ```
-1. Run the following commands to create an Event Hubs namespace and an event hub in that namespace.
+1. Run the following commands to create an Event Hubs namespace and an event hub named `demohub` in that namespace.
 
 
     ```azurecli-interactive
@@ -106,7 +106,7 @@ do
 done
 ```
 
-Navigate to the event hub in the portal, and notice that Event Grid sent those three events to the event hub.
+On the **Overview** page for your Event Hubs namespace in the Azure portal, notice that Event Grid sent those three events to the event hub. You will see the same chart on the **Overview** page for the **demohub** Event Hubs instance page. 
 
 :::image type="content" source="./media/custom-event-to-eventhub/show-result.png" lightbox="./media/custom-event-to-eventhub/show-result.png" alt-text="Image showing the portal page with incoming message count as 3.":::
 
