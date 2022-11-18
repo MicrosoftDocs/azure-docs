@@ -118,7 +118,7 @@ In order to provide globally unique names to resources, a six-character suffix i
     | Name  | APPLICATIONINSIGHTS_CONNECTION_STRING |
     | Value | Paste the Application Insights connection string value you copied in the preceding section. |
 
-    :::image type="content" source="media/tutorial-asp-net-core/add-edit-app-setting.png" alt-text="Screenshot of the Add/Edit application setting blade in the Azure portal with the preceding values populated in the Name and Value fields." lightbox="media/tutorial-asp-net-core/add-edit-app-setting.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/add-edit-app-setting.png" alt-text="Screenshot of the Add/Edit application setting pane in the Azure portal with the preceding values populated in the Name and Value fields." lightbox="media/tutorial-asp-net-core/add-edit-app-setting.png":::
 
 4. On the App Service Configuration screen, select the **Save** button from the toolbar menu. When prompted to save the changes, select **Continue**.
 

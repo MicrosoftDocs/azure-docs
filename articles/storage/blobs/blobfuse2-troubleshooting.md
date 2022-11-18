@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot issues in BlobFuse2 (preview)
-titleSuffix: Azure Blob Storage
+titleSuffix: Azure Storage
 description: Learn how to troubleshoot issues in BlobFuse2 (preview).
 author: jimmart-dev
 ms.author: jammart
