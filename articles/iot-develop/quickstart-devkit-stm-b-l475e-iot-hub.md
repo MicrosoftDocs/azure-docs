@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 11/17/2022
+ms.date: 11/18/2022
 ---
 
 # Quickstart: Connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub
@@ -164,9 +164,9 @@ To register a device:
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity":::
 
-1. Use the copy buttons to copy and note down the **Device ID** and **Primary key** fields.
+1. Use the copy buttons to copy the **Device ID** and **Primary key** fields.
 
-Before continuing to the next section, copy each of the following values retrieved from earlier steps, to a safe location:
+Before continuing to the next section, save each of the following values retrieved from earlier steps, to a safe location. You use these values in the next section to configure your device. 
 
 * `hostName`
 * `deviceId`
@@ -316,7 +316,7 @@ To access IoT Plug and Play components for the device in IoT Explorer:
 1. On the **Interface** tab, view the JSON content in the device model **Description**. The JSON contains configuration details for each of the IoT Plug and Play components in the device model.
 
     > [!NOTE]
-    > The description for the default component includes the STM L4S5 board.  The STM L4S5 plug and play device model is also used for the STM L475E board.
+    > The name and description for the default component refer to the STM L4S5 board.  The STM L4S5 plug and play device model is also used for the STM L475E board in this quickstart.
 
     Each tab in IoT Explorer corresponds to one of the IoT Plug and Play components in the device model.
 
