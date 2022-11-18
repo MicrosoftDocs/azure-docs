@@ -25,7 +25,7 @@ An OPC UA node is exposing a value reflecting a measurement of a sensor. If the 
 OPC Publisher does establish a session to an OPC UA server and creates subscriptions to monitor data value changes of OPC UA nodes. Depending on configuration settings, the OPC UA server notifies OPC Publisher and reports data value changes. Those data change notifications might contain more than one data value change.
 
 ### Telemetry event
-A telemetry event is an event which is sent to the cloud. Depending on the messaging mode configured in OPC Publisher (`--mm`) this event will contain:
+A telemetry event is an event, which is sent to the cloud. Depending on the messaging mode configured in OPC Publisher (`--mm`) this event will contain:
 - for Samples mode (`--mm=Samples`): one data value change
 - for PubSub mode (`--mm=PubSub`): all data value changes in a data change notification
 
