@@ -4,7 +4,7 @@ description: Learn how to use Apache Spark streaming to get data into or out of 
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18,seoapr2020
-ms.date: 06/10/2022
+ms.date: 11/17/2022
 
 #Customer intent: As a developer, I want to learn how to use Spark Structured Streaming with Kafka on HDInsight.
 ---
@@ -322,6 +322,3 @@ To remove the resource group using the Azure portal:
 > HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use.
 >
 > Deleting a Kafka on HDInsight cluster deletes any data stored in Kafka.
-
-
-

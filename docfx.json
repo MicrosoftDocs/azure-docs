@@ -186,7 +186,7 @@
         "Azure"
       ],
       "recommendations": true,
-      "recommendation_types": ["Learn"],
+      "recommendation_types": ["Training", "Certification"],
       "uhfHeaderId": "azure",
       "ms.suite": "office",
       "contributors_to_exclude": [
