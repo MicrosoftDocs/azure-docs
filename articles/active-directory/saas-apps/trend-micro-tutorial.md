@@ -197,7 +197,8 @@ Complete these steps to configure TMWS SSO on the application side.
     f. Select **Save**.
  
  > [!NOTE]
- > For more information on how to configure TMWS with Azure AD, see [Configuring Azure AD Settings on TMWS](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/directory-services/azure-active-directo/configuring-azure-ad.aspx).
+ > For more information on how to configure TMWS with Azure AD, see [Configuring Azure AD Settings on TMWS](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration/directory-services/azure-active-directo/configuring-azure-ad.aspx
+).
 
 ## Test SSO 
 
