@@ -31,12 +31,12 @@ The following diagram shows how communications flow through private endpoints to
 
 * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and `mL` extension or the AzureML Python SDK v2. For more information, see the following articles:
+* You must install and configure the Azure CLI and `ml` extension or the AzureML Python SDK v2. For more information, see the following articles:
 
-    * [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
+    * [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
     * [Install the Python SDK v2](https://aka.ms/sdk-v2-install).
 
-* You must have an Azure Resource Group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your `mL` extension per the above article. 
+* You must have an Azure Resource Group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your `ml` extension per the above article.
 
 * You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint. If you don't have one, the steps in this article create an example workspace, VNet, and VM. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](./how-to-configure-private-link.md).
 
@@ -99,18 +99,18 @@ endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',
 
 # [Studio](#tab/azure-studio)
 
-1. Go to the [Azure Machine Learning Studio](https://ml.azure.com).
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 1. Select the **Workspaces** page from the left navigation bar.
 1. Enter a workspace by clicking its name.
 1. Select the **Endpoints** page from the left navigation bar.
-1. Click **+ Create** to open the **Create deployment** setup wizard.
+1. Select **+ Create** to open the **Create deployment** setup wizard.
 1. Disable the **Public network access** flag at the **Create endpoint** step.
 
     :::image type="content" source="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png" alt-text="A screenshot of how to disable public network access for an endpoint." lightbox="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png":::
 
 ---
 
-When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
+When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md), and the endpoint can't be reached from public networks.
 
 ## Outbound (resource access)
 
