@@ -44,7 +44,7 @@ One of the main advantages of Flexible orchestration is that it provides orchest
 Flexible orchestration mode can be used with all VM sizes. Flexible orchestration mode provides the highest scale and configurability for VM sizes that support memory preserving updates or live migration such as when using the B, D, E and F-series or when the scale set is configured for maximum spreading between instances `platformFaultDomainCount=1`. Currently, the Flexible orchestration mode has additional constraints for VM sizes that don't support memory preserving updates including the G, H, L, M, and N-series VMs and instances are spread across multiple fault domains. You can use the Compute Resource SKUs API to determine whether a specific VM SKU support memory preserving updates. 
 
  
-| | Memory Preserving Updates Supported **or** Scale set with Max Spreading (`platformFaultDomainCount=1`) | Memory Preserving Updates Not Supported **and** Fixed Spreading (`platformFaultDomainCount > 1`) | 
+| Feature | Memory Preserving Updates Supported **or** Scale set with Max Spreading (`platformFaultDomainCount=1`) | Memory Preserving Updates Not Supported **and** Fixed Spreading (`platformFaultDomainCount > 1`) | 
 |---|---|---|
 |Maximum Virtual Machine Scale Sets Instance Count | 1000 | 200 | 
 | Mix operating systems | Yes | Yes |
