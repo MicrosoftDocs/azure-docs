@@ -105,12 +105,12 @@ Changes made in `config.toml` to `edgeAgent` environment variables like the `hos
 
 When using Node.js to send device to cloud messages with the AMQP protocol to an IoT Edge runtime, messages stop sending after 2047 messages. No error is thrown and the messages eventually start sending again, then cycle repeats. If the client connects directly to Azure IoT Hub, there's no issue with sending messages. This issue has been fixed in IoT Edge 1.2 and later.
 
+:::moniker-end
+<!-- end 1.1 -->
+
 ### NTLM Authentication
 
 IoT Edge does not currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allow-list.
-
-:::moniker-end
-<!-- end 1.1 -->
 
 ## Next steps
 
