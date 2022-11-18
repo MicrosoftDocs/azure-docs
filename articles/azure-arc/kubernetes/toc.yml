@@ -13,9 +13,9 @@
 - name: Tutorials
   items:
   - name: Deploy configurations using GitOps
-      href: tutorial-use-gitops-flux2.md
-    - name: Implement CI/CD with GitOps
-      href: tutorial-gitops-flux2-ci-cd.md
+    href: tutorial-use-gitops-flux2.md
+  - name: Implement CI/CD with GitOps
+    href: tutorial-gitops-flux2-ci-cd.md
 - name: Samples
   items:
   - name: Azure Resource Graph queries
