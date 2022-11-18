@@ -23,7 +23,7 @@ This Azure Communication Services Call Automation - Appointment Reminder sample 
 
 ## Overview
 
-This sample application makes an outbound call to a phone number performs dtmf recognition and then plays the next audio file based on the key pressed by the callee. This sample application is configured for accepting tone 1 (tone1), 2 (tone2), if the callee presses any key other than what is expected, an invalid audio tone will be played and then the call will be disconnected.
+This sample application makes an outbound call to a phone number then performs dtmf recognition and then plays the next audio file based on the key pressed by the callee. This sample application accepts tone 1 (tone1) and 2 (tone2). If the callee presses any key other than what it is expecting, an invalid audio tone will be played and then the call will be disconnected.
 
 This sample application is also capable of making multiple concurrent outbound calls.
 
@@ -31,10 +31,6 @@ This sample application is also capable of making multiple concurrent outbound c
 
 ![Call flow](./media/call-automation/appointment-reminder.png)
 
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [CA csharp sample]](./includes/ca-appointment-reminder-csharp.md)
-::: zone-end
+::: zone pivot="programming-language-csharp" [!INCLUDE [CA csharp sample]](./includes/ca-appointment-reminder-csharp.md) ::: zone-end
 
-::: zone pivot="programming-language-java"
-[!INCLUDE [CA java sample]](./includes/ca-appointment-reminder-java.md)
-::: zone-end
+::: zone pivot="programming-language-java" [!INCLUDE [CA java sample]](./includes/ca-appointment-reminder-java.md) ::: zone-end
