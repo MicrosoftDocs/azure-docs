@@ -63,7 +63,7 @@ To explore the Azure CLI samples, first [Install the Azure CLI](/cli/azure/insta
 |----------|---------------|-------------|
 | .NET | [.NET Client Library Reference](/dotnet/api/overview/azure/storage) | [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net) |
 | Java | [Java Client Library Reference](/java/api/overview/azure/storage) | [Source code for the Java storage client library](https://github.com/azure/azure-storage-java) |
-| Python | [Python Client Library Reference](https://azure-storage.readthedocs.io/) | [Source code for the Python storage client library](https://github.com/Azure/azure-storage-python) |
+| Python | [Python Client Library Reference](/python/api/overview/azure/storage) | [Source code for the Python storage client library](https://github.com/Azure/azure-storage-python) |
 | Node.js | [Node.js Client Library Reference](https://azure.github.io/azure-storage-node) | [Source code for the Node.js storage client library](https://github.com/Azure/azure-storage-node) |
 | C++ | [C++ Client Library Reference](https://azure.github.io/azure-sdk-for-cpp/) | [Source code for the C++ storage client library](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)|
 | Azure CLI | [Azure CLI Library Reference](/cli/azure/storage) | [Source code for the Azure CLI storage client library](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)
