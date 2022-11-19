@@ -28,21 +28,21 @@ On your Azure Stack Edge device, logical processors are distributed on NUMA node
 
 To maximize performance, processing, and transmitting on the same NUMA node, processors are allocated memory that they're closest to in order to reduce physical distance. For more information, see [NUMA Support](/windows/win32/procthread/numa-support).
 
-### vCPU reservation for Azure Stack Edge
+### vCPU reservations for Azure Stack Edge
 
 To deploy HPN VMs on Azure Stack Edge, you must reserve vCPUs on NUMA nodes. The number of vCPUs reserved determines the available vCPUs that can be assigned to the HPN VMs. 
 
 For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
 
-In version 2210, vCPUs are automatically reserved with the maximum number of vCPUs supported on each NUMA node. If the vCPUs were already reserved for HPN VMs in an earlier version, the existing reservation is carried forth to the 2210 version. If vCPUs were not reserved for HPN VMs in an earlier version, upgrading to 2210 will still carry forth the existing configuration.
+In version 2210, vCPUs are automatically reserved with the maximum number of vCPUs supported on each NUMA node. If the vCPUs were already reserved for HPN VMs in an earlier version, the existing reservation is carried forth to the 2210 version. If vCPUs weren't reserved for HPN VMs in an earlier version, upgrading to 2210 will still carry forth the existing configuration.
 
-For versions 2209 and earlier, you must reserve vCPUs on NUMA nodes before you deploy HPN VMs on your device. We recommend that the vCPU reservation be done on NUMA node 0, as this node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it.
+For versions 2209 and earlier, you must reserve vCPUs on NUMA nodes before you deploy HPN VMs on your device. We recommend that the vCPU reservation is done on NUMA node 0, as this node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it.
 
 ## HPN VM deployment workflow
 
 The high-level summary of the HPN deployment workflow is as follows:
 
-1. While configuring the network settings on your device, make sure that there is a virtual switch associated with a network interface on your device that can be used for the VM resources and VMs. We will use the default virtual network created with the vswitch for this article. You have the option of creating and using a different virtual network, if needed. 
+1. While configuring the network settings on your device, make sure that there's a virtual switch associated with a network interface on your device that can be used for the VM resources and VMs. We'll use the default virtual network created with the vswitch for this article. You have the option of creating and using a different virtual network, if desired. 
 
 2. Enable cloud management of VMs from the Azure portal. Download a VHD onto your device, and create a VM image from the VHD.
 
@@ -51,10 +51,10 @@ The high-level summary of the HPN deployment workflow is as follows:
 4. Use the resources created in the previous steps:
 
    1. The VM image that you created.
-   2. The default virtual network associated with the virtual switch. The default virtual network has the same name as that of the virtual switch.
+   2. The default virtual network associated with the virtual switch. The default virtual network has the same name as the name of the virtual switch.
    3. The default subnet for the default virtual network.
 
-   And create or specify the following resources inline: 
+1. And create or specify the following resources: 
 
    1. Specify a VM name, choose a supported HPN VM size, and specify sign-in credentials for the VM.
    1. Create new data disks or attach existing data disks. 
@@ -64,7 +64,7 @@ The high-level summary of the HPN deployment workflow is as follows:
 
 ## Prerequisites
 
-Before you begin to create and manage VMs on your device via the Azure portal, make sure that:
+Before you create and manage VMs on your device via the Azure portal, make sure that:
 
 ### [2210](#tab/2210)
 
@@ -115,14 +115,14 @@ Before you begin to create and manage VMs on your device via the Azure portal, m
      This cmdlet will output:
      1. HpnLpMapping: The NUMA logical processor indexes that are reserved on the machine.
      1. HpnCapableLpMapping: The NUMA logical processor indexes that are capable for reservation.
-     1. HpnLpAvailable: The NUMA logical processor indexes that are not available for new HPN VM deployments.
+     1. HpnLpAvailable: The NUMA logical processor indexes that aren't available for new HPN VM deployments.
      1. The NUMA logical processors used by HPN VMs and NUMA logical processors available for new HPN VM deployments on each NUMA node in the cluster.
 
        ```powershell
        Get-HcsNumaLpMapping
        ```
 
-       Here is an example output when SkuPolicy is in effect:
+       Here's an example output when SkuPolicy is in effect:
 
        ```powershell
        [DBE-BNVGF33.microsoftdatabox.com]: PS>Get-HcsNumaLpMapping
@@ -171,9 +171,9 @@ Before you begin to create and manage VMs on your device via the Azure portal, m
       Get-HcsNumaLpMapping
       ```
 
-      The output should not show the indexes you set. If you see the indexes you set in the output, the `Set` command did not complete successfully. Retry the command and if the problem persists, contact Microsoft Support. 
+      The output shouldn't show the indexes you set. If you see the indexes you set in the output, the `Set` command didn't complete successfully. Retry the command and if the problem persists, contact Microsoft Support. 
 
-      Here is an example output. 
+      Here's an example output. 
 
       ```powershell
       dbe-1csphq2.microsoftdatabox.com]: PS> Get-HcsNumaLpMapping -MapType MinRootAware -NodeName 1CSPHQ2 
@@ -199,12 +199,12 @@ Before you begin to create and manage VMs on your device via the Azure portal, m
 
 -  You have access to a Windows or Linux VHD that you'll use to create the VM image for the VM you intend to create.
 
-In addition to the above prerequisites that are used for VM creation, you'll also need to configure the following prerequisite specifically for the HPN VMs:
+In addition to the above prerequisites that are used for VM creation, configure the following prerequisite specifically for the HPN VMs:
 
 - Reserve vCPUs for HPN VMs on the Mellanox interface. Follow these steps:
 
     1. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
-    1. Identify all the VMs running on your device. This includes Kubernetes VMs, or any VM workloads that you may have deployed.
+    1. Identify all the VMs running on your device, including Kubernetes VMs and any VM workloads that you may have deployed.
 
         ```powershell
         get-vm
@@ -225,7 +225,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName <Output of hostname command> 
         ```
     
-       Here is example output:
+       Here's example output:
 
        ```powershell
        [dbe-1csphq2.microsoftdatabox.com]: PS>hostname 1CSPHQ2
@@ -243,7 +243,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
        Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated <Logical indexes from the Get-HcsNumaLpMapping cmdlet> -AssignAllCpusToRoot $false
        ```
        
-       Here is an example output: 
+       Here's an example output: 
 
        ```powershell
        [dbe-1csphq2.microsoftdatabox.com]: PS>Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39" -AssignAllCpusToRoot $false 
@@ -263,7 +263,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
        > [!NOTE] 
        > Devices that are updated to 2210 from earlier versions will keep their minroot configuration from before upgrade.
         
-    8. Wait for the device to finish rebooting. Once the device is running, open a new PowerShell session. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
+    8. Wait for the device to finish rebooting. Once the device is running again, open a new PowerShell session. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
     
    1. Validate the vCPU reservation and verify that the VMs have restarted. 
 
@@ -271,9 +271,9 @@ In addition to the above prerequisites that are used for VM creation, you'll als
       Get-HcsNumaLpMapping
       ```
 
-      The output should not show the indexes you set. If you see the indexes you set in the output, the `Set` command did not complete successfully. Retry the command and if the problem persists, contact Microsoft Support. 
+      The output shouldn't show the indexes you set. If you see the indexes you set in the output, the `Set` command didn't complete successfully. Retry the command and if the problem persists, contact Microsoft Support. 
 
-      Here is an example output. 
+      Here's an example output. 
 
       ```powershell
       dbe-1csphq2.microsoftdatabox.com]: PS> Get-HcsNumaLpMapping -MapType MinRootAware -NodeName 1CSPHQ2 
