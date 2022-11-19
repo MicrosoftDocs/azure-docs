@@ -85,14 +85,14 @@ Application accelerator has 8 components:
 
 | Component name          | Instance count | vCPU per instance | Memory per instance | Responsibility |
 | :---------------------- | :------------- | :---------------- | :------------------ | :------------------ |
-| accelerator-server      | 2              | 0.4 core          | 0.5Gi               | Serve API used by other components to list available accelerators and options. |
+| accelerator-server      | 2              | 0.4 core          | 0.5Gi               | Serve. Serve API used by Dev Tools Portal to list available accelerators and options. |
 | accelerator-engine      | 1              | 1 core            | 3Gi                 | Process the input values and files(pulled from a snapshot of a git repository) and apply dynamic tranformations to generate projects.|
-| accelerator-controller  | 1              | 0.2 core          | 0.25Gi               | Reconcile the accelerator resources to appear in Application Accelerator UI. |
-| source-controller       | 1              | 0.2 core          | 0.25Gi               | Support managing git repository sources for application accelerator.|
-| cert-manager            | 1              | 0.2 core          | 0.25Gi               | Support managing git repository sources for application accelerator.|
-| cert-manager-webhook    | 1              | 0.2 core          | 0.25Gi               | Support managing git repository sources for application accelerator.|
-| cert-manager-cainjector | 1              | 0.2 core          | 0.25Gi               | Support managing git repository sources for application accelerator.|
-| flux-source-controller  | 1              | 0.2 core          | 0.25Gi               | Support managing git repository sources for application accelerator.|
+| accelerator-controller  | 1              | 0.2 core          | 0.25Gi               | Reconcile the Accelerator resources. |
+| source-controller       | 1              | 0.2 core          | 0.25Gi               | Registers a controller to reconcile `ImageRepositories` and `MavenArtifacts` resources which are used by Accelerators.|
+| cert-manager            | 1              | 0.2 core          | 0.25Gi               | Find the docs of cert-manager in [cert-manager documentation](https://cert-manager.io/docs/).|
+| cert-manager-webhook    | 1              | 0.2 core          | 0.25Gi               | Find the docs of cert-manager webhook in [cert-manager documentation](https://cert-manager.io/docs/concepts/webhook/).|
+| cert-manager-cainjector | 1              | 0.2 core          | 0.25Gi               | Find the docs of cert-manager CA Injector in [cert-manager documentation](https://cert-manager.io/docs/concepts/ca-injector/).|
+| flux-source-controller  | 1              | 0.2 core          | 0.25Gi               | Register a controller to reconcile `GithubRepository` resources which are used by Accelerators. Support managing git repository sources for application accelerator.|
 
 You can see the running instances and resource usage of all the components through Azure Portal and CLI.
 #### [Portal](#tab/Portal)
