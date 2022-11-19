@@ -189,7 +189,7 @@ Use the **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemo
 - `allkeys-lru`: Removes the least recently used key.
 - `allkeys-random`: Removes a random key.
 - `allkeys-lfu`: Evicts the least frequently used keys out of all keys.
-- `volatile-lru`: Removes the least recently used key out of all the keys with an expiration set. The default eviction policy.
+- `volatile-lru`: The default eviction policy, removes the least recently used key out of all the keys with an expiration set. 
 - `volatile-ttl`: Removes the key with the shortest time to live based on the expiration set for it.
 - `volatile-random`: Removes a random key that has an expiration set.
 - `volatile-lfu`: Evicts the least frequently used keys out of all keys with an expire field set.
