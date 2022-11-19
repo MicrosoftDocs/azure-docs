@@ -162,11 +162,13 @@ Besides using the predefined accelerators, you can also create your own ones. Pl
 
 1. You can use any Git repository to create an accelerator. (Currently we support Git repository in GitHub, GitLab and BitBucket.) 
 
-   Create a file named `accelerator.yaml` in the root directory of this Git repository. By including an `accelerator.yaml` file in your Accelerator repository, you can declare input options that users fill in using a form in the UI. Those option values control processing by the template engine before it returns the zipped output files. You can also use **Template Editor** in Dev Tools Portal to edit your accelerator.yaml file for visualization and syntax check.
+   Create a file named `accelerator.yaml` in the root directory of this Git repository. By including an `accelerator.yaml` file in your Accelerator repository, you can declare input options that users fill in using a form in the UI. Those option values control processing by the template engine before it returns the zipped output files. When there is no `accelerator.yaml`, the repository still works as an accelerator but the files are passed unmodified to users. For more information about how to write an accelerator.yaml file, see [Creating an accelerator.yaml file](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-creating-accelerators-accelerator-yaml.html) 
+   
+   You can also use **Template Editor** in Dev Tools Portal to edit your accelerator.yaml file for visualization and syntax check.
    ![Template-editor-entry](./media/how-to-use-accelerator/template-editor-entry.png)
+   Template Editor can be used to preview the accelerators input options and steps. During creation of new accelerator, you can verify the input options and steps in TAP-GUI to make sure the behaviour is correct and the yaml file is valid. You can copy paste the content of their accelerator.yaml file or choose one of the existing ones and edit them to see the updated view.
    ![Template-editor](./media/how-to-use-accelerator/template-editor.png)
    
-   When there is no `accelerator.yaml`, the repository still works as an accelerator but the files are passed unmodified to users. For more information about how to write an accelerator.yaml file, see [Creating an accelerator.yaml file](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-creating-accelerators-accelerator-yaml.html) 
 
 1. Publish the new accelerator
 
