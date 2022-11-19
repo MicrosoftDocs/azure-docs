@@ -303,5 +303,5 @@ To see Blob storage sample apps, continue to:
 > [!div class="nextstepaction"]
 > [Azure Blob Storage library for Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-- To learn more, see the [Azure Storage client libraries for Python](/azure/developer/python/sdk/storage/overview).
+- To learn more, see the [Azure Storage client libraries for Python](/azure/developer/python/sdk/azure-sdk-overview).
 - For tutorials, samples, quickstarts, and other documentation, visit [Azure for Python Developers](/azure/python/).
