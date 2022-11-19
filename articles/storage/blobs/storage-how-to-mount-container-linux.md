@@ -6,7 +6,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 11/17/2022
 ms.author: jammart
 ms.reviewer: tamram
 ms.custom: engagement-fy23
@@ -29,7 +29,7 @@ This guide shows you how to use BlobFuse v1 and mount a Blob Storage container o
 
 BlobFuse binaries are available on [the Microsoft software repositories for Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu, Debian, SUSE, CentOS, Oracle Linux and RHEL distributions. To install BlobFuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the [Azure Storage installation steps](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
 
-BlobFuse is published in the Linux repo for Ubuntu versions: 16.04, 18.04, and 20.04, RHELversions: 7.5, 7.8, 7.9, 8.0, 8.1, 8.2, CentOS versions: 7.0, 8.0, Debian versions: 9.0, 10.0, SUSE version: 15, Oracle Linux  8.1. Run this command to make sure that you have one of those versions deployed:
+BlobFuse is published in the Linux repo for Ubuntu versions: 16.04, 18.04, and 20.04, RHEL versions: 7.5, 7.8, 7.9, 8.0, 8.1, 8.2, CentOS versions: 7.0, 8.0, Debian versions: 9.0, 10.0, SUSE version: 15, Oracle Linux  8.1. Run this command to make sure that you have one of those versions deployed:
 
 ```bash
 lsb_release -a

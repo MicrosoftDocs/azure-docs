@@ -509,7 +509,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2209 - Current
+    - name: 2210 - Current
+      href: azure-stack-edge-gpu-2210-release-notes.md
+    - name: 2209
       href: azure-stack-edge-gpu-2209-release-notes.md
     - name: 2207
       href: azure-stack-edge-gpu-2207-release-notes.md
