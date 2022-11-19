@@ -10,7 +10,7 @@ ms.author: kpunjabi
 ms.date: 11/17/2022
 ms.topic: overview
 ms.service: azure-communication-services
-ms.subservice: call automation
+ms.subservice: call-automation
 zone_pivot_groups: acs-csharp-java
 ---
 
@@ -31,6 +31,10 @@ This sample application is also capable of making multiple concurrent outbound c
 
 ![Call flow](./media/call-automation/appointment-reminder.png)
 
-::: zone pivot="programming-language-csharp" [!INCLUDE [CA csharp sample]](./includes/ca-appointment-reminder-csharp.md) ::: zone-end
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [CA csharp sample]](./includes/ca-appointment-reminder-csharp.md)
+::: zone-end
 
-::: zone pivot="programming-language-java" [!INCLUDE [CA java sample]](./includes/ca-appointment-reminder-java.md) ::: zone-end
+::: zone pivot="programming-language-java"
+[!INCLUDE [CA java sample]](./includes/ca-appointment-reminder-java.md)
+::: zone-end
