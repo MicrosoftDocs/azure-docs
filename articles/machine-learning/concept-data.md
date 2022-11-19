@@ -343,10 +343,12 @@ If the schema of the data changes, then it can be updated in a single place (the
 
 Just like `uri_file` and `uri_folder`, you can create a data asset with `mltable` types.
 
+For more information about the MLTable YAML schema, see [CLI (v2) mltable YAML schema](./reference-yaml-mltable.md).
+
 ## Next steps 
 
 - [Install and set up the CLI (v2)](how-to-configure-cli.md#install-and-set-up-the-cli-v2)
 - [Create datastores](how-to-datastore.md#create-datastores)
 - [Create data assets](how-to-create-data-assets.md#create-data-assets)
-- [Read and write data in a job](how-to-read-write-data-v2.md#read-and-write-data-in-a-job)
+- [Access data in a job](how-to-read-write-data-v2.md)
 - [Data administration](how-to-administrate-data-authentication.md#data-administration)
