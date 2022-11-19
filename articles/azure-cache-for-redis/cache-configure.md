@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/01/2022
+ms.date: 11/21/2022
 ms.author: franlanglois 
 
 ---
@@ -185,12 +185,14 @@ Use the **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemo
 
 **Maxmemory policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
 
-- `volatile-lru` - The default eviction policy.
-- `allkeys-lru`
-- `volatile-random`
-- `allkeys-random`
-- `volatile-ttl`
-- `noeviction`
+- `noeviction`: No eviction policy. Returns an error message if you attempt to insert data.
+- `allkeys-lru`: Removes the least recently used key.
+- `allkeys-random`: Removes a random key.
+- `allkeys-lfu`: Evicts the least frequently used keys out of all keys.
+- `volatile-lru`: Removes the least recently used key out of all the keys with an expiration set. The default eviction policy.
+- `volatile-ttl`: Removes the key with the shortest time to live based on the expiration set for it.
+- `volatile-random`: Removes a random key that has an expiration set.
+- `volatile-lfu`: Evicts the least frequently used keys out of all keys with an expire field set.
 
 For more information about `maxmemory` policies, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies).
 
