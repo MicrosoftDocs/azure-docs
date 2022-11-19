@@ -63,7 +63,8 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=prerequisites)
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=prerequisites)
 
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
@@ -91,6 +92,9 @@ ms.custom: devx-track-csharp
 
 1. Accept the default project name (form-recognizer-app) by selecting **Return** or **Enter**.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue creating a gradle project.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=create-gradle-project)
+
 ### Install the client library
 
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
@@ -113,7 +117,8 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
     }
     ```
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=install-gradle)
+> [!div class="nextstepaction"]
+> [I ran into an issue installing the client library.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=install-client-library.)
 
 ## Create a Java application
 
@@ -137,7 +142,8 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item FormRecognizer.java**.
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=create-java-app)
+> [!div class="nextstepaction"]
+> [I ran into an issue creating the Java application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=create-java-app)
 
 1. Open the FormRecognizer.java file and select one of the following code samples to copy and paste into your application:
 
@@ -222,7 +228,8 @@ analyzeLayoutResult.getPages().forEach(documentPage -> {
 }
 ```
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-read)
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-read)
 
 ### Read model output
 
@@ -320,7 +327,8 @@ private static String getBoundingCoordinates(List < Point > boundingPolygon) {
 }
 ```
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-layout)
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-layout)
 
 ### Layout model output
 
@@ -417,7 +425,8 @@ analyzeResult.getKeyValuePairs().forEach(documentKeyValuePair -> {
 }
 ```
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-general-document)
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-general-document)
 
 ### General document model output
 
@@ -557,7 +566,8 @@ for (int i = 0; i < analyzeTaxResult.getDocuments().size(); i++) {
 }
 ```
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-w2-tax)
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-w2-tax)
 
 ### W-2 tax model output
 
@@ -716,7 +726,8 @@ for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
 }
 ```
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-invoice)
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-invoice)
 
 ### Invoice model output
 
@@ -847,7 +858,8 @@ for (int i = 0; i < receiptResults.getDocuments().size(); i++) {
 }
 ```
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-receipt)
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-receipt)
 
 ### Receipt model output
 
@@ -973,7 +985,8 @@ for (int i = 0; i < identityDocumentResults.getDocuments().size(); i++) {
 }
 ```
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-id-document)
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-id-document)
 
 ### ID document output
 
@@ -1181,7 +1194,8 @@ for (int i = 0; i < businessCardPageResults.getDocuments().size(); i++) {
 }
 ```
 
-[I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-business-card)
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-business-card)
 
 ### Business card model output
 
