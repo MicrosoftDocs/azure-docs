@@ -10,7 +10,7 @@ ms.date: 11/18/2022
 ms.author: danlep
 ---
 
-# Log to event hub
+# Mock response
 
 The `mock-response` policy, as the name implies, is used to mock APIs and operations. It aborts normal pipeline execution and returns a mocked response to the caller. The policy always tries to return responses of highest fidelity. It prefers response content examples, whenever available. It generates sample responses from schemas, when schemas are provided and examples are not. If neither examples or schemas are found, responses with no content are returned.
 

@@ -10,7 +10,7 @@ ms.date: 11/18/2022
 ms.author: danlep
 ---
 
-# Log to event hub
+# Emit custom metrics
 
 The `emit-metrics` policy sends custom metrics in the specified format to Application Insights.
 

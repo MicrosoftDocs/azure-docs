@@ -24,7 +24,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 ="false|true">
   <set-url>...</set-url>
   <set-method>...</set-method>
-  <set-header name="" exists-action="override|skip|append|delete">...</set-header>
+  <set-header name="" exists-action="override | skip | append | delete">...</set-header>
   <set-body>...</set-body>
   <authentication-certificate thumbprint="thumbprint" />
 </send-request>
@@ -40,6 +40,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 | ignore-error                    | If true and the request results in an error, the error will be ignored, and the response variable will contain a null value.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
 
 [TODO: Check if subelements are policies]
+
 ## Elements
 
 | Element                    | Description                                                                                                 | Required                        |
@@ -48,7 +49,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 | set-method                     | The HTTP method for the request.                                                                            | No if mode=copy; otherwise yes. |
 | set-header                     | A [set-header](api-management-transformation-policies.md#SetHTTPheader) policy statement. |  Use multiple header elements for multiple request headers.                                  | No                              |
 | set-body                       | A [set-body](api-management-transformation-policies.md#SetBody) policy statement.      | No                              |
-| authentication-certificate | [Certificate to use for client authentication](api-management-authentication-policies.md#ClientCertificate), specified in a `thumbprint` attribute. | No                              |
+| authentication-certificate | [Certificate to use for client authentication](api-management-authentication-policies.md#ClientCertificate), specified in a `thumbprint` attribute. | No                          |
 
 
 
