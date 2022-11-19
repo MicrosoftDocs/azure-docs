@@ -181,15 +181,26 @@ The logged information contains text similar to the following JSON:
 }
 ```
 
-### Python SDK
+### View properties
 
 After submitting a training run, a [Job](/python/api/azure-ai-ml/azure.ai.ml.entities.job) object is returned. The `properties` attribute of this object contains the logged git information. For example, the following code retrieves the commit hash:
+
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
 job.properties["azureml.git.commit"]
 ```
+
+# [Azure CLI](#tab/cli)
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli
+az ml job show --name my_job_id --query "{GitCommit:properties."""azureml.git.commit"""}"
+```
+
+---
 
 ## Next steps
 
