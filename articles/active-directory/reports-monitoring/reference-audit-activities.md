@@ -369,6 +369,7 @@ This article lists the audit activities that can be logged in your audit logs.
 |Application Management|AdminUserJourneys-GetResources|
 |Directory Management|AdminUserJourneys-RemoveResources|
 |Directory Management|AdminUserJourneys-SetResources|
+|Directory Management|Create company|
 |Directory Management|Create IdentityProvider|
 |Directory Management|Create a new AdminUserJourney|
 |Directory Management|Create localized resource json|

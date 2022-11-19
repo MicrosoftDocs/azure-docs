@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: "devx-track-js"
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Delete and restore a blob in your Azure Storage account using the JavaScript client library

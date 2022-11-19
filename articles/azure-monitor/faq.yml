@@ -172,7 +172,7 @@ sections:
       - question: |
           What is the difference between an Azure Monitor workspace and a Log Analytics workspace? 
         answer: |
-          An Azure Monitor workspace is a unique environment for data collected by Azure Monitor. Each workspace has its own data repository, configuration, and permissions. Azure Monitor workspaces will eventually contain all data collected by Azure Monitor, including Log Analytics workspaces and native metrics. Currently, the only data hosted by an Azure Monitor workspace is Prometheus metrics. See [Azure Monitor workspace overview](essentials/azure-monitor-workspace-overview.md) for additional information. 
+          An Azure Monitor workspace is a unique environment for data collected by Azure Monitor. Each workspace has its own data repository, configuration, and permissions. Azure Monitor workspaces will eventually contain all metric data collected by Azure Monitor, including native metrics. Currently, the only data hosted by an Azure Monitor workspace is Prometheus metrics. See [Azure Monitor workspace overview](essentials/azure-monitor-workspace-overview.md) for additional information. 
       - question: |
           How do I retrieve Prometheus metrics data? 
         answer: |
@@ -184,7 +184,7 @@ sections:
       - question: |
           Can I view my Prometheus metrics in Azure Monitor Metrics explorer? 
         answer: |
-          Metrics explorer in Azure Monitor does not currently support visualizing Prometheus metric data. Please look at using [Azure Managed Grafana](/azure/managed-grafana/) to visualize your metrics in Azure Monitor managed service for Prometheus. 
+          Metrics explorer in Azure Monitor does not currently support visualizing Prometheus metric data. Please look at using [Azure Managed Grafana](../managed-grafana/index.yml) to visualize your metrics in Azure Monitor managed service for Prometheus. 
       - question: |
           Can I use Azure Managed Grafana in a different region than my Azure Monitor workspace and Managed Prometheus? 
         answer: |
@@ -385,7 +385,7 @@ sections:
       - question: |
           Does the Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
         answer: |
-          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no extra cost or resource consumption**, since the ARC agent is only used as an installation mechanism and you need not enable the paid management features if you don’t wish to use them.
+          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the Arc requirement comes at **no extra cost or resource consumption**, since the Arc agent is only used as an installation mechanism and you need not enable the paid management features if you don’t wish to use them.
       
       - question: |
           Does the Azure Monitor Agent support private links?

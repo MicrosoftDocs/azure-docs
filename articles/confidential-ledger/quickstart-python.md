@@ -3,7 +3,7 @@ title: Quickstart – Microsoft Azure confidential ledger Python client library
 description: Learn to use the Microsoft Azure confidential ledger client library for Python
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/27/2021
+ms.date: 11/14/2022
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell, mode-api
@@ -194,14 +194,15 @@ entry = ledger_client.get_ledger_entry(transaction_id=append_result['transaction
 print(f"Entry (transaction id = {entry['transactionId']}) in collection {entry['collectionId']}: {entry['contents']}")
 ```
 
-If you would simply like the latest transaction that was committed to the ledger, you can use the `get_current_ledger_entry` function.
+If you just want the latest transaction that was committed to the ledger, you can use the `get_current_ledger_entry` function.
+
 
 ```python
 latest_entry = ledger_client.get_current_ledger_entry()
 print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
 ```
 
-The print function will return "Hello world!", as that is the message in the ledger that that corresponds to the transaction ID and is the latest transaction.
+The print function will return "Hello world!", as that's the message in the ledger that corresponds to the transaction ID and is the latest transaction.
 
 ## Full sample code
 
@@ -301,7 +302,7 @@ print(f"Current entry (transaction id = {latest_entry['transactionId']}) in coll
 
 ## Pollers
 
-If you would like to wait for your write transaction to be committed to your ledger you can use the `begin_create_ledger_entry` function. This will return a poller to wait until the entry is durably committed.
+If you'd like to wait for your write transaction to be committed to your ledger, you can use the `begin_create_ledger_entry` function. This will return a poller to wait until the entry is durably committed.
 
 ```python
 sample_entry = {"contents": "Hello world!"}
@@ -333,3 +334,4 @@ az group delete --resource-group myResourceGroup
 ## Next steps
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)
+- [Verify Azure Confidential Ledger write transaction receipts](verify-write-transaction-receipts.md)

@@ -30,6 +30,10 @@ items:
       href: quickstart-data-share.md
     - name: .NET data sharing
       href: quickstart-data-share-dotnet.md
+  - name: Data Policy
+    items:
+    - name: Create a simple DevOps policy
+      href: how-to-policies-devops-azure-sql-db.md
 - name: Tutorials
   items:
   - name: Deployment checklist
@@ -100,16 +104,18 @@ items:
     href: catalog-permissions.md
   - name: Data map
     items:
+    - name: Classification
+      href: concept-classification.md
+    - name: Data lineage
+      href: concept-data-lineage.md
     - name: Elastic data map
       href: concept-elastic-data-map.md
+    - name: Metamodel
+      href: concept-metamodel.md
     - name: Resource sets
       href: concept-resource-sets.md
     - name: Scans and ingestion
       href: concept-scans-and-ingestion.md
-    - name: Data lineage
-      href: concept-data-lineage.md
-    - name: Classification
-      href: concept-classification.md
   - name: Data catalog
     items:
     - name: Business glossary
@@ -153,6 +159,8 @@ items:
       displayName: Create and manage credentials
     - name: Manage integration runtimes
       href: manage-integration-runtimes.md
+    - name: Manage assets with Metamodel
+      href: how-to-metamodel.md
     - name: Create Service Principal
       href: create-service-principal-azure.md
     - name: Request access to data asset
@@ -355,6 +363,8 @@ items:
         href: how-to-policies-devops-azure-sql-db.md
       - name: DevOps policies - Azure Arc enabled SQL Servers
         href: how-to-policies-devops-arc-sql-server.md
+      - name: DevOps policies - Resource groups or Subscriptions
+        href: how-to-policies-devops-resource-group.md
     - name: Data owner policies
       items:
       - name: Data owner policies - Author and publish policies
@@ -373,6 +383,10 @@ items:
         href: how-to-view-self-service-data-access-policy.md
       - name: Delete self-service data access policy
         href: how-to-delete-self-service-data-access-policy.md
+      - name: Self-service policies Azure SQL DB
+        href: how-to-policies-self-service-azure-sql-db.md
+      - name: Self-service policies Azure Storage
+        href: how-to-policies-self-service-storage.md
   - name: Workflows
     items:
     - name: Self-service hybrid data access
@@ -384,7 +398,9 @@ items:
     - name: Manage workflow runs
       href: how-to-workflow-manage-runs.md
     - name: Workflow connectors
-      href: how-to-use-workflow-connectors.md      
+      href: how-to-use-workflow-connectors.md    
+    - name: Workflow dynamic content
+      href: how-to-use-workflow-dynamic-content.md      
     - name: Workflow HTTP connector
       href: how-to-use-workflow-http-connector.md
   - name: Manage Kafka notifications - .NET

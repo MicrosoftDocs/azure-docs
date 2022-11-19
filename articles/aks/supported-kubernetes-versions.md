@@ -14,6 +14,9 @@ The Kubernetes community releases minor versions roughly every three months. Rec
 
 Minor version releases include new features and improvements. Patch releases are more frequent (sometimes weekly) and are intended for critical bug fixes within a minor version. Patch releases include fixes for security vulnerabilities or major bugs.
 
+>[!WARNING]
+> AKS clusters with Calico enabled should not upgrade to Kubernetes v1.25 preview.
+
 ## Kubernetes versions
 
 Kubernetes uses the standard [Semantic Versioning](https://semver.org/) versioning scheme for each version:
@@ -246,6 +249,8 @@ To upgrade from *1.12.x* -> *1.14.x*:
 1. Upgrade from *1.13.x* -> *1.14.x*.
 
 Skipping multiple versions can only be done when upgrading from an unsupported version back into the minimum supported version. For example, you can upgrade from an unsupported *1.10.x* to a supported *1.15.x* if *1.15* is the minimum supported minor version.
+
+ When performing an upgrade from an _unsupported version_ that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty. If your version is significantly out of date, it's recommended to re-create the cluster.
 
 **Can I create a new 1.xx.x cluster during its 30 day support window?**
 
