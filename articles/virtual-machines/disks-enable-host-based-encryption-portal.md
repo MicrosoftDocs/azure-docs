@@ -65,6 +65,9 @@ You must enable the feature for your subscription before you use the EncryptionA
     az feature show --name EncryptionAtHost --namespace Microsoft.Compute
     ```
     ---
+    
+> [!NOTE]
+> In Azure Government you must enable the necessary feature flag by browsing to https://portal.azure.us/?feature.enabledoubleencryption=true&feature.enablehostbasedencryption=true#home to display the options shown below.
 
 ## Deploy a VM with platform-managed keys
 
