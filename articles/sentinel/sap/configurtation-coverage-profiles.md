@@ -78,61 +78,6 @@ ABAPAuditLog = True
 ABAPJobLog = False
 ABAPSpoolLog = False
 ABAPSpoolOutputLog = False
-ABAPChangeDocsLog = False
-ABAPAppLog = False
-ABAPWorkflowLog = False
-ABAPCRLog = False
-ABAPTableDataLog = False
-# ABAP SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
-ABAPFilesLogs = False
-SysLog = False
-ICM = False
-WP = False
-GW = False
-# Java SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
-JAVAFilesLogs = False
-
-[ABAP Table Selector]
-AGR_TCODES_FULL = False
-USR01_FULL = False
-USR02_FULL = False
-USR02_INCREMENTAL = False
-AGR_1251_FULL = False
-AGR_USERS_FULL = False
-AGR_USERS_INCREMENTAL = False
-AGR_PROF_FULL = False
-UST04_FULL = False
-USR21_FULL = False
-ADR6_FULL = False
-ADCP_FULL = False
-USR05_FULL = False
-USGRP_USER_FULL = False
-USER_ADDR_FULL = False
-DEVACCESS_FULL = False
-AGR_DEFINE_FULL = False
-AGR_DEFINE_INCREMENTAL = False
-PAHI_FULL = False
-AGR_AGRS_FULL = False
-USRSTAMP_FULL = False
-USRSTAMP_INCREMENTAL = False
-AGR_FLAGS_FULL = False
-AGR_FLAGS_INCREMENTAL = False
-SNCSYSACL_FULL = False
-USRACL_FULL = False
-```
- 
-### Minimal
-The SAP Security Audit Log is the most important source of data the Microsoft Sentinel Solution for SAP uses to analyze activities on the SAP landscape. Enabling this log is the minimal requirement to provide any security coverage.  
-The above configuration profiles can be achived by setting the relevant logs using the systemconfig.ini file file.
-
-#### systemconfig.ini for this profile
-```systemconfig.ini
-[Logs Activation Status]
-# ABAP RFC Logs - Retrieved by using RFC interface
-ABAPAuditLog = True
-ABAPJobLog = False
-ABAPSpoolLog = False
-ABAPSpoolOutputLog = False
 ABAPChangeDocsLog = True
 ABAPAppLog = False
 ABAPWorkflowLog = False
@@ -172,6 +117,63 @@ USRSTAMP_FULL = True
 USRSTAMP_INCREMENTAL = True
 AGR_FLAGS_FULL = True
 AGR_FLAGS_INCREMENTAL = True
+SNCSYSACL_FULL = False
+USRACL_FULL = False
+```
+
+
+ 
+### Minimal
+The SAP Security Audit Log is the most important source of data the Microsoft Sentinel Solution for SAP uses to analyze activities on the SAP landscape. Enabling this log is the minimal requirement to provide any security coverage.  
+The above configuration profiles can be achived by setting the relevant logs using the systemconfig.ini file file.
+
+#### systemconfig.ini for this profile
+```systemconfig.ini
+[Logs Activation Status]
+# ABAP RFC Logs - Retrieved by using RFC interface
+ABAPAuditLog = True
+ABAPJobLog = False
+ABAPSpoolLog = False
+ABAPSpoolOutputLog = False
+ABAPChangeDocsLog = False
+ABAPAppLog = False
+ABAPWorkflowLog = False
+ABAPCRLog = False
+ABAPTableDataLog = False
+# ABAP SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
+ABAPFilesLogs = False
+SysLog = False
+ICM = False
+WP = False
+GW = False
+# Java SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
+JAVAFilesLogs = False
+
+[ABAP Table Selector]
+AGR_TCODES_FULL = False
+USR01_FULL = False
+USR02_FULL = False
+USR02_INCREMENTAL = False
+AGR_1251_FULL = False
+AGR_USERS_FULL = False
+AGR_USERS_INCREMENTAL = False
+AGR_PROF_FULL = False
+UST04_FULL = False
+USR21_FULL = False
+ADR6_FULL = False
+ADCP_FULL = False
+USR05_FULL = False
+USGRP_USER_FULL = False
+USER_ADDR_FULL = False
+DEVACCESS_FULL = False
+AGR_DEFINE_FULL = False
+AGR_DEFINE_INCREMENTAL = False
+PAHI_FULL = False
+AGR_AGRS_FULL = False
+USRSTAMP_FULL = False
+USRSTAMP_INCREMENTAL = False
+AGR_FLAGS_FULL = False
+AGR_FLAGS_INCREMENTAL = False
 SNCSYSACL_FULL = False
 USRACL_FULL = False
 ```
