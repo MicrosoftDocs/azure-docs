@@ -200,6 +200,9 @@ items:
       - name: Collect text and IIS Logs
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-text-log.md
+      - name: Collect SNMP traps
+        displayName: data collection rule,Azure Monitor agent
+        href: agents/data-collection-snmp-data.md        
     - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
     - name: Migrate from Log Analytics Agent
@@ -1192,8 +1195,6 @@ items:
     items:
       - name: Export log data
         href: logs/log-powerbi.md
-      - name: Export application data
-        href: app/export-power-bi.md
   - name: Grafana
     href: visualize/grafana-plugin.md
 - name: Analyze

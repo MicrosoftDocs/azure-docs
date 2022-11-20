@@ -7,7 +7,7 @@ ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 12/31/2020
+ms.date: 11/18/2022
 ---
 
 # Analyze data in a storage account
