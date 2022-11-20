@@ -47,7 +47,7 @@ In addition to the permissions listed above, Enterprise IoT security with Defend
 - **To add an Enterprise IoT plan**, you'll need an E5 license and specific permissions in your Microsoft 365 Defender tenant.
 - **To view Enterprise IoT devices in your Azure device inventory**, you'll need an Enterprise IoT network sensor registered.
 
-For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md).
+For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md).
 
 ## Next steps
 
