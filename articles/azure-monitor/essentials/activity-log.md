@@ -24,7 +24,7 @@ For details on how to create a diagnostic setting, see [Create diagnostic settin
 
 > [!NOTE]
 > * Entries in the Activity Log are system generated and can't be changed or deleted.
-> * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](https://learn.microsoft.com/azure/azure-monitor/essentials/resource-logs)
+> * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](resource-logs.md)
 
 ## Retention period
 
@@ -288,7 +288,6 @@ The columns in the following table have been deprecated in the updated schema. T
 |resourceProviderName	| ResourceProvider 	| ResourceProviderValue	||
 
 > [!Important]
-
 > In some cases, the values in these columns might be all uppercase. If you have a query that includes these columns, use the [=~ operator](/azure/kusto/query/datatypes-string-operators) to do a case-insensitive comparison.
 
 The following columns have been added to `AzureActivity` in the updated schema:
