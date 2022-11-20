@@ -4,7 +4,7 @@ description: Learn about deploying Microsoft Defender for Endpoint from Microsof
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 07/20/2022
+ms.date: 11/20/2022
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -231,7 +231,7 @@ You can also enable the MDE unified solution at scale through the supplied REST 
 
 This is an example request body for the PUT request to enable the MDE unified solution:
 
-URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Security/settings&api-version=2022-05-01-preview`
+URI: `https://management.azure.com/subscriptions/<subscriptionId>providers/Microsoft.Security/settings/WDATP_UNIFIED_SOLUTION?api-version=2022-05-01`
 
 ```json
 {
