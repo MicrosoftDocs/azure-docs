@@ -69,9 +69,9 @@ Give your automation rule a name that describes what it does.
 
     For example, filter by **Analytics rule name**:
 
-    You may want to add tasks to incidents based on the types of threats detected by an analytics rule or a group of analytics rules, that need to be handled according to a certain workflow. Select the relevant analytics rules from the drop-down list.
+    You may want to add tasks to incidents based on the types of threats detected by an analytics rule or a group of analytics rules, that need to be handled according to a certain workflow. Search for and select the relevant analytics rules from the drop-down list.
 
-    Or, you may want to add tasks that are relevant for incidents across all types of threats (in this case, select **All**).
+    Or, you may want to add tasks that are relevant for incidents across all types of threats (in this case, leave the default selection of **All** as is).
 
     In either case, you can add more conditions to narrow the scope of incidents to which your automation rule will apply. Learn more about [adding advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
 
@@ -97,6 +97,12 @@ Give your automation rule a name that describes what it does.
     Tasks will be created and added to the incident according to the order of the **Add task** actions in your automation rule.
 
     :::image type="content" source="media/create-tasks/create-more-tasks.png" alt-text="Screenshot showing how to add more tasks to an automation rule.":::
+
+1. Finish creating the automation rule by completing the remaining steps, **Rule expiration** and **Order**, and selecting **Apply** at the end. See [Create and use Microsoft Sentinel automation rules to manage response](create-manage-use-automation-rules.md) for full details.
+
+    Regarding the **Order** setting: The order in which tasks appear in your incidents depends on two things:
+    1. The order of execution of the automation rules, as determined by the number in the **Order** setting, and...
+    1. The order of the **Add task** actions defined within each automation rule.
 
 ## Add tasks to incidents with playbooks
 
