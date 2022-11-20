@@ -22,7 +22,7 @@ This glossary provides a brief description of important terms and concepts for t
 |**APT** | Advanced Persistent Threats | [Video: Understanding APTs](/events/teched-2012/sia303)|
 | **Arc-enabled Kubernetes**| Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center.|[What is Azure Arc-enabled Logic Apps? (Preview)](../logic-apps/azure-arc-enabled-logic-apps-overview.md)
 |**ARM**| Azure Resource Manager-the deployment and management service for Azure.| [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md)|
-|**ASB**| Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.| [Azure Security Benchmark](/azure/baselines/security-center-security-baseline) |
+|**ASB**| Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.| [Azure Security Benchmark](/security/benchmark/azure/baselines/security-center-security-baseline) |
 |**Auto-provisioning**| To make sure that your server resources are secure, Microsoft Defender for Cloud uses agents installed on your servers to send information about your servers to Microsoft Defender for Cloud for analysis. You can use auto provisioning to quietly deploy the Azure Monitor Agent on your servers.| [Configure auto provision](../iot-dps/quick-setup-auto-provision.md)|
 
 ## B
