@@ -255,7 +255,7 @@ If the compliance results show up as "Not Started" it may be due to the followin
 
 > [!NOTE]
 > Azure Policy
-> [Resouce Provider modes](../../governance/policy/concepts/definition-structure.md#resource-provider-modes),
+> [Resource Provider modes](../../governance/policy/concepts/definition-structure.md#resource-provider-modes),
 > such as those for Azure Key Vault, provide information about compliance on the
 > [Component Compliance](../../governance/policy/how-to/get-compliance-data.md#component-compliance)
 > page.
