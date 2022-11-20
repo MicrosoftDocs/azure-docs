@@ -117,7 +117,7 @@ Since the connection string is a secret value, we hide this on the overview page
 
 :::image type="content" source="./media/change-analysis/view-change-details.png" alt-text="Screenshot of viewing change details for troubleshooting.":::
 
-The change details blade also shows important information, including who made the change. 
+The change details pane also shows important information, including who made the change. 
 
 Now that you've discovered the web app in-guest change and understand next steps, you can proceed with troubleshooting the issue. 
 

@@ -5,7 +5,7 @@ author: rboucher
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 09/13/2022
+ms.date: 11/17/2022
 ms.author: robb
 ms.reviewer: priyamishra
 ---
@@ -2006,6 +2006,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PendingCPU|Yes|Pending CPU|Count|Maximum|Pending CPU Requests in YARN|No Dimensions|
 |PendingMemory|Yes|Pending Memory|Count|Maximum|Pending Memory Requests in YARN|No Dimensions|
 
+> [!NOTE]
+> NumActiveWorkers is supported only if YARN is installed, and the Resource Manager is running.
 
 ## Microsoft.HealthcareApis/services
 

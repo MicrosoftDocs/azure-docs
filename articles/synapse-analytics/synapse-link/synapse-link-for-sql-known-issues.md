@@ -1,12 +1,12 @@
 ---
-title: Known limitations and issues with Azure Synapse Link for SQL (Preview)
-description: Learn about known limitations and issues with Azure Synapse Link for SQL (Preview).
+title: Known limitations and issues with Azure Synapse Link for SQL
+description: Learn about known limitations and issues with Azure Synapse Link for SQL.
 author: jonburchel
 ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 11/09/2022
+ms.date: 11/16/2022
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
@@ -60,7 +60,6 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * System tables can't be replicated.
 * The security configuration from the source database will **NOT** be reflected in the target dedicated SQL pool.
 * Enabling Azure Synapse Link for SQL will create a new schema called `changefeed`. Don't use this schema, as it is reserved for system use.
-* Azure Synapse Link for SQL will **NOT** work and can't be enabled if your database contains a schema or user named `changefeed`.
 * Source tables with collations that are unsupported by dedicated SQL pools, such as UTF8 and certain Japanese collations, can't be replicated. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
     * Additionally, some Thai language collations are currently supported by Azure Synapse Link for SQL. These unsupported collations include:
         *    Thai100CaseInsensitiveAccentInsensitiveKanaSensitive

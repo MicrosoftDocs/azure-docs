@@ -42,6 +42,10 @@ landingContent:
             url: /training/modules/intro-to-azure-load-balancer/
           - text: Improve application scalability and resiliency by using Azure Load Balancer
             url: /training/modules/improve-app-scalability-resiliency-with-load-balancer/
+      - linkListType: deploy
+        links: 
+          - text: Set up load balancing
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%203
 
   # Card (optional)
   - title: Get started

@@ -528,6 +528,14 @@ See Barracuda instructions - note the assigned facilities for the different type
 | **Vendor documentation/<br>installation instructions** | [Configuring the Log to a Syslog Server action](https://help.symantec.com/cs/DLP15.7/DLP/v27591174_v133697641/Configuring-the-Log-to-a-Syslog-Server-action?locale=EN_US) |
 | **Supported by** | Microsoft |
 
+## Common Event Format (CEF) via AMA
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **[Azure monitor Agent-based connection](connect-cef-ama.md)** |
+| **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
+| **DCR support** | Standard DCR |
+| **Supported by** | Microsoft |
 
 ## Check Point
 

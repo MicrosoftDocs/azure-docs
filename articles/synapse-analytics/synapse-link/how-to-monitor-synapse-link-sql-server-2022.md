@@ -42,7 +42,7 @@ You can monitor the status of your Azure Synapse Link connection, see which tabl
     | Status | **Initial**, **Starting**, **Running**, **Stopping**, **Stopped**, **Pausing**, **Paused**, or **Resuming**. Details of what each status means can be found here: [Azure Synapse Link for SQL Server 2022](sql-server-2022-synapse-link.md) |
     | Start time | Start date and time for the link connection run (Month, Date, Year, HH:MM:SS AM/PM) |
     | End time  | End date and time for the link connection run (Month, Date, Year, HH:MM:SS AM/PM) |
-    | Landing zone SAS token expire time | Expiration date/time for the SAS token that is used to access the landing zone storage. More details can be found here: [Configure an expiration policy for shared accessed signatures (SAS)](/azure/storage/common/sas-expiration-policy.md?context=/azure/synapse-analytics/context/context) |
+    | Landing zone SAS token expire time | Expiration date/time for the SAS token that is used to access the landing zone storage. More details can be found here: [Configure an expiration policy for shared accessed signatures (SAS)](../../storage/common/sas-expiration-policy.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext) |
     | Continuous run ID | ID of the link connection run *Helpful when troubleshooting any issues and contacting Microsoft support. |
 
 1. You need to manually select the **Refresh** button to refresh the list of link connections and their corresponding monitoring details. Autorefresh is currently not supported.  
