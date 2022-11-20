@@ -37,13 +37,13 @@ Sites and site-based access control is relevant only for OT monitoring sites, an
 
 1. In the **Edit site** pane that appears on the right, select **Manage site access control (Preview)**. For example:
 
-    :::image type="content" source="media/release-notes/site-based-access.png" alt-text="Screenshot of the site-based access option from the Sites and sensors page.":::
+    :::image type="content" source="media/release-notes/site-based-access.png" alt-text="Screenshot of the site-based access option from the Sites and sensors page." lightbox="media/release-notes/site-based-access.png":::
 
     An **Access control** page opens in Defender for IoT for your site. This **Access control** page is the same interface as is available directly from the **Access control** tab on any Azure resource.
 
     For example:
 
-    :::image type="content" source="media/manage-users-portal/access-control-site.png" alt-text="Screenshot of the Access Control page for site-based access control.":::
+    :::image type="content" source="media/manage-users-portal/access-control-site.png" alt-text="Screenshot of the Access Control page for site-based access control." lightbox="media/manage-users-portal/access-control-site.png":::
 
 For more information, see:
 
