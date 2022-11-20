@@ -32,7 +32,7 @@ Automation rules apply to the following categories of use cases:
 
 - Inspect the contents of an incident (alerts, entities, and other properties) and take further action by calling a playbook.
 
-- Automation rules can also be [the mechanism by which you run a playbook](whats-new.md#automation-rules-for-alerts-preview) in response to an **alert** *not associated with an incident*.
+- Automation rules can also be the mechanism by which you run a playbook in response to an **alert** *not associated with an incident*.
 
     > [!IMPORTANT]
     >

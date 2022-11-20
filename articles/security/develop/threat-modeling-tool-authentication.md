@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Security Frame: Authentication | Mitigations
@@ -31,7 +31,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **Machine Trust Boundary** | <ul><li>[Ensure that deployed application's binaries are digitally signed](#binaries-signed)</li></ul> |
 | **WCF** | <ul><li>[Enable authentication when connecting to MSMQ queues in WCF](#msmq-queues)</li><li>[WCF-Do not set Message clientCredentialType to none](#message-none)</li><li>[WCF-Do not set Transport clientCredentialType to none](#transport-none)</li></ul> |
 | **Web API** | <ul><li>[Ensure that standard authentication techniques are used to secure Web APIs](#authn-secure-api)</li></ul> |
-| **Azure AD** | <ul><li>[Use standard authentication scenarios supported by Azure Active Directory](#authn-aad)</li><li>[Override the default ADAL token cache with a scalable alternative](#adal-scalable)</li><li>[Ensure that TokenReplayCache is used to prevent the replay of ADAL authentication tokens](#tokenreplaycache-adal)</li><li>[Use ADAL libraries to manage token requests from OAuth2 clients to AAD (or on-premises AD)](#adal-oauth2)</li></ul> |
+| **Azure AD** | <ul><li>[Use standard authentication scenarios supported by Azure Active Directory](#authn-aad)</li><li>[Override the default MSAL token cache with a distributed cache](#msal-distributed-cache)</li><li>[Ensure that TokenReplayCache is used to prevent the replay of inbound authentication tokens](#tokenreplaycache-msal)</li><li>[Use MSAL libraries to manage token requests from OAuth2 clients to AAD (or on-premises AD)](#msal-oauth2)</li></ul> |
 | **IoT Field Gateway** | <ul><li>[Authenticate devices connecting to the Field Gateway](#authn-devices-field)</li></ul> |
 | **IoT Cloud Gateway** | <ul><li>[Ensure that devices connecting to Cloud gateway are authenticated](#authn-devices-cloud)</li><li>[Use per-device authentication credentials](#authn-cred)</li></ul> |
 | **Azure Storage** | <ul><li>[Ensure that only the required containers and blobs are given anonymous read access](#req-containers-anon)</li><li>[Grant limited access to objects in Azure storage using SAS or SAP](#limited-access-sas)</li></ul> |
@@ -350,7 +350,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **References**              | [Authentication Scenarios for Azure AD](../../active-directory/develop/authentication-vs-authorization.md), [Azure Active Directory Code Samples](../../active-directory/azuread-dev/sample-v1-code.md), [Azure Active Directory developer's guide](../../active-directory/develop/index.yml) |
 | **Steps** | <p>Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect. Below are the five primary application scenarios supported by Azure AD:</p><ul><li>Web Browser to Web Application: A user needs to sign in to a web application that is secured by Azure AD</li><li>Single Page Application (SPA): A user needs to sign in to a single page application that is secured by Azure AD</li><li>Native Application to Web API: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Azure AD</li><li>Web Application to Web API: A web application needs to get resources from a web API secured by Azure AD</li><li>Daemon or Server Application to Web API: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Azure AD</li></ul><p>Please refer to the links in the references section for low-level implementation details</p>|
 
-## <a id="adal-scalable"></a>Override the default ADAL token cache with a scalable alternative
+## <a id="msal-distributed-cache"></a>Override the default MSAL token cache with a distributed cache
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -358,10 +358,10 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Modern Authentication with Azure Active Directory for Web Applications](/archive/blogs/microsoft_press/new-book-modern-authentication-with-azure-active-directory-for-web-applications), [Using Redis as ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
-| **Steps** | <p>The default cache that ADAL (Active Directory Authentication Library) uses is an in-memory cache that relies on a static store, available process-wide. While this works for native applications, it does not scale for mid tier and backend applications for the following reasons:</p><ul><li>These applications are accessed by many users at once. Saving all access tokens in the same store creates isolation issues and presents challenges when operating at scale: many users, each with as many tokens as the resources the app accesses on their behalf, can mean huge numbers and very expensive lookup operations</li><li>These applications are typically deployed on distributed topologies, where multiple nodes must have access to the same cache</li><li>Cached tokens must survive process recycles and deactivations</li></ul><p>For all the above reasons, while implementing web apps, it is recommended to override the default ADAL token cache with a scalable alternative such as Azure Cache for Redis.</p>|
+| **References**              | [Token cache serialization in MSAL.NET](../../active-directory/develop/msal-net-token-cache-serialization.md)  |
+| **Steps** | <p>The default cache that MSAL (Microsoft Authentication Library) uses is an in-memory cache, and is scalable. However there are different options available that you can use as an alternative, such as a distributed token cache. These have L1/L2 mechanisms, where L1 is in memory and L2 is the distributed cache implementation. These can be accordingly configured to limit L1 memory, encrypt or set eviction policies. Other alternatives include Redis, SQL Server or Azure Comsos DB caches. An implementation of a distributed token cache can be found in the following [Tutorial: Get started with ASP.NET Core MVC](https://learn.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc.md).</p>|
 
-## <a id="tokenreplaycache-adal"></a>Ensure that TokenReplayCache is used to prevent the replay of ADAL authentication tokens
+## <a id="tokenreplaycache-msal"></a>Ensure that TokenReplayCache is used to prevent the replay of MSAL authentication tokens
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -374,7 +374,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 ### Example
 ```csharp
-// ITokenReplayCache defined in ADAL
+// ITokenReplayCache defined in MSAL
 public interface ITokenReplayCache
 {
 bool TryAdd(string securityToken, DateTime expiresOn);
@@ -422,7 +422,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 
 Please note that to test the effectiveness of this configuration, login into your local OIDC-protected application and capture the request to `"/signin-oidc"` endpoint in fiddler. When the protection is not in place, replaying this request in fiddler will set a new session cookie. When the request is replayed after the TokenReplayCache protection is added, the application will throw an exception as follows: `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
 
-## <a id="adal-oauth2"></a>Use ADAL libraries to manage token requests from OAuth2 clients to AAD (or on-premises AD)
+## <a id="msal-oauth2"></a>Use MSAL libraries to manage token requests from OAuth2 clients to AAD (or on-premises AD)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -430,8 +430,12 @@ Please note that to test the effectiveness of this configuration, login into you
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [ADAL](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) |
-| **Steps** | <p>The Azure AD authentication Library (ADAL) enables client application developers to easily authenticate users to cloud or on-premises Active Directory (AD), and then obtain access tokens for securing API calls.</p><p>ADAL has many features that make authentication easier for developers, such as asynchronous support, a configurable token cache that stores access tokens and refresh tokens, automatic token refresh when an access token expires and a refresh token is available, and more.</p><p>By handling most of the complexity, ADAL can help a developer focus on business logic in their application and easily secure resources without being an expert on security. Separate libraries are available for .NET, JavaScript (client and Node.js), Python, iOS, Android and Java.</p>|
+| **References**              | [MSAL](../../active-directory/develop/msal-overview.md) |
+| **Steps** | <p>The Microsoft Authentication Library (MSAL) enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. It can be used to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS. 
+
+MSAL gives you many ways to get tokens, with a consistent API for many platforms. There is no need to directly use the OAuth libraries or code against the protocol in your application, and can acquire tokens on behalf of a user or application (when applicable to the platform). 
+
+MSAL also maintains a token cache and refreshes tokens for you when they're close to expiring. MSAL can also help you specify which audience you want your application to sign in, and help you set up your application from configuration files, and troubleshoot your app.
 
 ## <a id="authn-devices-field"></a>Authenticate devices connecting to the Field Gateway
 

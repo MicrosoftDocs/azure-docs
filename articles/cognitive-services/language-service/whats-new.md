@@ -17,6 +17,9 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## November 2022
+* Conversational PII now supports up to 40,000 characters as document size.
+
 ## October 2022
 
 * The summarization feature now has the following capabilities:

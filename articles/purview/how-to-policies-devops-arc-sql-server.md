@@ -1,5 +1,5 @@
 ---
-title: Provision access to Arc-enabled SQL Server for DevOps actions (preview)
+title: Provision access to Arc-enabled SQL Server for DevOps actions
 description: Step-by-step guide on provisioning access to Arc-enabled SQL Server through Microsoft Purview DevOps policies
 author: inward-eye
 ms.author: vlrodrig

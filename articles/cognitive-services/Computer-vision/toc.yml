@@ -66,6 +66,8 @@ items:
         maintainContext: true
   - name: Reference
     items:
+    - name: OCR REST API v4.0 (preview)
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2022-10-12-preview/operations/61d65934cd35050c20f73ab6
     - name: OCR REST API v3.2
       href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
     - name: OCR REST API v3.1
