@@ -1,26 +1,33 @@
 ---
-title: Restrict Azure Storage copy operations to accounts in the same tenant or with private endpoints to the same virtual network (preview)
+title: Limit the source accounts for Azure Storage Account copy operations to accounts in the same tenant or on the same virtual network
 titleSuffix: Azure Storage
-description: Learn how to restrict Azure Storage copy operations to accounts in the same tenant or with private endpoints to the same virtual network.
+description: Learn how to use the "Permitted scope of copy operations" (preview) Azure storage account setting to limit the source accounts of copy operations to the same tenant or with private links to the same virtual network.
 author: jimmart-dev
 ms.author: jammart
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 11/20/2022
 ms.reviewer: santoshc 
 ms.custom: template-how-to
 ---
 
-# Restrict copy operations to accounts in the same tenant or with endpoints to the same virtual network (preview)
+# Restrict copy operations to source accounts in the same tenant or virtual network
 
-For security reasons, storage administrators might want to restrict copying data to a storage account to source accounts from trusted environments. The storage account setting **Permitted scope for copy operations (preview)** allows you to restrict the scope of allowed source storage accounts to:
+For security reasons, storage administrators might want to limit the source accounts from which data can be copied to protected accounts. Limiting the scope of permitted copy operations helps prevent the exfiltration of data... (a better explanation here).
 
-- Accounts in the same Azure AD tenant
-- Accounts that have a private endpoint to the same virtual network
+The **allowedCopyScope** property of a storage account is not set by default and does not return a value until you explicitly set it. The property has three possible settings:
 
-Limiting the scope of permitted copy operations helps prevent the exfiltration of data...
+- ***(not defined)***: Defaults to permitting copying from any storage account.
+- **AAD**: Permits copying only from accounts in the same Azure AD tenant as the destination account.
+- **PrivateLink**:  Permits copying only from storage accounts that have private links to the same virtual network as the destination.
 
-This article shows how to change the permitted scope of copy operations for an existing storage account.
+When the source of a copy request does not meet the requirements you specify, the request fails with HTTP status code 403 and error message "This request is not authorized to perform this operation."
+
+This article shows you how to limit the source accounts of copy operations to accounts in the same tenant as the destination account, or with private links to the same virtual network.
+
+> [!IMPORTANT]
+> **Permitted scope of copy operations** is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
