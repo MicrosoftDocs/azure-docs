@@ -198,6 +198,14 @@
       href: extra-deploy-enterprise-iot.md
   - name: Manage sensors from the Azure portal
     href: how-to-manage-sensors-on-the-cloud.md
+  - name: Create and manage users
+    items:
+    - name: OT sensor console
+      href: manage-users-sensor.md
+    - name: On-premises management console
+      href: manage-users-on-premises-management-console.md
+    - name: Audit user activity
+      href: track-user-activity.md
   - name: OT system maintenance
     items:
     - name: Maintain threat intelligence packages
