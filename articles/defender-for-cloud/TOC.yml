@@ -367,14 +367,11 @@
         displayName: database
         href: defender-for-sql-introduction.md
       - name: Enable vulnerability assessment
-        href: defender-for-sql-azure-vulnerability-assessment-enable.md
-      - name: Customize SQL information protection policy
-        displayName: sql, database, data discovery
-        href: sql-information-protection-policy.md
+        href: sql-azure-vulnerability-assessment-enable.md
       - name: Manage vulnerability assessments
-        href: defender-for-sql-azure-vulnerability-assessment-manage.md
+        href: sql-azure-vulnerability-assessment-manage.md
       - name: Find and remediate threats
-        href: defender-for-sql-azure-vulnerability-assessment-find.md
+        href: sql-azure-vulnerability-assessment-find.md
       - name: Investigate threats
         href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/defender-for-cloud/toc.json
       - name: Review sensitive data
