@@ -7,17 +7,32 @@ ms.date: 11/15/2022
 
 # OT monitoring software release notes
 
-The Defender for IoT architecture uses on-premises sensors and management servers. This article lists the supported software versions for Microsoft Defender for IoT's OT sensor and on-premises management software.
+The Defender for IoT architecture uses on-premises sensors and management consoles. This article lists the supported software versions for Microsoft Defender for IoT's OT sensor and on-premises management software.
 
-- Cloud-only features, which aren't dependent on specific sensor versions, are listed only in [What's new in Microsoft Defender for IoT?](whats-new.md)
-
-- Cloud features can also be dependent on a specific sensor version. Such features are listed below for the relevant software versions, and are only available for data coming from sensors that have the required version installed or higher.
+Cloud-only features, which aren't dependent on specific sensor versions, are listed only in [What's new in Microsoft Defender for IoT?](whats-new.md)
 
 ## Versioning and support for on-premises software versions
 
 This section describes the servicing information, timelines, and guidance for the available on-premises software versions.
 
+### Version update recommendations
+
+When updating your on-premises software, we recommend:
+
+- Plan to **update your sensor versions to the latest major version once every 6 months**.
+
+- Update to a **patch version only for specific bug fixes or security patches**. When working with the Microsoft support team on a specific issue, verify which patch version is recommended to resolve your issue.
+
+> [!NOTE]
+> If you have an on-premises management console, make sure to also update your on-premises management console to the same version as your sensors.
+>
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
 ### On-premises monitoring software versions
+
+Cloud features may be dependent on a specific sensor version. Such features are listed below for the relevant software versions, and are only available for data coming from sensors that have the required version installed, or higher.
+
 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
@@ -39,20 +54,6 @@ This section describes the servicing information, timelines, and guidance for th
 |10.5.4 |12/2022 |Patch |  09/2022|
 | 10.5.3| 10/2021 |Patch | 07/2022|
 | 10.5.2| 10/2021 | Major| 07/2022|
-
-### Version update recommendations
-
-When updating your on-premises software, we recommend:
-
-- Plan to **update your sensor versions to the latest major version once every 6 months**.
-
-- Update to a **patch version only for specific bug fixes or security patches**. When working with support on a specific issue, verify which patch version is recommended to resolve your issue.
-
-> [!NOTE]
-> If you have an on-premises management console, make sure to also update your on-premises management console to the same version as your sensors.
->
-
-For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### Threat intelligence updates
 
