@@ -70,11 +70,11 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 Defender for IoT now supports *site-based access control*, which allows customers to control user access to Defender for IoT features on the Azure portal at the *site* level.
 
-For example, now you can define user permissions per site or multiple sites, for OT sensor management activities, access to the the Azure [Device inventory](how-to-manage-device-inventory-for-organizations.md) page, or access to the Azure [Alerts](how-to-manage-cloud-alerts.md) page.
+For example, apply the [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) roles to determine user access to Azure resources such as the **Alerts**, **Device inventory**, or **Workbooks** pages.
 
 To manage site-based access control, select the site in the **Sites and sensors** page, and then select the **Manage site access control (Preview)** link. For example:
 
-:::image type="content" source="media/release-notes/site-based-access.png" alt-text="Screenshot of the site-based access link in the Sites and sensors page.":::
+:::image type="content" source="media/release-notes/site-based-access.png" alt-text="Screenshot of the site-based access link in the Sites and sensors page." lightbox="media/release-notes/site-based-access.png":::
 
 For more information, see [Manage OT monitoring users on the Azure portal](manage-users-portal.md) and [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md).
 

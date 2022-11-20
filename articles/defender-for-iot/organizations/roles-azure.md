@@ -31,8 +31,8 @@ Roles for management actions are applied to user roles across an entire Azure su
 |  **Download OT threat intelligence packages** <br>Apply per subscription only | ✔      |  ✔       |   ✔      | ✔ |
 |  **Push OT threat intelligence updates** <br>Apply per subscription only | -     |   ✔     | ✔ | ✔ |
 | **Onboard an Enterprise IoT plan from Microsoft 365 Defender** [*](#enterprise-iot-security)<br>Apply per subscription only | - | ✔ | - | - |
-| **View Azure alerts** <br>Apply per subscription only | ✔ | ✔ |✔ | ✔|
-| **Modify Azure alerts (write access)** <br>Apply per subscription only|  - | ✔ |✔ | ✔ |
+| **View Azure alerts** <br>Apply per subscription or site | ✔ | ✔ |✔ | ✔|
+| **Modify Azure alerts (write access)** <br>Apply per subscription or site|  - | ✔ |✔ | ✔ |
 | **View Azure device inventory**  <br>Apply per subscription or site  |  ✔ | ✔ |✔ | ✔|
 | **Manage Azure device inventory (write access)**   <br>Apply per subscription or site | - | ✔ |✔ | ✔ |
 | **View Azure workbooks**<br>Apply per subscription or site   | ✔ | ✔ |✔ | ✔ |
