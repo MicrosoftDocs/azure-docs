@@ -99,7 +99,7 @@ These example code snippets show you how to do the following tasks with the Azur
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/python/api/overview/azure/identity-readme#defaultazurecredential).
 
-For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
+For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
 #### Assign roles to your Azure AD user account
 
@@ -303,5 +303,5 @@ To see Blob storage sample apps, continue to:
 > [!div class="nextstepaction"]
 > [Azure Blob Storage library for Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-- To learn more, see the [Azure Storage client libraries for Python](/azure/developer/python/sdk/storage/overview).
+- To learn more, see the [Azure Storage client libraries for Python](/azure/developer/python/sdk/azure-sdk-overview).
 - For tutorials, samples, quickstarts, and other documentation, visit [Azure for Python Developers](/azure/python/).

@@ -6,7 +6,7 @@ ms.author: whhender
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 11/10/2022
+ms.date: 11/16/2022
 ---
 
 # What's available in the Microsoft Purview governance portal?
@@ -23,7 +23,9 @@ Microsoft Purview's solutions in the governance portal provide a unified data go
 >[!TIP]
 > Looking to govern your data in Microsoft 365 by keeping what you need and deleting what you don't? Use [Microsoft Purview Data Lifecycle Management](/microsoft-365/compliance/data-lifecycle-management).
 
-The [Data Map](#data-map): Microsoft Purview automates data discovery by providing data scanning and classification as a service for assets across your data estate. Metadata and descriptions of discovered data assets are integrated into a holistic map of your data estate. Atop this map, there are purpose-built apps that create environments for data discovery, access management, and insights about your data landscape.
+## Data Map
+
+Microsoft Purview automates data discovery by providing data scanning and classification for assets across your data estate. Metadata and descriptions of discovered data assets are integrated into a holistic map of your data estate. Atop this map, there are purpose-built apps that create environments for data discovery, access management, and insights about your data landscape.
 
 
 |App  |Description  |
@@ -33,9 +35,8 @@ The [Data Map](#data-map): Microsoft Purview automates data discovery by providi
 |[Data Sharing](#data-sharing) | Allows you to securely share data internally or cross organizations with business partners and customers. |
 |[Data Policy](#data-policy) | A set of central, cloud-based experiences that help you provision access to data securely and at scale. |
 
-## Data Map
 
-Microsoft Purview Data Map provides the foundation for data discovery and effective data governance. Microsoft Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Microsoft Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the Microsoft Purview Data Map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.2 APIs.
+Microsoft Purview Data Map provides the foundation for data discovery and data governance. Microsoft Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Microsoft Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the data map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.2 APIs.
 Microsoft Purview Data Map powers the Microsoft Purview Data Catalog and Microsoft Purview Data Estate Insights as unified experiences within the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 For more information, see our [introduction to Data Map](concept-elastic-data-map.md).
@@ -46,6 +47,7 @@ With the Microsoft Purview Data Catalog, business and technical users can quickl
 For more information, see our [introduction to search using Data Catalog](how-to-search-catalog.md).
 
 ## Data Estate Insights
+
 With the Microsoft Purview Data Estate Insights, the chief data officers and other governance stakeholders can get a bird’s eye view of their data estate and can gain actionable insights into the governance gaps that can be resolved from the experience itself.
 
 For more information, see our [introduction to Data Estate Insights](concept-insights.md).
@@ -59,15 +61,18 @@ For more information, see our [introduction to Data Sharing](concept-data-share.
 ## Data Policy
 Microsoft Purview Data Policy is a set of central, cloud-based experiences that help you manage access to data sources and datasets securely and at scale.
 - Manage access to data sources from a single-pane of glass, cloud-based experience
-- Introduces a new data-plane permission model that is external to data sources
-- Seamless integration with Microsoft Purview Data Map and Catalog helps search for data assets and grant access only to what is required via fine-grained policies
-- Based on role definitions that are simple and abstracted (e.g. Read, Modify)
 - At-scale access provisioning
+- Introduces a new data-plane permission model that is external to data sources
+- Seamless integration with Microsoft Purview Data Map and Catalog:
+    - Search for data assets and grant access only to what is required via fine-grained policies.
+    - Path to support SaaS, on-premises, and multicloud data sources
+    - Path to leverage all associated metadata for policies
+- Based on role definitions that are simple and abstracted (for example: Read, Modify)
 
 For more information, see our introductory guides:
-* [Data owner access policies](concept-policies-data-owner.md)(preview): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
-* [Self-service access policies](concept-self-service-data-access-policy.md)(preview): Self-Service: Workflow approval and automatic provisioning of access requests initiated by business analysts that discover data assets in Microsoft Purview’s catalog.
-* [DevOps policies](concept-policies-devops.md)(preview): Provision access to system metadata for IT operations and other DevOps personnel, supporting typical functions like SQL Performance Monitor and SQL Security Auditor.
+* [Data owner access policies](concept-policies-data-owner.md) (preview): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
+* [Self-service access policies](concept-self-service-data-access-policy.md) (preview): Self-Service: Workflow approval and automatic provisioning of access requests initiated by business analysts that discover data assets in Microsoft Purview’s catalog.
+* [DevOps policies](concept-policies-devops.md): Provision access for IT operations and other DevOps users from Microsoft Purview Studio, enabling them to monitor SQL database system health and security, while limiting insider threat.
 
 ## Traditional challenges that Microsoft Purview seeks to address
 
@@ -112,7 +117,7 @@ Discovering and understanding data sources and their use is the primary purpose 
 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
 
-Lastly, Microsoft Purview Data Policy app leverages the metadata in the Data Map, providing a superior solution to keep your data secure.
+Lastly, Microsoft Purview Data Policy app applies the metadata in the Data Map, providing a superior solution to keep your data secure.
 * Structure and simplify the process of granting/revoking access.
 * Reduce the effort of access provisioning.
 * Access decision in Microsoft data systems has negligible latency penalty.
