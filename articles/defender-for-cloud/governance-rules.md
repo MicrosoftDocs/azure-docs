@@ -40,7 +40,7 @@ The due date set for the recommendation to be remediated is based on a timeframe
 
 You can also set the owner of the resources that are affected by the specified recommendations. In organizations that use resource tags to associate resources with an owner, you can specify the tag key and the governance rule reads the name of the resource owner from the tag.
 
-The owner is indicated as unspecified when the tag defined in the rule, which determines the owner wasn't found on the resource, the associated resource group, and the associated subscription.
+The owner is shown as unspecified when the owner wasn't found on the resource, the associated resource group, and the associated subscription based on the specified tag.
 
 :::image type="content" source="media/governance-rules/unspecified owner.png" alt-text="screenshot showing unspecified owner line." lightbox="media/governance-rules/unspecified owner.png":::
 
