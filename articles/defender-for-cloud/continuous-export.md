@@ -4,7 +4,7 @@ description: Learn how to configure continuous export of security alerts and rec
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 11/06/2022
+ms.date: 11/20/2022
 ---
 # Continuously export Microsoft Defender for Cloud data
 
@@ -179,6 +179,8 @@ To export data to an Azure Event hub or Log Analytics workspace in a different t
 1. In the tenant that has the Azure Event hub or Log Analytics workspace, [invite a user](../active-directory/external-identities/what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal) from the tenant that hosts the continuous export configuration.
 1. For a Log Analytics workspace: After the user accepts the invitation to join the tenant, assign the user in the workspace tenant one of these roles: Owner, Contributor, Log Analytics Contributor, Sentinel Contributor, Monitoring Contributor
 1. Configure the continuous export configuration and select the Event hub or Analytics workspace to send the data to.
+
+You can also configure export to another tenant through the REST API. [Refer to the automations table](/rest/api/defenderforcloud/automations/create-or-update?tabs=HTTP).
 
 ##  View exported alerts and recommendations in Azure Monitor
 
