@@ -60,7 +60,7 @@ items:
   items:
     - name: REST API (completions & embeddings)
       href: reference.md
-    - name: REST API (control plane)
+    - name: REST API (authoring & deployment)
       href: /rest/api/cognitiveservices/azureopenai/deployments/create
 - name: Resources
   items: 
