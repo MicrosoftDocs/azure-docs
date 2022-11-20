@@ -379,6 +379,12 @@
         href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/defender-for-cloud/toc.json
       - name: Review sensitive data
         href: sql-information-protection-policy.md
+      - name: Vulnerability Assessment rules
+        href: sql-azure-vulnerability-assessment-rules.md
+      - name: Vulnerability Assessment rules changelog
+        href: sql-azure-vulnerability-assessment-rules-changelog.md
+      - name: Store vulnerability scans in storage
+        href: /azure/azure-sql/database/sql-database-vulnerability-assessment-storage?toc=/azure/defender-for-cloud/toc.json
     - name: Defender for SQL servers on machines
       items:
       - name: Enable Defender for SQL servers on machines
