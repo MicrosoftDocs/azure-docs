@@ -84,7 +84,7 @@ Synapse workspaces use default storage containers for:
 Identify the following information about your storage:
 
 - The ADLS Gen2 account to use for your workspace. This document calls it `storage1`. `storage1` is considered the "primary" storage account for your workspace.
-- The container inside `workspace1` that your Synapse workspace will use by default. This document calls it `container1`.
+- The container inside `storage1` that your Synapse workspace will use by default. This document calls it `container1`.
 
 - Select **Access control (IAM)**.
 

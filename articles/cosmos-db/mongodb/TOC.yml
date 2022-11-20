@@ -302,7 +302,7 @@
               href: connect-using-mongochef.md
             - name: Connect using Compass
               href: connect-using-compass.md
-            - name: Connect using Robo 3T
+            - name: Connect using Studio 3T
               href: connect-using-robomongo.md
             - name: Connect using Mongoose
               href: connect-using-mongoose.md
@@ -344,6 +344,12 @@
               href: how-to-javascript-manage-documents.md
             - name: Manage queries
               href: how-to-javascript-manage-queries.md
+        - name: Python
+          items:
+            - name: Get started
+              href: how-to-python-get-started.md
+            - name: Manage databases
+              href: how-to-python-manage-databases.md
         - name: .NET
           items:
             - name: Get started
@@ -425,8 +431,6 @@
           href: error-codes-solutions.md
         - name: Troubleshoot query performance
           href: troubleshoot-query-performance.md
-        - name: Troubleshoot API for MongoDB queries with diagnostics
-          href: diagnostic-queries.md
         - name: Prevent rate-limiting errors
           href: prevent-rate-limiting-errors.md
         - name: Optimize query and storage costs when upgrading
@@ -520,10 +524,10 @@
               href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: ../monitor-logs-basic-queries.md
-            - name: Troubleshoot issues using advanced queries
-              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Troubleshoot issues with advanced diagnostics queries
+              href: diagnostic-queries.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics

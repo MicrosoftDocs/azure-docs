@@ -20,6 +20,7 @@ A free or standard [IoT hub](../articles/iot-hub/iot-hub-create-through-portal.m
 * A free or standard [IoT hub](../articles/iot-hub/iot-hub-create-through-portal.md) in your Azure subscription
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code
+* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code
 
 # [Azure CLI](#tab/azure-cli)
 

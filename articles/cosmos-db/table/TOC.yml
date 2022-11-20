@@ -397,8 +397,6 @@
               href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: ../monitor-logs-basic-queries.md
-            - name: Troubleshoot issues using advanced queries
-              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
         - name: Configure alerts

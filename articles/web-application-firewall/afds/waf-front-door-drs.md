@@ -32,7 +32,7 @@ DRS is enabled by default in Detection mode in your WAF policies. You can disabl
 
 Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You may configure an exclusion list for a managed rule, rule group, or for the entire rule set. For more information, see [Web Application Firewall (WAF) with Front Door exclusion lists](./waf-front-door-exclusion.md).
 
-By default, DRS blocks requests that trigger the rules. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
+By default, DRS versions 2.0 and above will leverage anomaly scoring when a request matches a rule, DRS versions earlier than 2.0 blocks requests that trigger the rules. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
 
 Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
 
@@ -96,17 +96,17 @@ DRS 2.1 includes 17 rule groups, as shown in the following table. Each group con
 
 The following rules are disabled by default for DRS 2.1:
 
-|Rule ID  |Rule Group|Description  |Why disabled|
+|Rule ID  |Rule Group|Description  |Details|
 |---------|---------|---------|---------|
 |942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Replaced by MSTIC rule 99031001 |
 |942150      |SQLI|SQL Injection Attack|Replaced by MSTIC rule 99031003 |
 |942260      |SQLI|Detects basic SQL authentication bypass attempts 2/3 |Replaced by MSTIC rule 99031004 |
 |942430      |SQLI|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|Too many false positives.|
 |942440      |SQLI|SQL Comment Sequence Detected|Replaced by MSTIC rule 99031002 |
-|99005006|MS-ThreatIntel-WebShells|Spring4Shell Interaction Attempt|Replaced by Microsoft threat intelligence rule.|
-|99001014|MS-ThreatIntel-CVEs|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|Replaced by Microsoft threat intelligence rule.|
-|99001015|MS-ThreatIntel-WebShells|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|Replaced by Microsoft threat intelligence rule.|
-|99001016|MS-ThreatIntel-WebShells|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|Replaced by Microsoft threat intelligence rule.|
+|99005006|MS-ThreatIntel-WebShells|Spring4Shell Interaction Attempt|Enable rule to prevent against SpringShell vulnerability|
+|99001014|MS-ThreatIntel-CVEs|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|Enable rule to prevent against SpringShell vulnerability|
+|99001015|MS-ThreatIntel-WebShells|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|Enable rule to prevent against SpringShell vulnerability|
+|99001016|MS-ThreatIntel-WebShells|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|Enable rule to prevent against SpringShell vulnerability|
 
 ### DRS 2.0
 

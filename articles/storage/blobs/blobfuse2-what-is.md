@@ -1,6 +1,6 @@
 ---
 title: What is BlobFuse? - BlobFuse2 (preview)
-titleSuffix: Azure Blob Storage
+titleSuffix: Azure Storage
 description: An overview of how to use BlobFuse to mount an Azure Blob Storage container through the Linux file system.
 author: jimmart-dev
 ms.author: jammart
@@ -30,7 +30,7 @@ The open source BlobFuse2 project is on GitHub:
 
 ### Licensing
 
-The BlobFuse2 project is [licensed under MIT](https://github.com/Azure/azure-storage-fuse/blob/main/LICENSE).
+The BlobFuse2 project is [licensed under the MIT license](https://github.com/Azure/azure-storage-fuse/blob/main/LICENSE).
 
 ## Features
 

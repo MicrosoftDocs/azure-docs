@@ -78,7 +78,7 @@ The following snippet shows the device model for a thermostat device. The device
 
 To view this information in the IoT Central UI, select **View identity** in the device template editor:
 
-:::image type="content" source="media/howto-edit-device-template/view-identity.png" alt-text="View the identity of an interface to see the version number" lightbox="media/howto-edit-device-template/view-identity.png":::
+:::image type="content" source="media/howto-edit-device-template/view-identity.png" alt-text="Screenshot that shows how to view the identity of an interface to see the version number." lightbox="media/howto-edit-device-template/view-identity.png":::
 
 ## Version a device template
 
@@ -111,7 +111,7 @@ You can create multiple versions of the device template. Over time, you'll have 
 1. Select the device you need to migrate to another version.
 1. Choose **Migrate**:
 
-    :::image type="content" source="media/howto-edit-device-template/migrate-device.png" alt-text="Choose the option to start migrating a device" lightbox="media/howto-edit-device-template/migrate-device.png":::
+    :::image type="content" source="media/howto-edit-device-template/migrate-device.png" alt-text="Screenshot that shows how to choose the option to start migrating a device." lightbox="media/howto-edit-device-template/migrate-device.png":::
 
 1. Select the device template with the version you want to migrate the device to and select **Migrate**.
 
