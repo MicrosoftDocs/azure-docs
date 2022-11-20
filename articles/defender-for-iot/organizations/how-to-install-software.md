@@ -262,7 +262,7 @@ This command will cause the light on the port to flash for the specified time pe
 
 After you've finished installing OT monitoring software on your appliance, test your system to make sure that processes are running correctly. The same validation process applies to all appliance types.
 
-System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the **support** and **cyber** users.
+System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the *support* and *cyberx* users.
 
 After installing OT monitoring software, make sure to run the following tests:
 
@@ -357,7 +357,7 @@ The interface between the IT firewall, on-premises management console, and the O
 
 **To enable tunneling access for sensors**:
 
-1. Sign in to the on-premises management console's CLI with the **cyberx** or the **support** user credentials. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+1. Sign in to the on-premises management console's CLI with the *cyberx* or the *support* user credentials. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 1. Enter `sudo cyberx-management-tunnel-enable`.
 

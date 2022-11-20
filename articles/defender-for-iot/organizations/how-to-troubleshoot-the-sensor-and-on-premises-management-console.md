@@ -18,7 +18,7 @@ Check your system health from the sensor or on-premises management console.
 
 **To access the system health tool**:
 
-1. Sign in to the sensor or on-premises management console with the **Support** user credentials.
+1. Sign in to the sensor or on-premises management console with the *support* user credentials.
 
 1. Select **System Statistics** from the **System Settings** window.
 
@@ -55,7 +55,7 @@ Verify that the system is up and running prior to testing the system's sanity.
 
 **To test the system's sanity**:
 
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user *support*.
 
 1. Enter `system sanity`.
 
@@ -69,7 +69,7 @@ Verify that the correct version is used:
 
 **To check the system's version**:
 
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user *support*.
 
 1. Enter `system version`.
 
@@ -79,7 +79,7 @@ Verify that all the input interfaces configured during the installation process 
 
 **To validate the system's network status**:
 
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the **Support** user.
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the *support* user.
 
 1. Enter `network list` (the equivalent of the Linux command `ifconfig`).
 
@@ -120,7 +120,7 @@ Verify that you can access the console web GUI:
 
    1. Connect a monitor and a keyboard to the appliance.
 
-   1. Use the **Support** user and password to sign in.
+   1. Use the *support* user and password to sign in.
 
    1. Use the command `network list` to see the current IP address.
 
@@ -140,7 +140,7 @@ Verify that you can access the console web GUI:
 
    1. To apply the settings, select **Y**.
 
-1. After restart, connect with the **Support** user credentials and use the `network list` command to verify that the parameters were changed.
+1. After restart, connect with the *support* user credentials and use the `network list` command to verify that the parameters were changed.
 
 1. Try to ping and connect from the GUI again.
 
@@ -148,7 +148,7 @@ Verify that you can access the console web GUI:
 
 1. Connect a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
 
-1. Use the **Support** user credentials to sign in.
+1. Use the *support* user credentials to sign in.
 
 1. Use the `system sanity` command and check that all processes are running. For example:
 
@@ -183,7 +183,7 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *cyberx*, or *support* user. For more information, see [Recover a password](how-to-create-and-manage-users.md#recover-a-password).
+    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *cyberx*, or *support* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](manage-users-on-premises-management-console.md#recover-privileged-access-to-an-on-premises-management-console).
 
 ### Investigate a lack of traffic
 

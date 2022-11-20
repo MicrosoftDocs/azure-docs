@@ -277,7 +277,7 @@ The Enterprise IoT integration with Microsoft Defender for Endpoint is now in Ge
 
 ### Same passwords for cyberx_host and cyberx users
 
-During OT monitoring software installations and updates, the **cyberx** user is assigned a random password. When updating from version 10.x.x to version 22.1.7, the **cyberx_host** password is assigned with an identical password to the **cyberx** user.
+During OT monitoring software installations and updates, the *cyberx* user is assigned a random password. When updating from version 10.x.x to version 22.1.7, the **cyberx_host** password is assigned with an identical password to the *cyberx* user.
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
@@ -289,7 +289,7 @@ Starting in OT sensor versions 22.2.4, you can now take the following actions fr
 
 - **Delete single devices**. Now, you can delete a single device that hasn't communicated for at least 10 minutes.
 
-- **Delete inactive devices by admin users**. Now, all admin users, in addition to the **cyberx** user, can delete inactive devices.
+- **Delete inactive devices by admin users**. Now, all admin users, in addition to the *cyberx* user, can delete inactive devices.
 
 Also starting in version 22.2.4, in the sensor console's **Device inventory** page, the **Last seen** value in the device details pane is replaced by **Last activity**. For example:
 

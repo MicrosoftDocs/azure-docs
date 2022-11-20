@@ -250,7 +250,7 @@ You can access console tools from the side menu.  Tools help you:
 |---|---|
 | System settings | Configure the system settings. For example, define DHCP settings, provide mail server details, or create port aliases.   |
 | Custom alert rules |  Use custom alert rules to more specifically pinpoint activity or traffic of interest to you. For more information, see [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules). |
-| Users |  Define users and roles with various access levels. For more information, see [Create and manage on-premises users for OT monitoring](how-to-create-and-manage-users.md).  |
+| Users |  Define users and roles with various access levels. For more information, see [Create and manage users on an OT network sensor](manage-users-sensor.md).  |
 | Forwarding |  Forward alert information to partners that integrate with Defender for IoT, for example, Microsoft Sentinel, Splunk, ServiceNow. You can also send to email addresses, webhook servers, and more. <br /> See [Forward alert information](how-to-forward-alert-information-to-partners.md) for details. |
 
 

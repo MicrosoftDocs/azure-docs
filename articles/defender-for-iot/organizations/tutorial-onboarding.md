@@ -133,7 +133,7 @@ This procedure describes how to install the sensor software on your VM.
 
     - **support**: The administrative user for user management.
 
-    - **cyberX**: The equivalent of root for accessing the appliance.
+    - **cyberx**: The equivalent of root for accessing the appliance.
 
     For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
@@ -141,7 +141,7 @@ This procedure describes how to install the sensor software on your VM.
 
 ### Post-installation validation
 
-This procedure describes how to validate your installation using the sensor's own system health checks, and is available to both the **Support** and **CyberX** sensor users.
+This procedure describes how to validate your installation using the sensor's own system health checks, and is available to both the *support* and *cyberx* sensor users.
 
 **To validate your installation**:
 

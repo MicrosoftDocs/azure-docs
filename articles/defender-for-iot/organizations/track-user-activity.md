@@ -21,14 +21,14 @@ Use Azure Active Directory (AAD) user auditing resources to audit Azure user act
 Audit and track user activity on a sensor's **Event timeline**. The **Event timeline** displays events that occurred on the sensor, affected devices for each event, and the time and date that the event occurred.
 
 > [!NOTE]
-> This procedure is supported for users with an **Administrator** role, and the *cyberx*, *support*, and *cyberx_host* users.
+> This procedure is supported for users with an **Admin** role, and the *cyberx*, *support*, and *cyberx_host* users.
 >
 
 **To use the sensor's Event Timeline**:
 
 1. Sign into the sensor console as one of the following users:
 
-    - Any **Administrator** user
+    - Any **Admin** user
     - The *cyberx*, *support*, or *cyberx_host* user
 
 1. On the sensor, **Event Timeline** from the left-hand menu. Make sure that the filter is set to show **User Operations**.
@@ -78,4 +78,10 @@ Audit logs include the following data:
 
 ## Next steps
 
-For more information, see [Create and manage on-premises users for OT monitoring](how-to-create-and-manage-users.md).
+For more information, see:
+
+- [Microsoft Defender for IoT user management](manage-users-overview.md)
+- [Azure user roles and permissions for Defender for IoT](roles-azure.md)
+- [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
+- [Create and manage users on an OT network sensor](manage-users-sensor.md)
+- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
