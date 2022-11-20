@@ -7,11 +7,15 @@ ms.date: 11/15/2022
 
 # OT monitoring software release notes
 
-This article lists the supported software versions for Microsoft Defender for IoT's OT sensor and on-premises management software. This article lists features supported by OT monitoring software, and doesn't include any cloud-only features.
+The Defender for IoT architecture uses on-premises sensors and management servers. This article lists the supported software versions for Microsoft Defender for IoT's OT sensor and on-premises management software.
+
+Cloud-only features, which aren't dependent on specific sensor versions, are listed only in [What's new in Microsoft Defender for IoT?](whats-new.md)
+
+Cloud features can also be dependent on a specific sensor version. Such features are listed below for the relevant software versions, and are only available for data coming from sensors that have the required version installed or higher.
 
 ## Versioning and support for on-premises software versions
 
-The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
+This section describes the servicing information, timelines, and guidance for the available on-premises software versions.
 
 ### On-premises monitoring software versions
 
@@ -44,8 +48,6 @@ When updating your on-premises software, we recommend:
 
 - Update to a **patch version only for specific bug fixes or security patches**. When working with support on a specific issue, verify which patch version is recommended to resolve your issue.
 
-Features available from the Azure portal that are dependent on a specific sensor version are only available for sensors that have the required version installed, or higher.
-
 > [!NOTE]
 > If you have an on-premises management console, make sure to also update your on-premises management console to the same version as your sensors.
 >
@@ -68,13 +70,11 @@ Other versions use a legacy support model. For more information, see the tables 
 > Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
 >
 
-
 ### Feature documentation per versions
 
 Version numbers are listed only in this article and in the [What's new in Microsoft Defender for IoT?](whats-new.md) article, and not in detailed descriptions elsewhere in the documentation.
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
-
 
 ## Versions 22.2.x
 
