@@ -81,11 +81,11 @@ Use the table below to find which model versions are supported by each feature:
 
 | Feature                                     | Supported Training config versions         | Training config expiration         | Deployment expiration  |
 |---------------------------------------------|--------------------------------------------|------------------------------------|------------------------|
-| Custom text classification                  | `2022-05-01`                               | `04/10/2023`                       | `04/28/2024`           |
-| Conversational language understanding       | `2022-05-01`                               | `10/28/2022`                       | `10/28/2023`           |
-| Conversational language understanding       | `2022-09-01`                               | `04/10/2023`                       | `04/28/2024`           |
-| Custom named entity recognition             | `2022-05-01`                               | `04/10/2023`                       | `04/28/2024`           |
-| Orchestration workflow                      | `2022-05-01`                               | `10/28/2022`                       | `10/28/2023`           |
+| Custom text classification                  | `2022-05-01`                               | `2023-05-01`                       | `2024-04-30`           |
+| Conversational language understanding       | `2022-05-01`                               | `2022-10-28`                       | `2023-10-28`           |
+| Conversational language understanding       | `2022-09-01`                               | `2023-02-28`                       | `2024-02-28`           |
+| Custom named entity recognition             | `2022-05-01`                               | `2023-05-01`                       | `2024-04-30`           |
+| Orchestration workflow                      | `2022-05-01`                               | `2023-05-01`                       | `2024-04-30`           |
 
 
 ## API versions

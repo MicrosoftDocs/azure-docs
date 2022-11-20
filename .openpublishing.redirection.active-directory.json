@@ -46,6 +46,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/icertisicm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/governance/tutorial-onboard-custom-workflow-graph.md",
       "redirect_url": "/graph/tutorial-lifecycle-workflows-onboard-custom-workflow",
       "redirect_document_id": false

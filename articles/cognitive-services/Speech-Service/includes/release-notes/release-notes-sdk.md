@@ -21,7 +21,7 @@ ms.author: eur
 - **Java**
     - Temporarily Published updated POM and Javadocs files to Maven Central to enable the docs pipeline to update online reference docs.
 - **Python**
-    - Fix regression where python speak_text(ssml) returns void.
+    - Fix regression where Python speak_text(ssml) returns void.
 
 
 ### Speech SDK 1.24.0: October 2022 release
