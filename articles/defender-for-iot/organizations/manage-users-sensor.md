@@ -145,7 +145,7 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
 1. On the **Sites and sensors** page, locate the sensor that you're working with, and select the options menu (**...**) on the right > **Recover my password**. For example:
 
-    :::image type="content" source="media/manage-users-sensor/recover-my-password.png" alt-text="Screenshot of the Recover my password option on the Sites and sensors page.":::
+    :::image type="content" source="media/manage-users-sensor/recover-my-password.png" alt-text="Screenshot of the Recover my password option on the Sites and sensors page." lightbox="media/manage-users-sensor/recover-my-password.png":::
 
 1. In the **Recover** dialog that opens, enter the unique identifier that you've copied to the clipboard from your sensor and select **Recover**. A **password_recovery.zip** file is automatically downloaded.
 
