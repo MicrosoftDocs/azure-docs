@@ -27,13 +27,9 @@ Defender for IoT documentation now has a new [release notes](release-notes.md) p
 
 :::image type="content" source="media/release-notes/ot-release-notes.png" alt-text="Screenshot of the new OT monitoring software release notes page in docs." lightbox="media/release-notes/ot-release-notes.png":::
 
-We continue to update this page, our main **What's new** page, with new features and enhancements for both OT and Enterprise IoT networks. New items listed include both on-premises and cloud features, and are listed by month.
+We continue to update this article, our main **What's new** page, with new features and enhancements for both OT and Enterprise IoT networks. New items listed include both on-premises and cloud features, and are listed by month.
 
-In contrast, the new [OT monitoring software release notes](release-notes.md) lists only OT network monitoring updates that require you to update your on-premises software. Items are listed by major and minor version:
-
-- **For each major version**, we show a table of release and support dates, and a high level description for each version, such as whether the version includes new features or bug fixes only.
-
-- **For each minor version**, we also list the new features available with that version. Select the links to jump to more details about the feature.
+In contrast, the new [OT monitoring software release notes](release-notes.md) lists only OT network monitoring updates that require you to update your on-premises software. Items are listed by major and patch versions, with an aggregated table of versions, dates, and scope.
 
 For more information, see [OT monitoring software release notes](release-notes.md).
 
