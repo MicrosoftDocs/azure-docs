@@ -1,5 +1,5 @@
 ---
-title: SAP workload planning and deployment checklist | Microsoft Docs
+title: SAP workload planning and deployment checklist
 description: Checklist for planning SAP workload deployments to Azure and deploying the workloads
 author: msjuergent
 manager: patfilot
@@ -7,93 +7,311 @@ tags: azure-resource-manager
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 02/02/2022
+ms.date: 11/21/2022
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
 ---
 
 # SAP workloads on Azure: planning and deployment checklist
 
-This checklist is designed for customers moving SAP NetWeaver, S/4HANA, and Hybris applications to Azure infrastructure as a service. Throughout the duration of the project, a customer and/or SAP partner should review the checklist. It's important to note that many of the checks are completed at the beginning of the project and during the planning phase. After the deployment is done, straightforward changes on deployed Azure infrastructure or SAP software releases can become complex.
+This checklist is designed for customers moving SAP applications to Azure infrastructure as a service. SAP applications in this document represent SAP products running the SAP kernel, including SAP NetWeaver, S/4HANA, BW and BW/4 and others. Throughout the duration of the project, a customer and/or SAP partner should review the checklist. It's important to note that many of the checks are completed at the beginning of the project and during the planning phase. After the deployment is done, straightforward changes on deployed Azure infrastructure or SAP software releases can become complex.
 
-Review the checklist at key milestones during your project. Doing so will enable you to detect small problems before they become large problems. You'll also have enough time to re-engineer and test any necessary changes. Don't consider this checklist complete. Depending on your situation, you might need to perform many more checks.
+Review the checklist at key milestones during your project. Doing so will enable you to detect small problems before they become large problems. You'll also have enough time to re-engineer and test any necessary changes. Don't consider this checklist complete. Depending on your situation, you might need to perform additional more checks.
 
-The checklist doesn't include tasks that are independent of Azure. For example, SAP application interfaces change during a move to the Azure platform or to a hosting provider.
+The checklist doesn't include tasks that are independent of Azure. For example, SAP application interfaces change during a move to the Azure platform or to a hosting provider. SAP documentation and support notes will also contain further tasks which are not Azure specific but need to be part of your overall planning checklist.
 
-This checklist can also be used for systems that are already deployed. New features, like Write Accelerator and Availability Zones, and new VM types might have been added since you deployed. So it's useful to review the checklist periodically to ensure you're aware of new features in the Azure platform.
+This checklist can also be used for systems that are already deployed. New features or changed recommendations might apply to your environment. It's useful to review the checklist periodically to ensure you're aware of new features in the Azure platform.
 
-## Project preparation and planning phase
-During this phase, you plan the migration of your SAP workload to the Azure platform. At a minimum, during this phase you need to create the following documents and define and discuss the following elements of the migration:
+## [Planning phase](#tab/planning)
+
+During this phase, you plan the migration of your SAP workload to the Azure platform. Documents such as [planning guide for SAP](./planning-guide.md) in Azure and [Cloud Adoption Framework for SAP](/azure/cloud-adoption-framework/scenarios/sap/plan) cover many topics and help as information in your preparation. At a minimum, during this phase you need to create the following documents, define, and discuss the following elements of the migration:
+
 
 1. High-level design document. This document should contain:
-	- The current inventory of SAP components and applications, and a target application inventory for Azure.
-	- A responsibility assignment matrix (RACI) that defines the responsibilities and assignments of the parties involved. Start at a high level, and work to more granular levels throughout planning and the first deployments.
-	- A high-level solution architecture.
-	- A decision about which Azure regions to deploy to. See the [list of Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). To learn which services are available in each region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
-	- A networking architecture to connect from on-premises to Azure. Start to familiarize yourself with the [Virtual Datacenter blueprint for Azure](/azure/architecture/vdc/).
-	- Security principles for running high-impact business data in Azure. To learn about data security, start with the [Azure security documentation](../../../security/index.yml).
-2.	Technical design document. This document should contain:
-	- A block diagram for the solution.
-	- The sizing of compute, storage, and networking components in Azure. For SAP sizing of Azure VMs, see [SAP 
-	-  note #1928533](https://launchpad.support.sap.com/#/notes/1928533).
-	- Business continuity and disaster recovery architecture.
-	- Detailed information about OS, DB, kernel, and SAP support pack versions. It's not necessarily true that every OS release supported by SAP NetWeaver or S/4HANA is supported on Azure VMs. The same is true for DBMS releases. Check the following sources to align and if necessary upgrade SAP releases, DBMS releases, and OS releases to ensure SAP and Azure support. You need to have release combinations supported by SAP and Azure to get full support from SAP and Microsoft. If necessary, you need to plan for upgrading some software components. More details on supported SAP, OS, and DBMS software are documented here:
-		- [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). This note defines the minimum OS releases supported on Azure VMs. It also defines the minimum database releases required for most non-HANA databases. Finally, it provides the SAP sizing for SAP-supported Azure VM types.
-		- [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553). This note defines support policies around Azure storage and support relationship needed with Microsoft.
-		- [SAP support note #2039619](https://launchpad.support.sap.com/#/notes/2039619). This note defines the Oracle support matrix for Azure. Oracle supports only Windows and Oracle Linux as guest operating systems on Azure for SAP workloads. This support statement also applies for the SAP application layer that runs SAP instances. However, Oracle doesn't support high availability for SAP Central Services in Oracle Linux through Pacemaker. If you need high availability for ASCS on Oracle Linux, you need to use SIOS Protection Suite for Linux. For detailed SAP certification data, see SAP support note [#1662610 - Support details for SIOS Protection Suite for Linux](https://launchpad.support.sap.com/#/notes/1662610). For Windows, the SAP-supported Windows Server Failover Clustering solution for SAP Central Services is supported in conjunction with Oracle as the DBMS layer.
-		- [SAP support note #2235581](https://launchpad.support.sap.com/#/notes/2235581). This note provides the support matrix for SAP HANA on different OS releases.
-		- SAP HANA-supported Azure VMs and [HANA Large Instances](./hana-overview-architecture.md) are listed on the [SAP website](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120).
-		- [SAP Product Availability Matrix](https://support.sap.com/en/).
-		- [SAP support note #2555629 - SAP HANA 2.0 Dynamic Tiering – Hypervisor and Cloud Support](https://launchpad.support.sap.com/#/notes/2555629)
-		- [SAP support note #1662610 - Support details for SIOS Protection Suite for Linux](https://launchpad.support.sap.com/#/notes/1662610)
-		- SAP notes for other SAP-specific products.	 
-	- Using multi-SID cluster configurations for SAP Central Services is supported on Windows, SLES and RHEL guest operating systems on Azure. Keep in mind that the blast radius can increase the more ASCS/SCS you place on such a multi-SID cluster. You can find documentation for the respective guest OS scenario in these articles:
-		- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and shared disk on Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
-		- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
-		- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications multi-SID guide](./high-availability-guide-suse-multi-sid.md)
-		- [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux for SAP applications multi-SID guide](./high-availability-guide-rhel-multi-sid.md)
-	- High availability and disaster recovery architecture.
-		- Based on RTO and RPO, define what the high availability and disaster recovery architecture needs to look like.
-		- For high availability within a zone, check what the desired DBMS has to offer in Azure. Most DBMS packages offer synchronous methods of a synchronous hot standby, which we recommend for production systems. Also check the SAP-related documentation for different databases, starting with [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms_guide_general.md) and related documents.
-		   Using Windows Server Failover Clustering with a shared disk configuration for the DBMS layer as, for example, [described for SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server), isn't supported. Instead, use solutions like:
-		   - [SQL Server Always On](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
-		   - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
-		   - [HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
-		- For disaster recovery across Azure regions, review the solutions offered by different DBMS vendors. Most of them support asynchronous replication or log shipping.
-		- For the SAP application layer, determine whether you'll run your business regression test systems, which ideally are replicas of your production deployments, in the same Azure region or in your DR region. In the second case, you can target that business regression system as the DR target for your production deployments.
-		- If you decide not to place the non-production systems in the DR site, look into Azure Site Recovery as a method for replicating the SAP application layer into the Azure DR region. For more information, see a [Set up disaster recovery for a multi-tier SAP NetWeaver app deployment](../../../site-recovery/site-recovery-sap.md).
-		- If you decide to use a combined HADR configuration by using [Azure Availability Zones](../../../availability-zones/az-overview.md), familiarize yourself with the Azure regions where Availability Zones are available. Also take into account restrictions that can be introduced by increased network latencies between two Availability Zones.  
-3.	An inventory of all SAP interfaces (SAP and non-SAP).
-4.	Design of foundation services. This design should include the following items:
-	- Active Directory and DNS design.
-	- Network topology within Azure and assignment of different SAP systems.
-	- [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md) structure for teams that manage infrastructure and SAP applications in Azure.
-	- Resource group topology.
-	- [Tagging strategy](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
-	- Naming conventions for VMs and other infrastructure components and/or logical names.
-5.	Microsoft Professional or Premier Support contract. Identify your Microsoft Technical Account Manager (TAM) if you have a Premier support contract with Microsoft. For SAP support requirements, see [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553).
-6.	The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](../../../azure-portal/supportability/regional-quota-requests.md) as needed.
-7.	Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
-8.	An automated deployment approach. The goal of the automation of infrastructure deployments on Azure is to deploy in a deterministic way and get deterministic results. Many customers use PowerShell or CLI-based scripts. But there are various open-source technologies that you can use to deploy Azure infrastructure for SAP and even install SAP software. You can find examples on GitHub:
-	- [Automated SAP Deployments in Azure Cloud](https://github.com/Azure/sap-automation)
-	- [SAP HANA Installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
-9.	Define a regular design and deployment review cadence between you as the customer, the system integrator, Microsoft, and other involved parties.
+  - The current inventory of SAP components and applications, and a target application inventory for Azure.
+  - A responsibility assignment matrix (RACI) that defines the responsibilities and assignments of the parties involved. Start at a high level, and work to more granular levels throughout planning and the first deployments.
+  - A high-level solution architecture.
+  - A decision about which Azure regions to deploy to. See the [list of Azure regions](https://azure.microsoft.com/global-infrastructure/regions/), and list of [regions with availability zone support](/azure/reliability/availability-zones-service-support). To learn which services are available in each region, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+  - A networking architecture to connect from on-premises to Azure. Start to familiarize yourself with the [Azure enterprise scale landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/) concept.
+  - Security principles for running high-impact business data in Azure. To learn about data security, start with the Azure security documentation.
+2.  Technical design document. This document should contain:
+  - A block diagram for the solution showing the SAP and non-SAP applications and services
+  - An [SAP Quicksizer project](http://www.sap.com/sizing) based on business document volumes. The output of the Quicksizer is then mapped to compute, storage, and networking components in Azure.
+  - Business continuity and disaster recovery architecture.
+  - Detailed information about OS, DB, kernel, and SAP support pack versions. It's not necessarily true that every OS release supported by SAP NetWeaver or S/4HANA is supported on Azure VMs. The same is true for DBMS releases. Check the following sources to align and if necessary, upgrade SAP releases, DBMS releases, and OS releases to ensure SAP and Azure support. You need to have release combinations supported by SAP and Azure to get full support from SAP and Microsoft. If necessary, you need to plan for upgrading some software components. More details on supported SAP, OS, and DBMS software are documented here:
+    - [What SAP software is supported for Azure deployments](./sap-supported-product-on-azure.md)
+    - [SAP note 1928533 - SAP Applications on Microsoft Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). This note defines the minimum OS and DBMS releases supported on Azure VMs. Note also provides the SAP sizing for SAP-supported Azure VMs.
+    - [SAP note 2015553 - SAP on Microsoft Azure: Support prerequisites](https://launchpad.support.sap.com/#/notes/2015553). This note defines prerequisites around Azure storage. networking, monitoring, and support relationship needed with Microsoft.
+    - [SAP note 2039619](https://launchpad.support.sap.com/#/notes/2039619). This note defines the Oracle support matrix for Azure. Oracle supports only Windows and Oracle Linux as guest operating systems on Azure for SAP workloads. This support statement also applies for the SAP application layer that runs SAP instances, as long they contain Oracle Client.
+    - SAP HANA-supported Azure VMs are listed on the [SAP website](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120).  Details for each entry contain specifics and requirements, including supported OS version. This might not match latest OS version as per [SAP note 2235581](https://launchpad.support.sap.com/#/notes/2235581).
+    - [SAP Product Availability Matrix](https://userapps.support.sap.com/sap/support/pam).
+
+  - High availability, backup and disaster recovery architecture.
+    - Based on RTO and RPO, define what the high availability and disaster recovery architecture needs to look like.
+    - Define the use of [availability zones](./sap-ha-availability-zones.md) for optimal protection or availability sets within a region.
+    - Considerations for Azure Virtual Machines DBMS deployment for SAP workloads and related documents. In Azure, using a shared disk configuration for the DBMS layer as, for example, [described for SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server), isn't supported. Instead, use solutions like:
+      - [SQL Server Always On](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
+      - [HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
+      - [Oracle Data Guard](./dbms_guide_oracle.md#high-availability)
+      - [IBM Db2 HADR](./high-availability-guide-rhel-ibm-db2-luw.md)
+    - For disaster recovery across Azure regions, review the solutions offered by different DBMS vendors. Most of them support asynchronous replication or log shipping.
+    - For the SAP application layer, determine whether you'll run your business regression test systems, which ideally are replicas of your production deployments, in the same Azure region or in your DR region. In the second case, you can target that business regression system as the DR target for your production deployments.
+    - Look into Azure Site Recovery as a method for replicating the SAP application layer into the Azure DR region. For more information, see a Set up disaster recovery for a multi-tier SAP NetWeaver app deployment.
+    - For projects required to remain in a single region for compliance reasons, consider a combined HADR combined HADR configuration by using [Azure Availability Zones](./sap-ha-availability-zones.md#combined-high-availability-and-disaster-recovery-configuration).
+3.  An inventory of all SAP interfaces and the connected systems (SAP and non-SAP).
+4.	Design of foundation services. This design should include the following items, many of which are covered by the [landing zone accelerator for SAP](/azure/cloud-adoption-framework/scenarios/sap/):
+  - Network topology within Azure and assignment of different SAP environment
+  - Active Directory and DNS design.
+  - Identity management solution for both end users and administration
+  - [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md) structure for teams that manage infrastructure and SAP applications in Azure.
+  - Azure resource naming strategy
+  - Security operations for Azure resources and workloads within
+5. Security concept for protecting your SAP workload. This should include all aspects – networking and perimeter monitoring, application and database security, operating systems securing, and any infrastructure measures required, such as encryption. Identify the requirements with your compliance and security teams.
+6. Microsoft recommends either Professional Direct, Premier or Unified Support contract. Identify your escalation paths and contacts for support with Microsoft. For SAP support requirements, see [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553).
+7. The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](../../../azure-portal/supportability/regional-quota-requests.md) as needed.
+8. Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
+9. An automated deployment approach. Many customers start with scripts, using a combination of PowerShell, CLI, Ansible and Terraform. 
+Microsoft developed solutions for SAP deployment automation are:
+  - [Azure Center for SAP solutions](/azure/center-sap-solutions/) – Azure service to deploy and operate a SAP system’s infrastructure
+  - [SAP on Azure Deployment Automation](./automation-deployment-framework.md), an open-source orchestration tool for deploying and maintaining SAP environments
+
+10.	Define a regular design and deployment review cadence between you as the customer, the system integrator, Microsoft, and other involved parties.
 
 
-## Pilot phase (strongly recommended)
+## [Pilot phase](#tab/pilot)
  
 You can run a pilot before or during project planning and preparation. You can also use the pilot phase to test approaches and designs made during the planning and preparation phase. And you can expand the pilot phase to make it a real proof of concept.
 
 We recommend that you set up and validate a full HADR solution and security design during a pilot deployment. Some customers perform scalability tests during this phase. Other customers use deployments of SAP sandbox systems as a pilot phase. We assume you've already identified a system that you want to migrate to Azure for the pilot.
 
-1. Optimize data transfer to Azure. The optimal choice is highly dependent on the specific scenario. Transfer from on-premises through [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) is fastest if the ExpressRoute circuit has enough bandwidth. In other scenarios, transferring through the internet is faster.
-2. For a heterogeneous SAP platform migration that involves an export and import of data, test and optimize the export and import phases. For large migrations in which SQL Server is the destination platform, you can find [recommendations](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070). You can use Migration Monitor/SWPM if you don't need a combined release upgrade. You can use the [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) process when you combine the migration with an SAP release upgrade. To do so, you need to meet certain requirements for the source and target DBMS platform combination. This process is documented in [Database Migration Option (DMO) of SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152).
-   1.  Export to source, export file upload to Azure, and import performance. Maximize overlap between export and import.
-   2.  Evaluate the volume of the database on the target and destination platforms for the purposes of infrastructure sizing.
-   3.  Validate and optimize timing.
-1. Technical validation.
-   1. VM types.
-        - Review the resources in SAP support notes, in the SAP HANA hardware directory, and in the SAP PAM again. Make sure there are no changes to supported VMs for Azure, supported OS releases for those VM types, and supported SAP and DBMS releases.
+1. Optimize data transfer to Azure. The optimal choice is highly dependent on the specific scenario. If private connectivity is required for database replication, [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) is fastest if the ExpressRoute circuit has enough bandwidth. In any other scenario, transferring through the internet is faster. Optionally use a dedicated migration VPN for private connectivity to Azure. Any migration network path during pilot should mirror the use for future production systems, eliminating any impact to workloads – SAP or non-SAP - already running in Azure.
+2. For a heterogeneous SAP migration that involves an export and import of data, test and optimize the export and import phases. For migration of large SAP environments, go through available best practices. 
+  - Migrate very large databases (VLDB) to Azure for SAP 
+Use the appropriate tool for the migration scenario, depending on your source and target SAP releases, DBMS and if combining migration with other tasks such as release upgrade or even Unicode or S/4HANA conversion. SAP provides Migration Monitor/SWPM, SAP DMO or DMO with system move, besides other approaches to minimize downtime available as separate service from SAP. In the latest releases of SAP DMO with system move the use of azcopy for data transfer over the internet is supported as well, enabling the quickest network path natively. 
+
+### Technical validation
+
+> [!NOTE]
+> Several of the checks below are checked in automated way with [SAP on Azure Quality Check Tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck). These checks can be executed automated with the provided open-source project.  
+> Same [quality checks and additional insights](/azure/center-sap-solutions/get-quality-checks-insights) are executed regularly when SAP systems are deployed or registered with [Azure Center for SAP solution](/azure/center-sap-solutions/) as well and are part of the service.  
+
+1. VM types.
+  - Review the resources in SAP support notes, in the SAP HANA hardware directory, and in the SAP PAM again. Make sure to match supported VMs for Azure, supported OS releases for those VM types, and supported SAP and DBMS releases.
+  - Validate again the sizing of your application and the infrastructure you deploy on Azure. If you're moving existing applications, you can often derive the necessary SAPS from the infrastructure you use and the [SAP benchmark webpage](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) and compare it to the SAPS numbers listed in [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533). Also keep [this article on SAPS ratings](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) in mind.
+  - Evaluate and test the sizing of your Azure VMs for maximum storage and network throughput of the VM types you chose during the planning phase. Details of [VM performance limits](/azure/virtual-machines/sizes) are available, for storage it’s important to consider the limit of max uncached disk throughput for sizing. Carefully consider sizing and temporary effects of [disk and VM level bursting](/azure/virtual-machines/disk-bursting).
+  - Test and determine whether you want to create your own OS images for your VMs in Azure or whether you want to use an image from the Azure compute gallery (formerly known as shared image gallery). If you're using an image from the Azure compute gallery, make sure to use an image that reflects the support contract with your OS vendor. For some OS vendors, Azure Compute Gallery lets you bring your own license images. For other OS images, support is included in the price quoted by Azure. If you decide to create your own OS images, you can find documentation in these articles:
+    - [Build a generalized image of a Windows VM deployed in Azure](/azure/virtual-machines/windows/capture-image-resource)
+    - [Build a generalized image of a Linux VM deployed in Azure](/azure/virtual-machines/linux/capture-image)
+  - If you use Linux images from the Azure compute gallery, you need to use the images suitable for SAP provided by the Linux vendors.
+    - [Red Hat Enterprise Linux for SAP Offerings on Microsoft Azure FAQ](https://access.redhat.com/articles/5456301)
+    - [SUSE public cloud information tracker - OS Images for SAP](https://pint.suse.com/?resource=images&csp=microsoft&search=sap)
+    - [Oracle Linux](https://www.oracle.com/cloud/azure/interconnect/faq/)
+  - Choosing an OS image determines the type of Azure VM’s generation. Azure supports both [Hyper-V generation 1 and 2 VMs](/azure/virtual-machines/generation-2). Some VM families are available as [generation 2 only](/azure/virtual-machines/generation-2#generation-2-vm-sizes), some VM families are certified for SAP use as generation 2 only ([SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533)) even if Azure allows both generations. **It is recommended to use generation 2 for every VM of  SAP landscape.** 
+2. Storage
+  - Read the document [Azure storage types for SAP workload](./planning-guide-storage.md)
+  - Use [Azure premium storage](/azure/virtual-machines/disks-types.md#premium-ssds), [premium storage v2](/azure/virtual-machines/disks-types.md#premium-ssd-v2) for all production grade SAP environments and when ensuring high SLA. For some DBMS, Azure NetApp Files can be used for [large parts of the overall storage requirements](./planning-guide-storage.md#azure-netapp-files-anf).
+  -	At a minimum, use [Azure standard SSD](/azure/virtual-machines/disks-types.md#standard-ssds) storage for VMs that represent SAP application layers and for deployment of DBMSs that aren't performance sensitive. Keep in mind different Azure storage types influence the [single VM availability SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines).
+  - In general, we don't recommend the use of [Azure standard HDD](./planning-guide-storage.md#azure-standard-hdd-storage) disks for SAP.
+  - For the different DBMS types, check the [generic SAP-related DBMS documentation](./dbms_guide_general.md) and DBMS-specific documentation that the first document points to. Use disk striping over multiple disks with premium storage (v1 or v2) for database data and log area.
+  - For optimal storage configuration with SAP HANA, see [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
+  - Use LVM for all disks on Linux VMs, as it allows easier management and online expansion. This includes volumes on single disks, for example /usr/sap.
+3. Networking
+  - Test and evaluate your virtual network infrastructure and the distribution of your SAP applications across or within the different Azure virtual networks.
+  - Evaluate the hub-and-spoke or virtual WAN virtual network architecture approach with discrete virtual network(s) spokes for SAP workload. For smaller scale, micro-segmentation approach within a single Azure virtual network. Base this evaluation on:  
+    1. Costs of data exchange [between peered Azure virtual networks](/azure/virtual-network/virtual-network-peering-overview.md)  
+    2. Advantages of a fast disconnection of the peering between Azure virtual networks as opposed to changing the network security group to isolate a subnet within a virtual network. This evaluation is for cases when applications or VMs hosted in a subnet of the virtual network became a security risk. 
+    3. Central logging and auditing of network traffic between on-premises, the outside world, and the virtual datacenter you built in Azure.
+  - Evaluate and test the data path between the SAP application layer and the SAP DBMS layer.
+    * Placement of [Azure network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of SAP systems  running the SAP kernel isn't supported.
+    * Placement of the SAP application layer and SAP DBMS in different Azure virtual networks that aren't peered isn't supported.
+    * You can use [application security group and network security group rules](/azure//virtual-network/network-security-groups-overview.md) to secure communication paths to and between the SAP application layer and the SAP DBMS layer.
+  - Make sure that [accelerated networking](/azure/virtual-network/accelerated-networking-overview) is enabled on every VM used for SAP.
+  - Test and evaluate the network latency between the SAP application layer VMs and DBMS VMs according to SAP notes [500235](https://launchpad.support.sap.com/#/notes/500235) and [1100926](https://launchpad.support.sap.com/#/notes/1100926). In addition to SAP’s niping, you can use tools such as [sockperf](https://github.com/Mellanox/sockperf) or [ethr](https://github.com/microsoft/ethr) for tcp latency measurement. Evaluate the results against the network latency guidance in SAP note [1100926](https://launchpad.support.sap.com/#/notes/1100926). The network latency should be in the moderate or good range. 
+  - Optimize network throughput on high vCPU VMs, typically used for database servers. Particularly important for HANA scale-out and any large SAP system. Follow recommendations in [this article](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/optimizing-network-throughput-on-azure-m-series-vms/ba-p/3581129) for optimization.
+  - If deploying with availability sets and latency measurement values are not meeting SAP requirements in SAP note [1100926](https://launchpad.support.sap.com/#/notes/1100926), consider guidance in article [proximity placement groups](./sap-proximity-placement-scenarios.md) to get optimal network latency. No usage of proximity placement groups for zonal or cross-zonal deployment patterns.
+  - Verify correct availability, routing and secure access from the SAP landscape to any needed Internet endpoint, such as OS patch repositories, deployment tooling or service endpoint. Similarly, if your SAP environment provide a publicly accessible service such as SAP Fiori or SAProuter, verify it is reachable and secured.
+4. High availability and disaster recovery deployments.
+  - Always use standard load balancer for clustered environments. Basic load balancer will be [retired](/azure/load-balancer/skus).
+  - If you deploy the SAP application layer without defining a specific availability zone, make sure that all VMs that run SAP dialog instances or middleware instances of a single SAP system are deployed in an [availability set](/azure/virtual-machines/availability-set-overview).
+  - If you don't need high availability for SAP Central Services and the DBMS, you can deploy these VMs into the same availability set as the SAP application layer.
+  - When you protect SAP Central Services and the DBMS layer for high availability by using passive replication, place the two nodes for SAP Central Services in one separate availability set and the two DBMS nodes in another availability set.
+  - If you deploy into [availability zones](./sap-ha-availability-zones.md), you can't combine with availability sets. But you do need to make sure you deploy the active and passive central services nodes into two different availability zones. Use two availability zones that have the lowest latency between them.
+  - If you're using Azure Load Balancer together with Linux guest operating systems, check that the Linux network parameter net.ipv4.tcp_timestamps is set to 0. This recommendation conflicts with recommendations in older versions of SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421). The SAP note is now updated to state that this parameter needs to be set to 0 to work with Azure load balancers.
+5. Timeout settings.
+  - Check the SAP NetWeaver developer traces of the SAP instances to make sure there are no connection breaks between the enqueue server and the SAP work processes. You can avoid these connection breaks by setting these two registry parameters:
+    * HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000. For more information, see [KeepAliveTime](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)).
+    * HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000. For more information, see [KeepAliveInterval](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)).
+  - To avoid GUI timeouts between on-premises SAP GUI interfaces and SAP application layers deployed in Azure, check whether these parameters are set in the default.pfl or the instance profile:
+    * rdisp/keepalive_timeout = 3600
+    * rdisp/keepalive = 20
+  - To prevent disruption of established connections between the SAP enqueue process and the SAP work processes, you need to set the enque/encni/set_so_keepalive parameter to true. See also [SAP note 2743751](https://launchpad.support.sap.com/#/notes/2743751).
+  - If you use a Windows failover cluster configuration, make sure that the time to react on non-responsive nodes is set correctly for Azure. The article [Tuning Failover Cluster Network Thresholds](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) lists parameters and how they affect failover sensitivities. Assuming the cluster nodes are in the same subnet, you should change these parameters:
+    * SameSubNetDelay = 2000 (number of milliseconds between “heartbeats”)
+    * SameSubNetThreshold = 15 (maximum number of consecutive missed heartbeats)
+    * RoutingHistorylength = 30 (seconds, 2000ms * 15 heartbeats = 30s)
+6.	OS Settings or Patches
+  - For running HANA on SAP, read these notes and documentations, in addition to SAP' non-Azure specific documentation and other support notes:
+    * [Azure specific SAP notes](https://launchpad.support.sap.com/#/mynotes?tab=Search&sortBy=Relevance&filters=themk%25253Aeq~'BC-OP-NT-AZR'~'BC-OP-LNX-AZR'%25252BreleaseStatus%25253Aeq~'NotRestricted'%25252BsecurityPatchDay%25253Aeq~'NotRestricted'%25252BfuzzyThreshold%25253Aeq~'0.9') linked to SAP support components BC-OP-NT-AZR or BC-OP-LNX-AZR. Go through the notes in detail as they contain updated solutions
+    * [SAP note 2382421 - Optimizing the Network Configuration on HANA- and OS-Level](https://launchpad.support.sap.com/#/notes/2382421)
+    * [SAP note 2235581 – SAP HANA: Supported Operating Systems](https://launchpad.support.sap.com/#/notes/2235581)
+
+### Additional checks for the pilot phase
+
+1. Test your high availability and disaster recovery procedures
+  - Simulate failover situations by using a tool such as [NotMyFault](/sysinternals/downloads/notmyfault) (Windows) or putting operating systems in panic mode or disabling network interface with ifdown (Linux). This step will help you figure out whether your failover configurations work as designed.
+  - Measure how long it takes to execute a failover. If the times are too long, consider:
+  - For SUSE Linux, use SBD devices instead of the Azure Fence agent to speed up failover.
+  - For SAP HANA, if the reload of data takes too long, consider provisioning more storage bandwidth.
+  - Test your backup/restore sequence and timing and make corrections if you need to. Make sure that backup times are sufficient. You also need to test the restore and time restore activities. Make sure that restore times are within your RTO SLAs wherever your RTO relies on a database or VM restore process.
+  - Test cross-region DR functionality and architecture, verify the RPO and RTO match your expectations
+2.	Security checks
+  - Test the validity of your Azure role-based access control (Azure RBAC) architecture. Segregation of duties requires to separate and limit the access and permissions of different teams. For example, SAP Basis team members should be able to deploy VMs and assign disks from Azure Storage into a given Azure virtual machine. But the SAP Basis team shouldn't be able to create its own virtual networks or change the settings of existing virtual networks. Members of the network team shouldn't be able to deploy VMs into virtual networks in which SAP application and DBMS VMs are running. Nor should members of this team be able to change attributes of VMs or even delete VMs or disks.
+  - Verify that [network security group and ASG rules](/azure/virtual-network/network-security-groups-overview.md) work as expected and shield the protected resources.
+  - Make sure that all resources that need to be encrypted are encrypted. Define and implement processes to back up certificates, store and access those certificates, and restore the encrypted entities.
+  - For storage encryption, server-side encryption with platform managed key (SSE-PMK) is enabled for every storage service used for SAP in Azure by default, including managed disks, Azure Files and Azure NetApp Files. [Key management](/azure/virtual-machines/disk-encryption) with customer managed keys can be considered, if required for customer owned key rotation.
+  - [Host based server-side encryption](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) should not be enabled for performance reasons on M-series family Linux VMs.
+  - Do not use Azure Disk Encryption on Linux with SAP as [OS images ‘for SAP’](/azure/virtual-machines/linux/disk-encryption-overview#supported-operating-systems) are not supported.
+  - Database native encryption is deployed by most SAP on Azure customers to protect DBMS data and backups. Transparent Data Encryption (TDE) typically has no noticeable performance overhead, greatly increases security, and should be considered. Encryption key management and location must be secured. Database encryption occurs inside the VM and is independent of any storage encryption such as SSE.
+3. Performance testing. In SAP, based on SAP tracing and measurements, make these comparisons:
+  - Inventory and baseline the current on-prem system 
+    - SAR reports / perfmon 
+    - STAT trace top 10 online reports
+    - Collect batch job history 
+  - Focus testing to verify business processes performance. Do not compare hardware KPIs initially and in a vacuum, only when troubleshooting any performance differences.
+  - Where applicable, compare the top 10 online reports to your current implementation.
+  - Where applicable, compare the top 10 batch jobs to your current implementation.
+  - Compare data transfers through interfaces into the SAP system. Focus on interfaces where you know the transfer is going between different locations, like from on-premises to Azure.
+
+## [Non-production phase](#tab/non-prod)
+
+> [!NOTE]
+> Several of the checks below are checked in automated way with [SAP on Azure Quality Check Tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck). These checks can be executed automated with the provided open-source project.  
+> Same [quality checks and additional insights](/azure/center-sap-solutions/get-quality-checks-insights) are executed regularly when SAP systems are deployed or registered with [Azure Center for SAP solution](/azure/center-sap-solutions/) as well and are part of the service.  
+
+In this phase, we assume that after a successful pilot or proof of concept (POC), you're starting to deploy non-production SAP systems to Azure. Incorporate everything you learned and experienced during the POC to this deployment. All the criteria and steps listed for POCs apply to this deployment as well.
+
+During this phase, you usually deploy development systems, unit testing systems, and business regression testing systems to Azure. We recommend that at least one non-production system in one SAP application line has the full high availability configuration that the future production system will have. Here are some additional steps that you need to complete during this phase:
+
+  1. Before you move systems from the old platform to Azure, collect resource consumption data, like CPU usage, storage throughput, and IOPS data. Especially collect this data from the DBMS layer units, but also collect it from the application layer units. Also measure network and storage latency. Adapt your sizing and design with the captured data.  Tools such as syststat, KSAR, [nmon](https://nmon.sourceforge.net/) and [nmon analyzer for Excel](https://nmon.sourceforge.net/pmwiki.php?n=Site.Nmon-Analyser) should be used to capture and present resource utilization over peak periods. 
+  2. Record the availability usage time patterns of your systems. The goal is to figure out whether non-production systems need to be available all day, every day or whether there are non-production systems that can be shut down during certain phases of a week or month.
+  3. Re-evaluate your OS image choice, VM generation (Generation 2 throughout the SAP landscape), and OS patch strategy.
+  4. Make sure to fulfill the SAP support requirements for Microsoft support agreements. See SAP note [2015553](https://launchpad.support.sap.com/#/notes/2015553). 
+  5. Check SAP notes related to Azure, like note [1928533](https://launchpad.support.sap.com/#/notes/1928533), for new VM SKUs and newly supported OS and DBMS releases. Compare the pricing of new VM types against that of older VM types, so you can deploy VMs with the best price/performance ratio.
+  6. Recheck SAP support notes, the SAP HANA hardware directory, and the SAP PAM. Make sure there were no changes in supported VMs for Azure, supported OS releases on those VMs, and supported SAP and DBMS releases.
+  7. Check the [SAP website](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120) for new HANA-certified SKUs in Azure. Compare the pricing of new SKUs with the ones you planned to use. Eventually, make necessary changes to use the ones that have the best price/performance ratio.
+  8. Adapt your deployment automation to use new VM types and incorporate new Azure features that you want to use.
+  9. After deployment of the infrastructure, test and evaluate the network latency between SAP application layer VMs and DBMS VMs, according to SAP notes [500235](https://launchpad.support.sap.com/#/notes/500235). Evaluate the results against the network latency guidance in SAP note [1100926](https://launchpad.support.sap.com/#/notes/1100926). The network latency should be in the moderate or good range. In addition to using tools such as niping, [sockperf](https://github.com/Mellanox/sockperf) or [ethr](https://github.com/microsoft/ethr), use SAP’s HCMT tool for network measurements between HANA VMs for scale-out or system replication.
+  10. Make sure that none of the restrictions mentioned in [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms_guide_general.md#azure-network-considerations) and [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md) apply to your deployment.
+  11. Make sure your VMs are deployed to the correct availability zones. If using availability sets and seeing higher than expected latency between VMs, consult the article [Azure proximity placement groups for SAP applications](./sap-proximity-placement-scenarios.md) for correct usage.
+  12.	Perform all the other checks listed for the proof-of-concept phase before applying the workload.
+  13.	As the workload applies, record the resource consumption of the systems in Azure. Compare this consumption with records from your old platform. Adjust VM sizing of future deployments if you see that you have large differences. Keep in mind that when you downsize, storage, and network bandwidths of VMs will be reduced as well.
+    - [Sizes for Azure virtual machines](../../sizes.md)
+  14.	Experiment with system copy functionality and processes. The goal is to make it easy for you to copy a development system or a test system, so project teams can get new systems quickly.
+  15.	Optimize and hone your team's Azure role-based access, permissions, and processes to make sure you have separation of duties. At the same time, make sure all teams can perform their tasks in the Azure infrastructure.
+  16.	Exercise, test, and document high-availability and disaster recovery procedures to enable your staff to execute these tasks. Identify shortcomings and adapt new Azure functionality that you're integrating into your deployments.
+
+## [Production phase](#tab/production)
+
+### Production preparation phase
+
+> [!NOTE]
+> Several of the checks below are checked in automated way with [SAP on Azure Quality Check Tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck). These checks can be executed automated with the provided open-source project.  
+> Same [quality checks and additional insights](/azure/center-sap-solutions/get-quality-checks-insights) are executed regularly when SAP systems are deployed or registered with [Azure Center for SAP solution](/azure/center-sap-solutions/) as well and are part of the service.  
+
+In this phase, collect what you experienced and learned during your non-production deployments and apply it to future production deployments. 
+
+  1.	Complete any necessary SAP release upgrades of your production systems before moving to Azure.
+  2.	Agree with the business owners on functional and business tests that need to be conducted after migration of the production system.
+  3.	Make sure these tests are completed with the source systems in the current hosting location. Avoid conducting tests for the first time after the system is moved to Azure.
+  4.	Test the process of migrating production systems to Azure. If you're not moving all production systems to Azure during the same time frame, build groups of production systems that need to be at the same hosting location. Test data migration including connected non-SAP applications and interfaces. Here are some common methods:
+    *	Use DBMS methods like backup/restore in combination with SQL Server Always On, HANA System Replication, or log shipping to seed and synchronize database content in Azure. 
+    *	Use backup/restore for smaller databases.
+    *	Use the [SAP DMO](https://support.sap.com/en/tools/software-logistics-tools/software-update-manager/database-migration-option-dmo.html) process for supported scenarios to either move or if you need to combine your migration with an SAP release upgrade and/or move to HANA. Keep in mind that not all combinations of source DBMS and target DBMS are supported. You can find more information in the specific SAP support notes for the different releases of DMO. For example, [Database Migration Option (DMO) of SUM 2.0 SP15](https://launchpad.support.sap.com/#/notes/3206747).
+    * Test whether data transfer throughput is better through the internet or through ExpressRoute, in case you need to move backups or SAP export files. If you're moving data through the internet, you might need to change some of your network security group/application security group rules that you'll need to have in place for future production systems.
+  5.	Before moving systems from your old platform to Azure, collect resource consumption data. Useful data includes CPU usage, storage throughput, and IOPS data. Especially collect this data from the DBMS layer units, but also collect it from the application layer units. Also measure network and storage latency.
+  6.	Recheck SAP notes and the required OS settings, the SAP HANA hardware directory, and the SAP PAM. Make sure there were no changes in supported VMs for Azure, supported OS releases in those VMs, and supported SAP and DBMS releases.
+  7.	Update your deployment automation to consider the latest decisions you've made on VM types and Azure functionality.
+  8.	Create a playbook for reacting to planned Azure maintenance events. Determine the order in which systems and VMs should be rebooted for planned maintenance. 
+  9.	Exercise, test, and document high-availability and disaster recovery procedures to enable your staff to execute these tasks during migration and immediately after go-live decision.
+
+### Go-live phase
+
+During the go-live phase, be sure to follow the playbooks you developed during earlier phases. Execute the steps that you tested and practiced. Don't accept last-minute changes in configurations and processes. Also complete these steps:
+
+  1. Verify that Azure portal monitoring and other monitoring tools are working. Use Azure tools such as [Azure Monitor](/azure/azure-monitor/overview) for infrastructure monitoring. [Azure Monitor for SAP](/azure/virtual-machines/workloads/sap/monitor-sap-on-azure) for a combination of OS and application KPIs, allowing you to integrate all in one dashboard for visibility during and after go-live.  
+
+  For operating system key performance indicators:
+    * [SAP note 1286256 - How-to: Using Windows LogMan tool to collect performance data on Windows Platforms](https://launchpad.support.sap.com/#/notes/1286256)
+    * On Linux ensure sysstat tool is installed and capturing details
+  2. After data migration, perform all the validation tests you agreed upon with the business owners. Accept validation test results only when you have results for the original source systems.
+  3. Check whether interfaces are functioning and whether other applications can communicate with the newly deployed production systems.
+  4. Check the transport and correction system through SAP transaction STMS.
+  5. Perform database backups after the system is released for production.
+  6. Perform VM backups for the SAP application layer VMs after the system is released for production.
+  7. For SAP systems that weren't part of the current go-live phase but that communicate with the SAP systems that you moved to Azure during this go-live phase, you need to reset the host name buffer in SM51. Doing so will remove the old cached IP addresses associated with the names of the application instances you moved to Azure.
+
+### Post production
+
+This phase is about monitoring, operating, and administering the system. From an SAP point of view, the usual tasks that you were required to complete in your old hosting location apply. Complete these Azure-specific tasks as well:
+  - Review Azure invoices for high-charging systems.
+  - Optimize price/performance efficiency on the VM side and the storage side.
+  - Optimize the times when you can shut down systems.
+
+## [Checklist](#tab/checklist)
+
+### SAP on Azure Infrastructure Checklist
+
+> [!NOTE]
+> Several of the checks below are checked in automated way with [SAP on Azure Quality Check Tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck). These checks can be executed automated with the provided open-source project.  
+> Same [quality checks and additional insights](/azure/center-sap-solutions/get-quality-checks-insights) are executed regularly when SAP systems are deployed or registered with [Azure Center for SAP solution](/azure/center-sap-solutions/) as well and are part of the service.  
+
+After deploying infrastructure and applications and before each migration starts, validate that:
+
+  1. The correct VM types were deployed, with the correct attributes and storage configuration.
+  2. The VMs are on an up to date OS, DBMS and SAP Kernel release and patch and the OS, DB and SAP Kernel uniform throughout the landscape
+  3. VMs are secured and hardened as required and in a uniform way across the respective environment.
+  4. VMs were deployed into Azure availability zones or availability sets as planned.
+  5. Generation 2 VMs have been deployed.  Generation 1 VMs should not be used for new deployments 
+  6. Azure Premium Storage or Premium Storage v2 is used for latency-sensitive disks or where the [single-VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) is required.
+  7. Make sure that, within the VMs, storage spaces, or [stripe sets were built correctly](./planning-guide-storage.md#striping-or-not-striping) across filesystems which require more than disk, such as DBMS data and log areas.
+  8. Correct stripe size and filesystem blocksize are used, if noted in respective DBMS guides
+  9. Azure VM storage and caching is used appropriately 
+    *	Make sure that only disks holding DBMS online logs are cached with None+ Write Accelerator.
+    * Other disks with premium storage are using cache settings none or ReadOnly, depending on use
+    * Check the [configuration of LVM on Linux VMs in Azure](/azure/virtual-machines/linux/configure-lvm).
+  10. [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#sap-on-azure-solutions) NFS volumes are used exclusively for DBMS VMs.
+  11.	For Azure NetApp Files, [correct mount options are used](/azure/azure-netapp-files/performance-linux-mount-options) and volumes are sized appropriately on correct storage tier.
+  12. Using Azure services – Azure Files or Azure NetApp Files – for any SMB or NFS volumes or shares. NFS volumes or SMB shares are reachable by the respective SAP environment or individual SAP system(s). Network routing to the NFS/SMB server goes through private network address space, using private endpoint if needed.
+  13. [Azure accelerated networking](/azure/virtual-network/accelerated-networking-overview) is enabled on every network interface for all SAP VMs.
+  14. No [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) are in the communication path between the SAP application and the DBMS layer of SAP systems based on SAP NetWeaver or ABAP Platform.
+  15.	All load balancers for SAP high-available components use standard load balancer with floating IP and HA ports enabled.
+  16.	SAP application and DBMS VM(s) are placed in same or different subnets of one virtual network or in virtual networks directly peered.
+  17.	Application and network security group rules allow communication as desired and planned, and block communication where required.
+  18.	Timeout settings are set correctly, as described earlier.
+  19.	If using proximity placement groups, check whether the availability sets and their VMs are deployed to the [correct PPG](./sap-proximity-placement-scenarios.md).
+  20. Network latency between SAP application layer VMs and DBMS VMs is tested and validated as described in SAP notes [500235](https://launchpad.support.sap.com/#/notes/500235) and [1100926](https://launchpad.support.sap.com/#/notes/1100926). Evaluate the results against the network latency guidance in SAP note [1100926](https://launchpad.support.sap.com/#/notes/1100926). The network latency should be in the moderate or good range..
+  21. Encryption was implemented where necessary and with the appropriate encryption method.
+  22. Own encryption keys are protected against loss, destruction, or malicious use.
+  23. Interfaces and other applications can connect to the newly deployed infrastructure.
+
+## Next steps
+See these articles:
+
+> [!div class="checklist"]
+> * [Azure planning and implementation for SAP NetWeaver](./planning-guide.md)
+> *	[Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms_guide_general.md)
+> *	[Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md)
+
+
+
+
+
+
+
+
+
+
+
+
         - Validate again the sizing of your application and the infrastructure you deploy on Azure. If you're moving existing applications, you can often derive the necessary SAPS from the infrastructure you use and the [SAP benchmark webpage](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) and compare it to the SAPS numbers listed in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). Also keep [this article on SAPS ratings](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) in mind.
         - Evaluate and test the sizing of your Azure VMs with regard to maximum storage throughput and network throughput of the VM types you chose during the planning phase. You can find the data here:
            -  [Sizes for Windows virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). It's important to consider the *max uncached disk throughput* for sizing.
