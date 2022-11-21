@@ -425,15 +425,15 @@
   - name: Microsoft Power Platform
     items:
     - name: Overview of SAP integration
-      href: /power-automate/sap-integration/overview
+      href: /power-automate/sap-integration/overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
   - name: Azure Integration Services
     items:
     - name: Connect to SAP from workflows in Azure Logic Apps
-      href: /azure/logic-apps/logic-apps-using-sap-connector
+      href: /azure/logic-apps/logic-apps-using-sap-connector?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
   - name: Azure Data Services
     items:
     - name: SAP knowledge center for Azure Data Factory and Synapse
-      href: /azure/data-factory/industry-sap-overview
+      href: /azure/data-factory/industry-sap-overview?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Use SAP HANA in Power BI Desktop
       href: /power-bi/desktop-sap-hana?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: DirectQuery and SAP HANA
