@@ -1,5 +1,5 @@
 ---
-title: Set up disaster recovery for Public MEC (preview) using VM Flow
+title: Setup disaster recovery when creating a VM 
 description: Learn how to set up disaster recovery for Virtual machines on Azure Public MEC (preview) using VM Flow.
 author: ankitaduttaMSFT
 ms.service: site-recovery
@@ -18,6 +18,9 @@ This tutorial shows you how to set up disaster recovery for Azure Public MEC (pr
 When you enable replication for a VM to set up disaster recovery, the Site Recovery Mobility service extension installs on the VM, and registers it with Azure Site Recovery. During replication, VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region. Learn more about the architecture.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> ![NOTE]
+> This is in preview only for Public MECs.
 
 ## Enable replication for the Azure VMs
 
