@@ -72,7 +72,7 @@ The button calls an ARM template from [Azure Quickstart Templates](https://azure
 
    - **Location**: A supported Azure region for Azure Health Data Services (the value can be the same as or different from the region your resource group is in). For a list of Azure regions where Azure Health Data Services is available, see [Products available by regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=health-data-services).
 
-   - **Fhir Contributor Principle Id** (optional) : An Azure AD user object ID to provide read/write permissions in the FHIR service.
+   - **Fhir Contributor Principle Id** (optional): An Azure AD user object ID to provide read/write permissions in the FHIR service.
   
       You can use this account to give access to the FHIR service to view the device messages that are generated in this tutorial. We recommend that you use your own Azure Active Directory (Azure AD) user object ID, so that you can access the messages in the FHIR service. If you choose not to use the **Fhir Contributor Principle Id** option, clear the text box.
   
@@ -111,7 +111,7 @@ When deployment is completed, the following resources and access roles are creat
 
 - An event hub consumer group. In this deployment, the consumer group is named *$Default*.
 
-- An event hub sender role. In this deployment, the sender role is named *devicedatasender*. The role isn't used in this tutorial. To learn more about the role, see [Review of deployed resources and access permissions](deploy-02-new-button.md#required-post-deployment-tasks).
+- An event hub sender role. In this deployment, the sender role is named *devicedatasender*. The event hub sender role isn't used in this tutorial. To learn more about the role, see [Review of deployed resources and access permissions](deploy-02-new-button.md#required-post-deployment-tasks).
 
 - An instance of Azure IoT Hub with [messaging routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to send device messages to the device message event hub.
 
@@ -148,9 +148,9 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 1. Select the Azure subscription where your hub was provisioned.
   
-1. Select your IoT hub. The name of your hub is the *basename* you provided when you provisioned the resources, prefixed with **ih-**. For example, **ih-azuredocsdemo**.
+1. Select your IoT hub. The name of your hub is the *basename* you provided when you provisioned the resources, prefixed with **ih-**. An example hub name is *ih-azuredocsdemo*.
 
-1. In Explorer, in **Azure IoT Hub**, select **…** and choose **Create Device**. For example, create a device named **iot-001**.
+1. In Explorer, in **Azure IoT Hub**, select **…** and choose **Create Device**. An example device name is *iot-001*.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-device.png" alt-text="Screenshot of Visual Studio Code with the Azure IoT Hub extension selecting Create device for this tutorial." lightbox="media\iot-hub-to-iot-connector\iot-create-device.png":::
 
