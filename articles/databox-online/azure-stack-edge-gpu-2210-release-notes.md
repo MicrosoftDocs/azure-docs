@@ -39,7 +39,7 @@ If you have questions or concerns, [open a support case through the Azure portal
 | --- | --- | --- |
 |**1.**|Networking |Open vSwitch Database Management Protocol (OVSDB) connection failure caused by stale node IP after user changed physical net adapter link status. |
 
-## Known issues in 2210 release
+## Known issues in this release
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
