@@ -182,6 +182,23 @@ find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project
 > [!TIP]
 > For workspaces with large data volumes, doing queries such as the ones shown in this section, which query large volumes of raw data, might need to be restricted to a single day. To track trends over time, consider setting up a [Power BI report](./log-powerbi.md) and using [incremental refresh](./log-powerbi.md#collect-data-with-power-bi-dataflows) to collect data volumes per resource once a day.
 
+## Querying for data volumes excluding known free data types
+The following query will return the monthly data volume in GB, excluding all data types which are supposed to be free from data ingestion charges:
+
+```kusto
+let freeTables = dynamic([
+"AppAvailabilityResults","AppSystemEvents","ApplicationInsights","AzureActivity","AzureNetworkAnalyticsIPDetails_CL",
+"AzureNetworkAnalytics_CL","AzureTrafficAnalyticsInsights_CL","ComputerGroup","DefenderIoTRawEvent","Heartbeat",
+"MAApplication","MAApplicationHealth","MAApplicationHealthIssues","MAApplicationInstance","MAApplicationInstanceReadiness",
+"MAApplicationReadiness","MADeploymentPlan","MADevice","MADeviceNotEnrolled","MADeviceReadiness","MADriverInstanceReadiness",
+"MADriverReadiness","MAProposedPilotDevices","MAWindowsBuildInfo","MAWindowsCurrencyAssessment",
+"MAWindowsCurrencyAssessmentDailyCounts","MAWindowsDeploymentStatus","NTAIPDetails_CL","NTANetAnalytics_CL",
+"OfficeActivity","Operation","SecurityAlert","SecurityIncident","UCClient","UCClientReadinessStatus",
+"UCClientUpdateStatus","UCDOAggregatedStatus","UCDOStatus","UCDeviceAlert","UCServiceUpdateStatus","UCUpdateAlert",
+"Usage","WUDOAggregatedStatus","WUDOStatus","WaaSDeploymentStatus","WaaSInsiderStatus","WaaSUpdateStatus"]);
+Usage | where DataType !in (freeTables) | where TimeGenerated > ago(30d) | summarize MonthlyGB=sum(Quantity)/1000
+```
+
 ## Querying for common data types
 If you find that you have excessive billable data for a particular data type, you might need to perform a query to analyze data in that table. The following queries provide samples for some common data types:
 
