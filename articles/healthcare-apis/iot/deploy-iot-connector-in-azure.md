@@ -11,13 +11,13 @@ ms.author: jasteppe
 
 # Quickstart: Choose a deployment method
 
-MedTech service provides multiple methods for deploying it into an Azure Platform as a service (PaaS) configuration. Each method has different advantages that will allow you to customize your development environment to suit your needs.
+MedTech service provides multiple methods for deploying it into an Azure Platform as a Service (PaaS) configuration. Each method has different advantages that will allow you to customize your development environment to suit your needs.
 
 The different deployment methods are:
 
 - Azure Resource Manager (ARM) template with Deploy to Azure button
 - Azure PowerShell and Azure CLI automation
-- Manual deployment
+- Azure portal manual deployment
 
 ## Azure Resource Manager template with Deploy to Azure button
 
@@ -31,7 +31,7 @@ Azure provides Azure PowerShell and Azure CLI to speed up your configurations wh
 
 For more information about Using an ARM template with Azure PowerShell and Azure CLI, see [Quickstart: Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates](deploy-08-new-ps-cli.md).
 
-## Manual deployment
+## Azure portal manual deployment
 
 The manual deployment method uses the Azure portal to implement each deployment task individually. Using the manual deployment method will allow you to see all the details of how to complete the sequence of each deployment task. The manual deployment method can be beneficial if you need to customize or troubleshoot your deployment process. The manual deployment is the most complex method, but it provides valuable technical information and developmental options that will enable you to fine-tune your deployment precisely.
 

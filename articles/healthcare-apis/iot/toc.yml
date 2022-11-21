@@ -23,7 +23,7 @@ items:
         href: deploy-iot-connector-in-azure.md
       - name: Azure Resource Manager template
         href: deploy-02-new-button.md
-      - name: Azure PowerShell and CLI
+      - name: Azure PowerShell and Azure CLI
         href: deploy-08-new-ps-cli.md
       - name: Azure portal - Prerequisites
         href: deploy-03-new-manual.md
