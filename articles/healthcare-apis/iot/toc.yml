@@ -25,11 +25,11 @@ items:
         href: deploy-02-new-button.md
       - name: Azure PowerShell and CLI
         href: deploy-08-new-ps-cli.md
-      - name: Manual deployment - Prerequisites
+      - name: Azure portal - Prerequisites
         href: deploy-03-new-manual.md
-      - name: Manual deployment - Configure
+      - name: Azure portal - Configure
         href: deploy-05-new-config.md
-      - name: Manual deployment - Deploy
+      - name: Azure portal - Deploy
         href: deploy-06-new-deploy.md   
 - name: Tutorials
   expanded: true

@@ -40,9 +40,9 @@ landingContent:
             url: deploy-iot-connector-in-azure.md
       - linkListType: quickstart
         links:     
-          - text: Azure Resource Manager (ARM) template
+          - text: Azure Resource Manager template
             url: deploy-02-new-button.md
-          - text: Azure PowerShell and CLI
+          - text: Azure PowerShell and Azure CLI
             url: deploy-08-new-ps-cli.md
           - text: Azure portal
             url: deploy-03-new-manual.md
