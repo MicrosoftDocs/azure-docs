@@ -7,7 +7,7 @@ ms.date: 06/20/2022
 
 # Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel
 
-​[Microsoft Defender for IoT](../defender-for-iot/index.yml) enables you to secure your entire OT and Enterprise IoT environment, whether you need to protect existing devices or build security into new innovations.
+​Microsoft Defender for IoT enables you to secure your entire OT and Enterprise IoT environment, whether you need to protect existing devices or build security into new innovations.
 
 Microsoft Sentinel and Microsoft Defender for IoT help to bridge the gap between IT and OT security challenges, and to empower SOC teams with out-of-the-box capabilities to efficiently and effectively detect and respond to OT threats. The integration between Microsoft Defender for IoT and Microsoft Sentinel helps organizations to quickly detect multistage attacks, which often cross IT and OT boundaries.
 
@@ -26,14 +26,14 @@ In this tutorial, you will learn how to:
 
 Before you start, make sure you have the following requirements on your workspace:
 
-- **Read** and **Write** permissions on your Microsoft Sentinel workspace. For more information, see [Permissions in Microsoft Sentinel](roles.md).
+- **Read** and **Write** permissions on your Microsoft Sentinel workspace. For more information, see [Permissions in Microsoft Sentinel](/azure/sentinel/roles).
 
 - **Contributor** or **Owner** permissions on the subscription you want to connect to Microsoft Sentinel.
 
-- A Defender for IoT plan on your Azure subscription with data streaming into Defender for IoT. For more information, see [Quickstart: Get started with Defender for IoT](../defender-for-iot/organizations/getting-started.md).
+- A Defender for IoT plan on your Azure subscription with data streaming into Defender for IoT. For more information, see [Quickstart: Get started with Defender for IoT](getting-started.md).
 
 > [!IMPORTANT]
-> Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](data-connectors-reference.md#microsoft-defender-for-cloud) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
+> Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](/azure/sentinel/data-connectors-reference.md#microsoft-defender-for-cloud) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
 >
 
 ## Connect your data from Defender for IoT to Microsoft Sentinel
@@ -50,7 +50,7 @@ Start by enabling the **Defender for IoT** data connector to stream all your Def
 
     If you've made any connection changes, it can take 10 seconds or more for the **Subscription** list to update.
 
-For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md).
+For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](/azure/sentinel/connect-azure-windows-microsoft-services.md).
 
 ## View Defender for IoT alerts
 
@@ -134,7 +134,7 @@ The following table describes the Defender for IoT alert timestamp fields, with 
 
 In Defender for IoT on the Azure portal and the sensor console, the **Last detection** column is shown by default. Edit the columns on the **Alerts** page to show the **First detection** and **Last activity** columns as needed.
 
-For more information, see [View alerts on the Defender for IoT portal](../defender-for-iot/organizations/how-to-manage-cloud-alerts.md) and [View alerts on your sensor](../defender-for-iot/organizations/how-to-view-alerts.md).
+For more information, see [View alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md) and [View alerts on your sensor](how-to-view-alerts.md).
 
 ### Understand multiple records per alert
 
