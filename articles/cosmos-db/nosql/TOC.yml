@@ -523,6 +523,8 @@
                   href: ../local-emulator-on-docker-windows.md
             - name: Export emulator certificates
               href: ../local-emulator-export-ssl-certificates.md
+            - name: Add test data to the emulator using REST API
+              href: ../local-emulator-rest-api.md
             - name: Emulator command-line parameters
               href: ../emulator-command-line-parameters.md
             - name: Emulator troubleshooting
