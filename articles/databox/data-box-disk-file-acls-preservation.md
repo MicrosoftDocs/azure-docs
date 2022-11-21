@@ -1,5 +1,5 @@
 ---
-title: Preserving file ACLs, attributes, and timestamps with Azure Data Box 
+title: Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk
 description: ACLs, timestamps, and attributes preserved during data copy via SMB to Azure Data Box. Copying metadata with Windows and Linux data copy tools.  
 services: databox
 author: alkohli
@@ -7,21 +7,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 11/12/2022
+ms.date: 09/12/2022
 ms.author: alkohli
 ---
 
-# Preserving file ACLs, attributes, and timestamps with Azure Data Box
+# Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk
 
-Azure Data Box lets you preserve access control lists (ACLs), timestamps, and file attributes when sending data to Azure. This article describes the metadata that you can transfer when copying data to Data Box via Server Message Block (SMB) to upload it to Azure Files. 
+Azure Data Box Disk lets you preserve access control lists (ACLs), timestamps, and file attributes when sending data to Azure. This article describes the metadata that you can transfer when copying data to Data Box to upload it to Azure Files. 
 
 ## Transferred metadata
 
-ACLs, timestamps, and file attributes are the metadata that is transferred when the data from Data Box is uploaded to Azure Files. In this article, ACLs, timestamps, and file attributes are referred to collectively as *metadata*.
+ACLs, timestamps, and file attributes are the metadata that is transferred when the data from Data Box Disk is uploaded to Azure Files. In this article, ACLs, timestamps, and file attributes are referred to collectively as *metadata*.
 
-The metadata can be copied with Windows and Linux data copy tools. Metadata isn't preserved when transferring data to blob storage. Metadata is also not transferred when copying data over NFS. 
+The metadata can be copied with Windows data copy tools. Metadata isn't preserved when transferring data to blob storage.
 
-The subsequent sections of the article discuss in detail as to how the timestamps, file attributes, and ACLs are transferred when the data from Data Box is uploaded to Azure Files. 
+The subsequent sections of the article discuss in detail as to how the timestamps, file attributes, and ACLs are transferred when the data from Data Box Disk is uploaded to Azure Files. 
 
 ## Timestamps
 
