@@ -73,7 +73,7 @@ Use the Action filter on the Automation rules list to see only those rules that 
 
 When you select an incident and **View full details**, on the incident details page you'll see on the right-hand panel all the tasks that have been added to that incident, whether manually or by automation rules. You can also add tasks to an open incident on the spot. 
 
-Expand a task to see its full description, including the user or automation rule who created it.
+Expand a task to see its full description, including the user, automation rule, or playbook that created it.
 
 Mark a task complete by selecting its "checkbox" circle.
 

@@ -109,6 +109,46 @@ Give your automation rule a name that describes what it does.
 
 Use the **Add task** action in a playbook (in the Microsoft Sentinel connector) to automatically add a task to the incident that triggered the playbook.
 
+[Follow these instructions](tutorial-respond-threats-playbook.md#create-a-playbook) to create a **playbook** based on the **incident trigger**. (You can use either a Standard workflow or a Consumption workflow.)
+
+There are two ways to work with playbooks to generate tasks:
+
+### Use a playbook to add a task and perform it
+
+In this example we're going to add a playbook action that adds a task to the incident to reset a compromised user's password, and we'll add another playbook action that sends a signal to Azure Active Directory Identity Protection (AADIP) to actually reset the password. Then we'll add a final playbook action to mark the task in the incident complete.
+
+When you're ready to add actions to your playbook, choose the following:
+
+:::image type="content" source="media/create-tasks/playbook-actions.png" alt-text="Screenshot shows list of actions to add to playbook to add and perform tasks.":::
+
+To add these actions, take the following steps:
+
+1. From the **Microsoft Sentinel** connector, add the **Add task to incident (Preview)** action.  
+    Choose the **Incident ARM ID** dynamic content item for the **Incident ARM id** field. Enter **Reset user password** as the **Title**.
+
+1. Add the **Entities - Get Accounts (Preview)** action. Add the **Entities** dynamic content item in the **Entities list** field.
+
+    :::image type="content" source="media/create-tasks/add-task-get-entities.png" alt-text="Screenshot shows playbook actions to add task and get incident entities.":::
+
+1. Add a **For each** loop from the **Control** actions library.  
+    Add the **Accounts** dynamic content item to the **Select an output from previous steps** field.
+
+1. Inside the **For each** loop, add the **Confirm a risky user as compromised (Preview)** action from the **Azure AD Identity Protection** connector.  
+    Add the **Accounts PUID** dynamic content item to the **userIds Item - 1** field.
+
+    This action sets in motion processes inside Azure AD Identity Protection that will reset the user's password.
+
+    :::image type="content" source="media/create-tasks/confirm-compromised.png" alt-text="Screenshot shows sending entities to AADIP to confirm compromise.":::
+
+1. Add the **Mark a task as completed (Preview)** action from the Microsoft Sentinel connector.  
+    Add the **Incident task ID** dynamic content item to the **Task ARM id** field.
+
+    :::image type="content" source="media/create-tasks/mark-complete.png" alt-text="Screenshot shows how to add a playbook action to mark an incident task complete.":::
+
+### Use a playbook to add a task conditionally
+
+1. 
+
 ## View and follow incident tasks
 
 1. In the **Incidents** page, select an incident from the list, and select **View full details** in the details panel.
