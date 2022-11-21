@@ -168,6 +168,9 @@
           href: concept-component.md
         - name: MLflow
           href: concept-mlflow.md
+        - name: Git integration
+          displayName: github gitlab
+          href: concept-train-model-git-integration.md
     - name: Responsible AI
       items:
         - name: Responsible AI overview
@@ -454,6 +457,9 @@
           href: how-to-train-model.md
         - name: Train with the job creation UI
           href: how-to-train-with-ui.md
+        - name: Debug jobs and monitor training progress
+          displayName: automl
+          href: how-to-interactive-jobs.md
         - name: Train with the Python SDK
           items:
             - name: Tune hyperparameters
@@ -511,9 +517,6 @@
             - name: Use automated ML with Databricks
               displayName: automl
               href: how-to-configure-databricks-automl-environment.md
-            - name: Debug jobs and monitor training progress
-              displayName: automl
-              href: how-to-interactive-jobs.md
             - name: Prep image data for computer vision models (Python)
               displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
               href: how-to-prepare-datasets-for-automl-images.md

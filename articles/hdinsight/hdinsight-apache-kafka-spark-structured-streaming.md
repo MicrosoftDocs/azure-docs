@@ -322,4 +322,3 @@ To remove the resource group using the Azure portal:
 > HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use.
 >
 > Deleting a Kafka on HDInsight cluster deletes any data stored in Kafka.
-
