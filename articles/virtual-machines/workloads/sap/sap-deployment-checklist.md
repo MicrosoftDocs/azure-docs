@@ -21,17 +21,7 @@ The checklist doesn't include tasks that are independent of Azure. For example, 
 
 This checklist can also be used for systems that are already deployed. New features or changed recommendations might apply to your environment. It's useful to review the checklist periodically to ensure you're aware of new features in the Azure platform.
 
-Main content in this document is organized in tabs, in a typical chronological order. See content of each tab and consider each next tab to build on top of actions done and learnings obtained in the previous phase. For production migration the content of all tabs should be considered and not just production tab only.
-
-## Automated checks and insights in SAP landscape
-
-Several of the checks above are checked in automated way with [SAP on Azure Quality Check Tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck). These checks can be executed automated with the provided open-source project. No automated remediation of issues found is done and tooling is to spot configurations against Microsoft recommendations. 
-
-> [!TIP]
-> Same [quality checks and additional insights](/azure/center-sap-solutions/get-quality-checks-insights) are executed regularly when SAP systems are deployed or registered with [Azure Center for SAP solution](/azure/center-sap-solutions/) as well and are part of the service.  
-
-Further tools to automate check and document findings, plan next remediation steps and generally optimize your SAP on Azure landscape are:
-- [Azure Inventory Checks for SAP](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Tools%26Framework/InventoryChecksForSAP) An open source Azure Monitor workbook, which shows your Azure inventory with intelligence to highlight configuration drift and improve quality.
+Main content in this document is organized in tabs, in a typical project's chronological order. See content of each tab and consider each next tab to build on top of actions done and learnings obtained in the previous phase. For production migration, the content of **all** tabs should be considered and not just production tab only.
 
 ## [Planning phase](#tab/planning)
 
@@ -301,6 +291,16 @@ After deploying infrastructure and applications and before each migration starts
 23. Interfaces and other applications can connect to the newly deployed infrastructure.
 
 ---
+
+## Automated checks and insights in SAP landscape
+
+Several of the checks above are checked in automated way with [SAP on Azure Quality Check Tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck). These checks can be executed automated with the provided open-source project. No automated remediation of issues found is done and tooling is to spot configurations against Microsoft recommendations. 
+
+> [!TIP]
+> Same [quality checks and additional insights](/azure/center-sap-solutions/get-quality-checks-insights) are executed regularly when SAP systems are deployed or registered with [Azure Center for SAP solution](/azure/center-sap-solutions/) as well and are part of the service.  
+
+Further tools to automate check and document findings, plan next remediation steps and generally optimize your SAP on Azure landscape are:
+- [Azure Inventory Checks for SAP](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Tools%26Framework/InventoryChecksForSAP) An open source Azure Monitor workbook, which shows your Azure inventory with intelligence to highlight configuration drift and improve quality.
 
 ## Next steps
 See these articles:
