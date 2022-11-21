@@ -117,7 +117,7 @@ After you've connected a subscription to Microsoft Sentinel, you'll be able to v
 > [!NOTE]
 > The **Logs** page in Microsoft Sentinel is based on Azure Monitor's Log Analytics.
 >
-> For more information, see [Log queries overview](../azure-monitor/logs/log-query-overview.md) in the Azure Monitor documentation and the [Write your first KQL query](/training/modules/write-first-query-kusto-query-language/) Learn module.
+> For more information, see [Log queries overview](/azure/azure-monitor/logs/log-query-overview) in the Azure Monitor documentation and the [Write your first KQL query](/training/modules/write-first-query-kusto-query-language/) Learn module.
 >
 
 ### Understand alert timestamps
@@ -168,7 +168,6 @@ For more information, see:
 
 - [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
 - [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
-- [Microsoft Defender for IoT documentation](../defender-for-iot/index.yml)
 - [Microsoft Defender for IoT solution](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview)
-- [Microsoft Defender for IoT data connector](data-connectors-reference.md#microsoft-defender-for-iot)
+- [Microsoft Defender for IoT data connector](/azure/sentinel/data-connectors-reference.md#microsoft-defender-for-iot)
 
