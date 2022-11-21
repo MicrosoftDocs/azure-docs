@@ -20,7 +20,7 @@ You can connect your non-Azure computers in any of the following ways:
 Each of these is described on this page.
 
 > [!TIP]
-> If you're connecting machines from other cloud providers, see [Connect your AWS accounts](quickstart-onboard-aws.md) or [Connect your GCP projects](quickstart-onboard-gcp.md).
+> If you're connecting machines from other cloud providers, see [Connect your AWS accounts](quickstart-onboard-aws.md) or [Connect your GCP projects](quickstart-onboard-gcp.md). Defender for Cloud's multicloud connectors for AWS and GCP transparently handles the Azure Arc deployment for you.
 
 ::: zone pivot="azure-arc"
 
@@ -44,9 +44,6 @@ Learn more about [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
 
 - For one machine, follow the instructions in [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - To connect multiple machines at scale to Azure Arc-enabled servers, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md)
-
-> [!TIP]
-> If you're onboarding machines running on Amazon Web Services (AWS), Defender for Cloud's connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md).
 
 ::: zone-end
 
