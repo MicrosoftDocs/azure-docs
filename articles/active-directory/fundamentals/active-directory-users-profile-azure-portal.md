@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 11/21/2022
 ms.author: sarahlipsey
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -78,7 +78,7 @@ In the **User settings** area of Azure AD, you can adjust several settings that 
 
 Go to **Azure AD** > **User settings**.
 
-## Learn about the 'Stay signed in?' prompt
+### Learn about the 'Stay signed in?' prompt
 
 The **Stay signed in?** prompt appears after a user successfully signs in. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, the KMSI service gives them a persistent [refresh token](../develop/developer-glossary.md#refresh-token). For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
 
@@ -95,7 +95,7 @@ Configuring the 'keep me signed in' (KMSI) option requires one of the following 
 - Office 365 (for Office apps)
 - Microsoft 365
 
-### Troubleshoot 'Stay signed in?' issues
+#### Troubleshoot 'Stay signed in?' issues
 
 If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in attempt, a sign-in log entry appears in the Azure AD **Sign-ins** page. The prompt the user sees is called an "interrupt."
 

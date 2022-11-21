@@ -1,5 +1,5 @@
 ---
-title: Add branding to your organization's sign-in page (preview) - Azure AD
+title: Add company branding to your organization's sign-in page (preview) - Azure AD
 description: Instructions about how to add your organization's branding to the sign-in experience.
 services: active-directory
 author: shlipsey3
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 11/21/2022
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -20,9 +20,11 @@ ms.collection: M365-identity-device-management
 
 When users authenticate into your corporate intranet or web-based applications, Azure Active Directory (Azure AD) provides the identity and access management (IAM) service. You can add company branding that applies to all these sign-in experiences to create a consistent experience for your users.
 
-The updated experience for adding company branding is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature.
+The updated experience for adding company branding covered in this article is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature.
 
 For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Instructions for the legacy company branding customization process can be found in the [Customize branding](customize-branding.md) article.
 
 ## License requirements
 
