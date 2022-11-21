@@ -41,11 +41,11 @@ When you have these prerequisites, you're ready to use the **Deploy to Azure** b
 
 ## Use the Deploy to Azure button
 
-1. Select the **Deploy to Azure** button below to begin the deployment within the Azure portal.
+Select the **Deploy to Azure** button below to begin the deployment within the Azure portal.
 
-   [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
 
-   This button will call an ARM template from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) site to get information from your Azure subscription environment and begin deploying the MedTech service and IoT Hub using the Azure portal.
+This button will call an ARM template from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) site to get information from your Azure subscription environment and begin deploying the MedTech service and IoT Hub using the Azure portal.
 
 ## Provide configuration details
 
@@ -53,19 +53,19 @@ When you have these prerequisites, you're ready to use the **Deploy to Azure** b
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-deploy-template-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-hub-to-iot-connector\iot-deploy-template-options.png":::
 
-   - **Subscription** - Choose the Azure subscription you want to use for the deployment.
+   - **Subscription**: The Azure subscription you want to use for the deployment.
 
-   - **Resource group** - Choose an existing resource group or create a new resource group.
+   - **Resource group**: An existing resource group or create a new resource group.
 
-   - **Region** - The Azure region of the resource group used for the deployment. This field will auto-fill based on the resource group region.
+   - **Region**: The Azure region of the resource group used for the deployment. This field will auto-fill based on the resource group region.
 
-   - **Basename** - This value will be appended to the name of the Azure resources and services to be deployed. For this tutorial, we're selecting the basename of **azuredocsdemo**. You'll pick a base name of your own choosing.
+   - **Basename**: This value will be appended to the name of the Azure resources and services to be deployed. For this tutorial, we're selecting the basename of **azuredocsdemo**. You'll pick a base name of your own choosing.
 
-   - **Location** - Use the drop-down list to select a supported Azure region for the Azure Health Data Services (the value could be the same or different region than your resource group). For a list of Azure regions where the Azure Health Data Services is available, see [Products available by regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=health-data-services).
+   - **Location**: Use the drop-down list to select a supported Azure region for the Azure Health Data Services (the value could be the same or different region than your resource group). For a list of Azure regions where the Azure Health Data Services is available, see [Products available by regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=health-data-services).
 
-   - **Fhir Contributor Principle Id** - **Optional** - An Azure AD user object ID that you would like to provide access to for read/write permissions to the FHIR service. This account can be used to access the FHIR service to view the device messages that are generated as part of this tutorial. It's recommended to use your own Azure AD user object ID so that you'll have access to the FHIR service. If you don't choose to use the **Fhir Contributor Principle Id** option, clear the field of any entries. To learn more about how to acquire an Azure AD user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID used in this tutorial isn't real and shouldn't be used. You'll use your own user object ID or that of another person you wish to provide access to the FHIR service.
+   - **Fhir Contributor Principle Id** - **Optional**: An Azure AD user object ID that you would like to provide access to for read/write permissions to the FHIR service. This account can be used to access the FHIR service to view the device messages that are generated as part of this tutorial. It's recommended to use your own Azure AD user object ID so that you'll have access to the FHIR service. If you don't choose to use the **Fhir Contributor Principle Id** option, clear the field of any entries. To learn more about how to acquire an Azure AD user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID used in this tutorial isn't real and shouldn't be used. You'll use your own user object ID or that of another person you wish to provide access to the FHIR service.
 
-    - Don't change the **Device Mapping** and **Destination Mapping** default values at this time. These mappings will work with the provided test message later in this tutorial when you send a device message to your IoT Hub using **VSCode** with the **Azure IoT Hub extension**.
+   - Don't change the **Device Mapping** and **Destination Mapping** default values at this time. These mappings will work with the provided test message later in this tutorial when you send a device message to your IoT Hub using **VSCode** with the **Azure IoT Hub extension**.
 
    > [!IMPORTANT]
    > For this tutorial, the ARM template will configure the MedTech service to operate in **Create** mode so that a Patient Resource and Device Resource are created for each device that sends data to your FHIR service.
@@ -74,15 +74,15 @@ When you have these prerequisites, you're ready to use the **Deploy to Azure** b
 
 1. Select the **Review + create** button after all the option fields are correctly filled out. This selection will review your option inputs and check to see if all your supplied values are valid.
 
-   :::image type="content" source="media\iot-hub-to-iot-connector\iot-review-and-create-button.png" alt-text="Screenshot of Azure portal page displaying the **Review + create**." lightbox="media\iot-hub-to-iot-connector\iot-review-and-create-button.png":::
+   :::image type="content" source="media\iot-hub-to-iot-connector\iot-review-and-create-button.png" alt-text="Screenshot of Azure portal page displaying the Review + create." lightbox="media\iot-hub-to-iot-connector\iot-review-and-create-button.png":::
 
 1. If the validation is successful, you'll see a **Validation Passed** message. If not, fix the option creating the validation error and attempt the validation process again.
 
-   :::image type="content" source="media\iot-hub-to-iot-connector\iot-validation-completed.png" alt-text="Screenshot of Azure portal page displaying the **Validation Passed** message." lightbox="media\iot-hub-to-iot-connector\iot-validation-completed.png":::
+   :::image type="content" source="media\iot-hub-to-iot-connector\iot-validation-completed.png" alt-text="Screenshot of Azure portal page displaying the Validation Passed message." lightbox="media\iot-hub-to-iot-connector\iot-validation-completed.png":::
 
 1. After a successful validation, select the **Create** button to begin the deployment.
 
-   :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-button.png" alt-text="Screenshot of Azure portal page displaying the **Create**." lightbox="media\iot-hub-to-iot-connector\iot-create-button.png":::
+   :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-button.png" alt-text="Screenshot of Azure portal page displaying the Create." lightbox="media\iot-hub-to-iot-connector\iot-create-button.png":::
 
 1. After a few minutes wait, a message will appear telling you that your deployment is completed.
 
@@ -90,7 +90,7 @@ When you have these prerequisites, you're ready to use the **Deploy to Azure** b
 
 ## Review of deployed resources and access permissions
 
-Once the deployment has competed, the following resources and access roles will be created as part of the template deployment: 
+Once the deployment has competed, the following resources and access roles will be created as part of the template deployment:
 
 - An Azure Event Hubs Namespace and device message Azure event hub. In this deployment, the event hub is named **devicedata**.
 
