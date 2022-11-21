@@ -44,9 +44,6 @@ In this tutorial, you learn how to:
 
 4. Select **Create**.
 
-> [!Note]
-> In the Public Preview, we can't enable geo redundancy on a flexible server that has CMK enabled, nor can we enable geo redundancy on a flexible server that has CMK enabled. 
-
 ## Configure customer managed key
 
 To set up the customer managed key, perform the following steps.

@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 11/14/2021
+ms.date: 11/14/2022
 ms.author: cynthn 
 ms.custom: devx-track-azurepowershell
 

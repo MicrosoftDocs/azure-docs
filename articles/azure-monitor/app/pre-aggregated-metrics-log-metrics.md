@@ -12,7 +12,7 @@ This article explains the difference between "traditional" Application Insights 
 
 ## Log-based Metrics
 
-In the past, the application monitoring telemetry data model in Application Insights was solely based on a small number of predefined types of events, such as requests, exceptions, dependency calls, page views, etc. Developers can use the SDK to either emit these events manually (by writing code that explicitly invokes the SDK) or they can rely on the automatic collection of events from auto-instrumentation. In either case, the Application Insights backend stores all collected events as logs, and the Application Insights blades in the Azure portal act as an analytical and diagnostic tool for visualizing event-based data from logs.
+In the past, the application monitoring telemetry data model in Application Insights was solely based on a small number of predefined types of events, such as requests, exceptions, dependency calls, page views, etc. Developers can use the SDK to either emit these events manually (by writing code that explicitly invokes the SDK) or they can rely on the automatic collection of events from auto-instrumentation. In either case, the Application Insights backend stores all collected events as logs, and the Application Insights panes in the Azure portal act as an analytical and diagnostic tool for visualizing event-based data from logs.
 
 Using logs to retain a complete set of events can bring great analytical and diagnostic value. For example, you can get an exact count of requests to a particular URL with the number of distinct users who made these calls. Or you can get detailed diagnostic traces, including exceptions and dependency calls for any user session. Having this type of information can significantly improve visibility into the application health and usage, allowing to cut down the time necessary to diagnose issues with an app.
 
@@ -55,7 +55,7 @@ It is worth mentioning that the collection endpoint pre-aggregates events before
 | Java                    | Not Supported            | Not Supported                             | [Supported](java-in-process-agent.md#metrics) |
 | Node.js                 | Not Supported            | Not Supported                             | Not Supported                           |
 
-1. ASP.NET codeless attach on App Service only emits metrics in "full" monitoring mode. ASP.NET codeless attach on App Service, VM/VMSS, and On-Premises emits standard metrics without dimensions. SDK is required for all dimensions.
+1. ASP.NET codeless attach on VM/VMSS, and On-Premises emits standard metrics without dimensions. The same is true for App Service, but the collection level must be set to recommended. The SDK is required for all dimensions.
 2. ASP.NET Core codeless attach on App Service emits standard metrics without dimensions. SDK is required for all dimensions.
 
 ## Using pre-aggregation with Application Insights custom metrics
