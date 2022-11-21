@@ -13,23 +13,23 @@ ms.service: azure-communication-services
 ---
 # Simulcast
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
-Simulcast is provided as a preview for developers and may change based on feedback that we receive. To use this feature, please use 1.9.1-beta.1+ release of Azure Communication Services Calling Web SDK
+Simulcast is provided as a preview for developers and may change based on feedback that we receive. To use this feature, use 1.9.1-beta.1+ release of Azure Communication Services Calling Web SDK
 
-Simulcast is a technique by which an endpoint encodes the same video feed using different qualities , sends these video feeds of multiple quality to a selective forwarding unit – SFU, that decides which of the receivers gets which quality .  
+Simulcast is a technique by which an endpoint encodes the same video feed using different qualities , sends these video feeds of multiple qualities to a selective forwarding unit – SFU, that decides which of the receivers gets which quality.  
 The lack of simulcast support leads to a degraded video conferencing experience, due to the video receiver with poor network conditions joining the conference instantly impacting the quality of video received from the sender without simulcast support for all other participants, as video sender will optimize its video feed against the lowest common denominator. Using simulcast, the impact of lowest common denominator will be minimized, as video sender will produce specialized low fidelity video encoding for a subset of receivers running on poor networks (or otherwise constrained).  
 ## Scenarios where simulcast is useful
-Users with unknown bandwidth constraints joining. When new joiner joins the call, its bandwidth conditions are unknown when starting to receive video. It will not be sent high quality content before reliable estimation of its bandwidth is known to prevent overshooting the available bandwidth. In case of unicast, if everyone was receiving high quality content, that would cause degradation for every other receiver until the reliable estimate of the bandwidth conditions can be achieved. In case of simulcast, lower resolution video can be sent to the new joiner until its’ bandwidth conditions are known while other keep receiving high quality video.
-In a similar way, if one of the receivers is on poor network, video quality of all other receivers on good network will be degraded to accommodate for the receiver on poor network in unicast, while in case of simulcast lower resolution/bitrate content can be sent to the receiver on poor network and higher resolution/bitrate content can be sent to receivers on good network.
-In case of content sharing, where thumbnails are often used for video content, lower resolution videos are usually requested from the producers. If in parallel zooming of someone’s video is needed, zoomed video will be low quality to prevent others looking at the content not to receive both content and video at high quality thus wasting bandwidth. 
+Users with unknown bandwidth constraints joining. When new joiner joins the call, its bandwidth conditions are unknown when starting to receive video. It will not be sent high quality content before reliable estimation of its bandwidth is known to prevent overshooting the available bandwidth. In unicast, if everyone was receiving high quality content, that would cause degradation for every other receiver until the reliable estimate of the bandwidth conditions can be achieved. In case of simulcast, lower resolution video can be sent to the new joiner until its’ bandwidth conditions are known while other keep receiving high quality video.
+In a similar way, if one of the receivers is on poor network, video quality of all other receivers on good network will be degraded to accommodate for the receiver on poor network in unicast, while in simulcast lower resolution/bitrate content can be sent to the receiver on poor network and higher resolution/bitrate content can be sent to receivers on good network.
+In content sharing, where thumbnails are often used for video content, lower resolution videos are requested from the producers. If in parallel zooming of someone’s video is needed, zoomed video will be low quality to prevent others looking at the content not to receive both content and video at high quality thus wasting bandwidth. 
 ## How it's used/works
-In case of ACS, simulcast is adaptively enabled on-demand to save bandwidth and CPU resources of the publisher. 
+In ACS, simulcast is adaptively enabled on-demand to save bandwidth and CPU resources of the publisher. 
 Subscribers notify SFU of its maximum resolution preference based on the size of the renderer element. 
 SFU tracks the bandwidth conditions and resolution requirements of all current subscribers to the publisher’s video and forwards the aggregated parameters of all subscribers to the publisher. Publisher will pick the best set of parameters to give optimal quality to all receivers considering all publisher’s and subscribers’ constraints. 
-SFU will receive multiple qualities  of the content and will choose the quality which to forward to subscriber. There will be no transcoding of the content on the SFU. SFU will not forward higher resolution than requested by the subscriber.
+SFU will receive multiple qualities  of the content and will choose the quality to forward to the subscriber. There will be no transcoding of the content on the SFU. SFU won't forward higher resolution than requested by the subscriber.
 ## Limitations
-Web endpoints support simulcast only for video content with maximum 2 distinct qualities. 
+Web endpoints support simulcast only for video content with maximum two distinct qualities. 
 ## Resolutions
 In ACS adaptive simulcast there are no set resolutions for high- and low-quality video streams. Optimal set of either single or multiple streams are chosen. If every subscriber to video is requesting and capable of receiving maximum resolution what publisher can provide, only that maximum resolution will be sent.
-Following resolutions are supported and requested by the receivers in case of ACS web simulcast – 180p, 240p, 360p, 540p, 720p.
-In case of limited input resolution, resolution received will be capped at that resolution.
-In case of ACS Web simulcast effective resolution sent can be also degraded internally, thus actual received resolution of video can vary.
+Following resolutions are supported and requested by the receivers in ACS web simulcast – 180p, 240p, 360p, 540p, 720p.
+In limited input resolution, resolution received will be capped at that resolution.
+In ACS Web simulcast effective resolution sent can be also degraded internally, thus actual received resolution of video can vary.
