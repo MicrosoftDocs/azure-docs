@@ -1,53 +1,73 @@
 ---
-title: Use REST API to populate data in Azure Cosmos DB Emulator
-description: Learn how to send HTTP requests to the emulator. Using the emulator you can develop and test your application locally for free, without an Azure subscription.
+title: REST API with Docker container emulator
+titleSuffix: Azure Cosmos DB
+description: Learn how to send secure requests to the REST API of the Azure Cosmos DB emulator running in a Docker container.
+author: stefarroyo
+ms.author: esarroyo
+ms.reviewer: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: how-to
-author: ivarprudnikov
-ms.author: iprudnikovas
-ms.reviewer: iprudnikovas
-ms.date: 09/22/2022
+ms.date: 11/21/2022
 ---
 
-# Add test data to the emulator
+# Use the REST API with the Azure Cosmos DB emulator Docker container
+
+[!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
+
+You may find yourself in a situation where you need to start the emulator from the command line, create resources, and populate data without any UI intervention. For example, you may start the emulator as part of an automated test suite in a DevOps platform. The REST API for Azure Cosmos DB is available in the emulator to use for many of these requests. This guide will walk you through the steps necessary to interact with the REST API in the emulator.
 
 ## Provide a test key when starting the emulator
 
-When we need to automate the startup and data bootstrapping, the key should be known in advance. 
-You could pass the key as an environmental variable when starting the emulator.
+When you need to automate startup and data bootstrapping, the key you'll use should be known in advance. You can pass the key as an environmental variable when starting the emulator.
+
+Consider this sample key that is stored as an environmental variable.
 
 ```bash
-MY_TEST_KEY="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
-
-docker run -it --rm --name cosmosdb --detach -p 8081:8081 -p 10251-10254:10251-10254 --memory 3g --cpus=2.0 \
-        -e AZURE_COSMOS_EMULATOR_PARTITION_COUNT=3 \
-        -e AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=false \
-        -e AZURE_COSMOS_EMULATOR_KEY=$MY_TEST_KEY \
-        mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+EMULATOR_KEY="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
 ```
 
-### Wait for the emulator to start
+> [!IMPORTANT]
+> It is strongly recommended you generate your own key using a tool like `ssh-keygen` instead of using the sample key in this article.
 
-Emulator takes some time to startup. In the case when you have it running in the background (e.g. using `--detach`) you could have a script that loops and checks for the API to become responsive:
+Set the key when starting the emulator to the stored sample key. In this example command, other [sensible defaults](linux-emulator.md#run-the-linux-emulator-on-linux-os) are also used.
 
 ```bash
-echo "wait until the http starts responding"
+docker run \
+    -it --rm \
+    --name cosmosdb \
+    --detach -p 8081:8081 -p 10251-10254:10251-10254 \
+    --memory 3g --cpus=2.0 \
+    -e AZURE_COSMOS_EMULATOR_PARTITION_COUNT=3 \
+    -e AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=false \
+    -e AZURE_COSMOS_EMULATOR_KEY=$EMULATOR_KEY \
+    mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+```
+
+## Wait for the emulator to start
+
+The emulator will take some time to start up. In the case where you have it running in the background using `--detach`, you can create a script to loop and check to see when the REST API is available:
+
+```bash
+echo "Wait until the emulator REST API responds"
+
 until [ "$(curl -k -s -o /dev/null -w "%{http_code}" https://127.0.0.1:8081)" == "401" ]; do
     sleep 2;
 done;
-echo "emulated cosmosdb started"
+
+echo "Emulator REST API ready"
 ```
 
 ## Create authorization token
 
-REST API requires an authorization token to be present in the header. Due to the logic requiring multiple steps let's export it to a reusable function in the script.
+The REST API for the emulator requires an authorization token to be present in the header. Due to this logic requiring multiple steps, it's easier to export the creation of the token to a reusable function in the script.
 
-**Prerequisites**
+First, let's review a list of prerequisite commands and packages you'll need to create this function.
 
 - `tr` - to lowercase the date
-- `openssl` - to sign the expected structure containing the API operation with a master key
-- `jq` - to encode the token as a URI 
+- `openssl` - to sign the expected structure containing the API operation with a key
+- `jq` - to encode the token as a URI
+
+Now, let's create a function named `create_cosmos_rest_token` that will build an authorization token. This code sample includes comments to explain each step.
 
 ```bash
 create_cosmos_rest_token() {
@@ -81,61 +101,68 @@ create_cosmos_rest_token() {
 }
 ```
 
-### Create a token for each operation
+Let's look at examples where we can create tokens for common operations.
 
-* A token to pass when creating a database
+- First, creating a token to use when creating a new database
 
     ```bash
     ISSUE_DATE=$(TZ=GMT date '+%a, %d %b %Y %T %Z')
-    CREATE_DB_TOKEN=$( create_cosmos_rest_token "$ISSUE_DATE" "$MY_TEST_KEY" "dbs" "" "post" )
+    CREATE_DB_TOKEN=$( create_cosmos_rest_token "$ISSUE_DATE" "$EMULATOR_KEY" "dbs" "" "post" )
     ```
-* A token to pass when creating a collection
+
+- Next, creating a token to pass to the API for container creation
 
     ```bash
+    DATABASE_ID="<database-name>"
+    
     ISSUE_DATE=$(TZ=GMT date '+%a, %d %b %Y %T %Z')
-    DATABASE_ID="foobar"
-    CREATE_COLL_TOKEN=$( create_cosmos_rest_token "$ISSUE_DATE" "$MY_TEST_KEY" "colls" "dbs/$DATABASE_ID" "post" )
+    CREATE_COLL_TOKEN=$( create_cosmos_rest_token "$ISSUE_DATE" "$EMULATOR_KEY" "colls" "dbs/$DATABASE_ID" "post" )
     ```
 
 ## Add test data
 
 Here are some examples that utilize the above function that generates the token.
 
-### Create the database
+- **Create a database**
 
-```bash
-DB_ID="foobar"
-echo "Creating a database $DB_ID"
-ISSUE_DATE=$(TZ=GMT date '+%a, %d %b %Y %T %Z')
-CREATE_DB_TOKEN=$( create_cosmos_rest_token "$ISSUE_DATE" "$MY_TEST_KEY" "dbs" "" "post" )
-curl --data '{"id":"$DB_ID"}' \
-    -H "Content-Type: application/json" \
-    -H "x-ms-date: $ISSUE_DATE" \
-    -H "Authorization: $CREATE_DB_TOKEN" \
-    -H "x-ms-version: 2015-08-06" \
-    https://127.0.0.1:8081/dbs
-```
+    ```bash
+    DB_ID="<database-name>"
+    echo "Creating a database $DB_ID"
+    
+    ISSUE_DATE=$(TZ=GMT date '+%a, %d %b %Y %T %Z')
+    CREATE_DB_TOKEN=$( create_cosmos_rest_token "$ISSUE_DATE" "$EMULATOR_KEY" "dbs" "" "post" )
+    
+    curl --data '{"id":"$DB_ID"}' \
+        -H "Content-Type: application/json" \
+        -H "x-ms-date: $ISSUE_DATE" \
+        -H "Authorization: $CREATE_DB_TOKEN" \
+        -H "x-ms-version: 2015-08-06" \
+        https://127.0.0.1:8081/dbs
+    ```
 
-### Create a collection
+- **Create a container**
 
-```bash
-DB_ID="foobar"
-COLLECTION_ID="baz"
-echo "Creating a collection $COLLECTION_ID in the database $DB_ID"
-ISSUE_DATE=$(TZ=GMT date '+%a, %d %b %Y %T %Z')
-CREATE_COLL_TOKEN=$( create_cosmos_rest_token "$ISSUE_DATE" "$MY_TEST_KEY" "colls" "dbs/$DB_ID" "post" )
-curl --data '{"id":"$COLLECTION_ID", "partitionKey":{"paths":["/id"], "kind":"Hash", "Version":2}}' \
-    -H "Content-Type: application/json" \
-    -H "x-ms-date: $ISSUE_DATE" \
-    -H "Authorization: $CREATE_COLL_TOKEN" \
-    -H "x-ms-version: 2015-08-06" \
-    "https://127.0.0.1:8081/dbs/$DB_ID/colls"
-```
+    ```bash
+    DB_ID="<database-name>"
+    CONTAINER_ID="baz"
+    echo "Creating a container $CONTAINER_ID in the database $DB_ID"
+
+    ISSUE_DATE=$(TZ=GMT date '+%a, %d %b %Y %T %Z')
+    CREATE_CT_TOKEN=$( create_cosmos_rest_token "$ISSUE_DATE" "$EMULATOR_KEY" "colls" "dbs/$DB_ID" "post" )
+    
+    curl --data '{"id":"$CONTAINER_ID", "partitionKey":{"paths":["/id"], "kind":"Hash", "Version":2}}' \
+        -H "Content-Type: application/json" \
+        -H "x-ms-date: $ISSUE_DATE" \
+        -H "Authorization: $CREATE_CT_TOKEN" \
+        -H "x-ms-version: 2015-08-06" \
+        "https://127.0.0.1:8081/dbs/$DB_ID/colls"
+    ```
 
 ## Next steps
 
-In this article, you've learned how to generate an authorization token and use it in subsequent API requests to your emulated Cosmos DB instance. 
-You can now proceed to the next articles:
+In this article, you've learned how to generate an authorization token and use it in subsequent API requests to your emulated Cosmos DB instance.
 
-- [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js apps](local-emulator-export-ssl-certificates.md)
-- [Debug issues with the emulator](troubleshoot-local-emulator.md)
+To learn more about the linux emulator, check out these articles:
+
+- [Run the emulator on Docker for Linux](linux-emulator.md)
+- [Use the emulator on Docker for Windows](local-emulator-on-docker-windows.md)
