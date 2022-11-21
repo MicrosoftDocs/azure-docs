@@ -290,25 +290,26 @@ To resolve this issue:
 
 1. Delete the *\.azure-functions-core-tools* directory.
 
-# [bash](#tab/bash)
+    # [bash](#tab/bash)
+    
+    ```bash
+    rm -r <insert path>/.azure-functions-core-tools
+    ```
+    
+    # [PowerShell](#tab/powershell)
+    
+    ```powershell
+    Remove-Item <insert path>/.azure-functions-core-tools
+    ```
+    
+    # [Cmd](#tab/cmd)
+    
+    ```cmd
+    rmdir <insert path>/.azure-functions-core-tools
+    ```
+    
+    ---
 
-```bash
-rm -r <insert path>/.azure-functions-core-tools
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-Remove-Item <insert path>/.azure-functions-core-tools
-```
-
-# [Cmd](#tab/cmd)
-
-```cmd
-rmdir <insert path>/.azure-functions-core-tools
-```
-
----
 ## Troubleshoot "unable to resolve the Azure Storage connection"
 
 You might see this error in your local output as the following message:
