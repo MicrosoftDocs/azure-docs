@@ -1,6 +1,7 @@
 ---
 title: About Registry Cache
 description: Learn about the Registry Cache feature, its preview limitations and benefits of enabling the feature in your Registry.
+ms.topic: tutorial
 ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
