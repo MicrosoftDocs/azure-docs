@@ -47,9 +47,9 @@ sections:
   - name: Quotas
     questions:
       - question: |
-          How can I request a [quota](quotas.md) increase?
+          How can I request a quota increase?
         answer: |
-          To request an increase in quota amounts for your container app, submit a support ticket, with the following fields: 
+          To request quota increase, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/) with the following fields:
 
           | Property | Value |
           |--|--|
@@ -67,6 +67,9 @@ sections:
           - **Scaling apps vs environments**: There are a number of different quotas available to increase. Use these descriptions to help identify your needs:
             - **Increase apps and cores per environment**: Allows you to run more apps within an environment and/or more intensive apps. Recommended if your workloads can deploy within the same network and security boundaries.
             - **Increasing environments**: Recommended if your workloads need network or security boundaries. Note: Additional business context may be required if your request involves increasing environment-level quotas.
+
           - **Regions**: Approvals for increase requests vary based on compute capacity available in Azure regions.
+
           - **Specific compute requirements**: The platform supports 4GB per container app. Memorty limits overrides are evaluated on a per-case basis.
+
           - **Business reasoning for scaling**: You may be eligible for a quota increase request if the platform limits are blocking your workload demands. Scale limits overrides are evaluated on a per-case basis.
