@@ -16,19 +16,19 @@ Use this article to resolve issues with connections to Azure Active Directory (A
 
 ## All clients
 
-[!INCLUDE [troubleshoot-aadj-connections-all](includes/troubleshoot-aadj-connections-all.md)]
+[!INCLUDE [troubleshoot-aadj-connections-all](includes/include-troubleshoot-aadj-connections-all.md)]
 
 ## Windows Desktop client
 
-[!INCLUDE [troubleshoot-aadj-connections-windows](includes/troubleshoot-aadj-connections-windows.md)]
+[!INCLUDE [troubleshoot-aadj-connections-windows](includes/include-troubleshoot-aadj-connections-windows.md)]
 
 ## Web client
 
-[!INCLUDE [troubleshoot-aadj-connections-web](includes/troubleshoot-aadj-connections-web.md)]
+[!INCLUDE [troubleshoot-aadj-connections-web](includes/include-troubleshoot-aadj-connections-web.md)]
 
 ## Android and Chrome OS client
 
-[!INCLUDE [troubleshoot-aadj-connections-android-chrome-os](includes/troubleshoot-aadj-connections-android-chrome-os.md)]
+[!INCLUDE [troubleshoot-aadj-connections-android-chrome-os](includes/include-troubleshoot-aadj-connections-android-chrome-os.md)]
 
 ## Provide feedback
 
