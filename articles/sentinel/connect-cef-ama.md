@@ -123,6 +123,13 @@ Select the machines on which you want to install the AMA. These machines are VMs
 
 ##### Select the data source type and create the DCR
 
+> [!NOTE]
+> **Using the same machine to forward both plain Syslog *and* CEF messages**
+>
+> If you plan to use this log forwarder machine to forward Syslog messages as well as CEF, in order to avoid the duplication of events to the Syslog and CommonSecurityLog tables:
+>
+> On each source machine that sends logs to the forwarder in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog.
+
 1. Select the **Collect** tab and select **Linux syslog** as the data source type.
 1. Configure the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with lower severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_WARNING**, **LOG_NOTICE**, **LOG_INFO**, and **LOG_DEBUG** levels.
 
