@@ -25,13 +25,13 @@ In this tutorial, you:
 
 Before you start, make sure you have:
 
-- **Read** and **Write** permissions on your Microsoft Sentinel workspace. For more information, see [Permissions in Microsoft Sentinel](roles.md).
+- **Read** and **Write** permissions on your Microsoft Sentinel workspace. For more information, see [Permissions in Microsoft Sentinel](/azure/sentinel/roles).
 
 - Completed [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](iot-solution.md).
 
 ## Install the Defender for IoT solution
 
-Microsoft Sentinel [solutions](sentinel-solutions.md) can help you onboard Microsoft Sentinel security content for a specific data connector using a single process.
+Microsoft Sentinel [solutions](/azure/sentinel/sentinel-solutions) can help you onboard Microsoft Sentinel security content for a specific data connector using a single process.
 
 The **Microsoft Defender for IoT** solution integrates Defender for IoT data with Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities by providing out-of-the-box and OT-optimized playbooks for automated response and prevention capabilities.
 
@@ -43,7 +43,7 @@ The **Microsoft Defender for IoT** solution integrates Defender for IoT data wit
 
 1. When you're done, select **Review + Create** to install the solution.
 
-For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md) and [Centrally discover and deploy out-of-the-box content and solutions](sentinel-solutions-deploy.md).
+For more information, see [About Microsoft Sentinel content and solutions](/azure/sentinel/sentinel-solutions) and [Centrally discover and deploy out-of-the-box content and solutions](/azure/sentinel/sentinel-solutions-deploy).
 
 ## Detect threats out-of-the-box with Defender for IoT data
 
@@ -77,13 +77,13 @@ The **Microsoft Defender for IoT** solution includes a more detailed set of out-
 
 For more information, see:
 
-- [Detect threats out-of-the-box](detect-threats-built-in.md)
-- [Create custom analytics rules to detect threats](detect-threats-custom.md)
+- [Detect threats out-of-the-box](/azure/sentinel/detect-threats-built-in)
+- [Create custom analytics rules to detect threats](/azure/sentinel/detect-threats-custom)
 
 > [!TIP]
 > You can also manually create and manage analytics rules in the Microsoft Sentinel **Analytics > Active rules** page. For example, you might use this option to use the out-of-the box analytics rules as templates for customized rules, or to configure analytics rules for scenarios not yet covered by the solution. 
 >
-> For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md).
+> For more information, see [Detect threats out-of-the-box](/azure/sentinel/detect-threats-built-in).
 
 ## Investigate Defender for IoT incidents
 
@@ -106,7 +106,7 @@ After you’ve [configured your Defender for IoT data to trigger new incidents i
     > [!TIP]
     > To investigate the incident in Defender for IoT, select the **Investigate in Microsoft Defender for IoT** link at the top of the incident details pane.
 
-For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
+For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](/azure/sentinel/investigate-cases).
 
 ### Investigate further with IoT device entities
 
@@ -120,13 +120,13 @@ The IoT device entity page provides contextual device information, with basic de
 
 :::image type="content" source="media/iot-solution/iot-device-entity-page.png" alt-text="Screenshot of the IoT device entity page.":::
 
-For more information on entity pages, see [Investigate entities with entity pages in Microsoft Sentinel](entity-pages.md).
+For more information on entity pages, see [Investigate entities with entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages).
 
 You can also hunt for vulnerable devices on the Microsoft Sentinel **Entity behavior** page. For example, view the top five IoT devices with the highest number of alerts, or search for a device by IP address or device name:
 
 :::image type="content" source="media/iot-solution/entity-behavior-iot-devices-alerts.png" alt-text="Screenshot of IoT devices by number of alerts on entity behavior page.":::
 
-For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
+For more information on how to investigate incidents and use the investigation graph, see [Investigate incidents with Microsoft Sentinel](/azure/sentinel/investigate-cases).
 
 ## Visualize and monitor Defender for IoT data
 
@@ -134,7 +134,7 @@ To visualize and monitor your Defender for IoT data, use the workbooks deployed 
 
 The Defenders for IoT workbooks provide guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also provide a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture.
 
-View workbooks in Microsoft Sentinel on the **Threat management > Workbooks > My workbooks** tab. For more information, see [Visualize collected data](get-visibility.md).
+View workbooks in Microsoft Sentinel on the **Threat management > Workbooks > My workbooks** tab. For more information, see [Visualize collected data](/azure/sentinel/get-visibility).
 
 The following table describes the workbooks included in the **Microsoft Defender for IoT** solution:
 
@@ -165,8 +165,8 @@ Before using the out-of-the-box playbooks, make sure to perform the prerequisite
 
 For more information, see:
 
-- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
-- [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
+- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
+- [Automate threat response with playbooks in Microsoft Sentinel](/azure/sentinel/automate-responses-with-playbooks)
 
 ### Playbook prerequisites
 
@@ -261,7 +261,7 @@ This procedure describes how to configure a Microsoft Sentinel analytics rule to
 1. Select **Run**.
 
 > [!TIP]
-> You can also manually run a playbook on demand. This can be useful in situations where you want more control over orchestration and response processes. For more information, see [Run a playbook on demand](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand).
+> You can also manually run a playbook on demand. This can be useful in situations where you want more control over orchestration and response processes. For more information, see [Run a playbook on demand](/azure/sentinel/tutorial-respond-threats-playbook#run-a-playbook-on-demand).
 
 ### Automatically close incidents
 
@@ -306,7 +306,7 @@ This synchronization overrides any status defined in Defender for IoT, in the Az
 
 This playbook adds active CVEs into the incident comments of affected devices. An automated triage is performed if the CVE is critical, and an email notification is sent to the device owner, as defined on the site level in Defender for IoT.
 
-To add a device owner, edit the site owner on the **Sites and sensors** page in Defender for IoT. For more information, see [Site management options from the Azure portal](../defender-for-iot/organizations/how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
+To add a device owner, edit the site owner on the **Sites and sensors** page in Defender for IoT. For more information, see [Site management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
 
 ### Send email to the IoT/OT device owner
 
@@ -320,7 +320,7 @@ This playbook sends an email with the incident details to the device owner as de
 
 The incident is automatically updated based on the response selected by the device owner.
 
-To add a device owner, edit the site owner on the **Sites and sensors** page in Defender for IoT. For more information, see [Site management options from the Azure portal](../defender-for-iot/organizations/how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
+To add a device owner, edit the site owner on the **Sites and sensors** page in Defender for IoT. For more information, see [Site management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
 
 ### Triage incidents involving highly important devices
 
@@ -332,10 +332,10 @@ This playbook updates the incident severity according to the importance level of
 
 For more information, see:
 
-- [Investigate incidents with Microsoft Sentinel](investigate-cases.md)
-- [Investigate entities with entity pages in Microsoft Sentinel](entity-pages.md)
-- [Visualize collected data](get-visibility.md)
-- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
+- [Investigate incidents with Microsoft Sentinel](/azure/sentinel/investigate-cases)
+- [Investigate entities with entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages)
+- [Visualize collected data](/azure/sentinel/get-visibility)
+- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
 - [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
-- [Microsoft Defender for IoT documentation](../defender-for-iot/index.yml)
-- [Microsoft Defender for IoT solution](sentinel-solutions-catalog.md)
+- [Microsoft Defender for IoT solution](/azure/sentinel/sentinel-solutions-catalog)
+
