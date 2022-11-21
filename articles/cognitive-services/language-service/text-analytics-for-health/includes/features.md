@@ -12,14 +12,14 @@ ms.custom: ignite-fall-2021
 
 # [Named Entity Recognition](#tab/ner)
 
-Named entity recognition is used to perform a semantic extraction of words and phrases mentioned from unstructured text that are associated with any of the [supported entity types](../concepts/health-entity-categories.md/), such as diagnosis, medication name, symptom/sign, or age.
+Named entity recognition is used to perform a semantic extraction of words and phrases mentioned from unstructured text that are associated with any of the [supported entity types](../concepts/health-entity-categories.md), such as diagnosis, medication name, symptom/sign, or age.
 
 > [!div class="mx-imgBorder"]
 > ![Text Analytics for health NER](../media/call-api/health-named-entity-recognition.png)
 
 # [Relation Extraction](#tab/relation-extraction)
 
-Relation extraction is used to identify meaningful connections between concepts mentioned in text that are associated with any of the [supported relations](../concepts/relation-extraction), such as the "time of condition" relation which connects a condition name with a time. 
+Relation extraction is used to identify meaningful connections between concepts mentioned in text that are associated with any of the [supported relations](../concepts/relation-extraction.md), such as the "time of condition" relation which connects a condition name with a time. 
 
 > [!div class="mx-imgBorder"]
 > ![Text Analytics for health relation extraction](../media/call-api/health-relation-extraction.png)
