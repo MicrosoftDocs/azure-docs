@@ -1,4 +1,20 @@
+---
+title: Azure Communication Services Simulcast
+titleSuffix: An Azure Communication Services concept document
+description: Overview of Simulcast
+author: chwhilar@microsoft.com
+manager: artur.kania@skype.net
+services: azure-communication-services
+
+ms.author: chwhilar
+ms.date: 11/21/2022
+ms.topic: conceptual
+ms.service: azure-communication-services
+---
 # Simulcast
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
+Simulcast is provided as a preview for developers and may change based on feedback that we receive. To use this feature, please use 1.9.1-beta.1+ release of Azure Communication Services Calling Web SDK
+
 Simulcast is a technique by which an endpoint encodes the same video feed using different qualities , sends these video feeds of multiple quality to a selective forwarding unit – SFU, that decides which of the receivers gets which quality .  
 The lack of simulcast support leads to a degraded video conferencing experience, due to the video receiver with poor network conditions joining the conference instantly impacting the quality of video received from the sender without simulcast support for all other participants, as video sender will optimize its video feed against the lowest common denominator. Using simulcast, the impact of lowest common denominator will be minimized, as video sender will produce specialized low fidelity video encoding for a subset of receivers running on poor networks (or otherwise constrained).  
 ## Scenarios where simulcast is useful
