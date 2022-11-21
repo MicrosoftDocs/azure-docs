@@ -24,7 +24,7 @@ Azure Front Door helps deliver low-latency, high-throughput content at scale fro
 
 This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure Front Door. In this guide we'll be using the Azure portal. The reference architecture for this deployment is represented below.   
  
-:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door.png" alt-text="Diagram of deployment described" lightbox="./media/application-proxy-azure-front-door/azure-front-door.png":::
+:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door.png" alt-text="Diagram of deployment described." lightbox="./media/application-proxy-azure-front-door/azure-front-door.png":::
 
 ## Prerequisites
 
@@ -83,11 +83,11 @@ Follow these steps to configure the Front Door Service (Standard):
 | **Origin hostname** | contoso.msappproxy.net | The URL generated for the app by Application Proxy must be utilized here.|
 | **Connector group** | North America | Select the connector group in the geo closest to where the app instance will be in for optimized performance.|
 
-:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door-profile-1.png" alt-text="Screenshot of Azure Front Door Configuration 1" lightbox="./media/application-proxy-azure-front-door/azure-front-door-profile-1.png":::
+:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door-profile-1.png" alt-text="Screenshot of Azure Front Door Configuration 1." lightbox="./media/application-proxy-azure-front-door/azure-front-door-profile-1.png":::
 
-:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door-profile-2.png" alt-text="Screenshot of Azure Front Door Configuration 2" lightbox="./media/application-proxy-azure-front-door/azure-front-door-profile-2.png":::
+:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door-profile-2.png" alt-text="Screenshot of Azure Front Door Configuration 2." lightbox="./media/application-proxy-azure-front-door/azure-front-door-profile-2.png":::
 
-:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door-profile-3.png" alt-text="Screenshot of Azure Front Door Configuration 3" lightbox="./media/application-proxy-azure-front-door/azure-front-door-profile-3.png":::
+:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door-profile-3.png" alt-text="Screenshot of Azure Front Door Configuration 3." lightbox="./media/application-proxy-azure-front-door/azure-front-door-profile-3.png":::
 
 ## Next steps
 
