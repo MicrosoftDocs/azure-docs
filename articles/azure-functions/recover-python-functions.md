@@ -226,7 +226,7 @@ In your function app's *requirements.txt* file, an unpinned package will be upgr
 
 ### Unpickling from a malformed \.pkl file
 
-If your function app is using the Python pickle library to load a Python object from a *.pkl* file, it's possible that the file contains a malformed bytes string or an invalid address reference. To recover from this issue, try commenting out the `pickle.load()` function.
+If your function app is using the Python pickle library to load a Python object from a *\.pkl* file, it's possible that the file contains a malformed bytes string or an invalid address reference. To recover from this issue, try commenting out the `pickle.load()` function.
 
 ### Pyodbc connection collision
 
@@ -278,7 +278,7 @@ This specific error might read:
 "DurableTask.Netherite.AzureFunctions: Could not load file or assembly 'Microsoft.Azure.WebJobs.Extensions.DurableTask, Version=2.0.0.0, Culture=neutral, PublicKeyToken=014045d636e89289'.  
 The system cannot find the file specified."
 
-This error might occur because of an issue with how the extension bundle was cached. To detect whether this is the issue, you can run the following command with `--verbose` to see more details: 
+This error might occur because of an issue with how the extension bundle was cached. To troubleshoot this issue, you can run the following command with `--verbose` to see more details: 
 
 > `func host start --verbose`
 
@@ -286,13 +286,13 @@ After you run the command, if you notice that `Loading startup extension <>` isn
 
 To resolve this issue: 
 
-1. Find the *.azure-functions-core-tools* path by running: 
+1. Find the *\.azure-functions-core-tools* path by running: 
 
     ```console 
     func GetExtensionBundlePath
     ```
 
-1. Delete the *.azure-functions-core-tools* directory.
+1. Delete the *\.azure-functions-core-tools* directory.
 
 # [bash](#tab/bash)
 
@@ -320,7 +320,7 @@ You might see this error in your local output as the following message:
 "Microsoft.Azure.WebJobs.Extensions.DurableTask: Unable to resolve the Azure Storage connection named 'Storage'.  
 Value cannot be null. (Parameter 'provider')"
 
-This error is a result of how extensions are loaded from the bundle locally. To resolve this error, do one of the following:
+This error is a result of how extensions are loaded from the bundle locally. To resolve this error, take one of the following actions:
 
 * Use a storage emulator such as [Azurite](../storage/common/storage-use-azurite.md). This option is a good one when you aren't planning to use a storage account in your function application.
 
