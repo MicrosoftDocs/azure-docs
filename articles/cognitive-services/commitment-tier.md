@@ -6,7 +6,7 @@ ms.author: aahi
 ms.custom: subject-cost-optimization, mode-other
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 09/01/2022
+ms.date: 11/21/2022
 ---
 
 # Purchase commitment tier pricing
@@ -26,19 +26,6 @@ Commitment tier pricing is also available for the following Applied AI service:
 * Form Recognizer – Custom/Invoice
 
 For more information, see [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
-
-## Request approval to purchase a commitment plan
-
-> [!CAUTION]
-> The following instructions are for purchasing a commitment tier for web-based APIs and connected containers only. For instructions on purchasing plans for disconnected containers, see [Run containers in disconnected environments](containers/disconnected-containers.md).  
-
-Before you can purchase a commitment plan, you must [submit an online application](https://aka.ms/csgatecommitment). If your application is approved, you will be able to purchase a commitment tier on the Azure portal, for both new and existing Azure Resources. 
-
-* On the form, you must use a corporate email address associated with an Azure subscription ID.
-
-* Check your email (both inbox and junk folders) for updates on the status of your application from `csgate@microsoft.com`.
-
-Once you are approved, you can use either create a new resource to use a commitment plan, or update an existing resource. 
 
 ## Create a new resource
 
@@ -61,7 +48,6 @@ Once you are approved, you can use either create a new resource to use a commitm
     > [!NOTE]
     > You will only see the option to purchase a commitment plan if:
     > * The resource is using the standard pricing tier.
-    > * You have been approved to purchase  commitment tier pricing. 
  
 3. Select **Change** to view the available commitments for hosted API and container usage. Choose a commitment plan for one or more of the following offerings:
     * **Web**: web-based APIs, where you send data to Azure for processing.
