@@ -965,11 +965,12 @@ You can also check if the blobs are present in the workspace storage account.
 Requests for resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
 
 #### azureml-fe not ready
-The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
+The front-end component ([azureml-fe](how-to-kubernetes-inference-routing-azureml-fe.md)) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
 
 This component should be healthy on cluster, at least one healthy replica. You will get this error message if it's not available when you trigger kubernetes online endpoint and deployment creation/update request.
 
 Please check the pod status and logs to fix this issue, you can also try to update the k8s-extension installed on the cluster.
+
 
 
 ### ERROR: ResourceNotReady
