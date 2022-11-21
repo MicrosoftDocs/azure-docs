@@ -2,11 +2,10 @@
 title: Compare Azure IoT Hub to Azure Event Hubs | Microsoft Docs
 description: A comparison of the IoT Hub and Event Hubs Azure services highlighting functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads.
 author: kgremban
-
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 11/21/2022
 ms.author: kgremban
 ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
@@ -21,9 +20,9 @@ Azure IoT Hub is the cloud gateway that connects IoT devices to gather data and 
 
 To summarize, both solutions are designed for data ingestion at a massive scale. Only IoT Hub provides the rich IoT-specific capabilities that are designed for you to maximize the business value of connecting your IoT devices to the Azure cloud.  If your IoT journey is just beginning, starting with IoT Hub to support your data ingestion scenarios will assure that you have instant access to the full-featured IoT capabilities once your business and technical needs require them.
 
-The following table provides details about how the two tiers of IoT Hub compare to Event Hubs when you're evaluating them for IoT capabilities. For more information about the standard and basic tiers of IoT Hub, see [How to choose the right IoT Hub tier](iot-hub-scaling.md).
+The following table provides details about how the two tiers of IoT Hub compare to Event Hubs when you're evaluating them for IoT capabilities. For more information about the standard and basic tiers of IoT Hub, see [Choose the right IoT Hub tier for your solution](iot-hub-scaling.md).
 
-| IoT Capability | IoT Hub standard tier | IoT Hub basic tier | Event Hubs |
+| IoT capability | IoT Hub standard tier | IoT Hub basic tier | Event Hubs |
 | --- | --- | --- | --- |
 | Device-to-cloud messaging | ![Check][checkmark] | ![Check][checkmark] | ![Check][checkmark] |
 | Protocols: HTTPS, AMQP, AMQP over webSockets | ![Check][checkmark] | ![Check][checkmark] | ![Check][checkmark] |
