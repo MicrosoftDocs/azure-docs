@@ -6,8 +6,7 @@ ms.author: vivikram
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/14/2022
-ms.custom: template-concept
-ms.custom: engagement-fy23
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Support matrix for web apps migration
