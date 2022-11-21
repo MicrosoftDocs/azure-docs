@@ -1,5 +1,5 @@
 ---
-title: Copy blobs between Azure storage accounts with AzCopy v10 | Microsoft Docs
+title: Copy blobs between Azure storage accounts with AzCopy v10
 description: This article contains a collection of AzCopy example commands that help you copy blobs between storage accounts.
 author: normesta
 ms.service: storage
