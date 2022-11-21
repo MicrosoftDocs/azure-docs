@@ -258,7 +258,7 @@ To complete the setup, you need access to both the new billing account and the E
     - A billing hierarchy corresponding to your Enterprise Agreement hierarchy is created in the new billing account. For more information, see [understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
     - Administrators from your Enterprise Agreement enrollment are given access to the new billing account so that they continue to manage billing for your organization.
     - The billing of your Azure subscriptions is transitioned to the new account. **There won't be any impact on your Azure services during this transition. They'll keep running without any disruption**.
-    - If you have Azure reservations or savings plans, they're moved to your new billing account with no change to benefits or term. If have saving plans under the Enterprise Agreement that weren't purchased in USD, then the savings plans are canceled. They're repurchased under the terms of the new Microsoft Customer Agreement in USD.
+    - If you have Azure reservations or savings plans, they're moved to your new billing account with no change to benefits or term. If you have savings plans under the Enterprise Agreement that weren't purchased in USD, then the savings plans are canceled. They're repurchased under the terms of the new Microsoft Customer Agreement in USD.
 
 4. You can monitor the status of the transition on the **Transition status** page. Any savings plans shown in the Transition details are ones that were canceled.  
     - If you had a savings plan that was repurchased, select the **new savings plan** link to view its details and to verify that it was created successfully.

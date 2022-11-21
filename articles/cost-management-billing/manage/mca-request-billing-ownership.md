@@ -186,7 +186,7 @@ You can request billing ownership of products for the subscription types listed 
 - [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)¹
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
     - Subscription, reservation, and savings plan transfers are supported for direct EA customers. A direct enterprise agreement is one that's signed between Microsoft and an enterprise agreement customer.
-    - Only subscription transfers are supported for indirect EA customers. Reservation ands savings plan transfers aren't supported. An indirect EA agreement is one where a customer signs an agreement with a Microsoft partner.
+    - Only subscription transfers are supported for indirect EA customers. Reservation and savings plan transfers aren't supported. An indirect EA agreement is one where a customer signs an agreement with a Microsoft partner.
 - [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
 - [Microsoft Cloud Partner Program](https://azure.microsoft.com/offers/ms-azr-0025p/)¹
 - [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)¹
