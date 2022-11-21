@@ -249,7 +249,7 @@ run_model = Model(
 ml_client.models.create_or_update(run_model) 
 ```
 
-For a complete example, see the [model notebook](https://github.com/Azure/azureml-examples/tree/march-sdk-preview/sdk/assets/model).
+For a complete example, see the [model notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/assets/model/model.ipynb).
 
 ---
 
@@ -260,6 +260,130 @@ To create a model in Machine Learning, from the UI, open the **Models** page. Se
 :::image type="content" source="./media/how-to-manage-models/register-model-local.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-local.png":::
 
 ---
+
+## Manage models
+
+The SDK and CLI (v2) also allow you to manage the lifecycle of your Azure ML model assets.
+
+### List
+
+List all the models in your workspace:
+
+# [Azure CLI](#tab/cli)
+
+```cli
+az ml model list
+```
+
+# [Python SDK](#tab/python)
+
+```python
+models = ml_client.models.list()
+for model in models:
+    print(model.name)
+```
+
+---
+
+List all the model versions under a given name:
+
+# [Azure CLI](#tab/cli)
+
+```cli
+az ml model list --name run-model-example
+```
+
+# [Python SDK](#tab/python)
+
+```python
+models = ml_client.models.list(name="run-model-example")
+for model in models:
+    print(model.version)
+```
+
+---
+
+### Show
+
+Get the details of a specific model:
+
+# [Azure CLI](#tab/cli)
+
+```cli
+az ml model show --name run-model-example --version 1
+```
+
+# [Python SDK](#tab/python)
+
+```python
+model_example = ml_client.models.get(name="run-model-example", version="1")
+print(model_example)
+```
+---
+
+### Update
+
+Update mutable properties of a specific model:
+
+# [Azure CLI](#tab/cli)
+
+```cli
+az ml model update --name  run-model-example --version 1 --set description="This is an updated description." --set tags.stage="Prod"
+```
+
+# [Python SDK](#tab/python)
+
+```python
+model_example.description="This is an updated description."
+model_example.tags={"stage":"Prod"}
+ml_client.models.create_or_update(model=model_example)
+```
+---
+
+> [!IMPORTANT]
+> For model, only `description` and `tags` can be updated. All other properties are immutable; if you need to change any of those properties you should create a new version of the model.
+
+### Archive
+
+Archiving a model will hide it by default from list queries (`az ml model list`). You can still continue to reference and use an archived model in your workflows. You can archive either all versions of an model or only a specific version.
+
+If you don't specify a version, all versions of the model under that given name will be archived. If you create a new model version under an archived model container, that new version will automatically be set as archived as well.
+
+Archive all versions of an model:
+
+# [Azure CLI](#tab/cli)
+
+```cli
+az ml model archive --name run-model-example
+```
+
+# [Python SDK](#tab/python)
+
+```python
+ml_client.models.archive(name="run-model-example")
+```
+
+---
+            
+Archive a specific model version:
+
+# [Azure CLI](#tab/cli)
+
+```cli
+az ml model archive --name run-model-example --version 1
+```
+
+# [Python SDK](#tab/python)
+
+```python
+ml_client.models.archive(name="run-model-example", version="1")
+```
+
+---
+
+## Use model for training
+
+The SDK and CLI (v2) also allow you to use a model in a training job as an input or output.
 
 ## Use model as input in a job
 
