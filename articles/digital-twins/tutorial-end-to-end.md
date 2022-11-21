@@ -59,7 +59,7 @@ First, you'll use the AdtSampleApp solution from the sample project to build the
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Diagram of an excerpt from the full building scenario diagram highlighting the Azure Digital Twins instance section.":::
 
-Open a local **console window** and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleClientApp* folder. Run the *SampleClientApp* project with this dotnet command:
+Open a local **console window** and navigate into the *digital-twins-samples\AdtSampleApp\SampleClientApp* folder. Run the *SampleClientApp* project with this dotnet command:
 
 ```cmd/sh
 dotnet run
@@ -96,7 +96,7 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 
 In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity.
 
-The function app is part of the sample project you downloaded, located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder.
+The function app is part of the sample project you downloaded, located in the *digital-twins-samples\AdtSampleApp\SampleFunctionsApp* folder.
 
 ### Publish the app
 
@@ -116,25 +116,26 @@ To publish the function app to Azure, you'll need to create a storage account, t
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
 
-    1. Open a console window on your machine, and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder inside your downloaded sample project.
-    
+    1- Open a console window on your machine, and navigate into the *digital-twins-samples\AdtSampleApp\SampleFunctionsApp* folder inside your downloaded sample project.
+   
     1. In the console, run the following command to publish the project locally:
 
-        ```cmd/sh
-        dotnet publish -c Release
-        ```
+```cmd/sh
+dotnet publish -c Release
+```
 
-        This command publishes the project to the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
+    1-  This command publishes the project to the *digital-twins-samples\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
+   
 
-    1. Using your preferred method, create a zip of the published files that are located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. Name the zipped folder *publish.zip*.
-        
-        >[!TIP] 
-        >If you're using PowerShell, you can create the zip by copying the full path to that *\publish* directory and pasting it into the following command:
-        >
-        >```powershell
-        >Compress-Archive -Path <full-path-to-publish-directory>\* -DestinationPath .\publish.zip
-        >```
-        > The cmdlet will create the *publish.zip* file in the directory location of your console.
+    1- Using your preferred method, create a zip of the published files that are located in the *digital-twins-samples\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. Name the zipped folder *publish.zip*.
+   
+>[!TIP] 
+>If you're using PowerShell, you can create the zip by copying the full path to that *\publish* directory and pasting it into the following command:
+>
+>```powershell
+>Compress-Archive -Path <full-path-to-publish-directory>\* -DestinationPath .\publish.zip
+>```
+> The cmdlet will create the *publish.zip* file in the directory location of your console.
 
         Your *publish.zip* file should contain folders for *bin*, *ProcessDTRoutedData*, and *ProcessHubToDTEvents*, and there should also be a *host.json* file.
 
@@ -144,28 +145,34 @@ To publish the function app to Azure, you'll need to create a storage account, t
 
 1. In the Azure CLI, run the following command to deploy the published and zipped functions to your Azure function app:
 
-    ```azurecli-interactive
-    az functionapp deployment source config-zip --resource-group <resource-group> --name <name-of-your-function-app> --src "<full-path-to-publish.zip>"
-    ```
+```azurecli-interactive
+az functionapp deployment source config-zip --resource-group <resource-group> --name <name-of-your-function-app> --src "<full-path-to-publish.zip>"
+```
 
-    > [!TIP]
-    > If you're using the Azure CLI locally, you can access the ZIP file on your computer directly using its path on your machine.
-    > 
-    >If you're using the Azure Cloud Shell, upload the ZIP file to Cloud Shell with this button before running the command:
-    >
-    > :::image type="content" source="media/tutorial-end-to-end/azure-cloud-shell-upload.png" alt-text="Screenshot of the Azure Cloud Shell highlighting how to upload files.":::
-    >
-    > In this case, the file will be uploaded to the root directory of your Cloud Shell storage, so you can refer to the file directly by its name for the `--src` parameter of the command (as in, `--src publish.zip`).
-
+1. > [!TIP]
+   > If you're using the Azure CLI locally, you can access the ZIP file on your computer directly using its path on your machine.
+   > 
+   > 
+   > 
+   > If you're using the Azure Cloud Shell, upload the ZIP file to Cloud Shell with this button before running the command:
+   > 
+   > 
+   > 
+   > :::image type="content" source="media/tutorial-end-to-end/azure-cloud-shell-upload.png" alt-text="Screenshot of the Azure Cloud Shell highlighting how to upload files.":::
+   > 
+   > 
+   > 
+   > In this case, the file will be uploaded to the root directory of your Cloud Shell storage, so you can refer to the file directly by its name for the `--src` parameter of the command (as in, `--src publish.zip`).
+   
     A successful deployment will respond with status code 202 and output a JSON object containing details of your new function. You can confirm the deployment succeeded by looking for this field in the result:
 
-    ```json
-    {
-      ...
-      "provisioningState": "Succeeded",
-      ...
-    }
-    ```
+```json
+{
+  ...
+  "provisioningState": "Succeeded",
+  ...
+}
+```
 
 The functions should now be published to a function app in Azure. You can use the following CLI commands to verify both functions were published successfully. Each command has placeholders for your resource group and the name of your function app. The commands will print information about the *ProcessDTRoutedData* and *ProcessHubToDTEvents* functions that have been published.
 
@@ -289,7 +296,7 @@ az iot hub device-identity connection-string show --device-id thermostat67 --hub
 
 Next, plug these values into the device simulator code in your local project to connect the simulator into this IoT hub and IoT hub device.
 
-Navigate on your local machine to the downloaded sample folder, and into the *digital-twins-samples-main\DeviceSimulator\DeviceSimulator* folder. Open the *AzureIoTHub.cs* file for editing. Change the following connection string values to the values you gathered above:
+Navigate on your local machine to the downloaded sample folder, and into the *digital-twins-samples\DeviceSimulator\DeviceSimulator* folder. Open the *AzureIoTHub.cs* file for editing. Change the following connection string values to the values you gathered above:
 
 ```csharp
 iotHubConnectionString = <your-hub-connection-string>
@@ -298,7 +305,7 @@ deviceConnectionString = <your-device-connection-string>
 
 Save the file.
 
-Now, to see the results of the data simulation that you've set up, open a new local console window and navigate to *digital-twins-samples-main\DeviceSimulator\DeviceSimulator*.
+Now, to see the results of the data simulation that you've set up, open a new local console window and navigate to *digital-twins-samples\DeviceSimulator\DeviceSimulator*.
 
 >[!NOTE]
 > You should now have two open console windows: one that's open to the the *DeviceSimulator\DeviceSimulator* folder, and one from earlier that's still open to the *AdtSampleApp\SampleClientApp* folder.
@@ -420,3 +427,4 @@ Next, start looking at the concept documentation to learn more about elements yo
 
 > [!div class="nextstepaction"]
 > [Custom models](concepts-models.md)
+
