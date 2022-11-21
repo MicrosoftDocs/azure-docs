@@ -2007,7 +2007,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PendingMemory|Yes|Pending Memory|Count|Maximum|Pending Memory Requests in YARN|No Dimensions|
 
 > [!NOTE]
-> NumActiveWorkers is supported only if YARN is installed, and the Resource Manager is running. 
+> NumActiveWorkers is supported only if YARN is installed, and the Resource Manager is running.
+> 
 > Alternatively customers can use Log Analytics for Kafka to get the insight and can write custom query to get the best monitoring experience. For more information, see how to [Use Azure Monitor logs to monitor HDInsight clusters](/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
 ## Microsoft.HealthcareApis/services
