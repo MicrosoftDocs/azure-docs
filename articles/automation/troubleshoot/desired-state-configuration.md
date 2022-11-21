@@ -109,7 +109,7 @@ The following are the possible causes:
 
 - When you disable local authentication in Azure Automation. See [Disable local authentication](../disable-local-authentication.md). To fix it, see [re-enable local authentication](../disable-local-authentication.md#re-enable-local-authentication).
 
-- Client computer time is many minutes incorrect from actual time. (To check time use: *w32tm /stripchart /computer:time.windows.com /samples:6*).
+- Client computer time is many minutes inaccurate from actual time. (To check time use: *w32tm /stripchart /computer:time.windows.com /samples:6*).
 
 ### Resolution
 
