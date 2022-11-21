@@ -5,7 +5,8 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 08/24/2022
+ms.custom: engagement-fy23
 ---
 
 # Azure Migrate Server Migration: Common questions
