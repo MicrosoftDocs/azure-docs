@@ -18,9 +18,7 @@ In this quickstart, you'll do the following steps:
 4. Write a .NET console application to receive those messages from the queue.
 
 > [!NOTE]
-> - This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus queue and then receiving them. For an overview of the .NET client library, see [Azure Service Bus client library for .NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/README.md). For more samples, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
-> - This quick start shows you two ways of connecting to Azure Service Bus: **connection string** and **passwordless**. The first option shows you how to use a connection string to connect to a Service Bus namespace. The second option shows you how to use your security principal in Azure Active Directory and the role-based access control (RBAC) to connect to a Service Bus namespace. You don't need to worry about having hard-coded connection string in your code or in a configuration file or in secure storage like Azure Key Vault. If you are new to Azure, you may find the connection string option easier to follow. We recommend using the passwordless option in real-world applications and production environments. For more information, see [Authentication and authorization](service-bus-authentication-and-authorization.md).
-
+> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus queue and then receiving them. For an overview of the .NET client library, see [Azure Service Bus client library for .NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/README.md). For more samples, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 ## Prerequisites
 
@@ -39,10 +37,11 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 You can authorize access to the service bus namespace using the following steps:
 
+1. Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
 1. Select the **Sign in** button in the top right of Visual Studio.
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
-2. Sign-in using the Azure AD account you assigned a role to previously.
+1. Sign-in using the Azure AD account you assigned a role to previously.
 
     :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 

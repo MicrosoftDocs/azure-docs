@@ -48,10 +48,11 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 You can authorize access to the service bus namespace using the following steps:
 
+1. Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
 1. Select the **Sign in** button in the top right of Visual Studio.
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
-2. Sign-in using the Azure AD account you assigned a role to previously.
+1. Sign-in using the Azure AD account you assigned a role to previously.
 
     :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 

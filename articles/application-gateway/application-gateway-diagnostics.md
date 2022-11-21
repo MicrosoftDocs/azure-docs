@@ -155,57 +155,12 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 
 The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format as shown below. 
 
-#### For Application Gateway Standard and WAF SKU (v1)
-
-|Value  |Description  |
-|---------|---------|
-|instanceId     | Application Gateway instance that served the request.        |
-|clientIP     | Originating IP for the request.        |
-|clientPort     | Originating port for the request.       |
-|httpMethod     | HTTP method used by the request.       |
-|requestUri     | URI of the received request.        |
-|RequestQuery     | **Server-Routed**: Backend pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the backend servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
-|UserAgent     | User agent from the HTTP request header.        |
-|httpStatus     | HTTP status code returned to the client from Application Gateway.       |
-|httpVersion     | HTTP version of the request.        |
-|receivedBytes     | Size of packet received, in bytes.        |
-|sentBytes| Size of packet sent, in bytes.|
-|timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
-|sslEnabled| Whether communication to the backend pools used TLS/SSL. Valid values are on and off.|
-|host| The hostname with which the request has been sent to the backend server. If backend hostname is being overridden, this name will reflect that.|
-|originalHost| The hostname with which the request was received by the Application Gateway from the client.|
-
-```json
-{
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
-    "operationName": "ApplicationGatewayAccess",
-    "time": "2017-04-26T19:27:38Z",
-    "category": "ApplicationGatewayAccessLog",
-    "properties": {
-        "instanceId": "ApplicationGatewayRole_IN_0",
-        "clientIP": "191.96.249.97",
-        "clientPort": 46886,
-        "httpMethod": "GET",
-        "requestUri": "/phpmyadmin/scripts/setup.php",
-        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
-        "userAgent": "-",
-        "httpStatus": 404,
-        "httpVersion": "HTTP/1.0",
-        "receivedBytes": 65,
-        "sentBytes": 553,
-        "timeTaken": 205,
-        "sslEnabled": "off",
-        "host": "www.contoso.com",
-        "originalHost": "www.contoso.com"
-    }
-}
-```
 #### For Application Gateway and WAF v2 SKU
 
 |Value  |Description  |
 |---------|---------|
 |instanceId     | Application Gateway instance that served the request.        |
-|clientIP     | Originating IP for the request.        |
+|clientIP     | IP of the immediate client of Application Gateway. If another proxy fronts your application gateway, this displays the IP of that fronting proxy.   |
 |httpMethod     | HTTP method used by the request.       |
 |requestUri     | URI of the received request.        |
 |UserAgent     | User agent from the HTTP request header.        |
@@ -272,6 +227,52 @@ The access log is generated only if you've enabled it on each Application Gatewa
 ```
 > [!Note]
 >Access logs with clientIP value 127.0.0.1 originate from an internal security process running on the application gateway instances. You can safely ignore these log entries.
+
+#### For Application Gateway Standard and WAF SKU (v1)
+
+|Value  |Description  |
+|---------|---------|
+|instanceId     | Application Gateway instance that served the request.        |
+|clientIP     | Originating IP for the request.        |
+|clientPort     | Originating port for the request.       |
+|httpMethod     | HTTP method used by the request.       |
+|requestUri     | URI of the received request.        |
+|RequestQuery     | **Server-Routed**: Backend pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the backend servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
+|UserAgent     | User agent from the HTTP request header.        |
+|httpStatus     | HTTP status code returned to the client from Application Gateway.       |
+|httpVersion     | HTTP version of the request.        |
+|receivedBytes     | Size of packet received, in bytes.        |
+|sentBytes| Size of packet sent, in bytes.|
+|timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+|sslEnabled| Whether communication to the backend pools used TLS/SSL. Valid values are on and off.|
+|host| The hostname with which the request has been sent to the backend server. If backend hostname is being overridden, this name will reflect that.|
+|originalHost| The hostname with which the request was received by the Application Gateway from the client.|
+
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off",
+        "host": "www.contoso.com",
+        "originalHost": "www.contoso.com"
+    }
+}
+```
 
 ### Performance log
 

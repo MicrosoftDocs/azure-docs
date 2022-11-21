@@ -34,14 +34,8 @@ To learn more about Azure Cosmos DB, go to [Azure Cosmos DB](../introduction.md)
 
 ## Prerequisites
 
-- An Azure Cosmos DB Account. Your options are:
-    * Within an Azure active subscription:
-        * [Create an Azure free Account](https://azure.microsoft.com/free) or use your existing subscription 
-        * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB Free Tier](../optimize-dev-test.md#azure-cosmos-db-free-tier)
-    * Without an Azure active subscription:
-        * [Try Azure Cosmos DB for free](https://aka.ms/trycosmosdb), a tests environment that lasts for 30 days.
-        * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
+- An Azure account with an active subscription.
+  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 - [Go 1.16 or higher](https://golang.org/dl/)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
