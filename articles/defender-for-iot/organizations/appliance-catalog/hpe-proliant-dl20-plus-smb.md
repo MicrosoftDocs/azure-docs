@@ -1,5 +1,5 @@
 ---
-title: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF) for OT monitoring in SMB deployments- Microsoft Defender for IoT
+title: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF) for OT monitoring in SMB deployments - Microsoft Defender for IoT
 description: Learn about the HPE ProLiant DL20 Gen10 Plus appliance when used for in SMB deployments for OT monitoring with Microsoft Defender for IoT.
 ms.date: 04/24/2022
 ms.topic: reference
@@ -16,7 +16,7 @@ The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises managemen
 |**Hardware profile** | L500|
 |**Performance** | 	Max bandwidth: 200Mbp/s <br>Max devices: 1,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 4x RJ45|
-|**Status** | Supported; Available pre-configured |
+|**Status** | Supported; available pre-configured |
 
 The following image shows a sample of the HPE ProLiant DL20 Gen10 front panel:
 

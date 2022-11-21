@@ -1,5 +1,5 @@
 ---
-title: HPE ProLiant DL20 for OT monitoring in enterprise deployments- Microsoft Defender for IoT
+title: HPE ProLiant DL20 for OT monitoring in enterprise deployments - Microsoft Defender for IoT
 description: Learn about the HPE ProLiant DL20 appliance when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
 ms.date: 10/30/2022
 ms.topic: reference
@@ -77,7 +77,7 @@ Installation includes:
 - Installing Defender for IoT software
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
 ### Enable remote access and update the password

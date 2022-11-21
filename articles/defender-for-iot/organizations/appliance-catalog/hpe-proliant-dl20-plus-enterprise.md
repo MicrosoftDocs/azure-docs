@@ -1,5 +1,5 @@
 ---
-title: HPE ProLiant DL20 Gen10 Plus for OT monitoring in enterprise deployments- Microsoft Defender for IoT
+title: HPE ProLiant DL20 Gen10 Plus for OT monitoring in enterprise deployments - Microsoft Defender for IoT
 description: Learn about the HPE ProLiant DL20 Gen10 Plus appliance when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
 ms.date: 04/24/2022
 ms.topic: reference
@@ -16,7 +16,7 @@ The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises managemen
 |**Hardware profile** | E1800 |
 |**Performance** | 	Max bandwidth: 1 Gbp/s <br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: 1U <br> Ports: 8x RJ45 or 6x SFP (OPT)|
-|**Status** | Supported, Available pre-configured |
+|**Status** | Supported, available pre-configured |
 
 The following image shows a sample of the HPE ProLiant DL20 front panel:
 
@@ -35,7 +35,7 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 |Processor| Intel Xeon E-2334 <br> 3.4 GHz 4C 65 W|
 |Chipset|Intel C256 |
 |Memory|2x 16-GB Dual Rank x8 DDR4-3200|
-|Storage|2x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 |
+|Storage|4x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 10 |
 |Network controller|On-board: 2x 1 Gb|
 |External| 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
 |On-board| iLO Port Card 1 Gb|
