@@ -22,14 +22,14 @@ Users with unknown bandwidth constraints joining. When new joiner joins the call
 In a similar way, if one of the receivers is on poor network, video quality of all other receivers on good network will be degraded to accommodate for the receiver on poor network in unicast, while in simulcast lower resolution/bitrate content can be sent to the receiver on poor network and higher resolution/bitrate content can be sent to receivers on good network.
 In content sharing, where thumbnails are often used for video content, lower resolution videos are requested from the producers. If in parallel zooming of someone’s video is needed, zoomed video will be low quality to prevent others looking at the content not to receive both content and video at high quality thus wasting bandwidth. 
 ## How it's used/works
-In ACS, simulcast is adaptively enabled on-demand to save bandwidth and CPU resources of the publisher. 
+Simulcast is adaptively enabled on-demand to save bandwidth and CPU resources of the publisher. 
 Subscribers notify SFU of its maximum resolution preference based on the size of the renderer element. 
 SFU tracks the bandwidth conditions and resolution requirements of all current subscribers to the publisher’s video and forwards the aggregated parameters of all subscribers to the publisher. Publisher will pick the best set of parameters to give optimal quality to all receivers considering all publisher’s and subscribers’ constraints. 
 SFU will receive multiple qualities  of the content and will choose the quality to forward to the subscriber. There will be no transcoding of the content on the SFU. SFU won't forward higher resolution than requested by the subscriber.
 ## Limitations
 Web endpoints support simulcast only for video content with maximum two distinct qualities. 
 ## Resolutions
-In ACS adaptive simulcast there are no set resolutions for high- and low-quality video streams. Optimal set of either single or multiple streams are chosen. If every subscriber to video is requesting and capable of receiving maximum resolution what publisher can provide, only that maximum resolution will be sent.
-Following resolutions are supported and requested by the receivers in ACS web simulcast – 180p, 240p, 360p, 540p, 720p.
+In adaptive simulcast there are no set resolutions for high- and low-quality video streams. Optimal set of either single or multiple streams are chosen. If every subscriber to video is requesting and capable of receiving maximum resolution what publisher can provide, only that maximum resolution will be sent.
+Following resolutions are supported and requested by the receivers in web simulcast – 180p, 240p, 360p, 540p, 720p.
 In limited input resolution, resolution received will be capped at that resolution.
-In ACS Web simulcast effective resolution sent can be also degraded internally, thus actual received resolution of video can vary.
+In simulcast, effective resolution sent can be also degraded internally, thus actual received resolution of video can vary.
