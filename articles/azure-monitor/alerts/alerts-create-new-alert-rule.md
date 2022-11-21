@@ -189,12 +189,12 @@ Then you define these elements for the resulting alert actions by using:
 
      On the **Conditions** pane, select values for each of these fields:
 
-        |Field |Description |
-        |---------|---------|
-        |Event status| Select the statuses of Resource Health events. Values are **Active**, **In Progress**, **Resolved**, and **Updated**.|
-        |Current resource status|Select the current resource status. Values are **Available**, **Degraded**, and **Unavailable**.|
-        |Previous resource status|Select the previous resource status. Values are **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
-        |Reason type|Select the causes of the Resource Health events. Values are **Platform Initiated**, **Unknown**, and **User Initiated**.|
+      |Field |Description |
+      |---------|---------|
+      |Event status| Select the statuses of Resource Health events. Values are **Active**, **In Progress**, **Resolved**, and **Updated**.|
+      |Current resource status|Select the current resource status. Values are **Available**, **Degraded**, and **Unavailable**.|
+      |Previous resource status|Select the previous resource status. Values are **Available**, **Degraded**, **Unavailable**, and **Unknown**.|
+      |Reason type|Select the causes of the Resource Health events. Values are **Platform Initiated**, **Unknown**, and **User Initiated**.|
   
     ### [Service Health alert](#tab/service-health)
 
