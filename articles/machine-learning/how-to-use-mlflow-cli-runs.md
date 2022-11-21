@@ -193,7 +193,7 @@ When submitting runs using jobs, Azure Machine Learning automatically configures
 ### Creating a training routine
 
 
-First, you should create a `src` subdirectory and create a file with your training code in a `hello_world.py` file in the `src` subdirectory. All your training code will go into the `src` subdirectory, including `train.py`.
+First, you should create a `src` subdirectory and create a file with your training code in a `hello-mlflow.py` file in the `src` subdirectory. All your training code will go into the `src` subdirectory, including `train.py`.
 
 The training code is taken from this [MLfLow example](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/basics/src/hello-mlflow.py) in the Azure Machine Learning example repo. 
 
