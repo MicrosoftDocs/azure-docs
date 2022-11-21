@@ -147,7 +147,7 @@ name: project_environment
 dependencies:
   # The Python interpreter version.
   # Currently Azure ML only supports 3.5.2 and later.
-- python=3.6.2
+- python=3.7
 
 - pip:
   # You must list azureml-defaults as a pip dependency

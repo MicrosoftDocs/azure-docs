@@ -5,7 +5,7 @@ description: This article helps you buy an Azure savings plan.
 author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: reservations
+ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 11/16/2022
@@ -25,6 +25,14 @@ You can buy a savings plan for an Azure subscription that's of type Enterprise (
 To determine if you're eligible to buy a plan, [check your billing type](../manage/view-all-accounts.md#check-the-type-of-your-account).
 
 Savings plan discounts only apply to resources associated with subscriptions purchased through an Enterprise Agreement, Microsoft Customer Agreement, or Microsoft Partner Agreement (MPA).
+
+## Change agreement type to one supported by savings plan
+
+If your current agreement type isn't supported by a savings plan, you might be able to transfer or migrate it to one that's supported. For more information, see the following articles.
+
+- [Transfer Azure products between different billing agreements](../manage/subscription-transfer.md)
+- [Product transfer support](../manage/subscription-transfer.md#product-transfer-support)
+- [From MOSA to the Microsoft Customer Agreement](https://www.microsoft.com/licensing/news/from-mosa-to-microsoft-customer-agreement)
 
 ### Enterprise Agreement customers
 
