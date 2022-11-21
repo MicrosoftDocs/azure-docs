@@ -44,9 +44,19 @@ The following steps show how to create a lab with Azure Lab Services.
 
         :::image type="content" source="./media/quick-create-lab-portal/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
 
-    1. On the **Template virtual machine settings** window, leave the selection on **Create a template virtual machine**.
+    1. You can create a lab with a customized template VM, or with a VM image that has no customization, known as templateless lab.  
+       
+       1. To create a lab with a customized template, on the **Template virtual machine settings** window, leave the selection on **Create a template virtual machine**.
 
-        :::image type="content" source="./media/quick-create-lab-portal/template-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings windows when creating a new Azure Lab Services lab.":::
+        :::image type="content" source="./media/quick-create-lab-portal/template-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings windows when creating a new Azure Lab Services lab with a custom template.":::
+
+       **Or:**
+
+       ii. To create a templateless lab, on the **Template virtual machine settings** window, select on **Use virtual machine image without customization**.
+
+        :::image type="content" source="./media/quick-create-lab-portal/templateless-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings windows when creating a new Azure Lab Services lab without a template."::: 
+
+         Templateless labs take around 5 minutes to create but do not allow customization of the VM image.
 
 1. You should see the following screen that shows the status of the template VM creation.
 
@@ -55,6 +65,10 @@ The following steps show how to create a lab with Azure Lab Services.
 1. When the lab is completed, you'll see the **Template** page of the lab.
 
    :::image type="content" source="./media/quick-create-lab-portal/lab-template-page.png" alt-text="Screenshot of Template page of a lab.":::
+
+   If you're using a templateless lab, you'll see the following screen:
+
+     :::image type="content" source="./media/quick-create-lab-portal/templateless-template.png" alt-text="Screenshot of Template page of a templateless lab with the template customization disabled message highlighted.":::
 
 ## Clean up resources
 
