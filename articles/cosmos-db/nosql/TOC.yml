@@ -515,12 +515,12 @@
           items:
             - name: Install and use the emulator
               href: ../local-emulator.md
-            - name: Run the emulator on Docker
+            - name: Run the emulator container in Docker
               items:
                 - name: Run in Docker for Linux
-                  href: ../linux-emulator.md
+                  href: ../docker-emulator-linux.md
                 - name: Run in Docker for Windows
-                  href: ../local-emulator-on-docker-windows.md
+                  href: ../docker-emulator-windows.md
                 - name: Access the REST API
                   href: ../docker-emulator-rest-api.md
             - name: Export emulator certificates
@@ -755,7 +755,7 @@
         - name: Configure Cross Origin Resource Sharing (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Use Azure Key Vault to store master keys
-          href: ../access-secrets-from-keyvault.md
+          href: ../store-credentials-key-vault.md
         - name: Use certificates to access data
           href: certificate-based-authentication.md
     - name: Monitor
@@ -822,8 +822,6 @@
           href: ../migration-choices.md
         - name: Using .NET bulk support
           href: tutorial-dotnet-bulk-import.md
-        - name: Using the Data Migration tool
-          href: ../import-data.md
         - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
           href: ../migrate.md
         - name: Migrate to API for NoSQL using Striim

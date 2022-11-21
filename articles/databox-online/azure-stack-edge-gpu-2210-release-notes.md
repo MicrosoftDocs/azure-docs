@@ -25,10 +25,25 @@ This article applies to the **Azure Stack Edge 2210** release, which maps to sof
 
 The 2210 release has the following features and enhancements:
 
-- **High performance network VMs** - In this release, when you deploy high performance network (HPN) VMs, vCPUs are automatically reserved using a default SkuPolicy. If a vCPU reservation was defined in an earlier version, and if you update the device to 2210, then that existing reservation is carried forth to 2210. For more information, see how to [Deploy HPN VMs on your Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md).
+- **High performance network VM enhancements:**
+  - When you deploy high performance network (HPN) VMs, vCPUs are automatically reserved using a default SkuPolicy. If a vCPU reservation was defined in an earlier version, and if you update the device to 2210, then that existing reservation is carried forth to 2210. For more information, see how to [Deploy HPN VMs on your Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md).
+  - Added support for bulk network configuration changes. For example, you now can edit multiple virtual switches and multiple virtual networks in the local UI. This improvement will reduce network configuration time.
+  - Added HPN GPU VM sizes for T4 and A2 GPUs and Standard_F4s_v1 VM size. See the updated article at [VM sizes and types for Azure Stack Edge Pro](azure-stack-edge-gpu-virtual-machine-sizes.md).
 - **Kubernetes security updates** - This release includes security updates and security hardening improvements for Kubernetes VMs. 
 
 If you have questions or concerns, [open a support case through the Azure portal](azure-stack-edge-contact-microsoft-support.md).
+
+## Issues fixed in this release
+
+| No. | Feature | Issue |
+| --- | --- | --- |
+|**1.**|Networking |Open vSwitch Database Management Protocol (OVSDB) connection failure caused by stale node IP after user changed physical net adapter link status. |
+
+## Known issues in this release
+
+| No. | Feature | Issue | Workaround/comments |
+| --- | --- | --- | --- |
+|**1.**|Preview features |For this release, the following features are available in preview: <br> - Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only.  <br> - VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only. <br> - Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R. |These features will be generally available in later releases. |
 
 ## Known issues from previous releases
 
