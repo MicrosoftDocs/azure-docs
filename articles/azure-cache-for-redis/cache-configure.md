@@ -185,14 +185,14 @@ Use the **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemo
 
 **Maxmemory policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
 
-- `noeviction`: No eviction policy. Returns an error message if you attempt to insert data.
-- `allkeys-lru`: Removes the least recently used key.
-- `allkeys-random`: Removes a random key.
-- `allkeys-lfu`: Evicts the least frequently used keys out of all keys.
 - `volatile-lru`: The default eviction policy, removes the least recently used key out of all the keys with an expiration set. 
-- `volatile-ttl`: Removes the key with the shortest time to live based on the expiration set for it.
+- `allkeys-lru`: Removes the least recently used key.
 - `volatile-random`: Removes a random key that has an expiration set.
+- `allkeys-random`: Removes a random key.
+- `volatile-ttl`: Removes the key with the shortest time to live based on the expiration set for it.
+- `noeviction`: No eviction policy. Returns an error message if you attempt to insert data.
 - `volatile-lfu`: Evicts the least frequently used keys out of all keys with an expire field set.
+- `allkeys-lfu`: Evicts the least frequently used keys out of all keys.
 
 For more information about `maxmemory` policies, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies).
 
