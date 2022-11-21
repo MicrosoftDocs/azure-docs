@@ -215,7 +215,7 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
    docker pull mcr.microsoft.com/azureiotedge-hub:1.4
    ```
 
-1. List all your Docker images, find the **edgeAgent** and **edgeHub** images, then copy their IDs.
+1. List all your Docker images, find the **edgeAgent** and **edgeHub** images, then copy their image IDs.
 
    ```bash
    docker images
@@ -241,7 +241,7 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
    docker push <registry-name/server>/azureiotedge-hub:1.4
    ```
 
-1. Update device deployment settings.
+1. Update the image references in the *deployment.template.json* file for the **edgeAgent** and **edgeHub** system modules, by replacing `mcr.microsoft.com` with your own "registry-name/server" for both modules.
 
 1. Open a text editor on your IoT Edge device to change the configuration file so it knows about your private registry image. 
 
@@ -249,15 +249,14 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
    sudo nano /etc/aziot/config.toml
    ```
 
-1. In the text editor, change your image values under `[agent.config]`.
+1. In the text editor, change your image values under `[agent.config]`. Replace the values in brackets with your own.
 
    ```bash
    [agent.config]
-   Image = "patrickaacr.azurecr.io/azureiotedge-agent:1.4"
-   Image = "patrickaacr.azurecr.io/azureiotedge-hub:1.4"
+   Image = "<registry-name/server>/azureiotedge-agent:1.4"
    ```
 
-1. Save your changes and exit text editor.
+1. Save your changes and exit your text editor.
 
 1. Apply the IoT Edge configuration change.
 
