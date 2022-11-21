@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/18/2022
+ms.date: 11/21/2022
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -14,7 +14,7 @@ ms.subservice: files
 Many organizations want to use identity-based authentication for SMB Azure file shares in environments that have multiple on-premises Active Directory Domain Services (AD DS) forests. This is a common IT scenario, especially following mergers and acquisitions, where the acquired company's AD forests are isolated from the parent company's AD forests. This article explains how forest trust relationships work and provides step-by-step instructions for multi-forest setup and validation.
 
 > [!IMPORTANT]
-> When you have multiple forests, all forests must be reachable by a single Azure AD Connect sync server. You can use Azure AD Cloud Sync instead of (or alongside) Azure AD Connect to synchronize to an Azure AD tenant from a disconnected, multi-forest AD environment.
+> Azure Files only supports identity-based authentication across multiple forests for [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you must create these accounts in Active Directory and sync them to Azure AD using [Azure AD Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). Cloud-only identities aren't supported.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -26,37 +26,14 @@ Many organizations want to use identity-based authentication for SMB Azure file 
 ## Prerequisites
 
 - Two AD DS domain controllers with different forests and on different virtual networks (VNETs)
-- Sufficient AD permissions to perform administrative tasks
+- Sufficient AD permissions to perform administrative tasks (for example, Domain Admin)
+- Both forests must be reachable by a single Azure AD Connect sync server
 
 ## How forest trust relationships work
 
 Azure Files on-premises AD DS authentication is only supported against the AD forest of the domain service that the storage account is registered to. You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, then you must configure a **forest trust**.
 
 A forest trust is a transitive trust between two AD forests that allows users in any of the domains in one forest to be authenticated in any of the domains in the other forest.
-
-### Configuring suffix routing
-
-The way Azure Files register in AD DS is almost the same as a regular file server, where it creates an identity (a computer account or service logon account) that represents the storage account in AD DS for authentication. The only difference is that the registered service principal name (SPN) of the storage account ends with "file.core.windows.net" which does not match with the domain suffix. In this case, you might need to configure your suffix routing policy to enable multiple forest authentication due to the different domain suffix.
-
-For example, when users in a domain in **Forest 1** want to reach a file share with the storage account registered against a domain in **Forest 2**, this won't automatically work because the service principal of the storage account doesn't have a suffix matching the suffix of any domain in **Forest 1**. We can address this issue by manually configuring a suffix routing rule from **Forest 1** to **Forest 2** for a custom suffix of "file.core.windows.net".
-
-First, you must add a new custom suffix on **Forest 2**. Make sure you have the appropriate administrative permissions to change the configuration and that you've established trust between the two forests. Then follow these steps:
-
-1. Log on to a machine that's domain-joined to **Forest 2**.
-2. Open the **Active Directory Domains and Trusts** console.
-3. Right-click on **Active Directory Domains and Trusts**.
-4. Select **Properties**, and then select **Add**.
-6. Add "file.core.windows.net" as the UPN Suffix.
-7. Select **Apply**, then **OK** to close the wizard.
-
-Next, add the suffix routing rule on **Forest 1**, so that it redirects to **Forest 2**.
-
-1. Log on to a machine domain joined to **Forest 1**.
-2. Open the **Active Directory Domains and Trusts** console.
-3. Right-click on the domain that you want to access the file share, then select the **Trusts** tab and select **Forest 2** domain from outgoing trusts. If you haven't configured trust between the two forests, you need to set up the trust first.
-4. Select **Properties** and then **Name Suffix Routing**.
-5. Check if the "*.file.core.windows.net" suffix shows up. If not, select **Refresh**.
-6. Select "*.file.core.windows.net", then select **Enable** and **Apply**.
 
 ## Multi-forest setup and validation
 
@@ -75,7 +52,7 @@ Domain: onpremad2.com
 **Onprem1:** Vnet - DomainServicesVNet WUS
 **Onprem2:** Vnet - vnet2/workloads
 
-### Establish and configure the trust
+### Establish and configure trust
 
 In order to enable clients from forest **Onprem1** to access Azure Files domain resources in forest **Onprem2**, we must establish a trust between the two forests. Follow these steps to establish the trust.
 
@@ -92,11 +69,48 @@ In order to enable clients from forest **Onprem1** to access Azure Files domain 
 1. Confirm the outgoing trust, and select **Next**.
 1. Enter the username and password of a user that has admin privileges from the other domain.
 
-Once the authentication passes, the trust is established, and you should be able to see the specified domain **onpremad1.com** listed in the **Trusts** tab.
+Once authentication passes, the trust is established, and you should be able to see the specified domain **onpremad1.com** listed in the **Trusts** tab.
 
-### Validate the trust is working
+### Set up identity-based authentication and hybrid user accounts
 
-Once the trust is established, you'll need to create storage accounts and enable AD DS authentication for Azure file shares. 
+Once the trust is established, follow these steps to create a storage account and SMB file share for each domain, enable AD DS authentication on those storage accounts, and create hybrid user accounts synced to Azure AD.
+
+1. Log in to the Azure portal and create two storage accounts such as **onprem1sa** and **onprem2sa**. For optimal performance, we recommend that you deploy the storage accounts in the same region as the clients from which you plan to access the shares.
+1. [Create an SMB Azure file share](storage-files-identity-ad-ds-assign-permissions.md) on each storage account.
+1. [Sync your on-premises AD to Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) using [Azure AD Connect sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application. 
+1. Domain-join an Azure VM in **Forest 1** to your on-premises AD DS. For information about how to domain-join, refer to [Join a Computer to a Domain](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+1. [Enable AD DS authentication](storage-files-identity-ad-ds-enable.md) on the storage account associated with **Forest 1**, for example **onprem1sa**. This will create a computer account in your on-premises AD called **onprem1sa** to represent the Azure storage account. You can verify that the AD identity representing the storage account was created by looking in **Active Directory Users and Computers** for **onpremad1.com**. In this example, you'd see a computer account called **onprem1sa**.
+1. Create a user account by navigating to **Active Directory > onpremad1.com**. Right-click on **Users**, select **Create**, enter a user name (for example, **onprem1user**), and check the **Password never expires** box (optional).
+1. Sync the user to Azure AD using Azure AD Connect. Normally Azure AD Connect sync updates every 30 minutes. However, you can force it to sync immediately by opening an elevated PowerShell session and running `Start-ADSyncSyncCycle -PolicyType Delta`. You might need to install the AzureAD Sync module first by running `Import-Module ADSync`.
+1. To verify that the user has been synced to Azure AD, log in to the Azure portal with the Azure subscription associated with your multi-forest tenant and select **Azure Active Directory**. Select **Manage > Users** and search for the user you added (for example, **onprem1user**). **On-premises sync enabled** should say **Yes**.
+1. Grant a share-level permission (Azure RBAC role) to the user **onprem1user** on storage account **onprem1sa** so the user can mount the file share. To do this, navigate to the file share you created in **onprem1sa** and follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).
+1. Optional: [Configure directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md) (Windows ACLs).
+
+Repeat steps 3-10 for **Forest2** domain **onpremad2.com** (storage account **onprem2sa**/user **onprem2user**).
+
+### Configure name suffix routing
+
+As explained above, the way Azure Files registers in AD DS is almost the same as a regular file server, where it creates an identity (by default a computer account, could also be a service logon account) that represents the storage account in AD DS for authentication. The only difference is that the registered service principal name (SPN) of the storage account ends with **file.core.windows.net**, which doesn't match with the domain suffix. Because of the different domain suffix, you'll need to configure a suffix routing policy to enable multi-forest authentication.
+
+For example, when users in a domain in **Forest 1** want to reach a file share with the storage account registered against a domain in **Forest 2**, this won't automatically work because the service principal of the storage account doesn't have a suffix matching the suffix of any domain in **Forest 1**. We can address this issue by configuring a suffix routing rule from **Forest 1** to **Forest 2** for a custom suffix of **file.core.windows.net**.
+
+First, you must add a new custom suffix on **Forest 2**. Make sure you have the appropriate administrative permissions to change the configuration and that you've [established trust](#establish-and-configure-trust) between the two forests. Then follow these steps:
+
+1. Log on to a machine or VM that's domain-joined to **Forest 2**.
+2. Open the **Active Directory Domains and Trusts** console.
+3. Right-click on **Active Directory Domains and Trusts**.
+4. Select **Properties**, and then select **Add**.
+6. Add "file.core.windows.net" as the UPN Suffix.
+7. Select **Apply**, then **OK** to close the wizard.
+
+Next, add the suffix routing rule on **Forest 1**, so that it redirects to **Forest 2**.
+
+1. Log on to a machine or VM that's domain-joined to **Forest 1**.
+2. Open the **Active Directory Domains and Trusts** console.
+3. Right-click on the domain that you want to access the file share, then select the **Trusts** tab and select **Forest 2** domain from outgoing trusts.
+4. Select **Properties** and then **Name Suffix Routing**.
+5. Check if the "*.file.core.windows.net" suffix shows up. If not, select **Refresh**.
+6. Select "*.file.core.windows.net", then select **Enable** and **Apply**.
 
 ## Next steps
 
