@@ -7,7 +7,7 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 11/21/2022
 ms.author: franlanglois 
-
+ms.custom: engagement-fy23
 ---
 
 # How to configure Azure Cache for Redis
