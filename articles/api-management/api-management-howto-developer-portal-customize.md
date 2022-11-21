@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 11/17/2022
+ms.date: 11/21/2022
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -165,9 +165,7 @@ Although you don't need to adjust any styles, you may consider adjusting particu
 
 ### Visibility and access controls
 
-Some content and functionality of the developer portal are visible only to certain users. For example, only authenticated users can see pages for the user profile and user reports.
-
-You can also control which portal content appears to different [users or groups](api-management-howto-create-groups.md) that are set up in your API Management instance. For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access a specific API. Or, make a certain widget appear only for certain groups. The developer portal has built-in controls for these needs.
+You can control which portal content appears to different users, based on their identity. For example, you might want to display certain pages only to users who have access to a specific product or API. Or, make a section of a page appear only for certain [groups of users](api-management-howto-create-groups.md). The developer portal has built-in controls for these needs.
 
 * When you add or edit a page, select the **Access** tab to control the users or groups that can access the page
     
@@ -176,6 +174,16 @@ You can also control which portal content appears to different [users or groups]
 * When you customize page content such as a page section, menu, or widget, select the **Change visibility** icon to control the users or groups that can see the element on the page
 
     :::image type="content" source="media/api-management-howto-developer-portal-customize/visibility-control.png" alt-text="Screenshot of the visibility control settings in the developer portal.":::
+
+When a user visits the developer portal with visibility and access controls applied:
+
+* The developer portal automatically hides buttons or navigation items that point to pages that a user doesn't have access to.
+
+* An attempt by a user to access a page they aren't authorized to will result in a 404 Not Found error.
+
+> [!TIP]
+> Using the administrative interface, you can preview pages as a user associated with a specific group, by selecting the "person" icon in the menu at the bottom. 
+> 
 
 ### Customization example
 
