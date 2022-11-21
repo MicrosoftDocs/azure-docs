@@ -159,7 +159,7 @@ The main project folder, *<project_root>*, can contain the following files:
 * *.venv/*: (Optional) Contains a Python virtual environment used by local development.
 * *Dockerfile*: (Optional) Used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
 * *tests/*: (Optional) Contains the test cases of your function app.
-* *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *.venv/* to ignore the local Python virtual environment, *tests/*` to ignore test cases, and *local.settings.json* to prevent local app settings from being published.
+* *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *.venv/* to ignore the local Python virtual environment, *tests/* to ignore test cases, and *local.settings.json* to prevent local app settings from being published.
 
 Each function has its own code file and binding configuration file, *function.json*.
 
@@ -189,14 +189,14 @@ The main project folder, *<project_root>*, can contain the following files:
 * *function_app.py*: The default location for all functions and their related triggers and bindings.
 * *additional_functions.py*: (Optional) Any other Python files that contain functions (usually for logical grouping) that are referenced in *function\_app.py* through blueprints.
 * *tests/*: (Optional) Contains the test cases of your function app.
-* *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *.venv/* to ignore local Python virtual environment, *tests/*` to ignore test cases, and *local.settings.json* to prevent local app settings being published.
+* *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *.venv/* to ignore local Python virtual environment, *tests/* to ignore test cases, and *local.settings.json* to prevent local app settings being published.
 * *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *local.settings.json*: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
 * *requirements.txt*: Contains the list of Python packages the system installs when it publishes to Azure.
 * *Dockerfile*: (Optional) Used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
 ::: zone-end
 
-When you deploy your project to a function app in Azure, the entire contents of the main project folder, *<project_root>*, should be included in the package, but not the folder itself, which means that *host.json* should be in the package root. We recommend that you maintain your tests in a folder along with other functions, in this example *tests/*`. For more information, see [Unit testing](#unit-testing).
+When you deploy your project to a function app in Azure, the entire contents of the main project folder, *<project_root>*, should be included in the package, but not the folder itself, which means that *host.json* should be in the package root. We recommend that you maintain your tests in a folder along with other functions (in this example, *tests/*). For more information, see [Unit testing](#unit-testing).
 
 ::: zone pivot="python-mode-decorators"
 ## Blueprints
@@ -343,7 +343,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the AzureWebJobsStorage app setting, which is the same storage account that's used by the function app.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the `AzureWebJobsStorage` app setting, which is the same storage account that's used by the function app.
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, their usage is similar in Python code. Connection strings or secrets for trigger and input sources map to values in the *local.settings.json* file when they're running locally, and they map to the application settings when they're running in Azure.
@@ -377,7 +377,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the AzureWebJobsStorage app setting, which is the same storage account that's used by the function app.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the AzureWebJobsStorage app setting, which is the same storage account that's used by the function app.
 
 At this time, only specific triggers and bindings are supported by the Python v2 programming model. Supported triggers and bindings are as follows:
 
@@ -1378,9 +1378,9 @@ By default, a host instance for Python can process only one function invocation 
 
 To improve throughput, Azure Functions lets your out-of-process Python language worker share memory with the Functions host process. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB.
 
-For example, you might enable shared memory to reduce bottlenecks when you're using Blob storage bindings to transfer payloads larger than 1 MB.
+For example, you might enable shared memory to reduce bottlenecks when you're using Blob Storage bindings to transfer payloads larger than 1 MB.
 
-This functionality is available only for function apps that are running in Premium and Dedicated (App Service) plans. To learn more, see [Shared memory](https://github.com/Azure/azure-functions-python-worker/wiki/Shared-Memory). 
+This functionality is available only for function apps that are running in Premium and Dedicated (Azure App Service) plans. To learn more, see [Shared memory](https://github.com/Azure/azure-functions-python-worker/wiki/Shared-Memory). 
      
 ## Known issues and FAQ
 
