@@ -33,7 +33,7 @@ In this tutorial, you'll learn how to:
 - A Language resource. If you don't have one, you can [create one in the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and use the free tier to complete this tutorial.
 - The [key and endpoint](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 - A spreadsheet containing tenant issues. Example data for this tutorial is [available on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/TextAnalytics/sample-data/ReportedIssues.xlsx).
-- Microsoft 365, with OneDrive for business.
+- Microsoft 365, with [OneDrive for business](https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business).
 
 ## Add the Excel file to OneDrive for Business
 
