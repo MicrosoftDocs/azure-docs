@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 11/21/2022
 ms.author: anfdocs
 ---
 
@@ -34,12 +34,20 @@ Customer-managed keys in Azure NetApp Files enable you to use your own keys rath
 * MSI Automatic certificate renewal is not currently supported.  
 * The MSI certificate has a lifetime of 90 days. It will be eligible for renewal after 46 days. **After 90 days, the certificate will no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
     * To renew, you need to call the NetApp account operation `renewCredentials` if eligible for renewal. If it's not eligible, you will get an error message stating when the account will be eligible for renewal. 
+    * Version 2.42 of the Azure CLI supports running the `renewCredentials` operation with the [az netappfiles account command](/cli/azure/netappfiles/account?view=azure-cli-latest#az-netappfiles-account-renew-credentials). For example:
+    
+    `az netappfiles account renew-credentials –-account-name myaccount –resource-group myresourcegroup`
+
+    * If the account is not eligible for MSI certificate renewal, then an error will be returned stating the date and time when the account will be eligible. It is recommended you run this operation periodically (for example, daily) to prevent the certificate from expiring and from the customer-managed key volume going offline.
+
+<!-- 
    *  You will need to call the operation via ARM REST API. Submit a POST request to `/subscriptions/<16 digit subscription ID>/resourceGroups/<resource_group_name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-04`.
     This operation is available with the Azure CLI, PowerShell, and SDK beginning with the `2022-05` versions.
     * If the certificate is more than 46 days old, you can call proxy Azure Resource Manager (ARM) operation via REST API to renew the certificate. For example: 
         ```rest
          /{accountResourceId}/renewCredentials?api-version=2022-01 – example /subscriptions/<16 digit subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-01  
-        ```  
+        ```  -->
+
 * Applying Azure network security groups on the private link subnet to Azure Key Vault is not supported for Azure NetApp Files customer-managed keys. Network security groups do not affect connectivity to Private Link unless `Private endpoint network policy` is enabled on the subnet. It's recommended to keep this option disabled. 
 * If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
 
