@@ -218,9 +218,9 @@ public class MyAppConfiguration extends Application implements Configuration.Pro
     }
 }
 ```
-Explanation to code above. The default initializer of WorkManager has been disabled in step 9. This step implementing `Configuration.Provider` to provide a customized 'WorkerFactory', which is responsible to create WorkerManager in runtime environment. 
+**Explanation to code above:** The default initializer of `WorkManager` has been disabled in step 9. This step implements `Configuration.Provider` to provide a customized 'WorkFactory', which is responsible to create `WorkerManager` during runtime. 
 
-If the APP is integrated with Azure Function. Initialization of application parameters should be added in method 'onCreate()'. Method 'getWorkManagerConfiguration()' is called when the application is starting, before any activity, service, or receiver objects (excluding content providers) have been created. So that application parameters could be initialized before being used. More details could be found from sample chat APP.
+If the app is integrated with Azure Function, initialization of application parameters should be added in method 'onCreate()'. Method 'getWorkManagerConfiguration()' is called when the application is starting, before any activity, service, or receiver objects (excluding content providers) have been created, so that application parameters could be initialized before being used. More details can be found in the sample chat app.
 
 12. Add the `android:name=.MyAppConfiguration` field, which uses the class name from step 11, into `AndroidManifest.xml`:
 
