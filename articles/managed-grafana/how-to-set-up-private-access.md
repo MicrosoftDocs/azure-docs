@@ -127,7 +127,7 @@ Once deployment is complete, you'll get a notification that your endpoint has be
     az grafana show --name <name>
     ```
 
-    This command generates an output with information about your Azure Managed Grafana workspace. Note down the *id* value. For instance: */subscriptions/123/resourceGroups/MyResourceGroup/providers/Microsoft.Dashboard/grafana/my-azure-managed-grafana*.
+    This command generates an output with information about your Azure Managed Grafana workspace. Note down the `id` value. For instance: */subscriptions/123/resourceGroups/MyResourceGroup/providers/Microsoft.Dashboard/grafana/my-azure-managed-grafana*.
 
 1. Run the command [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private endpoint for your Azure Managed Grafana instance. Replace the placeholder texts `<resource-group>`, `<private-endpoint-name>`, `<vnet-name>`, `<private-connection-resource-id>`, `<connection-name>`, and `<location>` with your own information.
 
