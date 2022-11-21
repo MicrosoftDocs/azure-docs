@@ -248,25 +248,6 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 ## Open the workflow definition file in the designer
 
-1. Check the versions that are installed on your computer by running this command:
-
-   `..\Users\{yourUserName}\dotnet --list-sdks`
-
-   If you have .NET Core SDK 5.x, this version might prevent you from opening the logic app's underlying workflow definition in the designer. Rather than uninstall this version, at your project's root folder, create a **global.json** file that references the .NET Core runtime 3.x version that you have that's later than 3.1.201, for example:
-
-   ```json
-   {
-      "sdk": {
-         "version": "3.1.8",
-         "rollForward": "disable"
-      }
-   }
-   ```
-
-   > [!IMPORTANT]
-   > Make sure that you explicitly add the **global.json** file in your project's 
-   > root folder from inside Visual Studio Code. Otherwise, the designer won't open.
-
 1. Expand the project folder for your workflow. Open the **workflow.json** file's shortcut menu, and select **Open in Designer**.
 
    ![Screenshot that shows Explorer pane and shortcut window for the workflow.json file with "Open in Designer" selected.](./media/create-single-tenant-workflows-visual-studio-code/open-definition-file-in-designer.png)
