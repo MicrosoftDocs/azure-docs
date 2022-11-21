@@ -47,7 +47,7 @@ Select the source settings and enable VM replication.
     - **Virtual machine deployment model**: Retain the default **Resource Manager** setting. 
     - **Disaster recovery between availability zones**: Retain the default **No** setting. 
 
-        :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/source.png" alt-text="Enable replication form source tab":::
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-tutorial/source.png" alt-text="Enable replication form source tab":::
 
     > [!NOTE]
     > As there are no availability zones for Azure Public MEC (preview), it is disabled. 
