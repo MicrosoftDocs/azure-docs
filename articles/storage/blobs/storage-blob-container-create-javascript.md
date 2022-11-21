@@ -1,5 +1,6 @@
 ---
-title: Create a blob container with JavaScript - Azure Storage 
+title: Create a blob container with JavaScript
+titleSuffix: Azure Storage 
 description: Learn how to create a blob container in your Azure Storage account using the JavaScript client library.
 services: storage
 author: pauljewellmsft
