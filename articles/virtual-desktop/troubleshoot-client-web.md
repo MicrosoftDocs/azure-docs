@@ -17,7 +17,7 @@ In this section you'll find troubleshooting guidance for general issues with the
 
 [!INCLUDE [troubleshoot-remote-desktop-client-doesnt-show-resources](includes/include-troubleshoot-remote-desktop-client-doesnt-show-resources.md)]
 
-[!INCLUDE [troubleshoot-aadj-connections-all](includes/include-troubleshoot-aadj-connections-all.md)]
+[!INCLUDE [troubleshoot-aadj-connections-all](includes/include-troubleshoot-azure-ad-joined-connections-all.md)]
 
 ### Web client stops responding or disconnects
 
@@ -55,7 +55,7 @@ If neither of these work you most likely have a problem with your network connec
 
 In this section you'll find troubleshooting guidance for authentication and identity issues with the Remote Desktop client.
 
-[!INCLUDE [troubleshoot-aadj-connections-web](includes/include-troubleshoot-aadj-connections-web.md)]
+[!INCLUDE [troubleshoot-aadj-connections-web](includes/include-troubleshoot-azure-ad-joined-connections-web.md)]
 
 ## Issue isn't listed here
 

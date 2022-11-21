@@ -17,7 +17,7 @@ In this section you'll find troubleshooting guidance for general issues with the
 
 [!INCLUDE [troubleshoot-remote-desktop-client-doesnt-show-resources](includes/include-troubleshoot-remote-desktop-client-doesnt-show-resources.md)]
 
-[!INCLUDE [troubleshoot-aadj-connections-all](includes/include-troubleshoot-aadj-connections-all.md)]
+[!INCLUDE [troubleshoot-aadj-connections-all](includes/include-troubleshoot-azure-ad-joined-connections-all.md)]
 
 ## Issue isn't listed here
 
