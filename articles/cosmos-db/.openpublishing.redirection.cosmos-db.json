@@ -451,6 +451,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/linux-emulator.md",
+      "redirect_url": "/azure/cosmos-db/docker-emulator-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/local-emulator-on-docker-windows.md",
+      "redirect_url": "/azure/cosmos-db/docker-emulator-windows",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/tutorial-develop-graph-dotnet.md",
       "redirect_url": "/azure/cosmos-db/create-graph-dotnet",
       "redirect_document_id": false
