@@ -2,7 +2,7 @@
 title: Troubleshoot Python function apps in Azure Functions
 description: Learn how to troubleshoot Python functions.
 ms.topic: article
-ms.date: 10/25/2022
+ms.date: 11/21/2022
 ms.devlang: python
 ms.custom: devx-track-python
 zone_pivot_groups: python-mode-functions
@@ -12,7 +12,7 @@ zone_pivot_groups: python-mode-functions
 
 This article provides information to help you troubleshoot errors with your Python functions in Azure Functions. This article supports both the v1 and v2 programming models. Choose your desired model from the selector at the top of the article. The v2 model is currently in preview. For more information on Python programming models, see the [Python developer guide](./functions-reference-python.md). 
 
-The following is a list of troubleshooting sections for common issues in Python functions:
+The following list of troubleshooting sections is for common issues in Python functions:
 
 ::: zone pivot="python-mode-configuration"
 * [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
@@ -79,7 +79,7 @@ See [Enable remote build](#enable-remote-build) or [Build native dependencies](#
 
 #### The package isn't resolved with proper Linux wheel
 
-Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Use your favorite text editor to open the **wheel** file and check the **Tag:** section. If the value of the tag doesn't contain **linux**, this could be the issue.
+Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Use your favorite text editor to open the **wheel** file and check the **Tag:** section. If the value of the tag doesn't contain **linux**, this compatibility tag could be the issue.
 
 Python functions run only on Linux in Azure: Functions runtime v2.x runs on Debian Stretch and the v3.x runtime on Debian Buster. The artifact is expected to contain the correct Linux binaries. When you use the `--build local` flag in Core Tools, third-party, or outdated tools it may cause older binaries to be used.
 
@@ -87,7 +87,7 @@ See [Enable remote build](#enable-remote-build) or [Build native dependencies](#
 
 #### The package is incompatible with the Python interpreter version
 
-Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Using a text editor, open the METADATA file and check the **Classifiers:** section. If the section doesn't contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`, this means the package version is either too old, or most likely, the package is already out of maintenance.
+Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Using a text editor, open the METADATA file and check the **Classifiers:** section. If the section doesn't contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`, then the package version is either too old, or most likely, the package is already out of maintenance.
 
 You can check the Python version of your function app from the [Azure portal](https://portal.azure.com). Navigate to your function app, choose **Resource explorer**, and select **Go**.
 
@@ -123,10 +123,10 @@ The following are potential mitigations for module-related issues. Use the [diag
 
 #### Enable remote build
 
-Make sure that remote build is enabled. The way that you do this depends on your deployment method.
+Make sure that remote build is enabled. How you enable remote build depends on your deployment method.
 
 # [Visual Studio Code](#tab/vscode)
-Make sure that the latest version of the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) is installed. Verify that `.vscode/settings.json` exists and it contains the setting `"azureFunctions.scmDoBuildDuringDeployment": true`. If not, please create this file with the `azureFunctions.scmDoBuildDuringDeployment` setting enabled and redeploy the project.
+Make sure that the latest version of the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) is installed. Verify that `.vscode/settings.json` exists and it contains the setting `"azureFunctions.scmDoBuildDuringDeployment": true`. If not, create this file with the `azureFunctions.scmDoBuildDuringDeployment` setting enabled and redeploy the project.
 
 # [Azure Functions Core Tools](#tab/coretools)
 
@@ -146,13 +146,13 @@ Make sure that the latest version of both **docker** and [Azure Functions Core T
 
 Browse the latest package version in `https://pypi.org/project/<package-name>` and check the **Classifiers:** section. The package should be `OS Independent`, or compatible with `POSIX` or `POSIX :: Linux` in **Operating System**. Also, the Programming Language should contain: `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`.
 
-If these are correct, you can update the package to the latest version by changing the line `<package-name>~=<latest-version>` in requirements.txt.
+If these classifiers are correct, you can update the package to the latest version by changing the line `<package-name>~=<latest-version>` in requirements.txt.
 
 #### Handcraft requirements.txt
 
 Some developers use `pip freeze > requirements.txt` to generate the list of Python packages for their developing environments. Although this convenience should work in most cases, there can be issues in cross-platform deployment scenarios, such as developing functions locally on Windows or macOS, but publishing to a function app, which runs on Linux. In this scenario, `pip freeze` can introduce unexpected operating system-specific dependencies or dependencies for your local development environment. These dependencies can break the Python function app when running on Linux.
 
-The best practice is to check the import statement from each .py file in your project source code and only check-in those modules in requirements.txt file. This guarantees the resolution of packages can be handled properly on different operating systems.
+The best practice is to check the import statement from each .py file in your project source code and only check-in those modules in requirements.txt file. This best practice guarantees the resolution of packages can be handled properly on different operating systems.
 
 #### Replace the package with equivalents
 
@@ -179,9 +179,9 @@ This error occurs when a Python function app fails to start with a proper Python
 
 #### The Python interpreter mismatches OS architecture
 
-This is most likely caused by a 32-bit Python interpreter is installed on your 64-bit operating system.
+This mismatch is most likely caused by a 32-bit Python interpreter is installed on your 64-bit operating system.
 
-If you're running on an x64 operating system, please ensure your Python 3.6, 3.7, 3.8, or 3.9 interpreter is also on 64-bit version.
+If you're running on an x64 operating system, ensure your Python 3.6, 3.7, 3.8, or 3.9 interpreter is also on 64-bit version.
 
 You can check your Python interpreter bitness by the following commands:
 
@@ -189,7 +189,7 @@ On Windows in PowerShell: `py -c 'import platform; print(platform.architecture()
 
 On Unix-like shell: `python3 -c 'import platform; print(platform.architecture()[0])'`
 
-If there's a mismatch between Python interpreter bitness and operating system architecture, please download a proper Python interpreter from [Python Software Foundation](https://www.python.org/downloads).
+If there's a mismatch between Python interpreter bitness and operating system architecture, download a proper Python interpreter from [Python Software Foundation](https://www.python.org/downloads).
 
 #### The Python interpreter isn't supported by Azure Functions Python Worker
 
@@ -206,7 +206,7 @@ Code 137 errors are typically caused by out-of-memory issues in your Python func
 
 > `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 137`
 
-This error occurs when a Python function app is forced to terminate by the operating system with a SIGKILL signal. This signal usually indicates an out-of-memory error in your Python process. The Azure Functions platform has a [service limitation](functions-scale.md#service-limits) which will terminate any function apps that exceeded this limit.
+This error occurs when a Python function app is forced to terminate by the operating system with a SIGKILL signal. This signal usually indicates an out-of-memory error in your Python process. The Azure Functions platform has a [service limitation](functions-scale.md#service-limits), which will terminate any function apps that exceeded this limit.
 
 Visit the tutorial section in [memory profiling on Python functions](python-memory-profiler-reference.md#memory-profiling-process) to analyze the memory bottleneck in your function app.
 
@@ -218,7 +218,7 @@ This section helps you troubleshoot segmentation fault errors in your Python fun
 
 > `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 139`
 
-This error occurs when a Python function app is forced to terminate by the operating system with a SIGSEGV signal. This signal indicates a memory segmentation violation, which can be caused by unexpectedly reading from or writing into a restricted memory region. In the following sections, we provide a list of common root causes.
+This error occurs when a Python function app is forced to terminate by the operating system with a SIGSEGV signal. This signal indicates a memory segmentation violation, which can be caused by an unexpected read from or write into a restricted memory region. In the following sections, we provide a list of common root causes.
 
 ### A regression from third-party packages
 
@@ -226,11 +226,11 @@ In your function app's requirements.txt, an unpinned package will be upgraded to
 
 ### Unpickling from a malformed .pkl file
 
-If your function app is using the Python pickel library to load Python object from .pkl file, it's possible that the .pkl contains malformed bytes string, or invalid address reference in it. To recover from this issue, try commenting out the pickle.load() function.
+If your function app is using the Python pickle library to load a Python object from a \.pkl file, it's possible that the \.pkl contains malformed bytes string, or invalid address reference in it. To recover from this issue, try commenting out the `pickle.load()` function.
 
 ### Pyodbc connection collision
 
-If your function app is using the popular ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it is possible that multiple connections are opened within a single function app. To avoid this issue, please use the singleton pattern and ensure only one pyodbc connection is used across the function app.
+If your function app is using the popular ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it's possible that multiple connections are opened within a single function app. To avoid this issue, use the singleton pattern and ensure only one pyodbc connection is used across the function app.
 
 ---
 
@@ -264,22 +264,22 @@ There are two ways to mitigate this issue.
 ::: zone pivot="python-mode-decorators"  
 ## Multiple Python workers not supported
 
-Multiple Python workers aren't supported in the v2 programming model at this time. This means that enabling intelligent concurrency by setting `FUNCTIONS_WORKER_PROCESS_COUNT` greater than 1 isn't supported for functions developed using the V2 model.
+Multiple Python workers aren't supported in the v2 programming model at this time. Therefore, enabling intelligent concurrency by setting `FUNCTIONS_WORKER_PROCESS_COUNT` greater than 1 isn't supported for functions developed using the V2 model.
 
 ## Troubleshoot could not load file or assembly
 
-If you're facing this error, it may be the case that you are using the V2 programming model. This error is due to a known issue that will be resolved in an upcoming release.
+If you're facing this error, it may be the case that you're using the V2 programming model. This error is due to a known issue that will be resolved in an upcoming release.
 
 This specific error may ready:
 
 > `DurableTask.Netherite.AzureFunctions: Could not load file or assembly 'Microsoft.Azure.WebJobs.Extensions.DurableTask, Version=2.0.0.0, Culture=neutral, PublicKeyToken=014045d636e89289'.`
 > `The system cannot find the file specified.`
 
-The reason this error may be occurring is because of an issue with how the extension bundle was cached. To detect if this is the issue, you can run the command with `--verbose` to see more details. 
+The reason this error may be occurring is because of an issue with how the extension bundle was cached. To troubleshoot this issue, you can run the command with `--verbose` to see more details. 
 
 > `func host start --verbose`
 
-Upon running the command, if you notice that `Loading startup extension <>` is not followed by `Loaded extension <>` for each extension, it is likely that you are facing a caching issue. 
+If after you run the command you notice that `Loading startup extension <>` isn't followed by `Loaded extension <>` for each extension, it's likely that you're facing a caching issue. 
 
 To resolve this issue, 
 
@@ -316,18 +316,18 @@ You may see this error in your local output as the following message:
 > `Microsoft.Azure.WebJobs.Extensions.DurableTask: Unable to resolve the Azure Storage connection named 'Storage'.`
 > `Value cannot be null. (Parameter 'provider')`
 
-This error is a result of how extensions are loaded from the bundle locally. To resolve this error, you can do one of the following:
-* Use a storage emulator such as [Azurite](../storage/common/storage-use-azurite.md). This is a good option when you aren't planning to use a storage account in your function application.
-* Create a storage account and add a connection string to the `AzureWebJobsStorage` environment variable in `localsettings.json`. Use this option when you are using a storage account trigger or binding with your application, or if you have an existing storage account. To get started, see [Create a storage account](../storage/common/storage-account-create.md).
+This error is a result of how extensions are loaded from the bundle locally. To resolve this error, you can take one of the following actions:
+* Use a storage emulator such as [Azurite](../storage/common/storage-use-azurite.md). An emulator is a good option when you aren't planning to use a storage account in your function application.
+* Create a storage account and add a connection string to the `AzureWebJobsStorage` environment variable in `localsettings.json`. Use this option when you're using a storage account trigger or binding with your application, or if you have an existing storage account. To get started, see [Create a storage account](../storage/common/storage-account-create.md).
 
 ## Issue with Deployment
 
-In the [Azure portal](https://portal.azure.com), navigate to **Settings** > **Configuration** and make sure that the `AzureWebJobsFeatureFlags` application setting has a value of `EnableWorkerIndexing`. If it is not found, add this setting to the function app.
+In the [Azure portal](https://portal.azure.com), navigate to **Settings** > **Configuration** and make sure that the `AzureWebJobsFeatureFlags` application setting has a value of `EnableWorkerIndexing`. If it isn't found, add this setting to the function app.
 ::: zone-end
 
 ## Next steps
 
-If you're unable to resolve your issue, please report this to the Functions team:
+If you're unable to resolve your issue, report it to the Functions team:
 
 > [!div class="nextstepaction"]
 > [Report an unresolved issue](https://github.com/Azure/azure-functions-python-worker/issues)
