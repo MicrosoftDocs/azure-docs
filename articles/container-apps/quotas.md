@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 11/21/2022
 ms.author: cshoe
 ---
 
@@ -18,12 +18,17 @@ To request an increase in quota amounts for your container app, [submit a suppor
 
 | Feature | Scope | Default | Is Configurable<sup>1</sup> | Remarks |
 |--|--|--|--|--|
-| Environments | Region | 5 | Yes | |
+| Environments | Region |  Up to 5 | Yes | Limit up to five environments per subscription, per region.<br><br>For example, if you deploy to three regions you can get up to 15 environments for a single subscription. |
 | Container Apps | Environment | 20 | Yes | |
 | Revisions | Container app | 100 | No | |
 | Replicas | Revision | 30 | Yes | |
 | Cores | Replica | 2 | No | Maximum number of cores that can be requested by a revision replica. |
 | Cores | Environment | 20 | Yes | Maximum number of cores an environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. |
+
+For more information regarding quotas, see the [Quotas Roadmap](https://github.com/microsoft/azure-container-apps/issues/503) in the Azure Container Apps GitHub repository.
+
+> [!NOTE]
+> Free trial and Azure for students subscriptions are limited to one environment per subscription  globally.
 
 <sup>1</sup> The **Is Configurable** column denotes that a feature maximum may be increased through a [support request](https://azure.microsoft.com/support/create-ticket/).
 
@@ -31,4 +36,4 @@ To request an increase in quota amounts for your container app, [submit a suppor
 
 * If an environment runs out of allowed cores:
   * Provisioning times out with a failure
-  * The app silently refuses to scale out
+  * The app may be restricted from scaling out
