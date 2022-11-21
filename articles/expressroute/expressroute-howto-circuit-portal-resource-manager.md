@@ -62,6 +62,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
     > [!IMPORTANT]
     > * The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they're not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
+    > * You can't change the SKU from **Standard/Premium** to **Local** in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
     > * You can't change the type from **Unlimited** to **Metered**.
 
 1. Select **Review + create** and then select **Create** to deploy the ExpressRoute circuit.
@@ -133,6 +134,9 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
+
+  > [!IMPORTANT]
+  > Changing the SKU from **Standard/Premium** to **Local** is not supported in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
 
 * Increase the bandwidth of your ExpressRoute circuit, provided there's capacity available on the port.
 
