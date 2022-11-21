@@ -15,7 +15,7 @@ ms.date: 11/14/2022
 
 In this tutorial, you learn how to programmatically fetch access policies that were created in Microsoft Purview. By doing so, you can troubleshoot the communication of policies between Microsoft Purview, where policies are created and updated, and the data sources, where these policies need to be enforced.
 
-For more information about Microsoft Purview policies, see the concept guides listed in the ["Next steps"](#next-steps) section.
+For more information about Microsoft Purview policies, see the concept guides listed in the [Next steps](#next-steps) section.
 
 This guide uses examples from SQL Server as data sources.
 
@@ -121,7 +121,7 @@ Provide the syncToken you got from the prior pull in any successive delta pulls.
 
 ### Response status codes 
 
-|HTTP code|HTTP code Description|Type|Description|Response|
+|HTTP code|HTTP code description|Type|Description|Response|
 |---------|---------------------|----|-----------|--------|
 |200|Success|Success|The request was processed successfully|Policy data|
 |304|Not modified|Success|No events were received since the last delta pull call|None|
@@ -182,11 +182,11 @@ In this example, the delta pull communicates the event that the policy on the re
 
 
 ## Policy constructs
-Three top-level policy constructs are used within the responses to the full pull (`/policyElements`) and delta pull (`/policyEvents`) requests: *Policy*, *PolicySet*, and *AttributeRule*.
+Three top-level policy constructs are used within the responses to the full pull (`/policyElements`) and delta pull (`/policyEvents`) requests: `Policy`, `PolicySet`, and `AttributeRule`.
 
 ### Policy
 
-Policy specifies the decision that the data source must enforce (*permit* or *deny*) when an Azure AD principal attempts access via a client, provided that the request context attributes satisfy the attribute predicates, as specified in the policy (for example: *scope*, *requested action*, and so on). An evaluation of the policy triggers an evaluation of AttributeRules, as referenced in the policy.
+`Policy` specifies the decision that the data source must enforce (*permit* or *deny*) when an Azure AD principal attempts access via a client, provided that the request context attributes satisfy the attribute predicates, as specified in the policy (for example: *scope*, *requested action*, and so on). An evaluation of the policy triggers an evaluation of `AttributeRules`, as referenced in the policy.
 
 |Member|Value|Type|Cardinality|Description|
 |------|-----|----|-----------|-----------|
@@ -233,7 +233,7 @@ Policy specifies the decision that the data source must enforce (*permit* or *de
 ### AttributePredicate
 `AttributePredicate` checks to see whether the predicate that's specified on an attribute is satisfied. `AttributePredicate` can specify the following properties:
 - `attributeName`: Specifies the attribute name on which an attribute predicate needs to be evaluated.
-- `matcherId`: The ID of a matcher function that's used to compare the attribute value that's looked up in the request context by attribute name to the attribute value literal that's specified in the predicate. At present we support two `matcherId`(s): `ExactMatcher` and `GlobMatcher`. If `matcherId` isn't specified, it defaults to `GlobMatcher`.
+- `matcherId`: The ID of a matcher function that's used to compare the attribute value that's looked up in the request context by attribute name to the attribute value literal that's specified in the predicate. At present, we support two `matcherId` values: `ExactMatcher` and `GlobMatcher`. If `matcherId` isn't specified, it defaults to `GlobMatcher`.
 - `fromRule`: An optional property that specifies the ID of `AttributeRule` that needs to be evaluated to populate the request context with attribute values that would be compared in this predicate.
 - `attributeValueIncludes`: A scalar literal value that should match the request context attribute values.
 - `attributeValueIncludedIn`: An array of literal values that should match the request context attribute values.
@@ -253,7 +253,7 @@ An array of `AttributePredicates` that have to be satisfied with the semantics o
 
 ### Condition
 - `condition` allows you to specify a complex condition of predicates that can nest functions from a library of functions.
-- At `decision compute time`, `condition` evaluates to `true` or `false` and also could emit optional obligation(s).
+- At `decision compute time`, `condition` evaluates to `true` or `false` and also could emit optional obligations.
 - If `condition` evaluates to  `false`, the containing `DecisionRule` is considered not applicable to the current request.
 
 
