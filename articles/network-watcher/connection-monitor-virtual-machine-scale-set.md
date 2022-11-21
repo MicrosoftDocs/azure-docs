@@ -7,14 +7,13 @@ author: Medha1507
 editor: ''
 tags: azure-resource-manager
 # Customer intent: I need to monitor communication between a virtual machine scale set and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
-
 ms.service: network-watcher
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2022
+ms.date: 10/17/2022
 ms.author: mjha
-ms.custom: mvc
+ms.custom: mvc, engagement-fy23
 ---
 
 # Tutorial: Monitor network communication between two virtual machine scale sets by using the Azure portal

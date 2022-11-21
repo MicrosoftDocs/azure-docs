@@ -4,9 +4,9 @@ description: This article describes how to monitor network connectivity in Conne
 services: network-watcher
 author: v-ksreedevan
 ms.service: network-watcher
-ms.custom: ignite-2022
+ms.custom: ignite-2022, engagement-fy23
 ms.topic: how-to
-ms.date: 09/11/2022
+ms.date: 10/27/2022
 ms.author: v-ksreedevan
 #Customer intent: I need to monitor a connection by using Azure Monitor Agent.
 ---
