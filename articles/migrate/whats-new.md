@@ -5,7 +5,7 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 11/18/2022
+ms.date: 11/21/2022
 ms.custom: mvc
 ---
 
@@ -16,9 +16,9 @@ ms.custom: mvc
 ## Update (November 2022)
 
 - Support for providing a sudo user account to perform agentless dependency analysis on Linux servers running in VMware, Hyper-V, and Physical/other cloud environments.
-- Support for selecting VNet and Subnet during test migration using PowerShell for agentless VMware.
-- Support for OS disk swap using the Azure portal and PowerShell for agentless VMware.
-- Support for pausing and resuming replications using PowerShell for agentless VMware.
+- Support for selecting VNet and Subnet during test migration using PowerShell for agentless VMware scenario.
+- Support for OS disk swap using the Azure portal and PowerShell for agentless VMware scenario.
+- Support for pausing and resuming replications using PowerShell for agentless VMware scenario.
 
 ## Update (October 2022)
 
