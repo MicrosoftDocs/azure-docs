@@ -256,6 +256,8 @@ To do so, you'll create an *event subscription* on your IoT Hub, with the Azure 
 
 Use the following CLI command to create the event subscription. There's a placeholder for you to enter a name for the event subscription, and there are also placeholders for you to enter your subscription ID, resource group, IoT hub name, and the name of your function app.
 
+If you have a resource provider error, please add Microsoft.EventGrid as a resource provider to your subscription, e.g. through the Azure Portal, go to "Resource Provider" tab.
+
 ```azurecli-interactive
 az eventgrid event-subscription create --name <name-for-hub-event-subscription> --event-delivery-schema eventgridschema --source-resource-id /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Devices/IotHubs/<your-IoT-hub> --included-event-types Microsoft.Devices.DeviceTelemetry --endpoint-type azurefunction --endpoint /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Web/sites/<your-function-app>/functions/ProcessHubToDTEvents
 ```
