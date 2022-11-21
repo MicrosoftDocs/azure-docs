@@ -4901,6 +4901,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/access-secrets-from-keyvault.md",
+      "redirect_url": "/azure/cosmos-db/store-credentials-key-vault",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/sql/sql-query-startswith.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/startswith",
       "redirect_document_id": true
