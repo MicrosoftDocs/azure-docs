@@ -27,7 +27,7 @@ ms.date: 11/08/2022
 
 
 ## Recommended resources
-  - [Learn more](/defender-for-cloud/concept-attack-path.md) about Attack path.
+  - [Learn more](/azure/defender-for-cloud/concept-attack-path) about Attack path.
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)
