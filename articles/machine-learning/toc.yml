@@ -347,11 +347,14 @@
           displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
           href: how-to-secure-kubernetes-inferencing-environment.md
         - name: Secure Kubernetes online endpoint
-          displayName: Securing Kubernetes online endpoint with TLS/SSL
+          displayName: AKS, Arc Kubernetes, HTTPS, TSL, SSL, Cname, DNS, Certificate, inference
           href: how-to-secure-kubernetes-online-endpoint.md
         - name: Troubleshoot AzureML extension
           displayName: AKS, Arc Kubernetes, AzureML extension, troubleshoot
           href: how-to-troubleshoot-kubernetes-extension.md
+        - name: Troubleshoot Kubernetes compute
+          displayName: AKS, Arc Kubernetes, Kubernetes compute, training, online endpoint, troubleshoot
+          href: how-to-troubleshoot-kubernetes-compute.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
