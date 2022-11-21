@@ -21,7 +21,9 @@
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
-    href: manage-multiple-machines.md  
+    href: manage-multiple-machines.md
+  - name: Workbooks
+    href: workbooks.md 
 - name: Samples
   items:
   - name: Azure Resource Graph queries
