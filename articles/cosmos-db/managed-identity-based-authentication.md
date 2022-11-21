@@ -120,7 +120,7 @@ In this step, you'll query the document endpoint for the API for NoSQL account.
 
 ## Grant access to your Azure Cosmos DB account
 
-In this step, you'll assign a role to the function app's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity for control-plane access. For data-plane access, you'll create a new custom role with acess to read metadata.
+In this step, you'll assign a role to the function app's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity for control-plane access. For data-plane access, you'll create a new custom role with access to read metadata.
 
 > [!TIP]
 > For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
