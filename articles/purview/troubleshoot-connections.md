@@ -27,7 +27,7 @@ There are specific instructions for each [source type](azure-purview-connector-o
 
 ### Registering single Azure data source
 
-To register a single data source in Microsoft Purview, such as an Azure Blog Storage or an Azure SQL Database, you must be granted at least **Reader** role on the resource or inherited from higher scope such as resource group or subscription. Some Azure RBAC roles, such as Security Admin, don't have read access to view Azure resources in control plane.  
+To register a single data source in Microsoft Purview, such as an Azure Blob Storage or an Azure SQL Database, you must be granted at least **Reader** role on the resource or inherited from higher scope such as resource group or subscription. Some Azure RBAC roles, such as Security Admin, don't have read access to view Azure resources in control plane.  
 
 Verify this by following the steps below:
 
