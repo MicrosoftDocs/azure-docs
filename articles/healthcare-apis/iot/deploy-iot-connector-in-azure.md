@@ -5,31 +5,31 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/28/2022
+ms.date: 11/18/2022
 ms.author: jasteppe
 ---
 
-# Choose a deployment method
+# Quickstart: Choose a deployment method
 
 MedTech service provides multiple methods for deploying it into an Azure Platform as a service (PaaS) configuration. Each method has different advantages that will allow you to customize your development environment to suit your needs.
 
 The different deployment methods are:
 
-- Azure Resource Manager (ARM) Quickstart template with Deploy to Azure button
+- Azure Resource Manager (ARM) template with Deploy to Azure button
 - Azure PowerShell and Azure CLI automation
 - Manual deployment
 
-## Azure ARM Quickstart template with Deploy to Azure button
+## Azure Resource Manager template with Deploy to Azure button
 
-Using a Quickstart template with Azure portal is the easiest and fastest deployment method because it automates most of your configuration with the touch of a **Deploy to Azure** button. This button automatically generates the following configurations and resources: managed identity RBAC roles, a provisioned workspace and namespace, an Event Hubs instance, a Fast Healthcare Interoperability Resources (FHIR&#174;) service instance, and a MedTech service instance. All you need to add are post-deployment device mapping, destination mapping, and a shared access policy key. This method simplifies your deployment, but doesn't allow for much customization.
+Using an ARM template with Azure portal is the easiest and fastest deployment method because it automates most of your configuration with the touch of a **Deploy to Azure** button. This button automatically generates the following configurations and resources: managed identity Azure role-based access (RBAC) roles, a provisioned workspace and namespace, an Event Hubs instance, a Fast Healthcare Interoperability Resources (FHIR&#174;) service instance, and a MedTech service instance. All you need to add are post-deployment device mapping, destination mapping, and a shared access policy key. This method simplifies your deployment, but doesn't allow for much customization.
 
-For more information about the Quickstart template and the Deploy to Azure button, see [Deploy the MedTech service with a Quickstart template](deploy-02-new-button.md).
+For more information about the ARM template and the Deploy to Azure button, see [Quickstart: Deploy MedTech service with Azure Resource Manager template](deploy-02-new-button.md).
 
 ## Azure PowerShell and Azure CLI automation
 
 Azure provides Azure PowerShell and Azure CLI to speed up your configurations when used in enterprise environments. Deploying MedTech service with Azure PowerShell or Azure CLI can be useful for adding automation so that you can scale your deployment for a large number of developers. This method is more detailed but provides extra speed and efficiency because it allows you to automate your deployment.
 
-For more information about Using an ARM template with Azure PowerShell and Azure CLI, see [Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates](deploy-08-new-ps-cli.md).
+For more information about Using an ARM template with Azure PowerShell and Azure CLI, see [Quickstart: Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates](deploy-08-new-ps-cli.md).
 
 ## Manual deployment
 
@@ -48,11 +48,11 @@ There are six different steps of the MedTech service PaaS. Only the first four a
 ### Step 1: Prerequisites
 
 - Have an Azure subscription
-- Create RBAC roles contributor and user access administrator or owner. This feature is automatically done in the Quickstart template method with the Deploy to Azure button. It isn't included in the manual or PowerShell/CLI methods and needs to be implemented individually.
+- Create RBAC roles contributor and user access administrator or owner. This feature is automatically done in the ARM template method with the Deploy to Azure button. It isn't included in the manual or PowerShell/CLI methods and needs to be implemented individually.
 
 ### Step 2: Provision
 
-The QuickStart template method with the Deploy to Azure button automatically provides all these steps, but they aren't included in the manual or the PowerShell/CLI method and must be completed individually.
+The ARM template method with the Deploy to Azure button automatically provides all these steps, but they aren't included in the manual or the PowerShell/CLI method and must be completed individually.
 
 - Create a resource group and workspace for Event Hubs, FHIR, and MedTech services.
 - Provision an Event Hubs instance to a namespace.
@@ -75,7 +75,7 @@ Each method must add **all** these post-deployment tasks:
 - Connect to services using device and destination mapping.
 - Use managed identity to grant access to the device message event hub.
 - Use managed identity to grant access to the FHIR service, enabling FHIR to receive data from the MedTech service.
-- Note: only the ARM Quickstart method requires a shared access key for post-deployment.
+- Note: only the ARM template method requires a shared access key for post-deployment.
 
 ### Granting access to the device message event hub
 
