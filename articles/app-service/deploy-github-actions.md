@@ -715,6 +715,7 @@ name: Node.js
 
 env:
   AZURE_WEBAPP_NAME: my-app   # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.x'                # set this to the node version to use
 
 jobs:
@@ -974,6 +975,7 @@ name: Node.js
 
 env:
   AZURE_WEBAPP_NAME: my-app   # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.x'                # set this to the node version to use
 
 jobs:
