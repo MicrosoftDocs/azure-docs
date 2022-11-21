@@ -96,22 +96,36 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
 
-    ```azurecli
-    az account set --subscription "subscriptionID"
+    ```bash
+    export SUBSCRIPTION_ID="$(az account show --query id --output tsv)"
     ```
 
     ```azurecli
-    az identity create --name "userAssignedIdentityName" --resource-group "resourceGroupName" --location "location" --subscription "subscriptionID"
+    az account set --subscription "${SUBSCRIPTION_ID}"
+    ```
+
+    ```bash
+    export USER_ASSIGNED_IDENTITY_NAME="${IDENTITY:-myIdentity}"
+    export RG_NAME="${RESOURCE_GROUP:-myResourceGroup}"
+    export LOCATION="${LOC:-eastus}"
+    export SUBSCRIPTION_ID="$(az account show --query id --output tsv)"
+    ```
+
+    ```azurecli
+    az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RG_NAME}" --location "${LOCATION}" --subscription "${SUBSCRIPTION_ID}"
     ```
 
 2. Set an access policy for the managed identity to access secrets in your Key Vault by running the following commands:
 
     ```bash
-    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "resourceGroupName" --name "userAssignedIdentityName" --query 'clientId' -otsv)"
+    export RG_NAME="${RESOURCE_GROUP:-myResourceGroup}"
+    export USER_ASSIGNED_IDENTITY_NAME="${IDENTITY:-myIdentity}"
+    export KEYVAULT_NAME="${KEYVAULT:-myKeyVault}"
+    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RG_NAME}" --name "${USER_ASSIGNED_IDENTITY_NAME}" --query 'clientId' -otsv)"
     ```
 
     ```azurecli
-    az keyvault set-policy --name "keyVaultName" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
+    az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
     ```
 
 ## Create Kubernetes service account
