@@ -5965,7 +5965,7 @@
         },
         {
             "source_path_from_root": "/articles/update-center/enable-machines.md",
-            "redirect_url": "enable-machines",
+            "redirect_url": "/azure/update-center/updates-maintenance-schedules",
             "redirect_document_id": false
         },
         {
