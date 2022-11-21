@@ -22,6 +22,12 @@ See [Monitoring Azure Functions with Azure Monitor Application Insights](./monit
 
 Read the Spring Boot documentation [here](../app/java-in-process-agent.md).
 
+## Third-party container images
+
+If you are using a third-party container image which you cannot modify, mount the Application Insights Java agent jar
+into the container from outside, and set the environment variable for the container
+`JAVA_TOOL_OPTIONS=-javaagent:/path/to/applicationinsights-agent.jar`.
+
 ## Tomcat 8 (Linux)
 
 ### Tomcat installed via `apt-get` or `yum`
