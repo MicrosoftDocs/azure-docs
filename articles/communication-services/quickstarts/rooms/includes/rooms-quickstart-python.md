@@ -26,7 +26,7 @@ You can review and download the sample code for this quick start on [GitHub](htt
 
 ## Setting up
 
-### Create a new python application
+### Create a new Python application
 
 In a terminal or console window, create a new folder for your application and navigate to it.
 

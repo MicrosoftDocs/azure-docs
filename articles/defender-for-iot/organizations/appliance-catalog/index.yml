@@ -47,11 +47,11 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: OT sensor (VMWare ESXi)
+          - text: OT sensor (VMware ESXi)
             url: virtual-sensor-vmware.md
           - text: OT sensor (Microsoft Hyper-V)
             url: virtual-sensor-hyper-v.md
-          - text: On-premises management console (VMWare ESXi)
+          - text: On-premises management console (VMware ESXi)
             url: virtual-management-vmware.md
           - text: On-premises management console (Microsoft Hyper-V)
             url: virtual-management-hyper-v.md
