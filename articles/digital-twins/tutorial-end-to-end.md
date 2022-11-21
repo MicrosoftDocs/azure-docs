@@ -301,10 +301,11 @@ Next, plug these values into the device simulator code in your local project to 
 Navigate on your local machine to the downloaded sample folder, and into the *digital-twins-samples\DeviceSimulator\DeviceSimulator* folder. Open the *AzureIoTHub.cs* file for editing. Change the following connection string values to the values you gathered above:
 
 ```csharp
-iotHubConnectionString = <your-hub-connection-string>
-deviceConnectionString = <your-device-connection-string>
-```
 
+private const string iotHubConnectionString = "<your-hub-connection-string>";
+
+private const string deviceConnectionString = "<your-device-connection-string>";
+```
 Save the file.
 
 Now, to see the results of the data simulation that you've set up, open a new local console window and navigate to *digital-twins-samples\DeviceSimulator\DeviceSimulator*.
