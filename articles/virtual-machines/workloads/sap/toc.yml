@@ -394,35 +394,35 @@
       href: /azure/active-directory/saas-apps/sap-successfactors-writeback-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: Provision users to SAP Cloud Identity Services - Identity Authentication
       href: /azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json      
-    - name: Single Sign On
+    - name: Configure Single Sign On
       items:
-      - name: Configure SSO with SAP Cloud Identity Services - Identity Authentication
+      - name: SAP Cloud Identity Services - Identity Authentication
         href: /azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP SuccessFactors
+      - name: SAP SuccessFactors
         href: /azure/active-directory/saas-apps/successfactors-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP Analytics Cloud
+      - name: SAP Analytics Cloud
         href: /azure/active-directory/saas-apps/sapboc-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP Fiori
+      - name: SAP Fiori
         href: /azure/active-directory/saas-apps/sap-fiori-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP Qualtrics
+      - name: SAP Qualtrics
         href: /azure/active-directory/saas-apps/qualtrics-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP Ariba
+      - name: SAP Ariba
         href: /azure/active-directory/saas-apps/ariba-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP Concur Travel and Expense
+      - name: SAP Concur Travel and Expense
         href: /azure/active-directory/saas-apps/concur-travel-and-expense-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP Business Technology Platform
+      - name: SAP Business Technology Platform
         href: /azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP NetWeaver
+      - name: SAP NetWeaver
         href: /azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP Business ByDesign
+      - name: SAP Business ByDesign
         href: /azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP HANA
+      - name: SAP HANA
         href: /azure/active-directory/saas-apps/saphana-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAP Cloud for Customer
+      - name: SAP Cloud for Customer
         href: /azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
-      - name: Configure SSO with SAPGUI using Kerberos and Azure AD Domain Services
+      - name: SAPGUI using Kerberos and Azure AD Domain Services
         href: https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/
-  - name: Azure Data Services integration
+  - name: Azure Data Services
     items:
     - name: Use SAP HANA in Power BI Desktop
       href: /power-bi/desktop-sap-hana?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
