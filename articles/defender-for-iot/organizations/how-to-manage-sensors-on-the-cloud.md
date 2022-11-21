@@ -31,7 +31,7 @@ Details about each sensor are listed in the following columns:
 |**Zone**| Displays the zone that contains this sensor.|
 |**Subscription name**| Displays the name of the Microsoft Azure account subscription that this sensor belongs to. |
 |**Sensor version**| Displays the software version installed on your sensor. |
-|**Sensor status**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview).|
+|**Sensor status**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health).|
 |**Last connected (UTC)**| Displays how long ago the sensor was last connected.|
 |**Threat Intelligence version**| Displays the [Threat Intelligence version](how-to-work-with-threat-intelligence-packages.md) installed on the sensor. The name of the version is based on the day the package was built by Defender for IoT. |
 |**Threat Intelligence mode**| Displays whether the Threat Intelligence mode is manual or automatic. If it's manual that means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages will be automatically installed on the cloud connected sensors. |
@@ -103,7 +103,7 @@ Make sure that you've started with the relevant updates steps for this update. F
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 >
 
-## Understand sensor health (Public preview)
+## Understand sensor health
 
 This procedure describes how to view sensor health data from the Azure portal. Sensor health includes data such as whether traffic is stable, the sensor is overloaded, notifications about sensor software versions, and more.
 
