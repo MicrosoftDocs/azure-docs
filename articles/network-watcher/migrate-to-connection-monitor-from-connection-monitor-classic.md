@@ -9,8 +9,9 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/07/2021
+ms.date: 06/30/2021
 ms.author: vinigam
+ms.custom: engagement-fy23
 #Customer intent: I need to migrate from Connection Monitor to Connection Monitor. 
 ---
 # Migrate to Connection Monitor from Connection Monitor (Classic)
