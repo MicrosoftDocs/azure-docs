@@ -47,7 +47,7 @@ sections:
   - name: Quotas
     questions:
       - question: |
-          How
+          How can I request a [quota](quotas.md) increase?
         answer: |
           To request an increase in quota amounts for your container app, submit a support ticket, with the following fields: 
 
