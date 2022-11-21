@@ -13,7 +13,7 @@ sections:
     questions:
       - question: How can I use NAT gateway to connect outbound in a setup where load balancer outbound rules or virtual machine public IPs are being used?
         answer: |
-          NAT gateway will automatically be used to connect outbound to the internet as soon as it is associated with a public IP address or prefix and a subnet. NAT gateway will be used to conenct outbound over load balancer or instance-level public IP addresses on virtual machines.
+          NAT gateway will automatically be used to connect outbound to the internet as soon as it is associated with a public IP address or prefix and a subnet. NAT gateway will be used to connect outbound over load balancer or instance-level public IP addresses on virtual machines.
      
       - question: Is there a drop in packets when a virtual network configured with Load balancer outbound rules switches to NAT gateway after being configured to a subnet?
         answer: |
@@ -54,7 +54,7 @@ sections:
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
-          No, the address of an existing publi IP can't be changed. A different or additional IPs can be added to NAT gateway.  Associate either an existing or newly created public IP address to the NAT gateway resource.  Disassociate the old IP address. See [add or remove a public IP address](/azure/virtual-network/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
+          No, the address of an existing public IP can't be changed. A different or additional IP can be added to NAT gateway.  Associate either an existing or newly created public IP address to the NAT gateway resource.  Disassociate the old IP address. See [add or remove a public IP address](/azure/virtual-network/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
 
       - question: If multiple public IP addresses are assigned to a NAT gateway resource, which public IPs will be used by my subnet resources?
         answer: |
