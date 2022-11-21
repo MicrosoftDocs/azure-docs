@@ -29384,5 +29384,10 @@
             "redirect_url": "/azure/developer/terraform/quickstart-configure",
             "redirect_document_id": false
         }
+        {
+            "source_path_from_root": "/articles/update-center/enable-machines.md",
+            "redirect_url": "enable-machines",
+            "redirect_document_id": false
+        },
     ]
 }
