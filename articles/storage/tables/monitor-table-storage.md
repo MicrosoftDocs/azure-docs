@@ -1,5 +1,5 @@
 ---
-title: Monitoring Azure Table storage | Microsoft Docs
+title: Monitoring Azure Table storage
 description: Learn how to monitor the performance and availability of Azure Table storage. Monitor Azure Table storage data, learn about configuration, and analyze metric and log data.
 author: normesta
 services: storage

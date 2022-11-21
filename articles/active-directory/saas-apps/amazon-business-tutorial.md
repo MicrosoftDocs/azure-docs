@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/08/2022
+ms.date: 11/17/2022
 ms.author: jeedes
 ---
 
@@ -20,6 +20,8 @@ In this tutorial, you'll learn how to integrate Amazon Business with Azure Activ
 * Control in Azure AD who has access to Amazon Business.
 * Enable your users to be automatically signed-in to Amazon Business with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5cbi8]
 
 ## Prerequisites
 
