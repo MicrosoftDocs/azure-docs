@@ -33,6 +33,8 @@ Key management for Azure NetApp Files is handled by the service. A unique XTS-AE
 
 Support for customer-managed keys (Bring Your Own Key) using Azure Dedicated HSM is available on a controlled basis in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access at [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com). As capacity becomes available, requests will be approved.
 
+[Customer-managed keys](configure-customer-managed-keys.md) are available with limited regional support. <!-- ASK ABOUT -->
+
 ## Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
 
 Yes, you can configure up to five rules in a single NFS export policy.
