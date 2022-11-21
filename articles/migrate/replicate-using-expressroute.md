@@ -5,7 +5,8 @@ author: DeSeelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 04/18/2022
+ms.custom: engagement-fy23
 ---
 
 # Replicate data over ExpressRoute for Azure Migrate projects with public endpoint connectivity
