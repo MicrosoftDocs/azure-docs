@@ -191,6 +191,11 @@ Query expressions can have a maximum length of 8192 characters.
 
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
+
+> [!Note]
+> We recommend to not take a dependency on lastActivityTime found in Device Identity Properties for Twin Queries for any scenario. We do not prioritize the update of this field to accurately gauge device status. Instead, please use IoT Device Lifecycle events to manage device state and activities
+
 ## Next steps
 
 * Understand the basics of the [IoT Hub query language](iot-hub-devguide-query-language.md)
+
