@@ -422,8 +422,18 @@
         href: /azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
       - name: SAPGUI using Kerberos and Azure AD Domain Services
         href: https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/
+  - name: Microsoft Power Platform
+    items:
+    - name: Overview of SAP integration
+      href: /power-automate/sap-integration/overview
+  - name: Azure Integration Services
+    items:
+    - name: Connect to SAP from workflows in Azure Logic Apps
+      href: /azure/logic-apps/logic-apps-using-sap-connector
   - name: Azure Data Services
     items:
+    - name: SAP knowledge center for Azure Data Factory and Synapse
+      href: /azure/data-factory/industry-sap-overview
     - name: Use SAP HANA in Power BI Desktop
       href: /power-bi/desktop-sap-hana?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
     - name: DirectQuery and SAP HANA
