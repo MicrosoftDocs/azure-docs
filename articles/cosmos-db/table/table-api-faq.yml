@@ -123,7 +123,7 @@ sections:
       - question: |
           How do I migrate an existing Azure Table storage application to this offering?
         answer: |
-          [AzCopy](../../storage/common/storage-use-azcopy-v10.md) and the [Azure Cosmos DB Data Migration Tool](../import-data.md) are both supported.
+          [AzCopy](../../storage/common/storage-use-azcopy-v10.md) is supported.
 
       - question: |
           How is expansion of the storage size done for this service if, for example, I start with 'n' GB of data and my data will grow to 1 TB over time?
