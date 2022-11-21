@@ -308,11 +308,11 @@ ml_client.models.create_or_update(model=model_example)
 
 ### Archive
 
-Archiving a model will hide it by default from list queries (`az ml model list`). You can still continue to reference and use an archived model in your workflows. You can archive either all versions of an model or only a specific version.
+Archiving a model will hide it by default from list queries (`az ml model list`). You can still continue to reference and use an archived model in your workflows. You can archive either all versions of a model or only a specific version.
 
 If you don't specify a version, all versions of the model under that given name will be archived. If you create a new model version under an archived model container, that new version will automatically be set as archived as well.
 
-Archive all versions of an model:
+Archive all versions of a model:
 
 # [Azure CLI](#tab/cli)
 
