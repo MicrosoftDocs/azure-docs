@@ -194,6 +194,3 @@ The output of the app should be similar to this example:
 ## Next steps
 
 In this quickstart, you learned how to create an Azure Cosmos DB for NoSQL account, create a database, and create a container using the Python SDK. You can now dive deeper into guidance on how to import your data into the API for NoSQL.
-
-> [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for NoSQL](../import-data.md)
