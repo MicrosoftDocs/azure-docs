@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 06/22/2022
+ms.date: 11/22/2022
 ms.custom: template-tutorial, ignite-2022
 ---
 
@@ -22,11 +22,9 @@ In this tutorial, you learn how to:
 > * Create a storage account with a private endpoint.
 > * Test connectivity to the storage account private endpoint.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
 
-* An Azure subscription
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
 
@@ -34,11 +32,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a virtual network and bastion host
 
-In this section, you'll create a virtual network, subnet, and bastion host. 
+Create a virtual network, subnet, and bastion host. The virtual network and subnet will contain the private endpoint that connects to the Azure Storage Account.
 
 The bastion host will be used to connect securely to the virtual machine for testing the private endpoint.
 
-1. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+2. Select **+ Create**.
 
 2. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
@@ -46,12 +46,12 @@ The bastion host will be used to connect securely to the virtual machine for tes
     |------------------|------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription.                     |
-    | Resource Group   | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. |
+    | Resource Group   | Select **Create new**. </br> Enter **TutorPEstorage-rg** in **Name**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**.                                 |
     | Region           | Select **East US**. |
 
-3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+3. Select the **IP Addresses** tab or select **Next: IP Addresses**.
 
 4. In the **IP Addresses** tab, enter this information:
 
@@ -59,7 +59,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
     |--------------------|----------------------------|
     | IPv4 address space | Enter **10.1.0.0/16**. |
 
-5. Under **Subnet name**, select the word **default**.
+5. Under **Subnet name**, select the word **default**. If a subnet isn't listed, select **+ Add subnet**.
 
 6. In **Edit subnet**, enter this information:
 
@@ -77,7 +77,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Bastion name | Enter **myBastionHost**. |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/24**. |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/26**. |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 
@@ -85,36 +85,41 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
 9. Select **Create**.
 
+It will take a few minutes for the virtual network and Azure Bastion host to deploy. Proceed to the next steps when the virtual network is created.
+
 ## Create a virtual machine
 
 In this section, you'll create a virtual machine that will be used to test the private endpoint.
 
-
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine** or search for **Virtual machine** in the search box.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
    
-2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+2. Select **+ Create** > **Azure virtual machine**.
+
+
+2. In **Create a virtual machine**, enter or select the following in the **Basics** tab:
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **myResourceGroup**. |
+    | Resource Group | Select **TutorPEstorage-rg**. |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM**. |
     | Region | Select **(US) East US**. |
     | Availability Options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
-    | Image | Select **Windows Server 2019 Datacenter - Gen2**. |
-    | Azure Spot instance | Select **No**. |
-    | Size | Choose VM size or take default setting. |
+    | Image | Select **Windows Server 2022 Datacenter: Azure Edition - Gen2**. |
+    | Size | Choose a size or leave the default setting. |
     | **Administrator account** |  |
     | Username | Enter a username. |
     | Password | Enter a password. |
     | Confirm password | Reenter password. |
+    | **Inbound port rules** |   |
+    | Public inbound ports | Select **None**. |
 
 3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
-4. In the Networking tab, select or enter:
+4. In the Networking tab, enter or select the following information:
 
     | Setting | Value |
     |-|-|
@@ -133,7 +138,7 @@ In this section, you'll create a virtual machine that will be used to test the p
 
 ## Create storage account with a private endpoint
 
-In this section, you'll create a storage account and configure the private endpoint.
+Create a storage account and configure the private endpoint. The private endpoint uses a network interface assigned an IP address in the virtual network you created previously.
 
 1. In the left-hand menu, select **Create a resource** > **Storage** > **Storage account**, or search for **Storage account** in the search box.
 
@@ -143,7 +148,7 @@ In this section, you'll create a storage account and configure the private endpo
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **myResourceGroup**. |
+    | Resource Group | Select **TutorPEstorage-rg**. |
     | **Instance details** |  |
     | Storage account name | Enter **mystorageaccount**. If the name is unavailable, enter a unique name. |
     | Location | Select **(US) East US**. |
@@ -161,7 +166,7 @@ In this section, you'll create a storage account and configure the private endpo
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
     | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **myResourceGroup**. |
+    | Resource Group | Select **TutorPEstorage-rg**. |
     | Location | Select **East US**. |
     | Name | Enter **myPrivateEndpoint**. |
     | Storage sub-resource | Leave the default **blob**. |
@@ -180,7 +185,7 @@ In this section, you'll create a storage account and configure the private endpo
 
 10. Select **Resource groups** in the left-hand navigation pane.
 
-11. Select **myResourceGroup**.
+11. Select **TutorPEstorage-rg**.
 
 12. Select the storage account you created in the previous steps.
 
@@ -206,7 +211,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 1. Select **Resource groups** in the left-hand navigation pane.
 
-2. Select **myResourceGroup**.
+2. Select **TutorPEstorage-rg**.
 
 3. Select **myVM**.
 
@@ -258,11 +263,11 @@ If you're not going to continue to use this application, delete the virtual netw
 
 1. From the left-hand menu, select **Resource groups**.
 
-2. Select **myResourceGroup**.
+2. Select **TutorPEstorage-rg**.
 
 3. Select **Delete resource group**.
 
-4. Enter **myResourceGroup** in **TYPE THE RESOURCE GROUP NAME**.
+4. Enter **TutorPEstorage-rg** in **TYPE THE RESOURCE GROUP NAME**.
 
 5. Select **Delete**.
 
