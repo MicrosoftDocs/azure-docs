@@ -186,7 +186,7 @@ Below is a list of common deployment errors that are reported as part of the dep
 * [NamespaceNotFound](#error-namespacenotfound)
 * [KubernetesCrashLoopBackOff](#error-kubernetescrashloopbackoff)
 * [ACRSecretError](#error-acrsecreterror)
-* [InferencingClientCallFailed ](#error-inferencingclientcallfailed )
+* [InferencingClientCallFailed](#error-inferencingclientcallfailed )
 
 
 ### ERROR: ImageBuildFailure
@@ -589,7 +589,7 @@ ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2,
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
-# Troubleshooting online endpoints deployment and scoring
+## Troubleshooting online endpoints deployment and scoring
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -761,7 +761,7 @@ Below is a list of common deployment errors that are reported as part of the dep
 * [NamespaceNotFound](#error-namespacenotfound)
 * [KubernetesCrashLoopBackOff](#error-kubernetescrashloopbackoff)
 * [ACRSecretError](#error-acrsecreterror)
-* [InferencingClientCallFailed ](#error-inferencingclientcallfailed )
+* [InferencingClientCallFailed](#error-inferencingclientcallfailed )
 
 
 ### ERROR: ImageBuildFailure
