@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Files problems in Linux (SMB) | Microsoft Docs
+title: Troubleshoot Azure Files problems in Linux (SMB)
 description: Troubleshooting Azure Files problems in Linux. See common issues related to SMB Azure file shares when you connect from Linux clients, and see possible resolutions.
 author: khdownie
 ms.service: storage

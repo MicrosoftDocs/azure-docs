@@ -1,5 +1,5 @@
 ---
-title: Understand Azure Files billing | Microsoft Docs
+title: Understand Azure Files billing
 description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure file shares.
 author: khdownie
 ms.service: storage

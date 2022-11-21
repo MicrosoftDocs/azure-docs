@@ -1,5 +1,6 @@
 ---
-title: Download a blob with JavaScript - Azure Storage
+title: Download a blob with JavaScript
+titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the JavaScript client library.
 services: storage
 author: pauljewellmsft
