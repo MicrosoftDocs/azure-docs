@@ -23,11 +23,9 @@ Azure Front Door helps deliver low-latency, high-throughput content at scale fro
 ## Deployment steps
 
 This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure Front Door. In this guide we'll be using the Azure portal. The reference architecture for this deployment is represented below.   
-
-<p align="center">
-<img src="./media/application-proxy-azure-front-door/azure-front-door.png" alt="Diagram of deployment described" width="650" height="600">
- </p>
  
+:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door.png" alt-text="Diagram of deployment described" lightbox="./media/application-proxy-azure-front-door/azure-front-door.png":::
+
 ## Prerequisites
 
 - A Front Door Service – Standard or Classic tier
@@ -85,18 +83,12 @@ Follow these steps to configure the Front Door Service (Standard):
 | **Origin hostname** | contoso.msappproxy.net | The URL generated for the app by Application Proxy must be utilized here.|
 | **Connector group** | North America | Select the connector group in the geo closest to where the app instance will be in for optimized performance.|
 
-<p align="center">
-<img src="./media/application-proxy-azure-front-door/azure-front-door-profile-1.png" alt="Screenshot of Azure Front Door Configuration 1" width="800" height="750">
- </p>
- 
- <p align="center">
-<img src="./media/application-proxy-azure-front-door/azure-front-door-profile-2.png" alt="Screenshot of Azure Front Door Configuration 2" width="800" height="600">
- </p>
- 
- <p align="center">
-<img src="./media/application-proxy-azure-front-door/azure-front-door-profile-3.png" alt="Screenshot of Azure Front Door Configuration 3" width="800" height="500">
- </p>
- 
+:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door-profile-1.png" alt-text="Screenshot of Azure Front Door Configuration 1" lightbox="./media/application-proxy-azure-front-door/azure-front-door-profile-1.png":::
+
+:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door-profile-2.png" alt-text="Screenshot of Azure Front Door Configuration 2" lightbox="./media/application-proxy-azure-front-door/azure-front-door-profile-2.png":::
+
+:::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door-profile-3.png" alt-text="Screenshot of Azure Front Door Configuration 3" lightbox="./media/application-proxy-azure-front-door/azure-front-door-profile-3.png":::
+
 ## Next steps
 
 To prevent false positives, learn how to [Customize Web Application Firewall rules](../../web-application-firewall/ag/application-gateway-customize-waf-rules-portal.md), configure [Web Application Firewall exclusion lists](../../web-application-firewall/ag/application-gateway-waf-configuration.md?tabs=portal), or [Web Application Firewall custom rules](../../web-application-firewall/ag/create-custom-waf-rules.md).
