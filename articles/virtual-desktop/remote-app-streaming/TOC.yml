@@ -151,7 +151,7 @@
   - name: Other topics
     items: 
     - name: Azure Virtual Desktop Insights glossary
-      href: ../azure-insights-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+      href: ../insights-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Built-in roles
       href: ../rbac.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Authentication
@@ -221,7 +221,7 @@
   - name: Diagnosing graphics performance issues
     href: ../remotefx-graphics-performance-counters.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Azure Virtual Desktop Insights
-    href: ../troubleshoot-azure-insights.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    href: ../troubleshoot-insights.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Management issues
     href: ../troubleshoot-management-issues.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: Reference
@@ -231,7 +231,7 @@
   - name: Azure CLI
     href: /cli/azure/desktopvirtualization
   - name: Estimate Azure Virtual Desktop Insights costs
-    href: ../azure-insights-costs.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    href: ../insights-costs.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Supported RDP properties
     href: ../rdp-properties.md
   - name: Virtual machine sizing guidance

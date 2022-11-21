@@ -217,7 +217,7 @@ Azure Virtual Desktop diagnostics should make up less than 1% of your data stora
 
 Learn more about Azure Virtual Desktop Insights at these articles:
 
-- [Use Azure Virtual Desktop Insights to monitor your deployment](azure-insights.md).
-- Use the [glossary](azure-insights-glossary.md) to learn more about terms and concepts.
-- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-insights.md) for help.
+- [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
+- Use the [glossary](insights-glossary.md) to learn more about terms and concepts.
+- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help.
 - Check out [Monitoring usage and estimated costs in Azure Monitor](../azure-monitor/usage-estimated-costs.md) to learn more about managing your monitoring costs.

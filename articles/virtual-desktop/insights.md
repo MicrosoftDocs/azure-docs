@@ -43,7 +43,7 @@ You can open Azure Virtual Desktop Insights with one of the following methods:
 Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
 
 >[!NOTE]
->Azure Virtual Desktop currently only supports monitoring one subscription, resource group, and host pool at a time. If you can't find the environment you want to monitor, see [our troubleshooting documentation](troubleshoot-azure-insights.md) for known feature requests and issues.
+>Azure Virtual Desktop currently only supports monitoring one subscription, resource group, and host pool at a time. If you can't find the environment you want to monitor, see [our troubleshooting documentation](troubleshoot-insights.md) for known feature requests and issues.
 
 ## Log Analytics settings
 
@@ -186,7 +186,7 @@ For more information about data collection and usage, see the [Microsoft Online 
 
 Now that you’ve configured Azure Virtual Desktop Insights for your Azure Virtual Desktop environment, here are some resources that might help you start monitoring your environment:
 
-- Check out our [glossary](azure-insights-glossary.md) to learn more about terms and concepts related to Azure Virtual Desktop Insights.
-- To estimate, measure, and manage your data storage costs, see [Estimate Azure Virtual Desktop Insights costs](azure-insights-costs.md).
-- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-insights.md) for help and known issues.
-- To see what's new in each version update, see [What's new in Azure Virtual Desktop Insights](whats-new-azure-insights.md).
+- Check out our [glossary](insights-glossary.md) to learn more about terms and concepts related to Azure Virtual Desktop Insights.
+- To estimate, measure, and manage your data storage costs, see [Estimate Azure Virtual Desktop Insights costs](insights-costs.md).
+- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help and known issues.
+- To see what's new in each version update, see [What's new in Azure Virtual Desktop Insights](whats-new-insights.md).

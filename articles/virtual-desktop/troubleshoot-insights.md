@@ -28,7 +28,7 @@ If the configuration workbook isn't working properly to automate setup, you can 
 
 If your data isn't displaying properly, check the following common solutions:
 
-- First, make sure you've set up correctly with the configuration workbook as described in [Use Azure Virtual Desktop Insights to monitor your deployment](azure-insights.md). If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
+- First, make sure you've set up correctly with the configuration workbook as described in [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md). If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
 - Check your access permissions & contact the resource owners to request missing permissions; anyone monitoring Azure Virtual Desktop requires the following permissions:
     - Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources
     - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts 
@@ -48,7 +48,7 @@ By design, custom Workbook templates will not automatically adopt updates from t
 
 ## I can't interpret the data
 
-Learn more about data terms at the [Azure Virtual Desktop Insights glossary](azure-insights-glossary.md).
+Learn more about data terms at the [Azure Virtual Desktop Insights glossary](insights-glossary.md).
 
 ## The data I need isn't available
 
@@ -78,6 +78,6 @@ The following are issues and limitations we're aware of and working to fix:
 
 ## Next steps
 
-- To get started, see [Use Azure Virtual Desktop Insights to monitor your deployment](azure-insights.md).
-- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-insights-costs.md).
-- Check out our [glossary](azure-insights-glossary.md) to learn more about terms and concepts related to Azure Virtual Desktop Insights.
+- To get started, see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
+- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](insights-costs.md).
+- Check out our [glossary](insights-glossary.md) to learn more about terms and concepts related to Azure Virtual Desktop Insights.

@@ -152,4 +152,4 @@ This update was released in March 2021 and has the following changes:
 
 For the general What's New page, see [What's New in Azure Virtual Desktop](whats-new.md).
 
-To learn more about Azure Virtual Desktop Insights, see [Use Azure Virtual Desktop Insights to monitor your deployment](azure-insights.md).
+To learn more about Azure Virtual Desktop Insights, see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
