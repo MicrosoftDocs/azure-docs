@@ -19,7 +19,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 ## November 2022
 * Conversational PII now supports up to 40,000 characters as document size.
-* New versions of the Azure.AI.TextAnalytics client library are available in preview:
+* New versions of the text analysis client library are available in preview:
     
     ### [Java](#tab/java)
     
