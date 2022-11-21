@@ -4,14 +4,18 @@ description: Learn how to prioritize remediation of cloud misconfigurations and 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/21/2022
+ms.date: 11/08/2022
 ---
 
 # What are the cloud security graph, attack path analysis, and the cloud security explorer? 
 
+<iframe src="https://aka.ms/docs/player?id=36a5c440-00e6-4bd8-be1f-a27fbd007119" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+
 One of the biggest challenges that security teams face today is the number of security issues they face on a daily basis. There are numerous security issues that need to be resolve and never enough resources to address them all. 
 
-Defender for Cloud's contextual security capabilities assists security teams to assess the risk behind each security issue, and identify the highest risk issues that need to be resolved soonest. Defender for Cloud assists security teams to reduce the risk of an impactful breach to their environment in the most effective way. 
+Defender for Cloud's contextual security capabilities assists security teams to assess the risk behind each security issue, and identify the highest risk issues that need to be resolved soonest. Defender for Cloud assists security teams to reduce the risk of an impactful breach to their environment in the most effective way.
+
+All of these capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan and the requiring the enablement of [agentless scanning for VMs](concept-agentless-data-collection.md)
 
 ## What is cloud security graph?
 
@@ -37,8 +41,11 @@ Using the cloud security explorer, you can proactively identify security risks i
 
 Cloud security explorer provides you with the ability to perform proactive exploration features. You can search for security risks within your organization by running graph-based path-finding queries on top the contextual security data that is already provided by Defender for Cloud. Such as, cloud misconfigurations, vulnerabilities, resource context, lateral movement possibilities between resources and more.
 
-Learn how to use the [cloud security explorer](how-to-manage-cloud-security-explorer.md), or check out the list of [insights and connections](attack-path-reference.md#insights-and-connections).
+Learn how to use the [cloud security explorer](how-to-manage-cloud-security-explorer.md), or check out the [cloud security graph components list](attack-path-reference.md#cloud-security-graph-components-list).
 
 ## Next steps
 
-[Identify and remediate attack paths](how-to-manage-attack-path.md)
+- [Enable Defender CSPM on a subscription](enable-enhanced-security.md#enable-enhanced-security-features-on-a-subscription)
+- [Identify and remediate attack paths](how-to-manage-attack-path.md)
+- [Enabling agentless scanning for machines](enable-vulnerability-assessment-agentless.md#enabling-agentless-scanning-for-machines)
+- [Build a query with the cloud security explorer](how-to-manage-cloud-security-explorer.md)

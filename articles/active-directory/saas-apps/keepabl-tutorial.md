@@ -78,12 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Identifier** textbox, type a value using the following pattern:
     `keepabl_microsoft_azure_<OrganizationID>`
 
-    b. In the **Reply URL** text box, type one of the following URLs:
-
-    | **Reply URL** |
-    |---------|
-    | `https://app.keepabl.com/users/saml/auth` |
-    | `https://keepabl.herokuapp.com/users/saml/auth` |
+    b. In the **Reply URL** text box, type the URL: `https://app.keepabl.com/users/saml/auth`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in SP initiated mode:
 

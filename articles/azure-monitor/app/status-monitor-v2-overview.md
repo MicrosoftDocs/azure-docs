@@ -2,7 +2,7 @@
 title: Application Insights Agent overview | Microsoft Docs
 description: Learn how to use Application Insights Agent to monitor website performance without redeploying the website. It works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/15/2022
 ms.reviewer: abinetabate
 ---
 

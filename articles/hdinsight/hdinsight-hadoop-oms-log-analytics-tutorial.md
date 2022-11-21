@@ -232,7 +232,7 @@ $LAW = "<your-Log-Analytics-workspace>"
 # obtain workspace id for defined Log Analytics workspace
 $WorkspaceId = (Get-AzOperationalInsightsWorkspace `
                     -ResourceGroupName $resourceGroup `
-                    -Name $LAW).CustomerId
+                    -Name $LAW).ResourceId
 
 # obtain primary key for defined Log Analytics workspace
 $PrimaryKey = (Get-AzOperationalInsightsWorkspace `

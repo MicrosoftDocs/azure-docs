@@ -184,7 +184,7 @@ Grant Azure image builder permissions to create images in the specified resource
 
    ```azurepowershell-interactive
    $SrcObjParams = @{
-     SourceTypePlatformImage = $true
+     PlatformImageSource = $true
      Publisher = 'MicrosoftWindowsServer'
      Offer = 'WindowsServer'
      Sku = '2019-Datacenter'
@@ -212,7 +212,7 @@ Grant Azure image builder permissions to create images in the specified resource
    ```azurepowershell-interactive
    $ImgCustomParams01 = @{
      PowerShellCustomizer = $true
-     CustomizerName = 'settingUpMgmtAgtPath'
+     Name = 'settingUpMgmtAgtPath'
      RunElevated = $false
      Inline = @("mkdir c:\\buildActions", "mkdir c:\\buildArtifacts", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
    }

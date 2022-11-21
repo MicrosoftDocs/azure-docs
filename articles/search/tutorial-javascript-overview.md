@@ -39,7 +39,7 @@ The [sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tr
 Install the following for your local development environment. 
 
 - [Node.js LTS](https://nodejs.org/en/download)
-    - Select latest runtime and version from this [list of supported language versions](/azure/azure-functions/functions-versions?tabs=azure-cli%2Clinux%2Cin-process%2Cv4&pivots=programming-language-javascript#languages).
+    - Select latest runtime and version from this [list of supported language versions](../azure-functions/functions-versions.md?pivots=programming-language-javascript&tabs=azure-cli%2clinux%2cin-process%2cv4#languages).
     - If you have a different version of Node.js installed on your local computer, consider using [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) or a Docker container.  
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
