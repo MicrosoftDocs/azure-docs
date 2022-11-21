@@ -85,7 +85,7 @@ You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/c
 >You can add extra Azure Pricing Calculator modules to estimate the cost impact of other components of your deployment, including but not limited to:
 >
 >- Domain controllers
->- Other storage-dependent features, such as custom OS images, MSIX app attach, and Azure Insights
+>- Other storage-dependent features, such as custom OS images, MSIX app attach, and Azure Virtual Desktop Insights
 
 ### Predicting user access costs
 

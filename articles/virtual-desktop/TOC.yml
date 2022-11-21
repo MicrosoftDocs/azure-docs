@@ -12,7 +12,7 @@
       href: whats-new.md
     - name: Azure Virtual Desktop Agent
       href: whats-new-agent.md
-    - name: Azure Insights
+    - name: Azure Virtual Desktop Insights
       href: whats-new-azure-insights.md
     - name: FSLogix
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
@@ -137,11 +137,11 @@
         href: app-attach-glossary.md
       - name: FAQ
         href: app-attach-faq.yml
-  - name: Azure Insights
+  - name: Azure Virtual Desktop Insights
     items:
-      - name: Estimate Azure Insights costs
+      - name: Estimate Azure Virtual Desktop Insights costs
         href: azure-insights-costs.md
-      - name: Azure Insights glossary
+      - name: Azure Virtual Desktop Insights glossary
         href: azure-insights-glossary.md
   - name: Data locations
     href: data-locations.md
@@ -329,7 +329,7 @@
       href: windows-11-language-packs.md
   - name: Resolve Azure Advisor recommendations
     href: azure-advisor-recommendations.md
-  - name: Use Azure Insights
+  - name: Use Azure Virtual Desktop Insights
     href: azure-insights.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
@@ -385,7 +385,7 @@
     href: troubleshoot-azure-ad-connections.md
   - name: Device redirections
     href: troubleshoot-device-redirections.md
-  - name: Azure Insights
+  - name: Azure Virtual Desktop Insights
     href: troubleshoot-azure-insights.md
   - name: Azure Files authorization
     href: troubleshoot-authorization.md
