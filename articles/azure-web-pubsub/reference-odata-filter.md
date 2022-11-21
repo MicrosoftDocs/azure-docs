@@ -10,11 +10,13 @@ ms.date: 11/11/2022
 
 # OData filter syntax in Azure Web PubSub service
 
-In Azure Web PubSub service, the **filter** parameter specifies inclusion or exclusion criteria for the connections to send messages to. This article describes the OData syntax of **filter** and provides examples.
+Azure Web PubSub's **filter** parameter defines inclusion or exclusion criteria for sending messages to connections. 
 
-The complete syntax is described in the [formal grammar](#formal-grammar).
+This article provides the following:
 
-There is also a browsable [syntax diagram](https://aka.ms/awps/filter-syntax-diagram) that allows you to interactively explore the grammar and the relationships between its rules.
+- A description of the OData syntax of the **filter** parameter with examples.
+- A [formal grammar](#formal-grammar) that describes the complete syntax.
+- A browsable [syntax diagram](https://aka.ms/awps/filter-syntax-diagram) to let you interactively  explore grammar rules.
 
 ## Syntax
 
@@ -35,19 +37,13 @@ boolean_expression ::= logical_expression
                      | '(' boolean_expression ')'
 ```
 
-An interactive syntax diagram is also available:
+An interactive syntax diagram is available at, [OData syntax diagram for Azure Web PubSub service](https://aka.ms/awps/filter-syntax-diagram).
 
-> [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Web PubSub service](https://aka.ms/awps/filter-syntax-diagram)
-
-> [!NOTE]
-> See [formal grammar section](#formal-grammar) for the complete EBNF.
+For the complete EBNF, see [formal grammar section](#formal-grammar) .
 
 ### Identifiers
 
-The filter syntax is used to filter out the connections matching the filter expression to send messages to.
-
-Azure Web PubSub supports below identifiers:
+Using the filter syntax, you can control sending messages to connections matching the identifier criteria.  Azure Web PubSub supports below identifiers:
 
 | Identifier | Description | Note | Examples
 | --- | --- | -- | --
@@ -55,7 +51,7 @@ Azure Web PubSub supports below identifiers:
 | `connectionId` | The connectionId of the connection. | Case insensitive. It can be used in [string operations](#supported-operations). | `connectionId ne '123'`
 | `groups` | The collection of groups the connection is currently in. | Case insensitive. It can be used in [collection operations](#supported-operations). | `'group1' in groups`
 
-Identifiers are used to refer to the property value of a connection. Azure Web PubSub supports 3 identifiers matching the property name of the connection model. and supports identifiers `userId` and `connectionId` in string operations, supports identifier `groups` in [collection operations](#supported-operations). For example, to filter out connections with userId `user1`, we specify the filter as `userId eq 'user1'`. Read through the below sections for more samples using the filter.
+Identifiers refer to the property value of a connection. Azure Web PubSub supports three identifiers matching the property name of the connection model. and supports identifiers `userId` and `connectionId` in string operations, supports identifier `groups` in [collection operations](#supported-operations). For example, to filter out connections with userId `user1`, we specify the filter as `userId eq 'user1'`. Read through the below sections for more samples using the filter.
 
 ### Boolean expressions
 
@@ -69,6 +65,9 @@ The types of Boolean expressions include:
 - Boolean expressions in parentheses. Using parentheses can help to explicitly determine the order of operations in a filter. For more information on the default precedence of the OData operators, see [operator precedence section](#operator-precedence).
 
 ### Supported operations
+
+The filter syntac supports the following operations:
+
 | Operator | Description | Example
 | --- | --- | ---
 | **Logical Operators**
@@ -136,7 +135,7 @@ not (length(userId) gt 5)
 
 ### Filter size limitations
 
-There are limits to the size and complexity of filter expressions that you can send to Azure Web PubSub service. The limits are based roughly on the number of clauses in your filter expression. A good guideline is that if you have over 100 clauses, you are at risk of exceeding the limit. We recommend designing your application in such a way that it doesn't generate filters of unbounded size.
+There are limits to the size and complexity of filter expressions that you can send to Azure Web PubSub service. The limits are based roughly on the number of clauses in your filter expression. A good guideline is that if you have over 100 clauses, you are at risk of exceeding the limit. To avoid exceeding the limit, design your application so that it doesn't generate filters of unbounded size.
 
 ## Examples
 
@@ -164,7 +163,7 @@ There are limits to the size and complexity of filter expressions that you can s
 
 ## Formal grammar
 
-We can describe the subset of the OData language supported by Azure Web PubSub service using an EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) grammar. Rules are listed "top-down", starting with the most complex expressions, and breaking them down into more primitive expressions. At the top is the grammar rule for `$filter` that correspond to specific parameter `filter` of the Azure Azure Web PubSub service `Send*` REST APIs:
+We can describe the subset of the OData language supported by Azure Web PubSub service using an EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) grammar. Rules are listed "top-down", starting with the most complex expressions, then breaking them down into more primitive expressions. At the top is the grammar rule for `$filter` that corresponds to specific parameter `filter` of the Azure Azure Web PubSub service `Send*` REST APIs:
 
 
 ```
