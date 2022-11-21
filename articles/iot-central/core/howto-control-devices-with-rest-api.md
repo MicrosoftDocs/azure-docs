@@ -41,11 +41,11 @@ Not all device templates use components. The following screenshot shows the devi
 
 The following screenshot shows a [temperature controller](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json) device template that uses components. The temperature controller has two thermostat components and a device information component:
 
-:::image type="content" source="media/howto-control-devices-with-rest-api/temperature-controller-device.png" alt-text="Screenshot that shows a temperature controller device with two thermostat components and a device information component.":::
+:::image type="content" source="media/howto-control-devices-with-rest-api/temperature-controller-device.png" alt-text="Screenshot that shows a temperature controller device with two thermostat components and a device information component." lightbox="media/howto-control-devices-with-rest-api/temperature-controller-device.png":::
 
 In IoT Central, a module refers to an IoT Edge module running on a connected IoT Edge device. A module can have a simple model such as the thermostat that doesn't use components. A module can also use components to organize a more complex set of capabilities. The following screenshot shows an example of a device template that uses modules. The environmental sensor device has a module called `SimulatedTemperatureSensor` and an inherited interface called `management`:
 
-:::image type="content" source="media/howto-control-devices-with-rest-api/environmental-sensor-device.png" alt-text="Screenshot that shows an environmental sensor device with a module.":::
+:::image type="content" source="media/howto-control-devices-with-rest-api/environmental-sensor-device.png" alt-text="Screenshot that shows an environmental sensor device with a module." lightbox="media/howto-control-devices-with-rest-api/environmental-sensor-device.png":::
 
 ## Get a device component
 

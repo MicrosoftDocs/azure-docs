@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 ---
 # Pricing Scenarios
 
-Prices for Azure Communication Services are generally based on a pay-as-you-go model. The prices in the following examples are for illustrative purposes and may not reflect the latest Azure pricing.
+Prices for Azure Communication Services are based on a pay-as-you-go model. The prices in the following examples are for illustrative purposes and may not reflect the latest Azure pricing.
 
 ## Voice/Video calling and screen sharing
 
@@ -83,7 +83,7 @@ Alice is a Dynamics 365 contact center agent, who makes an outbound call from Om
 
 - One participant on the VoIP leg (Alice) from Omnichannel for Customer Service client application x 10 minutes x $0.004 per participant leg per minute = $0.04
 - One participant on the Communication Services direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04.
-- Omnichannel for Customer Servicebot does not introduce additional ACS charges.
+- Omnichannel for Customer Service bot does not introduce additional ACS charges.
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
 
@@ -101,7 +101,24 @@ Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's
 
 Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-**Total cost for the VoIP + escalation call**: $0.16 + $0.13 = $.29
+**Total cost for the VoIP + escalation call**: $0.16 + $0.13 = $0.29
+
+### Pricing example: Group call managed by Call Automation SDK
+
+Asha calls your US toll-free number (acquired from Communication Services) from her mobile. Your service application answers the call using Call Automation SDK and plays out an IVR menu using Play and Recognize actions. Your application then adds a human agent, David, to the call who answers the call through a custom application using Calling SDK. 
+
+- Asha was on the call as a PSTN endpoint for a total of 10 minutes.
+- Your application was on the call for the entire 10 minutes of the call. 
+- David was on the call for the last 5 minutes of the call using Calling JS SDK. 
+
+**Cost calculations**
+
+- Inbound PSTN leg by Asha to toll-free number acquired from Communication Services x 10 minutes x $0.0220 per minute for receiving the call = $0.22
+- One participant on the VOIP leg (David) x 5 minutes x $0.004 per participant leg per minute = $0.02
+
+Note that the service application that uses Call Automation SDK isn't charged to be part of the call. The additional monthly cost of leasing a US toll-free number isn't included in this calculation.
+
+**Total cost for the call**: $0.22 + $0.02 = $0.24
 
 ## Call Recording
 
@@ -147,7 +164,7 @@ Bob starts a call with his financial advisor, Charlie.
 
 ## Chat
 
-With Communication Services you can enhance your application with the ability to send and receive chat messages between two or more users. Chat SDKs are available for JavaScript, .NET, Python, and Java. Refer to [this page to learn about SDKs](./sdk-options.md)
+With Communication Services, you can enhance your application with the ability to send and receive chat messages between two or more users. Chat SDKs are available for JavaScript, .NET, Python, and Java. Refer to [this page to learn about SDKs](./sdk-options.md)
 
 ### Price
 
@@ -177,7 +194,7 @@ Azure Communication Services allows for adding SMS messaging capabilities to you
 
 ### Pricing
 
-The SMS usage price is a per-message segment charge based on the destination of the message. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Please refer to the [SMS Pricing Page](./sms-pricing.md) for pricing details. 
+The SMS usage price is a per-message segment charge based on the destination of the message. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Refer to the [SMS Pricing Page](./sms-pricing.md) for pricing details. 
 
 ### Pricing example: 1:1 SMS sending
 
@@ -198,18 +215,18 @@ Contoso is a healthcare company with clinics in US and Canada. Contoso has a Pat
 Contoso is a healthcare company with clinics in US and Canada. Contoso has a Patient Appointment Reminder application that sends out SMS appointment reminders to patients regarding upcoming appointments. Patients can respond to the messages with "Reschedule" and include their date/time preference to reschedule their appointments.
 
 - The application sends appointment reminders to 20 US patients and 30 Canada patients using a CA toll-free number.
-- 6 US patients and 4 CA patients respond back to reschedule their appointments. Contoso receives 10 SMS responses in total.
-- Message length of the reschedule messages is less than 1 message segment*. Hence, total messages received are 6 message segments for US and 4 message segments for CA.
+- Six US patients and four CA patients respond back to reschedule their appointments. Contoso receives 10 SMS responses in total.
+- Message length of the reschedule messages is less than one message segment*. Hence, total messages received are six message segments for US and four message segments for CA.
 
 **Cost calculations**
 
-- US - 6 message segments x $0.0075 per received message segment + 6 message segments x $0.0010 carrier surcharge per received message segment = $0.051
-- CA - 4 message segments x $0.0075 per received message segment = $0.03
+- US - six message segments x $0.0075 per received message segment + 6 message segments x $0.0010 carrier surcharge per received message segment = $0.051
+- CA - four message segments x $0.0075 per received message segment = $0.03
 
 **Total cost for receiving patient responses from 6 US patients and 4 CA patients**: $0.051 + $0.03 = $0.081
 
 ## Telephony
-Please refer to the following links for details on Telephony pricing
+Refer to the following links for details on Telephony pricing
 
 - [PSTN Pricing Details](./pstn-pricing.md)
 

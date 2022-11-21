@@ -45,7 +45,7 @@ The migrator tool requires an Azure Active Directory application registration to
 
 1. Enter a name such as "IoTC Migrator app".
 
-1. Select **Accounts in this organizational directory only (iot-partners only - Single tenant)**.
+1. Select **Accounts in this organizational directory only ({your directory} only - Single tenant)**.
 
 1. Select **Single page application (SPA)**.
 
@@ -55,7 +55,7 @@ The migrator tool requires an Azure Active Directory application registration to
 
 1. Make a note of the **Application (client) ID** and **Directory (tenant) ID** values. You use these values later to configure the migrator app:
 
-    :::image type="content" source="media/howto-migrate-to-iot-hub/azure-active-directry-app.png" alt-text="Screenshot that shows the Azure Active Directory application in the Azure portal.":::
+    :::image type="content" source="media/howto-migrate-to-iot-hub/azure-active-directory-app.png" alt-text="Screenshot that shows the Azure Active Directory application in the Azure portal." lightbox="media/howto-migrate-to-iot-hub/azure-active-directory-app.png":::
 
 ### Add the device keys to DPS
 
@@ -123,7 +123,7 @@ Use the tool to migrate your devices in batches. Enter the migration details on 
 1. Select the DPS instance linked to your target IoT hub.
 1. Select **Migrate**.
 
-:::image type="content" source="media/howto-migrate-to-iot-hub/migrator-tool.png" alt-text="Screenshot of migration tool.":::
+:::image type="content" source="media/howto-migrate-to-iot-hub/migrator-tool.png" alt-text="Screenshot of migration tool." lightbox="media/howto-migrate-to-iot-hub/migrator-tool.png":::
 
 The tool now registers all the connected devices that matched the target device filter in the destination IoT hub. The tool then creates a job in your IoT Central application to call the **DeviceMove** method on all those devices. The command payload contains the ID scope of the destination DPS instance.
 
@@ -131,22 +131,22 @@ The tool now registers all the connected devices that matched the target device 
 
 The **Migration status** page in the tool shows you when the migration is complete:
 
-:::image type="content" source="media/howto-migrate-to-iot-hub/migration-complete.png" alt-text="Screenshot showing completed migration status in tool.":::
+:::image type="content" source="media/howto-migrate-to-iot-hub/migration-complete.png" alt-text="Screenshot showing completed migration status in tool." lightbox="media/howto-migrate-to-iot-hub/migration-complete.png":::
 
 Select a job on this page to view the [job status](howto-manage-devices-in-bulk.md#view-job-status) in your IoT Central application. Use this page to view the status of the individual devices in the job:
 
-:::image type="content" source="media/howto-migrate-to-iot-hub/job-status.png" alt-text="Screenshot showing completed migration status for IoT Central job.":::
+:::image type="content" source="media/howto-migrate-to-iot-hub/job-status.png" alt-text="Screenshot showing completed migration status for IoT Central job." lightbox="media/howto-migrate-to-iot-hub/job-status.png":::
 
 Devices that migrated successfully:
 
 - Show as **Disconnected** on the devices page in your IoT Central application.
 - Show as registered and provisioned in your IoT hub:
 
-    :::image type="content" source="media/howto-migrate-to-iot-hub/destination-devices.png" alt-text="Screenshot of IoT Hub in the Azure portal that shows the provisioned devices.":::
+    :::image type="content" source="media/howto-migrate-to-iot-hub/destination-devices.png" alt-text="Screenshot of IoT Hub in the Azure portal that shows the provisioned devices." lightbox="media/howto-migrate-to-iot-hub/destination-devices.png":::
 
 - Are now sending telemetry to your IoT hub
 
-    :::image type="content" source="media/howto-migrate-to-iot-hub/destination-metrics.png" alt-text="Screenshot of IoT Hub in the Azure portal that shows telemetry metrics for the migrated devices.":::
+    :::image type="content" source="media/howto-migrate-to-iot-hub/destination-metrics.png" alt-text="Screenshot of IoT Hub in the Azure portal that shows telemetry metrics for the migrated devices." lightbox="media/howto-migrate-to-iot-hub/destination-metrics.png":::
 
 ## Next steps
 

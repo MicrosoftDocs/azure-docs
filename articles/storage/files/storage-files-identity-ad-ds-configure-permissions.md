@@ -1,21 +1,22 @@
 ---
 title: Control what a user can do at the directory and file level - Azure Files
-description: Learn how to configure Windows ACLs for directory and file level permissions for AD DS authentication to Azure file shares, allowing you to take advantage of granular access control.
+description: Learn how to configure Windows ACLs for directory and file level permissions for Active Directory authentication to Azure file shares, allowing you to take advantage of granular access control.
 author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 11/09/2022
 ms.author: kendownie
+ms.custom: engagement-fy23
 ---
 
-# Part three: configure directory and file level permissions over SMB
+# Configure directory and file-level permissions over SMB
 
-Before you begin this article, make sure you've completed the previous article, [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md), to ensure that your share-level permissions are in place with Azure role-based access control (RBAC).
+Before you begin this article, make sure you've read [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md) to ensure that your share-level permissions are in place with Azure role-based access control (RBAC).
 
 After you assign share-level permissions, you must first connect to the Azure file share using the storage account key and then configure Windows access control lists (ACLs), also known as NTFS permissions, at the root, directory, or file level. While share-level permissions act as a high-level gatekeeper that determines whether a user can access the share, Windows ACLs operate at a more granular level to control what operations the user can do at the directory or file level.
 
-Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
+Both share-level and file/directory-level permissions are enforced when a user attempts to access a file/directory, so if there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -28,7 +29,7 @@ Both share-level and file/directory level permissions are enforced when a user a
 
 The following table contains the Azure RBAC permissions related to this configuration. If you're using Azure Storage Explorer, you'll also need the [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access) role in order to read/access the file share.
 
-| Built-in role  | NTFS permission  | Resulting access  |
+| Share-level permission (built-in role)  | NTFS permission  | Resulting access  |
 |---------|---------|---------|
 |Storage File Data SMB Share Reader | Full control, Modify, Read, Write, Execute | Read & execute  |
 |     |   Read |     Read  |
@@ -64,6 +65,8 @@ The following permissions are included on the root directory of a file share:
 - `NT AUTHORITY\SYSTEM:(OI)(CI)(F)`
 - `NT AUTHORITY\SYSTEM:(F)`
 - `CREATOR OWNER:(OI)(CI)(IO)(F)`
+
+For more information on these advanced permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
 
 ## Mount the file share using your storage account key
 
@@ -109,6 +112,4 @@ Use Windows File Explorer to grant full permission to all directories and files 
 
 ## Next steps
 
-Now that the feature is enabled and configured, continue to the next article to learn how to mount your Azure file share from a domain-joined VM.
-
-[Part four: mount a file share from a domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md)
+Now that the feature is enabled and configured, you can [mount a file share from a domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md).

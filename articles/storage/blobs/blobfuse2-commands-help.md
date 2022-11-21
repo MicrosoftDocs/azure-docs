@@ -1,6 +1,6 @@
 ---
-title: How to use 'blobfuse2 help' to get help info for the BlobFuse2 command and subcommands (preview) | Microsoft Docs
-titleSuffix: Azure Blob Storage
+title: How to use 'blobfuse2 help' to get help info for the BlobFuse2 command and subcommands (preview)
+titleSuffix: Azure Storage
 description: Learn how to use 'blobfuse2 help' to get help info for the BlobFuse2 command and subcommands (preview).
 author: jimmart-dev
 ms.service: storage

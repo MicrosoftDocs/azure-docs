@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Create an item in Azure Cosmos DB for NoSQL using .NET
@@ -52,9 +52,9 @@ When referencing the item using a URI, use the system-generated *resource identi
 
 To create an item, call one of the following methods:
 
-* [``CreateItemAsync<>``](#create-an-item-asynchronously)
-* [``ReplaceItemAsync<>``](#replace-an-item-asynchronously)
-* [``UpsertItemAsync<>``](#create-or-replace-an-item-asynchronously)
+- [``CreateItemAsync<>``](#create-an-item-asynchronously)
+- [``ReplaceItemAsync<>``](#replace-an-item-asynchronously)
+- [``UpsertItemAsync<>``](#create-or-replace-an-item-asynchronously)
 
 ## Create an item asynchronously
 

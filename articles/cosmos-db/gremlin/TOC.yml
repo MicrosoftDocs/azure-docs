@@ -274,8 +274,6 @@
           href: headers.md
         - name: Limits
           href: limits.md
-        - name: Monitor using Diagnostics Logs
-          href: diagnostic-queries.md
     - name: Use developer tools
       items:
         - name: Develop locally with emulator
@@ -398,10 +396,10 @@
               href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: ../monitor-logs-basic-queries.md
-            - name: Troubleshoot issues using advanced queries
-              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Troubleshoot issues with advanced diagnostics queries
+              href: diagnostic-queries.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics
