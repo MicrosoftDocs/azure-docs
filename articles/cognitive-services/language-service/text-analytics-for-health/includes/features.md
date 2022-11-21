@@ -35,7 +35,7 @@ Entity linking is used to disambiguate the extracted entities by associating the
 
 # [Assertion Detection](#tab/assertion-detection) 
 
-[Assertion detection](../concepts/assertion-detection) is used to preserve the meaning of medical content by   adding contextual modifiers to the extracted entities using these categories: 
+[Assertion detection](../concepts/assertion-detection.md) is used to preserve the meaning of medical content by   adding contextual modifiers to the extracted entities using these categories: 
 * Certainty
 * Conditionality
 * Association
