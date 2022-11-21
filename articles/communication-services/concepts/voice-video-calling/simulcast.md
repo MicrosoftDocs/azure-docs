@@ -2,7 +2,7 @@
 title: Azure Communication Services Simulcast
 titleSuffix: An Azure Communication Services concept document
 description: Overview of Simulcast
-author: chwhilar@microsoft.com
+author: chriswhilar
 manager: artur.kania@skype.net
 services: azure-communication-services
 
