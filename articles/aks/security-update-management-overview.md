@@ -72,13 +72,7 @@ Microsoft's goal is to mitigate detected vulnerabilities within a time period ap
 
 ## How vulnerabilities and updates are communicated
 
-The best source for current information about vulnerabilities and security updates is in the security bulletins feed for the following products:
-
-* AKS
-
-These bulletins follow a common Microsoft Azure Cloud vulnerability numbering scheme and are linked from the main Google Cloud bulletins page and the GKE Release Notes. Each security bulletins page has an RSS feed where users can subscribe to updates.
-
-Vulnerabilities are sometimes kept private under embargoes for a limited time. Embargoes help prevent early publication of vulnerabilities that might lead to widespread exploitation attempts before steps can be taken to address them. In embargo situations, the release notes refer to "security updates" until the embargo has been lifted. After the embargo is lifted, Google updates release notes to include the specific vulnerabilities.
+In general, Microsoft does not broadly communicate the release of new patch versions for AKS. However, Microsoft constantly monitors and validates available CVE patches to support them in AKS in a timely manner. If a critical patch is found or user action is required, Microsoft will notify you to upgrade to the newly available patch.
 
 ## Next steps
 
@@ -92,3 +86,4 @@ See the overview about [Upgrading Azure Kubernetes Service clusters and node poo
 [azure-bounty-program-overview]: https://www.microsoft.com/en-us/msrc/bounty-microsoft-azure
 [kubernetes-security-response-committee]: https://github.com/kubernetes/committee-security-response
 [cloud-native-computing-foundation]: https://www.cncf.io/
+[kubernetes-cve-feed]: https://kubernetes.io/docs/reference/issues-security/official-cve-feed/
