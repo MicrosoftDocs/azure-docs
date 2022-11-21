@@ -15,15 +15,15 @@ This article describes issues you may experience with the [Remote Desktop client
 
 In this section you'll find troubleshooting guidance for general issues with the Remote Desktop client.
 
-[!INCLUDE [remote-desktop-client-doesnt-show-resources](includes/troubleshoot-remote-desktop-client-doesnt-show-resources.md)]
+[!INCLUDE [remote-desktop-client-doesnt-show-resources](includes/include-troubleshoot-remote-desktop-client-doesnt-show-resources.md)]
 
-[!INCLUDE [troubleshoot-aadj-connections-all](includes/troubleshoot-aadj-connections-all.md)]
+[!INCLUDE [troubleshoot-aadj-connections-all](includes/include-troubleshoot-aadj-connections-all.md)]
 
 ## Authentication and identity
 
 In this section you'll find troubleshooting guidance for authentication and identity issues with the Remote Desktop client.
 
-[!INCLUDE [troubleshoot-aadj-connections-android-chrome-os](includes/troubleshoot-aadj-connections-android-chrome-os.md)]
+[!INCLUDE [troubleshoot-aadj-connections-android-chrome-os](includes/include-troubleshoot-aadj-connections-android-chrome-os.md)]
 
 ## Issue isn't listed here
 

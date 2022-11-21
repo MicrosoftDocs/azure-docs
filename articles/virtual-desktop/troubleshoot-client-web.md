@@ -15,14 +15,14 @@ This article describes issues you may experience with the [Remote Desktop Web cl
 
 In this section you'll find troubleshooting guidance for general issues with the Remote Desktop client.
 
-[!INCLUDE [troubleshoot-remote-desktop-client-doesnt-show-resources](includes/troubleshoot-remote-desktop-client-doesnt-show-resources.md)]
+[!INCLUDE [troubleshoot-remote-desktop-client-doesnt-show-resources](includes/include-troubleshoot-remote-desktop-client-doesnt-show-resources.md)]
 
-[!INCLUDE [troubleshoot-aadj-connections-all](includes/troubleshoot-aadj-connections-all.md)]
+[!INCLUDE [troubleshoot-aadj-connections-all](includes/include-troubleshoot-aadj-connections-all.md)]
 
 ### Web client stops responding or disconnects
 
 If the Remote Desktop Web client stops responding or keeps disconnecting, try closing and reopening the browser. If it continues, try connecting using another browser or a one of the other [Remote Desktop clients](users/remote-desktop-clients-overview.md). You can also try clearing your browsing data. For Microsoft Edge, see [Microsoft Edge, browsing data, and privacy
-](https://support.microsoft.com/en-gb/windows/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd).
+](https://support.microsoft.com/windows/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd).
 
 ### Web client out of memory
 
@@ -55,7 +55,7 @@ If neither of these work you most likely have a problem with your network connec
 
 In this section you'll find troubleshooting guidance for authentication and identity issues with the Remote Desktop client.
 
-[!INCLUDE [troubleshoot-aadj-connections-web](includes/troubleshoot-aadj-connections-web.md)]
+[!INCLUDE [troubleshoot-aadj-connections-web](includes/include-troubleshoot-aadj-connections-web.md)]
 
 ## Issue isn't listed here
 

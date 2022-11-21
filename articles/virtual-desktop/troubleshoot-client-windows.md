@@ -15,9 +15,9 @@ This article describes issues you may experience with the [Remote Desktop client
 
 In this section you'll find troubleshooting guidance for general issues with the Remote Desktop client.
 
-[!INCLUDE [troubleshoot-remote-desktop-client-doesnt-show-resources](includes/troubleshoot-remote-desktop-client-doesnt-show-resources.md)]
+[!INCLUDE [troubleshoot-remote-desktop-client-doesnt-show-resources](includes/include-troubleshoot-remote-desktop-client-doesnt-show-resources.md)]
 
-[!INCLUDE [troubleshoot-aadj-connections-all](includes/troubleshoot-aadj-connections-all.md)]
+[!INCLUDE [troubleshoot-aadj-connections-all](includes/include-troubleshoot-aadj-connections-all.md)]
 
 ### Retrieve and open client logs
 
@@ -83,7 +83,7 @@ To reset user data from the command line:
 
 In this section you'll find troubleshooting guidance for authentication and identity issues with the Remote Desktop client.
 
-[!INCLUDE [troubleshoot-aadj-connections-windows](includes/troubleshoot-aadj-connections-windows.md)]
+[!INCLUDE [troubleshoot-aadj-connections-windows](includes/include-troubleshoot-aadj-connections-windows.md)]
 
 ### Authentication issues while using an N SKU of Windows
 
