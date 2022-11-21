@@ -11,7 +11,7 @@
       topicHref: /azure/storage/blobs/storage-blobs-introduction
     - name: Blobs
       tocHref: /dotnet/azure/sdk/
-      topicHref: /azure/storage/blobs/index
+      topicHref: /azure/storage/blobs/storage-blobs-introduction
     - name: Blobs
       tocHref: /azure/developer/javascript/sdk/authentication/
-      topicHref: /azure/storage/blobs/index
+      topicHref: /azure/storage/blobs/storage-blobs-introduction
