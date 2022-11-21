@@ -100,7 +100,7 @@ In this article, you learned how to perform the manual deployment and post-deplo
 > [Choosing a method of deployment for MedTech service in Azure](deploy-iot-connector-in-azure.md)
 
 > [!div class="nextstepaction"]
-> [Deploy the MedTech service with a Azure Resource Manager template](deploy-02-new-button.md)
+> [Deploy the MedTech service with an Azure Resource Manager template](deploy-02-new-button.md)
 
 > [!div class="nextstepaction"]
 > [Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates](deploy-08-new-ps-cli.md)
