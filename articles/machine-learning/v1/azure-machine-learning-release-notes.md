@@ -262,7 +262,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
 ### Azure Machine Learning SDK for Python v1.37.0
 + **Breaking changes**
   + **azureml-core**
-    + Starting in version 1.37.0, AzureML SDK uses MSAL as the underlying authentication library. MSAL uses Azure Active Directory (Azure AD) v2.0 authentication flow to provide more functionality and increases security for token cache. For more details, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
+    + Starting in version 1.37.0, AzureML SDK uses MSAL as the underlying authentication library. MSAL uses Azure Active Directory (Azure AD) v2.0 authentication flow to provide more functionality and increases security for token cache. For more details, see [Overview of the Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md).
     + Update AML SDK dependencies to the latest version of Azure Resource Management Client Library for Python (azure-mgmt-resource>=15.0.0,<20.0.0) & adopt track2 SDK.
     + Starting in version 1.37.0, azure-ml-cli extension should be compatible with the latest version of Azure CLI >=2.30.0.
     + When using Azure CLI in a pipeline, like as Azure DevOps, ensure all tasks/stages are using versions of Azure CLI above v2.30.0 for MSAL-based Azure CLI. Azure CLI 2.30.0 is not backward compatible with prior versions and throws an error when using incompatible versions. To use Azure CLI credentials with AzureML SDK, Azure CLI should be installed as pip package.
@@ -335,7 +335,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
   + **azureml-responsibleai**
     + Improve error message on failed dashboard download
   + **azureml-train-automl-client**
-    + Added support for computer vision tasks such as Image Classification, Object Detection and Instance Segmentation. Detailed documentation can be found at: [How to automatically train image models](how-to-auto-train-image-models.md)
+    + Added support for computer vision tasks such as Image Classification, Object Detection and Instance Segmentation. Detailed documentation can be found at: [Set up AutoML to train computer vision models with Python (v1)](how-to-auto-train-image-models-v1.md).
     + Enable binary metrics calculation
   + **azureml-train-automl-runtime**
     + Add TCNForecaster support to model test runs.
@@ -491,7 +491,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
 
 ### Announcing the CLI (v2) for Azure Machine Learning
 
-The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
+The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and set up the CLI (v2)](../how-to-configure-cli.md).
 
 ### Azure Machine Learning SDK for Python v1.29.0
 + **Bug fixes and improvements**
@@ -692,9 +692,9 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ## 2021-02-28
 ### Azure Machine Learning studio Notebooks Experience (February Update)
 + **New features**
-  + [Native Terminal (GA)](./how-to-access-terminal.md). Users will now have access to an integrated terminal as well as Git operation via the integrated terminal.
+  + [Native Terminal (GA)](../how-to-access-terminal.md). Users will now have access to an integrated terminal as well as Git operation via the integrated terminal.
   + Notebook Snippets (preview). Common Azure ML code excerpts are now available at your fingertips. Navigate to the code snippets panel, accessible via the toolbar, or activate the in-code snippets menu using Ctrl + Space.  
-  + [Keyboard Shortcuts](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Full parity with keyboard shortcuts available in Jupyter. 
+  + [Keyboard Shortcuts](../how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Full parity with keyboard shortcuts available in Jupyter. 
   + Indicate Cell parameters. Shows users which cells in a notebook are parameter cells and can run parameterized notebooks via [Papermill](https://github.com/nteract/papermill) on the Compute Instance.
   + Terminal and Kernel session manager: Users will be able to manage all kernels and terminal sessions running on their compute.
   + Sharing Button. Users can now share any file in the Notebook file explorer by right-clicking the file and using the share button.
@@ -704,8 +704,8 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
   + Improved page load times
   + Improved performance 
   + Improved speed and kernel reliability
-  + Added spinning wheel to show progress for all ongoing [Compute Instance operations](./how-to-run-jupyter-notebooks.md#status-indicators).
-  + Right click in File Explorer. Right-clicking any file will now open file operations. 
+  + Added spinning wheel to show progress for all ongoing [Compute Instance operations](../how-to-run-jupyter-notebooks.md#status-indicators).
+  + Right click in File Explorer. Right-clicking any file will now open file operations.
 
 
 ## 2021-02-16
@@ -771,9 +771,9 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ### Azure Machine Learning studio Notebooks Experience (January Update)
 + **New features**
   + Native Markdown Editor in AzureML. Users can now render and edit markdown files natively in AzureML Studio.
-  + [Run Button for Scripts (.py, .R and .sh)](./how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script). Users can easily now run Python, R and Bash script in AzureML
-  + [Variable Explorer](./how-to-run-jupyter-notebooks.md#explore-variables-in-the-notebook). Explore the contents of variables and data frames in a pop-up panel. Users can easily check data type, size, and contents.
-  + [Table of Content](./how-to-run-jupyter-notebooks.md#navigate-with-a-toc). Navigate to sections of your notebook, indicated by Markdown headers.
+  + [Run Button for Scripts (.py, .R and .sh)](../how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script). Users can easily now run Python, R and Bash script in AzureML
+  + [Variable Explorer](../how-to-run-jupyter-notebooks.md#explore-variables-in-the-notebook). Explore the contents of variables and data frames in a pop-up panel. Users can easily check data type, size, and contents.
+  + [Table of Content](../how-to-run-jupyter-notebooks.md#navigate-with-a-toc). Navigate to sections of your notebook, indicated by Markdown headers.
   + Export your Notebook as Latex/HTML/Py. Create easy-to-share notebook files by exporting to LaTex, HTML, or .py
   + Intellicode. ML-powered results provides an enhanced [intelligent autocompletion experience](/visualstudio/intellicode/overview).
 
@@ -910,7 +910,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ## 2020-11-30
 ### Azure Machine Learning studio Notebooks Experience (November Update)
 + **New features**
-   + Native Terminal. Users will now have access to an integrated terminal as well as Git operation via the [integrated terminal.](./how-to-access-terminal.md)
+   + Native Terminal. Users will now have access to an integrated terminal as well as Git operation via the [integrated terminal.](../how-to-access-terminal.md)
   + Duplicate Folder 
   + Costing for Compute Drop Down 
   + Offline Compute Pylance 
@@ -941,7 +941,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Improved documentation for `OutputDatasetConfig.register_on_complete` to include the behavior of what will happen when the name already exists.
     + Specifying dataset input and output names that have the potential to collide with common environment variables will now result in a warning
     + Repurposed `grant_workspace_access` parameter when registering datastores. Set it to `True` to access data behind virtual network from Machine Learning studio.
-      [Learn more](./how-to-enable-studio-virtual-network.md)
+      [Learn more](../how-to-enable-studio-virtual-network.md)
     + Linked service API is refined. Instead of providing resource ID, we have 3 separate parameters sub_id, rg, and name defined in configuration.
     + In order to enable customers to self-resolve token corruption issues, enable workspace token synchronization to be a public method.
     + This change allows an empty string to be used as a value for a script_param
@@ -964,7 +964,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 
 The image instance segmentation (polygon annotations) project type in data labeling is available now, so users can draw and annotate with polygons around the contour of the objects in the images. Users will be able assign a class and a polygon to each object which of interest within an image.
 
-Learn more about [image instance segmentation labeling](how-to-label-data.md).
+Learn more about [image instance segmentation labeling](../how-to-label-data.md).
 
 
 
@@ -1000,8 +1000,8 @@ Learn more about [image instance segmentation labeling](how-to-label-data.md).
 
 ### Azure Machine Learning studio Notebooks Experience (October Update)
 + **New features**
-  + [Full virtual network support](./how-to-enable-studio-virtual-network.md)
-  + [Focus Mode](./how-to-run-jupyter-notebooks.md#focus-mode)
+  + [Full virtual network support](../how-to-enable-studio-virtual-network.md)
+  + [Focus Mode](../how-to-run-jupyter-notebooks.md#focus-mode)
   + Save notebooks Ctrl-S
   + Line Numbers
 
@@ -1167,7 +1167,7 @@ Learn more about [image instance segmentation labeling](how-to-label-data.md).
   + New Getting started landing Page 
   
 + **Preview features**
-    + Gather feature in Notebooks. With the [Gather](./how-to-run-jupyter-notebooks.md#clean-your-notebook-preview) feature, users can now easily clean up notebooks with, Gather uses an automated dependency analysis of your notebook, ensuring the essential code is kept, but removing any irrelevant pieces.
+    + Gather feature in Notebooks. With the [Gather](../how-to-run-jupyter-notebooks.md#clean-your-notebook-preview) feature, users can now easily clean up notebooks with, Gather uses an automated dependency analysis of your notebook, ensuring the essential code is kept, but removing any irrelevant pieces.
 
 + **Bug fixes and improvements**
   + Improvement in speed and reliability
@@ -1670,7 +1670,7 @@ Learn more about [image instance segmentation labeling](how-to-label-data.md).
 **New Notebook Experience**
 
 You can now create, edit, and share machine learning notebooks and files directly inside the studio web experience of Azure Machine Learning. You can use all the classes and methods available in [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) from inside these notebooks.
-To get started, visit the [Run Jupyter Notebooks in your workspace](./how-to-run-jupyter-notebooks.md) article. 
+To get started, visit the [Run Jupyter Notebooks in your workspace](../how-to-run-jupyter-notebooks.md) article.
 
 **New Features Introduced:**
 
@@ -2031,7 +2031,7 @@ Access the following web-based authoring tools from the studio:
 
 + **New features**
   + Dataset: Add two options `on_error` and `out_of_range_datetime` for `to_pandas_dataframe` to fail when data has error values instead of filling them with `None`.
-  + Workspace: Added the `hbi_workspace` flag for workspaces with sensitive data that enables further encryption and disables advanced diagnostics on workspaces. We also added support for bringing your own keys for the associated Azure Cosmos DB instance, by specifying the `cmk_keyvault` and `resource_cmk_uri` parameters when creating a workspace, which creates an Azure Cosmos DB instance in your subscription while provisioning your workspace. To learn more, see the [Azure Cosmos DB section of data encryption article](./concept-data-encryption.md#azure-cosmos-db).
+  + Workspace: Added the `hbi_workspace` flag for workspaces with sensitive data that enables further encryption and disables advanced diagnostics on workspaces. We also added support for bringing your own keys for the associated Azure Cosmos DB instance, by specifying the `cmk_keyvault` and `resource_cmk_uri` parameters when creating a workspace, which creates an Azure Cosmos DB instance in your subscription while provisioning your workspace. To learn more, see the [Azure Cosmos DB section of data encryption article](../concept-data-encryption.md#azure-cosmos-db).
 
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
@@ -2204,14 +2204,14 @@ Access the following web-based authoring tools from the studio:
 | Web-based tool | Description | 
 |-|-|-|
 | Notebook VM(preview) | Fully managed cloud-based workstation | 
-| [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | 
-| [Designer](concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | 
+| [Automated machine learning](../tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | 
+| [Designer](../concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | 
 
 
 ### Azure Machine Learning designer enhancements
 
 + Formerly known as the visual interface 
-+    11 new [modules](component-reference/component-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
++    11 new [modules](../component-reference/component-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
 
 ### R SDK 
  
@@ -2229,7 +2229,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
 
 ### Azure Machine Learning integration with Event Grid 
 
-Azure Machine Learning is now a resource provider for Event Grid, you can configure machine learning events through the Azure portal or Azure CLI. Users can create events for run completion, model registration, model deployment, and data drift detected. These events can be routed to event handlers supported by Event Grid for consumption. See machine learning event [schema](../event-grid/event-schema-machine-learning.md) and [tutorial](how-to-use-event-grid.md) articles for more details.
+Azure Machine Learning is now a resource provider for Event Grid, you can configure machine learning events through the Azure portal or Azure CLI. Users can create events for run completion, model registration, model deployment, and data drift detected. These events can be routed to event handlers supported by Event Grid for consumption. See machine learning event [schema](../../event-grid/event-schema-machine-learning.md) and [tutorial](../how-to-use-event-grid.md) articles for more details.
 
 ## 2019-10-31
 
@@ -2325,7 +2325,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
 
 ### Visual interface (preview)
 
-+ The Azure Machine Learning visual interface (preview) has been overhauled to run on [Azure Machine Learning pipelines](concept-ml-pipelines.md). Pipelines (previously known as experiments) authored in the visual interface are now fully integrated with the core Azure Machine Learning experience.
++ The Azure Machine Learning visual interface (preview) has been overhauled to run on [Azure Machine Learning pipelines](../concept-ml-pipelines.md). Pipelines (previously known as experiments) authored in the visual interface are now fully integrated with the core Azure Machine Learning experience.
   + Unified management experience with SDK assets
   + Versioning and tracking for visual interface models, pipelines, and endpoints
   + Redesigned UI
@@ -2571,13 +2571,13 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
 ### New web experience (preview) for Azure Machine Learning workspaces
 The new web experience enables data scientists and data engineers to complete their end-to-end machine learning lifecycle from prepping and visualizing data to training and deploying models in a single location.
 
-![Azure Machine Learning workspace UI (preview)](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
+![Azure Machine Learning workspace UI (preview)](../media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)
 
 **Key features:**
 
 Using this new Azure Machine Learning interface, you can now:
 + Manage your notebooks or link out to Jupyter
-+ [Run automated ML experiments](tutorial-first-experiment-automated-ml.md)
++ [Run automated ML experiments](../tutorial-first-experiment-automated-ml.md)
 + [Create datasets from local files, datastores, & web files](how-to-create-register-datasets.md)
 + Explore & prepare datasets for model creation
 + Monitor data drift for your models
@@ -2957,7 +2957,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Use transfer learning with the supported DNN
     + Register the model with Model Management Service and containerize the model
     + Deploy the model to an Azure VM with an FPGA in an Azure Kubernetes Service (AKS) cluster
-  + Deploy the container to an [Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md) server device
+  + Deploy the container to an [Azure Data Box Edge](../../databox-online/azure-stack-edge-overview.md) server device
   + Score your data with the gRPC endpoint with this [sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models)
 
 ### Automated Machine Learning
@@ -2996,7 +2996,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
 
 + **Improved Swagger schema generation experience**<br/> Our previous swagger generation method was error prone and impossible to automate. We have a new in-line way of generating swagger schemas from any Python function via decorators. We have open-sourced this code and our schema generation protocol is not coupled to the Azure ML platform.
 
-+ **Azure ML CLI is generally available (GA)**<br/> Models can now be deployed with a single CLI command. We got common customer feedback that no one deploys an ML model from a Jupyter notebook. The [**CLI reference documentation**](./v1/reference-azure-machine-learning-cli.md) has been updated.
++ **Azure ML CLI is generally available (GA)**<br/> Models can now be deployed with a single CLI command. We got common customer feedback that no one deploys an ML model from a Jupyter notebook. The [**CLI reference documentation**](reference-azure-machine-learning-cli.md) has been updated.
 
 
 ## 2019-04-22
@@ -3077,4 +3077,4 @@ The [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core
 
 ## Next steps
 
-Read the overview for [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
+Read the overview for [Azure Machine Learning](../overview-what-is-azure-machine-learning.md).
