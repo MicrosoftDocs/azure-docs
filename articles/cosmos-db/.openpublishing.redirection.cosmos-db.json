@@ -4166,6 +4166,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/relational-nosql.md",
+      "redirect_url": "/azure/cosmos-db/distributed-nosql",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/sql-api-sdk-dotnet-standard.md",
       "redirect_url": "/azure/cosmos-db/sql/sql-api-sdk-dotnet-standard",
       "redirect_document_id": true
