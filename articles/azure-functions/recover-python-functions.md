@@ -87,13 +87,9 @@ See [Enable remote build](#enable-remote-build) or [Build native dependencies](#
 
 #### The package is incompatible with the Python interpreter version
 
-Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Using a text editor, open the METADATA file and check the **Classifiers:** section. If the section doesn't contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`, then the package version is either too old, or most likely, the package is already out of maintenance.
+Go to `.python_packages/lib/pythonX.X/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Using a text editor, open the METADATA file and check the **Classifiers:** section. If the section doesn't contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`, then the package version is either too old, or most likely, the package is already out of maintenance.
 
-You can check the Python version of your function app from the [Azure portal](https://portal.azure.com). Navigate to your function app, choose **Resource explorer**, and select **Go**.
-
-:::image type="content" source="media/recover-module-not-found/resource-explorer.png" alt-text="Open the Resource Explorer for the function app in the portal":::
-
-After the explorer loads, search for **LinuxFxVersion**, which shows the Python version.
+You can check the Python version of your function app from the [Azure portal](https://portal.azure.com). Navigate to your function app's **Overview** resource page. The runtime version supports a Python version described in the [Azure Functions runtime versions overview](./functions-versions.md).
 
 See [Update your package to the latest version](#update-your-package-to-the-latest-version) or [Replace the package with equivalents](#replace-the-package-with-equivalents) for mitigation.
 
