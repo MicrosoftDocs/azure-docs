@@ -184,7 +184,7 @@ The following sections provide additional information about setting up your bill
 
 ### No service downtime
 
-Azure services in your subscription keep running without any interruption. We only transition the billing relationship for your Azure subscriptions. There won't be an impact to existing resources, resource groups, or management groups.
+Azure services in your subscription keep running without any interruption. We only transition the billing relationship for your Azure subscriptions. There won't be any change to existing resources, resource groups, or management groups.
 
 ### User access to Azure resources
 
@@ -196,7 +196,7 @@ Any Azure reservations and savings plan in your Enterprise Agreement enrollment 
 
 ### Savings plan transfers with a non-USD billing currency
 
-You'll see the following image when your Enterprise Agreement enrollment savings plan was not purchased in USD.
+You'll see the following image when your Enterprise Agreement enrollment savings plan wasn't purchased in USD.
 
 :::image type="content" source="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" alt-text="Screenshot showing the Savings Plan page." lightbox="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" :::
 
@@ -205,11 +205,13 @@ You'll see the following image when your Enterprise Agreement enrollment savings
 
 To move forward, select **View charges** to open the Exchange savings plans page and view the savings plans that must be repurchased.
 
-The Exchange savings plans page shows you the savings plans that will get cancelled and credit that will get returned in the original currency to the source enrollment. It also shows the new savings plans that will get charged in USD for a one-year term for the target billing account. Here’s an example showing the exchange. Monetary values are for example purposes only:
+The Exchange savings plans page shows you the savings plans that will get canceled and credit that will get returned in the original currency to the source enrollment. It also shows the new savings plans that will get charged in USD for a one-year term for the target billing account. The new offer is a one-year term and matches the previous savings plan commitment per hour.
+
+Here’s an example showing the exchange. Monetary values are for example purposes.
 
 :::image type="content" source="./media/microsoft-customer-agreement-setup-account/exchange-savings-plans.png" alt-text="Screenshot showing the Exchange savings plan page." lightbox="./media/microsoft-customer-agreement-setup-account/exchange-savings-plans.png" :::
 
-Close the Exchange savings plan page and then select the **I have viewed and agree to the charges for my new savings plans and understand they my current savings plans will be cancelled and refunded to my original payment method** prompt to agree and continue.
+Close the Exchange savings plan page and then select the **I have viewed and agree to the charges for my new savings plans and understand they my current savings plans will be canceled and refunded to my original payment method** prompt to agree and continue.
 
 ### Azure Marketplace products
 
@@ -256,9 +258,9 @@ To complete the setup, you need access to both the new billing account and the E
     - A billing hierarchy corresponding to your Enterprise Agreement hierarchy is created in the new billing account. For more information, see [understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
     - Administrators from your Enterprise Agreement enrollment are given access to the new billing account so that they continue to manage billing for your organization.
     - The billing of your Azure subscriptions is transitioned to the new account. **There won't be any impact on your Azure services during this transition. They'll keep running without any disruption**.
-    - If you have Azure reservations or savings plans, they're moved to your new billing account with no change to benefits or term. If have saving plans under the Enterprise Agreement that were not purchased in USD, then the savings plans are canceled. They are repurchased under the terms of the new Microsoft Customer Agreement in USD.
+    - If you have Azure reservations or savings plans, they're moved to your new billing account with no change to benefits or term. If have saving plans under the Enterprise Agreement that weren't purchased in USD, then the savings plans are canceled. They're repurchased under the terms of the new Microsoft Customer Agreement in USD.
 
-4. You can monitor the status of the transition on the **Transition status** page. Any savings plans shown in the Transition details are those that were cancelled.  
+4. You can monitor the status of the transition on the **Transition status** page. Any savings plans shown in the Transition details are ones that were canceled.  
     - If you had a savings plan that was repurchased, select the **new savings plan** link to view its details and to verify that it was created successfully.
 
    ![Screenshot that shows the transition status](./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-status.png)
