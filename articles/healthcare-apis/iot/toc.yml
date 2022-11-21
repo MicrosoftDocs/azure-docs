@@ -21,7 +21,7 @@ items:
       items:
       - name: Choose a deployment method
         href: deploy-iot-connector-in-azure.md
-      - name: Azure Resource Manager (ARM) template
+      - name: Azure Resource Manager template
         href: deploy-02-new-button.md
       - name: Azure PowerShell and CLI
         href: deploy-08-new-ps-cli.md

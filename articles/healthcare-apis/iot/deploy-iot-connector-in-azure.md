@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/18/2022
+ms.date: 11/21/2022
 ms.author: jasteppe
 ---
 
@@ -23,7 +23,7 @@ The different deployment methods are:
 
 Using an ARM template with Azure portal is the easiest and fastest deployment method because it automates most of your configuration with the touch of a **Deploy to Azure** button. This button automatically generates the following configurations and resources: managed identity Azure role-based access (RBAC) roles, a provisioned workspace and namespace, an Event Hubs instance, a Fast Healthcare Interoperability Resources (FHIR&#174;) service instance, and a MedTech service instance. All you need to add are post-deployment device mapping, destination mapping, and a shared access policy key. This method simplifies your deployment, but doesn't allow for much customization.
 
-For more information about the ARM template and the Deploy to Azure button, see [Quickstart: Deploy MedTech service with Azure Resource Manager template](deploy-02-new-button.md).
+For more information about the ARM template and the Deploy to Azure button, see [Quickstart: Deploy MedTech service with an Azure Resource Manager template](deploy-02-new-button.md).
 
 ## Azure PowerShell and Azure CLI automation
 
