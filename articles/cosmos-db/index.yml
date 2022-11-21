@@ -18,9 +18,12 @@ metadata:
   ms.date: 05/24/2022
 highlightedContent:
   items:
-    - title: NoSQL vs relational databases
+    - title: distributed NoSQL databases
       itemType: concept
-      url: relational-nosql.md
+      url: distributed-nosql.md
+    - title: distributed relational databases
+      itemType: concept
+      url: distributed-relational.md
     - title: Introduction to Azure Cosmos DB
       itemType: concept
       url: introduction.md
