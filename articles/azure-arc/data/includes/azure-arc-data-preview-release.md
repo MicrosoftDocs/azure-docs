@@ -6,8 +6,11 @@ ms.topic: include
 ms.date: 08/02/2022
 ---
 
+<!---
 
-The current preview release published on November 1, 2022.
+At this time, a test or preview build is not available for the next release.
+
+--->
 
 |Component|Value|
 |-----------|-----------|
@@ -25,9 +28,8 @@ New for this release:
 - Azure Arc data controller
   - Support database as resource in Azure Arc data resource provider 
 
-<!--
 - Arc-enabled SQL managed instance
--->
+
 
 - Arc-enabled PostgreSQL server
   - Add support for automated backups

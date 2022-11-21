@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: dem108
-ms.author: sehan
-ms.reviewer: larryfr
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.date: 11/04/2022
 ms.custom: how-to, devplatv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
@@ -33,12 +33,7 @@ In this article, you will learn how to use batch endpoints to do batch scoring.
 > [!TIP]
 > We suggest you to read the Scenarios sections (see the navigation bar at the left) to find more about how to use Batch Endpoints in specific scenarios including NLP, computer vision, or how to integrate them with other Azure services.
 
-## Prerequisites
-
-[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
-
-
-### About this example
+## About this example
 
 On this example, we are going to deploy a model to solve the classic MNIST ("Modified National Institute of Standards and Technology") digit recognition problem to perform batch inferencing over large amounts of data (image files). In the first section of this tutorial, we are going to create a batch deployment with a model created using Torch. Such deployment will become our default one in the endpoint. On the second half, [we are going to see how we can create a second deployment](#adding-deployments-to-an-endpoint) using a model created with TensorFlow (Keras), test it out, and then switch the endpoint to start using the new deployment as default.
 
@@ -49,17 +44,65 @@ git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli/endpoints/batch
 ```
 
+### Follow along in Jupyter Notebooks
+
+You can follow along this sample in the following notebooks. In the cloned repository, open the notebook: [mnist-batch.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/mnist-batch.ipynb).
+
+## Prerequisites
+
+[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
+
+### Connect to your workspace
+
+First, let's connect to Azure Machine Learning workspace where we are going to work on.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az account set --subscription <subscription>
+az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
+```
+
+# [Python](#tab/python)
+
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+
+1. Import the required libraries:
+
+```python
+from azure.ai.ml import MLClient, Input
+from azure.ai.ml.entities import BatchEndpoint, BatchDeployment, Model, AmlCompute, Data, BatchRetrySettings
+from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
+from azure.identity import DefaultAzureCredential
+```
+
+2. Configure workspace details and get a handle to the workspace:
+
+```python
+subscription_id = "<subscription>"
+resource_group = "<resource-group>"
+workspace = "<workspace>"
+
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+```
+
+# [Studio](#tab/azure-studio)
+
+Open the [Azure ML studio portal](https://ml.azure.com) and log in using your credentials.
+
+---
+
 ### Create compute
 
 Batch endpoints run on compute clusters. They support both [Azure Machine Learning Compute clusters (AmlCompute)](../how-to-create-attach-compute-cluster.md) or [Kubernetes clusters](../how-to-attach-kubernetes-anywhere.md). Clusters are a shared resource so one cluster can host one or many batch deployments (along with other workloads if desired).
 
 Run the following code to create an Azure Machine Learning compute cluster. The following examples in this article use the compute created here named `batch-cluster`. Adjust as needed and reference your compute using `azureml:<your-compute-name>`.
 
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_compute" :::
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/python)
 
 ```python
 compute_name = "batch-cluster"
@@ -67,7 +110,7 @@ compute_cluster = AmlCompute(name=compute_name, description="amlcompute", min_in
 ml_client.begin_create_or_update(compute_cluster)
 ```
 
-# [studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 *Create a compute cluster as explained in the following tutorial [Create an Azure Machine Learning compute cluster](../how-to-create-attach-compute-cluster.md?tabs=azure-studio).*
 
@@ -85,14 +128,14 @@ Batch Deployments can only deploy models registered in the workspace. You can sk
 > Models are associated with the deployment rather than with the endpoint. This means that a single endpoint can serve different models or different model versions under the same endpoint as long as they are deployed in different deployments.
 
    
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 MODEL_NAME='mnist'
 az ml model create --name $MODEL_NAME --type "custom_model" --path "./mnist/model/"
 ```
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/python)
 
 ```python
 model_name = 'mnist'
@@ -101,7 +144,7 @@ model = ml_client.models.create_or_update(
 )
 ```
 
-# [studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Models__ tab on the side menu.
 1. Click on __Register__ > __From local files__.
@@ -123,7 +166,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
 
 1. Decide on the name of the endpoint. The name of the endpoint will end-up in the URI associated with your endpoint. Because of that, __batch endpoint names need to be unique within an Azure region__. For example, there can be only one batch endpoint with the name `mybatchendpoint` in `westus2`.
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/azure-cli)
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
     
@@ -131,7 +174,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     ENDPOINT_NAME="mnist-batch"
     ```
     
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/python)
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
 
@@ -139,14 +182,14 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     endpoint_name="mnist-batch"
     ```
     
-    # [studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     *You will configure the name of the endpoint later in the creation wizard.*
     
 
 1. Configure your batch endpoint
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/azure-cli)
 
     The following YAML file defines a batch endpoint, which you can include in the CLI command for [batch endpoint creation](#create-a-batch-endpoint). In the repository, this file is located at `/cli/endpoints/batch/batch-endpoint.yml`.
 
@@ -161,7 +204,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     | `auth_mode` | The authentication method for the batch endpoint. Currently only Azure Active Directory token-based authentication (`aad_token`) is supported. |
     | `defaults.deployment_name` | The name of the deployment that will serve as the default deployment for the endpoint. |
     
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/python)
     
     ```python
     # create a batch endpoint
@@ -178,25 +221,25 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     | `auth_mode` | The authentication method for the batch endpoint. Currently only Azure Active Directory token-based authentication (`aad_token`) is supported. |
     | `defaults.deployment_name` | The name of the deployment that will serve as the default deployment for the endpoint. |
     
-    # [studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     *You will create the endpoint in the same step you create the deployment.*
     
 
 1. Create the endpoint:
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/azure-cli)
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_endpoint" :::
 
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/python)
     
     ```python
     ml_client.batch_endpoints.begin_create_or_update(endpoint)
     ```
-    # [studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     *You will create the endpoint in the same step you are creating the deployment later.*
 
@@ -224,11 +267,11 @@ A deployment is a set of resources required for hosting the model that does the 
 
 1. Create an environment where your batch deployment will run. Include in the environment any dependency your code requires for running. You will also need to add the library `azureml-core` as it is required for batch deployments to work.
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/azure-cli)
    
     *No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file as an anonymous environment.*
    
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/python)
    
     Let's get a reference to the environment:
    
@@ -239,7 +282,7 @@ A deployment is a set of resources required for hosting the model that does the 
     )
     ```
 
-    # [studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     1. Navigate to the __Environments__ tab on the side menu.
     1. Select the tab __Custom environments__ > __Create__.
@@ -264,7 +307,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
 1. Create a deployment definition
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/azure-cli)
     
     __mnist-torch-deployment.yml__
     
@@ -291,7 +334,7 @@ A deployment is a set of resources required for hosting the model that does the 
     | `error_threshold` | [Optional] The number of input file scoring failures that should be ignored. If the error count for the entire input goes above this value, the batch scoring job will be terminated. The example uses `-1`, which indicates that any number of failures is allowed without terminating the batch scoring job. | 
     | `logging_level` | [Optional] Log verbosity. Values in increasing verbosity are: WARNING, INFO, and DEBUG. |
     
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/python)
     
     ```python
     deployment = BatchDeployment(
@@ -332,7 +375,7 @@ A deployment is a set of resources required for hosting the model that does the 
     * `environment_variables`- Dictionary of environment variable name-value pairs to set for each batch scoring job.
     * `logging_level`- The log verbosity level. Allowed values are `warning`, `info`, `debug`. Default is `info`.
 
-    # [studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
 
     1. Navigate to the __Endpoints__ tab on the side menu.
     1. Select the tab __Batch endpoints__ > __Create__.
@@ -360,7 +403,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
 1. Create the deployment:
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/azure-cli)
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
@@ -369,7 +412,7 @@ A deployment is a set of resources required for hosting the model that does the 
     > [!TIP]
     > The `--set-default` parameter sets the newly created deployment as the default deployment of the endpoint. It's a convenient way to create a new default deployment of the endpoint, especially for the first deployment creation. As a best practice for production scenarios, you may want to create a new deployment without setting it as default, verify it, and update the default deployment later. For more information, see the [Deploy a new model](#adding-deployments-to-an-endpoint) section.
     
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/python)
 
     Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
@@ -385,7 +428,7 @@ A deployment is a set of resources required for hosting the model that does the 
     ml_client.batch_endpoints.begin_create_or_update(endpoint)
     ```
 
-    # [studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     In the wizard, click on __Create__ to start the deployment process.
     
@@ -400,14 +443,14 @@ A deployment is a set of resources required for hosting the model that does the 
 
 1. Check batch endpoint and deployment details.
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/azure-cli)
 
     Use `show` to check endpoint and deployment details. To check a batch deployment, run the following code:
     
     :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_deployment_detail" :::
     
 
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/python)
     
     To check a batch deployment, run the following code:
 
@@ -415,7 +458,7 @@ A deployment is a set of resources required for hosting the model that does the 
     ml_client.batch_deployments.get(name=deployment.name, endpoint_name=endpoint.name)
     ```
 
-    # [studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     1. Navigate to the __Endpoints__ tab on the side menu.
     1. Select the tab __Batch endpoints__.
@@ -428,11 +471,11 @@ A deployment is a set of resources required for hosting the model that does the 
 
 Invoke a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. The batch scoring job runs for a period of time. It splits the entire inputs into multiple `mini_batch` and processes in parallel on the compute cluster. The batch scoring job outputs will be stored in cloud storage, either in the workspace's default blob storage, or the storage you specified.
 
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
     
 :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job" :::
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/python)
 
 ```python
 job = ml_client.batch_endpoints.invoke(
@@ -441,7 +484,7 @@ job = ml_client.batch_endpoints.invoke(
 )
 ```
 
-# [studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 1. Select the tab __Batch endpoints__.
@@ -477,13 +520,13 @@ Batch endpoints support reading files or folders that are located in different l
 
 The batch scoring results are by default stored in the workspace's default blob store within a folder named by job name (a system-generated GUID). You can configure where to store the scoring outputs when you invoke the batch endpoint.
 
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
     
 Use `output-path` to configure any folder in an Azure Machine Learning registered datastore. The syntax for the `--output-path` is the same as `--input` when you're specifying a folder, that is, `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/`. Use `--set output_file_name=<your-file-name>` to configure a new output file name.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_configure_output_settings" :::
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/python)
 
 Use `output_path` to configure any folder in an Azure Machine Learning registered datastore. The syntax for the `--output-path` is the same as `--input` when you're specifying a folder, that is, `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/`. Use `output_file_name=<your-file-name>` to configure a new output file name.
 
@@ -500,7 +543,7 @@ job = ml_client.batch_endpoints.invoke(
 )
 ```
 
-# [studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 1. Select the tab __Batch endpoints__.
@@ -539,11 +582,11 @@ Some settings can be overwritten when invoke to make best use of the compute res
 * Use __mini-batch size__  to overwrite the number of files to include on each mini-batch. The number of mini batches is decided by total input file counts and mini_batch_size. Smaller mini_batch_size generates more mini batches. Mini batches can be run in parallel, but there might be extra scheduling and invocation overhead.
 * Other settings can be overwritten other settings including __max retries__, __timeout__, and __error threshold__. These settings might impact the end to end batch scoring time for different workloads.
 
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_overwrite" :::
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/python)
 
 ```python
 job = ml_client.batch_endpoints.invoke(
@@ -556,7 +599,7 @@ job = ml_client.batch_endpoints.invoke(
 )
 ```
 
-# [studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 1. Select the tab __Batch endpoints__.
@@ -579,13 +622,13 @@ job = ml_client.batch_endpoints.invoke(
 
 Batch scoring jobs usually take some time to process the entire set of inputs.
 
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 You can use CLI `job show` to view the job. Run the following code to check job status from the previous endpoint invoke. To learn more about job commands, run `az ml job -h`.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_job_status" :::
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/python)
 
 The following code checks the job status and outputs a link to the Azure ML studio for further details.
 
@@ -593,7 +636,7 @@ The following code checks the job status and outputs a link to the Azure ML stud
 ml_client.jobs.get(job.name)
 ```
 
-# [studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 1. Select the tab __Batch endpoints__.
@@ -610,7 +653,7 @@ ml_client.jobs.get(job.name)
 
 ### Check batch scoring results
 
-Follow the below steps to view the scoring results in Azure Storage Explorer when the job is completed:
+Follow the steps below to view the scoring results in Azure Storage Explorer when the job is completed:
 
 1. Run the following code to open batch scoring job in Azure Machine Learning studio. The job studio link is also included in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
 
@@ -620,11 +663,11 @@ Follow the below steps to view the scoring results in Azure Storage Explorer whe
 1. Select the __Outputs + logs__ tab and then select **Show data outputs**.
 1. From __Data outputs__, select the icon to open __Storage Explorer__.
 
-:::image type="content" source="../media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location." lightbox="../media/how-to-use-batch-endpoint/view-data-outputs.png" :::
+    :::image type="content" source="../media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location." lightbox="../media/how-to-use-batch-endpoint/view-data-outputs.png" :::
 
-The scoring results in Storage Explorer are similar to the following sample page:
+    The scoring results in Storage Explorer are similar to the following sample page:
 
-:::image type="content" source="../media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output." lightbox="../media/how-to-use-batch-endpoint/scoring-view.png":::
+    :::image type="content" source="../media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output." lightbox="../media/how-to-use-batch-endpoint/scoring-view.png":::
 
 ## Adding deployments to an endpoint
 
@@ -636,11 +679,11 @@ In this example, you will learn how to add a second deployment __that solves the
 
 1. Create an environment where your batch deployment will run. Include in the environment any dependency your code requires for running. You will also need to add the library `azureml-core` as it is required for batch deployments to work. The following environment definition has the required libraries to run a model with TensorFlow.
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/azure-cli)
    
     *No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file as an anonymous environment.*
    
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/python)
    
     Let's get a reference to the environment:
    
@@ -651,7 +694,7 @@ In this example, you will learn how to add a second deployment __that solves the
     )
     ```
 
-    # [studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     1. Navigate to the __Environments__ tab on the side menu.
     1. Select the tab __Custom environments__ > __Create__.
@@ -681,13 +724,13 @@ In this example, you will learn how to add a second deployment __that solves the
    
 3. Create a deployment definition
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/azure-cli)
     
     __mnist-keras-deployment__
     
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-keras-deployment.yml":::
     
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/python)
     
     ```python
     deployment = BatchDeployment(
@@ -709,7 +752,7 @@ In this example, you will learn how to add a second deployment __that solves the
     )
     ```
     
-    # [studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
 
     1. Navigate to the __Endpoints__ tab on the side menu.
     1. Select the tab __Batch endpoints__.
@@ -736,7 +779,7 @@ In this example, you will learn how to add a second deployment __that solves the
 
 1. Create the deployment:
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/azure-cli)
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
@@ -745,7 +788,7 @@ In this example, you will learn how to add a second deployment __that solves the
     > [!TIP]
     > The `--set-default` parameter is missing in this case. As a best practice for production scenarios, you may want to create a new deployment without setting it as default, verify it, and update the default deployment later.
     
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/python)
 
     Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
@@ -753,7 +796,7 @@ In this example, you will learn how to add a second deployment __that solves the
     ml_client.batch_deployments.begin_create_or_update(deployment)
     ```
 
-    # [studio](#tab/studio)
+    # [Studio](#tab/azure-studio)
     
     In the wizard, click on __Create__ to start the deployment process.
 
@@ -762,13 +805,13 @@ In this example, you will learn how to add a second deployment __that solves the
 
 To test the new non-default deployment, you will need to know the name of the deployment you want to run.
 
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="test_new_deployment" :::
 
 Notice `--deployment-name` is used to specify the deployment we want to execute. This parameter allows you to `invoke` a non-default deployment, and it will not update the default deployment of the batch endpoint.
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/python)
 
 ```python
 job = ml_client.batch_endpoints.invoke(
@@ -780,7 +823,7 @@ job = ml_client.batch_endpoints.invoke(
 
 Notice `deployment_name` is used to specify the deployment we want to execute. This parameter allows you to `invoke` a non-default deployment, and it will not update the default deployment of the batch endpoint.
 
-# [studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 1. Select the tab __Batch endpoints__.
@@ -795,11 +838,11 @@ Notice `deployment_name` is used to specify the deployment we want to execute. T
 
 Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
 
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="update_default_deployment" :::
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/python)
 
 ```python
 endpoint = ml_client.batch_endpoints.get(endpoint_name)
@@ -807,7 +850,7 @@ endpoint.defaults.deployment_name = deployment.name
 ml_client.batch_endpoints.begin_create_or_update(endpoint)
 ```
 
-# [studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 1. Select the tab __Batch endpoints__.
@@ -824,7 +867,7 @@ ml_client.batch_endpoints.begin_create_or_update(endpoint)
 
 ## Delete the batch endpoint and the deployment
 
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 If you aren't going to use the old batch deployment, you should delete it by running the following code. `--yes` is used to confirm the deletion.
 
@@ -834,7 +877,7 @@ Run the following code to delete the batch endpoint and all the underlying deplo
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="delete_endpoint" :::
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/python)
 
 Delete endpoint:
 
@@ -848,7 +891,7 @@ Delete compute: optional, as you may choose to reuse your compute cluster with l
 ml_client.compute.begin_delete(name=compute_name)
 ```
 
-# [studio](#tab/studio)
+# [Studio](#tab/azure-studio)
 
 1. Navigate to the __Endpoints__ tab on the side menu.
 1. Select the tab __Batch endpoints__.
