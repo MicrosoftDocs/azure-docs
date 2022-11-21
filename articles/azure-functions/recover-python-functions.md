@@ -224,7 +224,7 @@ This error occurs when a Python function app is forced to terminate by the opera
 
 In your function app's requirements.txt, an unpinned package will be upgraded to the latest version in every Azure Functions deployment. Vendors of these packages may introduce regressions in their latest release. To recover from this issue, try commenting out the import statements, disabling the package references, or pinning the package to a previous version in requirements.txt.
 
-### Unpickling from a malformed .pkl file
+### Unpickling from a malformed \.pkl file
 
 If your function app is using the Python pickle library to load a Python object from a \.pkl file, it's possible that the \.pkl contains malformed bytes string, or invalid address reference in it. To recover from this issue, try commenting out the `pickle.load()` function.
 
