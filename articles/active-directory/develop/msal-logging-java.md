@@ -20,28 +20,53 @@ ms.custom: aaddev
 
 ## MSAL for Java logging
 
-MSAL for Java allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL for Java uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the user to plug in the desired logging framework at deployment time.
+MSAL for Java allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL for Java uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the user to plug in the desired logging framework at deployment time and automatically binds to Logback at deployment time. MSAL logs will be written to the console.
 
-For example, to use Logback as the logging framework in your application, add the Logback dependency to the Maven pom file for your application:
+This article shows how to enable MSAL4J logging using the logback framework in a spring boot web application. You can refer to the [code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/tree/master/msal-b2c-web-sample) for reference.
 
-```xml
-<dependency>
-    <groupId>ch.qos.logback</groupId>
-    <artifactId>logback-classic</artifactId>
-    <version>1.2.3</version>
-</dependency>
-```
+1. To implement logging, include the `logback` package in the _pom.xml_ file.
 
-Then add the Logback configuration file:
+    ```xml
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.3</version>
+    </dependency>
+    ```
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="true">
+2. Navigate to the _resources_ folder, and a file called _logback.xml_, and insert the following code.
 
-</configuration>
-```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <root level="debug">
+            <appender-ref ref="STDOUT" />
+        </root>    
+    </configuration>
+    ```
+3. Next, you should set the _logging.config_ property to the location of the _logback.xml_ file before the main method. Navigate to _MsalB2CWebSampleApplication.java_ and add the following code to the `MsalB2CWebSampleApplication` public class. 
 
-SLF4J automatically binds to Logback at deployment time. MSAL logs will be written to the console.
+    ```java
+    @SpringBootApplication
+    public class MsalB2CWebSampleApplication {
+
+        static { System.setProperty("logging.config", "C:\Users\<your path>\src\main\resources\logback.xml"); }
+        public static void main(String[] arrgs) {
+            // Console.log("main");
+            // System.console().printf("Hello");
+            // System.out.printf("Hello %s!%n", "World");
+            System.out.printf("%s%n", "Hello World");
+            SpringApplication.run(MsalB2CWebSampleApplication.class, args);
+        }
+    }
+    ```
+    
+In your Azure B2C tenant, you will need separate app registrations for the web app and the web API. For app registration and exposing the web API scope, you can follow the steps in [Configure authentication in a sample web app that calls a web API by using Azure AD B2C](/azure/active-directory-b2c/configure-authentication-sample-web-app-with-api).
 
 For instructions on how to bind to other logging frameworks, see the [SLF4J manual](http://www.slf4j.org/manual.html).
 
