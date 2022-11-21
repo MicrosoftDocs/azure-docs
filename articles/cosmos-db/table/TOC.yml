@@ -18,12 +18,9 @@
       href: quickstart-python.md
 - name: Tutorials
   items:
-    - name: 1 - Migrate data
-      displayName: import
-      href: import.md
-    - name: 2 - Query data
+    - name: Query data
       href: tutorial-query.md
-    - name: 3 - Distribute data globally
+    - name: Distribute data globally
       href: tutorial-global-distribution.md
     - name: Create Jupyter notebooks
       href: ../nosql/tutorial-create-notebook.md
