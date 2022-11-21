@@ -1,9 +1,9 @@
 ---
 title: Automate agentless VMware migrations in Azure Migrate
 description: Describes how to use scripts to migrate a large number of VMware VMs in Azure Migrate
-author: jyothisuri
-ms.author: jsuri
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
+ms.manager: kmadnani
 ms.topic: how-to
 ms.date: 5/2/2022
 ---

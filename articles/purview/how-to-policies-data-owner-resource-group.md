@@ -31,9 +31,7 @@ In this guide we cover how to register an entire resource group or subscription 
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register the subscription or resource group for Data Use Management
-The subscription or resource group needs to be registered with Microsoft Purview to later define access policies.
-
-To register your subscription or resource group, follow the **Prerequisites** and **Register** sections of this guide:
+The subscription or resource group needs to be registered with Microsoft Purview before you can create access policies. To register your subscription or resource group, follow the **Prerequisites** and **Register** sections of this guide:
 
 - [Register multiple sources in Microsoft Purview](register-scan-azure-multiple-sources.md#prerequisites)
 
@@ -44,7 +42,7 @@ In the end, your resource will have the  **Data Use Management** toggle **Enable
 ![Screenshot shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.](./media/how-to-policies-data-owner-resource-group/register-resource-group-for-policy.png)
 
 >[!Important]
-> - If you want to create a policy on a resource group or subscription and have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently and enable *Data use management* to provide their App ID: [See this document](./how-to-policies-data-owner-arc-sql-server.md#register-data-sources-in-microsoft-purview).
+> - If you create a policy on a resource group or subscription and want to have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently and enable *Data use management* which captures their App ID: [See this document](./how-to-policies-devops-arc-sql-server.md#register-data-sources-in-microsoft-purview).
 
 
 ## Create and publish a data owner policy

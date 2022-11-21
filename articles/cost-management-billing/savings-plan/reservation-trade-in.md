@@ -5,7 +5,7 @@ description: Learn how you can trade in your reservations for an Azure saving pl
 author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: reservations
+ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/24/2022
