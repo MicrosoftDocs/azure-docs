@@ -185,7 +185,9 @@ SELECT * FROM devices.modules
 ## Twin query limitations
 
 > [!IMPORTANT]
-> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the [get twin REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Query results are eventually consistent operations and delays of up to 30 minutes should be tolerated. In most instances, twin query returns results in the order of a few seconds. 
+
+An alternative option to twin queries is to use query individual device twins by ID, use the [get twin REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Query expressions can have a maximum length of 8192 characters.
 
@@ -193,9 +195,10 @@ Currently, comparisons are supported only between primitive types (no objects), 
 
 
 > [!Note]
-> We recommend to not take a dependency on lastActivityTime found in Device Identity Properties for Twin Queries for any scenario. We do not prioritize the update of this field to accurately gauge device status. Instead, please use IoT Device Lifecycle events to manage device state and activities
+> We recommend to not take a dependency on lastActivityTime found in Device Identity Properties for Twin Queries for any scenario. This field does not guarantee an accurate gauge of device status. Instead, please use IoT Device Lifecycle events to manage device state and activities
 
 ## Next steps
 
 * Understand the basics of the [IoT Hub query language](iot-hub-devguide-query-language.md)
+
 
