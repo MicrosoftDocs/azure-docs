@@ -48,6 +48,8 @@ To use this feature, you need:
 
 ## Send logs to Azure Monitor
 
+Follow the steps below to send logs from Azure Active Directory to Azure Monitor. Looking for how to set up Log Analytics workspace for Azure resources outside of Azure AD? Check out the [Collect and view resource logs for Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) article.
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as a **Security Administrator** or **Global Administrator**.
 
 1. Go to **Azure Active Directory** > **Diagnostic settings**. You can also select **Export Settings** from either the **Audit Logs** or **Sign-ins** page.
