@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/11/2022
+ms.date: 11/21s/2022
 ms.author: banders
 ---
 
@@ -88,16 +88,16 @@ After your subscription is canceled, Microsoft waits 30 - 90 days before permane
 
 The **Delete subscription** option isn't available until at least 15 minutes after you cancel your subscription.
 
+Depending on your subscription type, you may not be able to delete a subscription immediately.
+
 1. Select your subscription on the [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) page in the Azure portal.
 1. Select the subscription that you want to delete.
-1. Select **Overview**, and then select **Delete subscription**.
+1. At the top of the subscription page, select **Delete**.  
+  If must wait to delete the subscription, you'll see the following page. After the required period, you can delete the subscription.  
+    :::image type="content" source="./media/cancel-azure-subscription/manual-delete-subscription.png" alt-text="Screenshot showing the Delete your subscription page." lightbox="./media/cancel-azure-subscription/manual-delete-subscription.png" :::
 
 >[!NOTE]
 > 90 days after you cancel a subscription, the subscription is automatically deleted.
-
-## Delete other subscriptions
-
-The only subscription types that you can manually delete are free trial and pay-as-you-go subscriptions. All other subscription types are deleted only through the [subscription cancellation](#cancel-a-subscription-in-the-azure-portal) process. In other words, you can't delete a subscription directly unless it's a free trial or pay-as-you-go subscription. However, after you cancel a subscription, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) to ask to have the subscription deleted immediately.
 
 ## Reactivate a subscription
 
