@@ -28,7 +28,7 @@ Each IoT Hub tier is available in three sizes, based around how much data throug
 
 The standard tier of IoT Hub enables all features, and is required for any IoT solutions that want to make use of the bi-directional communication capabilities. The basic tier enables a subset of the features and is intended for IoT solutions that only need uni-directional communication from devices to the cloud. Both tiers offer the same security and authentication features.
 
-Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT Hub. For example, you can create an IoT Hub with multiple units of S1, but not with a mix of units from different editions, such as S1 and S2.
+Only one type of [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT hub. For example, you can create an IoT hub with multiple units of S1. However, you can't create an IoT hub with a mix of units from different editions, such as S1 and B3 or S1 and S2.
 
 | Capability | Basic tier | Standard/Free tier |
 | ---------- | ---------- | ------------- |
@@ -44,13 +44,13 @@ Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Yes |
 | [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) |   | Yes |
 
-IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard.
+IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but includes limited messaging allowances. You can't upgrade from the free tier to either the basic or standard tier.
 
 ## Partitions
 
-Azure IoT hubs contain many core components from [Azure Event Hubs](../event-hubs/event-hubs-features.md), including [partitions](../event-hubs/event-hubs-features.md#partitions). Event streams for IoT hubs are generally populated with incoming telemetry data that is reported by various IoT devices. The partitioning of the event stream is used to reduce contentions that occur when concurrently reading and writing to event streams.
+Azure IoT hubs contain many core components from [Azure Event Hubs](../event-hubs/event-hubs-features.md), including [partitions](../event-hubs/event-hubs-features.md#partitions). Event streams for IoT hubs are populated with incoming telemetry data that is reported by various IoT devices. The partitioning of the event stream is used to reduce contentions that occur when concurrently reading and writing to event streams.
 
-The partition limit is chosen when an IoT hub is created, and cannot be changed. The maximum limit of device-to-cloud partitions for basic tier and standard tier IoT hubs is 32. Most IoT hubs only need four partitions. For more information on determining the partitions, see the [How many partitions do I need?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-) question in the [FAQ](../event-hubs/event-hubs-faq.yml) for [Azure Event Hubs](../event-hubs/index.yml).
+The partition limit is chosen when an IoT hub is created, and can't be changed. The maximum limit of device-to-cloud partitions for basic tier and standard tier IoT hubs is 32. Most IoT hubs only need four partitions. For more information on determining the partitions, see the [How many partitions do I need?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-) question in the [FAQ](../event-hubs/event-hubs-faq.yml) for [Azure Event Hubs](../event-hubs/index.yml).
 
 ## Tier upgrade
 
@@ -63,7 +63,7 @@ The partition configuration remains unchanged when you migrate from basic tier t
 
 ## IoT Hub REST APIs
 
-The difference in supported capabilities between the basic and standard tiers of IoT Hub means that some API calls do not work with basic tier IoT hubs. The following table shows which APIs are available:
+The difference in supported capabilities between the basic and standard tiers of IoT Hub means that some API calls don't work with basic tier IoT hubs. The following table shows which APIs are available:
 
 | API | Basic tier | Standard/Free tier |
 | --- | ---------- | ------------- |
@@ -107,7 +107,13 @@ The best way to size an IoT Hub solution is to evaluate the traffic on a per-uni
 * Cloud-to-device messages
 * Identity registry operations
 
-Traffic is measured for your IoT hub on a per-unit basis. When you create an IoT hub, you choose its tier and edition, and set the number of units available. You can purchase up to 200 units for the B1, B2, S1, or S2 edition, or up to 10 units for the B3 or S3 edition. After your IoT hub is created, you can change the number of units available within its edition, upgrade or downgrade between editions within its tier (B1 to B2), or upgrade from the basic to the standard tier (B1 to S1) without interrupting your existing operations. For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md).  
+Traffic is measured for your IoT hub on a per-unit basis. When you create an IoT hub, you choose its tier and edition, and set the number of units available. You can purchase up to 200 units for the B1, B2, S1, or S2 edition, or up to 10 units for the B3 or S3 edition. After you create your IoT hub, without interrupting your existing operations, you can:
+
+- Change the number of units available within its edition (for example, upgrading from one to three units of B1)
+- Upgrade or downgrade between editions within its tier (for example, upgrading from B1 to B2)
+- Upgrade from the basic to the standard tier (for example, upgrading from B1 to S1)
+ 
+For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md).  
 
 As an example of each tier's traffic capabilities, device-to-cloud messages follow these sustained throughput guidelines:
 
@@ -121,13 +127,13 @@ Device-to-cloud throughput is only one of the metrics you need to consider when 
 
 ### Identity registry operation throughput
 
-IoT Hub identity registry operations are not supposed to be run-time operations, as they are mostly related to device provisioning.
+IoT Hub identity registry operations aren't supposed to be run-time operations, as they're mostly related to device provisioning.
 
 For more information about specific burst performance numbers, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## Auto-scale
 
-If you are approaching the allowed message limit on your IoT hub, you can use these [steps to automatically scale](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) to increment an IoT Hub unit in the same IoT Hub tier.
+If you're approaching the allowed message limit on your IoT hub, you can use these [steps to automatically scale](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) to increment an IoT Hub unit in the same IoT Hub tier.
 
 ## Next steps
 
