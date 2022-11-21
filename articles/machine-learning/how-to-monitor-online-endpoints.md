@@ -41,7 +41,7 @@ To access the metrics pages through links available in the studio:
 1. Select **View metrics** in the **Attributes** section of the endpoint to open up the endpoint's metrics page in the Azure portal.
 1. Select **View metrics** in the section for each available deployment to open up the deployment's metrics page in the Azure portal.
 
-    :::image type="content" source="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png" alt-text="A screenshot showing how to access the metrics of an endpoint and deployment from the studio UI" lightbox="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png":::
+    :::image type="content" source="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png" alt-text="A screenshot showing how to access the metrics of an endpoint and deployment from the studio UI." lightbox="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png":::
 
 To access metrics directly from the Azure portal:
 
