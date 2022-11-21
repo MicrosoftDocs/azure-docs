@@ -29,11 +29,7 @@ When you enable Container insights or update a cluster to support collecting met
 
 During the onboarding or update process, granting the **Monitoring Metrics Publisher** role assignment is attempted on the cluster resource. The user initiating the process to enable Container insights or the update to support the collection of metrics must have access to the **Microsoft.Authorization/roleAssignments/write** permission on the AKS cluster resource scope. Only members of the Owner and User Access Administrator built-in roles are granted access to this permission. If your security policies require you to assign granular-level permissions, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and assign permission to the users who require it.
 
-You can also manually grant this role from the Azure portal:
-
-1. Assign the **Publisher** role to the **Monitoring Metrics** scope.
-
-    For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You can also manually grant this role from the Azure portal: Assign the **Publisher** role to the **Monitoring Metrics** scope. For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Container insights is enabled but not reporting any information
 To diagnose the problem if you can't view status information or no results are returned from a log query:
@@ -156,7 +152,9 @@ To view the non-AKS cluster in Container insights, read access is required on th
         ```
 
 ## Installation of Azure Monitor Containers Extension fails on an Azure Arc-enabled Kubernetes cluster
-The error "manifests contain a resource that already exists" indicates that resources of the Container insights agent already exist on the Azure Arc-enabled Kubernetes cluster. This error indicates that the Container insights agent is already installed. It's installed either through an azuremonitor-containers Helm chart or the Monitoring Add-on if it's an AKS cluster that's connected via Azure Arc. The solution to this issue is to clean up the existing resources of the Container insights agent if it exists. Then enable the Azure Monitor Containers Extension.
+The error "manifests contain a resource that already exists" indicates that resources of the Container insights agent already exist on the Azure Arc-enabled Kubernetes cluster. This error indicates that the Container insights agent is already installed. It's installed either through an azuremonitor-containers Helm chart or the Monitoring Add-on if it's an AKS cluster that's connected via Azure Arc. 
+
+The solution to this issue is to clean up the existing resources of the Container insights agent if it exists. Then enable the Azure Monitor Containers Extension.
 
 ### For non-AKS clusters
 1. Against the K8s cluster that's connected to Azure Arc, run the following command to verify whether the `azmon-containers-release-1` Helm chart release exists or not:
