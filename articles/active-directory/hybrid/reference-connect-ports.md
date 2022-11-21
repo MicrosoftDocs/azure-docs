@@ -35,7 +35,7 @@ This table describes the ports and protocols that are required for communication
 | RPC |49152- 65535 (Random high RPC Port) (TCP) |Used during the initial configuration of Azure AD Connect when it binds to the AD forests, and during Password synchronization. If the dynamic port has been changed, you need to open that port. See [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), and [KB224196](https://support.microsoft.com/kb/224196) for more information. |
 |WinRM  | 5985 (TCP) |Only used if you are installing AD FS with gMSA by Azure AD Connect Wizard|
 |AD DS Web Services | 9389 (TCP) |Only used if you are installing AD FS with gMSA by Azure AD Connect Wizard |
-| Global Catalog | 3268 (TCP) | Used by Seamless SSO to query the global catalog in the forest before creating a computer account in the domain. |
+| Global Catalog | 3268 - 3269 (TCP) | Used by Seamless SSO to query the global catalog in the forest before creating a computer account in the domain. |
 
 ## Table 2 - Azure AD Connect and Azure AD
 This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Azure AD.
