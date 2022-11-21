@@ -17,7 +17,6 @@ For enhanced workflows and ease of use, you can use the medtech service in Azure
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
 > - Open an ARM template in the Azure portal.
 > - Configure the template for your deployment.
 > - Create a device.
