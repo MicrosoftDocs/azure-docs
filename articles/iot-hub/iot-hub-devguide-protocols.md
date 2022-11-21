@@ -59,7 +59,7 @@ Devices can communicate with IoT Hub in Azure using various protocols. Typically
 | AMQP over WebSockets | 443 |
 | HTTPS | 443 |
 
-The IP address of an IoT hub is subject to change without notice. To learn how to mitigate the effects of IoT hub IP address changes on your IoT solution and devices, see the [Best practices](iot-hub-understand-ip-address.md#best-practices) section of [IoT Hub IP addresses](iot-hub-understand-ip-address).
+The IP address of an IoT hub is subject to change without notice. To learn how to mitigate the effects of IoT hub IP address changes on your IoT solution and devices, see the [Best practices](iot-hub-understand-ip-address.md#best-practices) section of [IoT Hub IP addresses](iot-hub-understand-ip-address.md).
 
 ## Next steps
 
