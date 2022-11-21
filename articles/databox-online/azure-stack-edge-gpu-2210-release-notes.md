@@ -25,13 +25,25 @@ This article applies to the **Azure Stack Edge 2210** release, which maps to sof
 
 The 2210 release has the following features and enhancements:
 
-- **High performance network VMs** - In this release, when you deploy high performance network (HPN) VMs, vCPUs are automatically reserved using a default SkuPolicy. If a vCPU reservation was defined in an earlier version, and if you update the device to 2210, then that existing reservation is carried forth to 2210. For more information, see how to [Deploy HPN VMs on your Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md).
-- **HPN VM enhancements** - This release includes support for bulk network configuration changes in the local UI. Users can edit multiple vswitches/vnets, then select **Apply**. This improvement will reduce network configuration time.  
-
-Added HPN GPU VM sizes for T4 and A2 GPU's and Standard_F4s_v1 VM size 
+- **High performance network VM enhancements:**
+  - When you deploy high performance network (HPN) VMs, vCPUs are automatically reserved using a default SkuPolicy. If a vCPU reservation was defined in an earlier version, and if you update the device to 2210, then that existing reservation is carried forth to 2210. For more information, see how to [Deploy HPN VMs on your Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md).
+  - Added support for bulk network configuration changes. For example, you can now can edit multiple virtual switches and multiple virtual networks in the local UI. This improvement will reduce network configuration time.
+  - Added HPN GPU VM sizes for T4 and A2 GPUs and Standard_F4s_v1 VM size. See the updated article at [VM sizes and types for Azure Stack Edge Pro](azure-stack-edge-gpu-virtual-machine-sizes.md).
 - **Kubernetes security updates** - This release includes security updates and security hardening improvements for Kubernetes VMs. 
 
 If you have questions or concerns, [open a support case through the Azure portal](azure-stack-edge-contact-microsoft-support.md).
+
+## Issues fixed in this release
+
+| No. | Feature | Issue |
+| --- | --- | --- |
+|**1.**|Networking |Open vSwitch Database Management Protocol (OVSDB) connection failure caused by stale node IP after user changed physical net adapter link status. |
+
+## Known issues in 2210 release
+
+| No. | Feature | Issue | Workaround/comments |
+| --- | --- | --- | --- |
+|**1.**|Preview features |For this release, the following features are available in preview: <br> - Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only.  <br> - VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only. <br> - Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R. |These features will be generally available in later releases. |
 
 ## Known issues from previous releases
 
@@ -63,8 +75,7 @@ The following table provides a summary of known issues carried over from the pre
 |**22.**|Compute and Kubernetes |If Kubernetes is set up first on your device, it claims all the available GPUs. Hence, it isn't possible to create Azure Resource Manager VMs using GPUs after setting up the Kubernetes. |If your device has 2 GPUs, then you can create one VM that uses the GPU and then configure Kubernetes. In this case, Kubernetes will use the remaining available one GPU. |
 |**23.**|Custom script VM extension |There's a known issue in the Windows VMs that were created in an earlier release and the device was updated to 2103. <br> If you add a custom script extension on these VMs, the Windows VM Guest Agent (Version 2.7.41491.901 only) gets stuck in the update causing the extension deployment to time out. | To work around this issue: <br> 1. Connect to the Windows VM using remote desktop protocol (RDP). <br> 2. Make sure that the `waappagent.exe` is running on the machine: `Get-Process WaAppAgent`. <br> 3. If the `waappagent.exe` isn't running, restart the `rdagent` service: `Get-Service RdAgent` \| `Restart-Service`. Wait for 5 minutes.<br> 4. While the `waappagent.exe` is running, kill the `WindowsAzureGuest.exe` process. <br> 5. After you kill the process, the process starts running again with the newer version. <br> 6. Verify that the Windows VM Guest Agent version is 2.7.41491.971 using this command: `Get-Process WindowsAzureGuestAgent` \| `fl ProductVersion`.<br> 7. [Set up custom script extension on Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md).  |
 |**24.**|Multi-Process Service (MPS) |When the device software and the Kubernetes cluster are updated, the MPS setting isn't retained for the workloads.   |[Re-enable MPS](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and redeploy the workloads that were using MPS. |
-|**25.**|Wi-Fi |Wi-Fi doesn't work on Azure Stack Edge Pro 2 in this release. |
-|**26.**|OVSDB connections |OVSDB connection failure caused by stale node IP after user changed physical net adapter link status (Not MSK8s). |  |
+|**25.**|Wi-Fi |Wi-Fi doesn't work on Azure Stack Edge Pro 2 in this release. |  |
 
 ## Next steps
 
