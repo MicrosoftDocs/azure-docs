@@ -4157,7 +4157,7 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/relational-nosql.md",
-      "redirect_url": "/azure/cosmos-db/distributed-nosql.md",
+      "redirect_url": "/azure/cosmos-db/distributed-nosql",
       "redirect_document_id": false
     },
     {
