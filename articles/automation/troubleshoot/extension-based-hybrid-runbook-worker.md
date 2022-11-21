@@ -240,7 +240,7 @@ Place this file in the same folder as the executable file `OrchestratorSandbox.e
 `%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
 
 
-### Scenario: Windows Azure VMs automatically dropped from a hybrid worker group
+### Scenario: Microsoft Azure VMs automatically dropped from a hybrid worker group
 
 #### Issue
 

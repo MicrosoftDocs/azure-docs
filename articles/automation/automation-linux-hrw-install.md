@@ -21,7 +21,7 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 
 ## Prerequisites
 
-Before you start, make sure that you have the following.
+Before you start, make sure that you've the following.
 
 ### A Log Analytics workspace
 
@@ -161,7 +161,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
       - Using Azure Policy.
 
-        Using this approach, you use the Azure Policy [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition to audit if the Arc-enabled server has the Log Analytics agent installed. If the agent isn't installed, it automatically deploys it using a remediation task. If you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../governance/policy/samples/built-in-initiatives.md#monitoring) initiative to install and configure the Log Analytics agent.
+        Using this approach, you use the Azure Policy [Deploy Log Analytics agent to Linux or Microsoft Azure Arc machines](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition to audit if the Arc-enabled server has the Log Analytics agent installed. If the agent isn't installed, it automatically deploys it using a remediation task. If you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../governance/policy/samples/built-in-initiatives.md#monitoring) initiative to install and configure the Log Analytics agent.
 
       We recommend installing the Log Analytics agent for Windows or Linux using Azure Policy.
 

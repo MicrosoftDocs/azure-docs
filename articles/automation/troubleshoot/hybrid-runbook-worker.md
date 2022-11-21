@@ -78,7 +78,7 @@ You have two options for resolving this issue:
 
 * Manually configure the worker machine to run in an Orchestrator sandbox. Then run a runbook created in the Azure Automation account on the worker to test the functionality.
 
-### <a name="vm-automatically-dropped"></a>Scenario: Windows Azure VMs automatically dropped from a hybrid worker group
+### <a name="vm-automatically-dropped"></a>Scenario: Microsoft Azure VMs automatically dropped from a hybrid worker group
 
 #### Issue
 
