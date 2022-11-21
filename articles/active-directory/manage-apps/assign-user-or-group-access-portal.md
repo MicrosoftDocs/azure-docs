@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 09/06/2022
 ms.author: ergreenl
 ms.custom: contperf-fy22q2, contperf-fy22q3
+zone_pivot_groups: enterprise-apps-all
 
 #customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using PowerShell
 ---
@@ -31,10 +32,26 @@ To assign users to an app using PowerShell, you need:
 
 - An Azure account with an active subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- If you have not yet installed the AzureAD module (use the command `Install-Module -Name AzureAD`). If you're prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
 - Azure Active Directory Premium P1 or P2 for group-based assignment. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
 
-## Assign users, and groups, to an app using PowerShell
+
+:::zone pivot="portal"
+
+To assign a user or group account to an enterprise application:
+
+1. In the [Azure Active Directory Admin Center](https://aad.portal.azure.com), select **Enterprise applications**, and then search for and select the application to which you want to assign the user or group account.
+1. In the left pane, select **Users and groups**, and then select **Add user/group**.
+
+    :::image type="content" source="media/add-application-portal-assign-users/assign-user.png" alt-text="Assign user account to an application in your Azure AD tenant.":::
+
+1. On the **Add Assignment** pane, select **None Selected** under **Users and groups**.
+1. Search for and select the user or group that you want to assign to the application. For example, `contosouser1@contoso.com` or `contosoteam1@contoso.com`.
+1. Select **Select**.
+1. On the **Add Assignment** pane, select **Assign** at the bottom of the pane.
+
+:::zone-end
+
+:::zone pivot="aad-powershell"
 
 1. Open an elevated Windows PowerShell command prompt.
 1. Run `Connect-AzureAD` and sign in with a Global Admin user account.
@@ -113,7 +130,7 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
     $assignments | Select *
 
     #To remove the App role assignment run the following command.
-    Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
+    Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment number].ObjectId
     ```
 
 ## Remove all users who are assigned to the application
@@ -139,6 +156,70 @@ $assignments | ForEach-Object {
     }
 }
 ```
+:::zone-end
+
+:::zone pivot="ms-powershell"
+
+1. Open an elevated Windows PowerShell command prompt.
+1. Run `Connect-MgGraph` and sign in with a Global Admin user account.
+1. Use the following script to assign a user and role to an application:
+
+
+    ```powershell
+    # Assign the values to the variables
+
+    $userId = "<Your user's ID>"
+    $app_name = "<Your App's display name>"
+    $app_role_name = "<App role display name>"
+    $sp = Get-MgServicePrincipal -Filter "displayName eq '$app_name'")
+
+
+    # Get the user to assign, and the service principal for the app to assign to
+
+    $params = @{
+    "PrincipalId" =$userId
+    "ResourceId" =$sp.Id
+    "AppRoleId" =($sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }).Id
+    }
+
+    # Assign the user to the app role
+
+    New-MgUserAppRoleAssignment -UserId $userId -BodyParameter $params |
+    Format-List Id, AppRoleId, CreationTime, PrincipalDisplayName,
+    PrincipalId, PrincipalType, ResourceDisplayName, ResourceId
+
+
+    # Assign groups to an app using Microsoft Graph PowerShell
+
+    $GroupId = "<Your user's ID>"
+    $app_name = "<Your App's display name>"
+    $app_role_name = "<App role display name>"
+
+    $params = @{
+    "PrincipalId"= $GroupId
+    "ResourceId"= sp.Id
+    "AppRoleId"= ($sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }).Id
+    }
+
+    New-MgGroupAppRoleAssignment -UserId $userId -BodyParameter $params |
+    Format-List Id, AppRoleId, CreationTime, PrincipalDisplayName,
+    PrincipalId, PrincipalType, ResourceDisplayName, ResourceId
+    ```
+## Unassign users, and groups, from an app using PowerShell
+
+
+:::zone-end
+
+:::zone pivot="ms-graph"
+
+:::zone-end
+## Assign users, and groups, to an application
+
+
+
+
+
+
 
 ## Next steps
 
