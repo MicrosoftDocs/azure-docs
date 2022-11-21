@@ -1,5 +1,6 @@
 ---
-title: Upload a blob using .NET - Azure Storage
+title: Upload a blob using .NET
+titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the .NET client library.
 services: storage
 author: pauljewellmsft

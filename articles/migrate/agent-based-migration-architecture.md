@@ -6,7 +6,6 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: conceptual
 ms.date: 03/23/2021
-
 ---
 
 # Agent-based migration architecture
