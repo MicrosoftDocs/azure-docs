@@ -14,14 +14,12 @@ ms.custom: devx-track-azurecli
 
 You've installed and configured Dapr OSS on your Kubernetes cluster and want to migrate to the Dapr extension on AKS. In this guide, you'll learn how Dapr moves your managed clusters from using Dapr OSS to the Dapr extension by either:
 
-- The default check for an existing Dapr installation via CLI prompts, or
+- Checking for an existing Dapr installation via CLI prompts (default method), or
 - Using the Helm release name and namespace configuration settings to manually check for an existing Dapr installation. 
 
 This check allows the Dapr extension to reuse the already existing Kubernetes resources from your previous installation and start managing them. 
 
-#### [Default](#tab/default)
-
-## Use the built-in check for an existing Dapr installation
+## Check for an existing Dapr installation
 
 The Dapr extension, by default, checks for existing Dapr installations when you run the `az k8s-extension create` command. To list the details of your current Dapr installation, run the following command and save the Dapr release name and namespace:
 
@@ -45,11 +43,9 @@ Enter the Helm release name for Dapr, or press Enter to use the default name [da
 Enter the namespace where Dapr is installed, or press Enter to use the default namespace [dapr-system]:
 ```
 
-#### [Configuration settings](#tab/config)
-
 ## Configure the Dapr check using `--configuration-settings` 
 
-When creating the Dapr extension, you can configure the Dapr migration via the `--configuration-settings`. This method is useful when installing via automation, etc.
+Alternatively, when creating the Dapr extension, you can configure the Dapr migration via the `--configuration-settings`. This method is useful when installing via automation, etc.
 
 If Dapr doesn't already exist on your machine and you'd like to bypass checking for an existing Dapr installation, set `skipExistingDaprCheck` to `true`:
 
@@ -73,8 +69,6 @@ az k8s-extension create --cluster-type managedClusters \
 --configuration-settings existingDaprReleaseName=dapr \
 --configuration-settings existingDaprReleaseNamespace=dapr-system
 ```
-
---- 
 
 ## Update HA mode or placement service settings
 
