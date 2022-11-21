@@ -17,7 +17,7 @@ In this tutorial, you learn how to programmatically fetch access policies that w
 
 For more information about Microsoft Purview policies, see the concept guides listed in the ["Next steps"](#next-steps) section.
 
-This guide uses examples from Azure SQL Server as data sources.
+This guide uses examples from SQL Server as data sources.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ where the path `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 |500|Internal server error|Error|The back-end service is unavailable|Error data|
 |503|Backend service unavailable|Error|The back-end service is unavailable|Error data|
 
-### Example for Azure SQL Server (Azure SQL Database)
+### Example for SQL Server (Azure SQL Database)
 
 **Example parameters**:
 - Microsoft Purview account: relecloud-pv
@@ -131,7 +131,7 @@ Provide the syncToken you got from the prior pull in any successive delta pulls.
 |500|Internal server error|Error| The back-end service is unavailable|Error data|
 |503|Backend service unavailable|Error| The back-end service is unavailable|Error data|
 
-### Examples for Azure SQL Server (Azure SQL Database)
+### Examples for SQL Server (Azure SQL Database)
 
 **Example parameters**:
 - Microsoft Purview account: `relecloud-pv`
