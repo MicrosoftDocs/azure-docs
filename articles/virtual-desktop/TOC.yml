@@ -377,8 +377,20 @@
     href: troubleshoot-agent.md
   - name: Remote Desktop service connections
     href: troubleshoot-service-connection.md
-  - name: Remote Desktop client issues
-    href: troubleshoot-client.md
+  - name: Remote Desktop clients
+    items:
+    - name: Windows Desktop client
+      href: troubleshoot-client-windows.md
+    - name: Web client
+      href: troubleshoot-client-web.md
+    - name: macOS client
+      href: troubleshoot-client-macos.md
+    - name: iOS/iPadOS client
+      href: troubleshoot-client-ios-ipados.md
+    - name: Android/Chrome OS client
+      href: troubleshoot-client-android-chrome-os.md
+    - name: Windows Microsoft Store client
+      href: troubleshoot-client-microsoft-store.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
   - name: Connections to Azure AD-joined VMs

@@ -99,6 +99,11 @@
             "source_path_from_root": "/articles/virtual-desktop/whats-new-azure-monitor.md",
             "redirect_url": "/azure/virtual-desktop/whats-new-insights",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client.md",
+            "redirect_url": "/azure/virtual-desktop/troubleshoot-client-windows",
+            "redirect_document_id": true
         }
     ]
 }
