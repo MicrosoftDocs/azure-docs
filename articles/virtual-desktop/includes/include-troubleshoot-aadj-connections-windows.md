@@ -9,7 +9,7 @@ ms.date: 11/21/2022
 
 If you come across an error saying **The logon attempt failed** on the Windows Security credential prompt, verify the following:
 
-- You are using a device that is Azure AD-joined or hybrid Azure AD-joined to the same Azure AD tenant as the session host.
+- You're using a device that is Azure AD-joined or hybrid Azure AD-joined to the same Azure AD tenant as the session host.
 - The [PKU2U protocol is enabled](/windows/security/threat-protection/security-policy-settings/network-security-allow-pku2u-authentication-requests-to-this-computer-to-use-online-identities) on both the local PC and the session host.
 - [Per-user multi-factor authentication is disabled](../set-up-mfa.md#azure-ad-joined-session-host-vms) for the user account as it's not supported for Azure AD-joined VMs.
 
