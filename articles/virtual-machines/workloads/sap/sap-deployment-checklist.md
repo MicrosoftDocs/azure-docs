@@ -93,9 +93,9 @@ You can run a pilot before or during project planning and preparation. You can a
 We recommend that you set up and validate a full HADR solution and security design during a pilot deployment. Some customers perform scalability tests during this phase. Other customers use deployments of SAP sandbox systems as a pilot phase. We assume you've already identified a system that you want to migrate to Azure for the pilot.
 
 1. Optimize data transfer to Azure. The optimal choice is highly dependent on the specific scenario. If private connectivity is required for database replication, [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) is fastest if the ExpressRoute circuit has enough bandwidth. In any other scenario, transferring through the internet is faster. Optionally use a dedicated migration VPN for private connectivity to Azure. Any migration network path during pilot should mirror the use for future production systems, eliminating any impact to workloads – SAP or non-SAP - already running in Azure.
-2. For a heterogeneous SAP migration that involves an export and import of data, test and optimize the export and import phases. For migration of large SAP environments, go through available best practices.
-> [Migrate very large databases (VLDB) to Azure for SAP](/training/modules/migrate-very-large-databases-to-azure/).
-Use the appropriate tool for the migration scenario, depending on your source and target SAP releases, DBMS and if combining migration with other tasks such as release upgrade or even Unicode or S/4HANA conversion. SAP provides Migration Monitor/SWPM, [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) or DMO with system move, besides other approaches to minimize downtime available as separate service from SAP. In the latest releases of SAP DMO with system move, the use of azcopy for data transfer over the internet is supported as well, enabling the quickest network path natively.
+2. For a heterogeneous SAP migration that involves an export and import of data, test and optimize the export and import phases. For migration of large SAP environments, go through available best practices. Use the appropriate tool for the migration scenario, depending on your source and target SAP releases, DBMS and if combining migration with other tasks such as release upgrade or even Unicode or S/4HANA conversion. SAP provides Migration Monitor/SWPM, [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) or DMO with system move, besides other approaches to minimize downtime available as separate service from SAP. In the latest releases of SAP DMO with system move, the use of azcopy for data transfer over the internet is supported as well, enabling the quickest network path natively.
+  - [Migrate very large databases (VLDB) to Azure for SAP](/training/modules/migrate-very-large-databases-to-azure/)  
+
 
 ### Technical validation
 
@@ -294,7 +294,7 @@ After deploying infrastructure and applications and before each migration starts
 
 ## Automated checks and insights in SAP landscape
 
-Several of the checks above are checked in automated way with [SAP on Azure Quality Check Tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck). These checks can be executed automated with the provided open-source project. No automated remediation of issues found is done and tooling is to spot configurations against Microsoft recommendations. 
+Several of the checks above are checked in automated way with [SAP on Azure Quality Check Tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck). These checks can be executed automated with the provided open-source project. While no automatic remediation of issues found is performed, the tool will warn about  configuration against Microsoft recommendations.
 
 > [!TIP]
 > Same [quality checks and additional insights](/azure/center-sap-solutions/get-quality-checks-insights) are executed regularly when SAP systems are deployed or registered with [Azure Center for SAP solution](/azure/center-sap-solutions/) as well and are part of the service.  
