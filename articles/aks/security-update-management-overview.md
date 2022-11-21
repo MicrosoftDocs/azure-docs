@@ -10,7 +10,7 @@ ms.date: 11/21/2022
 
 # Security Update Management for Azure Kubernetes Service (AKS)
 
-This article details our recommended process for managing security updates with your Azure Kubernetes Service (AKS) clusters. Within this article, it outlines
+This article describes how Microsoft manages security vulnerabilities and security updates (also refereed to as patches), for Azure Kubernetes Service (AKS) clusters.
 
 ## Responsibilities
 
@@ -73,6 +73,8 @@ Microsoft's goal is to mitigate detected vulnerabilities within a time period ap
 ## How vulnerabilities and updates are communicated
 
 In general, Microsoft does not broadly communicate the release of new patch versions for AKS. However, Microsoft constantly monitors and validates available CVE patches to support them in AKS in a timely manner. If a critical patch is found or user action is required, Microsoft will notify you to upgrade to the newly available patch.
+
+<Why don't we publish the security update CVEs relesed on AKS for that month? Kubernetes shares this information.>
 
 ## Next steps
 
