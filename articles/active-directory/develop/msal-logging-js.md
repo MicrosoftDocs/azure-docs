@@ -29,6 +29,8 @@ The loggerOptions object has the following properties:
 - `piiLoggingEnabled` (optional): if set to true, logs personal and organizational data. By default this is false so that your application doesn't log personal data. Personal data logs are never written to default outputs like Console, Logcat, or NSLog.
 
 ```javascript
+import msal from "@azure/msal-browser"
+
 const msalConfig = {
     auth: {
         clientId: "enter_client_id_here",
