@@ -147,7 +147,7 @@ Users with a Temporary Access Pass can navigate the setup process on Windows 10 
 For Azure AD Joined devices: 
 - During the Azure AD Join setup process, users can authenticate with a TAP (no password required) to join the device and register Windows Hello for Business.
 - On already joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
-- If the [Web sign-in](https://learn.microsoft.com/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin) feature on Windows is also enabled, the user can use TAP to sign into the device. This is intended only for completing initial device setup, or recovery when the user does not know or have a password. 
+- If the [Web sign-in](/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin) feature on Windows is also enabled, the user can use TAP to sign into the device. This is intended only for completing initial device setup, or recovery when the user does not know or have a password. 
 
 For Hybrid Azure AD Joined devices: 
 - Users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to set up Windows Hello for Business. 
@@ -169,7 +169,9 @@ If MFA is required for the resource tenant, the guest user needs to perform MFA 
 ### Expiration
 
 An expired or deleted Temporary Access Pass can’t be used for interactive or non-interactive authentication. 
-Users need to reauthenticate with different authentication methods after the Temporary Access Pass is expired or deleted. 
+Users need to reauthenticate with different authentication methods after the Temporary Access Pass is expired or deleted.
+
+The token lifetime (session token, refresh token, access token, etc.) obtained via a Temporary Access Pass login will be limited to the Temporary Access Pass lifetime. As a result, a Temporary Access Pass expiring will lead to the expiration of the associated token.
 
 ## Delete an expired Temporary Access Pass
 

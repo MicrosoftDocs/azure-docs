@@ -67,7 +67,7 @@ Each schema has a standard set of filtering parameters documented in the relevan
 - [Network Session](network-normalization-schema.md#filtering-parser-parameters)
 - [Web Session](web-normalization-schema.md#filtering-parser-parameters)
 
-Every schema that supports filtering parameters supports at least the `starttime` and `enttime` parameters and using them is often critical for optimizing performance.
+Every schema that supports filtering parameters supports at least the `starttime` and `endtime` parameters and using them is often critical for optimizing performance.
 
 For an example of using filtering parsers see [Unifying parsers](#unifying-parsers) above. 
 

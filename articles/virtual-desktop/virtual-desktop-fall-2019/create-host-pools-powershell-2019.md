@@ -65,7 +65,7 @@ You can create a virtual machine in multiple ways:
 >
 > Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](../prerequisites.md#operating-systems-and-licenses).
 
-After you've created your session host virtual machines, [apply a Windows license to a session host VM](../apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license.
+After you've created your session host virtual machines, [apply a Windows license to a session host VM](../apply-windows-license.md#manually-apply-a-windows-license-to-a-windows-client-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license.
 
 ## Prepare the virtual machines for Azure Virtual Desktop agent installations
 

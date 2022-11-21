@@ -163,6 +163,45 @@ sections:
         answer: |
           [Platform metrics](essentials/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Microsoft Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md).
 
+  - name: Prometheus
+    questions:
+      - question: |
+          What is an Azure Monitor workspace? 
+        answer: |
+          Prometheus metrics data collected by the Azure Monitor managed service for Prometheus is stored in an Azure Monitor workspace. It is essentially a container where Prometheus metrics data is stored for a variety of sources. You may have a single Azure Monitor workspace for all your Prometheus metrics data or may have requirements for multiple workspaces. See [Azure Monitor workspace overview](essentials/azure-monitor-workspace-overview.md?#workspace-design) for additional information.  
+      - question: |
+          What is the difference between an Azure Monitor workspace and a Log Analytics workspace? 
+        answer: |
+          An Azure Monitor workspace is a unique environment for data collected by Azure Monitor. Each workspace has its own data repository, configuration, and permissions. Azure Monitor workspaces will eventually contain all metric data collected by Azure Monitor, including native metrics. Currently, the only data hosted by an Azure Monitor workspace is Prometheus metrics. See [Azure Monitor workspace overview](essentials/azure-monitor-workspace-overview.md) for additional information. 
+      - question: |
+          How do I retrieve Prometheus metrics data? 
+        answer: |
+          All data is retrieved from an Azure Monitor workspace using queries written in Prometheus Query Language (PromQL). You can write your own queries or use open source queries and Grafana dashboards that include PromQL queries. See the [Prometheus project](https://prometheus.io/docs/prometheus/latest/querying/basics/) for more details. 
+      - question: |
+          Can I delete Prometheus metrics data from an Azure Monitor workspace? 
+        answer: |
+          Data is removed from the Azure Monitor workspace according to it data retention period, which is 18 months. 
+      - question: |
+          Can I view my Prometheus metrics in Azure Monitor Metrics explorer? 
+        answer: |
+          Metrics explorer in Azure Monitor does not currently support visualizing Prometheus metric data. Please look at using [Azure Managed Grafana](../managed-grafana/index.yml) to visualize your metrics in Azure Monitor managed service for Prometheus. 
+      - question: |
+          Can I use Azure Managed Grafana in a different region than my Azure Monitor workspace and Managed Prometheus? 
+        answer: |
+          Yes, when using Azure Monitor managed service for Prometheus you can create your Azure Monitor workspace in any of the supported regions. Your Azure Kubernetes Service clusters can also be in any region and send data into your Managed Prometheus in a different region. Azure Managed Grafana can also be in a different region than where you have created your Azure Monitor workspace. 
+      - question: |
+          When using Managed Prometheus can I store data for more than one cluster in an Azure Monitor workspace? 
+        answer: |
+          Yes, Azure Monitor managed service for Prometheus is intended to enable scenarios where you can store data from several Azure Kubernetes Service clusters in a single Azure Monitor workspace. See [Azure Monitor workspace overview](essentials/azure-monitor-workspace-overview.md?#workspace-design) for additional information.  
+      - question: |
+          What types of resources can send Prometheus metrics to Managed Prometheus? 
+        answer: |
+          Our collector can be used on Azure Kubernetes Service clusters. It is installed as a managed add-on and can be configured to collect the data you want and to run as a replica set or as a replica set and on each node in the cluster. You can also configure remote write on Kubernetes clusters running in Azure, another cloud, or on-premises by following our instructions for enabling remote write.  
+      - question: |
+          Does enabling Managed Prometheus on my AKS cluster also enable Container Insights? 
+        answer: |
+          You have options for how you can collect your Prometheus metrics. If you use the Azure portal and enable Prometheus metrics collection and install the AKS add-on from the Azure Monitor workspace UX it won’t enable Container Insights and collection of Log data. When you go to the Insights page on your AKS cluster you will be prompted to enable Container Insights which will collect Log data.<br>If you use the Azure portal and enable Prometheus metrics collection and install the AKS add-on from the Insights page of your AKS cluster it will enable both Logs collection and Prometheus metrics collection into Managed Prometheus. 
+
   - name: Change Analysis
     questions:
       - question: |
@@ -346,7 +385,7 @@ sections:
       - question: |
           Does the Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
         answer: |
-          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no extra cost or resource consumption**, since the ARC agent is only used as an installation mechanism and you need not enable the paid management features if you don’t wish to use them.
+          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the Arc requirement comes at **no extra cost or resource consumption**, since the Arc agent is only used as an installation mechanism and you need not enable the paid management features if you don’t wish to use them.
       
       - question: |
           Does the Azure Monitor Agent support private links?
@@ -522,7 +561,7 @@ sections:
           * HTTP requests
           * [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue.
           * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-2x-collectd.md).
+          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or Virtual Machine Scale Set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-2x-collectd.md).
           * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
           * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
           
