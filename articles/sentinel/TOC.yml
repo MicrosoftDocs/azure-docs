@@ -141,6 +141,8 @@
       href: notebooks.md
   - name: Investigate incidents
     items:
+    - name: Use tasks to manage incidents in Microsoft Sentinel
+      href: incident-tasks.md
     - name: Investigate large datasets
       href: investigate-large-datasets.md
     - name: Investigate entities with entity pages
@@ -378,6 +380,8 @@
       href: livestream.md
   - name: Investigate incidents
     items:
+    - name: Work with incident tasks in Microsoft Sentinel
+      href: create-tasks.md
     - name: Investigate incidents
       href: investigate-cases.md
     - name: Relate alerts to incidents
