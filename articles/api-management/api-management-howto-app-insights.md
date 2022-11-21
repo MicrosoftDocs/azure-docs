@@ -107,13 +107,13 @@ Application Insights receives:
 | *Request* | For every incoming request: <ul><li>*frontend request*</li><li>*frontend response*</li></ul> |
 | *Dependency* | For every request forwarded to a backend service: <ul><li>*backend request*</li><li>*backend response*</li></ul> |
 | *Exception* | For every failed request: <ul><li>Failed because of a closed client connection</li><li>Triggered an *on-error* section of the API policies</li><li>Has a response HTTP status code matching 4xx or 5xx</li></ul> |
-| *Trace* | If you configure a [trace](api-management-advanced-policies.md#Trace) policy. <br /> The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging. |
+| *Trace* | If you configure a [trace](trace-policy.md) policy. <br /> The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging. |
 
 ### Emit custom metrics
-You can emit custom metrics by configuring the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy. 
+You can emit custom metrics by configuring the [`emit-metric`](emit-metrics-policy.md) policy. 
 
 To make Application Insights pre-aggregated metrics available in API Management, you'll need to manually enable custom metrics in the service.
-1. Use the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy with the [Create or Update API](/rest/api/apimanagement/current-ga/api-diagnostic/create-or-update).
+1. Use the [`emit-metrics`](emit-metrics-policy.md) policy with the [Create or Update API](/rest/api/apimanagement/current-ga/api-diagnostic/create-or-update).
 1. Add `"metrics":true` to the payload, along with any other properties.
 
 > [!NOTE]

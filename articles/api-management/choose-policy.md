@@ -10,7 +10,7 @@ ms.date: 11/15/2022
 ms.author: danlep
 ---
 
-# Choose
+# Control flow
 
 Use the `choose` policy to conditionally apply policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md). Use the policy for control flow similar to an if-then-else or a switch construct in a programming language.
 

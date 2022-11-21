@@ -46,7 +46,7 @@ None
 
 ### Use `set-method` in `send-one-way-request`
 
-This exxample uses the `set-method` policy to send a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).
+This example uses the `set-method` policy to send a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).
 
 ```xml
 <choose>

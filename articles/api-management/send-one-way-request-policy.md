@@ -67,7 +67,7 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 
 ### Send one-way request to an external service
 
-This example used the the `send-one-way-request` policy to send a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).
+This example uses the `send-one-way-request` policy to send a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).
 
 ```xml
 <choose>

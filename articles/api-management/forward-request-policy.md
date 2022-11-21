@@ -1,6 +1,6 @@
 ---
 title: Azure API Management policy reference - forward-request | Microsoft Docs
-description: Referenee for the forward-request policy available for use in Azure API Management. Provides policy usage, settings, and examples.
+description: Reference for the forward-request policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
 
