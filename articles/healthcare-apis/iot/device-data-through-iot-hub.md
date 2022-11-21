@@ -12,7 +12,17 @@ ms.author: jasteppe
 
 # Tutorial: Receive device data through Azure IoT Hub
 
-You can use the medtech service in Azure Health Data Services with devices you create and manage through a hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md) for enhanced workflows and ease of use. This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a medtech service. The template creates a deployment that uses an instance of IoT Hub to create and manage devices and route device messages to the medtech service device message event hub.
+For enhanced workflows and ease of use, you can use the medtech service in Azure Health Data Services with devices you create and manage through a hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a medtech service. The template creates a deployment that uses an instance of IoT Hub to create and manage devices. The hub then routes device messages to an event hub for the medtech service to pick up.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+
+> - Open an ARM template in the Azure portal.
+> - Configure the template for your deployment.
+> - Create a device.
+> - Send a test message.
+> - Review metrics for the test message.
 
 The ARM template that you use to deploy your solution in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
 
@@ -47,7 +57,7 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
 The button calls an ARM template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) to get information from your Azure subscription environment and begin deploying the medtech service and IoT Hub by using the Azure portal.
 
-## Provide configuration details
+## Configure the deployment
 
 1. In the Azure portal, on the **Basics** tab of the Azure quickstart template, select or enter the following information for your deployment:
 
@@ -182,8 +192,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message-options.png" alt-text="Screenshot that shows Visual Studio code with the Azure IoT Hub extension selecting the device message options." lightbox="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message-options.png":::
 
-   > [!NOTE]
-   >  After you select **Send**, it might take up to five minutes for the FHIR resources to be available in the FHIR service.
+   After you select **Send**, it might take up to five minutes for the FHIR resources to be available in the FHIR service.
 
    > [!IMPORTANT]
    > To avoid device spoofing in D2C messages, Azure IoT Hub enriches all messages with additional properties. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md).
