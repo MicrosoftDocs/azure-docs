@@ -13,7 +13,7 @@ ms.author: allensu
 
 # Troubleshoot Azure Virtual Network NAT connectivity 
 
-This article provides guidance on how to troubleshoot and resolve common outbound connectivity issues with your NAT gateway resource, as well as best practices on how to design applications to use outbound connections efficiently. 
+This article provides guidance on how to troubleshoot and resolve common outbound connectivity issues with your NAT gateway resource. This article also provides best practices on how to design applications to use outbound connections efficiently. 
 
 ## SNAT exhaustion due to NAT gateway configuration 
 
@@ -25,9 +25,9 @@ SNAT exhaustion issues with NAT gateway typically have to do with the configurat
 
 ### NAT gateway not scaled out enough 
 
-Each public IP address provides 64,512 SNAT ports for connecting outbound with NAT gateway. From those available SNAT ports, NAT gateway can support up to 50,000 concurrent connections to the same destination endpoint. If outbound connections are dropping because SNAT ports are being exhausted, then NAT gateway may not be scaled out enough to handle the workload. Additional Public IP addresses on NAT gateway may be required in order to provide more SNAT ports for outbound connectivity. 
+Each public IP address provides 64,512 SNAT ports for connecting outbound with NAT gateway. From those available SNAT ports, NAT gateway can support up to 50,000 concurrent connections to the same destination endpoint. If outbound connections are dropping because SNAT ports are being exhausted, then NAT gateway may not be scaled out enough to handle the workload. More public IP addresses on NAT gateway may be required in order to provide more SNAT ports for outbound connectivity. 
 
-The table below describes two common outbound connectivity failure scenarios due to scalability issues as well as how to validate and mitigate these issues: 
+The table below describes two common outbound connectivity failure scenarios due to scalability issues and how to validate and mitigate these issues: 
 
 | Scenario | Evidence |Mitigation | 
 |---|---|---| 
@@ -60,7 +60,7 @@ UDP idle timeout timers are set to 4 minutes. Unlike TCP idle timeout timers for
 
 | Scenario | Evidence | Mitigation | 
 |---|---|---| 
-| You notice that UDP traffic is dropping connections that need to be maintained for long periods of time. | You check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor, **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume and connection failures. | A few possible mitigation steps that can be taken: - **Enable UDP keepalives**. Keep in mind that when a UDP keepalive is enabled, it's only active for one direction in a connection, so the connection can still time out from going idle on the other side of a connection. To prevent a UDP connection from idle time-out, UDP keepalives should be enabled for both directions in a connection flow. - **Application layer keepalives** can also be used to refresh idle flows and reset the idle timeout. Check the server side for what options exist for application specific keepalives. | 
+| You notice that UDP traffic is dropping connections that need to be maintained for long periods of time. | You check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor, **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume and connection failures. | A few possible mitigation steps that can be taken: - **Enable UDP keepalives**. Keep in mind that when a UDP keepalive is enabled, it's only active for one direction in a connection. The connection can still go idle and time out on the other side of a connection. To prevent a UDP connection from idle time-out, UDP keepalives should be enabled for both directions in a connection flow. - **Application layer keepalives** can also be used to refresh idle flows and reset the idle timeout. Check the server side for what options exist for application specific keepalives. | 
 
 ## NAT gateway public IP not being used for outbound traffic 
 
