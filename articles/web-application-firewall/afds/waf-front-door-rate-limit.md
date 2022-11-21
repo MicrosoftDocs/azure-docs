@@ -11,7 +11,7 @@ ms.author: jodowns
 
 # What is rate limiting for Azure Front Door Service?
 
-Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address. By using the web application firewall (WAF) with Azure Front Door, you can mitigate some types of denial of service attacks. Rate limiting also protects you against clients that have accidentally been misconfigured to send large volumes of requests in a short time period.
+Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address. The socket IP address is the address of the client that initiated the TCP connection to Front Door. Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and Front Door. By using the web application firewall (WAF) with Azure Front Door, you can mitigate some types of denial of service attacks. Rate limiting also protects you against clients that have accidentally been misconfigured to send large volumes of requests in a short time period.
 
 Rate limits are applied at the socket IP address level. If you have multiple clients accessing your Front Door from different socket IP addresses, they'll each have their own rate limits applied. The socket IP address is the source IP address WAF sees. If your user is behind a proxy, socket IP address is often the proxy server address.
 
