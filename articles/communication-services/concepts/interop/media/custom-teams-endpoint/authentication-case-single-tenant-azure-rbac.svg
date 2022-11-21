@@ -432,7 +432,7 @@
 			<text x="-94.79" y="616.28" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Show calling capabilities</text>		</g>
 		<g id="shape41-144" v:mID="41" v:groupContext="shape" v:layerMember="0" transform="translate(313.559,-265.875)">
 			<title>Message.2525</title>
-			<desc>Authorization of Alice against backend services</desc>
+			<desc>Get access token for Alice</desc>
 			<v:userDefs>
 				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
 				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
@@ -442,8 +442,8 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="136.436" cy="613.875" width="162.23" height="17.6036"/>
 			<path d="M0 613.87 L264.89 613.87" class="st11"/>
-			<rect v:rectContext="textBkgnd" x="60.2297" y="609.075" width="152.412" height="9.59985" class="st13"/>
-			<text x="60.23" y="616.28" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Authorization of Alice against backend services</text>		</g>
+			<rect v:rectContext="textBkgnd" x="60.2297" y="609.075" width="85" height="9.59985" class="st13"/>
+			<text x="60.23" y="616.28" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Get access token for Alice</text>		</g>
 		<g id="shape42-151" v:mID="42" v:groupContext="shape" v:layerMember="0" transform="translate(586.43,-247.875)">
 			<title>Message.2526</title>
 			<desc>Get access token for Alice</desc>
