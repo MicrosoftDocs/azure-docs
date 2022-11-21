@@ -29,7 +29,7 @@ To retrieve the client logs:
 1. Open **File Explorer**.
 1. Navigate to the **%temp%\DiagOutputDir\RdClientAutoTrace** folder.
 
-The logs are in the .ETL file format. You can convert these to .CSV or .XML to make them easily readable by using the the `tracerpt` command. Find the name of the file you want to convert and make a note of it.
+The logs are in the .ETL file format. You can convert these to .CSV or .XML to make them easily readable by using the `tracerpt` command. Find the name of the file you want to convert and make a note of it.
 
 - To convert the .ETL file to .CSV, open PowerShell and run the following, replacing the value for `$filename` with the name of the file you want to convert (without the extension) and `$outputFolder` with the directory in which to create the .CSV file.
 
@@ -49,9 +49,9 @@ The logs are in the .ETL file format. You can convert these to .CSV or .XML to m
    tracerpt "$filename.etl" -o "$outputFolder\$filename.xml"
    ```
 
-### Client stops responding or cannot be opened
+### Client stops responding or can't be opened
 
-If the Remote Desktop client for Windows stops responding or cannot be opened, you may need to reset user data. If you can open the client, you can reset user data from the **About** menu, or if you can't open the client, you can reset user data from the command line. The default settings for the client will be restored and you'll be unsubscribed from all workspaces.
+If the Remote Desktop client for Windows stops responding or can't be opened, you may need to reset user data. If you can open the client, you can reset user data from the **About** menu, or if you can't open the client, you can reset user data from the command line. The default settings for the client will be restored and you'll be unsubscribed from all workspaces.
 
 To reset user data from the client:
 
@@ -67,7 +67,7 @@ To reset user data from the command line:
 
 1. Change the directory to where the Remote Desktop client is installed, by default this is `C:\Program Files\Remote Desktop`.
 
-1. Run the following command to reset user data. You will be prompted to confirm you want to reset your user data.
+1. Run the following command to reset user data. You'll be prompted to confirm you want to reset your user data.
 
    ```powershell
    .\msrdcw.exe /reset
