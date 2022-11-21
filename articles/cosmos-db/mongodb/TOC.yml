@@ -310,12 +310,14 @@
           items:
             - name: Install and use the emulator
               href: ../local-emulator.md
-            - name: Run the emulator on Docker
+            - name: Run the emulator container in Docker
               items:
-                - name: Run the emulator on Docker for Linux
-                  href: ../linux-emulator.md
-                - name: Run the emulator on Docker for Windows
-                  href: ../local-emulator-on-docker-windows.md
+                - name: Run in Docker for Linux
+                  href: ../docker-emulator-linux.md
+                - name: Run in Docker for Windows
+                  href: ../docker-emulator-windows.md
+                - name: Access the REST API
+                  href: ../docker-emulator-rest-api.md
             - name: Export emulator certificates
               href: ../local-emulator-export-ssl-certificates.md
             - name: Emulator command-line parameters
