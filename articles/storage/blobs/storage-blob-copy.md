@@ -1,5 +1,6 @@
 ---
-title: Copy a blob with .NET - Azure Storage
+title: Copy a blob with .NET
+titleSuffix: Azure Storage
 description: Learn how to copy a blob in Azure Storage by using the .NET client library.
 services: storage
 author: pauljewellmsft
@@ -8,8 +9,8 @@ ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.devlang: csharp,
-ms.custom: "devx-track-csharp"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Copy a blob with Azure Storage using the .NET client library

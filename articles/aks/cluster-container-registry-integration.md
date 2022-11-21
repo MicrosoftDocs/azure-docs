@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 You need to establish an authentication mechanism when using [Azure Container Registry (ACR)][acr-intro] with Azure Kubernetes Service (AKS). This operation is implemented as part of the Azure CLI, Azure PowerShell, and Azure portal experiences by granting the required permissions to your ACR. This article provides examples for configuring authentication between these Azure services.
 
-You can set up the AKS to ACR integration in a few steps using the Azure CLI, Azure PowerShell, or Azure portal. The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Azure Active Directory (Azure AD) **managed identity**][aad-identity] associated with your AKS cluster.
+You can set up the AKS to ACR integration using the Azure CLI or Azure PowerShell. The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Azure Active Directory (Azure AD) **managed identity**][aad-identity] associated with your AKS cluster.
 
 > [!NOTE]
 > This article covers automatic authentication between AKS and ACR. If you need to pull an image from a private external registry, use an [image pull secret][image-pull-secret].
