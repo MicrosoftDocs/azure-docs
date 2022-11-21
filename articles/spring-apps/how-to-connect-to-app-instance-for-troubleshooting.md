@@ -36,6 +36,7 @@ Although Azure Spring Apps offers various managed troubleshooting approaches, yo
 
 Before connecting to an app instance, you must be granted the role *Azure Spring Apps Connect Role*. Connecting to an app instance requires the data action permission `Microsoft.AppPlatform/Spring/apps/deployments/connect/action`.
 
+### Azure CLI
 Use the following command to assign the *Azure Spring Apps Connect Role* role:
 
 ```azurecli
@@ -45,7 +46,21 @@ az role assignment create \
     --assignee '<your-identity>'
 ```
 
+### Portal
+
+1. Open the [Azure portal](https://portal.azure.com).
+2. Open your existing Azure Spring Apps service instance.
+3. Select **Access Control(IAM)** from the left menu.
+4. Select **Add** in the command bar, then click **Add role assignment**.
+5. Search for **Azure Spring Apps Connect Role** the list and click next.
+6. Click **Select members** and search for your username.
+7. Click **Review + assign**.
+
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role.png" alt-text="Screenshot of Azure portal Add role assignment page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/assign-role.png":::
+
 ## Connect to an app instance
+
+### Azure CLI
 
 If your app contains only one instance, use the following command to connect to the instance:
 
@@ -87,6 +102,18 @@ az spring app connect \
 ```
 
 If your app is deployed with a custom image and shell, you can also use the `--shell-cmd` parameter to specify your shell.
+
+### Portal
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. Open your existing Azure Spring Apps service instance.
+1. Select **Apps** from left the menu, then select one of your apps.
+1. Select **Console** from the left menu.
+1. Choose an application instance and a shell to run in the container.
+1. Click the **Connect** button.
+
+   :::image type="content" source="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade.png" alt-text="Screenshot of Azure portal App Console page." lightbox="media/how-to-connect-to-app-instance-for-troubleshooting/console-blade.png":::
+
 
 ## Troubleshoot your app instance
 
@@ -140,6 +167,9 @@ The available tools depend on your service tier and type of app deployment. The 
 | Basic / Standard tier | Custom image            | N                                            | N                           | Up to your installed tool set.           |
 | Enterprise Tier       | Source code / Artifacts | Y (for full OS stack), N (for base OS stack) | Y (for Java workloads only) | Depends on the OS stack of your builder. |
 | Enterprise Tier       | Custom image            | N                                            | N                           | Depends on your installed tool set.           |
+
+> [!NOTE]
+> For the **source code** deployment, the JDK tools aren't included in the path. Please run `export PATH="$PATH:/layers/paketo-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.
 
 ## Limitations
 
