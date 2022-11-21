@@ -27,7 +27,7 @@ The 2210 release has the following features and enhancements:
 
 - **High performance network VM enhancements:**
   - When you deploy high performance network (HPN) VMs, vCPUs are automatically reserved using a default SkuPolicy. If a vCPU reservation was defined in an earlier version, and if you update the device to 2210, then that existing reservation is carried forth to 2210. For more information, see how to [Deploy HPN VMs on your Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md).
-  - Added support for bulk network configuration changes. For example, you can now can edit multiple virtual switches and multiple virtual networks in the local UI. This improvement will reduce network configuration time.
+  - Added support for bulk network configuration changes. For example, you now can edit multiple virtual switches and multiple virtual networks in the local UI. This improvement will reduce network configuration time.
   - Added HPN GPU VM sizes for T4 and A2 GPUs and Standard_F4s_v1 VM size. See the updated article at [VM sizes and types for Azure Stack Edge Pro](azure-stack-edge-gpu-virtual-machine-sizes.md).
 - **Kubernetes security updates** - This release includes security updates and security hardening improvements for Kubernetes VMs. 
 
