@@ -329,5 +329,5 @@ Once published, the ``DefaultAzureCredential`` class will use credentials from t
 ## Next steps
 
 - [Certificate-based authentication with Azure Cosmos DB and Azure Active Directory](certificate-based-authentication.md)
-- [Secure Azure Cosmos DB keys using Azure Key Vault](access-secrets-from-keyvault.md)
+- [Secure Azure Cosmos DB keys using Azure Key Vault](store-credentials-key-vault.md)
 - [Security baseline for Azure Cosmos DB](security-baseline.md)
