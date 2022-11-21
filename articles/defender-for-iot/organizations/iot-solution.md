@@ -115,7 +115,7 @@ After you've connected a subscription to Microsoft Sentinel, you'll be able to v
     ```
 
 > [!NOTE]
-> The **Logs** page in Microsoft Sentinel is based on Azure Monitor's Log Analytics. 
+> The **Logs** page in Microsoft Sentinel is based on Azure Monitor's Log Analytics.
 >
 > For more information, see [Log queries overview](../azure-monitor/logs/log-query-overview.md) in the Azure Monitor documentation and the [Write your first KQL query](/training/modules/write-first-query-kusto-query-language/) Learn module.
 >
@@ -135,6 +135,28 @@ The following table describes the Defender for IoT alert timestamp fields, with 
 In Defender for IoT on the Azure portal and the sensor console, the **Last detection** column is shown by default. Edit the columns on the **Alerts** page to show the **First detection** and **Last activity** columns as needed.
 
 For more information, see [View alerts on the Defender for IoT portal](../defender-for-iot/organizations/how-to-manage-cloud-alerts.md) and [View alerts on your sensor](../defender-for-iot/organizations/how-to-view-alerts.md).
+
+### Understand multiple records per alert
+
+Defender for IoT alert data is streamed to the Microsoft Sentinel and stored in your Log Analytics workspace, in the [SecurityAlert]() table.
+
+Records in the **SecurityAlert** table are created updated each time an alert is generated or updated in Defender for IoT. Sometimes a single alert will have multiple records, such as when the alert was first created and then again when it was updated.
+
+In Microsoft Sentinel, use the following query to check the records added to the **SecurityAlert** table for a single alert:
+
+```kql
+SecurityAlert
+|  where ProductName == "Azure Security Center for IoT"
+|  where VendorOriginalId == "Defender for IoT Alert ID"
+| sort by TimeGenerated desc
+```
+
+The following types of updates generate new records in the **SecurityAlert** table:
+
+- Updates for alert status or severity
+- Updates in the last detection time, such as when the same alert is detected multiple times
+- A new device is added to an existing alert
+- The device properties for an alert are updated
 
 ## Next steps
 

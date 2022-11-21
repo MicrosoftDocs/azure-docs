@@ -57,8 +57,10 @@
       href: concept-supported-protocols.md
     - name: Monitoring OT threats in enterprise SOCs
       href: concept-sentinel-integration.md
+      displayName: Microsoft Sentinel, modernize SOC
     - name: Securing IoT devices in the enterprise
       href: concept-enterprise.md
+      displayName: Microsoft Defender for Endpoint, MDE
 - name: How-to guides
   items:
   - name: Visualize devices
