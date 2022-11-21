@@ -187,7 +187,7 @@ Then you define these elements for the resulting alert actions by using:
 
     ### [Resource Health alert](#tab/resource-health)
 
-     1. On the **Conditions** pane, select values for each of these fields:
+     On the **Conditions** pane, select values for each of these fields:
 
         |Field |Description |
         |---------|---------|
@@ -198,7 +198,7 @@ Then you define these elements for the resulting alert actions by using:
   
     ### [Service Health alert](#tab/service-health)
 
-     1. On the **Conditions** pane, select values for each of these fields:
+     On the **Conditions** pane, select values for each of these fields:
 
       |Field |Description |
       |---------|---------|
