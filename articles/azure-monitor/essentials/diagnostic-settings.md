@@ -134,6 +134,8 @@ Diagnostic settings don't allow granular filtering of resource logs. You might r
 
 You can also use transformations to lower the storage requirements for records you want by removing columns without useful information. For example, you might have error events in a resource log that you want for alerting. But you might not require certain columns in those records that contain a large amount of data. You can create a transformation for the table that removes those columns.
 
+[!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
+
 ## Create diagnostic settings
 
 You can create and edit diagnostic settings by using multiple methods.
