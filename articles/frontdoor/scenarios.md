@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2022
+ms.date: 11/22/2022
 ms.author: jodowns
 ---
 
@@ -41,6 +41,8 @@ Front Door's security capabilities help to protect your application servers from
 - **Web application firewall:** Front Door's web application firewall (WAF) provides a range of security capabilities to your application. [Managed rule sets](../web-application-firewall/afds/waf-front-door-drs.md) scan incoming requests for suspicious content. [Bot protection rules](../web-application-firewall/afds/afds-overview.md#bot-protection-rule-set) identify and respond to traffic from bots. [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md) and [rate limiting](../web-application-firewall/afds/waf-front-door-rate-limit.md) features protect your application servers from unexpected traffic.
 - **DDoS protection:** Because of Front Door's architecture, it can also absorb large [distributed denial of service (DDoS) attacks](front-door-ddos.md) and prevent the traffic from reaching your application.
 - **Private Link origins:** [Private Link integration](private-link.md) helps you to protect your backend applications, ensuring that traffic can only reach your application by passing through Front Door and its security protections.
+
+When you have strict network security requirments, you can use Azure Front Door to manage inbound HTTP and HTTPS traffic to your application, and use [Azure Firewall](../firewall/overview.md) to control non-HTTP and egress traffic.
 
 ### Reliability
 

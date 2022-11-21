@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2022
+ms.date: 11/22/2022
 ms.author: jodowns
 ---
 
@@ -39,6 +39,10 @@ Data flows through the scenario as follows:
 
 - [Azure Storage](https://azure.microsoft.com/products/storage/blobs) stores static content in blobs.
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) receives inbound connections from clients, scans them with the WAF, securely forwards the request to the storage account, and caches responses.
+
+### Alternatives
+
+If you have static files in another cloud storage provider, or if you host static content on infrastructure that you own and maintain, much of this scenario continues to apply. However, you need to consider how you secure the incoming traffic to your origin server, to verify that it's come through Front Door. If your storage provider doesn't support Private Link, consider using an alternative approach like [allowlisting the Front Door service tag and inspecting the `X-Azure-FDID` header](origin-security.md).
 
 ## Scenario details
 
