@@ -53,9 +53,9 @@ This command installs the relevant npm files required to run the samples in the 
 
 ## Review the code
 
-Navigate to the *azure-iot-sdk-node\device\samples\javascript* folder.
+Navigate to the *azure-iot-sdk-node/device/samples/javascript* folder.
 
-The *azure-iot-sdk-node\device\samples\javascript* folder contains the sample code for the IoT Plug and Play temperature controller device.
+The *azure-iot-sdk-node/device/samples/javascript* folder contains the sample code for the IoT Plug and Play temperature controller device.
 
 The code in the *pnp_temperature_controller.js* file implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) V2 model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
@@ -109,7 +109,7 @@ To learn more about the sample configuration, see the [sample readme](https://gi
 
 Now that you've seen the code, use the following command to run the sample:
 
-```cmd\sh
+```cmd/sh
 node pnp_temperature_controller.js
 ```
 

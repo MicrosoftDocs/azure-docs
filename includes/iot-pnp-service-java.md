@@ -64,13 +64,13 @@ In this tutorial, you use a sample IoT solution written in Java to interact with
 
 1. Open another terminal window to use as your **service** terminal.
 
-1. In the cloned Java SDK repository, navigate to the *service\iot-service-samples\pnp-service-sample\thermostat-service-sample* folder.
+1. In the cloned Java SDK repository, navigate to the *service/iot-service-samples/pnp-service-sample/thermostat-service-sample* folder.
 
 1. To build and run the sample service application, run the following commands:
 
     ```cmd
     mvn clean package
-    mvm exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.service.Thermostat"
+    mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.service.Thermostat"
     ```
 
 ### Get device twin

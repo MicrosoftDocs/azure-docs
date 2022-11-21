@@ -68,7 +68,7 @@ cd azure-iot-sdk-c
 git submodule update --init
 ```
 
-You should expect this operation to take several minutes to complete.
+Expect this operation to take several minutes to complete.
 
 ## Build and run the code
 

@@ -16,7 +16,7 @@ ms.custom: mvc
 
 The IoT Plug and Play bridge connects existing devices attached to a Windows or Linux gateway to an IoT hub as IoT Plug and Play devices. Use the bridge to map IoT Plug and Play interfaces to the telemetry the attached devices are sending, work with device properties, and invoke commands.
 
-:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-high-level.png" alt-text="Diagram that shows the high-vel bridge architecture. There are two existing sensors attached (both wired and wireless) to a Windows or Linux PC containing IoT Plug and Play bridge. The IoT Plug and Play bridge then connects to an IoT hub." border="false":::
+:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-high-level.png" alt-text="Diagram that shows the high-level bridge architecture. There are two existing sensors attached (both wired and wireless) to a Windows or Linux PC containing IoT Plug and Play bridge. The IoT Plug and Play bridge then connects to an IoT hub." border="false":::
 
 IoT Plug and Play bridge is an open-source application. You can deploy the application as a standalone executable on any IoT device, industrial PC, server, or gateway that runs Windows 10 or Linux. It can also be compiled into your application code. The IoT Plug and Play bridge uses a simple configuration JSON file to identify the attached devices/peripherals that should be exposed up to Azure.
 
