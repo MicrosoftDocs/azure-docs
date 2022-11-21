@@ -4231,6 +4231,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/import-data.md",
+      "redirect_url": "/azure/cosmos-db/nosql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/table/import.md",
+      "redirect_url": "/azure/cosmos-db/table",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/transactional-batch.md",
       "redirect_url": "/azure/cosmos-db/sql/transactional-batch",
       "redirect_document_id": true

@@ -822,8 +822,6 @@
           href: ../migration-choices.md
         - name: Using .NET bulk support
           href: tutorial-dotnet-bulk-import.md
-        - name: Using the Data Migration tool
-          href: ../import-data.md
         - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
           href: ../migrate.md
         - name: Migrate to API for NoSQL using Striim
