@@ -19,9 +19,9 @@ sections:
         answer: |
           No, there will be no drop in packets. Existing connections with Load balancer will continue to work until those connections officially close. After NAT gateway is added to the subnet of the virtual network, all new connections will then use NAT gateway for making outbound connections. 
      
-     - question: Can NAT gateway be used to connect inbound?
-       answer: |
-         NAT gateway provides outbound connectivity from a virtual network. Return traffic in direct response to an outbound flow can also pass through NAT gateway. No inbound traffic directly from the internet can pass through NAT gateway.
+      - question: Can NAT gateway be used to connect inbound?
+        answer: |
+          NAT gateway provides outbound connectivity from a virtual network. Return traffic in direct response to an outbound flow can also pass through NAT gateway. No inbound traffic directly from the internet can pass through NAT gateway.
       
       - question: Can a VNet NAT gateway public IP connect directly to a private IP address over the internet?
         answer: |
