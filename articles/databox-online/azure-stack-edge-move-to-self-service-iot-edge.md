@@ -1,22 +1,22 @@
 ---
-title: Move native or managed IoT Edge workloads on Azure Stack Edge to a self-service IoT Edge solution on a Linux VM 
-description: Describes steps to move IoT Edge workloads from Azure Stack Edge to a self-service IoT Edge solution on a Linux VM.
+title: Move workloads from Azure Stack Edge's managed IoT Edge to an IoT Edge solution on a Linux VM 
+description: Describes steps to move workloads from Azure Stack Edge to a self-service IoT Edge solution on a Linux VM.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 11/21/2022
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to move an IoT Edge workload from native/managed on Azure Stack Edge to self-service IoT Edge solution on a Linux VM, so that I can efficiently manage my VMs. 
+#Customer intent: As an IT admin, I need to understand how to move an IoT Edge workload from native/managed Azure Stack Edge to a self-service IoT Edge solution on a Linux VM, so that I can efficiently manage my VMs. 
 ---
 
-# Move native or managed IoT Edge workloads on Azure Stack Edge to a self-service IoT Edge solution on a Linux VM
+# Move workloads from Azure Stack Edge's managed IoT Edge to an IoT Edge solution on a Linux VM
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article provides steps to move your managed IoT Edge workloads to IoT Edge running on a Linux VM on Azure Stack Edge. We use an example in this article that includes an IoT Edge running on an Ubuntu VM on Azure Stack Edge. 
+This article provides steps to move your managed IoT Edge workloads to IoT Edge running on a Linux VM on Azure Stack Edge. This article will use IoT Edge on an Ubuntu VM as an example. You can use other [supported Linux distributions](../iot-edge/support.md#linux-containers). 
 
 > [!NOTE]
 > We recommend that you deploy the latest IoT Edge version in a Linux VM to run IoT Edge workloads on Azure Stack Edge. For more information about earlier versions of IoT Edge, see [IoT Edge v1.1 EoL: What does that mean for me?](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137). 
@@ -43,7 +43,7 @@ Create and provision an IoT Edge device on Linux using symmetric keys. For detai
 
 ## Step 2. Install and provision an IoT Edge on a Linux VM
 
-Follow the steps at [Deploy IoT Edge on an Ubuntu VM on Azure Stack Edge](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md). To deploy other Linux VMs, see [Linux containers](../iot-edge/support.md). 
+Follow the steps at [Deploy IoT Edge on an Ubuntu VM on Azure Stack Edge](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md). For other supported Linux distributions, see [Linux containers](../iot-edge/support.md).
 
 ## Step 3. Deploy Azure IoT Edge modules from the Azure portal
 
