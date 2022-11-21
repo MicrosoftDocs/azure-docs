@@ -99,7 +99,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 
 5. Once in your workspace, select **Logs**. You can filter out your menu list with the **Search** function.
 
-### Access Log Analytics on Azure Virtual Desktop Insights
+### Access Log Analytics on Azure Monitor
 
 1. Sign into the Azure portal
 

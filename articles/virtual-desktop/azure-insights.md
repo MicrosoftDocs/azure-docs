@@ -39,7 +39,7 @@ You can open Azure Virtual Desktop Insights with one of the following methods:
 
 - Go to [aka.ms/avdi](https://aka.ms/avdi).
 - Search for and select **Azure Virtual Desktop** from the Azure portal, then select **Insights**.
-- Search for and select **Azure Virtual Desktop Insights** from the Azure portal. Select **Insights Hub** under **Insights**, then select **Azure Virtual Desktop**.
+- Search for and select **Azure Monitor** from the Azure portal. Select **Insights Hub** under **Insights**, then select **Azure Virtual Desktop**.
 Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
 
 >[!NOTE]

@@ -40,7 +40,7 @@ The [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.co
 If your **Connection Network Data Logs**  aren't going to Azure Log Analytics every two minutes, you'll need to check the following things:
 
 - Make sure you've [configured the diagnostic settings correctly](diagnostics-log-analytics.md).
-- Make sure you've configured the VM and [Azure Virtual Desktop Insights](azure-insights.md) correctly.
+- Make sure you've configured the VM correctly.
 - Make sure you're actively using the session. Sessions that aren't actively used won't send data to Azure Log Analytics as frequently.
 
 ## Next steps

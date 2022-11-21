@@ -12,7 +12,7 @@ manager: femila
 ---
 # Azure Virtual Desktop Insights glossary
 
-This article lists and briefly describes key terms and concepts related to Azure Virtual Desktop Insights (preview).
+This article lists and briefly describes key terms and concepts related to Azure Virtual Desktop Insights.
 
 ## Alerts
 
