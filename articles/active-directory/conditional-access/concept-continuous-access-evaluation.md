@@ -173,24 +173,30 @@ When Conditional Access policy or group membership changes need to be applied to
 
 ### IP address variation and networks with IP address shared or unknown egress IPs 
 
-Modern networks often optimize connectivity and network paths for applications differently. This optimization frequently results in variations of the routing and source IP addresses of connections, as seen by your identity provider and resource providers. You may observe this split path or IP address variation in multiple network topologies, including, but not limited to: 
+Modern networks often optimize connectivity and network paths for applications differently. This optimization frequently causes variations of the routing and source IP addresses of connections, as seen by your identity provider and resource providers. You may observe this split path or IP address variation in multiple network topologies, including, but not limited to: 
 
-- On-premises and cloud based proxy scenarios.
-- VPN implementations, like split tunneling.
+- On-premises and cloud-based proxies.
+- Virtual private network (VPN) implementations, like split tunneling.
 - Software defined wide area network (SD-WAN) deployments.
-- Load balanced or redundant network egress topologies, like those using [SNAT](https://wikipedia.org/wiki/Network_address_translation#SNAT). 
-- Branch office deployments that allow direct Internet connectivity for specific applications.
+- Load balanced or redundant network egress network topologies, like those using [SNAT](https://wikipedia.org/wiki/Network_address_translation#SNAT). 
+- Branch office deployments that allow direct internet connectivity for specific applications.
 - Networks that support IPv6 clients.
-- Other topologies, which handle application or resource traffic differently from traffic to the Identity provider.
+- Other topologies, which handle application or resource traffic differently from traffic to the identity provider.
 
 In addition to IP variations, customers also may employ network solutions and services that: 
 
-- Use IP addresses which may be shared with other customers. For example, cloud-based proxy services where egress IP addresses are shared between customers.
-- Use easily varied IP addresses. For example, topologies where there are large, dynamic sets of egress IP addresses used, like large enterprise scenarios.
+- Use IP addresses that may be shared with other customers. For example, cloud-based proxy services where egress IP addresses are shared between customers.
+- Use easily varied or undefinable IP addresses. For example, topologies where there are large, dynamic sets of egress IP addresses used, like large enterprise scenarios or split VPN and local egress network traffic.
 
 Networks where egress IP addresses may change frequently or are shared may affect Azure AD Conditional Access and Continues Access Evaluation (CAE). This variability can affect how these features work, and their recommended configurations.
 
 The following table summarizes Conditional Access and CAE feature behaviors and recommendations for different types of network deployments: 
+
+| Network Type | Example | IPs seen by Azure AD | IPs seen by RP | Applicable CA Configuration (Trusted Named Location) | CAE enforcement | CAE access token | Recommendations |
+|---|---|---|---|---|---|---|---|
+| 1. Egress IPs are dedicated and enumerable for both Azure AD and all RPs traffic | All to network traffic to Azure AD and RPs egresses through 1.1.1.1 and/or 2.2.2.2 | 1.1.1.1 | 2.2.2.2 | 1.1.1.1 <br> 2.2.2.2 | Critical Events <br> IP location Changes | Long lived – up to 28 hours | If CA Named Locations are defined, ensure that they contain all possible egress IPs (seen by Azure AD and all RPs) |  |
+| 2. Egress IPs are dedicated and enumerable for Azure AD, but not for RPs traffic | Network traffic to Azure AD egresses through 1.1.1.1. RP traffic egresses through x.x.x.x | 1.1.1.1 | x.x.x.x | 1.1.1.1 | Critical Events | Default access token lifetime – 1 hour | Do not add non dedicated or non-enumerable egress IPs (x.x.x.x) into Trusted Named Location CA rules as it can weaken security |  |
+| 3. Egress IPs are non-dedicated/shared or not enumerable for both Azure AD and RPs traffic | Network traffic to Azure AD egresses through y.y.y.y. RP traffic egresses through x.x.x.x | y.y.y.y | x.x.x.x | N/A -no IP CA policies/Trusted Locations configured | Critical Events | Long lived – up to 28 hours | Do not add non dedicated or non-enumerable egress IPs (x.x.x.x/y.y.y.y) into Trusted Named Location CA rules as it can weaken security |  |
 
 Networks and network services used by clients connecting to identity and resource providers continue to evolve and change in response to modern trends. These changes may affect Conditional Access and CAE configurations that rely on the underlying IP addresses. When deciding on these configurations, factor in future changes in technology and upkeep of the defined list of addresses in your plan.
 
