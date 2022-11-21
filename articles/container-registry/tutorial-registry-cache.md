@@ -4,10 +4,9 @@ description: Learn about the Registry Cache feature, its preview limitations and
 ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
-
 # Registry Cache for Azure Container Registry
 
-Azure Container Registry (ACR) introduces Registry Cache feature to cache container images in a private container registry. The Registry Cache, is a preview feature available in the *Standard* and *Premium* [service tiers](container-registry-skus.md).
+Azure Container Registry (ACR) introduces Registry Cache feature to cache container images in a private container registry. The Registry Cache, is a preview feature available in *Standard* and *Premium* [service tiers](container-registry-skus.md).
 
 This article is part one in a three-part tutorial series. The tutorial covers:
 

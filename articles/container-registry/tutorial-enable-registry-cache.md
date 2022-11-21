@@ -6,10 +6,9 @@ ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
 
-
 # Enable Registry Cache
 
-This article is part two in a three-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Registry Cache, their features, benefit's, and preview limitations. This article walks you through the steps of enabling a Registry Cache by using the Azure CLI, and the Azure portal.
+This article is part two in a three-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Registry Cache, their features, benefit's, and preview limitations. This article walks you through the steps of enabling a Registry Cache by using the Azure CLI, and Azure portal.
 
 ## Prerequisites
 
