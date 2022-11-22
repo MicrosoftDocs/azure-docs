@@ -292,7 +292,7 @@ To configure specific servers or groups to use the Log Analytics gateway server:
 
 1. Open the Operations Manager console and select the **Authoring** workspace.  
 1. In the Authoring workspace, select **Rules**. 
-1. On the Operations Manager toolbar, select the **Scope** button. If this button is not available, make sure you have selected an object, not a folder, in the **Monitoring** blade. The **Scope Management Pack Objects** dialog box displays a list of common targeted classes, groups, or objects. 
+1. On the Operations Manager toolbar, select the **Scope** button. If this button is not available, make sure you have selected an object, not a folder, in the **Monitoring** pane. The **Scope Management Pack Objects** dialog box displays a list of common targeted classes, groups, or objects. 
 1. In the **Look for** field, enter **Health Service** and select it from the list. Select **OK**.  
 1. Search for **Advisor Proxy Setting Rule**. 
 1. On the Operations Manager toolbar, select **Overrides** and then point to **Override the Rule\For a specific object of class: Health Service** and select an object from the list.  Or create a custom group that contains the health service object of the servers you want to apply this override to. Then apply the override to your custom group.
