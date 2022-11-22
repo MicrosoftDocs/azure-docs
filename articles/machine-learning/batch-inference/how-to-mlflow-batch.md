@@ -113,6 +113,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    Create a compute definition `YAML` like the following one:
    
    __cpu-cluster.yml__
+   
    ```yaml
    $schema: https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json 
    name: cluster-cpu
@@ -202,7 +203,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    ```bash
    DEPLOYMENT_NAME="classifier-xgboost-mlflow"
-   az ml batch-endpoint create -f endpoint.yml
+   az ml batch-deployment create -f endpoint.yml
    ```
    
    # [Azure ML SDK for Python](#tab/sdk)
@@ -535,7 +536,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    Then, create the deployment with the following command:
    
    ```bash
-   az ml batch-endpoint create -f endpoint.yml
+   az ml batch-deployment create -f deployment.yml
    ```
    
    # [Azure ML SDK for Python](#tab/sdk)
