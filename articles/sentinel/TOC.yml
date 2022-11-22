@@ -65,6 +65,8 @@
         href: basic-logs-use-cases.md
       - name: Health monitoring 
         href: health-audit.md
+    - name: Geographical availability and data residency
+      href: geographical-availability-data-residency.md
     - name: Architecture
       items:
       - name: Roles and permissions
