@@ -12,30 +12,113 @@ Defender for Servers protects your Windows and Linux machines in the cloud and o
 
 ## About this guide
 
-This planning guide can be used by cloud solution and infrastructure architects, security architects and analysts, and anyone else involved in protecting cloud/hybrid servers and workloads. The guide aims to answer these questions:
+This planning guide is aimed at cloud solution and infrastructure architects, security architects and analysts, and anyone else involved in protecting cloud/hybrid servers and workloads. The guide aims to answer these questions:
 
-- What can Defender for Servers do for my organization?
+- Why use Defender for Servers?
 - Which Defender for Servers plan is right for me?
-- Where is my data stored?
-- What agents must be deployed?
-- What permissions are needed?
-- How do I deploy at scale?
+- Where will my data be stored?
+- What do I need to deploy?
+- What permissions do I need?
+- How do I scale a deployment?
 
 ## Before you begin
 
-- You should have a basic understanding of [Defender for Cloud](defender-for-cloud-introduction.md), and the servers you want to protect. For a quick video, watch a [Defender for Servers introduction](episode-five.md) in our Defender for Cloud in the Field series.
+- You should have a basic understanding of [Defender for Cloud](defender-for-cloud-introduction.md), and the servers you want to protect.
+- Optionally watch a quick video, [Defender for Servers introduction](episode-five.md) in our Defender for Cloud in the Field series.
+- - Get pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+- Identify the servers you want to protect in your organization.
+- To protect GCP/AWS machines and on-premises servers, they must be onboarded to Azure using [Azure Arc](../azure-arc/index.yml).
 - If you're deploying on AWS/GCP machines, we suggest reviewing the [multicloud planning guide](plan-multicloud-security-get-started.md) before you start.
-- Get pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
+## Deployment overview
+
+1. When you open Defender for Cloud in the Azure portal, it's automatically turned on for your Azure subscriptions, and Defender for Cloud starts protecting resources that are in the your selected subscriptions with free foundational cloud security posture management features, including security assessment, configuration, and secure score.
+1. With Defender for Cloud working for a subscription, you can then turn on paid Defender for Cloud plans, including Defender for Server, to start discovering and protecting Azure and Azure Arc resources in the subscription. 
+1. If you want to protect additional on-premises servers or AWS/GCP machines, there are a couple of ways to do that.
+    **Method** | **Details**
+    --- | ---
+    Onboard machines using Defender for Cloud connectors | You can use the native Defender for Cloud connectors to onboard AWS accounts and GCP projects.<br/><br/> 
+    Onboard machines using Azure Arc | 
+    Onboard machines into Azure without Azure Arc | 
 
 
-## Overview
+    - **Connect AWS or GCP accounts to Defender for Cloud**: You can use Defender for Cloud's native AWS or GCP connectors to connect to AWS or GCP. 
+        - For AWS you connect and authenticate to an AWS account, enabled the Defender for Server plan, deploy a CloudFormation template containing the resources needed for the connection in AWS, 
+       
+        - 
+        - ​
 
-Defender for Servers protects servers located in the Azure, AWS, and GCP clouds, and on-premises.
+AWS:​
 
-- On-premises servers, and GCP/AWS machines onboard to Azure using [Azure Arc](../azure-arc/index.yml).- Defender for Cloud integrates with Azure Arc's Azure Connected Machine agent.
+Enable AWS Connector​
+
+Configure Auto-Provisioning to deploy Azure ARC Agent, Enable additional Extensions as needed​
+
+
+GCP:​
+
+Enable GCP Connector​
+
+Configure Auto-Provisioning to deploy Azure ARC Agent, Enable additional Extensions as needed - 
+        - AWS/GCP the AWS account or GCP project, . You  Non-Azure machines that are onboarded to an Azure subscription with Azure Arc are automatically detected by Defender for Server. We recommend using this method.
+    - **Onboard servers manually**: If you don't onboard the machines to Azure using Azure Arc some manual work is required. You connect the machines to a Log Analytics workspace by installing the Log Analytics agent manually so that machines they appear in the Azure portal and can be discovered by Defender for Server.
+1. With all servers discovered, 
+### Discovering and protecting servers.
+
+### Plan for Azure Arc deployment
+
+1. Review [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md), and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
+1. Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure.
+    - Review the [agent components and data collected from machines](./azure-arc/servers/agent-overview#agent-resources.md).
+    - [Review](../azure-arc/servers/network-requirements.md) network and internet access requirements.
+    - Review [connection options](../azure-arc/servers/deployment-options.md).
+1. After a machine appears in the Azure portal, you can view and manage it like any other Azure resource.
+1. 
+1. 
+1. 
+1. 
+1
+
+### Prepare 
+
+
+With 
+
+ 
+
+and you must manually install the in the guest operating system.  
+
+
+
+enable Defender for Cloud plans, including Defender for Server. D
+As a first 
+
+
+
+With Defender for Cloud working on the subscription.
+
+As a first step, verify what servers you want to protect. If you want to protect on-premises machines 
+
+Onboard these machines to Azure with Azure Arc. Machines onboarded with Azure Arc a You can automatically provision all agents and extensions.
+If you don't want to use Azure Arc, you can manually onboard 
+
+If machines aren't onboarded with Azure Arc 
+
+ Although today it is possible to monitor non-Azure VMs even without Azure Arc, the use of this extension allows you to automatically detect and manage agents in VMs. Once integrated, Azure Arc-enabled servers will fit perfectly into existing Azure portal views along with virtual machines in Azure and Azure scale sets.
+
+ 
+
+- Defender for Servers integrates with Microsoft Defender for Endpoint to leverage its [endpoint detection and response (EDR) capabilities](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response), and provides additional security features. The exact features you get depend on which Defender for Server plan you turn on.
+- After turning on a plan, 
+
+
+- 
+- 
+- After turning on a plan,ect GCP/AWS machines, and on-premises servers, you onboard them to Azure using [Azure Arc](../azure-arc/index.yml).- Defender for Cloud integrates with Azure Arc's Azure Connected Machine agent.
 - Defender for Servers integrates with Microsoft Defender for Endpoint to leverage its [endpoint detection and response (EDR) capabilities](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
 - In addition to these endpoint protection capabilities, Defender for Servers provides additional, extended detection and response (XDR) features to protect servers, apps, and networks.
 
+ - 
 
 ## Select a Defender for Servers plan
 
@@ -97,6 +180,10 @@ Data residency is the physical or geographic location of an organization’s dat
 ## Plan Log Analytics workspaces
 
 Defender for Servers uses the Log Analytics agent or Azure Monitoring agent to collect operating system telemetry, security configuration, and event logs from protected servers, and for agent-based features in Defender for Servers Plan 2, including File Integrity monitoring, Adaptive Application controls, and operating system attack detections outside of Defender for Endpoint.
+
+By default Defender for Cloud creates a workspace per region in each subscription where it is enabled. If you have multiple subscriptions or need a different policy, you can override this behavior and deploy centralized workspaces per region.
+
+Data from the Log Analytics agent streams events into a Log Analytics workspace.
 
 When you enable auto-provisioning of the agent , you specify the Log Analytics workspace you want to use:
 
@@ -168,6 +255,7 @@ A few things to note:
 
 ## Agent provisioning
 
+
 When you enable Defender for Servers Plan 1 or Plan 2 and then enable Defender for Endpoint unified integration, the Defender for Endpoint agent is automatically provisioned on all supported machines in the subscription.
 
 - Data collected by the agent is stored in the Log Analytics workspace.
@@ -177,6 +265,10 @@ When you enable Defender for Servers Plan 1 or Plan 2 and then enable Defender f
 - [Supported Linux operating systems](agents-overview.md#linux) for the Log Analytics agent/Azure Monitor agent.
 
 Note that if a VM already has the Log Analytics agent/Azure Monitoring agent installed as an Azure extension, Defender for Cloud uses the existing workspace connection, and doesn't override it.
+
+## Permissions
+To enable enhanced security features on a subscription, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
+
 
 ## Determine access and ownership
 
