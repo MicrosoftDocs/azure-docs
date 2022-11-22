@@ -15,6 +15,12 @@ ms.date: 03/15/2022
 ---
 
 # Debug jobs and monitor training progress (preview)
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Machine learning model training is usually an iterative process and requires significant experimentation. With the Azure Machine Learning interactive job experience, data scientists can use the Azure Machine Learning Python SDKv2, Azure Machine Learning CLIv2 or the Azure Studio to access the container where their job is running.  Once the job container is accessed, users can iterate on training scripts, monitor training progress or debug the job remotely like they typically do on their local machines. Jobs can be interacted with via different training applications including **JupyterLab, TensorBoard, VS Code** or by connecting to the job container directly via **SSH**.  
 
 Interactive training is supported on **Azure Machine Learning Compute Clusters** and **Azure Arc-enabled Kubernetes Cluster**.

@@ -151,7 +151,7 @@ Either run it in debug mode on your development machine, or publish to your serv
 ## View your telemetry in Application Insights
 Return to your Application Insights resource in [Microsoft Azure portal](https://portal.azure.com).
 
-HTTP requests data appears on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
+HTTP requests data appears on the overview pane. (If it isn't there, wait a few seconds and then click Refresh.)
 
 ![Screenshot of overview sample data](./media/java-get-started/overview-graphs.png)
 

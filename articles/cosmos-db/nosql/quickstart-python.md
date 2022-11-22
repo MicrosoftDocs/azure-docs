@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/03/2022
-ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet-path
+ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api, ignite-2022, devguide-python, cosmos-db-dev-journey
 ---
 
 # Quickstart: Azure Cosmos DB for NoSQL client library for Python
@@ -26,7 +26,8 @@ Get started with the Azure Cosmos DB client library for Python to create databas
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://aka.ms/trycosmosdb).
+- An Azure account with an active subscription.
+  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 - [Python 3.7 or later](https://www.python.org/downloads/)
   - Ensure the `python` executable is in your `PATH`.
 - [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
@@ -43,7 +44,7 @@ This section walks you through creating an Azure Cosmos DB account and setting u
 ### Create an Azure Cosmos DB account
 
 > [!TIP]
-> Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit. If you create an account using the free trial, you can safely skip this section.
+> No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required. If you create an account using the free trial, you can safely skip ahead to the [Create a new Python app](#create-a-new-python-app) section.
 
 [!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](./includes/create-resources.md)]
 
@@ -193,6 +194,3 @@ The output of the app should be similar to this example:
 ## Next steps
 
 In this quickstart, you learned how to create an Azure Cosmos DB for NoSQL account, create a database, and create a container using the Python SDK. You can now dive deeper into guidance on how to import your data into the API for NoSQL.
-
-> [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for NoSQL](../import-data.md)
