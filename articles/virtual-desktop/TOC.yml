@@ -12,8 +12,8 @@
       href: whats-new.md
     - name: Azure Virtual Desktop Agent
       href: whats-new-agent.md
-    - name: Azure Monitor for Azure Virtual Desktop
-      href: whats-new-azure-monitor.md
+    - name: Azure Virtual Desktop Insights
+      href: whats-new-insights.md
     - name: FSLogix
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
     - name: WebRTC Redirector Service
@@ -137,12 +137,12 @@
         href: app-attach-glossary.md
       - name: FAQ
         href: app-attach-faq.yml
-  - name: Azure Monitor for Azure Virtual Desktop
+  - name: Azure Virtual Desktop Insights
     items:
-      - name: Estimate Azure Monitor costs
-        href: azure-monitor-costs.md
-      - name: Azure Monitor glossary
-        href: azure-monitor-glossary.md
+      - name: Estimate Azure Virtual Desktop Insights costs
+        href: insights-costs.md
+      - name: Azure Virtual Desktop Insights glossary
+        href: insights-glossary.md
   - name: Data locations
     href: data-locations.md
   - name: Multimedia redirection (preview)
@@ -329,8 +329,8 @@
       href: windows-11-language-packs.md
   - name: Resolve Azure Advisor recommendations
     href: azure-advisor-recommendations.md
-  - name: Use Azure Monitor for Azure Virtual Desktop
-    href: azure-monitor.md
+  - name: Use Azure Virtual Desktop Insights
+    href: insights.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
   - name: Start VM on Connect
@@ -397,8 +397,8 @@
     href: troubleshoot-azure-ad-connections.md
   - name: Device redirections
     href: troubleshoot-device-redirections.md
-  - name: Azure Monitor
-    href: troubleshoot-azure-monitor.md
+  - name: Azure Virtual Desktop Insights
+    href: troubleshoot-insights.md
   - name: Azure Files authorization
     href: troubleshoot-authorization.md
   - name: Connection quality issues
