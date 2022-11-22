@@ -69,7 +69,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 
 - Install a supported version of Logstash. The plugin supports: 
     - Logstash version 7.0 to 7.17.6.
-    - Logstash version 8.0 to 8.4.2. 
+    - Logstash version 8.0 to 8.5.1. 
     
     > [!NOTE]
     > If you use Logstash 8, we recommended that you [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
@@ -81,7 +81,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 
 The Microsoft Sentinel output plugin is available in the Logstash collection.
 
-- Follow the instructions in the Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) document to install the **[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)** plugin.   
+- Follow the instructions in the Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) document to install the **[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-logstash-output-plugin)** plugin.   
 - If your Logstash system does not have Internet access, follow the instructions in the Logstash [Offline Plugin Management](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) document to prepare and use an offline plugin pack. (This will require you to build another Logstash system with Internet access.)
  
 ### Create a sample file
