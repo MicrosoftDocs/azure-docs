@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-VMware Tanzu Application Platform GUI provides a set of developer tools you can use to view your organization's running applications and services, including Application Live View and Application Accelerator plug-ins. This article describes how to configure Tanzu Application Platform GUI tools centrally against Dev Tools Portal on SSO config and endpoint exposure.
+VMware Tanzu Application Platform GUI provides a set of developer tools you can use to view your organization's running applications and services, including Application Live View and Application Accelerator plug-ins. This article describes how to configure Tanzu Application Platform GUI tools.
 
 For more information, see [Overview of Tanzu Application Platform GUI](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-tap-gui-about.html).
 
@@ -32,14 +32,14 @@ For more information, see [Overview of Tanzu Application Platform GUI](https://d
   az extension add --name spring
   az extension remove --name spring-cloud
   ```
-- Custom roles that delegate permissions to Azure Spring Apps resources. For more information, see [How to use permissions in Azure Spring Apps](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-permissions?tabs=Azure-portal).
+- Custom roles that delegate permissions to Azure Spring Apps resources. For more information, see [How to use permissions in Azure Spring Apps](https://learn.microsoft.com/azure/spring-apps/how-to-permissions?tabs=Azure-portal).
 
 ## Configure Dev Tools Portal
 
 Dev Tools Portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
 
 > [!NOTE]
-> Azure Spring Apps supports only authorization servers that support the OpenID Connect Discovery protocol. Make sure to configure the external authorization server to allow redirects back to the Dev Tools Portal. See your authorization server's documentation and add *https://<dev-tool-portal-external-url>/api/auth/oidc/handler/frame* to the list of allowed redirect URIs.
+> Azure Spring Apps supports only authorization servers that support the OpenID Connect Discovery protocol. Make sure to configure the external authorization server to allow redirects back to the Dev Tools Portal. See your authorization server's documentation and add *https://dev-tool-portal-external-url/api/auth/oidc/handler/frame* to the list of allowed redirect URIs.
 
 The following table describes SSO properties:
 
@@ -53,11 +53,11 @@ The following table describes SSO properties:
 > [!NOTE]
 > If you configure an SSO property incorrectly, such as providing the wrong password, remove the property and add it again with the correct configuration.
 
-You can configure Dev Tools Portal using the Azure Portal or Azure CLI.
+You can configure Dev Tools Portal using the Azure portal or Azure CLI.
 
-#### [Azure Portal](#tab/Portal)
+#### [Azure portal](#tab/Portal)
 
-Use the following steps to configure Dev Tools Portal using the Azure Portal:
+Use the following steps to configure Dev Tools Portal using the Azure portal:
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Select **Developer Tools (Preview)**.
@@ -84,9 +84,9 @@ az spring dev-tool update \
 
 ## Assign public endpoint
 
-You can assign a public endpoint using the Azure Portal or Azure CLI.
+You can assign a public endpoint using the Azure portal or Azure CLI.
 
-#### [Azure Portal](#tab/Portal)
+#### [Azure portal](#tab/Portal)
 
 Use the following steps to access Dev Tools Portal and assign a public endpoint:
 
