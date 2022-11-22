@@ -233,6 +233,8 @@ items:
         href: concepts/known-issues.md
       - name: Media access
         href: concepts/voice-video-calling/media-access.md
+      - name: Simulcast
+        href: concepts/voice-video-calling/simulcast.md
   - name: Call Automation
     items:
       - name: Overview
