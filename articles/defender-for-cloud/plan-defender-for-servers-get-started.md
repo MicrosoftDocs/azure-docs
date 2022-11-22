@@ -21,17 +21,91 @@ This planning guide is aimed at cloud solution and infrastructure architects, se
 
 ## Before you begin
 
-- You should have a basic understanding of [Defender for Cloud](defender-for-cloud-introduction.md), and the servers you want to protect.
-- Optionally watch a quick video, [Defender for Servers introduction](episode-five.md) in our Defender for Cloud in the Field series.
-- - Get pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
-- Identify the servers you want to protect in your organization.
-- To protect GCP/AWS machines and on-premises servers, they must be onboarded to Azure using [Azure Arc](../azure-arc/index.yml).
+- Review pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 - If you're deploying on AWS/GCP machines, we suggest reviewing the [multicloud planning guide](plan-multicloud-security-get-started.md) before you start.
 
-## How Defender for Servers works
+## How deployment works
 
-1. When you open Defender for Cloud in the Azure portal, it's automatically turned on for your Azure subscriptions, and Defender for Cloud starts protecting resources that are in the your selected subscriptions with free foundational cloud security posture management features, including security assessment, configuration, and secure score.
-1. With Defender for Cloud working for a subscription, you can then turn on paid Defender for Cloud plans, including Defender for Server, to start discovering and protecting Azure and Azure Arc resources in the subscription. 
+Here's a quick overview of the deployment process
+
+### Start protecting resources
+
+When you open Defender for Cloud in the Azure portal, it's automatically turned on for your Azure subscriptions. At this stage:
+
+1. Defender for Cloud starts protecting resources in the subscription with [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options) features, including security assessment and recommendations, and Secure Score.
+1. Defender for Cloud creates a default Log Analytics workspace with the *SecurityCenterFree* solution enabled.
+1. Recommendations based on security posture assessments start appearing in the Defender for Cloud console.
+
+Note that:
+
+- There are no charges when you use foundational CSPM with no Defender for Cloud plans enabled.
+- Foundational CSPM provides assessment and recommendations for Azure VMs, AWS/GCP machines, and on-premises machines.
+- AWS and GCP machines don't need to be set up with Azure Arc to get foundational CSPM features. 
+- On-premises machines must be deployed as Azure Arc machines to get assessments and recommendation.
+- Most of the foundational CSPM capabilities don't rely on an agent to collect data.
+- There are a couple of recommendations that do rely on the Log Analytics agent/Azure Monitoring agent, system updates recommendations, OS baseline recommendations, and antimalware/endpoint protection recommendations.
+
+### Deploy Defender for Servers
+
+With Defender for Cloud working, you can then turn on paid Defender for Cloud plans, including Defender for Server.
+
+- When you enable a paid plan, Defender for Cloud enables the *Security* solution on its default Log Analytics workspace.
+- You can enable Defender for Servers Plan 1 for a subscription only. Defender for Servers Plan 2 can be enabled at the subscription and workspace level, or at the workspace level only.
+- After enabling, Defender for Cloud starts pushing out agents and extensions to supported Azure VMs in the subscription/workgroup.
+
+### Deploy on AWS
+
+1. AWS machines must be connected to Azure with Azure Arc.
+1. You set up a connector to connect to a single AWS account or to a management account.
+1. All Defender for Cloud plans are on by default. You can turn off any plans you don't need.
+1. You can configure auto provisioning settings to specify how agents needed by Defender for Server are installed on AWS machines.
+1. You configure and download a CloudFormation template containing the resources needed for Defender for Cloud to connect to AWS.
+1. After authentication to AWS, you deploy the template to the AWS account.
+
+### Deploy on GCP
+
+1. GCP machines must be connected to Azure with Azure Arc.
+1. You set up a connector to connect to a single GCP project or organization.
+1. All Defender for Cloud plans are on by default. You can turn off any plans you don't need.
+1. You can configure auto provisioning settings to specify how agents needed by Defender for Server are installed on GCP machines. 
+1. You configure a Cloud Shell template, and run the script in the GCP Cloud Shell.
+
+
+### Protect on-premises machines
+
+You can protect on-premises machines with Defender for Servers in a couple of ways:
+
+- Option 1: Onboard them as Azure Arc machines, and deploy the Log Analytics agent.
+- Option 2: Onboard on-premises machines connected to a Log Analytics workspace by manually installing the Log Analytics agent. 
+
+
+
+1. To protect on-premises servers, 
+1. 
+1. When you 
+1. If you enable a subscription, all servers in the subscription are 
+    - If you enable for a subscription, all servers in the subscription are protected. You can't exclude servers.
+    - When you enable for a subscription, Defender for Servers is enabled on the default Defender for Cloud workspace.
+    - If you want to use a custom workspace instead of the default workspace, you need to enable Defender for Servers on all custom workspaces that don't have it enabled. 
+        - You can only select a custom workspace that you have access too, and that's associated with the subscription.
+        - You need at least read permissions to access the workspace.     
+1. You can also enable Defender for Servers for an AWS account or GCP project.
+    - 
+1. 
+1. 
+1. 
+
+Agent provisioning
+   
+1. When you enable Defender for Servers, Defender for Cloud starts automatically provisioning the agents and extensions needed for Defender for Server, to servers (Azure VMs, Azure Arc VMs, non-Azure machines) in the selected subscription/workspace.
+1. 
+1. required agents and extensions to compute resources it pr Defender for Cloud starts protecting compute resources .
+    - .
+1. 
+
+
+
+to start discovering and protecting Azure and Azure Arc resources in the subscription. 
 1. If you want to protect additional on-premises servers or AWS/GCP machines, there are a couple of ways to do that.
     **Method** | **Details**
     --- | ---
@@ -41,9 +115,9 @@ This planning guide is aimed at cloud solution and infrastructure architects, se
 
 
     - **Connect AWS or GCP accounts to Defender for Cloud**: You can use Defender for Cloud's native AWS or GCP connectors to connect to AWS or GCP. 
-        - For AWS you connect and authenticate to an AWS account, enabled the Defender for Server plan, deploy a CloudFormation template containing the resources needed for the connection in AWS, 
-       
         - 
+       
+        - To protect GCP/AWS machines and on-premises servers, they must be onboarded to Azure using [Azure Arc](../azure-arc/index.yml).- 
         - ​
 
 AWS:​
@@ -61,7 +135,32 @@ Configure Auto-Provisioning to deploy Azure ARC Agent, Enable additional Extensi
         - AWS/GCP the AWS account or GCP project, . You  Non-Azure machines that are onboarded to an Azure subscription with Azure Arc are automatically detected by Defender for Server. We recommend using this method.
     - **Onboard servers manually**: If you don't onboard the machines to Azure using Azure Arc some manual work is required. You connect the machines to a Log Analytics workspace by installing the Log Analytics agent manually so that machines they appear in the Azure portal and can be discovered by Defender for Server.
 1. With all servers discovered, 
+1. 
+1. - Optionally watch a quick video, [Defender for Servers introduction](episode-five.md) in our Defender for Cloud in the Field series.
 ### Discovering and protecting servers.
+
+
+## Common billing questions
+
+- You're charged for all machines in the subscription, even if you don't enable Defender for Servers at the workspace level.
+- If you turn on Defender for Servers for a subscription and for a connected custom workspace, you aren't charged for both. The system identifies unique VMs.
+- If you enable Defender for Servers on cross-subscription workspaces, connected machines from all subscriptions are billed, including subscriptions that don't have the servers plan enabled.
+- As explained in the pricing and billing FAQ, there is a 500-MB free data ingestion for each workspace. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500-MB limit.
+
+
+### What machines do I pay for?      - 
+
+Protected machines are billed according to state as follows.
+
+**State** | **Billing**
+--- | --- 
+Starting | VM starting up | Not billed
+Running | Normal working state | Billed
+Stopping | Transitional, will move to Stopped state when complete. | Billed
+Stopped | VM shut down from within guest OS or using PowerOff APIs. Hardware is still allocated and the machine remains on the host. | Billed
+Deallocating | Transitional, will move to Deallocated state when complete. | Not billed
+Deallocated | VM stopped and removed from the host. | Not billed
+
 
 ### Plan for Azure Arc deployment
 
@@ -116,7 +215,7 @@ If machines aren't onboarded with Azure Arc
 - Defender for Servers integrates with Microsoft Defender for Endpoint to leverage its [endpoint detection and response (EDR) capabilities](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
 - In addition to these endpoint protection capabilities, Defender for Servers provides additional, extended detection and response (XDR) features to protect servers, apps, and networks.
 
- - 
+Note that: 
 
 ## Select a Defender for Servers plan
 
@@ -332,3 +431,5 @@ After working through these planning steps, you can start deployment:
 - [Connect AWS accounts](quickstart-onboard-aws.md) to Defender for Cloud.
 - [Connect GCP projects](quickstart-onboard-gcp.md) to Defender for Cloud.
 - [Enable Defender for Servers](enable-enhanced-security.md).
+- When you move from the default workspace to a custom workspace, monitored machines can be automatically reconfigured.
+        - When you move between custom workspaces, or from custom to default, the change isn't applied to existing machines.
