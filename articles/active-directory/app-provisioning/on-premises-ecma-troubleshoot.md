@@ -35,7 +35,7 @@ After you configure the provisioning agent and ECMA host, it's time to test conn
         ConnectorName: CORPDB1
         SecretToken: ************
         ```
-     1. This script sends a SCIM GET or POST request to validate that the ECMA Connector Host is operating and responding to requests. If the output does not show that a HTTP connection was successful, then check that the service is running and that the correct secret token was provided.
+     1. This script sends a SCIM GET or POST request to validate that the ECMA Connector Host is operating and responding to requests. If the output does not show that an HTTP connection was successful, then check that the service is running and that the correct secret token was provided.
 
  3. Ensure that the agent is active by going to your application in the Azure portal, selecting **admin connectivity**, selecting the agent dropdown list, and ensuring your agent is active.
  4. Check if the secret token provided is the same as the secret token on-premises. Go to on-premises, provide the secret token again, and then copy it into the Azure portal.
@@ -43,7 +43,7 @@ After you configure the provisioning agent and ECMA host, it's time to test conn
  6. After you assign an agent, you need to wait 10 to 20 minutes for the registration to complete. The connectivity test won't work until the registration completes.
  7. Ensure that you're using a valid certificate that has not expired. Go to the **Settings** tab of the ECMA host to view the certificate expiration date. If the certificate has expired, click `Generate certificate` to generate a new certificate.
  8. Restart the provisioning agent by going to the taskbar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right-click **Stop**, and then select **Start**.
- 1. If you continue to see `The ECMA host is currently importing data from the target application` even after restarting the ECMA Connector Host and the provisioning agent, and waiting for the initial import to complete, then you may need to cancel and re-start configuring provisioning to the application in the Azure portal.
+ 1. If you continue to see `The ECMA host is currently importing data from the target application` even after restarting the ECMA Connector Host and the provisioning agent, and waiting for the initial import to complete, then you may need to cancel and start over configuring provisioning to the application in the Azure portal.
  1. When you provide the tenant URL in the Azure portal, ensure that it follows the following pattern. You can replace `localhost` with your host name, but it isn't required. Replace `connectorName` with the name of the connector you specified in the ECMA host. The error message 'invalid resource' generally indicates that the URL does not follow the expected format.
  
     ```
@@ -131,7 +131,7 @@ The ECMA Host has a cache of users in your application that is updated according
   ```
 
 2. Restart the `Microsoft ECMA2Host` service.
-1. Wait for the ECMA Host to connect to the target systems and re-read its cache from each of the connected systems.  If there are many users in those connected systems, this could take several minutes.
+1. Wait for the ECMA Host to connect to the target systems and re-read its cache from each of the connected systems.  If there are many users in those connected systems, this import process could take several minutes.
 1. Query this endpoint from the server the ECMA Host is installed on, replacing  `{connector name}` with the name of your connector, specified in the properties page of the ECMA Host.  `https://localhost:8585/ecma2host_{connectorName}/scim/cache`
 
      1. On the server with the agent installed, launch PowerShell.
@@ -143,7 +143,7 @@ The ECMA Host has a cache of users in your application that is updated according
         Supply values for the following parameters:
         SecretToken: ************
         ```
-     1. This script sends a SCIM GET request to validate that the ECMA Connector Host is operating and responding to requests. If the output does not show that a HTTP connection was successful, then check that the service is running and that the correct secret token was provided.
+     1. This script sends a SCIM GET request to validate that the ECMA Connector Host is operating and responding to requests. If the output does not show that an HTTP connection was successful, then check that the service is running and that the correct secret token was provided.
 
 1. Set the Debug flag back to `false`, or remove the setting.  You will want to set it back to `false` and restart the ECMA Host service once you are done querying the cache.
 2. Restart the `Microsoft ECMA2Host` service.
@@ -179,7 +179,7 @@ After the ECMA Connector Host schema mapping has been configured, start the serv
 | Error      | Resolution |
 | ----------- | ----------- |
 | Could not load file or assembly 'file:///C:\Program Files\Microsoft ECMA2Host\Service\ECMA\Cache\8b514472-c18a-4641-9a44-732c296534e8\Microsoft.IAM.Connector.GenericSql.dll' or one of its dependencies. Access is denied.      | Ensure that the network service account has 'full control' permissions over the cache folder. |
-| Invalid LDAP style of object's DN. DN: username@domain.com" or `Target Site: ValidByLdapStyle`  | Ensure the 'DN is Anchor' checkbox is not checked in the 'connectivity' page of the ECMA host. Ensure the 'autogenerated' checkbox is selected in the 'object types' page of the ECMA host.  See [About anchor attributes and distinguished names](on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names) for more information.|
+| Invalid LDAP style of object's DN. DN: username@domain.com" or `Target Site: ValidByLdapStyle`  | Ensure the 'DN is Anchor' checkbox is not checked in the 'connectivity' page of the ECMA host. Ensure the 'autogenerated' checkbox is selected in the 'object types' page of the ECMA host.  For more information, see [About anchor attributes and distinguished names](on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names).|
 
 ## Understand incoming SCIM requests
 
@@ -273,7 +273,7 @@ By default, the generic SQL connector expects the DN to be populated using the L
 
 To resolve this, ensure that **Autogenerated** is selected on the object types page when you configure the connector.
 
-See [About anchor attributes and distinguished names](on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names) for more information.
+For more information, see [About anchor attributes and distinguished names](on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names).
 
 ## Next steps
 
