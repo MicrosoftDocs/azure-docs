@@ -175,7 +175,7 @@ To complete review and revoke permissions, you'll need to consent to the followi
     ```http
     GET /servicePrincipals/{id}/oauth2PermissionGrants
     ```
-1. Remove all delegated permissions
+1. Remove delegated permissions using oAuth2PermissionGrants ID.
 
     ```http
     DELETE /oAuth2PermissionGrants/{id}
@@ -188,7 +188,7 @@ To complete review and revoke permissions, you'll need to consent to the followi
     ```http
     GET /servicePrincipals/{servicePrincipal-id}/appRoleAssignments
     ```
-1. Remove all application permissions
+1. Remove application permissions using appRoleAssignment ID
 
     ```http
     DELETE /servicePrincipals/{resource-servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
@@ -196,7 +196,7 @@ To complete review and revoke permissions, you'll need to consent to the followi
 
 ## Invalidate the refresh tokens
 
-1. Get Service Principal using objectID
+1. Get Service Principal using objectID.
 
     ```http
     GET /servicePrincipals/{id}
@@ -206,12 +206,12 @@ To complete review and revoke permissions, you'll need to consent to the followi
     ```http
     GET /servicePrincipals/57443554-98f5-4435-9002-852986eea510
     ```
-1. Get Azure AD App role assignments using objectID of the Service Principal
+1. Get Azure AD App role assignments using objectID of the Service Principal.
 
     ```http
     GET /servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo
     ```
-1. Revoke refresh token for all users assigned to the application
+1. Revoke refresh token for users and groups assigned to the application using appRoleAssignment ID.
 
     ```http
     DELETE /servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
