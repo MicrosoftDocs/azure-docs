@@ -37,20 +37,26 @@ A forest trust is a transitive trust between two AD forests that allows users in
 
 ## Multi-forest setup and validation
 
-In this how-to exercise, we'll collection domain information and VNET connections between domains, establish and configure a trust, and then validate that the trust is working between the domains.
+To configure a multi-forest setup, we'll perform the following steps:
+
+- Collect domain information and VNET connections between domains
+- Establish and configure a trust
+- Set up identity-based authentication and hybrid user accounts
+- Configure name suffix routing
+- Validate that the trust is working
 
 ### Collect domain information
 
 For this exercise, we have two on-premises AD DS domain controllers with two different forests and in different VNETs.
 
-**Forest 1:** Onprem1
-Domain: onpremad1.com
+- **Forest 1:** Onprem1
+- Domain: onpremad1.com
 
-**Forest 2:** Onprem2
-Domain: onpremad2.com
+- **Forest 2:** Onprem2
+- Domain: onpremad2.com
 
-**Onprem1:** Vnet - DomainServicesVNet WUS
-**Onprem2:** Vnet - vnet2/workloads
+- **Onprem1:** Vnet - DomainServicesVNet WUS
+- **Onprem2:** Vnet - vnet2/workloads
 
 ### Establish and configure trust
 
@@ -86,7 +92,7 @@ Once the trust is established, follow these steps to create a storage account an
 1. Grant a share-level permission (Azure RBAC role) to the user **onprem1user** on storage account **onprem1sa** so the user can mount the file share. To do this, navigate to the file share you created in **onprem1sa** and follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).
 1. Optional: [Configure directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md) (Windows ACLs).
 
-Repeat steps 3-10 for **Forest2** domain **onpremad2.com** (storage account **onprem2sa**/user **onprem2user**).
+Repeat steps 4-10 for **Forest2** domain **onpremad2.com** (storage account **onprem2sa**/user **onprem2user**). If you have more than two forests, repeat the steps for each forest.
 
 ### Configure name suffix routing
 
@@ -111,6 +117,8 @@ Next, add the suffix routing rule on **Forest 1**, so that it redirects to **For
 4. Select **Properties** and then **Name Suffix Routing**.
 5. Check if the "*.file.core.windows.net" suffix shows up. If not, select **Refresh**.
 6. Select "*.file.core.windows.net", then select **Enable** and **Apply**.
+
+## Validate that the trust is working
 
 ## Next steps
 
