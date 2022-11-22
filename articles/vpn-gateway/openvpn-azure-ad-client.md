@@ -9,15 +9,15 @@ ms.date: 11/22/2022
 ms.author: cherylmc
 
 ---
-# Configure an Azure VPN Client - Azure AD authentication - Windows
+# Configure the Azure VPN Client - Azure AD authentication - Windows
 
-This article helps you configure the Azure VPN Client on a Windows computer to connect to a virtual network using a VPN Gateway point-to-site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md). For more information about point-to-site, see [About point-to-site VPN](point-to-site-about.md). The Azure VPN Client supported with Windows FIPS mode with the [KB4577063](https://support.microsoft.com/help/4577063/windows-10-update-kb4577063) hotfix.
+This article helps you configure the Azure VPN Client on a Windows computer to connect to a virtual network using a VPN Gateway point-to-site (P2S) VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md). For more information about point-to-site, see [About point-to-site VPN](point-to-site-about.md). The Azure VPN Client supported with Windows FIPS mode with the [KB4577063](https://support.microsoft.com/help/4577063/windows-10-update-kb4577063) hotfix.
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="workflow"></a>Workflow
 
-After your Azure VPN Gateway point-to-site configuration is complete, your next steps are as follows:
+After your Azure VPN Gateway P2S configuration is complete, your next steps are as follows:
 
 1. Download and install the Azure VPN Client.
 1. Generate the VPN client profile configuration package.
@@ -25,16 +25,16 @@ After your Azure VPN Gateway point-to-site configuration is complete, your next 
 1. Create a connection.
 1. Optional - export the profile settings from the client and import to other client computers.
 
-
 ## <a name="download"></a>Download the Azure VPN Client
 
 [!INCLUDE [Download Azure VPN Client](../../includes/vpn-gateway-download-vpn-client.md)]
 
-## <a name="generate"></a>Generate the VPN client profile configuration package
+## <a name="generate"></a>Generate VPN client profile configuration files
 
-To generate the VPN client profile configuration package, see [Working with P2S VPN client profile files](about-vpn-profile-download.md). After you generate the package, follow the steps to extract the profile configuration files.
+1. To generate the VPN client profile configuration package, see [Working with P2S VPN client profile files](about-vpn-profile-download.md).
+1. Download and extract the VPN client profile configuration files.
 
-## <a name="import"></a>Import the profile file
+## <a name="import"></a>Import VPN client profile configuration files
 
 For Azure AD authentication configurations, the **azurevpnconfig.xml** is used. The file is located in the **AzureVPN** folder of the VPN client profile configuration package.
 
