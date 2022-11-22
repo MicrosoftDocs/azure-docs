@@ -29,7 +29,6 @@ Customer-managed keys in Azure NetApp Files enable you to use your own keys rath
 
 * Customer-managed keys can only be configured on new volumes. You cannot migrate existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. Customer-managed key volumes are not supported for the Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
-* Rekey operation is currently not supported.
 * Switching from user-assigned identity to the system-assigned identity is currently not supported.
 * MSI Automatic certificate renewal is not currently supported.  
 * The MSI certificate has a lifetime of 90 days. It will be eligible for renewal after 46 days. **After 90 days, the certificate will no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
