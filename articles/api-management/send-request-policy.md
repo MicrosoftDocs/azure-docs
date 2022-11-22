@@ -45,7 +45,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | set-url                        | The URL of the request.                                                                                     | No if mode=copy; otherwise yes. |
 | set-method                     | The HTTP method for the request.                                                                            | No if mode=copy; otherwise yes. |
-| set-header                     | A [set-header](api-management-transformation-policies.md#SetHTTPheader) policy statement. |  Use multiple header elements for multiple request headers.                                  | No                              |
+| set-header                     | A [set-header](api-management-transformation-policies.md#SetHTTPheader) policy statement. Use multiple header elements for multiple request headers.                                  | No                              |
 | set-body                       | A [set-body](api-management-transformation-policies.md#SetBody) policy statement.      | No                              |
 | authentication-certificate | [Certificate to use for client authentication](api-management-authentication-policies.md#ClientCertificate), specified in a `thumbprint` attribute. | No                          |
 
