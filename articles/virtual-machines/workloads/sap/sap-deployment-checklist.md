@@ -295,7 +295,7 @@ After deploying infrastructure and applications and before each migration starts
 6. Azure Premium Storage or Premium Storage v2 is used for latency-sensitive disks or where the [single-VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) is required.
 7. Make sure that, within the VMs, storage spaces, or [stripe sets were built correctly](./planning-guide-storage.md#striping-or-not-striping) across filesystems which require more than disk, such as DBMS data and log areas.
 8. Correct stripe size and filesystem blocksize are used, if noted in respective DBMS guides
-9. Azure VM storage and caching is used appropriately
+9. Azure VM storage and caching are used appropriately
    - Make sure that only disks holding DBMS online logs are cached with None+ Write Accelerator.  
    - Other disks with premium storage are using cache settings none or ReadOnly, depending on use  
    - Check the [configuration of LVM on Linux VMs in Azure](/azure/virtual-machines/linux/configure-lvm).  
