@@ -95,6 +95,7 @@ The following scenarios are not supported for Staged Rollout:
 - If you have a non-persistent VDI setup with Windows 10, version 1903 or later, you must remain on a federated domain. Moving to a managed domain isn't supported on non-persistent VDI. For more information, see [Device identity and desktop virtualization](../devices/howto-device-identity-virtual-desktop-infrastructure.md).
 
 - If you have a Windows Hello for Business hybrid certificate trust with certs that are issued via your federation server acting as Registration Authority or smartcard users, the scenario isn't supported on a Staged Rollout. 
+- PRT (Primary Refresh Token) acquisition of Windows Hello for Business key trsut does not work when federation server is offline.
 
   >[!NOTE]
   >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged Rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md) and [Migrate from federation to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md).
