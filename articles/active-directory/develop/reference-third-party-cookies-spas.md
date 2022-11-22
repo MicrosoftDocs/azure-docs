@@ -31,7 +31,7 @@ The solution outlined in this article works in all of these browsers, or anywher
 
 ## Overview of the solution
 
-To continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md). In the auth code flow, the identity provider issues a code, and the SPA redeems the code for an access token and a refresh token. When the app requires new access token, it can use the [refresh token flow](v2-oauth2-auth-code-flow.md#refresh-the-access-token) to get new tokens. Microsoft Authentication Library (MSAL) for JavaScript v2.0, implements the authorization code flow for SPAs and, with minor updates, is a drop-in replacement for MSAL.js 1.x.
+To continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md). In the auth code flow, the identity provider issues a code, and the SPA redeems the code for an access token and a refresh token. When the app requires new tokens, it can use the [refresh token flow](v2-oauth2-auth-code-flow.md#refresh-the-access-token) to get new tokens. Microsoft Authentication Library (MSAL) for JavaScript v2.0, implements the authorization code flow for SPAs and, with minor updates, is a drop-in replacement for MSAL.js 1.x.
 
 For the Microsoft identity platform, SPAs and native clients follow similar protocol guidance:
 
@@ -61,13 +61,13 @@ There are two ways of accomplishing sign-in:
   - When the popup finishes redirecting to the application after authentication, code in the redirect handler will store the code, and tokens in local storage for the application to use. MSAL.js supports popups for authentication, as do most libraries.
   - Browsers are decreasing support for popups, so they may not be the most reliable option. User interaction with the SPA before creating the popup may be needed to satisfy browser requirements.
 
-     Apple [describes a popup method](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) as a temporary compatibility fix to give the original window access to third-party cookies. While Apple may remove this transferral of permissions in the future, it will not impact the guidance here.
+     Apple [describes a popup method](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) as a temporary compatibility fix to give the original window access to third-party cookies. While Apple may remove this transferal of permissions in the future, it will not impact the guidance here.
      
      Here, the popup is being used as a first party navigation to the login page so that a session is found and an auth code can be provided. This should continue working into the future.
 
 ### Using iframes
 
-A common pattern in web apps is to use an iframe to embed one app inside another: the top-level frame handles authenticating the user and the application hosted in the iframe can trust that the user is signed in, fetching tokens silently. However, there're couple of caveats to this assumption irrespective of whether third-party cookies are enabled or blocked in the browser.
+A common pattern in web apps is to use an iframe to embed one app inside another: the top-level frame handles authenticating the user and the application hosted in the iframe can trust that the user is signed in, fetching tokens silently using the implicit flow. However, there are couple of caveats to this assumption irrespective of whether third-party cookies are enabled or blocked in the browser.
 
 Silent token acquisition no longer works when third-party cookies are blocked - the application embedded in the iframe must switch to using popups to access the user's session as it can't navigate to the login page.
 
