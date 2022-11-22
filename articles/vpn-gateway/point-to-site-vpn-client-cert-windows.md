@@ -124,7 +124,7 @@ When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azu
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png" alt-text="Screenshot showing Azure VPN client profile configuration page." lightbox="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png":::
 
-   If you don't see a client certificate in the **Certificate Information** dropdown, you'll need cancel the profile configuration import and fix the issue before proceeding. It's possible that one of the following things is true:
+   If you don't see a client certificate in the **Certificate Information** dropdown, you'll need to cancel the profile configuration import and fix the issue before proceeding. It's possible that one of the following things is true:
 
    * The client certificate isn't installed locally on the client computer.
    * There are multiple certificates with exactly the same name installed on your local computer (common in test environments).
