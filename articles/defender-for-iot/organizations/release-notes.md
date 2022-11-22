@@ -21,7 +21,7 @@ This section describes the servicing information, timelines, and guidance for th
 
 When updating your on-premises software, we recommend:
 
-- Plan to **update your sensor versions to the latest major version once every 6 months**.
+- Plan to **update your sensor versions to the latest version once every 6 months**.
 
 - Update to a **patch version only for specific bug fixes or security patches**. When working with the Microsoft support team on a specific issue, verify which patch version is recommended to resolve your issue.
 
