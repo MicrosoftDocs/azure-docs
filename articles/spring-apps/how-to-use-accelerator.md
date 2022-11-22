@@ -85,7 +85,7 @@ Application accelerator has 8 components:
 
 | Component name          | Instance count | vCPU per instance | Memory per instance | Responsibility |
 | :---------------------- | :------------- | :---------------- | :------------------ | :------------------ |
-| accelerator-server      | 2              | 0.4 core          | 0.5Gi               | Serve. Serve API used by Dev Tools Portal to list available accelerators and options. |
+| accelerator-server      | 2              | 0.4 core          | 0.5Gi               | Serve API used by Dev Tools Portal to list available accelerators and options. |
 | accelerator-engine      | 1              | 1 core            | 3Gi                 | Process the input values and files(pulled from a snapshot of a git repository) and apply dynamic tranformations to generate projects.|
 | accelerator-controller  | 1              | 0.2 core          | 0.25Gi               | Reconcile the Accelerator resources. |
 | source-controller       | 1              | 0.2 core          | 0.25Gi               | Registers a controller to reconcile `ImageRepositories` and `MavenArtifacts` resources which are used by Accelerators.|
@@ -278,7 +278,7 @@ az spring application-accelerator delete \
     --resource-group <resource-group-name>
 ```
 
-> To access the Dev Tools Portal, please make sure Dev Tool Portal is enabled with public endpoint assigned. Run this command by using Azure CLI if the component is not enabled.
+> To access the Dev Tools Portal, please make sure Dev Tools Portal is enabled with public endpoint assigned. Run this command by using Azure CLI if the component is not enabled.
 > ```azurecli
 > az spring dev-tool create \
 >    --resource-group <resource-group-name> \
