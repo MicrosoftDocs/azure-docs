@@ -23,7 +23,7 @@ If you haven't already done so, make sure you complete the following items:
 
 * Generate and download the VPN client profile configuration files for your P2S deployment. Use the following steps:
 
-  1. In the Azure portal, go to to the virtual network gateway.
+  1. In the Azure portal, go to the virtual network gateway.
   1. Click **Point-to-Site configuration**.
   1. Click **Download VPN client**.
   1. Select the client and fill out any information that is requested.
