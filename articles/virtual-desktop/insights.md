@@ -1,19 +1,19 @@
 ---
 title: Use Monitor Azure Virtual Desktop Monitor - Azure
-description: How to use Azure Monitor for Azure Virtual Desktop.
+description: How to use Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: helohr
 manager: femila
 ---
-# Use Azure Monitor for Azure Virtual Desktop to monitor your deployment
+# Use Azure Virtual Desktop Insights to monitor your deployment
 
-Azure Monitor for Azure Virtual Desktop is a dashboard built on Azure Monitor Workbooks that helps IT professionals understand their Azure Virtual Desktop environments. This topic will walk you through how to set up Azure Monitor for Azure Virtual Desktop to monitor your Azure Virtual Desktop environments.
+Azure Virtual Desktop Insights is a dashboard built on Azure Monitor Workbooks that helps IT professionals understand their Azure Virtual Desktop environments. This topic will walk you through how to set up Azure Virtual Desktop Insights to monitor your Azure Virtual Desktop environments.
 
 ## Requirements
 
-Before you start using Azure Monitor for Azure Virtual Desktop, you'll need to set up the following things:
+Before you start using Azure Virtual Desktop Insights, you'll need to set up the following things:
 
 - All Azure Virtual Desktop environments you monitor must be based on the latest release of Azure Virtual Desktop that’s compatible with Azure Resource Manager.
 - At least one configured Log Analytics Workspace. Use a designated Log Analytics workspace for your Azure Virtual Desktop session hosts to ensure that performance counters and events are only collected from session hosts in your Azure Virtual Desktop deployment.
@@ -24,7 +24,7 @@ Before you start using Azure Monitor for Azure Virtual Desktop, you'll need to s
 
  The data setup process described in this article is the only one you'll need to monitor Azure Virtual Desktop. You can disable all other items sending data to your Log Analytics workspace to save costs.
 
-Anyone monitoring Azure Monitor for Azure Virtual Desktop for your environment will also need the following read-access permissions:
+Anyone monitoring Azure Virtual Desktop Insights for your environment will also need the following read-access permissions:
 
 - Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources.
 - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts.
@@ -33,9 +33,9 @@ Anyone monitoring Azure Monitor for Azure Virtual Desktop for your environment w
 > [!NOTE]
 > Read access only lets admins view data. They'll need different permissions to manage resources in the Azure Virtual Desktop portal.
 
-## Open Azure Monitor for Azure Virtual Desktop
+## Open Azure Virtual Desktop Insights
 
-You can open Azure Monitor for Azure Virtual Desktop with one of the following methods:
+You can open Azure Virtual Desktop Insights with one of the following methods:
 
 - Go to [aka.ms/avdi](https://aka.ms/avdi).
 - Search for and select **Azure Virtual Desktop** from the Azure portal, then select **Insights**.
@@ -43,20 +43,20 @@ You can open Azure Monitor for Azure Virtual Desktop with one of the following m
 Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
 
 >[!NOTE]
->Azure Virtual Desktop currently only supports monitoring one subscription, resource group, and host pool at a time. If you can't find the environment you want to monitor, see [our troubleshooting documentation](troubleshoot-azure-monitor.md) for known feature requests and issues.
+>Azure Virtual Desktop currently only supports monitoring one subscription, resource group, and host pool at a time. If you can't find the environment you want to monitor, see [our troubleshooting documentation](troubleshoot-insights.md) for known feature requests and issues.
 
 ## Log Analytics settings
 
-To start using Azure Monitor for Azure Virtual Desktop, you'll need at least one Log Analytics workspace. Use a designated Log Analytics workspace for your Azure Virtual Desktop session hosts to ensure that performance counters and events are only collected form session hosts in your Azure Virtual Desktop deployment. If you already have a workspace set up, skip ahead to [Set up using the configuration workbook](#set-up-using-the-configuration-workbook). To set one up, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+To start using Azure Virtual Desktop Insights, you'll need at least one Log Analytics workspace. Use a designated Log Analytics workspace for your Azure Virtual Desktop session hosts to ensure that performance counters and events are only collected form session hosts in your Azure Virtual Desktop deployment. If you already have a workspace set up, skip ahead to [Set up using the configuration workbook](#set-up-using-the-configuration-workbook). To set one up, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 >[!NOTE]
 >Standard data storage charges for Log Analytics will apply. To start, we recommend you choose the pay-as-you-go model and adjust as you scale your deployment and take in more data. To learn more, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Set up using the configuration workbook
 
-If it's your first time opening Azure Monitor for Azure Virtual Desktop, you'll need set up Azure Monitor for your Azure Virtual Desktop environment. To configure your resources:
+If it's your first time opening Azure Virtual Desktop Insights, you'll need set up Azure Virtual Desktop Insights for your Azure Virtual Desktop environment. To configure your resources:
 
-1. Open Azure Monitor for Azure Virtual Desktop in the Azure portal at [aka.ms/avdi](https://aka.ms/avdi), then select **configuration workbook**.
+1. Open Azure Virtual Desktop Insights in the Azure portal at [aka.ms/avdi](https://aka.ms/avdi), then select **configuration workbook**.
 2. Select an environment to configure under **Subscription**, **Resource Group**, and **Host Pool**.
 
 The configuration workbook sets up your monitoring environment and lets you check the configuration after you've finished the setup process. It's important to check your configuration if items in the dashboard aren't displaying correctly, or when the product group publishes updates that require new settings.
@@ -169,11 +169,11 @@ To set up Windows Event Logs using the configuration workbook:
 
 ## Optional: configure alerts
 
-Azure Monitor for Azure Virtual Desktop allows you to monitor Azure Monitor alerts happening within your selected subscription in the context of your Azure Virtual Desktop data. Azure Monitor alerts are an optional feature on your Azure subscriptions, and you need to set them up separately from Azure Monitor for Azure Virtual Desktop. You can use the Azure Monitor alerts framework to set custom alerts on Azure Virtual Desktop events, diagnostics, and resources. To learn more about Azure Monitor alerts, see [Azure Monitor Log Alerts](../azure-monitor/alerts/alerts-log.md).
+Azure Virtual Desktop Insights allows you to monitor Azure Monitor alerts happening within your selected subscription in the context of your Azure Virtual Desktop data. Azure Monitor alerts are an optional feature on your Azure subscriptions, and you need to set them up separately from Azure Virtual Desktop Insights. You can use the Azure Monitor alerts framework to set custom alerts on Azure Virtual Desktop events, diagnostics, and resources. To learn more about Azure Monitor alerts, see [Azure Monitor Log Alerts](../azure-monitor/alerts/alerts-log.md).
 
 ## Diagnostic and usage data
 
-Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to improve the quality, security, and integrity of the service.
+Microsoft automatically collects usage and performance data through your use of the Azure Virtual Desktop Insights service. Microsoft uses this data to improve the quality, security, and integrity of the service.
 
 To provide accurate and efficient troubleshooting capabilities, the collected data includes the portal session ID, Azure Active Directory user ID, and the name of the portal tab where the event occurred. Microsoft doesn't collect names, addresses, or other contact information.
 
@@ -184,9 +184,9 @@ For more information about data collection and usage, see the [Microsoft Online 
 
 ## Next steps
 
-Now that you’ve configured Azure Monitor for your Azure Virtual Desktop environment, here are some resources that might help you start monitoring your environment:
+Now that you’ve configured Azure Virtual Desktop Insights for your Azure Virtual Desktop environment, here are some resources that might help you start monitoring your environment:
 
-- Check out our [glossary](azure-monitor-glossary.md) to learn more about terms and concepts related to Azure Monitor for Azure Virtual Desktop.
-- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-monitor-costs.md).
-- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-monitor.md) for help and known issues.
-- To see what's new in each version update, see [What's new in Azure Monitor for Azure Virtual Desktop](whats-new-azure-monitor.md).
+- Check out our [glossary](insights-glossary.md) to learn more about terms and concepts related to Azure Virtual Desktop Insights.
+- To estimate, measure, and manage your data storage costs, see [Estimate Azure Virtual Desktop Insights costs](insights-costs.md).
+- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help and known issues.
+- To see what's new in each version update, see [What's new in Azure Virtual Desktop Insights](whats-new-insights.md).
