@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 11/22/2022
 ms.author: jawoods
 ms.reviewer: phsignor
 zone_pivot_groups: enterprise-apps-all
