@@ -7,7 +7,9 @@ ms.date: 11/15/2022
 
 # OT monitoring software release notes
 
-The Defender for IoT architecture uses on-premises sensors and management servers. This article lists the supported software versions for Microsoft Defender for IoT's OT sensor and on-premises management software.
+The Microsoft Defender for IoT architecture uses on-premises sensors and management servers. This article lists the supported software versions for the OT sensor and on-premises management software, including release dates, support dates, and highlights for the updated features.
+
+- Detailed descriptions about new features are described in [What's new in Microsoft Defender for IoT?](whats-new.md)
 
 - Cloud-only features, which aren't dependent on specific sensor versions, are listed only in [What's new in Microsoft Defender for IoT?](whats-new.md)
 
@@ -121,9 +123,14 @@ This version includes minor stability improvements.
 
 This version includes the following new updates and fixes:
 
-- [Device inventory enhancements](whats-new.md#device-inventory-enhancements)
-- [Enhancements for the ServiceNow integration API](whats-new.md#enhancements-for-the-servicenow-integration-api)
-- [New alert columns with timestamp data](whats-new.md#new-alert-columns-with-timestamp-data)
+- [Device inventory enhancements in the sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md):
+
+    - Merge duplicate devices, delete single devices, and delete inactive devices by admin users
+    - **Last seen** value in the device details pane is replaced by **Last activity**
+
+- [New parameters for the *devicecves* API](api/management-integration-apis.md): `sensorId`, `score`, and `deviceIds`
+
+- [New alert columns with timestamp data](how-to-view-alerts.md): **Last detection**, **First detection**, and **Last activity**
 
 ### 22.2.3
 
@@ -133,13 +140,21 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [OT appliance hardware profile updates](whats-new.md#ot-appliance-hardware-profile-updates)
-- [PCAP access from the Azure portal](whats-new.md#pcap-access-from-the-azure-portal-public-preview)
-- [Bi-directional alert synch between sensors and the Azure portal](whats-new.md#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
-- [Sensor connections restored after certificate rotation](whats-new.md#sensor-connections-restored-after-certificate-rotation)
-- [Support diagnostic log enhancements](whats-new.md#support-diagnostic-log-enhancements-public-preview)
-- [Improved security for uploading protocol plugins](whats-new.md#improved-security-for-uploading-protocol-plugins)
-- [Sensor names shown in browser tabs](whats-new.md#sensor-names-shown-in-browser-tabs)
+- [OT appliance hardware profile updates](ot-appliance-sizing.md):
+
+    - New naming convention for hardware profiles to reflect both the *type* of profile, including *Corporate*, *Enterprise*, and *Production line*, and also the related disk storage size.
+
+- [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
+
+- [Bi-directional alert synch between sensors and the Azure portal](how-to-manage-cloud-alerts.md#managing-alerts-in-a-hybrid-deployment)
+
+- [Sensor connections restored after certificate rotation](how-to-deploy-certificates.md)
+
+- [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
+
+- [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
+
+- [Sensor names shown in browser tabs](how-to-manage-individual-sensors.md)
 
 ## Versions 22.1.x
 
@@ -153,7 +168,7 @@ Software versions 22.1.x support direct updates to the latest OT monitoring soft
 
 This version includes the following new updates and fixes:
 
-- [Same passwords for *cyberx_host* and *cyberx* users](whats-new.md#same-passwords-for-cyberx_host-and-cyberx-users)
+- [Identical passwords for *cyberx_host* and *cyberx* users created during installations and updates](how-to-install-software.md)
 
 ### 22.1.6
 
@@ -179,7 +194,7 @@ This version minor updates to improve TI installation packages and software upda
 
 This version includes the following new updates and fixes:
 
-- [Extended device property data in the Device inventory](whats-new.md#extended-device-property-data-in-the-device-inventory)
+- [Extended device property data in the **Device inventory** page on the Azure portal](how-to-manage-device-inventory-for-organizations.md): Extended data in the **Description**, **Tags**. **Protocols**, **Scanner**, and **Last Activity** fields
 
 ### 22.1.3
 
@@ -189,10 +204,13 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [Support diagnostic log enhancements (Public preview)](whats-new.md#support-diagnostic-log-enhancements-public-preview)
-- [Key state alert updates](whats-new.md#key-state-alert-updates-public-preview)
-- [Sign out of a CLI session](whats-new.md#sign-out-of-a-cli-session)
-- [Sensor health from the Azure portal (Public preview)](whats-new.md#sensor-health-from-the-azure-portal-public-preview)
+- [Diagnostic logs automatically available to support for cloud-connected sensors](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+
+- [Rockwell protocol: Device inventory shows PLC operating mode key state, run state, and security mode](how-to-manage-device-inventory-for-organizations.md)
+
+- [Automatic CLI session timeouts](references-work-with-defender-for-iot-cli-commands.md)
+
+- [Sensor health widgets in the Azure portal](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview)
 
 ### 22.1.1
 
@@ -202,17 +220,41 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [New sensor installation wizard](whats-new.md#new-sensor-installation-wizard)
-- [Sensor redesign and unified Microsoft product experience](whats-new.md#sensor-redesign-and-unified-microsoft-product-experience)
-- [Enhanced sensor Overview page](whats-new.md#enhanced-sensor-overview-page)
-- [New support diagnostics log](whats-new.md#new-support-diagnostics-log)
-- [Alert updates](whats-new.md#alert-updates)
-- [Custom alert updates](whats-new.md#custom-alert-updates)
-- [CLI command updates](whats-new.md#cli-command-updates)
-- [Update to version 22.1.x](whats-new.md#update-to-version-221x)
-- [New connectivity model and firewall requirements](whats-new.md#new-connectivity-model-and-firewall-requirements)
-- [Protocol improvements](whats-new.md#protocol-improvements)
-- [Modified, replaced, or removed options and configurations](whats-new.md#modified-replaced-or-removed-options-and-configurations)
+- [New sensor installation wizard](how-to-install-software.md)
+
+- [Sensor redesign and unified Microsoft product experience](how-to-manage-individual-sensors.md):
+
+- [Enhanced sensor Overview page](how-to-manage-individual-sensors.md)
+
+- [New sensor diagnostics log](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+
+- [Alert updates](how-to-view-alerts.md):
+
+    - Contextual data for each alert
+    - Refreshed alert statuses
+    - Alert storage updates
+    - A new **Backup Activity with Antivirus Signatures** alert
+    - Alert management changes during software updates
+
+- [Enhancements for creating custom alerts on the sensor](how-to-accelerate-alert-incident-response.md#customize-alert-rules): Hit count data, advanced scheduling options, and more supported fields and protocols
+
+- [Modified CLI commands](references-work-with-defender-for-iot-cli-commands.md): Including the following new commands:
+
+    - `sudo dpkg-reconfigure iot-sensor`
+    - `sudo dpkg-reconfigure iot-sensor`
+    - `sudo dpkg-reconfigure iot-sensor`
+
+- [Refreshed update process and update log](update-ot-software.md)
+
+- [New connectivity models](architecture-connections.md)
+
+- [New firewall requirements](how-to-set-up-your-network.md#sensor-access-to-azure-portal)
+
+- [Improved support for Profinet DCP, Honeywell, and Windows endpoint detection protocols](concept-supported-protocols.md)
+
+- [Sensor reports now accessible from the **Data Mining** page](how-to-create-data-mining-queries.md)
+
+- [Updated process for sensor name changes](how-to-manage-individual-sensors.md#change-the-name-of-a-sensor)
 
 ## Versions 10.5.x
 
@@ -234,9 +276,9 @@ This version minor maintenance updates.
 
 This version includes the following new updates and fixes:
 
-- [Enhanced integration with Microsoft Sentinel (Preview)](whats-new.md#enhanced-integration-with-microsoft-sentinel-preview)
-- [Apache Log4j vulnerability](whats-new.md#apache-log4j-vulnerability)
-- [Alert updates](whats-new.md#alerting)
+- [New Microsoft Sentinel solution for Defender for IoT](../../sentinel/iot-solution.md)
+- [Mitigation for the Apache Log4j vulnerability](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/updated-15-dec-defender-for-iot-security-advisory-apache-log4j/m-p/3036844)
+- [Alerts for minor events and edge cases disabled or minimized](alert-engine-messages.md)
 
 ### 10.5.3
 
@@ -246,10 +288,11 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [New integration APIs](release-notes-archive.md#november-2021)
-- [Network traffic analysis enhancements](release-notes-archive.md#november-2021)
-- [Automatic deletion for older archived alerts](release-notes-archive.md#november-2021)
-- [Export alert enhancements](release-notes-archive.md#november-2021)
+- [New integration APIs](api/management-integration-apis.md)
+- [Network traffic analysis enhancements for multiple OT and ICS protocols](concept-supported-protocols.md)
+- [Automatic deletion for older, archived alerts](how-to-view-alerts.md)
+
+- [Export alert enhancements](how-to-work-with-alerts-on-premises-management-console.md#export-alert-information)
 
 ### 10.5.2
 
@@ -259,11 +302,15 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [PLC operating mode detections (Public Preview)](release-notes-archive.md#plc-operating-mode-detections-public-preview)
-- [PCAP API](release-notes-archive.md#pcap-api)
-- [On-premises Management Console Audit](release-notes-archive.md#on-premises-management-console-audit)
-- [Webhook Extended](release-notes-archive.md#webhook-extended)
-- [Unicode support for certificate passphrases](release-notes-archive.md#unicode-support-for-certificate-passphrases)
+- [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
+
+- [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
+
+- [On-premises management console audit](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-audit-logs-for-troubleshooting)
+
+- [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
+
+- [Unicode support for certificate passphrases](how-to-deploy-certificates.md)
 
 
 ## Next steps

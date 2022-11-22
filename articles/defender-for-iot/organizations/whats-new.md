@@ -234,7 +234,7 @@ The Enterprise IoT integration with Microsoft Defender for Endpoint is now in Ge
 
 During OT monitoring software installations and updates, the **cyberx** user is assigned a random password. When updating from version 10.x.x to version 22.1.7, the **cyberx_host** password is assigned with an identical password to the **cyberx** user.
 
-For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+For more information, see [Install OT agentless monitoring software](how-to-install-software.md) and [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### Device inventory enhancements
 
@@ -346,6 +346,8 @@ Starting in sensor version 22.2.3, your sensor's name is displayed in the browse
 For example:
 
 :::image type="content" source="media/release-notes/sensor-name-in-tab.png" alt-text="Screenshot of the sensor name shown in the browser tab.":::
+
+For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
 ### Microsoft Sentinel incident synch with Defender for IoT alerts
 
@@ -566,6 +568,8 @@ Now you can get a summary of the log and system information that gets added to y
 
 :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup and Restore dialog showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
 
+For more information, see [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+
 ### Alert updates
 
 **In the Azure portal**:
@@ -601,6 +605,8 @@ Other alert updates include:
 - The **Backup Activity with Antivirus Signatures Alert**. This new alert warning is triggered for traffic detected between a source device and destination backup server, which is often legitimate backup activity. Critical or major malware alerts are no longer triggered for such activity.
 
 - **During upgrades**, sensor console alerts that are currently archived are deleted. Pinned alerts are no longer supported, so pins are removed for sensor console alerts as relevant.
+
+For more information, see [View alerts on your sensor](how-to-view-alerts.md).
 
 ### Custom alert updates
 
@@ -669,6 +675,7 @@ This version of Defender for IoT provides improved support for:
 - Honeywell
 - Windows endpoint detection
 
+For more information, see [Microsoft Defender for IoT - supported IoT, OT, ICS, and SCADA protocols](concept-supported-protocols.md).
 ### Modified, replaced, or removed options and configurations
 
 The following Defender for IoT options and configurations have been moved, removed, and/or replaced:
@@ -704,6 +711,8 @@ Version 10.5.4 of Microsoft Defender for IoT delivers important alert enhancemen
 - For certain scenarios, similar alerts are minimized in a single alert message.
 
 These changes reduce alert volume and enable more efficient targeting and analysis of security and operational events.
+
+For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md).
 
 #### Alerts permanently disabled
 
