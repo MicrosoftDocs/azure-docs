@@ -759,6 +759,11 @@
         "source_path_from_root": "/articles/mysql/single-server/concepts-migrate-mydumper-myloader.md",
         "redirect_url": "/azure/mysql/migrate/concepts-migrate-mydumper-myloader",
         "redirect_document_id": true
-    }  
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-migrate-rds-mysql-data-in-replication.md",
+        "redirect_url": "/azure/mysql/migrate/how-to-migrate-rds-mysql-data-in-replication",
+        "redirect_document_id": true
+    }
   ]
 }
