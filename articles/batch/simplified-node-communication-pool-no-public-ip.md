@@ -71,7 +71,7 @@ az network vnet subnet update \
 1. On the **Add Pool** window, select the option you intend to use from the **Image Type** dropdown.
 1. Select the correct **Publisher/Offer/Sku** of your image.
 1. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Target Spot/low-priority nodes**.
-1. For **Node communication mode**, select **simplified** under Optional Settings.
+1. For **Node communication mode**, select **Simplified** under Optional Settings.
 1. Select a virtual network and subnet you wish to use. This virtual network must be in the same location as the pool you're creating.
 1. In **IP address provisioning type**, select **NoPublicIPAddresses**.
 
