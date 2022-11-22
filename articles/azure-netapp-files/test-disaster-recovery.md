@@ -1,6 +1,6 @@
 ---
 title: Test disaster recovery for Azure NetApp Files | Microsoft Docs
-description: Enhance your disaster recovery preparedness with this test plan.  
+description: Enhance your disaster recovery preparedness with this test plan for cross-region replication.  
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -18,11 +18,9 @@ ms.author: anfdocs
 
 # Test disaster recovery for Azure NetApp Files
 
-As part of an effective disaster recovery plan, the disaster recovery workflow should be tested. Testing the disaster recovery workflow demonstrates that the disaster recovery plan works and can achieve the desired recovery point objective (RPO) and recovery time objective (RTO). Testing disaster recovery workflows also ensures that operational runbooks are accurate and that operational staff are trained on the workflow.
+An effective disaster recovery plan includes testing your disaster recovery configuration. Testing your disaster recovery configuration demonstrations the efficacy of your disaster recovery configuration and that it can achieve the desired recovery point objective (RPO) and recovery time objective (RTO). Testing disaster recovery workflows also ensures that operational runbooks are accurate and that operational staff are trained on the workflow.
 
-[Cross-region replication](cross-region-replication-introduction.md) supports disaster recovery testing without disruption of existing replication that can put RPO and RTO at risk.
-
-The Azure NetApp Files disaster recovery testing workflow leverages the Azure NetApp Flies feature that allows you to [create new volumes from the snapshots](snapshots-restore-new-volume.md) created in the volumes hosted in the primary region replicated to the data protection volumes in the secondary region. 
+This disaster recovery test workflow leverages for Azure NetApp Files leverages [cross-region replication](cross-region-replication-introduction.md). With cross-region replication, you can test your disaster recovery understanding and preparedness without disrupting to the existing replication schedule, posing no risk to RPO or RTO. This test plan also leverages Azure NetApp Files' ability to [create new volumes from the snapshots](snapshots-restore-new-volume.md) in cross-region replication.
 
 ## Pre-requisites
 
@@ -37,7 +35,7 @@ The Azure NetApp Files disaster recovery testing workflow leverages the Azure Ne
 
 ## Steps
 
-Given the uniqueness of each application architecture, there is no specific workflow to test your disaster recovery workflow. The outlined steps are a high-level support disaster recovery testing:
+Given the uniqueness of each application architecture, there's no specific workflow to test your disaster recovery workflow. The outlined steps are a high-level support disaster recovery testing:
 
 1. [Prepare Azure virtual machines (VMs) in the secondary region](cross-region-replication-create-peering.md). You must configure:
     * The operating system
@@ -52,7 +50,7 @@ Given the uniqueness of each application architecture, there is no specific work
 1. Run the application in the secondary region. Test the application's functionality.
 1. Bring down the application in the secondary region.
 1. Unmount the volumes from the application VM in the secondary region. 
-1. Delete the volumes created from the snapshot in step two. 
+1. Delete the volumes created from the snapshot in step 2. 
 1. Bring down the Azure VM in the secondary region. Clean up any resources configured to support the disaster recovery testing. 
 
 ## Next steps
