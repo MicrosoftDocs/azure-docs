@@ -203,7 +203,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    ```bash
    DEPLOYMENT_NAME="classifier-xgboost-mlflow"
-   az ml batch-deployment create -f endpoint.yml
+   az ml batch-deployment create -f endpoint.yml --set-default
    ```
    
    # [Python](#tab/sdk)
@@ -227,6 +227,15 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    )
    ml_client.batch_deployments.begin_create_or_update(deployment)
    ```
+   
+   Once created, you will need to set this deployment as the default one:
+   
+   ```python
+   endpoint = ml_client.batch_endpoints.get(endpoint.name)
+   endpoint.defaults.deployment_name = deployment.name
+   ml_client.batch_endpoints.begin_create_or_update(endpoint)
+   ```
+   
    ---
    
    > [!NOTE]
@@ -276,6 +285,8 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
    # [Python](#tab/sdk)
    
+   Create a data asset definition:
+   
    ```python
    data_path = "heart-classifier-mlflow/data"
    dataset_name = "heart-dataset-unlabeled"
@@ -286,8 +297,22 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
        description="An unlabeled dataset for heart classification",
        name=dataset_name,
    )
+   ```
+   
+   Then, create the data asset:
+   
+   ```python
    ml_client.data.create_or_update(heart_dataset_unlabeled)
    ```
+   
+   Refresh the object to reflect the update:
+   
+   ```python
+   ml_client.data.get(name=dataset_name)
+   ```
+   
+   > [!WARNING]
+   > Sometimes, assets may take a couple of minutes to be materialized. If you get a not found error, please wait a couple of seconds and retry.
    
 2. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
 
