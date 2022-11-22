@@ -200,6 +200,9 @@ items:
       - name: Collect text and IIS Logs
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-text-log.md
+      - name: Collect SNMP traps
+        displayName: data collection rule,Azure Monitor agent
+        href: agents/data-collection-snmp-data.md        
     - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
     - name: Migrate from Log Analytics Agent
@@ -377,7 +380,7 @@ items:
         displayName: Prometheus
         href: essentials/prometheus-metrics-overview.md
       - name: FAQ
-        href: faq.yml#prometheus
+        href: /azure/azure-monitor/faq#prometheus
       - name: Azure Monitor workspace
         href: essentials/azure-monitor-workspace-overview.md
       - name: Enable on AKS cluster
@@ -930,14 +933,10 @@ items:
           href: app/separate-resources.md
         - name: Manage Application Insights
           href: app/powershell.md
-        - name: Manage Azure Cloud Services
-          href: app/powershell-azure-diagnostics.md
     - name: Export
       items:
       - name: Continuous export
         href: app/export-telemetry.md
-      - name: Export data model
-        href: app/export-data-model.md
     - name: Visual Studio
       items:
       - name: F5 insights
@@ -1194,8 +1193,6 @@ items:
     items:
       - name: Export log data
         href: logs/log-powerbi.md
-      - name: Export application data
-        href: app/export-power-bi.md
   - name: Grafana
     href: visualize/grafana-plugin.md
 - name: Analyze
@@ -1531,7 +1528,7 @@ items:
     - name: Endpoint overrides
       href: app/custom-endpoints.md
     - name: Azure Functions
-      href: app/azure-functions-supported-features.md
+      href: ../azure-functions/functions-monitoring.md
     - name: Statsbeat
       href: app/statsbeat.md
     - name: Release notes
@@ -1563,7 +1560,7 @@ items:
       - name: Context
         href: app/data-model-context.md
       - name: Integration with Azure Functions
-        href: app/azure-functions-supported-features.md
+        href: app/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell
     items:
     - name: Azure Monitor
