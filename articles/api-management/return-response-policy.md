@@ -30,7 +30,7 @@ The `return-response` policy cancels pipeline execution and returns either a def
 
 |  Attribute              | Description                                                                                                                                                                          | Required  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| response-variable-name | The name of the context variable referenced from, for example, an upstream [send-request](send-request-policy.md`) policy and containing a `Response` object | No |
+| response-variable-name | The name of the context variable referenced from, for example, an upstream [send-request](send-request-policy.md) policy and containing a `Response` object | No |
 
 ## Elements
 
