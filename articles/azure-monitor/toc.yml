@@ -380,7 +380,7 @@ items:
         displayName: Prometheus
         href: essentials/prometheus-metrics-overview.md
       - name: FAQ
-        href: faq.yml#prometheus
+        href: /azure/azure-monitor/faq#prometheus
       - name: Azure Monitor workspace
         href: essentials/azure-monitor-workspace-overview.md
       - name: Enable on AKS cluster
