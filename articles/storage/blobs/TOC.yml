@@ -6,7 +6,7 @@ items:
   - name: What is Azure Blob Storage?
     href: storage-blobs-overview.md
   - name: Compare core storage services
-    href: ../common/storage-introduction.md?toc=/azure/storage/blobs/toc.json
+    href: ../common/storage-introduction.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Blob Storage feature support
     href: storage-feature-support-in-storage-accounts.md
   expanded: true
@@ -61,7 +61,7 @@ items:
       - name: JavaScript
         href: blob-upload-function-trigger-javascript.md
     - name: Migrate data to cloud with AzCopy
-      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=/azure/storage/blobs/toc.json
+      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Optimize storage application performance and scalability
       items:
       - name: 1 - Create a VM and storage account
@@ -93,19 +93,19 @@ items:
   - name: Samples
     items:
     - name: .NET
-      href: ../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json
+      href: ../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Java
-      href: ../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json
+      href: ../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Spring
       href: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/storage/spring-cloud-azure-starter-storage-blob/storage-blob-sample
     - name: Python
-      href: ../common/storage-samples-python.md?toc=/azure/storage/blobs/toc.json
+      href: ../common/storage-samples-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: JavaScript
-      href: ../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json
+      href: ../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: C++
-      href: ../common/storage-samples-c-plus-plus.md?toc=/azure/storage/blobs/toc.json
+      href: ../common/storage-samples-c-plus-plus.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Other languages
-      href: ../common/storage-samples.md?toc=/azure/storage/blobs/toc.json
+      href: ../common/storage-samples.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Azure PowerShell
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
@@ -125,13 +125,13 @@ items:
     - name: Storage accounts
       items:
       - name: Overview
-        href: ../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json
+        href: ../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Premium performance
         href: storage-blob-block-blob-premium.md
     - name: Authorization
       items:
       - name: Authorizing data operations
-        href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json
+        href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         items:
         - name: Authorize with Azure AD
           items:
@@ -148,9 +148,9 @@ items:
         - name: Authorize with Shared Key
           href: /rest/api/storageservices/authorize-with-shared-key
         - name: Delegate access with shared access signatures (SAS)
-          href: ../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Authorizing management operations
-        href: ../common/authorization-resource-provider.md?toc=/azure/storage/blobs/toc.json
+        href: ../common/authorization-resource-provider.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Migrate to passwordless connections
         href: ../common/migrate-azure-credentials.md
       - name: Passwordless connections between multiple services
@@ -162,18 +162,18 @@ items:
       - name: Security baseline
         href: /security/benchmark/azure/baselines/storage-security-baseline?toc=/azure/storage/blobs/toc.json?toc=/azure/storage/blobs/TOC.json
       - name: Azure Storage encryption at rest
-        href: ../common/storage-service-encryption.md?toc=/azure/storage/blobs/toc.json
+        href: ../common/storage-service-encryption.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         items:
         - name: Encryption with customer-managed keys
-          href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Encryption on the request with customer-provided keys
           href: encryption-customer-provided-keys.md
         - name: Encryption scopes
           href: encryption-scope-overview.md
       - name: Use Azure Private Endpoints
-        href: ../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json
+        href: ../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Configure network routing preference
-        href: ../common/network-routing-preference.md?toc=/azure/storage/blobs/toc.json
+        href: ../common/network-routing-preference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Data protection
       items:
       - name: Overview
@@ -201,9 +201,9 @@ items:
     - name: Redundancy and disaster recovery
       items:
       - name: Data redundancy
-        href: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json
+        href: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Customer-managed failover for disaster recovery
-        href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json
+        href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Blob access tiers and lifecycle management
       items:
       - name: Overview
@@ -225,17 +225,17 @@ items:
         - name: Blob storage
           href: scalability-targets.md
         - name: Standard storage accounts
-          href: ../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Premium block blob storage accounts
           href: scalability-targets-premium-block-blobs.md
         - name: Premium page blob storage accounts
           href: scalability-targets-premium-page-blobs.md
         - name: Storage resource provider
-          href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Cost planning and optimization 
       items:
       - name: Plan and manage costs
-        href: ../common/storage-plan-manage-costs.md
+        href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Azure Storage reserved capacity
         href: storage-blob-reserved-capacity.md
       - name: Estimate the cost to archive data
@@ -253,32 +253,32 @@ items:
     - name: Data migration
       items:
       - name: Storage migration overview
-        href: ../common/storage-migration-overview.md?toc=/azure/storage/blobs/toc.json
+        href: ../common/storage-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Compare data transfer solutions
-        href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json
+        href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         items:
         - name: Large dataset, low network bandwidth
-          href: ../common/storage-solution-large-dataset-low-network.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/storage-solution-large-dataset-low-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Large dataset, moderate to high network bandwidth
-          href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Small dataset, low to moderate network bandwidth
-          href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Periodic data transfer
-          href: ../common/storage-solution-periodic-data-transfer.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/storage-solution-periodic-data-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Monitoring
       items:
       - name: Monitor Blob storage
         href: monitor-blob-storage.md
       - name: Transition from classic metrics
-        href: ../common/storage-metrics-migration.md?toc=/azure/storage/blobs/toc.json
+        href: ../common/storage-metrics-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Monitoring (classic)
         items:
         - name: Storage Analytics
-          href: ../common/storage-analytics.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/storage-analytics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Metrics
-          href: ../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Logs
-          href: ../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Protocol support
       items:
       - name: NFS 3.0
