@@ -298,7 +298,7 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
-# [C#](#tab/c-sharp)
+### [C#](#tab/c-sharp)
 ```csharp
 using System;
 using System.Net;
@@ -385,7 +385,7 @@ namespace OIAPIExample
 
 ```
 
-# [Python](#tab/python)
+### [Python](#tab/python)
 
 >[!NOTE]
 > If using Python 2, you may need to change the line:
@@ -476,7 +476,7 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 
-# [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 
