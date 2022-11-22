@@ -6,7 +6,7 @@ ms.author: telupu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 11/28/2022
 ---
 
 # Create plans for a Managed Service offer
