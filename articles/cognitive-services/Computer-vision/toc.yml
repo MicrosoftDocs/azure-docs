@@ -216,8 +216,6 @@ items:
       href: how-to/use-headpose.md
     - name: Mitigate latency when using the Face service
       href: how-to/mitigate-latency.md
-    - name: Analyze videos in real time
-      href: how-to/identity-analyze-video.md
     - name: Migrate face data
       href: how-to/migrate-face-data.md
     - name: Use customer-managed keys
