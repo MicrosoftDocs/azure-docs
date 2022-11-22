@@ -33,7 +33,7 @@ For SAP systems running on virtual machines, you can use [Azure Site Recovery](.
 
 SAP Web Dispatcher component works as a load balancer for SAP traffic among SAP application servers. You have different options to achieve high availability of SAP Web Dispatcher component in the primary region. For more information about this option, see [High Availability of the SAP Web Dispatcher](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/683d6a1797a34730a6e005d1e8de6f22/489a9a6b48c673e8e10000000a42189b.html) and [SAP Web dispatcher HA setup on Azure](https://blogs.sap.com/2022/04/02/sap-on-azure-sap-web-dispatcher-highly-availability-setup-and-virtual-hostname-ip-configuration-with-azure-load-balancer/).
 
-- Option 1: High availability using cluster solution
+- Option 1: High availability using cluster solution.
 - Option 2: High availability with parallel SAP Web Dispatchers.
 
 To achieve DR for highly available SAP Web Dispatcher setup in primary region, you can use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md). For parallel web dispatchers (option 2) running in primary region, you can configure Azure Site Recovery to achieve DR. But if you have configured SAP Web Dispatcher using option 1 in primary region, you need to make some additional changes after failover to have similar HA setup on the DR region. As the configuration of SAP Web Dispatcher high availability with cluster solution is configured in similar manner to SAP central services. Follow the same guidelines as mentioned for SAP Central Services.
