@@ -32,7 +32,7 @@ Below tutorial describes steps to enable SMART on FHIR applications with FHIR Se
 - An instance of the FHIR Service
 - .NET SDK 6.0
 - [Enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
-- [Register public client application in Azure AD](azure/healthcare-apis/azure-api-for-fhir/register-public-azure-ad-client-app.md)
+- [Register public client application in Azure AD](https://learn.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/register-public-azure-ad-client-app)
      - After registering the application, make note of the applicationId for client application.
 
 <!--- Tutorial : To enable SMART on FHIR using APIM, follow below steps 
