@@ -25,11 +25,11 @@ If you already have AD LDS or another directory server, you can skip this conten
 
 ### Create an SSL certificate, a test directory and install AD LDS.
 Use the PowerShell script from [Appendix A](#appendix-a---install-ad-lds-powershell-script).  The script performs the following actions:
-  - Creates a self-signed certificate that will be used by the LDAP connector
-  - Creates a directory for the feature install log
-  - Exports the certificate in the personal store to the directory
-  - Imports the certificate to the trusted root of the local machine
-  - Installs the AD LDS role on our virtual machine 
+  1. Creates a self-signed certificate that will be used by the LDAP connector.
+  2. Creates a directory for the feature install log.
+  3. Exports the certificate in the personal store to the directory.
+  4. Imports the certificate to the trusted root of the local machine.
+  5. Installs the AD LDS role on our virtual machine.
 
 On the Windows Server virtual machine where you are using to test the LDAP connector, edit the script to match your computer name, and then run the script using Windows PowerShell with administrative privileges.
 
@@ -46,11 +46,11 @@ C:\Windows\ADAM> ADAMInstall.exe /answer:answer.txt
 
 ### Create containers and a service account for AD LDS
 The use the PowerShell script from [Appendix C](#appendix-c---populate-ad-lds-powershell-script).  The script performs the following actions:
-  - Creates a container for the service account that will be used with the LDAP connector
-  - Creates a container for the cloud users, where users will be provisioned to
-  - Creates the serve account in AD LDS
-  - Enables the service account
-  - Adds the service account to the AD LDS Administrators role
+  1. Creates a container for the service account that will be used with the LDAP connector.
+  1. Creates a container for the cloud users, where users will be provisioned to.
+  1. Creates the service account in AD LDS.
+  1. Enables the service account.
+  1. Adds the service account to the AD LDS Administrators role.
 
 On the Windows Server virtual machine, you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
 
@@ -59,33 +59,33 @@ In order to enable SSL to work, you need to grant the NETWORK SERVICE read permi
 
  1. Navigate to **C:\Program Data\Microsoft\Crypto\Keys**.
  2. Right-click on the system file located here.  It will be a guid.  This container is storing our certificate.
-    - Select properties.
-    - At the top, select the **Security** tab.
-    - Select **Edit**.
-    - Click **Add**.
-    - In the box, enter **Network Service** and select **Check Names**.
-    - Select **NETWORK SERVICE** from the list and click **OK**.
-    - Click **Ok**.
-    - Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
+    1. Select properties.
+    1. At the top, select the **Security** tab.
+    1. Select **Edit**.
+    1. Click **Add**.
+    1. In the box, enter **Network Service** and select **Check Names**.
+    1. Select **NETWORK SERVICE** from the list and click **OK**.
+    1. Click **Ok**.
+    1. Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
 
 ### Verify SSL connectivity with AD LDS
 Now that we have configured the certificate and granted the network service account permissions, test the connectivity to verify that it is working.
  1. Open Server Manager and select AD LDS on the left
  2. Right-click your instance of AD LDS and select ldp.exe from the pop-up.
-   [![Ldp tool location](../../../includes/media/active-directory-app-provisioning-ldap/ldp-1.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-1.png#lightbox)</br>
+   [![Screenshot that shows the Ldp tool location.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-1.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-1.png#lightbox)</br>
  3. At the top of ldp.exe, select **Connection** and **Connect**.
  4. Enter the following information and click **OK**.
     - Server:  APP3
     - Port: 636
     - Place a check in the SSL box
-   [![Ldp connection configuration](../../../includes/media/active-directory-app-provisioning-ldap/ldp-2.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
+   [![Screenshot that shows the Ldp tool connection configuration.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-2.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
  5.  You should see a response similar to the screenshot below.
-   [![Ldp connection configuration success](../../../includes/media/active-directory-app-provisioning-ldap/ldp-3.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
+   [![Screenshot taht shows the Ldp tool connection configuration success.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-3.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
  6.  At the top, under **Connection** select **Bind**.
  7. Leave the defaults and click **OK**.
-   [![Ldp bind](../../../includes/media/active-directory-app-provisioning-ldap/ldp-4.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-4.png#lightbox)</br>
+   [![Screenshot that shows the Ldp tool bind operation.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-4.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-4.png#lightbox)</br>
  8. You should now, successfully bind to the instance.
-   [![ldp bind success](../../../includes/media/active-directory-app-provisioning-ldap/ldp-5.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-5.png#lightbox)</br>
+   [![Screenshot that shows the Ldp tool bind success.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-5.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-5.png#lightbox)</br>
 
 ### Disable the local password policy
 Currently, the LDAP connector provisions users with a blank password.  This provisioning will not satisfy the local password policy on our server so we are going to disable it for testing purposes.  To disable password complexity, on a non-domain-joined server, use the following steps.
@@ -96,7 +96,7 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
  1. On the server, click **Start**, **Run**, and then **gpedit.msc**
  2. On the **Local Group Policy editor**, navigate to Computer Configuration > Windows Settings > Security Settings > Account Policies > Password Policy
  3. On the right, double-click **Password must meet complexity requirements** and select **Disabled**.
-  [![Screenshot complexity requirements.](../../../includes/media/active-directory-app-provisioning-ldap/local-1.png)](../../../includes/media/active-directory-app-provisioning-ldap/local-1.png#lightbox)</br>
+  [![Screenshot of the complexity requirements setting.](../../../includes/media/active-directory-app-provisioning-ldap/local-1.png)](../../../includes/media/active-directory-app-provisioning-ldap/local-1.png#lightbox)</br>
  5. Click **Apply** and **Ok**
  6. Close the Local Group Policy editor
  
