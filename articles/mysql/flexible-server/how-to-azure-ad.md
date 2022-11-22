@@ -80,7 +80,7 @@ _(This step isn't required in Azure Cloud Shell.)_
     az login
     ```
 
-The command will launch a browser window to the Azure AD authentication page. It requires you to give your Azure AD user ID and the password.
+The command will launch a browser window to the Azure AD authentication page. It requires you to give your Azure AD user ID and password.
 
 - If you have multiple subscriptions, choose the appropriate subscription using the az account set command:
 
@@ -131,7 +131,7 @@ After authentication is successful, Azure AD will return an access token:
 
 The token is a Base 64 string that encodes all the information about the authenticated user and is targeted to the Azure Database for MySQL service.
 
-The access token validity is anywhere between 5 minutes to 60 minutes. We recommend you get the access token just before initiating the sign in to Azure Database for MySQL Flexible server.
+The access token validity is anywhere between 5 minutes to 60 minutes. We recommend you get the access token before initiating the sign-in to Azure Database for MySQL Flexible server.
 
 - You can use the following PowerShell command to see the token validity.
 
@@ -141,11 +141,11 @@ The access token validity is anywhere between 5 minutes to 60 minutes. We recomm
 
 **Step 3: Use token as password for logging in with MySQL**
 
-When connecting you need to use the access token as the MySQL user password. You can use the method described above to retrieve the token when using GUI clients such as MySQL workbench.
+You need to use the access token as the MySQL user password when connecting. You can use the method described above to retrieve the token using GUI clients such as MySQL workbench.
 
 #### Use MySQL CLI
 
-When using the CLI, you can use this short-hand to connect:
+When using the CLI, you can use this shorthand to connect:
 
 **Example (Linux/macOS):**
 
