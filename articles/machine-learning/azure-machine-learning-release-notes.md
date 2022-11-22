@@ -40,9 +40,9 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-contrib-automl-dnn-forecasting**
     + There is a corner case where samples are reduced to 1 after the cross validation split but sample_size still points to the count before the split and hence batch_size ends up being more than sample count in some cases. In this fix we initialize sample_size after the split
   + **azureml-core**
-    + Added deprecation warning when inference customers use CLI/SDK v1 model deployment APIs to deploy models and also when python version is 3.6 and less.
+    + Added deprecation warning when inference customers use CLI/SDK v1 model deployment APIs to deploy models and also when Python version is 3.6 and less.
     + The following values of `AZUREML_LOG_DEPRECATION_WARNING_ENABLED` change the behavior as follows:
-      + Default - displays the warning when customer uses python 3.6 and less and for cli/sdk v1. 
+      + Default - displays the warning when customer uses Python 3.6 and less and for cli/sdk v1. 
       + `True` - displays the sdk v1 deprecation warning on azureml-sdk packages. 
       + `False` - disables the sdk v1 deprecation warning on azureml-sdk packages. 
     + Command to be executed to set the environment variable to disable the deprecation message: 

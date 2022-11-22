@@ -28,6 +28,7 @@ ServiceNow supported versions include San Diego, Rome, Quebec,  Paris, Orlando, 
 ServiceNow admins must generate a client ID and client secret for their ServiceNow instance. See the following information as required:
 
 
+- [Set up OAuth for Tokyo](https://docs.servicenow.com/bundle/tokyo-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for San Diego](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Rome](https://docs.servicenow.com/bundle/rome-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Quebec](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
