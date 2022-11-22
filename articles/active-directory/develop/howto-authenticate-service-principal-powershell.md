@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
-ms.date: 10/11/2021
+ms.date: 11/09/2022
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ---

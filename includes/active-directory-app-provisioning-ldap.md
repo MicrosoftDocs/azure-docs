@@ -49,6 +49,35 @@ The following bullet points are more recommendations and limitations.
 - Provisioning users from Azure Active Directory to Active Directory Domains Services is not supported.
 - Provisioning users from LDAP to Azure AD is not supported.
 
+## Determine how the Azure AD LDAP Connector will interact with your directory
+
+Before deploying the connector to an existing directory server, you'll need to discuss with the directory server operator in your organization how to integrate with their directory server.  The information you'll gather includes the network information of how to connect to the directory server, how the connector should authenticate itself to the directory server, what schema the directory server has selected to model users, the naming context's base distinguished name and directory hierarchy rules, how to associate users in the directory server with users in Azure AD, and what should happen when a user goes out of scope in Azure AD.  Deploying this connector may require changes to the configuration of the directory server as well as configuration changes to Azure AD. For deployments involving integrating Azure AD with a third-party directory server in a production environment, we recommend customers work with their directory server vendor, or a deployment partner for help, guidance, and support for this integration.  This article uses the following sample values for AD LDS.
+
+ |Configuration setting|Where the value is set| Example value|
+ |-----|-----|-----|
+ | hostname of the directory server | Configuration wizard **Connectivity** page | `APP3` |
+ | port number of the directory server| Configuration wizard **Connectivity** page | 636. For LDAP over SSL or TLS (LDAPS), use port 636.  For `Start TLS`, use port 389. |
+ | account for the connector to identify itself to the directory server |Configuration wizard **Connectivity** page | `CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab`|
+ | password for the connector to authenticate itself to the directory server |Configuration wizard **Connectivity** page | |
+ | structural object class for a user in the directory server | Configuration wizard **Object Types** page | `User` |
+ | auxiliary object classes for a user in the directory server | Azure portal **Provisioning** page attribute mappings | No additional auxiliary classes required |
+ | attributes to populate on a new user | Configuration wizard  **Select Attributes** page and Azure portal **Provisioning** page attribute mappings | `msDS-UserAccountDisabled`, `userPrincipalName`, `displayName` |
+ | naming hierarchy required by the directory server | Azure portal **Provisioning** page attribute mappings | Set the DN of a newly created user to be immediately below `CN=CloudUsers,CN=App,DC=Contoso,DC=lab` |
+ | attributes for correlating users across Azure AD and the directory server | Azure portal **Provisioning** page attribute mappings | not configured as this example is for an initially empty directory |
+ | deprovisioning behavior when a user goes out of scope in Azure AD |Configuration wizard **Deprovisioning** page | Delete the user from the directory server |
+
+The network address of a directory server is a hostname and a TCP port number, typically port 389 or 636. Unless you the directory server is co-located with the connector on the same system, or you're using network level security, network connections to a directory server need to be protected using SSL or TLS.  The connector supports connecting to a directory server on port 389, and using Start TLS to enable TLS within the session.  The connector also supports connecting to a directory server on port 636 for LDAPS - LDAP over TLS.
+
+You'll need to have an identified account for the connector to authenticate to the directory server already configured in the directory server.  This account is typically identified with a distinguished name and has an associated password or client certificate.  To perform import and export operations on the objects in the connected directory, the connector account must have sufficient permissions within the directory's access control model. The connector needs write permissions to be able to export, and read permissions to be able to import. Permission configuration is performed within the management experiences of the target directory itself.
+
+A directory schema specifies the object classes and attributes that represent a real-world entity in the directory. The connector supports a user being represented with a structural object class, such as `inetOrgPerson`, and optionally additional auxiliary object classes.  In order for the connector to be able to provision users into the directory server, you will need to configure mappings from Azure AD to all of the mandatory attributes of the structural object class and the mandatory attributes of any auxiliary object classes.  In addition, you will likely also configure mappings to some of the optional attributes of these.
+
+The directory hierarchy rules implemented by a directory server describe how the objects for each user relate to each other and to existing objects in the directory.  In most deployments, the organization chose to have a flat hierarchy in their directory server, in which each object for a user is located immediately below a common base object.  For example, if the base distinguished name for the naming context in a directory server is `dc=contoso,dc=com` then a new user would have a distinguished name like `cn=alice,dc=contoso,dc=com`.  However, some organizations may have a more complex directory hierarchy, in which case you'll need to implement the rules when specifying the distinguished name mapping for the connector. For example, a directory server may expect users to be in organizational units by department, so a new user would have a distinguished name like `cn=alice,ou=London,dc=contoso,dc=com`. Note that since the connector does not create intermediate objects for organizational units, any intermediate objects the directory server rule hierarchy expects must already exist in the directory server.
+
+Next, you'll need to define the rules for how the connector should determine if there is already a user in the directory server corresponding to an Azure AD user. Every LDAP directory has a distinguished name that is unique for each object in the directory server, however that distinguished name is often not present for users in Azure AD. Instead, an organization may have a different attribute, such as `mail` or `employeeId`, in their directory server schema that is also present on their users in Azure AD.  Then, when the connector is provisioning a new user into a directory server, the connector can search whether there is already a user in that directory that has a specific value of that  attribute, and only create a new user in the directory server if one is not present.
+
+Finally, you'll need to agree on the deprovisioning behavior.  When the connector is configured, and Azure AD has established a link between a user in Azure AD and a user in the directory, either for a user already in the directory or a new user, then Azure AD can provision attribute changes from the Azure AD user into the directory. If a user that is assigned to the application is deleted in Azure AD, then Azure AD will send a delete operation to the directory server. You may also wish to have Azure AD update the directory server when a user goes out of scope of being able to use the application.
+
 ## Prepare the LDAP directory
 
 If you do not already have a directory server, the following information is provided to help create a test AD LDS environment.  This setup uses PowerShell and the ADAMInstall.exe with an answers file.  This document does not cover in-depth information on AD LDS.  For more information, see [Active Directory Lightweight Directory Services](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)).
@@ -79,26 +108,26 @@ C:\Windows\ADAM> ADAMInstall.exe /answer:answer.txt
 ### Create containers and a service account for AD LDS
 The use the PowerShell script from [Appendix C](#appendix-c---populate-ad-lds-powershell-script).  The script performs the following actions:
   - Creates a container for the service account that will be used with the LDAP connector
-  - Creates a container for the cloud users.  This container is where users will be provisioned to.
+  - Creates a container for the cloud users, where users will be provisioned to
   - Creates the serve account in AD LDS
   - Enables the service account
   - Adds the service account to the AD LDS Administrators role
 
 On the Windows Server virtual machine, you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
 
-### Grant the NETWORK SERVICE read permissions to the SSL cert
+### Grant the NETWORK SERVICE read permissions to the SSL certificate
 In order to enable SSL to work, you need to grant the NETWORK SERVICE read permissions to our newly created certificate.  To grant permissions, use the following steps.
 
  1. Navigate to **C:\Program Data\Microsoft\Crypto\Keys**.
  2. Right-click on the system file located here.  It will be a guid.  This container is storing our certificate.
-    a. Select properties.
-    b. At the top, select the **Security** tab.
-    c. Select **Edit**.
-    d. Click **Add**.
-    e. In the box, enter **Network Service** and select **Check Names**.
-    f. Select **NETWORK SERVICE** from the list and click **OK**.
-    g. Click **Ok**.
-    h. Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
+    - Select properties.
+    - At the top, select the **Security** tab.
+    - Select **Edit**.
+    - Click **Add**.
+    - In the box, enter **Network Service** and select **Check Names**.
+    - Select **NETWORK SERVICE** from the list and click **OK**.
+    - Click **Ok**.
+    - Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
 
 ### Verify SSL connectivity with AD LDS
 Now that we have configured the certificate and granted the network service account permissions, test the connectivity to verify that it is working.
@@ -110,9 +139,9 @@ Now that we have configured the certificate and granted the network service acco
     - Server:  APP3
     - Port: 636
     - Place a check in the SSL box
-   [![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
+   [![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)](media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
  5.  You should see a response similar to the screenshot below.
-   ![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)](media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
+   [![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)](media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
  6.  At the top, under **Connection** select **Bind**.
  7. Leave the defaults and click **OK**.
    [![Ldp bind](media/active-directory-app-provisioning-ldap/ldp-4.png)](media/active-directory-app-provisioning-ldap/ldp-4.png#lightbox)</br>
@@ -315,6 +344,8 @@ If an error is shown, then select **View provisioning logs**.  Look in the log f
 If the error message is **Failed to create User**, then check the attributes that are shown against the requirements of the directory schema.
 
 For more information, change to the **Troubleshooting & Recommendations** tab.
+
+For other errors, see [troubleshooting on-premises application provisioning](../articles/active-directory/app-provisioning/on-premises-ecma-troubleshoot.md).
 
 ## Check that users were successfully provisioned
 After waiting, check your directory to ensure users are being provisioned.  The following instructions illustrate how to check AD LDS.

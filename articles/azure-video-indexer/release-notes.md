@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 09/15/2022
+ms.date: 11/22/2022
 ms.author: juliako
 ---
 
@@ -13,33 +13,19 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
-* [Important notice](#upcoming-critical-changes) about planned changes
+<!--* [Important notice](#upcoming-critical-changes) about planned changes-->
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
 
-## Upcoming critical changes
+## November 2022
 
-> [!Important]
-> This section describes a critical upcoming change for the `Upload-Video` API.
+### Speakers' names can now be edited from the Azure Video Indexer website
 
-### Upload-Video API
+You can now add new speakers, rename identified speakers and modify speakers assigned to a particular transcript line using the [Azure Video Indexer website](https://www.videoindexer.ai/). For details on how to edit speakers from the **Timeline** pane, see [Edit speakers with the Azure Video Indexer website](edit-speakers.md). 
 
-In the past, the `Upload-Video` API was tolerant to calls to upload a video from a URL where an empty multipart form body was provided in the C# code, such as:
-
-```csharp
-var content = new MultipartFormDataContent();
-var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
-```
-
-In the coming weeks, our service will fail requests of this type.
-
-In order to upload a video from a URL, change your code to send null in the request body:
-
-```csharp
-var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
-```
+The same capabilities are available from the Azure Video Indexer [upload video index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Index) API.
 
 ## October 2022
 

@@ -103,7 +103,7 @@ Together, the following projects make up the parts required to create a Blazor W
 
 ### Fallback route
 
-The app exposes URLs like `_/counter_` and `_/fetchdata_`, which map to specific routes of the app. Since this app is implemented as a single page, each route is served the `_index.html_` file. To ensure that requests for any path return `_index.html_`, a [fallback route](./configuration.md#fallback-routes) gets implemented in the `_staticwebapp.config.json_` file found in the client project's root folder.
+The app exposes URLs like `/counter` and `/fetchdata`, which map to specific routes of the app. Since this app is implemented as a single page, each route is served the `index.html` file. To ensure that requests for any path return `index.html`, a [fallback route](./configuration.md#fallback-routes) gets implemented in the `staticwebapp.config.json` file found in the client project's root folder.
 
 ```json
 {
@@ -113,7 +113,7 @@ The app exposes URLs like `_/counter_` and `_/fetchdata_`, which map to specific
 }
 ```
 
-The json configuration ensures that requests to any route in the app return the `_index.html_` page.
+The json configuration ensures that requests to any route in the app return the `index.html` page.
 
 ## Clean up resources
 
