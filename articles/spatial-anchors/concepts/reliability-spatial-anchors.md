@@ -45,7 +45,7 @@ For detailed steps on how to provision the account, see [Create an Azure Spatial
 
 ### Fault tolerance
 
-During a zone-wide outage, the customer should expect brief degradation of performance, until the service self-healing re-balances underlying capacity to adjust to healthy zones. This is not dependent on zone restoration; it is expected that the Microsoft-managed service self-healing state will compensate for a lost zone, leveraging capacity from other zones.
+During a zone-wide outage, the customer should expect brief degradation of performance, until the service self-healing rebalances underlying capacity to adjust to healthy zones. This isn't dependent on zone restoration; it's expected that the Microsoft-managed service self-healing state will compensate for a lost zone, leveraging capacity from other zones.
 
 ## Disaster recovery: cross-region failover
 
