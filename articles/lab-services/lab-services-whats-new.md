@@ -81,6 +81,39 @@ Remember, changes made to the lab settings from the lab plan will apply only to 
 
 Don't forget to assign user permissions on the lab plan and the lab plan's resource group.  Permission assignments for new labs may also be required if labs are created for educators instead of by them.
 
+## Getting started
+
+Use the following checklist to get started with Azure Lab Services August 2022 Update:
+
+> [!div class="checklist"]
+> * Configure shared resources.
+> * Create lab plans.
+> * Request capacity.
+> * Validate images.
+> * Configure LMS integrations.
+> * Create labs.
+> * Update cost management reports.
+
+As you migrate, there likely will be a time when you're using both the August 2022 Update and the current version of Azure Lab Services. You might have both lab accounts and lab plans that coexist in your subscription and that access the same external resources.
+
+With all the new enhancements, it's a good time to revisit your overall lab structure. More than one lab plan might be needed depending on your scenario.  For example, the math department may only require one lab plan in one resource group.  The computer science department might require multiple lab plans.  One lab plan can enable advanced networking and a few custom images.  Another lab plan can use basic networking and not enable custom images.  Both lab plans can be kept in the same resource group.
+
+Let's cover each step to get started with the August 2022 Update in more detail.
+
+1.    **Configure shared resources**. Optionally, [configure licensing servers](how-to-create-a-lab-with-shared-resource.md). For VMs that require access to a licensing server, create a lab using a lab plan with [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation). You can reuse the same Azure Compute Gallery and the licensing servers that you use with your lab accounts.
+1. **Create Lab plans.**  
+
+    1. [Create](tutorial-setup-lab-plan.md) and [configure lab plans](#configure-a-lab-plan). If you plan to use a license server, don't forget to enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plans.
+    1. [Assign permissions](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role) to educators that will create labs. 
+    1. Enable [Azure Marketplace images](specify-marketplace-images.md).
+    1. Optionally, [attach an Azure Compute Gallery](how-to-attach-detach-shared-image-gallery.md).
+
+1. **Request capacity**.  Forecast and [request dedicated VM capacity](capacity-limits.md#request-a-limit-increase).  Even if enrollment isn't finalized, you can use preliminary estimates for your initial capacity request.  You can request more capacity later, if needed.
+1.    **Validate images**.  Each of the VM sizes has been remapped to use a newer Azure VM Compute SKU. If using an [attached compute gallery](how-to-attach-detach-shared-image-gallery.md), validate images with new [Azure VM Compute SKUs](administrator-guide.md#vm-sizing).  Validate that each image in the compute gallery is replicated to regions the lab plans and labs are in.
+1.    **Configure integrations**.  Optionally, configure [integration with Canvas](lab-services-within-canvas-overview.md) including [adding the app and linking lab plans](how-to-get-started-create-lab-within-canvas.md). Alternately, configure [integration with Teams](lab-services-within-teams-overview.md) by [adding the app to Teams groups](how-to-get-started-create-lab-within-teams.md).
+1.    **Create labs**.  Create labs to test educator and student experience in preparation for general availability of the updates. Lab administrators and educators should validate performance based on common student workloads.
+1.    **Update cost management reports.**  Update reports to include the new cost entry type, `Microsoft.LabServices/labs`, for labs created using the August 2022 Update.  [Built-in and custom tags](cost-management-guide.md#understand-the-entries) allow for [grouping](../cost-management-billing/costs/quick-acm-cost-analysis.md) in cost analysis.  For more information about tracking costs, see [Cost management for Azure Lab Services](cost-management-guide.md).
+
 ## Next steps
 
 - As an admin, [Migrate to Azure Lab Services August 2022 Update (v2)](migrate-v1-to-v2.md) 
