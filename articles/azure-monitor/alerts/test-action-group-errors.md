@@ -13,7 +13,7 @@ This article describes troubleshooting steps for error messages you may get when
 
 ## Troubleshooting error codes for actions
 
-The error message in this section will apply to the following **actions**:
+The error messages in this section are related to these **actions**:
 
  - Automation runbook
  - Azure Function
@@ -46,7 +46,7 @@ The error message in this section will apply to the following **actions**:
 
 ## Troubleshooting error codes for notifications
 
-The error message in this section will apply to the following **notifications**:
+The error messages in this section are related to these **notifications**:
 
  - Email
  - SMS
