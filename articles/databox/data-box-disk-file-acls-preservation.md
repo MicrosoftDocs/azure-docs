@@ -1,6 +1,6 @@
 ---
 title: Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk
-description: ACLs, timestamps, and attributes preserved during data copy via SMB to Azure Data Box. Copying metadata with Windows and Linux data copy tools.  
+description: ACLs, timestamps, and attributes preserved during data copy to Azure Data Box. Copying metadata with Windows and Linux data copy tools.  
 services: databox
 author: alkohli
 
