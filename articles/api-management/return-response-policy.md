@@ -30,7 +30,7 @@ The `return-response` policy cancels pipeline execution and returns either a def
 
 |  Attribute              | Description                                                                                                                                                                          | Required  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| response-variable-name | The name of the context variable referenced from, for example, an upstream [send-request](api-management-advanced-policies.md#SendRequest) policy and containing a `Response` object | No |
+| response-variable-name | The name of the context variable referenced from, for example, an upstream [send-request](send-request-policy.md`) policy and containing a `Response` object | No |
 
 ## Elements
 
@@ -38,7 +38,7 @@ The `return-response` policy cancels pipeline execution and returns either a def
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | set-header      | A [set-header](api-management-transformation-policies.md#SetHTTPheader) policy statement. | No       |
 | set-body        | A [set-body](api-management-transformation-policies.md#SetBody) policy statement.         | No       |
-| set-status      | A [set-status](api-management-advanced-policies.md#SetStatus) policy statement.           | No       |
+| set-status      | A [set-status](set-status-policy.md) policy statement.           | No       |
 
 ## Usage
 

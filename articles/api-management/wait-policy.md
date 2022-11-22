@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Wait
 
-The `wait` policy executes its immediate child policies in parallel, and waits for either all or one of its immediate child policies to complete before it completes. The wait policy can have as its immediate child policies `send-request`](api-management-advanced-policies.md#SendRequest), [`cache-lookup-value`](api-management-caching-policies.md#GetFromCacheByKey), and [`choose`](api-management-advanced-policies.md#choose) policies.
+The `wait` policy executes its immediate child policies in parallel, and waits for either all or one of its immediate child policies to complete before it completes. The wait policy can have as its immediate child policies `send-request`](send-request-policy.md), [`cache-lookup-value`](api-management-caching-policies.md#GetFromCacheByKey), and [`choose`](choose-policy.md) policies.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 

@@ -62,7 +62,7 @@ The `choose` policy must contain at least one `<when/>` element. The `<otherwise
 
 ### 1. Modify request and response based on user agent
 
-The following example demonstrates a [set-variable](api-management-advanced-policies.md#set-variable) policy and two control flow policies.
+The following example demonstrates a [set-variable](set-variable-policy.md) policy and two control flow policies.
 
 The set variable policy is in the inbound section and creates an `isMobile` Boolean [context](api-management-policy-expressions.md#ContextVariables) variable that is set to true if the `User-Agent` request header contains the text `iPad` or `iPhone`.
 
