@@ -480,7 +480,7 @@ public void Initialize(ITelemetry telemetry)
 }
 ```
 
-#### Control the client IP address used for gelocation mappings
+#### Control the client IP address used for geolocation mappings
 
 The following sample initializer sets the client IP which will be used for geolocation mapping, instead of the client socket IP address, during telemetry ingestion. 
 
