@@ -14,12 +14,13 @@ This article describes troubleshooting steps for error messages you may get when
 ## Troubleshooting error codes for actions
 
 The error message in this section will apply to the following **actions**:
-    - Automation runbook
-    - Azure Function
-    - Logic App
-    - Webhook
-    - Secure Webhook
-    - ITSM
+
+ - Automation runbook
+ - Azure Function
+ - Logic App
+ - Webhook
+ - Secure Webhook
+ - ITSM
 
 > [!NOTE]
 > Several errors could be due to a misunderstanding of your schema. Click here to learn more information about [Common alert schema](./alerts-common-schema.md) and [Non-common alert schema](./alerts-non-common-schema-definitions.md).
@@ -46,9 +47,10 @@ The error message in this section will apply to the following **actions**:
 ## Troubleshooting error codes for notifications
 
 The error message in this section will apply to the following **notifications**:
-    - Email
-    - SMS
-    - Voice
+
+ - Email
+ - SMS
+ - Voice
 
 
 | Error Codes | Troubleshooting Steps |
