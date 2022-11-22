@@ -27,7 +27,7 @@ After you configure the provisioning agent and ECMA host, it's time to test conn
  2. Check that the ECMA Connector Host service is responding to requests.
      1. On the server with the agent installed, launch PowerShell.
      1. Change to the folder where the ECMA host was installed, such as `C:\Program Files\Microsoft ECMA2Host`.
-     1. Change to the sub-directory `Troubleshooting`.
+     1. Change to the subdirectory `Troubleshooting`.
      1. Run the script `TestECMA2HostConnection.ps1` in that directory.  Provide as arguments the connector name and the secret token when prompted.
         ```
         PS C:\Program Files\Microsoft ECMA2Host\Troubleshooting> .\TestECMA2HostConnection.ps1
@@ -69,7 +69,7 @@ To resolve the following issues, run the ECMA host configuration wizard as an ad
 
 ## Turn on verbose logging 
 
-By default, `switchValue` for the ECMA Connector Host is set to `Verbose`. This will emit detailed logging that will help you troubleshoot issues. You can change the verbosity to `Error` if you would like to limit the number of logs emitted to only errors. Wen using the SQL connector without Windows Integrated Auth, we recommend setting the `switchValue` to `Error` as it will ensure that the connection string is not emitted in the logs. In order to change the verbosity to error, please update the `switchValue` to "Error" in both places as shown below.
+By default, `switchValue` for the ECMA Connector Host is set to `Verbose`. This setting will emit detailed logging that will help you troubleshoot issues. You can change the verbosity to `Error` if you would like to limit the number of logs emitted to only errors. Wen using the SQL connector without Windows Integrated Auth, we recommend setting the `switchValue` to `Error` as it will ensure that the connection string is not emitted in the logs. In order to change the verbosity to error, update the `switchValue` to "Error" in both places as shown below.
 
 The file location for verbose service logging is C:\Program Files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config.
   ```
@@ -137,7 +137,7 @@ The ECMA Host has a cache of users in your application that is updated according
 
      1. On the server with the agent installed, launch PowerShell.
      1. Change to the folder where the ECMA host was installed, such as `C:\Program Files\Microsoft ECMA2Host`.
-     1. Change to the sub-directory `Troubleshooting`.
+     1. Change to the subdirectory `Troubleshooting`.
      1. Run the script `TestECMA2HostConnection.ps1` in that directory, and provide as arguments the connector name and the `ObjectTypePath` value `cache`.  When prompted, type the secret token configured for that connector.
         ```
         PS C:\Program Files\Microsoft ECMA2Host\Troubleshooting> .\TestECMA2HostConnection.ps1 -ConnectorName CORPDB1 -ObjectTypePath cache
@@ -153,8 +153,8 @@ The ECMA Host has a cache of users in your application that is updated according
 ## Target attribute is missing 
 The provisioning service automatically discovers attributes in your target application. If you see that a target attribute is missing in the target attribute list in the Azure portal, perform the following troubleshooting step:
 
- 1. Review the **Select Attributes** page of your ECMA host configuration to check that the attribute has been selected to be exposed to the Azure portal.
- 1. Ensure that the ECMA host service is turned on. 
+ 1. Review the **Select Attributes** page of your ECMA host configuration to check that the attribute has been selected, so that it will exposed to the Azure portal.
+ 1. Ensure that the ECMA host service is running.
  1. Review the ECMA host logs to check that a /schemas request was made, and review the attributes in the response. This information will be valuable for support to troubleshoot the issue.
 
 ## Collect logs from Event Viewer as a zip file
@@ -163,7 +163,7 @@ You can use an included script to capture the event logs in a zip file and expor
 
  1. On the server with the agent installed, right click on PowerShell in the Start menu and select to `Run as administrator`.
  1. Change to the folder where the ECMA host was installed, such as `C:\Program Files\Microsoft ECMA2Host`.
- 1. Change to the sub-directory `Troubleshooting`.
+ 1. Change to the subdirectory `Troubleshooting`.
  1. Run the script `CollectTroubleshootingInfo.ps1` in that directory.
  1. The script will create a ZIP file in that directory containing the event logs.
 
@@ -186,7 +186,7 @@ After the ECMA Connector Host schema mapping has been configured, start the serv
 
 Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app supports. The requests from the host to the agent to Azure AD rely on SCIM. You can learn more about the SCIM implementation in [Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory](use-scim-to-provision-users-and-groups.md).
 
-At the beginning of each provisioning cycle, before performing on-demand provisioning and when doing the test connection, the Azure AD provisioning service generally makes a get-user call for a [dummy user](use-scim-to-provision-users-and-groups.md#request-3) to ensure the target endpoint is available and returning SCIM-compliant responses. 
+The Azure AD provisioning service generally makes a get-user call to check for a [dummy user](use-scim-to-provision-users-and-groups.md#request-3) in three situations: at the beginning of each provisioning cycle, before performing on-demand provisioning and when **test connection** is selected. This check ensure the target endpoint is available and returning SCIM-compliant responses to the Azure AD provisioning service.
 
 
 ## How do I troubleshoot the provisioning agent?
