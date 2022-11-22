@@ -32,7 +32,7 @@ In this tutorial, you'll learn how to connect an ASP.NET Core 6 app to App Confi
     cd awesome-compose
     ```
 
-## Build and run the container
+### Build and run the container
 
 1. Build the container
 
