@@ -78,7 +78,7 @@ For Application Gateway, the following metrics are available:
 
 - **Client TLS protocol**
 
-   Count of TLS and non-TLS requests initiated by the client that established connection with the Application Gateway. To view TLS protocol distribution, filter by the dimension TLS Protocol.
+   Count of TLS and non-TLS requests initiated by the client that established connection with the Application Gateway. To view TLS protocol distribution, filter by the dimension TLS Protocol. This metric includes requests served by the gateway, such as redirects.
 
 - **Current capacity units**
 
@@ -119,7 +119,7 @@ For Application Gateway, the following metrics are available:
 
 - **Total Requests**
 
-   Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
+   Count of successful requests that Application Gateway has served. This metric only includes requests served by the Application Gateway backend, and does not include external redirects. The Client TLS protocol metric can be used to get a count of all the successful requests including redirects. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 
 ### Backend metrics
 
