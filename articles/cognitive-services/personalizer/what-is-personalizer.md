@@ -85,7 +85,7 @@ Use Personalizer when your scenario has:
 ## Responsible use of AI
 
 At Microsoft, we're committed to the advancement of AI driven by principles that put people first. AI models such as the ones available in the Personalizer service have significant potential benefits, 
-but without careful design and thoughtful mitigations, such models have the potential to generate incorrect or even harmful content. Microsoft has made significant investments to help guard against abuse and unintended harm, incorporating [Microsoft’s principles for responsible AI use](https://www.microsoft.com/en-us/ai/responsible-ai), building content filters to support customers, and providing responsible AI implementation guidance to onboarded customers. See the [Responsible AI docs for Personalizer](responsible-use-cases.md).
+but without careful design and thoughtful mitigations, such models have the potential to generate incorrect or even harmful content. Microsoft has made significant investments to help guard against abuse and unintended harm, incorporating [Microsoft’s principles for responsible AI use](https://www.microsoft.com/ai/responsible-ai), building content filters to support customers, and providing responsible AI implementation guidance to onboarded customers. See the [Responsible AI docs for Personalizer](responsible-use-cases.md).
 
 ## Integrate Personalizer into an application
 
