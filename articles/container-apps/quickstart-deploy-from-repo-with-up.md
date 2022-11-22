@@ -211,7 +211,6 @@ Build and deploy your first container app from your local git repository with th
 
 The `up` command uses the Docker file in the root of the repository to build the container image.  The target port is defined by the EXPOSE instruction in the Docker file.  A Docker file isn't required to build a container app. 
 
-```azurecli
 
 # [Bash](#tab/bash)
 
