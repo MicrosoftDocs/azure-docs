@@ -244,7 +244,7 @@ First, you'll define the type and metadata of the scale rule.
 
 1. Set this value into the `custom.type` property of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-azure-service-bus-rule-0.json" highlight="4":::
+    :::code language="json" source="../../includes/container-apps/container-apps-azure-service-bus-rule-0.json" highlight="6":::
 
 1. Find the `metadata` values from the KEDA scaler.
 
