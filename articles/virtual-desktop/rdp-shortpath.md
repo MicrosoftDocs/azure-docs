@@ -44,9 +44,9 @@ You can achieve the direct line of sight connectivity required to use RDP Shortp
 
 To use RDP Shortpath for managed networks, you must enable a UDP listener on your session hosts. By default, port **3390** is used, although you can use a different port.
 
-The following diagram gives a high-level overview of the RDP Shortpath network connection:
+The following diagram gives a high-level overview of the network connections when using RDP Shortpath for managed networks and session hosts joined to an Active Directory domain.
 
-:::image type="content" source="media/rdp-shortpath-connections.svg" alt-text="Diagram of RDP Shortpath Network Connections." lightbox="media/rdp-shortpath-connections.svg":::
+:::image type="content" source="media/rdp-shortpath-managed-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for managed networks." lightbox="media/rdp-shortpath-managed-networks.svg":::
 
 ### Connection sequence
 
@@ -82,6 +82,10 @@ There are four primary components used to establish the RDP Shortpath data flow 
 
 > [!TIP]
 > RDP Shortpath for public networks will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.
+
+The following diagram gives a high-level overview of the network connections when using RDP Shortpath for public networks and session hosts joined to Azure Active Directory (Azure AD).
+
+:::image type="content" source="media/rdp-shortpath-public-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for public networks." lightbox="media/rdp-shortpath-public-networks.svg":::
 
 ### Network Address Translation and firewalls
 
@@ -135,17 +139,17 @@ If your users are in a scenario where RDP Shortpath for both managed network and
 
 #### Session host virtual network
 
-| Name                          | Source    | Source Port | Destination                                                                                            | Destination Port | Protocol | Action |
-|-------------------------------|-----------|-------------|--------------------------------------------------------------------------------------------------------|------------------|----------|--------|
-| RDP Shortpath Server Endpoint | VM subnet | Any         | Any                                                                                                    | 1024-65535       | UDP      | Allow  |
-| STUN Access                   | VM subnet | Any         | - 13.107.17.41/32<br />- 13.107.64.0/18<br />- 20.202.0.0/16<br />- 52.112.0.0/14<br />- 52.120.0.0/14 | 3478             | UDP      | Allow  |
+| Name | Source | Source Port | Destination | Destination Port | Protocol | Action |
+|---|---|:---:|---|:---:|:---:|:---:|
+| RDP Shortpath Server Endpoint | VM subnet | Any | Any | 1024-65535<br />(*default 49152-65535*) | UDP | Allow |
+| STUN Access | VM subnet | Any | - 13.107.17.41/32<br />- 13.107.64.0/18<br />- 20.202.0.0/16<br />- 52.112.0.0/14<br />- 52.120.0.0/14 | 3478 | UDP | Allow |
 
 #### Client network
 
-| Name                          | Source         | Source Port | Destination                                                                                            | Destination Port | Protocol | Action |
-|-------------------------------|----------------|-------------|--------------------------------------------------------------------------------------------------------|------------------|----------|--------|
-| RDP Shortpath Server Endpoint | Client network | Any         | Public IP addresses assigned to NAT Gateway or Azure Firewall (provided by the STUN endpoint)          | 1024-65535       | UDP      | Allow  |
-| STUN Access                   | Client network | Any         | - 13.107.17.41/32<br />- 13.107.64.0/18<br />- 20.202.0.0/16<br />- 52.112.0.0/14<br />- 52.120.0.0/14 | 3478             | UDP      | Allow  |
+| Name | Source | Source Port | Destination | Destination Port | Protocol | Action |
+|---|---|:---:|---|:---:|:---:|:---:|
+| RDP Shortpath Server Endpoint | Client network | Any | Public IP addresses assigned to NAT Gateway or Azure Firewall (provided by the STUN endpoint) | 1024-65535<br />(*default 49152-65535*) | UDP | Allow |
+| STUN Access | Client network | Any | - 13.107.17.41/32<br />- 13.107.64.0/18<br />- 20.202.0.0/16<br />- 52.112.0.0/14<br />- 52.120.0.0/14 | 3478 | UDP | Allow |
 
 ### Teredo support
 

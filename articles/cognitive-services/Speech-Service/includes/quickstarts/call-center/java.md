@@ -32,7 +32,7 @@ Follow these steps to build and run the post-call transcription analysis quickst
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
-    The default console output is a combination of the JSON responses from the [batch transcription](/azure/cognitive-services/speech-service/batch-transcription) (Speech), [sentiment](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview) (Language), and [conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization) (Language) APIs. If you specify `--output FILE`, a better formatted version of the results is written to the file.
+    The default console output is a combination of the JSON responses from the [batch transcription](../../../batch-transcription.md) (Speech), [sentiment](../../../../language-service/sentiment-opinion-mining/overview.md) (Language), and [conversation summarization](../../../../language-service/summarization/overview.md?tabs=conversation-summarization) (Language) APIs. If you specify `--output FILE`, a better formatted version of the results is written to the file.
 
 ## Usage and arguments
 

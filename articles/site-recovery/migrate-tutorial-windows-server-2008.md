@@ -5,6 +5,8 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: MVC
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 

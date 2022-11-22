@@ -37,7 +37,6 @@ Additionally, workspaces can be created using Azure Resource Manager deployment 
 
 You can use PowerShell, CLI, Terraform scripts, or the .NET SDK to deploy Azure Health Data Services. To create a service instance in the workspace, select **Create** (FHIR service, DICOM service, or MedTech service), and then enter the account details for that service instance that is being created.
 
-
 ## FHIR service
 
 FHIR service includes FHIR APIs and endpoints in Azure for data access and storage in FHIR data 
@@ -51,7 +50,7 @@ Deploy a DICOM service to bring medical imaging data into the cloud from any DIC
 
 ## MedTech service
 
-The IoT Connector service enables you to ingest high-frequency IoT device data into the FHIR Service in a scalable, secure, and compliant manner. For more information, see [the MedTech service documentation page](./iot/index.yml).
+The MedTech service enables you to ingest high-frequency IoT device data into the FHIR Service in a scalable, secure, and compliant manner. For more information, see [the MedTech service documentation page]see [Overview of MedTech](../healthcare-apis/iot/iot-connector-overview.md).
  
 ## Workspace configuration settings
 

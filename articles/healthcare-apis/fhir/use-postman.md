@@ -11,7 +11,7 @@ ms.author: kesheth
 
 # Access using Postman
 
-In this article, we'll walk through the steps of accessing the Azure Health Data Services (hear by called FHIR service) with [Postman](https://www.getpostman.com/).
+In this article, we'll walk through the steps of accessing the Azure Health Data Services (hereafter called FHIR service) with [Postman](https://www.getpostman.com/).
 
 ## Prerequisites
 

@@ -106,9 +106,6 @@
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: ../how-to-manage-resources-vscode.md
-    - name: Git integration
-      displayName: github gitlab
-      href: ../concept-train-model-git-integration.md
 - name: Infrastructure & security (v1)
   items:
 
@@ -285,6 +282,9 @@
       - name: Local inference using ONNX
         displayName: SDK, automl
         href: how-to-inference-onnx-automl-image-models-v1.md
+      - name: Use automated ML with Databricks
+        displayName: automl
+        href: ../how-to-configure-databricks-automl-environment.md
       - name: Troubleshoot automated ML
         href: ../how-to-troubleshoot-auto-ml.md
     - name: Track experiments with MLflow
@@ -443,3 +443,5 @@
   - name: What happened to Workbench
     displayName: desktop, ui, Workbench, upgrade, update, transfer
     href: ../overview-what-happened-to-workbench.md
+- name: Python SDK (v1) release notes
+  href: azure-machine-learning-release-notes.md

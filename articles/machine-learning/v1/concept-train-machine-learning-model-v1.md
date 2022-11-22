@@ -4,12 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to train models with Azure Machine Learning (v1). Explore the different training methods and choose the right one for your project.
 services: machine-learning
 ms.service: machine-learning
-author: Blackmist
-ms.author: larryfr
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/30/2022
-ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022, ignite-2022
 ms.devlang: azurecli
 ---
 
@@ -18,7 +19,7 @@ ms.devlang: azurecli
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
 > * [v1](concept-train-machine-learning-model-v1.md)
-> * [v2 (preview)](../concept-train-machine-learning-model.md)
+> * [v2 (current)](../concept-train-machine-learning-model.md)
 
 Azure Machine Learning provides several ways to train your models, from code-first solutions using the SDK to low-code solutions such as automated machine learning and the visual designer. Use the following list to determine which training method is right for you:
 

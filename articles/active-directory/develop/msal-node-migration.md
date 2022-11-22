@@ -2,7 +2,7 @@
 title: "Migrate your Node.js application from ADAL to MSAL"
 description: How to update your existing Node.js application to use the Microsoft Authentication Library (MSAL) for authentication and authorization instead of the Active Directory Authentication Library (ADAL).
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 04/26/2021
-ms.author: marsma
+ms.author: cwerner
 ms.custom: has-adal-ref
 #Customer intent: As an application developer, I want to learn how to change the code in my Node.js application from using ADAL as its authentication library to MSAL.
 ---
@@ -25,13 +25,10 @@ ms.custom: has-adal-ref
 
 ## Update app registration settings
 
-When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint**. Apps migrating from ADAL to MSAL should also consider switching to **Azure AD v2.0 endpoint**.
+When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint**. Apps migrating from ADAL to MSAL should switch to **Azure AD v2.0 endpoint**.
 
 1. Review the [differences between v1 and v2 endpoints](../azuread-dev/azure-ad-endpoint-comparison.md)
 1. Update, if necessary, your existing app registrations accordingly.
-
-> [!NOTE]
-> In order to ensure backward compatibility, MSAL Node supports both v1.0 end v2.0 endpoints.
 
 ## Install and import MSAL
 
@@ -177,7 +174,7 @@ authenticationContext.acquireTokenWithAuthorizationCode(
 );
 ```
 
-MSAL Node supports both **v1.0** and **v2.0** endpoints. The v2.0 endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
+The v2.0 endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
 
 ```javascript
 const tokenRequest = {

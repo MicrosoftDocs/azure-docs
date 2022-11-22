@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel data source schema reference
 description: This article lists Azure and third-party data source schemas supported by Microsoft Sentinel, with links to their reference documentation.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: reference
 ms.custom: ignite-fall-2021
 ms.date: 11/09/2021

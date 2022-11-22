@@ -129,7 +129,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
           storage: 10Gi
       volumeName: pv-blob
       storageClassName: azureblob-nfs-premium
-      ```
+    ```
 
 4. Run the following command to create the persistent volume claim using the `kubectl create` command referencing the YAML file created earlier:
 

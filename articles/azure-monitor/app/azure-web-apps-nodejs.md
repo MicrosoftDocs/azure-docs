@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance Node.js | Microsoft Docs
 description: Application performance monitoring for Azure app services using Node.js. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 11/15/2022
 ms.devlang: javascript
 ms.custom: "devx-track-js"
 ms.reviewer: abinetabate
@@ -21,6 +21,8 @@ Turning on application monitoring in Azure portal will automatically instrument 
 > If both auto-instrumentation monitoring and manual SDK-based instrumentation are detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
 
 ### Auto-instrumentation through Azure portal
+
+For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 You can turn on monitoring for your Node.js apps running in Azure App Service just with one click, no code change required.
 Application Insights for Node.js is integrated with Azure App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps.
@@ -135,6 +137,8 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 ---
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

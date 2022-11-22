@@ -2,8 +2,8 @@
 title: Distributed GPU training guide (SDK v1)
 titleSuffix: Azure Machine Learning
 description: Learn the best practices for performing distributed training with Azure Machine Learning SDK (v1) supported frameworks, such as MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow, and InfiniBand.
-author: fuhuifang
-ms.author: fufang
+author: rtanase
+ms.author: ratanase
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -85,7 +85,7 @@ Make sure your code follows these tips:
 
 ### Horovod example
 
-* [azureml-examples: TensorFlow distributed training using Horovod](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/workflows/train/tensorflow/mnist-distributed-horovod)
+* [azureml-examples: TensorFlow distributed training using Horovod](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/workflows/train/tensorflow/mnist-distributed-horovod)
 
 ### DeepSpeed
 
@@ -96,9 +96,9 @@ Make sure your code follows these tips:
 * Your Azure ML environment contains DeepSpeed and its dependencies, Open MPI, and mpi4py.
 * Create an `MpiConfiguration` with your distribution.
 
-### DeepSeed example
+### DeepSpeed example
 
-* [azureml-examples: Distributed training with DeepSpeed on CIFAR-10](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/workflows/train/deepspeed/cifar)
+* [azureml-examples: Distributed training with DeepSpeed on CIFAR-10](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/workflows/train/deepspeed/cifar)
 
 ### Environment variables from Open MPI
 
@@ -194,7 +194,7 @@ run = Experiment(ws, 'experiment_name').submit(run_config)
 
 ### Pytorch per-process-launch example
 
-- [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/workflows/train/pytorch/cifar-distributed)
+- [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/workflows/train/pytorch/cifar-distributed)
 
 ### <a name="per-node-launch"></a> Using torch.distributed.launch (per-node-launch)
 
@@ -249,7 +249,7 @@ run = Experiment(ws, 'experiment_name').submit(run_config)
 
 ### PyTorch per-node-launch example
 
-- [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/workflows/train/pytorch/cifar-distributed)
+- [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/workflows/train/pytorch/cifar-distributed)
 
 ### PyTorch Lightning
 
@@ -399,7 +399,7 @@ TF_CONFIG='{
 
 ### TensorFlow example
 
-- [azureml-examples: Distributed TensorFlow training with MultiWorkerMirroredStrategy](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/workflows/train/tensorflow/mnist-distributed)
+- [azureml-examples: Distributed TensorFlow training with MultiWorkerMirroredStrategy](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/workflows/train/tensorflow/mnist-distributed)
 
 ## <a name="infiniband"></a> Accelerating distributed GPU training with InfiniBand
 
@@ -416,5 +416,5 @@ If you create an `AmlCompute` cluster of one of these RDMA-capable, InfiniBand-e
 
 ## Next steps
 
-* [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
+* [Deploy machine learning models to Azure](../how-to-deploy-managed-online-endpoints.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

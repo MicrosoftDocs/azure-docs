@@ -4,6 +4,8 @@ description: Provides an overview of the Azure Site Recovery service, and summar
 ms.topic: overview
 ms.date: 09/21/2022
 ms.custom: MVC
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # About Site Recovery

@@ -195,7 +195,7 @@ In this step, you'll configure and deploy a ConfigMap which will allow Container
 
 In this step, you'll run a query in the Log Analytics workspace to confirm that you can retrieve logs for the packet core instance.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the Log Analytics workspace you used when creating the Azure Monitor extension in [Create an Azure Monitor extension](#create-an-azure-monitor-extension).
 1. Select **Logs** from the resource menu.
    :::image type="content" source="media/log-analytics-workspace.png" alt-text="Screenshot of the Azure portal showing a Log Analytics workspace resource. The Logs option is highlighted.":::

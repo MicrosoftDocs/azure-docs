@@ -7,10 +7,11 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 06/24/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021, ignite-fall-2021, mode-other
-keywords: document processing
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -19,12 +20,14 @@ keywords: document processing
 <!-- markdownlint-disable MD029 -->
 # Get started with the Form Recognizer Sample Labeling tool
 
+[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+
 >[!TIP]
 >
 > * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
-> * *See* our [**REST API**](get-started-v3-sdk-rest-api.md) or [**C#**](get-started-v3-sdk-rest-api.md), [**Java**](get-started-v3-sdk-rest-api.md), [**JavaScript**](get-started-v3-sdk-rest-api.md), or [Python](get-started-v3-sdk-rest-api.md) SDK quickstarts to get started with the v3.0 version.
+> * *See* our [**REST API**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
 
 The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of Azure Form Recognizer and Optical Character Recognition (OCR) services:
 
@@ -62,11 +65,11 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. On the sample tool home page, select **Use prebuilt model to get data**.
+1. On the sample tool home page, select the **Use prebuilt model to get data** tile.
 
-    :::image type="content" source="../media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
+    :::image type="content" source="../media/label-tool/prebuilt-1.jpg" alt-text="Screenshot of the layout model analyze results operation.":::
 
-1. Select the **Form Type**  to analyze from the dropdown window.
+1. Select the **Form Type**  to analyze from the dropdown menu.
 
 1. Choose a URL for the file you would like to analyze from the below options:
 
@@ -83,7 +86,7 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown window.":::
+    :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown menu.":::
 
 1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 
@@ -116,7 +119,7 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 
 1. Select **Run Layout**. The Form Recognizer Sample Labeling tool will call the Analyze Layout API and analyze the document.
 
-    :::image type="content" source="../media/fott-layout.png" alt-text="Screenshot: Layout dropdown window.":::
+    :::image type="content" source="../media/fott-layout.png" alt-text="Screenshot: Layout dropdown menu.":::
 
 1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 
@@ -230,7 +233,7 @@ The labeling tool will also show which tables have been automatically extracted.
 
 ##### Apply labels to text
 
-Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze. Note the sample label data set includes already labeled fields; we'll add another field.
+Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze. Note the Sample Label data set includes already labeled fields; we'll add another field.
 
 Use the tags editor pane to create a new tag you'd like to identify:
 
@@ -266,7 +269,7 @@ Use the tags editor pane to create a new tag you'd like to identify:
 
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./try-sdk-rest-api.md?pivots=programming-language-rest-api) or [client library](./try-sdk-rest-api.md).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./get-started-sdks-rest-api.md?pivots=programming-language-rest-api) or [client library](./get-started-sdks-rest-api.md).
 
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag. For more information, _see_ [Interpret and improve accuracy and confidence](../concept-accuracy-confidence.md).

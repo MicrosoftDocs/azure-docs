@@ -1,10 +1,10 @@
 ---
 title: Handle ingestion delay in Microsoft Sentinel | Microsoft Docs
 description:  Handle ingestion delay in Microsoft Sentinel scheduled analytics rules.
-author: batamig
+author: limwainstein
 ms.topic: how-to
 ms.date: 04/25/2021
-ms.author: bagol
+ms.author: lwainstein
 ---
 
 # Handle ingestion delay in scheduled analytics rules

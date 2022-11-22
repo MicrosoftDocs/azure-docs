@@ -1,5 +1,5 @@
 ---
-author: aahill
+author: jboback
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include

@@ -1,5 +1,6 @@
 ---
-title: Manage properties and metadata for a blob with JavaScript - Azure Storage
+title: Manage properties and metadata for a blob with JavaScript
+titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blobs in your Azure Storage account using the JavaScript client library.
 services: storage
 author: pauljewellmsft
@@ -9,7 +10,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Manage blob properties and metadata with JavaScript

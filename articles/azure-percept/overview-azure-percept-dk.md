@@ -5,7 +5,7 @@ author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 10/06/2022
 ms.custom: template-concept, ignite-fall-2021
 ---
 
@@ -13,10 +13,7 @@ ms.custom: template-concept, ignite-fall-2021
 
 [!INCLUDE [Retirement note](./includes/retire.md)]
 
-Azure Percept DK is an edge AI development kit designed for developing vision and audio AI solutions with [Azure Percept Studio](./overview-azure-percept-studio.md). Azure Percept DK is available for purchase at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
-
-> [!div class="nextstepaction"]
-> [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
+Azure Percept DK is an edge AI development kit designed for developing vision and audio AI solutions with [Azure Percept Studio](./overview-azure-percept-studio.md). 
 
 </br>
 
@@ -59,7 +56,3 @@ Azure Percept DK is an edge AI development kit designed for developing vision an
 	- [Create a no-code vision solution in Azure Percept Studio](./tutorial-nocode-vision.md)
 	- [Create a no-code speech solution in Azure Percept Studio](./tutorial-no-code-speech.md) (Azure Percept Audio accessory required)
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Buy an Azure Percept DK from the Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

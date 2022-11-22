@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/09/2021
+ms.date: 10/12/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -83,7 +83,7 @@ Perform the following steps to connect and copy data from your computer to the D
 
     A container is created in the Azure storage account for each subfolder under BlockBlob and PageBlob folders. All files under BlockBlob and PageBlob folders are copied into a default container `$root` under the Azure Storage account. Any files in the `$root` container are always uploaded as block blobs.
 
-   Copy files to a folder within *AzureFile* folder. A sub-folder within *AzureFile* folder creates a fileshare. Files copied directly to *AzureFile* folder fail and are uploaded as block blobs.
+   Copy files to a folder within *AzureFile* folder. All files under *AzureFile* folder will be uploaded as files to a default container of type “databox-format-Guid” (ex: databox-azurefile-7ee19cfb3304122d940461783e97bf7b4290a1d7).
 
     If files and folders exist in the root directory, then you must move those to a different folder before you begin data copy.
 

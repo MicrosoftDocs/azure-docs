@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/30/2022
+ms.date: 11/01/2022
 ms.custom: devx-track-csharp
 ms.devlang: csharp
 ---
@@ -17,39 +17,29 @@ ms.devlang: csharp
 This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. 
 
 The application is available: 
-* [Sample](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website)
+* [Sample](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4)
 * [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
 ## What does the sample do? 
-
-This sample website provides access to a catalog of 10,000 books. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the search index's suggest feature to complete the text. Once the query finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the search index, of the book. 
-
-:::image type="content" source="./media/tutorial-javascript-overview/cognitive-search-enabled-book-website.png" alt-text="This sample website provides access to a catalog of 10,000 books. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the search index's suggest feature to complete the text. Once the search finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the search index, of the book.":::
-
-The search experience includes: 
-
-* Search – provides search functionality for the application.
-* Suggest – provides suggestions as the user is typing in the search bar.
-* Document Lookup – looks up a document by ID to retrieve all of its contents for the details page.
+[!INCLUDE [tutorial-overview](includes/tutorial-add-search-website-what-sample-does.md)]
 
 ## How is the sample organized?
 
-The [sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website) includes the following:
+The [sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4) includes the following:
 
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|
-|Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website/src](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website/src)|
-|Server|Azure .NET Function app (business layer) - calls the Azure Cognitive Search API using .NET SDK |[/search-website/api](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website/api)|
-|Bulk insert|.NET file to create the index and add documents to it.|[/search-website/bulk-insert](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website/bulk-insert)|
+|Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website-functions-v4/client](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4/client)|
+|Server|Azure .NET Function app (business layer) - calls the Azure Cognitive Search API using .NET SDK |[/search-website-functions-v4/api](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4/api)|
+|Bulk insert|.NET file to create the index and add documents to it.|[/search-website-functions-v4/bulk-insert](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4/bulk-insert)|
 
 ## Set up your development environment
 
 Install the following for your local development environment. 
 
-- [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0)  
+- [.NET 6](https://dotnet.microsoft.com/download/dotnet/6.0)  
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
-    - [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     - [Azure Cognitive Search 0.2.0+](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
 - Optional:
@@ -63,7 +53,7 @@ Forking the sample repository is critical to be able to deploy the Static Web Ap
 
     Complete the fork process in your web browser with your GitHub account. This tutorial uses your fork as part of the deployment to an Azure Static Web App. 
 
-1. At a bash terminal, download the sample application to your local computer. 
+1. At a Bash terminal, download your forked sample application to your local computer. 
 
     Replace `YOUR-GITHUB-ALIAS` with your GitHub alias. 
 
@@ -71,19 +61,21 @@ Forking the sample repository is critical to be able to deploy the Static Web Ap
     git clone https://github.com/YOUR-GITHUB-ALIAS/azure-search-dotnet-samples
     ```
 
-1. In Visual Studio Code, open your local folder of the cloned repository. The remaining tasks are accomplished from Visual Studio Code, unless specified.
+1. At the same Bash terminal, go into your forked repository for this website search example:
+
+    ```bash
+    cd azure-search-dotnet-samples
+    ```
+
+1. Use the Visual Studio Code command, `code .` to open your forked repository. The remaining tasks are accomplished from Visual Studio Code, unless specified.
+
+    ```bash
+    code .
+    ```
 
 ## Create a resource group for your Azure resources
 
-1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
-1. In Resources, select Add (**+**), and then select **Create Resource Group**.
-
-    :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource-group.png" alt-text="In Resources, select Add (**+**), and then select **Create Resource Group**.":::
-1. Enter a resource group name, such as `cognitive-search-website-tutorial`. 
-1. Select a location close to you.
-1. When you create the Cognitive Search and Static Web App resources, later in the tutorial, use this resource group. 
-
-    Creating a resource group gives you a logical unit to manage the resources, including deleting them when you are finished using them.
+[!INCLUDE [tutorial-create-resource-group](includes/tutorial-add-search-website-create-resource-group.md)]
 
 ## Next steps
 

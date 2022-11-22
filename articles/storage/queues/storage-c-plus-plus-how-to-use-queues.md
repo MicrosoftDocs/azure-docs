@@ -1,5 +1,6 @@
 ---
-title: How to use Queue Storage (C++) - Azure Storage
+title: How to use Queue Storage (C++)
+titleSuffix: Azure Storage
 description: Learn how to use the Queue Storage service in Azure. Samples are written in C++.
 author: normesta
 ms.author: normesta
@@ -278,4 +279,4 @@ Now that you've learned the basics of Queue Storage, follow these links to learn
 - [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 - [List Azure Storage resources in C++](../common/storage-c-plus-plus-enumeration.md?toc=/azure/storage/queues/toc.json)
 - [Azure Storage client library for C++ reference](https://azure.github.io/azure-storage-cpp)
-- [Azure Storage documentation](/azure/storage/)
+- [Azure Storage documentation](../index.yml)

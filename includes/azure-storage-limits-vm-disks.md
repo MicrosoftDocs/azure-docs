@@ -19,7 +19,7 @@ The following table illustrates the default and maximum limits of the number of 
 > | Standard managed disks | 50,000 |
 > | Standard SSD managed disks | 50,000 |
 > | Premium SSD managed disks | 50,000 |
-> | Premium SSD v2 managed disks (preview) | 1,000 |
+> | Premium SSD v2 managed disks  | 1,000 |
 > | Ultra disks | 1,000 |
 > | Standard_LRS snapshots<sup>1</sup> | 75,000 |
 > | Standard_ZRS snapshots<sup>1</sup> | 75,000 |

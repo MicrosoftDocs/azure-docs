@@ -74,16 +74,19 @@ For example, the following code snippet demonstrates configuring the experiment,
 
 ```python
 import mlflow
+# Set the experiment
 mlflow.set_experiment("mlflow-experiment")
 
-# Start the run, log metrics, end the run
+# Start the run
 mlflow_run = mlflow.start_run()
+# Log metrics or other information
 mlflow.log_metric('mymetric', 1)
+# End run 
 mlflow.end_run()
 ```
 
 > [!TIP]
-> Technically you don't have to call `start_run()` as a new run is created if one doesn't exist and you call a logging API. In that case, you can use `mlflow.active_run()` to retrieve the run. However, the `mlflow.ActiveRun` object returned by `mlflow.active_run()` won't contain items like parameters, metrics, etc. For more information, see [mlflow.active_run()](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.active_run).
+> Technically you don't have to call `start_run()` as a new run is created if one doesn't exist and you call a logging API. In that case, you can use `mlflow.active_run()` to retrieve the run once currently being used. For more information, see [mlflow.active_run()](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.active_run).
 
 You can also use the context manager paradigm:
 

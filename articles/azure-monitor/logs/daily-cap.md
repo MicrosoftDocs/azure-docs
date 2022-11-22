@@ -38,7 +38,7 @@ To help you determine an appropriate  daily cap for your workspace, see [Azure M
 
 
 ## Workspaces with Microsoft Defender for Cloud
-For workspaces with [Microsoft Defender for Cloud](../../security-center/index.yml), the daily cap doesn't stop the collection of the following data types except for workspaces in which Microsoft Defender for Cloud was installed before June 19, 2017. :
+Some data security-related data types collected [Microsoft Defender for Cloud](../../security-center/index.yml) or Microsoft Sentinel are collected despite any daily cap. The data types listed below will not be capped except for workspaces in which Microsoft Defender for Cloud was installed before June 19, 2017:
 
 - WindowsEvent
 - SecurityAlert
@@ -98,7 +98,7 @@ To receive an alert when the daily cap is reached, create a [log alert rule](../
 | **Condition** | |
 | Signal type | Log |
 | Signal name | Custom log search |
-| Query | `_LogOperation | where Operation =~ "Data collection stopped" | where Detail contains "OverQuota"` |
+| Query | `_LogOperation | where Category =~ "Ingestion" | where Detail contains "OverQuota"` |
 | Measurement | Measure: *Table rows*<br>Aggregation type: Count<br>Aggregation granularity: 5 minutes |
 | Alert Logic | Operator: Greater than<br>Threshold value: 0<br>Frequency of evaluation: 5 minutes |
 | Actions | Select or add an [action group](../alerts/action-groups.md) to notify you when the threshold is exceeded. |

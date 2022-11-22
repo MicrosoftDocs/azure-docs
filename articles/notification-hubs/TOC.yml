@@ -95,6 +95,8 @@
   items:
   - name: Availability zones
     href: availability-zones.md
+  - name: EU Data Boundary
+    href: eu-data-boundary.md
   - name: Cross-region disaster recovery
     href: cross-region-recovery.md
   - name: Data encryption at rest

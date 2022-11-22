@@ -76,11 +76,11 @@ The `voice` element is required. It's used to specify the voice that's used for 
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md?tabs=stt-tts). | Required             |
+| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=stt-tts). To use your [custom neural voice](how-to-deploy-and-use-endpoint.md#use-your-custom-voice), specify the model name as the voice name in SSML.| Required             |
 
 **Example**
 
-This example uses the `en-US-JennyNeural` voice. For a complete list of supported voices, see [Language support](language-support.md?tabs=stt-tts).
+This example uses the `en-US-JennyNeural` voice. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -125,7 +125,7 @@ Styles, style degree, and roles are supported for a subset of neural voices. If 
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `style` | Specifies the speaking style. Speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If you're using `mstts:express-as`, the style must be provided. If an invalid value is provided, this element is ignored.       |
+| `style` | Specifies the [prebuilt](language-support.md?tabs=stt-tts#voice-styles-and-roles) or [custom](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) speaking style. Speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If you're using `mstts:express-as`, the style must be provided. If an invalid value is provided, this element is ignored.|
 | `styledegree` | Specifies the intensity of the speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity. | Optional. If you don't set the `style` attribute, the `styledegree` attribute is ignored. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.|
 | `role`| Specifies the speaking role-play. The voice acts as a different age and gender, but the voice name isn't changed. | Optional. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices: `zh-CN-XiaomoNeural`, `zh-CN-XiaoxuanNeural`, `zh-CN-YunxiNeural`, and `zh-CN-YunyeNeural`. |
 
@@ -133,7 +133,9 @@ Styles, style degree, and roles are supported for a subset of neural voices. If 
 
 You use the `mstts:express-as` element to express emotions like cheerfulness, empathy, and calm. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant.
 
-For a list of supported styles per neural voice, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
+For a list of supported styles for prebuilt neural voices, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
+
+To use your [custom style](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model), specify the style name that you entered in Speech Studio.
 
 **Syntax**
 
@@ -197,7 +199,7 @@ The following table has descriptions of each supported style.
 
 ### Style degree
 
-The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with the `styledegree` attribute to make the speech more expressive or subdued. 
+The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with the `styledegree` attribute to make the speech more expressive or subdued.
 
 For a list of neural voices that support speaking style degree, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
 
@@ -224,7 +226,7 @@ This SSML snippet illustrates how the `styledegree` attribute is used to change 
 
 ### Role
 
-Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice imitates a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. 
+Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice imitates a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed.
 
 For a list of supported roles per neural voice, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
 
@@ -388,8 +390,8 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `type` | Specifies the location of silence to be added: <ul><li>`Leading` – At the beginning of text </li><li>`Tailing` – At the end of text </li><li>`Sentenceboundary` – Between adjacent sentences </li></ul> | Required  |
-| `Value`   | Specifies the absolute duration of a pause in seconds or milliseconds. This value should be set less than 5,000 ms. Examples of valid values are `2s` and `500ms`.| Required |
+| `type` | Specifies where and how to add silence. The following silence types are supported:<br/><ul><li>`Leading` – Additional silence at the beginning of the text. The value that you set is added to the natural silence before the start of text.</li><li>`Leading-exact` – Silence at the beginning of the text. The value is an absolute silence length.</li><li>`Tailing` – Additional silence at the end of text. The value that you set is added to the natural silence after the last word.</li><li>`Tailing-exact` – Silence at the end of the text. The value is an absolute silence length.</li><li>`Sentenceboundary` – Additional silence between adjacent sentences. The actual silence length for this type includes the natural silence after the last word in the previous sentence, the value you set for this type, and the natural silence before the starting word in the next sentence.</li><li>`Sentenceboundary-exact` – Silence between adjacent sentences. The value is an absolute silence length.</li></ul><br/>An absolute silence type (with the `-exact` suffix) replaces any otherwise natural leading or trailing silence. Absolute silence types take precedence over the corresponding non-absolute type. For example, if you set both `Leading` and `Leading-exact` types, the `Leading-exact` type will take effect.| Required |
+| `Value`   | Specifies the duration of a pause in seconds or milliseconds. This value should be set less than 5,000 ms. Examples of valid values are `2s` and `500ms`.| Required |
 
 **Example**
 
@@ -500,7 +502,7 @@ Sometimes text-to-speech can't accurately pronounce a word. Examples might be th
 ```
 
 > [!NOTE]
-> The `lexicon` element is not supported by the [Long Audio API](long-audio-api.md).
+> The `lexicon` element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
 **Attribute**
 
@@ -538,7 +540,7 @@ To define how multiple entities are read, you can create a custom lexicon, which
 The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text that describes the [orthography](https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography). The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text that describes how the `lexeme` is pronounced. When the `alias` and `phoneme` elements are provided with the same `grapheme` element, `alias` has higher priority.
 
 > [!IMPORTANT]
-> The `lexeme` element is case sensitive in the custom lexicon. For example, if you only provide a phoneme for the `lexeme` "Hello," it won't work for the `lexeme` "hello." 
+> The `lexeme` element is case sensitive in the custom lexicon. For example, if you only provide a phoneme for the `lexeme` "Hello," it won't work for the `lexeme` "hello."
 
 Lexicon contains the necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so if you apply it for a different locale, it won't work.
 
@@ -765,17 +767,18 @@ The following content types are supported for the `interpret-as` and `format` at
 
 | interpret-as   | format   | Interpretation |
 | ----------- | --------- | -------- |
-| `address`| None | The text is spoken as an address. The speech synthesis engine pronounces:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />As "I'm at 150th Court Northeast Redmond Washington."|
-| `cardinal`, `number` |None| The text is spoken as a cardinal number. The speech synthesis engine pronounces:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />As "There are three alternatives."|
 | `characters`, `spell-out` |  | The text is spoken as individual letters (spelled out). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />As "T E S T." |
-| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | The text is spoken as a date. The `format` attribute specifies the date's format (*d=day, m=month, and y=year*). The speech synthesis engine pronounces:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />As "Today is October nineteenth two thousand sixteen." |
-| `digits`, `number_digit`  | None | The text is spoken as a sequence of individual digits. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />As "1 2 3 4 5 6 7 8 9." |
+| `cardinal`, `number` | None| The text is spoken as a cardinal number. The speech synthesis engine pronounces:<br /><br />`There are <say-as interpret-as="cardinal">10</say-as> options`<br /><br />As "There are ten options."|
+| `ordinal`  | None | The text is spoken as an ordinal number. The speech synthesis engine pronounces:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />As "Select the third option."|
+| `number_digit`  | None | The text is spoken as a sequence of individual digits. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />As "1 2 3 4 5 6 7 8 9." |
 | `fraction`   | None | The text is spoken as a fractional number. The speech synthesis engine pronounces:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />As "three eighths of an inch."  |
-| `ordinal`  |None | The text is spoken as an ordinal number. The speech synthesis engine pronounces:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />As "Select the third option."|
-| `telephone` |  None | The text is spoken as a telephone number. The `format` attribute can contain digits that represent a country code. Examples are "1" for the United States or "39" for Italy. The speech synthesis engine can use this information to guide its pronunciation of a phone number. The phone number might also include the country code, and if so, takes precedence over the country code in the `format` attribute. The speech synthesis engine pronounces:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />As "My number is area code eight eight eight five five five one two one two." |
+| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | The text is spoken as a date. The `format` attribute specifies the date's format (*d=day, m=month, and y=year*). The speech synthesis engine pronounces:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />As "Today is October nineteenth two thousand sixteen." |
 | `time`  | hms12, hms24  | The text is spoken as a time. The `format` attribute specifies whether the time is specified by using a 12-hour clock (hms12) or a 24-hour clock (hms24). Use a colon to separate numbers representing hours, minutes, and seconds. Here are some valid time examples: 12:35, 1:14:32, 08:15, and 02:50:45. The speech synthesis engine pronounces:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />As "The train departs at four A M." |
 | `duration` | hms, hm, ms   | The text is spoken as a duration. The `format` attribute specifies the duration's format (*h=hour, m=minute, and s=second*). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="duration">01:18:30</say-as>`<br /><br /> As "one hour eighteen minutes and thirty seconds".<br />Pronounces:<br /><br />`<say-as interpret-as="duration" format="ms">01:18</say-as>`<br /><br /> As "one minute and eighteen seconds".<br />This tag is only supported on English and Spanish. |
-| `name`   |None | The text is spoken as a person's name. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="name">ED</say-as>`<br /><br />As [æd]. <br />In Chinese names, some characters pronounce differently when they appear in a family name. For example, the speech synthesis engine says 仇 in <br /><br />`<say-as interpret-as="name">仇先生</say-as>`<br /><br /> As [qiú] instead of [chóu]. |
+| `telephone` |  None | The text is spoken as a telephone number. The `format` attribute can contain digits that represent a country code. Examples are "1" for the United States or "39" for Italy. The speech synthesis engine can use this information to guide its pronunciation of a phone number. The phone number might also include the country code, and if so, takes precedence over the country code in the `format` attribute. The speech synthesis engine pronounces:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />As "My number is area code eight eight eight five five five one two one two." |
+| `currency`  | None | The text is spoken as a currency. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="currency">99.9 USD</say-as>`<br /><br />As "ninety-nine US dollars and ninety cents."|
+| `address`| None | The text is spoken as an address. The speech synthesis engine pronounces:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />As "I'm at 150th Court Northeast Redmond Washington."|
+| `name`   | None | The text is spoken as a person's name. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="name">ED</say-as>`<br /><br />As [æd]. <br />In Chinese names, some characters pronounce differently when they appear in a family name. For example, the speech synthesis engine says 仇 in <br /><br />`<say-as interpret-as="name">仇先生</say-as>`<br /><br /> As [qiú] instead of [chóu]. |
 
 **Usage**
 
@@ -808,7 +811,7 @@ Any audio included in the SSML document must meet these requirements:
 * The audio must not contain any customer-specific or other sensitive information.
 
 > [!NOTE]
-> The 'audio' element is not supported by the [Long Audio API](long-audio-api.md).
+> The 'audio' element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
 **Syntax**
 
@@ -848,8 +851,8 @@ Only one background audio file is allowed per SSML document. You can intersperse
 
 > [!NOTE]
 > The `mstts:backgroundaudio` element should be put in front of all `voice` elements, i.e., the first child of the `speak` element.
-> 
-> The `mstts:backgroundaudio` element is not supported by the [Long Audio API](long-audio-api.md).
+>
+> The `mstts:backgroundaudio` element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
 **Syntax**
 
@@ -927,7 +930,7 @@ All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3
 > [!NOTE]
 > If an element is not recognized, it will be ignored, and the child elements within it will still be processed.
 
-The MathML entities are not supported by XML syntax, so you must use the their corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
+The MathML entities are not supported by XML syntax, so you must use the corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
 
 ## Viseme element
 
@@ -946,7 +949,7 @@ A viseme is the visual description of a phoneme in spoken language. It defines t
 | `type`    | Specifies the type of viseme output.<ul><li>`redlips_front` – lip-sync with viseme ID and audio offset output </li><li>`FacialExpression` – blend shapes output</li></ul> | Required  |
 
 > [!NOTE]
-> Currently, `redlips_front` only supports neural voices in `en-US` locale, and `FacialExpression` supports neural voices in `en-US` and `zh-CN` locales. 
+> Currently, `redlips_front` only supports neural voices in `en-US` locale, and `FacialExpression` supports neural voices in `en-US` and `zh-CN` locales.
 
 **Example**
 

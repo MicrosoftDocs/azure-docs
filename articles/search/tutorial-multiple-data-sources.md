@@ -9,14 +9,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/29/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Tutorial: Index from multiple data sources using the .NET SDK
 
 Azure Cognitive Search can import, analyze, and index data from multiple data sources into a single consolidated search index. 
 
-This tutorial uses C# and the [Azure.Search.Documents](/dotnet/api/overview/azure/search) client library in the Azure SDK for .NET to index sample hotel data from an Azure Cosmos DB, and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing hotel documents, with rooms as a complex data types.
+This tutorial uses C# and the [Azure.Search.Documents](/dotnet/api/overview/azure/search) client library in the Azure SDK for .NET to index sample hotel data from an Azure Cosmos DB instance, and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing hotel documents, with rooms as a complex data types.
 
 In this tutorial, you'll perform the following tasks:
 
@@ -58,7 +58,7 @@ If possible, create all services in the same region and resource group for proxi
 
 This sample uses two small sets of data that describe seven fictional hotels. One set describes the hotels themselves, and will be loaded into an Azure Cosmos DB database. The other set contains hotel room details, and is provided as seven separate JSON files to be uploaded into Azure Blob Storage.
 
-### Start with Cosmos DB
+### Start with Azure Cosmos DB
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then navigate your Azure Cosmos DB account Overview page.
 
@@ -149,9 +149,9 @@ In Azure Cognitive Search, the key field uniquely identifies each document. Ever
 
 When indexing data from multiple data sources, make sure each incoming row or document contains a common document key to merge data from two physically distinct source documents into a new search document in the combined index. 
 
-It often requires some up-front planning to identify a meaningful document key for your index, and make sure it exists in both data sources. In this demo, the `HotelId` key for each hotel in Cosmos DB is also present in the rooms JSON blobs in Blob storage.
+It often requires some up-front planning to identify a meaningful document key for your index, and make sure it exists in both data sources. In this demo, the `HotelId` key for each hotel in Azure Cosmos DB is also present in the rooms JSON blobs in Blob storage.
 
-Azure Cognitive Search indexers can use field mappings to rename and even reformat data fields during the indexing process, so that source data can be directed to the correct index field. For example, in Cosmos DB, the hotel identifier is called **`HotelId`**. But in the JSON blob files for the hotel rooms, the hotel identifier is  named **`Id`**. The program handles this discrepancy by mapping the **`Id`** field from the blobs to the **`HotelId`** key field in the indexer.
+Azure Cognitive Search indexers can use field mappings to rename and even reformat data fields during the indexing process, so that source data can be directed to the correct index field. For example, in Azure Cosmos DB, the hotel identifier is called **`HotelId`**. But in the JSON blob files for the hotel rooms, the hotel identifier is  named **`Id`**. The program handles this discrepancy by mapping the **`Id`** field from the blobs to the **`HotelId`** key field in the indexer.
 
 > [!NOTE]
 > In most cases, auto-generated document keys, such as those created by default by some indexers, do not make good document keys for combined indexes. In general you will want to use a meaningful, unique key value that already exists in, or can be easily added to, your data sources.
@@ -164,7 +164,7 @@ This simple C#/.NET console app performs the following tasks:
 
 * Creates a new index based on the data structure of the C# Hotel class (which also references the Address and Room classes).
 * Creates a new data source and an indexer that maps Azure Cosmos DB data to index fields. These are both objects in Azure Cognitive Search.
-* Runs the indexer to load Hotel data from Cosmos DB.
+* Runs the indexer to load Hotel data from Azure Cosmos DB.
 * Creates a second data source and an indexer that maps JSON blob data to index fields.
 * Runs the second indexer to load Rooms data from Blob storage.
 
@@ -231,7 +231,7 @@ private static async Task CreateAndRunCosmosDbIndexerAsync(string indexName, Sea
         connectionString: cosmosConnectString,
         container: new SearchIndexerDataContainer("hotels"));
 
-    // The Cosmos DB data source does not need to be deleted if it already exists,
+    // The Azure Cosmos DB data source does not need to be deleted if it already exists,
     // but the connection string might need to be updated if it has changed.
     await indexerClient.CreateOrUpdateDataSourceConnectionAsync(cosmosDbDataSource);
 ```
@@ -267,7 +267,7 @@ catch (RequestFailedException ex) when (ex.Status == 404)
 
 await indexerClient.CreateOrUpdateIndexerAsync(cosmosDbIndexer);
 
-Console.WriteLine("Running Cosmos DB indexer...\n");
+Console.WriteLine("Running Azure Cosmos DB indexer...\n");
 
 try
 {
@@ -379,7 +379,7 @@ You can find and manage resources in the portal, using the All resources or Reso
 
 ## Next steps
 
-Now that you're familiar with the concept of ingesting data from multiple sources, let's take a closer look at indexer configuration, starting with Cosmos DB.
+Now that you're familiar with the concept of ingesting data from multiple sources, let's take a closer look at indexer configuration, starting with Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Configure an Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)

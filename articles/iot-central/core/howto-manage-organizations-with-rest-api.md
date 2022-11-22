@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to manage organizations in Azure IoT Central
 description: How to use the IoT Central REST API to manage organizations in an application
-author: v-krishnag
-ms.author: v-krishnag
+author: eross-msft
+ms.author: lizross
 ms.date: 03/08/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -39,7 +39,7 @@ The IoT Central REST API lets you:
 The REST API lets you create organizations in your IoT Central application. Use the following request to create an organization in your application:
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-05-31
+PUT https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-07-31
 ```
 
 * organizationId - Unique ID of the organization
@@ -97,7 +97,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of an individual organization from your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-05-31
+GET https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
@@ -115,7 +115,7 @@ The response to this request looks like the following example:
 Use the following request to update details of an organization in your application:
 
 ```http
-PATCH https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-05-31
+PATCH https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-07-31
 ```
 
 The following example shows a request body that updates an organization.
@@ -143,7 +143,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve a list of organizations from your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/organizations?api-version=2022-05-31
+GET https://{your app subdomain}.azureiotcentral.com/api/organizations?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example.
@@ -184,7 +184,7 @@ The response to this request looks like the following example.
 Use the following request to delete an organization:
 
 ```http
-DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-05-31
+DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-07-31
 ```
 
 ## Use organizations
@@ -194,7 +194,7 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organ
 The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of application role and organization role IDs from your application. To learn more see, [How to manage IoT Central organizations](howto-create-organizations.md):
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-05-31
+GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example that includes the application role and organization role IDs. 
@@ -235,7 +235,7 @@ The response to this request looks like the following example that includes the 
 Use the following request to create Create an API token to a node in an organization hierarchy in your application:
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/apiTokens/{tokenId}?api-version=2022-05-31
+PUT https://{your app subdomain}.azureiotcentral.com/api/apiTokens/{tokenId}?api-version=2022-07-31
 ```
 
 * tokenId - Unique ID of the token
@@ -281,7 +281,7 @@ The response to this request looks like the following example:
 Use the following request to create and associate a user with a node in an organization hierarchy in your application. The ID and email must be unique in the application:
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-version=2022-05-31
+PUT https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-version=2022-07-31
 ```
 
 In the following request body, the `role` is the ID of one of the organization roles and `organization` is the ID of the organization
@@ -322,7 +322,7 @@ The response to this request looks like the following example. The role value id
 Use the following request to associate a new device with an organization
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}?api-version=2022-05-31
+PUT https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}?api-version=2022-07-31
 ```
 
 The following example shows a request body that adds a device for a device template. You can get the `template` details from the device templates page in IoT Central application UI.
@@ -371,7 +371,7 @@ The response to this request looks like the following example:
 Use the following request to create and associate a new device group with an organization.
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+PUT https://{your app subdomain}.azureiotcentral.com/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
 When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true.

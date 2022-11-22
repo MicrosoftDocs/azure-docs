@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB Cassandra API keyspace and table with autoscale
-description: Use Azure CLI to create an Azure Cosmos DB Cassandra API account, keyspace, and table with autoscale.
+title: Azure Cosmos DB for Apache Cassandra keyspace and table with autoscale
+description: Use Azure CLI to create an Azure Cosmos DB for Apache Cassandra account, keyspace, and table with autoscale.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: sample
 ms.date: 05/02/2022
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, ignite-2022
 ---
 
-# Use Azure CLI to create a Cassandra API account, keyspace, and table with autoscale
+# Use Azure CLI to create a API for Cassandra account, keyspace, and table with autoscale
 
-[!INCLUDE [appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../../../includes/appliesto-cassandra.md)]
 
-The script in this article creates an Azure Cosmos DB Cassandra API account, keyspace, and table with autoscale.
+The script in this article creates an Azure Cosmos DB for Apache Cassandra account, keyspace, and table with autoscale.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ The script in this article creates an Azure Cosmos DB Cassandra API account, key
 This script uses the following commands:
 
 - [az group create](/cli/azure/group#az-group-create) creates a resource group to store all resources.
-- [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) with the `--capabilities EnableCassandra` parameter creates a Cassandra API-enabled Azure Cosmos DB account.
+- [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) with the `--capabilities EnableCassandra` parameter creates a API for Cassandra-enabled Azure Cosmos DB account.
 - [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) creates an Azure Cosmos DB Cassandra keyspace.
 - [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) with the `--max-throughput` parameter set to minimum `4000` creates an Azure Cosmos DB Cassandra table with autoscale.
 

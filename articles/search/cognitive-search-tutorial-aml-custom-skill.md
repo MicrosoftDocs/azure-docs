@@ -44,7 +44,7 @@ There are two datasets provided. If you wish to train the model yourself, the ho
 * If you are unfamiliar with Azure Machine Learning and its requirements, you will want to review these documents before getting started:
  * [Configure a development environment for Azure Machine Learning](../machine-learning/how-to-configure-environment.md)
  * [Create and manage Azure Machine Learning workspaces in the Azure portal](../machine-learning/how-to-manage-workspace.md)
- * When configuring the development environment for Azure Machine Learning, consider using the [cloud-based compute instance](/azure/machine-learning/v1/how-to-configure-environment-v1) for speed and ease in getting started.
+ * When configuring the development environment for Azure Machine Learning, consider using the [cloud-based compute instance](../machine-learning/v1/how-to-configure-environment-v1.md) for speed and ease in getting started.
 * Upload the dataset file to a container in the storage account. The larger file is necessary if you wish to perform the training step in the notebook. If you prefer to skip the training step, the smaller file is recommended.
 
 ## Open notebook and connect to Azure services

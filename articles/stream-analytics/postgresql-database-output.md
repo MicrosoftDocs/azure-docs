@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 10/27/2022
 ---
 
 # Azure Database for PostgreSQL output from Azure Stream Analytics
@@ -14,7 +14,7 @@ You can use [Azure Database for PostgreSQL](https://azure.microsoft.com/services
 
 Azure Database for PostgreSQL powered by the PostgreSQL community edition is available in three deployment options:
 *    Single Server
-*    Flexible Server (Preview)
+*    Flexible Server
 *    Hyperscale (Citus)
 
 For more information about Azure Database for PostgreSQL please visit the: [What is Azure Database for PostgreSQL documentation.](../postgresql/overview.md)

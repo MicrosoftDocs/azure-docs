@@ -5,7 +5,7 @@ author: yvonne-dq
 ms.author: hschang
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 10/06/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
@@ -19,6 +19,3 @@ With Azure Percept DK, you may update your dev kit OS and firmware over-the-air 
 - [Update your Azure Percept DK over-the-air (OTA)](./how-to-update-over-the-air.md)
 - [Update your Azure Percept DK over USB](./how-to-update-via-usb.md)
 
-## Next steps
-
-Order an Azure Percept DK at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).

@@ -1,12 +1,12 @@
 ---
 title: Monitor Azure Container Registry 
 description: Start here to learn how to monitor your Azure container registry using features of Azure Monitor
-author: dlepow
-ms.author: danlep
 ms.topic: how-to
 ms.custom: subject-monitoring 
 ms.service: container-registry
-ms.date: 08/13/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Monitor Azure Container Registry

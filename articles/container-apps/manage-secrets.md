@@ -5,24 +5,24 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 09/29/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ---
 
 # Manage secrets in Azure Container Apps
 
-Azure Container Apps allows your application to securely store sensitive configuration values. Once defined at the application level, secured values are available to containers, inside scale rules, and via Dapr.
+Azure Container Apps allows your application to securely store sensitive configuration values. Once secrets are defined at the application level, secured values are available to container apps. Specifically, you can reference secured values inside scale rules. For information on using secrets with Dapr, refer to [Dapr integration](./dapr-overview.md)
 
 - Secrets are scoped to an application, outside of any specific revision of an application.
-- Adding, removing, or changing secrets does not generate new revisions.
+- Adding, removing, or changing secrets doesn't generate new revisions.
 - Each application revision can reference one or more secrets.
 - Multiple revisions can reference the same secret(s).
 
-An updated or deleted secret does not automatically impact existing revisions in your app. When a secret is updated or deleted, you can respond to changes in one of two ways:
+An updated or deleted secret doesn't automatically affect existing revisions in your app. When a secret is updated or deleted, you can respond to changes in one of two ways:
 
- 1. Deploy a new revision.
- 2. Restart an existing revision.
+1. Deploy a new revision.
+2. Restart an existing revision.
 
 Before you delete a secret, deploy a new revision that no longer references the old secret. Then deactivate all revisions that reference the secret.
 
