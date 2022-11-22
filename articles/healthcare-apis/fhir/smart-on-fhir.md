@@ -12,7 +12,7 @@ ms.date: 11/10/2022
 
 # SMART on FHIR
 
-Substitutable Medical Applications and Reusable Technologies [SMART on FHIR](https://docs.smarthealthit.org/) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
+Substitutable Medical Applications and Reusable Technologies([SMART on FHIR])(https://docs.smarthealthit.org/) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
 - Applications have a known method for obtaining authentication/authorization to a FHIR repository
 - Users accessing a FHIR repository with SMART on FHIR are restricted to resources associated with the user, rather than having access to all data in the repository
 - Users have the ability to grant applications access to a further limited set of their data by using SMART clinical scopes.
@@ -36,12 +36,12 @@ Below tutorial describes steps to enable SMART on FHIR applications with FHIR Se
      - After registering the application, make note of the applicationId for client application.
      
 <!--- Tutorial : To enable SMART on FHIR using APIM, follow below steps 
-Step 1 : Set up FHIR SMART user role 
-Follow the steps listed under section [Manage Users: Assign Users to Role](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to this role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
+As a pre-requisite , ensure you have access to Azure Subscription of FHIR service, to create resources and add role assignments.
 
-Step 2 : Deploy the necessary components to set up the FHIR server integrated with APIM in production. Follow ReadMe
-Step 3 : Load US Core profiles 
-Step 4 : Create Azure AD custom policy using this README  ---> 
+Step 1 : Set up FHIR SMART user role 
+Follow the steps listed under section [Manage Users: Assign Users to Role](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to role - "FHIR SMART User" will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
+
+Step 2 : [Follow the steps](https://github.com/microsoft/fhir-server/tree/feature/smart-onc-g10-sample/samples/smart) for setting up the FHIR server integrated with APIM in production. ---> 
 
 Lets go over individual steps to enable SMART on FHIR 
 ## Step 1 : Set admin consent for your client application
