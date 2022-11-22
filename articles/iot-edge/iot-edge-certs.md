@@ -91,7 +91,7 @@ flowchart TB
     id1-- Issued by -- -> id2
 -->
 
-The root certificate authority (CA) is the [Baltimore CyberTrust Root](https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html) certificate. This root certificate is signed by DigiCert, and is widely trusted and stored in many operating systems. For example, both Ubuntu and Windows include it in the default certificate store.
+The root certificate authority (CA) is the [Baltimore CyberTrust Root](https://www.digicert.com/kb/digicert-root-certificates.htm) certificate. This root certificate is signed by DigiCert, and is widely trusted and stored in many operating systems. For example, both Ubuntu and Windows include it in the default certificate store.
 
 Windows certificate store:
 

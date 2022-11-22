@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/10/2022
+ms.date: 11/15/2022
 ms.author: ampatel
 
 ---
@@ -324,6 +324,8 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    # Mount all volumes
    sudo mount -a
    ```
+   For workloads, that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.        
+
 
 4.**[A]** Verify that all HANA volumes are mounted with NFS protocol version NFSv4.
 

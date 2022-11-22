@@ -184,7 +184,7 @@ There are two settings that need to be set for the function app to access your A
 
 The first setting gives the function app the **Azure Digital Twins Data Owner** role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [Security for Azure Digital Twins solutions](concepts-security.md). 
 
-1. Use the following command to create a system-managed identity for the function. The output will display details of the identity that's been created. Take note of the **principalId** field in the output to use in the next step.
+1. Use the following command to create a [system-assigned identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for the function. The output will display details of the identity that's been created. Take note of the **principalId** field in the output to use in the next step.
 
     ```azurecli-interactive	
     az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>
