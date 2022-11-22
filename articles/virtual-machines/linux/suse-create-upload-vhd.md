@@ -7,7 +7,7 @@ ms.subservice: imaging
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 11/22/2022
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
 
@@ -21,9 +21,15 @@ This article assumes that you have already installed a SUSE or openSUSE Leap Lin
 ## SLES / openSUSE Leap installation notes
 * Please see also [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
+* Azure supports Gen1 (BIOS boot) & Gen2 (UEFI boot) Virtual machines.
+* The vfat kernel module must be enabled in the kernel
 * When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
 * Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
+
+**> [!NOTE]
+> **(_Cloud-init >= 21.2 removes the udf requirement._)** however without the udf module enabled the cdrom will not mount during provisioning preventing custom data from being applied.  A workaround for this would be to apply custom data using user data however, unlike custom data user data is not encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
+
 
 ## Use SUSE Studio
 [SUSE Studio](https://studioexpress.opensuse.org/) can easily create and manage your SLES and openSUSE Leap images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE Leap images.
@@ -64,7 +70,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 7. Update waagent and cloud-init configuration
 
     ```console
-    # sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
+    # sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=auto/g' /etc/waagent.conf
     # sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 
     # sudo sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
@@ -137,21 +143,24 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
           - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
         EOF
         ```
+> [!NOTE]
+> Make sure the **'udf'** module is enable. Blacklisting or removing it will cause a provisioning failure.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
     ```console
-    # sudo rm -rf /var/lib/waagent/
-    # sudo rm -f /var/log/waagent.log
-
-    # waagent -force -deprovision+user
-    # rm -f ~/.bash_history
-    
-
-    # export HISTSIZE=0
-
-    # logout
+   # sudo rm -f /var/log/waagent.log
+   # sudo cloud-init clean
+   
+   # waagent -force -deprovision+user
+   # rm -f ~/.bash_history
+   
+   # export HISTSIZE=0
+   
+   # logout
     ```
+    
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 ---
@@ -239,9 +248,12 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 11. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
     ```console
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+   # sudo rm -f /var/log/waagent.log
+   # sudo cloud-init clean
+   # waagent -force -deprovision+user
+   # rm -f ~/.bash_history
+   # export HISTSIZE=0
+   # logout
     ```
 
 12. Ensure the Azure Linux Agent runs at startup:
