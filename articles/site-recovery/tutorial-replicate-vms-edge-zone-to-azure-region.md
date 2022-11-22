@@ -23,6 +23,7 @@ Site Recovery ensure business continuity by keeping workloads running during out
 
 ### Prerequisites 
 
+
 - Ensure Azure Az PowerShell module is installed. For information on how to install, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 - The minimum Azure Az PowerShell version must be 4.1.0. Use the following command to see the current version:
 
