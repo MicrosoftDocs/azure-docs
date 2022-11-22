@@ -10,7 +10,7 @@ ms.topic: conceptual
 # Overview of change tracking and inventory using Azure Monitoring Agent
 
 > [!Important]
-> Change tracking and inventory using the Log Analytics Agent will soon be deprecated. We recommend that you use Azure Monitoring Agent as the new support agent.
+> Change tracking and inventory using the Log Analytics Agent will retier on August 2024. We recommend that you use Azure Monitoring Agent as the new support agent.
 
 This article explains on the latest version of change tracking support using Azure Monitoring Agent (AMA) as a singular agent for data collection. 
 
@@ -88,7 +88,7 @@ You can enable Change Tracking and Inventory in the following ways:
 
 ## Tracking file changes
 
-For tracking changes in files on both Windows and Linux, Change Tracking and Inventory uses MD5 hashes of the files. The feature uses the hashes to detect if changes have been made since the last inventory.
+For tracking changes in files on both Windows and Linux, Change Tracking and Inventory uses SHA256 hashes of the files. The feature uses the hashes to detect if changes have been made since the last inventory.
 
 ## Tracking file content changes
 
@@ -159,16 +159,8 @@ The following table shows the tracked item limits per machine for Change Trackin
 
 The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](../../azure-monitor/logs/usage-estimated-costs.md#Understand your usage and optimize your pricing tier).
 
-### Windows services data
-
-The default collection frequency for Windows services is 30 minutes. You can configure the frequency using a slider on the **Windows services** tab under **Edit Settings**.
-
-![Windows services slider](./media/overview/windowservices.png)
-
-To optimize performance, the Log Analytics agent only tracks changes. Setting a high threshold might miss changes if the service returns to its original state. Setting the frequency to a smaller value allows you to catch changes that might be missed otherwise.
-
 > [!NOTE]
-> While the agent can track changes down to a 10-second interval, the data still takes a few minutes to display in the Azure portal. Changes that occur during the time to display in the portal are still tracked and logged.
+> Change Tracking with Support Windows Services & Daemons is currently in Public preview.
 
 ## Support for alerts on configuration state
 
