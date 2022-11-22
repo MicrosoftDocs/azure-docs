@@ -639,7 +639,7 @@ For more information on OpenShift guidance for onboarding Flux, refer to the [Fl
 
 Flux supports many parameters to enable various scenarios. For a description of all parameters that Flux supports, see the [official Flux documentation](https://fluxcd.io/docs/). Flux in Azure doesn't support all parameters yet. Let us know if a parameter you need is missing from the Azure implementation.
 
-For more information about working with parameters, see [link](conceptual-gitops-flux2.md#parameters).
+For more information about available parameters and how to use them, see [GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes](conceptual-gitops-flux2.md#parameters).
 
 ## Manage GitOps configurations by using the Azure portal
 
