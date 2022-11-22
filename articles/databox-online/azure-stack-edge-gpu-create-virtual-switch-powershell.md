@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/18/2022
+ms.date: 11/22/2022
 ms.author: alkohli
 ---
 
@@ -15,7 +15,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to create a new virtual switch on your Azure Stack Edge Pro GPU device. For example, you would create a new virtual switch if you want your virtual machines to connect through a different physical network port.
+This article describes how to create a new virtual switch on your Azure Stack Edge Pro GPU device. For example, you would create a new virtual switch if you want your virtual machines to connect through a different physical network port. For more information, see [Use the Azure portal to manage network interfaces on the VMs on your Azure Stack Edge Pro GPU](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
 
 ## VM deployment workflow
 
@@ -142,7 +142,7 @@ To identify the virtual network and the subnet associated with the new switch th
 To add a virtual local area network (LAN) configuration on a virtual switch, use the following cmdlet.
 
 ```powershell
-Add-HcsVirtualNetwork-VirtualSwitchName <Virtual Switch name> -VnetName <Virtual Network Name> –VlanId <Vlan Id> –AddressSpace <Address Space> –GatewayIPAddress <Gateway IP>–DnsServers <Dns Servers List> -DnsSuffix <Dns Suffix name>
+Add-HcsVirtualNetwork-VirtualSwitchName <Virtual Switch name> -Name <Virtual Network Name> –VlanId <Vlan Id> –AddressSpace <Address Space> –GatewayIPAddress <Gateway IP>–DnsServers <Dns Servers List> -DnsSuffix <Dns Suffix name>
 ``` 
 
 The following parameters can be used with the `Add-HcsVirtualNetwork-VirtualSwitchName` cmdlet.
@@ -162,7 +162,7 @@ The following parameters can be used with the `Add-HcsVirtualNetwork-VirtualSwit
 Here is an example output.
 
 ```output
-[10.100.10.10]: PS> Add-HcsVirtualNetwork -VirtualSwitchName vSwitch1 -VnetName vlanNetwork100 -VlanId 100 -AddressSpace 5.5.0.0/16 -GatewayIPAddress 5.5.0.1 -DnsServers "5.5.50.50","5.5.50.100" -DnsSuffix "name.domain.com"
+[10.100.10.10]: PS> Add-HcsVirtualNetwork -VirtualSwitchName vSwitch1 -Name vlanNetwork100 -VlanId 100 -AddressSpace 5.5.0.0/16 -GatewayIPAddress 5.5.0.1 -DnsServers "5.5.50.50","5.5.50.100" -DnsSuffix "name.domain.com"
 
 [10.100.10.10]: PS> Get-HcsVirtualNetwork
  
