@@ -158,8 +158,6 @@ Here are the important steps from the code:
         await producerClient.DisposeAsync();
     }
     ```
-
-
 ---
 
 5. Build the project, and ensure that there are no errors.
@@ -192,6 +190,9 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. Authenticate to the blob container
 
+## [Passwordless](#tab/passwordless)
+
+tbd
     
 ## [Connection String](#tab/connection-string)
 
