@@ -33,6 +33,8 @@ items:
         href: quickstarts/chat/react-native.md
       - name: Send Chat messages in Azure Logic Apps
         href: quickstarts/chat/logic-app.md
+      - name: Add a bot to your chat app
+        href: quickstarts/chat/quickstart-botframework-integration.md
   - name: Email
     items:
       - name: Create an Email Communication Services resource
