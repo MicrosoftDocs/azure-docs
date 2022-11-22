@@ -139,9 +139,7 @@ additionalContent:
           - text: CQL shell, Spark – API for Cassandra
             url: cassandra/migrate-data.md
           - text: Azure Database Migration Service – API for MongoDB
-            url: ../dms/tutorial-mongodb-cosmos-db.md
-          - text: AzCopy – API for Table
-            url: table/import.md                         
+            url: ../dms/tutorial-mongodb-cosmos-db.md                    
       - title: Migration guides
         links:
           - text: Oracle DB to Azure Cosmos DB API for NoSQL using Striim

@@ -176,7 +176,8 @@ The following image shows the first flow:
         |Video URL|Select **Web Url** from the dynamic content of **Create SAS URI by path** action.|
         | Body| Can be left as default.|
         
-        ![Screenshot of the upload and index action.](./media/logic-apps-connector-arm-accounts/upload-and-index.png)
+        > [!div class="mx-imgBorder"]
+        > :::image type="content" source="./media/logic-apps-connector-arm-accounts/upload-and-index-expression.png" alt-text="Screenshot of the upload and index action." lightbox="./media/logic-apps-connector-arm-accounts/upload-and-index-expression.png":::
 
         Select **Save**.
 
