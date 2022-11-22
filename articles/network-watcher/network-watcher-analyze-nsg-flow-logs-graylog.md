@@ -13,8 +13,9 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 07/03/2021
 ms.author: damendo
+ms.custom: engagement-fy23
 ---
 
 # Manage and analyze network security group flow logs in Azure using Network Watcher and Graylog
