@@ -220,7 +220,7 @@ az containerapp up \
   --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
-  --source .
+  --source . `
   --ingress 'external' .
 ```
 
@@ -232,7 +232,7 @@ az containerapp up `
     --resource-group $RESOURCE_GROUP `
     --location $LOCATION `
     --environment $ENVIRONMENT `
-    --source .
+    --source . `
     --ingress 'external'
 ```
 
@@ -265,7 +265,7 @@ az containerapp up \
   --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
-  --repo <YOUR_GITHUB_REPOSITORY_NAME>
+  --repo <YOUR_GITHUB_REPOSITORY_NAME> \
   --ingress 'external' .
 ```
 
@@ -277,7 +277,7 @@ az containerapp up `
     --resource-group $RESOURCE_GROUP `
     --location $LOCATION `
     --environment $ENVIRONMENT `
-    --repo <YOUR_GITHUB_REPOSITORY_NAME>
+    --repo <YOUR_GITHUB_REPOSITORY_NAME> `
     --ingress 'external'
 ```
 
