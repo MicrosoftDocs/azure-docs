@@ -60,6 +60,9 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 > [!NOTE]
 > When you create a data asset from a local path, it will be automatically uploaded to the default Azure Machine Learning datastore in the cloud.
 
+> [!IMPORTANT]
+> The studio only supports browsing of credential-less ADLS Gen 2 datastores.
+
 
 ## Data asset types
  - [**URIs**](#Create a `uri_folder` data asset) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`.
