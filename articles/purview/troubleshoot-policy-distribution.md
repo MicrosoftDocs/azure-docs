@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: tutorial
-ms.date: 11/14/2022
+ms.date: 11/21/2022
 ---
 
 # Tutorial: Troubleshoot distribution of Microsoft Purview access policies (preview)
@@ -44,10 +44,13 @@ Full pull provides a complete set of policies for a particular data resource sco
 To fetch policies for a data source via full pull, send a `GET` request to `/policyElements`, as follows:
 
 ```
-GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyelements?api-version={apiVersion}
+GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}/policyelements?api-version={apiVersion}&$filter={filter}
 ```
 
 where the path `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}` matches the resource ID for the data source.
+
+The last two parameters `api-version` and `$filter` are query parameters of type string.
+`$filter` can take the following values: `atScope`, `childrenScope`, `none` and `all`. The first value is used to request all the policies that exist at the level of the path, including the ones that apply specifically to its children data objects. The second means just return fine-grained policies that apply to children data objects.
 
 >[!Tip]
 > The resource ID can be found under the properties for the data source in the Azure portal.
@@ -73,7 +76,7 @@ where the path `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 **Example request**:
 
 ```
-GET https://relecloud-pv.purview.azure.com/pds/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1/policyElements?api-version=2021-01-01-preview
+GET https://relecloud-pv.purview.azure.com/pds/subscriptions/BB345678-abcd-ABCD-0000-bbbbffff9012/resourceGroups/marketing-rg/providers/Microsoft.Sql/servers/relecloud-sql-srv1/policyElements?api-version=2021-01-01-preview&$filter=atScope
 ```
 **Example response**:
 
@@ -81,7 +84,7 @@ GET https://relecloud-pv.purview.azure.com/pds/subscriptions/BB345678-abcd-ABCD-
 
 ```json
 {
-    "count": 7,
+    "count": 2,
     "syncToken": "820:0",
     "elements": [
         {
