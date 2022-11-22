@@ -3,7 +3,7 @@ title: Remote Desktop clients for Azure Virtual Desktop - Azure Virtual Desktop
 description: Overview of the Remote Desktop clients you can use to connect to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: overview
-ms.date: 11/16/2022
+ms.date: 11/22/2022
 ms.author: daknappe
 ---
 
