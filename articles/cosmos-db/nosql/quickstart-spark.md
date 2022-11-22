@@ -34,7 +34,9 @@ You can use any other Spark (for e.g., spark 3.1.1) offering as well, also you s
 
 ## Prerequisites
 
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/try/cosmosdb/). Alternatively, you can use the [use Azure Cosmos DB Emulator](../local-emulator.md) for development and testing.
+* An Azure account with an active subscription.
+
+  * No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 
 * [Azure Databricks](/azure/databricks/release-notes/runtime/10.4) runtime 10.4 with Spark 3.2.1
 

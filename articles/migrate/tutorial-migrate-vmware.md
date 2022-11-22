@@ -5,8 +5,8 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
-ms.date: 06/20/2022
-ms.custom: mvc
+ms.date: 08/18/2022
+ms.custom: mvc, engagement-fy23
 ---
 
 # Migrate VMware VMs to Azure (agentless)

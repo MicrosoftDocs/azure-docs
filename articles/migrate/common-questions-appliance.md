@@ -5,8 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 11/01/2021
+ms.custom: ignite-2022, engagement-fy23
+ms.date: 11/22/2022
 ---
 
 # Azure Migrate appliance: Common questions
@@ -41,11 +41,10 @@ The appliance can be deployed using a couple of methods:
 
 ## How does the appliance connect to Azure?
 
-The appliance can connect via the internet or by using Azure ExpressRoute. 
+The appliance can connect to Azure using public or private networks or using Azure ExpressRoute.
 
 - Make sure the appliance can connect to these [Azure URLs](./migrate-appliance.md#url-access). 
 - You can use ExpressRoute with Microsoft peering. Public peering is deprecated, and isn't available for new ExpressRoute circuits.
-- Private peering only isn't supported.
 
 ## Does appliance analysis affect performance?
 

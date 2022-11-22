@@ -56,14 +56,14 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
 1. First, let's connect to Azure Machine Learning workspace where we are going to work on.
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```bash
    az account set --subscription <subscription>
    az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
    
@@ -89,14 +89,14 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
 2. Batch Endpoint can only deploy registered models. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
    
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```bash
    MODEL_NAME='heart-classifier'
    az ml model create --name $MODEL_NAME --type "mlflow_model" --path "heart-classifier-mlflow/model"
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    model_name = 'heart-classifier'
@@ -108,11 +108,12 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
 3. Before moving any forward, we need to make sure the batch deployments we are about to create can run on some infrastructure (compute). Batch deployments can run on any Azure ML compute that already exists in the workspace. That means that multiple batch deployments can share the same compute infrastructure. In this example, we are going to work on an AzureML compute cluster called `cpu-cluster`. Let's verify the compute exists on the workspace or create it otherwise.
    
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    Create a compute definition `YAML` like the following one:
    
    __cpu-cluster.yml__
+   
    ```yaml
    $schema: https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json 
    name: cluster-cpu
@@ -129,7 +130,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    az ml compute create -f cpu-cluster.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    To create a new compute cluster where to create the deployment, use the following script:
    
@@ -142,7 +143,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
 4. Now it is time to create the batch endpoint and deployment. Let's start with the endpoint first. Endpoints only require a name and a description to be created:
    
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    To create a new endpoint, create a `YAML` configuration like the following:
    
@@ -160,7 +161,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    az ml batch-endpoint create -f endpoint.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    To create a new endpoint, use the following script:
    
@@ -174,7 +175,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
 5. Now, let create the deployment. MLflow models don't require you to indicate an environment or a scoring script when creating the deployments as it is created for you. However, you can specify them if you want to customize how the deployment does inference.
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
    
@@ -202,10 +203,10 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    ```bash
    DEPLOYMENT_NAME="classifier-xgboost-mlflow"
-   az ml batch-endpoint create -f endpoint.yml
+   az ml batch-deployment create -f endpoint.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    To create a new deployment under the created endpoint, use the following script:
    
@@ -233,13 +234,13 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
 6. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```bash
    az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    endpoint.defaults.deployment_name = deployment.name
@@ -254,7 +255,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
 1. Let's create the data asset first. This data asset consists of a folder with multiple CSV files that we want to process in parallel using batch endpoints. You can skip this step is your data is already registered as a data asset or you want to use a different input type.
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    Create a data asset definition in `YAML`:
    
@@ -273,7 +274,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    az ml data create -f heart-dataset-unlabeled.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    data_path = "heart-classifier-mlflow/data"
@@ -290,7 +291,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
 2. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```bash
    JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:heart-dataset-unlabeled@latest | jq -r '.name') 
@@ -299,7 +300,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get installation instructions in [this link](https://stedolan.github.io/jq/download/).
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path=heart_dataset_unlabeled.id)
@@ -315,13 +316,13 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
 3. A batch job is started as soon as the command returns. You can monitor the status of the job until it finishes:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```bash
    az ml job show --name $JOB_NAME
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    ml_client.jobs.get(job.name)
@@ -341,7 +342,7 @@ The file is structured as follows:
 
 You can download the results of the job by using the job name:
 
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 To download the predictions, use the following command:
 
@@ -349,7 +350,7 @@ To download the predictions, use the following command:
 az ml job download --name $JOB_NAME --output-name score --download-path ./
 ```
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/sdk)
 
 ```python
 ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
@@ -485,11 +486,11 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    > [!IMPORTANT]
    > This example uses a conda environment specified at `/heart-classifier-mlflow/environment/conda.yaml`. This file was created by combining the original MLflow conda dependencies file and adding the package `azureml-core`. __You can't use the `conda.yml` file from the model directly__.
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file.
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    Let's get a reference to the environment:
    
@@ -502,7 +503,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    
 1. Let's create the deployment now:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
    
@@ -535,10 +536,10 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    Then, create the deployment with the following command:
    
    ```bash
-   az ml batch-endpoint create -f endpoint.yml
+   az ml batch-deployment create -f deployment.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    To create a new deployment under the created endpoint, use the following script:
    

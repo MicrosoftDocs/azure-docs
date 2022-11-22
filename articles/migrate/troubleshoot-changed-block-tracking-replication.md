@@ -5,7 +5,8 @@ author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
-ms.date: 06/30/2022
+ms.date: 08/10/2022
+ms.custom: engagement-fy23
 ---
 
 # Troubleshooting replication issues in agentless VMware VM migration

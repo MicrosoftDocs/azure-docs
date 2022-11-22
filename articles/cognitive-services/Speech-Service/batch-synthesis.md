@@ -37,6 +37,8 @@ You can use the following REST API operations for batch synthesis:
 | List batch synthesis   | `GET`    | texttospeech/3.1-preview1/batchsynthesis      |
 | Delete batch synthesis | `DELETE` | texttospeech/3.1-preview1/batchsynthesis/{id} |
 
+For code samples, see [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch-synthesis).
+
 ## Create batch synthesis
 
 To submit a batch synthesis request, construct the HTTP POST request body according to the following instructions:
