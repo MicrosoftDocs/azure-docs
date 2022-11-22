@@ -491,7 +491,7 @@ sections:
           * [Single-page web apps](app/javascript.md)
           * [SharePoint](app/sharepoint.md)
           * [Windows desktop app](app/windows-desktop.md)
-          * [Other platforms](app/platforms.md)
+          * [Other platforms](app/app-insights-overview.md#supported-languages)
           
       - question: |
           Is it free?
@@ -752,7 +752,7 @@ sections:
       - question: |
           Can I send telemetry to the Application Insights portal?
         answer: |
-          We recommend you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
+          We recommend you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/app-insights-overview.md#supported-languages). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
           
       - question: |
           Can I monitor an intranet web server?
@@ -830,7 +830,7 @@ sections:
           <!--Link references-->
           
           [data]: app/data-retention-privacy.md
-          [platforms]: app/platforms.md
+          [platforms]: app/app-insights-overview.md#supported-languages
           [start]: app/app-insights-overview.md
           [windows]: app/app-insights-windows-get-started.md
           
@@ -859,7 +859,7 @@ sections:
           
           The key value propositions of OpenTelemetry are that it's vendor-neutral and provides consistent APIs/SDKs across languages.
           
-          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported languages](./app/platforms.md) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than its predecessor the Application Insights SDK.
+          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported languages](./app/app-insights-overview.md#supported-languages) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than its predecessor the Application Insights SDK.
           
           Finally, OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
           
@@ -915,7 +915,7 @@ sections:
         answer: |
           Some customers have begun to use the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative even though Microsoft doesn’t officially support an agent-based approach for application monitoring yet. In the meantime, the open source community has contributed an [OpenTelemetry-Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights.
           
-          We plan to support an agent-based approach in the future, though the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry supported language to send to Azure Monitor via [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This will enable customers to observe applications written in languages beyond our [supported languages](./app/platforms.md). 
+          We plan to support an agent-based approach in the future, though the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry supported language to send to Azure Monitor via [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This will enable customers to observe applications written in languages beyond our [supported languages](./app/app-insights-overview.md#supported-languages). 
           
       - question: |
           What's the difference between OpenCensus and OpenTelemetry?
