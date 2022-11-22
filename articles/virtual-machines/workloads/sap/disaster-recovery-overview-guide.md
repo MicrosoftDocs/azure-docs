@@ -47,7 +47,7 @@ There are different elements to consider when designing a disaster recovery solu
 
   - GRS option is available for storage account with standard storage type that replicates data to paired region. But standard storage isn't suitable for SAP DBMS or virtual data disks.
   
-  - Azure back up service used to back up [supported solutions](../../../backup/backup-overview.md#what-can-i-back-up) can replicate backups only between paired regions. For all your other data, run your own replications with native DBMS features like SQL Server Always On, SAP HANA System Replication, and other services. Use a combination of Azure Site Recovery, rsync or robocopy, and other third-party software for the SAP application layer.
+  - The Azure backup service used to back up [supported solutions](../../../backup/backup-overview.md#what-can-i-back-up) can replicate backups only between paired regions. For all your other data, run your own replications with native DBMS features like SQL Server Always On, SAP HANA System Replication, and other services. Use a combination of Azure Site Recovery, rsync or robocopy, and other third-party software for the SAP application layer.
 
 ## Reference SAP workload deployment
 
