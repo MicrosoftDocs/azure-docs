@@ -53,8 +53,6 @@ Each option generates PowerShell scripts that enable you to control user access 
 
 :::zone pivot="aad-powershell"
 
-## Review and revoke permissions
-
 Using the following Azure AD PowerShell script revokes all permissions granted to an application.
 
 ```powershell
@@ -97,9 +95,8 @@ $assignments | ForEach-Object {
 }
 ```
 :::zone-end
-:::zone pivot="ms-powershell"
 
-## Review and revoke permissions
+:::zone pivot="ms-powershell"
 
 Using the following Microsoft Graph PowerShell script revokes all permissions granted to an application.
 
@@ -159,14 +156,18 @@ To complete review and revoke permissions, you'll need to consent to the followi
 
 `Application.Read.All`, `Application.ReadWrite.All`, `Directory.Read.All`, `Directory.ReadWrite.All`.
 
-### Review and remove delegated permissions
+### Delegated permissions
 
-1. Get Service Principal using objectId
+1. Get Service Principal using objectID
 
     ```http
     GET /servicePrincipals/{id}
+    ```
+ 
+   Example:
 
-    Example: GET /servicePrincipals/57443554-98f5-4435-9002-852986eea510
+    ```http
+    GET /servicePrincipals/57443554-98f5-4435-9002-852986eea510
     ```
 
 1. Get all delegated permissions for the service principal
@@ -180,7 +181,7 @@ To complete review and revoke permissions, you'll need to consent to the followi
     DELETE /oAuth2PermissionGrants/{id}
     ```
 
-### Review and remove application permissions
+### Application permissions
 
 1. Get all application permissions for the service principal
 
@@ -195,12 +196,15 @@ To complete review and revoke permissions, you'll need to consent to the followi
 
 ## Invalidate the refresh tokens
 
-1. Get Service Principal using objectId
+1. Get Service Principal using objectID
 
     ```http
     GET /servicePrincipals/{id}
-    
-    Example: GET /servicePrincipals/57443554-98f5-4435-9002-852986eea510
+    ```
+   Example:
+
+    ```http
+    GET /servicePrincipals/57443554-98f5-4435-9002-852986eea510
     ```
 1. Get Azure AD App role assignments using objectID of the Service Principal
 
