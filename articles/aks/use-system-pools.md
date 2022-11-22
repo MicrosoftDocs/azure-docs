@@ -3,7 +3,7 @@ title: Use system node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/18/2020
+ms.date: 11/22/2022
 ms.custom: fasttrack-edit, devx-track-azurecli
 ---
 
@@ -31,7 +31,6 @@ You need the Azure PowerShell version 7.5.0 or later installed and configured. R
 The following limitations apply when you create and manage AKS clusters that support system node pools.
 
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* The AKS cluster must be built with virtual machine scale sets as the VM type and the *Standard* SKU load balancer.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools, the length must be between 1 and 12 characters. For Windows node pools, the length must be between 1 and 6 characters.
 * An API version of 2020-03-01 or greater must be used to set a node pool mode. Clusters created on API versions older than 2020-03-01 contain only user node pools, but can be migrated to contain system node pools by following [update pool mode steps](#update-existing-cluster-system-and-user-node-pools).
 * The mode of a node pool is a required property and must be explicitly set when using ARM templates or direct API calls.
