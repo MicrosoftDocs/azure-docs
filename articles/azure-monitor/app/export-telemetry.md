@@ -290,7 +290,6 @@ To migrate to diagnostic settings export:
 >
 > These steps are necessary because Application Insights accesses telemetry across Application Insight resources, including Log Analytics workspaces, to provide complete end-to-end transaction operations and accurate application maps. Because diagnostic logs use the same table names, duplicate telemetry can be displayed if the user has access to multiple resources that contain the same data.
 
-<!-- MERGE HERE -->
 ## Application Insights Export Data Model
 This table lists the properties of telemetry sent from the [Application Insights](./app-insights-overview.md) SDKs to the portal.
 You'll see these properties in data output from [Continuous Export](export-telemetry.md).
