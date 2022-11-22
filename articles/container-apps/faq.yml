@@ -5,7 +5,7 @@ metadata:
   keywords: azure container apps, frequently asked questions
   author: craigshoemaker
   ms.topic: faq
-  ms.service: conainer-apps
+  ms.service: container-apps
   ms.date: 11/21/2022
   ms.author: cshoe
 title: Azure Container Apps frequently asked questions
@@ -70,6 +70,6 @@ sections:
 
           - **Regions**: Approvals for increase requests vary based on compute capacity available in Azure regions.
 
-          - **Specific compute requirements**: The platform supports 4GB per container app. Memorty limits overrides are evaluated on a per-case basis.
+          - **Specific compute requirements**: The platform supports 4GB per container app. Memory limits overrides are evaluated on a per-case basis.
 
           - **Business reasoning for scaling**: You may be eligible for a quota increase request if the platform limits are blocking your workload demands. Scale limits overrides are evaluated on a per-case basis.
