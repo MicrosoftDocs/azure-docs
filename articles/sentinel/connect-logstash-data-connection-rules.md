@@ -69,7 +69,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 
 - Install a supported version of Logstash. The plugin supports: 
     - Logstash version 7.0 to 7.17.6.
-    - Logstash version 8.0 to 8.4.2. 
+    - Logstash version 8.0 to 8.5.1. 
     
     > [!NOTE]
     > If you use Logstash 8, we recommended that you [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
