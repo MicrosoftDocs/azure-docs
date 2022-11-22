@@ -156,7 +156,7 @@ ApiManagementGatewayLogs
 
 For more information about using resource logs for API Management, see:
 
-* [Get started with Azure Monitor Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md), or try the Log Analytics Demo environment.
+* [Get started with Azure Monitor Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md), or try the [Log Analytics Demo environment](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade).
 
 * [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
