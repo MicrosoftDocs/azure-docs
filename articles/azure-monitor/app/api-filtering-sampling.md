@@ -336,7 +336,7 @@ cfg: { // Application Insights Configuration
 </script>
 ```
 
-For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-data-model.md).
+For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-telemetry.md#application-insights-export-data-model).
 
 You can add as many initializers as you like. They're called in the order that they're added.
 
