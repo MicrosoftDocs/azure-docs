@@ -580,9 +580,9 @@ items:
         items:
         - name: .NET
           items:
-          - name: Get started
+          - name: Getting started
             href: storage-blob-dotnet-get-started.md
-          - name: Work with containers
+          - name: Container actions
             items:
             - name: Create a container
               href: storage-blob-container-create.md
@@ -592,12 +592,10 @@ items:
               href: storage-blob-containers-list.md
             - name: Manage properties and metadata
               href: storage-blob-container-properties-metadata.md
-          - name: Work with blobs
+          - name: Blob actions
             items:
             - name: Upload blobs
               href: storage-blob-upload.md
-            - name: Append to blobs
-              href: storage-blob-append.md
             - name: Download blobs
               href: storage-blob-download.md
             - name: Copy blobs
@@ -612,19 +610,25 @@ items:
               href: storage-blob-properties-metadata.md
             - name: Create and manage leases
               href: storage-blob-container-lease.md
-          - name: Implement a retry policy
-            href: storage-retry-policy.md
+          - name: Append blob actions
+            items:
+            - name: Append to blobs
+              href: storage-blob-append.md
+          - name: Blob configuration scenarios
+            items:
+            - name: Implement a retry policy
+              href: storage-retry-policy.md
         - name: JavaScript
           items:
-          - name: Get started
+          - name: Getting started
             href: storage-blob-javascript-get-started.md
-          - name: Work with SAS tokens
+          - name: Working with SAS tokens
             items:
             - name: Account SAS
               href: storage-blob-account-delegation-sas-create-javascript.md
             - name: User SAS
               href: storage-blob-create-user-delegation-sas-javascript.md
-          - name: Work with containers
+          - name: Container actions
             items:
             - name: Create a container
               href: storage-blob-container-create-javascript.md
@@ -636,7 +640,7 @@ items:
               href: storage-blob-containers-list-javascript.md
             - name: Manage properties and metadata
               href: storage-blob-container-properties-metadata-javascript.md
-          - name: Work with blobs
+          - name: Blob actions
             items:
             - name: Upload blobs
               href: storage-blob-upload-javascript.md
