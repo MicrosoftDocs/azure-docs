@@ -5,11 +5,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/28/2022
+ms.date: 11/21/2022
 ms.author: jasteppe
 ---
 
-# Part 2: Configure the MedTech service for manual deployment using the Azure portal
+# Quickstart: Part 2: Configure the MedTech service for manual deployment using the Azure portal
 
 Before you can manually deploy the MedTech service, you must complete the following configuration tasks:
 

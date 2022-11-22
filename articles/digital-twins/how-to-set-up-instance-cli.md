@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the CLI
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q2 
@@ -44,6 +44,20 @@ Use these values in the following [az dt command](/cli/azure/dt) to create the i
 
 ```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
+```
+
+There are several optional parameters that can be added to the command to specify additional things about your resource during creation, including creating a [system managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for the instance or enabling/disabling public network access. For a full list of supported parameters, see the [az dt create](/cli/azure/dt#az-dt-create) reference documentation.
+
+### Create the instance with a system-managed identity
+
+When you enable a [system-assigned identity](concepts-security.md#managed-identity-for-accessing-other-resources) on your Azure Digital Twins instance, Azure automatically creates an identity for it in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). That identity can then be used to authenticate to Azure Digital Twins endpoints for event forwarding. You can enable a system-managed identity for an Azure Digital Twins instance during instance creation, or [later on an existing instance](#enabledisable-system-managed-identity-for-the-instance).
+
+To create an Azure Digital Twins instance with system-assigned identity enabled, you can add an `--assign-identity` parameter to the `az dt create` command that's used to create the instance. (For more information about this command, see its [reference documentation](/cli/azure/dt#az-dt-create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+
+To create an instance with a system managed identity, add the  `--assign-identity` parameter like this:
+
+```azurecli-interactive
+az dt create --dt-name <new-instance-name> --resource-group <resource-group> --assign-identity
 ```
 
 ### Verify success and collect important values
@@ -95,6 +109,28 @@ The result of this command is outputted information about the role assignment th
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
 
 You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it.
+
+## Enable/disable system-managed identity for the instance 
+
+This section shows you how to add a system-managed identity to an existing Azure Digital Twins instance. You can also disable system-managed identity on an instance that has it already.
+
+The command to enable managed identity for an existing instance is the same `az dt create` command that's used to [create a new instance with a system managed identity](#create-the-instance-with-a-system-managed-identity). Instead of providing a new name of an instance to create, you can provide the name of an instance that already exists. Then, make sure to add the `--assign-identity` parameter.
+
+```azurecli-interactive
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity
+```
+
+To disable managed identity on an instance where it's currently enabled, use the following similar command to set `--assign-identity` to `false`.
+
+```azurecli-interactive
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity false
+```
+
+### Considerations for disabling system-managed identities
+
+It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-route-with-managed-identity.md) or for [data history](how-to-use-data-history.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
+
+To continue using an endpoint that was set up with a managed identity that's now been disabled, you'll need to delete the endpoint and [re-create it](how-to-manage-routes.md#create-an-endpoint-for-azure-digital-twins) with a different authentication type. It may take up to an hour for events to resume delivery to the endpoint after this change.
 
 ## Next steps
 
