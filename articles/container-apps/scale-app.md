@@ -195,7 +195,7 @@ The following example demonstrates how to create a custom scale rule.
 
 ### Example
 
-This example shows how to convert a [Datadog scaler](https://keda.sh/docs/latest/scalers/datadog/) to a Container Apps scale rule, but you use the same process for any other [KEDA scaler](https://keda.sh/docs/latest/scalers/).
+This example shows how to convert an [Azure Service Bus scaler](https://keda.sh/docs/latest/scalers/azure-service-bus/) to a Container Apps scale rule, but you use the same process for any other [KEDA scaler](https://keda.sh/docs/latest/scalers/).
 
 For authentication, KEDA scaler authentication parameters convert into [Container Apps secrets](manage-secrets.md).
 
@@ -240,29 +240,29 @@ First, you'll define the type and metadata of the scale rule.
 
 1. Find the `type` value from the KEDA scaler.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-datadog-trigger.yml" highlight="2":::
+    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="2":::
 
 1. Set this value into the `custom.type` property of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-0.json" highlight="6":::
+    :::code language="json" source="../../includes/container-apps/container-apps-azure-service-bus-rule-0.json" highlight="4":::
 
 1. Find the `metadata` values from the KEDA scaler.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-datadog-trigger.yml" highlight="5,6,7,8,9,10":::
+    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-trigger.yml" highlight="4,5,6,7,8,9,10":::
 
 1. Add all metadata values to the `custom.metadata` section of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-0.json" highlight="8,9,10,11,12,13":::
+    :::code language="json" source="../../includes/container-apps/container-apps-azure-service-bus-rule-0.json" highlight="8,9,10,11,12,13,14":::
 
 Next, you'll map the [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) object to the scale rule.
 
 1. Find each `secretTargetRef` of a `TriggerAuthentication` object.
 
-    :::code language="yml" source="../../includes/container-apps/keda-azure-datadog-auth.yml" highlight="19,20,21,22,23,24,25,26,27":::
+    :::code language="yml" source="../../includes/container-apps/keda-azure-service-bus-auth.yml" highlight="16,17,18":::
 
 1. Add all metadata values to the `auth` array of the scale rule.
 
-    :::code language="json" source="../../includes/container-apps/container-apps-datadog-rule-1.json" highlight="3,4,5,6,7,8,9,10,11,12,13,14":::
+    :::code language="json" source="../../includes/container-apps/container-apps-azure-service-bus-rule-1.json" highlight="3,4,5,6":::
 
     Alternatively, you can use the `connectionFromEnv` metadata parameter to provide a security context for your scale rule. When you set `connectionFromEnv` to an environment variable name, Container Apps looks at the first container listed in the ARM template for a connection string.
 

@@ -1,0 +1,27 @@
+...
+"rules": [
+  {
+    "name": "azure-servicebus-queue-rule",
+    "custom": {
+      "type": "azure-servicebus",
+      "metadata": {
+        "queueName": "functions-sbqueue",
+        "namespace": "service-bus-namespace",
+        "connectionFromEnv": "SERVICEBUS_CONNECTIONSTRING_ENV_NAME",
+        "messageCount": "5",
+        "activationMessageCount": "2",
+        "cloud": "Private",
+        "endpointSuffix": "servicebus.airgap.example"
+      }
+    }
+  }
+]
+...
+
+{
+  "template": {
+    "scale": {
+
+    }
+  }
+}

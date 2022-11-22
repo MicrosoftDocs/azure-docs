@@ -1,0 +1,8 @@
+...
+"auth": [
+  {
+    "triggerParameter": "connection",
+    "secretRef": "connection-string-secret"
+  }
+]
+...
