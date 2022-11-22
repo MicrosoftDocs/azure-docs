@@ -57,15 +57,15 @@ First, enable blob inventory reports for your storage account. See [Enable Azure
 
 1. Open your Synapse workspace in Synapse Studio. 
 
-   See [Open Synapse Studio](../../synapse-analytics/get-started-create-workspace.md#open-synapse-studio.md).
+   See [Open Synapse Studio](../../synapse-analytics/get-started-create-workspace.md#open-synapse-studio).
 
 2. In Synapse Studio, Make sure that your identity is assigned the role of **Synapse Administrator**. 
 
-   See [Synapse RBAC: Synapse Administrator role for the workspace](../../synapse-analytics/get-started-add-admin.md#synapse-rbac-synapse-administrator-role-for-the-workspace.md).
+   See [Synapse RBAC: Synapse Administrator role for the workspace](../../synapse-analytics/get-started-add-admin.md#synapse-rbac-synapse-administrator-role-for-the-workspace).
 
 3. Create an Apache Spark pool.
 
-   See [Create a serverless Apache Spark pool](../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool.md).
+   See [Create a serverless Apache Spark pool](../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
 
 ## Set up and run the sample notebook
 
@@ -81,7 +81,7 @@ In this section, you'll use Synapse Studio to generate the output that you'll vi
    
    - Set `destinationContainer` to the name of the container that holds the inventory reports.
    
-   - Set `blobInventoryRuleName` to the name of the inventory report rule which has generated the results that you'd like to analyze.
+   - Set `blobInventoryRuleName` to the name of the inventory report rule that has generated the results that you'd like to analyze.
    
    - Set `accessKey` to the account key of the inventory report account.
 
@@ -95,7 +95,7 @@ In this section, you'll use Synapse Studio to generate the output that you'll vi
 
 2. Open your Synapse workspace in Synapse Studio. 
 
-   See [Open Synapse Studio](../../synapse-analytics/get-started-create-workspace.md#open-synapse-studio.md).
+   See [Open Synapse Studio](../../synapse-analytics/get-started-create-workspace.md#open-synapse-studio).
 
 3. In Synapse Studio, select the **Develop** tab.
 
@@ -105,14 +105,14 @@ In this section, you'll use Synapse Studio to generate the output that you'll vi
 
    The **Properties** dialog box appears.
 
-6. In the **Properties** dialog box, click the **Configure session** link.
+6. In the **Properties** dialog box, select the **Configure session** link.
 
    > [!div class="mx-imgBorder"]
    > ![Import properties dialog box](./media/storage-blob-inventory-report-analytics/import-properties-dialog-box.png) 
 
    The **Configure session** dialog box opens.
 
-7. In the **Attach to** drop-down list of the **Configure session** dialog box, select the Spark pool that you created earlier in this article. Then, click the **Apply** button.
+7. In the **Attach to** drop-down list of the **Configure session** dialog box, select the Spark pool that you created earlier in this article. Then, select the **Apply** button.
 
 #### Modify the Python notebook
 
@@ -120,13 +120,13 @@ In this section, you'll use Synapse Studio to generate the output that you'll vi
 
 2. Update the value of the `container_name` variable to the name of the container in that account that you specified when you created the Synapse workspace.
 
-3. Click the **Publish** button.
+3. Select the **Publish** button.
 
 #### Run the PySpark notebook
 
-In the PySpark notebook, click **Run all**.
+In the PySpark notebook, select **Run all**.
 
-It will take a few minutes to start the Spark session and another few minutes to process the inventory reports. The first run could take a while if there are a lot of inventory reports to process. Subsequent runs will only process the new inventory reports created since the last run.
+It will take a few minutes to start the Spark session and another few minutes to process the inventory reports. The first run could take a while if there are numerous inventory reports to process. Subsequent runs will only process the new inventory reports created since the last run.
 
 > [!NOTE]
 > If you make any changes to the notebook will the notebook is running, make sure to publish those changes by using the **Publish** button.
@@ -143,7 +143,7 @@ It will take a few minutes to start the Spark session and another few minutes to
 
    A dialog box appears which asks you to provide the name of the Synapse workspace and the data base name. 
 
-3. In the dialog box, provide the workspace name, and ensure that **reportdata** appears as the database name. Then, select the **Load** button.
+3. In the dialog box, provide the workspace name, and ensure that `reportdata` appears as the database name. Then, select the **Load** button.
 
    A report appears which provides visualizations of the data retrieved by the notebook.
 
