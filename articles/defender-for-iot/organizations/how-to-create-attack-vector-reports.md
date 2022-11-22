@@ -22,38 +22,30 @@ This section describes how to create Attack Vector reports.
 
 **To create an attack vector simulation:**
 
-1. Select **Attack vector** from the sensor side menu. 
+1. Select **Attack vector** from the sensor side menu.
 1. Select **Add simulation**.
+1. Enter simulation properties:
 
-2. Enter simulation properties:
+    | Parameter  | Description  |
+    |---------|---------|
+    | **Name** | Simulation name |
+    | **Maximum vectors** | The maximum number of vectors in a single simulation. |
+    | **Show in Device map** | Show the attack vector as a group in the Device map. |
+    | **All Source devices** | The attack vector will consider all devices as an attack source. |
+    | **Attack Source** | The attack vector will consider only the specified devices as an attack source. |
+    | **All Target devices** | The attack vector will consider all devices as an attack target. |
+    | **Attack Target** | The attack vector will consider only the specified devices as an attack target. |
+    | **Exclude devices** | Specified devices will be excluded from the attack vector simulation. |
+    | **Exclude Subnets** | Specified subnets will be excluded from the attack vector simulation. |
 
-   - **Name**: Simulation name.
-
-   - **Maximum vectors**: The maximum number of vectors in a single simulation.
-
-   - **Show in Device map**: Show the attack vector as a group in the Device map.
-
-   - **All Source devices**: The attack vector will consider all devices as an attack source.
-
-   - **Attack Source**: The attack vector will consider only the specified devices as an attack source.
-
-   - **All Target devices**: The attack vector will consider all devices as an attack target.
-
-   - **Attack Target**: The attack vector will consider only the specified devices as an attack target.
-
-   - **Exclude devices**: Specified devices will be excluded from the attack vector simulation.
-
-   - **Exclude Subnets**: Specified subnets will be excluded from the attack vector simulation.
-
-3. Select **Save**.
+1. Select **Save**.
 1. Select the report that is saved from the Attack vector page and review:
     - network attack paths and insights
     - a risk score
     - source and target devices
-    -  a graphical representation of attack vectors
+    - a graphical representation of attack vectors
 
    :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Screen shot of Attack vectors report.":::
-
 
 ## Next steps
 
