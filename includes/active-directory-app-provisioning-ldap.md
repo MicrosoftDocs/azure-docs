@@ -49,7 +49,17 @@ The following bullet points are more recommendations and limitations.
 - Provisioning users from Azure Active Directory to Active Directory Domains Services is not supported.
 - Provisioning users from LDAP to Azure AD is not supported.
 
-## Determine how the Azure AD LDAP Connector will interact with your directory
+## Selecting run profiles
+
+When you create the configuration for the connector to interact with a directory server, you'll configure first for the connector to read the schema of your directory, map that schema to that of Azure AD, and then configure the approach the connector should use on an ongoing basis, via run profiles. Each run profile specifies how the connector should generate LDAP requests.  The choice of run profiles, depends on what your directory server supports.
+
+- After configuration, when the provisioning service starts, it will automatically perform the interactions configured in the **Full Import** run profile.  In this run profile, the connector will read in all the records for users from the directory, using an LDAP Search operation.  This run profile is necessary so that later, if Azure AD needs to make a change for a user, Azure AD will know to update an existing object for that user in the directory, rather than create a new object for that user.
+
+- Each time changes are made in Azure AD, such as to assign a new user to the application or update an existing user, the provisioning service will perform the LDAP interactions in the **Export** run profile. In the **Export** run profile, Azure AD will issue LDAP requests to Add, Modify, Remove or REname objects in the directory, in order to bring the contents of the directory in sync with Azure AD.
+
+- If your directory supports it, you can also optionally configure a **Delta Import** run profile. In this run profile, Azure AD will read in changes that were made in the directory, other than by Azure AD, since the last full or delta import.  This run profile is optional since the directory may not have been configured to support a delta import.
+
+## Determine how the Azure AD LDAP Connector will interact with the directory server
 
 Before deploying the connector to an existing directory server, you'll need to discuss with the directory server operator in your organization how to integrate with their directory server.  The information you'll gather includes the network information of how to connect to the directory server, how the connector should authenticate itself to the directory server, what schema the directory server has selected to model users, the naming context's base distinguished name and directory hierarchy rules, how to associate users in the directory server with users in Azure AD, and what should happen when a user goes out of scope in Azure AD.  Deploying this connector may require changes to the configuration of the directory server as well as configuration changes to Azure AD. For deployments involving integrating Azure AD with a third-party directory server in a production environment, we recommend customers work with their directory server vendor, or a deployment partner for help, guidance, and support for this integration.  This article uses the following sample values for AD LDS.
 
@@ -78,6 +88,7 @@ Next, you'll need to define the rules for how the connector should determine if 
 
 Finally, you'll need to agree on the deprovisioning behavior.  When the connector is configured, and Azure AD has established a link between a user in Azure AD and a user in the directory, either for a user already in the directory or a new user, then Azure AD can provision attribute changes from the Azure AD user into the directory. If a user that is assigned to the application is deleted in Azure AD, then Azure AD will send a delete operation to the directory server. You may also wish to have Azure AD update the directory server when a user goes out of scope of being able to use the application.
 
+
 ## Prepare the LDAP directory
 
 If you do not already have a directory server, and wish to try out this feature, then [Prepare Active Directory Lightweight Directory Services for provisioning from Azure AD](../articles/active-directory/app-provisioning/on-premises-ldap-connector-prepare-directory.md) shows how to create a test AD LDS environment.   If you already have  another directory server deployed, you can skip that article, and continue installing and configuring the ECMA connector host.
@@ -85,13 +96,16 @@ If you do not already have a directory server, and wish to try out this feature,
 
 ## Download, install, and configure the Azure AD Connect Provisioning Agent Package
 
-1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the virtual machine or server that has connectivity to your LDAP directory.
+1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the virtual machine or on-premises Windows Server that has connectivity to the LDAP directory server.
      >[!NOTE]
      >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
  1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
  1. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
  1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The Hybrid Identity Administrator or Global Administrator role is required.
  1. Select **Confirm** to confirm the installation was successful.
+
+## Configure the On-premises ECMA app
+
  1. Sign in to the Azure portal.
  1. Go to **Enterprise applications** > **Add a new application**.
  1. Search for the **On-premises ECMA app** application, and add it to your tenant.
@@ -125,51 +139,82 @@ If you do not already have a directory server, and wish to try out this feature,
      |Autosync timer (minutes)|120|
      |Secret Token|Enter your own key here. It should be 12 characters minimum.|
      |Extension DLL|For the generic LDAP connector, select **Microsoft.IAM.Connector.GenericLdap.dll**.|
-4. On the **Connectivity** page, you will configure how the ECMA Connector Host will communicate with your directory server. Fill in the boxes with the values specified in the table that follows the image and select **Next**.
+4. On the **Connectivity** page, you will configure how the ECMA Connector Host will communicate with the directory server, and set some of the configuration options. Fill in the boxes with the values specified in the table that follows the image and select **Next**.  When you select **Next**, the connector will query the directory server for its configuration.
      [![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-ldap\create-2.png)](.\media\active-directory-app-provisioning-ldap\create-2.png#lightbox)</br>
      
      |Property|Description|
      |-----|-----|
      |Host|The host name where the LDAP server is located. This sample uses `APP3` as the example hostname.|
-     |Port|The TCP port number.  For LDAP over SSL, use port 636.  For `Start TLS`, use port 389.|
+     |Port|The TCP port number. If the directory server is configured for LDAP over SSL, use port 636.  For `Start TLS`, or if you are using network-level security, use port 389.|
      |Connection Timeout|180|
-     |Binding|SSL|
-     |User Name|How the ECMA Connector will authenticate itself to your directory server. In this sample, the example username is `CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab`|
-     |Password|The password of the user name specified|
+     |Binding|This specifies how the connector will authenticate to the directory server. With the `Basic` setting, the connector will send an LDAP simple bind with a distinguished name and a password. With the `SSL` or `TLS` setting, the connector will send an LDAP SASL EXTERNAL bind with a client certificate.   |
+     |User Name|How the ECMA Connector will authenticate itself to the directory server. In this sample, the example username is `CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab`|
+     |Password|The password of the user name specified.|
+     |Realm/Domain|This setting is only required if you selected `Kerberos` as the binding option, to provide the Realm/Domain of the user.|
+     |Certificate|The settings in this section are only required you selected `SSL` or `TLS` as the binding option.|
+     |Attribute Aliases|The attribute aliases text box is used for attributes defined in the schema with RFC4522 syntax. These attributes cannot be detected during schema detection and the Connector needs help to identify those attributes. For example the following must be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute: `userCertificate;binary`.|
+     |Include operational attributes|Select the `Include operational attributes in schema` checkbox to also include attributes created by the directory server. These include attributes such as when the object was created and last update time.|
+     |Include extensible attributes|Select the `Include extensible attributes in schema` checkbox if extensible objects (RFC4512/4.3) are used in the directory server. Enabling this option allows every attribute to be used on all object. Selecting this option makes the schema very large so unless the connected directory is using this feature the recommendation is to keep the option unselected.|
+     |Allow manual anchor selection|Leave unchecked.|
 
      >[!NOTE]
-     >If you experience and issue trying to connect, ensure that the service account in AD LDS or your other directory server is enabled.
+     >If you experience an issue trying to connect, and cannot proceed to the **Global** page, ensure that the service account in AD LDS or the other directory server is enabled.
      
- 5. On the **Global** page, select **Next**.
- 6. On the **Partitions** page, keep the default and select **Next**.
- 7. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**.
+ 5. On the **Global** page, you will configure the distinguished name of the delta change log, if needed and additional LDAP features. The page is pre-populated with the information provided by the LDAP server. Review the values shown, and then select **Next**.
+ 
+     |Property|Description|
+     |-----|-----|
+     |Supported SASL Mechanisms and Mandatory Features Found|The top section shows information provided by the server itself, such as the name of the server. The connector also verifies that the mandatory controls are present in the Root DSE. If these controls are not listed, a warning is presented. Some LDAP directories do not list all features in the Root DSE and it is possible that the Connector works without issues even if a warning is present.|
+     |Supported Controls|The **supported controls** checkboxes control the behavior for certain operations|
+     |Delta Import|The change log DN is the naming context used by the delta change log, for example **cn=changelog**. This value must be specified to be able to do delta import.|
+     |Password Attribute|Not used.|
+     |Partition Names|In the additional partitions list, it is possible to add additional namespaces not automatically detected. For example, this setting can be used if several servers make up a logical cluster, which should all be imported at the same time. Just as Active Directory can have multiple domains in one forest but all domains share one schema, the same can be simulated by entering the additional namespaces in this box. Each namespace can import from different servers and is further configured on the **Configure Partitions and Hierarchies** page.|
+    
+ 1. On the **Partitions** page, keep the default and select **Next**.
+ 1. On the **Run Profiles** page, ensure the **Export** checkbox and the **Full import** checkbox are both selected. Then select **Next**.
      [![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-ldap\create-3.png)](.\media\active-directory-app-provisioning-ldap\create-3.png#lightbox)</br>
      
      |Property|Description|
      |-----|-----|
-     |Export|Run profile that will export data to your LDAP directory. This run profile is required.|
-     |Full import|Run profile that will import all data from LDAP sources specified earlier.|
+     |Export|Run profile that will export data to the LDAP directory server. This run profile is required.|
+     |Full import|Run profile that will import all data from LDAP sources specified earlier. This run profile is required.|
      |Delta import|Run profile that will import only changes from LDAP since the last full or delta import.|
- 12. On the **Export** page, leave the defaults and click **Next**. 
- 13. On the **Full Import** page,  leave the defaults and click **Next**. 
- 14. On the **Object Types** page, fill in the boxes and select **Next**. 
-      - **Target object**: This object is the target object in the LDAP directory.
-      - **Anchor**: The values of this attribute should be unique for each object in the target directory. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle. You must be using agent version 1.1.846.0 or above for ObjectGUID to work as the anchor.
-      - **Query Attribute**: This attribute should be the same as the Anchor.
-      - **DN**: The distinguishedName of the target object.
-     
+ 12. On the **Export** page, leave the defaults unchanged and click **Next**. 
+ 13. On the **Full Import** page,  leave the defaults unchanged and click **Next**. 
+ 1. On the **DeltaImport** page, if present, leave the defaults unchanged and click **Next**.
+ 1. On the **Object Types** page, fill in the boxes and select **Next**. 
+ 
      |Property|Description|
      |-----|-----|
-     |Target object|User|
-     |Anchor|ObjectGUID|
-     |Query Attribute|objectGUID|
-     |DN|-dn-|
-     |Autogenerated|unchecked|      
- 15. The ECMA host discovers the attributes supported by the target directory. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.On the **Select Attributes** page, add all the attributes in the dropdown list, one at a time.
+     |Target object|This value is the structural object class of a user in the LDAP directory server. For example, `inetOrgPerson` for OpenLDAP, or `User` for AD LDS.|
+     |Anchor|The values of this attribute should be unique for each object in the target directory. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle. For AD LDS, use `ObjectGUID`, and for other directory servers, see the table below.|
+     |Query Attribute|This attribute should be the same as the Anchor, such as `objectGUID` if AD LDS is the directory server.|
+     |DN|The distinguishedName of the target object. Keep `-dn-`.|
+     |Autogenerated|unchecked|
+
+     The following is a list of LDAP servers and the anchor being used:
+
+     | Directory | Anchor attribute |
+     | --- | --- |
+     | Microsoft AD LDS and AD GC |objectGUID. You must be using agent version 1.1.846.0 or above for `ObjectGUID` to be used as the anchor. |
+     | 389 Directory Server |dn |
+     | Apache Directory |dn |
+     | IBM Tivoli DS |dn |
+     | Isode Directory |dn |
+     | Novell/NetIQ eDirectory |GUID |
+     | Open DJ/DS |dn |
+     | Open LDAP |dn |
+     | Oracle ODSEE |dn |
+     | RadiantOne VDS |dn |
+     | Sun One Directory Server |dn |
+
+
+ 15. The ECMA host discovers the attributes supported by the target directory. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning. On the **Select Attributes** page, add all the attributes in the dropdown list, one at a time, that are required as mandatory attributes or that you wish to provision from Azure AD.
      [![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-ldap\create-5.png)](.\media\active-directory-app-provisioning-ldap\create-5.png#lightbox)</br>
-      The **Attribute** dropdown list shows any attribute that was discovered in the target directory and *wasn't* chosen on the previous **Select Attributes** page.  Once all the relevant attributes have been added, select **Next**.
+      The **Attribute** dropdown list shows any attribute that was discovered in the target directory and *wasn't* chosen on the previous use of the configuration wizard **Select Attributes** page.  Once all the relevant attributes have been added, select **Next**.
  
- 16. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. The attributes selected on the previous page won't be available to select on the Deprovisioning page. Select **Finish**.
+ 16. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. Note that if `Set attribute value` is chosen, the attributes selected on the previous page won't be available to select on the Deprovisioning page. 
+ 17. Select **Finish**.
 
 ## Ensure ECMA2Host service is running
  1. On the server the running the Azure AD ECMA Connector Host, select **Start**.
@@ -269,7 +314,7 @@ For more information, change to the **Troubleshooting & Recommendations** tab.
 For other errors, see [troubleshooting on-premises application provisioning](../articles/active-directory/app-provisioning/on-premises-ecma-troubleshoot.md).
 
 ## Check that users were successfully provisioned
-After waiting, check your directory to ensure users are being provisioned.  The following instructions illustrate how to check AD LDS.
+After waiting, check the directory server to ensure users are being provisioned.  The following instructions illustrate how to check AD LDS.
 
  1. Open Server Manager and select AD LDS on the left.
  2. Right-click your instance of AD LDS and select ldp.exe from the pop-up.
