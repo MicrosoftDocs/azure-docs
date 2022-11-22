@@ -220,8 +220,7 @@ az containerapp up \
   --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
-  --source . `
-  --ingress 'external' .
+  --source .
 ```
 
 # [Azure PowerShell](#tab/powershell)
@@ -232,8 +231,8 @@ az containerapp up `
     --resource-group $RESOURCE_GROUP `
     --location $LOCATION `
     --environment $ENVIRONMENT `
-    --source . `
-    --ingress 'external'
+    --source .
+
 ```
 
 ---
@@ -254,7 +253,7 @@ Build and deploy your first container app from your forked GitHub repository wit
 
 The `up` command uses the Docker file in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Docker file.  A Docker file isn't required to build a container app. 
 
-Replace the `<YOUR_GITHUB_REPOSITORY_NAME/>` with your GitHub repository name in the form of `https://github.com/<owner>/<repository-name>` or `<owner>/<repository-name>`.
+Replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<owner>/<repository-name>` or `<owner>/<repository-name>`.
 
 
 # [Bash](#tab/bash)
@@ -265,8 +264,8 @@ az containerapp up \
   --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
-  --repo <YOUR_GITHUB_REPOSITORY_NAME> \
-  --ingress 'external' .
+  --context-path ./src \
+  --repo <YOUR_GITHUB_REPOSITORY_NAME>
 ```
 
 # [Azure PowerShell](#tab/powershell)
@@ -277,13 +276,17 @@ az containerapp up `
     --resource-group $RESOURCE_GROUP `
     --location $LOCATION `
     --environment $ENVIRONMENT `
-    --repo <YOUR_GITHUB_REPOSITORY_NAME> `
-    --ingress 'external'
+    --context-path ./src `
+    --repo <YOUR_GITHUB_REPOSITORY_NAME>
 ```
 
 ---
 
 ::: zone-end
+
+You will be prompted to enter the user code to login your device to GitHub.  The URI for device activation and the user code will be displayed in the terminal.  Go to the device activation page and then copy the user code from the terminal and paste it in the browser.  The browser will prompt you to login to GitHub and authorize the Azure CLI to access your GitHub account.  
+
+The `up` command will create a GitHub Action workflow in your repository.  The workflow will build and deploy the container app to Azure Container Apps.  The workflow will be triggered when you push changes to the repository.  The workflow is located in the `.github/workflows` folder in your repository.
 
 ## Verify deployment
 
