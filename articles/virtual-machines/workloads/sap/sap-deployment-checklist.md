@@ -309,7 +309,7 @@ After deploying infrastructure and applications and before each migration starts
 17.	Application and network security group rules allow communication as desired and planned, and block communication where required.
 18.	Timeout settings are set correctly, as described earlier.
 19.	If using proximity placement groups, check whether the availability sets and their VMs are deployed to the [correct PPG](./sap-proximity-placement-scenarios.md).
-20. Network latency between SAP application layer VMs and DBMS VMs is tested and validated as described in SAP notes [500235](https://launchpad.support.sap.com/#/notes/500235) and [1100926](https://launchpad.support.sap.com/#/notes/1100926). Evaluate the results against the network latency guidance in [SAP note 1100926](https://launchpad.support.sap.com/#/notes/1100926). The network latency should be in the moderate or good range..
+20. Network latency between SAP application layer VMs and DBMS VMs is tested and validated as described in SAP notes [500235](https://launchpad.support.sap.com/#/notes/500235) and [1100926](https://launchpad.support.sap.com/#/notes/1100926). Evaluate the results against the network latency guidance in [SAP note 1100926](https://launchpad.support.sap.com/#/notes/1100926). The network latency should be in the moderate or good range.
 21. Encryption was implemented where necessary and with the appropriate encryption method.
 22. Own encryption keys are protected against loss, destruction, or malicious use.
 23. Interfaces and other applications can connect to the newly deployed infrastructure.
