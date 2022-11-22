@@ -98,10 +98,6 @@ You can also find the documentation of all the applications from here https://ak
 
 For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
 
- 
-
- 
-
 
 ---
 
