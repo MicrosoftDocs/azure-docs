@@ -367,7 +367,7 @@ $AppArgs = @{
 $MyApp = New-AzContainerApp @AppArgs
 
 # show the app's fully qualified domain name
-($MyApp.Configuration.Ingress | Where-Object { $_.Type -eq 'external' }).Fqdn
+$MyApp.IngressFqdn
 ```
 
 ---

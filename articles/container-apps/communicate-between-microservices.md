@@ -236,44 +236,80 @@ az containerapp create \
   --registry-server $ACR_NAME.azurecr.io
 ```
 
+
+By adding the argument `--env-vars "API_BASE_URL=https://$API_ENDPOINT"` to `az containerapp create`, you define an environment variable for your front end application. With this syntax, the environment variable named `API_BASE_URL` is set to the API's FQDN.
+
+The output from the `az containerapp create` command shows the URL of the front end application.
+
 # [Azure PowerShell](#tab/azure-powershell)
 
+To create the container app, create template objects that you will pass in as arguments to the `New-AzContainerApp` command.
+
+Create a template object to define your container image parameters.  The environment variable named `API_BASE_URL` is set to the API's FQDN.
 
 ```azurepowershell
-$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroup -EnvName $Environment).Id
 
 $EnvVars = New-AzContainerAppEnvironmentVarObject -Name API_BASE_URL -Value https://$APIBaseURL
 
-$ContainerObject = @{
+$ContainerArgs = @{
   Name = $FrontendName
   Image = $ACRName + '.azurecr.io/albumapp-ui'
   Env = $EnvVars
 }
+$ContainerObj = New-AzContainerAppTemplateObject @ContainerArgs
+```
 
+You will need run the following command to get your registry credentials.
 
-$ServiceTemplateObj = New-AzContainerAppTemplateObject @TemplateArgs
+```azurepowershell
+$RegistryCredentials = Get-AzContainerRegistryCredential -Name $ACRName -ResourceGroupName $ResourceGroup
+```
 
-$ContainerAppArgs = @{
-    Name = $FrontendName
-    ResourceGroupName = $ResourceGroup
-    Location = $Location
-    ManagedEnvironmentId = $EnvId
-    TemplateContainer = $ContainerObject
-    IngressTargetPort = 3000
-    IngressExternal = $true
-    ManagedEnvironmentId = $EnvId
+Create a registry credential object to define your registry information, and a secret object to define your registry password.  The `PasswordSecretRef` in `$RegistryObj` refers to the `Name` in `$SecretObj`.  
+
+```azurepowershell
+$RegistryArgs = @{
+    Server = $ACRName + '.azurecr.io'
+    PasswordSecretRef = 'registrysecret'
+    Username = $RegistryCredentials.Username
 }
+$RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
 
-New-AzContainerApp @ContainerAppArgs
+$SecretObj = New-AzContainerAppSecretObject -Name 'registrysecret' -Value $RegistryCredentials.Password
+```
+
+Get your environment ID.
+
+```azurepowershell
+$EnvId = (Get-AzContainerAppManagedEnv -EnvName $Environment -ResourceGroup $ResourceGroup).Id
+```
+
+Create the container app.
+
+```azurepowershell
+$AppArgs = @{
+    Name = $FrontendName
+    Location = $Location
+    ResourceGroupName = $ResourceGroup
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $TemplateObj
+    ConfigurationRegistry = $ContainerObj
+    ConfigurationSecret = $SecretObj
+    IngressTargetPort = 3500
+    IngressExternal = $true
+}
+$FrontEndApp = New-AzContainerApp @AppArgs
+
+# show the app's fully qualified domain name
+
+$FrontEndApp.IngressFqdn
 ```
 
 ---
 
-By adding the argument `--env-vars "API_BASE_URL=https://$API_ENDPOINT"` to `az containerapp create`, you define an environment variable for your front end application. With this syntax, the environment variable named `API_BASE_URL` is set to the API's FQDN.
-
 ## View website
 
-The `az containerapp create` CLI command returns the fully qualified domain name (FQDN) of your album UI container app. Open this location in a browser to navigate to the web application resembling the following screenshot.
+Use the container app's fully qualified domain name (FQDN) to view the website.  The page will resemble the following screenshot.
 
 :::image type="content" source="media/communicate-between-microservices/azure-container-apps-album-ui.png" alt-text="Screenshot of album list UI microservice.":::
 
