@@ -50,7 +50,7 @@ GET {{endpoint}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 where the path `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}` matches the resource ID for the data source.
 
 The last two parameters `api-version` and `$filter` are query parameters of type string.
-`$filter` is optional and can take the following values: `atScope` (the default, if parameter is not specified) or `childrenScope`. The first value is used to request all the policies that apply at the level of the path, including the ones that were exist at higher scope as well as the ones that apply specifically to lower scope, that is, children data objects. The second means just return fine-grained policies that apply to the children data objects.
+`$filter` is optional and can take the following values: `atScope` (the default, if parameter is not specified) or `childrenScope`. The first value is used to request all the policies that apply at the level of the path, including the ones that exist at higher scope as well as the ones that apply specifically to lower scope, that is, children data objects. The second means just return fine-grained policies that apply to the children data objects.
 
 >[!Tip]
 > The resource ID can be found under the properties for the data source in the Azure portal.
