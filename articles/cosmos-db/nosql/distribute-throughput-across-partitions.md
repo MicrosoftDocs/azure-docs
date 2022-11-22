@@ -241,7 +241,6 @@ To enroll in the preview, your Azure Cosmos DB account must meet all the followi
     - Azure Functions
     - Azure Search
     - Azure Cosmos DB Spark connector
-    - Azure Cosmos DB data migration tool
     - Any 3rd party library or tool that has a dependency on an Azure Cosmos DB SDK that is not .NET V3 SDK v3.27.0 or higher
     
 ### SDK requirements (API for NoSQL only)
@@ -269,7 +268,6 @@ If you enroll in the preview, the following connectors will fail.
 * Azure Functions<sup>1</sup>
 * Azure Search<sup>1</sup>
 * Azure Cosmos DB Spark connector<sup>1</sup>
-* Azure Cosmos DB data migration tool
 * Any 3rd party library or tool that has a dependency on an Azure Cosmos DB SDK that is not .NET V3 SDK v3.27.0 or higher
 
 <sup>1</sup>Support for these connectors is planned for the future.
