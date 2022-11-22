@@ -163,16 +163,16 @@ ms.author: eur
 
 <sup>1</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](../../regions.md): East US, West Europe, and Southeast Asia. 
 
-<sup>2</sup> The neural voice supports speaking styles to express emotions such as cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. For a list of styles that are supported per neural voice, see the [Voice styles and roles](../../language-support.md#voice-styles-and-roles) table. To learn how you can configure and adjust neural voice styles, see [Speech Synthesis Markup Language](../../speech-synthesis-markup.md#adjust-speaking-styles).
+<sup>2</sup> The neural voice supports speaking styles to express emotions such as cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. For a list of styles that are supported per neural voice, see the [Voice styles and roles](../../language-support.md#voice-styles-and-roles) table. To learn how you can configure and adjust neural voice styles, see [Speech Synthesis Markup Language](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles).
 
-<sup>3</sup> The neural voice supports role play. With roles, the same voice can act as a different age and gender. For a list of roles that are supported per neural voice, see the [Voice styles and roles](../../language-support.md#voice-styles-and-roles) table. To learn how you can configure and adjust neural voice roles, see [Speech Synthesis Markup Language](../../speech-synthesis-markup.md#adjust-speaking-styles).
+<sup>3</sup> The neural voice supports role play. With roles, the same voice can act as a different age and gender. For a list of roles that are supported per neural voice, see the [Voice styles and roles](../../language-support.md#voice-styles-and-roles) table. To learn how you can configure and adjust neural voice roles, see [Speech Synthesis Markup Language](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles).
 
-<sup>4</sup> Visemes are supported for the locale of the neural voice. However, SVG is only supported for neural voices in the `en-US` locale, and blend shapes is only supported for neural voices in the `en-US` and `zh-CN` locales. For more information, see [Get facial position with viseme](../../how-to-speech-synthesis-viseme.md) and [Viseme element](../../speech-synthesis-markup.md#viseme-element). 
+<sup>4</sup> Visemes are supported for the locale of the neural voice. However, SVG is only supported for neural voices in the `en-US` locale, and blend shapes is only supported for neural voices in the `en-US` and `zh-CN` locales. For more information, see [Get facial position with viseme](../../how-to-speech-synthesis-viseme.md) and [Viseme element](../../speech-synthesis-markup-structure.md#viseme-element). 
 
-<sup>5</sup> Phonemes are supported for the locale of the neural voice. For more information, see [SSML phonetic alphabets](../../speech-ssml-phonetic-sets.md) and [Use phonemes to improve pronunciation](../../speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).
+<sup>5</sup> Phonemes are supported for the locale of the neural voice. For more information, see [SSML phonetic alphabets](../../speech-ssml-phonetic-sets.md) and [Use phonemes to improve pronunciation](../../speech-synthesis-markup-pronunciation.md#use-phonemes-to-improve-pronunciation).
 
-<sup>6</sup> Custom lexicon is supported for the locale of the neural voice. For more information, see [Use custom lexicon to improve pronunciation](../../speech-synthesis-markup.md#use-custom-lexicon-to-improve-pronunciation).
+<sup>6</sup> Custom lexicon is supported for the locale of the neural voice. For more information, see [Use custom lexicon to improve pronunciation](../../speech-synthesis-markup-pronunciation.md#use-custom-lexicon-to-improve-pronunciation).
 
-<sup>7</sup> For the multilingual voice the primary default locale is `en-US`. Additional locales are supported [using SSML](../../speech-synthesis-markup.md#adjust-speaking-languages).
+<sup>7</sup> For the multilingual voice the primary default locale is `en-US`. Additional locales are supported [using SSML](../../speech-synthesis-markup-voice.md#adjust-speaking-languages).
 
 <sup>8</sup> The voice is a child's voice.
