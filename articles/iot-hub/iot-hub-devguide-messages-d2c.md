@@ -6,7 +6,7 @@ manager: mehmet.kucukgoz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 11/21/2022
 ms.author: kgremban
 ms.custom: ['Role: Cloud Development', devx-track-csharp]
 ---
