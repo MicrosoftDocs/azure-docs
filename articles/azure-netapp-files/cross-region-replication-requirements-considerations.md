@@ -43,3 +43,4 @@ This article describes requirements and considerations about [using the volume c
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
+* [Test disaster recovery for Azure NetApp Files](test-disaster-recovery.md)
