@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/18/2022
+ms.date: 11/22/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -36,7 +36,7 @@ For the number of cores that each HPN VM size uses, see the [Supported HPN VM 
 
 In version 2210, vCPUs are automatically reserved with the maximum number of vCPUs supported on each NUMA node. If the vCPUs were already reserved for HPN VMs in an earlier version, the existing reservation is carried forth to the 2210 version. If vCPUs weren't reserved for HPN VMs in an earlier version, upgrading to 2210 will still carry forth the existing configuration.
 
-For versions 2209 and earlier, you must reserve vCPUs on NUMA nodes before you deploy HPN VMs on your device. We recommend that the vCPU reservation is done on NUMA node 0, as this node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it.
+For versions 2209 and earlier, you must reserve vCPUs on NUMA nodes before you deploy HPN VMs on your device. We recommend that the vCPU reservation is done on NUMA node 0, as this node has Mellanox high speed network interfaces.
 
 ## HPN VM deployment workflow
 
@@ -78,15 +78,14 @@ Before you create and manage VMs on your device via the Azure portal, make sure 
 
   - The default vCPU reservation uses the SkuPolicy, which reserves all vCPUs that are available for HPN VMs.  
 
-  - If the vCPUs were already reserved for HPN VMs in an earlier version - for example, version 2009 or earlier, then the existing reservation is carried forth to the 2210 version. 
+  - If the vCPUs were already reserved for HPN VMs in an earlier version - for example, version 2209 or earlier, then the existing reservation is carried forth to the 2210 version. 
 
   - For most use cases, we recommend that you use the default configuration. If needed, you can also customize the NUMA configuration for HPN VMs. To customize the configuration, use the steps provided for 2209.  
 
 - Use the following steps to get information about the SkuPolicy settings on your device:
 
    1. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
-    
-       
+
   1. Run the following command to see the available NUMA policies on your device:
 
      ```powershell
@@ -115,8 +114,7 @@ Before you create and manage VMs on your device via the Azure portal, make sure 
      This cmdlet will output:
      1. HpnLpMapping: The NUMA logical processor indexes that are reserved on the machine.
      1. HpnCapableLpMapping: The NUMA logical processor indexes that are capable for reservation.
-     1. HpnLpAvailable: The NUMA logical processor indexes that aren't available for new HPN VM deployments.
-     1. The NUMA logical processors used by HPN VMs and NUMA logical processors available for new HPN VM deployments on each NUMA node in the cluster.
+     1. HpnLpAvailable: The NUMA logical processor indexes that are available for new HPN VM deployments.
 
        ```powershell
        Get-HcsNumaLpMapping
@@ -170,21 +168,6 @@ Before you create and manage VMs on your device via the Azure portal, make sure 
       ```powershell
       Get-HcsNumaLpMapping
       ```
-
-      The output shouldn't show the indexes you set. If you see the indexes you set in the output, the `Set` command didn't complete successfully. Retry the command and if the problem persists, contact Microsoft Support. 
-
-      Here's an example output. 
-
-      ```powershell
-      dbe-1csphq2.microsoftdatabox.com]: PS> Get-HcsNumaLpMapping -MapType MinRootAware -NodeName 1CSPHQ2 
-
-      { Numa Node #0 : CPUs [0, 1, 2, 3] } 
-
-      { Numa Node #1 : CPUs [20, 21, 22, 23] } 
-
-      [dbe-1csphq2.microsoftdatabox.com]: 
-
-      PS> 
    
 ### [2209 and earlier](#tab/2209)
 
@@ -229,7 +212,6 @@ In addition to the above prerequisites that are used for VM creation, configure 
 
        ```powershell
        [dbe-1csphq2.microsoftdatabox.com]: PS>hostname 1CSPHQ2
-       [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName
        [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName 1CSPHQ2
         { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
         { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
