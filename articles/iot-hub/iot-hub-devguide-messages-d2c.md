@@ -123,7 +123,7 @@ IoT Hub supports writing to Cosmos DB in JSON (if specified in the message conte
 
 1. Select **Create** to complete the creation of your custom endpoint.
 
-## Reading data that has been routed
+## Reading data that have been routed
 
 You can configure a route by following this [tutorial](tutorial-routing.md).
 
