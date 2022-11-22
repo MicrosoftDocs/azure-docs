@@ -47,6 +47,82 @@ For users who do not know or use a password, the Temporary Access Pass can now b
 
 ---
 
+### Public Preview - Workload identity Federation for Managed Identities
+
+
+
+**Type:** New feature   
+**Service category:** Managed identities for Azure resources         
+**Product capability:** Developer Experience       
+
+Developers can now use managed identities for their software workloads running anywhere, and for accessing Azure resources, without needing secrets. Key scenarios include:
+
+- Accessing Azure resources from Kubernetes pods running on-premises or in any cloud.
+- GitHub workflows to deploy to Azure, no secrets necessary.
+- Accessing Azure resources from other cloud platforms that support OIDC, such as Google Cloud.
+
+For more information, see: 
+- [Configure a user-assigned managed identity to trust an external identity provider (preview)](../develop/workload-identity-federation-create-trust-user-assigned-managed-identity.md)
+- [Workload identity federation](../develop/workload-identity-federation.md)
+- [Use an Azure AD workload identity (preview) on Azure Kubernetes Service (AKS)](/azure/aks/workload-identity-overview)
+
+
+---
+
+### General Availability - Authenticator on iOS is FIPS 140 compliant
+
+
+
+**Type:** New feature   
+**Service category:** Microsoft Authenticator App              
+**Product capability:** User Authentication     
+
+Authenticator version 6.6.8 and higher on iOS will be FIPS 140 compliant for all Azure AD authentications using push multi-factor authentications (MFA), Password-less Phone Sign-In (PSI), and time-based one-time pass-codes (TOTP). No changes in configuration are required in the Authenticator app or Azure Portal to enable this capability. For more information, see: [FIPS 140 compliant for Azure AD authentication](../authentication/concept-authentication-authenticator-app.md#fips-140-compliant-for-azure-ad-authentication).
+
+
+---
+
+### General Availability - New Federated Apps available in Azure AD Application gallery - November 2022
+
+
+
+**Type:** New feature   
+**Service category:** Enterprise Apps                 
+**Product capability:** 3rd Party Integration        
+
+In November 2022 we have added the following 22 new applications in our App gallery with Federation support
+
+[Adstream](/active-directory/saas-apps/adstream-tutorial), [Databook](/active-directory/saas-apps/databook-tutorial), [Ecospend IAM](https://ecospend.com/), [Digital Pigeon](/active-directory/saas-apps/digital-pigeon-tutorial), [Drawboard Projects](/active-directory/saas-apps/drawboard-projects-tutorial), [Vellum](https://www.vellum.ink/request-demo), [Veracity](https://aie-veracity.com/connect/azure), [Microsoft OneNote to Bloomberg Note Sync](https://www.bloomberg.com/professional/support/software-updates/), [DX NetOps Portal](/active-directory/saas-apps/dx-netops-portal-tutorial), [itslearning Outlook integration](https://itslearning.com/global/), [Tranxfer](/active-directory/saas-apps/tranxfer-tutorial), [Occupop](https://app.occupop.com/), [Nialli Workspace](https://ws.nialli.com/), [Tideways](https://app.tideways.io/login), [SOWELL](https://manager.sowellapp.com/#/?sso=true), [Prewise Learning](https://prewiselearning.com/), [CAPTOR for InTune](https://www.inkscreen.com/microsoft), [wayCloud Platform](https://app.way-cloud.de/login), [Nura Space Meeting Room](https://play.google.com/store/apps/details?id=com.meetingroom.prod), [Flexopus Exchange Integration](https://help.flexopus.com/de/microsoft-graph-integration), [Ren Systems](https://app.rensystems.com/login), [Nudge Security](https://www.nudgesecurity.io/login)
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
+
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+
+ 
+
+ 
+
+
+---
+
+### General Availability - New provisioning connectors in the Azure AD Application Gallery - November 2022
+
+
+
+**Type:** New feature   
+**Service category:** App Provisioning               
+**Product capability:** 3rd Party Integration        
+
+We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
+
+- [Keepabl](../saas-apps/keepabl-provisioning-tutorial.md)
+- [Uber](../saas-apps/uber-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+
+---
+
 ### Public Preview - Dynamic Group Pause Functionality 
 
 
