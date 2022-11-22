@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/07/2022
 ms.author: jawoods
 ms.reviewer: phsignor
-zone_pivot_groups: enterprise-apps-minus-graph
+zone_pivot_groups: enterprise-apps-all
 ms.collection: M365-identity-device-management
 
 #customer intent: As an admin, I want to review permissions granted to applications so that I can restrict suspicious or over privileged applications.
@@ -32,9 +32,9 @@ To review permissions granted to applications, you need:
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator.
 - A Service principal owner who isn't an administrator is able to invalidate refresh tokens.
 
-## Review permissions
-
 :::zone pivot="portal"
+
+## Review permissions
 
 You can access the Azure AD portal to get contextual PowerShell scripts to perform the actions.
 
@@ -53,13 +53,12 @@ Each option generates PowerShell scripts that enable you to control user access 
 
 :::zone pivot="aad-powershell"
 
-## Revoke permissions
-
+## Review and revoke permissions
 
 Using the following Azure AD PowerShell script revokes all permissions granted to an application.
 
 ```powershell
-Connect-AzureAD
+Connect-AzureAD Application.Read.All, Application.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All
 
 # Get Service Principal using objectId
 $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
@@ -84,7 +83,7 @@ $spApplicationPermissions | ForEach-Object {
 ## Invalidate the refresh tokens
 
 ```powershell
-Connect-AzureAD
+Connect-AzureAD Application.Read.All, Application.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All
 
 # Get Service Principal using objectId
 $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
@@ -100,10 +99,12 @@ $assignments | ForEach-Object {
 :::zone-end
 :::zone pivot="ms-powershell"
 
+## Review and revoke permissions
+
 Using the following Microsoft Graph PowerShell script revokes all permissions granted to an application.
 
 ```powershell
-Connect-MgGraph
+Connect-MgGraph Application.Read.All, Application.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All
 
 # Get Service Principal using objectId
 $sp = Get-MgServicePrincipal -ServicePrincipalID "$ServicePrincipalID"
@@ -117,12 +118,20 @@ $spOAuth2PermissionsGrants= Get-MgOauth2PermissionGrant -All| Where-Object { $_.
 $spOauth2PermissionsGrants |ForEach-Object {
   Remove-MgOauth2PermissionGrant -OAuth2PermissionGrantId $_.Id
   }
+
+# Get all application permissions for the service principal
+$spApplicationPermissions = Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $Sp.Id -All | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
+
+# Remove all application permissions
+$spApplicationPermissions | ForEach-Object {
+Remove-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $Sp.Id  -AppRoleAssignmentId $_.Id
+ }
 ``` 
 
 ## Invalidate the refresh tokens
 
 ```powershell
-Connect-MgGraph
+Connect-MgGraph Application.Read.All, Application.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All
 
 # Get Service Principal using objectId
 $sp = Get-MgServicePrincipal -ServicePrincipalID "$ServicePrincipalID"
@@ -138,6 +147,71 @@ $spApplicationPermissions = Get-MgServicePrincipalAppRoleAssignedTo -ServicePrin
   }
 ```
 
+:::zone-end
+
+:::zone pivot = "ms-graph"
+
+Review and revoke permissions using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+
+Sign in to Graph explorer with one of the roles listed in the prerequisite section.
+
+To complete review and revoke permissions, you'll need to consent to the following permissions: 
+
+`Application.Read.All`, `Application.ReadWrite.All`, `Directory.Read.All`, `Directory.ReadWrite.All`.
+
+### Review and remove delegated permissions
+
+1. Get Service Principal using objectId
+
+    ```http
+    GET /servicePrincipals/{id}
+
+    Example: GET /servicePrincipals/57443554-98f5-4435-9002-852986eea510
+    ```
+
+1. Get all delegated permissions for the service principal
+
+    ```http
+    GET /servicePrincipals/{id}/oauth2PermissionGrants
+    ```
+1. Remove all delegated permissions
+
+    ```http
+    DELETE /oAuth2PermissionGrants/{id}
+    ```
+
+### Review and remove application permissions
+
+1. Get all application permissions for the service principal
+
+    ```http
+    GET /servicePrincipals/{servicePrincipal-id}/appRoleAssignments
+    ```
+1. Remove all application permissions
+
+    ```http
+    DELETE /servicePrincipals/{resource-servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
+    ```
+
+## Invalidate the refresh tokens
+
+1. Get Service Principal using objectId
+
+    ```http
+    GET /servicePrincipals/{id}
+    
+    Example: GET /servicePrincipals/57443554-98f5-4435-9002-852986eea510
+    ```
+1. Get Azure AD App role assignments using objectID of the Service Principal
+
+    ```http
+    GET /servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo
+    ```
+1. Revoke refresh token for all users assigned to the application
+
+    ```http
+    DELETE /servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
+    ```
 :::zone-end
 
 > [!NOTE]
