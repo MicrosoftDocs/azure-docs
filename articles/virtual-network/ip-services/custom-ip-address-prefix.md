@@ -61,7 +61,7 @@ When ready, you can issue the command to have your range advertised from Azure a
 * IPs brought to Azure may have a delay up to 2 weeks before they can be used for Windows Server Activation.
 
 > [!IMPORTANT]
-> There are several differences between how custom IPv4 and IPv6 prefixes are onboarded and utilized.  Please see [Differences between using BYOIPv4 and BYOIPv6](create-custom-ip-address-prefix-ipv6-powershell#differences-between-using-byoipv4-and-byoipv6) for more details.
+> There are several differences between how custom IPv4 and IPv6 prefixes are onboarded and utilized.  Please see [Differences between using BYOIPv4 and BYOIPv6](create-custom-ip-address-prefix-ipv6-powershell.md#differences-between-using-byoipv4-and-byoipv6) for more details.
 
 ## Pricing
 
