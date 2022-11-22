@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/06/2022
+ms.date: 11/22/2022
 ms.author: ergreenl
 ms.custom: contperf-fy22q2, contperf-fy22q3
 zone_pivot_groups: enterprise-apps-all
@@ -28,9 +28,9 @@ For greater control, certain types of enterprise applications can be configured 
 
 ## Prerequisites
 
-To assign users to an app using PowerShell, you need:
+To assign users to an enterprise application, you need:
 
-- An Azure account with an active subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD account with an active subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - Azure Active Directory Premium P1 or P2 for group-based assignment. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
 
@@ -54,7 +54,7 @@ To assign a user or group account to an enterprise application:
 :::zone pivot="aad-powershell"
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-AzureAD` and sign in with a Global Admin user account.
+1. Run `Connect-AzureAD Application.Read.All, Directory.Read.All, Application.ReadWrite.All, Directory.ReadWrite.All` and sign in with a Global Admin user account.
 1. Use the following script to assign a user and role to an application:
 
     ```powershell
@@ -113,10 +113,10 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-## Unassign users, and groups, from an app using PowerShell
+## Unassign users, and groups, from an application
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-AzureAD` and sign in with a Global Admin user account. Use the following script to remove a user and role from an application:
+1. Run `Connect-AzureAD` and sign in with a Global Admin user account. Use the following script to remove a user and role from an application.
 
     ```powershell
     # Store the proper parameters
@@ -161,65 +161,127 @@ $assignments | ForEach-Object {
 :::zone pivot="ms-powershell"
 
 1. Open an elevated Windows PowerShell command prompt.
-1. Run `Connect-MgGraph` and sign in with a Global Admin user account.
+1. Run `Connect-MgGraph Application.Read.All, Directory.Read.All, Application.ReadWrite.All, Directory.ReadWrite.All` and sign in with a Global Admin user account.
 1. Use the following script to assign a user and role to an application:
 
+```powershell    
+# Assign the values to the variables
 
-    ```powershell
-    # Assign the values to the variables
+$userId = "<Your user's ID>"
+$app_name = "<Your App's display name>"
+$app_role_name = "<App role display name>"
+$sp = Get-MgServicePrincipal -Filter "displayName eq '$app_name'"
 
-    $userId = "<Your user's ID>"
-    $app_name = "<Your App's display name>"
-    $app_role_name = "<App role display name>"
-    $sp = Get-MgServicePrincipal -Filter "displayName eq '$app_name'")
+# Get the user to assign, and the service principal for the app to assign to
 
-
-    # Get the user to assign, and the service principal for the app to assign to
-
-    $params = @{
+$params = @{
     "PrincipalId" =$userId
     "ResourceId" =$sp.Id
     "AppRoleId" =($sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }).Id
     }
 
-    # Assign the user to the app role
+# Assign the user to the app role
 
-    New-MgUserAppRoleAssignment -UserId $userId -BodyParameter $params |
+New-MgUserAppRoleAssignment -UserId $userId -BodyParameter $params |
     Format-List Id, AppRoleId, CreationTime, PrincipalDisplayName,
     PrincipalId, PrincipalType, ResourceDisplayName, ResourceId
+```
 
+## Unassign users, and groups, from an application
 
-    # Assign groups to an app using Microsoft Graph PowerShell
+```powershell
+# Get the user and the service principal
 
-    $GroupId = "<Your user's ID>"
-    $app_name = "<Your App's display name>"
-    $app_role_name = "<App role display name>"
+$user = Get-MgUser -UserId <userid>
+$spo = Get-MgServicePrincipal -ServicePrincipalId <ServicePrincipalId>
 
-    $params = @{
-    "PrincipalId"= $GroupId
-    "ResourceId"= sp.Id
-    "AppRoleId"= ($sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }).Id
-    }
+# Get the Id of the role assignment
 
-    New-MgGroupAppRoleAssignment -UserId $userId -BodyParameter $params |
-    Format-List Id, AppRoleId, CreationTime, PrincipalDisplayName,
-    PrincipalId, PrincipalType, ResourceDisplayName, ResourceId
-    ```
-## Unassign users, and groups, from an app using PowerShell
+$assignments = Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $spo.Id | Where {$_.PrincipalDisplayName -eq $user.DisplayName}
 
+# if you run the following, it will show you the list of users assigned to the application
+
+$assignments | Select *
+
+# To remove the App role assignment run the following command.
+
+Remove-MgServicePrincipalAppRoleAssignedTo -AppRoleAssignmentId  '<AppRoleAssignment-id>' -ServicePrincipalId $spo.Id
+```
+
+# Remove all users and groups assigned to the application
+
+```powershell
+$assignments | ForEach-Object {
+    if ($_.PrincipalType -in ("user", "Group")) {
+        Remove-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $Sp.Id -AppRoleAssignmentId $_.Id  }
+}
+```
 
 :::zone-end
 
 :::zone pivot="ms-graph"
 
+Assign users and groups to an application using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+
+Sign in to Graph explorer with one of the roles listed in the prerequisite section.
+
+To you'll need to consent to the following permissions: 
+
+`Application.Read.All`, `Application.ReadWrite.All`, `Directory.Read.All`, `Directory.ReadWrite.All`.
+
+To grant an app role assignment, you need three identifiers:
+
+`principalId`: The id of the user or group to which you are assigning the app role.
+`resourceId`: The id of the resource servicePrincipal which has defined the app role.
+`appRoleId`: The id of the appRole (defined on the resource service principal) to assign to a user or group.
+
+1. Get the enterprise application. Filter by DisplayName.
+
+    ```http
+    GET servicePrincipal?$filter=DisplayName eq '{appDisplayName}'
+    ```
+    Record the following values from the response body:
+
+    - Object ID of the enterprise application
+    - appRoleId that you'll assign to the user. If the application hasn't defined any roles, the user will assigned the default access role.
+
+1. Get the user by filtering using the user's principal name. Record the object ID of the user.
+
+    ```http
+    GET /users/{userPrincipalName}
+    ```
+1. Assign the user to the application.
+    ```http
+    POST /servicePrincipals/resource-servicePrincipal-id/appRoleAssignedTo
+
+    Request body
+    {
+    "principalId": "33ad69f9-da99-4bed-acd0-3f24235cb296",
+    "resourceId": "9028d19c-26a9-4809-8e3f-20ff73e2d75e",
+    "appRoleId": "ef7437e6-4f94-4a0a-a110-a439eb2aa8f7"
+    }
+    ```
+    In the example, both the resource-servicePrincipal-id and resourceId represent the enterprise application.
+
+## Unassign users, and groups, from an application
+To unassign user and groups from the application, run the following query.
+
+1. Get the enterprise application. Filter by DisplayName.
+
+    ```http
+    GET servicePrincipal?$filter=DisplayName eq '{appDisplayName}'
+    ```
+1. Get the list of appRoleAssignments for the application.
+
+   ```http
+      GET /servicePrincipals/{id}/appRoleAssignedTo
+   ```
+1. Remove the appRoleAssignments by specifying the appRoleAssignment ID.
+
+    ```http
+    DELETE /servicePrincipals/{resource-servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
+    ```
 :::zone-end
-## Assign users, and groups, to an application
-
-
-
-
-
-
 
 ## Next steps
 
