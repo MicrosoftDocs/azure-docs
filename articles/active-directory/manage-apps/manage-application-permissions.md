@@ -80,6 +80,8 @@ $spApplicationPermissions | ForEach-Object {
 
 ## Invalidate the refresh tokens
 
+Remove appRoleAssignments for users or groups to the application using the following scripts.
+
 ```powershell
 Connect-AzureAD Application.Read.All, Application.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All
 
@@ -127,6 +129,8 @@ Remove-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $Sp.Id  -AppRoleA
 
 ## Invalidate the refresh tokens
 
+Remove appRoleAssignments for users or groups to the application using the following scripts.
+
 ```powershell
 Connect-MgGraph Application.Read.All, Application.ReadWrite.All, Directory.Read.All, Directory.ReadWrite.All
 
@@ -148,11 +152,11 @@ $spApplicationPermissions = Get-MgServicePrincipalAppRoleAssignedTo -ServicePrin
 
 :::zone pivot = "ms-graph"
 
-Review and revoke permissions using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+Review permissions using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 Sign in to Graph explorer with one of the roles listed in the prerequisite section.
 
-To complete review and revoke permissions, you'll need to consent to the following permissions: 
+To review permissions granted to an application, you'll need to consent to the following permissions: 
 
 `Application.Read.All`, `Application.ReadWrite.All`, `Directory.Read.All`, `Directory.ReadWrite.All`.
 
@@ -195,6 +199,8 @@ To complete review and revoke permissions, you'll need to consent to the followi
     ```
 
 ## Invalidate the refresh tokens
+
+Remove appRoleAssignments for users or groups to the application using the following queries.
 
 1. Get Service Principal using objectID.
 
