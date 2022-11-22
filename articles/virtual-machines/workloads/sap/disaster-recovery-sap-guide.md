@@ -52,7 +52,7 @@ For SAP system, the redundancy of SPOF component in the primary region is achiev
 
 ##### Internal load balancer
 
-Azure Site Recovery replicates VMs to the DR site, but it doesn’t replicate Azure load balancer. You will need to create a separate internal load balancer on DR site beforehand or after failover. If you create internal load balancer beforehand, create an empty backend pool and add VMs after the failover event.
+Azure Site Recovery replicates VMs to the DR site, but it doesn’t replicate Azure load balancer. You'll need to create a separate internal load balancer on DR site beforehand or after failover. If you create internal load balancer beforehand, create an empty backend pool and add VMs after the failover event.
 
 ##### Pacemaker cluster solution
 
@@ -99,7 +99,7 @@ In primary region, the redundancy of SAP application servers is achieved by inst
 
 ### SAP Database Servers
 
-For databases running SAP workload, use the native DBMS replication technology to configure DR. Use of Azure Site Recovery for databases isn't recommended, as it doesn’t guarantee DB consistency and has [data churn limitation](../../../site-recovery/azure-to-azure-support-matrix.md#limits-and-data-change-rates). The replication technology for each database is different, so follow the respective database guidelines. The list below shows databases, used for SAP workloads and teh corresponding DR recommendation.
+For databases running SAP workload, use the native DBMS replication technology to configure DR. Use of Azure Site Recovery for databases isn't recommended, as it doesn’t guarantee DB consistency and has [data churn limitation](../../../site-recovery/azure-to-azure-support-matrix.md#limits-and-data-change-rates). The replication technology for each database is different, so follow the respective database guidelines. Below table shows the list of databases used for SAP workloads and the corresponding DR recommendation.
 
 | Database      | DR recommendation                                            |
 | ------------- | ------------------------------------------------------------ |
