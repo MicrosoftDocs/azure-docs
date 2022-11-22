@@ -2,7 +2,7 @@
 title: Configure Dev Tools
 titleSuffix: Azure Spring Apps Enterprise Tier
 description: How to use Dev Tools Portal for VMware Tanzu with Azure Spring Apps Enterprise Tier.
-author: 
+author: karlerickson
 ms.author: zlhe
 ms.service: spring-apps
 ms.topic: how-to
