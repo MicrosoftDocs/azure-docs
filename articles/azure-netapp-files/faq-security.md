@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 04/08/2021
+ms.date: 11/22/2022
 ms.custom: references_regions
 ---
 # Security FAQs for Azure NetApp Files
@@ -30,6 +30,8 @@ Azure NetApp Files cross-region replication uses TLS 1.2 AES-256 GCM encryption 
 ## How are encryption keys managed? 
 
 Key management for Azure NetApp Files is handled by the service. A unique XTS-AES-256 data encryption key is generated for each volume. An encryption key hierarchy is used to encrypt and protect all volume keys. These encryption keys are never displayed or reported in an unencrypted format. Encryption keys are deleted immediately when a volume is deleted.
+
+Support for customer-managed keys (Bring Your Own Key) using Azure Dedicated HSM is available on a controlled basis in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access at [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com). As capacity becomes available, requests will be approved.
 
 [Customer-managed keys](configure-customer-managed-keys.md) are available with limited regional support.
 
