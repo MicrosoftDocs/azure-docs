@@ -105,7 +105,7 @@ Specify in the custom alert rule what action Defender for IT should take when th
     :::image type="content" source="media/how-to-accelerate-alert-incident-response/create-custom-alert-rule.png" alt-text="Screenshot of the Create custom alert rule pane for creating custom alert rules." lightbox="media/how-to-accelerate-alert-incident-response/create-custom-alert-rule.png":::
 
 1. In the **Create custom alert rule** pane that shows on the right, define the following fields:
-    
+
     |Name  |Description  |
     |---------|---------|
     |**Alert name**     | Enter a meaningful name for the alert.        |
