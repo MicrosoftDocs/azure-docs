@@ -1281,7 +1281,7 @@ Known issues on Linux:
 | validityInMonths | The validity period of the certificate in months  |
 | certificateTransparency | Indicates whether the certificate should be published to the certificate transparency list when created  |
 | certificateType | the certificate type |
-| contentType | The content type of the certificate, eg Pkcs12 when the certificate contains raw PFX bytes, or Pem when it contains ASCII | PEM-encoded btes. Pkcs12 is the default value assumed |
+| contentType | The content type of the certificate, eg Pkcs12 when the certificate contains raw PFX bytes, or Pem when it contains ASCII PEM-encoded btes. Pkcs12 is the default value assumed |
 | keySize | The size of the RSA key: 2048, 3072, or 4096 |
 | exportable | Value indicating if the certificate key is exportable from the vault or secure certificate store |
 | reuseKey | Value indicating if the certificate key should be reused when rotating the certificate|
