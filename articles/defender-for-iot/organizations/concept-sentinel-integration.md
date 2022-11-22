@@ -47,7 +47,7 @@ After you've configured the Defender for IoT data connector and have IoT/OT aler
 |Method  |Description  |
 |---------|---------|
 |**Use the default data connector rule**     | Use the default, **Create incidents based on all alerts generated in Microsoft Defender for IOT** analytics rule provided with the data connector. This rule creates a separate incident in Microsoft Sentinel for each alert streamed from Defender for IoT.        |
-|**Use out-of-the-box solution rules**     |  Enable some or all of the out-of-the-box analytics rules provided with the **Microsoft Defender for IoT** solution.<br><br>    These analytics rules help to reduce alert fatigue by creating incidents only in specific situations. For example, you might choose to create incidents for excessive login attempts, but for multiple scans detected in the network.       |
+|**Use out-of-the-box solution rules**     |  Enable some or all of the [out-of-the-box analytics rules](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview) provided with the **Microsoft Defender for IoT** solution.<br><br>    These analytics rules help to reduce alert fatigue by creating incidents only in specific situations. For example, you might choose to create incidents for excessive login attempts, but for multiple scans detected in the network.       |
 |**Create custom rules**     | Create custom analytics rules to create incidents based only on your specific needs. You can use the out-of-the-box analytics rules as a starting point, or create rules from scratch.   <br><br>Add the following filter to prevent duplicate incidents for the same alert ID: `| where TimeGenerated <= ProcessingEndTime + 60m`     |
 
 Regardless of the method you choose to create alerts, only one incident should be created for each Defender for IoT alert ID.
@@ -87,12 +87,13 @@ You'll typically see more Defender for IoT *events* in Microsoft Sentinel than *
 
     ```kql
     SecurityAlert
-    | where ProviderName != 'ASI Scheduled Alerts' and ProviderName != 'CustomAlertRule
+    | where ProviderName == 'IoTSecurity' or ProviderName == 'CustomAlertRule'
+    Instead
     ```
 
 - **Alerts**: Microsoft Sentinel creates alerts based on your current analytics rules and the alert logs listed in the **SecurityAlert** table. If you don't have any active analytics rules for Defender for IoT, Microsoft Sentinel considers each alert log as an *event*.
 
-    To view all Defender for IoT alerts in Microsoft Sentinel, run the following query on the **SecurityAlert** table:
+    To view alerts in Microsoft Sentinel, run the following query on the **SecurityAlert** table:
 
     ```kql
     SecurityAlert
@@ -101,7 +102,7 @@ You'll typically see more Defender for IoT *events* in Microsoft Sentinel than *
 
 - **Incidents**. Microsoft Sentinel creates incidents based on your analytics rules. You might have several alerts grouped in the same incident, or you may have analytics rules configured to *not* create incidents for specific alert types.
 
-    To view all Defender for IoT incidents in Microsoft Sentinel, run the following query:
+    To view incidents in Microsoft Sentinel, run the following query:
 
     ```kql
     SecurityIncident
