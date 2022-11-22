@@ -60,7 +60,7 @@ IPAddress = $IPAddress.IPAddress
 }
 ```
 
-You also have the option of building your own [self-hosted Windows agent](/azure/devops/pipelines/agents/v2-windows) if you need to use an agent that does not come with the Azure Cosmos DB emulator preinstalled. On your self-hosted agent, you can download the latest emulator's MSI package from https://aka.ms/cosmosdb-emulator using 'curl' or 'wget', then leverage ['msiexec'](/windows-server/administration/windows-commands/msiexec) to 'quiet' install it. After the install, you can run a similar PowerShell script as the one above to start the emulator.
+You also have the option of building your own [self-hosted Windows agent](/azure/devops/pipelines/agents/v2-windows) if you need to use an agent that doesn't come with the Azure Cosmos DB emulator preinstalled. On your self-hosted agent, you can download the latest emulator's MSI package from https://aka.ms/cosmosdb-emulator using 'curl' or 'wget', then use ['msiexec'](/windows-server/administration/windows-commands/msiexec) to 'quiet' install it. After the install, you can run a similar PowerShell script as the one above to start the emulator.
 
 ### [YAML](#tab/yaml)
 
@@ -107,7 +107,7 @@ steps:
 ```
 
 
-You also have the option of building your own [self-hosted Windows agent](/azure/devops/pipelines/agents/v2-windows) if you need to use an agent that does not come with the Azure Cosmos DB emulator preinstalled. On your self-hosted agent, you can download the latest emulator's MSI package from https://aka.ms/cosmosdb-emulator using 'curl' or 'wget', then leverage ['msiexec'](/windows-server/administration/windows-commands/msiexec) to 'quiet' install it. After the install, you can run a similar PowerShell script as the one above to start the emulator.
+You also have the option of building your own [self-hosted Windows agent](/azure/devops/pipelines/agents/v2-windows) if you need to use an agent that doesn't come with the Azure Cosmos DB emulator preinstalled. On your self-hosted agent, you can download the latest emulator's MSI package from https://aka.ms/cosmosdb-emulator using 'curl' or 'wget', then use ['msiexec'](/windows-server/administration/windows-commands/msiexec) to 'quiet' install it. After the install, you can run a similar PowerShell script as the one above to start the emulator.
 
 ---
 
