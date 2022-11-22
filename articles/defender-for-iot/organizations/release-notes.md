@@ -9,9 +9,7 @@ ms.date: 11/15/2022
 
 The Microsoft Defender for IoT architecture uses on-premises sensors and management servers. This article lists the supported software versions for the OT sensor and on-premises management software, including release dates, support dates, and highlights for the updated features.
 
-- Detailed descriptions about new features are described in [What's new in Microsoft Defender for IoT?](whats-new.md)
-
-Cloud-only features, which aren't dependent on specific sensor versions, are listed only in [What's new in Microsoft Defender for IoT?](whats-new.md)
+For more information, including detailed descriptions of new features and listings for cloud-only features that aren't dependent on specific sensor versions, see [What's new in Microsoft Defender for IoT?](whats-new.md)
 
 ## Versioning and support for on-premises software versions
 
