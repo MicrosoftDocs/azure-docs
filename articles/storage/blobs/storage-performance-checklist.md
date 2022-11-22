@@ -1,5 +1,6 @@
 ---
-title: Performance and scalability checklist for Blob storage - Azure Storage
+title: Performance and scalability checklist for Blob storage
+titleSuffix: Azure Storage
 description: A checklist of proven practices for use with Blob storage in developing high-performance applications.
 services: storage
 author: tamram

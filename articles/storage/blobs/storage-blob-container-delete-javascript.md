@@ -1,5 +1,6 @@
 ---
-title: Delete and restore a blob container with JavaScript - Azure Storage 
+title: Delete and restore a blob container with JavaScript
+titleSuffix: Azure Storage 
 description: Learn how to delete and restore a blob container in your Azure Storage account using the JavaScript client library.
 services: storage
 author: pauljewellmsft

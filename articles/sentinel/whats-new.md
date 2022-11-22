@@ -18,8 +18,15 @@ The listed features were released in the last three months. For information abou
 
 ## November 2022
 
+- [Common Event Format (CEF) via AMA (Preview)](#common-event-format-cef-via-ama-preview)
 - [Monitor the health of automation rules and playbooks](#monitor-the-health-of-automation-rules-and-playbooks)
 - [Updated Microsoft Sentinel Logstash plugin](#updated-microsoft-sentinel-logstash-plugin)
+
+### Common Event Format (CEF) via AMA (Preview)
+
+The [Common Event Format (CEF) via AMA](connect-cef-ama.md) connector allows you to quickly filter and upload logs over CEF from multiple on-premises appliances to Microsoft Sentinel via the Azure Monitor Agent (AMA).
+
+The AMA supports Data Collection Rules (DCRs), which you can use to filter the logs before ingestion, for quicker upload, efficient analysis, and querying.
 
 ### Monitor the health of automation rules and playbooks
 

@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/15/2022
+ms.date: 11/18/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -64,6 +64,8 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- November 22, 2022: Update of [SAP workloads on Azure: planning and deployment checklist](sap-deployment-checklist.md) to add latest recommendations
+- November 18, 2022: Add a recommendation to use Pacemaker simple mount configuration for new implementations on SLES 15 in [Azure VMs HA for SAP NW on SLES with simple mount and NFS](high-availability-guide-suse-nfs-simple-mount.md), [Azure VMs HA for SAP NW on SLES with NFS on Azure File](high-availability-guide-suse-nfs-azure-files.md), [Azure VMs HA for SAP NW on SLES with Azure NetApp Files](high-availability-guide-suse-netapp-files.md) and [Azure VMs HA for SAP NW on SLES](high-availability-guide-suse.md)       
 - November 15, 2022: Change in [HA for SAP HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md), [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) to add recommendation to use mount option `nconnect` for workloads with higher throughput requirements  
 - November 15, 2022: Add a recommendation for minimum required version of package resource-agents in [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md)  
 - November 14, 2022: Provided more details about nconnect mount option in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)

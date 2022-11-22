@@ -13,7 +13,7 @@ ms.date: 11/16/2022
 Azure Video Indexer (AVI) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) supports both server-to-server and client-to-server communication. The API enables you to integrate video and audio insights into your application logic.
 
 > [!TIP]
-> For the latest `api-version`, chose the latest stable version in our documentation.
+> For the latest `api-version`, chose the latest stable version in [our REST documentation](/rest/api/videoindexer/stable/generate).
 
 To make the integration easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with the Azure Video Indexer API. 
 
@@ -53,15 +53,15 @@ The following image shows the first flow:
 
     1. Select **Consumption** for **Plan type**.
     1. Press **Review + Create** -> **Create**.
-    1. Once the Logic App deployment is complete, in the Azure portal, go to the newly created Logic App.
+    1. Once the Logic App deployment is complete, in the Azure portal, search and navigate to the newly created Logic App.
     1. Under the **Settings** section, on the left side's panel, select the **Identity** tab.
-    1. Under **System assigned**, change the **Status** from **Off** to **On** (the step is important for later on in this tutorial).
-    1. Press **Save** (on the top of the page).
-    1. Select the **Logic app designer** tab, in the pane on the left.
-    1. Pick a **Blank Logic App** flow.
-    1. Search for "blob" in the **Choose an Operation** blade.
-    1. In the **All** tab, choose the **Azure Blob Storage** component.
-    1. Under **Triggers**, select the **When a blob is added or modified (properties only) (V2)** trigger. 
+    3. Under **System assigned**, change the **Status** from **Off** to **On** (the step is important for later on in this tutorial).
+    4. Press **Save** (on the top of the page).
+    5. Select the **Logic app designer** tab, in the pane on the left.
+    6. Pick a **Blank Logic App** flow.
+    7. Search for "blob" in the **Choose an Operation** blade.
+    8. In the **All** tab, choose the **Azure Blob Storage** component.
+    9. Under **Triggers**, select the **When a blob is added or modified (properties only) (V2)** trigger. 
 1. Set the storage connection.
 
     After creating a **When a blob is added or modified (properties only) (V2)** trigger, the connection needs to be set to the following values:  
@@ -115,12 +115,12 @@ The following image shows the first flow:
 
     Search and create an **HTTP** action.
     
-    |Key| Value|
-    |----|----|
-    |Method | **POST**|
-    | URI| [generateAccessToken](/rest/api/videoindexer/stable/generate/access-token?tabs=HTTP#generate-accesstoken-for-account-contributor). |
-    | Body|`{ "permissionType": "Contributor", "scope": "Account" }` |
-    | Add new parameter | **Authentication**  |
+    |Key| Value|Notes|
+    |----|----|---|
+    |Method | **POST**||
+    | URI| [generateAccessToken](/rest/api/videoindexer/stable/generate/access-token?tabs=HTTP#generate-accesstoken-for-account-contributor). ||
+    | Body|`{ "permissionType": "Contributor", "scope": "Account" }` |See the [REST doc example](/rest/api/videoindexer/preview/generate/access-token?tabs=HTTP#generate-accesstoken-for-account-contributor), make sure to delete the **POST** line.|
+    | Add new parameter | **Authentication**  ||
     
     ![Screenshot of the HTTP access token.](./media/logic-apps-connector-arm-accounts/http-with-param.png)
      
@@ -176,7 +176,8 @@ The following image shows the first flow:
         |Video URL|Select **Web Url** from the dynamic content of **Create SAS URI by path** action.|
         | Body| Can be left as default.|
         
-        ![Screenshot of the upload and index action.](./media/logic-apps-connector-arm-accounts/upload-and-index.png)
+        > [!div class="mx-imgBorder"]
+        > :::image type="content" source="./media/logic-apps-connector-arm-accounts/upload-and-index-expression.png" alt-text="Screenshot of the upload and index action." lightbox="./media/logic-apps-connector-arm-accounts/upload-and-index-expression.png":::
 
         Select **Save**.
 
