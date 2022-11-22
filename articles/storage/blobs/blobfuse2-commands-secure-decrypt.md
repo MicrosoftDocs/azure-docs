@@ -1,6 +1,6 @@
 ---
-title: How to use the `blobfuse2 secure decrypt` command to decrypt a BlobFuse2 configuration file (preview) | Microsoft Docs
-titleSuffix: Azure Blob Storage
+title: How to use the `blobfuse2 secure decrypt` command to decrypt a BlobFuse2 configuration file (preview)
+titleSuffix: Azure Storage
 description: Learn how to use the `blobfuse2 secure decrypt` command to decrypt a BlobFuse2 configuration file (preview).
 author: jimmart-dev
 ms.service: storage

@@ -3,7 +3,7 @@ title: Extend Azure IoT Central with custom rules and notifications | Microsoft 
 description: As a solution developer, configure an IoT Central application to send email notifications when a device stops sending telemetry. This solution uses Azure Stream Analytics, Azure Functions, and SendGrid.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 06/21/2022
+ms.date: 11/08/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -43,9 +43,9 @@ Create an IoT Central application on the [Azure IoT Central application manager]
 | URL | Accept the default or choose your own unique URL prefix |
 | Directory | Your Azure Active Directory tenant |
 | Azure subscription | Your Azure subscription |
-| Region | Your nearest region |
+| Location | Your nearest Azure data center |
 
-The examples and screenshots in this article use the **United States** region. Choose a location close to you and make sure you create all your resources in the same region.
+The examples and screenshots in this article use the **East US*** location. Choose a location close to you and make sure you create all your resources in the same location.
 
 This application template includes two simulated thermostat devices that send telemetry.
 
@@ -88,24 +88,27 @@ Use the [Azure portal to create a function app](https://portal.azure.com/#create
 | App name    | Choose your function app name |
 | Subscription | Your subscription |
 | Resource group | DetectStoppedDevices |
-| OS | Windows |
-| Hosting Plan | Consumption Plan |
-| Location | East US |
+| Publish | Code |
 | Runtime Stack | .NET |
+| Region | East US |
+| OS | Windows |
+| Hosting Plan | Consumption (Serverless) |
 | Storage | Create new |
 
 ### SendGrid account and API Keys
 
 If you don't have a Sendgrid account, create a [free account](https://app.sendgrid.com/) before you begin.
 
-1. From the Sendgrid Dashboard Settings on the left menu, select **API Keys**.
-1. Click **Create API Key.**
+1. From the Sendgrid Dashboard, select **Settings** on the left menu, select **Settings > API Keys**.
+1. Select **Create API Key.**
 1. Name the new API key **AzureFunctionAccess.**
-1. Click **Create & View**.
+1. Select **Create & View**.
 
-    :::image type="content" source="media/howto-create-custom-rules/sendgrid-api-keys.png" alt-text="Screenshot of the Create SendGrid API key.":::
+    :::image type="content" source="media/howto-create-custom-rules/sendgrid-api-keys.png" alt-text="Screenshot that shows how to create a SendGrid API key." lightbox="media/howto-create-custom-rules/sendgrid-api-keys.png":::
 
-Afterwards, you will be given an API key. Save this string for later use.
+Make a note of the generated API key, you use it later.
+
+Create a **Single Sender Verification** in your SendGrid account for the email address you'll use as the **From** address.
 
 ## Create an event hub
 
@@ -114,26 +117,24 @@ You can configure an IoT Central application to continuously export telemetry to
 1. In the Azure portal, navigate to your Event Hubs namespace and select **+ Event Hub**.
 1. Name your event hub **centralexport**, and select **Create**.
 
-Your Event Hubs namespace looks like the following screenshot: 
-
-:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
+:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of the Event Hubs namespace with an event hub." border="false" lightbox="media/howto-create-custom-rules/event-hubs-namespace.png":::
 
 ## Define the function
 
 This solution uses an Azure Functions app to send an email notification when the Stream Analytics job detects a stopped device. To create your function app:
 
-1. In the Azure portal, navigate to the **App Service** instance in the **DetectStoppedDevices** resource group.
-1. Select **+** to create a new function.
-1. Select **HTTP Trigger**.
-1. Select **Add**.
+1. In the Azure portal, navigate to the **Function App** instance in the **DetectStoppedDevices** resource group.
+1. Select **Functions**, then **+ Create** to create a new function.
+1. Select **HTTP Trigger** as the function template.
+1. Select **Create**.
 
-    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Image of the Default HTTP trigger function"::: 
+:::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Screenshot of the Azure portal that shows how to create an HTTP trigger function." lightbox="media/howto-create-custom-rules/add-function.png":::
 
 ## Edit code for HTTP Trigger
 
-The portal creates a default function called **HttpTrigger1**:
+The portal creates a default function called **HttpTrigger1**. Select **Code + Test**:
 
-:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
+:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot that shows the default function code." lightbox="media/howto-create-custom-rules/default-function.png":::
 
 1. Replace the C# code with the following code:
 
@@ -174,7 +175,6 @@ The portal creates a default function called **HttpTrigger1**:
     }
     ```
 
-    You may see an error message until you save the new code.
 1. Select **Save** to save the function.
 
 ## Add SendGrid Key
@@ -184,40 +184,38 @@ To add your SendGrid API Key, you need to add it to your **Function Keys** as fo
 1. Select **Function Keys**.
 1. Choose **+ New Function Key**.
 1. Enter the *Name* and *Value* of the API Key you created before.
-1. Click **OK.**
+1. Select **OK.**
 
-    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Screenshot of Add Sangrid Key.":::
-
+:::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Screenshot of function keys including the SendGridAPI key." lightbox="media/howto-create-custom-rules/add-key.png":::
 
 ## Configure HttpTrigger function to use SendGrid
 
 To send emails with SendGrid, you need to configure the bindings for your function as follows:
 
-1. Select **Integrate**.
-1. Choose **Add Output** under **HTTP ($return)**.
+1. Select **Integration**.
+1. Select **HTTP ($return)**.
 1. Select **Delete.**
-1. Choose **+ New Output**.
-1. For Binding Type, then choose **SendGrid**.
-1. For SendGrid API Key Setting Type, click New.
+1. Select **+ Add output**.
+1. Select **SendGrid** as the binding type.
+1. For the **SendGrid API Key App Setting**, select **New**.
 1. Enter the *Name* and *Value* of your SendGrid API key.
 1. Add the following information:
 
 | Setting | Value |
 | ------- | ----- |
-| Message parameter name | Choose your name |
-| To address | Choose the name of your To Address |
-| From address | Choose the name of your From Address |
-| Message subject | Enter your subject header |
-| Message text | Enter the message from your integration |
+| Message parameter name | name |
+| To address | Enter your To Address |
+| From address | Enter your SendGrid verified single sender email address |
+| Message subject | Device stopped |
+| Message text | The device connected to IoT Central has stopped sending telemetry. |
 
-1. Select **OK**.
+1. Select **Save**.
 
-    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Screenshot of Add SandGrid Output.":::
-
+:::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Screenshot of the SendGrid output configuration." lightbox="media/howto-create-custom-rules/add-output.png":::
 
 ### Test the function works
 
-To test the function in the portal, first choose **Logs** at the bottom of the code editor. Then choose **Test** to the right of the code editor. Use the following JSON as the **Request body**:
+To test the function in the portal, first select **Logs** at the bottom of the code editor. Then select **Test/Run**. Use the following JSON as the **Request body**:
 
 ```json
 [{"deviceid":"test-device-1","time":"2019-05-02T14:23:39.527Z"},{"deviceid":"test-device-2","time":"2019-05-02T14:23:50.717Z"},{"deviceid":"test-device-3","time":"2019-05-02T14:24:28.919Z"}]
@@ -225,7 +223,7 @@ To test the function in the portal, first choose **Logs** at the bottom of the c
 
 The function log messages appear in the **Logs** panel:
 
-:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
+:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Screenshot that shows the function log output." lightbox="media/howto-create-custom-rules/function-app-logs.png":::
 
 After a few minutes, the **To** email address receives an email with the following content:
 
@@ -306,9 +304,9 @@ This solution uses a Stream Analytics query to detect when a device stops sendin
 1. Select **Save**.
 1. To start the Stream Analytics job, choose **Overview**, then **Start**, then **Now**, and then **Start**:
 
-    :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Screenshot of Stream Analytics.":::
+    :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Screenshot of Stream Analytics overview page." lightbox="media/howto-create-custom-rules/stream-analytics.png":::
 
-## Configure export in IoT Central 
+## Configure export in IoT Central
 
 On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created.
 
@@ -322,10 +320,10 @@ In this section, you configure the application to stream the telemetry from its 
     | Display Name | Export to Event Hubs |
     | Enabled | On |
     | Type of data to export | Telemetry |
-    | Enrichments | Enter desired key / Value of how you want the exported data to be organized | 
+    | Enrichments | Enter desired key / Value of how you want the exported data to be organized |
     | Destination | Create New and enter information for where the data will be exported |
 
-    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Screenshot of the Data Export.":::
+    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Screenshot of the data export settings in IoT Central." lightbox="media/howto-create-custom-rules/cde-configuration.png":::
 
 Wait until the export status is **Running** before you continue.
 

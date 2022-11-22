@@ -975,6 +975,16 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-js-csharp-python
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: acs-csharp-java
   title: Java and C# pivots
   prompt: Choose a programming language
@@ -1072,6 +1082,14 @@ groups:
     title: Web
   - id: platform-ios
     title: iOS
+- id: acs-web-android
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android    
 - id: acs-js-csharp-ios-android-python
   title: Programming languages
   prompt: Choose a programming language

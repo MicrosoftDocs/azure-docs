@@ -34,6 +34,14 @@ landingContent:
         links:
           - text: Introduction to Azure Virtual Networks
             url: /training/modules/introduction-to-azure-virtual-networks
+      - linkListType: deploy
+        links: 
+          - text: Provision a network landing zone
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%201
+          - text: Provision a new application in an existing network
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%202
+          - text: Provision a secondary Azure region infrastructure
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%205
  
   # Card (optional)
   - title: Get started

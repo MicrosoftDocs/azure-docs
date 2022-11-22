@@ -2,10 +2,10 @@
 title: What's new in Azure Migrate
 description: Learn about what's new and recent updates in the Azure Migrate service.
 ms.topic: overview
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
-ms.date: 11/04/2022
+author: Vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.date: 11/21/2022
 ms.custom: mvc
 ---
 
@@ -13,10 +13,17 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (November 2022)
+
+- Support for providing a sudo user account to perform agentless dependency analysis on Linux servers running in VMware, Hyper-V, and Physical/other cloud environments.
+- Support for selecting VNet and Subnet during test migration using PowerShell for agentless VMware scenario.
+- Support for OS disk swap using the Azure portal and PowerShell for agentless VMware scenario.
+- Support for pausing and resuming replications using PowerShell for agentless VMware scenario.
+
 ## Update (October 2022)
 
 - Support for export of errors and notifications from the portal for software inventory and agentless dependency.
-- Private preview : Plan replication. This is a new feature added to the Migration and Modernization tool of Azure Migrate. It helps to estimate the time and resources required for replication and migration of the discovered servers. This feature will help in planning the replication and migration schedule. Currently, the feature is available for VMware agentless migrations.  To enroll for private preview, please fill this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2QMeqnlmM1An_w4S8FpvJ5UNEQ1VEgzNUpEUE0xODBHVUdVVUxGMUdVNS4u).
+- Private preview: Plan replication. This is a new feature added to the Migration and Modernization tool of Azure Migrate. It helps to estimate the time and resources required for replication and migration of the discovered servers. This feature will help in planning the replication and migration schedule. Currently, the feature is available for VMware agentless migrations.  To enroll for private preview, please fill this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2QMeqnlmM1An_w4S8FpvJ5UNEQ1VEgzNUpEUE0xODBHVUdVVUxGMUdVNS4u).
 
 ## Update (September 2022)
 
@@ -36,7 +43,7 @@ ms.custom: mvc
 ## Update (May 2022)
 - Upgraded the Azure SQL assessment experience to identify the ideal migration target for your SQL deployments across Azure SQL MI, SQL Server on Azure VM, and Azure SQL DB:
    - We recommended migrating instances to *SQL Server on Azure VM* as per the Azure best practices.
-   - *Right sized Lift and Shift* - Server to *SQL Server on Azure VM*. We recommend this when SQL Server credentials are not available. 
+   - *Right sized Lift and Shift* - Server to *SQL Server on Azure VM*. We recommend this when SQL Server credentials aren't available. 
    - Enhanced user-experience that covers readiness and cost estimates for multiple migration targets for SQL deployments in one assessment.
 - Support for Storage vMotion during replication for agentless VMware VM migrations.
 
@@ -111,7 +118,7 @@ For more information, see [ASP.NET app containerization and migration to Azure K
 ## Update (September 2020)
 
 - Migration of servers to Availability Zones is now supported.
-- Migration of UEFI-based VMs and physical servers to Azure generation 2 VMs is now supported. With this release, Azure Migrate: Server Migration tool will not perform the conversion from Gen 2 VM to Gen 1 VM during migration.
+- Migration of UEFI-based VMs and physical servers to Azure generation 2 VMs is now supported. With this release, Azure Migrate: Server Migration tool won't perform the conversion from Gen 2 VM to Gen 1 VM during migration.
 - A new Azure Migrate Power BI assessment dashboard is available to help you compare costs across different assessment settings. The dashboard comes with a PowerShell utility that automatically creates the assessments that plug into the Power BI dashboard. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
 - Dependency analysis (agentless) can now be run concurrently on a 1000 VMs.
 - Dependency analysis (agentless) can now be enabled or disabled at scale using PowerShell scripts. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
