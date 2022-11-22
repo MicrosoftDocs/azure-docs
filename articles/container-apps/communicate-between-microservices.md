@@ -243,7 +243,7 @@ The output from the `az containerapp create` command shows the URL of the front 
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To create the container app, create template objects that you will pass in as arguments to the `New-AzContainerApp` command.
+To create the container app, create template objects that you'll pass in as arguments to the `New-AzContainerApp` command.
 
 Create a template object to define your container image parameters.  The environment variable named `API_BASE_URL` is set to the API's FQDN.
 
@@ -259,7 +259,7 @@ $ContainerArgs = @{
 $ContainerObj = New-AzContainerAppTemplateObject @ContainerArgs
 ```
 
-You will need run the following command to get your registry credentials.
+You'll need run the following command to get your registry credentials.
 
 ```azurepowershell
 $RegistryCredentials = Get-AzContainerRegistryCredential -Name $ACRName -ResourceGroupName $ResourceGroup
@@ -292,8 +292,8 @@ $AppArgs = @{
     Location = $Location
     ResourceGroupName = $ResourceGroup
     ManagedEnvironmentId = $EnvId
-    TemplateContainer = $TemplateObj
-    ConfigurationRegistry = $ContainerObj
+    TemplateContainer = $ContainerObj
+    ConfigurationRegistry = $RegistryObj
     ConfigurationSecret = $SecretObj
     IngressTargetPort = 3500
     IngressExternal = $true
