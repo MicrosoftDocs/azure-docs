@@ -132,7 +132,7 @@ Update to [version 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.
 
 ### SDK For Go
 
-Update to [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight) or later of the HDInsight SDK for Go. Minimal code modifications may be required if you are using a method affected by these changes:
+Update to [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hdinsight) or later of the HDInsight SDK for Go. Minimal code modifications may be required if you are using a method affected by these changes:
 
 - [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.Get) will **no longer return sensitive parameters** like storage keys (core-site) or HTTP credentials (gateway).
     - To retrieve all configurations, including sensitive parameters, use [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.List) going forward.  Note that users with the 'Reader' role will not be able to use this method. This allows for granular control over which users can access sensitive information for a cluster. 

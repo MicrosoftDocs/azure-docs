@@ -76,7 +76,7 @@
     items:
     - name: Enable enterprise state roaming
       href: enterprise-state-roaming-enable.md
-    - name: Enable enterprise state FAQs
+    - name: Enterprise state roaming FAQs
       href: enterprise-state-roaming-faqs.yml
     - name: Troubleshoot enterprise state roaming
       href: enterprise-state-roaming-troubleshooting.md
