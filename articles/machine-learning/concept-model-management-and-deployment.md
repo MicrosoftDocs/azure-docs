@@ -136,7 +136,7 @@ When deploying to an online endpoint, you can use controlled rollout to enable t
 * Perform A/B testing by routing traffic to different deployments within the endpoint.
 * Switch between endpoint deployments by updating the traffic percentage in endpoint configuration.
 
-For more information, see [Controlled rollout of machine learning models](./how-to-safely-rollout-managed-endpoints.md).
+For more information, see [Controlled rollout of machine learning models](./how-to-safely-rollout-online-endpoints.md).
 
 ### Analytics
 
