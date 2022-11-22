@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box Preview
 description: 'Learn how to create a custom image with Azure Image Builder, then create a Dev box with the image.'
 services: dev-box
 ms.service: dev-box
-author: Kevin Nguyen
+author: xnkevinnguyen
 ms.author: kevinnguyen
 ms.date: 11/17/2022
 ms.topic: how-to
