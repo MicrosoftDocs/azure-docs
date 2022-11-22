@@ -28,7 +28,7 @@ Network Watcher provides various capabilities as it relates to understanding you
 ## Prerequisites
 
 - A [Network Watcher instance](network-watcher-create.md).
-- Ensure you are using a supported Gateway type. [Learn more](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+- Ensure you're using a supported Gateway type. [Learn more](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## Overview
 
@@ -62,7 +62,7 @@ $sc = New-AzStorageContainer -Name logs
 
 ## Run Network Watcher resource troubleshooting
 
-You troubleshoot resources with the [Start-AzNetworkWatcherResourceTroubleshooting](/powershell/module/az.network/start-aznetworkwatcherresourcetroubleshooting?view=azps-9.1.0) cmdlet. We pass the cmdlet the Network Watcher object, the Id of the Connection or Virtual Network Gateway, the storage account id, and the path to store the results.
+You can troubleshoot resources with the [Start-AzNetworkWatcherResourceTroubleshooting](/powershell/module/az.network/start-aznetworkwatcherresourcetroubleshooting?view=azps-9.1.0) cmdlet. We pass the cmdlet the Network Watcher object, the ID of the Connection or Virtual Network Gateway, the storage account ID, and the path to store the results.
 
 > [!NOTE]
 > The [Start-AzNetworkWatcherResourceTroubleshooting](/powershell/module/az.network/start-aznetworkwatcherresourcetroubleshooting?view=azps-9.1.0) cmdlet is long running and may take a few minutes to complete.
@@ -75,9 +75,15 @@ Once you run the cmdlet, Network Watcher reviews the resource to verify its heal
 
 ## Understanding the results
 
-The action text provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with additional guidance. If there is no additional guidance, the response provides the URL to open a support case.  For more information about the properties of the response and what is included, visit [Network Watcher Troubleshoot overview](network-watcher-troubleshoot-overview.md).
+The action text provides general guidance on how to resolve the issue. 
 
-For instructions on downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. See [Storage Explorer](https://storageexplorer.com/) for more information.
+- If an action can be taken for the issue, a link is provided with additional guidance. 
+- If there's no guidance provided, the response provides the URL to open a support case.  
+
+For more information about the properties of the response and what is included, see [Network Watcher Troubleshoot overview](network-watcher-troubleshoot-overview.md).
+
+For instructions on downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. For more information, see [Storage Explorer](https://storageexplorer.com/).
+
 ## Next steps
 
 If VPN connectivity has been stopped due to a change in settings, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that may be in question.
