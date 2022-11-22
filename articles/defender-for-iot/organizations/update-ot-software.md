@@ -11,7 +11,7 @@ This article describes how to update Defender for IoT software versions on OT se
 
 You can purchase preconfigured appliances for your sensors and on-premises management consoles, or install software on your own hardware machines. In either case, you'll need to update software versions to use new features for OT sensors and on-premises management consoles.
 
-For more information, see [Which appliances do I need?](ot-appliance-sizing.md), [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md), and [What's new in Microsoft Defender for IoT?](release-notes.md).
+For more information, see [Which appliances do I need?](ot-appliance-sizing.md), [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md), and [OT monitoring software release notes](release-notes.md).
 
 ## Legacy version updates vs. recent version updates
 
@@ -68,7 +68,7 @@ In such cases, make sure to update your on-premises management consoles *before*
 You can update software on your sensors individually, directly from each sensor console, or in bulk from the on-premises management console. Select one of the following tabs for the steps required in each method.
 
 > [!NOTE]
-> If you are updating from software versions earlier than [22.1.x](release-notes.md#update-to-version-221x), note that this version has a large update with more complicated background processes. Expect this update to take more time than earlier updates have required.
+> If you are updating from software versions earlier than [22.1.x](whats-new.md#update-to-version-221x), note that this version has a large update with more complicated background processes. Expect this update to take more time than earlier updates have required.
 >
 
 > [!IMPORTANT]
