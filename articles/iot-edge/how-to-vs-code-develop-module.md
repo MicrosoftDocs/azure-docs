@@ -606,6 +606,9 @@ In Visual Studio Code, open *deployment.debug.template.json* deployment manifest
 
 You can check your container status by running the `docker ps` command in the terminal. If your Visual Studio Code and IoT Edge runtime are running on the same machine, you can also check the status in the Visual Studio Code Docker view.
 
+> [!TIP]
+> If you're using a private registry like Azure Container Registry (ACR) for your images, you may need to authenticate to push images. Use `docker login <ACR login server>` or `az acr login --name <ACR name>` to authenticate.
+
 ::: zone-end
 <!--vscode end-->
 
