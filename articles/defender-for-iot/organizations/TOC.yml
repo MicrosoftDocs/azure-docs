@@ -9,8 +9,9 @@
     items:
       - name: What's new in Defender for IoT
         href: whats-new.md
-      - name: OT monitoring software release notes
+      - name: OT monitoring software versions
         href: release-notes.md
+        displayName: sensor versions
       - name: Microsoft Sentinel solution release notes
         href: release-notes-sentinel.md
 - name: Quickstarts
