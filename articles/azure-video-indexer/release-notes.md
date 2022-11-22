@@ -343,11 +343,11 @@ The Video Indexer service was renamed to Azure Video Indexer.
 
 ### Improved upload experience in the portal
 
-Azure Video Indexer has a new upload experience in the [portal](https://www.videoindexer.ai). To upload your media file, press the **Upload** button from the **Media files** tab.
+Azure Video Indexer has a new upload experience in the [website](https://www.videoindexer.ai). To upload your media file, press the **Upload** button from the **Media files** tab.
 
 ### New developer portal in available in gov-cloud
 
-[Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai) is now also available in Azure for US Government.
+The [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai) is now also available in Azure for US Government.
 
 ### Observed people tracing (preview)
 
@@ -377,7 +377,7 @@ The newly added bundle is available when indexing or re-indexing your file by ch
 
 ### New developer portal
 
-Azure Video Indexer has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Azure Video Indexer APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Azure Video Indexer tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Azure Video Indexer FAQs](faq.yml), [User Voice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples.
+Azure Video Indexer has a new [developer portal](https://api-portal.videoindexer.ai/), try out the new Azure Video Indexer APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Azure Video Indexer tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Azure Video Indexer FAQs](faq.yml), [User Voice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples.
 
 ### Advanced customization capabilities for insight widget
 
@@ -578,7 +578,7 @@ https://github.com/Azure-Samples/media-services-video-indexer
 
 ### Swagger update
 
-Azure Video Indexer unified **authentications** and **operations** into a single [Azure Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/api-details#api=Operations&operation). Developers can find the APIs in [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+Azure Video Indexer unified **authentications** and **operations** into a single [Azure Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/api-details#api=Operations&operation). Developers can find the APIs in the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/).
 
 ## December 2019
 
