@@ -59,7 +59,7 @@ To add yourself or another user as owner of an app:
 3. Search for the app registration you created, and then select it.
 4. In the left menu, under **Manage**, select **Owners**.
 5. Select **Add owners**, and then add yourself or the user you want to have admin consent.
-6. Select **Save*
+6. Select **Save**
 
 ## Step 2: Enable the SMART on FHIR proxy
 
