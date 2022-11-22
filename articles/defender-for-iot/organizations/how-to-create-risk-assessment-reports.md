@@ -37,6 +37,10 @@ Risk assessment reports provide:
 
     - Attack vectors
 
+- Data about firewall rule risk. Defender for IoT imports firewall rules from supported vendors and analyzes them. The Risk Assessment report highlights if a rule is not secure, or if there's a mismatch between the rule and the monitored network. For example:
+
+Image to be added.
+
 ### Risk mitigation
 
 Reports provide recommendations to help you improve your security score. For example:
