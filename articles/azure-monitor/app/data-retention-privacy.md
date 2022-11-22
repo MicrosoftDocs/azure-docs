@@ -333,7 +333,7 @@ This product includes GeoLite2 data created by [MaxMind](https://www.maxmind.com
 [config]: ./configuration-with-applicationinsights-config.md
 [greenbrown]: ./asp-net.md
 [java]: ./java-in-process-agent.md
-[platforms]: ./platforms.md
+[platforms]: ./app-insights-overview.md#supported-languages
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md
