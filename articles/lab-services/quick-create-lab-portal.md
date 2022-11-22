@@ -66,7 +66,7 @@ The following steps show how to create a lab with Azure Lab Services.
 
    :::image type="content" source="./media/quick-create-lab-portal/lab-template-page.png" alt-text="Screenshot of Template page of a lab.":::
 
-   If you're using a templateless lab, you'll see the following note on the Template page:
+   If you're using a templateless lab, you'll see the following note on the Template page, indicating that template customization has been disabled for this lab:
 
      :::image type="content" source="./media/quick-create-lab-portal/templateless-template.png" alt-text="Screenshot of Template page of a templateless lab with the template customization disabled message highlighted.":::
 
