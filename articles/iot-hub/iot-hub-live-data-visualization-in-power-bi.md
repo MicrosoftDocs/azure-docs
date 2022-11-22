@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 7/23/2021
+ms.date: 11/21/2022
 ms.author: kgremban
 ---
 
@@ -46,17 +46,21 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**. Type *Stream Analytics Job* in the search box and select it from the drop-down list. On the **Stream Analytics job** overview page, select **Create**
 
-2. Enter the following information for the job.
+2. In the **Basics** tab of the working pane, enter the following information.
 
-   **Job name**: The name of the job. The name must be globally unique.
+   **Subscription**: Select the subscription for your IoT hub.
 
-   **Resource group**: Use the same resource group that your IoT hub uses.
+   **Resource group**: Select the resource group for your IoT hub.
 
-   **Location**: Use the same location as your resource group.
+   **Name**: Enter the name of the job. The name must be globally unique.
+
+   **Region**: Select the region for your IoT hub.
+
+   Leave all other fields at their defaults, as shown in the following picture.
 
    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png" alt-text="Create a Stream Analytics job in Azure":::
 
-3. Select **Create**.
+3. Select **Review + create**, then select **Create** to create the Stream Analytics job.
 
 ### Add an input to the Stream Analytics job
 
@@ -74,15 +78,15 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    **IoT Hub**: Select the IoT Hub you're using for this tutorial.
 
-   **Endpoint**: Select **Messaging**.
+   **Consumer group**: Select the consumer group you created previously.
 
    **Shared access policy name**: Select the name of the shared access policy you want the Stream Analytics job to use for your IoT hub. For this tutorial, you can select *service*. The *service* policy is created by default on new IoT hubs and grants permission to send and receive on cloud-side endpoints exposed by the IoT hub. To learn more, see [Access control and permissions](iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
-   **Shared access policy key**: This field is autofilled based on your selection for the shared access policy name.
+   **Shared access policy key**: This field is automatically filled, based on your selection for the shared access policy name.
 
-   **Consumer group**: Select the consumer group you created previously.
-
-   Leave all other fields at their defaults.
+   **Endpoint**: Select **Messaging**.
+   
+   Leave all other fields at their defaults, as shown in the following picture.
 
    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png" alt-text="Add an input to a Stream Analytics job in Azure":::
 
