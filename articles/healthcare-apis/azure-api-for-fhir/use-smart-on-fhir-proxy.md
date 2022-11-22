@@ -12,9 +12,9 @@ ms.date: 06/03/2022
 
 # SMART on FHIR overview
 
-Substitutable Medical Applications and Reusable Technologies([SMART on FHIR])(https://docs.smarthealthit.org/) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
-- Applications have a known method for obtaining authentication/authorization to a FHIR repository
-- Users accessing a FHIR repository with SMART on FHIR are restricted to resources associated with the user, rather than having access to all data in the repository
+Substitutable Medical Applications and Reusable Technologies([SMART on FHIR](https://docs.smarthealthit.org/)) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
+- Applications have a known method for obtaining authentication/authorization to a FHIR repository.
+- Users accessing a FHIR repository with SMART on FHIR are restricted to resources associated with the user, rather than having access to all data in the repository.
 - Users have the ability to grant applications access to a further limited set of their data by using SMART clinical scopes.
 
 <!---SMART Implementation Guide v1.0.0 is supported by Azure Health Data Services and Azure API Management (APIM). This is our recommended approach, as it enabled Health IT developers to comply with 21st Century Act Criterion §170.315(g)(10) Standardized API for patient and population services. 
@@ -32,7 +32,7 @@ Below tutorial describes steps to enable SMART on FHIR applications with FHIR Se
 - An instance of the FHIR Service
 - .NET SDK 6.0
 - [Enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
-- [Register public client application in Azure AD]([https://learn.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/register-public-azure-ad-client-app]
+- [Register public client application in Azure AD](https://learn.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/register-public-azure-ad-client-app)
      - After registering the application, make note of the applicationId for client application.
 
 <!--- Tutorial : To enable SMART on FHIR using APIM, follow below steps 
@@ -61,20 +61,11 @@ To add yourself or another user as owner of an app:
 5. Select **Add owners**, and then add yourself or the user you want to have admin consent.
 6. Select **Save*
 
-## Step 2: Configure Azure AD registrations
+## Step 2: Enable the SMART on FHIR proxy
 
 SMART on FHIR requires that `Audience` has an identifier URI equal to the URI of the FHIR service. The standard configuration of the Azure API for FHIR uses an `Audience` value of `https://azurehealthcareapis.com`. However, you can also set a value matching the specific URL of your FHIR service (for example `https://MYFHIRAPI.azurehealthcareapis.com`). This is required when working with the SMART on FHIR proxy.
 
-You'll also need a client application registration. Most SMART on FHIR applications are single-page JavaScript applications. So you should follow the instructions for configuring a [public client application in Azure AD](register-public-azure-ad-client-app.md).
-
-After you complete these steps, you should have:
-
-- A FHIR server with the audience set to `https://MYFHIRAPI.azurehealthcareapis.com`, where `MYFHIRAPI` is the name of your Azure API for FHIR instance.
-- A public client application registration. Make a note of the application ID for this client application.
-
-## Step 3: Enable the SMART on FHIR proxy
-
-Enable the SMART on FHIR proxy in the **Authentication** settings for your Azure API for FHIR instance by selecting the **SMART on FHIR proxy** check box:
+To enable the SMART on FHIR proxy in the **Authentication** settings for your Azure API for FHIR instance, select the **SMART on FHIR proxy** check box:
 
 ![Selections for enabling the SMART on FHIR proxy](media/tutorial-smart-on-fhir/enable-smart-on-fhir-proxy.png)
 
@@ -106,11 +97,11 @@ Add the reply URL to the public client application that you created earlier for 
 
 ![Reply URL configured for the public client](media/tutorial-smart-on-fhir/configure-reply-url.png)
 
-## Step 4: Get a test patient
+## Step 3: Get a test patient
 
 To test the Azure API for FHIR and the SMART on FHIR proxy, you'll need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.
 
-## Step 5: Download the SMART on FHIR app launcher
+## Step 4: Download the SMART on FHIR app launcher
 
 The open-source [FHIR Server for Azure repository](https://github.com/Microsoft/fhir-server) includes a simple SMART on FHIR app launcher and a sample SMART on FHIR app. In this tutorial, use this SMART on FHIR launcher locally to test the setup.
 
@@ -144,7 +135,7 @@ Use this command to run the application:
 dotnet run
 ```
 
-## Step 6: Test the SMART on FHIR proxy
+## Step 5: Test the SMART on FHIR proxy
 
 After you start the SMART on FHIR app launcher, you can point your browser to `https://localhost:5001`, where you should see the following screen:
 
