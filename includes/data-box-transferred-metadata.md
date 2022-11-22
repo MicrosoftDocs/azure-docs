@@ -2,7 +2,7 @@
 author: sipastak
 ms.service: databox  
 ms.topic: include
-ms.date: 11/16/2022
+ms.date: 11/18/2022
 ms.author: sipastak
 ---
 
@@ -33,3 +33,7 @@ The following file attributes aren't transferred:
 - FILE_ATTRIBUTE_NOT_CONTENT_INDEXED
   
 Read-only attributes on directories aren't transferred.
+
+## Alternate data streams and extended attributes
+
+[Alternate data streams](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) and extended attributes are not supported in Azure Files, page blob, or block blob storage, so they are not transferred when copying data. 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 11/12/2022
+ms.date: 11/18/2022
 ms.author: alkohli
 ---
 
@@ -23,37 +23,8 @@ The metadata can be copied with Windows and Linux data copy tools. Metadata isn'
 
 The subsequent sections of the article discuss in detail as to how the timestamps, file attributes, and ACLs are transferred when the data from Data Box is uploaded to Azure Files. 
 
-## Timestamps
+[!INCLUDE [data-box-transferred-metadata](../../includes/data-box-transferred-metadata.md)]
 
-The following timestamps are transferred:
-- CreationTime
-- LastWriteTime
-
-The following timestamp isn't transferred:
-- LastAccessTime
-
-## File attributes
-
-File attributes on both files and directories are transferred unless otherwise noted.
-
-The following file attributes are transferred:
-- FILE_ATTRIBUTE_READONLY (file only)
-- FILE_ATTRIBUTE_HIDDEN
-- FILE_ATTRIBUTE_SYSTEM
-- FILE_ATTRIBUTE_DIRECTORY (directory only)
-- FILE_ATTRIBUTE_ARCHIVE
-- FILE_ATTRIBUTE_TEMPORARY (file only)
-- FILE_ATTRIBUTE_NO_SCRUB_DATA
-
-The following file attributes aren't transferred:
-- FILE_ATTRIBUTE_OFFLINE
-- FILE_ATTRIBUTE_NOT_CONTENT_INDEXED
-  
-Read-only attributes on directories aren't transferred.
-
-## Alternate data streams and extended attributes
-
-[Alternate data streams](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) and extended attributes are not supported in Azure Files, page blob, or block blob storage, so they are not transferred when copying data. 
 
 ## ACLs
 
