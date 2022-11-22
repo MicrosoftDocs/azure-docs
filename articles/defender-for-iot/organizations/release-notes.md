@@ -141,20 +141,12 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [OT appliance hardware profile updates](ot-appliance-sizing.md):
-
-    - New naming convention for hardware profiles to reflect both the *type* of profile, including *Corporate*, *Enterprise*, and *Production line*, and also the related disk storage size.
-
+- [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
-
 - [Bi-directional alert synch between sensors and the Azure portal](how-to-manage-cloud-alerts.md#managing-alerts-in-a-hybrid-deployment)
-
 - [Sensor connections restored after certificate rotation](how-to-deploy-certificates.md)
-
 - [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
-
 - [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
-
 - [Sensor names shown in browser tabs](how-to-manage-individual-sensors.md)
 
 ## Versions 22.1.x
@@ -195,7 +187,7 @@ This version minor updates to improve TI installation packages and software upda
 
 This version includes the following new updates and fixes:
 
-- [Extended device property data in the **Device inventory** page on the Azure portal](how-to-manage-device-inventory-for-organizations.md): Extended data in the **Description**, **Tags**. **Protocols**, **Scanner**, and **Last Activity** fields
+- [Extended device property data in the **Device inventory** page on the Azure portal](how-to-manage-device-inventory-for-organizations.md), for the **Description**, **Tags**. **Protocols**, **Scanner**, and **Last Activity** fields
 
 ### 22.1.3
 
@@ -206,11 +198,8 @@ This version includes the following new updates and fixes:
 This version includes the following new updates and fixes:
 
 - [Diagnostic logs automatically available to support for cloud-connected sensors](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
-
 - [Rockwell protocol: Device inventory shows PLC operating mode key state, run state, and security mode](how-to-manage-device-inventory-for-organizations.md)
-
 - [Automatic CLI session timeouts](references-work-with-defender-for-iot-cli-commands.md)
-
 - [Sensor health widgets in the Azure portal](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview)
 
 ### 22.1.1
@@ -223,7 +212,7 @@ This version includes the following new updates and fixes:
 
 - [New sensor installation wizard](how-to-install-software.md)
 
-- [Sensor redesign and unified Microsoft product experience](how-to-manage-individual-sensors.md):
+- [Sensor redesign and unified Microsoft product experience](how-to-manage-individual-sensors.md)
 
 - [Enhanced sensor Overview page](how-to-manage-individual-sensors.md)
 
@@ -292,7 +281,6 @@ This version includes the following new updates and fixes:
 - [New integration APIs](api/management-integration-apis.md)
 - [Network traffic analysis enhancements for multiple OT and ICS protocols](concept-supported-protocols.md)
 - [Automatic deletion for older, archived alerts](how-to-view-alerts.md)
-
 - [Export alert enhancements](how-to-work-with-alerts-on-premises-management-console.md#export-alert-information)
 
 ### 10.5.2
@@ -304,13 +292,9 @@ This version includes the following new updates and fixes:
 This version includes the following new updates and fixes:
 
 - [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
-
 - [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-
 - [On-premises management console audit](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-audit-logs-for-troubleshooting)
-
 - [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
-
 - [Unicode support for certificate passphrases](how-to-deploy-certificates.md)
 
 
