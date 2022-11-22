@@ -28,7 +28,7 @@ To request an increase in quota amounts for your container app, learn [how to re
 For more information regarding quotas, see the [Quotas Roadmap](https://github.com/microsoft/azure-container-apps/issues/503) in the Azure Container Apps GitHub repository.
 
 > [!NOTE]
-> Free trial and Azure for students subscriptions are limited to one environment per subscription  globally.
+> [Free trial](https://azure.microsoft.com/offers/ms-azr-0044p) and [Azure for Students](https://azure.microsoft.com/free/students/) subscriptions are limited to one environment per subscription  globally.
 
 <sup>1</sup> The **Is Configurable** column denotes that a feature maximum may be increased through a [support request](https://azure.microsoft.com/support/create-ticket/). For more information, see [how to request a limit increase](faq.yml#how-can-i-request-a-quota-increase-).
 
