@@ -1,21 +1,19 @@
 ---
-title: Plan your Defender for Servers deployment
-description: Design your Defender for Servers deployment
+title: Plan a Defender for Servers deployment to protect on-premises and multicloud servers
+description: Design a solution to protect on-premises and multicloud servers with Defender for Servers 
 ms.topic: conceptual
 ms.date: 11/06/2022
 ---
 # Plan Defender for Servers deployment
 
-This guide helps you to design and plan an effective Microsoft Defender for Servers deployment.
-
-Defender for Servers protects your Windows and Linux machines in the cloud and on-premises. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). 
+This guide helps you to design and plan an effective Microsoft Defender for Servers deployment to protect Windows and Linux machines in the cloud and on-premises. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
 
 ## About this guide
 
 This planning guide is aimed at cloud solution and infrastructure architects, security architects and analysts, and anyone else involved in protecting cloud/hybrid servers and workloads. The guide aims to answer these questions:
 
-- Why use Defender for Servers?
-- Which Defender for Servers plan is right for me?
+- What can Defender for Servers do?
+- Which Defender for Servers plan should I choose?
 - Where will my data be stored?
 - What do I need to deploy?
 - What permissions do I need?
@@ -30,7 +28,7 @@ This planning guide is aimed at cloud solution and infrastructure architects, se
 - To protect GCP/AWS machines and on-premises servers, they must be onboarded to Azure using [Azure Arc](../azure-arc/index.yml).
 - If you're deploying on AWS/GCP machines, we suggest reviewing the [multicloud planning guide](plan-multicloud-security-get-started.md) before you start.
 
-## Deployment overview
+## How Defender for Servers works
 
 1. When you open Defender for Cloud in the Azure portal, it's automatically turned on for your Azure subscriptions, and Defender for Cloud starts protecting resources that are in the your selected subscriptions with free foundational cloud security posture management features, including security assessment, configuration, and secure score.
 1. With Defender for Cloud working for a subscription, you can then turn on paid Defender for Cloud plans, including Defender for Server, to start discovering and protecting Azure and Azure Arc resources in the subscription. 
