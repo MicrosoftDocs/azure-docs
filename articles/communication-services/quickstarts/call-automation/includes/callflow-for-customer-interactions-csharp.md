@@ -43,6 +43,8 @@ In this quick-start, you'll use the new [Visual Studio Dev Tunnels](https://lear
 
 If you haven't already configured your workstation, be sure to follow the steps in [this guide](https://learn.microsoft.com/connectors/custom-connectors/port-tunneling). Once configured, your workstation will acquire a public domain name automatically allowing us to use the environment variable `["VS_TUNNEL_URL"]` as shown below.
 
+Set up your Event Grid subscription to receive the `IncomingCall` event by reading [this guide](../../../concepts/call-automation/incoming-call-notification.md).
+
 ## Update Program.cs
 
 Using the minimal API feature in .NET 6, we can easily add an HTTP POST map and answer the call. A callback URI is required so the service knows how to contact your application for subsequent calls state events such as `CallConnected` and `PlayCompleted`.  

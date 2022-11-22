@@ -27,17 +27,6 @@ Get started with Azure Communication Services by using the Call Automation SDKs 
 [!INCLUDE [Redirect inbound call with Java](./includes/redirect-inbound-telephony-calls-java.md)]
 ::: zone-end
 
-## Subscribe to IncomingCall event
-
-IncomingCall is an Azure Event Grid event for notifying incoming calls to your Communication Services resource. To learn more about it, see [this guide](../../concepts/call-automation/incoming-call-notification.md). 
-1. Navigate to your resource on Azure portal and select `Events` from the left side menu.
-1. Select `+ Event Subscription` to create a new subscription. 
-1. Filter for Incoming Call event. 
-1. Choose endpoint type as web hook and provide the public url generated for your application by ngrok. Make sure to provide the exact api route that you programmed to receive the event previously. In this case, it would be <ngrok_url>/api/incomingCall. 
-1. Select create to start the creation of subscription and validation of your endpoint as mentioned previously. The subscription is ready when the provisioning status is marked as succeeded. 
-
-This subscription currently has no filters and hence all incoming calls will be sent to your application. To filter for specific phone number or a communication user, use the Filters tab.
-
 ## Testing the application
 
 1. Place a call to the number you acquired in the Azure portal (see prerequisites above).

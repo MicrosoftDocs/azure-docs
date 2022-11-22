@@ -18,6 +18,7 @@ ms.author: askaur
 - [Acquire a PSTN phone number from the Communication Service resource](../../telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart.
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
+- An Azure Event Grid subscription to receive the `IncomingCall` event.
 
 ## Create a new Java Spring application
 
