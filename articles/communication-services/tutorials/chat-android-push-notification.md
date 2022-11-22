@@ -195,28 +195,28 @@ Push notifications let clients be notified for incoming messages and other opera
 11. Add a custom `WorkManager` initializer by creating a class implementing `Configuration.Provider`:
 
 ```java
-public class MyAppConfiguration extends Application implements Configuration.Provider {
-    Consumer<Throwable> exceptionHandler = new Consumer<Throwable>() {
+    public class MyAppConfiguration extends Application implements Configuration.Provider {
+        Consumer<Throwable> exceptionHandler = new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) {
+                Log.i("YOUR_TAG", "Registration failed for push notifications!" + throwable.getMessage());
+            }
+        };
+    
         @Override
-        public void accept(Throwable throwable) {
-            Log.i("YOUR_TAG", "Registration failed for push notifications!" + throwable.getMessage());
+        public void onCreate() {
+            super.onCreate();
+            // Initialize application parameters here
+            WorkManager.initialize(getApplicationContext(), getWorkManagerConfiguration());
         }
-    };
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        // Initialize application parameters here
-        WorkManager.initialize(getApplicationContext(), getWorkManagerConfiguration());
+    
+        @NonNull
+        @Override
+        public Configuration getWorkManagerConfiguration() {
+            return new Configuration.Builder().
+                setWorkerFactory(new RegistrationRenewalWorkerFactory(COMMUNICATION_TOKEN_CREDENTIAL, exceptionHandler)).build();
+        }
     }
-
-    @NonNull
-    @Override
-    public Configuration getWorkManagerConfiguration() {
-        return new Configuration.Builder().
-            setWorkerFactory(new RegistrationRenewalWorkerFactory(COMMUNICATION_TOKEN_CREDENTIAL, exceptionHandler)).build();
-    }
-}
 ```
 **Explanation to code above:** The default initializer of `WorkManager` has been disabled in step 9. This step implements `Configuration.Provider` to provide a customized 'WorkFactory', which is responsible to create `WorkerManager` during runtime. 
 
