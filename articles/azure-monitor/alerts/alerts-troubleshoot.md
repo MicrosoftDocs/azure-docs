@@ -138,12 +138,14 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     1. **Did your webhook become unresponsive or return errors?** 
 
-        The webhook response timeout period is 10 seconds. When the HTTP endpoint does not respond or when the following HTTP status codes are returned, the webhook call is retried up to two times: 
-   - `408`
-   -  `429`
-   - `503`
-   - `504`
-    One retry occurs after 10 seconds and another retry occurs after 100 seconds. If the second retry fails, the endpoint is not called again for 15 minutes for any action group.
+        The webhook response timeout period is 10 seconds. When the HTTP endpoint does not respond or when the following HTTP status codes are returned, the webhook call is retried up to two times:
+        
+    - `408`
+    -  `429`
+    - `503`
+    - `504`
+   
+        One retry occurs after 10 seconds and another retry occurs after 100 seconds. If the second retry fails, the endpoint is not called again for 15 minutes for any action group.
 
 ## Action or notification happened more than once 
 
