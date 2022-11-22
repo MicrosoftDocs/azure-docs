@@ -158,7 +158,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    ```azurecli
    ENDPOINT_NAME='heart-classifier-batch'
-   az ml batch-endpoint create -f endpoint.yml
+   az ml batch-endpoint create -n $ENDPOINT_NAME -f endpoint.yml
    ```
    
    # [Python](#tab/sdk)
@@ -170,6 +170,11 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
       name="heart-classifier-batch", 
       description="A heart condition classifier for batch inference",
    )
+   ```
+   
+   Then, create the endpoint with the following command:
+   
+   ```python
    ml_client.batch_endpoints.begin_create_or_update(endpoint)
    ```
 
@@ -203,12 +208,12 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    ```azurecli
    DEPLOYMENT_NAME="classifier-xgboost-mlflow"
-   az ml batch-deployment create -f endpoint.yml --set-default
+   az ml batch-deployment create -n $DEPLOYMENT_NAME -f endpoint.yml
    ```
    
    # [Python](#tab/sdk)
    
-   To create a new deployment under the created endpoint, use the following script:
+   To create a new deployment under the created endpoint, first define the deployment:
    
    ```python
    deployment = BatchDeployment(
@@ -225,15 +230,12 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
        retry_settings=BatchRetrySettings(max_retries=3, timeout=300),
        logging_level="info",
    )
-   ml_client.batch_deployments.begin_create_or_update(deployment)
    ```
    
-   Once created, you will need to set this deployment as the default one:
+   Then, create the deployment with the following command:
    
    ```python
-   endpoint = ml_client.batch_endpoints.get(endpoint.name)
-   endpoint.defaults.deployment_name = deployment.name
-   ml_client.batch_endpoints.begin_create_or_update(endpoint)
+   ml_client.batch_deployments.begin_create_or_update(deployment)
    ```
    ---
    
@@ -251,6 +253,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    # [Python](#tab/sdk)
    
    ```python
+   endpoint = ml_client.batch_endpoints.get(endpoint.name)
    endpoint.defaults.deployment_name = deployment.name
    ml_client.batch_endpoints.begin_create_or_update(endpoint)
    ```
