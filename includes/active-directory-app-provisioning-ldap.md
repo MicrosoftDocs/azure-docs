@@ -61,6 +61,7 @@ Before deploying the connector to an existing directory server, you'll need to d
  | password for the connector to authenticate itself to the directory server |Configuration wizard **Connectivity** page | |
  | structural object class for a user in the directory server | Configuration wizard **Object Types** page | `User` |
  | auxiliary object classes for a user in the directory server | Azure portal **Provisioning** page attribute mappings | No additional auxiliary classes required |
+ | attributes to populate on a new user | Configuration wizard  **Select Attributes** page and Azure portal **Provisioning** page attribute mappings | `msDS-UserAccountDisabled`, `userPrincipalName`, `displayName` |
  | naming hierarchy required by the directory server | Azure portal **Provisioning** page attribute mappings | Set the DN of a newly created user to be immediately below `CN=CloudUsers,CN=App,DC=Contoso,DC=lab` |
  | attributes for correlating users across Azure AD and the directory server | Azure portal **Provisioning** page attribute mappings | not configured as this example is for an initially empty directory |
  | deprovisioning behavior when a user goes out of scope in Azure AD |Configuration wizard **Deprovisioning** page | Delete the user from the directory server |
