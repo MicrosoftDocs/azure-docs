@@ -202,7 +202,7 @@ There are two ways to capture a dump of data from the source Amazon RDS for MySQ
         Mysql> SHOW GRANTS FOR syncuser@'%';
         ```
 
-    Stored procedures do all Data-in Replication functions. For information about all procedures, see [Data-in Replication stored procedures](reference-stored-procedures.md#data-in-replication-stored-procedures). You can run these stored procedures in the MySQL shell or MySQL Workbench.
+    Stored procedures do all Data-in Replication functions. For information about all procedures, see [Data-in Replication stored procedures](../single-server/reference-stored-procedures.md#data-in-replication-stored-procedures). You can run these stored procedures in the MySQL shell or MySQL Workbench.
 
 1. To link the Amazon RDS for MySQL source server and the Azure Database for MySQL target server, sign in to the target Azure Database for MySQL server. Set the Amazon RDS for MySQL server as the source server by running the following command:
 
