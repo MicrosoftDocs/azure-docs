@@ -266,7 +266,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
    # [Azure CLI](#tab/cli)
    
-   Create a data asset definition in `YAML`:
+   a. Create a data asset definition in `YAML`:
    
    __heart-dataset-unlabeled.yml__
    ```yaml
@@ -277,7 +277,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    path: heart-classifier-mlflow/data
    ```
    
-   Then, create the data asset:
+   b. Create the data asset:
    
    ```bash
    az ml data create -f heart-dataset-unlabeled.yml
@@ -285,7 +285,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
    # [Python](#tab/sdk)
    
-   Create a data asset definition:
+   a. Create a data asset definition:
    
    ```python
    data_path = "heart-classifier-mlflow/data"
@@ -299,20 +299,17 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    )
    ```
    
-   Then, create the data asset:
+   b. Create the data asset:
    
    ```python
    ml_client.data.create_or_update(heart_dataset_unlabeled)
    ```
    
-   Refresh the object to reflect the update:
+   c. Refresh the object to reflect the changes:
    
    ```python
-   ml_client.data.get(name=dataset_name)
+   heart_dataset_unlabeled = ml_client.data.get(name=dataset_name)
    ```
-   
-   > [!WARNING]
-   > Sometimes, assets may take a couple of minutes to be materialized. If you get a not found error, please wait a couple of seconds and retry.
    
 2. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
 
