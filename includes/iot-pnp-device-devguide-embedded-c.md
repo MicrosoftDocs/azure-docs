@@ -13,6 +13,7 @@ The code snippets in this article are based on samples that use the [Azure IoT M
 The code snippets in this article are based on the following samples:
 
 - [Sample IoT Plug and Play Thermostat](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/samples/sample_azure_iot_embedded_sdk_pnp.c)
+- [Sample IoT Plug and Play Thermostat](https://github.com/Azure/embedded-wireless-framework/tree/main/examples/WIN32/netxduo/addons/azure_iot/samples/sample_pnp_temperature_controller)
 
 ## Model ID announcement
 
