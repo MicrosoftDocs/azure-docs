@@ -9,47 +9,46 @@ ms.reviewer: jagummersall
 
 # Action group test notification troubleshooting error codes
 
-> [!NOTE]
-> This document provides troubleshooting steps for error messages you may get when using the test action group feature.
+This article describes troubleshooting steps for error messages you may get when using the test action group feature.
 
 ## Troubleshooting error codes for actions
 
-The error message in this section will apply to the following **actions**:</br>
-     - Automation runbook
-     - Azure Function
-     - Logic App
-     - Webhook
-     - Secure Webhook
-     - ITSM
+The error message in this section will apply to the following **actions**:
+    - Automation runbook
+    - Azure Function
+    - Logic App
+    - Webhook
+    - Secure Webhook
+    - ITSM
 
 > [!NOTE]
 > Several errors could be due to a misunderstanding of your schema. Click here to learn more information about [Common alert schema](./alerts-common-schema.md) and [Non-common alert schema](./alerts-non-common-schema-definitions.md).
 
 | Error Codes | Troubleshooting Steps |
 | ------------| --------------------- |
-|HTTP 400: The <action> returned a 'bad request' error. |Check the alert payload received on your endpoint, and make sure the endpoint can process the request successfully.
-|HTTP 400: The <action> couldn't be triggered because this alert type doesn't support the common alert schema. |1. Check if the alert type supports common alert schema.</br>2. Change the “Enable the common alert schema” in the action group action to “No” and retry.
-|HTTP 400: The <action> could not be triggered because the payload is empty or invalid. | Check if the payload is valid, and if it's included as part of the request.
-|HTTP 400: The <action> could not be triggered because AAD auth is enabled but no auth context provided in the request. | 1. Check your Secure Webhook action settings.</br>2. Check your AAD configuration. For more information, see [action groups](action-groups.md). |
+|HTTP 400: The \<action\> returned a 'bad request' error. |Check the alert payload received on your endpoint, and make sure the endpoint can process the request successfully.
+|HTTP 400: The \<action\> couldn't be triggered because this alert type doesn't support the common alert schema. |1. Check if the alert type supports common alert schema.</br>2. Change the “Enable the common alert schema” in the action group action to “No” and retry.
+|HTTP 400: The \<action\> could not be triggered because the payload is empty or invalid. | Check if the payload is valid, and if it's included as part of the request.
+|HTTP 400: The \<action\> could not be triggered because AAD auth is enabled but no auth context provided in the request. | 1. Check your Secure Webhook action settings.</br>2. Check your AAD configuration. For more information, see [action groups](action-groups.md). |
 |HTTP 400: ServiceNow returned error: No such host is known | Check your ServiceNow host url to make sure it's valid and retry. For more information, see [Connect ServiceNow with IT Service Management Connector](./itsmc-connections-servicenow.md) | 
-|<ul><li> HTTP 401: The <action> returned an "Unauthorized" error.</li><li>HTTP 401: The request was rejected by the <action> endpoint. Make sure you have the required authorization.</li></ul> | 1. Check if the credential in the request is present and valid.</br>2. Check if your endpoint correctly validates the credentials from the request. |
-|<ul><li>HTTP 403: The <action> returned a "Forbidden" response.</li><li>HTTP 403: Couldn't trigger the <action>. Make sure you have the required authorization.</li><li>HTTP 403: The <action> returned a 'Forbidden' response. Make sure you have the proper permissions to access it.</li><li>HTTP 403: The <action> is "Forbidden".</li><li>HTTP 403: Could not access the ITSM system. Make sure you have the required authorization.</li></ul> | 1. Check if the credential in the request is present, and valid.</br>2. Check if your endpoint correctly validates the credentials.</br>3. If it's Secure Webhook, make sure the AAD authentication is set up correctly. For more information, see [action groups](action-groups.md).|
+|<ul><li> HTTP 401: The \<action\> returned an "Unauthorized" error.</li><li>HTTP 401: The request was rejected by the \<action\> endpoint. Make sure you have the required authorization.</li></ul> | 1. Check if the credential in the request is present and valid.</br>2. Check if your endpoint correctly validates the credentials from the request. |
+|<ul><li>HTTP 403: The \<action\> returned a "Forbidden" response.</li><li>HTTP 403: Couldn't trigger the \<action\>. Make sure you have the required authorization.</li><li>HTTP 403: The \<action\> returned a 'Forbidden' response. Make sure you have the proper permissions to access it.</li><li>HTTP 403: The \<action\> is "Forbidden".</li><li>HTTP 403: Could not access the ITSM system. Make sure you have the required authorization.</li></ul> | 1. Check if the credential in the request is present, and valid.</br>2. Check if your endpoint correctly validates the credentials.</br>3. If it's Secure Webhook, make sure the AAD authentication is set up correctly. For more information, see [action groups](action-groups.md).|
 | HTTP 403: The access token needs to be refreshed.| Refresh the access token and retry. For more information, see [Connect ServiceNow with IT Service Management Connector](./itsmc-connections-servicenow.md) |
-|<ul><li>HTTP 404: The <action> was not found.</li><li>HTTP 404: The<action> target workflow was not found.</li><li>HTTP 404: The <action> target was not found.</li><li>HTTP 404: The <action> endpoint could not be found.</li><li>HTTP 404: The <action> was deleted.</li></ul> | 1. Check if the endpoints included in the requests are valid, up and running and accepting the requests.</br>2. For ITSM, check if the ITSM connector is still active.|
-|<ul><li>HTTP 408: The call to the <action> timed out.<ul><li>HTTP 408: The call to the Azure App service endpoint timed out.</li></ul> | 1.Check the client network connection, and retry.</br>2. Check if your endpoint is up and running and can process the request successfully.</br>3. Clear the browser cache, and retry. |
-|HTTP 409: The <action> returned a 'conflict' error. |Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully. |
-|HTTP 429: The <action> could not be triggered because it is handling too many requests right now. |Check if your endpoint can handle the requests.</br>2. Wait a few minutes and retry. |
-|<ul><li>HTTP 500: The <action> encountered an internal server error.</li><li>HTTP 500: Could not reach the Azure <action> server.</li><li>HTTP 500: The <action> returned an 'internal server' error.</li><li>HTTP 500: The ServiceNow endpoint returned an 'Unexpected' response.</li></ul> |Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully. |
-|HTTP 502: The <action> returned a bad gateway error. |Check if your endpoint, and its downstream service(s) are up and running and are accepting requests. |
-|<ul><li>HTTP 503: The <action> host is not running.</li><li>HTTP 503: The service providing the <action> endpoint is temporarily unavailable.</li></li>HTTP 503: The ServiceNow returned Service Unavailable.</li></ul>|Check if your endpoint is up and running and is accepting requests. |
-| The <action> could not be triggered because the <action> has not succeeded after XXX retries. Calls to the <action> will be blocked for up to XXX minutes. Try again in XXX minutes. |Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully.|
+|<ul><li>HTTP 404: The \<action\> was not found.</li><li>HTTP 404: The \<action\> target workflow was not found.</li><li>HTTP 404: The \<action\> target was not found.</li><li>HTTP 404: The \<action\> endpoint could not be found.</li><li>HTTP 404: The \<action\> was deleted.</li></ul> | 1. Check if the endpoints included in the requests are valid, up and running and accepting the requests.</br>2. For ITSM, check if the ITSM connector is still active.|
+|<ul><li>HTTP 408: The call to the \<action\> timed out.<ul><li>HTTP 408: The call to the Azure App service endpoint timed out.</li></ul> | 1.Check the client network connection, and retry.</br>2. Check if your endpoint is up and running and can process the request successfully.</br>3. Clear the browser cache, and retry. |
+|HTTP 409: The \<action\> returned a 'conflict' error. |Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully. |
+|HTTP 429: The \<action\> could not be triggered because it is handling too many requests right now. |Check if your endpoint can handle the requests.</br>2. Wait a few minutes and retry. |
+|<ul><li>HTTP 500: The \<action\> encountered an internal server error.</li><li>HTTP 500: Could not reach the Azure \<action\> server.</li><li>HTTP 500: The \<action\> returned an 'internal server' error.</li><li>HTTP 500: The ServiceNow endpoint returned an 'Unexpected' response.</li></ul> |Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully. |
+|HTTP 502: The \<action\> returned a bad gateway error. |Check if your endpoint, and its downstream service(s) are up and running and are accepting requests. |
+|<ul><li>HTTP 503: The \<action\> host is not running.</li><li>HTTP 503: The service providing the \<action\> endpoint is temporarily unavailable.</li></li>HTTP 503: The ServiceNow returned Service Unavailable.</li></ul>|Check if your endpoint is up and running and is accepting requests. |
+| The \<action\> could not be triggered because the \<action\> has not succeeded after XXX retries. Calls to the \<action\> will be blocked for up to XXX minutes. Try again in XXX minutes. |Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully.|
 
 ## Troubleshooting error codes for notifications
 
-The error message in this section will apply to the following **notifications**:</br>
-     - Email
-     - SMS
-     - Voice
+The error message in this section will apply to the following **notifications**:
+    - Email
+    - SMS
+    - Voice
 
 
 | Error Codes | Troubleshooting Steps |
