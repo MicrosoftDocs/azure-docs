@@ -35,8 +35,6 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ## Attributes
 
-[TODO: Confirm attribute order in quota and quota-by-key]
-
 | Attribute                | Description                                                                                               | Required                                                         | Default |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | bandwidth           | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |

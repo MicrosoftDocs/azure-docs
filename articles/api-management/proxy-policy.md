@@ -34,8 +34,6 @@ The `proxy` policy allows you to route requests forwarded to backends via an HTT
 
 ## Usage
 
-[TODO: Confirm multiple per policy]
-
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 - [**Policy expressions:**](api-management-policy-expressions.md) supported

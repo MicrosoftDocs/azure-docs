@@ -23,8 +23,6 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ## Policy statement
 
-[TODO: Confirm placement and order of policy attributes and elements]
-
 ```xml
 <rate-limit calls="number" renewal-period="seconds"  retry-after-header-name="custom header name, replaces default 'Retry-After'" 
         retry-after-variable-name="policy expression variable name"
@@ -78,8 +76,6 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
 
 ## Usage
-
-[TODO: Validate policy expressions support]
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) product, API, operation

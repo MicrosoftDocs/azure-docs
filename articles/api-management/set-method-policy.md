@@ -34,8 +34,6 @@ None
 
 ## Usage
 
-[TODO: Confirm multiple per policy]
-
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 - [**Policy expressions:**](api-management-policy-expressions.md) supported

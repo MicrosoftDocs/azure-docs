@@ -28,8 +28,6 @@ The `forward-request` policy forwards the incoming request to the backend servic
 
 ## Attributes
 
-[TODO: Decide whether to include types in attribute names]
-
 | Attribute                                     | Description                                                                                                                                                                                                                                                                                                    | Required | Default |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | timeout="integer"                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored, because the underlying network infrastructure can drop idle connections after this time. | No       | 300    |

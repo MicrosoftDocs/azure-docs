@@ -50,8 +50,6 @@ The `return-response` policy cancels pipeline execution and returns either a def
 
 ## Examples
 
-[TODO: Provide intro sentence for this example]
-
 ### Return unauthorized response
 
 ```xml

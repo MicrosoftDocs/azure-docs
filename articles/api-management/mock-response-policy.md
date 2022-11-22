@@ -40,8 +40,6 @@ The `mock-response` policy, as the name implies, is used to mock APIs and operat
 
 ## Examples
 
-[TODO: Separate into separate sections with intro text?]
-
 ```xml
 <!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this
 status code. First found content type is used. If no example or schema is found, the content is empty. -->

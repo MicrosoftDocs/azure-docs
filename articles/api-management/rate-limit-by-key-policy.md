@@ -50,11 +50,9 @@ For more information and examples of this policy, see [Advanced request throttli
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
 | remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
-| total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. |  No | N/A  |
+| total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. |  No | N/A  |``6
 
 ## Usage
-
-[TODO: Validate policy expressions support]
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation

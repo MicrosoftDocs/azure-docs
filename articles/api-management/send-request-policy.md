@@ -39,8 +39,6 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 | timeout="integer"               | The timeout interval in seconds before the call to the URL fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
 | ignore-error                    | If true and the request results in an error, the error will be ignored, and the response variable will contain a null value.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
 
-[TODO: Check if subelements are policies]
-
 ## Elements
 
 | Element                    | Description                                                                                                 | Required                        |

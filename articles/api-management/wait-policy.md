@@ -40,8 +40,6 @@ May contain as child elements only `send-request`, `cache-lookup-value`, and `ch
 
 ## Usage
 
-[TODO: Confirm multiple per policy]
-
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 - [**Policy expressions:**](api-management-policy-expressions.md) supported
