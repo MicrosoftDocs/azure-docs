@@ -38,7 +38,7 @@ Connection Monitor relies on lightweight executable files to run connectivity ch
 
 ### Agents for Azure virtual machines and scale sets
 
-To install agents for Azure virtual machines and virtual machine scale sets, see the "Agents for Azure virtual machines and virtual machine scale sets" section of [Monitor network connectivity by using Connection Monitor](connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets).
+To install agents for Azure virtual machines and Virtual Machine Scale sets, see the "Agents for Azure virtual machines and Virtual Machine Scale sets" section of [Monitor network connectivity by using Connection Monitor](connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets).
 
 ### Agents for on-premises machines
 
