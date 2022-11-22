@@ -60,4 +60,4 @@ The following default ACLs are transferred:
 
 ## Next steps
 
-- [Copy data to Azure Data Box via SMB](./data-box-deploy-copy-data.md)
+- [Copy data to Azure Data Box Disk](data-box-disk-deploy-copy-data.md)
