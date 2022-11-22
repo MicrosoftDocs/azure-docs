@@ -11,7 +11,7 @@ ms.author: mbaldwin
 ---
 # Enable multi-region replication on Managed HSM (Preview)
 
-Multi-region replication allows you to extend a Managed HSM instance from one region, called a primary, to a second region, called a secondary. Once configured, both regions are active, able to serve requests, and will share the same key material, roles, and permissions. Should one region become unavailable due to a regional outage, the other region can still handle requests.
+Multi-region replication allows you to extend a Managed HSM instance from one region, called a primary, to a second region, called a secondary. Once configured, both regions are active, able to serve requests, and will share the same key material, roles, and permissions. Should one region become unavailable due to a regional outage, the other region can still handle requests
 
 ## Architecture
 
@@ -50,7 +50,8 @@ The underlying regional Managed HSM instances can be addressed via their respect
 
 ## Billing
 
-During private preview, you are not charged for Managed HSM primaries or secondaries.
+Each Managed HSM pool in each region incurs additional billing. Refer to Managed HSM pricing for more details.
+https://azure.microsoft.com/en-us/pricing/details/key-vault/
 
 ### Azure CLI commands
 
