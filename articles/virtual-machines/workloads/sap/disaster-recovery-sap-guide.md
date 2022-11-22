@@ -17,7 +17,7 @@ To configure Disaster Recovery (DR) for SAP workload on Azure, you need to test,
 
 ## DR recommendation for SAP workloads
 
-Usually in distributed SAP Netweaver systems; central services, database and shared storage (NFS/SMB) are single point of failures (SPOF). To mitigate the effect of different SPOFs, it's necessary to set up redundancy of these components. The redundancy of these SPOF components in the primary region is achieved by configuring high availability. The high availability setup of the component protects SAP system from local failure or catastrophe. But to protect SAP applications from geographical dispersed disaster, DR strategy should be implemented for all the SAP components.  
+Usually in distributed SAP NetWeaver systems; central services, database and shared storage (NFS/SMB) are single point of failures (SPOF). To mitigate the effect of different SPOFs, it's necessary to set up redundancy of these components. The redundancy of these SPOF components in the primary region is achieved by configuring high availability. The high availability setup of the component protects SAP system from local failure or catastrophe. But to protect SAP applications from geographical dispersed disaster, DR strategy should be implemented for all the SAP components.  
 
 For SAP systems running on virtual machines, you can use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to create a disaster recovery plan. Following is the recommended disaster recovery approach for each component of an SAP system. Standalone non-NetWeaver SAP engines such as TREX and non-SAP applications aren't covered in this document.
 
