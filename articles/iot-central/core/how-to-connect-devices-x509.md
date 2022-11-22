@@ -3,7 +3,7 @@ title: Connect devices with X.509 certificates in an Azure IoT Central applicati
 description: How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/13/2022
+ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -111,7 +111,7 @@ Make a note of the location of these files. You need it later.
 
 1. The status of the primary certificate is now **Verified**:
 
-    ![Verified Certificate](./media/how-to-connect-devices-x509/verified.png)
+    :::image type="content" source="media/how-to-connect-devices-x509/verified.png" alt-text="Screenshot that shows a verified X509 certificate." lightbox="media/how-to-connect-devices-x509/verified.png":::
 
 You can now connect devices that have an X.509 certificate derived from this primary root certificate.
 
@@ -206,7 +206,7 @@ To run the sample:
 
 Verify that telemetry appears on the device view in your IoT Central application:
 
-![Screenshot that shows telemetry arriving in your IoT Central application.](./media/how-to-connect-devices-x509/telemetry.png)
+:::image type="content" source="media/how-to-connect-devices-x509/telemetry.png" alt-text="Screenshot showing telemetry from a device that connected using X.509." lightbox="media/how-to-connect-devices-x509/telemetry.png":::
 
 ## Use individual enrollment
 
@@ -257,7 +257,7 @@ These commands produce the following device certificates:
 
 1. The device now has an individual enrollment with X.509 certificates.
 
-    ![Individual enrollment certificates](./media/how-to-connect-devices-x509/individual-enrollment.png)
+    :::image type="content" source="media/how-to-connect-devices-x509/individual-enrollment.png" alt-text="Screenshot that shows how to connect a device using an X.509 individual enrollment." lightbox="media/how-to-connect-devices-x509/individual-enrollment.png":::
 
 ### Run a sample individual enrollment device
 
@@ -361,7 +361,7 @@ You can repeat the above steps for _mytestselfcertsecondary_ certificate as well
 This section assumes you're using a group enrollment to connect your IoT Edge device. Follow the steps in the previous sections to:
 
 - [Generate root and device certificates](#generate-root-and-device-certificates)
-- [Create a group enrollment](#create-a-group-enrollment) <!-- No slightly different type of enrollment group - UPDATE!! -->
+- [Create a group enrollment](#create-a-group-enrollment)
 
 To connect the IoT Edge device to IoT Central using the X.509 device certificate:
 

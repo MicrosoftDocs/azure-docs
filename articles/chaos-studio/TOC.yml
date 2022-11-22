@@ -38,6 +38,8 @@
     href: chaos-studio-targets-capabilities.md
   - name: Permissions and security
     href: chaos-studio-permissions-security.md
+  - name: Private networking
+    href: chaos-studio-private-networking.md
   - name: Regional availability
     href: chaos-studio-region-availability.md
 - name: How-to guides

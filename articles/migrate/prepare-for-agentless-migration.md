@@ -5,7 +5,8 @@ author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 03/08/2022
+ms.custom: engagement-fy23
 ---
 
 # Prepare for VMware agentless migration

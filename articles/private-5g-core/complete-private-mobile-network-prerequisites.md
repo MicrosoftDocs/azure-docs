@@ -30,11 +30,13 @@ Azure Private 5G Core requires a management network, access network, and data ne
 
 For each of these networks, allocate a subnet and then identify the listed IP addresses. If you're deploying multiple sites, you'll need to collect this information for each site.
 
+Depending on your networking requirements (for example, if a limited set of subnets is available), you may choose to allocate a single subnet for all of the Azure Stack Edge interfaces, marked with an asterisk (*) in the following list.
+
 ### Management network
 
 - Network address in Classless Inter-Domain Routing (CIDR) notation. 
 - Default gateway. 
-- One IP address for the Azure Stack Edge Pro device's management port. You'll choose a port between 2 and 4 to use as the management port as part of [setting up your Azure Stack Edge Pro device](#order-and-set-up-your-azure-stack-edge-pro-devices). 
+- One IP address for the Azure Stack Edge Pro device's management port. You'll choose a port between 2 and 4 to use as the management port as part of [setting up your Azure Stack Edge Pro device](#order-and-set-up-your-azure-stack-edge-pro-devices).*
 - Three sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
 - One IP address for accessing local monitoring tools for the packet core instance.
 
@@ -43,15 +45,15 @@ For each of these networks, allocate a subnet and then identify the listed IP ad
 - Network address in CIDR notation. 
 - Default gateway. 
 - One IP address for port 5 on the Azure Stack Edge Pro device. 
-- One IP address for the control plane interface. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface.
-- One IP address for the user plane interface. For 5G, this interface is the N3 interface, whereas for 4G, it's the S1-U interface. 
+- One IP address for the control plane interface. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface.*
+- One IP address for the user plane interface. For 5G, this interface is the N3 interface, whereas for 4G, it's the S1-U interface.*
 
 ### Data network
 
 - Network address in CIDR notation.
 - Default gateway.
 - One IP address for port 6 on the Azure Stack Edge Pro device.
-- One IP address for the user plane interface. For 5G, this interface is the N6 interface, whereas for 4G, it's the SGi interface.
+- One IP address for the user plane interface. For 5G, this interface is the N6 interface, whereas for 4G, it's the SGi interface.*
 
 ## Allocate user equipment (UE) IP address pools
 

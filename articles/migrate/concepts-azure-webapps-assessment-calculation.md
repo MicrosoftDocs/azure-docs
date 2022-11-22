@@ -4,8 +4,8 @@ description: Learn about Azure App Service assessments in Azure Migrate Discover
 author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
-ms.date: 07/27/2021
-
+ms.date: 06/14/2022
+ms.custom: engagement-fy23
 ---
 
 # Assessment overview (migrate to Azure App Service)
