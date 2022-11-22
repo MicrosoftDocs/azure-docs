@@ -109,7 +109,7 @@ Because Azure Resource Manager manages your configurations, you can automate cre
 
 For a description of all parameters that Flux supports, see the [official Flux documentation](https://fluxcd.io/docs/). Flux in Azure doesn't support all parameters yet. Let us know if a parameter you need is missing from the Azure implementation.
 
-You can see the full list of parameters that the `k8s-configuration flux` CLI command supports by using the `-h` parameter:
+You can see the full list of parameters that the `k8s-configuration flux` Azure CLI command supports by using the `-h` parameter:
 
 ```azurecli
 az k8s-configuration flux -h
