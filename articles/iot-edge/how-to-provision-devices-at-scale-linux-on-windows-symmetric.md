@@ -16,9 +16,9 @@ services: iot-edge
 This article provides end-to-end instructions for autoprovisioning one or more [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) devices using symmetric keys. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
 <!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
+:::moniker range="=iotedge-2020-11"
 >[!NOTE]
->The latest version of IoT Edge for Linux on Windows continuous release (CR), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
+>The latest version of IoT Edge for Linux on Windows continuous release (CR), based on IoT Edge version 1.3, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use if a general availability (GA) release is available. For more information, see [EFLOW versions](./version-history.md).
 :::moniker-end
 <!-- end iotedge-2020-11 -->
 

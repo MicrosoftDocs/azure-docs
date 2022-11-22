@@ -3,7 +3,6 @@ title: Deploy Azure API Management instance to multiple Azure regions
 titleSuffix: Azure API Management
 description: Learn how to deploy a Premium tier Azure API Management instance to multiple Azure regions to improve API gateway availability.
 author: dlepow
-
 ms.service: api-management
 ms.topic: how-to
 ms.date: 09/27/2022
@@ -18,7 +17,7 @@ When adding a region, you configure:
 
 * The number of scale [units](upgrade-and-scale.md) that region will host. 
 
-* Optional [zone redundancy](../availability-zones/migrate-api-mgt.md), if that region supports it.
+* Optional [zone redundancy](../reliability/migrate-api-mgt.md), if that region supports it.
 
 * [Virtual network](virtual-network-concepts.md) settings in the added region, if networking is configured in the existing region or regions.
 
@@ -42,7 +41,7 @@ When adding a region, you configure:
 1. Select **+ Add** in the top bar.
 1. Select the added location from the dropdown list.
 1. Select the number of scale **[Units](upgrade-and-scale.md)** in the location.
-1. Optionally select one or more [**Availability zones**](../availability-zones/migrate-api-mgt.md). 
+1. Optionally select one or more [**Availability zones**](../reliability/migrate-api-mgt.md). 
 1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location. Select an existing virtual network, subnet, and public IP address that are available in the location.
 1. Select **Add** to confirm.
 1. Repeat this process until you configure all locations.
@@ -137,7 +136,7 @@ This section provides considerations for multi-region deployments when the API M
 
 ## Next steps
 
-* Learn more about [zone redundancy](../availability-zones/migrate-api-mgt.md) to improve the availability of an API Management instance in a region.
+* Learn more about [zone redundancy](../reliability/migrate-api-mgt.md) to improve the availability of an API Management instance in a region.
 
 * For more information about virtual networks and API Management, see:
 

@@ -73,7 +73,7 @@ Blob Storage is ideal for:
 - Storing data for backup and restore, disaster recovery, and archiving.
 - Storing data for analysis by an on-premises or Azure-hosted service.
 
-Objects in Blob Storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/azure.storage), [Azure CLI](/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/), and [Ruby](https://azure.github.io/azure-storage-ruby). 
+Objects in Blob Storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/azure.storage), [Azure CLI](/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](/python/api/overview/azure/storage), [PHP](https://azure.github.io/azure-storage-php/), and [Ruby](https://azure.github.io/azure-storage-ruby). 
 
 Clients can also securely connect to Blob Storage by using SSH File Transfer Protocol (SFTP) and mount Blob Storage containers by using the Network File System (NFS) 3.0 protocol. 
 
@@ -137,7 +137,6 @@ Every request to Azure Storage must be authorized. Azure Storage supports the fo
 - **Azure AD authorization over SMB for Azure Files.** Azure Files supports identity-based authorization over SMB (Server Message Block) through either Azure Active Directory Domain Services (Azure AD DS) or on-premises Active Directory Domain Services (preview). Your domain-joined Windows VMs can access Azure file shares using Azure AD credentials. For more information, see [Overview of Azure Files identity-based authentication support for SMB access](../files/storage-files-active-directory-overview.md) and [Planning for an Azure Files deployment](../files/storage-files-planning.md#identity).
 - **Authorization with Shared Key.** The Azure Storage Blob, Files, Queue, and Table services support authorization with Shared Key. A client using Shared Key authorization passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 - **Authorization using shared access signatures (SAS).** A shared access signature (SAS) is a string containing a security token that can be appended to the URI for a storage resource. The security token encapsulates constraints such as permissions and the interval of access. For more information, see [Using Shared Access Signatures (SAS)](storage-sas-overview.md).
-- **Anonymous access to containers and blobs.** A container and its blobs may be publicly available. When you specify that a container or blob is public, anyone can read it anonymously; no authentication is required. For more information, see [Manage anonymous read access to containers and blobs](../blobs/anonymous-read-access-configure.md).
 - **Active Directory Domain Services with Azure NetApp Files.** Azure NetApp Files features such as SMB volumes, dual-protocol volumes, and NFSv4.1 Kerberos volumes are designed to be used with AD DS. For more information, refer to [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](../../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md) or learn how to [Configure ADDS LDAP over TLS for Azure NetApp Files](../../azure-netapp-files/configure-ldap-over-tls.md).
 
 ## Encryption
@@ -158,7 +157,7 @@ Azure NetApp Files data traffic is inherently secure by design, as it does not p
 
 ## Redundancy
 
-To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](./storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](./storage-redundancy.md?toc=/azure/storage/blobs/toc.json).
 
 Azure NetApp Files provides locally redundant storage with [99.99% availability](https://azure.microsoft.com/support/legal/sla/netapp/v1_1/).
 
@@ -196,9 +195,8 @@ You can access resources in a storage account by any language that can make HTTP
 - [Storage Service Management REST API (Classic)](/previous-versions/azure/reference/ee460790(v=azure.100))
 - [Azure NetApp Files REST API](../../azure-netapp-files/azure-netapp-files-develop-with-rest-api.md)
 
-### Azure Storage data movement API and library references
+### Azure Storage data movement API
 
-- [Storage Import/Export Service REST API](/rest/api/storageimportexport/)
 - [Storage Data Movement Client Library for .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### Tools and utilities

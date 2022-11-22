@@ -1,6 +1,6 @@
 ---
-title: Connect data sources through Logstash to Microsoft Sentinel | Microsoft Docs
-description: Learn how to use Logstash to forward logs from external data sources to Microsoft Sentinel.
+title: Use Logstash to stream logs with HTTP Data Collection API (legacy)
+description: Learn how to use Logstash to forward logs from external data sources to Microsoft Sentinel using the HTTP Data Collection API.
 author: yelevin
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
@@ -8,14 +8,15 @@ ms.date: 11/09/2021
 ms.author: yelevin
 ---
 
-# Use Logstash to connect data sources to Microsoft Sentinel
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+# Use Logstash to stream logs with HTTP Data Collection API (legacy)
 
 > [!IMPORTANT]
 > Data ingestion using the Logstash output plugin is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Using Microsoft Sentinel's output plugin for the **Logstash data collection engine**, you can send any type of log you want through Logstash directly to your Log Analytics workspace in Microsoft Sentinel. Your logs will be sent to a custom table that you will define using the output plugin.
+> [!NOTE]
+> A [newer version of the Logstash plugin](connect-logstash-data-connection-rules.md) can forward logs from external data sources into custom and standard tables using the DCR based API. The new plugin allows full control over the output schema, including the configuration of the column names and types. 
+
+Using Microsoft Sentinel's output plugin for the **Logstash data collection engine**, you can send any type of log you want through Logstash directly to your Log Analytics workspace in Microsoft Sentinel. Your logs will be sent to a custom table that you define using the output plugin. This version of the plugin uses the HTTP Data Collection API. 
 
 To learn more about working with the Logstash data collection engine, see [Getting started with Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
@@ -23,7 +24,7 @@ To learn more about working with the Logstash data collection engine, see [Getti
 
 ### Architecture and background
 
-![Diagram of the Log stash architecture.](./media/connect-logstash/logstash-architecture.png)
+:::image type="content" source="./media/connect-logstash/logstash-architecture.png" alt-text="Diagram of the Logstash architecture." border="false" lightbox="./media/connect-logstash/logstash-architecture.png":::
 
 The Logstash engine is comprised of three components:
 
@@ -36,7 +37,7 @@ The Logstash engine is comprised of three components:
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
-> - Microsoft Sentinel's Logstash output plugin supports only **Logstash versions from 7.0 to 7.16**.
+> - Microsoft Sentinel's Logstash output plugin supports only **Logstash versions 7.0 to 7.17.6, and versions 8.0 to 8.5.1**.
 
 The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
 

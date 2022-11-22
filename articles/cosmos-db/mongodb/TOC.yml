@@ -302,7 +302,7 @@
               href: connect-using-mongochef.md
             - name: Connect using Compass
               href: connect-using-compass.md
-            - name: Connect using Robo 3T
+            - name: Connect using Studio 3T
               href: connect-using-robomongo.md
             - name: Connect using Mongoose
               href: connect-using-mongoose.md
@@ -310,12 +310,14 @@
           items:
             - name: Install and use the emulator
               href: ../local-emulator.md
-            - name: Run the emulator on Docker
+            - name: Run the emulator container in Docker
               items:
-                - name: Run the emulator on Docker for Linux
-                  href: ../linux-emulator.md
-                - name: Run the emulator on Docker for Windows
-                  href: ../local-emulator-on-docker-windows.md
+                - name: Run in Docker for Linux
+                  href: ../docker-emulator-linux.md
+                - name: Run in Docker for Windows
+                  href: ../docker-emulator-windows.md
+                - name: Access the REST API
+                  href: ../docker-emulator-rest-api.md
             - name: Export emulator certificates
               href: ../local-emulator-export-ssl-certificates.md
             - name: Emulator command-line parameters
@@ -344,6 +346,12 @@
               href: how-to-javascript-manage-documents.md
             - name: Manage queries
               href: how-to-javascript-manage-queries.md
+        - name: Python
+          items:
+            - name: Get started
+              href: how-to-python-get-started.md
+            - name: Manage databases
+              href: how-to-python-manage-databases.md
         - name: .NET
           items:
             - name: Get started
@@ -425,8 +433,6 @@
           href: error-codes-solutions.md
         - name: Troubleshoot query performance
           href: troubleshoot-query-performance.md
-        - name: Troubleshoot API for MongoDB queries with diagnostics
-          href: diagnostic-queries.md
         - name: Prevent rate-limiting errors
           href: prevent-rate-limiting-errors.md
         - name: Optimize query and storage costs when upgrading
@@ -484,8 +490,8 @@
           href: ../how-to-configure-private-endpoints.md
         - name: Connect privately to an Azure Cosmos DB account
           href: ../../private-link/tutorial-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Use Azure Key Vault to access data
-          href: ../access-secrets-from-keyvault.md
+        - name: Store credentials in Azure Key Vault
+          href: ../store-credentials-key-vault.md
         - name: Access Azure Key Vault with managed identity
           href: ../access-key-vault-managed-identity.md
         - name: Restrict user access to data operations only
@@ -494,7 +500,7 @@
           href: ../how-to-setup-customer-managed-keys.md
         - name: Configure cross-tenant customer-managed keys
           href: ../how-to-setup-cross-tenant-customer-managed-keys.md
-        - name: Use a managed identity
+        - name: Use managed identities with Azure services
           href: ../how-to-setup-managed-identity.md
     - name: Monitor
       items:
@@ -520,10 +526,10 @@
               href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: ../monitor-logs-basic-queries.md
-            - name: Troubleshoot issues using advanced queries
-              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Troubleshoot issues with advanced diagnostics queries
+              href: diagnostic-queries.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics

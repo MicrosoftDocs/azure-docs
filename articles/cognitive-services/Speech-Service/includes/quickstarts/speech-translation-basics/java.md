@@ -60,6 +60,10 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
     mvn clean dependency:copy-dependencies
     ```
 
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
 ## Translate speech from a microphone
 
 Follow these steps to create a new console application for speech recognition.
@@ -77,11 +81,12 @@ Follow these steps to create a new console application for speech recognition.
     import java.util.Map;
     
     public class SpeechTranslation {
-        private static String YourSubscriptionKey = "YourSubscriptionKey";
-        private static String YourServiceRegion = "YourServiceRegion";
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        private static String speechKey = System.getenv("SPEECH_KEY");
+        private static String speechRegion = System.getenv("SPEECH_REGION");
     
         public static void main(String[] args) throws InterruptedException, ExecutionException {
-            SpeechTranslationConfig speechTranslationConfig = SpeechTranslationConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
+            SpeechTranslationConfig speechTranslationConfig = SpeechTranslationConfig.fromSubscription(speechKey, speechRegion);
             speechTranslationConfig.setSpeechRecognitionLanguage("en-US");
     
             String[] toLanguages = { "it" };
@@ -125,9 +130,6 @@ Follow these steps to create a new console application for speech recognition.
     }
     ```
 
-1. In `SpeechTranslation.java`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md#speech-to-text). Specify the full locale with a dash (`-`) separator. For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 1. To change the translation target language, replace `it` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md#speech-translation). With few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. The default language is `en` if you don't specify a language.
 

@@ -461,7 +461,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
        # AZUREML_MODEL_DIR is an environment variable created during deployment
        # It is the path to the model folder
        model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "model")
-       model = mlflow.pyfunc.load(model_path)
+       model = mlflow.pyfunc.load_model(model_path)
 
    def run(mini_batch):
        results = pd.DataFrame(columns=['file', 'predictions'])

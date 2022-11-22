@@ -66,13 +66,13 @@ Batch Endpoint can only deploy registered models so we need to register it. You 
 
     ```python
     import os
-    import requests
+    import urllib.request
     from zipfile import ZipFile
     
-    requests.get('https://azuremlexampledata.blob.core.windows.net/data/imagenet/model.zip', allow_redirects=True)
+    response = urllib.request.urlretrieve('https://azuremlexampledata.blob.core.windows.net/data/imagenet/model.zip', 'model.zip')
     
     os.mkdirs("imagenet-classifier", exits_ok=True)
-    with ZipFile(file, 'r') as zip:
+    with ZipFile(response[0], 'r') as zip:
       model_path = zip.extractall(path="imagenet-classifier")
     ```
     
