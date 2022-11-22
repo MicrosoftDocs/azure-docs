@@ -175,7 +175,7 @@ Use the `az mysql flexible-server firewall-rule delete` command to delete an exi
 az mysql flexible-server firewall-rule delete --name mydemoserver --rule-name FirewallRule1
 ```
 
-Upon success, there's no output upon failure, an error message text displays.
+Upon success, there's no output. Upon failure, an error message text is displayed.
 
 ## Next steps
 

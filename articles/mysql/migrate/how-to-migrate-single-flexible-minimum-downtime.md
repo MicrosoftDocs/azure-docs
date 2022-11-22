@@ -228,7 +228,7 @@ To confirm that Data-in replication is working properly, you can verify that the
 
 To ensure a successful cutover, perform the following tasks:
 
-1. Configure the appropriate server-level firewall and virtual network rules to connect to target Server. You can compare the firewall rules for the source and [target](../flexible-server/how-to-manage-firewall-portal.md#create-a-firewall-rule-after-server-is-created) from the portal.
+1. Configure the appropriate server-level firewall and virtual network rules to connect to target Server. You can compare the firewall rules for the source and [target](../flexible-server/how-to-manage-firewall-portal.md#create-a-firewall-rule-when-creating-a-server) from the portal.
 2. Configure appropriate logins and database level permissions in the target server. You can run *SELECT * FROM mysql.user;* on the source and target servers to compare.
 3. Make sure that all the incoming connections to Azure Database for MySQL Single Server are stopped.
     > [!Tip]

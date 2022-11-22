@@ -21,7 +21,7 @@ Azure Database for MySQL Flexible Server provides users with the ability to conf
 > [!IMPORTANT]  
 > It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted and minium amount of data is collected.
 
-By default, audit logs are disabled. To enable them, set the `audit_log_enabled` server parameter to *ON*. This can be configured using the Azure portal or Azure CLI <!-- add link to server parameter-->.
+By default, audit logs are disabled. To enable them, set the `audit_log_enabled` server parameter to *ON*. This can be configured using the Azure portal or Azure CLI.
 
 Other parameters you can adjust to control audit logging behavior include:
 
@@ -34,7 +34,7 @@ Other parameters you can adjust to control audit logging behavior include:
 
 | **Event** | **Description** |
 | --- | --- |
-| `CONNECTION` | - Connection initiation (successful or unsuccessful)<br />- User re-authentication with different user/password during session<br />- Connection termination |
+| `CONNECTION` | - Connection initiation (successful or unsuccessful)<br />- User reauthentication with different user/password during session<br />- Connection termination |
 | `DML_SELECT` | SELECT queries |
 | `DML_NONSELECT` | INSERT/DELETE/UPDATE queries |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
@@ -42,14 +42,14 @@ Other parameters you can adjust to control audit logging behavior include:
 | `DCL` | Queries like "GRANT PERMISSION" |
 | `ADMIN` | Queries like "SHOW STATUS" |
 | `GENERAL` | All in DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and ADMIN |
-| `TABLE_ACCESS` | - Table read statements, such as SELECT or INSERT INTO ... SELECT<br />- Table delete statements, such as DELETE or TRUNCATE TABLE<br />- Table insert statements, such as INSERT or REPLACE<br />- Table update statements, such as UPDATE |
+| `TABLE_ACCESS` | - Table read statements, such as SELECT or INSERT INTO ... SELECT<br/>- Table delete statements, such as DELETE or TRUNCATE TABLE<br/>- Table insert statements, such as INSERT or REPLACE<br/>- Table update statements, such as UPDATE |
 
 ## Access audit logs
 
 Audit logs are integrated with Azure Monitor diagnostic settings. Once you've enabled audit logs on your MySQL flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about diagnostic settings, see the [diagnostic logs documentation](../../azure-monitor/essentials/platform-logs-overview.md). To learn more about how to enable diagnostic settings in the Azure portal, see the [audit log portal article](tutorial-configure-audit.md#set-up-diagnostics).
 
 > [!NOTE]  
-> Premium Storage accounts are not supported if you sending the logs to Azure storage via diagnostics and settings
+> Premium Storage accounts are not supported if you send the logs to Azure storage via diagnostics and settings.
 
 The following sections describe the output of MySQL audit logs based on the event type. Depending on the output method, the fields included and the order in which they appear may vary.
 

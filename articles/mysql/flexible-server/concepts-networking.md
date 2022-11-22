@@ -44,12 +44,13 @@ The following characteristics apply whether you choose to use the private access
 
 ### Unsupported virtual network scenarios
 
-- Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network can't have a public endpoint
-- After the flexible server is deployed to a virtual network and subnet, you can't move it to another virtual network or subnet. - After the flexible server is deployed, you can't move the virtual network the flexible server uses into another resource group or subscription.
-- Subnet size (address spaces) can't be increased once resources exist in the subnet
-- Change from Public to Private access isn't allowed after the server is created. The recommended way is to use Point-in-time restore
+- Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network can't have a public endpoint.
+- After the flexible server is deployed to a virtual network and subnet, you can't move it to another virtual network or subnet.
+- After the flexible server is deployed, you can't move the virtual network the flexible server uses into another resource group or subscription.
+- Subnet size (address spaces) can't be increased once resources exist in the subnet.
+- Change from Public to Private access isn't allowed after the server is created. The recommended way is to use point-in-time restore.
 
-Learn how to enable private access (vnet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md).
+Learn how to enable private access (VNet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md).
 
 > [!NOTE]  
 > If you are using the custom DNS server, you must use a DNS forwarder to resolve the FQDN of Azure Database for MySQL - Flexible Server. Refer to [name resolution that uses your DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
@@ -60,18 +61,18 @@ Regardless of your networking option, we recommend you use the fully qualified d
 
 ## TLS and SSL
 
-Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL server using Secure Sockets Layer (SSL) with Transport layer security(TLS) encryption. TLS is an industry-standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
+Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL server using Secure Sockets Layer (SSL) with Transport layer security (TLS) encryption. TLS is an industry-standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
-Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default, and all incoming connections with TLS 1.0 and TLS 1.1 will be denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be configured and changed.
+Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default, and all incoming connections with TLS 1.0 and TLS 1.1 are denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be configured and changed.
 
 Following are the different configurations of SSL and TLS settings you can have for your flexible server:
 
 | Scenario | Server parameter settings | Description |
 | --- | --- | --- |
 | Disable SSL (encrypted connections) | require_secure_transport = OFF | If your legacy application doesn't support encrypted connections to the MySQL server, you can disable enforcement of encrypted connections to your flexible server by setting require_secure_transport=OFF. |
-| Enforce SSL with TLS version < 1.2 | require_secure_transport = ON and tls_version = TLSV1 or TLSV1.1 | If your legacy application supports encrypted connections but requires TLS version < 1.2, you can enable encrypted connections, but configure your flexible server to allow connections with the tls version (v1.0 or v1.1) supported by your application |
-| Enforce SSL with TLS version = 1.2(Default configuration) | require_secure_transport = ON and tls_version = TLSV1.2 | This is the recommended and default configuration for a flexible server. |
-| Enforce SSL with TLS version = 1.3(Supported with MySQL v8.0 and above) | require_secure_transport = ON and tls_version = TLSV1.3 | This is useful and recommended for new applications development |
+| Enforce SSL with TLS version < 1.2 | require_secure_transport = ON and tls_version = TLS 1.0 or TLS 1.1 | If your legacy application supports encrypted connections but requires TLS version < 1.2, you can enable encrypted connections, but configure your flexible server to allow connections with the TLS version (v1.0 or v1.1) supported by your application |
+| Enforce SSL with TLS version = 1.2(Default configuration) | require_secure_transport = ON and tls_version = TLS 1.2 | This is the recommended and default configuration for a flexible server. |
+| Enforce SSL with TLS version = 1.3(Supported with MySQL v8.0 and above) | require_secure_transport = ON and tls_version = TLS 1.3 | This is useful and recommended for new applications development |
 
 > [!NOTE]  
 > Changes to SSL Cipher on the flexible server is not supported. FIPS cipher suites is enforced by default when tls_version is set to TLS version 1.2. For TLS versions other than version 1.2, SSL Cipher is set to default settings which comes with MySQL community installation.
@@ -80,6 +81,6 @@ Review how to [connect using SSL/TLS](how-to-connect-tls-ssl.md) to learn more.
 
 ## Next steps
 
-- Learn how to enable private access (vnet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md)
+- Learn how to enable private access (VNet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md)
 - Learn how to enable public access (allowed IP addresses) using the [Azure portal](how-to-manage-firewall-portal.md) or [Azure CLI](how-to-manage-firewall-cli.md)
 - Learn how to [use TLS](how-to-connect-tls-ssl.md)

@@ -39,7 +39,7 @@ Complete these steps to create a flexible server:
 
     > :::image type="content" source="./media/quickstart-create-connect-server-vnet/deployment-option.png" alt-text="Screenshot that shows the Flexible server option." lightbox="./media/quickstart-create-connect-server-vnet/deployment-option.png":::
 
-1. On the **Basics** tab, enter the **subscription**, **resource group** , **region**, **administrator username** and **administrator password**.  With the default values, this will provision a MySQL server of version 5.7 with Burstable Sku using 1 vCore, 2 GiB Memory, and 32 GiB storage. The backup retention is seven days. You can change the configuration.
+1. On the **Basics** tab, enter the **subscription**, **resource group** , **region**, **administrator username** and **administrator password**.  With the default values, this provisions a MySQL server of version 5.7 with Burstable Sku using 1 vCore, 2 GiB Memory, and 32 GiB storage. The backup retention is seven days. You can change the configuration.
 
     > :::image type="content" source="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png" alt-text="Screenshot that shows the Basics tab of the Flexible server page." lightbox="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png":::
 
@@ -108,7 +108,7 @@ Since the server is in a virtual network, you can only connect to the server fro
 1. Select **Create**. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file is downloaded as **myKey.pem**.
 
    > [!IMPORTANT]  
-   > Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
+   > Make sure you know where the `.pem` file was downloaded, you need the path to it in the next step.
 
 1. When the deployment is finished, select **Go to resource**.
    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-create-success.png" alt-text="Screenshot of deployment success" lightbox="./media/quickstart-create-connect-server-vnet/vm-create-success.png":::

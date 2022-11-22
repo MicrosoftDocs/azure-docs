@@ -27,13 +27,13 @@ Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of con
 
 ## Use the steps below to configure and use Azure AD authentication
 
-1. Select your preferred authentication method for accessing the MySQL flexible server. By default, the authentication selected will be MySQL authentication only. Select Azure Active Directory authentication only or MySQL and Azure Active Directory authentication to enable Azure AD authentication.
+1. Select your preferred authentication method for accessing the MySQL flexible server. By default, the authentication selected is set to MySQL authentication only. Select Azure Active Directory authentication only or MySQL and Azure Active Directory authentication to enable Azure AD authentication.
 1. Select the user managed identity (UMI) with the following privileges to configure Azure AD authentication:
     - [User.Read.All](/graph/permissions-reference#user-permissions): Allows access to Azure AD user information.
     - [GroupMember.Read.All](/graph/permissions-reference#group-permissions): Allows access to Azure AD group information.
     - [Application.Read.ALL](/graph/permissions-reference#application-resource-permissions): Allows access to Azure AD service principal (application) information.
 
-1. Add Azure AD Admin. It can be Azure AD Users or Groups, which will have access to Azure Database for MySQL flexible server.
+1. Add Azure AD Admin. It can be Azure AD Users or Groups, which have access to Azure Database for MySQL flexible server.
 1. Create database users in your database mapped to Azure AD identities.
 1. Connect to your database by retrieving a token for an Azure AD identity and logging in.
 
@@ -48,29 +48,29 @@ The service then uses the managed identity to request access tokens for services
 
 The following high-level diagram summarizes how authentication works using Azure AD authentication with Azure Database for MySQL. The arrows indicate communication pathways.
 
-:::image type="content" source="media/concepts-Azure-ad-authentication/Azure-ad-authentication-flow.jpg" alt-text="Diagram of how Azure ad authentication works.":::
+:::image type="content" source="media/concepts-azure-ad-authentication/azure-ad-authentication-flow.jpg" alt-text="Diagram of how Azure AD authentication works.":::
 
 1. Your application can request a token from the Azure Instance Metadata Service identity endpoint.
-1. Using the client ID and certificate, a call is made to Azure AD to request an access token.
+1. When you use the client ID and certificate, a call is made to Azure AD to request an access token.
 1. A JSON Web Token (JWT) access token is returned by Azure AD. Your application sends the access token on a call to Azure Database for MySQL flexible server.
 1. MySQL flexible server validates the token with Azure AD.
 
 ## Administrator structure
 
-When using Azure AD authentication, there are two Administrator accounts for the MySQL server; the original MySQL administrator and the Azure AD administrator.
+There are two Administrator accounts for the MySQL server when using Azure AD authentication: the original MySQL administrator and the Azure AD administrator.
 
-Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. The Azure AD administrator sign in can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the MySQL Flexible server. Using a group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in the MySQL Flexible server. Only one Azure AD administrator (a user or group) can be configured at a time.
+Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. The Azure AD administrator sign-in can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the MySQL flexible server. Using a group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in the MySQL Flexible server. Only one Azure AD administrator (a user or group) can be configured at a time.
 
-:::image type="content" source="media/concepts-Azure-ad-authentication/Azure-ad-admin-structure.jpg" alt-text="Diagram of Azure ad admin structure.":::
+:::image type="content" source="media/concepts-azure-ad-authentication/azure-ad-admin-structure.jpg" alt-text="Diagram of Azure AD admin structure.":::
 
 Methods of authentication for accessing the MySQL flexible server include:  
-- MySQL Authentication only - This is the default option. This is the default option. Only native MySQL Authentication with a MySQL sign in and password will be used to access Azure Database for MySQL flexible server.
-- Only Azure AD authentication - MySQL Native authentication will be disabled, and users will be able to authenticate using only their Azure AD user and token. To enable this mode, the server parameter **aad_auth_only** will be _enabled_.
-- Authentication with MySQL and Azure AD - Both native MySQL authentication and Azure AD authentication are supported. To enable this mode, the server parameter **aad_auth_only** will be _disabled_.
+- MySQL Authentication only - This is the default option. Only the native MySQL Authentication with a MySQL sign-in and password can be used to access Azure Database for MySQL flexible server.
+- Only Azure AD authentication - MySQL native authentication is disabled, and users are able to authenticate using only their Azure AD user and token. To enable this mode, the server parameter **aad_auth_only** is set to _enabled_.
+- Authentication with MySQL and Azure AD - Both native MySQL authentication and Azure AD authentication are supported. To enable this mode, the server parameter **aad_auth_only** is set to _disabled_.
 
 ## Permissions
 
-The following permissions are required to allow the UMI to read from Microsoft Graph as the server identity. Alternatively, give the UMI the [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) role.
+The following permissions are required to allow the UMI to read from the Microsoft Graph as the server identity. Alternatively, give the UMI the [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) role.
 
 > [!IMPORTANT]  
 > Only a [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) can grant these permissions.
@@ -119,9 +119,9 @@ Once you authenticate against the Active Directory, you retrieve a token. This t
 - If a user is deleted from Azure AD, that user can no longer authenticate with Azure AD. Therefore, acquiring an access token for that user is no longer possible. Although the matching user is still in the database, connecting to the server with that user isn't possible.
 
 > [!NOTE]  
-> Log in with the deleted Azure AD user can still be done until the token expires (up to 60 minutes from token issuing). If you remove the user from Azure Database for MySQL, this access will be revoked immediately.
+> Log in with the deleted Azure AD user can still be done until the token expires (up to 60 minutes from token issuing). If you remove the user from Azure Database for MySQL, this access is revoked immediately.
 
-- If the Azure AD admin is removed from the server, the server will no longer be associated with an Azure AD tenant, and therefore all Azure AD logins will be disabled for the server. Adding a new Azure AD admin from the same tenant will re-enable Azure AD logins.
+- If the Azure AD admin is removed from the server, the server is no longer associated with an Azure AD tenant, and therefore all Azure AD logins are disabled for the server. Adding a new Azure AD admin from the same tenant re-enables Azure AD logins.
 
 - Azure Database for MySQL flexible server matches access tokens to the Azure Database for MySQL users using the user's unique Azure AD user ID instead of the username. This means that if an Azure AD user is deleted in Azure AD and a new user is created with the same name, Azure Database for MySQL considers that a different user. Therefore, if a user is deleted from Azure AD and then a new user with the same name is added, the new user isn't able to connect with the existing user.
 

@@ -80,7 +80,7 @@ To use data encryption as part of a restore operation, perform the following ste
 
 ## Use Data encryption for replica servers
 
-After your Azure Database for MySQL flexible server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server will also be encrypted.
+After your Azure Database for MySQL flexible server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted.
 
 1. To configuration replication, under **Settings** , select **Replication** , and then select **Add replica**.
 

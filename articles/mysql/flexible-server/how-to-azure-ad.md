@@ -21,11 +21,22 @@ In this tutorial, you learn how to:
 - Configure the Azure AD Admin
 - Connect to Azure Database for MySQL flexible server using Azure AD
 
+## Prerequisites
+
+- An Azure account with an active subscription.
+
+- If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free) before you begin.
+
+    > [!NOTE]  
+    > With an Azure free account, you can now try Azure Database for MySQL - Flexible Server for free for 12 months. For more information, see [Try Flexible Server for free](how-to-deploy-on-azure-free-account.md).
+
+- Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
+
 ## Configure the Azure AD Admin
 
 To create an Azure AD Admin user, follow the following steps.
 
-- In the Azure portal, select the instance of Azure Database for MySQL Flexible server that you want to enable for Azure AD.
+- In the Azure portal, select the instance of Azure Database for MySQL flexible server that you want to enable for Azure AD.
 
 - Under the Security pane, select **Authentication**:
 :::image type="content" source="media//how-to-Azure-ad/Azure-ad-configuration.jpg" alt-text="Diagram of how to configure Azure ad authentication.":::
@@ -54,33 +65,22 @@ After you grant the permissions to the UMI, they're enabled for all servers or i
 - Select a valid Azure AD user or an Azure AD group in the customer tenant to be **Azure AD administrator**. Once Azure AD authentication support has been enabled, Azure AD Admins can be added as security principals with permission to add Azure AD Users to the MySQL server.
 
     > [!NOTE]  
-    > Only one Azure AD admin can be created per MySQL server, and selecting another will overwrite the existing Azure AD admin configured for the server.
+    > Only one Azure AD admin can be created per MySQL server, and selecting another overwrites the existing Azure AD admin configured for the server.
 
 ## Connect to Azure Database for MySQL flexible server using Azure AD
 
-#### Prerequisites
-
-- An Azure account with an active subscription.
-
-- If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free) before you begin.
-
-    > [!NOTE]  
-    > With an Azure free account, you can now try Azure Database for MySQL - Flexible Server for free for 12 months. For more information, see [Try Flexible Server for free](how-to-deploy-on-azure-free-account.md).
-
-- Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
-
-**Step 1: Authenticate with Azure AD**
+### 1 - Authenticate with Azure AD
 
 Start by authenticating with Azure AD using the Azure CLI tool.  
 _(This step isn't required in Azure Cloud Shell.)_
 
-- Sign in to Azure account using [az sign in](/cli/azure/reference-index#az-login) command. Note the ID property, which refers to the Subscription ID for your Azure account:
+- Sign in to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the ID property, which refers to the Subscription ID for your Azure account:
 
     ```azurecli-interactive
     az login
     ```
 
-The command will launch a browser window to the Azure AD authentication page. It requires you to give your Azure AD user ID and password.
+The command launches a browser window to the Azure AD authentication page. It requires you to give your Azure AD user ID and password.
 
 - If you have multiple subscriptions, choose the appropriate subscription using the az account set command:
 
@@ -88,7 +88,7 @@ The command will launch a browser window to the Azure AD authentication page. It
     az account set --subscription \<subscription id\>
     ```
 
-**Step 2: Retrieve Azure AD access token**
+### 2 - Retrieve Azure AD access token
 
 Invoke the Azure CLI tool to acquire an access token for the Azure AD authenticated user from step 1 to access Azure Database for MySQL flexible server.
 
@@ -117,7 +117,7 @@ Invoke the Azure CLI tool to acquire an access token for the Azure AD authentica
     $accessToken.Token | out-file C:\temp\MySQLAccessToken.txt
     ```
 
-After authentication is successful, Azure AD will return an access token:
+After authentication is successful, Azure AD returns an access token:
 
 ```json
 {
@@ -139,11 +139,11 @@ The access token validity is anywhere between 5 minutes to 60 minutes. We recomm
     $accessToken.ExpiresOn.DateTime
   ```
 
-**Step 3: Use token as password for logging in with MySQL**
+### 3 - Use a token as a password for logging in with MySQL
 
 You need to use the access token as the MySQL user password when connecting. You can use the method described above to retrieve the token using GUI clients such as MySQL workbench.
 
-#### Use MySQL CLI
+## Connect to Azure Database for MySQL flexible server using MySQL CLI
 
 When using the CLI, you can use this shorthand to connect:
 
@@ -155,16 +155,17 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
-#### Use MySQL Workbench
 
-- Launch MySQL Workbench and Select the Database option, thenselectk "Connect to database."
-- In the hostname field, enter the MySQL FQDN for example, mysql.database.Azure.com
-- In the username field, enter the MySQL Azure Active Directory administrator name and append this with the MySQL server name, not the FQDN for example, user@tenant.onmicrosoft.com
-- In the password field, select "Store in Vault" and paste in the access token from the file for example, C:\temp\MySQLAccessToken.txt
-- Select the advanced tab and ensure that you check "Enable Cleartext Authentication Plugin"
-- Select OK to connect to the database
+## Connect to Azure Database for MySQL flexible server using MySQL Workbench
 
-#### Important considerations when connecting
+- Launch MySQL Workbench and Select the Database option, then select **Connect to database**.
+- In the hostname field, enter the MySQL FQDN for example, mysql.database.azure.com.
+- In the username field, enter the MySQL Azure Active Directory administrator name and append this with the MySQL server name, not the FQDN for example, user@tenant.onmicrosoft.com.
+- In the password field, select **Store in Vault** and paste in the access token from the file for example, C:\temp\MySQLAccessToken.txt.
+- Select the advanced tab and ensure that you check **Enable Cleartext Authentication Plugin**.
+- Select OK to connect to the database.
+
+## Important considerations when connecting
 
 - `user@tenant.onmicrosoft.com` is the name of the Azure AD user or group you're trying to connect as
 - Make sure to use the exact way the Azure AD user or group name is spelled
@@ -177,7 +178,7 @@ mysql -h mydb.mysql.database.azure.com \
 
 You're now authenticated to your MySQL flexible server using Azure AD authentication.
 
-## More Azure AD Admin commands
+## Other Azure AD admin commands
 
 - Manage server Active Directory administrator
 
@@ -283,7 +284,7 @@ _Example:_
 CREATE AADUSER 'Prod_DB_Readonly';
 ```
 
-When logging in, group members will use their personal access tokens but sign in with the group name specified as the username.
+When logging in, group members use their personal access tokens but sign in with the group name specified as the username.
 
 ## Compatibility with application drivers
 
