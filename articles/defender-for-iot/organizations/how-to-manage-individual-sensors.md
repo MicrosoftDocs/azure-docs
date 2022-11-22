@@ -31,6 +31,12 @@ The **Overview** page shows the following widgets:
 
 Select the link in each widget to drill down for more information in your sensor.
 
+### Connectivity status
+
+The Azure portal checks the connectivity to the sensor. If the portal fails to access the sensor, it will present an error to the user. The error appears on the sensor overview page. For example:
+
+IMAGE to be added
+
 ## Manage sensor activation files
 
 Your sensor was onboarded with Microsoft Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected sensor or a cloud-connected sensor.
