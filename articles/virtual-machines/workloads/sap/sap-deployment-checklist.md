@@ -66,7 +66,7 @@ Further included in same technical document(s) should be:
   - Managed Disks attached to each VM
   - Filesystem layouts and sizing
   - SMB and/or NFS volume layout and sizes, mount points where applicable
-1. High availability, backup and disaster recovery architecture
+2. High availability, backup and disaster recovery architecture
   - Based on RTO and RPO, define what the high availability and disaster recovery architecture needs to look like.
   - Define the use of [availability zones](./sap-ha-availability-zones.md) for optimal protection or availability sets within a region.
   - Considerations for Azure Virtual Machines DBMS deployment for SAP workloads and related documents. In Azure, using a shared disk configuration for the DBMS layer as, for example, [described for SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server), isn't supported. Instead, use solutions like:
@@ -78,19 +78,19 @@ Further included in same technical document(s) should be:
     - For the SAP application layer, determine whether you'll run your business regression test systems, which ideally are replicas of your production deployments, in the same Azure region or in your DR region. In the second case, you can target that business regression system as the DR target for your production deployments.
     - Look into Azure Site Recovery as a method for replicating the SAP application layer into the Azure DR region. For more information, see a [set-up disaster recovery for a multi-tier SAP NetWeaver app deployment](/azure/site-recovery/site-recovery-sap).
     - For projects required to remain in a single region for compliance reasons, consider a combined HADR combined HADR configuration by using [Azure Availability Zones](./sap-ha-availability-zones.md#combined-high-availability-and-disaster-recovery-configuration).
-1.  An inventory of all SAP interfaces and the connected systems (SAP and non-SAP)
-1.	Design of foundation services. This design should include the following items, many of which are covered by the [landing zone accelerator for SAP](/azure/cloud-adoption-framework/scenarios/sap/):
+3.  An inventory of all SAP interfaces and the connected systems (SAP and non-SAP)
+4.	Design of foundation services. This design should include the following items, many of which are covered by the [landing zone accelerator for SAP](/azure/cloud-adoption-framework/scenarios/sap/):
   - Network topology within Azure and assignment of different SAP environment
   - Active Directory and DNS design.
   - Identity management solution for both end users and administration
   - [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md) structure for teams that manage infrastructure and SAP applications in Azure.
   - Azure resource naming strategy
   - Security operations for Azure resources and workloads within
-1. Security concept for protecting your SAP workload. This should include all aspects – networking and perimeter monitoring, application and database security, operating systems securing, and any infrastructure measures required, such as encryption. Identify the requirements with your compliance and security teams.
-1. Microsoft recommends either Professional Direct, Premier or Unified Support contract. Identify your escalation paths and contacts for support with Microsoft. For SAP support requirements, see [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553).
-1. The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](../../../azure-portal/supportability/regional-quota-requests.md) as needed.
-1. Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
-1. An automated deployment approach. Many customers start with scripts, using a combination of PowerShell, CLI, Ansible and Terraform. 
+5. Security concept for protecting your SAP workload. This should include all aspects – networking and perimeter monitoring, application and database security, operating systems securing, and any infrastructure measures required, such as encryption. Identify the requirements with your compliance and security teams.
+6. Microsoft recommends either Professional Direct, Premier or Unified Support contract. Identify your escalation paths and contacts for support with Microsoft. For SAP support requirements, see [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553).
+7. The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](../../../azure-portal/supportability/regional-quota-requests.md) as needed.
+8. Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
+9. An automated deployment approach. Many customers start with scripts, using a combination of PowerShell, CLI, Ansible and Terraform. 
 Microsoft developed solutions for SAP deployment automation are:
   - [Azure Center for SAP solutions](/azure/center-sap-solutions/) – Azure service to deploy and operate a SAP system’s infrastructure
   - [SAP on Azure Deployment Automation](./automation-deployment-framework.md), an open-source orchestration tool for deploying and maintaining SAP environments
@@ -149,7 +149,7 @@ We recommend that you set up and validate a full HADR solution and security desi
   - Test and evaluate the network latency between the SAP application layer VMs and DBMS VMs according to SAP notes [500235](https://launchpad.support.sap.com/#/notes/500235) and [1100926](https://launchpad.support.sap.com/#/notes/1100926). In addition to SAP’s niping, you can use tools such as [sockperf](https://github.com/Mellanox/sockperf) or [ethr](https://github.com/microsoft/ethr) for tcp latency measurement. Evaluate the results against the network latency guidance in [SAP note 1100926](https://launchpad.support.sap.com/#/notes/1100926). The network latency should be in the moderate or good range. 
   - Optimize network throughput on high vCPU VMs, typically used for database servers. Particularly important for HANA scale-out and any large SAP system. Follow recommendations in [this article](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/optimizing-network-throughput-on-azure-m-series-vms/ba-p/3581129) for optimization.
   - If deploying with availability sets and latency measurement values are not meeting SAP requirements in [SAP note 1100926](https://launchpad.support.sap.com/#/notes/1100926), consider guidance in article [proximity placement groups](./sap-proximity-placement-scenarios.md) to get optimal network latency. No usage of proximity placement groups for zonal or cross-zonal deployment patterns.
-  - Verify correct availability, routing and secure access from the SAP landscape to any needed Internet endpoint, such as OS patch repositories, deployment tooling or service endpoint. Similarly, if your SAP environment provide a publicly accessible service such as SAP Fiori or SAProuter, verify it is reachable and secured.
+  - Verify correct availability, routing and secure access from the SAP landscape to any needed Internet endpoint, such as OS patch repositories, deployment tooling or service endpoint. Similarly, if your SAP environment provides a publicly accessible service such as SAP Fiori or SAProuter, verify it is reachable and secured.
 4. **High availability and disaster recovery deployments**
   - Always use standard load balancer for clustered environments. Basic load balancer will be [retired](/azure/load-balancer/skus).
   - If you deploy the SAP application layer without defining a specific availability zone, make sure that all VMs that run SAP dialog instances or middleware instances of a single SAP system are deployed in an [availability set](/azure/virtual-machines/availability-set-overview).
@@ -319,7 +319,7 @@ Several of the checks above are checked in automated way with [SAP on Azure Qual
 > Same [quality checks and additional insights](/azure/center-sap-solutions/get-quality-checks-insights) are executed regularly when SAP systems are deployed or registered with [Azure Center for SAP solution](/azure/center-sap-solutions/) as well and are part of the service.  
 
 Further tools to allow easier deployment checks and document findings, plan next remediation steps and generally optimize your SAP on Azure landscape are:
-- [Azure Well-Architected Framework review](/assessments/?id=azure-architecture-review&mode=pre-assessment) An assessment of your workload focusing on the five main pillars of reliability, security, cost optimization, operation excelence and performance efficiency. Supports SAP workloads and recommended to run a review at start and after every project phase.
+- [Azure Well-Architected Framework review](/assessments/?id=azure-architecture-review&mode=pre-assessment) An assessment of your workload focusing on the five main pillars of reliability, security, cost optimization, operation excellence and performance efficiency. Supports SAP workloads and recommended to running a review at start and after every project phase.
 - [Azure Inventory Checks for SAP](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Tools%26Framework/InventoryChecksForSAP) An open source Azure Monitor workbook, which shows your Azure inventory with intelligence to highlight configuration drift and improve quality.
 
 ## Next steps
