@@ -192,13 +192,13 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 ## [Passwordless](#tab/passwordless)
 
-tbd
+[!INCLUDE [assign-roles](../../includes/assign-roles.md)]
     
 ## [Connection String](#tab/connection-string)
 
-    [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
-    
-    Note down the connection string and the container name. You'll use them in the receive code. 
+[Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
+
+Note down the connection string and the container name. You'll use them in the receive code. 
 
 ---
 
@@ -224,7 +224,7 @@ tbd
     Install-Package Azure.Messaging.EventHubs.Processor
     ```    
 
-### Update the Main method 
+### Update the code
 
 1. Replace the contents of **Program.cs** with the following code:
 
@@ -238,6 +238,7 @@ Here are the important steps from the code:
 1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
 
     ```csharp
+    using Azure.Identity;
     using Azure.Messaging.EventHubs;
     using Azure.Messaging.EventHubs.Consumer;
     using Azure.Messaging.EventHubs.Processor;
