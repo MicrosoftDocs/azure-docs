@@ -23,7 +23,6 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 
 ## Introduction to basic concepts
 
-[Log Analytics demo environment](https://portal.azure.com/#view/Microsoft_OperationsManagementSuite_Workspace/LogsDemo.ReactView)
 
 
 ## Design and deploy a workspace
@@ -58,7 +57,7 @@ context so the customer can determine why they would click the link.
 ## Analyze log data
 
 [Log Analytics demo environment](https://portal.azure.com/#view/Microsoft_OperationsManagementSuite_Workspace/LogsDemo.ReactView)
-[Guided project - Analyze logs in Azure Monitor with KQL](https://learn.microsoft.com/en-us/training/modules/analyze-logs-with-kql/)
+[Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/)
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
