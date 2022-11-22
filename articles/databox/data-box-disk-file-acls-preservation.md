@@ -56,7 +56,7 @@ The following default ACLs are transferred:
 
 - Security descriptors with these properties: DACL, Owner, Group, SACL
 
-
+[!INCLUDE [data-box-copy-data-and-metadata](../../includes/data-box-copy-data-and-metadata.md)]
 
 ## Next steps
 
