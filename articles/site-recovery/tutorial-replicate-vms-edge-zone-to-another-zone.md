@@ -1,5 +1,5 @@
 ---
-title: Setup disaster recovery to another Public MEC using PowerShell
+title: Set up disaster recovery to another Public MEC using PowerShell
 description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to another Public MEC connected to the same parent region.
 author: ankitaduttaMSFT
 ms.service: site-recovery
@@ -13,9 +13,6 @@ ms.author: v-pgaddala
 This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to another Azure Public MEC connected to the same parent region. 
 
 Azure Public MECs (preview) are fully managed solution deployed close to your data centre and includes hardware, services, and support. 
-
-> ![NOTE]
-> This is in preview only for Public MECs.
 
 ## Disaster recovery in Azure Public MEC (preview)
 

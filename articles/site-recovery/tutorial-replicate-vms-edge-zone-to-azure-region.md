@@ -1,5 +1,5 @@
 ---
-title: Setup disaster recovery to another region using PowerShell
+title: Set up disaster recovery to another region using PowerShell
 description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to the parent region where Azure Public MEC (preview) is an extension. 
 author: ankitaduttaMSFT
 ms.service: site-recovery
@@ -12,9 +12,6 @@ ms.author: v-pgaddala
 
 This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to the parent Azure region where Azure Public MEC (preview) is an extension.
 
-> ![NOTE]
-> This is in preview only for Public MECs.
-
 ## Disaster recovery in Azure Public MEC (preview)
 
 Site Recovery ensure business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Azure Public MEC and secondary location is the parent region to which the Azure Public MEC is connected. 
@@ -22,7 +19,6 @@ Site Recovery ensure business continuity by keeping workloads running during out
 ## Set up disaster recovery for VMs in an Azure Public MEC (preview) using PowerShell
 
 ### Prerequisites 
-
 
 - Ensure Azure Az PowerShell module is installed. For information on how to install, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 - The minimum Azure Az PowerShell version must be 4.1.0. Use the following command to see the current version:
