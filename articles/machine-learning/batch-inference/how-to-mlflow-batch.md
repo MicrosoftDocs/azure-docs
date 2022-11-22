@@ -58,7 +58,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
    # [Azure CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    az account set --subscription <subscription>
    az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
    ```
@@ -91,7 +91,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    # [Azure CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    MODEL_NAME='heart-classifier'
    az ml model create --name $MODEL_NAME --type "mlflow_model" --path "heart-classifier-mlflow/model"
    ```
@@ -126,7 +126,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    Create the compute using the following command:
    
-   ```bash
+   ```azurecli
    az ml compute create -f cpu-cluster.yml
    ```
    
@@ -156,7 +156,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    Then, create the endpoint with the following command:
    
-   ```bash
+   ```azurecli
    ENDPOINT_NAME='heart-classifier-batch'
    az ml batch-endpoint create -f endpoint.yml
    ```
@@ -201,7 +201,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    Then, create the deployment with the following command:
    
-   ```bash
+   ```azurecli
    DEPLOYMENT_NAME="classifier-xgboost-mlflow"
    az ml batch-deployment create -f endpoint.yml --set-default
    ```
@@ -235,7 +235,6 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    endpoint.defaults.deployment_name = deployment.name
    ml_client.batch_endpoints.begin_create_or_update(endpoint)
    ```
-   
    ---
    
    > [!NOTE]
@@ -245,7 +244,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
    # [Azure CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
    ```
    
@@ -279,7 +278,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
    b. Create the data asset:
    
-   ```bash
+   ```azurecli
    az ml data create -f heart-dataset-unlabeled.yml
    ```
    
@@ -315,7 +314,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
    # [Azure CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:heart-dataset-unlabeled@latest | jq -r '.name') 
    ```
    
@@ -340,7 +339,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
    # [Azure CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    az ml job show --name $JOB_NAME
    ```
    
@@ -368,7 +367,7 @@ You can download the results of the job by using the job name:
 
 To download the predictions, use the following command:
 
-```bash
+```azurecli
 az ml job download --name $JOB_NAME --output-name score --download-path ./
 ```
 
@@ -557,7 +556,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    
    Then, create the deployment with the following command:
    
-   ```bash
+   ```azurecli
    az ml batch-deployment create -f deployment.yml
    ```
    
