@@ -1,86 +1,90 @@
 ---
-title: Create Blob inventory report analytics
-titleSuffix: Azure Storage
-description: Learn how to create blob inventory report analytics
+title: 'Tutorial: Analyze blob inventory reports - Azure Storage'
+description: Learn how to analyze and visualize blob inventory reports by using Azure Synapse and Power BI.  
 author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: normesta
 ms.subservice: blobs
-ms.devlang: csharp
-ms.custom: devx-track-csharp
 ---
 
-# Tutorial: Create Blob inventory analytics
+# Tutorial: Analyze blob inventory reports
 
-Introduction goes here.
+The Azure Storage blob inventory feature provides you with an overview of the containers, blobs, snapshots, and blob versions within a storage account. You can run queries in Azure Synapse to aggregate data from inventory reports and then use Power BI to visualize those aggregations. You can use the process described in this tutorial to better understand the characteristics of your storage accounts such as data usage storage patterns. You can use these insights to optimize costs versus performance in your accounts.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Generate a blob inventory report
+> * Set up a Synapse workspace
+> * Set up Synapse Studio
+> * Generate analytic data in Synapse Studio
+> * Visualize results in Power BI
 
 ## Prerequisites
 
-- An Azure storage account. See [create a storage account](../common/storage-account-create.md).
+- Azure subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-- An Azure storage account with Data Lake Storage Gen2 capabilities. See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
+- Azure storage account - [create a storage account](../common/storage-account-create.md) 
+  
+  Make sure that your user identity has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
-- For both accounts, ensure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
+## Generate an inventory report
 
-## Enable inventory reports
+First, enable blob inventory reports for your storage account. See [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md). You might have to wait up to 24 hours after enabling inventory reports for your first report to be generated.
 
-The first step in this method is to [enable inventory reports](blob-inventory.md#enabling-inventory-reports) on your storage account. You may have to wait up to 24 hours after enabling inventory reports for your first report to be generated.
+## Set up a Synapse workspace
 
-> [!NOTE]
-> This is the account that does not have a hierarchical namespace. This tutorial uses a sample that refers to that account.
+1. Create an Azure Synapse workspace. See [Create an Azure Synapse workspace](../../synapse-analytics/get-started-create-workspace.md). 
 
-## Create an Azure Synapse workspace
+   > [!NOTE]
+   > As part of creating the workspace, you'll create or reference a storage account that has a hierarchical namespace. This is the account that Azure Synapse uses to efficiently store Spark tables and application logs. Azure Synapse refers to this account as the _primary storage account_. To avoid confusion, this article will use the term _inventory report account_ to refer to the account which contains inventory reports.
 
-1. Create an Azure Synapse workspace where you will execute a PySpark notebook to analyze the inventory report files. See [Create an Azure Synapse workspace](../../synapse-analytics/get-started-create-workspace.md) 
+2. In the Synapse workspace, assign your user identity the role of **Contributor**. See [Azure RBAC: Owner role for the workspace](../../synapse-analytics/get-started-add-admin#azure-rbac-owner-role-for-the-workspace.md).
 
-2. Open your Synapse workspace in Synapse Studio. See [Open Synapse Studio](../../synapse-analytics/get-started-create-workspace#open-synapse-studio).
+3. Navigate to your **inventory report account**, and assign the system managed identity of the workspace the **Storage Blob Data Contributor** role. See [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-3. In Synapse Studio, create an Apache Spark pool that will be used to execute the PySpark notebook that will process blob inventory reports. See [Create a serverless Apache Spark pool](../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
+   That role assignment gives the Synapse workspace permission to access the inventory reports in your storage account. On
 
-## Configure permissions
+4. Navigate to **primary storage account** and assign your user identity the role of **Blob Storage Contributor**.
 
-Configure permission for two storage accounts and the workspace. Do a better job explaining here.
+## Set up Synapse Studio
 
-### Grant access to your inventory reports
+1. Open your Synapse workspace in Synapse Studio. See [Open Synapse Studio](../../synapse-analytics/get-started-create-workspace#open-synapse-studio.md).
 
-You need to give your Synapse workspace permission to access the inventory reports in your storage account.
+2. In Synapse Studio, Make sure that your identity is assigned the role of **Synapse Administrator**. See [Synapse RBAC: Synapse Administrator role for the workspace](../../synapse-analytics/get-started-add-admin#synapse-rbac-synapse-administrator-role-for-the-workspace.md).
 
-In the account that contains your inventory reports, assign the system managed identity of the synapse workspace to the Storage blob Data Contributor role. This will permit the workspace access to reach in and grab inventory reports. For guidance, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+3. Create an Apache Spark pool that will be used to execute the PySpark notebook that will process blob inventory reports. See [Create a serverless Apache Spark pool](../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool.md).
 
-### Grant your user identity access in Synapse
+## Set up and run the sample notebook
 
-1. In the Synapse workspace, assign your user id the role of Contributor. See [Azure RBAC: Owner role for the workspace](../../synapse-analytics/get-started-add-admin#azure-rbac-owner-role-for-the-workspace).
+In this section, you'll modify and upload a configuration file, import a PySpark notebook into Synapse Studio, modify a few variables in the notebook, and then run the notebook.
 
-2. Open your Synapse workspace in Synapse Studio. See [Open Synapse Studio](../../synapse-analytics/get-started-create-workspace#open-synapse-studio).
-
-3. In Synapse Studio, Make sure that your identity is assigned the role of Synapse Administrator. See [Synapse RBAC: Synapse Administrator role for the workspace](../../synapse-analytics/get-started-add-admin#synapse-rbac-synapse-administrator-role-for-the-workspace).
-
-## Provide the configuration file to read the blob inventory report files
+#### Modify and upload a configuration file
 
 1. Download the [BlobInventoryStorageAccountConfiguration.json](https://github.com/microsoft/Blob-Inventory-Report-Analytics/blob/main/src/BlobInventoryStorageAccountConfiguration.json) file.
 
 2. Update the following placeholders of that file:
 
-   | Field | Description
-   |---|---|
-   | storageAccountName | Name of the storage account for which inventory has been run |
-   | destinationContainer | Name of the container where inventory reports are stored |
-   | blobInventoryRuleName | Name of the inventory rule whose results should be analyzed |
-   | accessKey | The access key in which inventory reports are stored. |
+   - Set `storageAccountName` to the name of your inventory report account.
+   - Set `destinationContainer` to the name of the container that holds the inventory reports.
+   - Set `blobInventoryRuleName` to the name of the inventory report rule which has generated the results that you'd like to analyze.
+   - Set `accessKey` to the account key of the inventory report account.
 
-3. Upload the **BlobInventoryStorageAccountConfiguration.json** file to the container in your Data Lake Storage Gen2 enabled storage account that you specified when you created the Synapse workspace. 
+3. Upload the **BlobInventoryStorageAccountConfiguration.json** file to the container in your primary storage account that you specified when you created the Synapse workspace. 
 
-## Import the PySpark Notebook that has analytics queries
+#### Import a PySpark Notebook
+
+The sample PySpark notebook contains analytics queries.
 
 1. Download the [ReportAnalysis.ipynb](https://github.com/microsoft/Blob-Inventory-Report-Analytics/blob/main/src/ReportAnalysis.ipynb) sample file.
 
-2. Open your Synapse workspace in Synapse Studio. See [Open Synapse Studio](../../synapse-analytics/get-started-create-workspace#open-synapse-studio).
+2. Open your Synapse workspace in Synapse Studio. See [Open Synapse Studio](../../synapse-analytics/get-started-create-workspace#open-synapse-studio.md).
 
-3. In Synapse Studio, select the **Develop** tab on the left edge.
+3. In Synapse Studio, select the **Develop** tab.
 
-4. Select the large plus sign **(+)** to add an item.
+4. Select the plus sign **(+)** to add an item.
 
 5. Select **Import**, browse to the sample file that you downloaded, select that file, and select **Open**.
 
@@ -93,18 +97,17 @@ In the account that contains your inventory reports, assign the system managed i
 
    The **Configure session** dialog box opens.
 
-7. In the **Attach to** drop-down list of the **Configure session** dialog box, select the spark pool that you created earlier in this article. Then, click the **Apply** button.
+7. In the **Attach to** drop-down list of the **Configure session** dialog box, select the Spark pool that you created earlier in this article. Then, click the **Apply** button.
 
+#### Modify the Python notebook
 
-## Modify the Python notebook
-
-1. In the first cell of the python notebook, update the value of the `storage_account` variable to the name of the primary account of the workspace. 
+1. In the first cell of the python notebook, set the value of the `storage_account` variable to the name of the primary storage account. 
 
 2. Update the value of the `container_name` variable to the name of the container in that account that you specified when you created the Synapse workspace.
 
 3. Click the **Publish** button.
 
-## Run the PySpark notebook
+#### Run the PySpark notebook
 
 In the PySpark notebook, click **Run all**.
 
@@ -113,7 +116,19 @@ It will take a few minutes to start the Spark session and another few minutes to
 > [!NOTE]
 > If you make any changes to the notebook will the notebook is running, make sure to publish those changes by using the **Publish** button.
    
-## Visualizing the data
+## Visualize the data
+
+1. Download the [ReportAnalysis.ipynb](https://github.com/microsoft/Blob-Inventory-Report-Analytics/blob/main/src/ReportAnalysis.ipynb) sample file.
+
+2. Open Power BI Desktop. For installation guidance, see [Get Power BI Desktop](/power-bi/fundamentals/desktop-get-the-desktop).
+
+2. In Power BI, open the **ReportAnalysis.ipynb** file.
+
+   A dialog box appears which asks you to provide the name of the Synapse workspace and the data base name. 
+
+3. In the dialog box, provide the workspace name, and ensure that **reportdata** appears as the database name. Then, select the **Load** button.
+
+   A report appears which provides visualizations of the data retrieved by the notebook.
 
 
 ## Common errors
