@@ -937,8 +937,6 @@ items:
       items:
       - name: Continuous export
         href: app/export-telemetry.md
-      - name: Export data model
-        href: app/export-data-model.md
     - name: Visual Studio
       items:
       - name: F5 insights
