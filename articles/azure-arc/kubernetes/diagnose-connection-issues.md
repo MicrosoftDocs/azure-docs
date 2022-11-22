@@ -85,9 +85,9 @@ If the machine is executing commands behind a proxy server, you'll need to set a
 For example:
 
 ```bash
-export HTTP_PROXY=“http://<proxyIP>:<proxyPort>”
-export HTTPS_PROXY=“https://<proxyIP>:<proxyPort>”
-export NO_PROXY=“<service CIDR>,Kubernetes.default.svc,.svc.cluster.local,.svc”
+export HTTP_PROXY="http://<proxyIP>:<proxyPort>"
+export HTTPS_PROXY="https://<proxyIP>:<proxyPort>"
+export NO_PROXY="<cluster-apiserver-ip-address>:<proxyPort>"
 ```
 
 ### Does the proxy server only accept trusted certificates?
