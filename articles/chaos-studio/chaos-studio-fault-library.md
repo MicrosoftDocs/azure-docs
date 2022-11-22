@@ -1158,6 +1158,7 @@ Known issues on Linux:
 ```
 
 ## Key Vault Deny Access
+
 | Property | Value |
 |-|-|
 | Capability Name | DenyAccess-1.0 |
@@ -1178,6 +1179,107 @@ Known issues on Linux:
     {
       "type": "continuous",
       "name": "urn:csci:microsoft:keyvault:denyAccess/1.0",
+      "parameters": [],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+### Key Vault Disable Certificate
+
+
+| Property  | Value |
+| ---- | --- |
+| Capability Name | DisableCertificate-1.0 |
+| Target Type | Microsoft-KeyVault |
+| Description | Using certificate properties, fault will disable the certificate for specific duration (provided by user) and enables it after this fault duration. |
+| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before attempting to run the fault. |
+| Urn | urn:csci:microsoft:keyvault:disableCertificate/1.0 |
+| Fault Type | Continuous |
+| Parameters (key, value) | |
+| certificateName | Name of AKV certificate on which fault will be executed |
+| version | The certificate version that should be updated; if not specified, the latest version will be updated. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:keyvault:disableCertificate/1.0",
+      "parameters": [],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+### Key Vault Increment Certificate Version
+	
+| Property  | Value |
+| ---- | --- |
+| Capability Name | IncrementCertificateVersion-1.0
+| Target Type | Microsoft-KeyVault
+| Description | Generates new certificate version and thumbprint using the Key Vault Certificate client library. Current working certificate will be upgraded to this version.
+| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before attempting to run the fault.
+| Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0
+| Fault Type | Discrete
+| Parameters | certificateName: Name of AKV certificate on which fault will be executed 
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0",
+      "parameters": [],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+### Key Vault Update Certificate Policy
+
+| Property  | Value |        
+| ---- | --- |  
+| Capability Name | UpdateCertificatePolicy-1.0        |
+| Target Type | Microsoft-KeyVault        |
+| Description | Certificate policies (examples: certificate validity period, certificate type, key size, or key type) are updated based on the user input and reverted after the fault duration.        |
+| Prerequisites |  For OneCert certificates, the domain must be registered with OneCert before attempting to run the fault.       |
+| Urn | urn:csci:microsoft:keyvault:updateCertificatePolicy/1.0        |
+| Fault Type | Continuous        |
+| Parameters (key, value) |     |    
+| certificateName | Name of AKV certificate on which fault will be executed |
+| version | The certificate version that should be updated; if not specified, the latest version will be updated. |
+| enabled | Value indicating whether the new certificate version will be enabled  |
+| validityInMonths | The validity period of the certificate in months  |
+| certificateTransparency | Indicates whether the certificate should be published to the certificate transparency list when created  |
+| certificateType | the certificate type |
+| contentType | The content type of the certificate, eg Pkcs12 when the certificate contains raw PFX bytes, or Pem when it contains ASCII | PEM-encoded btes. Pkcs12 is the default value assumed 
+| keySize | The size of the RSA key: 2048, 3072, or 4096 |
+| exportable | Value indicating if the certificate key is exportable from the vault or secure certificate store |
+| reuseKey | Value indicating if the certificate key should be reused when rotating the certificate|
+| keyType | The type of backing key to be generated when issuing new certificates: RSA or EC |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:keyvault:updateCertificatePolicy/1.0",
       "parameters": [],
       "duration": "PT10M",
       "selectorid": "myResources"
