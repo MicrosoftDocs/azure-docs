@@ -47,7 +47,7 @@ There are different elements to consider when designing a disaster recovery solu
 
   - GRS option is available for storage account with standard storage type that replicates data to paired region. But standard storage isn't suitable for SAP DBMS or virtual data disks.
   
-  - Azure backup service used to back up [supported solutions](../../../backup/backup-overview.md#what-can-i-back-up) can replicate backups only between paired regions. For all your other data, run your own replications with native DBMS features like SQL Server Always On, SAP HANA System Replication, and other services. Use a combination of Azure Site Recovery, rsync or robocopy, and other third-party software for the SAP application layer.
+  - Azure back up service used to back up [supported solutions](../../../backup/backup-overview.md#what-can-i-back-up) can replicate backups only between paired regions. For all your other data, run your own replications with native DBMS features like SQL Server Always On, SAP HANA System Replication, and other services. Use a combination of Azure Site Recovery, rsync or robocopy, and other third-party software for the SAP application layer.
 
 ## Reference SAP workload deployment
 
@@ -72,7 +72,7 @@ An SAP workload running on Azure uses different infrastructure components to run
 
 ### Network
 
-- [ExpressRoute](../../../expressroute/expressroute-introduction.md) extends your on-premises network into the Microsoft cloud over a private connection with the help of a connectivity provider. On designing disaster recovery architecture, one must account for building a robust backend network connectivity using geo-redundant ExpressRoute circuit. To configure robust network, it's advised to set up at least one ExpressRoute circuit from on-premises to the primary region. And the other(s) should connect to the disaster recovery region. Refer to the [Azure ExpressRoute: Designing for disaster recovery](../../../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md) article, which describe different scenarios to design disaster recovery for ExpressRoute.
+- [ExpressRoute](../../../expressroute/expressroute-introduction.md) extends your on-premises network into the Microsoft cloud over a private connection with the help of a connectivity provider. On designing disaster recovery architecture, one must account for building a robust backend network connectivity using geo-redundant ExpressRoute circuit. It's advised setting up at least one ExpressRoute circuit from on-premises to the primary region. And the other(s) should connect to the disaster recovery region. Refer to the [Designing of Azure ExpressRoute for disaster recovery](../../../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md) article, which describe different scenarios to design disaster recovery for ExpressRoute.
 
   >[!Note]
   > Consider setting up a site-to-site (S2S) VPN as a backup of Azure ExpressRoute. For more information, see [Using S2S VPN as a backup for Azure ExpressRoute Private Peering](../../../expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering.md).
@@ -129,7 +129,7 @@ An SAP workload running on Azure uses different infrastructure components to run
 
 - Azure shared disks require cluster software like Windows Server Failover Cluster (WSFC) that handles cluster node communication and write locking. So to have DR strategy for Azure shared disk, you need to have shared disk managed by cluster software in DR site as well. You can then use script to copy data from shared disk attached to a cluster in primary region to the shared disk attached to another cluster in DR region.
 
-## Next Steps
+## Next steps
 
 - [Disaster Recovery Guidelines for SAP workload](disaster-recovery-sap-guide.md)
 - [Azure to Azure disaster recovery architecture using Azure Site Recovery service](../../../site-recovery/azure-to-azure-architecture.md)
