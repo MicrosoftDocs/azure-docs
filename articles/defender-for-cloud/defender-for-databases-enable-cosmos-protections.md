@@ -87,7 +87,7 @@ You can enable Microsoft Defender for Cloud on a specific Azure Cosmos DB accoun
 
 ### [ARM template](#tab/arm-template)
 
-Use an Azure Resource Manager template to deploy an Azure Cosmos DB account with Microsoft Defender for Azure Cosmos DB enabled. For more information, see [Create an Azure Cosmos DB account with Microsoft Defender for Azure Cosmos DB enabled](https://azure.microsoft.com/resources/templates/microsoft-defender-cosmosdb-create-account/).
+Use an Azure Resource Manager template to deploy an Azure Cosmos DB account with Microsoft Defender for Azure Cosmos DB enabled. For more information, see [Create an Azure Cosmos DB account with Microsoft Defender for Azure Cosmos DB enabled](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.documentdb/microsoft-defender-cosmosdb-create-account).
 
 ---
 
