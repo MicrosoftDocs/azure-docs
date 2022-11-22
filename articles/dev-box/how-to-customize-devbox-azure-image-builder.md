@@ -252,7 +252,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupN
 ```
 Alternatively, you can navigate to the azure portal to your compute gallery > image definition to view the provisioning state of your image.
 
-:::image type="content" source="media/how-to-customize-devbox-azure-image-builder.md/image-definition.png" alt-text="Provisioning Image Definition":::
+![Provisioning state of the customized image version](./media/how-to-customize-devbox-azure-image-builder/image-version-provisioning-state.png)
 
 ## Configure the Azure Compute Gallery 
 
