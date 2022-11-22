@@ -47,7 +47,7 @@ For details, see [Slate detection](slate-detection-insight.md).
 
 ### New source languages support for STT, translation, and search
 
-Now supporting source languages for STT (speech-to-text), translation, and search in Ukraine and Vietnamese. It means transcription, translation, and search features are also supported for these languages in Azure Video Indexer web applications, widgets and APIs.
+Now supporting source languages for STT (speech-to-text), translation, and search in Ukraine and Vietnamese. It means transcription, translation, and search features are also supported for these languages in the [Azure Video Indexer](https://www.videoindexer.ai/) website, widgets and APIs.
 
 For more information, see [supported languages](language-support.md).
 
@@ -240,7 +240,7 @@ For more information, see [Audio effects detection](audio-effects-detection.md).
 ### New source languages support for STT, translation, and search on the website
 
 Azure Video Indexer introduces source languages support for STT (speech-to-text), translation, and search in Hebrew (he-IL), Portuguese (pt-PT), and Persian (fa-IR) on the [Azure Video Indexer](https://www.videoindexer.ai/) website.
-It means transcription, translation, and search features are also supported for these languages in Azure Video Indexer web applications and widgets.
+It means transcription, translation, and search features are also supported for these languages in the [Azure Video Indexer](https://www.videoindexer.ai/) website and widgets.
 
 ## December 2021
 
@@ -518,7 +518,7 @@ You can now create an Azure Video Indexer paid account in the East US region.
 
 Azure Video Indexer regional endpoints were all unified to start only with www. No action item is required.
 
-From now on, you reach www.videoindexer.ai whether it is for embedding widgets or logging into Azure Video Indexer web applications.
+From now on, you reach www.videoindexer.ai whether it is for embedding widgets or logging into the [Azure Video Indexer](https://www.videoindexer.ai/) website.
 
 Also wus.videoindexer.ai would be redirected to www. More information is available in [Embed Azure Video Indexer widgets in your apps](video-indexer-embed-widgets.md).
 
