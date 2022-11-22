@@ -45,6 +45,8 @@ items:
         href: quickstarts/email/connect-email-communication-resource.md
       - name: Send an Email
         href: quickstarts/email/send-email.md
+      - name: Handle Email events
+        href: quickstarts/email/handle-email-events.md
       - name: Send an Email in Azure Logic Apps
         href: quickstarts/email/logic-app.md            
   - name: Telephony and phone numbers
@@ -219,6 +221,8 @@ items:
         href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Media quality statistics
         href: concepts/voice-video-calling/media-quality-sdk.md
+      - name: Pre-Call diagnostics
+        href: concepts/voice-video-calling/pre-call-diagnostics.md
       - name: Web best practices
         href: concepts/best-practices.md
       - name: Call networking internals
@@ -229,6 +233,8 @@ items:
         href: concepts/known-issues.md
       - name: Media access
         href: concepts/voice-video-calling/media-access.md
+      - name: Simulcast
+        href: concepts/voice-video-calling/simulcast.md
   - name: Call Automation
     items:
       - name: Overview
@@ -330,6 +336,10 @@ items:
             href: concepts/interop/teams-user/government-cloud.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
+  - name: Developer Tools
+    items:
+      - name: Network Diagnostic Tool 
+        herf: concepts/developer-tools/network-diagnostic.md
   - name: Data residency and user privacy
     href: concepts/privacy.md
   - name: Azure Government

@@ -80,6 +80,8 @@
         href: adglobalview-tutorial.md
       - name: Adra by Trintech
         href: adra-by-trintech-tutorial.md
+      - name: Adstream
+        href: adstream-tutorial.md
       - name: Agile Provisioning
         href: agile-provisioning-tutorial.md
       - name: Agiloft Contract Management Suite
@@ -628,6 +630,8 @@
         href: dagster-cloud-tutorial.md
       - name: DATABASICS
         href: databasics-tutorial.md
+      - name: Databook
+        href: databook-tutorial.md
       - name: DataCamp
         href: datacamp-tutorial.md
       - name: Datadog
@@ -656,6 +660,8 @@
         href: deskradar-tutorial.md
       - name: DigiCert
         href: digicert-tutorial.md
+      - name: Digital Pigeon
+        href: digital-pigeon-tutorial.md
       - name: Dining Sidekick
         href: dining-sidekick-tutorial.md  
       - name: Direct
@@ -690,6 +696,8 @@
         href: darwinbox-tutorial.md
       - name: Draup, Inc
         href: draup-inc-tutorial.md  
+      - name: Drawboard Projects
+        href: drawboard-projects-tutorial.md
       - name: Drift
         href: drift-tutorial.md
       - name: Dropbox Business

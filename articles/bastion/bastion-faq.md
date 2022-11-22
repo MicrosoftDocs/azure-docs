@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 11/21/2022
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -15,9 +15,9 @@ ms.author: cherylmc
 
 The browser must support HTML 5. Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
 
-### <a name="pricingpage"></a>What is the pricing?
+### <a name="pricingpage"></a>How does pricing work?
 
-For more information, see the [pricing page](https://aka.ms/BastionHostPricing).
+Azure Bastion pricing is a combination of hourly pricing based on SKU and instances (scale units), plus data transfer rates. Hourly pricing starts from the moment Bastion is deployed, regardless of outbound data usage. For the latest pricing information, see the [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion) page.
 
 ### <a name="ipv6"></a>Is IPv6 supported?
 
