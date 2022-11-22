@@ -19,7 +19,7 @@ In this article, you'll learn how to update a peered virtual network by adding o
 - An existing peered virtual network w/ two virtual networks
 - If adding address space, ensure it doesn't overlap other address spaces
 
-## Modifying the address range prefix of an existing address range (For example changing 10.1.0.0/16 to 10.1.0.0/18)
+## Modify the address range prefix of an existing address range
 In this section, you'll modify the address range prefix for an existing address range within your peered virtual network.
 1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it.
 2. From the list of virtual networks, select the virtual network where you're adding an address range.
@@ -51,7 +51,7 @@ In this section, you'll add an IP address range to the IP address space of a pee
 3. Select **Address space**, under **Settings**.
 4. On the **Address space** page, add the address range per your requirements, and select **Save** when finished.
 
-    ::image type="content" source="media/update-virtual-network-peering-address-space/add-address-range-thumb.png" alt-text="Image of the Address Space page used to add an IP address range." lightbox="media/update-virtual-network-peering-address-space/add-address-range-full.png":::
+    :::image type="content" source="media/update-virtual-network-peering-address-space/add-address-range-thumb.png" alt-text="Image of the Address Space page used to add an IP address range." lightbox="media/update-virtual-network-peering-address-space/add-address-range-full.png":::
 1. Select **Peering**, under **Settings** and **Sync** the peering connection.
 1. As previously done, verify the address space is updated on the remote virtual network.
 ## Delete an address range

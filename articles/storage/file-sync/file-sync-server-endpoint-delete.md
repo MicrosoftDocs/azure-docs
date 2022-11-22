@@ -1,5 +1,5 @@
 ---
-title: Deprovision your Azure File Sync server endpoint | Microsoft Docs
+title: Deprovision your Azure File Sync server endpoint
 description: Guidance on how to deprovision your Azure File Sync server endpoint based on your use case
 author: khdownie
 ms.service: storage
