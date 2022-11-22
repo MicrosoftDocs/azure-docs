@@ -172,7 +172,7 @@ To view the event schemas of the exported data types, visit the [Log Analytics t
 
 ## Export data to an Azure Event hub or Log Analytics workspace in another tenant
 
-You can export data to an Azure Event hub or Log Analytics workspace in a different tenant, without using [Azure Lighthouse](/azure/lighthouse/overview.md). When collecting data into a tenant, you can analyze the data from one central location. 
+You can export data to an Azure Event hub or Log Analytics workspace in a different tenant, without using [Azure Lighthouse](../lighthouse/overview.md). When collecting data into a tenant, you can analyze the data from one central location. 
 
 To export data to an Azure Event hub or Log Analytics workspace in a different tenant:
 
