@@ -20,7 +20,7 @@ This article provides the following resources:
 
 ## Syntax
 
-A filter in the OData language is a Boolean expression, which in turn can be one of several types of expression, as shown by the following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) description:
+A filter in the OData language is boolean expression, which in turn can be one of several types of expression, as shown by the following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) description:
 
 ```
 /* Identifiers */
@@ -45,8 +45,9 @@ For the complete EBNF, see [formal grammar section](#formal-grammar) .
 
 Using the filter syntax, you can control sending messages to connections matching the identifier criteria.  Azure Web PubSub supports below identifiers:
 
-| Identifier | Description | Note | Examples
-| --- | --- |--|--| `userId` | The userId of the connection. | Case insensitive. It can be used in [string operations](#supported-operations). | `userId eq 'user1'`
+| Identifier | Description | Note | Examples |
+| --- | --- |--| --
+| `userId` | The userId of the connection. | Case insensitive. It can be used in [string operations](#supported-operations). | `userId eq 'user1'`
 | `connectionId` | The connectionId of the connection. | Case insensitive. It can be used in [string operations](#supported-operations). | `connectionId ne '123'`
 | `groups` | The collection of groups the connection is currently in. | Case insensitive. It can be used in [collection operations](#supported-operations). | `'group1' in groups`
 
@@ -56,11 +57,11 @@ Identifiers refer to the property value of a connection. Azure Web PubSub suppor
 
 The expression for a filter is a boolean expression. Azure Web PubSub sends messages to connections with filter expressions evaluated to `true`.
 
-The types of Boolean expressions include:
+The types of boolean expressions include:
 
-- Logical expressions that combine other Boolean expressions using the operators `and`, `or`, and `not`. 
+- Logical expressions that combine other boolean expressions using the operators `and`, `or`, and `not`. 
 - Comparison expressions, which compare fields or range variables to constant values using the operators `eq`, `ne`, `gt`, `lt`, `ge`, and `le`.
-- The Boolean literals `true` and `false`. These constants can be useful sometimes when programmatically generating filters, but otherwise don't tend to be used in practice.
+- The boolean literals `true` and `false`. These constants can be useful sometimes when programmatically generating filters, but otherwise don't tend to be used in practice.
 - Boolean expressions in parentheses. Using parentheses helps to explicitly determine the order of operations in a filter. For more information on the default precedence of the OData operators, see [operator precedence section](#operator-precedence).
 
 ### Supported operations
