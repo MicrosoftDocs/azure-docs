@@ -68,7 +68,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 
 ## Configure Windows ACLs
 
-After you assign share-level permissions with RBAC, you must assign Windows ACLs, also known as NTFS permissions, at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share, whereas Windows ACLs act at a more granular level to determine what operations the user can do at the directory or file level.
+After you assign share-level permissions with RBAC, you can assign Windows ACLs, also known as NTFS permissions, at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share, whereas Windows ACLs act at a more granular level to determine what operations the user can do at the directory or file level.
 
 Azure Files supports the full set of basic and advanced permissions. You can view and configure Windows ACLs on directories and files in an Azure file share by mounting the share and then using Windows File Explorer or running the Windows [icacls](/windows-server/administration/windows-commands/icacls) or [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) command.
 
