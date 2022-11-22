@@ -14,6 +14,7 @@ The following limits apply to incidents in Microsoft Sentinel.
 
 |Description  |Limit  |Dependency|
 |---------|---------|-------|
+|Number of incidents  | 3000 per 24 hour period | None |
 |Investigation experience availability     | 90 days from the incident last update time       |None|
 |Number of automation rules     | 512  rules      |None|
 |Number of automation rule actions    | 20  actions    |None|
