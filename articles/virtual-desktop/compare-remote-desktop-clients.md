@@ -62,7 +62,7 @@ When you enable USB port redirection, all USB devices attached to USB ports are 
 | Cameras | X |  | X | X | X |  |
 | Clipboard | X | X | Text | Text, images | X | Text |
 | Local drive/storage | X |  | X | X | X | X\* |
-| Location | X |  |  |  |  |  |
+| Location | X (Windows 11 only) |  |  |  |  |  |
 | Microphones | X | X | X | X | X | X |
 | Printers | X |  |  |  | X\*\* (CUPS only) | PDF print |
 | Scanners | X |  |  |  |  |  |
