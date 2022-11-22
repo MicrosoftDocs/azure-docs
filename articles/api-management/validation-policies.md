@@ -48,7 +48,7 @@ Available actions:
 
 Details about the validation errors during policy execution are logged to the variable in `context.Variables` specified in the `errors-variable-name` attribute in the policy's root element. When configured in a `prevent` action, a validation error blocks further request or response processing and is also propagated to the `context.LastError` property. 
 
-To investigate errors, use a [trace](api-management-advanced-policies.md#Trace) policy to log the errors from context variables to [Application Insights](api-management-howto-app-insights.md).
+To investigate errors, use a [trace](trace-policy.md) policy to log the errors from context variables to [Application Insights](api-management-howto-app-insights.md).
 
 ## Performance implications
 

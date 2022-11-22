@@ -1,29 +1,22 @@
 ---
-title: Azure API Management policy reference - validate-jwt | Microsoft Docs
-description: Reference for the validate-jwt policy available for use in Azure API Management. Provides policy usage, settings, and examples.
+title: Azure API Management policy reference - validate-azure-ad-token | Microsoft Docs
+description: Reference for the validate-azure-ad-token policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 08/26/2022
+ms.date: 11/15/2022
 ms.author: danlep
 ---
 
-# Validate JWT
+# Validate Azure Active Directory token
 
-The `validate-jwt` policy enforces existence and validity of a supported JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
+The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Azure Active Directory service. The JWT can be extracted from a specified HTTP header, query parameter, or value provided using a policy expression or context variable.
 
-[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
-## JWTs supported by the policy  
-
-* The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
-* The policy supports HS256 and RS256 signing algorithms: 
-    * **HS256** - the key must be provided inline within the policy in the Base64-encoded form. 
-    * **RS256** - the key may be provided either via an OpenID configuration endpoint, or by providing the ID of an uploaded certificate (in PFX format) that contains the public key, or the modulus-exponent pair of the public key.
-* The policy supports tokens encrypted with symmetric keys using the following encryption algorithms: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 
 ## Policy statement
 

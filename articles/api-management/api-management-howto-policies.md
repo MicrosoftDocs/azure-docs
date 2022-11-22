@@ -149,7 +149,7 @@ The following example uses [policy expressions][Policy expressions] and the [`se
 [Operation]: ./mock-api-responses.md
 
 [Advanced policies]: ./api-management-advanced-policies.md
-[Control flow]: ./api-management-advanced-policies.md#choose
-[Set variable]: ./api-management-advanced-policies.md#set-variable
+[Control flow]: choose-policy.md
+[Set variable]: set-variable-policy.md
 [Policy expressions]: ./api-management-policy-expressions.md
 

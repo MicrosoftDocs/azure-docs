@@ -17,7 +17,7 @@ In this tutorial, you'll learn about configuring common [policies](api-managemen
 This tutorial also explains how to add protection to your backend API by configuring a rate limit policy, so that the API isn't overused by developers. For more policy options, see [API Management policies](api-management-policies.md).
 
 > [!NOTE]
-> By default, API Management configures a global [`forward-request`](api-management-advanced-policies.md#ForwardRequest) policy. The `forward-request` policy is needed for the gateway to complete a request to a backend service.
+> By default, API Management configures a global [`forward-request`](forward-request-policy.md) policy. The `forward-request` policy is needed for the gateway to complete a request to a backend service.
 
 In this tutorial, you learn how to:
 

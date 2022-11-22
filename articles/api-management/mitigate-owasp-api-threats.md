@@ -30,7 +30,7 @@ More information about this threat: [API1:2019 Broken Object Level Authorization
 
     * Implement a custom policy to map identifiers from request to backend and from backend to client, so that internal identifiers aren't exposed. 
 
-        In these cases, the custom policy could be a [policy expression](api-management-policy-expressions.md) with a look-up (for example, a dictionary) or integration with another service through the [send request](api-management-advanced-policies.md#SendRequest) policy.
+        In these cases, the custom policy could be a [policy expression](api-management-policy-expressions.md) with a look-up (for example, a dictionary) or integration with another service through the [send request](send-request-policy.md) policy.
 
 * For GraphQL scenarios, enforce object-level authorization through the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy, using the `authorize` element.  
 
@@ -115,11 +115,11 @@ More information about this threat: [API4:2019 Lack of resources and rate limiti
 
 * Minimize the time it takes a backend service to respond. The longer the backend service takes to respond, the longer the connection is occupied in API Management, therefore reducing the number of requests that can be served in a given timeframe. 
 
-    * Define `timeout` in the [forward request](api-management-advanced-policies.md#ForwardRequest) policy. 
+    * Define `timeout` in the [forward request](forward-request-policy.md) policy. 
 
     * Use the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy for GraphQL APIs and configure `max-depth` and `max-size` parameters. 
 
-    * Limit the number of parallel backend connections with the [limit concurrency](api-management-advanced-policies.md#LimitConcurrency) policy. 
+    * Limit the number of parallel backend connections with the [limit concurrency](limit-concurrency-policy.md) policy. 
 
 * While API Management can protect backend services from DDoS attacks, it may be vulnerable to those attacks itself. Deploy a bot protection service in front of API Management (for example, [Azure Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md), [Azure Front Door](front-door-api-management.md), or [Azure DDoS Protection](protect-with-ddos-protection.md)) to better protect against DDoS attacks. When using a WAF with Azure Application Gateway or Azure Front Door, consider using [Microsoft_BotManagerRuleSet_1.0](../web-application-firewall/afds/afds-overview.md#bot-protection-rule-set). 
 
@@ -298,7 +298,7 @@ More information about this threat: [API10:2019  Insufficient logging and monito
 
 * Set alerts in Azure Monitor and Application Insights - for example, for the [capacity metric](api-management-howto-autoscale.md) or for excessive requests or bandwidth transfer. 
 
-* Use the [emit metrics](api-management-advanced-policies.md#emit-metrics) policy for custom metrics. 
+* Use the [emit metrics](emit-metrics-policy.md) policy for custom metrics. 
 
 * Use the Azure Activity log for tracking activity in the service. 
 

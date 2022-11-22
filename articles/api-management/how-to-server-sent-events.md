@@ -32,7 +32,7 @@ Follow these guidelines when using API Management to reach a backend API that im
 
     This configuration is needed to override the idle session timeout of 4 minutes that is enforced by the Azure Load Balancer, which is used in the API Management infrastructure.
 
-* **Relay events immediately to clients** - Turn off response buffering on the [`forward-request` policy](api-management-advanced-policies.md#ForwardRequest) so that events are immediately relayed to the clients. For example:
+* **Relay events immediately to clients** - Turn off response buffering on the [`forward-request` policy](forward-request-policy.md) so that events are immediately relayed to the clients. For example:
 
     ```xml
     <forward-request timeout="120" fail-on-error-status-code="true" buffer-response="false"/>

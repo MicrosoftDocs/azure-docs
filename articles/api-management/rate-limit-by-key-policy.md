@@ -39,7 +39,7 @@ For more information and examples of this policy, see [Advanced request throttli
 
 ## Attributes
 
-| Name                | Description                                                                                           | Required | Default |
+| Attribute                | Description                                                                                           | Required | Default |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expression is allowed. | Yes      | N/A     |
 | counter-key         | The key to use for the rate limit policy. For each key value, a single counter is used for all scopes at which the policy is configured.           | Yes      | N/A     |
@@ -53,8 +53,6 @@ For more information and examples of this policy, see [Advanced request throttli
 | total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. |  No | N/A  |
 
 ## Usage
-
-[TODO: Validate policy expressions support]
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation

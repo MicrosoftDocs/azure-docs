@@ -169,7 +169,7 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 | `set-graphql-resolver` | Root element.                                                                                                                               | Yes      |
 | `http-data-source` | Configures the HTTP request and optionally the HTTP response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
 | `http-request` | Specifies a URL and child policies to configure the resolver's HTTP request. Each child element can be specified at most once. | Yes | 
-| `set-method`| Method of the resolver's HTTP request, configured using the [set-method](api-management-advanced-policies.md#SetRequestMethod) policy.  |   Yes    | 
+| `set-method`| Method of the resolver's HTTP request, configured using the [set-method](set-method-policy.md) policy.  |   Yes    | 
 | `set-url`  |  URL of the resolver's HTTP request. | Yes  | 
 | `set-header`  | Header set in the resolver's HTTP request, configured using the [set-header](api-management-transformation-policies.md#SetHTTPheader) policy.  | No  | 
 | `set-body`  |  Body set in the resolver's HTTP request, configured using the [set-body](api-management-transformation-policies.md#SetBody) policy. | No  | 

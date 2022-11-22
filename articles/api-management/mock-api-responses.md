@@ -149,7 +149,7 @@ Keep this operation for use in the rest of this article.
 1. Select **Save**.
 
     > [!TIP]
-    > A yellow bar with the text **Mocking is enabled** displays. This indicates that the responses returned from API Management are mocked by the [mocking policy](api-management-advanced-policies.md#mock-response) and aren't produced by the backend.
+    > A yellow bar with the text **Mocking is enabled** displays. This indicates that the responses returned from API Management are mocked by the [mocking policy](mock-response-policy.md) and aren't produced by the backend.
 
 ## Test the mocked API
 

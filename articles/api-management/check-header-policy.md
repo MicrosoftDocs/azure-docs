@@ -27,7 +27,7 @@ Use the `check-header` policy  to enforce that a request has a specified HTTP he
 
 ## Attributes
 
-| Name                       | Description                                                                                                                                                            | Required | Default |
+| Attribute                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name                | The name of the HTTP header to check.                                                                                                                                  | Yes      | N/A     |
 | failed-check-httpcode      | HTTP status code to return if the header doesn't exist or has an invalid value.                                                                                        | Yes      | N/A     |
@@ -36,7 +36,7 @@ Use the `check-header` policy  to enforce that a request has a specified HTTP he
 
 ## Elements
 
-| Name         | Description                                                                                                                                   | Required |
+| Element         | Description                                                                                                                                   | Required |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | value        | Add one or more of these elements to specify allowed HTTP header values. When multiple `value` elements are specified, the check is considered a success if any one of the values is a match. | No       |
 

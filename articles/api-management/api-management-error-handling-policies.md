@@ -55,22 +55,22 @@ The `on-error` policy section can be used at any scope. API publishers can confi
 
 The following policies can be used in the `on-error` policy section.
 
--   [choose](api-management-advanced-policies.md#choose)
--   [set-variable](api-management-advanced-policies.md#set-variable)
+-   [choose](choose-policy.md)
+-   [set-variable](set-variable-policy.md)
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)
--   [return-response](api-management-advanced-policies.md#ReturnResponse)
+-   [return-response](return-response-policy.md)
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)
--   [set-method](api-management-advanced-policies.md#SetRequestMethod)
--   [set-status](api-management-advanced-policies.md#SetStatus)
--   [send-request](api-management-advanced-policies.md#SendRequest)
--   [send-one-way-request](api-management-advanced-policies.md#SendOneWayRequest)
--   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)
+-   [set-method](set-method-policy.md)
+-   [set-status](set-status-policy.md)
+-   [send-request](send-request-policy.md)
+-   [send-one-way-request](send-one-way-request-policy.md)
+-   [log-to-eventhub](log-to-event-hub-policy.md)
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
--   [limit-concurrency](api-management-advanced-policies.md#LimitConcurrency)
--   [mock-response](api-management-advanced-policies.md#mock-response)
--   [retry](api-management-advanced-policies.md#Retry)
--   [trace](api-management-advanced-policies.md#Trace)
+-   [limit-concurrency](limit-concurrency-policy.md)
+-   [mock-response](mock-response-policy.md)
+-   [retry](retry-policy.md)
+-   [trace](trace-policy.md)
 
 ## LastError
 

@@ -29,26 +29,28 @@ More information about policies:
 -   [Restrict caller IPs](ip-filter-policy.md) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
 -   [Set usage quota by subscription](quota-policy.md) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 -   [Set usage quota by key](quota-by-key-policy.md) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
+-    [Validate Azure Active Directory token](validate-azure-ad-token-policy.md) - Enforces existence and validity of an Azure Active Directory JWT extracted from either a specified HTTP header, query parameter, or token value.
 -   [Validate JWT](validate-jwt-policy.md) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
 -   [Validate client certificate](validate-client-certificate-policy.md) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 
 ## Advanced policies
--   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the evaluation of Boolean expressions.
--   [Forward request](api-management-advanced-policies.md#ForwardRequest) - Forwards the request to the backend service.
--   [Limit concurrency](api-management-advanced-policies.md#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
--   [Log to event hub](api-management-advanced-policies.md#log-to-eventhub) - Sends messages in the specified format to a message target defined by a Logger entity.
--   [Emit metrics](api-management-advanced-policies.md#emit-metrics) - Sends custom metrics to Application Insights at execution.
--   [Mock response](api-management-advanced-policies.md#mock-response) - Aborts pipeline execution and returns a mocked response directly to the caller.
--   [Retry](api-management-advanced-policies.md#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
--   [Return response](api-management-advanced-policies.md#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller.
--   [Send one way request](api-management-advanced-policies.md#SendOneWayRequest) - Sends a request to the specified URL without waiting for a response.
--   [Send request](api-management-advanced-policies.md#SendRequest) - Sends a request to the specified URL.
--   [Set HTTP proxy](api-management-advanced-policies.md#SetHttpProxy) - Allows you to route forwarded requests via an HTTP proxy.
--   [Set variable](api-management-advanced-policies.md#set-variable) - Persist a value in a named context variable for later access.
--   [Set request method](api-management-advanced-policies.md#SetRequestMethod) - Allows you to change the HTTP method for a request.
--   [Set status code](api-management-advanced-policies.md#SetStatus) - Changes the HTTP status code to the specified value.
--   [Trace](api-management-advanced-policies.md#Trace) - Adds custom traces into the [API Inspector](./api-management-howto-api-inspector.md) output, Application Insights telemetries, and Resource Logs.
--   [Wait](api-management-advanced-policies.md#Wait) - Waits for enclosed [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](api-management-advanced-policies.md#choose) policies to complete before proceeding.
+-   [Control flow](choose-policy.md) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
+-   [Forward request](forward-request-policy.md) - Forwards the request to the backend service.
+-   [Include fragment](include-fragment-policy.md) - Inserts a policy fragment in the policy definition.
+-   [Limit concurrency](limit-concurrency-policy.md) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
+-   [Log to event hub](log-to-event-hub-policy.md) - Sends messages in the specified format to an event hub defined by a Logger entity.
+-   [Emit metrics](emit-metrics-policy.md) - Sends custom metrics to Application Insights at execution.
+-   [Mock response](mock-response-policy.md) - Aborts pipeline execution and returns a mocked response directly to the caller.
+-   [Retry](retry-policy.md) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
+-   [Return response](return-response-policy.md) - Aborts pipeline execution and returns the specified response directly to the caller.
+-   [Send one way request](send-one-way-request-policy.md) - Sends a request to the specified URL without waiting for a response.
+-   [Send request](send-request-policy.md) - Sends a request to the specified URL.
+-   [Set HTTP proxy](proxy-policy.md) - Allows you to route forwarded requests via an HTTP proxy.
+-   [Set request method](set-method-policy.md) - Allows you to change the HTTP method for a request.
+-   [Set status code](set-status-policy.md) - Changes the HTTP status code to the specified value.
+-   [set-variable-policy.md](set-variable-policy.md) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.
+-   [Trace](trace-policy.md) - Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs.
+-   [Wait](wait-policy.md) - Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](choose-policy.md) policies to complete before proceeding.
 
 ## Authentication policies
 -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) - Authenticate with a backend service using Basic authentication.

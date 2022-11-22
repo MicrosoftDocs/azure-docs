@@ -23,8 +23,6 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ## Policy statement
 
-[TODO: Confirm placement and order of policy attributes and elements]
-
 ```xml
 <rate-limit calls="number" renewal-period="seconds"  retry-after-header-name="custom header name, replaces default 'Retry-After'" 
         retry-after-variable-name="policy expression variable name"
@@ -38,7 +36,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 ```
 ## Attributes
 
-| Name           | Description                                                                                           | Required | Default |
+| Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. | Yes      | N/A     |
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
@@ -52,7 +50,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ### Elements
 
-| Name       | Description                                                                                                                                                                                                                                                                                              | Required |
+| Element       | Description                                                                                                                                                                                                                                                                                              | Required |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | api        | Add one or more of these elements to impose a call rate limit on APIs within the product. Product and API call rate limits are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.                    | No       |
 | operation  | Add one or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored. | No       |
@@ -60,7 +58,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ### api attributes
 
-| Name           | Description                                                                                           | Required | Default |
+| Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | The name of the API for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
 | id           | The id of the API for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
@@ -70,7 +68,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ### operation attributes
 
-| Name           | Description                                                                                           | Required | Default |
+| Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | The name of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
 | id           | The id of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     | 
@@ -78,8 +76,6 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
 
 ## Usage
-
-[TODO: Validate policy expressions support]
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) product, API, operation

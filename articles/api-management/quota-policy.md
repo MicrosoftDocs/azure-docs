@@ -45,7 +45,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 ```
 ## Attributes
 
-| Name           | Description                                                                                               | Required                                                         | Default |
+| Attribute           | Description                                                                                               | Required                                                         | Default |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |                                            
 | bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
@@ -53,7 +53,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ## Elements
 
-| Name      | Description                                                                                                                                                                                                                                                                                  | Required |
+| Element     | Description                                                                                                                                                                                                                                                                                  | Required |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | api       | Add one or more of these elements to impose call quota on APIs within the product. Product and API call quotas are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.                    | No       |
 | operation | Add one or more of these elements to impose call quota on operations within an API. Product, API, and operation call quotas are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored. | No      |
@@ -61,7 +61,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ## api attributes
 
-| Name           | Description                                                                                               | Required                                                         | Default |
+| Attribute           | Description                                                                                               | Required                                                         | Default |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |                       
 | name           | The name of the API for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
 | id           | The id of the API for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
@@ -71,7 +71,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ## operation attributes
 
-| Name           | Description                                                                                               | Required                                                         | Default |
+| Attribute           | Description                                                                                               | Required                                                         | Default |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |                       
 | name           | The name of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
 | id           | The id of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
