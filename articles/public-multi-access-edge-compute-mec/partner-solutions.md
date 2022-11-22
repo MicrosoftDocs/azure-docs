@@ -5,7 +5,7 @@ services: Public MEC
 author: anzaman
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 11/22/2022
 ms.author: alzam
 ms.custom: references_regions
 
