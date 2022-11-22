@@ -1223,13 +1223,14 @@ Known issues on Linux:
 	
 | Property  | Value |
 | ---- | --- |
-| Capability Name | IncrementCertificateVersion-1.0
-| Target Type | Microsoft-KeyVault
-| Description | Generates new certificate version and thumbprint using the Key Vault Certificate client library. Current working certificate will be upgraded to this version.
-| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before attempting to run the fault.
-| Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0
-| Fault Type | Discrete
-| Parameters | certificateName: Name of AKV certificate on which fault will be executed 
+| Capability Name | IncrementCertificateVersion-1.0 |
+| Target Type | Microsoft-KeyVault |
+| Description | Generates new certificate version and thumbprint using the Key Vault Certificate client library. Current working certificate will be upgraded to this version. |
+| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before attempting to run the fault. |
+| Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0 |
+| Fault Type | Discrete |
+| Parameters (key, value) | |
+| certificateName | Name of AKV certificate on which fault will be executed |
 
 ### Sample JSON
 
@@ -1238,7 +1239,7 @@ Known issues on Linux:
   "name": "branchOne",
   "actions": [
     {
-      "type": "continuous",
+      "type": "discrete",
       "name": "urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0",
       "parameters": [],
       "duration": "PT10M",
