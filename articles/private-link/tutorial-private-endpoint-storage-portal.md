@@ -95,7 +95,6 @@ In this section, you'll create a virtual machine that will be used to test the p
    
 2. Select **+ Create** > **Azure virtual machine**.
 
-
 2. In **Create a virtual machine**, enter or select the following in the **Basics** tab:
 
     | Setting | Value                                          |
