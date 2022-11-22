@@ -65,8 +65,6 @@ ms.reviewer: harelbr
 ## Manage log alerts using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-> [!NOTE]
-> PowerShell is not currently supported in API version `2021-08-01`.
 
 Use the PowerShell cmdlets listed below to manage rules with the [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules).
 
