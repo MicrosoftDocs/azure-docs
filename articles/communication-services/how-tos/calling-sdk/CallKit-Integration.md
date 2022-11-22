@@ -126,7 +126,7 @@
   `reportIncomingCallToCallKit` API should not be called if `CallAgent` instance is already available when push is recieved.
 
   ```Swift
-  CallClient.reportIncomingCallToCallKit(with: callNotification, callKitOptions: callKitOptions) { (error) in
+  CallClient.reportIncomingCallFromKillState(with: callNotification, callKitOptions: callKitOptions) { (error) in
       if (error == nil) {
           self.callClient = CallClient()
 
