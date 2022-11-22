@@ -18,16 +18,28 @@ In this tutorial, you'll learn how to connect an ASP.NET Core 6 app to App Confi
 
 - An Azure subscription
 - Docker CLI
-- Complete the [Quickstart for adding feature flags to ASP.NET Core](./quickstart-feature-flag-aspnet-core).
+- Complete the [Quickstart for adding feature flags to ASP.NET Core](./quickstart-feature-flag-aspnet-core.md).
 
 ## Build a docker image and test it locally
 
-1. Create Dockerfile manually from [Dockerize an ASP.NET Core application](https://docs.docker.com/samples/dotnet/#create-a-dockerfile-for-an-aspnet-core-application)
+### Create a Dockerfile
+
+1. Select [Compose sample application: ASP.NET with MS SQL server database](https://docs.docker.com/samples/dotnet/#create-a-dockerfile-for-an-aspnet-core-application)
+1. Run the following commands in your terminal to clone the sample repo and set up the sample app environment.
+
+    ```bash
+    git clone https://github.com/docker/awesome-compose/
+    cd awesome-compose
+    ```
+
+## Build and run the container
+
 1. Build the container
-1. Run the container locally using the command below:
+
+1. Run the container locally using the command below and replace `<connection-string>` with your own connection string:
 
     ``` bash
-    docker run -d -p 8080:80 --name myapp testfeatureflags -e AZURE_APPCONFIGURATION_CONNECTIONSTRING="real-connection-string"
+    docker run -d -p 8080:80 --name myapp testfeatureflags -e AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
     ```
 
 ## Push the image to Azure Container Registry
@@ -37,10 +49,14 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 1. Open  the Azure portal and in the search bar, search for and select **Container Registries**.
 1. Select **Create**
 1. Fill out form in the **Basics** tab:
-   1. Select your **Resource group**
-   1. Enter a **Registry name**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
-   1. Select an Azure region
-   1. For **SKU**, select **Basic**.
+
+    | Setting        | Suggested value        | Description                                                                                                     |
+    |----------------|------------------------|-----------------------------------------------------------------------------------------------------------------|
+    | Resource group | AppConfigTestResources | Select your resource group.                                                                                     |
+    | Registry name  | MyRegistry   | Enter a registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
+    | Azure region   | Central US             | Select an Azure region.                                                                                         |
+    | SKU            | Basic                  | The basic tier is a cost-optimized entry point appropriate for lower usage scenarios.                           |
+
 1. Accept default values for the remaining setting, and select **Review + create**. After reviewing the settings, select **Create** to deploy the Azure Container Registry.
 
 ## Create a Container App
@@ -48,27 +64,36 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 1. In the Azure portal, search for **Container Apps** in the top search bar.
 1. Select **Container Apps** in the search results and then **Create**.
 1. In the **Basics** tab:
-   1. Select your Azure subscription
-   1. Select an existing resource group or create a new one.
-   1. Enter a name for your Container App
-   1. Select an Azure region
-   1. Select a Container Apps Environment or create a new one
+
+    | Setting                    | Suggested value         | Description                                                                                                         |
+    |----------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------|
+    | Subscription               | Your Azure subscription | Select your Azure subscription.                                                                                     |
+    | Resource group             | AppConfigTestResources  | Select your **Resource group**.                                                                                     |
+    | Container app name         | MyContainerApp    | Enter a **Registry name**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. |
+    | Region                     | Central US              | Select an Azure region.                                                                                             |
+    | Container Apps Environment | MyEnvironment           | Select a Container Apps Environment or create a new one.                                                            |
 
 1. Select **Next: App settings** and fill out the form:
-   1. Uncheck the box **Use quickstart image**
-   1. Enter a name for your container
-   1. Select **Azure Container Registry** as your image source and select the ACR created earlier
-   1. Select your image and image tag
-   1. Under **Application ingress settings**,  select **Enabled**
-   1. For Ingress traffic, select Limited to Container Apps Environment
-   1. Ingress type is set to HTTP and transport is set to automatic by default
-   1. Enter *80* as the value of the target port
-   1. Select **Review + create**.
+
+    | Setting               | Suggested value          | Description                                                                                                                                                                                                                   |
+    |-----------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Use quickstart image  | Uncheck the box          | Deselect quickstart image to use an existing container.                                                                                                                                                                       |
+    | Name                  | MyContainerApp           | The container app name you entered in the previous step is automatically filled in.                                                                                                                                           |
+    | Image source          | Azure Container Registry | Select Azure Container Registry as your image source.                                                                                                                                                                         |
+    | Registry              | MyRegistry               | Select the Azure Container Registry you created earlier.                                                                                                                                                                      |
+    | Image                 | MyImage                  | Select your docker image from the list.                                                                                                                                                                                       |
+    | Image tag             | MyImageTag               | Select your image tag from the list.                                                                                                                                                                                          |
+    | OS type               | Linux                    | Linux is automatically suggested.                                                                                                                                                                                             |
+    | Command override      | Leave empty.             | Optional. Leave this field empty.                                                                                                                                                                                             |
+    | Environment variables | Leave empty.             | Leave empty.                                                                                                                                                                                                                  |
+    | Ingress               | Select *Enabled*.        | Enable ingress, enter *80* as the value of the target port and keep the automatically suggested settings: *Limited to Container Apps Environment*, *Ingress type* *HTTP*, *Transport*: Auto, *Insecure connections* disabled. |
+
+1. Select **Review + create**.
 1. After reviewing the settings, select **Create** to deploy the container app.
 
 ## Connect the app to Azure App Configuration
 
-The next step lets you connect the container app to Azure App Configuration using [Service Connector](../service-connector/overview.md), which enables you to connect several Azure services together in a few steps without having to manage the configuration of the network settings and connection information yourself.
+In the next step, connect the container app to Azure App Configuration using [Service Connector](../service-connector/overview.md). Service Connector helps you to connect several Azure services together in a few steps without having to manage the configuration of the network settings and connection information yourself.
 
 ## [Portal](#tab/azure-portal)
 
@@ -76,18 +101,18 @@ The next step lets you connect the container app to Azure App Configuration usin
 1. Select **Create**:
 1. Select or enter the following settings.
 
-    | Setting | Suggested value | Description |
-    | --- | --- | --- |
-    | **Container** | Your container name | Select your Container Apps instance. |
-    | **Service type** | App Configuration | This is the target service type. |
-    | **Subscription** | One of your subscriptions | The subscription containing your target service. The default value is the subscription for your container app. |
-    | **Connection name** | Generated unique name | The connection name that identifies the connection between your container app and target service.|
-    | **App Configuration** | Your App Configuration store name | The target App Configuration store to which you want to connect. |
-    | **Client type** | .NET | Your application stack that works with the target service you selected. |
+| Setting               | Suggested value         | Description                                                                                                            |
+|-----------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
+| **Container**         | MyContainerApp          | Select your Container Apps instance.                                                                                   |
+| **Service type**      | App Configuration       | Select *App Configuration* to connect to your App Configuration store to Azure Container Apps.                         |
+| **Subscription**      | Your Azure subscription | Select the subscription containing the App Configuration store. The default value is the subscription for your container app. |
+| **Connection name**   | Generated unique name   | A connection name is automatically generated. This name identifies the connection between your container app and the App Configuration store.                      |
+| **App Configuration** | MyAppConfiguration      | Select the name of the App Configuration store to which you want to connect.                                                       |
+| **Client type**       | .NET                    | Select the application stack that works with the target service you selected.                                                |
 
 1. Select **Next: Authentication** and select **System assigned managed identity** to let Azure Directory manage the authentication.
 1. Select **Next: Network** to select the network configuration. Then select **Configure firewall rules to enable access to target service**.
-1. Select**Next: Review + Create**  to review the provided information. Running the final validation takes a few seconds. Then select **Create** to create the service connection. It might take a minute or so to complete the operation.
+1. Select **Next: Review + Create**  to review the provided information. Running the final validation takes a few seconds. Then select **Create** to create the service connection. It might take a minute or so to complete the operation.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -105,11 +130,14 @@ The next step lets you connect the container app to Azure App Configuration usin
 
 ---
 
-## Browse the URL of the Azure Container App
+## Browse to the URL of the Azure Container App
 
 In the Azure portal, browse to the container app you've created and in the **Overview** tab, open the **Application URL**.
 
 > [!NOTE]
-> You may need to restart the app if you've disable Beta in the App Configuration feature flag management.
+> You may need to restart the app if you've disable the feature flag *Beta* in the App Configuration feature flag management.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Manage feature flags](./manage-feature-flags.md)
