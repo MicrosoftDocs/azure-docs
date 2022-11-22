@@ -254,7 +254,7 @@ Build and deploy your first container app from your forked GitHub repository wit
 
 The `up` command uses the Docker file in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Docker file.  A Docker file isn't required to build a container app. 
 
-Replace the `<YOUR_GITHUB_REPOSITORY_NAME/>` with your GitHub repository name (https://github.com/<owner>/<repository-name> or <owner>/<repository-name>).
+Replace the `<YOUR_GITHUB_REPOSITORY_NAME/>` with your GitHub repository name in the form of `https://github.com/<owner>/<repository-name>` or `<owner>/<repository-name>`.
 
 
 # [Bash](#tab/bash)
