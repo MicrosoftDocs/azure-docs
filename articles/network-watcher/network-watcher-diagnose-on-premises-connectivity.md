@@ -77,10 +77,10 @@ Azure Network Watcher troubleshoot feature enables you to diagnose and troublesh
 
 | Fault Type | Reason | Log|
 |---|---|---|
-| NoFault | When no error is detected. |Yes|
+| NoFault | No error is detected |Yes|
 | GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
 | PlannedMaintenance |  Gateway instance is under maintenance.  |No|
-| UserDrivenUpdate | When a user update is in progress. This could be a resize operation. | No |
+| UserDrivenUpdate | A user update is in progress. This could be a resize operation. | No |
 | VipUnResponsive | Cannot reach the primary instance of the Gateway. This happens when the health probe fails. | No |
 | PlatformInActive | There is an issue with the platform. | No|
 | ServiceNotRunning | The underlying service is not running. | No|
@@ -92,10 +92,10 @@ Azure Network Watcher troubleshoot feature enables you to diagnose and troublesh
 
 | Fault Type | Reason | Log|
 |---|---|---|
-| NoFault | When no error is detected. |Yes|
+| NoFault | No error is detected. |Yes|
 | GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
 | PlannedMaintenance | Gateway instance is under maintenance.  |No|
-| UserDrivenUpdate | When a user update is in progress. This could be a resize operation.  | No |
+| UserDrivenUpdate | A user update is in progress. This could be a resize operation.  | No |
 | VipUnResponsive | Cannot reach the primary instance of the Gateway. It happens when the health probe fails. | No |
 | ConnectionEntityNotFound | Connection configuration is missing. | No |
 | ConnectionIsMarkedDisconnected | The Connection is marked "disconnected." |No|
