@@ -11,7 +11,8 @@ A daily cap on a Log Analytics workspace allows you to avoid unexpected increase
 
 > [!IMPORTANT]
 > You should use care when setting a daily cap because when data collection stops, your ability to observe and receive alerts when the health conditions of your resources will be impacted. It can also impact other Azure services and solutions whose functionality may depend on up-to-date data being available in the workspace. Your goal shouldn't be to regularly hit the daily limit but rather use it as an infrequent method to avoid unplanned charges resulting from an unexpected increase in the volume of data collected.
-
+> 
+> For strategies to reduce your Azure Monitor costs, see [Cost optimization and Azure Monitor](/azure/azure-monitor/best-practices-cost).
 
 ## How the daily cap works
 Each workspace has a daily cap that defines its own data volume limit.  When the daily cap is reached, a warning banner appears across the top of the page for the selected Log Analytics workspace in the Azure portal, and an operation event is sent to the *Operation* table under the **LogManagement** category. You can optionally create an alert rule to send an alert when this event is created.

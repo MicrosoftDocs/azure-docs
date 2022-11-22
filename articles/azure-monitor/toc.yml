@@ -7,10 +7,12 @@ items:
     href: overview.md
   - name: What can you monitor?
     href: monitor-reference.md
-  - name: Observability
+  - name: What is observability?
     href: observability-data.md    
   - name: What's new?
     href: whats-new.md
+  - name: View and estimate charges
+    href: usage-estimated-costs.md
   - name: Cost optimization
     href: best-practices-cost.md     
   - name: Partner integrations
@@ -479,6 +481,9 @@ items:
         - name: Overview
           displayName: Log Analytics workspace
           href: logs/log-analytics-workspace-overview.md
+        - name: Cost details
+          displayName: Log Analytics workspace,Logs
+          href: logs/cost-logs.md
         - name: Manage Log Analytics workspaces
           items:
           - name: Create a Log Analytics workspace
@@ -1703,10 +1708,6 @@ items:
     href: https://azure.microsoft.com/updates/?category=management-tools
   - name: Pricing 
     items:
-    - name: View and estimate charges
-      href: usage-estimated-costs.md
-    - name: Logs pricing details
-      href: logs/cost-logs.md
     - name: Legacy Application Insights pricing
       href: app/legacy-pricing.md
     - name: Optimize costs

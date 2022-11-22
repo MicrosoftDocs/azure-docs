@@ -14,6 +14,9 @@ This article provides pricing guidance for Container insights to help you unders
 * Measure costs after Container insights has been enabled for one or more containers.
 * Control the collection of data and make cost reductions.
 
+[!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
+
+
 The Azure Monitor pricing model is primarily based on the amount of data ingested in gigabytes per day into your Log Analytics workspace. The cost of a Log Analytics workspace isn't based only on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your clusters.
 
 >[!NOTE]

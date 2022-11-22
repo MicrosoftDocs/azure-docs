@@ -204,7 +204,7 @@ The complete set of status codes that the service might return is listed in the 
 To query data submitted by the Azure Monitor HTTP Data Collector API, search for records whose **Type** is equal to the **LogType** value that you specified and appended with **_CL**. For example, if you used **MyCustomLog**, you would return all records with `MyCustomLog_CL`.
 
 ## Sample requests
-In the next sections, you'll find samples that demonstrate how to submit data to the Azure Monitor HTTP Data Collector API by using various programming languages.
+In this sections are samples that demonstrate how to submit data to the Azure Monitor HTTP Data Collector API by using various programming languages.
 
 For each sample, set the variables for the authorization header by doing the following:
 
@@ -215,7 +215,8 @@ For each sample, set the variables for the authorization header by doing the fol
 
 Alternatively, you can change the variables for the log type and JSON data.
 
-### PowerShell sample
+### [PowerShell](#tab/powershell)
+
 ```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
@@ -297,7 +298,7 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
-### C# sample
+# [C#](#tab/c-sharp)
 ```csharp
 using System;
 using System.Net;
@@ -384,7 +385,7 @@ namespace OIAPIExample
 
 ```
 
-### Python sample
+# [Python](#tab/python)
 
 >[!NOTE]
 > If using Python 2, you may need to change the line:
@@ -475,7 +476,7 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 
-### Java sample
+# [Java](#tab/java)
 
 ```java
 
@@ -567,6 +568,7 @@ public class ApiExample {
 
 ```
 
+---
 
 ## Alternatives and considerations
 

@@ -420,7 +420,7 @@ sections:
       - question: |
           Can we filter events using event ID, that is, more granular event filtering using the new Azure Monitor Agent?
         answer: |
-          Yes. You can use **Xpath queries** for filtering Windows Event Logs. [Learn more](agents/data-collection-rule-azure-monitor-agent.md##filter-events-using-xpath-queries)  
+          Yes. You can use **Xpath queries** for filtering Windows Event Logs. [Learn more](agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries)  
           For performance counters, you can specify specific counters you wish to collect, and exclude ones you don’t need.
           For syslog on Linux, you can choose Facilities and log level for each facility to collect.
           
