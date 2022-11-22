@@ -333,8 +333,6 @@
     href: pre-deployment-checklist.md
   - name: Custom columns sample script
     href: custom-columns-sample-script.md
-  - name: Microsoft Defender for IoT ninja training
-    href: resources-training-sessions.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
