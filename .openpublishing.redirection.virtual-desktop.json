@@ -74,6 +74,11 @@
             "source_path_from_root": "/articles/virtual-desktop/user-documentation/linux-overview.md",
             "redirect_url": "/azure/virtual-desktop/users/connect-thin-clients",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client.md",
+            "redirect_url": "/azure/virtual-desktop/troubleshoot-client-windows",
+            "redirect_document_id": true
         }
     ]
 }
