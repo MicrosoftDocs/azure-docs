@@ -1,7 +1,7 @@
 ---
-title: How to Deploy Non-Java Applications in Azure Spring Apps Enterprise Tier
+title: Deploy non-Java applications in Azure Spring Apps Enterprise tier
 titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to Deploy Non-Java Applications in Azure Spring Apps Enterprise Tier
+description: Learn how to deploy non-Java applications in Azure Spring Apps Enterprise tier
 author: karlerickson
 ms.author: xiading
 ms.service: spring-apps
@@ -10,7 +10,7 @@ ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# How to deploy non-Java applications in Azure Spring Apps
+# Deploy non-Java applications in Azure Spring Apps Enterprise tier
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
