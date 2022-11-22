@@ -1,7 +1,7 @@
 ---
 title: Use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier
 titleSuffix: Azure Spring Apps Enterprise Tier
-description: Learn how to use Tanzu Application Platform GUI tools with Azure Spring Apps Enterprise tier.
+description: Learn how to use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier.
 author: karlerickson
 ms.author: zlhe
 ms.service: spring-apps
@@ -17,50 +17,57 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-VMware Tanzu Application Platform GUI provides a set of developer tools you can use to view your organization's running applications and services, including Application Live View and Application Accelerator plug-ins. This article describes howw to configure Tanzu Application Platform GUI tools centrally against Dev Tools Portal on SSO config and endpoint exposure so that you can access any of the tools.
+VMware Tanzu Application Platform GUI provides a set of developer tools you can use to view your organization's running applications and services, including Application Live View and Application Accelerator plug-ins. This article describes how to configure Tanzu Application Platform GUI tools centrally against Dev Tools Portal on SSO config and endpoint exposure.
 
 For more information, see [Overview of Tanzu Application Platform GUI](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-tap-gui-about.html).
 
 ## Prerequities
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - To provision an Azure Marketplace offer purchase, see the [Prerequisites](how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
-- [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
-- [Create custom roles that delegate permissions to Azure Spring Apps resources](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-permissions?tabs=Azure-portal).
+- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. Use the following command to remove previous versions and install the latest extension. If you previously installed the `spring-cloud` extension, uninstall it to avoid configuration and version mismatches.
+
+  ```azurecli
+  az extension remove --name spring
+  az extension add --name spring
+  az extension remove --name spring-cloud
+  ```
+- Custom roles that delegate permissions to Azure Spring Apps resources. For more information, see [How to use permissions in Azure Spring Apps](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-permissions?tabs=Azure-portal).
 
 ## Configure Dev Tools Portal
-
-The following sections describe configuration in Dev Tools Portal.
-
-### Configure single sign-on (SSO)
 
 Dev Tools Portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
 
 > [!NOTE]
-> Only authorization servers supporting the OpenID Connect Discovery protocol are supported. Be sure to configure the external authorization server to allow redirects back to the Dev Tools Portal. Refer to your authorization server's documentation and add `https://<dev-tool-portal-external-url>/api/auth/oidc/handler/frame` to the list of allowed redirect URIs.
+> Azure Spring Apps supports only authorization servers that support the OpenID Connect Discovery protocol. Make sure to configure the external authorization server to allow redirects back to the Dev Tools Portal. See your authorization server's documentation and add *https://<dev-tool-portal-external-url>/api/auth/oidc/handler/frame* to the list of allowed redirect URIs.
+
+The following table describes SSO properties:
 
 | Property | Required? | Description |
 | - | - | - |
 | metadataUri | Yes | The URI of a JSON file with generic OIDC provider configuration. The result is expected to be an OpenID Provider Configuration Response. |
-| clientId | Yes | The OpenID Connect client ID provided by your IdP |
-| clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
-| scopes | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
+| clientId | Yes | The OpenID Connect client ID provided by your IdP. |
+| clientSecret | Yes | The OpenID Connect client secret provided by your IdP. |
+| scopes | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider. |
 
 > [!NOTE]
-> If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
+> If you configure an SSO property incorrectly, such as providing the wrong password, remove the property and add it again with the correct configuration.
 
-#### [Portal](#tab/Portal)
+You can configure Dev Tools Portal using the Azure Portal or Azure CLI.
+
+#### [Azure Portal](#tab/Portal)
+
+Use the following steps to configure Dev Tools Portal using the Azure Portal:
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Select **Developer Tools (Preview)**.
-1. Select **Configuration** tab.
-1. Update **Scope**, **Client ID**, **Client Secret** and **Metadata Url** in the form. Then click **Save** button.
-1. After SSO configuration saved successfully, click **Assign endpoint** button to expose public endpoint.
+1. Select the **Configuration** tab.
+1. On the **Configuration** page, update **Scope**, **Client ID**, **Client Secret** and **Metadata Url**, and then select **Save** .
+1. Select **Assign endpoint** button to expose the public endpoint.
 
-#### [CLI](#tab/Azure-CLI)
+#### [Azure CLI](#tab/Azure-CLI)
 
-To update SSO configuration and expose to public with Azure CLI, run the following command:
+Use the following command to update SSO configuration using the Azure CLI:
 
 ```azurecli
 az spring dev-tool update \
@@ -73,19 +80,23 @@ az spring dev-tool update \
     --assign-endpoint
 ```
 
+---
+
 ## Assign public endpoint
 
-#### [Portal](#tab/Portal)
+You can assign a public endpoint using the Azure Portal or Azure CLI.
 
-To access Dev Tools Portal, use the following steps to assign a public endpoint:
+#### [Azure Portal](#tab/Portal)
+
+Use the following steps to access Dev Tools Portal and assign a public endpoint:
 
 1. Select **Developer Tools (Preview)**.
-1. Click *Assign endpoint* button to assign a public endpoint. A URL will be generated within a few minutes.
+1. Select **Assign endpoint** to assign a public endpoint. Azure Spring Apps generates a URL within a few minutes.
 1. Save the URL for use later. Application Live View and Application Accelerator will then get their corresponding endpoints.
 
-#### [CLI](#tab/Azure-CLI)
+#### [Azure CLI](#tab/Azure-CLI)
 
-You can use the Azure CLI to assign a public endpoint with the following command:
+Use the following command to assign a public endpoint using the Azure CLI:
 
 ```azurecli
 az spring dev-tool update \
@@ -93,3 +104,5 @@ az spring dev-tool update \
     --name <Azure-Spring-Apps-service-instance-name> \
     --assign-endpoint
 ```
+
+---
