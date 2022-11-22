@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/18/2022
 ---
 
-# Tutorial: Call an API and display the results
+# Tutorial: Call an API and display the results 
 
 An application can be configured to call a protected API and display the results. In this tutorial, the Microsoft Graph API is being called, but the code can be configured to call any API that has been registered in an Azure Active Directory tenant.
 

@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/18/2022
 ---
 
-# Tutorial: Prepare an application for authentication
+# Tutorial: Prepare an application for authentication 
 
 In this tutorial, you learn how to:
 

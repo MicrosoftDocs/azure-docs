@@ -11,7 +11,7 @@ ms.date: 10/18/2022
 
 # Tutorial: Register an application
 
-To enable an application to use authentication with Azure Active Directory (Azure AD), it must be registered in a tenant. Registering an application establishes a trust relationship between the application and the Microsoft identity platform. The trust is unidirectional: the application trusts the Microsoft identity platform, and not the other way around.
+To enable an application to use authentication with Azure Active Directory (Azure AD), it must be registered in a tenant. Registering an application establishes a trust relationship between the application and the Microsoft identity platform. The trust is unidirectional: the application trusts the Microsoft identity platform, and not the other way around. 
 
 In this tutorial, you learn how to:
 

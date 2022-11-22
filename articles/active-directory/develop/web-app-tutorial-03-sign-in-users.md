@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/18/2022
 ---
 
-# Tutorial: Add sign-in to an application in Azure Active Directory
+# Tutorial: Add sign-in to an application in Azure Active Directory 
 
 In this tutorial, you learn how to:
 
