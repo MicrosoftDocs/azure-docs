@@ -30,7 +30,7 @@ After you configure the provisioning agent and ECMA host, it's time to test conn
      1. Change to the sub-directory `Troubleshooting`.
      1. Run the script `TestECMA2HostConnection.ps1` in that directory.  Provide as arguments the connector name and the secret token when prompted.
         ```
-        PS C:\Program FIles\Microsoft ECMA2Host\Troubleshooting> .\TestECMA2HostConnection.ps1
+        PS C:\Program Files\Microsoft ECMA2Host\Troubleshooting> .\TestECMA2HostConnection.ps1
         Supply values for the following parameters:
         ConnectorName: CORPDB1
         SecretToken: ************
@@ -113,14 +113,15 @@ The file location for wizard logging is C:\Program Files\Microsoft ECMA2Host\Wiz
 ## Query the ECMA Host Cache
 
 The ECMA Host has a cache of users in your application that is updated according to the schedule you specify in the properties page of the ECMA Host wizard. In order to query the cache, perform the steps below:
+
 1. Set the Debug flag to `true`.
 
-   Please be aware that setting the debug flag to  `true` disables authentication on the ECMA Host. You will want to set it back to `false` and restart the ECMA Host service once you are done querying the cache. 
+   Please be aware that setting the debug flag to  `true` disables authentication on the ECMA Host. You will need to set it back to `false` and restart the ECMA Host service once you are done querying the cache.
 
    The file location for verbose service logging is `C:\Program Files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config`.
-  ```
-  <?xml version="1.0" encoding="utf-8"?> 
-  <configuration> 
+   ```
+   <?xml version="1.0" encoding="utf-8"?>
+   <configuration>
       <startup>  
           <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6" /> 
       </startup> 
@@ -128,24 +129,24 @@ The ECMA Host has a cache of users in your application that is updated according
         <add key="Debug" value="true" /> 
       </appSettings> 
 
-  ```
+   ```
 
 2. Restart the `Microsoft ECMA2Host` service.
 1. Wait for the ECMA Host to connect to the target systems and re-read its cache from each of the connected systems.  If there are many users in those connected systems, this import process could take several minutes.
-1. Query this endpoint from the server the ECMA Host is installed on, replacing  `{connector name}` with the name of your connector, specified in the properties page of the ECMA Host.  `https://localhost:8585/ecma2host_{connectorName}/scim/cache`
+1. Query this endpoint from the server the ECMA Host is installed on, replacing  `{connector name}` with the name of your connector, specified in the properties page of the ECMA Host: `https://localhost:8585/ecma2host_{connectorName}/scim/cache`.
 
      1. On the server with the agent installed, launch PowerShell.
      1. Change to the folder where the ECMA host was installed, such as `C:\Program Files\Microsoft ECMA2Host`.
      1. Change to the sub-directory `Troubleshooting`.
      1. Run the script `TestECMA2HostConnection.ps1` in that directory, and provide as arguments the connector name and the `ObjectTypePath` value `cache`.  When prompted, type the secret token configured for that connector.
         ```
-        PS C:\Program FIles\Microsoft ECMA2Host\Troubleshooting> .\TestECMA2HostConnection.ps1 -ConnectorName CORPDB1 -ObjectTypePath cache
+        PS C:\Program Files\Microsoft ECMA2Host\Troubleshooting> .\TestECMA2HostConnection.ps1 -ConnectorName CORPDB1 -ObjectTypePath cache
         Supply values for the following parameters:
         SecretToken: ************
         ```
      1. This script sends a SCIM GET request to validate that the ECMA Connector Host is operating and responding to requests. If the output does not show that an HTTP connection was successful, then check that the service is running and that the correct secret token was provided.
 
-1. Set the Debug flag back to `false`, or remove the setting.  You will want to set it back to `false` and restart the ECMA Host service once you are done querying the cache.
+1. Set the Debug flag back to `false` or remove the setting once you are done querying the cache.
 2. Restart the `Microsoft ECMA2Host` service.
 
 
