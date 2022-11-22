@@ -9,38 +9,42 @@ ms.date: 11/22/2022
 
 ---
 
-
 # Migrate from Splunk to Azure Monitor Logs
 
 This article explains how to plan your migration from Splunk to Azure Monitor Logs for logging and log data analysis, including:  
 
 > [!div class="checklist"]
-> * An introduction to basic concepts 
-> * Workspace design
-> * Data collection
-> * How to migrate applications
-> * How to import data
+> * Introduction to basic concepts 
+> * Design and deploy a workspace
+> * Collect data
+> * Migrate applications
+> * Import historical data
 > * Analyze log data
 
-## An introduction to basic concepts
+## Introduction to basic concepts
+
+[Log Analytics demo environment](https://portal.azure.com/#view/Microsoft_OperationsManagementSuite_Workspace/LogsDemo.ReactView)
 
 
+## Design and deploy a workspace
 
-## Workspace design and data collection
 <!-- Introduction paragraph -->
 1. <!-- Step 1 -->
 1. <!-- Step 2 -->
 1. <!-- Step n -->
 
-## Data collection
+## Collect data
 
-## How to migrate applications
+
+## Migrate applications
+
 <!-- Introduction paragraph -->
 1. <!-- Step 1 -->
 1. <!-- Step 2 -->
 1. <!-- Step n -->
 
-## How to import data
+## Import historical data
+
 <!-- Introduction paragraph -->
 1. <!-- Step 1 -->
 1. <!-- Step 2 -->
@@ -52,6 +56,9 @@ context so the customer can determine why they would click the link.
 -->
 
 ## Analyze log data
+
+[Log Analytics demo environment](https://portal.azure.com/#view/Microsoft_OperationsManagementSuite_Workspace/LogsDemo.ReactView)
+[Guided project - Analyze logs in Azure Monitor with KQL](https://learn.microsoft.com/en-us/training/modules/analyze-logs-with-kql/)
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
