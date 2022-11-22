@@ -175,6 +175,8 @@ You can control which portal content appears to different users, based on their 
 
     :::image type="content" source="media/api-management-howto-developer-portal-customize/visibility-control.png" alt-text="Screenshot of the visibility control settings in the developer portal.":::
 
+    You can change the visibility of the following page content: sections, menus, buttons, and sign-in for OAuth authorization.    
+
 When a user visits the developer portal with visibility and access controls applied:
 
 * The developer portal automatically hides buttons or navigation items that point to pages that a user doesn't have access to.
@@ -182,7 +184,7 @@ When a user visits the developer portal with visibility and access controls appl
 * An attempt by a user to access a page they aren't authorized to will result in a 404 Not Found error.
 
 > [!TIP]
-> Using the administrative interface, you can preview pages as a user associated with a specific group, by selecting the "person" icon in the menu at the bottom. 
+> Using the administrative interface, you can preview pages as a user associated with a specific group, by selecting the "user" icon in the menu at the bottom. 
 > 
 
 ### Customization example
