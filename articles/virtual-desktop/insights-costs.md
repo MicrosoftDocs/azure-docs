@@ -1,6 +1,6 @@
 ---
 title: Estimate Azure Virtual Desktop monitoring costs   - Azure
-description: How to estimate costs and pricing for using Azure Monitor for Azure Virtual Desktop.
+description: How to estimate costs and pricing for using Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/29/2021
@@ -24,7 +24,7 @@ This article will explain the following things to help you understand how pricin
 
 We recommend you use a predefined set of data written as logs in your Log Analytics workspace. In the following example estimates, we'll look at billable data in the default configuration
 
-The predefined datasets for Azure Monitor for Azure Virtual Desktop include:
+The predefined datasets for Azure Virtual Desktop Insights include:
 
 - Performance counters from the session hosts
 - Windows Event Logs from the session hosts
@@ -48,7 +48,7 @@ The power usage VM we'll be using in our example includes the following componen
 
 ## Estimating performance counter ingestion
 
-Performance counters show how the system resources are performing. Performance counter data ingestion depends on your environment size and usage. In most cases, performance counters should make up 80 to 99% of your data ingestion for Azure Monitor for Azure Virtual Desktop.
+Performance counters show how the system resources are performing. Performance counter data ingestion depends on your environment size and usage. In most cases, performance counters should make up 80 to 99% of your data ingestion for Azure Virtual Desktop Insights.
 
 Before you start estimating, it’s important that you understand that each performance counter sends data at a specific frequency. We set a default sample rate-per-minute (you can also edit this rate in your settings), but that rate will be applied at different multiplying factors depending on the counter. The following factors affect the rate:
 
@@ -82,7 +82,7 @@ Before you start estimating, it’s important that you understand that each perf
 
    Default sample rate per minute × sessions per day × average session duration × average number of processes per session = number of records sent per day
 
-The following table lists the 20 performance counters Azure Monitor for Azure Virtual Desktop collects and their default rates:
+The following table lists the 20 performance counters Azure Virtual Desktop Insights collects and their default rates:
 
 | Counter name | Default sample rate | Frequency factor |
 |--------------|---------------------|------------------|
@@ -115,7 +115,7 @@ To learn more about input delay performance counters, see [User Input Delay perf
 
 Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
-These are the default Windows Events for Azure Monitor for Azure Virtual Desktop:
+These are the default Windows Events for Azure Virtual Desktop Insights:
 
 - Application
 - Microsoft-Windows-TerminalServices-RemoteConnectionManager/Admin
@@ -157,7 +157,7 @@ Finally, let's estimate the total cost. In this example, let's say we come up wi
 | Events    | 2-15 |
 | Azure Virtual Desktop diagnostics | \< 1 |
 
-In this example, the total ingested data for Azure Monitor for Azure Virtual Desktop is between 92 to 145 megabytes per VM per day. In other words, every 31 days, each VM ingests roughly 3 to 5 gigabytes of data.
+In this example, the total ingested data for Azure Virtual Desktop Insights is between 92 to 145 megabytes per VM per day. In other words, every 31 days, each VM ingests roughly 3 to 5 gigabytes of data.
 
 Using the default Pay-as-you-go model for [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/), you can estimate the Azure Monitor data collection and storage cost per month. Depending on your data ingestion, you may also consider the Capacity Reservation model for Log Analytics pricing.
 
@@ -168,7 +168,7 @@ This section will explain how to measure and manage data ingestion to reduce cos
 To learn about managing rights and permissions to the workbook, see [Access control](../azure-monitor/visualize/workbooks-overview.md#access-control).
 
 >[!NOTE]
->Removing data points will impact their corresponding visuals in Azure Monitor for Azure Virtual Desktop.
+>Removing data points will impact their corresponding visuals in Azure Virtual Desktop Insights.
 
 ### Log Analytics settings
 
@@ -179,13 +179,13 @@ Here are some suggestions to optimize your Log Analytics settings to manage data
 
 ### Remove excess data
 
-Our default configuration is the only set of data we recommend for Azure Monitor for Azure Virtual Desktop. You always have the option to add additional data points and view them in the Host Diagnostics: Host browser or build custom charts for them, however added data will increase your Log Analytics cost. These can be removed for cost savings.
+Our default configuration is the only set of data we recommend for Azure Virtual Desktop Insights. You always have the option to add additional data points and view them in the Host Diagnostics: Host browser or build custom charts for them, however added data will increase your Log Analytics cost. These can be removed for cost savings.
 
 ### Measure and manage your performance counter data
 
 Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Analyze usage in Log Analytics workspace](../azure-monitor/logs/analyze-usage.md).
 
-The performance counters the session hosts use will probably be your largest source of ingested data for Azure Monitor for Azure Virtual Desktop. The following custom query template for a Log Analytics workspace can track frequency and megabytes ingested per performance counter over the last day:
+The performance counters the session hosts use will probably be your largest source of ingested data for Azure Virtual Desktop Insights. The following custom query template for a Log Analytics workspace can track frequency and megabytes ingested per performance counter over the last day:
 
 ```azure
 let WVDHosts = dynamic(['Host1.MyCompany.com', 'Host2.MyCompany.com']);
@@ -201,7 +201,7 @@ Perf
 >[!NOTE]
 >Make sure to replace the template's placeholder values with the values your environment uses, otherwise the query won't work.
 
-This query will show all performance counters you have enabled on the environment, not just the default ones for Azure Monitor for Azure Virtual Desktop. This information can help you understand which areas to target to reduce costs, like reducing a counter’s frequency or removing it altogether.
+This query will show all performance counters you have enabled on the environment, not just the default ones for Azure Virtual Desktop Insights. This information can help you understand which areas to target to reduce costs, like reducing a counter’s frequency or removing it altogether.
 
 You can also reduce costs by removing performance counters. To learn how to remove performance counters or edit existing counters to reduce their frequency, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters).
 
@@ -215,9 +215,9 @@ Azure Virtual Desktop diagnostics should make up less than 1% of your data stora
 
 ## Next steps
 
-Learn more about Azure Monitor for Azure Virtual Desktop at these articles:
+Learn more about Azure Virtual Desktop Insights at these articles:
 
-- [Use Azure Monitor for Azure Virtual Desktop to monitor your deployment](azure-monitor.md).
-- Use the [glossary](azure-monitor-glossary.md) to learn more about terms and concepts.
-- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-monitor.md) for help.
+- [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
+- Use the [glossary](insights-glossary.md) to learn more about terms and concepts.
+- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help.
 - Check out [Monitoring usage and estimated costs in Azure Monitor](../azure-monitor/usage-estimated-costs.md) to learn more about managing your monitoring costs.
