@@ -408,7 +408,7 @@
             href: azure-stack-edge-gpu-deploy-compute-module-simple.md
           - name: Sync data from local share
             href: https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/Scripts/IotEdgeScript/README.md
-          - name: Move IoT Edge workloads to self-service Linux VMs
+          - name: Move to Linux VMs
             href: azure-stack-edge-move-to-self-service-iot-edge.md
       - name: Troubleshoot IoT Edge issues
         href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
