@@ -18,7 +18,7 @@ This article describes the steps required to install update on your Azure Stack 
 
 The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version. 
 
-## About latest update
+## About latest updates
 
 The current update is Update 2210. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
 
