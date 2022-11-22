@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Deploy a cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an AKS cluster and use kubectl to connect to the Kubernetes master node.
 services: container-service
 ms.topic: tutorial
-ms.date: 05/24/2021
+ms.date: 11/21/2022
 
 ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
 
@@ -15,23 +15,19 @@ ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
 Kubernetes provides a distributed platform for containerized applications. With AKS, you can quickly create a production ready Kubernetes cluster. In this tutorial, part three of seven, a Kubernetes cluster is deployed in AKS. You learn how to:
 
 > [!div class="checklist"]
-> * Deploy a Kubernetes AKS cluster that can authenticate to an Azure container registry
-> * Install the Kubernetes CLI (kubectl)
-> * Configure kubectl to connect to your AKS cluster
 
-In later tutorials, the Azure Vote application is deployed to the cluster, scaled, and updated.
+> * Deploy a Kubernetes AKS cluster that can authenticate to an Azure Container Registry (ACR).
+> * Install the Kubernetes CLI (kubectl).
+> * Configure kubectl to connect to your AKS cluster.
+
+In later tutorials, you'll deploy the Azure Vote application to your AKS cluster and also scale and update your application.
 
 ## Before you begin
 
-In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you haven't done these steps, and would like to follow along, start at [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
+In previous tutorials, a container image was created and uploaded to an ACR instance. If you haven't done these steps and would like to follow along, start with [Tutorial 1: Prepare an application for AKS][aks-tutorial-prepare-app].
 
-### [Azure CLI](#tab/azure-cli)
-
-This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-This tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+* If you're using Azure CLI, this tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+* If you're using Azure PowerShell, this tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
 
 ---
 
@@ -43,7 +39,7 @@ AKS clusters can use Kubernetes role-based access control (Kubernetes RBAC). The
 
 Create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region. The following example does not specify a region so the AKS cluster is also created in the *eastus* region. For more information, see [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions] for more information about resource limits and region availability for AKS.
 
-To allow an AKS cluster to interact with other Azure resources, a cluster identity is automatically created, since you did not specify one. Here, this cluster identity is [granted the right to pull images][container-registry-integration] from the Azure Container Registry (ACR) instance you created in the previous tutorial. To execute the command successfully, you're required to have an **Owner** or **Azure account administrator** role on the Azure subscription.
+To allow an AKS cluster to interact with other Azure resources, a cluster identity is automatically created, since you did not specify one. Here, this cluster identity is [granted the right to pull images][container-registry-integration] from the ACR instance you created in the previous tutorial. To execute the command successfully, you're required to have an **Owner** or **Azure account administrator** role on the Azure subscription.
 
 ```azurecli
 az aks create \
@@ -58,7 +54,7 @@ az aks create \
 
 Create an AKS cluster using [New-AzAksCluster][new-azakscluster]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region. The following example does not specify a region so the AKS cluster is also created in the *eastus* region. For more information, see [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions] for more information about resource limits and region availability for AKS.
 
-To allow an AKS cluster to interact with other Azure resources, a cluster identity is automatically created, since you did not specify one. Here, this cluster identity is [granted the right to pull images][container-registry-integration] from the Azure Container Registry (ACR) instance you created in the previous tutorial. To execute the command successfully, you're required to have an **Owner** or **Azure account administrator** role on the Azure subscription.
+To allow an AKS cluster to interact with other Azure resources, a cluster identity is automatically created, since you did not specify one. Here, this cluster identity is [granted the right to pull images][container-registry-integration] from the ACR instance you created in the previous tutorial. To execute the command successfully, you're required to have an **Owner** or **Azure account administrator** role on the Azure subscription.
 
 ```azurepowershell
 New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -GenerateSshKey -AcrNameToAttach <acrName>
@@ -135,7 +131,8 @@ aks-nodepool1-37463671-vmss000001   Ready    agent   2m28s   v1.18.10
 In this tutorial, a Kubernetes cluster was deployed in AKS, and you configured `kubectl` to connect to it. You learned how to:
 
 > [!div class="checklist"]
-> * Deploy a Kubernetes AKS cluster that can authenticate to an Azure container registry
+>
+> * Deploy an AKS cluster that can authenticate to an ACR
 > * Install the Kubernetes CLI (kubectl)
 > * Configure kubectl to connect to your AKS cluster
 
