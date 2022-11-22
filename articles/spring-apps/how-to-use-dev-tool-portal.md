@@ -21,7 +21,7 @@ VMware Tanzu Application Platform GUI provides a set of developer tools you can 
 
 For more information, see [Overview of Tanzu Application Platform GUI](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-tap-gui-about.html).
 
-## Prerequities
+## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - To provision an Azure Marketplace offer purchase, see the [Prerequisites](how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
@@ -32,7 +32,7 @@ For more information, see [Overview of Tanzu Application Platform GUI](https://d
   az extension add --name spring
   az extension remove --name spring-cloud
   ```
-- Custom roles that delegate permissions to Azure Spring Apps resources. For more information, see [How to use permissions in Azure Spring Apps](https://learn.microsoft.com/azure/spring-apps/how-to-permissions?tabs=Azure-portal).
+- Custom roles that delegate permissions to Azure Spring Apps resources. For more information, see [How to use permissions in Azure Spring Apps](how-to-permissions.md).
 
 ## Configure Dev Tools Portal
 
@@ -106,3 +106,7 @@ az spring dev-tool update \
 ```
 
 ---
+
+## Next steps
+
+- [Azure Spring Apps](index.yml)
