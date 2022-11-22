@@ -3,7 +3,7 @@ title: Compare the features of the Remote Desktop clients for Azure Virtual Desk
 description: Compare the features of the Remote Desktop clients when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: conceptual
-ms.date: 11/18/2022
+ms.date: 11/22/2022
 ms.author: daknappe
 ---
 
@@ -59,7 +59,7 @@ When you enable USB port redirection, all USB devices attached to USB ports are 
 
 | Redirection | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
-| Cameras | X |  |  | X | X |  |
+| Cameras | X |  | X | X | X |  |
 | Clipboard | X | X | Text | Text, images | X | Text |
 | Local drive/storage | X |  | X | X | X | X\* |
 | Location | X (Windows 11 only) |  |  |  |  |  |
