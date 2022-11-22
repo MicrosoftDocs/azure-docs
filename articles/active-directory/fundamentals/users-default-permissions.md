@@ -44,7 +44,7 @@ Policies | <ul><li>Read all properties of policies<li>Manage all properties of o
 
 ## Restrict member users' default permissions 
 
-It's possible to add restrictions to users' default permissions. You can use this feature if you don't want all users in the directory to have access to the Azure AD admin portal/directory. 
+It's possible to add restrictions to users' default permissions.
 
 You can restrict default permissions for member users in the following ways:
 
