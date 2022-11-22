@@ -197,7 +197,7 @@ We recommend to not take a dependency on lastActivityTime found in Device Identi
 
 
 > [!Note]
-> Avoid making any assumptions about the maximum latency of any IoT Hub operation.  Please refer to [Latency Solutions](/azure/iot-hub/iot-hub-devguide-quotas-throttling) for more information on how to build your solution taking latency into account.
+> Avoid making any assumptions about the maximum latency of this operation.  Please refer to [Latency Solutions](/azure/iot-hub/iot-hub-devguide-quotas-throttling) for more information on how to build your solution taking latency into account.
 
 ## Next steps
 
