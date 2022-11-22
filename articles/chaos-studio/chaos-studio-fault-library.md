@@ -1187,7 +1187,7 @@ Known issues on Linux:
 }
 ```
 
-### Key Vault Disable Certificate
+## Key Vault Disable Certificate
 
 
 | Property  | Value |
@@ -1219,7 +1219,7 @@ Known issues on Linux:
 }
 ```
 
-### Key Vault Increment Certificate Version
+## Key Vault Increment Certificate Version
 	
 | Property  | Value |
 | ---- | --- |
@@ -1248,7 +1248,7 @@ Known issues on Linux:
 }
 ```
 
-### Key Vault Update Certificate Policy
+## Key Vault Update Certificate Policy
 
 | Property  | Value |        
 | ---- | --- |  
