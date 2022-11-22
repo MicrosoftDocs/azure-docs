@@ -55,7 +55,7 @@ The encoding format can be only set when the blob storage endpoint is configured
 
 You can select the encoding format using the IoT Hub Create or Update REST API, specifically the [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the [Azure portal](https://portal.azure.com), [Azure CLI](/cli/azure/iot/hub/routing-endpoint), or [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). The following image shows how to select the encoding format in the Azure portal.
 
-![Blob storage endpoint encoding](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
+:::image type="content" alt-text="Blob storage endpoint encoding." source="./media/iot-hub-devguide-messages-d2c/blobencoding.png":::
 
 IoT Hub batches messages and writes data to storage whenever the batch reaches a certain size or a certain amount of time has elapsed. IoT Hub defaults to the following file naming convention:
 
@@ -85,7 +85,7 @@ public void ListBlobsInContainer(string containerName, string iothub)
 
 To create an Azure Data Lake Gen2-compatible storage account, create a new V2 storage account and select **Enable hierarchical namespace** from the **Data Lake Storage Gen2** section of the **Advanced** tab, as shown in the following image:
 
-![Select Azure Date Lake Gen2 storage](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
+:::image type="content" alt-text="Select Azure Date Lake Gen2 storage." source="./media/iot-hub-devguide-messages-d2c/selectadls2storage.png":::
 
 ## Service Bus Queues and Service Bus Topics as a routing endpoint
 
@@ -96,6 +96,7 @@ Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions
 Apart from the built-in-Event Hubs compatible endpoint, you can also route data to custom endpoints of type Event Hubs. 
 
 ## Azure Cosmos DB as a routing endpoint (preview)
+
 You can send data directly to Azure Cosmos DB from IoT Hub. Cosmos DB is a fully managed hyperscale multi-model database service. It provides low latency and high availability, making it a great choice for scenarios like connected solutions and manufacturing that require extensive downstream data analysis.
 
 IoT Hub supports writing to Cosmos DB in JSON (if specified in the message content-type) or as Base64 encoded binary. You can set up a Cosmos DB endpoint for message routing by performing the following steps in the Azure portal:
@@ -106,8 +107,8 @@ IoT Hub supports writing to Cosmos DB in JSON (if specified in the message conte
 
    The following image shows the endpoint addition options in the working pane of Azure portal:
 
-   ![Screenshot that shows how to add a Cosmos DB endpoint.](media/iot-hub-devguide-messages-d2c/add-cosmos-db-endpoint.png)
-
+   :::image type="content" alt-text="Screenshot that shows how to add a Cosmos DB endpoint." source="media/iot-hub-devguide-messages-d2c/add-cosmos-db-endpoint.png":::
+   
 1. Type a name for your Cosmos DB endpoint in **Endpoint name**. 
 1. In **Cosmos DB account**, choose an existing Cosmos DB account from a list of Cosmos DB accounts available for selection, then select an existing database and collection in **Database** and **Collection**, respectively.
 1. In **Generate a synthetic partition key for messages**, select **Enable** if needed.
@@ -122,6 +123,8 @@ IoT Hub supports writing to Cosmos DB in JSON (if specified in the message conte
    > If you're using the system assigned managed identity for authenticating to Cosmos DB, you must use Azure CLI or Azure PowerShell to assign the Cosmos DB Built-in Data Contributor built-in role definition to the identity. Role assignment for Cosmos DB isn't currently supported from the Azure portal. For more information about the various roles, see [Configure role-based access for Azure Cosmos DB](/azure/cosmos-db/how-to-setup-rbac). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
 
 1. Select **Create** to complete the creation of your custom endpoint.
+
+To learn more about using the Azure portal to create message routes and endpoints for your IoT hub, see [Message routing with IoT Hub — Azure portal](how-to-routing-portal.md).
 
 ## Reading data that has been routed
 
