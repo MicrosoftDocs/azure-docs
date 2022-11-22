@@ -24,12 +24,24 @@ After you configure the provisioning agent and ECMA host, it's time to test conn
     
         ![Screenshot that shows that the ECMA service is running.](./media/on-premises-ecma-troubleshoot/tshoot-1.png)
 
- 2. Go to the folder where the ECMA host was installed by selecting **Troubleshooting** > **Scripts** > **TestECMA2HostConnection**. Run the script. This script sends a SCIM GET or POST request to validate that the ECMA Connector Host is operating and responding to requests. It should be run on the same computer as the ECMA Connector Host service itself.
+ 2. Check that the ECMA Connector Host service is responding to requests.
+     1. On the server with the agent installed, launch PowerShell.
+     1. Change to the folder where the ECMA host was installed, such as `C:\Program Files\Microsoft ECMA2Host`.
+     1. Change to the sub-directory `Troubleshooting`.
+     1. Run the script `TestECMA2HostConnection.ps1` in that directory.  Provide as arguments the connector name and the secret token when prompted.
+        ```
+        PS C:\Program FIles\Microsoft ECMA2Host\Troubleshooting> .\TestECMA2HostConnection.ps1
+        Supply values for the following parameters:
+        ConnectorName: CORPDB1
+        SecretToken: ************
+        ```
+     1. This script sends a SCIM GET or POST request to validate that the ECMA Connector Host is operating and responding to requests. If the output does not show that a HTTP connection was successful, then check that the service is running and that the correct secret token was provided.
+
  3. Ensure that the agent is active by going to your application in the Azure portal, selecting **admin connectivity**, selecting the agent dropdown list, and ensuring your agent is active.
  4. Check if the secret token provided is the same as the secret token on-premises. Go to on-premises, provide the secret token again, and then copy it into the Azure portal.
  5. Ensure that you've assigned one or more agents to the application in the Azure portal.
  6. After you assign an agent, you need to wait 10 to 20 minutes for the registration to complete. The connectivity test won't work until the registration completes.
- 7. Ensure that you're using a valid certificate. Go to the **Settings** tab of the ECMA host to generate a new certificate.
+ 7. Ensure that you're using a valid certificate that has not expired. Go to the **Settings** tab of the ECMA host to view the certificate expiration date. If the certificate has expired, click `Generate certificate` to generate a new certificate.
  8. Restart the provisioning agent by going to the taskbar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right-click **Stop**, and then select **Start**.
  1. If you continue to see `The ECMA host is currently importing data from the target application` even after restarting the ECMA Connector Host and the provisioning agent, and waiting for the initial import to complete, then you may need to cancel and re-start configuring provisioning to the application in the Azure portal.
  1. When you provide the tenant URL in the Azure portal, ensure that it follows the following pattern. You can replace `localhost` with your host name, but it isn't required. Replace `connectorName` with the name of the connector you specified in the ECMA host. The error message 'invalid resource' generally indicates that the URL does not follow the expected format.
@@ -40,13 +52,13 @@ After you configure the provisioning agent and ECMA host, it's time to test conn
 
 ## Unable to configure the ECMA host, view logs in Event Viewer, or start the ECMA host service
 
-To resolve the following issues, run the ECMA host as an admin:
+To resolve the following issues, run the ECMA host configuration wizard as an administrator:
 
 * I get an error when I open the ECMA host wizard.
 
    ![Screenshot that shows an ECMA wizard error.](./media/on-premises-ecma-troubleshoot/tshoot-2.png)
 
-* I can configure the ECMA host wizard, but I can't see the ECMA host logs. In this case, you need to open the host as an admin and set up a connector end to end. This step can be simplified by exporting an existing connector and importing it again. 
+* I can configure the ECMA host wizard, but I can't see the ECMA host logs. In this case, you need to open the ECMA Host configuration wizard as an administrator and set up a connector end to end. This step can be simplified by exporting an existing connector and importing it again. 
 
    ![Screenshot that shows host logs.](./media/on-premises-ecma-troubleshoot/tshoot-3.png)
 
@@ -102,12 +114,10 @@ The file location for wizard logging is C:\Program Files\Microsoft ECMA2Host\Wiz
 
 The ECMA Host has a cache of users in your application that is updated according to the schedule you specify in the properties page of the ECMA Host wizard. In order to query the cache, perform the steps below:
 1. Set the Debug flag to `true`.
-2. Restart the ECMA Host service.
-3. Query this endpoint from the server the ECMA Host is installed on, replacing  `{connector name}` with the name of your connector, specified in the properties page of the ECMA Host.  `https://localhost:8585/ecma2host_{connectorName}/scim/cache`
 
-Please be aware that setting the debug flag to  `true` disables authentication on the ECMA Host. You will want to set it back to `false` and restart the ECMA Host service once you are done querying the cache. 
+   Please be aware that setting the debug flag to  `true` disables authentication on the ECMA Host. You will want to set it back to `false` and restart the ECMA Host service once you are done querying the cache. 
 
-The file location for verbose service logging is C:\Program Files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config.
+   The file location for verbose service logging is `C:\Program Files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config`.
   ```
   <?xml version="1.0" encoding="utf-8"?> 
   <configuration> 
@@ -119,6 +129,26 @@ The file location for verbose service logging is C:\Program Files\Microsoft ECMA
       </appSettings> 
 
   ```
+
+2. Restart the `Microsoft ECMA2Host` service.
+1. Wait for the ECMA Host to connect to the target systems and re-read its cache from each of the connected systems.  If there are many users in those connected systems, this could take several minutes.
+1. Query this endpoint from the server the ECMA Host is installed on, replacing  `{connector name}` with the name of your connector, specified in the properties page of the ECMA Host.  `https://localhost:8585/ecma2host_{connectorName}/scim/cache`
+
+     1. On the server with the agent installed, launch PowerShell.
+     1. Change to the folder where the ECMA host was installed, such as `C:\Program Files\Microsoft ECMA2Host`.
+     1. Change to the sub-directory `Troubleshooting`.
+     1. Run the script `TestECMA2HostConnection.ps1` in that directory, and provide as arguments the connector name and the `ObjectTypePath` value `cache`.  When prompted, type the secret token configured for that connector.
+        ```
+        PS C:\Program FIles\Microsoft ECMA2Host\Troubleshooting> .\TestECMA2HostConnection.ps1 -ConnectorName CORPDB1 -ObjectTypePath cache
+        Supply values for the following parameters:
+        SecretToken: ************
+        ```
+     1. This script sends a SCIM GET request to validate that the ECMA Connector Host is operating and responding to requests. If the output does not show that a HTTP connection was successful, then check that the service is running and that the correct secret token was provided.
+
+1. Set the Debug flag back to `false`, or remove the setting.  You will want to set it back to `false` and restart the ECMA Host service once you are done querying the cache.
+2. Restart the `Microsoft ECMA2Host` service.
+
+
 ## Target attribute is missing 
 The provisioning service automatically discovers attributes in your target application. If you see that a target attribute is missing in the target attribute list in the Azure portal, perform the following troubleshooting step:
 
@@ -128,7 +158,13 @@ The provisioning service automatically discovers attributes in your target appli
 
 ## Collect logs from Event Viewer as a zip file
 
-Go to the folder where the ECMA host was installed by selecting **Troubleshooting** > **Scripts**. Run the `CollectTroubleshootingInfo` script as an admin. You can use it to capture the logs in a zip file and export them.
+You can use an included script to capture the event logs in a zip file and export them.
+
+ 1. On the server with the agent installed, right click on PowerShell in the Start menu and select to `Run as administrator`.
+ 1. Change to the folder where the ECMA host was installed, such as `C:\Program Files\Microsoft ECMA2Host`.
+ 1. Change to the sub-directory `Troubleshooting`.
+ 1. Run the script `CollectTroubleshootingInfo.ps1` in that directory.
+ 1. The script will create a ZIP file in that directory containing the event logs.
 
 ## Review events in Event Viewer
 
