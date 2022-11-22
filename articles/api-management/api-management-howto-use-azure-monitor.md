@@ -138,6 +138,8 @@ To configure resource logs:
 
 For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
+> [!NOTE]
+> Adding diagnostic setting object may result in a failure if the [MinApiVersion property](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.apimanagement.models.apiversionconstraint.minapiversion) of your API Management service is set to any API Version higher than 2019-12-01. 
 ## View diagnostic data in Azure Monitor
 
 If you enable collection of GatewayLogs or metrics in a Log Analytics workspace, it can take a few minutes for data to appear in Azure Monitor. To view the data:
