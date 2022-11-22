@@ -62,10 +62,10 @@ $sc = New-AzStorageContainer -Name logs
 
 ## Run Network Watcher resource troubleshooting
 
-You can troubleshoot resources with the [Start-AzNetworkWatcherResourceTroubleshooting](/powershell/module/az.network/start-aznetworkwatcherresourcetroubleshooting?view=azps-9.1.0) cmdlet. We pass the cmdlet the Network Watcher object, the ID of the Connection or Virtual Network Gateway, the storage account ID, and the path to store the results.
+You can troubleshoot resources with the [Start-AzNetworkWatcherResourceTroubleshooting](/powershell/module/az.network/start-aznetworkwatcherresourcetroubleshooting) cmdlet. We pass the cmdlet the Network Watcher object, the ID of the Connection or Virtual Network Gateway, the storage account ID, and the path to store the results.
 
 > [!NOTE]
-> The [Start-AzNetworkWatcherResourceTroubleshooting](/powershell/module/az.network/start-aznetworkwatcherresourcetroubleshooting?view=azps-9.1.0) cmdlet is long running and may take a few minutes to complete.
+> The [Start-AzNetworkWatcherResourceTroubleshooting](/powershell/module/az.network/start-aznetworkwatcherresourcetroubleshooting) cmdlet is long running and may take a few minutes to complete.
 
 ```powershell
 Start-AzNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
