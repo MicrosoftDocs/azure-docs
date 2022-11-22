@@ -58,7 +58,7 @@ Once you've set up Azure Virtual Desktop, you have lots of options to customize 
 - [How to use Azure Active Directory](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 - [Using Windows 10 virtual machines with Intune](/mem/intune/fundamentals/windows-10-virtual-machines)
 - [How to deploy an app using MSIX app attach](msix-app-attach.md)
-- [Use Azure Virtual Desktop Insights to monitor your deployment](../azure-insights.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Use Azure Virtual Desktop Insights to monitor your deployment](../insights.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Set up a business continuity and disaster recovery plan](../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Scale session hosts using Azure Automation](../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Set up Universal Print](/universal-print/fundamentals/universal-print-getting-started)

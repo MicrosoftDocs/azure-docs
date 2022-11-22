@@ -142,7 +142,7 @@
       - name: Estimate Azure Virtual Desktop Insights costs
         href: insights-costs.md
       - name: Azure Virtual Desktop Insights glossary
-        hrefinsights-glossary.md
+        href: insights-glossary.md
   - name: Data locations
     href: data-locations.md
   - name: Multimedia redirection (preview)
@@ -330,7 +330,7 @@
   - name: Resolve Azure Advisor recommendations
     href: azure-advisor-recommendations.md
   - name: Use Azure Virtual Desktop Insights
-    hrefinsights.md
+    href: insights.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
   - name: Start VM on Connect

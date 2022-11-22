@@ -23,7 +23,7 @@ Per-user access pricing for Azure Virtual Desktop lets you grant access to apps 
 Before you can estimate per-user access costs for an existing deployment, you’ll need the following things:
 
 - An Azure Virtual Desktop deployment that's had active users within the last month.
-- [Azure Virtual Desktop Insights for your Azure Virtual Desktop deployment](../azure-insights.md)
+- [Azure Virtual Desktop Insights for your Azure Virtual Desktop deployment](../insights.md)
 
 ## Measure monthly user activity in a host pool
 
