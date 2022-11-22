@@ -70,9 +70,9 @@ Give your automation rule a name that describes what it does.
 
     For example, filter by **Analytics rule name**:
 
-    You may want to add tasks to incidents based on the types of threats detected by an analytics rule or a group of analytics rules, that need to be handled according to a certain workflow. Search for and select the relevant analytics rules from the drop-down list.
+    - You may want to add tasks to incidents based on the types of threats detected by an analytics rule or a group of analytics rules, that need to be handled according to a certain workflow. Search for and select the relevant analytics rules from the drop-down list.
 
-    Or, you may want to add tasks that are relevant for incidents across all types of threats (in this case, leave the default selection of **All** as is).
+    - Or, you may want to add tasks that are relevant for incidents across all types of threats (in this case, leave the default selection of **All** as is).
 
     In either case, you can add more conditions to narrow the scope of incidents to which your automation rule will apply. Learn more about [adding advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
 
