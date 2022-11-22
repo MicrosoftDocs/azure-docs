@@ -111,7 +111,7 @@ In the Azure portal, to create a test group in a connection monitor, specify val
 
 * **Test group Name**: Enter the name of your test group.
 * **Sources**: Select **Add sources** to specify both Azure VMs and on-premises machines as sources if agents are installed on them. To learn about installing an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
-   * To choose Azure agents, select the **Azure endpoints** tab. Here you see only VMs or Virtual Machine Scale Sets that are bound to the region that you specified when you created the connection monitor. By default, VMs and Virtual Machine Scale sets are grouped into the subscription that they belong to. These groups are collapsed. 
+   * To choose Azure agents, select the **Azure endpoints** tab. Here you see only VMs or Virtual Machine Scale Sets that are bound to the region that you specified when you created the connection monitor. By default, VMs and Virtual Machine Scale Sets are grouped into the subscription that they belong to. These groups are collapsed. 
    
        You can drill down to further levels in the hierarchy from the **Subscription** level:
 
