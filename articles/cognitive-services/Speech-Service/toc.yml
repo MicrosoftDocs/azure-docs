@@ -122,13 +122,13 @@ items:
       href: batch-synthesis.md
     - name: Improve synthesis with SSML
       items:
-      - name: Speech Synthesis Markup Language (SSML) overview
+      - name: SSML overview
         href: speech-synthesis-markup.md
-      - name: SSML document structure
+      - name: SSML document structure and events
         href: speech-synthesis-markup-structure.md
-      - name: SSML voice and sound
+      - name: Voice and sound with SSML
         href: speech-synthesis-markup-voice.md
-      - name: SSML pronunciation
+      - name: Pronunciation with SSML
         href: speech-synthesis-markup-pronunciation.md
       - name: SSML phonetic sets
         href: speech-ssml-phonetic-sets.md

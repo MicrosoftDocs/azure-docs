@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language (SSML) pronunciation - Speech service
+title: Pronunciation with Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn about Speech Synthesis Markup Language (SSML) elements to improve pronunciation.
 services: cognitive-services
@@ -12,11 +12,11 @@ ms.date: 11/21/2022
 ms.author: eur
 ---
 
-# Speech Synthesis Markup Language (SSML) pronunciation
+# Pronunciation with SSML
 
 Speech Synthesis Markup Language (SSML) is an XML-based markup language that can be used to fine-tune the text-to-speech output attributes such as pitch, pronunciation, speaking rate, volume, and more. You have more control and flexibility compared to plain text input. The Speech service automatically handles punctuation as appropriate, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark.
 
-## Use phonemes to improve pronunciation
+## Phonemes to improve pronunciation
 
 The `phoneme` element is used for phonetic pronunciation in SSML documents. The `phoneme` element can contain only text but no other elements. Always provide human-readable speech as a fallback.
 
