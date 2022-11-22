@@ -49,14 +49,10 @@ To configure a multi-forest setup, we'll perform the following steps:
 
 For this exercise, we have two on-premises AD DS domain controllers with two different forests and in different VNETs.
 
-- **Forest 1:** Onprem1
-- Domain: onpremad1.com
-
-- **Forest 2:** Onprem2
-- Domain: onpremad2.com
-
-- **Onprem1:** Vnet - DomainServicesVNet WUS
-- **Onprem2:** Vnet - vnet2/workloads
+| **Forest** | **Domain** | **VNET** |
+|--------|--------|------|
+| Forest 1 | onpremad1.com | DomainServicesVNet WUS |
+| Forest 2 | onpremad2.com | vnet2/workloads |
 
 ### Establish and configure trust
 
