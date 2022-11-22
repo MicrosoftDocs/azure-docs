@@ -143,9 +143,9 @@
                   os_log("==> createCallAgent SUCCEEDED", log:self.log)
                   if registerForPush {
                       self.registerPushNotification(nil)
+                      os_log("==> SDK initialize completed, calling handlePush", log:self.log)
                   }
-                  os_log("==> SDK initialize completed, calling handlePush", log:self.log)
-                  
+                 
                   self.callAgent!.handlePush(notification: callNotification) { (error) in
                       if error == nil {
                           os_log("==> SDK handle push notification KILL state FULL: PASSED", log:self.log)
