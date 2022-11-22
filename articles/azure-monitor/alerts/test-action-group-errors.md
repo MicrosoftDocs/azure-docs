@@ -7,448 +7,62 @@ ms.reviewer: jagummersall
 
 ---
 
-# Action Group Test Notificaiton Error Message Guide
+# Action Group Test Notificaiton Troubleshooting Error Codes
 
 > [!NOTE]
-> This table provides troubleshooting steps that correspond with error messages you may recieve when utilizing the test action group feature.
+> This document provides troubleshooting steps that correspond with error messages you may recieve when utilizing the test action group feature.
 
+## Troubleshooting error codes for actions
 
-<table>
-  <tr>
-    <th>Action Type</th>
-    <th>Error Code/Error Message</th>
-    <th>Troubleshooting Ideas</th>
-  </tr>
-  <tr>
-    <td rowspan="14">
-      <ul>
-        <li>Automation Runbook</li>
-        <li>Azure Function</li>
-        <li>Logic App</li>
-        <li>Webhook</li>
-        <li>Secure Webhook</li>
-        <li>ITSM</li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li>HTTP 400: The Automation Runbook returned a bad request error.</li>
-        <li>HTTP 400: The Azure Function returned a bad request error.</li>
-        <li>HTTP 400: The Azure Logic App returned a bad request error.</li>
-        <li>HTTP 400: The Secure Webhook returned a 'bad request' error.</li>
-        <li>HTTP 400: The webhook returned a bad request error.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check the alert payload received on your endpoint, and make sure the endpoint can process the request successfully.</li>
-        <li>To learn more about alert schema definition, go to: 
-          <ul>
-            <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions">Common alert schema definitions</a></li>
-            <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-non-common-schema-definitions">Non-common alert schema definitions for Test Action Group</a></li>
-          </ul>
-        </li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 400: The Automation Runbook could not be triggered because this alert type doesn't support the common alert schema.</li>
-        <li>HTTP 400: The Azure Function could not be triggered because this alert type doesn't support the common alert schema.</li>
-        <li>HTTP 400: The Azure Logic App could not be triggered because this alert type doesn't support the common alert schema.</li>
-        <li>HTTP 400: The Secure Webhook could not be triggered because this alert type doesn't support the common alert schema.</li>
-        <li>HTTP 400: The webhook could not be triggered because this alert type doesn't support the common alert schema.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check if the alert type supports common alert schema </li>
-        <li>Change the “Enable the common alert schema” in the action group action to “No” and retry. </li>
-        <li>To learn more about alert schema definition, go to: 
-          <ul>
-
-            <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions">Common alert schema definitions</a></li>
-            <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-non-common-schema-definitions">Non-common alert schema definitions for Test Action Group</a></li>
-          </ul>
-        </li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 400: The Secure Webhook could not be triggered because the payload is empty or invalid.</li>
-        <li>HTTP 400: The Webhook could not be triggered because the payload is empty or invalid.</li>
-        <li>HTTP 400: Payload is not provided.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check if the payload is valid, and if it is included as part of the request.</li>
-        <li>To learn more about alert schema definition, go to: 
-          <ul>
-
-            <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions">Common alert schema definitions</a></li>
-            <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-non-common-schema-definitions">Non-common alert schema definitions for Test Action Group</a></li>
-          </ul>
-        </li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 400: The Secure Webhook could not be triggered because AAD auth is enabled but no auth context provided in the request.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check your Secure Webhook action settings.</li>
-        <li>Check your AAD configuration. For more details, see <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups">Action Groups</a>.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 401: The Automation Runbook returned an 'Unauthorized' error.</li>
-        <li>HTTP 401: The Azure Function returned an 'Unauthorized' error.</li>
-        <li>HTTP 401: The request was rejected by the Secure Webhook endpoint. Make sure you have the required authorization.</li>
-        <li>HTTP 401: The request was rejected by the webhook endpoint. Make sure you have the required authorization.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check if the credential in the request is present, and valid.</li>
-        <li>Check if your endpoint correctly validates the credentials from the request.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 403: The Automation Runbook returned a 'Forbidden' response.</li>
-        <li>HTTP 403: The Azure Function returned a 'Forbidden' error.</li>
-        <li>HTTP 403: Could not trigger the Azure Logic App. Make sure you have the required authorization.</li>
-        <li>HTTP 403: The webhook returned a 'Forbidden' response. Make sure you have the proper permissions to access it.</li>
-        <li>HTTP 403: The Itsm connector is 'Forbidden'.</li>
-        <li>HTTP 403: Could not access the ITSM system. Make sure you have the required authorization.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check if the credential in the request is present, and valid.</li>
-        <li>Check if your endpoint correctly validates the credentials.</li>
-        <li>If it is Secure Webhook, make sure the AAD authentication is set up correctly. For more details, see: <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups">Action Groups</a>.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 404: The Automation Runbook was not found.</li>
-        <li>HTTP 404: The Azure Function was not found.</li>
-        <li>HTTP 404: The Azure Logic App was not found.</li>
-        <li>HTTP 404: The Azure Logic App's target workflow was not found.</li>
-        <li>HTTP 404: The Secure Webhook's target was not found.</li>
-        <li>HTTP 404: The webhook's endpoint could not be found.</li>
-        <li>HTTP 404: The webhook's target was not found.</li>
-        <li>HTTP 404: The ITSM connector was deleted.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check if the endpoints included in the requests are valid, up and running and accepting the requests.</li>
-        <li>For ITSM, check if the ITSM connector is still active.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 408: The call to the Automation Runbook timed out.</li>
-        <li>HTTP 408: The call to the Azure Function timed out.</li>
-        <li>HTTP 408: The call to the Azure Logic App timed out.</li>
-        <li>HTTP 408: The call to the Secure Webhook timed out.</li>
-        <li>HTTP 408: The call to the Azure App service endpoint timed out.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check the client network connection, and retry.</li>
-        <li>Check if your endpoint is up and running and can process the request successfully.</li>
-        <li>Clear the browser cache, and retry.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 409: The Automation Runbook returned a 'conflict' error.</li>
-        <li>HTTP 409: The Azure Function returned a 'conflict' error.</li>
-        <li>HTTP 409: The Secure Webhook returned a 'conflict' error.</li>
-        <li>HTTP 409: The webhook returned a 'conflict' error.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 429: The Azure Function could not be triggered because it is handling too many requests right now.</li>
-        <li>HTTP 429: The Secure Webhook could not be triggered because it is handling too many requests right now.</li>
-        <li>HTTP 429: The webhook could not be triggered because it is handling too many requests right now.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check if your endpoint can handle the requests.</li>
-        <li>Wait a few minutes and retry.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 500: The Automation Runbook encountered an internal server error.</li>
-        <li>HTTP 500: The Azure Function encountered an internal server error.</li>
-        <li>HTTP 500: Could not reach the Azure Logic App server.</li>
-        <li>HTTP 500: The Secure Webhook returned an 'internal server' error.</li>
-        <li>HTTP 500: The webhook encountered an internal server error.</li>
-        <li>HTTP 500: The ServiceNow endpoint returned an 'Unexpected' response.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully.</li>
-        <li>To learn more about alert schema definition, go to: 
-          <ul>
-
-            <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions">Common alert schema definitions</a></li>
-            <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-non-common-schema-definitions">Non-common alert schema definitions for Test Action Group</a></li>
-          </ul>
-        </li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 502: The Automation Runbook returned a bad gateway error.</li>
-        <li>HTTP 502: The Azure Function returned a bad gateway error.</li>
-        <li>HTTP 502: The Azure Logic App encountered a bad gateway error.</li>
-        <li>HTTP 502: The Secure Webhook returned a 'bad gateway' error.</li>
-        <li>HTTP 502: The webhook returned a 'bad gateway' error.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check if your endpoint, and its downstream service(s) are up and running and are accepting requests.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>HTTP 503: The Automation Runbook host is not running.</li>
-        <li>HTTP 503: The Azure Function host is not running.</li>
-        <li>HTTP 503: The service providing the Secure Webhook endpoint is temporarily unavailable.</li>
-        <li>HTTP 503: The service providing the Webhook endpoint is temporarily unavailable.</li>
-        <li>HTTP 503: The ServiceNow returned Service Unavailable.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check if your endpoint is up and running and is accepting requests.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>      
-      <ul>
-        <li>The Automation Runbook/Azure Function/LogicApp/Webhook/SecureWebhook could not be triggered because the runbook has not succeeded after XXX retries. Calls to the runbook will be blocked for up to XXX minutes. Please try again in XXX minutes.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully.</li>
-        <li>To learn more about alert schema definition, go to: 
-          <ul>
-
-            <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-common-schema-definitions">Common alert schema definitions</a></li>
-            <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-non-common-schema-definitions">Non-common alert schema definitions for Test Action Group</a></li>
-          </ul>
-        </li>
-        <li>Wait XXX minutes and retry.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td rowspan="2">
-      <ul>
-        <li>Email</li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li>The email could not be sent because the recipient address was not found.</li>
-        <li>The email could not be sent because the email domain is invalid, or the MX resource record does not exist on the Domain Name Server (DNS).</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Verify the email address(es) is/are valid and try again.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>The email was sent but the delivery status could not be verified.</li>
-        <li>The email could not be sent because of a permanent error.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Wait a few minutes and retry. If the issue persists, please file a support ticket.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td rowspan="4">
-      <ul>
-        <li>SMS</li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li>Invalid destination number.</li>
-        <li>Invalid source address.</li>
-        <li>Invalid phone number.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Verify that the phone number is valid and retry.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>The message could not be sent because it was blocked by the recipient's provider.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Verify if you can receive SMS from other sources.</li>
-        <li>Check with your service provider.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>The message could not be sent because the delivery timed out.</li>
-        <li>The message could not be delivered to the recipient.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Wait a few minutes and retry. If the issue still persists, please file a support ticket.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>The message was sent successfully, but there was no confirmation of delivery from the recipient's device.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Make sure your device is on, and service is available.</li>
-        <li>Wait for a few minutes and retry.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td rowspan="3">
-      <ul>
-        <li>Voice</li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li>The call could not go through because the recipient's line was busy.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Make sure your device is on, and service is available, and not busy.</li>
-        <li>Wait for a few minutes and retry.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>The call went through, but the recipient did not select any response. The call might have been picked up by a voice mail service.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Make sure your device is on, the line is not busy, your service is not interrupted, and call does not go into voice mail.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>HTTP 500: There was a problem connecting the call. Please contact Azure support for assistance.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Wait a few minutes and retry. If the issue still persists, please file a support ticket.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td rowspan="2">
-      <ul>
-        <li>ITSM</li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li>HTTP 400: ServiceNow returned error: No such host is known.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Check your ServiceNow host url to make sure it is valid and retry. For more details, see: <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/itsmc-connections-servicenow">Connect ServiceNow with IT Service Management Connector</a>.</li>
-      </ol>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <ul>
-        <li>HTTP 403: The access token needs to be refreshed.</li>
-      </ul>
-    </td>
-    <td>
-      <ol>
-        <li>Please refresh the access token and retry. For more details, see: <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/itsmc-connections-servicenow">Connect ServiceNow with IT Service Management Connector</a>.</li>
-      </ol>
-    </td>
-  </tr>
-</table>
+The error message in this section will apply to the followign **actions**:</br>
+     - Automation runbook</br>
+     - Azure Function</br>
+     - Logic App</br>
+     - Webhook</br>
+     - Secure Webhook</br>
+     - ITSM</br>
 
 > [!NOTE]
-> If any of your issues persits, please fill out a support ticket.
+> Several erros could be due to a misunderstanding of your schema. Click here to learn more information about [Common alert schema](./alerts-common-schema.md) and [Non-common alert schema](./alerts-non-common-schema-definitions.md).
+
+| Error Codes | Troubleshooting Steps |
+| ------------| --------------------- |
+| HTTP 400: The *action* returned a 'bad request' error. | 1. Check the alert payload received on your endpoint, and make sure the endpoint can process the request successfully.
+| HTTP 400: The *action* could not be triggered because this alert type doesn't support the common alert schema. | 1. Check if the alert type supports common alert schema.</br>2. Change the “Enable the common alert schema” in the action group action to “No” and retry.
+| HTTP 400: The *action* could not be triggered because the payload is empty or invalid. | 1. Check if the payload is valid, and if it is included as part of the request.
+| HTTP 400: The *action* could not be triggered because AAD auth is enabled but no auth context provided in the request. | 1. Check your Secure Webhook action settings.</br>2. Check your AAD configuration. For more details, see Action Groups. |
+| HTTP 400: ServiceNow returned error: No such host is known | 1. Check your ServiceNow host url to make sure it is valid and retry. For more details, see: [Connect ServiceNow with IT Service Management Connector](./itsmc-connections-servicenow.md) | 
+| HTTP 401: The *action* returned an 'Unauthorized' error.</br>HTTP 401: The request was rejected by the *action* endpoint. Make sure you have the required authorization. | 1. Check if the credential in the request is present, and valid.</br>2. Check if your endpoint correctly validates the credentials from the request. |
+| HTTP 403: The *action* returned a 'Forbidden' response.</br>HTTP 403: Could not trigger the *action*. Make sure you have the required authorization.</br>HTTP 403: The *action* returned a 'Forbidden' response. Make sure you have the proper permissions to access it.</br>HTTP 403: The *action* is 'Forbidden'.</br>HTTP 403: Could not access the ITSM system. Make sure you have the required authorization. | 1. Check if the credential in the request is present, and valid.</br>2. Check if your endpoint correctly validates the credentials.</br>3. If it is Secure Webhook, make sure the AAD authentication is set up correctly. For more details, see: [Action Groups](./action_groups.md) |
+| HTTP 403: The access token needs to be refreshed | 1. Please refresh the access token and retry. For more details, see: [Connect ServiceNow with IT Service Management Connector](./itsmc-connections-servicenow.md) |
+| HTTP 404: The *action* was not found.</br>HTTP 404: The*action* target workflow was not found.</br>HTTP 404: The *action* target was not found.</br>HTTP 404: The *action* endpoint could not be found.</br>HTTP 404: The *action* was deleted. | 1. Check if the endpoints included in the requests are valid, up and running and accepting the requests.</br>2. For ITSM, check if the ITSM connector is still active.|
+| HTTP 408: The call to the *action* timed out.</br>HTTP 408: The call to the Azure App service endpoint timed out. | 1.Check the client network connection, and retry.</br>2. Check if your endpoint is up and running and can process the request successfully.</br>3. Clear the browser cache, and retry. |
+| HTTP 409: The *action* returned a 'conflict' error. | 1. Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully. |
+| HTTP 429: The *action* could not be triggered because it is handling too many requests right now. | 1. Check if your endpoint can handle the requests.</br>2. Wait a few minutes and retry. |
+| HTTP 500: The *action* encountered an internal server error.</br>HTTP 500: Could not reach the Azure *action* server.</br>HTTP 500: The *action* returned an 'internal server' error.</br>HTTP 500: The ServiceNow endpoint returned an 'Unexpected' response. | 1.Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully. |
+| HTTP 502: The *action* returned a bad gateway error. | 1. Check if your endpoint, and its downstream service(s) are up and running and are accepting requests. |
+| HTTP 503: The *action* host is not running.</br>HTTP 503: The service providing the *action* endpoint is temporarily unavailable.</br>HTTP 503: The ServiceNow returned Service Unavailable. | 1. Check if your endpoint is up and running and is accepting requests. |
+| The *action* could not be triggered because the *action* has not succeeded after XXX retries. Calls to the *action* will be blocked for up to XXX minutes. Please try again in XXX minutes. | Check the alert payload received on your endpoint, and make sure the endpoint and its downstream service(s) can process the request successfully.
+
+## Troubleshooting error codes for notifications
+
+The error message in this section will apply to the following **notifications**:</br>
+     - Email</br>
+     - SMS</br>
+     - Voice</br>
+
+
+| Error Codes | Troubleshooting Steps |
+| ------------| --------------------- |
+| The email could not be sent because the recipient address was not found.</br>The email could not be sent because the email domain is invalid, or the MX resource record does not exist on the Domain Name Server (DNS). | 1. Verify the email address(es) is/are valid and try again. |
+| The email was sent but the delivery status could not be verified.</br>The email could not be sent because of a permanent error. | 1. Wait a few minutes and retry. If the issue persists, please file a support ticket. |
+| Invalid destination number.</br>Invalid source address.</br>Invalid phone number.| 1. Verify that the phone number is valid and retry.
+| The message could not be sent because it was blocked by the recipient's provider. | 1. Verify if you can receive SMS from other sources.</br>2. Check with your service provider. |
+| The message could not be sent because the delivery timed out.</br>The message could not be delivered to the recipient. | 1. Wait a few minutes and retry. If the issue still persists, please file a support ticket. | 
+| The message was sent successfully, but there was no confirmation of delivery from the recipient's device. | 1. Make sure your device is on, and service is available.</br>2. Wait for a few minutes and retry. |
+| The call could not go through because the recipient's line was busy. | 1. Make sure your device is on, and service is available, and not busy.</br>2. Wait for a few minutes and retry. |
+| The call went through, but the recipient did not select any response. The call might have been picked up by a voice mail service. | 1.Make sure your device is on, the line is not busy, your service is not interrupted, and call does not go into voice mail. |
+| HTTP 500: There was a problem connecting the call. Please contact Azure support for assistance. | 1. Wait a few minutes and retry. If the issue still persists, please file a support ticket. |
+
+> [!NOTE]
+> If any of your issues persits, please fill out a support ticket here: [Help + support - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview)
