@@ -24,6 +24,19 @@ In this tutorial, you learn how to:
 > * Generate analytic data in Synapse Studio
 > * Visualize results in Power BI
 
+This report presents these analytics in visual form:
+
+- Overall growth in data over time
+- Amount of data added to the storage account over time
+- Number of files modified
+- Blob snapshot size
+- Data access patterns in different tiers of storage
+- The current distribution of data across tiers and across blob types
+- Distribution of blob across blob types over time
+- Distribution of data in containers over time
+- Distribution of blobs across access tiers over time
+- Distribution of data by file types over time
+
 ## Prerequisites
 
 - Azure subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -133,17 +146,27 @@ It will take a few minutes to start the Spark session and another few minutes to
    
 ## Visualize the data
 
-1. Download the [ReportAnalysis.ipynb](https://github.com/microsoft/Blob-Inventory-Report-Analytics/blob/main/src/ReportAnalysis.ipynb) sample file.
+1. Download the [ReportAnalysis.pbit](https://github.com/microsoft/Blob-Inventory-Report-Analytics/blob/main/src/ReportAnalysis.pbit) sample file.
 
 2. Open Power BI Desktop. 
 
    For installation guidance, see [Get Power BI Desktop](/power-bi/fundamentals/desktop-get-the-desktop).
 
-2. In Power BI, open the **ReportAnalysis.ipynb** file.
+2. In Power BI, select **File**, **Open report**, and then **Browse reports**. 
+
+3. In the **Open** dialog box, change the file type to **Power BI template files (*.pbit). 
+
+   > [!div class="mx-imgBorder"]
+   > ![The Power BI template files type in the Open dialog box](./media/storage-blob-inventory-report-analytics/file-type-setting.png) 
+
+4. Browse to the location of the **ReportAnalysis.ipynb** file that you downloaded, and then select **Open**.
 
    A dialog box appears which asks you to provide the name of the Synapse workspace and the data base name. 
 
-3. In the dialog box, provide the workspace name, and ensure that `reportdata` appears as the database name. Then, select the **Load** button.
+5. In the dialog box, set the **synapse_workspace_name** field to the workspace name and set the **database_name** field to `reportdata`. Then, select the **Load** button.
+
+   > [!div class="mx-imgBorder"]
+   > ![Report configuration dialog box](./media/storage-blob-inventory-report-analytics/report-configuration-dialog-box.png) 
 
    A report appears which provides visualizations of the data retrieved by the notebook.
 
