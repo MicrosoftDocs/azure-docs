@@ -102,8 +102,6 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
     export RG_NAME="myResourceGroup"
     export LOCATION="eastus"
 
-    az account set --subscription "${SUBSCRIPTION_ID}"
-
     az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RG_NAME}" --location "${LOCATION}" --subscription "${SUBSCRIPTION_ID}"
     ```
 
