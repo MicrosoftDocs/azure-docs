@@ -27,7 +27,11 @@ To reduce the complexity of creating VM images, VM Image Builder:
 - Can be integrated with Compute Gallery, which creates an image management system with which to distribute, replicate, version, and scale images globally. Additionally, you can distribute the same resulting image as a VHD or as one or more managed images, without having to rebuild them from scratch. 
 
 ## Pre-requisites
-Resource group and a dev center with an attached network connection. If don't have a dev center with an attached network connection, follow these steps to attach the network connection: [Create a network connection](./quickstart-configure-dev-box-service.md#create-a-network-connection).
+To provision a custom image you've creating by using VM Image Builder, you need: 
+- Owner or Contributor permissions on an Azure Subscription or a specific resource group.
+- A resource group 
+- A dev center with an attached network connection. 
+  If you don't have a dev center with an attached network connection, follow these steps to attach the network connection: [Create a network connection](./quickstart-configure-dev-box-service.md#create-a-network-connection).
 
 ## Create a Windows image and distribute it to an Azure Compute Gallery 
 The next step is to use Azure VM Image Builder and Azure PowerShell to create an image version in an Azure Compute Gallery (formerly Shared Image Gallery) and then distribute the image globally. You can also do this by using the Azure CLI. 
