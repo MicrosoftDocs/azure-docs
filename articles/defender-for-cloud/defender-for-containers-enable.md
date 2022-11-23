@@ -6,7 +6,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.custom: ignite-2022
 zone_pivot_groups: k8s-host
-ms.date: 07/25/2022
+ms.date: 10/30/2022
 ---
 
 # Enable Microsoft Defender for Containers

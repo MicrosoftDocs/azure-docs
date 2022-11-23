@@ -12,6 +12,12 @@ ms.date: 10/2/2022
 
 # What's New in Azure Cache for Redis
 
+## November 2022
+
+Support for using the RedisJSON module has now reached General Availability (GA).
+
+For more information, see [Use Redis modules with Azure Cache for Redis](cache-redis-modules.md).
+
 ## October 2022
 
 ### Enhancements for passive geo-replication

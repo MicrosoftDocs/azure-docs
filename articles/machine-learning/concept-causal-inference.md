@@ -13,7 +13,7 @@ ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
-# Make data-driven policies and influence decision-making (preview)
+# Make data-driven policies and influence decision-making
 
 Machine learning models are powerful in identifying patterns in data and making predictions. But they offer little support for estimating how the real-world outcome changes in the presence of an intervention. 
 
