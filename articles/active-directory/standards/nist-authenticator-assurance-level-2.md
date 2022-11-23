@@ -15,7 +15,6 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-
 # NIST authenticator assurance level 2 with Azure Active Directory
 
 The National Institute of Standards and Technology (NIST) develops technical requirements for US federal agencies implementing identity solutions. Organizations working with federal agencies must meet these requirements. 
@@ -61,7 +60,7 @@ Azure AD uses the Windows FIPS 140 Level 1 overall validated cryptographic modul
 
 ### Authenticator requirements
 
-Government agency cryptographic authenticators are validated for FIPS 140 Level 1 overall. This isn't a requirement for non-governmental agencies. The following Azure AD authenticators meet the requirement when running on [Windows in a FIPS 140-approved mode](/windows/security/threat-protection/fips-140-validation):
+Government agency cryptographic authenticators are validated for FIPS 140 Level 1 overall. This requirement isn't for non-governmental agencies. The following Azure AD authenticators meet the requirement when running on [Windows in a FIPS 140-approved mode](/windows/security/threat-protection/fips-140-validation):
 
 * Password
 
@@ -73,22 +72,22 @@ Government agency cryptographic authenticators are validated for FIPS 140 Level 
 
 * Smartcard (Active Directory Federation Services) 
 
-Although Microsoft Authenticator app (in notification, OTP, and passwordless modes) uses FIPS 140-approved cryptography, it is not validated for FIPS 140 Level 1.
+Although Microsoft Authenticator app (in notification, OTP, and passwordless modes) uses FIPS 140-approved cryptography, it's not validated for FIPS 140 Level 1.
 
 FIDO 2 security key providers are in various stages of FIPS certification. We recommend you review the list of [supported FIDO 2 key vendors](../authentication/concept-authentication-passwordless.md#fido2-security-key-providers). Consult with your provider for current FIPS validation status.
 
 
 ## Reauthentication 
 
-For AAL2, NIST requires reauthentication every 12 hours, regardless of user activity. Reauthentication is required after a period of inactivity of 30 minutes or longer. Because the session secret is something you have, presenting something you know, or are, is required.
+For AAL2, the NIST requirement is reauthentication every 12 hours, regardless of user activity. Reauthentication is required after a period of inactivity of 30 minutes or longer. Because the session secret is something you have, presenting something you know, or are, is required.
 
 To meet the requirement for reauthentication, regardless of user activity, Microsoft recommends configuring [user sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md) to 12 hours. 
 
 With NIST you can use compensating controls to confirm subscriber presence:
 
-* Set session inactivity timeout to 30 minutes: Lock the device at the operating system level with Microsoft System Center Configuration Manager, group policy objects (GPOs), or Intune. For the subscriber to unlock it, require local authentication.
+* Set session inactivity time out to 30 minutes: Lock the device at the operating system level with Microsoft System Center Configuration Manager, group policy objects (GPOs), or Intune. For the subscriber to unlock it, require local authentication.
 
-* Timeout regardless of activity: Run a scheduled task (Configuration Manager, GPO, or Intune) to lock the machine after 12 hours, regardless of activity.
+* Time out regardless of activity: Run a scheduled task (Configuration Manager, GPO, or Intune) to lock the machine after 12 hours, regardless of activity.
 
 ## Man-in-the-middle resistance 
 
