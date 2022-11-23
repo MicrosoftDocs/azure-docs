@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Text processing with batch deployments
 
-[!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
 Batch Endpoints can be used for processing tabular data, but also any other file type like text. Those deployments are supported in both MLflow and custom models. In this tutorial we will learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
 
@@ -40,7 +40,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
 * You must have an endpoint already created. If you don't please follow the instructions at [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md). This example assumes the endpoint is named `text-summarization-batch`.
 * You must have a compute created where to deploy the deployment. If you don't please follow the instructions at [Create compute](how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
@@ -262,7 +262,7 @@ MLflow models in Batch Endpoints support reading CSVs as input data, which may c
 
 * Only `CSV` files are supported for MLflow deployments processing text. You will need to author a scoring script if you need to process other file types like `TXT`, `PARQUET`, etc. See [Using MLflow models with a scoring script](how-to-mlflow-batch.md#using-mlflow-models-with-a-scoring-script) for details.
 * Batch deployments will call your MLflow model's predict function with the content of an entire file in as Pandas dataframe. If your input data contains many rows, chances are that running a complex model (like the one presented in this tutorial) will result in an out-of-memory exception. If this is your case, you can consider:
-   * Customize how your model runs predictions and implement batching. To learn how to customize MLflow model's inference, see [Logging custom models](../how-to-log-mlflow-models.md?#logging-custom-models).
+   * Customize how your model runs predictions and implement batching. To learn how to customize MLflow model's inference, see [Logging custom models](how-to-log-mlflow-models.md?#logging-custom-models).
    * Author a scoring script and load your model using `mlflow.<flavor>.load_model()`. See [Using MLflow models with a scoring script](how-to-mlflow-batch.md#using-mlflow-models-with-a-scoring-script) for details.
 
 
