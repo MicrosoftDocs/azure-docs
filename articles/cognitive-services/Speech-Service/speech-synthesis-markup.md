@@ -23,11 +23,14 @@ Speech Synthesis Markup Language (SSML) is an XML-based markup language that can
 
 You can use SSML to:
 
-- [Define structure](speech-synthesis-markup-structure.md) that determines the structure, content, and other characteristics in the text-to-speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags such as bookmark or viseme that can be processed later by your application.
+- [Define the input text structure](speech-synthesis-markup-structure.md) that determines the structure, content, and other characteristics of the text-to-speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags such as bookmark or viseme that can be processed later by your application.
 - [Choose the voice](speech-synthesis-markup-voice.md) language, name, style, and role. You can use multiple voices in a single SSML document. Adjust the emphasis, speaking rate, pitch, and volume. You can also use SSML to insert pre-recorded audio, such as a sound effect or a musical note.
-- [Control pronunciation](speech-synthesis-markup-pronunciation.md) that determines how the speech is pronounced. For example, you can use SSML with phonemes and a custom lexicon to improve pronunciation. You can also use SSML to define how a word or mathematical expression is pronounced.
+- [Control pronunciation](speech-synthesis-markup-pronunciation.md) of the output audio. For example, you can use SSML with phonemes and a custom lexicon to improve pronunciation. You can also use SSML to define how a word or mathematical expression is pronounced.
 
 ## Use SSML
+
+> [!IMPORTANT]
+> You're billed for each character that's converted to speech, including punctuation. Although the SSML document itself is not billable, optional elements that are used to adjust how the text is converted to speech, like phonemes and pitch, are counted as billable characters. For more information, see [text-to-speech pricing notes](text-to-speech.md#pricing-note).
 
 You can use SSML in the following ways:
 
