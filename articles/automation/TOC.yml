@@ -238,6 +238,16 @@
                   href: automation-dsc-create-composite.md
     - name: Change tracking and inventory 
       items:
+        - name: Using Azure Monitoring Agent
+          items:
+            - name: Overview
+              href: change-tracking/overview-monitoring-agent.md
+            - name: Configure alerts
+              href: change-tracking/configure-alerts.md
+            - name: Enable
+              items:
+                - name: Enable change tracking from portal
+                  href: change-tracking/enable-vms-monitoring-agent.md
         - name: Using Log Analytics
           items:
             - name: Overview
