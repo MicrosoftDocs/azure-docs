@@ -25,18 +25,18 @@ Use the following table to understand NIST terminology.
 
 |Term| Definition|
 | - | - |
-| Assertion| A statement from a *verifier* to a *relying party* that contains information about the *subscriber*. An assertion might contain verified attributes. |
-|Authentication| The process of verifying the identity of a *subject*|
-| Authentication factor| Something you are, know, or have. Every *authenticator* has one or more authentication factors|
-| Authenticator| Something the *claimant* possesses and controls to authenticate the *claimant* identity|
-| Claimant| A *subject* identity to be verified with one or more *authentication* protocols|
-|Credential| An object or data structure that authoritatively binds an identity to at least one *subscriber authenticator* that a *subscriber* posseses and controls|
-| Credential service provider (CSP)| A trusted entity that issues or registers *subscriber authenticators* and issues electronic *credentials* to *subscribers*|
-|Relying party| An entity that relies on a *verifier assertion* or a *claimant authenticators* and *credentials*, usually to grant access to a system|
-|  Subject| A person, organization, device, hardware, network, software, or service|
-| Subscriber| A party who received a *credential* or *authenticator* from a *CSP*|
-|Trusted Platform Module  (TPM) | A tamper-resistant module that does cryptographic operations, including key generation|
-|  Verifier| An entity that verifies the *claimant* identity by verifying the claimant possession and control of *authenticators*|
+|Assertion|A statement from a *verifier* to a *relying party* that contains information about the *subscriber*. An assertion might contain verified attributes|
+|Authentication|The process of verifying the identity of a *subject*|
+|Authentication factor|Something you are, know, or have. Every *authenticator* has one or more authentication factors|
+|Authenticator|Something the *claimant* possesses and controls to authenticate the *claimant* identity|
+|Claimant|A *subject* identity to be verified with one or more *authentication* protocols|
+|Credential|An object or data structure that authoritatively binds an identity to at least one *subscriber authenticator* that a *subscriber* posseses and controls|
+|Credential service provider (CSP)|A trusted entity that issues or registers *subscriber authenticators* and issues electronic *credentials* to *subscribers*|
+|Relying party|An entity that relies on a *verifier assertion* or a *claimant authenticators* and *credentials*, usually to grant access to a system|
+|Subject|A person, organization, device, hardware, network, software, or service|
+|Subscriber|A party who received a *credential* or *authenticator* from a *CSP*|
+|Trusted Platform Module (TPM) |A tamper-resistant module that does cryptographic operations, including key generation|
+|Verifier|An entity that verifies the *claimant* identity by verifying the claimant possession and control of *authenticators*|
 
 
 ## About Trusted Platform Module technology
@@ -54,7 +54,7 @@ You can group authentication factors into three categories:
 
 ![Graphic of authentication factors, grouped by something someone is, knows, or has](media/nist-authentication-basics/nist-authentication-basics-0.png)
 
-Authentication factor strength is determined by how sure you are it's something only the subscriber is, knows, or has. The NIST organization provides limited guidance on authentication factor strength. Use the information in the following section to learn how Microsoft assess strengths. 
+Authentication factor strength is determined by how sure you are it's something only the subscriber is, knows, or has. The NIST organization provides limited guidance on authentication factor strength. Use the information in the following section to learn how Microsoft assesses strengths. 
 
 ### Something you know
 
@@ -97,7 +97,7 @@ You can implement MFA by using an MFA authenticator or two single-factor authent
 
 ### MFA with two single-factor authenticators
 
-MFA requires two authentication factors, which can independent. For example: 
+MFA requires two authentication factors, which can be independent. For example: 
 
 * Memorized secret (password) and out of band (SMS)
 
@@ -126,7 +126,7 @@ One example is the Microsoft Authenticator app, in passwordless mode: the user a
 
 [NIST authenticator types](nist-authenticator-types.md)
 
-[Achieving NIST AAL1 bu using Azure AD](nist-authenticator-assurance-level-1.md)
+[Achieving NIST AAL1 by using Azure AD](nist-authenticator-assurance-level-1.md)
 
 [Achieving NIST AAL2 by using Azure AD](nist-authenticator-assurance-level-2.md)
 
