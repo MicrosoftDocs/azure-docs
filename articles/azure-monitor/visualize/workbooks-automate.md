@@ -19,8 +19,8 @@ This capability can be useful in scenarios like:
 The workbook will be created in the desired sub/resource-group and with the content specified in the ARM templates.
 
 Two types of workbook resources can be managed programmatically:
-* [Workbook templates](#azure-resource-manager-template-for-deploying-a-workbook-template)
-* [Workbook instances](#azure-resource-manager-template-for-deploying-a-workbook-instance)
+* [Workbook templates](#arm-template-for-deploying-a-workbook-template)
+* [Workbook instances](#arm-template-for-deploying-a-workbook-instance)
 
 ## ARM template for deploying a workbook template
 
