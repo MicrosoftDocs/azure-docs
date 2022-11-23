@@ -12,7 +12,7 @@
       - name: OT monitoring software versions
         href: release-notes.md
         displayName: sensor versions
-      - name: Microsoft Sentinel solution release notes
+      - name: Microsoft Sentinel solution versions
         href: release-notes-sentinel.md
 - name: Quickstarts
   expanded: false
