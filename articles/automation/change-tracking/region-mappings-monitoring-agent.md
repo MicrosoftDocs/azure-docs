@@ -20,51 +20,24 @@ For more information, see [Log Analytics workspace and Automation account](../..
 
 The following table shows the supported mappings:
 
-|**Log Analytics workspace region**|
-|---|
-|**US**|
-|EastUS<sup>1</sup>|
-|EastUS2<sup>2</sup>|
-|WestUS|
-|WestUS2|
-|NorthCentralUS|
-|CentralUS|
-|SouthCentralUS|
-|WestCentralUS|
-|**Brazil**|
-|BrazilSouth|
-|**Canada**|
-|CanadaCentral|
-|**China**|
-|ChinaEast2<sup>3</sup>|
-|**Asia Pacific**|
-|EastAsia|
-|SoutheastAsia|
-|**India**|
-|CentralIndia|
-|**Japan**|
-|JapanEast|
-|**Australia**|
-|AustraliaEast|
-|AustraliaSoutheast|AustraliaSoutheast|
-|**Korea**|
-|KoreaCentral|
-|**Norway**|
-|NorwayEast|
-|**Europe**|
-|NorthEurope|
-|WestEurope|
-|**France**|
-|FranceCentral|
-|**United Kingdom**
-|UKSouth|
-|**Switzerland**|
-|SwitzerlandNorth|
-|**United Arab Emirates**|
-|UAENorth|
-|**US Gov**|
-|USGovVirginia|
-|USGovArizona<sup>3</sup>|
+|**Geography**| **Log Analytics workspace region**|
+|---| ---|
+|**US**| EastUS<sup>1</sup> </br> EastUS2<sup>2</sup> </br> WestUS </br> WestUS2 </br> NorthCentralUS </br> CentralUS </br> SouthCentralUS </br> WestCentralUS|
+|**Brazil**| BrazilSouth|
+|**Canada**| CanadaCentral|
+|**China**| ChinaEast2<sup>3</sup>|
+|**Asia Pacific**| EastAsia </br> SoutheastAsia|
+|**India**| CentralIndia|
+|**Japan**| JapanEast|
+|**Australia**| AustraliaEast </br> AustraliaSoutheast </br> AustraliaSoutheast|
+|**Korea**| KoreaCentral|
+|**Norway**| NorwayEast|
+|**Europe**| NorthEurope </br> WestEurope|
+|**France**| FranceCentral|
+|**United Kingdom**| UKSouth|
+|**Switzerland**| SwitzerlandNorth|
+|**United Arab Emirates**| UAENorth|
+|**US Gov**| USGovVirginia </br> USGovArizona<sup>3</sup>|
 
 <sup>1</sup> EastUS mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
 
