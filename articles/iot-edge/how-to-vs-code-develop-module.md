@@ -606,7 +606,7 @@ In Visual Studio Code, open *deployment.debug.template.json* deployment manifest
 
 You can check your container status by running the `docker ps` command in the terminal. If your Visual Studio Code and IoT Edge runtime are running on the same machine, you can also check the status in the Visual Studio Code Docker view.
 
-> [!TIP]
+> [!IMPORTANT]
 > If you're using a private registry like Azure Container Registry (ACR) for your images, you may need to authenticate to push images. Use `docker login <ACR login server>` or `az acr login --name <ACR name>` to authenticate.
 
 ::: zone-end
@@ -778,6 +778,7 @@ The Docker and Moby engines support SSH connections to containers allowing you t
 1. In VS Code, set breakpoints in your custom module.
 1. When a breakpoint is hit, you can inspect variables, step through code, and debug your module.
 
+    :::image type="content" source="media/how-to-vs-code-develop-module/vscode-breakpoint.png" alt-text="Screenshot of VS Code attached to a Docker container on a remote device paused at a breakpoint.":::
 > [!NOTE]
 > The preceding example shows how to debug IoT Edge modules on remote containers. It added a remote Docker context and changes to the Docker privileges on the remote device. After you finish debugging your modules, set your Docker context to *default* and remove privileges from your user account.
 

@@ -568,6 +568,8 @@ The Docker and Moby engines support SSH connections to containers allowing you t
 1. In Visual Studio, set breakpoints in your custom module.
 1. When a breakpoint is hit, you can inspect variables, step through code, and debug your module.
 
+    :::image type="content" source="media/how-to-visual-studio-develop-module/vs-breakpoint.png" alt-text="Screenshot of Visual Studio attached to remote docker container on a device paused on a breakpoint.":::
+
 ## Next steps
 
 * To develop custom modules for your IoT Edge devices, [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
