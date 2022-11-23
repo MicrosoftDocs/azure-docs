@@ -1,5 +1,5 @@
 ---
-title: Tutorial to configure Azure Active Directory B2C with Akamai for secure hybrid access 
+title: Configure Azure Active Directory B2C with Akamai for secure hybrid access 
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Akamai for secure hybrid access 
 services: active-directory-b2c
@@ -14,7 +14,7 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Tutorial: Configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access
+# Configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access
 
 In this sample tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Akamai Enterprise Application Access](https://www.akamai.com/products/enterprise-application-access). Akamai Enterprise Application Access is a Zero Trust Network Access (ZTNA) solution that enables secure remote access to modern and legacy applications that reside in private data centers. Akamai Enterprise Application Access federates with Identity Providers like Azure AD B2C to authenticate users and then uses its authorization policies to perform continuous evaluation of the identity, device, application, and request context before allowing access to private applications.  
 
