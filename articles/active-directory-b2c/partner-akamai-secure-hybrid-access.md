@@ -364,7 +364,7 @@ To enable access to a private application, deploy one or more [Akamai Enterprise
 
 1. When you define the Access Application 
 
-   - Associate it to the **Enterprise Application Access Azure AD B2C IDP** definition that you created with the previous steps.
+   - Associate it to the **Enterprise Application Access Azure AD B2C IdP** definition that you created with the previous steps.
 
    - Configure Application Facing Authentication to enable SSO into the private application:
      - **Option 1**: [Configure Custom HTTP Headers for an Access Application](https://techdocs.akamai.com/eaa/docs/custom-http-headers)
@@ -400,7 +400,7 @@ Once the Application is deployed in a private environment and a connector is cap
 
 In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp) that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
 
-1. Configure the OIDC to SAML bridging in the **AZURE AD B2C SAML IDP** created with the previous steps.
+1. Configure the OIDC to SAML bridging in the **AZURE AD B2C SAML IdP** created with the previous steps.
 
    [ ![Screenshot shows the akamai oidc app oidc settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_idp_settings.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_idp_settings.png#lightbox)
 
