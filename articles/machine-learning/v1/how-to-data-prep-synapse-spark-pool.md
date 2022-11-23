@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: larryfr
-author: blackmist
-ms.reviewer: nibaccam
+author: ynpandey
+ms.author: franksolomon
+ms.reviewer: franksolomon
 ms.date: 08/17/2022
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to prepare my data at scale, and to train my machine learning models from a single notebook using Azure Machine Learning.

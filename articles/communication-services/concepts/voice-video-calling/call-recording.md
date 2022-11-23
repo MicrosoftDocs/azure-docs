@@ -42,9 +42,6 @@ Call Recording supports multiple media outputs and content types to address your
 
 ### Audio
 
-> [!NOTE]
-> **Unmixed audio** is in **Private Preview**.
-
 | Channel Type | Content Format | Sampling Rate | Output | Description |
 | :----------- | :------------- | :----------- | :---- | :---------------- | 
 | mixed | mp3 & wav | 16 kHz | single file, single channel | mixed audio of all participants |

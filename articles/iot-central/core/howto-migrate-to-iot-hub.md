@@ -84,7 +84,7 @@ If your devices use X.509 certificates to authenticate to your IoT Central appli
 
 Download or clone a copy of the migrator tool to your local machine:
 
-```cmd/bash
+```cmd/sh
 git clone https://github.com/Azure/iotc-migrator.git
 ```
 
@@ -105,7 +105,7 @@ Open the *config.ts* file in a text editor. Update the `AADClientID` and `AADDIr
 
 In your command-line environment, navigate to the root of the `iotc-migrator` repository. Then run the following commands to install the required node.js packages and then run the tool:
 
-```cmd/bash
+```cmd/sh
 npm install
 npm start
 ```

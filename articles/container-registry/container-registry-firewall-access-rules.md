@@ -19,6 +19,8 @@ To pull or push images or other artifacts to an Azure container registry, a clie
 
 * **Registry REST API endpoint** - Authentication and registry management operations are handled through the registry's public REST API endpoint. This endpoint is the login server name of the registry. Example: `myregistry.azurecr.io`
 
+* **Registry REST API endpoint for certificates** - Azure container registry uses a wildcard SSL certificate for all subdomains. When connecting to the Azure container registry using SSL, the client must be able to download the certificate for the TLS handshake. In such cases, `azurecr.io` must also be accessible.
+
 * **Storage (data) endpoint** - Azure [allocates blob storage](container-registry-storage.md) in Azure Storage accounts on behalf of each registry to manage the data for container images and other artifacts. When a client accesses image layers in an Azure container registry, it makes requests using a storage account endpoint provided by the registry.
 
 If your registry is [geo-replicated](container-registry-geo-replication.md), a client might need to interact with the data endpoint in a specific region or in multiple replicated regions.

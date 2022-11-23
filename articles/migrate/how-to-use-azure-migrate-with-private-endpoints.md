@@ -4,9 +4,9 @@ description: Use Azure Migrate private link support to discover, assess, and mig
 author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, engagement-fy23
 ms.topic: how-to
-ms.date: 4/5/2022
+ms.date: 9/20/2022
 ---
 
 # Support requirements and considerations for Private endpoint connectivity (Preview)

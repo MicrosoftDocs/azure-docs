@@ -168,4 +168,4 @@ You could also assign permissions to all authenticated Azure AD users and specif
 
 ## Next steps
 
-Now that you've assigned share-level permissions, you must [configure directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md).
+Now that you've assigned share-level permissions, you can [configure directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md).
