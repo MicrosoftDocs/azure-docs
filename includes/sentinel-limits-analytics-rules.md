@@ -15,4 +15,6 @@ The following limit applies to analytics rules in Microsoft Sentinel.
 |Description |Limit  |Dependency|
 |---------|---------|---------|
 |Number of rules     | 512 rules       |None|
+|Custom details    | 20 details per rule |None|
+|Custom details cumulative size limit | 2 KB |None|
 

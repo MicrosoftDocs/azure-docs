@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/sentinel/iot-solution.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/iot-solution",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/sentinel/iot-advanced-threat-monitoring.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/iot-advanced-threat-monitoring",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/backup/backup-center-community.md",
             "redirect_url": "/azure/backup/backup-center-overview",
             "redirect_document_id": false
@@ -5961,6 +5971,11 @@
         {
             "source_path_from_root": "/articles/automation/quickstarts/create-account-portal.md",
             "redirect_url": "/azure/automation/create-azure-automation-account-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/update-center/enable-machines.md",
+            "redirect_url": "/azure/update-center/updates-maintenance-schedules",
             "redirect_document_id": false
         },
         {

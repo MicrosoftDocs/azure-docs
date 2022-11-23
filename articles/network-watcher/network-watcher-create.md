@@ -9,9 +9,9 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 10/08/2021
 ms.author: damendo 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -23,13 +23,13 @@ Network Watcher is a regional service that enables you to monitor and diagnose c
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Network Watcher is automatically enabled
-When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There is no impact to your resources or associated charge for automatically enabling Network Watcher.
+When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There's no impact to your resources or associated charge for automatically enabling Network Watcher.
 
 #### Opt-out of Network Watcher automatic enablement
 If you would like to opt out of Network Watcher automatic enablement, you can do so by running the following commands:
 
 > [!WARNING]
-> Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt-out you cannot opt-in without [contacting support](https://azure.microsoft.com/support/options/)
+> Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt-out, you cannot opt-in without contacting [support](https://azure.microsoft.com/support/options/).
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
@@ -45,13 +45,16 @@ az provider register -n Microsoft.Network
 
 ## Create a Network Watcher in the portal
 
-Navigate to **All Services** > **Networking** > **Network Watcher**. You can select all the subscriptions you want to enable Network Watcher for. This action creates a Network Watcher in every region that is available.
+1. Log into the [Azure portal](https://portal.azure.com) with an account that has the necessary permissions.
+2. Select **More services**.
+3. In the **All services** screen, enter **Network Watcher** in the **Filter services** search box and select it from the search result.  
+You can select all the subscriptions you want to enable Network Watcher for. This action creates a Network Watcher in every region that is available.
 
 ![create a network watcher](./media/network-watcher-create/figure1.png)
 
 When you enable Network Watcher using the portal, the name of the Network Watcher instance is automatically set to *NetworkWatcher_region_name* where *region_name* corresponds to the Azure region where the instance is enabled. For example, a Network Watcher enabled in the West Central US region is named *NetworkWatcher_westcentralus*.
 
-The Network Watcher instance is automatically created in a resource group named *NetworkWatcherRG*. The resource group is created if it does not already exist.
+The Network Watcher instance is automatically created in a resource group named *NetworkWatcherRG*. The resource group is created if it doesn't already exist.
 
 If you wish to customize the name of a Network Watcher instance and the resource group it's placed into, you can use PowerShell, the Azure CLI, the REST API, or ARMClient methods described in the sections that follow. In each option, the resource group must exist before you create a Network Watcher in it.  
 
@@ -99,16 +102,15 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 
 ## Create a Network Watcher using Azure Quickstart Template
 
-To create an instance of Network Watcher refer this [Quickstart Template](https://azure.microsoft.com/resources/templates/networkwatcher-create/)
+To create an instance of Network Watcher, refer this [Quickstart Template](https://azure.microsoft.com/resources/templates/networkwatcher-create/)
 
 ## Delete a Network Watcher in the portal
 
-Navigate to **All Services** > **Networking** > **Network Watcher**.
-
-Select the overview tab, if you're not already there. Use the dropdown to select the subscription you want to disable network watcher in.
-Expand the list of regions for your chosen subscription by clicking on the arrow. For any given, use the 3 dots on the right to access the context menu.
-Click on "Disable network watcher" to start disabling. You will be asked to confirm this step. Click Yes to continue.
-On the portal, you will have to do this individually for every region in every subscription.
+1. Navigate to **All Services** > **Networking** > **Network Watcher**.
+2. Select the overview tab, if you're not already there. Use the dropdown to select the subscription you want to disable network watcher in.
+3. Expand the list of locations for your chosen subscription by selecting on the arrow. For any given, use the 3 dots on the right to access the context menu.
+4. Select **Disable network watcher** to start disabling. You'll be asked to confirm this step. Select **Yes** to continue.
+On the portal, you'll have to do this individually for every region in every subscription.
 
 
 ## Delete a Network Watcher with PowerShell
