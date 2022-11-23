@@ -170,7 +170,7 @@ Use the following request to retrieve a list of devices from your application:
 GET https://{your app subdomain}/api/devices?api-version=2022-07-31
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -196,6 +196,10 @@ The response to this request looks like the following example:
     ]
 }
 ```
+
+### Assign a deployment manifest
+
+If you're adding an IoT Edge device, you can use the API to assign an IoT Edge deployment manifest to the device. To learn more, see [Assign a deployment manifest to a device](howto-manage-deployment-manifests-with-rest-api.md#assign-a-deployment-manifest-to-a-device).
 
 ### Use ODATA filters
 

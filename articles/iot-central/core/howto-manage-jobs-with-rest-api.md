@@ -81,7 +81,7 @@ The following table describes the fields in the previous JSON snippet:
 | `cancellationThreshold/type` | The cancellation threshold for the job is either a `percentage` or a `number` of devices. |
 | `cancellationThreshold/value` | Either the percentage of devices or the number of devices that define the cancellation threshold. |
 | `data` | An array of operations the job performs. |
-| `data/type` | One of `PropertyJobData`, `CommandJobData`, or `CloudPropertyJobData` |
+| `data/type` | One of `PropertyJobData`, `CommandJobData`, `CloudPropertyJobData`, or `DeviceTemplateMigrationJobData`. The preview version of the API includes `DeviceManifestMigrationJobData`. |
 | `data/target` | The model ID of the target devices. |
 | `data/path` | The name of the property, command, or cloud property. |
 | `data/value` | The property value to set or the command parameter to send. |
@@ -250,7 +250,7 @@ When you create a device group, you define a `filter` that selects the devices t
 }
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -262,7 +262,6 @@ The response to this request looks like the following example:
 ```
 
 You can now use the `id` value from the response to create a new job.
-
 
 ```json
 {
