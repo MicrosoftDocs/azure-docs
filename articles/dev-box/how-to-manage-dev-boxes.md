@@ -37,7 +37,7 @@ For example, say you were working on a bug. You could a separate dev box for the
 ## Connect to a dev box
 Once you create your dev box, you can connect to it through the remote desktop app, or through the browser. 
 
-:::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/open-rdp-client.jpeg" alt-text="Screenshot of dev box showing open an RDP client.":::
+:::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/open-rdp-client.jpeg" alt-text="Screenshot of dev box showing open an RDP client.":::
 
 For most cases, use the remote desktop app when accessing a dev box. The remote desktop provides the highest performance and best user-experience for heavy workloads. 
 
