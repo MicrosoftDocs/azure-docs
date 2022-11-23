@@ -226,6 +226,8 @@ Learn more about the Azure Policy [guest configuration extension](../virtual-mac
 
 ### Agent provisioning
 
+When you 
+
 When you enable Defender for Servers or another plan, Defender for Cloud starts automatically provisioning agents and extensions in the selected subscription/workspace.
 - When you enable Defender for Servers Plan 1 or Plan 2 and then enable Defender for Endpoint unified integration, the Defender for Endpoint agent is automatically provisioned on all supported machines in the subscription.
 
