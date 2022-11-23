@@ -58,7 +58,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
    # [Azure CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    az account set --subscription <subscription>
    az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
    ```
@@ -91,7 +91,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    # [Azure CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    MODEL_NAME='heart-classifier'
    az ml model create --name $MODEL_NAME --type "mlflow_model" --path "heart-classifier-mlflow/model"
    ```
@@ -126,7 +126,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    Create the compute using the following command:
    
-   ```bash
+   ```azurecli
    az ml compute create -f cpu-cluster.yml
    ```
    
@@ -156,9 +156,9 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    Then, create the endpoint with the following command:
    
-   ```bash
+   ```azurecli
    ENDPOINT_NAME='heart-classifier-batch'
-   az ml batch-endpoint create -f endpoint.yml
+   az ml batch-endpoint create -n $ENDPOINT_NAME -f endpoint.yml
    ```
    
    # [Python](#tab/sdk)
@@ -170,6 +170,11 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
       name="heart-classifier-batch", 
       description="A heart condition classifier for batch inference",
    )
+   ```
+   
+   Then, create the endpoint with the following command:
+   
+   ```python
    ml_client.batch_endpoints.begin_create_or_update(endpoint)
    ```
 
@@ -201,14 +206,14 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    Then, create the deployment with the following command:
    
-   ```bash
+   ```azurecli
    DEPLOYMENT_NAME="classifier-xgboost-mlflow"
-   az ml batch-deployment create -f endpoint.yml
+   az ml batch-deployment create -n $DEPLOYMENT_NAME -f endpoint.yml
    ```
    
    # [Python](#tab/sdk)
    
-   To create a new deployment under the created endpoint, use the following script:
+   To create a new deployment under the created endpoint, first define the deployment:
    
    ```python
    deployment = BatchDeployment(
@@ -225,6 +230,11 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
        retry_settings=BatchRetrySettings(max_retries=3, timeout=300),
        logging_level="info",
    )
+   ```
+   
+   Then, create the deployment with the following command:
+   
+   ```python
    ml_client.batch_deployments.begin_create_or_update(deployment)
    ```
    ---
@@ -236,13 +246,14 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
    # [Azure CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
    ```
    
    # [Python](#tab/sdk)
    
    ```python
+   endpoint = ml_client.batch_endpoints.get(endpoint.name)
    endpoint.defaults.deployment_name = deployment.name
    ml_client.batch_endpoints.begin_create_or_update(endpoint)
    ```
@@ -257,7 +268,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
    # [Azure CLI](#tab/cli)
    
-   Create a data asset definition in `YAML`:
+   a. Create a data asset definition in `YAML`:
    
    __heart-dataset-unlabeled.yml__
    ```yaml
@@ -268,13 +279,15 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    path: heart-classifier-mlflow/data
    ```
    
-   Then, create the data asset:
+   b. Create the data asset:
    
-   ```bash
+   ```azurecli
    az ml data create -f heart-dataset-unlabeled.yml
    ```
    
    # [Python](#tab/sdk)
+   
+   a. Create a data asset definition:
    
    ```python
    data_path = "heart-classifier-mlflow/data"
@@ -286,14 +299,25 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
        description="An unlabeled dataset for heart classification",
        name=dataset_name,
    )
+   ```
+   
+   b. Create the data asset:
+   
+   ```python
    ml_client.data.create_or_update(heart_dataset_unlabeled)
+   ```
+   
+   c. Refresh the object to reflect the changes:
+   
+   ```python
+   heart_dataset_unlabeled = ml_client.data.get(name=dataset_name)
    ```
    
 2. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
 
    # [Azure CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:heart-dataset-unlabeled@latest | jq -r '.name') 
    ```
    
@@ -318,7 +342,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
    # [Azure CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    az ml job show --name $JOB_NAME
    ```
    
@@ -346,7 +370,7 @@ You can download the results of the job by using the job name:
 
 To download the predictions, use the following command:
 
-```bash
+```azurecli
 az ml job download --name $JOB_NAME --output-name score --download-path ./
 ```
 
@@ -535,7 +559,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    
    Then, create the deployment with the following command:
    
-   ```bash
+   ```azurecli
    az ml batch-deployment create -f deployment.yml
    ```
    

@@ -12,7 +12,7 @@
       - name: OT monitoring software versions
         href: release-notes.md
         displayName: sensor versions
-      - name: Microsoft Sentinel solution release notes
+      - name: Microsoft Sentinel solution versions
         href: release-notes-sentinel.md
 - name: Quickstarts
   expanded: false
@@ -29,9 +29,9 @@
   - name: Integrate with Microsoft Sentinel
     items:
     - name: Connect Defender for IoT data to Microsoft Sentinel
-      href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+      href: iot-solution.md
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
-      href: ../../sentinel/iot-advanced-threat-monitoring.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+      href: iot-advanced-threat-monitoring.md
 - name: Concepts
   items:
     - name: Subscription billing
@@ -60,8 +60,10 @@
       href: concept-supported-protocols.md
     - name: Monitoring OT threats in enterprise SOCs
       href: concept-sentinel-integration.md
+      displayName: Microsoft Sentinel, modernize SOC
     - name: Securing IoT devices in the enterprise
       href: concept-enterprise.md
+      displayName: Microsoft Defender for Endpoint, MDE
 - name: How-to guides
   items:
   - name: Visualize devices
@@ -340,8 +342,6 @@
     href: pre-deployment-checklist.md
   - name: Custom columns sample script
     href: custom-columns-sample-script.md
-  - name: Microsoft Defender for IoT ninja training
-    href: resources-training-sessions.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
