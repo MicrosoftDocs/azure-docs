@@ -498,7 +498,7 @@ sections:
         answer: |
           Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development, and publishing an app for a few users. You can set a cap to prevent more than a specified amount of data from being processed.
           
-          Larger volumes of telemetry are charged by the Gb. We provide some tips on how to [limit your charges](best-practices-cost.md#application-insights).
+          Larger volumes of telemetry are charged by the Gb. We provide some tips on how to [limit your charges](best-practices-cost.md#data-collection).
           
           The Enterprise plan incurs a charge for each day that each web server node sends telemetry. It's suitable if you want to use Continuous Export on a large scale.
           
@@ -508,7 +508,10 @@ sections:
           How much does it cost?
         answer: |
           * Open the **Usage and estimated costs page** in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
-          * Open the [Azure Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) to see your bills across all resources.
+          * To see your bills across all resources:
+            1. Open the [Azure portal](https://portal.azure.com)
+            1. Search for "Cost Management" and use the Cost analysis pane to see forecasted costs.
+            1. Search for "Cost Management and Billing" and open the Billing scopes pane to see current charges across subscriptions.
           
       - question: What do Application Insights modify in my project?
         answer: |
@@ -1048,7 +1051,7 @@ sections:
       - question: |
           Is there support for Kubernetes RBAC enabled AKS clusters?
         answer: |
-          The Container Monitoring solution doesn't support Kubernetes RBAC, but it's supported with Container insights. The solution details page may not show the right information in the blades that show data for these clusters.
+          The Container Monitoring solution doesn't support Kubernetes RBAC, but it's supported with Container insights. The solution details page may not show the right information in the panes that show data for these clusters.
 
       - question: |
           How do I enable log collection for containers in the kube-system namespace through Helm?
@@ -1158,7 +1161,7 @@ sections:
         answer: |
           The VM insights Map feature is based on Service Map, but has the following differences:
           
-          * The Map view can be accessed from the VM blade and from VM insights under Azure Monitor.
+          * The Map view can be accessed from the VM pane and from VM insights under Azure Monitor.
           * The connections in the Map are now clickable and display a view of the connection metric data in the side panel for the selected connection.
           * There's a new API that is used to create the maps to better support more complex maps.
           * Monitored VMs are now included in the client group node, and the donut chart shows the proportion of monitored vs unmonitored virtual machines in the group.  It can also be used to filter the list of machines when the group is expanded.
