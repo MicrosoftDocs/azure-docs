@@ -41,7 +41,7 @@ To complete this tutorial, you need:
 
 - An instance of Azure Database for MySQL Flexible Server. For more information, see the article [Create an instance in Azure Database for MySQL Flexible Server](../flexible-server/quickstart-create-server-portal.md).
     
-> [!Note]
+    > [!Note]
     > Configuring Data-in replication for zone redundant high availability servers is not supported. If you would like to have zone redundant HA for your target server, then perform these steps:
     >
     > 1. Create the server with Zone redundant HA enabled
