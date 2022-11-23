@@ -109,9 +109,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Cloud monitoring with Azure Monitor Metrics
+          - text: Cloud monitoring metrics with Azure Monitor
             url: monitor-private-5g-core-metrics-with-azure-monitor.md
-          - text: Cloud monitoring with Azure Log Analytics
+          - text: Cloud monitoring logs with Azure Monitor Log Analytics
             url: monitor-private-5g-core-with-log-analytics.md
           - text: Local monitoring with distributed tracing
             url: distributed-tracing.md

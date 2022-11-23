@@ -36,9 +36,9 @@ items:
     href: default-service-sim-policy.md
   - name: Cloud monitoring tools
     items:
-    - name: Monitor Azure Private 5G Core using Azure Monitor Metrics
+    - name: Monitor Azure Private 5G Core metrics using Azure Monitor
       href: monitor-private-5g-core-metrics-with-azure-monitor.md
-    - name: Monitor Azure Private 5G Core using Log Analytics
+    - name: Monitor Azure Private 5G Core logs using Azure Monitor Log Analytics
       href: monitor-private-5g-core-with-log-analytics.md  
   - name: Local monitoring tools
     items:

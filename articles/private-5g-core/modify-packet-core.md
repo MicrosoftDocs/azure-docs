@@ -89,7 +89,8 @@ To make changes to the data network attached to your packet core instance:
 
 ## Next steps
 
-Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally after you modify it.
+Use Azure Monitor or the packet core dashboards to confirm your packet core instance is operating normally after you modify it.
 
-- [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
+- [Monitor Azure Private 5G Core logs with Azure Monitor Log Analytics](monitor-private-5g-core-with-log-analytics.md)
+- [Monitor Azure Private 5G Core metrics with Azure Monitor](monitor-private-5g-core-metrics-with-azure-monitor.md)
 - [Packet core dashboards](packet-core-dashboards.md)

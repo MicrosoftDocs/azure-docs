@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Private 5G Core Preview with Log Analytics
+title: Monitor Azure Private 5G Core logs with Azure Monitor Log Analytics
 description: Information on using Log Analytics to monitor and analyze activity in your private mobile network. 
 author: djrmetaswitch
 ms.author: drichards
@@ -9,9 +9,16 @@ ms.date: 03/08/2022
 ms.custom: template-concept
 ---
 
-# Monitor Azure Private 5G Core Preview with Log Analytics
+# Monitor Azure Private 5G Core logs with Azure Monitor Log Analytics
 
-Log Analytics is a tool in the Azure portal used to edit and run log queries with data in Azure Monitor Logs. You can write queries to retrieve records or visualize data in charts, allowing you to monitor and analyze activity in your private mobile network.
+You can use [Azure Monitor](/azure/azure-monitor/) to collect and analyze Azure Private 5G Core logs and metrics in the cloud.
+
+- Logs are records of events collected by [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs). You can use Log Analytics to query for Azure Private 5G Core logs and monitor activity in your private mobile network.
+- Metrics are measurements over time stored by [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). You can use the Azure Monitor Metrics Explorer to analyze metrics in the Azure portal, or the Azure Monitor REST API to query for metrics which you can then analyze elsewhere.
+
+This article covers monitoring Azure Private 5G Core logs in the cloud using Azure Monitor. For more information on monitoring Azure Private 5G Core metrics in the cloud, see [Monitor Azure Private 5G Core metrics with Azure Monitor](monitor-private-5g-core-metrics-with-azure-monitor.md).
+
+[Log Analytics](../azure-monitor/logs/log-analytics-overview.md) is a tool in the Azure portal used to edit and run log queries with data in Azure Monitor Logs. You can write queries to retrieve records or visualize data in charts, allowing you to monitor and analyze activity in your private mobile network.
 
 > [!IMPORTANT] 
 > Log Analytics currently can only be used to monitor private mobile networks that support 5G UEs. You can still monitor private mobile networks supporting 4G UEs from the local network using the [packet core dashboards](packet-core-dashboards.md). 

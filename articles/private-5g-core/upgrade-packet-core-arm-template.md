@@ -65,7 +65,8 @@ The template modifies the version of an existing [**Microsoft.MobileNetwork/pack
 1. Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version. 
 
 ## Next steps
-You should use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally after the upgrade.
+You should use Azure Monitor or the packet core dashboards to confirm your packet core instance is operating normally after the upgrade.
 
-- [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
+- [Monitor Azure Private 5G Core logs with Azure Monitor Log Analytics](monitor-private-5g-core-with-log-analytics.md)
+- [Monitor Azure Private 5G Core metrics with Azure Monitor](monitor-private-5g-core-metrics-with-azure-monitor.md)
 - [Packet core dashboards](packet-core-dashboards.md)
