@@ -278,7 +278,7 @@
           items:
             - name: Overview
               href: change-tracking/overview.md
-            - name: Support regions for Azure Monitoring Agent
+            - name: Support regions
               href: change-tracking/region-mappings-monitoring-agent.md
             - name: Enable
               items:
