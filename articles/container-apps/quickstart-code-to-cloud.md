@@ -308,8 +308,15 @@ az containerapp create \
   --image $ACR_NAME.azurecr.io/$API_NAME \
   --target-port 3500 \
   --ingress 'external' \
-  --registry-server $ACR_NAME.azurecr.io
+  --registry-server $ACR_NAME.azurecr.io \
+  --query properties.configuration.ingress.fqdn
 ```
+
+* By setting `--ingress` to `external`, your container app will be accessible from the public internet.
+
+* The `target-port` is set to `3500` to match the port that the container is listening to for requests.
+
+* Without a `query` property, the call to `az containerapp create` returns a JSON response that includes a rich set of details about the application. By adding a query, this command filters the response down to just the app's fully qualified domain name (FQDN).
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -366,23 +373,18 @@ $AppArgs = @{
 }
 $MyApp = New-AzContainerApp @AppArgs
 
-# show the app's fully qualified domain name
+# show the app's fully qualified domain name (FQDN).
 $MyApp.IngressFqdn
 ```
 
+* By setting `IngressExternal` to `external`, your container app will be accessible from the public internet.
+* The `IngressTargetPort` parameter is set to `3500` to match the port that the container is listening to for requests.
+
 ---
-
-* By setting `--ingress` to `external`, your container app will be accessible from the public internet.
-
-* The `target-port` is set to `3500` to match the port the that the container is listing to for requests.
-
-* Without a `query` property, the call to `az containerapp create` returns a JSON response that includes a rich set of details about the application. By adding a query, this command filters the response down to just the FQDN.
 
 ## Verify deployment
 
-The `az containerapp create` command returns the fully qualified domain name (FQDN) for the container app. Copy the FQDN to a web browser.
-
-From your web browser, navigate to the `/albums` endpoint of the FQDN.
+Copy the FQDN to a web browser.  From your web browser, navigate to the `/albums` endpoint of the FQDN.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 

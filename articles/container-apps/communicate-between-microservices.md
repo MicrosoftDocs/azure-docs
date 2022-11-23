@@ -233,7 +233,8 @@ az containerapp create \
   --target-port 3000 \
   --env-vars API_BASE_URL=https://$API_BASE_URL \
   --ingress 'external' \
-  --registry-server $ACR_NAME.azurecr.io
+  --registry-server $ACR_NAME.azurecr.io \
+  --query properties.configuration.ingress.fqdn
 ```
 
 
@@ -298,9 +299,9 @@ $AppArgs = @{
     IngressTargetPort = 3500
     IngressExternal = $true
 }
-$FrontEndApp = New-AzContainerApp @AppArgs
+$FrontEndApp = NewFQDN-AzContainerApp @AppArgs
 
-# show the app's fully qualified domain name
+# show the app's FQDN
 
 $FrontEndApp.IngressFqdn
 ```
@@ -309,7 +310,7 @@ $FrontEndApp.IngressFqdn
 
 ## View website
 
-Use the container app's fully qualified domain name (FQDN) to view the website.  The page will resemble the following screenshot.
+Use the container app's FQDN to view the website.  The page will resemble the following screenshot.
 
 :::image type="content" source="media/communicate-between-microservices/azure-container-apps-album-ui.png" alt-text="Screenshot of album list UI microservice.":::
 
