@@ -16,7 +16,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access
 
-In this sample tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Akamai Enterprise Application Access](https://www.akamai.com/products/enterprise-application-access). Akamai Enterprise Application Access is a Zero Trust Network Access (ZTNA) solution that enables secure remote access to modern and legacy applications that reside in private datacenters. Akamai Enterprise Application Access federates with Identity Provider Azure AD B2C to authenticate users and then uses its authorization policies to perform continuous evaluation of the identity, device, application, and request context before allowing access to private applications.  
+In this sample tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Akamai Enterprise Application Access](https://www.akamai.com/products/enterprise-application-access). Akamai Enterprise Application Access is a Zero Trust Network Access (ZTNA) solution that enables secure remote access to modern and legacy applications that reside in private datacenters. Akamai Enterprise Application Access federates with Identity Provider (IdP) Azure AD B2C to authenticate users and then uses its authorization policies to perform continuous evaluation of the identity, device, application, and request context before allowing access to private applications.  
 
 ::: zone pivot="b2c-user-flow"
 
@@ -56,7 +56,7 @@ The components involved in this integration are:
 
 - **Application**: A service or application deployed in your private datacenter which end users need access to.
 
-The user authenticates to Azure AD B2C (as SAML Identity Provider) that will respond to Akamai Enterprise Application Access (the Service Provider) with a SAML assertion. Akamai Enterprise Application Access maps information from the SAML assertion and it constructs OpenID Claims or injects HTTP Headers containing information about the user. Akamai Enterprise Application Access will then pass this to the Application accessible through the Akamai Enterprise Application Access connector. In our sample, the application will display the content of these headers. In the use case of OIDC Application it will display the user's claims.
+The user authenticates to Azure AD B2C (as SAML IdP) that will respond to Akamai Enterprise Application Access (the Service Provider) with a SAML assertion. Akamai Enterprise Application Access maps information from the SAML assertion and it constructs OpenID Claims or injects HTTP Headers containing information about the user. Akamai Enterprise Application Access will then pass this to the Application accessible through the Akamai Enterprise Application Access connector. In our sample, the application will display the content of these headers. In the use case of OIDC Application it will display the user's claims.
 
 The following diagram shows how Akamai Enterprise Application Access (EAA) integrates with Azure AD B2C.
 
@@ -78,9 +78,9 @@ The following diagram shows how Akamai Enterprise Application Access (EAA) integ
 
 To get started with Akamai Enterprise Application Access, refer to the [Akamai Enterprise Application Access getting started guide](https://techdocs.akamai.com/eaa/docs/welcome-guide).
 
-### Step 1 - Add Azure AD B2C as a SAML Identity Provider in Akamai Enterprise Application Access
+### Step 1 - Add Azure AD B2C as a SAML IdP in Akamai Enterprise Application Access
 
-Akamai Enterprise Application Access supports SAML federation with cloud Identity Providers like Azure AD B2C. Add Azure AD B2C as a [Third party SAML Identity Provider](https://techdocs.akamai.com/eaa/docs/add-new-idp#add-a-new-identity-provider) in Akamai Enterprise Application Access.
+Akamai Enterprise Application Access supports SAML federation with cloud IdPs like Azure AD B2C. Add Azure AD B2C as a [Third party SAML IdP](https://techdocs.akamai.com/eaa/docs/add-new-idp#add-a-new-identity-provider) in Akamai Enterprise Application Access.
 
 1. Sign in to Enterprise Center https://control.akamai.com/
 
@@ -274,7 +274,7 @@ Select **Upload Custom Policy**, and then upload the two policy files that you c
    - The extension policy, for example `TrustFrameworkExtensions.xml`
    - Then the relying party policy, such as `SignUpOrSigninSAML.xml`.
 
-### Step 5 - Download the Azure AD B2C Identity Provider SAML metadata
+### Step 5 - Download the Azure AD B2C IdP SAML metadata
 
 After the policy files are uploaded, Azure AD B2C uses the configuration information to generate the identity provider's SAML metadata document that the application will use. The SAML metadata document contains the locations of services, such as sign-in methods, sign out methods, and certificates.
 
@@ -336,9 +336,9 @@ Example:
 >[!IMPORTANT]
 >If you do not update the `accessTokenAcceptedVersion` to `2` you will receive an error message requiring a verified domain.
 
-### Step 8 - Configure authentication settings for the Azure AD B2C Identity Provider in Akamai Enterprise Application Access
+### Step 8 - Configure authentication settings for the Azure AD B2C IdP in Akamai Enterprise Application Access
 
-Update your Akamai Enterprise Application Access Azure AD B2C Identity Provider with authentication information like relying party URLs.
+Update your Akamai Enterprise Application Access Azure AD B2C IdP with authentication information like relying party URLs.
 
 1. Sign in to Enterprise Center https://control.akamai.com/
 
@@ -373,13 +373,13 @@ To enable access to a private application, deploy one or more [Akamai Enterprise
 #### Option 1: HTTP Headers
 
 In this sample, we'll use an application that displays headers [docker header-demo-app](https://hub.docker.com/r/mistermik/header-demo-app).
-Once the Application is deployed in a private environment and a connector is capable to access the application, create a Custom HTTP type application following Akamai documentation  [Configure Custom HTTP Headers for an Access Application](https://techdocs.akamai.com/eaa/docs/custom-http-headers).
+Once the Application is deployed in a private environment and a connector is capable to access the application, create a Custom HTTP type application following Akamai documentation [Configure custom HTTP headers for an access application](https://techdocs.akamai.com/eaa/docs/custom-http-headers).
 
-- In Authentication select the Azure AD B2C SAML IdP created in the previous steps.
+1. In Authentication select the Azure AD B2C SAML IdP created in the previous steps.
 
   [ ![Screenshot shows the akamai authn application.](./media/partner-akamai-secure-hybrid-access/akamai_authn_app.png)](./media/partner-akamai-secure-hybrid-access/akamai_authn_app.png#lightbox)
 
-- In the **Advanced** section of the application, map the HTTP header to the SAML attributes issued by Azure AD B2C in the SAML response upon a successful authentication.
+2. In the **Advanced** section of the application, map the HTTP header to the SAML attributes issued by Azure AD B2C in the SAML response upon a successful authentication.
 
   Example:
 
