@@ -16,7 +16,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access
 
-In this sample tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Akamai Enterprise Application Access](https://www.akamai.com/products/enterprise-application-access). Akamai Enterprise Application Access is a Zero Trust Network Access (ZTNA) solution that enables secure remote access to modern and legacy applications that reside in private data centers. Akamai Enterprise Application Access federates with Identity Providers like Azure AD B2C to authenticate users and then uses its authorization policies to perform continuous evaluation of the identity, device, application, and request context before allowing access to private applications.  
+In this sample tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Akamai Enterprise Application Access](https://www.akamai.com/products/enterprise-application-access). Akamai Enterprise Application Access is a Zero Trust Network Access (ZTNA) solution that enables secure remote access to modern and legacy applications that reside in private datacenters. Akamai Enterprise Application Access federates with Identity Provider Azure AD B2C to authenticate users and then uses its authorization policies to perform continuous evaluation of the identity, device, application, and request context before allowing access to private applications.  
 
 ::: zone pivot="b2c-user-flow"
 
@@ -72,7 +72,7 @@ The following diagram shows how Akamai Enterprise Application Access (EAA) integ
 
 1. Akamai Enterprise Application Access constructs OIDC Claims or injects HTTP Headers, which are sent to the application.
 
-1. The application uses this information to Identify the authenticated user and creates an application session for the end user.
+1. The application uses this information to identify the authenticated user and creates an application session for the end user.
 
 ## Onboard with Akamai Enterprise Application Access
 
@@ -336,9 +336,9 @@ Example:
 >[!IMPORTANT]
 >If you do not update the `accessTokenAcceptedVersion` to `2` you will receive an error message requiring a verified domain.
 
-### Step 8 - Configure authentication settings for the Azure AD B2C IdP in Akamai Enterprise Application Access
+### Step 8 - Configure authentication settings for the Azure AD B2C Identity Provider in Akamai Enterprise Application Access
 
-Update your Akamai Enterprise Application Access Azure AD B2C IdP with authentication information like relying party URLs.
+Update your Akamai Enterprise Application Access Azure AD B2C Identity Provider with authentication information like relying party URLs.
 
 1. Sign in to Enterprise Center https://control.akamai.com/
 
