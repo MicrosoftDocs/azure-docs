@@ -1,7 +1,7 @@
 ---
-title: How to manage a dev box
+title: How to manage a dev box using the developer portal
 titleSuffix: Microsoft Dev Box
-description: This article describes how to create, delete, and connect to Microsoft Dev Box dev boxes.
+description: This article describes how to create, delete, and connect to Microsoft Dev Box dev boxes using the developer portal.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -12,7 +12,7 @@ ms.topic: how-to
 
 <!-- Intent: As a dev box user, I want to be able to manage my dev boxes so that I can use them most effectively. -->
 
-# Manage a dev box
+# Manage a dev box using the developer portal
 You can pre-configure a dev box to manage all of your tools, services, source-code and pre-built binaries specific to your project so you can immediately start working. Dev box enables you to get started quickly with an environment that's ready to build on so you can run your app in minutes. 
 
 ## Permissions
@@ -37,7 +37,7 @@ For example, say you were working on a bug. You could a separate dev box for the
 ## Connect to a dev box
 Once you create your dev box, you can connect to it through the remote desktop app, or through the browser. 
 
-:::image type="content" source="./media/quickstart-connect-to-dev-box-with-remote-desktop-app/open-rdp-client.jpeg" alt-text="Screenshot of dev box showing open an RDP client.":::
+:::image type="content" source="./media/how-to-manage-dev-boxes/open-rdp-client.jpg" alt-text="Screenshot of dev box showing open an RDP client.":::
 
 For most cases, use the remote desktop app when accessing a dev box. The remote desktop provides the highest performance and best user-experience for heavy workloads. 
 
