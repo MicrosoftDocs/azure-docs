@@ -6,7 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.date: 08/18/2022
-ms.custom: [ "MVC", "fasttrack-edit"]
+ms.custom: MVC, fasttrack-edit, engagement-fy23
 ---
 
 # Migrate Hyper-V VMs to Azure

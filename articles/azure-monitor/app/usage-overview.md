@@ -14,7 +14,7 @@ Which features of your web or mobile app are most popular? Do your users achieve
 
 The best experience is obtained by installing Application Insights both in your app server code and in your webpages. The client and server components of your app send telemetry back to the Azure portal for analysis.
 
-1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-in-process-agent.md), [Node.js](./nodejs.md), or [other](./platforms.md) app.
+1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-in-process-agent.md), [Node.js](./nodejs.md), or [other](./app-insights-overview.md#supported-languages) app.
 
     * If you don't want to install server code, [create an Application Insights resource](./create-new-resource.md).
 

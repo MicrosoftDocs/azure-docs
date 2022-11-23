@@ -111,14 +111,14 @@ In order to provide globally unique names to resources, a six-character suffix i
     <!-- The long description for app-service-app-setting-button.png: Screenshot of the App Service resource screen in the Azure portal. The screenshot shows Configuration in the left menu under the Settings section selected and highlighted, the Application settings tab selected and highlighted, and the + New application setting toolbar button highlighted. -->
    :::image type="content" source="media/tutorial-asp-net-core/app-service-app-setting-button.png" alt-text="Screenshot of the App Service resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/app-service-app-setting-button.png":::
 
-3. In the Add/Edit application setting blade, complete the form as follows and select **OK**.
+3. In the Add/Edit application setting pane, complete the form as follows and select **OK**.
 
     | Field | Value |
     |-------|-------|
     | Name  | APPLICATIONINSIGHTS_CONNECTION_STRING |
     | Value | Paste the Application Insights connection string value you copied in the preceding section. |
 
-    :::image type="content" source="media/tutorial-asp-net-core/add-edit-app-setting.png" alt-text="Screenshot of the Add/Edit application setting blade in the Azure portal with the preceding values populated in the Name and Value fields." lightbox="media/tutorial-asp-net-core/add-edit-app-setting.png":::
+    :::image type="content" source="media/tutorial-asp-net-core/add-edit-app-setting.png" alt-text="Screenshot of the Add/Edit application setting pane in the Azure portal with the preceding values populated in the Name and Value fields." lightbox="media/tutorial-asp-net-core/add-edit-app-setting.png":::
 
 4. On the App Service Configuration screen, select the **Save** button from the toolbar menu. When prompted to save the changes, select **Continue**.
 
