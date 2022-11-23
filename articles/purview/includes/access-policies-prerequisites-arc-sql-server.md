@@ -54,12 +54,12 @@ Policy enforcement is available in only the following regions for Microsoft Purv
 
 1. Go to **Azure Active Directory** on the left pane.
 
-1. Ensure that Azure Active Directory authentication is configured with an admin login. If not, refer to the prerequisites section in this guide.
+1. Ensure that Azure Active Directory authentication is configured with an admin login. If not, refer to the access policy prerequisites section in this guide.
 
-1. Ensure that a certificate has been provided to for SQL Server to authenticate to Azure. If not, refer to the prerequisites section in this guide.
+1. Ensure that a certificate has been provided to for SQL Server to authenticate to Azure. If not, refer to the access policy prerequisites section in this guide.
 
-1. Ensure that an app registration has been entered to create a trust relationship between SQL Server and Azure AD. If not, refer to the prerequisites section in this guide.
+1. Ensure that an app registration has been entered to create a trust relationship between SQL Server and Azure AD. If not, refer to the access policy prerequisites section in this guide.
 
-1. If you made any changes, select the **Save** button to save the configuration.
+1. If you made any changes, select the **Save** button to save the configuration and wait until it shows it completed successfully.
 
    ![Screenshot that shows selections for configuring a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
