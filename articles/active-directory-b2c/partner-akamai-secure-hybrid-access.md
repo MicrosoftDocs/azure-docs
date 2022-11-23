@@ -8,7 +8,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 11/23/2022
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -16,7 +16,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Tutorial: Configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access
 
-In this sample tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Akamai Enterprise Application Access (EAA)](https://www.akamai.com/products/enterprise-application-access). Akamai EAA is a Zero Trust Network Access (ZTNA) solution that enables secure remote access to modern and legacy applications that reside in private data centers. Akamai EAA federates with Identity Providers like Azure AD B2C to authenticate users and then uses its authorization policies to perform continuous evaluation of the identity, device, application, and request context before allowing access to private applications.  
+In this sample tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Akamai Enterprise Application Access](https://www.akamai.com/products/enterprise-application-access). Akamai Enterprise Application Access is a Zero Trust Network Access (ZTNA) solution that enables secure remote access to modern and legacy applications that reside in private data centers. Akamai Enterprise Application Access federates with Identity Providers like Azure AD B2C to authenticate users and then uses its authorization policies to perform continuous evaluation of the identity, device, application, and request context before allowing access to private applications.  
 
 ::: zone pivot="b2c-user-flow"
 
@@ -36,7 +36,7 @@ To get started, you'll need:
 
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
 
-- A virtual appliance deployed behind the firewall in your datacenter or in hybrid cloud environments to deploy the Akamai EAA [connector](https://techdocs.akamai.com/eaa/docs/conn)
+- A virtual appliance deployed behind the firewall in your datacenter or in hybrid cloud environments to deploy the Akamai Enterprise Application Access [connector](https://techdocs.akamai.com/eaa/docs/conn)
 
 - An application that uses headers for authentication. In this sample, we'll use an application that displays headers [docker header-demo-app](https://hub.docker.com/r/mistermik/header-demo-app).
 
@@ -44,7 +44,7 @@ To get started, you'll need:
 
 ## Scenario description
 
-In this scenario, you'll enable Azure AD B2C authentication for end users while they try to access private applications secured by Akamai EAA.
+In this scenario, you'll enable Azure AD B2C authentication for end users while they try to access private applications secured by Akamai Enterprise Application Access.
 
 The components involved in this integration are:
 
@@ -56,31 +56,31 @@ The components involved in this integration are:
 
 - **Application**: A service or application deployed in your private datacenter which end users need access to.
 
-The user authenticates to Azure AD B2C (as SAML Identity Provider) that will respond to Akamai EAA (the Service Provider) with a SAML assertion. Akamai EAA maps information from the SAML assertion and it constructs OpenID Claims or injects HTTP Headers containing information about the user. Akamai EAA will then pass this to the Application accessible through the Akamai EAA connector. In our sample, the application will display the content of these headers. In the use case of OIDC Application it will display the user's claims.
+The user authenticates to Azure AD B2C (as SAML Identity Provider) that will respond to Akamai Enterprise Application Access (the Service Provider) with a SAML assertion. Akamai Enterprise Application Access maps information from the SAML assertion and it constructs OpenID Claims or injects HTTP Headers containing information about the user. Akamai Enterprise Application Access will then pass this to the Application accessible through the Akamai Enterprise Application Access connector. In our sample, the application will display the content of these headers. In the use case of OIDC Application it will display the user's claims.
 
-The following diagram shows how Akamai EAA integrates with Azure AD B2C.
+The following diagram shows how Akamai Enterprise Application Access integrates with Azure AD B2C.
 
 ![Screenshot shows the integration architecture.](./media/partner-akamai-secure-hybrid-access/integration-architecture.png)
 
-1. An end user tries to access an application hosted in the private datacenter using the application’s external URL that is registered in Akamai EAA.
+1. An end user tries to access an application hosted in the private datacenter using the application’s external URL that is registered in Akamai Enterprise Application Access.
 
-1. Akamai EAA redirects the unauthenticated end user to Azure AD B2C for authentication.
+1. Akamai Enterprise Application Access redirects the unauthenticated end user to Azure AD B2C for authentication.
 
-1. After successful authentication Azure AD B2C redirects the user back to Akamai EAA with a SAML assertion.
+1. After successful authentication Azure AD B2C redirects the user back to Akamai Enterprise Application Access with a SAML assertion.
 
-1. Akamai EAA uses the identity information from the SAML assertion to identify the user and determine if the user is allowed to access the requested application.
+1. Akamai Enterprise Application Access uses the identity information from the SAML assertion to identify the user and determine if the user is allowed to access the requested application.
 
-1. Akamai EAA constructs OIDC Claims or injects HTTP Headers, which are sent to the application.
+1. Akamai Enterprise Application Access constructs OIDC Claims or injects HTTP Headers, which are sent to the application.
 
 1. The application uses this information to Identify the authenticated user and creates an application session for the end user.
 
-## Onboard with Akamai EAA
+## Onboard with Akamai Enterprise Application Access
 
-To get started with Akamai EAA, refer to the [Akamai EAA getting started guide](https://techdocs.akamai.com/eaa/docs/welcome-guide).
+To get started with Akamai Enterprise Application Access, refer to the [Akamai Enterprise Application Access getting started guide](https://techdocs.akamai.com/eaa/docs/welcome-guide).
 
-### Step 1 - Add Azure AD B2C as a SAML Identity Provider in Akamai EAA
+### Step 1 - Add Azure AD B2C as a SAML Identity Provider in Akamai Enterprise Application Access
 
-Akamai EAA supports SAML federation with cloud Identity Providers like Azure AD B2C. Add Azure AD B2C as a [Third party SAML Identity Provider](https://techdocs.akamai.com/eaa/docs/add-new-idp#add-a-new-identity-provider) in Akamai EAA.
+Akamai Enterprise Application Access supports SAML federation with cloud Identity Providers like Azure AD B2C. Add Azure AD B2C as a [Third party SAML Identity Provider](https://techdocs.akamai.com/eaa/docs/add-new-idp#add-a-new-identity-provider) in Akamai Enterprise Application Access.
 
 1. Sign in to Enterprise Center https://control.akamai.com/
 
@@ -109,7 +109,7 @@ Akamai EAA supports SAML federation with cloud Identity Providers like Azure AD 
       ```
    - In all of the files in the **LocalAccounts** directory, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is `fabrikam`, all instances of `yourtenant.onmicrosoft.com` become `fabrikam.onmicrosoft.com`.
 
-2. Create a signing certificate for Azure AD B2C to sign the SAML response sent to Akamai EAA:
+2. Create a signing certificate for Azure AD B2C to sign the SAML response sent to Akamai Enterprise Application Access:
 
    a. [**Obtain a certificate**](https://learn.microsoft.com/azure/active-directory-b2c/saml-service-provider?tabs=windows&pivots=b2c-custom-policy#obtain-a-certificate). If you don't already have a certificate, you can use a self-signed certificate.
 
@@ -151,7 +151,7 @@ Akamai EAA supports SAML federation with cloud Identity Providers like Azure AD 
       </TechnicalProfiles>
     </ClaimsProvider>
    ```
-   b.  Replace the `issuerUri` with the Akamai URL defined in Akamai EAA **Setting > General** in [**Step 1**](#step-1---add-azure-ad-b2c-as-a-saml-identity-provider-in-akamai-eaa)
+   b.  Replace the `issuerUri` with the Akamai URL defined in Akamai Enterprise Application Access **Setting > General** in [**Step 1**](#step-1---add-azure-ad-b2c-as-a-saml-identity-provider-in-akamai-eaa)
       - Example, `<Item Key="IssuerUri">https://fabrikam.login.go.akamai-access.com/saml/sp/response</Item>`
 
       - Replace **B2C_1A_AkamaiSAMLSigningCert** with the name of the policy key uploaded.
@@ -284,11 +284,11 @@ After the policy files are uploaded, Azure AD B2C uses the configuration informa
 - Replace `<tenant-name>` with the name of your Azure AD B2C tenant. Replace `<policy-name>` with the name (ID) of the policy. Here's an example:
 `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/B2C_1A_signup_signin_saml/samlp/metadata`
 
-Download the SAML metadata and save it locally on your device. This is needed with the following step to complete the configuration in Akamai EAA.
+Download the SAML metadata and save it locally on your device. This is needed with the following step to complete the configuration in Akamai Enterprise Application Access.
 
-### Step 6 - Register Akamai EAA application in Azure AD B2C
+### Step 6 - Register Akamai Enterprise Application Access application in Azure AD B2C
 
-For Azure AD B2C to trust Akamai EAA, create an Azure AD B2C application registration. The registration contains configuration information, such as the application's metadata endpoint.
+For Azure AD B2C to trust Akamai Enterprise Application Access, create an Azure AD B2C application registration. The registration contains configuration information, such as the application's metadata endpoint.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -300,15 +300,15 @@ For Azure AD B2C to trust Akamai EAA, create an Azure AD B2C application registr
 
 1. Select **App registrations**, and then select **New registration**.
 
-1. Enter a **Name** for the application. For example, enter **Akamai B2C EAA**.
+1. Enter a **Name** for the application. For example, enter **Akamai B2C Enterprise Application Access**.
 
 1. Under **Supported account types**, select **Accounts in this organizational directory only (B2C only - Single tenant)**.
 
-1. Under **Redirect URI**, select **Web**, and then enter the Akamai URL defined in Akamai EAA **Setting\General** in [**Step 1**](#step-1---add-azure-ad-b2c-as-a-saml-identity-provider-in-akamai-eaa). For example, `https://fabrikam.login.go.akamai-access.com/saml/sp/response`.
+1. Under **Redirect URI**, select **Web**, and then enter the Akamai URL defined in Akamai Enterprise Application Access **Setting\General** in [**Step 1**](#step-1---add-azure-ad-b2c-as-a-saml-identity-provider-in-akamai-eaa). For example, `https://fabrikam.login.go.akamai-access.com/saml/sp/response`.
 
 1. Select **Register**.
 
-### Step 7 - Configure your Akamai EAA application in Azure AD B2C
+### Step 7 - Configure your Akamai Enterprise Application Access application in Azure AD B2C
 
 For SAML, you need to configure several properties in the application registration's manifest.
 
@@ -318,7 +318,7 @@ For SAML, you need to configure several properties in the application registrati
 
 #### Add the identifier
 
-When Akamai EAA SAML application makes a request to Azure AD B2C, the SAML authentication request includes an `Issuer` attribute. The value of this attribute is typically the same as the application's metadata `entityID` value. Azure AD B2C uses this value to look up the application registration in the directory and read the configuration. For this lookup to succeed, `identifierUri` in the application registration manifest must be populated with a value that matches the `Issuer` attribute.
+When Akamai Enterprise Application Access SAML application makes a request to Azure AD B2C, the SAML authentication request includes an `Issuer` attribute. The value of this attribute is typically the same as the application's metadata `entityID` value. Azure AD B2C uses this value to look up the application registration in the directory and read the configuration. For this lookup to succeed, `identifierUri` in the application registration manifest must be populated with a value that matches the `Issuer` attribute.
 
   [ ![Screenshot shows the b2c saml configuration.](./media/partner-akamai-secure-hybrid-access/akamai-b2c-saml-configuration.png)](./media/partner-akamai-secure-hybrid-access/akamai-b2c-saml-configuration.png#lightbox)
 
@@ -336,9 +336,9 @@ Example:
 >[!IMPORTANT]
 >If you do not update the `accessTokenAcceptedVersion` to `2` you will receive an error message requiring a verified domain.
 
-### Step 8 - Configure authentication settings for the Azure AD B2C IdP in Akamai EAA
+### Step 8 - Configure authentication settings for the Azure AD B2C IdP in Akamai Enterprise Application Access
 
-Update your Akamai EAA Azure AD B2C IdP with authentication information like relying party URLs.
+Update your Akamai Enterprise Application Access Azure AD B2C IdP with authentication information like relying party URLs.
 
 1. Sign in to Enterprise Center https://control.akamai.com/
 
@@ -354,17 +354,17 @@ Update your Akamai EAA Azure AD B2C IdP with authentication information like rel
 
 6. Select **Save and Deploy**.
 
-### Step 9 - Deploy Akamai EAA Connectors in your private datacenter
+### Step 9 - Deploy Akamai Enterprise Application Access Connectors in your private datacenter
 
-To enable access to a private application, deploy one or more [Akamai EAA connectors](https://techdocs.akamai.com/eaa/docs/conn) in the private datacenter where your application resides. Ensure the connectors can reach your private application and have outbound access to the Akamai Cloud.
+To enable access to a private application, deploy one or more [Akamai Enterprise Application Access connectors](https://techdocs.akamai.com/eaa/docs/conn) in the private datacenter where your application resides. Ensure the connectors can reach your private application and have outbound access to the Akamai Cloud.
 
-### Step 10 - Define an Access Application in Akamai EAA for the private application
+### Step 10 - Define an Access Application in Akamai Enterprise Application Access for the private application
 
-1. [Define and Deploy an Access Application](https://techdocs.akamai.com/eaa/docs/add-app-eaa) in Akamai EAA.
+1. [Define and Deploy an Access Application](https://techdocs.akamai.com/eaa/docs/add-app-eaa) in Akamai Enterprise Application Access.
 
 1. When you define the Access Application 
 
-   - Associate it to the **EAA Azure AD B2C IDP** definition that you created with the previous steps.
+   - Associate it to the **Enterprise Application Access Azure AD B2C IDP** definition that you created with the previous steps.
 
    - Configure Application Facing Authentication to enable SSO into the private application:
      - **Option 1**: [Configure Custom HTTP Headers for an Access Application](https://techdocs.akamai.com/eaa/docs/custom-http-headers)
@@ -516,7 +516,7 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
 ## Test the solution
 
-1. Navigate to the application URL, using the external URL specified in the Akamai EAA.
+1. Navigate to the application URL, using the external URL specified in the Akamai Enterprise Application Access.
 
 2. Unauthenticated user is redirected to the Azure AD B2C sign-in page.
 
@@ -530,7 +530,7 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
 ## Additional resources
 
-- [Akamai EAA getting started documentation](https://techdocs.akamai.com/eaa/docs/welcome-guide)
+- [Akamai Enterprise Application Access getting started documentation](https://techdocs.akamai.com/eaa/docs/welcome-guide)
 
 - [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
 
