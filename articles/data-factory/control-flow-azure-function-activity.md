@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/01/2022
+ms.date: 11/23/2022
 
 ---
 
@@ -51,7 +51,7 @@ Function Key provides secure access to function name with each one having separa
 | Resource ID  | The App (client) ID of the Azure Function. Switch to **Authentication** section for the respective function, and get the App (client) ID under **Identity provider**. This property will be displayed when you use system-assigned managed identity. | No         |
 
 >[!Note]
-> When you use anonymous authentication, ensure that you have disabled your identity on the Azure Function side.
+> When you use anonymous authentication, ensure that you have taken down your identity on the Azure Function side.
 
 ## Azure Function activity
 
