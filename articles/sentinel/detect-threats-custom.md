@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Create custom analytics rules to detect threats
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 After [connecting your data sources](quickstart-onboard.md) to Microsoft Sentinel, create custom analytics rules to help discover threats and anomalous behaviors in your environment.
 
 Analytics rules search for specific events or sets of events across your environment, alert you when certain event thresholds or conditions are reached, generate incidents for your SOC to triage and investigate, and respond to threats with automated tracking and remediation processes.
