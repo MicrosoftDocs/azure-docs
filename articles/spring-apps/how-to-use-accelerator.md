@@ -1,5 +1,5 @@
 ---
-title: Use VMware Tanzu App Accelerator with Azure Spring Apps Enterprise tier
+title: Use VMware Tanzu Application Accelerator with Azure Spring Apps Enterprise tier
 titleSuffix: Azure Spring Apps Enterprise Tier
 description: Learn how to use VMware Tanzu App Accelerator with Azure Spring Apps Enterprise tier.
 author: karlerickson
@@ -10,7 +10,7 @@ ms.author: caiqing
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Use App Use VMware Tanzu App Accelerator with Azure Spring Apps Enterprise tier
+# Use App Use VMware Tanzu Application Accelerator with Azure Spring Apps Enterprise tier
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -38,7 +38,7 @@ You can enable App Accelerator when you provision an Azure Spring Apps Enterpris
 
 You can enable App Accelerator using the Azure portal or Azure CLI.
 
-#### [Azure portal](#tab/Portal)
+### [Azure portal](#tab/Portal)
 
 Use the following steps to enable App Accelerator using the Azure portal:
 
@@ -51,9 +51,9 @@ Use the following steps to enable App Accelerator using the Azure portal:
 1. Specify other settings, and then select **Review and Create**.
 1. On the **Review an create** tab, make sure that **Enable App Accelerator** and **Enable Dev Tools Portal** are set to *Yes*. Select **Create** to create the Enterprise tier instance.
 
-#### [Azure CLI](#tab/Azure-CLI)
+### [Azure CLI](#tab/Azure-CLI)
 
-Use the following steps to provision an Azure Spring Apps service instance.
+Use the following steps to provision an Azure Spring Apps service instance with App Accelerator enabled using the Azure CLI:
 
 1. Use the following command to sign in to the Azure CLI and choose your active subscription:
 
@@ -63,7 +63,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to accept the legal terms and privacy statements for the Enterprise tier. This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
+1. Use the following command to accept the legal terms and privacy statements for Azure Spring Apps Enterprise tier. This step is necessary only if your subscription has never been used to create an Enterprise tier instance.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
@@ -73,7 +73,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
        --plan asa-ent-hr-mtr
    ```
 
-1. Select a location. This location must be a location supporting Azure Spring Apps Enterprise tier. For more information, see the [Azure Spring Apps FAQ](faq.md).
+1. Select a location. The location must support Azure Spring Apps Enterprise tier. For more information, see the [Azure Spring Apps FAQ](faq.md).
 
 1. Use the following command to create a resource group:
 
@@ -101,35 +101,38 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
 ## Monitor App Accelerator
 
-Application Accelerator allows you to generate new projects from files in Git repositories.
-Application accelerator has 8 components:
+Application Accelerator lets you to generate new projects from files in Git repositories. The following table describes Application Accelerator's components:
 
-| Component name          | Instance count | vCPU per instance | Memory per instance | Responsibility |
-| :---------------------- | :------------- | :---------------- | :------------------ | :------------------ |
-| accelerator-server      | 2              | 0.4 core          | 0.5Gi               | Serve API used by Dev Tools Portal to list available accelerators and options. |
-| accelerator-engine      | 1              | 1 core            | 3Gi                 | Process the input values and files(pulled from a snapshot of a git repository) and apply dynamic tranformations to generate projects.|
-| accelerator-controller  | 1              | 0.2 core          | 0.25Gi               | Reconcile the Accelerator resources. |
-| source-controller       | 1              | 0.2 core          | 0.25Gi               | Registers a controller to reconcile `ImageRepositories` and `MavenArtifacts` resources which are used by Accelerators.|
-| cert-manager            | 1              | 0.2 core          | 0.25Gi               | Find the docs of cert-manager in [cert-manager documentation](https://cert-manager.io/docs/).|
-| cert-manager-webhook    | 1              | 0.2 core          | 0.25Gi               | Find the docs of cert-manager webhook in [cert-manager documentation](https://cert-manager.io/docs/concepts/webhook/).|
-| cert-manager-cainjector | 1              | 0.2 core          | 0.25Gi               | Find the docs of cert-manager CA Injector in [cert-manager documentation](https://cert-manager.io/docs/concepts/ca-injector/).|
-| flux-source-controller  | 1              | 0.2 core          | 0.25Gi               | Register a controller to reconcile `GithubRepository` resources which are used by Accelerators. Support managing git repository sources for application accelerator.|
+| Component name          | Instance count | vCPU per instance | Memory per instance | Description                                                                                                                                                             |
+|--------------------------|-----------------|--------------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| accelerator-server      | 2              | 0.4 core          | 0.5Gi               | Serves API used by Dev Tools Portal to list available accelerators and options.                                                                                         |
+| accelerator-engine      | 1              | 1 core            | 3Gi                 | Processes the input values and files(pulled from a snapshot of a Git repository) and applies dynamic transformations to generate projects.                              |
+| accelerator-controller  | 1              | 0.2 core          | 0.25Gi              | Reconciles Application Accelerator resources.                                                                                                                           |
+| source-controller       | 1              | 0.2 core          | 0.25Gi              | Registers a controller to reconcile the `ImageRepositories` and `MavenArtifacts` resources used by Application Accelerator.                                             |
+| cert-manager            | 1              | 0.2 core          | 0.25Gi              | See [cert-manager](https://cert-manager.io/docs/) in the cert-manager documentation.                                                                                    |
+| cert-manager-webhook    | 1              | 0.2 core          | 0.25Gi              | See [cert-manager webhook](https://cert-manager.io/docs/concepts/webhook/) in the cert-manager documentation.                                                           |
+| cert-manager-cainjector | 1              | 0.2 core          | 0.25Gi              | See [cert-manager ca-injector](https://cert-manager.io/docs/concepts/ca-injector/) in the cert-manager documentation.                                                   |
+| flux-source-controller  | 1              | 0.2 core          | 0.25Gi              | Registers a controller to reconcile `GithubRepository` resources used by Application Accelerator. Supports managing Git repository sources for Application Accelerator. |
 
-You can see the running instances and resource usage of all the components through Azure Portal and CLI.
+You can see the running instances and resource usage of all the components using the Azure portal and Azure CLI.
 
-#### [Portal](#tab/Portal)
+### [Azure portal](#tab/Portal)
 
-You can view the state of App Accelerator in the "Developer Tools (Preview)" blade.
-![Accelerator-components](./media/how-to-use-accelerator/accelerator-components.png)
+You can view the state of Application Accelerator on the **Developer Tools (Preview)** page, as shown in the following screenshot:
 
-#### [CLI](#tab/Azure-CLI)
+:::image type="content" source="media/how-to-use-accelerator/accelerator-components.png" alt-text="Screenshot of the Developer Tools (Preview) page." lightbox="media/how-to-use-accelerator/accelerator-components.png":::
 
-Use the following command to view App Accelerator.
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to view Application Accelerator.
+
 ```azurecli
 az spring application-accelerator show \
     --service <Azure-Spring-Apps-service-instance-name> \
     --resource-group <resource-group-name>
 ```
+
+---
 
 ## Configure Dev Tools to access Application Accelerator
 
