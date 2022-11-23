@@ -151,7 +151,7 @@ Akamai Enterprise Application Access supports SAML federation with cloud IdPs li
       </TechnicalProfiles>
     </ClaimsProvider>
    ```
-   b.  Replace the `issuerUri` with the Akamai URL defined in Akamai Enterprise Application Access **Setting > General** in [**Step 1**](#step-1---add-azure-ad-b2c-as-a-saml-identity-provider-in-akamai-enterprise-application-access)
+   b.  Replace the `issuerUri` with the Akamai URL defined in Akamai Enterprise Application Access **Setting > General** in [**Step 1**](#step-1---add-azure-ad-b2c-as-a-saml-idp-in-akamai-enterprise-application-access)
       - Example, `<Item Key="IssuerUri">https://fabrikam.login.go.akamai-access.com/saml/sp/response</Item>`
 
       - Replace **B2C_1A_AkamaiSAMLSigningCert** with the name of the policy key uploaded.
@@ -304,7 +304,7 @@ For Azure AD B2C to trust Akamai Enterprise Application Access, create an Azure 
 
 1. Under **Supported account types**, select **Accounts in this organizational directory only (B2C only - Single tenant)**.
 
-1. Under **Redirect URI**, select **Web**, and then enter the Akamai URL defined in Akamai Enterprise Application Access **Setting\General** in [**Step 1**](#step-1---add-azure-ad-b2c-as-a-saml-identity-provider-in-akamai-enterprise-application-access). For example, `https://fabrikam.login.go.akamai-access.com/saml/sp/response`.
+1. Under **Redirect URI**, select **Web**, and then enter the Akamai URL defined in Akamai Enterprise Application Access **Setting\General** in [**Step 1**](#step-1---add-azure-ad-b2c-as-a-saml-idp-in-akamai-enterprise-application-access). For example, `https://fabrikam.login.go.akamai-access.com/saml/sp/response`.
 
 1. Select **Register**.
 
@@ -344,9 +344,9 @@ Update your Akamai Enterprise Application Access Azure AD B2C IdP with authentic
 
 1. In the Enterprise Center navigation menu, select **Application Access > Identity & Users > Identity Providers**.
 
-1. Select the Identity provider name created in [**Step 1**](#step-1---add-azure-ad-b2c-as-a-saml-identity-provider-in-akamai-enterprise-application-access).
+1. Select the Identity provider name created in [**Step 1**](#step-1---add-azure-ad-b2c-as-a-saml-idp-in-akamai-enterprise-application-access).
 
-1. Upload the Azure AD B2C SAML metadata file you downloaded in  [**Step 5**](#step-5---download-the-azure-ad-b2c-identity-provider-saml-metadata).
+1. Upload the Azure AD B2C SAML metadata file you downloaded in  [**Step 5**](#step-5---download-the-azure-ad-b2c-idp-saml-metadata).
 
 1. To upload the metadata.xml file, select **Choose file**.
 
