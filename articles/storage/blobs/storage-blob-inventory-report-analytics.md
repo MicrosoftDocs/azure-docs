@@ -135,7 +135,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 
 2. In Power BI, select **File**, **Open report**, and then **Browse reports**. 
 
-3. In the **Open** dialog box, change the file type to **Power BI template files (*.pbit). 
+3. In the **Open** dialog box, change the file type to **Power BI template files (*.pbit)**. 
 
    > [!div class="mx-imgBorder"]
    > ![The Power BI template files type in the Open dialog box](./media/storage-blob-inventory-report-analytics/file-type-setting.png) 
@@ -170,7 +170,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 
 - Learn about ways to optimize your costs based on the analysis of your blobs and containers. See these articles:
 
-  [Plan and manage costs for Azure Blob Storage](storage-plan-manage-costs.md)
+  [Plan and manage costs for Azure Blob Storage](../common/storage-plan-manage-costs.md)
 
   [Estimate the cost of archiving data](archive-cost-estimation.md)
 
