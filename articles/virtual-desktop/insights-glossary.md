@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Virtual Desktop glossary - Azure
-description: A glossary of terms and concepts related to Azure Monitor for Azure Virtual Desktop.
+description: A glossary of terms and concepts related to Azure Virtual Desktop Insights.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,9 +10,9 @@ ms.date: 10/26/2022
 ms.author: helohr
 manager: femila
 ---
-# Azure Monitor for Azure Virtual Desktop glossary
+# Azure Virtual Desktop Insights glossary
 
-This article lists and briefly describes key terms and concepts related to Azure Monitor for Azure Virtual Desktop (preview).
+This article lists and briefly describes key terms and concepts related to Azure Virtual Desktop Insights.
 
 ## Alerts
 
@@ -51,7 +51,7 @@ The total number of hours spent connected to a session across users in the last 
 
 ## Diagnostics and errors
 
-When an error or alert appears in Azure Monitor for Azure Virtual Desktop, it's categorized by three things:
+When an error or alert appears in Azure Virtual Desktop Insights, it's categorized by three things:
 
 - Activity type: this category is how the error is categorized by Azure Virtual Desktop diagnostics. The categories are management activities, feeds, connections, host registrations, errors, and checkpoints. Learn more about these categories at [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md).
 
@@ -77,7 +77,7 @@ Each diagnostics issue or error includes a message that explains what went wrong
 
 ## Input delay
 
-"Input delay" in Azure Monitor for Azure Virtual Desktop means the input delay per process performance counter for each session. In the host performance page at [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), this performance counter is configured to send a report to the service once every 30 seconds. These 30-second intervals are called "samples," and the report the worst case in that window. The median and p95 values reflect the median and 95th percentile across all samples.
+"Input delay" in Azure Virtual Desktop Insights means the input delay per process performance counter for each session. In the host performance page at [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), this performance counter is configured to send a report to the service once every 30 seconds. These 30-second intervals are called "samples," and the report the worst case in that window. The median and p95 values reflect the median and 95th percentile across all samples.
 
 Under **Input delay by host**, you can select a session host row to filter all other visuals in the page to that host. You can also select a process name to filter the median input delay over time chart.
 
@@ -220,7 +220,7 @@ core. Knowing how many users are active will help you efficiently resource and s
 
 Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
-The following table lists the required Windows Event Logs for Azure Monitor for Azure Virtual Desktop:
+The following table lists the required Windows Event Logs for Azure Virtual Desktop Insights:
 
 |Event name|Event type|
 |---|---|
@@ -235,9 +235,9 @@ To learn more about Windows Event Logs, see [Windows Event records properties](.
 
 ## Next steps
 
-- To get started, see [Use Azure Monitor for Azure Virtual Desktop to monitor your deployment](azure-monitor.md).
-- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-monitor-costs.md).
-- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-monitor.md) for help and known issues.
+- To get started, see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
+- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](insights-costs.md).
+- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help and known issues.
 
 
 You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Introduction to Azure Advisor](../advisor/advisor-overview.md).
