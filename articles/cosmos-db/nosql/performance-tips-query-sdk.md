@@ -201,7 +201,7 @@ When a query is executed, the resulting data is sent within a TCP packet. If you
 
 # [V3 .NET SDK](#tab/v3)
 
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. This pre-fetching helps improve the overall latency of a query. The [MaxBufferedItemCount](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.maxbuffereditemcount) property in `QueryRequestOptions` limits the number of pre-fetched results. Set `MaxBufferedItemCount` to the expected number of results returned (or a higher number) to allow the query to receive the maximum benefit from pre-fetching. If you set this value to -1, the system will automatically determine the number of items to buffer.
+Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. This pre-fetching helps improve the overall latency of a query. The [MaxBufferedItemCount](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.maxbuffereditemcount) property in `QueryRequestOptions` limits the number of pre-fetched results. Set `MaxBufferedItemCount` to the expected number of results returned (or a higher number) to allow the query to receive the maximum benefit from pre-fetching. If the objective is to minimize pre-fetch as much as possible, then ensure that the `MaxBufferedItem` is set as equal to the `MaxItemCount`. If you set this value to -1, the system will automatically determine the number of items to buffer.
 
 ```cs
 using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
@@ -216,7 +216,7 @@ using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem
 
 # [V2 .NET SDK](#tab/v2)
 
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. This pre-fetching helps improve the overall latency of a query. The [MaxBufferedItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxbuffereditemcount) property in `FeedOptions` limits the number of pre-fetched results. Set `MaxBufferedItemCount` to the expected number of results returned (or a higher number) to allow the query to receive the maximum benefit from pre-fetching. If you set this value to -1, the system will automatically determine the number of items to buffer.
+Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. This pre-fetching helps improve the overall latency of a query. The [MaxBufferedItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxbuffereditemcount) property in `FeedOptions` limits the number of pre-fetched results. Set `MaxBufferedItemCount` to the expected number of results returned (or a higher number) to allow the query to receive the maximum benefit from pre-fetching. If the objective is to minimize pre-fetch as much as possible, then ensure that the `MaxBufferedItem` is set as equal to the `MaxItemCount`. If you set this value to -1, the system will automatically determine the number of items to buffer.
 
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(
@@ -339,7 +339,7 @@ filteredItemsAsPages.map(page -> {
 
 ## Tune the buffer size
 
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. [setMaxBufferedItemCount](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxbuffereditemcount) in `CosmosQueryRequestOptions` limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching (NOTE: This can also result in high memory consumption). If you set this value to 0, the system will automatically determine the number of items to buffer.
+Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. [setMaxBufferedItemCount](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxbuffereditemcount) in `CosmosQueryRequestOptions` limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching (NOTE: This can also result in high memory consumption). If the objective is to minimize pre-fetch as much as possible, then ensure that the `pageSize` parameter in `iterableByPage()` for sync API and `byPage()` for async API is equal to the value set by `setMaxBufferedItemCount`. If you set this value to 0, the system will automatically determine the number of items to buffer.
 
 ```java
 CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
