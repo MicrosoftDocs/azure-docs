@@ -169,9 +169,9 @@ ms.author: eur
 
 <sup>4</sup> Visemes are supported for the locale of the neural voice. However, SVG is only supported for neural voices in the `en-US` locale, and blend shapes is only supported for neural voices in the `en-US` and `zh-CN` locales. For more information, see [Get facial position with viseme](../../how-to-speech-synthesis-viseme.md) and [Viseme element](../../speech-synthesis-markup-structure.md#viseme-element). 
 
-<sup>5</sup> Phonemes are supported for the locale of the neural voice. For more information, see [SSML phonetic alphabets](../../speech-ssml-phonetic-sets.md) and [Use phonemes to improve pronunciation](../../speech-synthesis-markup-pronunciation.md#phonemes-to-improve-pronunciation).
+<sup>5</sup> Phonemes are supported for the locale of the neural voice. For more information, see [SSML phonetic alphabets](../../speech-ssml-phonetic-sets.md) and [Use phonemes to improve pronunciation](../../speech-synthesis-markup-pronunciation.md#phoneme-element).
 
-<sup>6</sup> Custom lexicon is supported for the locale of the neural voice. For more information, see [Use custom lexicon to improve pronunciation](../../speech-synthesis-markup-pronunciation.md#use-custom-lexicon-to-improve-pronunciation).
+<sup>6</sup> Custom lexicon is supported for the locale of the neural voice. For more information, see [Use custom lexicon to improve pronunciation](../../speech-synthesis-markup-pronunciation.md#custom-lexicon).
 
 <sup>7</sup> For the multilingual voice the primary default locale is `en-US`. Additional locales are supported [using SSML](../../speech-synthesis-markup-voice.md#adjust-speaking-languages).
 

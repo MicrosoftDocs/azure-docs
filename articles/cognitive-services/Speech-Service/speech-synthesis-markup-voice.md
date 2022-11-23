@@ -24,7 +24,7 @@ Usage of the `voice` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `name`    | Specifies the voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=stt-tts).| Required|
+| `name`    | The voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=stt-tts).| Required|
 
 ### voice examples
 
@@ -214,7 +214,7 @@ Usage of the `lang` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `xml:lang`    | Specifies the language that you want the neural voice to speak. | Required to adjust the speaking language for the neural voice. If you're using `lang xml:lang`, the locale must be provided. |
+| `xml:lang`    | The language that you want the neural voice to speak. | Required to adjust the speaking language for the neural voice. If you're using `lang xml:lang`, the locale must be provided. |
 
 > [!NOTE]
 > The `<lang xml:lang>` element is incompatible with the `prosody` and `break` elements. You can't adjust pause and prosody like pitch, contour, rate, or volume in this element.
@@ -378,7 +378,7 @@ Usage of the `audio` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `src`     | Specifies the location/URL of the audio file. | Required |
+| `src`     | The location/URL of the audio file. | Required |
 
 ### audio examples
 
@@ -415,10 +415,10 @@ Usage of the `mstts:backgroundaudio` element's attributes are described in the f
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `src`     | Specifies the location/URL of the background audio file. | Required |
-| `volume`  | Specifies the volume of the background audio file. **Accepted values**: `0` to `100` inclusive. The default value is `1`.  | Optional  |
-| `fadein`  | Specifies the duration of the background audio fade-in as milliseconds. The default value is `0`, which is the equivalent to no fade in. **Accepted values**: `0` to `10000` inclusive.   | Optional    |
-| `fadeout` | Specifies the duration of the background audio fade-out in milliseconds. The default value is `0`, which is the equivalent to no fade out. **Accepted values**: `0` to `10000` inclusive. | Optional|
+| `src`     | The location/URL of the background audio file. | Required |
+| `volume`  | The volume of the background audio file. **Accepted values**: `0` to `100` inclusive. The default value is `1`.  | Optional  |
+| `fadein`  | The duration of the background audio fade-in as milliseconds. The default value is `0`, which is the equivalent to no fade in. **Accepted values**: `0` to `10000` inclusive.   | Optional    |
+| `fadeout` | The duration of the background audio fade-out in milliseconds. The default value is `0`, which is the equivalent to no fade out. **Accepted values**: `0` to `10000` inclusive. | Optional|
 
 ### mstss backgroundaudio examples
 

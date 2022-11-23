@@ -16,7 +16,7 @@ ms.author: eur
 
 You can use SSML to specify how the speech is pronounced. For example, you can use SSML with phonemes and a custom lexicon to improve pronunciation. You can also use SSML to define how a word or mathematical expression is pronounced.
 
-## Phonemes to improve pronunciation
+## phoneme element
 
 The `phoneme` element is used for phonetic pronunciation in SSML documents. The `phoneme` element can contain only text but no other elements. Always provide human-readable speech as a fallback.
 
@@ -29,12 +29,12 @@ Usage of the `phoneme` element's attributes are described in the following table
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `alphabet` | Specifies the phonetic alphabet to use when you synthesize the pronunciation of the string in the `ph` attribute. The string that specifies the alphabet must be specified in lowercase letters. The following options are the possible alphabets that you can specify:<ul><li>`ipa` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`sapi` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; See [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li></ul><br>The alphabet applies only to the `phoneme` in the element. | Optional |
+| `alphabet` | The phonetic alphabet to use when you synthesize the pronunciation of the string in the `ph` attribute. The string that specifies the alphabet must be specified in lowercase letters. The following options are the possible alphabets that you can specify:<ul><li>`ipa` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`sapi` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; See [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li></ul><br>The alphabet applies only to the `phoneme` in the element. | Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, text-to-speech rejects the entire SSML document and produces none of the speech output specified in the document. | Required |
 
 ### phoneme examples
 
-The supported values for attributes of the `phoneme` element were [described previously](#phonemes-to-improve-pronunciation).
+The supported values for attributes of the `phoneme` element were [described previously](#phoneme-element).
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -60,7 +60,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 </speak>
 ```
 
-## Use custom lexicon to improve pronunciation
+## Custom lexicon
 
 Sometimes text-to-speech doesn't accurately pronounce a word. Examples might be the name of a company, a medical term, or an emoji. You can define how single entities are read in SSML by using the `phoneme` and `sub` tags. If you need to define how multiple entities are read, you can create a custom lexicon by using the `lexicon` tag.
 
@@ -232,6 +232,30 @@ The speech synthesis engine speaks the following example as "Your first request 
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
         </p>
+    </voice>
+</speak>
+```
+
+## sub element
+
+Use the `sub` element to indicate that the alias attribute's text value should be pronounced instead of the element's enclosed text. In this way, the SSML contains both a spoken and written form. 
+
+Usage of the `sub` element's attributes are described in the following table.
+
+| Attribute | Description | Required or optional |
+| ---------- | ---------- | -------------------- |
+| `alias` | The text value that should be pronounced instead of the element's enclosed text. | Required |
+
+### sub examples
+
+The supported values for attributes of the `sub` element were [described previously](#sub-element).
+
+The speech synthesis engine speaks the following example as "World Wide Web Consortium."
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        <sub alias="World Wide Web Consortium">W3C</sub>
     </voice>
 </speak>
 ```

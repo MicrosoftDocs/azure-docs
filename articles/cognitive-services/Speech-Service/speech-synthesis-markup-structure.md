@@ -20,13 +20,9 @@ The input text structure determines the structure, content, and other characteri
 
 The Speech service implementation of SSML is based on the World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/).
 
-Each SSML document is created with SSML elements or tags. These elements are used to adjust pitch, prosody, volume, and more.
+Each SSML document is created with SSML elements or tags. These elements are used to adjust the voice, style, pitch, prosody, volume, and more.
 
-The Speech service automatically handles punctuation as appropriate, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark.
-
-Special characters such as quotation marks, apostrophes, and brackets, must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
-
-Attribute values must be enclosed by double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` will not be recognized. 
+Here's the basic structure and syntax of an SSML document:
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="string">
@@ -49,25 +45,37 @@ Attribute values must be enclosed by double quotation marks. For example, `<pros
         <prosody pitch="value" contour="value" range="value" rate="value" volume="value"></prosody>
         <s></s>
         <say-as interpret-as="string" format="string" detail="string"></say-as>
+        <sub alias="string"></sub>
     </voice>
 </speak>
 ```
 
-The `p` element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, `mstts:express-as`, and `s`.
+Contents that are allowed in each element are described in the following list:
+- `audio`: The body of the `audio` element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
+- `bookmark`: This element can contain the following elements: 
+- `break`: This element can't contain text or any other elements.
+- `emphasis`: This element can contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, `sub`, and `voice`.
+- `lang`: This element can contain the following elements: 
+- `lexicon`: This element can contain the following elements: 
+- `math`: This element can only contain text and MathML elements.
+- `mstts:backgroundaudio`: This element can't contain text or any other elements.
+- `mstts:express-as`: This element can contain the following elements: 
+- `mstts:silence`: This element can contain the following elements: 
+- `mstts:viseme`: This element can contain the following elements: 
+- `p`: This element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, `mstts:express-as`, and `s`.
+- `phoneme`: This element can only contain text and no other elements.
+- `prosody`: This element can contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
+- `s`: This element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `mstts:express-as`, and `sub`.
+- `say-as`: This element can only contain text and no other elements.
+- `sub`: This element can only contain text and no other elements.
+- `speak`: The root element of an SSML document. This element can contain the following elements: `mstts:backgroundaudio` and `voice`.
+- `voice`: This element can contain all other elements except `mstts:backgroundaudio` and `speak`.
 
-The `s` element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `mstts:express-as`, and `sub`.
+The Speech service automatically handles punctuation as appropriate, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark.
 
-The `phoneme` element can contain only text but no other elements.
+Special characters such as quotation marks, apostrophes, and brackets, must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
 
-The `prosody` element can contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
-
-The `emphasis` element can only contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, `sub`, and `voice`.
-
-The `say-as` element can only contain text.
-
-The body of the `audio` element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
-
-The `mstts:backgroundaudio` element should be put in front of all `voice` elements, i.e., the first child of the `speak` element. Only one `mstts:backgroundaudio` element is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
+Attribute values must be enclosed by double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` will not be recognized. 
 
 ## Speak root element
 
@@ -82,8 +90,8 @@ Here's the syntax for the `speak` element:
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
 | `version` | Indicates the version of the SSML specification used to interpret the document markup. The current version is "1.0".| Required|
-| `xml:lang` | Specifies the language of the root document. The value can contain a language code such as `en` (English), or a locale such as `en-US` (English - United States). | Required |
-| `xmlns` | Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is "http://www.w3.org/2001/10/synthesis". | Required |
+| `xml:lang` | The language of the root document. The value can contain a language code such as `en` (English), or a locale such as `en-US` (English - United States). | Required |
+| `xmlns` | The URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is "http://www.w3.org/2001/10/synthesis". | Required |
 
 The `speak` element must contain at least one [voice element](speech-synthesis-markup-voice.md#voice-element).
 
@@ -103,19 +111,16 @@ This example uses the `en-US-JennyNeural` voice. For more examples, see [voice e
 </speak>
 ```
 
-## Add or remove a break or pause
+## Add or prevent a break
 
-Use the `break` element to insert pauses or breaks between words. You can also use it to prevent pauses that are automatically added by text-to-speech.
-
-> [!NOTE]
-> Use this element to override the default behavior of text-to-speech for a word or phrase if the synthesized speech for that word or phrase sounds unnatural. Set `strength` to `none` to prevent a prosodic break, which is automatically inserted by text-to-speech.
+Use the `break` element to to override the default behavior of breaks or pauses between words. You can use it to add or prevent pauses that are otherwise automatically inserted by the Speech service.
 
 Usage of the `break` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `strength` | Specifies the relative duration of a pause by using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
-| `time`     | Specifies the absolute duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service will use `5000ms`. If the `time` attribute is set, the `strength` attribute is ignored.| Optional |
+| `strength` | The relative duration of a pause by using one of the following values:<br/><ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul><br/><br/>Set `strength` to `none` to prevent automatic insertion of a prosodic break. | Optional |
+| `time`     | The absolute duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service will use `5000ms`. If the `time` attribute is set, the `strength` attribute is ignored.| Optional |
 
 Here are more details about the `strength` attribute.
 
@@ -130,7 +135,7 @@ Here are more details about the `strength` attribute.
 
 ### break examples
 
-The supported values for attributes of the `break` element were [described previously](#add-or-remove-a-break-or-pause). 
+The supported values for attributes of the `break` element were [described previously](#add-or-prevent-a-break). 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -154,7 +159,7 @@ Usage of the `mstts:silence` element's attributes are described in the following
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
 | `type` | Specifies where and how to add silence. The following silence types are supported:<br/><ul><li>`Leading` – Additional silence at the beginning of the text. The value that you set is added to the natural silence before the start of text.</li><li>`Leading-exact` – Silence at the beginning of the text. The value is an absolute silence length.</li><li>`Tailing` – Additional silence at the end of text. The value that you set is added to the natural silence after the last word.</li><li>`Tailing-exact` – Silence at the end of the text. The value is an absolute silence length.</li><li>`Sentenceboundary` – Additional silence between adjacent sentences. The actual silence length for this type includes the natural silence after the last word in the previous sentence, the value you set for this type, and the natural silence before the starting word in the next sentence.</li><li>`Sentenceboundary-exact` – Silence between adjacent sentences. The value is an absolute silence length.</li></ul><br/>An absolute silence type (with the `-exact` suffix) replaces any otherwise natural leading or trailing silence. Absolute silence types take precedence over the corresponding non-absolute type. For example, if you set both `Leading` and `Leading-exact` types, the `Leading-exact` type will take effect.| Required |
-| `Value`   | Specifies the duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service will use `5000ms`.| Required |
+| `Value`   | The duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service will use `5000ms`.| Required |
 
 ###  mstts silence examples
 
@@ -207,7 +212,7 @@ Usage of the `bookmark` element's attributes are described in the following tabl
 
 | Attribute | Description                                             | Required or optional |
 | --------- | ------------------------------------------------------- | -------------------- |
-| `mark`    | Specifies the reference text of the `bookmark` element. | Required             |
+| `mark`    | The reference text of the `bookmark` element. | Required             |
 
 ### bookmark examples
 
@@ -231,7 +236,7 @@ Usage of the `viseme` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `type`    | Specifies the type of viseme output.<ul><li>`redlips_front` – lip-sync with viseme ID and audio offset output </li><li>`FacialExpression` – blend shapes output</li></ul> | Required  |
+| `type`    | The type of viseme output.<ul><li>`redlips_front` – lip-sync with viseme ID and audio offset output </li><li>`FacialExpression` – blend shapes output</li></ul> | Required  |
 
 > [!NOTE]
 > Currently, `redlips_front` only supports neural voices in `en-US` locale, and `FacialExpression` supports neural voices in `en-US` and `zh-CN` locales.
