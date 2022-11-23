@@ -42,7 +42,7 @@ Organizations may have more than one Azure AD tenant. Choose the tenant where th
 
     :::image type="content" source="./media/web-app-tutorial-01-register-application/select-tenant.png" alt-text="Screenshot of selecting a tenant in Azure Active Directory."::: 
 <!-- Refined screenshot required -->
-1. Once your tenant is selected, for example _Contoso_, close the page, and you will be brought to your tenant's **Overview** page.
+1. Once your tenant is selected, for example _Contoso_, close the page, and you'll be brought to your tenant's **Overview** page.
 
 ### Start registration and enter a name for the application
 
