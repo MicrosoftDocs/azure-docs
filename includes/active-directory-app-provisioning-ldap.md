@@ -120,12 +120,13 @@ If you have already downloaded the provisioning agent and configured it for anot
      >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
  1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
  1. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
+ 1. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
  1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The Hybrid Identity Administrator or Global Administrator role is required.
  1. Select **Confirm** to confirm the installation was successful.
 
 ## Configure the On-premises ECMA app
 
- 1. Sign in to the Azure portal.
+ 1. Sign in to the Azure portal as an administrator.
  1. Go to **Enterprise applications** > **Add a new application**.
  1. Search for the **On-premises ECMA app** application, and add it to your tenant.
  1. Navigate to the provisioning page of your application.
@@ -160,7 +161,7 @@ Depending on the options you select, some of the wizard screens might not be ava
 
      |Property|Value|
      |-----|-----|
-     |Name|LDAP|
+     |Name|The name you chose for the connector, which should be unique across all connectors in your environment. For example, `LDAP`.|
      |Autosync timer (minutes)|120|
      |Secret Token|Enter your secret token here. It should be 12 characters minimum.|
      |Extension DLL|For the generic LDAP connector, select **Microsoft.IAM.Connector.GenericLdap.dll**.|
@@ -246,12 +247,25 @@ Depending on the options you select, some of the wizard screens might not be ava
  17. Select **Finish**.
 
 ## Ensure ECMA2Host service is running
- 1. On the server the running the Azure AD ECMA Connector Host, select **Start**.
+ 1. On the server running the Azure AD ECMA Connector Host, select **Start**.
  2. Enter **run** and enter **services.msc** in the box.
  3. In the **Services** list, ensure that **Microsoft ECMA2Host** is present and running. If not, select **Start**.
      [![Screenshot that shows the service is running.](.\media\active-directory-app-provisioning-sql\configure-2.png)](.\media\active-directory-app-provisioning-sql\configure-2.png#lightbox)
 
+If you are connecting to a new directory server or one that is empty and has no users, then continue at the next section. Otherwise, follow these steps to confirm that the connector has identified existing users from the directory.
 
+ 1. If you have recently started the service, and have many user objects in the directory server, then wait several minutes for the connector to establish a connection with the directory server.
+ 1. On the server running the Azure AD ECMA Connector Host, launch PowerShell.
+ 1. Change to the folder where the ECMA host was installed, such as `C:\Program Files\Microsoft ECMA2Host`.
+ 1. Change to the subdirectory `Troubleshooting`.
+ 1. Run the script `TestECMA2HostConnection.ps1` in that directory as shown below, and provide as arguments the connector name and the `ObjectTypePath` value `cache`. If your connector host is not listening on TCP port 8585, then you may also need to provide the `-Port` argument as well. When prompted, type the secret token configured for that connector.
+    ```
+    PS C:\Program Files\Microsoft ECMA2Host\Troubleshooting> $cout = .\TestECMA2HostConnection.ps1 -ConnectorName LDAP -ObjectTypePath cache; $cout.length -gt 9
+    Supply values for the following parameters:
+    SecretToken: ************
+    ```
+ 1. If the script displays an error or warning message, then check that the service is running, and the connector name and secret token match those you configured in the configuration wizard.
+ 1. If the script displays the output `False`, this indicates that the connector has not seen any entries in the source directory server for existing users.  If this is a new directory server installation, then this behavior is to be expected. However, if the directory server already contains one or more users, then this status indicates Azure AD may not correctly match users in that source directory with those in Azure AD.  Wait several minutes for the connector host to finish reading objects from the existing directory server, and then re-run the script. If the output continues to be `False`, then check the configuration of your connector and the permissions in the directory server are allowing the connector to read existing users.
 
 ## Test the application connection
  1. Return to the web browser window where you were configuring the application provisioning.
@@ -261,7 +275,7 @@ Depending on the options you select, some of the wizard screens might not be ava
      1. Go to **Enterprise applications** and the **On-premises ECMA app** application.
      1. Click on **Provisioning**.
      1. If **Get started** appears, then change the mode to **Automatic**,  on the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**, and wait 10 minutes. Otherwise go to **Edit Provisioning**.
- 2. Under the **Admin credentials** section, enter the following URL. Replace the `connectorName` portion with the name of the connector on the ECMA host. You can also replace `localhost` with the host name.
+ 2. Under the **Admin credentials** section, enter the following URL. Replace the `connectorName` portion with the name of the connector on the ECMA host, such as `LDAP`. You can also replace `localhost` with the host name of the server where the ECMA host is installed.
 
     |Property|Value|
     |-----|-----|
