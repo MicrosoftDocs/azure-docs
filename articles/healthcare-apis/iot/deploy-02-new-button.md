@@ -5,15 +5,17 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/18/2022
+ms.date: 11/22/2022
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy MedTech service with an Azure Resource Manager template
 
-In this article, you'll learn how to deploy MedTech service in the Azure portal using an Azure Resource Manager (ARM) template. This ARM template will be used with the **Deploy to Azure** button to make it easy to provide the information you need to automatically create the infrastructure and configuration of your deployment. For more information about Azure Resource Manager (ARM) templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md).
+In this article, you'll learn how to deploy MedTech service in the Azure portal using an Azure Resource Manager (ARM) template. This ARM template will be used with the **Deploy to Azure** button to make it easy to provide the information you need to automatically create the infrastructure and configuration of your deployment. 
 
-The ARM template used in this article is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/).
+For more information about ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md).
+
+The ARM template used in this article is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/).
 
 If you need to see a diagram with information on the MedTech service deployment, there's an architecture overview at [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resources (FHIR&#174;) Observation.
 

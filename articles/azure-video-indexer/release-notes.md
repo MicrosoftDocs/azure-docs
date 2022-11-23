@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 11/07/2022
+ms.date: 11/22/2022
 ms.author: juliako
 ---
 
@@ -13,33 +13,11 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
-* [Important notice](#upcoming-critical-changes) about planned changes
+<!--* [Important notice](#upcoming-critical-changes) about planned changes-->
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
-
-## Upcoming critical changes
-
-> [!Important]
-> This section describes a critical upcoming change for the `Upload-Video` API.
-
-### Upload-Video API
-
-In the past, the `Upload-Video` API was tolerant to calls to upload a video from a URL where an empty multipart form body was provided in the C# code, such as:
-
-```csharp
-var content = new MultipartFormDataContent();
-var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
-```
-
-In the coming weeks, our service will fail requests of this type.
-
-In order to upload a video from a URL, change your code to send null in the request body:
-
-```csharp
-var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
-```
 
 ## November 2022
 
@@ -69,7 +47,7 @@ For details, see [Slate detection](slate-detection-insight.md).
 
 ### New source languages support for STT, translation, and search
 
-Now supporting source languages for STT (speech-to-text), translation, and search in Ukraine and Vietnamese. It means transcription, translation, and search features are also supported for these languages in Azure Video Indexer web applications, widgets and APIs.
+Now supporting source languages for STT (speech-to-text), translation, and search in Ukraine and Vietnamese. It means transcription, translation, and search features are also supported for these languages in the [Azure Video Indexer](https://www.videoindexer.ai/) website, widgets and APIs.
 
 For more information, see [supported languages](language-support.md).
 
@@ -262,7 +240,7 @@ For more information, see [Audio effects detection](audio-effects-detection.md).
 ### New source languages support for STT, translation, and search on the website
 
 Azure Video Indexer introduces source languages support for STT (speech-to-text), translation, and search in Hebrew (he-IL), Portuguese (pt-PT), and Persian (fa-IR) on the [Azure Video Indexer](https://www.videoindexer.ai/) website.
-It means transcription, translation, and search features are also supported for these languages in Azure Video Indexer web applications and widgets.
+It means transcription, translation, and search features are also supported for these languages in the [Azure Video Indexer](https://www.videoindexer.ai/) website and widgets.
 
 ## December 2021
 
@@ -365,11 +343,11 @@ The Video Indexer service was renamed to Azure Video Indexer.
 
 ### Improved upload experience in the portal
 
-Azure Video Indexer has a new upload experience in the [portal](https://www.videoindexer.ai). To upload your media file, press the **Upload** button from the **Media files** tab.
+Azure Video Indexer has a new upload experience in the [website](https://www.videoindexer.ai). To upload your media file, press the **Upload** button from the **Media files** tab.
 
 ### New developer portal in available in gov-cloud
 
-[Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai) is now also available in Azure for US Government.
+The [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai) is now also available in Azure for US Government.
 
 ### Observed people tracing (preview)
 
@@ -399,7 +377,7 @@ The newly added bundle is available when indexing or re-indexing your file by ch
 
 ### New developer portal
 
-Azure Video Indexer has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Azure Video Indexer APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Azure Video Indexer tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Azure Video Indexer FAQs](faq.yml), [User Voice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples.
+Azure Video Indexer has a new [developer portal](https://api-portal.videoindexer.ai/), try out the new Azure Video Indexer APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Azure Video Indexer tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Azure Video Indexer FAQs](faq.yml), [User Voice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples.
 
 ### Advanced customization capabilities for insight widget
 
@@ -540,7 +518,7 @@ You can now create an Azure Video Indexer paid account in the East US region.
 
 Azure Video Indexer regional endpoints were all unified to start only with www. No action item is required.
 
-From now on, you reach www.videoindexer.ai whether it is for embedding widgets or logging into Azure Video Indexer web applications.
+From now on, you reach www.videoindexer.ai whether it is for embedding widgets or logging into the [Azure Video Indexer](https://www.videoindexer.ai/) website.
 
 Also wus.videoindexer.ai would be redirected to www. More information is available in [Embed Azure Video Indexer widgets in your apps](video-indexer-embed-widgets.md).
 
@@ -600,7 +578,7 @@ https://github.com/Azure-Samples/media-services-video-indexer
 
 ### Swagger update
 
-Azure Video Indexer unified **authentications** and **operations** into a single [Azure Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/api-details#api=Operations&operation). Developers can find the APIs in [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+Azure Video Indexer unified **authentications** and **operations** into a single [Azure Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/api-details#api=Operations&operation). Developers can find the APIs in the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/).
 
 ## December 2019
 

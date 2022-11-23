@@ -170,7 +170,7 @@ sections:
     questions:
       - question: What APIs does Azure Video Indexer offer?
         answer: |
-          Azure Video Indexer's APIs allows for indexing, extracting metadata, asset management, translation, embedding, customization of models and more. To find more detailed information on using the Azure Video Indexer API, refer to the [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+          Azure Video Indexer's APIs allows for indexing, extracting metadata, asset management, translation, embedding, customization of models and more. To find more detailed information on using the Azure Video Indexer API, refer to the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/).
 
       - question: What client SDKs does Azure Video Indexer offer?
         answer: There are currently no client SDKs offered. The Azure Video Indexer team is working on the SDKs and plans to deliver them soon.

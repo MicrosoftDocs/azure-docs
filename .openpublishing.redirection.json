@@ -5964,6 +5964,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/update-center/enable-machines.md",
+            "redirect_url": "/azure/update-center/updates-maintenance-schedules",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
             "redirect_url": "/azure/reliability/cross-region-replication-azure",
             "redirect_document_id": true
