@@ -35,13 +35,13 @@ In the console window of your operating system, use the `dotnet` command to crea
 2. Install the NuGet packages: [Azure.Communication.CallAutomation](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/versions/) and [Azure.Messaging.EventGrid](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Messaging.EventGrid/versions/) to your project. 
 ```console 
 dotnet add <path-to-project> package Azure.Communication.CallAutomation --prerelease
-dotnet add <path-to-project> package Azure.Messaging.EventGrid --prerelease
+dotnet add <path-to-project> package Azure.Messaging.EventGrid
 ```
 ## Use Visual Studio Dev Tunnels for your webhook
 
-In this quick-start, you'll use the new [Visual Studio Dev Tunnels](https://learn.microsoft.com/connectors/custom-connectors/port-tunneling) feature to obtain a public domain name so that your local application is reachable by the Call Automation platform on the Internet. The public name is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
+In this quick-start, you'll use the new [Visual Studio Dev Tunnels](/connectors/custom-connectors/port-tunneling) feature to obtain a public domain name so that your local application is reachable by the Call Automation platform on the Internet. The public name is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-If you haven't already configured your workstation, be sure to follow the steps in [this guide](https://learn.microsoft.com/connectors/custom-connectors/port-tunneling). Once configured, your workstation will acquire a public domain name automatically allowing us to use the environment variable `["VS_TUNNEL_URL"]` as shown below.
+If you haven't already configured your workstation, be sure to follow the steps in [this guide](/connectors/custom-connectors/port-tunneling). Once configured, your workstation will acquire a public domain name automatically allowing us to use the environment variable `["VS_TUNNEL_URL"]` as shown below.
 
 Set up your Event Grid subscription to receive the `IncomingCall` event by reading [this guide](../../../concepts/call-automation/incoming-call-notification.md).
 
@@ -143,7 +143,7 @@ app.MapPost("/api/calls/{contextId}", async (
 
 app.Run();
 ```
-Replace the placeholders with the actual values in lines 12-16. In your production code, we recommend using [Secret Manager](https://learn.microsoft.com/aspnet/core/security/app-secrets) for storing sensitive information.  
+Replace the placeholders with the actual values in lines 12-16. In your production code, we recommend using [Secret Manager](aspnetcore/security/app-secrets) for storing sensitive information.
  
 ## Run the app
 
