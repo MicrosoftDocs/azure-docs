@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Manage IoT Edge deployment manifests in your IoT Central application
 
-A deployment manifest lets you specify the modules the IoT Edge runtime should download and configure. An IoT Edge device can download a deployment manifest when it first connects to your IoT Central application. This article describes how you manage these deployment manifests in your IoT Central application.
+A deployment manifest lets you specify the modules the IoT Edge runtime should download and configure. An IoT Edge device can download a deployment manifest when it first connects to your IoT Central application. This article describes how you manage deployment manifests in your IoT Central application.
 
 To learn more about IoT Edge and IoT Central, see [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md).
 
@@ -62,7 +62,7 @@ To completely replace the content of a deployment manifest:
 
 1. Navigate to the **Edge manifests** page.
 
-1. Click on the name of the deployment manifest you want to replace.
+1. Select the deployment manifest you want to replace.
 
 1. In the **Customize** dialog, browse for a new deployment manifest file to upload or choose an existing deployment manifest as a starting point. IoT Central validates any uploaded files.
 

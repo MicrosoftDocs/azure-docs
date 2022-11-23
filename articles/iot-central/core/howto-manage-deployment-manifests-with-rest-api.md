@@ -12,7 +12,7 @@ services: iot-central
 
 # How to use the IoT Central REST API to manage deployment manifests
 
-A deployment manifest lets you specify the modules the IoT Edge runtime should download and configure. An IoT Edge device can download a deployment manifest when it first connects to your IoT Central application. This article describes how to manage these deployment manifests in your IoT Central application by using the REST API.
+A deployment manifest lets you specify the modules the IoT Edge runtime should download and configure. An IoT Edge device can download a deployment manifest when it first connects to your IoT Central application. This article describes how to manage deployment manifests in your IoT Central application by using the REST API.
 
 To learn more about IoT Edge and IoT Central, see [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md).
 

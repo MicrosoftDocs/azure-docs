@@ -49,7 +49,7 @@ PUT https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-vers
 >[!NOTE]
 >Device template IDs follow the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#digital-twin-model-identifier) naming convention, for example: `dtmi:contoso:mythermostattemplate;1`
 
-The following example shows a request body that adds a device template for a thermostat device. The `capabilityModel` includes temperature telemetry, two properties, and a command. The device template defines the `CustomerName` cloud property and customizes the `targetTemperature` property with `decimalPlaces`, `displayUnit`, `maxValue`, and `minValue`. The value of the device template `@id` must match the `deviceTemplateId` value in the URL. The value of the device template `@id` is not the same as the value of the `capabilityModel` `@id` value.
+The following example shows a request body that adds a device template for a thermostat device. The `capabilityModel` includes temperature telemetry, two properties, and a command. The device template defines the `CustomerName` cloud property and customizes the `targetTemperature` property with `decimalPlaces`, `displayUnit`, `maxValue`, and `minValue`. The value of the device template `@id` must match the `deviceTemplateId` value in the URL. The value of the device template `@id` isn't the same as the value of the `capabilityModel` `@id` value.
 
 ```json
 {
@@ -1060,27 +1060,27 @@ Use **$filter** to create expressions that filter the list of device templates. 
 
 | Comparison Operator | Symbol | Example                        |
 | -------------------- | ------ | ------------------------------ |
-| Equals               | eq     | '@id' eq 'dtmi:example:test;1' |
-| Not Equals           | ne     | displayName ne 'template 1'    |
-| Less than or equals       | le     | displayName le 'template A'    |
-| Less than            | lt     | displayName lt 'template B'    |
-| Greater than or equals      | ge     | displayName ge 'template A'    |
-| Greater than           | gt     | displayName gt 'template B'    |
+| Equals               | eq     | `'@id' eq 'dtmi:example:test;1'` |
+| Not Equals           | ne     | `displayName ne 'template 1'`    |
+| Less than or equals       | le     | `displayName le 'template A'`    |
+| Less than            | lt     | `displayName lt 'template B'`    |
+| Greater than or equals      | ge     | `displayName ge 'template A'`    |
+| Greater than           | gt     | `displayName gt 'template B'`    |
 
 The following table shows the logic operators you can use in *$filter* expressions:
 
 | Logic Operator | Symbol | Example                                                                              |
 | -------------- | ------ | ------------------------------------------------------------------------------------ |
-| AND            | and    | '@id' eq 'dtmi:example:test;1' and capabilityModelId eq 'dtmi:example:test:model1;1' |
-| OR             | or     | '@id' eq 'dtmi:example:test;1' or displayName ge 'template'                          |
+| AND            | and    | `'@id' eq 'dtmi:example:test;1' and capabilityModelId eq 'dtmi:example:test:model1;1'` |
+| OR             | or     | `'@id' eq 'dtmi:example:test;1' or displayName ge 'template'`                          |
 
 Currently, *$filter* works with the following device template fields:
 
 | FieldName         | Type   | Description                         |
 | ----------------- | ------ | ----------------------------------- |
-| @id               | string | Device template ID                  |
-| displayName       | string | Device template display name        |
-| capabilityModelId | string | Device template capability model ID |
+| `@id`               | string | Device template ID                  |
+| `displayName`       | string | Device template display name        |
+| `capabilityModelId` | string | Device template capability model ID |
 
 **$filter supported functions:**
 

@@ -54,7 +54,7 @@ PUT https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId
 The request body has some required fields:
 
 * `@displayName`: Display name of the dashboard.
-* `@favorite`: Is the dashboard in the favorites list.
+* `@favorite`: Is the dashboard in the favorites list?
 * `group`: Device group ID.
 * `Tile` : Configuration specifying tile object, including the layout, display name, and configuration.
 

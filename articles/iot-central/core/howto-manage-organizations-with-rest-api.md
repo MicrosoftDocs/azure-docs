@@ -191,7 +191,7 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organ
 
 ### Manage roles
 
-The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of application role and organization role IDs from your application. To learn more see, [How to manage IoT Central organizations](howto-create-organizations.md):
+The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of application role and organization role IDs from your application. To learn more, see [How to manage IoT Central organizations](howto-create-organizations.md):
 
 ```http
 GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-07-31
@@ -344,7 +344,7 @@ The request body has some required fields:
 * `@displayName`: Display name of the device.
 * `@enabled`: declares that this object is an interface.
 * `@etag`: ETag used to prevent conflict in device updates.
-* `simulated`: Whether the device is simulated.
+* `simulated`: Is the device simulated?
 * `template` : The device template definition for the device.
 * `organizations` : List of organization IDs that the device is a part of. Currently, you can only associate a device with a single organization.
 

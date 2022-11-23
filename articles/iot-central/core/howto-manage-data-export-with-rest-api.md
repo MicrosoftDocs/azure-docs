@@ -53,7 +53,7 @@ The following example shows a request body that creates a blob storage destinati
 The request body has some required fields:
 
 * `displayName`: Display name of the destination.
-* `type`:  Type of destination object which can be one of: `blobstorage@v1`, `dataexplorer@v1`, `eventhubs@v1`, `servicebusqueue@v1`, `servicebustopic@v1`, `webhook@v1`.
+* `type`:  Type of destination object. One of: `blobstorage@v1`, `dataexplorer@v1`, `eventhubs@v1`, `servicebusqueue@v1`, `servicebustopic@v1`, `webhook@v1`.
 * `connectionString`: The connection string for accessing the destination resource.
 * `containerName`: For a blob storage destination, the name of the container where data should be written.
 
@@ -134,7 +134,7 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/api/dataExport/destinations/{destinationId}?api-version=2022-10-31-preview
 ```
 
-You can use this to perform an incremental update to an export. The sample request body looks like the following example that updates the `displayName` to a destination:
+You can use this call to perform an incremental update to an export. The sample request body looks like the following example that updates the `displayName` to a destination:
 
 ```json
 {
@@ -203,7 +203,7 @@ The request body has some required fields:
 
 There are some optional fields you can use to add more details to the export.
 
-* `enrichments`: Additional pieces of information to include with each sent message. Data is represented as a set of key/value pairs, where the key is the name of the enrichment that will appear in the output message and the value identifies the data to send.
+* `enrichments`: Extra pieces of information to include with each sent message. Data is represented as a set of key/value pairs, where the key is the name of the enrichment that will appear in the output message and the value identifies the data to send.
 * `filter`: Query defining which events from the source should be exported.
 
 The response to this request looks like the following example: 
@@ -306,7 +306,7 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/dataExport/exports/{exportId}?api-version=2022-10-31-preview
 ```
 
-You can use this to perform an incremental update to an export. The sample request body looks like the following example that updates the `enrichments` to an export:
+You can use this call to perform an incremental update to an export. The sample request body looks like the following example that updates the `enrichments` to an export:
 
 ```json
 {

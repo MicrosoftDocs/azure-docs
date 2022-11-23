@@ -55,9 +55,9 @@ The following example shows a request body that adds a device for a device templ
 The request body has some required fields:
 
 * `@displayName`: Display name of the device.
-* `@enabled`: declares that this object is an interface.
+* `@enabled`: Declares that this object is an interface.
 * `@etag`: ETag used to prevent conflict in device updates.
-* `simulated`: Whether the device is simulated.
+* `simulated`: Is the device simulated?
 * `template` : The device template definition for the device.
 
 The response to this request looks like the following example:
@@ -253,37 +253,37 @@ Use **$filter** to create expressions that filter the list of devices. The follo
 
 | Comparison Operator | Symbol | Example                                 |
 | -------------------- | ------ | --------------------------------------- |
-| Equals               | eq     | id eq 'device1' and scopes eq 'redmond' |
-| Not Equals           | ne     | Enabled ne true                         |
-| Less than or equals       | le     | contains(displayName, 'device1') le -1   |
-| Less than            | lt     | contains(displayName, 'device1') lt 0    |
-| Greater than or equals      | ge     | contains(displayName, 'device1') ge 0    |
-| Greater than           | gt     | contains(displayName, 'device1') gt 0    |
+| Equals               | eq     | `id eq 'device1' and scopes eq 'redmond'` |
+| Not Equals           | ne     | `Enabled ne true`                         |
+| Less than or equals       | le     | `contains(displayName, 'device1') le -1`   |
+| Less than            | lt     | `contains(displayName, 'device1') lt 0`    |
+| Greater than or equals      | ge     | `contains(displayName, 'device1') ge 0`    |
+| Greater than           | gt     | `contains(displayName, 'device1') gt 0`    |
 
 The following table shows the logic operators you can use in *$filter* expressions:
 
 | Logic Operator | Symbol | Example                               |
 | -------------- | ------ | ------------------------------------- |
-| AND            | and    | id eq 'device1' and enabled eq true   |
-| OR             | or     | id eq 'device1' or simulated eq false |
+| AND            | and    | `id eq 'device1' and enabled eq true`   |
+| OR             | or     | `id eq 'device1' or simulated eq false` |
 
 Currently, *$filter* works with the following device fields:
 
 | FieldName   | Type    | Description               |
 | ----------- | ------- | ------------------------- |
-| id          | string  | Device ID                 |
-| displayName | string  | Device display name       |
-| enabled     | boolean | Device enabled status     |
-| provisioned | boolean | Device provisioned status |
-| simulated   | boolean | Device simulated status   |
-| template    | string  | Device template ID        |
-| scopes      | string  | organization ID           |
+| `id`          | string  | Device ID                 |
+| `displayName` | string  | Device display name       |
+| `enabled`     | boolean | Device enabled status     |
+| `provisioned` | boolean | Device provisioned status |
+| `simulated`   | boolean | Device simulated status   |
+| `template`    | string  | Device template ID        |
+| `scopes`      | string  | organization ID           |
 
 **$filter supported functions:**
 
 Currently, the only supported filter function for device lists is the `contains` function:
 
-```
+```http
 $filter=contains(displayName, 'device1') ge 0
 ```
 
@@ -324,7 +324,7 @@ The response to this request looks like the following example:
 
 Use **$orderby** to sort the results. Currently, **$orderby** only lets you sort on **displayName**. By default, **$orderby** sorts in ascending order. Use **desc** to sort in descending order, for example:
 
-```
+```http
 $orderby=displayName
 $orderby=displayName desc
 ```
