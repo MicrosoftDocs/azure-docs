@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Author scoring scripts for batch deployments
 
-[!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
 Batch endpoints allow you to deploy models to perform inference at scale. Because how inference should be executed varies from model's format, model's type and use case, batch endpoints require a scoring script (also known as batch driver script) to indicate the deployment how to use the model over the provided data. In this article you will learn how to use scoring scripts in different scenarios and their best practices.
 

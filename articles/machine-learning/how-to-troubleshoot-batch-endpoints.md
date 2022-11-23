@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Troubleshooting batch endpoints
 
-[!INCLUDE [dev v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) for batch scoring.
 
@@ -138,7 +138,7 @@ __Message logged__: Dataset initialization failed: UserErrorException: Message: 
 
 __Reason__: The compute cluster where the deployment is running can't mount the storage where the data asset is located. The managed identity of the compute don't have permissions to perform the mount.
 
-__Solutions__: Ensure the identity associated with the compute cluster where your deployment is running has at least has at least [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../../storage/blobs/assign-azure-role-data-access.md).
+__Solutions__: Ensure the identity associated with the compute cluster where your deployment is running has at least has at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 
 ### Data set node [code] references parameter dataset_param which doesn't have a specified value or a default value
 

@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Invoking batch endpoints from Event Grid events in storage
 
-[!INCLUDE [ml v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
 Event Grid is a fully managed service that enables you to easily manage events across many different Azure services and applications. It simplifies building event-driven and serverless applications. In this tutorial we are going to learn how to create a Logic App that can subscribe to the Event Grid event associated with new files created in a storage account and trigger a batch endpoint to process the given file.
 
@@ -33,28 +33,28 @@ The workflow will work in the following way:
 
 * This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
 * This example assumes that your batch deployment runs in a compute cluster called `cpu-cluster`.
-* The Logic App we are creating will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Deploy models with REST for batch scoring](../how-to-deploy-batch-with-rest.md). 
+* The Logic App we are creating will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Deploy models with REST for batch scoring](how-to-deploy-batch-with-rest.md). 
 
 ## Authenticating against batch endpoints
 
-Azure Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../../connectors/connectors-native-http.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
+Azure Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../connectors/connectors-native-http.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
 We recommend to using a service principal for authentication and interaction with batch endpoints in this scenario. 
 
-1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
 1. Take note of the `client secret` generated.
-1. Take note of the `client ID` and the `tenant id` as explained at [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
-1. Grant access for the service principal you created to your workspace as explained at [Grant access](../../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the service principal will require:
+1. Take note of the `client ID` and the `tenant id` as explained at [Get tenant and app ID values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+1. Grant access for the service principal you created to your workspace as explained at [Grant access](../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the service principal will require:
 
    1. Permission in the workspace to read batch deployments and perform actions over them.
    1. Permissions to read/write in data stores. 
 
 ## Enabling data access
 
-We will be using cloud URIs provided by event grid to indicate the input data to send to the deployment job. Batch deployments use the identity of the compute to mount the data. The identity of the job is used to read the data once mounted for external storage accounts. You will need to assign a user-assigned managed identity to the compute cluster in order to ensure it does have access to mount the underlying data. Follow these steps to ensure data access:
+We will be using cloud URIs provided by Event Grid to indicate the input data to send to the deployment job. Batch deployments use the identity of the compute to mount the data. The identity of the job is used to read the data once mounted for external storage accounts. You will need to assign a user-assigned managed identity to the compute cluster in order to ensure it does have access to mount the underlying data. Follow these steps to ensure data access:
 
-1. Create a [managed identity resource](../../active-directory/managed-identities-azure-resources/overview.md):
+1. Create a [managed identity resource](../active-directory/managed-identities-azure-resources/overview.md):
 
    # [Azure ML CLI](#tab/cli)
 
@@ -98,7 +98,7 @@ We will be using cloud URIs provided by event grid to indicate the input data to
    ml_client.compute.begin_create_or_update(compute_cluster)
    ```
 
-1. Go to the [Azure portal](https://portal.azure.com) and ensure the managed identity has the right permissions to read the data. To access storage services, you must have at least [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../../storage/blobs/assign-azure-role-data-access.md).
+1. Go to the [Azure portal](https://portal.azure.com) and ensure the managed identity has the right permissions to read the data. To access storage services, you must have at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 
 ## Create a Logic App
 
@@ -108,16 +108,16 @@ We will be using cloud URIs provided by event grid to indicate the input data to
 
 1. On the Azure Marketplace menu, select **Integration** > **Logic App**.
 
-   ![Screenshot that shows Azure Marketplace menu with "Integration" and "Logic App" selected.](./../../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png)
+   ![Screenshot that shows Azure Marketplace menu with "Integration" and "Logic App" selected.](../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png)
 
 1. On the **Create Logic App** pane, on the **Basics** tab, provide the following information about your logic app resource.
 
-   ![Screenshot showing Azure portal, logic app creation pane, and info for new logic app resource.](./../../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
+   ![Screenshot showing Azure portal, logic app creation pane, and info for new logic app resource.](../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. This example uses **Pay-As-You-Go**. |
-   | **Resource Group** | Yes | **LA-TravelTime-RG** | The [Azure resource group](../../azure-resource-manager/management/overview.md) where you create your logic app resource and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). |
+   | **Resource Group** | Yes | **LA-TravelTime-RG** | The [Azure resource group](../azure-resource-manager/management/overview.md) where you create your logic app resource and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). |
    | **Name** | Yes | **LA-TravelTime** | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). |
 
 1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Consumption** to show only the settings for a Consumption logic app workflow, which runs in multi-tenant Azure Logic Apps.
@@ -126,8 +126,8 @@ We will be using cloud URIs provided by event grid to indicate the input data to
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](../../logic-apps/logic-apps-pricing.md#standard-pricing). |
-   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing). |
+   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](../logic-apps/logic-apps-pricing.md#standard-pricing). |
+   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). |
 
 1. Now continue with the following selections:
 
@@ -144,7 +144,7 @@ We will be using cloud URIs provided by event grid to indicate the input data to
 
 1. Scroll down past the video and common triggers sections to the **Templates** section, and select **Blank Logic App**.
 
-   ![Screenshot that shows the workflow template selection pane with "Blank Logic App" selected.](./../../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/select-logic-app-template.png)
+   ![Screenshot that shows the workflow template selection pane with "Blank Logic App" selected.](../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/select-logic-app-template.png)
 
 
 ## Configure the workflow parameters
@@ -194,7 +194,7 @@ We want to trigger the Logic App each time a new file is created in a given fold
 1. Click on __Add new parameter__ and select __Prefix Filter__. Add the value `/blobServices/default/containers/<container_name>/blobs/<path_to_data_folder>`.
 
    > [!IMPORTANT]
-   > __Prefix Filter__ allows Event Grid to only notify the workflow when a blob is created in the specific path we indicated. In this case, we are assumming that files will be created by some external process in the folder `<path_to_data_folder>` inside the container `<container_name>` in the selected Storage Account. Configure this parameter to match the location of your data. Otherwise, the event will be fired for any file created at any location of the Storage Account. See [Event filtering for Event Grid](../../event-grid/event-filtering.md) for more details.
+   > __Prefix Filter__ allows Event Grid to only notify the workflow when a blob is created in the specific path we indicated. In this case, we are assumming that files will be created by some external process in the folder `<path_to_data_folder>` inside the container `<container_name>` in the selected Storage Account. Configure this parameter to match the location of your data. Otherwise, the event will be fired for any file created at any location of the Storage Account. See [Event filtering for Event Grid](../event-grid/event-filtering.md) for more details.
 
    The trigger will look as follows:
    
