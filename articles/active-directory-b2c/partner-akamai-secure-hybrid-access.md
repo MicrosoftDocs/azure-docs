@@ -58,7 +58,7 @@ The components involved in this integration are:
 
 The user authenticates to Azure AD B2C (as SAML Identity Provider) that will respond to Akamai Enterprise Application Access (the Service Provider) with a SAML assertion. Akamai Enterprise Application Access maps information from the SAML assertion and it constructs OpenID Claims or injects HTTP Headers containing information about the user. Akamai Enterprise Application Access will then pass this to the Application accessible through the Akamai Enterprise Application Access connector. In our sample, the application will display the content of these headers. In the use case of OIDC Application it will display the user's claims.
 
-The following diagram shows how Akamai Enterprise Application Access integrates with Azure AD B2C.
+The following diagram shows how Akamai Enterprise Application Access (EAA) integrates with Azure AD B2C.
 
 ![Screenshot shows the integration architecture.](./media/partner-akamai-secure-hybrid-access/integration-architecture.png)
 
