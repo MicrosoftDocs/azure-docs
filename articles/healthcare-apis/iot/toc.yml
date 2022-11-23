@@ -25,6 +25,8 @@ items:
         href: deploy-02-new-button.md
       - name: Azure PowerShell and Azure CLI
         href: deploy-08-new-ps-cli.md
+      - name: Azure Bicep
+        href: deploy-new-bicep-ps-cli.md
       - name: Azure portal - Prerequisites
         href: deploy-03-new-manual.md
       - name: Azure portal - Configure
