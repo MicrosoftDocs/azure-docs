@@ -1,5 +1,6 @@
 ---
-title: List blob containers with JavaScript - Azure Storage 
+title: List blob containers with JavaScript
+titleSuffix: Azure Storage 
 description: Learn how to list blob containers in your Azure Storage account using the JavaScript client library.
 services: storage
 author: pauljewellmsft

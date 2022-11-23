@@ -7,10 +7,13 @@
     href: overview.md
   - name: What's new?
     items:
-    - name: What's new in Defender for IoT
-      href: release-notes.md
-    - name: Microsoft Sentinel solution release notes
-      href: release-notes-sentinel.md
+      - name: What's new in Defender for IoT
+        href: whats-new.md
+      - name: OT monitoring software versions
+        href: release-notes.md
+        displayName: sensor versions
+      - name: Microsoft Sentinel solution versions
+        href: release-notes-sentinel.md
 - name: Quickstarts
   expanded: false
   items:
@@ -26,9 +29,9 @@
   - name: Integrate with Microsoft Sentinel
     items:
     - name: Connect Defender for IoT data to Microsoft Sentinel
-      href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+      href: iot-solution.md
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
-      href: ../../sentinel/iot-advanced-threat-monitoring.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+      href: iot-advanced-threat-monitoring.md
 - name: Concepts
   items:
     - name: Subscription billing
@@ -57,8 +60,10 @@
       href: concept-supported-protocols.md
     - name: Monitoring OT threats in enterprise SOCs
       href: concept-sentinel-integration.md
+      displayName: Microsoft Sentinel, modernize SOC
     - name: Securing IoT devices in the enterprise
       href: concept-enterprise.md
+      displayName: Microsoft Defender for Endpoint, MDE
 - name: How-to guides
   items:
   - name: Visualize devices
@@ -257,13 +262,13 @@
         href: appliance-catalog/hpe-proliant-dl360.md
     - name: Large enterprises
       items:
-      - name: HPE ProLiant DL20/DL20 Plus (4SFF)
+      - name: HPE ProLiant DL20 Gen10 Plus (4SFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
       - name: Dell Edge 5200 (Rugged MIL-STD-810G)
         href: appliance-catalog/dell-edge-5200.md
     - name: Production line
       items:
-      - name: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
+      - name: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
       - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
         href: appliance-catalog/ys-techsystems-ys-fit2.md
@@ -279,11 +284,15 @@
         href: appliance-catalog/virtual-management-hyper-v.md
     - name: Legacy appliances
       items:
-      - name: Dell PowerEdge R340 XL (enterprise)
+      - name: HPE ProLiant DL20 Gen10 (E1800)
+        href: appliance-catalog/hpe-proliant-dl20-legacy.md
+      - name: Dell PowerEdge R340 XL (E1800)
         href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
-      - name: HPE Edgeline EL300 (SMB rugged)
+      - name: HPE Edgeline EL300 (L500 Rugged)
         href: appliance-catalog/hpe-edgeline-el300.md
-      - name: Neousys Nuvo-500LP (SMB rugged)
+      - name: HPE ProLiant DL20 Gen10 (L500 Rugged)
+        href: appliance-catalog/hpe-proliant-dl20-smb-legacy.md
+      - name: Neousys Nuvo-500LP (L100 Rugged)
         href: appliance-catalog/neousys-nuvo-5006lp.md
   - name: Alert reference
     href: alert-engine-messages.md
@@ -333,8 +342,6 @@
     href: pre-deployment-checklist.md
   - name: Custom columns sample script
     href: custom-columns-sample-script.md
-  - name: Microsoft Defender for IoT ninja training
-    href: resources-training-sessions.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing

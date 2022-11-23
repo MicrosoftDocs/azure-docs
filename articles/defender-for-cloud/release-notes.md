@@ -299,13 +299,14 @@ Updates in August include:
 - [Vulnerabilities for running images are now visible with Defender for Containers on your Windows containers](#vulnerabilities-for-running-images-are-now-visible-with-defender-for-containers-on-your-windows-containers)
 - [Azure Monitor Agent integration now in preview](#azure-monitor-agent-integration-now-in-preview)
 - [Deprecated VM alerts regarding suspicious activity related to a Kubernetes cluster](#deprecated-vm-alerts-regarding-suspicious-activity-related-to-a-kubernetes-cluster)
+
 ### Vulnerabilities for running images are now visible with Defender for Containers on your Windows containers 
 
 Defender for Containers now shows vulnerabilities for running Windows containers.
 
 When vulnerabilities are detected, Defender for Cloud generates the following security recommendation listing the detected issues: [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c/showSecurityCenterCommandBar~/false).
 
-Learn more about [viewing vulnerabilities for running images](defender-for-containers-introduction.md#view-vulnerabilities-for-running-images-in-azure-container-registry-acr).
+Learn more about [viewing vulnerabilities for running images](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters).
 
 ### Azure Monitor Agent integration now in preview
  

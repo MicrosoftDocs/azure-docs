@@ -43,6 +43,8 @@
       href: how-to-manage-network-connection.md
     - name: Microsoft Dev Box CLI
       href: how-to-install-dev-box-cli.md  
+    - name: Provision a Custom Image with Azure Image Builder
+      href: how-to-customize-devbox-azure-image-builder.md
 - name: Reference
   items:
     - name: Azure CLI
