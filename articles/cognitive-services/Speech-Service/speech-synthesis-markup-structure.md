@@ -68,9 +68,9 @@ The body of the `audio` element can contain plain text or SSML markup that's spo
 
 The `mstts:backgroundaudio` element should be put in front of all `voice` elements, i.e., the first child of the `speak` element. Only one `mstts:backgroundaudio` element is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
 
-## Create an SSML document
+## Speak root element
 
-The `speak` element is the root element that's required for all SSML documents. The `speak` element contains information such as version, language, and the markup vocabulary definition.
+The `speak` element is the root element that's required for all SSML documents. The `speak` element contains information such as version, language, and the markup vocabulary definition. 
 
 Here's the syntax for the `speak` element:
 
@@ -83,6 +83,24 @@ Here's the syntax for the `speak` element:
 | `version` | Indicates the version of the SSML specification used to interpret the document markup. The current version is "1.0".| Required|
 | `xml:lang` | Specifies the language of the root document. The value can contain a language code such as `en` (English), or a locale such as `en-US` (English - United States). | Required |
 | `xmlns` | Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is "http://www.w3.org/2001/10/synthesis". | Required |
+
+The `speak` element must contain at least one [voice element](speech-synthesis-markup-voice.md#voice-element).
+
+### speak examples
+
+The supported values for attributes of the `speak` element were [described previously](#speak-root-element). 
+
+#### Single voice example
+
+This example uses the `en-US-JennyNeural` voice. For more examples, see [voice examples](speech-synthesis-markup-voice.md#voice-examples).
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        This is the text that is spoken.
+    </voice>
+</speak>
+```
 
 ## Add or remove a break or pause
 
@@ -111,6 +129,8 @@ Here are more details about the `strength` attribute.
 
 ### break examples
 
+The supported values for attributes of the `break` element were [described previously](#add-or-remove-a-break-or-pause). 
+
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
@@ -137,7 +157,9 @@ Usage of the `mstts:silence` element's attributes are described in the following
 
 ###  mstts silence examples
 
-In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
+The supported values for attributes of the `mstts:silence` element were [described previously](#add-silence).
+
+In this example, `mstts:silence` is used to add 200 ms of silence between two sentences.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
@@ -151,13 +173,15 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 ## Specify paragraphs and sentences
 
-The `p` and `s` elements are used to denote paragraphs and sentences, respectively. In the absence of these elements, text-to-speech automatically determines the structure of the SSML document.
+The `p` and `s` elements are used to denote paragraphs and sentences, respectively. In the absence of these elements, the Speech service automatically determines the structure of the SSML document.
 
 The `p` element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, `mstts:express-as`, and `s`.
 
 The `s` element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `mstts:express-as`, and `sub`.
 
 ### paragraph and sentence examples
+
+The following example defines two paragraphs that each contain sentences. In the second paragraph, the Speech service automatically determines the sentence structure, since they are not defined in the SSML document.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -184,8 +208,9 @@ Usage of the `bookmark` element's attributes are described in the following tabl
 | --------- | ------------------------------------------------------- | -------------------- |
 | `mark`    | Specifies the reference text of the `bookmark` element. | Required             |
 
-
 ### bookmark examples
+
+The supported values for attributes of the `bookmark` element were [described previously](#bookmark-element).
 
 As an example, you might want to know the time offset of each flower word in the following snippet:
 
@@ -211,6 +236,8 @@ Usage of the `viseme` element's attributes are described in the following table.
 > Currently, `redlips_front` only supports neural voices in `en-US` locale, and `FacialExpression` supports neural voices in `en-US` and `zh-CN` locales.
 
 ### viseme examples
+
+The supported values for attributes of the `viseme` element were [described previously](#viseme-element).
 
 This SSML snippet illustrates how to request blend shapes with your synthesized speech.
 

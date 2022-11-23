@@ -19,7 +19,19 @@ Speech Synthesis Markup Language (SSML) is an XML-based markup language that can
 
 ## Voice element
 
-The `voice` element is required. It's used to specify the voice that's used for text-to-speech.
+At least one `voice` element must be specified within each SSML [speak](speech-synthesis-markup-structure.md#speak-root-element) element. It's used to specify the voice that's used for text-to-speech.
+
+Usage of the `voice` element's attributes are described in the following table.
+
+| Attribute | Description | Required or optional |
+| ---------- | ---------- | -------------------- |
+| `name`    | Specifies the voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=stt-tts).| Required|
+
+### voice examples
+
+The supported values for attributes of the `voice` element were [described previously](#voice-element). 
+
+#### Single voice example
 
 This example uses the `en-US-JennyNeural` voice. 
 
@@ -30,14 +42,6 @@ This example uses the `en-US-JennyNeural` voice.
     </voice>
 </speak>
 ```
-
-Usage of the `voice` element's attributes are described in the following table.
-
-| Attribute | Description | Required or optional |
-| ---------- | ---------- | -------------------- |
-| `name`    | Specifies the voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=stt-tts).| Required|
-
-### voice examples
 
 #### Multiple voices example
 
@@ -75,23 +79,17 @@ This example uses a custom voice named "my-custom-voice".
 By default, neural voices have a neutral speaking style. You can adjust the speaking style, style degree, and role at the sentence level.
 
 > [!NOTE]
-> Styles, style degree, and roles are supported for a subset of neural voices. If a style or role isn't supported for your voice, the service uses the default neutral speech. 
-
-To determine what styles and roles are supported for each voice, use:
-
-- The [voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles) documentation.
-- The [list voices](rest-text-to-speech.md#get-a-list-of-voices) API.
-- The [Audio Content Creation](https://aka.ms/audiocontentcreation) portal.
+> Styles, style degree, and roles are supported for a subset of neural voices as described in the [voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles) documentation. To determine what styles and roles are supported for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [Audio Content Creation](https://aka.ms/audiocontentcreation) web application.
 
 Usage of the `mstts:express-as` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `style` | The voice-specific speaking style. You can express emotions like cheerfulness, empathy, and calm. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant. For custom neural voice styles, see the [custom neural voice style example](#custom-neural-voice-style-example). | Required to adjust the speaking style for a neural voice. If the style value is missing or invalid, the entire `mstts:express-as` element is ignored.|
-| `styledegree` | The intensity of the speaking style. You can specify a stronger or softer style to make the speech more expressive or subdued. The range of accepted values are: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity.| Optional |
-| `role`| The speaking role-play. The voice can imitate a different age and gender, but the voice name isn't changed. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed.| Optional |
+| `style` | The voice-specific speaking style. You can express emotions like cheerfulness, empathy, and calm. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant. If the style value is missing or invalid, the entire `mstts:express-as` element is ignored and the service uses the default neutral speech. For custom neural voice styles, see the [custom neural voice style example](#custom-neural-voice-style-example). | Required |
+| `styledegree` | The intensity of the speaking style. You can specify a stronger or softer style to make the speech more expressive or subdued. The range of accepted values are: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity. If the style degree is missing or isn't supported for your voice, this attribute is ignored.| Optional |
+| `role`| The speaking role-play. The voice can imitate a different age and gender, but the voice name isn't changed. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. If the role is missing or isn't supported for your voice, this attribute is ignored. | Optional |
 
-The following table has descriptions of each supported style.
+The following table has descriptions of each supported `style` attribute.
 
 |Style|Description|
 |-----------|-------------|
@@ -130,21 +128,23 @@ The following table has descriptions of each supported style.
 |`style="terrified"`|Expresses a very scared tone, with faster pace and a shakier voice. It sounds like the speaker is in an unsteady and frantic status.|
 |`style="unfriendly"`|Expresses a cold and indifferent tone.|
 
-The following table has descriptions of each supported role.
+The following table has descriptions of each supported `role` attribute.
 
 | Role                      | Description                                  |
 | ------------------------- | -------------------------------------------- |
-| `role="Girl"`             | The voice imitates to a girl.                |
-| `role="Boy"`              | The voice imitates to a boy.                 |
-| `role="YoungAdultFemale"` | The voice imitates to a young adult female.  |
-| `role="YoungAdultMale"`   | The voice imitates to a young adult male.    |
-| `role="OlderAdultFemale"` | The voice imitates to an older adult female. |
-| `role="OlderAdultMale"`   | The voice imitates to an older adult male.   |
-| `role="SeniorFemale"`     | The voice imitates to a senior female.       |
-| `role="SeniorMale"`       | The voice imitates to a senior male.         |
+| `role="Girl"`             | The voice imitates a girl.                |
+| `role="Boy"`              | The voice imitates a boy.                 |
+| `role="YoungAdultFemale"` | The voice imitates a young adult female.  |
+| `role="YoungAdultMale"`   | The voice imitates a young adult male.    |
+| `role="OlderAdultFemale"` | The voice imitates an older adult female. |
+| `role="OlderAdultMale"`   | The voice imitates an older adult male.   |
+| `role="SeniorFemale"`     | The voice imitates a senior female.       |
+| `role="SeniorMale"`       | The voice imitates a senior male.         |
 
 
 ### mstts express-as examples
+
+The supported values for attributes of the `mstts:express-as` element were [described previously](#speaking-styles-and-roles). 
 
 #### Style and degree example
 
@@ -155,7 +155,7 @@ The following SSML example uses the `<mstts:express-as>` element with a sad styl
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
-    <voice name="zh-CN-XiaoxiaoNeural">
+    <voice name="zh-CN-XiaomoNeural">
         <mstts:express-as style="sad" styledegree="2">
             快走吧，路上一定要注意安全，早去早回。
         </mstts:express-as>
@@ -228,6 +228,8 @@ Use this table to determine which speaking languages are supported for each neur
 
 ### lang examples
 
+The supported values for attributes of the `lang` element were [described previously](#adjust-speaking-languages). 
+
 The primary language for `en-US-JennyMultilingualNeural` is `en-US`. You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. This SSML snippet shows how to speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
 
 ```xml
@@ -277,6 +279,8 @@ Usage of the `prosody` element's attributes are described in the following table
 | `volume`  | Indicates the volume level of the speaking voice. You can express the volume as:<ul><li>An absolute value: Expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. An example is 75. The default is 100.0.</li><li>A relative value: <ul><li>As a relative number: Expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. Examples are +10 or -5.5.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody volume="50%">some text</prosody>` or `<prosody volume="+3%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
 
 ### prosody examples
+
+The supported values for attributes of the `prosody` element were [described previously](#adjust-prosody). 
 
 #### Change speaking rate example
 
@@ -345,6 +349,8 @@ Usage of the `emphasis` element's attributes are described in the following tabl
 
 ### emphasis examples
 
+The supported values for attributes of the `emphasis` element were [described previously](#adjust-emphasis). 
+
 This SSML snippet demonstrates how the `emphasis` element is used to add moderate level emphasis for the word "meetings".
 
 ```xml
@@ -376,6 +382,8 @@ Usage of the `audio` element's attributes are described in the following table.
 | `src`     | Specifies the location/URL of the audio file. | Required |
 
 ### audio examples
+
+The supported values for attributes of the `audio` element were [described previously](#add-recorded-audio). 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -415,10 +423,12 @@ Usage of the `mstts:backgroundaudio` element's attributes are described in the f
 
 ### mstss backgroundaudio examples
 
+The supported values for attributes of the `mstts:backgroundaudio` element were [described previously](#background-audio). 
+
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
+    <voice name="en-US-JennyNeural">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
