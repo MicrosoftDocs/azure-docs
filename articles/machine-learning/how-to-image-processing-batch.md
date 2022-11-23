@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Image processing with batch deployments
 
-[!INCLUDE [ml v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
 Batch Endpoints can be used for processing tabular data, but also any other file type like images. Those deployments are supported in both MLflow and custom models. In this tutorial, we will learn how to deploy a model that classifies images according to the ImageNet taxonomy.
 
@@ -39,7 +39,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
 * You must have a batch endpoint already created. This example assumes the endpoint is named `imagenet-classifier-batch`. If you don't have one, follow the instructions at [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md).
 * You must have a compute created where to deploy the deployment. This example assumes the name of the compute is `cpu-cluster`. If you don't, follow the instructions at [Create compute](how-to-use-batch-endpoint.md#create-compute).

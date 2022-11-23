@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Customize outputs in batch deployments
 
-[!INCLUDE [ml v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
 Sometimes you need to execute inference having a higher control of what is being written as output of the batch job. Those cases include:
 
@@ -46,7 +46,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
 * A model registered in the workspace. In this tutorial, we'll use an MLflow model. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
 * You must have an endpoint already created. If you don't, follow the instructions at [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md). This example assumes the endpoint is named `heart-classifier-batch`.
