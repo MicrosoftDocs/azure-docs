@@ -43,7 +43,7 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 
 1. Select the machines to which you intend to enable change tracking and select **Services** > **Change Tracking**. You can select upto 250 virtual machines at a time to enable this feature.
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select multiple virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select multiple virtual machines from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-expanded.png":::
 
 1. In **Enable Change Tracking**, select the banner on the top of the page, **Click to try new change tracking and inventory v2 experience**.
 
@@ -51,7 +51,7 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 
 1. In **Enable Change Tracking** page, you can view the list of machines that are enabled, ready to be enabled and the ones that you can't enable. You can use the filters to select the **Subscription**, **Location**, and **Resource groups**. You can select a maximum of three resource groups.
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple vms." lightbox="media/enable-vms-monitoring-agent/change-tracking-status-expanded.png":::
+   :::image type="content" source="media/enable-vms-monitoring-agent/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple vm." lightbox="media/enable-vms-monitoring-agent/change-tracking-status-expanded.png":::
 
 1. Select **Enable** to inititate the deployment and a notification appears on the top right corner of the screen.
 --- 
