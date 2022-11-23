@@ -1,5 +1,5 @@
 ---
-title: "Accessing data from batch endpoints jobs"
+title: "Input data for batch endpoints jobs"
 titleSuffix: Azure Machine Learning
 description: Learn how to access data from different sources in batch endpoints jobs.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Accessing data from batch endpoints jobs
+# Input data for batch endpoints jobs
 
 Batch endpoints can be used to perform batch scoring on large amounts of data. Such data can be placed in different places. In this tutorial we'll cover the different places where batch endpoints can read data from and how to reference it.
 
