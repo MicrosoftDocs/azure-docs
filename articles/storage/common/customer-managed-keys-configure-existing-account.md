@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 11/22/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -164,6 +164,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
     -AccountName $accountName `
     -KeyvaultEncryption `
     -KeyName $key.Name `
+    -KeyVersion "" `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
@@ -186,6 +187,7 @@ az storage account update \
     --name $accountName \
     --resource-group $rgName \
     --encryption-key-name $keyName \
+    --encryption-key-version "" \
     --encryption-key-source Microsoft.Keyvault \
     --encryption-key-vault $keyVaultUri
 ```
