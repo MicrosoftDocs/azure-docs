@@ -83,7 +83,7 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 1. In the **Threat intelligence** pane, select **Upload file**. For example:
 
-    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-ti-single-sensor.png" alt-text="Screenshot of where you can upload Threat Intelligence package to a single sensor." lightbox="media/how-to-work-with-threat-intelligence-packages/update-ti-single-sensor.png":::
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-threat-intelligence-single-sensor.png" alt-text="Screenshot of where you can upload Threat Intelligence package to a single sensor." lightbox="media/how-to-work-with-threat-intelligence-packages/update-threat-intelligence-single-sensor.png":::
 
 1. Browse to and select the package you'd downloaded from the Azure portal and upload it to the sensor.
 
@@ -97,17 +97,17 @@ This option is available for both *cloud connected* and *locally managed* sensor
 
 1. In the **Sensor Engine Configuration** area, select the sensors that you want to receive the updated packages. For example:
 
-    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-ti-multiple-sensors.png" alt-text="Screenshot of where you can select which sensors you want to make changes to." lightbox="media/how-to-work-with-threat-intelligence-packages/update-ti-multiple-sensors.png":::
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/update-threat-intelligence-multiple-sensors.png" alt-text="Screenshot of where you can select which sensors you want to make changes to." lightbox="media/how-to-work-with-threat-intelligence-packages/update-threat-intelligence-multiple-sensors.png":::
 
 1. In the **Sensor Threat Intelligence Data** section, select the plus sign (**+**).
 
 1. In the **Upload File** dialog, select **BROWSE FILE...** to browse to and select the update package. For example:
 
-    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/upload-ti-to-management-console.png" alt-text="Screenshot of where you can upload a Threat Intelligence package to multiple sensors." lightbox="media/how-to-work-with-threat-intelligence-packages/upload-ti-to-management-console.png":::
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/upload-threat-intelligence-to-management-console.png" alt-text="Screenshot of where you can upload a Threat Intelligence package to multiple sensors." lightbox="media/how-to-work-with-threat-intelligence-packages/upload-threat-intelligence-to-management-console.png":::
 
 1. Select **CLOSE** and then **SAVE CHANGES** to push the threat intelligence update to all selected sensors.
 
-    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/save-changes-mc.png" alt-text="Screenshot of where you can save changes made to selected sensors on the management console." lightbox="media/how-to-work-with-threat-intelligence-packages/save-changes-mc.png":::
+    :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/save-changes-management-console.png" alt-text="Screenshot of where you can save changes made to selected sensors on the management console." lightbox="media/how-to-work-with-threat-intelligence-packages/save-changes-management-console.png":::
 
 ## Review package update status on the sensor
 
