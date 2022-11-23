@@ -170,7 +170,7 @@ Azure Private 5G Core is available as a native Azure service, offering the same 
 - Deploy and configure a packet core instance on your Azure Stack Edge device in minutes.
 - Create a virtual representation of your physical mobile network through Azure using mobile network and site resources.
 - Provision SIM resources to authenticate devices in the network, while also supporting redundancy.
-- Employ Log Analytics and other observability services to view the health of your network and take corrective action through Azure.
+- Employ Azure Monitor and other observability services to view the health of your network and take corrective action through Azure.
 - Use Azure role-based access control (RBAC) to allow granular access to the private mobile network to different personnel or teams within your organization, or even a managed service provider.
 - Use an Azure Stack Edge device's compute capabilities to run applications that can benefit from low-latency networks.
 - Seamlessly connect your existing Azure deployments to your new private mobile network using Azure hybrid compute, networking, and IoT services.
@@ -179,9 +179,11 @@ Azure Private 5G Core is available as a native Azure service, offering the same 
 
 ## Azure centralized monitoring
 
-Azure Private 5G Core is integrated with Log Analytics in Azure Monitor, as described in [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md). You can write queries to retrieve records or visualize data in charts. This lets you monitor and analyze activity in your private mobile network directly from the Azure portal.
+Azure Private 5G Core is integrated with Azure Monitor features such as Log Analytics and Metrics Explorer, allowing you to monitor and analyze activity in your private mobile network directly from the Azure portal. You can write queries to retrieve records or visualize data in charts. 
 
 :::image type="content" source="media/azure-private-5g-core/log-analytics-tool.png" alt-text="Screenshot of Log Analytics showing a query made on devices registered with the private mobile network." lightbox="media/azure-private-5g-core/log-analytics-tool.png":::
+
+For more information on using Azure Monitor to analyze logs and metrics in your deployment, see [Monitor Azure Private 5G Core logs with Azure Monitor Log Analytics](monitor-private-5g-core-with-log-analytics.md) and [Monitor Azure Private 5G Core metrics with Azure Monitor](monitor-private-5g-core-metrics-with-azure-monitor.md).
 
 ## Next steps
 
