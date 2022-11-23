@@ -35,12 +35,29 @@ This procedure describes how to view detected devices in the **Device inventory*
 
     For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
-1. Select a device row to view more details about that device. Initial details are shown in a pane on the right, where you can also select **View full details** to drill down more.
+1. Select a device row to view more details about that device. Initial details are shown in a pane on the right, where you can also select **View full details** to open the device details page and drill down more.
 
     For example:
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Screenshot of a device details pane and the View full details button in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
 
+### View full device details
+
+The device details page displays comprehensive device details, including:
+
+- **Attributes**. Displays full device details such as class, data source, firmware details, activity, type, protocols, purdue level sensor, site, zone, and more.
+
+- **Backplane**. Displays the backplane hardware configuration, including MAC address, serial numbers, and slot and rack information.
+
+- **Vulnerabilities**. Displays current vulnerabilities on the selected device. Vulnerability data is based on the repository of standards based vulnerability data documented at the US government National Vulnerability Database (NVD). Select the CVE name to open the full CVE details and description.
+
+- **Alerts**. Displays current open alerts. Select any alert to view more information, and then select view full details to open the alert page where you can see the full alerts details and take action.
+
+- **Recommendations**. Displays current recommendations for the selected device. Recommendations help users form actionable, prioritized mitigation plans. Recommendations available include Review PLC operating mode and Review unauthorized devices.
+
+    For example:
+
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-details-page.png" alt-text="Screenshot of the backplane tab in on the full device details page. ":::
 
 ### Identify devices that aren't connecting successfully
 
