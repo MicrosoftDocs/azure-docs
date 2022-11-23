@@ -79,14 +79,14 @@ An Azure subscription and GitHub account.
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob upload-batch`, replace the placeholder with your storage account name. The script will upload to the `$web` container. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group. To speed up your CDN purge, you can add the `--no-wait` option to `az cdn endpoint purge`. To enhance security, you can also add the `--account-key` option with your [storage account key](../common/storage-account-keys-manage.md).
+1. Use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob sync`, replace the placeholder with your storage account name. The script will upload to the `$web` container. Add additional files to exclude from uploading (e.g., README and LICENSE files) using the `--exclude-path` parameter, or use the `--exclude-pattern` parameter. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group. To speed up your CDN purge, you can add the `--no-wait` option to `az cdn endpoint purge`. To enhance security, you can also add the `--account-key` option with your [storage account key](../common/storage-account-keys-manage.md).
 
     ```yaml
         - name: Upload to blob storage
           uses: azure/CLI@v1
           with:
             inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME>  --auth-mode key -d '$web' -s .
+                az storage blob sync --account-name <STORAGE_ACCOUNT_NAME> -c "$web" -s . --exclude-path ".github;.git"
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
@@ -116,7 +116,7 @@ An Azure subscription and GitHub account.
           uses: azure/CLI@v1
           with:
             inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> --auth-mode key -d '$web' -s .
+                az storage blob sync --account-name <STORAGE_ACCOUNT_NAME> -c "$web" -s . --exclude-path ".github;.git"
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
@@ -188,14 +188,14 @@ An Azure subscription and GitHub account.
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     ```
 
-1. Use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob upload-batch`, replace the placeholder with your storage account name. The script will upload to the `$web` container. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group. To speed up your CDN purge, you can add the `--no-wait` option to `az cdn endpoint purge`. To enhance security, you can also add the `--account-key` option with your [storage account key](../common/storage-account-keys-manage.md).
+1. Use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob sync`, replace the placeholder with your storage account name. The script will upload to the `$web` container. Add additional files to exclude from uploading (e.g., README and LICENSE files) using the `--exclude-path` parameter, or use the `--exclude-pattern` parameter. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group. To speed up your CDN purge, you can add the `--no-wait` option to `az cdn endpoint purge`. To enhance security, you can also add the `--account-key` option with your [storage account key](../common/storage-account-keys-manage.md).
 
     ```yaml
         - name: Upload to blob storage
           uses: azure/CLI@v1
           with:
             inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME>  --auth-mode key -d '$web' -s .
+                az storage blob sync --account-name <STORAGE_ACCOUNT_NAME> -c "$web" -s . --exclude-path ".github;.git"
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
@@ -231,7 +231,7 @@ An Azure subscription and GitHub account.
           uses: azure/CLI@v1
           with:
             inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> --auth-mode key -d '$web' -s .
+                az storage blob sync --account-name <STORAGE_ACCOUNT_NAME> -c "$web" -s . --exclude-path ".github;.git"
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
