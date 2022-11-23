@@ -32,7 +32,7 @@ To invoke a batch endpoint, the user must present a valid Azure Active Directory
 > * Read and write from/to data stores.
 > * Lists datastore secrets.
 
-You can either use one of the [built-in security roles](../../role-based-access-control/built-in-roles.md) or create a new one. In any case, the identity used to invoke the endpoints requires to be granted the permissions explicitly. See [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md) for instructions to assign them.
+You can either use one of the [built-in security roles](../role-based-access-control/built-in-roles.md) or create a new one. In any case, the identity used to invoke the endpoints requires to be granted the permissions explicitly. See [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md) for instructions to assign them.
 
 > [!IMPORTANT]
 > The identity used for invoking a batch endpoint may not be used to read the underlying data depending on how the data store is configured. Please see [Security considerations when reading data](how-to-access-data-batch-endpoints-jobs.md#security-considerations-when-reading-data) for more details.
@@ -101,7 +101,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Azure ML CLI](#tab/cli)
 
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). 
+1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). 
 1. To authenticate using a service principal, use the following command. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```bash
@@ -116,7 +116,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Azure ML SDK for Python](#tab/sdk)
 
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
 1. To authenticate using a service principal, indicate the tenant ID, client ID and client secret of the service principal using environment variables as demonstrated:
 
     ```python
@@ -145,7 +145,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [REST](#tab/rest)
 
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). 
+1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). 
 
 1. Use the login service from Azure to get an authorization token. Authorization tokens are issued to a particular scope. The resource type for Azure Machine learning is `https://ml.azure.com`. The request would look as follows:
     
@@ -239,9 +239,9 @@ job = ml_client.batch_endpoints.invoke(
 
 You can use the REST API of Azure Machine Learning to start a batch endpoints job using a managed identity. The steps vary depending on the underlying service being used. Some examples include (but are not limited to):
 
-* [Managed identity for Azure Data Factory](../../data-factory/data-factory-service-identity.md)
-* [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md).
-* [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+* [Managed identity for Azure Data Factory](../data-factory/data-factory-service-identity.md)
+* [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
+* [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 You can also use the Azure CLI to get an authentication token for the managed identity and the pass it to the batch endpoints URI.
 
