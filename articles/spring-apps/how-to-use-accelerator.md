@@ -10,35 +10,48 @@ ms.author: caiqing
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Use App Accelerator
+# Use App Use VMware Tanzu App Accelerator with Azure Spring Apps Enterprise tier
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use [Application Accelerator](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-about-application-accelerator.html) for VMware Tanzu® with Azure Spring Apps Enterprise tier to bootstrap developing your applications in a discoverable and repeatable way.
+This article shows you how to use [Application Accelerator for VMware Tanzu®](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-about-application-accelerator.html) with Azure Spring Apps Enterprise tier to bootstrap developing your applications in a discoverable and repeatable way.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - To provision an Azure Marketplace offer purchase, see the [Prerequisites](how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
-- [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
+- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. Use the following command to remove previous versions and install the latest extension. If you previously installed the `spring-cloud` extension, uninstall it to avoid configuration and version mismatches.
+
+  ```azurecli
+  az extension remove --name spring
+  az extension add --name spring
+  az extension remove --name spring-cloud
+  ```
 
 ## Enable App Accelerator
 
-You can enable App Accelerator when provisioning an Azure Spring Apps Enterprise tier. If you already have a succeeded Azure Spring Apps Enterprise resource, see [Manage App Accelerator in existing Enterprise tier instances](#manage-app-accelerator-in-existing-enterprise-tier-instances) to enable it.
+You can enable App Accelerator when you provision an Azure Spring Apps Enterprise tier instance. If you already have an Azure Spring Apps Enterprise tier resource, see the [Manage App Accelerator in existing Enterprise tier instances](#manage-app-accelerator-in-existing-enterprise-tier-instances) section to enable it.
 
-#### [Portal](#tab/Portal)
+You can enable App Accelerator using the Azure portal or Azure CLI.
 
-1. Navigate to [Azure Portal](https://portal.azure.com/#create/vmware-inc.azure-spring-cloud-vmware-tanzu-2).
-1. In the "Basic" tab, select "Enterprise tier" in pricing and fulfill other input fields. Click "next".
-1. In the "VMware Tanzu settings" tab, check "App Accelerators" checkbox.
-   ![Enable-Application-Accelerator](./media/how-to-use-accelerator/create-instance.png)
-3. Fulfill other settings and click "Review and Create".
-4. You can obtain "Enable Application Accelerator" and "Enable Dev Tools Portal" are "Yes" in the "Review and Create" tab. Click "create" to create the Enterprise tier instance.
+#### [Azure portal](#tab/Portal)
 
-#### [CLI](#tab/Azure-CLI)
+Use the following steps to enable App Accelerator using the Azure portal:
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. On the **Basics** tab, select **Enterprise tier** in the **Pricing** section and specify the required information. Then click **Next: VMware Tanzu settings**.
+1. On the **VMware Tanzu settings** tab, select the **Enable App Accelerator** checkbox.
+
+   :::image type="content" source="media/how-to-use-accelerator/create-instance.png" alt-text="Screenshot of the VMware Tanzu settings tab showing the App Accelerators checkbox." lightbox="media/how-to-use-accelerator/create-instance.png":::
+
+1. Specify other settings, and then select **Review and Create**.
+1. On the **Review an create** tab, make sure that **Enable App Accelerator** and **Enable Dev Tools Portal** are set to *Yes*. Select **Create** to create the Enterprise tier instance.
+
+#### [Azure CLI](#tab/Azure-CLI)
 
 Use the following steps to provision an Azure Spring Apps service instance.
 
@@ -83,6 +96,8 @@ Use the following steps to provision an Azure Spring Apps service instance.
         --sku enterprise \
         --enable-application-accelerator
     ```
+
+---
 
 ## Monitor App Accelerator
 
