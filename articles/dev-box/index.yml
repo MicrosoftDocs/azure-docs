@@ -57,7 +57,7 @@ landingContent:
         links:
           - text: Configure an Azure Compute Gallery
             url: how-to-configure-azure-compute-gallery.md
-          - text: Provision a Custom Image with Azure Image Builder
+          - text: Provision a custom image with Azure Image Builder
             url: how-to-customize-devbox-azure-image-builder.md
 
    # Card
