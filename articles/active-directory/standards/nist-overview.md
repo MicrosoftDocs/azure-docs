@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Configure Azure Active Directory to meet NIST authenticator assurance levels
+# Configure Azure Active Directory to meet NIST authenticator assurance levels 
 
 Providing services for federal agencies is complicated by the number and complexity of standards that you must meet. As a cloud service provider (CSP) or federal agency, it's your responsibility to ensure compliance with all relevant standards. Azure and Azure Active Directory (Azure AD) make this easier by enabling you to use our certifications, and then configure your specific requirements.
 
