@@ -148,6 +148,10 @@ If you have already downloaded the provisioning agent and configured it for anot
 
 Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. For purposes of this example configuration, the user object type is used. Use the following information to guide you in your configuration.
 
+ 1. Generate a secret token that will be used for authenticating Azure AD to the connector.  It should be 12 characters minimum and unique for each application.  If you do not already have a secret generator, you can use a PowerShell command such as the following to generate an example random string.
+    ```powershell
+    -join (((48..90) + (96..122)) * 16 | Get-Random -Count 16 | % {[char]$_})
+    ```
  1. If you have not already done so, launch the Microsoft ECMA2Host Configuration Wizard from the start menu.
  2. Select **New Connector**.
      [![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-3.png)](.\media\active-directory-app-provisioning-sql\sql-3.png#lightbox)</br>
@@ -158,7 +162,7 @@ Depending on the options you select, some of the wizard screens might not be ava
      |-----|-----|
      |Name|LDAP|
      |Autosync timer (minutes)|120|
-     |Secret Token|Enter your own key here. It should be 12 characters minimum.|
+     |Secret Token|Enter your secret token here. It should be 12 characters minimum.|
      |Extension DLL|For the generic LDAP connector, select **Microsoft.IAM.Connector.GenericLdap.dll**.|
 4. On the **Connectivity** page, you will configure how the ECMA Connector Host will communicate with the directory server, and set some of the configuration options. Fill in the boxes with the values specified in the table that follows the image and select **Next**.  When you select **Next**, the connector will query the directory server for its configuration.
      [![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-ldap\create-2.png)](.\media\active-directory-app-provisioning-ldap\create-2.png#lightbox)</br>
@@ -168,11 +172,11 @@ Depending on the options you select, some of the wizard screens might not be ava
      |Host|The host name where the LDAP server is located. This sample uses `APP3` as the example hostname.|
      |Port|The TCP port number. If the directory server is configured for LDAP over SSL, use port 636.  For `Start TLS`, or if you are using network-level security, use port 389.|
      |Connection Timeout|180|
-     |Binding|This specifies how the connector will authenticate to the directory server. With the `Basic` setting, the connector will send an LDAP simple bind with a distinguished name and a password. With the `SSL` or `TLS` setting, the connector will send an LDAP SASL EXTERNAL bind with a client certificate.   |
+     |Binding|This specifies how the connector will authenticate to the directory server. With the `Basic` setting, the connector will send an LDAP simple bind to authenticate with a distinguished name and a password. With the `SSL` or `TLS` setting, the connector will send an LDAP SASL `EXTERNAL` bind to authenticate with a client certificate.   |
      |User Name|How the ECMA Connector will authenticate itself to the directory server. In this sample, the example username is `CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab`|
      |Password|The password of the user name specified.|
-     |Realm/Domain|This setting is only required if you selected `Kerberos` as the binding option, to provide the Realm/Domain of the user.|
-     |Certificate|The settings in this section are only required you selected `SSL` or `TLS` as the binding option.|
+     |Realm/Domain|This setting is only required if you selected `Kerberos` as the Binding option, to provide the Realm/Domain of the user.|
+     |Certificate|The settings in this section are only required you selected `SSL` or `TLS` as the Binding option.|
      |Attribute Aliases|The attribute aliases text box is used for attributes defined in the schema with RFC4522 syntax. These attributes cannot be detected during schema detection and the connector needs help with identifying those attributes. For example, if the directory server does not publish `userCertificate;binary` and you wish to provision that attribute, the following string must be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute: `userCertificate;binary`.|
      |Include operational attributes|Select the `Include operational attributes in schema` checkbox to also include attributes created by the directory server. These include attributes such as when the object was created and last update time.|
      |Include extensible attributes|Select the `Include extensible attributes in schema` checkbox if extensible objects (RFC4512/4.3) are used in the directory server. Enabling this option allows every attribute to be used on all object. Selecting this option makes the schema very large so unless the connected directory is using this feature the recommendation is to keep the option unselected.|
@@ -271,67 +275,12 @@ Depending on the options you select, some of the wizard screens might not be ava
  5. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.</br>
      [![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)](.\media\active-directory-app-provisioning-sql\configure-9.png#lightbox)
 
-## Extend the Azure AD schema and populate the Azure AD users with any additional attributes
-
-If there are attributes that the directory server requires, that are not already present on users in Azure AD, then you will need to populate those attributes on the Azure AD users.  If there are no additional attributes required, then continue in the next section.
-
-As part of [Azure AD extensibility](/graph/extensibility-overview?tabs=http), you can create directory extension definitions for each attribute that is required in your tenant.
-
-### Extend the Azure AD schema if you are using AD DS as the source
-
-If the users originate in AD DS and are synched through Azure AD Connect or Azure AD Connect cloud sync into Azure AD, then you would extend the AD DS schema, then update the Azure AD Connect or Azure AD Connect cloud sync configuration, which would cause the directory extension definitions to be created in Azure AD.
-
-### Extend the Azure AD schema if you are not using AD DS as the source
-
-If you do not use Azure AD Connect or Azure AD Connect cloud sync, and need to add additional attributes to Azure AD, you can create them using Graph Explorer.
-
-For example, if your directory server with Azure AD application ID `30a5435a-1871-485c-8c7b-65f69e287e7b` required each user in Azure AD to have a `uidNumber` attribute, then you would [create a directory schema extension](/graph/extensibility-overview?tabs=http#create-a-directory-extension-definition) using Graph Explorer to send the request
-
-```http
-POST https://graph.microsoft.com/v1.0/applications/30a5435a-1871-485c-8c7b-65f69e287e7b/extensionProperties
-
-{
-    "name": "uidNumber",
-    "dataType": "String",
-    "targetObjects": [
-        "User"
-    ]
-}
-```
-
-with response that contains the name of the newly created attribute, such as `extension_b7d8e648520f41d3b9c0fdeb91768a0a_uidNumber`.
-
-```http
-HTTP/1.1 201 Created
-Content-type: application/json
-
-{
-    "id": "4e3dbc8f-ca32-41b4-825a-346215d7d20f",
-    "name": "extension_b7d8e648520f41d3b9c0fdeb91768a0a_uidNumber",
-...
-}
-```
-
-### Populate Azure AD users with additional attributes
-
-Once you have the directory schema extension created, you can then populate the necessary attributes on each user that will be in scope of the application.
-
-If the user originates in AD DS, then you would add an attribute to the user in that source, and have them synched to Azure AD.
-
-If the user originates in Azure AD, then you can add an attribute to the user via the [Microsoft Graph](/graph/extensibility-overview?tabs=http#update-or-delete-directory-extension-properties).  For example, if the user with Azure AD object ID `63384f56-42d2-4aa7-b1d6-b10c78f143a2` was to be provisioned to an application and the application's LDAP directory required a `uidNumber` attribute, then you could set a value such as `10011` as their `uidNumber` via a PATCH.
-
-```http
-PATCH https://graph.microsoft.com/v1.0/users/63384f56-42d2-4aa7-b1d6-b10c78f143a2
-
-{
-    "extension_b7d8e648520f41d3b9c0fdeb91768a0a_uidNumber": "10011"
-}
-```
 
 ## Configure attribute mapping
 
 In this section, you'll configure the mapping between the Azure AD user's attributes and the attributes which you previously selected in the ECMA Host configuration wizard.  Later when the connector creates an object in a directory server, the attributes of an Azure AD user will then be sent through the connector to the directory server to be part of that new object.
 
+ 1. Ensure that the Azure AD schema includes the attributes which are required by the directory server. If the directory server requires users to have an attribute, such as `uidNumber`, that is not already part of your Azure AD schema for a user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
  1. In the Azure AD portal, under **Enterprise applications**, select the **On-premises ECMA app** application, and then select the **Provisioning** page.
  2. Select **Edit provisioning**.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.  If this is the first time you've configured the attribute mappings for this application, there will be only one mapping present, for a placeholder.
@@ -341,7 +290,7 @@ In this section, you'll configure the mapping between the Azure AD user's attrib
     - Expression: `Join("", "CN=", Word([userPrincipalName], 1, "@"), ",CN=CloudUsers,CN=App,DC=Contoso,DC=lab")`
     - Target attribute: `urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:-dn-`
     - Apply this mapping: only during object creation
- 1. If the directory server requires multiple structural object class values, or auxiliary object class values, to be supplied in the `objectClass` attribute, then add a mapping to that attribute. Select **Add New Mapping**. Use the values below to create the mapping, changing the object class names in the expression to match that of the target directory schema.
+ 1. If the directory server requires multiple structural object class values, or auxiliary object class values, to be supplied in the `objectClass` attribute, then add a mapping to that attribute.  For this example of provisioning into AD LDS, mapping the `objectClass` is not required, but may be necessary for other directory servers or other schemas. To add a mapping for `objectClass`, select **Add New Mapping**. Use the values below to create the mapping, changing the object class names in the expression to match that of the target directory schema.
     - Mapping type: expression
     - Expression: `Split("inetOrgPerson,posixAccount,shadowAccount",",")`
     - Target attribute: `urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:objectClass`
@@ -372,8 +321,9 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, and th
 
 If there are existing users in the LDAP directory, then you should create application role assignments for those existing users. To learn more about how to create application role assignments in bulk, see [governing an application's existing users in Azure AD](../articles/active-directory/governance/identity-governance-applications-existing-users.md).
 
-Otherwise, if the LDAP directory is empty, then select a test user from Azure AD who will be provisioned to the application.
+Otherwise, if the LDAP directory is empty, then select a test user from Azure AD who will be provisioned to the application's directory server.
 
+ 1. Ensure that the user will select has all the properties that will be mapped to the required attributes of the directory server schema.
  1. In the Azure portal, select **Enterprise applications**.
  2. Select the **On-premises ECMA app** application.
  3. On the left, under **Manage**, select **Users and groups**.
