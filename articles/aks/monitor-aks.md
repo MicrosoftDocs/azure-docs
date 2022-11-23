@@ -180,7 +180,7 @@ Application Insights provides complete monitoring of applications running on AKS
 - [Java](../azure-monitor/app/java-in-process-agent.md)
 - [Node.js](../azure-monitor/app/nodejs.md)
 - [Python](../azure-monitor/app/opencensus-python.md)
-- [Other platforms](../azure-monitor/app/platforms.md)
+- [Other platforms](../azure-monitor/app/app-insights-overview.md#supported-languages)
 
 See [What is Application Insights?](../azure-monitor/app/app-insights-overview.md) 
 

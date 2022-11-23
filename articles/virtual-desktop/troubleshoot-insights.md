@@ -1,18 +1,18 @@
 ---
 title: Troubleshoot Monitor Azure Virtual Desktop - Azure
-description: How to troubleshoot issues with Azure Monitor for Azure Virtual Desktop.
+description: How to troubleshoot issues with Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 11/14/2022
 ms.author: helohr
 manager: femila
 ---
-# Troubleshoot Azure Monitor for Azure Virtual Desktop
+# Troubleshoot Azure Virtual Desktop Insights
 
-This article presents known issues and solutions for common problems in Azure Monitor for Azure Virtual Desktop.
+This article presents known issues and solutions for common problems in Azure Virtual Desktop Insights.
 
 >[!IMPORTANT]
->[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Monitor currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to Azure Monitor by August 31, 2024. We'll provide instructions for how to migrate when we release the update that allows Azure Virtual Desktop Insights to support the Azure Monitor Agent. Until then, continue to use the Log Analytics Agent.
+>[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Virtual Desktop Insights currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to Azure Virtual Desktop Insights by August 31, 2024. We'll provide instructions for how to migrate when we release the update that allows Azure Virtual Desktop Insights to support the Azure Virtual Desktop Insights Agent. Until then, continue to use the Log Analytics Agent.
 
 ## Issues with configuration and setup
 
@@ -28,7 +28,7 @@ If the configuration workbook isn't working properly to automate setup, you can 
 
 If your data isn't displaying properly, check the following common solutions:
 
-- First, make sure you've set up correctly with the configuration workbook as described in [Use Azure Monitor for Azure Virtual Desktop to monitor your deployment](azure-monitor.md). If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
+- First, make sure you've set up correctly with the configuration workbook as described in [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md). If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
 - Check your access permissions & contact the resource owners to request missing permissions; anyone monitoring Azure Virtual Desktop requires the following permissions:
     - Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources
     - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts 
@@ -40,15 +40,15 @@ If your data isn't displaying properly, check the following common solutions:
 
 If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. Review [known issues and limitations](#known-issues-and-limitations). 
 
-## I want to customize Azure Monitor for Azure Virtual Desktop
+## I want to customize Azure Virtual Desktop Insights
 
-Azure Monitor for Azure Virtual Desktop uses Azure Monitor Workbooks. Workbooks lets you save a copy of the Azure Virtual Desktop workbook template and make your own customizations.
+Azure Virtual Desktop Insights uses Azure Monitor Workbooks. Workbooks lets you save a copy of the Azure Virtual Desktop workbook template and make your own customizations.
 
 By design, custom Workbook templates will not automatically adopt updates from the products group. For more information, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md) and the [Workbooks overview](../azure-monitor/visualize/workbooks-overview.md).
 
 ## I can't interpret the data
 
-Learn more about data terms at the [Azure Monitor for Window Virtual Desktop glossary](azure-monitor-glossary.md).
+Learn more about data terms at the [Azure Virtual Desktop Insights glossary](insights-glossary.md).
 
 ## The data I need isn't available
 
@@ -78,6 +78,6 @@ The following are issues and limitations we're aware of and working to fix:
 
 ## Next steps
 
-- To get started, see [Use Azure Monitor for Azure Virtual Desktop to monitor your deployment](azure-monitor.md).
-- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-monitor-costs.md).
-- Check out our [glossary](azure-monitor-glossary.md) to learn more about terms and concepts related to Azure Monitor for Azure Virtual Desktop.
+- To get started, see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
+- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](insights-costs.md).
+- Check out our [glossary](insights-glossary.md) to learn more about terms and concepts related to Azure Virtual Desktop Insights.
