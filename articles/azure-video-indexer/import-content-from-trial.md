@@ -25,7 +25,7 @@ Review the following considerations.
 
 To import your data, follow the steps:
 
- 1. Go to [Azure Video Indexer portal](https://aka.ms/vi-portal-link)
+ 1. Go to the [Azure Video Indexer website](https://aka.ms/vi-portal-link)
  2. Select your trial account and go to the **Account settings** page.
  3. Click the **Import content to an ARM-based account**.
  4. From the dropdown menu choose the ARM-based account you wish to import the data to.

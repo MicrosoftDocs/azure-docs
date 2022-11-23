@@ -159,6 +159,11 @@ You block (exclude) routes. Modify the downloaded profile XML file and add the *
 </azvpnprofile>
 ```
 
+> [!NOTE]
+> - The default status for clientconfig tag is <clientconfig i:nil="true" />, which can be modified based on the requirement.
+> - Duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
+>
+
 ## Next steps
 
 For more information about P2S VPN, see the following articles:
