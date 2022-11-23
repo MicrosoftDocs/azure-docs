@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to manage organizations in Azure IoT Central
 description: How to use the IoT Central REST API to manage organizations in an application
-author: eross-msft
-ms.author: lizross
+author: dominicbetts
+ms.author: dobett
 ms.date: 03/08/2022
 ms.topic: how-to
 ms.service: iot-central

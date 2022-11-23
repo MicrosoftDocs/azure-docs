@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/05/2022
+ms.date: 11/22/2022
 ms.topic: how-to
 ---
 
@@ -15,7 +15,7 @@ A deployment manifest lets you specify the modules the IoT Edge runtime should d
 
 To learn more about IoT Edge and IoT Central, see [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md).
 
-<!-- TODO: Link to REST API article -->
+To learn how to manage deployment manifests by using the IoT Central REST API, see [How to use the IoT Central REST API to manage deployment manifests](../core/howto-manage-deployment-manifests-with-rest-api.md).
 
 ## Manage deployment manifests
 

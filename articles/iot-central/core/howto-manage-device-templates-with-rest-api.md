@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to add device templates in Azure IoT Central
 description: How to use the IoT Central REST API to add device templates in an application
-author: eross-msft
-ms.author: lizross
+author: dominicbetts
+ms.author: dobett
 ms.date: 06/17/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -43,7 +43,7 @@ The IoT Central REST API lets you:
 Use the following request to create and publish a new device template. Default views are automatically generated for device templates created this way.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
+PUT https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
@@ -318,7 +318,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device template from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
+GET https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
@@ -450,7 +450,7 @@ The response to this request looks like the following example:
 ## Update a device template
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
+PATCH https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
@@ -726,7 +726,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device template:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
+DELETE https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 ## List device templates
@@ -734,7 +734,7 @@ DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?a
 Use the following request to retrieve a list of device templates from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example: 
@@ -993,7 +993,7 @@ Use the **$top** filter to set the result size. The maximum returned result size
 Use the following request to retrieve the top 10 device templates from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$top=10
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$top=10
 ```
 
 The response to this request looks like the following example:
@@ -1094,7 +1094,7 @@ $filter=contains(displayName, 'template1) eq false
 The following example shows how to retrieve all the device templates where the display name contains the string `thermostat`:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')
 ```
 
 The response to this request looks like the following example:
@@ -1184,7 +1184,7 @@ $orderby=displayName desc
 The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$orderby=displayName
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$orderby=displayName
 ```
 
 The response to this request looks like the following example:
@@ -1267,7 +1267,7 @@ You can also combine two or more filters.
 The following example shows how to retrieve the top two device templates where the display name contains the string `thermostat`.
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
 ```
 
 The response to this request looks like the following example:
@@ -1325,4 +1325,4 @@ The response to this request looks like the following example:
 
 ## Next steps
 
-Now that you've learned how to manage device templates with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI.](howto-set-up-template.md#create-a-device-template)
+Now that you've learned how to manage device templates with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI](howto-set-up-template.md#create-a-device-template).

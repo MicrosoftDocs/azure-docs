@@ -237,7 +237,7 @@ The `group` field in the request body identifies a device group in your IoT Cent
 If you don't already have a suitable device group, you can create one with REST API call. The following example creates a device group with `group1` as the group ID:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceGroups/group1?api-version=2022-07-31
+PUT https://{your app subdomain}/api/deviceGroups/group1?api-version=2022-07-31
 ```
 
 When you create a device group, you define a `filter` that selects the devices to include in the group. A filter identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" device template where the `provisioned` property is `true`.
