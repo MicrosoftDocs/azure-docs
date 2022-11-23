@@ -49,6 +49,105 @@ Data residency is the physical or geographic location of an organization’s dat
 **Security alerts and recommendations** | Stored in the Defender for Cloud backend.<br/><br/> For example, if you create an Azure VM in West Europe region, all alert and recommendation information will also be stored in West Europe.
 **Machine information** | Stored in a Log Analytics workspace.<br/><br/> Either the Defender for Cloud default workspace, or a custom workspace that you specify.
 
+
+## Determine access and ownership
+
+In complex enterprises, different teams manage different [security functions](/cloud-adoption-framework/organize/cloud-security).
+
+Figuring out ownership for server and endpoint security is critical. Ownership that's undefined, or hidden within organization silos typically causes friction that can lead to delays, insecure deployments, and difficulties in identifying, analyzing, and following threats across the enterprise.
+
+Security leadership should pinpoint who which teams, roles, and individuals are responsible for making server security decisions.
+
+- Typically, a [central IT team](/cloud-adoption-framework/organize/central-it) and a [cloud infrastructure and endpoint security team](/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint) share responsibility.
+- Individuals in these teams will need Azure access rights to manage and use Defender for Cloud. Figure out the right level of access, based on Defender for Cloud's role-base access control (RBAC) model. 
+
+In addition to the built-in Owner, Contributor, Reader roles for an Azure subscription/resource group, Defender for Cloud provides a couple of built-in roles that control access to Defender for Cloud only.
+
+- **Security Reader**: Viewing rights to Defender for Cloud for recommendations, alerts, a security policy, and security states. This role can't make changes.
+- **Security Admin**: Provide the same rights as the Security Reader and can also update the security policy, dismiss alerts and recommendations, and apply recommendations.
+
+[Learn more](permissions.md#roles-and-allowed-actions) about allow actions for roles.
+
+
+## Select a Defender for Servers plan
+
+Defender for Servers provides two plans you can choose from.
+
+- **Defender for Servers Plan 1** is entry-level. It must be enabled at the subscription level. Features include:
+    -  Defender for Cloud's free [foundational cloud security posture management](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+    - EDR features provided by [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2)
+- **Defender for Servers Plan 2** can be enabled at the subscription level, or turned on for a specific Log Analytics workspace. 
+    - At the workspace level, any machine connected to the workspace will incur a charge when Defender for Servers Plan 2 is enabled.
+    - Features include:
+        - All the functionality included in Defender for Servers Plan 1.
+        - Additional XDR capabilities.
+  
+
+
+
+In addition to features provided in plans, Defender for Servers leverages Defender for Cloud's free [foundational cloud security posture management (CSPM) capabilities](concept-cloud-security-posture-management.md#defender-cspm-plan-options), to continually, assess, score,remediate, and harden your security posture.
+
+### Plan features
+
+| Feature | Details | Plan 1 | Plan 2 |
+|:---|:---|:---:|:---:|
+| **Defender for Endpoint integration** | Defender for Servers integrates with Defender for Endpoint Plan 2 and protects servers with all the Plan 2 features, including:<br/>- [Attack surface reduction](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction) to lower the risk of attack.<br/>- [Next-generation protection](/microsoft-365/security/defender-endpoint/next-generation-protection), including real-time scanning/protection and [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection).<br> - EDR including [threat analytics](/microsoft-365/security/defender-endpoint/threat-analytics), [automated investigation and response](/microsoft-365/security/defender-endpoint/automated-investigations), [advanced hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview), and [Microsoft Defender Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts).<br/>- Vulnerability assessment/mitigation, provided by Defender for Endpoint's integration with [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Licensing** | Defender for Server charges Defender for Endpoint licenses per hour instead of per seat, lowering costs by protecting virtual machines only when they're in use.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Defender for Endpoint provisioning** | Defender for Servers automatically provisions the Defender for Endpoint sensor on every supported machine that's connected to Defender for Cloud.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | 
+| **Unified view** | Defender for Endpoint alerts display in the Defender for Cloud portal. You can drill down into the Defender for Endpoint portal for more information.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Qualys vulnerability assessment** | In addition to vulnerability management provided by Defender for Endpoint, Defender for Cloud integrates with the Qualys scanner to [identify vulnerabilities in real-time]deploy-vulnerability-assessment-vm.md). You don't need a Qualys license or account. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+**Adaptive application controls (AAC)** | [AACs](adaptive-application-controls.md) define allowlists of known safe applications for machines. Defender for Cloud must be enabled on a subscription to use this feature. | |:::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Free data ingestion (500 MB) in Log Analytics** | Defender for Cloud leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Just-in-time (JIT) VM access** | [JIT access](just-in-time-access-overview.md) locks down machine ports to reduce the attack surface on Azure VMs/AWS Azure-Arc VMs. Defender for Cloud must be enabled on a subscription to use this feature. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Adaptive network hardening** | Network hardening filters traffic to and from resources with network security groups (NSG) to improve your network security posture. Further improve security by [hardening the NSG rules](adaptive-network-hardening.md) based on actual traffic patterns. Defender for Cloud must be enabled on a subscription to use this feature. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **File Integrity Monitoring (FIM)** | [FIM](file-integrity-monitoring-overview.md) examines files and registries for changes that might indicate an attack. A comparison method is used to determine whether suspicious modifications have been made to files. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Threat detection at the OS level and network layer (including fileless attack detection)** | Detailed security alerts are issued as threats are detected. | :::image type="icon" source="./media/icons/yes-icon.png"::: <br/>Provided by Defender for Endpoint | :::image type="icon" source="./media/icons/yes-icon.png":::<br/> Provided by Defender for Endpoint/Defender for Server |
+| **Docker host hardening** | Assess containers hosted on Linux machines running Docker containers, and compares them with the Center for Internet Security (CIS) Docker Benchmark. [Learn more](harden-docker-hosts.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: 
+[Network map](protect-network-resources.md) | Provides a geographical view of recommendations for hardening your network resources. | | :::image type="icon" source="./media/icons/yes-icon.png":::
+[Agentless scanning](concept-agentless-data-collection.md) | Scans Azure VMs, using cloud APIs to collect data | | :::image type="icon" source="./media/icons/yes-icon.png":::
+
+## Select a vulnerability assessment solution
+
+Choose between the available vulnerability assessment/mitigation options:
+
+- [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities): Integrated with Defender for Endpoint.
+    - It's available in both Defender for Server Plan 1 and Plan 2.
+    - It's enabled by default on machines onboarded to Defender for Endpoint.
+    - It comes with the same [Windows](/microsoft-365/security/defender-endpoint/configure-server-endpoints#prerequisites), [Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#prerequisites), and [network](/microsoft-365/security/defender-endpoint/configure-proxy-internet#enable-access-to-microsoft-defender-for-endpoint-service-urls-in-the-proxy-server) prerequisites as Defender for Endpoint.
+    - It doesn't require any additional software installation.
+- Qualys: Provided by Defender for Cloud's Qualys integration.
+    - Available in Defender for Servers Plan 2 only.
+    - It's a great fit if you're using a third-party EDR solution, or a 'fanotify'-based solution, where you might not be able to deploy Defender for Endpoint for vulnerability assessment.
+   - The Qualys agent sends metadata for analysis to one of two Qualys datacenter regions, depending on your Azure region.
+       - If you're in an European Azure geography data is processed in Qualys' European data center. 
+       - For other regions data is proessed in the US data center.
+   - The Qualys vulnerability assessment agent must be installed on a machine, and machines must be able to communicate with the relevant network endpoint:
+       - Europe datacenter: https://qagpublic.qg3.apps.qualys.com
+       - US datacenter: https://qagpublic.qg3.apps.qualys.com
+    - The integrated Defender for Cloud Qualys solution doesn't support a proxy configuration and can't connect to an existing Qualys deployment. Vulnerability findings are only available in Defender for Cloud.
+
+## Azure Arc considerations
+
+Azure Arc is used to onboard AWS, GCP, and on-premises machines to Azure. It's used by Defender for Cloud to provide full protection to non-Azure machines. Note the following:
+
+- **Foundational CSPM**: For free foundational CSPM features, you don't need Azure Arc running on AWS/GCP machines. For on-premises machines you do. 
+- **AWS/GCP**:
+    - For Defender for Servers, AWS/GCP machines must be Azure Arc-enabled.
+    - Azure Arc servers have full access to machine extensions so that agents can be automatically deployed.
+    - When you set up the AWS/GCP connector, Defender for Cloud can automatically deploy agents to AWS/GCP servers, including automatic deployment of the Azure Arc agent.
+- On-premises machines
+    - For Defender for Server protection of on-premises servers, we recommend you deploy the machines as Azure Arc-enabled.
+    - As an alternative to Azure Arc, you can manually add the machines to a Log Analytics workspace, and manually install the Log Analytics agent.
+    
+### Plan for Azure Arc deployment
+
+- Review [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md), and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
+1. Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure.
+    - Review the [agent components and data collected from machines](./azure-arc/servers/agent-overview#agent-resources.md).
+    - [Review](../azure-arc/servers/network-requirements.md) network and internet access requirements.
+    - Review [connection options](../azure-arc/servers/deployment-options.md).
+
+
 ## Understand workspace considerations
 
 In your Defender for Server deployment, you can use the default Defender or Cloud log analytics workspace, or a custom workspace.
@@ -80,6 +179,44 @@ You can use a custom workspace instead of the default workspace.
 - The VM is protected as long at the *Security* or *SecurityCenterFree* solution is installed on the workspace.
 - If the Security & Audit solution is installed on a workspace, Defender for Cloud uses the existing solution.
 - Learn more about [design strategy and criteria](../azure-monitor/logs/workspace-design.md) for workspaces.
+
+## Review agents and extensions
+
+Review the agents and extensions used by Defender for Servers.
+
+### Defender for Endpoint extensions
+
+When you enable Defender for Servers, Defender for Cloud automatically deploys a Defender for Endpoint extension on Windows and Linux machines:
+
+- Windows machines extension: MDE.Windows
+- Linux machines extension: MDE.Linux
+- Machines must meet [minimum requirements](/microsoft-365/security/defender-endpoint/minimum-requirements). There are some [specific requirements](/microsoft-365/security/defender-endpoint/configure-server-endpoints) for some Windows Server versions.
+
+Note that:
+
+- If machines are running Microsoft Antimalware, also known as System Center Endpoint Protection (SCEP), the Windows extension automatically removes it from the machine.
+- If you deploy on a machine that already has the Defender for Endpoint sensor running, after successful installing the sensor from Defender for Server, the extension will stop and disable the legacy sensor. The change is transparent and the machine’s protection history is preserved.
+
+### Log Analytics agent/Azure Monitor agent
+
+Defender for Cloud uses the Log Analytics agent/Azure Monitor agent to collect information from compute resources. It's used in Defender for Server as follows.
+
+Feature |  Plan 1 | Plan 2 | Details
+--- | --- | --- | ---
+Fundamental CSPM capabilities:<br/><br/> - [Endpoint protection recommendations] (endpoint-protection-recommendations-technical.md)<br/> - [System updates recommendations](recommendations-reference.md#compute-recommendations)<br/> - [Operating system baseline recommendations](apply-security-baseline.md)  | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | If you're only using fundamental CSPM capabilities, without a plan, these features are available for Azure VMs only.<br/><br/> If you're using the Log Analytics agent, these capabilities rely on the agent.<br/><br/> The Azure Monitor Agent is used for endpoint protection recommendations. System updates use the built-in Azure policy definition or Azure Arc agent. OS baselines recommendation use the Azure Policy [guest configuration extension](../virtual-machines/extensions/guest-configuration.md)
+Attack detection at the OS level and network layer (including fileless attack detection)** | :::image type="icon" source="./media/icons/yes-icon.png":::<br/> Provided by Defender for Endpoint | :::image type="icon" source="./media/icons/yes-icon.png":::<br/> Provided by Defender for Endpoint/Defender for Server capabilities.
+File integrity monitoring** |  | :::image type="icon" source="./media/icons/yes-icon.png":::<br/> Provided by Defender for Endpoint/Defender for Server capabilities.
+[Adaptive application controls](adaptive-application-controls.md) | | :::image type="icon" source="./media/icons/yes-icon.png":::
+
+
+A few things to note:
+
+- Qualys vulnerability assessment has its own extension. It can be automatically be deployed by Defender for Cloud to all Azure VMs and non-Azure machines connected via Azure Arc. 
+- The Azure Policy Guest Configuration extension performs audit and configuration operations inside VMs.    - Defender for Cloud leverages this component to analyze operating system security baseline settings on Windows and Linux machines.
+    - While Azure Arc-enabled servers and the guest configuration extension are free, additional costs might apply when using guest configuration policies outside Defender for Cloud scope.
+
+
+
 
 
 Agent provisioning
@@ -133,14 +270,6 @@ Deallocating | Transitional, will move to Deallocated state when complete. | Not
 Deallocated | VM stopped and removed from the host. | Not billed
 
 
-### Plan for Azure Arc deployment
-
-1. Review [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md), and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
-1. Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure.
-    - Review the [agent components and data collected from machines](./azure-arc/servers/agent-overview#agent-resources.md).
-    - [Review](../azure-arc/servers/network-requirements.md) network and internet access requirements.
-    - Review [connection options](../azure-arc/servers/deployment-options.md).
-1. After a machine appears in the Azure portal, you can view and manage it like any other Azure resource.
 1. 
 1. 
 1. 
@@ -188,43 +317,6 @@ If machines aren't onboarded with Azure Arc
 
 Note that: 
 
-## Select a Defender for Servers plan
-
-Defender for Servers provides two plans you can choose from.
-
-- **Defender for Servers Plan 1** is entry-level. It must be enabled at the subscription level. Features include:
-    -  Defender for Cloud's free [foundational cloud security posture management](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
-    - EDR features provided by [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1-2)
-- **Defender for Servers Plan 2** can be enabled at the subscription level, or turned on for a specific Log Analytics workspace. 
-    - At the workspace level, any machine connected to the workspace will incur a charge when Defender for Servers Plan 2 is enabled.
-    - Features include:
-        - All the functionality included in Defender for Servers Plan 1.
-        - Additional XDR capabilities.
-  
-
-
-
-In addition to features provided in plans, Defender for Servers leverages Defender for Cloud's free [foundational cloud security posture management (CSPM) capabilities](concept-cloud-security-posture-management.md#defender-cspm-plan-options), to continually, assess, score,remediate, and harden your security posture.
-
-### Plan features
-
-| Feature | Details | Plan 1 | Plan 2 |
-|:---|:---|:---:|:---:|
-| **Defender for Endpoint integration** | Defender for Servers integrates with Defender for Endpoint Plan 2 and protects servers with all the Plan 2 features, including:<br/>- [Attack surface reduction](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction) to lower the risk of attack.<br/>- [Next-generation protection](/microsoft-365/security/defender-endpoint/next-generation-protection), including real-time scanning/protection and [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection).<br> - EDR including [threat analytics](/microsoft-365/security/defender-endpoint/threat-analytics), [automated investigation and response](/microsoft-365/security/defender-endpoint/automated-investigations), [advanced hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview), and [Microsoft Defender Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts).<br/>- Vulnerability assessment/mitigation, provided by Defender for Endpoint's integration with [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Licensing** | Defender for Server charges Defender for Endpoint licenses per hour instead of per seat, lowering costs by protecting virtual machines only when they're in use.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Defender for Endpoint provisioning** | Defender for Servers automatically provisions the Defender for Endpoint sensor on every supported machine that's connected to Defender for Cloud.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | 
-| **Unified view** | Defender for Endpoint alerts display in the Defender for Cloud portal. You can drill down into the Defender for Endpoint portal for more information.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Qualys vulnerability assessment** | In addition to vulnerability management provided by Defender for Endpoint, Defender for Cloud integrates with the Qualys scanner to [identify vulnerabilities in real-time]deploy-vulnerability-assessment-vm.md). You don't need a Qualys license or account. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-**Adaptive application controls (AAC)** | [AACs](adaptive-application-controls.md) define allowlists of known safe applications for machines. Defender for Cloud must be enabled on a subscription to use this feature. | |:::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Free data ingestion (500 MB) in Log Analytics** | Defender for Cloud leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Just-in-time (JIT) VM access** | [JIT access](just-in-time-access-overview.md) locks down machine ports to reduce the attack surface on Azure VMs/AWS Azure-Arc VMs. Defender for Cloud must be enabled on a subscription to use this feature. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Adaptive network hardening** | Network hardening filters traffic to and from resources with network security groups (NSG) to improve your network security posture. Further improve security by [hardening the NSG rules](adaptive-network-hardening.md) based on actual traffic patterns. Defender for Cloud must be enabled on a subscription to use this feature. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **File Integrity Monitoring (FIM)** | [FIM](file-integrity-monitoring-overview.md) examines files and registries for changes that might indicate an attack. A comparison method is used to determine whether suspicious modifications have been made to files. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Threat detection at the OS level and network layer (including fileless attack detection)** | Detailed security alerts are issued as threats are detected. | :::image type="icon" source="./media/icons/yes-icon.png"::: <br/>Provided by Defender for Endpoint | :::image type="icon" source="./media/icons/yes-icon.png":::<br/> Provided by Defender for Endpoint/Defender for Server |
-| **Docker host hardening** | Assess containers hosted on Linux machines running Docker containers, and compares them with the Center for Internet Security (CIS) Docker Benchmark. [Learn more](harden-docker-hosts.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: 
-[Network map](protect-network-resources.md) | Provides a geographical view of recommendations for hardening your network resources. | | :::image type="icon" source="./media/icons/yes-icon.png":::
-[Agentless scanning](concept-agentless-data-collection.md) | Scans Azure VMs, using cloud APIs to collect data | | :::image type="icon" source="./media/icons/yes-icon.png":::
-
 
 
 
@@ -236,54 +328,6 @@ Before deployment, verify that your [operating systems are supported](/microsoft
 
 
 
-## Review agent requirements
-
-Defender for Server uses a number of agents.
-
-### Azure Arc: Azure Connected Machine Agent
-
-For Defender for Servers to protect AWS. GCP, and on-premises servers, these servers must be deployed in Azure with [Azure Arc](../azure-arc/overview.md).
-
-- Azure Arc installs the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) as part of its deployment process.
-- After the agent is installed the machine is seen as an Azure VM resource.
-- After deployment, machines should be located in a subscription that has Defender for Servers enabled.
-
-Learn more about [onboarding requirements](../azure-arc/servers/prerequisites.md) for Azure Arc, and the [agent](../azure-arc/servers/security-overview.md#agent-security-and-permissions).
-
-- Foundational CSPM: There are a few recommendations that need the Log Analytics agent/Azure Monitor agent. These include system updates recommendations, OS baseline recommendations, and antimalware/endpoint protection recommendations.
-- Defender for Servers Plan 2 agent-based features, including File Integrity monitoring, Adaptive Application controls, and operating system attack detections outside of Defender for Endpoint.
-- Defender 
-
-### Defender for Endpoint extensions
-
-When you enable Defender for Servers, Defender for Cloud automatically deploys a Defender for Endpoint extension on Windows and Linux machines:
-
-- Windows machines extension: MDE.Windows
-- Linux machines extension: MDE.Linux
-- Machines must meet [minimum requirements](/microsoft-365/security/defender-endpoint/minimum-requirements). There are some [specific requirements](/microsoft-365/security/defender-endpoint/configure-server-endpoints) for some Windows Server versions.
-
-Note that:
-
-- If machines are running Microsoft Antimalware, also known as System Center Endpoint Protection (SCEP), the Windows extension automatically removes it from the machine.
-- If you deploy on a machine that already has the Defender for Endpoint sensor running, after successful installing the sensor from Defender for Server, the extension will stop and disable the legacy sensor. The change is transparent and the machine’s protection history is preserved.
-
-### Log Analytics agent/Azure Monitor agent
-
-Defender for Cloud uses the Log Analytics agent/Azure Monitor agent to collect information from compute resources. It's used in Defender for Server as follows.
-
-Feature |  Plan 1 | Plan 2 | Details
---- | --- | --- | ---
-Fundamental CSPM capabilities:<br/><br/> - [Endpoint protection recommendations] (endpoint-protection-recommendations-technical.md)<br/> - [System updates recommendations](recommendations-reference.md#compute-recommendations)<br/> - [Operating system baseline recommendations](apply-security-baseline.md)  | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | If you're only using fundamental CSPM capabilities, without a plan, these features are available for Azure VMs only.<br/><br/> If you're using the Log Analytics agent, these capabilities rely on the agent.<br/><br/> The Azure Monitor Agent is used for endpoint protection recommendations. System updates use the built-in Azure policy definition or Azure Arc agent. OS baselines recommendation use the Azure Policy [guest configuration extension](../virtual-machines/extensions/guest-configuration.md)
-Attack detection at the OS level and network layer (including fileless attack detection)** | :::image type="icon" source="./media/icons/yes-icon.png":::<br/> Provided by Defender for Endpoint | :::image type="icon" source="./media/icons/yes-icon.png":::<br/> Provided by Defender for Endpoint/Defender for Server capabilities.
-File integrity monitoring** |  | :::image type="icon" source="./media/icons/yes-icon.png":::<br/> Provided by Defender for Endpoint/Defender for Server capabilities.
-[Adaptive application controls](adaptive-application-controls.md) | | :::image type="icon" source="./media/icons/yes-icon.png":::
-
-
-A few things to note:
-
-- Qualys vulnerability assessment has its own extension. It can be automatically be deployed by Defender for Cloud to all Azure VMs and non-Azure machines connected via Azure Arc. 
-- The Azure Policy Guest Configuration extension performs audit and configuration operations inside VMs.    - Defender for Cloud leverages this component to analyze operating system security baseline settings on Windows and Linux machines.
-    - While Azure Arc-enabled servers and the guest configuration extension are free, additional costs might apply when using guest configuration policies outside Defender for Cloud scope.
 
 ## Agent provisioning
 
@@ -301,14 +345,6 @@ Note that if a VM already has the Log Analytics agent/Azure Monitoring agent ins
 ## Permissions
 To enable enhanced security features on a subscription, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
 
-
-## Determine access and ownership
-
-In complex enterprises, different teams manage different [security functions](/cloud-adoption-framework/organize/cloud-security). 
-
-- **Team access**: Figuring out ownership for server and endpoint security and protection is critical. Ownership that's undefined, or hidden within organization silos typically causes friction that can lead to delays, insecure deployments, and difficulties in identifying, analyzing, and following threats across the enterprise. -     - Security leadership should pinpoint who which teams, roles, and individuals are responsible for making server security decisions.
-    - Typically, a [central IT team](/cloud-adoption-framework/organize/central-it) and a [cloud infrastructure and endpoint security team](/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint) share responsibility.
-    - Team members will need Azure access rights to manage and use Defender for Cloud.
 
 ## Scale your deployment 
 
