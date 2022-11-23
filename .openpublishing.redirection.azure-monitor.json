@@ -5531,6 +5531,11 @@
             "source_path_from_root": "/articles/azure-monitor/app/export-data-model.md",
             "redirect_url": "/azure/azure-monitor/app/export-telemetry",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/auto-collect-dependencies.md",
+            "redirect_url": "/azure/azure-monitor/app/asp-net-dependencies",
+            "redirect_document_id": false
         }
     ]
 }

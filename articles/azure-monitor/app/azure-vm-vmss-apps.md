@@ -34,11 +34,11 @@ For a complete list of supported auto-instrumentation scenarios, see [Supported 
 
 ### [.NET Framework](#tab/net)
 
-The Application Insights Agent autocollects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency autocollection](./auto-collect-dependencies.md#net).
+The Application Insights Agent autocollects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency autocollection](./asp-net-dependencies.md#net).
 
 ### [.NET Core/.NET](#tab/core)
 
-The Application Insights Agent autocollects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency autocollection](./auto-collect-dependencies.md#net).
+The Application Insights Agent autocollects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency autocollection](./asp-net-dependencies.md#net).
 
 ### [Java](#tab/Java)
 
