@@ -152,15 +152,15 @@ $spApplicationPermissions = Get-MgServicePrincipalAppRoleAssignedTo -ServicePrin
 
 :::zone pivot = "ms-graph"
 
-Review permissions using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+To review permissions, Sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
 
-Sign in to Graph explorer with one of the roles listed in the prerequisite section.
-
-To review permissions granted to an application, you'll need to consent to the following permissions: 
+You'll need to consent to the following permissions: 
 
 `Application.Read.All`, `Application.ReadWrite.All`, `Directory.Read.All`, `Directory.ReadWrite.All`.
 
 ### Delegated permissions
+
+Run the following queries to review delegated permissions granted to an application.
 
 1. Get Service Principal using objectID
 
@@ -187,6 +187,8 @@ To review permissions granted to an application, you'll need to consent to the f
 
 ### Application permissions
 
+Run the following queries to review application permissions granted to an application.
+
 1. Get all application permissions for the service principal
 
     ```http
@@ -200,7 +202,7 @@ To review permissions granted to an application, you'll need to consent to the f
 
 ## Invalidate the refresh tokens
 
-Remove appRoleAssignments for users or groups to the application using the following queries.
+Run the following queries to remove appRoleAssignments of users or groups to the application.
 
 1. Get Service Principal using objectID.
 
@@ -229,4 +231,5 @@ Remove appRoleAssignments for users or groups to the application using the follo
 
 ## Next steps
 
+- [Configure user consent setting](configure-user-consent.md)
 - [Configure admin consent workflow](configure-admin-consent-workflow.md)
