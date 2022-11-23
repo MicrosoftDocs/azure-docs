@@ -20,7 +20,7 @@ This article covers monitoring Azure Private 5G Core metrics in the cloud using 
 
 Azure Private 5G Core metrics are collected at the site level. Once you create a **Mobile Network Site** resource, Azure Monitor automatically starts gathering metrics about the packet core instance. For more information on creating a mobile network site, see [Collect the required information for a site](collect-required-information-for-a-site.md).
 
-If you want to use the Azure portal to analyze your packet core metrics, see [Visualize metrics with the Azure portal](#visualize-metrics-with-the-azure-portal). If you want to retrieve a subset of the available metrics for analysis using your tool of choice, see [Retrieve metrics using the Azure Monitor REST API](#retrieve-metrics-using-the-azure-monitor-rest-api).
+If you want to use the Azure portal to analyze your packet core metrics, see [Visualize metrics using the Azure portal](#visualize-metrics-using-the-azure-portal). If you want to retrieve a subset of the available metrics for analysis using your tool of choice, see [Retrieve metrics using the Azure Monitor REST API](#retrieve-metrics-using-the-azure-monitor-rest-api).
 
 ## Visualize metrics using the Azure portal
 
