@@ -57,14 +57,14 @@ Before creating capacity reservation, VM sizes available for reservation can be 
 
   ### [CLI](#tab/cli1)
 
-1. The following example lists the capacity reservation available VM sizes in East US location using Azure CLI:
+Before you create a capacity reservation, you can check the reservation available VM sizes for the region selected. The following example lists the capacity reservation available VM sizes in East US location using Azure CLI:
 
     ```azurecli-interactive
     az vm list-skus -l eastus --resource-type virtualMachines --query "[?contains(capabilities[?name == 'CapacityReservationSupported' && value == 'True'].name,'CapacityReservationSupported')].name"
     ```
  ### [PowerShell](#tab/powershell1)
 
-1. Before you create a capacity reservation, you can check the reservation available VM sizes for the region selected using Get-AzComputeResourceSku for Capability property for Resource type Virtual Machines. The following example lists the capacity reservation available VM sizes in East US location:
+Before you create a capacity reservation, you can check the reservation available VM sizes for the region selected using Get-AzComputeResourceSku for Capability property for Resource type Virtual Machines. The following example lists the capacity reservation available VM sizes in East US location:
 
 
 
