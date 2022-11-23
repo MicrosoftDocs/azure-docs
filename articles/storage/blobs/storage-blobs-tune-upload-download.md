@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp, devguide-csharp
 
 # Tune your uploads and downloads with Azure Storage client library for .NET
 
-When transferring data with the Azure Storage client libraries for .NET, there are many factors that can affect speed, memory usage, and even the success or failure of the request. For example, every time a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) method is called, an HTTP request is sent to the service. This request requires a connection to be established between the client and server, which is an expensive operation that takes time and resources to process.
+When transferring data with the Azure Storage client libraries for .NET, there are many factors that can affect speed, memory usage, and even the success or failure of the request. Every time a client method is called, an HTTP request is sent to the service. This request requires a connection to be established between the client and server, which is an expensive operation that takes time and resources to process. To maximize performance
 
 This article walks through several considerations and best practices to improve performance on data transfers using client library methods. 
 
@@ -22,7 +22,7 @@ This article walks through several considerations and best practices to improve 
 
 Properly tuning the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) is key to reliable performance for data transfer operations. Storage transfers are partitioned into several subtransfers, or workers, based on the property values defined in this struct. The following sections describe each property in `StorageTransferOptions` and offer guidance for proper tuning.
 
-This article will focus primarily on block blobs, but this guidance applies to APIs that accept `StorageTransferOptions` as a parameter, including:
+This article will focus primarily on block blobs, but the guidance applies to APIs that accept `StorageTransferOptions` as a parameter, including:
 
 - `BlobClient.UploadAsync(Stream stream, ...)`
 - `BlobClient.UploadAsync(string path, ...)`
@@ -33,7 +33,7 @@ This article will focus primarily on block blobs, but this guidance applies to A
 - `DataLakeFileClient.ReadToAsync(Stream stream, ...)`
 - `DataLakeFileClient.ReadToAsync(string path, ...)`
 
-This example shows how to define values for `StorageTransferOptions` and pass these options into the call to `UploadAsync`:
+The following example shows how to define values for `StorageTransferOptions` and pass these options into the call to `UploadAsync`:
 
 ```csharp
 // Specify the StorageTransferOptions and upload data from file
