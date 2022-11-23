@@ -284,6 +284,16 @@
                   href: troubleshoot/onboarding.md
                 - name: Troubleshoot Change Tracking and Inventory issues
                   href: troubleshoot/change-tracking.md
+        - name: Using Azure Monitoring Agent
+          items:
+            - name: Overview
+              href: change-tracking/overview.md
+            - name: Support regions
+              href: change-tracking/region-mappings-monitoring-agent.md
+            - name: Enable
+              items:
+                - name: Enable change tracking from portal
+                  href: change-tracking/enable-vms-monitoring-agent.md
     - name: Start/Stop VMs during off-hours
       items:
         - name: Overview
