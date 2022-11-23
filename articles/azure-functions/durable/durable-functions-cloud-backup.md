@@ -54,7 +54,7 @@ After awaiting from `Task.WhenAll`, we know that all function calls have complet
 
 The function uses the standard *function.json* for orchestrator functions.
 
-:::code language="javascript" source="~/samples/E2_BackupSiteContent/function.json" highlight="2,5":::
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E2_BackupSiteContent/function.json":::
 
 Here is the code that implements the orchestrator function:
 
