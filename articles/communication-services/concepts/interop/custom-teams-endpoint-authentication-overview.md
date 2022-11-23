@@ -83,7 +83,7 @@ Artifacts:
   - Type: Azure AD application ID
   - Source: Contoso application registration's Azure AD tenant
 - Artifact B
-  - Type: It can be Azure AD authentication artifact or custom Contoso authentication artifact
+  - Type: Custom Contoso authorization artifact (issued either by Azure AD or a different authorization service)
 - Artifact C
   - Type: Hash-based Message Authentication Code (HMAC) (based on Contoso's _`connection string`_)
 - Artifact D
