@@ -32,7 +32,7 @@ To get started, you'll need:
 
 - An Akamai Enterprise Access contract. If you don’t have one, get a [free trial](https://www.akamai.com/products/enterprise-application-access).
 
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
 
@@ -96,7 +96,7 @@ Akamai Enterprise Application Access supports SAML federation with cloud IdPs li
 
 7. In **Authentication** enter the same URL as defined in the previous step in General and Select **Save**.
 
-   [ ![Screenshot shows the akamai settings.](./media/partner-akamai-secure-hybrid-access/akamai_settings.png)](./media/partner-akamai-secure-hybrid-access/akamai_settings.png#lightbox)
+   [ ![Screenshot shows the akamai settings.](./media/partner-akamai-secure-hybrid-access/akamai-settings.png)](./media/partner-akamai-secure-hybrid-access/akamai-settings.png#lightbox)
 
 ### Step 2 - Register a SAML application in Azure AD B2C
 
@@ -350,7 +350,7 @@ Update your Akamai Enterprise Application Access Azure AD B2C IdP with authentic
 
 1. To upload the metadata.xml file, select **Choose file**.
 
-   [ ![Screenshot shows the metadata file.](./media/partner-akamai-secure-hybrid-access/akamai_metadata.png)](./media/partner-akamai-secure-hybrid-access/akamai_metadata.png#lightbox)
+   [ ![Screenshot shows the metadata file.](./media/partner-akamai-secure-hybrid-access/akamai-metadata.png)](./media/partner-akamai-secure-hybrid-access/akamai-metadata.png#lightbox)
 
 6. Select **Save and Deploy**.
 
@@ -377,7 +377,7 @@ Once the Application is deployed in a private environment and a connector is cap
 
 1. In Authentication select the Azure AD B2C SAML IdP created in the previous steps.
 
-  [ ![Screenshot shows the akamai authn application.](./media/partner-akamai-secure-hybrid-access/akamai_authn_app.png)](./media/partner-akamai-secure-hybrid-access/akamai_authn_app.png#lightbox)
+  [ ![Screenshot shows the akamai authn application.](./media/partner-akamai-secure-hybrid-access/akamai-authn-app.png)](./media/partner-akamai-secure-hybrid-access/akamai-authn-app.png#lightbox)
 
 2. In the **Advanced** section of the application, map the HTTP header to the SAML attributes issued by Azure AD B2C in the SAML response upon a successful authentication.
 
@@ -390,11 +390,11 @@ Once the Application is deployed in a private environment and a connector is cap
   | ps-sso-EmailAddress      | emailaddress |
   | ps-sso-uid   | objectId |
 
-  ![Screenshot shows the akamai header app mapping.](./media/partner-akamai-secure-hybrid-access/akamai_header_app_mapping.png)
+  ![Screenshot shows the akamai header app mapping.](./media/partner-akamai-secure-hybrid-access/akamai-header-app-mapping.png)
 
   Test the application by selecting the Akamai URL for the Custom HTTP type Web application you created.
 
-  ![Screenshot shows the akamai header app results.](./media/partner-akamai-secure-hybrid-access/akamai_header_app_results.png)
+  ![Screenshot shows the akamai header app results.](./media/partner-akamai-secure-hybrid-access/akamai-header-app-results.png)
 
 #### Option 2: OpenID Connect
 
@@ -402,25 +402,25 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
 
 1. Configure the OIDC to SAML bridging in the **AZURE AD B2C SAML IdP** created with the previous steps.
 
-   [ ![Screenshot shows the akamai oidc app oidc settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_idp_settings.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_idp_settings.png#lightbox)
+   [ ![Screenshot shows the akamai oidc app oidc settings.](./media/partner-akamai-secure-hybrid-access/akamai-oidc-idp-settings.png)](./media/partner-akamai-secure-hybrid-access/akamai-oidc-idp-settings.png#lightbox)
 
 2. Create a Custom HTTP type application following [Configure OpenID Connect for an Access Application.](https://techdocs.akamai.com/eaa/docs/config-openid#configure-openid-connect-for-an-access-application)
 
 3. In Authentication select the Azure AD B2C SAML IdP created in the previous steps as per the HTTP Header application.
 
-   [ ![Screenshot shows the akamai authn app settings.](./media/partner-akamai-secure-hybrid-access/akamai_authn_app.png)](./media/partner-akamai-secure-hybrid-access/akamai_authn_app.png#lightbox)
+   [ ![Screenshot shows the akamai authn app settings.](./media/partner-akamai-secure-hybrid-access/akamai-authn-app.png)](./media/partner-akamai-secure-hybrid-access/akamai-authn-app.png#lightbox)
 
 4. In **Advanced** select **OpenID Connect 1.0** as authentication mechanism and then select **Save**.
 
-   [ ![Screenshot shows the akamai oidc app authentication settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_authentication.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_authentication.png#lightbox)
+   [ ![Screenshot shows the akamai oidc app authentication settings.](./media/partner-akamai-secure-hybrid-access/akamai-oidc-app-authentication.png)](./media/partner-akamai-secure-hybrid-access/akamai-oidc-app-authentication.png#lightbox)
 
 5. A new **OpenID** tab appears, copy the Discovery URL that is needed later in the steps when configuring the OWIN component for testing application.
 
-   [ ![Screenshot shows the akamai oidc app settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_authentication.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_authentication.png#lightbox)
+   [ ![Screenshot shows the akamai oidc app settings.](./media/partner-akamai-secure-hybrid-access/akamai-oidc-app-authentication.png)](./media/partner-akamai-secure-hybrid-access/akamai-oidc-app-authentication.png#lightbox)
 
 6. In the **Claims** section, define the claims that Akamai will issue for the OIDC application, mapping their values to the SAML attributes provided by Azure AD B2C in the SAML response upon a successful authentication. These claims have to map what you defined in the previous step when [configuring the OIDC to SAML bridging in the Azure AD B2C SAML IdP](#option-2-openid-connect).
 
-   [ ![Screenshot shows the akamai oidc app claim settings.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_claims_settings.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_claims_settings.png#lightbox)
+   [ ![Screenshot shows the akamai oidc app claim settings.](./media/partner-akamai-secure-hybrid-access/akamai-oidc-claims-settings.png)](./media/partner-akamai-secure-hybrid-access/akamai-oidc-claims-settings.png#lightbox)
 
 7. Replace startup class with the following code in the [ASP.NET MVC web app](https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp).
 
@@ -512,7 +512,7 @@ In this sample, we'll use a [ASP.NET MVC web app](https://learn.microsoft.com/az
    ```
    Test the application by selecting the Akamai URL for the custom http type web application created.
 
-   [ ![Screenshot shows the akamai oidc app results.](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_results.png)](./media/partner-akamai-secure-hybrid-access/akamai_oidc_app_results.png#lightbox)
+   [ ![Screenshot shows the akamai oidc app results.](./media/partner-akamai-secure-hybrid-access/akamai-oidc-app-results.png)](./media/partner-akamai-secure-hybrid-access/akamai-oidc-app-results.png#lightbox)
 
 ## Test the solution
 
