@@ -43,13 +43,13 @@ This previous configuration definition defines an endpoint for accessing Microso
 
 ## Get the configuration settings and acquire a token
 
-1. Open the *Program.cs* file and add the following code to retrieve the defined scopes from the configuration:
+1. Open the *Program.cs* file and add the following code after the definition of `var builder` to retrieve the defined scopes from the configuration:
 
     ```csharp
     IEnumerable<string>? initialScopes = builder.Configuration["DownstreamApi:Scopes"]?.Split(' ');
     ```
 
-1. Add the following code to configure the service to acquire a token:
+1. Directly below the code added in the previous step, add the following code to configure the service to acquire a token:
 
    ```csharp
    builder.Services.AddMicrosoftIdentityWebAppAuthentication(builder.Configuration, "AzureAd")
@@ -68,27 +68,27 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
     using Microsoft.Identity.Web;
     ```
 
-
 1. Add the `AuthorizeForScopes` attribute to the `IndexModel` class:
 
     ```csharp
     [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
     public class IndexModel : PageModel
-    {
-      …
     ```
+
 1. Add the following code to define the API object:
     ```csharp
     private readonly IDownstreamWebApi _downstreamWebApi;
     ```
+
 1. Add the API object to the logger:
     ```csharp
-    public IndexModel(ILogger<IndexModel> logger,
-      IDownstreamWebApi downstreamWebApi)
+    public IndexModel(ILogger<IndexModel> logger, IDownstreamWebApi downstreamWebApi)
     {
       _logger = logger;
       _downstreamWebApi = downstreamWebApi;
     }
+    ```
+
 1. Add the following code to call the API and display the result:
     ```csharp
     public async Task OnGet()
@@ -125,6 +125,7 @@ dotnet run
 1. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
 
     :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
+<!-- Edit screenshot -->
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 1. In Visual Studio, start the application by selecting **Start without debugging**.
@@ -134,7 +135,9 @@ dotnet run
 
 ---
 
+## See also
 
+The following articles are related to the concepts presented in this tutorial:
 
 ## Next steps
 > [!div class="nextstepaction"]
