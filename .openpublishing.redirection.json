@@ -29508,6 +29508,11 @@
             "source_path_from_root": "/articles/aks/managed-cluster-snapshot.md",
             "redirect_url": "/azure/aks/intro-kubernetes",
             "redirect_document_id": "false"
+        },
+        {
+          "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
+          "redirect_url": "articles/azure-cache-for-redis/cache-how-to-monitor.md",
+          "redirect_document_id": false
         }
     ]
 }
