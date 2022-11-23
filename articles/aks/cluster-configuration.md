@@ -62,7 +62,7 @@ Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [A
 
 ## Default OS disk sizing
 
-By default, when creating a new cluster or adding a new node pool to an existing cluster, the disk size is determined by the number for vCPUs, which is based on the VM SKU. The default values are shown in the following table:
+By default, when creating a new cluster or adding a new node pool to an existing cluster, the OS disk size is determined by the number for vCPUs. The number of vCPUs is based on the VM SKU and the default values are shown in the following table:
 
 |VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mpbs) |
 |--|--|--|--|
@@ -78,22 +78,22 @@ By default, when creating a new cluster or adding a new node pool to an existing
 
 By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss if the VM needs to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
 
-By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. This provides lower read/write latency, along with faster node scaling and cluster upgrades.
+By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. This configuration provides lower read/write latency, along with faster node scaling and cluster upgrades.
 
 Like the temporary disk, an ephemeral OS disk is included in the price of the virtual machine, so you don't incur more storage costs.
 
 > [!IMPORTANT]
->When you don't explicitly request managed disks for the OS, AKS will default to ephemeral OS if possible for a given node pool configuration.
+> When you don't explicitly request managed disks for the OS, AKS will default to ephemeral OS if possible for a given node pool configuration.
 
 If you chose to use an ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM cache are available in the [Azure documentation](../virtual-machines/dv3-dsv3-series.md) in parentheses next to IO throughput ("cache size in GiB").
 
-If you chose to use the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with the default OS disk size of 100 GB, this VM size supports ephemeral OS but only has 86 GB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you'll receive a validation error.
+If you chose to use the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with the default OS disk size of 100 GB. The default VM size supports ephemeral OS, but only has 86 GB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you'll receive a validation error.
 
-If you request the same [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with a 60GB OS disk, this configuration would default to ephemeral OS: the requested size of 60GB is smaller than the maximum cache size of 86 GB.
+If you request the same [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with a 60GB OS disk, this configuration would default to ephemeral OS. The requested size of 60GB is smaller than the maximum cache size of 86 GB.
 
 If you select the [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) SKU with 100 GB OS disk, this VM size supports ephemeral OS and has 200 GB of cache space. If you don't specify the OS disk type, the node pool would receive ephemeral OS by default.
 
-The latest generation of VM series doesn't have a dedicated cache, but only temporary storage. Let's assume to use the [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with the default OS disk size of 100 GiB as an example. This VM size supports ephemeral OS disks but only has 75 GiB of temporary storage. This configuration would default to managed OS disks if you don't explicitly specify it. If you do request an ephemeral OS disk, you'll receive a validation error.
+The latest generation of VM series doesn't have a dedicated cache, but only temporary storage. Let's assume to use the [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with the default OS disk size of 100 GiB as an example. This VM size supports ephemeral OS disks, but only has 75 GiB of temporary storage. This configuration would default to managed OS disks if you don't explicitly specify it. If you do request an ephemeral OS disk, you'll receive a validation error.
 
 If you request the same [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with a 60 GiB OS disk, this configuration would default to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB.
 
@@ -295,15 +295,15 @@ kubectl get pods --all-namespaces
 
 ## Custom resource group name
 
-When you deploy an Azure Kubernetes Service cluster in Azure, a second resource group gets created for the worker nodes. By default, AKS will name the node resource group `MC_resourcegroupname_clustername_location`, but you can also provide your own name.
+When you deploy an Azure Kubernetes Service cluster in Azure, a second resource group is created for the worker nodes. By default, AKS names the node resource group `MC_resourcegroupname_clustername_location`, but you can also specify a custom name.
 
-To specify your own resource group name, install the aks-preview Azure CLI extension version 0.3.2 or later. Using the Azure CLI, use the `--node-resource-group` parameter of the `az aks create` command to specify a custom name for the resource group. If you use an Azure Resource Manager template to deploy an AKS cluster, you can define the resource group name by using the `nodeResourceGroup` property.
+To specify a custom resource group name, install the `aks-preview` Azure CLI extension version 0.3.2 or later. When using the Azure CLI, include the `--node-resource-group` parameter of the `az aks create` command to specify a custom name for the resource group. If you use an Azure Resource Manager template to deploy an AKS cluster, you can define the resource group name by using the `nodeResourceGroup` property.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-resource-group myNodeResourceGroup
 ```
 
-The secondary resource group is automatically created by the Azure resource provider in your own subscription. You can only specify the custom resource group name when the cluster is created. 
+The secondary resource group is automatically created by the Azure resource provider in your own subscription. You can only specify the custom resource group name when the cluster is created.
 
 As you work with the node resource group, keep in mind that you can't:
 
@@ -315,7 +315,7 @@ As you work with the node resource group, keep in mind that you can't:
 
 ## Node Restriction (Preview)
 
-The [Node Restriction](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#noderestriction) admission controller limits the Node and Pod objects a kubelet can modify. Node Restriction is on by default in AKS 1.24+ clusters.  If you're using an older version, use the below commands to create a cluster with Node Restriction or update an existing cluster to add Node Restriction.
+The [Node Restriction](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#noderestriction) admission controller limits the Node and Pod objects a kubelet can modify. Node Restriction is on by default in AKS 1.24+ clusters.  If you're using an older version, use the below commands to create a cluster with Node Restriction, or update an existing cluster to add Node Restriction.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -360,9 +360,9 @@ To remove Node Restriction from a cluster.
 az aks update -n aks -g myResourceGroup --disable-node-restriction
 ```
 
-## OIDC Issuer 
+## OIDC Issuer
 
-This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys.
+You can enable an OIDC Issuer URL of the provider, which allows the API server to discover public signing keys.
 
 > [!WARNING]
 > Enable or disable OIDC Issuer changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If the application pods using a service token remain in a failed state after you enable or disable the OIDC Issuer, we recommend you manually restart the pods.
@@ -404,12 +404,13 @@ To rotate the OIDC key, perform the following command. Replace the default value
 az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 ```
 
-> [!Important]
+> [!IMPORTANT]
 > Once you rotate the key, the old key (key1) expires after 24 hours. This means that both the old key (key1) and the new key (key2) are valid within the 24-hour period. If you want to invalidate the old key (key1) immediately, you need to rotate the OIDC key twice. Then key2 and key3 are valid, and key1 is invalid.
 
 ## Next steps
 
 - Learn how to [upgrade the node images](node-image-upgrade.md) in your cluster.
+- Review [Baseline architecture for an Azure Kubernetes Service (AKS) cluster][baseline-reference-architecture-aks] to learn about our recommended baseline infrastructure architecture.
 - See [Upgrade an Azure Kubernetes Service (AKS) cluster](upgrade-cluster.md) to learn how to upgrade your cluster to the latest version of Kubernetes.
 - Read more about [`containerd` and Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.
@@ -431,3 +432,4 @@ az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 [aks-add-np-containerd]: ./learn/quick-windows-container-deploy-cli.md#add-a-windows-server-node-pool-with-containerd
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az-aks-update
+[baseline-reference-architecture-aks]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
