@@ -153,6 +153,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - WinSCP 5.10+
 - Workday
 - XFB.Gateway
+- JSCH 0.1.54+
 
 The supported client list above isn't exhaustive and may change over time.
 
