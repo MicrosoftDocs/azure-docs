@@ -4,7 +4,7 @@ description: Options for managing Azure Monitor Agent on Azure virtual machines 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2022
+ms.date: 11/9/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: shseth
 
@@ -37,7 +37,7 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
    | Built-in role | Scopes | Reason |  
    |:---|:---|:---|  
    | <ul><li>[Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)</li><li>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, scale sets,</li><li>Azure Arc-enabled servers</li></ul> | To deploy the agent |  
-   | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li></ul> | To deploy Azure Resource Manager templates |  
+   | Any role that includes the action *Microsoft.Resources/deployments/** (for example, [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li></ul> | To deploy agent extension via Azure Resource Manager templates (also used by Azure Policy) |  
 - **Non-Azure**: To install the agent on physical servers and virtual machines hosted *outside* of Azure (that is, on-premises) or in other clouds, you must [install the Azure Arc Connected Machine agent](../../azure-arc/servers/agent-overview.md) first, at no added cost.
 - **Authentication**: [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md) must be enabled on Azure virtual machines. Both user-assigned and system-assigned managed identities are supported.
   - **User-assigned**: This managed identity is recommended for large-scale deployments, configurable via [built-in Azure policies](#use-azure-policy). You can create a user-assigned managed identity once and share it across multiple VMs, which means it's more scalable than a system-assigned managed identity. If you use a user-assigned managed identity, you must pass the managed identity details to Azure Monitor Agent via extension settings:
@@ -322,12 +322,12 @@ We recommend that you enable automatic update of the agent by enabling the [Auto
 
 - Windows
   ```azurecli
-  az vm extension set -name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
+  az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
   ```
 
 - Linux
   ```azurecli
-  az vm extension set -name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
+  az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
   ```
 
 ### Update on Azure Arc-enabled servers

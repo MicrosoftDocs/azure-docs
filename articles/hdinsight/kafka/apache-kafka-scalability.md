@@ -45,7 +45,6 @@ To control the number of disks used by the worker nodes in a Kafka cluster, use 
 For more information on working with Apache Kafka on HDInsight, see the following documents:
 
 * [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](apache-kafka-mirroring.md)
-* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Connect to Apache Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
 

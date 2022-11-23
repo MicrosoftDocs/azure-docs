@@ -13,7 +13,7 @@ ms.date: 08/17/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
-# Counterfactuals analysis and what-if (preview)
+# Counterfactuals analysis and what-if
 
 What-if counterfactuals address the question of what the model would predict if you changed the action input. They enable understanding and debugging of a machine learning model in terms of how it reacts to input (feature) changes. 
 

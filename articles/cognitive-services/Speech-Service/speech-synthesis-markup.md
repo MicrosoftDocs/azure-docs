@@ -125,7 +125,7 @@ Styles, style degree, and roles are supported for a subset of neural voices. If 
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `style` | Specifies the speaking style. Speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If you're using `mstts:express-as`, the style must be provided. If an invalid value is provided, this element is ignored.       |
+| `style` | Specifies the [prebuilt](language-support.md?tabs=stt-tts#voice-styles-and-roles) or [custom](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) speaking style. Speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If you're using `mstts:express-as`, the style must be provided. If an invalid value is provided, this element is ignored.|
 | `styledegree` | Specifies the intensity of the speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity. | Optional. If you don't set the `style` attribute, the `styledegree` attribute is ignored. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.|
 | `role`| Specifies the speaking role-play. The voice acts as a different age and gender, but the voice name isn't changed. | Optional. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices: `zh-CN-XiaomoNeural`, `zh-CN-XiaoxuanNeural`, `zh-CN-YunxiNeural`, and `zh-CN-YunyeNeural`. |
 
@@ -133,7 +133,9 @@ Styles, style degree, and roles are supported for a subset of neural voices. If 
 
 You use the `mstts:express-as` element to express emotions like cheerfulness, empathy, and calm. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant.
 
-For a list of supported styles per neural voice, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
+For a list of supported styles for prebuilt neural voices, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
+
+To use your [custom style](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model), specify the style name that you entered in Speech Studio.
 
 **Syntax**
 
@@ -388,8 +390,8 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | -------------------- |
-| `type` | Specifies the location of silence to be added: <ul><li>`Leading` – At the beginning of text </li><li>`Tailing` – At the end of text </li><li>`Sentenceboundary` – Between adjacent sentences </li></ul> | Required  |
-| `Value`   | Specifies the absolute duration of a pause in seconds or milliseconds. This value should be set less than 5,000 ms. Examples of valid values are `2s` and `500ms`.| Required |
+| `type` | Specifies where and how to add silence. The following silence types are supported:<br/><ul><li>`Leading` – Additional silence at the beginning of the text. The value that you set is added to the natural silence before the start of text.</li><li>`Leading-exact` – Silence at the beginning of the text. The value is an absolute silence length.</li><li>`Tailing` – Additional silence at the end of text. The value that you set is added to the natural silence after the last word.</li><li>`Tailing-exact` – Silence at the end of the text. The value is an absolute silence length.</li><li>`Sentenceboundary` – Additional silence between adjacent sentences. The actual silence length for this type includes the natural silence after the last word in the previous sentence, the value you set for this type, and the natural silence before the starting word in the next sentence.</li><li>`Sentenceboundary-exact` – Silence between adjacent sentences. The value is an absolute silence length.</li></ul><br/>An absolute silence type (with the `-exact` suffix) replaces any otherwise natural leading or trailing silence. Absolute silence types take precedence over the corresponding non-absolute type. For example, if you set both `Leading` and `Leading-exact` types, the `Leading-exact` type will take effect.| Required |
+| `Value`   | Specifies the duration of a pause in seconds or milliseconds. This value should be set less than 5,000 ms. Examples of valid values are `2s` and `500ms`.| Required |
 
 **Example**
 
@@ -500,7 +502,7 @@ Sometimes text-to-speech can't accurately pronounce a word. Examples might be th
 ```
 
 > [!NOTE]
-> The `lexicon` element is not supported by the [Long Audio API](long-audio-api.md).
+> The `lexicon` element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
 **Attribute**
 
@@ -809,7 +811,7 @@ Any audio included in the SSML document must meet these requirements:
 * The audio must not contain any customer-specific or other sensitive information.
 
 > [!NOTE]
-> The 'audio' element is not supported by the [Long Audio API](long-audio-api.md).
+> The 'audio' element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
 **Syntax**
 
@@ -850,7 +852,7 @@ Only one background audio file is allowed per SSML document. You can intersperse
 > [!NOTE]
 > The `mstts:backgroundaudio` element should be put in front of all `voice` elements, i.e., the first child of the `speak` element.
 >
-> The `mstts:backgroundaudio` element is not supported by the [Long Audio API](long-audio-api.md).
+> The `mstts:backgroundaudio` element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
 **Syntax**
 
@@ -928,7 +930,7 @@ All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3
 > [!NOTE]
 > If an element is not recognized, it will be ignored, and the child elements within it will still be processed.
 
-The MathML entities are not supported by XML syntax, so you must use the their corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
+The MathML entities are not supported by XML syntax, so you must use the corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
 
 ## Viseme element
 

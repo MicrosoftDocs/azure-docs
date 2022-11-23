@@ -7,8 +7,9 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.date: 08/15/2022
-ms.author: larryfr
-author: blackmist
+author: dem108
+ms.author: sehan
+ms.reviewer: mopeakande
 ms.custom: deploy, sdkv1, event-tier1-build-2022
 ---
 
