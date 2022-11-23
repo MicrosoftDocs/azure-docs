@@ -15,6 +15,27 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## December 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**Enterprise IoT networks**     | [Enterprise IoT sensor alerts and recommendations (Public Preview)](#enterprise-iot-sensor-alerts-and-recommendations-public-preview) |
+
+### Enterprise IoT sensor alerts and recommendations (Public Preview)
+
+The Azure portal now provides the following additional security data for traffic detected by Enterprise IoT network sensors:
+
+|Data type  |Description  |
+|---------|---------|
+|**Alerts**     | The Enterprise IoT network sensor now triggers the following alerts: <br><br>- **Connection Attempt to Known Malicious IP** <br>- **Malicious Domain Name Request**        |
+|**Recommendations**     | The Enterprise IoT network sensor now shows the following recommendation for detected devices, as relevant: **Disable insecure administration protocol**        |
+
+For more information, see:
+
+- [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts)
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory)
+
 ## November 2022
 
 |Service area  |Updates  |
