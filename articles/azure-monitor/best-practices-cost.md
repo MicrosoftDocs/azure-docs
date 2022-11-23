@@ -9,8 +9,7 @@ ms.reviewer: bwren
 ---
 
 # Cost optimization and Azure Monitor
-
-To understand how [Azure Monitor](overview.md) supports cost optimization, start by understanding the different ways that Azure Monitor charges and how to view your monthly bill. See [Azure Monitor cost and usage](usage-estimated-costs.md) for a complete description of how Azure Monitor is billed and the different tools available to analyze your charges.
+You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. Before you use this article, you should see [Azure Monitor cost and usage](usage-estimated-costs.md) tounderstand the different ways that Azure Monitor charges and how to view your monthly bill.
 
 > [!NOTE]
 > This article describes **Cost optimization** for Azure Monitor as part of the [Azure Well-Architected Framework](/azure/architecture/framework/). This is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architectural excellence:
