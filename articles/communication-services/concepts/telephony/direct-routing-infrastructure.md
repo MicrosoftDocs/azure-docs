@@ -163,8 +163,11 @@ On the leg between the Cloud Media Processor and Communication Services Calling 
 - [Telephony Concept](./telephony-concept.md)
 - [Phone number types in Azure Communication Services](./plan-solution.md)
 - [Pair the Session Border Controller and configure voice routing](./direct-routing-provisioning.md)
+- [Call Automation overview](../call-automation/call-automation.md)
 - [Pricing](../pricing.md)
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
+- [Get a phone number](../../quickstarts/telephony/get-phone-number.md)
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)
+- [Redirect inbound telephony calls with Call Automation](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md)
